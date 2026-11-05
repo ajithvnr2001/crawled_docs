@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chronicle/docs/soar/admin-tasks/advanced/manage-properties-metadata/
 title: Manage properties metadata \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T10:03:53.286966+00:00
+fetched_at: 2026-11-04T23:34:04.469914+00:00
 ---
 
 # Manage properties metadata  |  Google Security Operations  |  Google Cloud Documentation
@@ -33,7 +33,7 @@ You can validate the metadata property after you create it.
 
 To add properties metadata, follow these steps:
 
-  1. Go to **Settings** > **Data Configuration** > **Properties Metadata**.  
+  1. Go to **Settings > Investigation > Properties Metadata**.  
 
   2. Click add**Add**. 
   3. Add the following required information: 
@@ -95,7 +95,7 @@ In Google SecOps, cases contain a subset of alerts. These alerts provide access 
 
 You can modify event appearance, rename fields, and group them. To modify the appearance of an event, you need to update the **Properties Metadata**. The following example describes the steps to reconfigure the following fields to appear in Spanish. 
 
-  1. Open a new browser tab and click **SOAR Settings** > **Data Configuration** > **Properties Metadata**.
+  1. Open a new browser tab and click **Settings > Investigation > Properties Metadata**.
   2. Click add**Add** and redefine the **Display name** field values according to the following table.
   3. Reconfigure the following fields to appear in Spanish:
 
@@ -124,4 +124,4 @@ System name | Display name | Group name | Is displayed | Is highlighted
 `date_zone` | `Zona horaria` | `Fecha del evento` | yes | no 
   
   
-**Need more help?** [Get answers from Community members and Google SecOps professionals.](https://security.googlecloudcommunity.com/) Send feedback  Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates. Last updated 2026-10-28 UTC. Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 
+**Need more help?** [Get answers from Community members and Google SecOps professionals.](https://security.googlecloudcommunity.com/) Send feedback  Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates. Last updated 2026-11-04 UTC. Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/vectra-xdr/
 title: Collect Vectra XDR logs \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T07:53:12.472004+00:00
+fetched_at: 2026-11-04T23:31:42.444052+00:00
 ---
 
 # Collect Vectra XDR logs  |  Google Security Operations  |  Google Cloud Documentation

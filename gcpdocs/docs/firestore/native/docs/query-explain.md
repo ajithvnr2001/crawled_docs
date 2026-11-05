@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/firestore/native/docs/query-explain/
 title: Understand query performance using Query Explain \u00a0|\u00a0 Firestore in Native mode \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T08:01:27.880212+00:00
+fetched_at: 2026-11-04T23:45:35.140769+00:00
 ---
 
 # Understand query performance using Query Explain  |  Firestore in Native mode  |  Google Cloud Documentation

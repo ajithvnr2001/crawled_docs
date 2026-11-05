@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/docs/manage-tags/
 title: Attach and manage tags on AlloyDB resources \u00a0|\u00a0 AlloyDB for PostgreSQL \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T01:46:43.292297+00:00
+fetched_at: 2026-11-04T23:33:26.045901+00:00
 ---
 
 # Attach and manage tags on AlloyDB resources  |  AlloyDB for PostgreSQL  |  Google Cloud Documentation
@@ -23,7 +23,7 @@ Send feedback
 
 Resource Manager tags let you organize your AlloyDB for PostgreSQL clusters and backups, conditionally control Identity and Access Management (IAM) access, and track usage in Cloud Billing exports. You can attach, detach, and list tags on AlloyDB resources by using the Google Cloud CLI. Tags attached to a cluster resource are automatically inherited by child resources, such as instances, and can't be overridden on those child resources.
 
-**Note:** Unlike tags, labels on AlloyDB clusters can be attached and managed only by using the AlloyDB API, not the Google Cloud console or the Google Cloud CLI. For more information about how tags work, see [Organize resources using tags](https://docs.cloud.google.com/alloydb/docs/tags) and [Tag inheritance](https://docs.cloud.google.com/resource-manager/docs/tags/tags-overview#inheritance).
+**Note:** Tags are distinct from labels. Tags are managed using Resource Manager, whereas labels can be attached and managed directly on AlloyDB clusters using the Google Cloud console, the Google Cloud CLI, or the AlloyDB API. For more information about how tags work, see [Organize resources using tags](https://docs.cloud.google.com/alloydb/docs/tags) and [Tag inheritance](https://docs.cloud.google.com/resource-manager/docs/tags/tags-overview#inheritance).
 
 ## Before you begin
 
@@ -95,6 +95,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-04 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 

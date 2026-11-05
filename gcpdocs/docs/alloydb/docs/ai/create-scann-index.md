@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/docs/ai/create-scann-index/
 title: Create a ScaNN index \u00a0|\u00a0 AlloyDB for PostgreSQL \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T18:46:08.142583+00:00
+fetched_at: 2026-11-05T00:18:14.711191+00:00
 ---
 
 # Create a ScaNN index  |  AlloyDB for PostgreSQL  |  Google Cloud Documentation
@@ -406,13 +406,13 @@ To build your index faster, AlloyDB might automatically spawn multiple parallel 
 
 Though AlloyDB automatically optimizes the number of parallel workers, you can tune the parallel workers using the following PostgreSQL query planning parameters:
 
-  * [`max_parallel_maintenance_workers`](https://www.postgresql.org/docs/17/runtime-config-resource.html#GUC-MAX-PARALLEL-MAINTENANCE-WORKERS)
-  * [`max_parallel_workers`](https://www.postgresql.org/docs/17/runtime-config-resource.html#GUC-MAX-PARALLEL-WORKERS)
-  * [`min_parallel_table_scan_size`](https://www.postgresql.org/docs/17/runtime-config-query.html#GUC-MIN-PARALLEL-TABLE-SCAN-SIZE)
+  * [`max_parallel_maintenance_workers`](https://www.postgresql.org/docs/18/runtime-config-resource.html#GUC-MAX-PARALLEL-MAINTENANCE-WORKERS)
+  * [`max_parallel_workers`](https://www.postgresql.org/docs/18/runtime-config-resource.html#GUC-MAX-PARALLEL-WORKERS)
+  * [`min_parallel_table_scan_size`](https://www.postgresql.org/docs/18/runtime-config-query.html#GUC-MIN-PARALLEL-TABLE-SCAN-SIZE)
 
 
 
-To avoid out-of-memory issues when you create the ScaNN index, ensure that the [`maintenance_work_mem`](https://www.postgresql.org/docs/17/runtime-config-resource.html#GUC-MAINTENANCE-WORK-MEM) and [`shared_buffers`](https://www.postgresql.org/docs/17/runtime-config-resource.html#GUC-SHARED-BUFFERS) database flags are set to a value less than the total machine memory.
+To avoid out-of-memory issues when you create the ScaNN index, ensure that the [`maintenance_work_mem`](https://www.postgresql.org/docs/18/runtime-config-resource.html#GUC-MAINTENANCE-WORK-MEM) and [`shared_buffers`](https://www.postgresql.org/docs/18/runtime-config-resource.html#GUC-SHARED-BUFFERS) database flags are set to a value less than the total machine memory.
 
 ## Run a query
 
@@ -471,6 +471,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-03 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 

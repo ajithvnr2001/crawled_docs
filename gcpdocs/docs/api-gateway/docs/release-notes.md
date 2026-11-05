@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/api-gateway/docs/release-notes/
 title: API Gateway release notes \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T08:08:16.495460+00:00
+fetched_at: 2026-11-04T23:27:48.319292+00:00
 ---
 
 # API Gateway release notes  |  Google Cloud Documentation
@@ -39,7 +39,7 @@ Streaming gateways can now call Google Cloud APIs such as `aiplatform.googleapis
 
 For more information, see [Securing backend services](https://docs.cloud.google.com/api-gateway/docs/securing-backend-services#other-gcp-apis).
 
-## October 07, 2026
+## October 23, 2026
 
 v1
 
@@ -49,7 +49,7 @@ Deprecated
 
 A negative backend `deadline` in an OpenAPI 2.0 `x-google-backend` extension or a gRPC `BackendRule` uses the default deadline, the same as `0`. Negative values there are deprecated and will be rejected in a future release; until then, creating an API config with one returns a warning in the operation metadata. OpenAPI 3.x backends already reject a negative deadline. To use the default, omit the field or set it to `0`.
 
-For more information, see [OpenAPI 2.0 extensions](https://docs.cloud.google.com/api-gateway/docs/oasv2-extensions#deadline) and [OpenAPI 3.x extensions](https://docs.cloud.google.com/api-gateway/docs/oasv3-extensions).
+For more information, see [OpenAPI 2.0 extensions](https://docs.cloud.google.com/api-gateway/docs/oasv2-extensions#deadline) and [OpenAPI 3.x extensions](https://docs.cloud.google.com/api-gateway/docs/oasv3-extensions#backends_object).
 
 ## September 30, 2026
 

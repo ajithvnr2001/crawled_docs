@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/architecture/migration-from-azure-get-started/
 title: Migrate from Azure to Google Cloud: Get started \u00a0|\u00a0 Cloud Architecture Center \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T05:57:53.805392+00:00
+fetched_at: 2026-11-04T23:30:52.857928+00:00
 ---
 
 # Migrate from Azure to Google Cloud: Get started  |  Cloud Architecture Center  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chronicle/docs/secops/investigate/investigation-management/investigation-management-overview/
 title: Investigation and case management overview \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T10:04:45.450704+00:00
+fetched_at: 2026-11-04T23:34:06.313936+00:00
 ---
 
 # Investigation and case management overview  |  Google Security Operations  |  Google Cloud Documentation
@@ -45,7 +45,7 @@ To use the new Cases experience, your environment must meet the following requir
     * `chronicle.caseDetections.get`
     * `chronicle.caseEvents.get`
     * `chronicle.views.get`
-  * **Default views setup:** Before enabling the updated Cases experience, set up your default views under **SOAR Settings > Case Data > Views**. Make sure to manually copy over advanced widget configurations (such as **Safe HTML Rendering** or custom conditions) from the **Default Alert View** and **Default Case View** to the **New Default Alert View** and **New Default Case View** to preserve your preferred setups.
+  * **Default views setup:** Before enabling the updated Cases experience, set up your default views under **Settings > Investigation > Views**. Make sure to manually copy over advanced widget configurations (such as **Safe HTML Rendering** or custom conditions) from the **Default Alert View** and **Default Case View** to the **New Default Alert View** and **New Default Case View** to preserve your preferred setups.
 
 
 
@@ -115,7 +115,7 @@ From this view, you can interact with the following tabs:
 
   * **Overview:** Displays a customizable layout featuring case-specific widgets—including lists of alerts and detections, associated UDM events, involved entities, and pending manual actions—a built-in Gemini summary, and historical context.
 
-**Note:** The updated experience includes two dedicated views: **New Default Alert View** and **New Default Case View** (located under **SOAR Settings > Case Data > Views**). These default views display standard preconfigured widgets and don't automatically include custom widgets from your legacy views. To keep your current setup, you must manually copy your custom widgets and advanced configurations (such as **Safe HTML Rendering** settings or custom conditions) from the **Default Alert View** and **Default Case View** to these new views before enabling the feature.
+**Note:** The updated experience includes two dedicated views: **New Default Alert View** and **New Default Case View** (located under **Settings > Investigation > Views**). These default views display standard preconfigured widgets and don't automatically include custom widgets from your legacy views. To keep your current setup, you must manually copy your custom widgets and advanced configurations (such as **Safe HTML Rendering** settings or custom conditions) from the **Default Alert View** and **Default Case View** to these new views before enabling the feature.
     * **Dynamic Menu Navigation:** The side navigation panel matches the order of your widgets. Click any section title to jump straight to that specific widget (such as **UDM Events**).
     * **Visual Graph Mapping:** From the side navigation panel, you can also access the **Entities Graph** to visually map out asset interactions or entity relationships. For more information, see [Explore the Case Overview tab](https://docs.cloud.google.com/chronicle/docs/soar/investigate/working-with-cases/whats-on-the-case-overview-tab).
   * **Case Wall:** Review a central, chronological log documenting every investigation step, user comment, file attachment, and system action taken over the lifecycle of the investigation. For more information, see the [Cases overview](https://docs.cloud.google.com/chronicle/docs/soar/investigate/working-with-cases/cases-overview#case-wall-tab).
@@ -180,6 +180,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-28 UTC.
+Last updated 2026-11-04 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 

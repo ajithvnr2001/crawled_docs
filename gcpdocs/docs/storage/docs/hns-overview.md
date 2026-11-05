@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/storage/docs/hns-overview/
 title: Hierarchical namespace \u00a0|\u00a0 Cloud Storage \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T05:53:34.366109+00:00
+fetched_at: 2026-11-05T00:19:31.418791+00:00
 ---
 
 # Hierarchical namespace  |  Cloud Storage  |  Google Cloud Documentation
@@ -141,7 +141,7 @@ The associated managed folder acts as an administrative layer over the directory
 
 ### Naming for folders with associated managed folders
 
-Both [folder naming rules](https://docs.cloud.google.com/storage/docs/folders-overview#considerations) and [managed folder naming rules](https://docs.cloud.google.com/storage/docs/managed-folders#managed_folder_names) apply when creating folders with associated managed folders. Folder names can be nested up to 50 levels deep, but managed folder names can only be nested up to 15 levels deep. The maximum size for a managed folder name is 512 bytes when UTF-8 encoded. This means if you plan to create a folder and an associated managed folder for it, the folder can only have 15 stacked child folders, and its maximum name size is 512 bytes when UTF-8 encoded.
+Both [folder naming rules](https://docs.cloud.google.com/storage/docs/folders-overview#naming) and [managed folder naming rules](https://docs.cloud.google.com/storage/docs/managed-folders#managed_folder_names) apply when creating folders with associated managed folders. Folder names can be nested up to 50 levels deep, but managed folder names can only be nested up to 15 levels deep. The maximum size for a managed folder name is 512 bytes when UTF-8 encoded. This means if you plan to create a folder and an associated managed folder for it, the folder can only have 15 stacked child folders, and its maximum name size is 512 bytes when UTF-8 encoded.
 
 ## Pricing
 
@@ -157,7 +157,7 @@ The following are the limitations of hierarchical namespace:
 
   * In buckets with hierarchical namespace enabled, the maximum size of an object's name is 1024 bytes when UTF-8 encoded, where the folder name segment and the base name segment each have a limit of 512 bytes when UTF-8 encoded. In flat namespace buckets, object names don't contain folder name segments and have a limit of 1024 bytes when UTF-8 encoded. For more information about object name limits, see [About objects](https://docs.cloud.google.com/storage/docs/objects).
 
-  * Folder names can be [nested up to 50 levels deep](https://docs.cloud.google.com/storage/docs/folders-overview#considerations) (or 15 levels deep if the folder has an associated managed folder).
+  * Folder names can be [nested up to 50 levels deep](https://docs.cloud.google.com/storage/docs/folders-overview#naming) (or 15 levels deep if the folder has an associated managed folder).
 
   * The following Cloud Storage capabilities are not supported for buckets that use hierarchical namespace:
 
@@ -191,6 +191,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-30 UTC.
+Last updated 2026-11-03 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 

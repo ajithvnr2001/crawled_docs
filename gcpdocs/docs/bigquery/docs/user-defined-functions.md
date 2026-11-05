@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/user-defined-functions/
 title: User-defined functions \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T05:58:32.798136+00:00
+fetched_at: 2026-11-04T23:28:53.226825+00:00
 ---
 
 # User-defined functions  |  BigQuery  |  Google Cloud Documentation
@@ -199,6 +199,12 @@ You can also reference an entity in a different project or dataset from the one 
 ### Use system variables with SQL UDFs
 
 The `@@session_id` and `@@location` [system variables](https://docs.cloud.google.com/bigquery/docs/reference/system-variables) are supported with SQL UDFs. You can include these system variables anywhere in your function creation statement to return the session ID or location of the current query. All other system variables aren't supported.
+
+### Use SQL UDFs in continuous queries
+
+You can call persistent or temporary SQL UDFs in [BigQuery continuous queries](https://docs.cloud.google.com/bigquery/docs/continuous-queries-introduction) to encapsulate and reuse custom real-time transformation logic. Only SQL UDFs are supported in continuous queries. JavaScript UDFs, [Python UDFs](https://docs.cloud.google.com/bigquery/docs/user-defined-functions-python), [remote functions](https://docs.cloud.google.com/bigquery/docs/remote-functions), and [user-defined aggregate functions](https://docs.cloud.google.com/bigquery/docs/user-defined-aggregates) aren't supported.
+
+When you use a SQL UDF in a continuous query, the UDF's SQL expression must adhere to all [continuous query limitations](https://docs.cloud.google.com/bigquery/docs/continuous-queries-introduction#limitations). In addition, if you update or delete a persistent SQL UDF while a continuous query that references it is running, BigQuery terminates the continuous query job. For more information and examples, see [Use SQL UDFs](https://docs.cloud.google.com/bigquery/docs/continuous-queries#use-sql-udfs).
 
 ## JavaScript UDFs
 
@@ -648,6 +654,7 @@ The following limitations apply to temporary and persistent user-defined functio
   * A JavaScript UDF can time out and prevent your query from completing. Timeouts can be as short as 5 minutes, but can vary depending on several factors, including how much user CPU time your function consumes and how large your inputs and outputs to the JavaScript function are.
   * Bitwise operations in JavaScript handle only the most significant 32 bits.
   * UDFs are subject to certain rate limits and quota limits. For more information, see [UDF limits](https://docs.cloud.google.com/bigquery/quotas#udf_limits).
+  * In [continuous queries](https://docs.cloud.google.com/bigquery/docs/continuous-queries-introduction), only SQL UDFs are supported. JavaScript UDFs aren't supported in continuous queries. For more information, see [Use SQL UDFs](https://docs.cloud.google.com/bigquery/docs/continuous-queries#use-sql-udfs).
 
 
 
@@ -671,6 +678,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-30 UTC.
+Last updated 2026-11-04 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 

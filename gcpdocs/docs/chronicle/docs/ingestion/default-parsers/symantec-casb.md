@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/symantec-casb/
 title: Collect Symantec CloudSOC CASB logs \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T07:50:38.403922+00:00
+fetched_at: 2026-11-04T23:34:30.922047+00:00
 ---
 
 # Collect Symantec CloudSOC CASB logs  |  Google Security Operations  |  Google Cloud Documentation

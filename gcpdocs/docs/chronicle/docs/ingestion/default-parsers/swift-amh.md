@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/swift-amh/
 title: Collect Swift Alliance Messaging Hub logs \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T07:53:21.683399+00:00
+fetched_at: 2026-11-04T23:35:18.392088+00:00
 ---
 
 # Collect Swift Alliance Messaging Hub logs  |  Google Security Operations  |  Google Cloud Documentation

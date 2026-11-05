@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/universal-ledger/tutorial/send-rpc-request-py/
 title: Send RPC requests with Python \u00a0|\u00a0 Universal Ledger \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-14T10:36:08.513314+00:00
+fetched_at: 2026-11-05T00:19:13.492346+00:00
 ---
 
 # Send RPC requests with Python  |  Universal Ledger  |  Google Cloud Documentation
@@ -20,12 +20,6 @@ fetched_at: 2026-10-14T10:36:08.513314+00:00
 Send feedback 
 
 #  Send RPC requests with Python Stay organized with collections  Save and categorize content based on your preferences. 
-
-**Preview**
-
-This product is subject to the "Pre-GA Offerings Terms" in the General Service Terms section of the [Service Specific Terms](https://docs.cloud.google.com/terms/service-terms#1). Pre-GA products are available "as is" and might have limited support. For more information, see the [launch stage descriptions](https://cloud.google.com/products/#product-launch-stages). 
-
-For information about access to this release, see the [ access request page](https://cloud.google.com/application/web3/universal-ledger). 
 
 Applications can interact with the Universal Ledger API using gRPC and Python. This approach involves generating and using Python client libraries compiled from the service's protocol buffer definitions.
 
@@ -46,7 +40,7 @@ To complete this tutorial you will need:
 
 
 
-To learn more about these steps, see the [Preview onboarding](https://cloud.google.com/universal-ledger/preview-onboarding) guide.
+To learn more about these steps, see the [Getting started](https://cloud.google.com/universal-ledger/getting-started) guide.
 
 ## Set up your environment
 
@@ -259,6 +253,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-09-02 UTC.
+Last updated 2026-10-26 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-09-02 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 

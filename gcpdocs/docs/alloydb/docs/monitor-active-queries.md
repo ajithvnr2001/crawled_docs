@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/docs/monitor-active-queries/
 title: Monitor active queries \u00a0|\u00a0 AlloyDB for PostgreSQL \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-01T05:45:19.802888+00:00
+fetched_at: 2026-11-04T23:32:06.019574+00:00
 ---
 
 # Monitor active queries  |  AlloyDB for PostgreSQL  |  Google Cloud Documentation
@@ -112,9 +112,9 @@ Process ID | Process ID is the unique identifier of the database connection.
 Node ID | Node ID is the unique identifier of the [read pool](https://docs.cloud.google.com/alloydb/docs/instance-read-pool-create) instance node that a query runs on.  
 Query | Normalized SQL query text.  
 Status | The current status of the connection. Status values include `active` and `idle in transaction`.  
-Session duration | The duration of the current session (in seconds).  
-Transaction duration | The duration of the current transaction (in seconds).  
-Query duration | The duration of the current active query (in seconds). The query duration of queries in the `idle in transaction` state is `0` because the queries aren't actively running.  
+Session duration (seconds) | The duration of the current session.  
+Transaction duration (seconds) | The duration of the current transaction.  
+Query duration (seconds) | The duration of the current active query. The query duration for queries in the `idle in transaction` state is `0` as they aren't actively running.  
 Wait event type | The occurring wait event type during query execution.  
 Wait event | The occurring wait event during query execution.  
 Database | Database name on which this connection is running.  
@@ -147,9 +147,55 @@ The page refreshes after initiating termination. If termination fails, it is sil
 
 **Warning:** Data inconsistency issues might arise when you forcefully terminate backend processes in the middle of a transaction.
 
+## Blocked query analysis
+
+If a specific active query is blocked or running much longer than expected, then that active query can block other dependent queries.
+
+You can use blocked query analysis to identify and terminate queries that are either long-running or holding onto locks longer than needed and blocking other queries.
+
+### Identify and terminate a blocked active query
+
+To identify and terminate a specific active query that might be blocking other queries, complete the following steps:
+
+  1. In the Google Cloud console, open the **AlloyDB** page.
+
+[Go to AlloyDB](https://console.cloud.google.com/alloydb)
+
+  2. Click the name of a cluster to open its **Overview** page.
+
+  3. Select the **Query insights** tab.
+
+  4. Click the **Active queries** tab. If you don't already have active queries running, go to [AlloyDB Studio](https://docs.cloud.google.com/alloydb/docs/manage-data-using-studio) and run the queries that you want to investigate.
+
+  5. Navigate to the **Longest running transactions** section. You can see up to the top 50 long running active queries under each category. Each entry displayed has [active query details](https://docs.cloud.google.com/alloydb/docs/monitor-active-queries#view-top-longest-running-transactions), including the following:
+
+     * **Process ID:** The process ID of the query. Click arrow_right **expand** to view the entry. You can see one of two icons: 
+       * hourglass_bottom **Hourglass icon** : This icon indicates that the process is waiting for another query to finish. If a number is included beside the icon, then the number indicates how many dependent queries are waiting for this process to finish.
+       * block **Block icon** : This icon indicates that the process is blocking other queries.
+     * **Query:** The query running, such as `SELECT ... ` or `UPDATE ...`.
+     * **Status:** The status of the active query, such as `ACTIVE`.
+     * **Session duration (seconds):** The duration of the current session.
+     * **Transaction duration (seconds):** The duration of the current active transaction.
+     * **Query duration (seconds):** The duration of the current active query.
+     * **Wait event type:** The current wait event type during query execution, such as **Timeout** or **Lock**.
+     * **Wait event:** The current wait event during query execution.
+     * **Database:** The name of the database that the connection is running on.
+     * **Application name:** The name of the application that the connection is running on.
+     * **Username:** The name of the database user connected to the database.
+     * **Client address:** The IP address of the client that sent the query.
+     * **Action:** Possible actions to take, such as **Terminate connection**.
+
+Click to expand the process ID that you want to investigate. You can expand underlying processes up to three levels deep in the investigation tree.
+
+  6. Identify the specific query that's blocked, and then click **Terminate connection**. After you terminate the connection, you can navigate to [AlloyDB Studio](https://docs.cloud.google.com/alloydb/docs/manage-data-using-studio) to run your active queries again.
+
+
+
+
 ## What's next
 
   * [Improve query performance using query insights](https://docs.cloud.google.com/alloydb/docs/using-query-insights)
+  * [Advanced query insights features overview](https://docs.cloud.google.com/alloydb/docs/advanced-query-insights-overview)
   * [Monitor instances](https://docs.cloud.google.com/alloydb/docs/monitor-instance)
 
 
@@ -158,6 +204,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-30 UTC.
+Last updated 2026-11-04 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 

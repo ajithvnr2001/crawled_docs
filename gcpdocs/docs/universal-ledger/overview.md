@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/universal-ledger/overview/
 title: Universal Ledger overview \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-14T07:53:03.514382+00:00
+fetched_at: 2026-11-05T00:19:12.888036+00:00
 ---
 
 # Universal Ledger overview  |  Google Cloud Documentation
@@ -20,12 +20,6 @@ fetched_at: 2026-10-14T07:53:03.514382+00:00
 Send feedback 
 
 #  Universal Ledger overview Stay organized with collections  Save and categorize content based on your preferences. 
-
-**Preview**
-
-This product is subject to the "Pre-GA Offerings Terms" in the General Service Terms section of the [Service Specific Terms](https://docs.cloud.google.com/terms/service-terms#1). Pre-GA products are available "as is" and might have limited support. For more information, see the [launch stage descriptions](https://cloud.google.com/products/#product-launch-stages). 
-
-For information about access to this release, see the [ access request page](https://cloud.google.com/application/web3/universal-ledger). 
 
 Universal Ledger API is a fully managed service that helps enterprises, such as financial institutions, build and interact with Universal Ledger networks. Use the API to create innovative payment services, tokenize assets, and develop new financial market products.
 
@@ -71,11 +65,31 @@ Universal Ledger is designed for a variety of enterprise use cases, including th
 
 Universal Ledger helps provide a robust platform for institutions to explore these and other innovative financial applications.
 
+## Interacting with Universal Ledger
+
+There are several ways you can interact with Universal Ledger depending on where you are in the integration development lifecycle.
+
+### Production applications
+
+For production applications, you can interact with the Universal Ledger API directly using the **gRPC or REST APIs**. For more information on writing your own client application, see:
+
+  * [Client implementation guidelines](https://docs.cloud.google.com/universal-ledger/how-to/client-implementation-guidelines)
+  * [Send RPC requests with Python](https://docs.cloud.google.com/universal-ledger/tutorial/send-rpc-request-py)
+
+
+
+### Testing and administration
+
+For manual testing, development, and administrative tasks, you can use the **`ul-cli`**. The `ul-cli` lets you submit transactions and query the ledger state from your terminal without needing to write client code.
+
+For more information, see [Set up the CLI](https://docs.cloud.google.com/universal-ledger/how-to/set-up-cli).
+
 ## What's next
 
-  * Onboard to the [Universal Ledger preview](https://docs.cloud.google.com/universal-ledger/preview-onboarding).
-  * Request the [creation of an account on the ledger](https://docs.cloud.google.com/universal-ledger/how-to/request-account)
-  * Learn how to [send RPC requests with Python](https://docs.cloud.google.com/universal-ledger/tutorial/send-rpc-request-py). 
+  * Onboard to the [Universal Ledger](https://docs.cloud.google.com/universal-ledger/getting-started).
+  * Request the [creation of an account on the ledger](https://docs.cloud.google.com/universal-ledger/how-to/request-account).
+  * Learn how to [send RPC requests with Python](https://docs.cloud.google.com/universal-ledger/tutorial/send-rpc-request-py).
+  * Learn how to [configure VPC Service Controls](https://docs.cloud.google.com/universal-ledger/vpc-service-controls). 
 
 
 
@@ -83,6 +97,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-08-26 UTC.
+Last updated 2026-10-26 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-08-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/hadoop/
 title: Collect Apache Hadoop logs \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T07:53:44.930697+00:00
+fetched_at: 2026-11-04T23:32:34.272027+00:00
 ---
 
 # Collect Apache Hadoop logs  |  Google Security Operations  |  Google Cloud Documentation

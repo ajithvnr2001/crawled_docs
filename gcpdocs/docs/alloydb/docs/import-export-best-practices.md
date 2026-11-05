@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/docs/import-export-best-practices/
 title: Best practices for importing and exporting data \u00a0|\u00a0 AlloyDB for PostgreSQL \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T22:58:32.201554+00:00
+fetched_at: 2026-11-04T23:32:18.318596+00:00
 ---
 
 # Best practices for importing and exporting data  |  AlloyDB for PostgreSQL  |  Google Cloud Documentation
@@ -111,6 +111,7 @@ Issue | Description | Recommended fix
   * [Export data using CSV files](https://docs.cloud.google.com/alloydb/docs/export-csv-file).
   * [Import data using SQL files](https://docs.cloud.google.com/alloydb/docs/import-sql-file).
   * [Export data using SQL files](https://docs.cloud.google.com/alloydb/docs/export-sql-file).
+  * [Access Apache Iceberg data from AlloyDB](https://docs.cloud.google.com/alloydb/docs/access-iceberg-data-from-alloydb).
   * [Enable automated backups](https://docs.cloud.google.com/alloydb/docs/backup/configure).
   * [Restore from a backup](https://docs.cloud.google.com/alloydb/docs/backup/restore).
 
@@ -120,6 +121,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-04 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 

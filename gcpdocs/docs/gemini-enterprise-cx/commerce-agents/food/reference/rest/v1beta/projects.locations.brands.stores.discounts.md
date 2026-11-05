@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rest/v1beta/projects.locations.brands.stores.discounts
 title: REST Resource: projects.locations.brands.stores.discounts \u00a0|\u00a0 Food Ordering AI Agent \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-30T06:00:14.533256+00:00
+fetched_at: 2026-11-05T00:17:45.540731+00:00
 ---
 
 # REST Resource: projects.locations.brands.stores.discounts  |  Food Ordering AI Agent  |  Google Cloud Documentation
@@ -24,31 +24,31 @@ Send feedback
 
   * Resource: Discount
     * JSON representation
-  * DiscountType
-  * Scope
-  * ItemGroup
-    * JSON representation
-  * SelectItems
-    * JSON representation
-  * ItemMatcher
-    * JSON representation
-  * ModifierMatcher
-    * JSON representation
-  * AllOf
-    * JSON representation
-  * AnyOf
-    * JSON representation
-  * Constraint
-    * JSON representation
-  * DiscountIntegrationAttributes
-    * JSON representation
+    * DiscountType
+    * Scope
+    * ItemGroup
+      * JSON representation
+    * SelectItems
+      * JSON representation
+    * ItemMatcher
+      * JSON representation
+    * ModifierMatcher
+      * JSON representation
+    * AllOf
+      * JSON representation
+    * AnyOf
+      * JSON representation
+    * Constraint
+      * JSON representation
+    * DiscountIntegrationAttributes
+      * JSON representation
   * Methods
 
 
 
 ## Resource: Discount
 
-A discount that can be applied to orders at a store. Next ID: 16
+A discount that can be applied to orders at a store.
 
 JSON representation  
 ---  
@@ -57,8 +57,8 @@ JSON representation
     {
       "name": string,
       "displayName": string,
-      "type": enum ([DiscountType](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rest/v1beta/projects.locations.brands.stores.discounts#DiscountType)),
-      "scope": enum ([Scope](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rest/v1beta/projects.locations.brands.stores.discounts#Scope)),
+      "type": enum ([DiscountType](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rest/v1beta/projects.locations.brands.stores.discounts#Discount.DiscountType)),
+      "scope": enum ([Scope](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rest/v1beta/projects.locations.brands.stores.discounts#Discount.Scope)),
       "schedule": {
         object ([Schedule](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rest/v1beta/Schedule))
       },
@@ -70,43 +70,45 @@ JSON representation
         object ([Money](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rest/Shared.Types/Money))
       },
       "appliedItems": {
-        object ([ItemGroup](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rest/v1beta/projects.locations.brands.stores.discounts#ItemGroup))
+        object ([ItemGroup](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rest/v1beta/projects.locations.brands.stores.discounts#Discount.ItemGroup))
       },
       "requiredItems": {
-        object ([ItemGroup](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rest/v1beta/projects.locations.brands.stores.discounts#ItemGroup))
+        object ([ItemGroup](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rest/v1beta/projects.locations.brands.stores.discounts#Discount.ItemGroup))
       },
       "autoApply": boolean,
       "promoCode": string,
       "additionalConstraint": {
-        object ([Constraint](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rest/v1beta/projects.locations.brands.stores.discounts#Constraint))
+        object ([Constraint](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rest/v1beta/projects.locations.brands.stores.discounts#Discount.Constraint))
       },
       "integrationAttributes": {
-        object ([DiscountIntegrationAttributes](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rest/v1beta/projects.locations.brands.stores.discounts#DiscountIntegrationAttributes))
+        object ([DiscountIntegrationAttributes](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rest/v1beta/projects.locations.brands.stores.discounts#Discount.DiscountIntegrationAttributes))
       },
       "image": {
         object ([Image](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rest/v1beta/Image))
-      }
+      },
+      "description": string
     }  
   
 Fields  
 ---  
 `name` |  `string` Identifier. The discount name. Format: projects/{project}/locations/{location}/brands/{brand}/stores/{store}/discounts/{discount}  
 `displayName` |  `string` Required. The user-facing name of the discount (e.g., "20% Off Your Order").  
-`type` |  `enum (`[DiscountType](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rest/v1beta/projects.locations.brands.stores.discounts#DiscountType)`)` Required. The type of discount being applied.  
-`scope` |  `enum (`[Scope](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rest/v1beta/projects.locations.brands.stores.discounts#Scope)`)` Required. The scope at which the discount is applied.  
+`type` |  `enum (`[DiscountType](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rest/v1beta/projects.locations.brands.stores.discounts#Discount.DiscountType)`)` Required. The type of discount being applied.  
+`scope` |  `enum (`[Scope](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rest/v1beta/projects.locations.brands.stores.discounts#Discount.Scope)`)` Required. The scope at which the discount is applied.  
 `schedule` |  `object (`[Schedule](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rest/v1beta/Schedule)`)` Optional. The schedule when the discount is active.  
 `fixedAmount` |  `object (`[Money](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rest/Shared.Types/Money)`)` Optional. The fixed monetary value of the discount or the fixed total price, depending on the 'type'.  
 `percent` |  `number` Optional. The percentage value of the discount (0.0 to 100.0). Set when 'type' is PERCENT_OFF.  
 `maxDiscountValue` |  `object (`[Money](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rest/Shared.Types/Money)`)` Optional. If the discount type is PERCENT_OFF, we can set a max discount value user can get.  
-`appliedItems` |  `object (`[ItemGroup](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rest/v1beta/projects.locations.brands.stores.discounts#ItemGroup)`)` Optional. The group of items the discount is applied to. Required if 'scope' is ITEM. E.g. Bundles, mix-and-match, and the GET part of BOGO are defined here.  
-`requiredItems` |  `object (`[ItemGroup](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rest/v1beta/projects.locations.brands.stores.discounts#ItemGroup)`)` Optional. The group of items that must be present in the cart to activate the discount only need to be set when discount type is BOGO. E.g. The BUY part of BOGO discount is defined here.  
+`appliedItems` |  `object (`[ItemGroup](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rest/v1beta/projects.locations.brands.stores.discounts#Discount.ItemGroup)`)` Optional. The group of items the discount is applied to. Required if 'scope' is ITEM. E.g. Bundles, mix-and-match, and the GET part of BOGO are defined here.  
+`requiredItems` |  `object (`[ItemGroup](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rest/v1beta/projects.locations.brands.stores.discounts#Discount.ItemGroup)`)` Optional. The group of items that must be present in the cart to activate the discount only need to be set when discount type is BOGO. E.g. The BUY part of BOGO discount is defined here.  
 `autoApply` |  `boolean` Optional. If true, the discount is automatically applied when the criteria are met.  
 `promoCode` |  `string` Optional. The code required to apply the discount.  
-`additionalConstraint` |  `object (`[Constraint](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rest/v1beta/projects.locations.brands.stores.discounts#Constraint)`)` Optional. Additional constraint to apply this discount.  
-`integrationAttributes` |  `object (`[DiscountIntegrationAttributes](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rest/v1beta/projects.locations.brands.stores.discounts#DiscountIntegrationAttributes)`)` Optional. Metadata associated with this entity used for downstream integrations.  
+`additionalConstraint` |  `object (`[Constraint](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rest/v1beta/projects.locations.brands.stores.discounts#Discount.Constraint)`)` Optional. Additional constraint to apply this discount.  
+`integrationAttributes` |  `object (`[DiscountIntegrationAttributes](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rest/v1beta/projects.locations.brands.stores.discounts#Discount.DiscountIntegrationAttributes)`)` Optional. Metadata associated with this entity used for downstream integrations.  
 `image` |  `object (`[Image](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rest/v1beta/Image)`)` Optional. Image to display for this discount in the UI.  
+`description` |  `string` Optional. Provides a human-readable summary or subtitle for this discount.  
   
-## DiscountType
+### DiscountType
 
 The type of a discount.
 
@@ -119,7 +121,7 @@ Enums
 `FIXED_TOTAL` | Sets the final price of the discounted items to a fixed total (e.g., 2 items for $10.00).  
 `FREE_DELIVERY` | Waives the delivery fee for the order.  
   
-## Scope
+### Scope
 
 Defines the level at which the discount is applied.
 
@@ -129,7 +131,7 @@ Enums
 `ORDER` | Applied to the entire order.  
 `ITEM` | Applied to specific items.  
   
-## ItemGroup
+### ItemGroup
 
 A collection of items from the menu, defined by selection criteria, used to specify required or applied items for a discount. Next ID: 7
 
@@ -146,13 +148,13 @@ JSON representation
       // The following is a list of mutually exclusive fields. At most one of the
       // fields will be set in a response:
       "selectItems": {
-        object ([SelectItems](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rest/v1beta/projects.locations.brands.stores.discounts#SelectItems))
+        object ([SelectItems](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rest/v1beta/projects.locations.brands.stores.discounts#Discount.SelectItems))
       },
       "allOf": {
-        object ([AllOf](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rest/v1beta/projects.locations.brands.stores.discounts#AllOf))
+        object ([AllOf](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rest/v1beta/projects.locations.brands.stores.discounts#Discount.AllOf))
       },
       "anyOf": {
-        object ([AnyOf](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rest/v1beta/projects.locations.brands.stores.discounts#AnyOf))
+        object ([AnyOf](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rest/v1beta/projects.locations.brands.stores.discounts#Discount.AnyOf))
       }
       // End of mutually exclusive fields.
     }  
@@ -162,12 +164,12 @@ Fields
 `name` |  `string` Optional. Name of the item group.  
 `customIntegrationAttributes` |  `object (`[Struct](https://protobuf.dev/reference/protobuf/google.protobuf/#struct)` format)` Optional. Arbitrary metadata to be associated with an entity, used to build downstream integrations, i.e. identifiers or schema information for constructing an order for submission to a third-party point of sale API.  
 The type of item group. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:  
-`selectItems` |  `object (`[SelectItems](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rest/v1beta/projects.locations.brands.stores.discounts#SelectItems)`)` A list of matchers. An item is considered a match if it satisfies ANY of these ItemMatcher criteria (OR logic).  
-`allOf` |  `object (`[AllOf](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rest/v1beta/projects.locations.brands.stores.discounts#AllOf)`)` Represents a logical AND of sub-groups.  
-`anyOf` |  `object (`[AnyOf](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rest/v1beta/projects.locations.brands.stores.discounts#AnyOf)`)` Represents a logical OR of sub-groups.  
+`selectItems` |  `object (`[SelectItems](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rest/v1beta/projects.locations.brands.stores.discounts#Discount.SelectItems)`)` A list of matchers. An item is considered a match if it satisfies ANY of these ItemMatcher criteria (OR logic).  
+`allOf` |  `object (`[AllOf](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rest/v1beta/projects.locations.brands.stores.discounts#Discount.AllOf)`)` Represents a logical AND of sub-groups.  
+`anyOf` |  `object (`[AnyOf](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rest/v1beta/projects.locations.brands.stores.discounts#Discount.AnyOf)`)` Represents a logical OR of sub-groups.  
 End of mutually exclusive fields.  
   
-## SelectItems
+### SelectItems
 
 Defines a requirement to select a specific quantity of items where each item matches ANY of the provided ItemCriteria.
 
@@ -178,7 +180,7 @@ JSON representation
     {
       "matches": [
         {
-          object ([ItemMatcher](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rest/v1beta/projects.locations.brands.stores.discounts#ItemMatcher))
+          object ([ItemMatcher](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rest/v1beta/projects.locations.brands.stores.discounts#Discount.ItemMatcher))
         }
       ],
       "minQuantity": integer,
@@ -187,11 +189,11 @@ JSON representation
   
 Fields  
 ---  
-`matches[]` |  `object (`[ItemMatcher](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rest/v1beta/projects.locations.brands.stores.discounts#ItemMatcher)`)` Required. Matchers for the items.  
+`matches[]` |  `object (`[ItemMatcher](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rest/v1beta/projects.locations.brands.stores.discounts#Discount.ItemMatcher)`)` Required. Matchers for the items.  
 `minQuantity` |  `integer` Optional. Minimum quantity required for a match.  
 `maxQuantity` |  `integer` Optional. Maximum quantity allowed for a match.  
   
-## ItemMatcher
+### ItemMatcher
 
 Defines the criteria for matching a single item. All specified fields are combined using AND. Next ID: 5
 
@@ -204,7 +206,7 @@ JSON representation
       "modifierId": string,
       "categoryId": string,
       "modifierMatcher": {
-        object ([ModifierMatcher](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rest/v1beta/projects.locations.brands.stores.discounts#ModifierMatcher))
+        object ([ModifierMatcher](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rest/v1beta/projects.locations.brands.stores.discounts#Discount.ModifierMatcher))
       }
     }  
   
@@ -213,9 +215,9 @@ Fields
 `itemId` |  `string` Optional. Item ID to match.  
 `modifierId` |  `string` Optional. Modifier ID to match.  
 `categoryId` |  `string` Optional. Category ID to match.  
-`modifierMatcher` |  `object (`[ModifierMatcher](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rest/v1beta/projects.locations.brands.stores.discounts#ModifierMatcher)`)` Optional. Defines the criteria for modifiers in order to match the Item.  
+`modifierMatcher` |  `object (`[ModifierMatcher](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rest/v1beta/projects.locations.brands.stores.discounts#Discount.ModifierMatcher)`)` Optional. Defines the criteria for modifiers in order to match the Item.  
   
-## ModifierMatcher
+### ModifierMatcher
 
 Defines the criteria for matching modifiers.
 
@@ -237,7 +239,7 @@ Fields
 `minModifiers` |  `integer` Optional. The minimum number of modifiers required for a match. If required_modifier_ids is set, will only count modifiers in the list.  
 `maxModifiers` |  `integer` Optional. The maximum number of modifiers allowed for a match. If required_modifier_ids is set, will only count modifiers in the list.  
   
-## AllOf
+### AllOf
 
 Represents a logical AND of sub-groups.
 
@@ -248,16 +250,16 @@ JSON representation
     {
       "groups": [
         {
-          object ([ItemGroup](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rest/v1beta/projects.locations.brands.stores.discounts#ItemGroup))
+          object ([ItemGroup](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rest/v1beta/projects.locations.brands.stores.discounts#Discount.ItemGroup))
         }
       ]
     }  
   
 Fields  
 ---  
-`groups[]` |  `object (`[ItemGroup](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rest/v1beta/projects.locations.brands.stores.discounts#ItemGroup)`)` Required. Sub-groups components.  
+`groups[]` |  `object (`[ItemGroup](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rest/v1beta/projects.locations.brands.stores.discounts#Discount.ItemGroup)`)` Required. Sub-groups components.  
   
-## AnyOf
+### AnyOf
 
 Represents a logical OR of sub-groups.
 
@@ -268,16 +270,16 @@ JSON representation
     {
       "groups": [
         {
-          object ([ItemGroup](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rest/v1beta/projects.locations.brands.stores.discounts#ItemGroup))
+          object ([ItemGroup](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rest/v1beta/projects.locations.brands.stores.discounts#Discount.ItemGroup))
         }
       ]
     }  
   
 Fields  
 ---  
-`groups[]` |  `object (`[ItemGroup](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rest/v1beta/projects.locations.brands.stores.discounts#ItemGroup)`)` Required. Sub-groups components.  
+`groups[]` |  `object (`[ItemGroup](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rest/v1beta/projects.locations.brands.stores.discounts#Discount.ItemGroup)`)` Required. Sub-groups components.  
   
-## Constraint
+### Constraint
 
 Additional constraint to apply this discount.
 
@@ -309,7 +311,7 @@ Fields
 `isStackable` |  `boolean` Optional. If this discount can be used with other discount.  
 `allowedFulfillmentMethods[]` |  `enum (`[FulfillmentMethod](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rest/v1beta/FulfillmentMethod)`)` Optional. Fulfillment methods this discount can be applied to. If not set, the discount can be applied to all fulfillment methods.  
   
-## DiscountIntegrationAttributes
+### DiscountIntegrationAttributes
 
 Metadata associated with a discount used for downstream integrations.
 
@@ -355,6 +357,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-29 UTC.
+Last updated 2026-11-04 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 

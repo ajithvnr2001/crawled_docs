@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/build/docs/automating-builds/gitlab/build-repos-from-gitlab-enterprise-edition-private-network/
 title: Build repositories from GitLab Enterprise Edition in a private network \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T23:10:41.494250+00:00
+fetched_at: 2026-11-04T23:42:03.294333+00:00
 ---
 
 # Build repositories from GitLab Enterprise Edition in a private network  |  Google Cloud Documentation
@@ -77,6 +77,7 @@ Replace the following:
 
      * PROJECT_ID is your Cloud Build project ID.
      * PROJECT_ID_CONTAINING_SERVICE_DIRECTORY is the ID of your Google Cloud project that contains your Service Directory.
+**Note:** If you receive a `service account not found` error when granting the IAM role, you might need to [manually create the service agent](https://docs.cloud.google.com/iam/docs/create-service-agents).
   5. Grant VPC network resource access to the Cloud Build service agent:
          
          export PROJECT_NUMBER=$(gcloud projects describe PROJECT_ID --format="value(projectNumber)")
@@ -147,6 +148,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-04 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 

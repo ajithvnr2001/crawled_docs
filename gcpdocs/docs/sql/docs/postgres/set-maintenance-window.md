@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sql/docs/postgres/set-maintenance-window/
 title: View and set maintenance windows \u00a0|\u00a0 Cloud SQL for PostgreSQL \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T09:51:29.252961+00:00
+fetched_at: 2026-11-05T00:20:38.938998+00:00
 ---
 
 # View and set maintenance windows  |  Cloud SQL for PostgreSQL  |  Google Cloud Documentation
@@ -26,14 +26,14 @@ Send feedback
 
 This page has procedures for finding and setting maintenance windows for Cloud SQL instances. To learn more about how and why Cloud SQL performs maintenance, see [Maintenance updates on Cloud SQL instances](https://docs.cloud.google.com/sql/docs/postgres/maintenance).
 
-If you've [opted in to receive maintenance notifications](https://docs.cloud.google.com/sql/docs/postgres/set-maintenance-window#opt-in), then Cloud SQL sends you an email notification when a maintenance update is available for your Cloud SQL instance. Cloud SQL sends a notification before the maintenance rollout and then proceeds to apply the update to groups of instances on a weekly schedule. You can control how much advance notification you receive before your instance receives the maintenance update by selecting the maintenance timing for your instance.
+If you've [opted in to receive maintenance notifications](https://docs.cloud.google.com/sql/docs/postgres/set-maintenance-window#opt-in), then Cloud SQL sends you an email notification before the maintenance rollout begins, informing you that a maintenance update is available for your Cloud SQL instance. This is the maintenance notification from which the advance notification period is calculated. Cloud SQL then proceeds to apply the update to groups of instances on a weekly schedule. You can control how much advance notification you receive before your instance receives the maintenance update by selecting the maintenance timing for your instance.
 
 You have the following options for scheduling the timing of your maintenance update:
 
   * If you select `Any` or don't configure this setting, then the maintenance update can happen at any time, but typically happens within the first week of the rollout.
   * If you select `Week 1` (also referred to as `preview` and `canary`), then the maintenance update happens 7 to 14 days after the maintenance notification is sent out.
-  * If you select `Week 2` (also referred to as `production` and `stable`), then the maintenance update happens 15 to 21 days after the notification is sent out.
-  * If you select `Week 5`, then the maintenance update happens 35 to 42 days after the notification is sent out.
+  * If you select `Week 2` (also referred to as `production` and `stable`), then the maintenance update happens 15 to 21 days after the maintenance notification is sent out.
+  * If you select `Week 5`, then the maintenance update happens 35 to 42 days after the maintenance notification is sent out.
 
 
 
@@ -1097,6 +1097,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-28 UTC.
+Last updated 2026-11-03 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/managed-spark/docs/concepts/spark-properties-serverless/
 title: Spark properties \u00a0|\u00a0 Managed Service for Apache Spark \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T05:53:23.628122+00:00
+fetched_at: 2026-11-05T00:20:21.392822+00:00
 ---
 
 # Spark properties  |  Managed Service for Apache Spark  |  Google Cloud Documentation
@@ -23,9 +23,9 @@ Send feedback
 
 #  Spark properties Stay organized with collections  Save and categorize content based on your preferences. 
 
-This document describes Spark properties and how to set them. Managed Service for Apache Spark uses Spark properties to determine the compute, memory, and disk resources to allocate to your batch workload. These property settings can affect workload quota consumption and cost. For more information, see [Managed Service for Apache Spark quotas](https://docs.cloud.google.com/managed-spark/quotas) and [Managed Service for Apache Spark pricing](https://cloud.google.com/products/managed-service-for-apache-spark/pricing).
+Managed Service for Apache Spark uses Spark properties to determine the compute, memory, and disk resources to allocate to your batch workload. These property settings affect workload quota consumption and cost. For more information, see [Managed Service for Apache Spark quotas](https://docs.cloud.google.com/managed-spark/quotas) and [Managed Service for Apache Spark pricing](https://cloud.google.com/products/managed-service-for-apache-spark/pricing).
 
-**Note:** Also see [Spark metrics](https://docs.cloud.google.com/managed-spark/docs/concepts/metrics), which describes properties you can set to control the collection of Spark metrics.
+To configure properties that control metric collection, see [Spark metrics](https://docs.cloud.google.com/managed-spark/docs/concepts/metrics).
 
 ## Set Spark batch workload properties
 
@@ -164,6 +164,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-30 UTC.
+Last updated 2026-11-03 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 

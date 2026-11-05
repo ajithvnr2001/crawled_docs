@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/looker/docs/admin-panel-general-preview-features/
 title: Admin settings - Preview Features \u00a0|\u00a0 Looker \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T05:53:30.279801+00:00
+fetched_at: 2026-11-04T23:20:28.677964+00:00
 ---
 
 # Admin settings - Preview Features  |  Looker  |  Google Cloud Documentation
@@ -69,12 +69,6 @@ This feature is disabled by default.
 This feature allows admins to review users' Conversational Analytics queries in a System Activity dashboard. This feature is not for use to score, monitor, or judge worker output or employment status. Instead this usage data can be used to improve system performance, such as supporting troubleshooting and agent building. When time-limited on-demand support is initiated, Conversational Analytics queries are also visible to Google support.
 
 In order for a Looker admin to see a specific user's query data, that user must have [consented to revealing their query data](https://docs.cloud.google.com/looker/docs/user-account#conversational-analytics).
-
-### Filters as Tiles and Tile-Level Filter Context
-
-This preview feature is disabled by default.
-
-When this preview feature is enabled, dashboard editors can [place dashboard filters anywhere on the canvas alongside visualization tiles](https://docs.cloud.google.com/looker/docs/filters-user-defined-dashboards#filters_as_tiles). This also adds filter context to individual visualization tiles, showing viewers exactly which dashboard filters are being applied to that tile.
 
 ### Filters on Visualization Tiles
 
@@ -187,6 +181,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-30 UTC.
+Last updated 2026-11-04 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/evaluation/using-model-evaluation/
 title: Evaluate models using Agent Platform \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T05:54:02.843140+00:00
+fetched_at: 2026-11-04T23:15:59.778651+00:00
 ---
 
 # Evaluate models using Agent Platform  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation
@@ -37,11 +37,11 @@ This page describes how to evaluate models using Gemini Enterprise Agent Platfor
 
   5. Make sure your [default Compute Engine service account](https://docs.cloud.google.com/iam/docs/service-account-types#default) has the following [IAM permissions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/iam-permissions):
 
-     * Agent Platform Administrator (`aiplatform.admin`)
-     * Agent Platform Service Agent (`aiplatform.serviceAgent`)
-     * Storage Object Admin (`storage.objectAdmin`)
-     * Dataflow Worker (`dataflow.worker`)
-     * BigQuery Data Editor (`bigquery.dataEditor`) (only required if you are providing data in the form of BigQuery tables)
+     * Agent Platform Administrator (`roles/aiplatform.admin`)
+     * Vertex AI Service Agent (`roles/aiplatform.serviceAgent`)
+     * Storage Object Admin (`roles/storage.objectAdmin`)
+     * Dataflow Worker (`roles/dataflow.worker`)
+     * BigQuery Data Editor (`roles/bigquery.dataEditor`) (only required if you are providing data in the form of BigQuery tables)
 
 
 
@@ -181,6 +181,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-30 UTC.
+Last updated 2026-11-04 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 

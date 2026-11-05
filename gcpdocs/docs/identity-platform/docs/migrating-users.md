@@ -1,22 +1,8 @@
 ---
 url: https://docs.cloud.google.com/identity-platform/docs/migrating-users/
 title: Migrating users from an existing app \u00a0|\u00a0 Identity Platform \u00a0|\u00a0 Google Cloud Documentation
-method: httpx+scrapegraph (scrapling: scrapling status 429 | crawl4ai: crawl4ai failed: Unexpected error in _crawl_web at line 1299 in create_browser_context (../../../../usr/local/lib/python3.10/dist-packages/crawl4ai/browser_manager.py):
-Error: Browser is not available. It may have been closed, crashed, or not yet started. Ensure the browser is running before creating new contexts.
-
-Code context:
-1294                   raise RuntimeError(
-1295                       "Cannot create new browser contexts when using "
-1296                       "use_persistent_context=True. Persistent context uses a "
-1297                       "single shared context."
-1298                   )
-1299 →             raise RuntimeError(
-1300                   "Browser is not available. It may have been closed, crashed, "
-1301                   "or not yet started. Ensure the browser is running before "
-1302                   "creating new contexts."
-1303               )
-1304           # Base settings)
-fetched_at: 2026-10-27T16:29:31.504208+00:00
+method: scrapling+scrapegraph
+fetched_at: 2026-11-05T00:04:47.982216+00:00
 ---
 
 # Migrating users from an existing app  |  Identity Platform  |  Google Cloud Documentation
@@ -116,7 +102,7 @@ HMAC hashing algorithms include `HMAC_MD5`, `HMAC_SHA1`, `HMAC_SHA256` and `HMAC
       System.out.println("Error importing users: " + e.getMessage());
     }
     
-    [FirebaseAuthSnippets.java](https://github.com/firebase/firebase-admin-java/blob/2d89465e59689e6256b0965cf50197cf3ddaf823/src/test/java/com/google/firebase/snippets/FirebaseAuthSnippets.java#L476-L493)
+    [FirebaseAuthSnippets.java](https://github.com/firebase/firebase-admin-java/blob/c37e514e0bc899066dff4d8ef2aa895a04568ee0/src/test/java/com/google/firebase/snippets/FirebaseAuthSnippets.java#L476-L493)
 
 ### Python
     
@@ -222,7 +208,7 @@ MD5, SHA and PBKDF hashing algorithms include `MD5`, `SHA1`, `SHA256`, `SHA512`,
       System.out.println("Error importing users: " + e.getMessage());
     }
     
-    [FirebaseAuthSnippets.java](https://github.com/firebase/firebase-admin-java/blob/2d89465e59689e6256b0965cf50197cf3ddaf823/src/test/java/com/google/firebase/snippets/FirebaseAuthSnippets.java#L499-L516)
+    [FirebaseAuthSnippets.java](https://github.com/firebase/firebase-admin-java/blob/c37e514e0bc899066dff4d8ef2aa895a04568ee0/src/test/java/com/google/firebase/snippets/FirebaseAuthSnippets.java#L499-L516)
 
 ### Python
     
@@ -342,7 +328,7 @@ The Admin SDK supports the standard `SCRYPT` algorithm as well as an [internal m
       System.out.println("Error importing users: " + e.getMessage());
     }
     
-    [FirebaseAuthSnippets.java](https://github.com/firebase/firebase-admin-java/blob/2d89465e59689e6256b0965cf50197cf3ddaf823/src/test/java/com/google/firebase/snippets/FirebaseAuthSnippets.java#L522-L542)
+    [FirebaseAuthSnippets.java](https://github.com/firebase/firebase-admin-java/blob/c37e514e0bc899066dff4d8ef2aa895a04568ee0/src/test/java/com/google/firebase/snippets/FirebaseAuthSnippets.java#L522-L542)
 
 ### Python
     
@@ -488,7 +474,7 @@ In your code, you'll need to supply the following:
       System.out.println("Error importing users: " + e.getMessage());
     }
     
-    [FirebaseAuthSnippets.java](https://github.com/firebase/firebase-admin-java/blob/2d89465e59689e6256b0965cf50197cf3ddaf823/src/test/java/com/google/firebase/snippets/FirebaseAuthSnippets.java#L568-L590)
+    [FirebaseAuthSnippets.java](https://github.com/firebase/firebase-admin-java/blob/c37e514e0bc899066dff4d8ef2aa895a04568ee0/src/test/java/com/google/firebase/snippets/FirebaseAuthSnippets.java#L568-L590)
 
 ### Python
     
@@ -617,7 +603,7 @@ No additional parameters or password salts are required for `BCRYPT` hashed pass
       System.out.println("Error importing users: " + e.getMessage());
     }
     
-    [FirebaseAuthSnippets.java](https://github.com/firebase/firebase-admin-java/blob/2d89465e59689e6256b0965cf50197cf3ddaf823/src/test/java/com/google/firebase/snippets/FirebaseAuthSnippets.java#L548-L562)
+    [FirebaseAuthSnippets.java](https://github.com/firebase/firebase-admin-java/blob/c37e514e0bc899066dff4d8ef2aa895a04568ee0/src/test/java/com/google/firebase/snippets/FirebaseAuthSnippets.java#L548-L562)
 
 ### Python
     
@@ -731,7 +717,7 @@ If your users authenticate with an external identity provider using OAuth, SAML,
       System.out.println("Error importing users: " + e.getMessage());
     }
     
-    [FirebaseAuthSnippets.java](https://github.com/firebase/firebase-admin-java/blob/2d89465e59689e6256b0965cf50197cf3ddaf823/src/test/java/com/google/firebase/snippets/FirebaseAuthSnippets.java#L625-L648)
+    [FirebaseAuthSnippets.java](https://github.com/firebase/firebase-admin-java/blob/c37e514e0bc899066dff4d8ef2aa895a04568ee0/src/test/java/com/google/firebase/snippets/FirebaseAuthSnippets.java#L625-L648)
 
 ### Python
     
@@ -929,6 +915,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-03 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 

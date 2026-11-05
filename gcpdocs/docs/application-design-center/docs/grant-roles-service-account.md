@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/application-design-center/docs/grant-roles-service-account/
 title: Grant roles to your service account \u00a0|\u00a0 Application Design Center \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T05:40:57.564476+00:00
+fetched_at: 2026-11-04T23:31:19.191514+00:00
 ---
 
 # Grant roles to your service account  |  Application Design Center  |  Google Cloud Documentation
@@ -21,7 +21,7 @@ Send feedback
 
 #  Grant roles to your service account Stay organized with collections  Save and categorize content based on your preferences. 
 
-When developers [preview and deploy applications](https://docs.cloud.google.com/application-design-center/docs/deploy-from-console), they can use an existing [service account](https://docs.cloud.google.com/iam/docs/service-account-overview), or App Design Center can automatically create a new service account.
+When you [preview and deploy applications](https://docs.cloud.google.com/application-design-center/docs/deploy-applications), you can use an existing [service account](https://docs.cloud.google.com/iam/docs/service-account-overview), or Application Design Center can automatically create a service account.
 
 To deploy using your own service account, you must grant the necessary Identity and Access Management roles and permissions. This document shows you how to grant roles and configure your service account, including the following:
 
@@ -92,7 +92,7 @@ To disable enforcement of the organization policy constraint, run the following 
 Replace the following:
 
      * `SERVICE_ACCOUNT_PROJECT_ID`: The project ID of the project that contains your service account.
-  5. Grant your service account the roles required to deploy resources in projects. The required roles are displayed when developers [deploy applications](https://docs.cloud.google.com/application-design-center/docs/deploy-from-console).
+  5. Grant your service account the roles required to deploy resources in projects. App Design Center displays the required roles in the Google Cloud console when you [deploy applications](https://docs.cloud.google.com/application-design-center/docs/deploy-applications).
 
 For example, to grant the `roles/run.admin` role, add the following policy binding:
          
@@ -134,6 +134,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-04 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 

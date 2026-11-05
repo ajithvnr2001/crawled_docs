@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/bare-metal/docs/vm-runtime/convert-image/
 title: Convert a virtual disk image to qcow2 format for use in VM Runtime on GDC \u00a0|\u00a0 Google Distributed Cloud software only for bare metal \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T22:56:30.702441+00:00
+fetched_at: 2026-11-04T23:29:46.584795+00:00
 ---
 
 # Convert a virtual disk image to qcow2 format for use in VM Runtime on GDC  |  Google Distributed Cloud software only for bare metal  |  Google Cloud Documentation
@@ -22,11 +22,9 @@ Send feedback
 
 #  Convert a virtual disk image to qcow2 format for use in VM Runtime on GDC Stay organized with collections  Save and categorize content based on your preferences. 
 
-This document shows you how to manually convert an existing virtual disk image to the [`qcow2`](https://wikipedia.org/wiki/Qcow) format so that you can create and run VMs in VM Runtime on GDC using that source image. You then learn how to create a VM directly from this converted virtual disk image.
+You can reduce the time it takes to create virtual machines (VMs) in VM Runtime on GDC by manually converting existing virtual disk images to the [`qcow2`](https://wikipedia.org/wiki/Qcow) format. After you convert an image, you can create and run VMs directly from it.
 
-This page is for Operators and Developers who want to run existing virtualized workloads in a containerized environment. To learn more about common roles and example tasks that we reference in Google Cloud content, see [Common GKE user roles and tasks](https://docs.cloud.google.com/kubernetes-engine/enterprise/docs/concepts/roles-tasks).
-
-VM Runtime on GDC automatically converts an existing disk image to the `qcow2` format during deployment if needed. However, if you want to create multiple VMs from a non-`qcow2` virtual disk image, VM Runtime on GDC must convert the image every time. This process to convert the image to the `qcow2` format increases the amount of time it takes to create and start the VM. To reduce the time it takes to create each VM, convert the virtual disk image to the `qcow2` format first, as shown in this document.
+VM Runtime on GDC automatically converts non-`qcow2` disk images during deployment. However, if you create multiple VMs from the same non-`qcow2` image, VM Runtime on GDC converts the image every time, which increases the time it takes to create and start each VM. Converting the image first, as shown in this document, avoids this repeated conversion.
 
 ## Before you begin
 
@@ -122,6 +120,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-04 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 

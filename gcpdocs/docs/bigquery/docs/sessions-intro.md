@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/sessions-intro/
 title: Introduction to sessions \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T05:46:04.157397+00:00
+fetched_at: 2026-11-04T23:32:31.122758+00:00
 ---
 
 # Introduction to sessions  |  BigQuery  |  Google Cloud Documentation
@@ -21,9 +21,11 @@ Send feedback  Stay organized with collections  Save and categorize content base
 
 # Introduction to sessions
 
-This guide describes how to enable, create, and track changes in a BigQuery session. It is intended for users who are familiar with [BigQuery](https://docs.cloud.google.com/bigquery/docs) and [GoogleSQL](https://docs.cloud.google.com/bigquery/docs/reference/standard-sql/query-syntax).
+A BigQuery session lets you capture your SQL activities and maintain state across multiple queries. Within a session, you can define temporary tables, temporary functions, and variables once and reuse them as you interactively build queries or run multi-statement transactions.
 
-You can capture your SQL activities in a BigQuery session. Temporary tables, temporary functions, and variables can be used throughout the session to interactively build one or more queries. Multiple sessions can be active at the same time and the history for each session is saved. You can view the history of a session for up to 20 days after the session is terminated.
+Multiple sessions can be active at the same time, and BigQuery saves the history of each session for up to 20 days after the session ends. Before you work with sessions, make sure that you are familiar with [BigQuery](https://docs.cloud.google.com/bigquery/docs) and [GoogleSQL](https://docs.cloud.google.com/bigquery/docs/reference/standard-sql/query-syntax).
+
+## Use cases
 
 Typical uses for a session include the following:
 
@@ -102,6 +104,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-27 UTC.
+Last updated 2026-11-04 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chronicle/docs/soar/marketplace/power-ups/gitsync/
 title: GitSync \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T08:05:43.475838+00:00
+fetched_at: 2026-11-04T23:33:37.163086+00:00
 ---
 
 # GitSync  |  Google Security Operations  |  Google Cloud Documentation
@@ -716,7 +716,7 @@ Observed error message | Operational cause | Remediation procedure
   * If you are setting up a new branch on version 52.0 or 54.0, execute a full **Push Content** job first to populate the branch before running any pull jobs.
 
   
-`Playbook '<Playbook_Name>' is assigned to environment(s) that don't exist` | A playbook or block being imported is assigned to an environment or environment group that hasn't been created on the destination instance. | Run **Pull Content** with the **Environments** option selected first, or manually create the missing environment in **Settings > Environments** on the destination instance before pulling playbooks.  
+`Playbook '<Playbook_Name>' is assigned to environment(s) that don't exist` | A playbook or block being imported is assigned to an environment or environment group that hasn't been created on the destination instance. | Run **Pull Content** with the **Environments** option selected first, or manually create the missing environment in **Settings > Access Management > Environments** on the destination instance before pulling playbooks.  
 `Commit Author parameter must be in the following format: Name <example@gmail.com>` | The **Commit Author** parameter in the integration instance or job configuration is missing an email address in angle brackets. | Update the **Commit Author** parameter to match the required format: `Name <email@domain.com>` (for example, `GitSync <gitsync@example.com>`).  
 `400 Bad Request` or `409 Conflict` when importing ontology mappings | Event mapping rules in the repository conflict with existing platform ontology rules, or were exported using an incompatible GitSync version. | Execute a fresh **Push Mappings** job using GitSync version 54.0 or 52.0 to re-export mapping definitions, or resolve duplicate event mapping rules in **Settings > Ontology > Mapping Rules** before re-running the job.  
   
@@ -726,6 +726,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-29 UTC.
+Last updated 2026-11-04 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 

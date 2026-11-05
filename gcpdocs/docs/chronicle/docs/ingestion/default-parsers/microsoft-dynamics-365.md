@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/microsoft-dynamics-365/
 title: Collect Microsoft Dynamics 365 User Activity logs \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T07:50:56.325130+00:00
+fetched_at: 2026-11-04T23:43:10.110154+00:00
 ---
 
 # Collect Microsoft Dynamics 365 User Activity logs  |  Google Security Operations  |  Google Cloud Documentation

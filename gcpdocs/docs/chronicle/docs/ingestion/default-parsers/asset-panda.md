@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/asset-panda/
 title: Collect Asset Panda logs \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T07:51:36.478926+00:00
+fetched_at: 2026-11-04T23:35:17.241403+00:00
 ---
 
 # Collect Asset Panda logs  |  Google Security Operations  |  Google Cloud Documentation

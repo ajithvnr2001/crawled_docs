@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/docs/instance-configure-database-flags/
 title: Configure an instance's database flags \u00a0|\u00a0 AlloyDB for PostgreSQL \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T22:59:17.150596+00:00
+fetched_at: 2026-11-04T23:28:48.204993+00:00
 ---
 
 # Configure an instance's database flags  |  AlloyDB for PostgreSQL  |  Google Cloud Documentation
@@ -155,10 +155,42 @@ To see the list of an instance's current, manually-set flags, run the following 
        --cluster=CLUSTER_ID \
        --project=PROJECT_ID
 
+### Terraform
+
+**Warning:** To keep your Terraform state consistent, update configurations directly in your Terraform files. If you make manual changes using the Google Cloud console, gcloud CLI, or REST API, the following issues can occur: 
+
+  * API errors
+  * Perpetual diffs
+  * Overwritten changes during `terraform apply`
+
+
+
+To configure database flags for an instance, set the `database_flags` field in the [`google_alloydb_instance` resource](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/alloydb_instance). To set multiple database flags, specify each flag name and value as a key-value pair inside the `database_flags` map:
+    
+    
+    resource "google_alloydb_instance" "default" {
+      cluster       = google_alloydb_cluster.default.name
+      instance_id   = "INSTANCE_ID"
+      instance_type = "PRIMARY" # or "READ_POOL"
+    
+      machine_config {
+        cpu_count = 4
+      }
+    
+      database_flags = {
+        "password.enforce_complexity" = "on"
+        "log_min_error_statement"     = "error"
+        "log_min_messages"            = "warning"
+      }
+    }
+    
+
+Replace `INSTANCE_ID` with the ID of the instance.
+
 Send feedback 
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-04 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 

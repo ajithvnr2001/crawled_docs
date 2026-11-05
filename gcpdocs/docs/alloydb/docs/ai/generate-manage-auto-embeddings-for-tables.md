@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/docs/ai/generate-manage-auto-embeddings-for-tables/
 title: Generate and manage auto vector embeddings for large tables \u00a0|\u00a0 AlloyDB for PostgreSQL \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T18:44:25.841670+00:00
+fetched_at: 2026-11-05T00:18:42.964075+00:00
 ---
 
 # Generate and manage auto vector embeddings for large tables  |  AlloyDB for PostgreSQL  |  Google Cloud Documentation
@@ -38,6 +38,16 @@ With auto vector embeddings, you can do the following:
 
 This feature simplifies the development and maintenance of AI applications by abstracting away the complexity of vector embedding creation and maintenance.
 
+### Supported models
+
+Auto vector embeddings support the following types of embedding models:
+
+  * Pre-registered Google embeddings: pre-registered Google models, such as `text-embedding-005` and `gemini-embedding-001`. You can use these models without registration. For more information, see [Pre-registered Gemini Enterprise Agent Platform models](https://docs.cloud.google.com/alloydb/docs/reference/supported-ai-models#pre-registered-models).
+  * Third-party models hosted by external providers: embedding models hosted by third-party providers, such as OpenAI's `text-embedding-3-small` or `text-embedding-3-large`. To use these models, register the model endpoint using model endpoint management. For more information, see [OpenAI text embedding model](https://docs.cloud.google.com/alloydb/docs/ai/register-model-endpoint#add-openai).
+  * Custom models hosted locally or remotely: self-hosted models, models hosted locally on private infrastructure, or models hosted behind custom endpoints. To use custom models with auto vector embeddings, define transform functions and register the model endpoint with model endpoint management. For more information, see [Custom-hosted text embedding model](https://docs.cloud.google.com/alloydb/docs/ai/register-model-endpoint#custom-hosted-model).
+
+
+
 ## Before you begin
 
 **Note:**
@@ -71,7 +81,9 @@ For Agent Platform embedding model limits and a complete list of quotas, see [Ag
 
   * Verify that the `google_ml_integration.enable_model_support` flag and `google_ml_integration.enable_faster_embedding_generation` flags are set to `on`.
 
-  * Before you can generate embeddings from an AlloyDB database, you must configure AlloyDB to work with Agent Platform. For more information, see [Integrate your database with Agent Platform](https://docs.cloud.google.com/alloydb/docs/ai/configure-vertex-ai).
+  * If you use Google embeddings, configure AlloyDB to work with Agent Platform. For more information, see [Integrate your database with Agent Platform](https://docs.cloud.google.com/alloydb/docs/ai/configure-vertex-ai).
+
+  * If you use third-party or custom embedding models, [register the model endpoint](https://docs.cloud.google.com/alloydb/docs/ai/register-model-endpoint) with model endpoint management before initializing auto vector embeddings.
 
   * For managing and monitoring auto embedding generation, users have `Select` access to the `google_ml.embed_gen_progress` and `google_ml.embed_gen_settings` tables by default.
 
@@ -138,7 +150,7 @@ Use the `ai.initialize_embeddings()` SQL function to generate embeddings for a t
 
 **Note:** If the `ai.initialize_embeddings()` call fails, you must first clean up the configuration by using the `ai.drop_embedding_config()` procedure before you reissue the call—for example, `CALL ai.drop_embedding_config(table_name =>'my_table');`.
 
-This function supports Google-provided models—for example, the Agent Platform `text-embedding-005` model—as well as custom models that you register.
+This function supports pre-registered Google embedding models, third-party models hosted by external providers such as OpenAI, and custom models hosted locally or remotely. For instructions on registering third-party and custom embedding models with model endpoint management, see [Register and call remote AI models using model endpoint management](https://docs.cloud.google.com/alloydb/docs/ai/register-model-endpoint).
 
 ## Perform batch generation
 
@@ -161,6 +173,8 @@ The `batch_size` parameter in `ai.initialize_embeddings` lets you guide the Allo
 ### Use a custom embedding model with batch support
 
 If you want to use a custom or externally supported model that supports batching, define the batch transform functions and specify them as `model_batch_in_transform_fn` and `model_batch_out_transform_fn` when you create a model. You can also specify a `batch_size` in the `initialize_embeddings` call. For models that support batching, we recommend that you use a `batch_size` greater than 1 for better performance.
+
+For instructions on registering custom models, see [Custom-hosted text embedding model](https://docs.cloud.google.com/alloydb/docs/ai/register-model-endpoint#custom-hosted-model).
 
   1. Define your custom model's input, output, and batch transform functions.
          
@@ -462,7 +476,20 @@ Column | Description
   
 ## Examples for generating embeddings in auto
 
-This section provides examples for generating embeddings in auto using registered model endpoints.
+This section provides examples for generating embeddings in auto using pre-registered or registered model endpoints.
+
+### Google embedding model
+
+To generate embeddings using the pre-registered Google `text-embedding-005` model endpoint, run the following statement:
+    
+    
+    CALL ai.initialize_embeddings(
+        model_id => 'text-embedding-005',
+        table_name => 'user_reviews',
+        content_column => 'content',
+        embedding_column => 'content_embeddings'
+    );
+    
 
 ### OpenAI embedding model
 
@@ -479,10 +506,13 @@ To generate embeddings using the [registered `text-embedding-3-small` model endp
 
 ### Custom embedding models
 
-For your own or externally supported models, you must define input and output transform functions and register them with `ai.create_model`. If you plan to use the auto embedding feature, you must specify both scalar transform functions—for example, `acme_text_input_transform`, `acme_text_output_transform`—and batch transform functions—for example, `acme_text_batch_input_transform`, `acme_text_batch_output_transform`.
+To use your own custom models or externally supported models, you must define input and output transform functions and register them with `ai.create_model` or `google_ml.create_model`. If you plan to use the auto embedding feature, you must specify both scalar transform functions—for example, `acme_text_input_transform`, `acme_text_output_transform`—and batch transform functions—for example, `acme_text_batch_input_transform`, `acme_text_batch_output_transform`.
+
+For more information about registering custom models and defining transform functions, see [Custom-hosted text embedding model](https://docs.cloud.google.com/alloydb/docs/ai/register-model-endpoint#custom-hosted-model).
 
 ## What's next
 
+  * [Register and call remote AI models using model endpoint management](https://docs.cloud.google.com/alloydb/docs/ai/register-model-endpoint).
   * [Run vector similarity searches](https://docs.cloud.google.com/alloydb/docs/ai/run-vector-similarity-search).
   * [Learn how to build a smart shopping assistant with AlloyDB, pgvector, and model endpoint management](https://codelabs.developers.google.com/smart-shop-agent-alloydb#0).
   * [Create a ScaNN index](https://docs.cloud.google.com/alloydb/docs/ai/create-scann-index).
@@ -494,6 +524,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-03 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini/enterprise/docs/release-notes/
 title: Gemini Enterprise release notes \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T05:48:01.184434+00:00
+fetched_at: 2026-11-04T23:31:08.007626+00:00
 ---
 
 # Gemini Enterprise release notes  |  Google Cloud Documentation
@@ -28,6 +28,28 @@ This page documents production updates to Gemini Enterprise. Check this page for
 You can see the latest product updates for all of Google Cloud on the [ Google Cloud](https://docs.cloud.google.com/release-notes) page, browse and filter all release notes in the [Google Cloud console](https://console.cloud.google.com/release-notes), or programmatically access release notes in [BigQuery](https://console.cloud.google.com/bigquery?p=bigquery-public-data&d=google_cloud_release_notes&t=release_notes&page=table). 
 
 To get the latest product updates delivered to you, add the URL of this page to your [feed reader](https://wikipedia.org/wiki/Comparison_of_feed_aggregators), or add the [feed URL](https://docs.cloud.google.com/feeds/gemini-enterprise-release-notes.xml) directly. 
+
+## November 04, 2026
+
+Feature
+
+**Gemini Enterprise: Switch between teams in the mobile app**
+
+You can switch between multiple teams in the Gemini Enterprise mobile app without logging out and rescanning the QR code. (Teams were previously called instances.)
+
+When you open a team for the first time, the mobile app saves it to your teams list. Additionally, you can rename teams in the list and you can remove teams from your list.
+
+This feature is generally available (GA). For more information, see [Teams](https://docs.cloud.google.com/gemini/enterprise/docs/use-the-mobile-app#teams) in _Use the mobile app_.
+
+## November 03, 2026
+
+Feature
+
+**Gemini Enterprise: Salesforce federated data store**
+
+Connecting a Salesforce data source with Gemini Enterprise using data federation is generally available (GA). You can use the Gemini Enterprise app assistant to search across your Salesforce accounts, contacts, opportunities, cases, leads, and custom objects, get answers grounded in that content, and create, update, and delete records without needing to ingest the data.
+
+For more information, see [Set up a Salesforce data store](https://docs.cloud.google.com/gemini/enterprise/docs/connectors/salesforce/set-up-data-store).
 
 ## October 30, 2026
 

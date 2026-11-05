@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/compute/docs/disks/snapshot-settings/
 title: Set default storage locations for globally scoped snapshots \u00a0|\u00a0 Compute Engine \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T23:39:33.405664+00:00
+fetched_at: 2026-11-05T00:19:29.315318+00:00
 ---
 
 # Set default storage locations for globally scoped snapshots  |  Compute Engine  |  Google Cloud Documentation
@@ -163,7 +163,7 @@ Consider an example project `my-project` in `us-central1` region.
           --storage-location-policy=local-region
     
 
-  * To configure as the storage location policy of your project's snapshot settings as a specific location of your choice (like `us-central1`), use the `--storage-location-names` flag and run the following command:
+  * To configure the storage location policy of your project's snapshot settings as a specific location of your choice (like `us-central1`), use the `--storage-location-names` flag and run the following command:
 
 
     
@@ -176,7 +176,7 @@ Consider an example project `my-project` in `us-central1` region.
 
 ###  REST 
 
-To add the snapshot settings or update existing the snapshot settings for your project, make a `PATCH` request to the [`snapshotSettings.update` method](https://docs.cloud.google.com/compute/docs/reference/rest/v1/snapshotSettings/patch):
+To add the snapshot settings or update the existing snapshot settings for your project, make a `PATCH` request to the [`snapshotSettings.update` method](https://docs.cloud.google.com/compute/docs/reference/rest/v1/snapshotSettings/patch):
     
     
       PATCH https://compute.googleapis.com/compute/v1/projects/PROJECT_ID/global/snapshotSettings
@@ -236,7 +236,7 @@ Consider an example project `my-project` in `us-central1` region.
         }
     
 
-  * To configure as the storage location policy of your project's snapshot settings as a specific location (like `us-central1`), make the following `PATCH` request:
+  * To configure the storage location policy of your project's snapshot settings as a specific location (like `us-central1`), make the following `PATCH` request:
 
 
     
@@ -298,6 +298,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-03 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 

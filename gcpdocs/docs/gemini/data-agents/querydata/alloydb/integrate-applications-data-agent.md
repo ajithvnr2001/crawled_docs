@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini/data-agents/querydata/alloydb/integrate-applications-data-agent/
 title: Integrate QueryData with an application \u00a0|\u00a0 Data Agents \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T16:24:57.942471+00:00
+fetched_at: 2026-11-05T00:04:58.156635+00:00
 ---
 
 # Integrate QueryData with an application  |  Data Agents  |  Google Cloud Documentation
@@ -30,6 +30,8 @@ This tutorial describes how to set up and use QueryData in AlloyDB for PostgreSQ
 For more information, see [QueryData overview](https://docs.cloud.google.com/gemini/data-agents/querydata/alloydb/data-agent-overview). 
 
 ## Objectives
+
+This tutorial covers the following objectives:
 
   * Create databases and populate them with data.
   * Build a context set file with the context engineering agent.
@@ -647,7 +649,7 @@ In this section, create a context set named `flights-assistant`. This context se
 
   4. Sign in to **Studio** using IAM authentication. 
 
-  5. In the **Explorer pane** , next to **Context sets** , click **More actions ( more_vert)**.
+  5. In the **Explorer pane** , next to **Context sets** , click **View actions ( more_vert)**.
 
   6. Click **Create context set**.
 
@@ -660,11 +662,9 @@ In this section, create a context set named `flights-assistant`. This context se
 
 ## Test QueryData in Studio
 
-In this section, use the `flights-assistant` context set by asking natural language questions to generate a SQL query. Since the context set doesn't have any context set file uploaded to it, even after asking a question with context such as `nighttime traffic`, QueryData generates a sub-optimal query.
+In this section, use the `flights-assistant` context set by asking natural language questions to generate a SQL query. Since the context set doesn't have any context set file uploaded to it, even after asking a question with context such as `nighttime traffic`, QueryData generates a sub-optimal query. You also ask the `flights-assistant` agent a question such as "flight to disney world" to test whether it can infer the correct arrival city. 
 
-You also ask the `flights-assistant` agent a question such as "flight to disney world" to test whether it can infer the correct arrival city. 
-
-  1. In the **Explorer pane** , next to your context set, click **More actions ( more_vert)**.
+  1. In the **Explorer pane** , next to your context set, click **View actions ( more_vert)**.
   2. Click **Test context set**.
   3. In the query editor, click **Generate SQL using QueryData with: flights-assistant**.
   4. Enter the following natural language question to generate a SQL query, and click **Generate**.
@@ -689,7 +689,7 @@ Review the SQL query. Notice that QueryData generates the correct SQL for this u
          Tell me flights that can help me beat nighttime traffic if traveling from New York
          
 
-The database fails to understand the term `nighttime` traffic. This might prevent it from generating a SQL query or cause it to generate a query that ignores the term, as the following query shows.
+The database fails to understand the term `nighttime` traffic. This might prevent it from generating a SQL query or cause it to generate a query that ignores the term, as the following query shows. 
 
 **Note:** GenAI models are nondeterministic, meaning the same prompt may yield different responses across separate calls due to the probabilistic nature of the output generation.
          
@@ -867,7 +867,7 @@ In this section, you generate value search context to help context set logic map
 
 To generate value search context, perform the following steps:
 
-  1. Enter the following prompt into the agent harness:
+  1. Enter the following prompt into the agent harness.
 
   2. Enter `postgresql` to select AlloyDB as the database engine.
 
@@ -925,11 +925,11 @@ To upload the context, perform the following steps:
 
   4. Sign in to **Studio** using Identity and Access Management authentication. 
 
-  5. In the **Explorer pane** , next to **Context sets** , click the **Actions** (more_vert) icon.
+  5. In the **Explorer pane** , under **Context sets** and next to the `flights-assistant` context set, click the **View actions** (more_vert) icon.
 
   6. Click **Edit context set**.
 
-  7. Click **Browse** in the **Upload context set file** section, and select the context set file generated earlier.
+  7. Click **Browse** in the **Upload context file** section, and then select the context set file generated earlier.
 
   8. Click **Save**.
 
@@ -944,10 +944,10 @@ In this section, you use the context set file you uploaded to ask natural langua
 
 To generate SQL queries, perform the following steps:
 
-  1. In the **Explorer** pane, next to your context set, click **More actions ( more_vert)**.
+  1. In the **Explorer** pane, next to your context set, click **View actions ( more_vert)**.
   2. Click **Test context set**.
   3. In the query editor, click **Generate SQL using QueryData with: flights-assistant**.
-  4. Enter the following natural language question to generate a SQL query, and click **Generate**.
+  4. To generate a SQL query, enter the following natural language question, and then click **Generate**.
          
          Tell me flights that can help me beat nighttime traffic if traveling from New York
          
@@ -1044,7 +1044,7 @@ Observe that QueryData can now accurately interpret that "disney world" relates 
 
 ## Integrate QueryData with your application
 
-In this section, you create a data agent for a flight-finding application. This data agent provides a conversational interface to the `flights` and `airports` tables you created earlier. It also explains how to create and integrate this data agent into your application using [Agent Development Kit (ADK)](https://github.com/google/adk-python), the Gemini Data Analytics QueryData MCP tool, and a context set to improve quality of the responses.
+In this section, you create a data agent for a flight-finding application. This data agent provides a conversational interface to the `flights` and `airports` tables that you created earlier. It also explains how to create and integrate this data agent into your application using [Agent Development Kit (ADK)](https://github.com/google/adk-python), the Gemini Data Analytics QueryData MCP tool, and a context set to improve quality of the responses.
 
 **Note:** GenAI models are nondeterministic, meaning the same prompt may yield different responses across separate calls due to the probabilistic nature of the output generation.
 
@@ -1054,7 +1054,7 @@ In this section, you create a data agent for a flight-finding application. This 
          
          gcloud auth application-default login
 
-  3. Find the ID of the context set you created earlier. For more information about how to find the context set ID, see [Find the context set ID](https://docs.cloud.google.com/gemini/data-agents/querydata/alloydb/inspect-data-agent#find-context-id).
+  3. Find the ID of the context set you created earlier. For more information about how to find the context set ID, see [Find the context set ID](https://docs.cloud.google.com/gemini/data-agents/querydata/alloydb/inspect-data-agent#find-context-set-id).
 
   4. Append the following to the `tools.yaml` configuration to connect to the data agent using the MCP Toolbox. For more information, see [Gemini Data Analytics Source](https://mcp-toolbox.dev/integrations/cloudgda/source/) and [Gemini Data Analytics QueryData tool](https://mcp-toolbox.dev/integrations/cloudgda/tools/cloud-gda-query/).
          
@@ -1098,7 +1098,9 @@ Replace the following:
      * `CONTEXT_SET_ID`: The context set ID. For more information about how to find the context set ID, see [Find the context set ID](https://docs.cloud.google.com/gemini/data-agents/querydata/alloydb/inspect-data-agent#find-context-id).
   5. Run the MCP Toolbox server with the `tools.yaml` file.
          
-         ./toolbox --config autoctx/tools.yaml
+         ./toolbox --config PATH_TO_TOOLS_YAML
+
+Replace `PATH_TO_TOOLS_YAML` with the path to the `tools.yaml` file you created earlier.
 
 **Note:** Don't close the terminal window where the MCP Toolbox server is running.
   6. Create an ADK application that invokes [Gemini Data Analytics QueryData tool](https://mcp-toolbox.dev/integrations/cloudgda/tools/cloud-gda-query/) using the MCP Toolbox's Python SDK. For more information about how to use the MCP Toolbox's Python SDK, see the [quickstart for Toolbox](https://mcp-toolbox.dev/documentation/getting-started/local_quickstart/) and for Python ADK, see the [quickstart for ADK](https://google.github.io/adk-docs/get-started/python/).
@@ -1120,7 +1122,7 @@ Replace the following:
                
                uv run adk create my_agent
 
-        2. Select the `gemini-3.8-flash` model, or newer.
+        2. Select the `gemini-2.5-flash` model, or newer.
 
         3. Select **Google AI** , and enter your Gemini API key. For more information about how to find your API key, see [Using Gemini API keys](https://ai.google.dev/gemini-api/docs/api-key). (Alternatively, if you don't need a free trial, you can select **Vertex AI** and specify a Google Cloud project with billing enabled).
 
@@ -1174,15 +1176,15 @@ Replace the following:
             mcp_tool = client.load_tool("cloud_gda_query_tool")
             
             root_agent = Agent(
-                model="gemini-3.8-flash",  # Or newer.
+                model="gemini-2.5-flash",  # Or newer.
                 name="root_agent",
                 instruction=INSTRUCTION,
                 tools=cast(list[ToolUnion], [mcp_tool]),
             )
             
 
-**Note:** The instruction contains a system prompt that sets up a `flight assistant` data agent. It also instructs the agent how to use the Gemini Data Analytics QueryData tool you set up in the `tools.yaml` file you created earlier in step 5.
-  7. Run the following commands under the `flight-assistant-app` directory to start the application and access the ADK web server at `http://127.0.0.1:8000`.
+**Note:** The instruction contains a system prompt that sets up a `flight assistant` data agent. It also instructs the agent how to use the Gemini Data Analytics QueryData tool you set up in the `tools.yaml` file you created earlier.
+  7. To start the application, run the following commands under the `flight-assistant-app` directory. Access the ADK web server at `http://127.0.0.1:8000`.
          
          uv run adk web --port 8000
 
@@ -1253,7 +1255,7 @@ Based on the value search context added earlier, the QueryData agent understands
 
 The ADK web UI lets you inspect the request and response from the Gemini Data Analytics QueryData MCP tool. You can use this response to observe the tool responses such as generated SQL query, result set, intent explanation, disambiguation question, and natural language answer, to help you confirm the correctness of your agent's responses.
 
-For example, for the input text `How many flights depart from the west side?` you entered earlier, click the agent bubble. In the **Event** tab in the left navigation, expand the `functionResponse` to see the following response.
+For example, for the input text `How many flights depart from the west side?` that you entered earlier, click the agent bubble. In the **Event** tab in the left navigation, expand the `functionResponse` to see the following response.
     
     
     "{"disambiguationQuestion": ["[NOT_ENOUGH_INFO] The database schema does not
@@ -1307,9 +1309,10 @@ The following example `tools.yaml` shows how to set up multiple data agents for 
 
 Replace the following:
 
-  * `PROJECT_ID`: Your Google Cloud project ID.
-  * `V1_YOUR_CONTEXT_SET_ID`: The context set ID for version 1.
-  * `V2_YOUR_CONTEXT_SET_ID`: The context set ID for version 2.
+  * `PROJECT_ID`: your Google Cloud project ID.
+  * `V1_YOUR_CONTEXT_SET_ID`: the context set ID for version 1.
+  * `V2_YOUR_CONTEXT_SET_ID`: the context set ID for version 2.
+  * `DB_SOURCE`: the database source configurations.
 
 
 
@@ -1333,7 +1336,7 @@ For an example of how to use PSV with context sets, see [Secure data agents with
 
 ## Clean up
 
-After you have finished following this tutorial, you should delete the resources that you created to avoid incurring ongoing costs. The following sections describe how to delete these resources.
+After you've finished following this tutorial, delete the resources that you created to avoid incurring ongoing costs. The following sections describe how to delete these resources.
 
 ### Delete the context set
 
@@ -1349,11 +1352,13 @@ Before you delete the cluster, delete the context set that you created.
 
   4. Sign in to **Studio** using Identity and Access Management authentication. 
 
-  5. In the **Explorer pane** , next to your context set, click **More actions ( more_vert)**.
+  5. In the **Explorer pane** , next to your context set, click **View actions ( more_vert)**.
 
-  6. In the **Delete context set** window, enter `flight-assistant` in the confirmation box.
+  6. Click **Delete context set**.
 
-  7. Click **Confirm**.
+  7. In the **Delete context set** window, enter `flights-assistant`.
+
+  8. Click **Confirm**.
 
 
 
@@ -1386,6 +1391,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-04 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/text-to-speech/voice-replication/
 title: Replicate voices \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T05:53:55.669587+00:00
+fetched_at: 2026-11-04T23:12:50.254995+00:00
 ---
 
 # Replicate voices  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation
@@ -55,7 +55,7 @@ Complete the steps in [Before you begin](https://docs.cloud.google.com/gemini-en
 
 Each request to create a replicated voice needs two recordings of the same adult speaker:
 
-  * **Reference audio (`source_audio`)**: 10 to 30 seconds of clean, natural speech from the speaker whose voice you want to replicate. Longer samples generally produce better results.
+  * **Reference audio (`source_audio`)**: 60 seconds of clean, natural speech from the speaker whose voice you want to replicate. Longer samples generally produce better results.
   * **Consent audio (`consent_audio`)**: A recording of the same speaker reading the consent statement for their language word for word. For the statements, see Supported languages and consent statements. In English, the statement is:
 
 > _"I am the owner of this voice and have consented to the creation of a synthetic model of my voice through the use of Google Cloud."_
@@ -385,6 +385,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-30 UTC.
+Last updated 2026-11-04 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 

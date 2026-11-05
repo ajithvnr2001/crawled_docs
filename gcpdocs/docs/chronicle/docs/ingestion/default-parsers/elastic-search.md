@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/elastic-search/
 title: Collect Elasticsearch logs \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T07:53:53.790852+00:00
+fetched_at: 2026-11-04T23:42:19.145476+00:00
 ---
 
 # Collect Elasticsearch logs  |  Google Security Operations  |  Google Cloud Documentation

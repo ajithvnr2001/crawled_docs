@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/docs/database-users/manage-roles/
 title: Manage PostgreSQL users with built-in authentication \u00a0|\u00a0 AlloyDB for PostgreSQL \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T00:01:31.797996+00:00
+fetched_at: 2026-11-05T00:17:58.005276+00:00
 ---
 
 # Manage PostgreSQL users with built-in authentication  |  AlloyDB for PostgreSQL  |  Google Cloud Documentation
@@ -25,9 +25,9 @@ To control database access with password-based credentials, you can create, mana
 
 ## Create PostgreSQL users in AlloyDB
 
-When you create PostgreSQL users, they only start with the `LOGIN` privilege. For more information about these privileges, see [`CREATE USER`](https://www.postgresql.org/docs/17/sql-createuser.html).
+When you create PostgreSQL users, they only start with the `LOGIN` privilege. For more information about these privileges, see [`CREATE USER`](https://www.postgresql.org/docs/18/sql-createuser.html).
 
-You can change the privileges of any user by using the [`ALTER ROLE`](https://www.postgresql.org/docs/17/sql-alterrole.html) command. If you create a new user with the `psql` client, you can choose to associate it with a different role, or assign different privileges.
+You can change the privileges of any user by using the [`ALTER ROLE`](https://www.postgresql.org/docs/18/sql-alterrole.html) command. If you create a new user with the `psql` client, you can choose to associate it with a different role, or assign different privileges.
 
 ## Manage users
 
@@ -98,9 +98,9 @@ Replace the following:
 
 
 
-For more information about how to create and define database users, see [`CREATE USER`](https://www.postgresql.org/docs/17/sql-createuser.html).
+For more information about how to create and define database users, see [`CREATE USER`](https://www.postgresql.org/docs/18/sql-createuser.html).
 
-After you create a user, you can change its privileges by using the [`ALTER ROLE`](https://www.postgresql.org/docs/17/sql-alterrole.html) command in the `psql` client.
+After you create a user, you can change its privileges by using the [`ALTER ROLE`](https://www.postgresql.org/docs/18/sql-alterrole.html) command in the `psql` client.
 
 ### gcloud
 
@@ -244,7 +244,7 @@ You can't change or set the password of an IAM-based user because IAM users don'
     ALTER USER USERNAME WITH PASSWORD 'PASSWORD';
     
 
-For more information about how to change a user's password, see [`ALTER ROLE`](https://www.postgresql.org/docs/17/sql-alterrole.html).
+For more information about how to change a user's password, see [`ALTER ROLE`](https://www.postgresql.org/docs/18/sql-alterrole.html).
 
 ### gcloud
 
@@ -329,7 +329,7 @@ To revoke superuser privileges, you can either manually remove a user's `alloydb
 
 ### View a list of database users
 
-**Note:** When listing users by using the Google Cloud console or gcloud CLI, users or roles configured with `NOLOGIN` are filtered out of the returned list. If you temporarily disable a user by using `ALTER ROLE ... NOLOGIN`, the user is hidden from these control plane listings. To view all roles, [connect to your instance using `psql`](https://docs.cloud.google.com/alloydb/docs/connect-psql) and query [`pg_roles`](https://www.postgresql.org/docs/17/view-pg-roles.html) directly.
+**Note:** When listing users by using the Google Cloud console or gcloud CLI, users or roles configured with `NOLOGIN` are filtered out of the returned list. If you temporarily disable a user by using `ALTER ROLE ... NOLOGIN`, the user is hidden from these control plane listings. To view all roles, [connect to your instance using `psql`](https://docs.cloud.google.com/alloydb/docs/connect-psql) and query [`pg_roles`](https://www.postgresql.org/docs/18/view-pg-roles.html) directly.
 
 ### Console
 
@@ -548,6 +548,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-03 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 

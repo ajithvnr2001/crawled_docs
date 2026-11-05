@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/kubernetes-engine/docs/how-to/cloud-dns/
 title: Use Cloud DNS for GKE \u00a0|\u00a0 GKE networking \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T22:14:10.600755+00:00
+fetched_at: 2026-11-04T23:31:26.220078+00:00
 ---
 
 # Use Cloud DNS for GKE  |  GKE networking  |  Google Cloud Documentation
@@ -63,6 +63,7 @@ The following limitations apply:
   * Cloud DNS for GKE is not available for [Assured Workload](https://docs.cloud.google.com/assured-workloads/docs/key-concepts) with an IL4 compliance regime. `kube-dns` is forced in such regulated environments.
   * Manual changes to the managed private DNS zones are not supported and are overwritten by the Cloud DNS controller. Modifications to the DNS records in those zones don't persist when the controller restarts.
   * After you enable Cloud DNS for GKE in a cluster, `kube-dns` continues to run in the cluster. You can disable `kube-dns` by [scaling the `kube-dns` Deployment and autoscaler to zero](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/custom-kube-dns#scale-down).
+  * [Single-stack IPv6 clusters](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/single-stack-ipv6) strictly require Cloud DNS as the cluster DNS provider. GKE doesn't support `kube-dns` for IPv6-only Pods and nodes.
   * You cannot change the [DNS scope](https://docs.cloud.google.com/kubernetes-engine/docs/concepts/about-cloud-dns#dns-scopes) in a cluster after you have set the scope with the `--cluster-dns-scope` flag. If you need to change the DNS scope, you must re-create the cluster with a different DNS scope.
   * Limitations of [CloudDNS resources](https://docs.cloud.google.com/dns/quotas#resource_limits) apply. In particular, at most one response policy zone can be bound to a VPC network at a time. For VPC and additive VPC scopes, cluster creation fails if there's already a response policy zone that doesn't follow the [naming convention](https://docs.cloud.google.com/kubernetes-engine/docs/concepts/about-cloud-dns#created_resources) that's bound to the cluster's VPC network.
   * [Custom stub domains and upstream DNS server configurations](https://docs.cloud.google.com/kubernetes-engine/docs/concepts/about-cloud-dns#supporting_custom_stub_domains_and_upstream_nameservers) apply to the DNS configurations of Pods and nodes. Pods that use host networking or processes that run directly on the host also use the stub domain and upstream name server configurations. This behavior is supported only in Standard.
@@ -568,6 +569,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-04 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 

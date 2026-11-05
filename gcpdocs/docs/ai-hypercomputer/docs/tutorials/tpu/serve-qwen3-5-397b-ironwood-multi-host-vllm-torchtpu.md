@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/ai-hypercomputer/docs/tutorials/tpu/serve-qwen3-5-397b-ironwood-multi-host-vllm-torchtpu/
 title: Serve Qwen3.5-397B on GKE with multi-host vLLM TorchTPU on TPU7x accelerators \u00a0|\u00a0 AI Hypercomputer \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-30T08:38:46.745209+00:00
+fetched_at: 2026-11-05T00:19:38.200870+00:00
 ---
 
 # Serve Qwen3.5-397B on GKE with multi-host vLLM TorchTPU on TPU7x accelerators  |  AI Hypercomputer  |  Google Cloud Documentation
@@ -24,6 +24,8 @@ Send feedback
 This tutorial shows you how to deploy and serve [Qwen3.5-397B (`Qwen/Qwen3.5-397B-A17B-FP8`)](https://huggingface.co/Qwen/Qwen3.5-397B-A17B-FP8), a Mixture-of-Experts model, on Google Kubernetes Engine (GKE). The deployment uses multi-host [TPU7x (Ironwood)](https://docs.cloud.google.com/tpu/docs/tpu7x) accelerators and the [vLLM TPU serving framework](https://github.com/vllm-project/tpu-inference) with TorchTPU (`torchtpu`) and prefill-decode (PD) disaggregation.
 
 In this configuration, you provision two multi-host `tpu7x-standard-4t` node pools, each arranged in a `2x2x2` topology (eight TPU7x chips across two nodes per node pool, for a total of 16 TPU7x chips). You use the Kubernetes JobSet API and Ray to run disaggregated multi-host prefill and decode servers on separate TPU7x slices with data parallelism and expert parallelism enabled, and route requests through a disaggregation proxy.
+
+To run a similar multi-host vLLM TorchTPU serving workflow on [TPU v6e (Trillium)](https://docs.cloud.google.com/tpu/docs/v6e) accelerators with the Qwen3-30B-A3B model, see [Serve Qwen3-30B-A3B on GKE with multi-host vLLM TorchTPU and PD disaggregation on TPU v6e accelerators](https://docs.cloud.google.com/ai-hypercomputer/docs/tutorials/tpu/serve-qwen3-30b-v6e-multi-host-vllm-torchtpu).
 
 ## Objectives
 
@@ -107,9 +109,8 @@ You might also be able to get the required permissions through [custom roles](ht
          export ZONE="YOUR_ZONE"
          export CLUSTER_NAME="YOUR_CLUSTER_NAME"
          export MACHINE_TYPE="tpu7x-standard-4t"
+         export TOPOLOGY="2x2x2"
          export WORKLOAD_POLICY_NAME="${CLUSTER_NAME}-policy"
-         export NODE_POOL_NAME_0="np-0"
-         export NODE_POOL_NAME_1="np-1"
          export RESERVATION_NAME="YOUR_RESERVATION_NAME"
          export GCS_BUCKET="YOUR_GCS_BUCKET"
          export HF_TOKEN="YOUR_HF_TOKEN"
@@ -160,25 +161,17 @@ The output is similar to the following:
 
   3. Create two multi-host TPU7x node pools (`np-0` and `np-1`), each containing two `tpu7x-standard-4t` nodes (eight TPU7x chips in a `2x2x2` topology per node pool, for a total of 16 TPU7x chips):
          
-         gcloud container node-pools create "${NODE_POOL_NAME_0}" \
-             --cluster="${CLUSTER_NAME}" \
-             --machine-type="${MACHINE_TYPE}" \
-             --placement-policy="${WORKLOAD_POLICY_NAME}" \
-             --location="${REGION}" \
-             --node-locations="${ZONE}" \
-             --project="${PROJECT_ID}" \
-             --num-nodes=2 \
-             --spot
-         
-         gcloud container node-pools create "${NODE_POOL_NAME_1}" \
-             --cluster="${CLUSTER_NAME}" \
-             --machine-type="${MACHINE_TYPE}" \
-             --placement-policy="${WORKLOAD_POLICY_NAME}" \
-             --location="${REGION}" \
-             --node-locations="${ZONE}" \
-             --project="${PROJECT_ID}" \
-             --num-nodes=2 \
-             --spot
+         for NODE_POOL_NAME in np-0 np-1; do
+           gcloud container node-pools create "${NODE_POOL_NAME}" \
+               --cluster="${CLUSTER_NAME}" \
+               --machine-type="${MACHINE_TYPE}" \
+               --placement-policy="${WORKLOAD_POLICY_NAME}" \
+               --location="${REGION}" \
+               --node-locations="${ZONE}" \
+               --project="${PROJECT_ID}" \
+               --num-nodes=2 \
+               --spot
+         done
 
 This tutorial uses Spot capacity (`--spot`). Instances using Spot capacity might take time to be created after the node pool is created, and they might be preempted during workload runs. You can also create the node pools using a reservation or Flex-start VMs by passing the following flags:
 
@@ -274,15 +267,15 @@ Alternatively, you can choose to create a file named `download_model.yaml` with 
                    pip3 install --break-system-packages -q -U "huggingface_hub"
          
                    echo "=== 2. Downloading Qwen/Qwen3.5-397B-A17B-FP8 to Local Staging Volume ==="
-                   hf download Qwen/Qwen3.5-397B-A17B-FP8 --local-dir /local-ssd/Qwen/Qwen3.5-397B-A17B-FP8
-                   rm -rf /local-ssd/Qwen/Qwen3.5-397B-A17B-FP8/.cache
+                   hf download Qwen/Qwen3.5-397B-A17B-FP8 --local-dir /local-ssd/model/Qwen/Qwen3.5-397B-A17B-FP8
+                   rm -rf /local-ssd/model/Qwen/Qwen3.5-397B-A17B-FP8/.cache
          
                    echo "=== 3. Uploading from Local Staging Volume to GCS ==="
                    gcloud config set storage/parallel_composite_upload_compatibility_check False
-                   gcloud storage cp -r /local-ssd/Qwen gs://${GCS_BUCKET}/
+                   gcloud storage cp -r /local-ssd/model/Qwen gs://${GCS_BUCKET}/
          
                    echo "=== 4. Cleaning up Local Staging Volume ==="
-                   rm -rf /local-ssd/Qwen /local-ssd/hf-cache
+                   rm -rf /local-ssd/model /local-ssd/hf-cache
                  resources:
                    requests:
                      cpu: "64"
@@ -923,17 +916,13 @@ To avoid incurring charges to your Google Cloud account for the resources used i
 
   2. Delete the TPU7x node pools, the workload placement policy, and the GKE cluster:
          
-         gcloud container node-pools delete "${NODE_POOL_NAME_0}" \
-             --cluster="${CLUSTER_NAME}" \
-             --location="${REGION}" \
-             --project="${PROJECT_ID}" \
-             --quiet || true
-         
-         gcloud container node-pools delete "${NODE_POOL_NAME_1}" \
-             --cluster="${CLUSTER_NAME}" \
-             --location="${REGION}" \
-             --project="${PROJECT_ID}" \
-             --quiet || true
+         for NODE_POOL_NAME in np-0 np-1; do
+           gcloud container node-pools delete "${NODE_POOL_NAME}" \
+               --cluster="${CLUSTER_NAME}" \
+               --location="${REGION}" \
+               --project="${PROJECT_ID}" \
+               --quiet || true
+         done
          
          gcloud container clusters delete "${CLUSTER_NAME}" \
              --location="${REGION}" \
@@ -964,6 +953,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-29 UTC.
+Last updated 2026-11-03 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 

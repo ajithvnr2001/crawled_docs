@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/error-reporting/docs/setup/cloud-functions/
 title: Setting up on Cloud Run functions \u00a0|\u00a0 Error Reporting \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T08:00:57.251829+00:00
+fetched_at: 2026-11-04T23:46:09.326382+00:00
 ---
 
 # Setting up on Cloud Run functions  |  Error Reporting  |  Google Cloud Documentation

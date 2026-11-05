@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/looker/docs/looker-core-dialects/
 title: Connecting Looker (Google Cloud core) to your database \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T23:39:08.040563+00:00
+fetched_at: 2026-11-04T23:31:33.896017+00:00
 ---
 
 # Connecting Looker (Google Cloud core) to your database  |  Google Cloud Documentation
@@ -81,7 +81,7 @@ When using service account impersonation, do the following:
 [ Enable the API](https://console.cloud.google.com/apis/enableflow?apiid=serviceconsumermanagement.googleapis.com)
 
   * Make sure that all service accounts in the chain, including the Looker (Google Cloud core) project's service account, [have the appropriate IAM permissions](https://docs.cloud.google.com/iam/docs/create-short-lived-credentials-delegated#sa-credentials-permissions).
-  * Make sure that the impersonated service account has the [BigQuery Job User role](https://docs.cloud.google.com/bigquery/docs/access-control#bigquery.jobUser) and the [BigQuery Data Viewer role](https://docs.cloud.google.com/bigquery/docs/access-control#bigquery.dataViewer). If you need to inspect service states and operations, or use quota and billing from a consumer project, the [Service Usage Consumer role](https://docs.cloud.google.com/service-usage/docs/access-control#predefined_roles) is also required.
+  * Make sure that the impersonated service account has the [BigQuery Job User role](https://docs.cloud.google.com/bigquery/docs/access-control#bigquery.jobUser) and the [BigQuery Data Viewer role](https://docs.cloud.google.com/bigquery/docs/access-control#bigquery.dataViewer). If you need to inspect service states and operations, or use quota and billing from a consumer project, the [Service Usage Consumer role](https://docs.cloud.google.com/iam/docs/roles-permissions/serviceusage#serviceusage.serviceUsageConsumer) is also required.
   * If you have enabled [persistent derived tables (PDTs)](https://docs.cloud.google.com/looker/docs/derived-tables#temporary_and_persistent_derived_tables) for your connection, you must also enter the impersonated service account's email address in the **Service Account Email Address** field within the **PDT Overrides** section. This ensures that the PDT processes use the impersonated service account. See the [Enable PDT Overrides section](https://docs.cloud.google.com/looker/docs/connecting-to-your-db#enable_pdt_overrides) on the **Connecting Looker to your database** documentation page for more information.
 
 
@@ -91,7 +91,7 @@ When using service account impersonation, do the following:
 The steps for using ADC for a BigQuery Standard SQL database that is outside the project that houses your Looker (Google Cloud core) instance are the same as those for setting up a connection inside the same project. However, before you can set up the connection in your Looker (Google Cloud core) instance, your Looker (Google Cloud core) project's service account must have the following IAM roles:
 
   * [BigQuery Data Viewer role](https://docs.cloud.google.com/bigquery/docs/access-control#bigquery.dataViewer) for the project that contains the BigQuery dataset.
-  * [BigQuery Job User role](https://docs.cloud.google.com/bigquery/docs/access-control#bigquery.jobUser) and the [Service Usage Consumer role](https://docs.cloud.google.com/service-usage/docs/access-control#predefined_roles) on the billing project that's listed on the [**Connection Settings** page](https://docs.cloud.google.com/looker/docs/db-config-google-bigquery#connecting-to).
+  * [BigQuery Job User role](https://docs.cloud.google.com/bigquery/docs/access-control#bigquery.jobUser) and the [Service Usage Consumer role](https://docs.cloud.google.com/iam/docs/roles-permissions/serviceusage#serviceusage.serviceUsageConsumer) on the billing project that's listed on the [**Connection Settings** page](https://docs.cloud.google.com/looker/docs/db-config-google-bigquery#connecting-to).
   * If your Looker (Google Cloud core) instance uses [persistent derived tables](https://docs.cloud.google.com/looker/docs/derived-tables#temporary_and_persistent_derived_tables) with a BigQuery dataset, the service account must also have the [BigQuery Data Editor role](https://docs.cloud.google.com/bigquery/docs/access-control#bigquery.dataEditor) for the project that contains the BigQuery dataset.
 
 
@@ -354,6 +354,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-04 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 

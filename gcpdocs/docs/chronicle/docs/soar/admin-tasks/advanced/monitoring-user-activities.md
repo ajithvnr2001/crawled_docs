@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chronicle/docs/soar/admin-tasks/advanced/monitoring-user-activities/
 title: Monitor SOAR activity \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T10:00:40.340374+00:00
+fetched_at: 2026-11-04T23:34:05.371771+00:00
 ---
 
 # Monitor SOAR activity  |  Google Security Operations  |  Google Cloud Documentation
@@ -31,7 +31,7 @@ This guide is for security administrators and security analysts who need to moni
 
 Before you begin, make sure that you have the necessary permissions to access audit logs, as follows:
 
-  * To view audit logs in Google SecOps **SOAR Settings** , you need a role that includes the `SettingsId` permission in your Identity and Access Management (IAM) permission group.
+  * To view audit logs in Google SecOps **Settings** , you need a role that includes the `SettingsId` permission in your Identity and Access Management (IAM) permission group.
   * To view logs in the **Logs Explorer** in the Google Cloud console, you need appropriate IAM roles for accessing Cloud Logging, such as `roles/logging.viewer`.
 
 
@@ -80,7 +80,7 @@ The method to access audit logs depends on whether you are looking for logs from
 
 You can view and filter the audit records for actions performed using legacy APIs on the **Audit** page of the Google SecOps platform.
 
-  * To open the **Audit** page, go to **Settings > SOAR Settings > Advanced > Audit**.
+  * To open the **Audit** page, go to **Settings > Administration > Audit**.
 
 
 
@@ -155,6 +155,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-28 UTC.
+Last updated 2026-11-04 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 

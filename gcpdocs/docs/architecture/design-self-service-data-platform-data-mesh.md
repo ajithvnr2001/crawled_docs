@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/architecture/design-self-service-data-platform-data-mesh/
 title: Design a self-service data platform for a data mesh \u00a0|\u00a0 Cloud Architecture Center \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T05:58:14.367438+00:00
+fetched_at: 2026-11-04T23:30:27.336062+00:00
 ---
 
 # Design a self-service data platform for a data mesh  |  Cloud Architecture Center  |  Google Cloud Documentation

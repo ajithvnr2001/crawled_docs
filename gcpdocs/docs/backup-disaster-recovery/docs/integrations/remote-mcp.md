@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/backup-disaster-recovery/docs/integrations/remote-mcp/
 title: Use the Backup and DR remote MCP server \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T07:14:45.752433+00:00
+fetched_at: 2026-11-04T23:46:23.231833+00:00
 ---
 
 # Use the Backup and DR remote MCP server  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/kubernetes-engine/docs/concepts/plan-tpus/
 title: Plan TPUs in GKE \u00a0|\u00a0 GKE AI/ML \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-01T05:42:48.533668+00:00
+fetched_at: 2026-11-04T23:17:02.545145+00:00
 ---
 
 # Plan TPUs in GKE  |  GKE AI/ML  |  Google Cloud Documentation
@@ -983,6 +983,7 @@ In this document and the GKE documentation, "standard zones" or "zones" refer to
 
 Before you use an AI zone in GKE, consider the following characteristics:
 
+  * To use an AI zone with existing GKE clusters, your control plane must run version 1.36.4-gke.1495002 or later, or 1.37.1-gke.1552000 or later. These versions let the control plane recognize the zone and register nodes. If your control plane runs version 1.35 or earlier, or a version earlier than these minimums, [upgrade the control plane](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/upgrading-a-cluster#upgrade_cp) before creating node pools in the AI zone. If upgrading isn't possible, contact [Cloud Customer Care](https://docs.cloud.google.com/support).
   * AI zones are physically separate from standard zones to provide additional storage space and power. This separation might result in higher latency, which is generally tolerable for AI/ML workloads.
   * AI zones have a suffix with the `ai` notation. For example, an AI zone in the `us-central1` region is named `us-central1-**ai** 1a`.
   * Currently, only TPU VMs are supported.
@@ -1088,6 +1089,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-30 UTC.
+Last updated 2026-11-04 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 

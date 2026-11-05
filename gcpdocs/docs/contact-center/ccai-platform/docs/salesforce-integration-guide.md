@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/contact-center/ccai-platform/docs/salesforce-integration-guide/
 title: Salesforce integration guide \u00a0|\u00a0 Google Cloud Contact Center as a Service \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T07:48:44.483141+00:00
+fetched_at: 2026-11-04T23:27:44.156005+00:00
 ---
 
 # Salesforce integration guide  |  Google Cloud Contact Center as a Service  |  Google Cloud Documentation

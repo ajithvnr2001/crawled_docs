@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/ai-hypercomputer/docs/workloads/pathways-on-cloud/batch-workload/
 title: Run a batch workload with Pathways \u00a0|\u00a0 AI Hypercomputer \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T18:57:05.164744+00:00
+fetched_at: 2026-11-05T00:19:38.795456+00:00
 ---
 
 # Run a batch workload with Pathways  |  AI Hypercomputer  |  Google Cloud Documentation
@@ -42,15 +42,25 @@ To build a MaxText Docker image by using the latest version of stable JAX from t
     
     
     git clone https://github.com/AI-Hypercomputer/maxtext
-    cd maxtext/dependencies/scripts
+    cd maxtext
     gcloud config set project PROJECT_ID
-    bash ./docker_build_dependency_image.sh MODE=stable
+    bash src/dependencies/scripts/docker_build_dependency_image.sh MODE=stable
     gcloud auth configure-docker
-    bash ./docker_upload_runner.sh CLOUD_IMAGE_NAME=USER_runner # This script needs bash version >= 4.2 to execute.
+    # This script needs bash version >= 4.2 to execute.
+    bash src/dependencies/scripts/docker_upload_runner.sh \
+        CLOUD_IMAGE_NAME=USER_runner
 
 This command pushes the MaxText Kubernetes image to `gcr.io/$PROJECT_ID/${USER}_runner`. You can use this Docker image to run training on TPUs by using the Pathways backend.
 
 ## Run a batch workload with Cluster Toolkit
+
+If the [`gcluster` binary](https://docs.cloud.google.com/cluster-toolkit/docs/reference/gcluster) isn't in your `PATH` environment variable, add the directory containing `gcluster` to your `PATH`:
+    
+    
+    export PATH="$PATH:CLUSTER_TOOLKIT_PATH"
+    
+
+Replace `CLUSTER_TOOLKIT_PATH` with the absolute path to the directory containing the `gcluster` binary, such as `$HOME/cluster-toolkit`.
 
 Submit the prebuilt MaxText Docker image by using the `gcluster job submit` command:
     
@@ -61,12 +71,12 @@ Submit the prebuilt MaxText Docker image by using the `gcluster job submit` comm
         --name=WORKLOAD \
         --cluster=CLUSTER \
         --project=PROJECT_ID \
-        --location=ZONE \
+        --location=LOCATION \
         --num-slices=WORKLOAD_NODEPOOL_COUNT \
         --compute-type=COMPUTE_TYPE \
         --topology=TOPOLOGY \
         --image="gcr.io/PROJECT_ID/USER_runner" \
-        --command="python3 -m MaxText.train /deps/src/MaxText/configs/base.yml base_output_directory=gs://BUCKET_NAME per_device_batch_size=1 enable_checkpointing=false remat_policy=full global_parameter_scale=1 steps=20 max_target_length=2048 use_iota_embed=true reuse_example_batch=1 dataset_type=synthetic attention=flash gcs_metrics=True enable_single_controller=True run_name=RUN_NAME-pathways-job"
+        --command="python3 -m maxtext.trainers.pre_train.train /deps/src/maxtext/configs/base.yml base_output_directory=gs://BUCKET_NAME per_device_batch_size=1 enable_checkpointing=false remat_policy=full global_parameter_scale=1 steps=20 max_target_length=2048 use_iota_embed=true reuse_example_batch=1 dataset_type=synthetic attention=flash gcs_metrics=True enable_single_controller=True run_name=RUN_NAME-pathways-job"
     
 
 For more information about job submission options, see the [Cluster Toolkit Job Submission Guide](https://github.com/GoogleCloudPlatform/cluster-toolkit/blob/main/docs/gcluster_job_guide.md).
@@ -79,7 +89,7 @@ Replace the following:
   * `COMPUTE_TYPE`: the TPU machine type (for example, `ct6e-standard-4t`). For more information about supported TPU types for each TPU version, see [TPU versions](https://docs.cloud.google.com/tpu/docs/system-architecture-tpu-vm#versions).
   * `TOPOLOGY`: the TPU placement topology (for example, `2x4`)
   * `PROJECT_ID`: your Google Cloud project ID
-  * `ZONE`: the zone where you plan to run your workload
+  * `LOCATION`: the region or zone of your GKE cluster
   * `USER`: your Google Cloud user ID
   * `BUCKET_NAME`: the Cloud Storage bucket for outputs
   * `RUN_NAME`: a user-assigned name to identify the workflow run
@@ -92,28 +102,28 @@ Follow the progress of your workload by using the `gcluster job logs` command:
     gcluster job logs WORKLOAD \
         --cluster=CLUSTER \
         --project=PROJECT_ID \
-        --location=ZONE \
-        --main-only=false
+        --location=LOCATION \
+        --main-only \
+        --follow
     
     
     
-    completed step: 1, seconds: 0.484, TFLOP/s/device: 87.349, Tokens/s/device: 2117.382, total_weights: 2945, loss: 10.888
-    completed step: 2, seconds: 0.407, TFLOP/s/device: 103.699, Tokens/s/device: 2513.735, total_weights: 3253, loss: 9.697
-    completed step: 3, seconds: 0.248, TFLOP/s/device: 170.300, Tokens/s/device: 4128.167, total_weights: 3154, loss: 9.641
-    completed step: 4, seconds: 0.216, TFLOP/s/device: 195.122, Tokens/s/device: 4729.880, total_weights: 3119, loss: 9.547
-    completed step: 5, seconds: 0.272, TFLOP/s/device: 155.298, Tokens/s/device: 3764.512, total_weights: 2837, loss: 10.179
-    completed step: 6, seconds: 0.472, TFLOP/s/device: 89.489, Tokens/s/device: 2169.266, total_weights: 3069, loss: 9.776
+    completed step: 0, seconds: 1.259, TFLOP/s/device: 10.792, Tokens/s/device: 1626.636, total_weights: 65536, loss: 10.876, lm_loss: 10.876, perplexity: 52906.090
+    completed step: 1, seconds: 3.366, TFLOP/s/device: 4.036, Tokens/s/device: 608.366, total_weights: 65536, loss: 10.876, lm_loss: 10.876, perplexity: 52906.090
+    completed step: 2, seconds: 0.264, TFLOP/s/device: 51.415, Tokens/s/device: 7749.885, total_weights: 65536, loss: 10.563, lm_loss: 10.563, perplexity: 38665.316
+    completed step: 3, seconds: 1.025, TFLOP/s/device: 13.257, Tokens/s/device: 1998.187, total_weights: 65536, loss: 9.983, lm_loss: 9.983, perplexity: 21646.125
+    completed step: 4, seconds: 1.194, TFLOP/s/device: 11.376, Tokens/s/device: 1714.750, total_weights: 65536, loss: 9.462, lm_loss: 9.462, perplexity: 12864.218
+    completed step: 5, seconds: 1.185, TFLOP/s/device: 11.465, Tokens/s/device: 1728.203, total_weights: 65536, loss: 8.961, lm_loss: 8.961, perplexity: 7791.373
 
 To cancel the workload before it completes, use the `gcluster job cancel` command:
     
     
-    gcluster job cancel WORKLOAD --cluster=CLUSTER --project=PROJECT_ID --location=ZONE
+    gcluster job cancel WORKLOAD --cluster=CLUSTER --project=PROJECT_ID --location=LOCATION
     
 
 ## What's next
 
   * [Create a GKE cluster with Pathways](https://docs.cloud.google.com/ai-hypercomputer/docs/workloads/pathways-on-cloud/create-gke-cluster)
-  * [Multihost inference with Pathways](https://docs.cloud.google.com/ai-hypercomputer/docs/workloads/pathways-on-cloud/multihost-inference)
   * [Pathways interactive mode](https://docs.cloud.google.com/ai-hypercomputer/docs/workloads/pathways-on-cloud/pathways-interactive-mode)
   * [Porting JAX workloads to Pathways](https://docs.cloud.google.com/ai-hypercomputer/docs/workloads/pathways-on-cloud/porting-jax-workloads)
   * [Resilient training with Pathways](https://docs.cloud.google.com/ai-hypercomputer/docs/workloads/pathways-on-cloud/resilient-training)
@@ -125,6 +135,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-03 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 

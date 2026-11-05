@@ -1,11 +1,11 @@
 ---
 url: https://docs.cloud.google.com/ai-hypercomputer/docs/tutorials/tpu/serve-qwen3-coder-gke-ironwood-multi-host-torchtpu/
-title: Serve Qwen3-Coder-480B on GKE with multi-host SGLang TorchTPU on TPU7x accelerators \u00a0|\u00a0 AI Hypercomputer \u00a0|\u00a0 Google Cloud Documentation
+title: Serve Qwen3-Coder-480B on GKE with multi-host SGLang TorchTPU and PD disaggregation on TPU7x accelerators \u00a0|\u00a0 AI Hypercomputer \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-30T08:38:46.984704+00:00
+fetched_at: 2026-11-05T00:19:36.364740+00:00
 ---
 
-# Serve Qwen3-Coder-480B on GKE with multi-host SGLang TorchTPU on TPU7x accelerators  |  AI Hypercomputer  |  Google Cloud Documentation
+# Serve Qwen3-Coder-480B on GKE with multi-host SGLang TorchTPU and PD disaggregation on TPU7x accelerators  |  AI Hypercomputer  |  Google Cloud Documentation
 
 > Source: https://docs.cloud.google.com/ai-hypercomputer/docs/tutorials/tpu/serve-qwen3-coder-gke-ironwood-multi-host-torchtpu/
 
@@ -19,7 +19,7 @@ fetched_at: 2026-10-30T08:38:46.984704+00:00
 
 Send feedback 
 
-#  Serve Qwen3-Coder-480B on GKE with multi-host SGLang TorchTPU on TPU7x accelerators Stay organized with collections  Save and categorize content based on your preferences. 
+#  Serve Qwen3-Coder-480B on GKE with multi-host SGLang TorchTPU and PD disaggregation on TPU7x accelerators Stay organized with collections  Save and categorize content based on your preferences. 
 
 This tutorial shows you how to deploy and serve [Qwen3-Coder-480B (`Qwen/Qwen3-Coder-480B-A35B-Instruct-FP8`)](https://huggingface.co/Qwen/Qwen3-Coder-480B-A35B-Instruct-FP8), a Mixture-of-Experts coding model, on Google Kubernetes Engine (GKE). The deployment uses multi-host [TPU7x (Ironwood)](https://docs.cloud.google.com/tpu/docs/tpu7x) accelerators and the [SGLang serving framework](https://github.com/sgl-project/sglang-torchtpu) with TorchTPU (`torchtpu`) and prefill-decode (PD) disaggregation.
 
@@ -29,6 +29,8 @@ In the deployment configuration that's described in this tutorial, you provision
   * Route OpenAI-compatible requests through an SGLang disaggregation router.
 
 
+
+To run a similar multi-host SGLang TorchTPU serving workflow on [TPU v6e (Trillium)](https://docs.cloud.google.com/tpu/docs/v6e) accelerators with the Qwen3-Coder-30B-A3B model, see [Serve Qwen3-Coder-30B-A3B on GKE with multi-host SGLang TorchTPU and PD disaggregation on TPU v6e accelerators](https://docs.cloud.google.com/ai-hypercomputer/docs/tutorials/tpu/serve-qwen3-coder-gke-v6e-multi-host-torchtpu).
 
 ## Objectives
 
@@ -51,7 +53,7 @@ In this document, you use the following billable components of Google Cloud:
 
 
 
-To generate a cost estimate based on your projected usage, use the [pricing calculator]((https://cloud.google.com/products/calculator).
+To generate a cost estimate based on your projected usage, use the [pricing calculator](https://cloud.google.com/products/calculator).
 
 When you finish the tasks that are described in this document, you can avoid continued billing by deleting the resources that you created. For more information, see Clean up.
 
@@ -137,9 +139,9 @@ To create a GKE cluster in Standard mode and attach two multi-host TPU7x node po
 
   1. Create a regional GKE cluster that uses `e2-standard-4` nodes for the default node pool, which provides sufficient CPU and memory resources for the LeaderWorkerSet controller and the SGLang disaggregation router:
          
-         gcloud container clusters create $CLUSTER_NAME \
-           --project=$PROJECT_ID \
-           --location=$REGION \
+         gcloud container clusters create "${CLUSTER_NAME}" \
+           --project="${PROJECT_ID}" \
+           --location="${REGION}" \
            --machine-type=e2-standard-4
 
   2. Create a high-throughput workload placement policy with a `2x2x2` accelerator topology, which is required for multi-host TPU7x node pools:
@@ -147,32 +149,32 @@ To create a GKE cluster in Standard mode and attach two multi-host TPU7x node po
          gcloud compute resource-policies create workload-policy tpu7x-2x2x2-workload-policy \
              --type=HIGH_THROUGHPUT \
              --accelerator-topology=2x2x2 \
-             --project=${PROJECT_ID} \
-             --region=${REGION}
+             --project="${PROJECT_ID}" \
+             --region="${REGION}"
 
   3. Create two multi-host TPU7x node pools (`tpu7x-pool-0` and `tpu7x-pool-1`), each containing two `tpu7x-standard-4t` nodes (eight TPU7x chips in a `2x2x2` topology per node pool, for a total of 16 TPU7x chips):
          
          gcloud container node-pools create tpu7x-pool-0 \
-             --cluster=$CLUSTER_NAME \
-             --location=$REGION \
-             --node-locations=$ZONE \
+             --cluster="${CLUSTER_NAME}" \
+             --location="${REGION}" \
+             --node-locations="${ZONE}" \
              --machine-type=tpu7x-standard-4t \
              --num-nodes=2 \
              --placement-policy=tpu7x-2x2x2-workload-policy \
              --reservation-affinity=specific \
-             --reservation=$RESERVATION \
-             --project=$PROJECT_ID
+             --reservation="${RESERVATION}" \
+             --project="${PROJECT_ID}"
          
          gcloud container node-pools create tpu7x-pool-1 \
-             --cluster=$CLUSTER_NAME \
-             --location=$REGION \
-             --node-locations=$ZONE \
+             --cluster="${CLUSTER_NAME}" \
+             --location="${REGION}" \
+             --node-locations="${ZONE}" \
              --machine-type=tpu7x-standard-4t \
              --num-nodes=2 \
              --placement-policy=tpu7x-2x2x2-workload-policy \
              --reservation-affinity=specific \
-             --reservation=$RESERVATION \
-             --project=$PROJECT_ID
+             --reservation="${RESERVATION}" \
+             --project="${PROJECT_ID}"
 
 Instead of using a specific reservation, you can also create the node pools using Spot capacity or Flex-start VMs by passing the following flags:
 
@@ -180,7 +182,7 @@ Instead of using a specific reservation, you can also create the node pools usin
      * **Flex-start VMs** : replace `--num-nodes=2`, `--reservation-affinity=specific`, and `--reservation=${RESERVATION}` with `--flex-start`, `--enable-autoscaling`, `--num-nodes=0`, `--min-nodes=0`, and `--max-nodes=2` to provision the node pool using the [Flex-start](https://docs.cloud.google.com/kubernetes-engine/docs/concepts/dws) consumption option. For more information, see [Run a small batch workload with TPUs and Flex-start VMs](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/dws-flex-start-training-tpu).
   4. Configure `kubectl` credentials to communicate with your cluster:
          
-         gcloud container clusters get-credentials $CLUSTER_NAME --location=${REGION} --project=${PROJECT_ID}
+         gcloud container clusters get-credentials "${CLUSTER_NAME}" --location="${REGION}" --project="${PROJECT_ID}"
 
 
 
@@ -192,7 +194,7 @@ To prepare your cluster for the multi-host SGLang deployment, complete the follo
   1. Create a Kubernetes Secret named `hf-secret` to store your Hugging Face access token:
          
          kubectl create secret generic hf-secret \
-             --from-literal=hf_api_token=${HF_TOKEN}
+             --from-literal=hf_api_token="${HF_TOKEN}"
 
   2. Install the LeaderWorkerSet CustomResourceDefinition and controller on your cluster:
          
@@ -734,25 +736,25 @@ To avoid incurring additional ongoing charges to your Google Cloud account for t
   2. Delete the TPU7x node pools, the workload placement policy, and the GKE cluster:
          
          gcloud container node-pools delete tpu7x-pool-0 \
-             --cluster=${CLUSTER_NAME} \
-             --location=${REGION} \
-             --project=${PROJECT_ID} \
+             --cluster="${CLUSTER_NAME}" \
+             --location="${REGION}" \
+             --project="${PROJECT_ID}" \
              --quiet
          
          gcloud container node-pools delete tpu7x-pool-1 \
-             --cluster=${CLUSTER_NAME} \
-             --location=${REGION} \
-             --project=${PROJECT_ID} \
+             --cluster="${CLUSTER_NAME}" \
+             --location="${REGION}" \
+             --project="${PROJECT_ID}" \
              --quiet
          
-         gcloud container clusters delete ${CLUSTER_NAME} \
-             --location=${REGION} \
-             --project=${PROJECT_ID} \
+         gcloud container clusters delete "${CLUSTER_NAME}" \
+             --location="${REGION}" \
+             --project="${PROJECT_ID}" \
              --quiet
          
          gcloud compute resource-policies delete tpu7x-2x2x2-workload-policy \
-             --region=${REGION} \
-             --project=${PROJECT_ID} \
+             --region="${REGION}" \
+             --project="${PROJECT_ID}" \
              --quiet
 
 
@@ -770,6 +772,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-29 UTC.
+Last updated 2026-11-03 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 

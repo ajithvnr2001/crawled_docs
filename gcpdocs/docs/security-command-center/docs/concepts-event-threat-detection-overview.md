@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/security-command-center/docs/concepts-event-threat-detection-overview/
 title: Overview of Event Threat Detection \u00a0|\u00a0 Security Command Center \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T05:41:05.805738+00:00
+fetched_at: 2026-11-04T23:31:32.530335+00:00
 ---
 
 # Overview of Event Threat Detection  |  Security Command Center  |  Google Cloud Documentation
@@ -577,7 +577,7 @@ Category | Role | Description
 `roles/servicedirectory.*` |  All [ Service Directory roles](https://docs.cloud.google.com/service-directory/docs/access-control)  
 `roles/servicemanagement.*` |  All [ Service Management roles](https://docs.cloud.google.com/service-infrastructure/docs/service-management/access-control)  
 `roles/servicenetworking.*` |  All [ Service Networking roles](https://docs.cloud.google.com/iam/docs/roles-permissions/servicenetworking)  
-`roles/serviceusage.*` |  All [Service Usage roles](https://docs.cloud.google.com/service-usage/docs/access-control)  
+`roles/serviceusage.*` |  All [Service Usage roles](https://docs.cloud.google.com/iam/docs/roles-permissions/serviceusage)  
 **Compute Engine roles** : control access to Compute Engine virtual machines, which carry long-running jobs and are associated with firewall rules  |  `roles/compute.admin` `roles/compute.instanceAdmin` `roles/compute.instanceAdmin.v1` `roles/compute.loadBalancerAdmin` `roles/compute.networkAdmin` `roles/compute.orgFirewallPolicyAdmin` `roles/compute.orgFirewallPolicyUser` `roles/compute.orgSecurityPolicyAdmin` `roles/compute.orgSecurityPolicyUser` `roles/compute.orgSecurityResourceAdmin` `roles/compute.osAdminLogin` `roles/compute.publicIpAdmin` `roles/compute.securityAdmin` `roles/compute.storageAdmin` `roles/compute.xpnAdmin` |  All [Compute Engine](https://docs.cloud.google.com/compute/docs/access/iam) **Admin** and **Editor** roles   
 Category | Role | Description  
 ---|---|---  
@@ -1141,6 +1141,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-29 UTC.
+Last updated 2026-11-04 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 

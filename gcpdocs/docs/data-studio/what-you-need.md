@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/data-studio/what-you-need/
 title: What you need to use Data Studio \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T22:37:24.954874+00:00
+fetched_at: 2026-11-05T00:17:49.745538+00:00
 ---
 
 # What you need to use Data Studio  |  Google Cloud Documentation
@@ -49,6 +49,24 @@ Data Studio is not available to users under age 18, unless you have a Google Wor
 ## Supported browsers
 
 We've tested Data Studio on the Chrome, Firefox, and Safari browsers. Editing reports and data sources on other browsers is not recommended at this time.
+
+## Network requirements
+
+To ensure full functionality of Data Studio, especially within corporate networks with firewalls or proxies, ensure that the following domains are on your allowlist for outbound connections, typically on Port 443:
+
+  * `datastudio.google.com` (Primary application URL)
+  * `lookerstudio.google.com` (Legacy application URL)
+  * `accounts.google.com` (Google Account authentication)
+  * `*.googleapis.com` (Essential Google APIs)
+  * `*.gstatic.com` / `ssl.gstatic.com` (Static content, fonts, icons)
+  * `*.googleusercontent.com` (Embedded images, data extracts, user content)
+  * `*.scf.usercontent.goog` (Critical for chart rendering. Blocking this domain may cause intermittent chart loading failures with errors like "sent no data".)
+  * `maps.googleapis.com` (Required for Map visualizations)
+  * `www.google.com`
+
+
+
+If you are accessing Data Studio from certain regions and encounter connection errors when attempting to view charts, see [Troubleshooting regional connection errors](https://docs.cloud.google.com/data-studio/troubleshooting-regional-connection-errors).
 
 ## Supported regions
 
@@ -119,6 +137,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-03 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 

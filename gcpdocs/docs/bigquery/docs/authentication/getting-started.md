@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/authentication/getting-started/
 title: Get started with authentication \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T07:12:56.534314+00:00
+fetched_at: 2026-11-04T23:27:48.760251+00:00
 ---
 
 # Get started with authentication  |  BigQuery  |  Google Cloud Documentation

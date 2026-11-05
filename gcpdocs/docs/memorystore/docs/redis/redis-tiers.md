@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/memorystore/docs/redis/redis-tiers/
 title: Redis tier capabilities \u00a0|\u00a0 Memorystore for Redis \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T22:15:11.449132+00:00
+fetched_at: 2026-11-04T23:28:54.045105+00:00
 ---
 
 # Redis tier capabilities  |  Memorystore for Redis  |  Google Cloud Documentation

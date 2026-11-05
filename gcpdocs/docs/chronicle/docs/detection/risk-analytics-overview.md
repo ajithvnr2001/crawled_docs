@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chronicle/docs/detection/risk-analytics-overview/
 title: Risk Analytics overview \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T10:09:03.441574+00:00
+fetched_at: 2026-11-04T23:33:54.246914+00:00
 ---
 
 # Risk Analytics overview  |  Google Security Operations  |  Google Cloud Documentation
@@ -72,7 +72,7 @@ The following terms are used on the Findings page (click an entity in the entiti
 
 ## Risk score calculation
 
-The risk score calculation for each entity is based on the risk score of findings and is modified based on a set of parameters you can specify and a set of parameters controlled by Google SecOps. The parameters you can control are accessible by going to the navigation bar and clicking **Settings > Entity risk scores**:
+The risk score calculation for each entity is based on the risk score of findings and is modified based on a set of parameters you can specify and a set of parameters controlled by Google SecOps. The parameters you can control are accessible by going to the navigation bar and clicking **Settings > Detection > Entity Risk Scores**:
 
   * **Closed alert coefficient** : If the security analysts marks an alert as closed, it is multiplied with this floating point modifier. The range is 0-1. The default value is 1.
 
@@ -218,6 +218,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-28 UTC.
+Last updated 2026-11-04 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 

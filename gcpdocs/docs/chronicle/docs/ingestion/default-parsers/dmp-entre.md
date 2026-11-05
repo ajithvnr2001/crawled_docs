@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/dmp-entre/
 title: Collect DMP Entre logs \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T07:53:55.686540+00:00
+fetched_at: 2026-11-04T23:43:35.407387+00:00
 ---
 
 # Collect DMP Entre logs  |  Google Security Operations  |  Google Cloud Documentation

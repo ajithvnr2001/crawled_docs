@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/managed-spark/docs/concepts/components/presto/
 title: Managed Service for Apache Spark optional Presto component \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T21:57:42.438181+00:00
+fetched_at: 2026-11-05T00:20:22.391569+00:00
 ---
 
 # Managed Service for Apache Spark optional Presto component  |  Google Cloud Documentation
@@ -23,20 +23,9 @@ Send feedback
 
 #  Managed Service for Apache Spark optional Presto component Stay organized with collections  Save and categorize content based on your preferences. 
 
-**Note:** The [Presto Optional Component](https://docs.cloud.google.com/managed-spark/docs/concepts/components/presto) is available as [Trino Optional Component](https://docs.cloud.google.com/managed-spark/docs/concepts/components/trino) in 2.1 and later image versions.
+The Presto [optional component](https://docs.cloud.google.com/managed-spark/docs/concepts/components/overview#available_optional_components) lets you run interactive distributed SQL queries across multiple data sources directly on your Managed Service for Apache Spark cluster. Presto ([Trino](https://trino.io/)) processes analytical workloads across external storage systems without requiring data migration.
 
-You can install additional components like Presto when you create a Managed Service for Apache Spark cluster using the [Optional components](https://docs.cloud.google.com/managed-spark/docs/concepts/components/overview#available_optional_components) feature. This page describes how you can optionally install Presto component on a Managed Service for Apache Spark cluster.
-
-Presto ([Trino](https://trino.io/)) is an open source distributed SQL query engine. The Presto server and Web UI are by default available on port `8060` (or port `7778` if Kerberos is enabled) on the cluster's first master node.
-
-By default, Presto on Managed Service for Apache Spark is configured to work with `Hive`, `BigQuery`, `Memory`, `TPCH` and `TPCDS` [connectors](https://trino.io/docs/current/connector.html).
-
-After creating a cluster with the Presto component, you can run queries:
-
-  * from a local terminal with the [`gcloud dataproc jobs submit presto`](https://docs.cloud.google.com/sdk/gcloud/reference/dataproc/jobs/submit/presto) command
-  * from a terminal window on the cluster's first master node using the `presto` CLI (Command Line Interface)—see [Use Trino with Managed Service for Apache Spark](https://docs.cloud.google.com/managed-spark/docs/tutorials/trino-dataproc)
-
-
+**Note:** In image versions 2.1 and later, the [Presto Optional Component](https://docs.cloud.google.com/managed-spark/docs/concepts/components/presto) is available as the [Trino Optional Component](https://docs.cloud.google.com/managed-spark/docs/concepts/components/trino). For newer clusters, see [Use Trino with Managed Service for Apache Spark](https://docs.cloud.google.com/managed-spark/docs/tutorials/trino-dataproc).
 
 ## Install the component
 
@@ -88,10 +77,23 @@ The Presto component can be specified through the Dataproc API using [SoftwareCo
 
 Using the [Dataproc `v1` API](https://docs.cloud.google.com/managed-spark/docs/reference/rest), set the [EndpointConfig.enableHttpPortAccess](https://docs.cloud.google.com/managed-spark/docs/reference/rest/v1/ClusterConfig#endpointconfig) property to `true` as part of the clusters.create request to enable connecting to the Presto Web UI using the [Component Gateway](https://docs.cloud.google.com/managed-spark/docs/concepts/accessing/gateways). 
 
+## Access and query Presto
+
+The Presto server and Web UI are by default available on port `8060` (or port `7778` if Kerberos is enabled) on the cluster's first master node.
+
+By default, Presto on Managed Service for Apache Spark is configured to work with `Hive`, `BigQuery`, `Memory`, `TPCH` and `TPCDS` [connectors](https://trino.io/docs/current/connector.html).
+
+After creating a cluster with the Presto component, you can run queries:
+
+  * from a local terminal with the [`gcloud dataproc jobs submit presto`](https://docs.cloud.google.com/sdk/gcloud/reference/dataproc/jobs/submit/presto) command
+  * from a terminal window on the cluster's first master node using the `presto` CLI (Command Line Interface) (see [Use Trino with Managed Service for Apache Spark](https://docs.cloud.google.com/managed-spark/docs/tutorials/trino-dataproc)).
+
+
+
 Send feedback 
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-03 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 

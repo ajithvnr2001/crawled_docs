@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/docs/instance-read-pool-scale/
 title: Scale an instance \u00a0|\u00a0 AlloyDB for PostgreSQL \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T23:03:01.634715+00:00
+fetched_at: 2026-11-05T00:18:47.891048+00:00
 ---
 
 # Scale an instance  |  AlloyDB for PostgreSQL  |  Google Cloud Documentation
@@ -254,15 +254,12 @@ To change the number of nodes in a read pool instance, update the `node_count` f
 
 ## Configure read pool autoscaling
 
-**Preview**
-
-This feature is subject to the "Pre-GA Offerings Terms" in the General Service Terms section of the [Service Specific Terms](https://docs.cloud.google.com/terms/service-terms#1). Pre-GA features are available "as is" and might have limited support. For more information, see the [launch stage descriptions](https://cloud.google.com/products/#product-launch-stages). 
-
 AlloyDB read pool autoscaling lets you automatically and adaptively change the number of read nodes based on real-time resource usage. This helps you handle usage changes and decrease expenses.
 
 You can configure autoscaling using the following policies:
 
   * CPU-utilization-based: scales the number of nodes based on a target CPU utilization.
+  * Connections-count-based: scales the number of nodes based on a target number of connections.
   * Schedule-based: scales the number of nodes to a minimum count during a specified time window.
 
 
@@ -280,14 +277,14 @@ The read pool autoscaler has the following limitations:
 
 ### Enable read pool autoscaling on a new read pool instance
 
-You can enable and can configure automatic scaling when you create a read pool instance using a CPU-based policy, a schedule-based policy, or both.
+You can enable and configure automatic scaling when you create a read pool instance using a CPU-based policy, a connections-count-based policy, a schedule-based policy, or a combination of these policies.
 
 #### Create a read pool instance with a CPU-based policy
 
 To create a read pool instance with an automatic scaling policy based on a target CPU utilization, run the following command:
     
     
-    gcloud beta alloydb instances create INSTANCE_ID \
+    gcloud alloydb instances create INSTANCE_ID \
         --instance-type=READ_POOL \
         --read-pool-node-count=NODE_COUNT \
         --region=REGION_ID \
@@ -324,6 +321,63 @@ Replace the following:
 
 
 
+#### Create a read pool instance with a connections-count-based policy
+
+To determine what value to set for the `--autoscaler-target-connections-count` flag, you can view the current number of connections to a read pool instance in the Google Cloud console:
+
+  1. In the Google Cloud console, go to the **Clusters** page.
+
+[Go to Clusters](https://console.cloud.google.com/alloydb/clusters)
+
+  2. Click a cluster in the **Resource Name** column to open its **Overview** page.
+
+  3. In the **Chart** menu, select **Number of connections** and view the number of connections for your read pool instance in the chart legend.
+
+
+
+
+To create a read pool instance with an automatic scaling policy based on a target connections count, run the following command:
+    
+    
+    gcloud alloydb instances create INSTANCE_ID \
+        --instance-type=READ_POOL \
+        --read-pool-node-count=NODE_COUNT \
+        --region=REGION_ID \
+        --cluster=CLUSTER_ID \
+        --project=PROJECT_ID \
+        --enable-autoscaler \
+        --autoscaler-max-node-count=MAX_NODE_COUNT \
+        --autoscaler-cool-down-period-seconds=COOLDOWN_PERIOD \
+        --autoscaler-target-connections-count=TARGET_CONNECTIONS_COUNT \
+        {--cpu-count=CPU_COUNT | --machine-type=MACHINE_TYPE}
+
+Replace the following:
+
+  * `INSTANCE_ID`: the ID of the read pool instance.
+
+  * `READ_POOL`: specifies the instance type.
+
+  * `NODE_COUNT`: the minimum number of nodes that the autoscaler can create in the read pool instance. Specify a number `1` through `20`, inclusive. You can't have more than 20 nodes across all read pool instances in a cluster.
+
+  * `REGION_ID`: the region where the instance is placed.
+
+  * `CLUSTER_ID`: the ID of the cluster where the instance is placed.
+
+  * `PROJECT_ID`: the ID of the project where the cluster is placed.
+
+  * `MAX_NODE_COUNT`: the maximum number of nodes that the autoscaler can create in the read pool instance. The total number of nodes across all read pool instances in a single cluster can't exceed 20.
+
+  * `COOLDOWN_PERIOD`: the amount of time in seconds that AlloyDB waits before factoring the read pool instance's resource usage into the autoscaling algorithm. The default value is `300` seconds.
+
+  * `TARGET_CONNECTIONS_COUNT`: the target number of connections for your read pool instance.
+
+  * `CPU_COUNT`: the number of N2 vCPUs that you want for the instance. You must specify either `--cpu-count` or `--machine-type`.
+
+  * `MACHINE_TYPE`: select from a list of supported machine types such as `n2-highmem-4`, `c4-highmem-4-lssd`, or `c4a-highmem-4-lssd`. For more information, see [Choose an AlloyDB machine type](https://docs.cloud.google.com/alloydb/docs/choose-machine-type).
+
+
+
+
 #### Create a read pool instance with a schedule-based policy
 
 To create a read pool instance with a schedule-based automatic scaling policy that defines a minimum number of nodes for a specific time window, run the following command:
@@ -331,7 +385,7 @@ To create a read pool instance with a schedule-based automatic scaling policy th
 **Note:** If you have an existing autoscaling policy that has `--autoscaler-max-node-count` set, then this becomes an optional field.
     
     
-    gcloud beta alloydb instances create INSTANCE_ID \
+    gcloud alloydb instances create INSTANCE_ID \
         --instance-type=READ_POOL \
         --read-pool-node-count=NODE_COUNT \
         --region=REGION_ID \
@@ -373,12 +427,12 @@ Replace the following:
 
 
 
-#### Create a read pool instance with CPU and schedule-based policies
+#### Create a read pool instance with combined policies
 
-To create a read pool instance with both CPU-based and schedule-based automatic scaling policies, run the following command:
+To create a read pool instance with CPU-based, connections-count-based, and schedule-based automatic scaling policies, run the following command:
     
     
-    gcloud beta alloydb instances create INSTANCE_ID \
+    gcloud alloydb instances create INSTANCE_ID \
         --instance-type=READ_POOL \
         --read-pool-node-count=NODE_COUNT \
         --region=REGION_ID \
@@ -388,6 +442,7 @@ To create a read pool instance with both CPU-based and schedule-based automatic 
         --autoscaler-max-node-count=MAX_NODE_COUNT \
         --autoscaler-cool-down-period-seconds=COOLDOWN_PERIOD \
         --autoscaler-target-cpu-usage=TARGET_CPU_USAGE \
+        --autoscaler-target-connections-count=TARGET_CONNECTIONS_COUNT \
         --autoscaler-set-schedule=SCHEDULE_NAME \
         --autoscaler-schedule-cron-exp=CRON_EXPRESSION \
         --autoscaler-schedule-duration-seconds=DURATION_SECONDS \
@@ -396,16 +451,16 @@ To create a read pool instance with both CPU-based and schedule-based automatic 
         --autoscaler-schedule-description="DESCRIPTION" \
         {--cpu-count=CPU_COUNT | --machine-type=MACHINE_TYPE}
 
-For a description of the placeholders used in this command, see Create a read pool instance with a CPU-based policy and Create a read pool instance with a schedule-based policy policies.
+For a description of the placeholders used in this command, see Create a read pool instance with a CPU-based policy, Create a read pool instance with a connections-count-based policy, and Create a read pool instance with a schedule-based policy.
 
 ### Enable or update autoscaling on an existing read pool instance
 
 You can enable, disable, or modify automatic scaling settings on an existing read pool instance.
 
-To enable autoscaling for the first time on an existing instance, or to update an existing policy, use the `gcloud beta alloydb instances update` command. For example, to update the target CPU utilization, run:
+To enable autoscaling for the first time on an existing instance, or to update an existing policy, use the `gcloud alloydb instances update` command. For example, to update the target CPU utilization, run:
     
     
-    gcloud beta alloydb instances update INSTANCE_ID \
+    gcloud alloydb instances update INSTANCE_ID \
         --region=REGION_ID \
         --cluster=CLUSTER_ID \
         --project=PROJECT_ID \
@@ -414,10 +469,22 @@ To enable autoscaling for the first time on an existing instance, or to update a
 
 Replace `NEW_TARGET_CPU_USAGE` with the new target CPU utilization that you want to set for your read pool instance, expressed as a decimal value between 0.0 and 1.0.
 
+To update the target connections count, run the following command:
+    
+    
+    gcloud alloydb instances update INSTANCE_ID \
+        --region=REGION_ID \
+        --cluster=CLUSTER_ID \
+        --project=PROJECT_ID \
+        --enable-autoscaler \
+        --autoscaler-target-connections-count=NEW_TARGET_CONNECTIONS_COUNT
+
+Replace `NEW_TARGET_CONNECTIONS_COUNT` with the new target number of connections that you want to set for your read pool instance. To view the current number of connections to your read pool instance, see Create a read pool instance with a connections-count-based policy.
+
 To add a second schedule to an existing configuration, run the update command with a new schedule name. If the schedule name already exists, the command updates the existing schedule. Otherwise, it creates a new schedule.
     
     
-    gcloud beta alloydb instances update INSTANCE_ID \
+    gcloud alloydb instances update INSTANCE_ID \
         --region=REGION_ID \
         --cluster=CLUSTER_ID \
         --project=PROJECT_ID \
@@ -446,7 +513,7 @@ If it's a weekday at noon and CPU utilization is at 80%, the CPU-based policy mi
 
 In addition to autoscaling out your read pool instance, AlloyDB also autoscales your instance in when you don't need as many read nodes to support your workflow. When autoscaling in occurs, AlloyDB scales in your node count to the value you set for the `--read-pool-node-count` field.
 
-To determine when your read pool instance should be scaled in, AlloyDB waits until either your autoscaling schedule is inactive or your CPU utilization is less than your utilization target for 10 minutes.
+To determine when to scale in your read pool instance, AlloyDB waits until either your autoscaling schedule is inactive, or your CPU utilization or connections count is less than your target for 10 minutes.
 
 For more information on autoscaling in, see [Understand autoscaler decisions](https://docs.cloud.google.com/compute/docs/autoscaler/understanding-autoscaler-decisions#delays_in_scaling_in).
 
@@ -455,7 +522,7 @@ For more information on autoscaling in, see [Understand autoscaler decisions](ht
 To disable automatic scaling, use the `--no-enable-autoscaler` flag. This resets the read pool to its original node count before autoscaling was enabled.
     
     
-    gcloud beta alloydb instances update INSTANCE_ID \
+    gcloud alloydb instances update INSTANCE_ID \
         --region=REGION_ID \
         --cluster=CLUSTER_ID \
         --project=PROJECT_ID \
@@ -513,6 +580,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-03 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 

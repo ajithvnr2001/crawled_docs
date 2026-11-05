@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/assured-workloads/docs/control-packages/us-data-boundary-healthcare-life-sciences-support/
 title: US Data Boundary for Healthcare and Life Sciences with Support \u00a0|\u00a0 Assured Workloads \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T18:40:51.011804+00:00
+fetched_at: 2026-11-05T00:20:00.698294+00:00
 ---
 
 # US Data Boundary for Healthcare and Life Sciences with Support  |  Assured Workloads  |  Google Cloud Documentation
@@ -130,20 +130,27 @@ Supported product | API endpoints | Restrictions or limitations
 [Cloud Logging](https://docs.cloud.google.com/logging/docs/overview) |  `logging.googleapis.com`  
 |  Affected features  
 [Cloud Monitoring](https://docs.cloud.google.com/monitoring/docs/monitoring-overview) |  `monitoring.googleapis.com`  
+`stackdriver.googleapis.com`  
 |  Affected features  
 [Cloud Router](https://docs.cloud.google.com/network-connectivity/docs/router) |  `compute.googleapis.com`  
 |  None   
 [Cloud Run](https://docs.cloud.google.com/run/docs/overview/what-is-cloud-run) |  `run.googleapis.com`  
 |  Affected features  
-[Cloud Run functions](https://docs.cloud.google.com/functions/docs) |  `run.googleapis.com`  
+[Cloud Run functions](https://docs.cloud.google.com/functions/docs) |  `cloudfunctions.googleapis.com`  
+`run.googleapis.com`  
 |  None   
 [Cloud SQL](https://docs.cloud.google.com/sql/docs/introduction) |  `sqladmin.googleapis.com`  
 |  None   
-[Cloud Service Mesh](https://docs.cloud.google.com/service-mesh/docs/overview) |  `mesh.googleapis.com`  
+[Cloud Scheduler](https://docs.cloud.google.com/scheduler/docs/overview) |  `cloudscheduler.googleapis.com`  
+|  None   
+[Cloud Service Mesh](https://docs.cloud.google.com/service-mesh/docs/overview) |  `connectgateway.googleapis.com`  
+`mesh.googleapis.com`  
 `meshca.googleapis.com`  
 `meshconfig.googleapis.com`  
-`trafficdirector.googleapis.com`  
 `networkservices.googleapis.com`  
+`opsconfigmonitoring.googleapis.com`  
+`osconfig.googleapis.com`  
+`trafficdirector.googleapis.com`  
 |  None   
 [Cloud Storage](https://docs.cloud.google.com/storage/docs/introduction) |  `storage.googleapis.com`  
 |  None   
@@ -153,6 +160,8 @@ Supported product | API endpoints | Restrictions or limitations
 |  Affected features  
 [Cloud Vision API](https://docs.cloud.google.com/vision/docs/features-list) |  `vision.googleapis.com`  
 |  Affected features  
+[Cloud Workstations](https://docs.cloud.google.com/workstations/docs/overview) |  `workstations.googleapis.com`  
+|  None   
 [Compute Engine](https://docs.cloud.google.com/compute/docs/overview) |  `compute.googleapis.com`  
 |  Affected features and organization policy constraints  
 [Dialogflow CX](https://docs.cloud.google.com/dialogflow/cx/docs) |  `dialogflow.googleapis.com`  
@@ -172,7 +181,10 @@ Supported product | API endpoints | Restrictions or limitations
 |  None   
 [Filestore](https://docs.cloud.google.com/filestore/docs/overview) |  `file.googleapis.com`  
 |  None   
-[Firestore](https://docs.cloud.google.com/firestore/native/docs/overview) |  `firestore.googleapis.com`  
+[Firestore](https://docs.cloud.google.com/firestore/native/docs/overview) |  `datastore.googleapis.com`  
+`firestore.googleapis.com`  
+|  None   
+[Flow Analyzer](https://docs.cloud.google.com/network-intelligence-center/docs/flow-analyzer/overview) |  `networkmanagement.googleapis.com`  
 |  None   
 [Google Kubernetes Engine (GKE) Hub](https://docs.cloud.google.com/kubernetes-engine/docs/fleets-overview) |  `gkehub.googleapis.com`  
 |  None   
@@ -184,10 +196,17 @@ Supported product | API endpoints | Restrictions or limitations
 [Google Kubernetes Engine (GKE)](https://docs.cloud.google.com/kubernetes-engine/docs/concepts/kubernetes-engine-overview) |  `container.googleapis.com`  
 `containersecurity.googleapis.com`  
 |  None   
+[Google Security Operations SIEM](https://docs.cloud.google.com/security/products/security-information-event-management) |  `chronicle.googleapis.com`  
+`chronicleservicemanager.googleapis.com`  
+|  None   
+[Google Security Operations SOAR](https://docs.cloud.google.com/chronicle/docs/soar) |  `Not applicable`  
+|  None   
 [Identity and Access Management (IAM)](https://docs.cloud.google.com/iam/docs/overview) |  `iam.googleapis.com`  
 `policytroubleshooter.googleapis.com`  
 |  None   
 [Identity-Aware Proxy (IAP)](https://docs.cloud.google.com/iap/docs/concepts-overview) |  `iap.googleapis.com`  
+|  None   
+[Infrastructure Manager](https://docs.cloud.google.com/infrastructure-manager/docs) |  `config.googleapis.com`  
 |  None   
 [Internal passthrough Network Load Balancer](https://docs.cloud.google.com/load-balancing/docs/internal) |  `compute.googleapis.com`  
 |  None   
@@ -226,12 +245,15 @@ Supported product | API endpoints | Restrictions or limitations
 |  None   
 [Secure Source Manager](https://docs.cloud.google.com/secure-source-manager/docs/overview) |  `securesourcemanager.googleapis.com`  
 |  None   
-[Security Command Center Premium](https://docs.cloud.google.com/security-command-center/docs/security-command-center-overview) |  `securitycenter.googleapis.com`  
+[Security Command Center Premium](https://docs.cloud.google.com/security-command-center/docs/security-command-center-overview) |  `containerthreatdetection.googleapis.com`  
+`securitycenter.googleapis.com`  
 `securitycentermanagement.googleapis.com`  
 `securityposture.googleapis.com`  
 `websecurityscanner.googleapis.com`  
 |  None   
 [Sensitive Data Protection](https://docs.cloud.google.com/sensitive-data-protection/docs/sensitive-data-protection-overview) |  `dlp.googleapis.com`  
+|  None   
+[Service Directory](https://docs.cloud.google.com/service-directory/docs/overview) |  `servicedirectory.googleapis.com`  
 |  None   
 [Spanner](https://docs.cloud.google.com/spanner/docs) |  `spanner.googleapis.com`  
 |  Affected features and organization policy constraints  
@@ -245,16 +267,18 @@ Supported product | API endpoints | Restrictions or limitations
 `accesscontextintelligence.googleapis.com`  
 |  None   
 [Vertex AI Batch prediction](https://docs.cloud.google.com/vertex-ai/docs/predictions/get-batch-predictions) |  `aiplatform.googleapis.com`  
-|  None   
+|  Organization policy constraints  
 [Vertex AI Online prediction](https://docs.cloud.google.com/vertex-ai/docs/predictions/get-online-predictions) |  `aiplatform.googleapis.com`  
-|  None   
+|  Organization policy constraints  
 [Agent Search](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/vertex-ai-search) |  `discoveryengine.googleapis.com`  
-|  None   
+|  Organization policy constraints  
 [Vertex AI Training](https://docs.cloud.google.com/vertex-ai/docs/training-overview) |  `aiplatform.googleapis.com`  
-|  None   
+|  Organization policy constraints  
 [Vertex AI Workbench](https://docs.cloud.google.com/vertex-ai/docs/workbench/notebook-solution) |  `notebooks.googleapis.com`  
-|  None   
+|  Organization policy constraints  
 [Virtual Private Cloud (VPC)](https://docs.cloud.google.com/vpc/docs/overview) |  `compute.googleapis.com`  
+|  None   
+[Workflows](https://docs.cloud.google.com/workflows/docs/overview) |  `workflows.googleapis.com`  
 |  None   
   
 ## Restrictions and limitations
@@ -531,6 +555,16 @@ Applies additional data sovereignty and supportability controls to Spanner resou
   
 Disables the ability to create multi-region Spanner instances to enforce data residency and data sovereignty.   
   
+### Vertex AI
+
+#### Vertex AI organization policy constraints
+
+Organization policy constraint | Description  
+---|---  
+`vertexai.allowOnlyAllCompliantAPIs` | Set to **True**.  
+  
+Restricts Vertex AI requests to only services and endpoints that meet baseline compliance and data boundary requirements for US Data Boundary for Healthcare and Life Sciences with Support.   
+  
 ## What's next
 
   * Learn how to [create an Assured Workloads folder](https://docs.cloud.google.com/assured-workloads/docs/create-folder)
@@ -543,6 +577,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-03 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 

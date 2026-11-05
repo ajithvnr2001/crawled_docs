@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/akamai-cloud-monitor/
 title: Collect Akamai Cloud Monitor logs \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T07:54:20.225907+00:00
+fetched_at: 2026-11-04T23:44:02.901415+00:00
 ---
 
 # Collect Akamai Cloud Monitor logs  |  Google Security Operations  |  Google Cloud Documentation

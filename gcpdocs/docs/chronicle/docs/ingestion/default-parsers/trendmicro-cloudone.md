@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/trendmicro-cloudone/
 title: Collect Trend Micro Cloud One logs \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T07:51:53.668873+00:00
+fetched_at: 2026-11-04T23:32:50.359467+00:00
 ---
 
 # Collect Trend Micro Cloud One logs  |  Google Security Operations  |  Google Cloud Documentation

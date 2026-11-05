@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/lakehouse/docs/set-up-cross-cloud-connection-aws-glue/
 title: Set up cross-cloud connection for AWS Glue \u00a0|\u00a0 Lakehouse \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-03T08:33:52.330370+00:00
+fetched_at: 2026-11-05T00:19:34.224896+00:00
 ---
 
 # Set up cross-cloud connection for AWS Glue  |  Lakehouse  |  Google Cloud Documentation
@@ -32,7 +32,7 @@ After you set up the connection, you can query and govern your federated Apache 
   1. Review the [Lakehouse overview](https://docs.cloud.google.com/lakehouse/docs/introduction) to understand how Lakehouse manages access to data.
   2. Read [about accessing cross-cloud data](https://docs.cloud.google.com/lakehouse/docs/about-cross-cloud-data-access) to understand how it works.
   3. Review the [supported catalogs](https://docs.cloud.google.com/lakehouse/docs/about-cross-cloud-data-access#supported-catalogs) to verify supported configurations.
-  4. Optional: If you plan to route query reads or background metadata refresh over a private interconnect between your Google Cloud Virtual Private Cloud (VPC) network and your AWS VPC, verify that you have an active AWS account, provision a [Dedicated Cross-Cloud Interconnect](https://docs.cloud.google.com/network-connectivity/docs/interconnect/concepts/cci-overview#setup-process) or [Partner Cross-Cloud Interconnect](https://docs.cloud.google.com/network-connectivity/docs/interconnect/concepts/partner-cci-for-aws-overview), establish BGP sessions with your Cloud Router, and verify that you have the required Identity and Access Management (IAM) permissions in both cloud environments.
+  4. Optional: If you plan to route query reads or background metadata refresh over a private interconnect between your Google Cloud Virtual Private Cloud (VPC) network and your AWS VPC, verify that you have an active AWS account, provision a [Dedicated Cross-Cloud Interconnect](https://docs.cloud.google.com/network-connectivity/docs/interconnect/concepts/cci-overview#setup-process) or [Partner Cross-Cloud Interconnect](https://docs.cloud.google.com/network-connectivity/docs/interconnect/concepts/partner-cci-for-csp-overview), establish BGP sessions with your Cloud Router, and verify that you have the required Identity and Access Management (IAM) permissions in both cloud environments.
 
   5. Sign in to your Google Cloud account. If you're new to Google Cloud, [ create an account](https://console.cloud.google.com/freetrial) to evaluate how our products perform in real-world scenarios. New customers also get $300 in free credits to run, test, and deploy workloads. 
   6. [Verify that billing is enabled for your Google Cloud project](https://docs.cloud.google.com/billing/docs/how-to/verify-billing-enabled#confirm_billing_is_enabled_on_a_project). 
@@ -79,7 +79,7 @@ You might also be able to get the required permissions through [custom roles](ht
 This section lists the limitations and considerations for accessing cross-cloud data.
 
   * **VPC Service Controls:** If the project that contains your federated catalog endpoint or underlying Cloud Storage bucket is inside a VPC Service Controls service perimeter, then you must configure egress or ingress rules. For more information, see [Use VPC Service Controls with federated catalog endpoints](https://docs.cloud.google.com/lakehouse/docs/vpc-sc-federated-catalogs).
-  * **Supported cloud providers for Cross-Cloud Interconnect:** Using a private interconnect to route query transport, background metadata refresh, or both is supported with AWS. You can use [Dedicated Cross-Cloud Interconnect](https://docs.cloud.google.com/network-connectivity/docs/interconnect/concepts/cci-overview#setup-process) or [Partner Cross-Cloud Interconnect](https://docs.cloud.google.com/network-connectivity/docs/interconnect/concepts/partner-cci-for-aws-overview) (for AWS).
+  * **Supported cloud providers for Cross-Cloud Interconnect:** Using a private interconnect to route query transport, background metadata refresh, or both is supported with AWS. You can use [Dedicated Cross-Cloud Interconnect](https://docs.cloud.google.com/network-connectivity/docs/interconnect/concepts/cci-overview#setup-process) or [partner Cross-Cloud Interconnect](https://docs.cloud.google.com/network-connectivity/docs/interconnect/concepts/partner-cci-for-csp-overview).
   * **Network routing:** If you don't configure a private interconnect for query transport or background metadata refresh, the corresponding traffic routes over the public internet using TLS. Routing query reads over the public internet can result in higher egress fees from your remote cloud provider and less predictable performance.
   * **Read-only:** Federated catalogs in Lakehouse are read-only views of the remote catalog. Resource manipulation (such as creating, updating, or deleting resources) isn't supported and must be performed directly in the remote catalog.
   * **Data freshness:** The `--refresh-interval` flag for a federated catalog determines how often metadata is synchronized. The value must be `0s` (disabled) or at least `300s` (5 minutes). A catalog's background metadata refresh may take longer the more namespace and table resources there are. If the previous refresh overruns, the current refresh is skipped, and the next refresh is scheduled at the following interval. Queries use the most recently synchronized catalog metadata, so changes made in the remote catalog, such as new tables, schema updates, or newly committed data, aren't visible in Lakehouse until the next background metadata refresh completes. 
@@ -107,7 +107,7 @@ By default, both query data reads and background metadata refresh travel over th
 You can provision either of the following private interconnect options:
 
   * [**Dedicated Cross-Cloud Interconnect**](https://docs.cloud.google.com/network-connectivity/docs/interconnect/concepts/cci-overview#setup-process): A dedicated physical connection.
-  * [**Partner Cross-Cloud Interconnect**](https://docs.cloud.google.com/network-connectivity/docs/interconnect/concepts/partner-cci-for-aws-overview): A connection to AWS through a supported service provider.
+  * [**Partner Cross-Cloud Interconnect**](https://docs.cloud.google.com/network-connectivity/docs/interconnect/concepts/partner-cci-for-csp-overview): A connection to AWS through a supported service provider.
 
 
 

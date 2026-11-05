@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/intersystems-cache/
 title: Collect InterSystems Cach\u00e9 logs \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T07:53:39.580123+00:00
+fetched_at: 2026-11-04T23:43:32.718625+00:00
 ---
 
 # Collect InterSystems Caché logs  |  Google Security Operations  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/compute/docs/disks/restore-snapshot/
 title: Restore from a snapshot \u00a0|\u00a0 Compute Engine \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T05:40:02.569878+00:00
+fetched_at: 2026-11-05T00:17:53.972379+00:00
 ---
 
 # Restore from a snapshot  |  Compute Engine  |  Google Cloud Documentation
@@ -175,7 +175,7 @@ You might also be able to get these permissions with [custom roles](https://docs
 
   * The new disk must be at least the same size as the original source disk for the snapshot. If you create a disk that is larger than the original source disk for the snapshot, you must [resize the file system on that disk](https://docs.cloud.google.com/compute/docs/disks/resize-persistent-disk) to include the additional disk space. Depending on your operating system and file system type, you might need to use a different file system resizing tool. For more information, see your operating system documentation.
 
-  * You can create a new zonal or regional disks from a given snapshot at most once every ten minutes. If you want to issue a burst of requests to snapshot your disks, you can issue at most 6 requests in 60 minutes. This limit does not apply when creating regional disks from a snapshot. For more information, see [Snapshot frequency limits](https://docs.cloud.google.com/compute/docs/disks/snapshot-best-practices#freq_limits).
+  * You can create a new zonal or regional disk from a given snapshot at most once every ten minutes. If you want to issue a burst of requests to snapshot your disks, you can issue at most 6 requests in 60 minutes. This limit does not apply when creating regional disks from a snapshot. For more information, see [Snapshot frequency limits](https://docs.cloud.google.com/compute/docs/disks/snapshot-best-practices#freq_limits).
 
 
 
@@ -1381,11 +1381,11 @@ The characters `^:^` specify that a colon `:` is used as the separator between e
 Replace the following:
 
   * `INSTANCE_NAME`: [name](https://docs.cloud.google.com/compute/docs/naming-resources#resource-name-format) for the new instance
-  * `ZONE`: To zone to create the instance in
+  * `ZONE`: the zone to create the instance in
   * `DISK_NAME`: Optional: a name for the disk
   * `BOOT_SNAPSHOT_NAME`: name of the boot disk snapshot that you want to restore to the boot disk of the new instance.
   * `BOOT_DISK_TYPE`: Optional: [type](https://docs.cloud.google.com/compute/docs/disks#disk-types) of the boot disk, for example `pd-ssd` or `hyperdisk-balanced-high-availability`
-  * `REMOTE_ZONE`: The region that the boot disk is replicated to. The `replica-zones` property requires two zones separated by comma, and one of the zones must the same as the zone for the instance. 
+  * `REMOTE_ZONE`: The region that the boot disk is replicated to. The `replica-zones` property requires two zones separated by comma, and one of the zones must be the same as the zone for the instance. 
 
 
 
@@ -2199,6 +2199,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-03 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/kubernetes-engine/docs/how-to/configure-capacity-buffer/
 title: Configure capacity buffers \u00a0|\u00a0 Google Kubernetes Engine (GKE) \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-03T09:52:03.634722+00:00
+fetched_at: 2026-11-05T00:20:44.283517+00:00
 ---
 
 # Configure capacity buffers  |  Google Kubernetes Engine (GKE)  |  Google Cloud Documentation
@@ -23,10 +23,6 @@ Send feedback
 
 [ Standard ](https://docs.cloud.google.com/kubernetes-engine/docs/concepts/choose-cluster-mode) [ Autopilot ](https://docs.cloud.google.com/kubernetes-engine/docs/concepts/autopilot-overview)
 
-**Preview**
-
-This product is subject to the "Pre-GA Offerings Terms" in the General Service Terms section of the [Service Specific Terms](https://docs.cloud.google.com/terms/service-terms#1). Pre-GA products are available "as is" and might have limited support. For more information, see the [launch stage descriptions](https://cloud.google.com/products/#product-launch-stages). 
-
 Capacity buffers improve the responsiveness and reliability of critical workloads by proactively managing spare cluster capacity and suspended states of pre-provisioned, pre-configured capacity by using a Kubernetes CapacityBuffer CustomResourceDefinition (CRD). Using capacity buffers lets you explicitly define a specific amount of unused node capacity within your cluster. This reserved capacity helps to reduce Pod scheduling time.
 
 When a high-priority workload needs to scale up quickly, the new workload can use the empty capacity immediately without waiting for node provisioning. This approach minimizes latency and avoids resource contention during sudden spikes in demand.
@@ -42,9 +38,7 @@ Before you start, make sure that you have performed the following tasks:
   * To use the Google Cloud CLI for this task, [install](https://docs.cloud.google.com/sdk/docs/install) and then [initialize](https://docs.cloud.google.com/sdk/docs/initialize) the gcloud CLI. If you previously installed the gcloud CLI, get the latest version by running the `gcloud components update` command. Earlier gcloud CLI versions might not support running the commands in this document. **Note:** For existing gcloud CLI installations, make sure to set the `compute/region` [property](https://docs.cloud.google.com/sdk/docs/properties#setting_properties). If you use primarily zonal clusters, set the `compute/zone` instead. By setting a default location, you can avoid errors in the gcloud CLI like the following: `One of [--zone, --region] must be supplied: Please specify location`. You might need to specify the location in certain commands if the location of your cluster differs from the default that you set.
 
 
-  * Create or have access to a GKE cluster that meets the following version requirements: 
-    * For active buffers, use version 1.35.2-gke.1842000 or later on Standard and Autopilot clusters.
-    * For standby buffers, use version 1.36.0-gke.2253000 or later on Standard clusters, or version 1.36.0-gke.2853000 or later on Autopilot clusters with [custom ComputeClasses](https://docs.cloud.google.com/kubernetes-engine/docs/concepts/about-custom-compute-classes).
+  * Create or have access to a GKE cluster running version 1.37.1-gke.3020000 or later. Standby buffers on Autopilot clusters require [custom ComputeClasses](https://docs.cloud.google.com/kubernetes-engine/docs/concepts/about-custom-compute-classes).
   * Enable [node pool auto-creation](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/node-auto-provisioning) on your Standard clusters. In Autopilot clusters, node pool auto-creation is already enabled. Node pool auto-creation is optional but recommended for active buffers and required for standby buffers.
 
 
@@ -64,8 +58,6 @@ Depending on which type of CapacityBuffer you're configuring, you also require o
     * ReplicationController
     * Job
     * CustomResourceDefinitions (CRDs) that implement the `scale` subresource.
-
-**Note:** If you are using a custom CRD and a GKE version earlier than 1.36.0-gke.2459000, you might need to manually grant the cluster autoscaler permissions to read the scale subresource. See Permission errors for custom scalable resources.
 
 
 
@@ -294,7 +286,7 @@ In most cases, start with fixed replicas or resource limit strategies rather tha
 
 
 
-In GKE version 1.36.3-gke.1244000 and later, to keep a minimum buffer size when the referenced workload scales down, set the `replicas` field together with the `percentage` field. GKE uses whichever field results in more buffer units. To cap the buffer size, also set the `limits` field.
+To keep a minimum buffer size when the referenced workload scales down, set the `replicas` field together with the `percentage` field. GKE uses whichever field results in more buffer units. To cap the buffer size, also set the `limits` field.
 
 For example, consider a buffer with `percentage: 20` and `replicas: 3` that references a Deployment with 10 replicas. Because 20% of 10 replicas is 2, which is less than the `replicas` value of 3, GKE provisions 3 buffer units. If the Deployment scales to 20 replicas, the buffer grows to 4 units. For more information, see the [CapacityBuffer reference documentation](https://docs.cloud.google.com/kubernetes-engine/docs/reference/crds/capacitybuffer).
 
@@ -558,38 +550,6 @@ Look for a condition of the type `ReadyForProvisioning` with a status of `False`
 
 To resolve this issue, ensure that your CapacityBuffer references a workload or PodTemplate that is compatible with node-based billing.
 
-### Permission errors for custom scalable resources
-
-If you configure a CapacityBuffer to work with custom scalable objects (using the `scalableRef` field), the cluster autoscaler might fail to scale the buffer if it lacks the necessary permissions. This issue only occurs in GKE versions earlier than 1.36.0-gke.2459000.
-
-To resolve this issue, manually grant the required permissions by creating a `ClusterRole` and `ClusterRoleBinding`, such as in the following example:
-    
-    
-    apiVersion: rbac.authorization.k8s.io/v1
-    kind: ClusterRole
-    metadata:
-      name: custom-scale-getter
-    rules:
-    - apiGroups: ["api.example.com"]
-      resources: ["customreplicatedresources/scale"]
-      verbs: ["get"]
-    ---
-    apiVersion: rbac.authorization.k8s.io/v1
-    kind: ClusterRoleBinding
-    metadata:
-      name: ca-custom-scale-getter
-    subjects:
-    - kind: User
-      name: "system:cluster-autoscaler"
-      namespace: kube-system
-    roleRef:
-      apiGroup: rbac.authorization.k8s.io
-      kind: ClusterRole
-      name: custom-scale-getter
-    
-
-For more information about configuring RBAC, see the [Kubernetes RBAC documentation](https://kubernetes.io/docs/reference/access-authn-authz/rbac/#role-and-clusterrole).
-
 ### Buffer Pods aren't scheduled on nodes provisioned by custom ComputeClasses
 
 If your CapacityBuffer configuration dependency (for example, a PodTemplate) selects a custom ComputeClass, you might encounter an issue where buffer Pods aren't scheduled on the newly provisioned nodes. This issue causes the cluster autoscaler to repeatedly create redundant node pools and nodes while idle nodes are deleted.
@@ -685,6 +645,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-02 UTC.
+Last updated 2026-11-03 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-02 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 

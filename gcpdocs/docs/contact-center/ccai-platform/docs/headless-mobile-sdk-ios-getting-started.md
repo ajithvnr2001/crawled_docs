@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/contact-center/ccai-platform/docs/headless-mobile-sdk-ios-getting-started/
 title: Headless Mobile SDK for iOS: Get started \u00a0|\u00a0 Google Cloud Contact Center as a Service \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T05:38:09.229138+00:00
+fetched_at: 2026-11-04T23:31:54.589060+00:00
 ---
 
 # Headless Mobile SDK for iOS: Get started  |  Google Cloud Contact Center as a Service  |  Google Cloud Documentation
@@ -106,32 +106,32 @@ These values are used for:
 
 ### Push notifications
 
-For calls and certain smart actions, you need:
+Push notifications are optional. Without them, chat (including smart actions the agent requests during a chat) and calls the user starts still work while your app is open. You need push notifications only for incoming calls (agent callbacks and scheduled calls), smart actions the agent requests during a call, and alerts about new agent messages and chat updates while your app is in the background or closed. For these, you need:
 
   * Apple Push Notification service (APNs) configuration for standard push notifications.
 
-  * A VoIP services certificate to support incoming calls and specific call-related notifications.
+  * A VoIP Services certificate (if your app receives incoming calls).
 
 
 
 
 You will:
 
-  * Configure APNs and VoIP credentials in the Apple Developer portal.
+  * Configure APNs in the Apple Developer portal, and VoIP credentials if your app receives incoming calls.
 
   * Upload the converted certificates in the CCAI Platform administrator portal under **Settings > Developer settings > Mobile app**.
 
-  * Register for remote notifications and VoIP pushes in your app.
+  * Register for remote notifications in your app, and for VoIP pushes if your app receives incoming calls.
 
   * Forward the appropriate device tokens to the SDK.
 
-  * In **Target > Signing & capabilities**, enable the following:
+  * In **Target > Signing & capabilities**, enable the capabilities for the features you use:
 
     * **Push notifications** capability.
 
     * **Background modes** capability with these items checked:
 
-      * **Voice-over IP** \- required for VoIP push notifications (incoming calls, smart actions using PSTN).
+      * **Voice over IP** \- required for VoIP push notifications (incoming calls).
 
       * **Audio, AirPlay, and Picture in Picture** \- required for voice call audio to continue when the app is backgrounded.
 
@@ -214,7 +214,7 @@ You will use:
 
 ## Add the SDK to your iOS app
 
-The Headless SDK is built using a modular architecture. You install the core `CCAIKit` alongside the specific feature modules your app requires (for example, `CCAIChat` or `CCAIScreenShare`).
+The Headless SDK v3 is built using a modular architecture. The `CCAIKit` package product includes every module: chat (`CCAIChat`), voice and scheduled calls (`CCAICall`), and screen share (`CCAIScreenShare`). If your app needs only one of those features, add that feature's product (`CCAIChat`, `CCAICall`, or `CCAIScreenShare`) instead of `CCAIKit`; each one includes the core SDK.
 
 To integrate the iOS SDK in your app, follow the next sequence of steps.
 
@@ -223,15 +223,15 @@ To integrate the iOS SDK in your app, follow the next sequence of steps.
   1. Add the following to your `Package.swift` file:
          
          dependencies: [
-            .package(url: "https://github.com/UJET/ccai-ios-sdk.git", from: "3.3.1")
+             .package(url: "https://github.com/UJET/ccai-ios-sdk.git", from: "3.5.0")
          ],
          targets: [
-            .target(
-                name: "YourTargetName",
-                dependencies: [
-                    .product(name: "CCAIKit", package: "CCAIKit")
-                ]
-            )
+             .target(
+                 name: "YourTargetName",
+                 dependencies: [
+                     .product(name: "CCAIKit", package: "ccai-ios-sdk")
+                 ]
+             )
          ]
          
 
@@ -252,6 +252,12 @@ To integrate the iOS SDK in your app, follow the next sequence of steps.
 
 
 
+In Xcode, you can instead choose **File > Add Package Dependencies…**, enter `https://github.com/UJET/ccai-ios-sdk`, and add the `CCAIKit` product to your app target.
+
+**Note:** If your project builds in Swift 6 language mode with strict concurrency checking, calls into the SDK can fail to compile with errors about non-`Sendable` types. In the files that call the SDK, import its modules with `@preconcurrency` (for example, `@preconcurrency import CCAIKit`).
+
+Importing an SDK module doesn't make `Foundation` available. In each file, import the frameworks and SDK modules whose types or APIs the file uses: for example, `import Foundation` for `DispatchQueue`, `UUID`, or `Date`, and `import CCAIKit` for CCAI.
+
 ## Initialize the headless SDK
 
 Initialize the SDK during app launch. Because of the SDK's modular architecture, you must initialize the core CCAI system first, and then register the specific service modules (such as chat or screen share).
@@ -261,8 +267,10 @@ Initialize the SDK during app launch. Because of the SDK's modular architecture,
 The SDK uses an `InitOptions` struct that bundles all required configuration:
     
     
+    import UIKit
     import CCAIKit
-    import CCAIChat       // If using Chat
+    import CCAIChat        // If using Chat
+    import CCAICall        // If using voice or scheduled calls
     import CCAIScreenShare // If using Screen Share
     
     class AppDelegate: NSObject, UIApplicationDelegate, CCAIDelegate {
@@ -277,11 +285,10 @@ The SDK uses an `InitOptions` struct that bundles all required configuration:
                 key: "YOUR_COMPANY_KEY",
                 urlHost: "your_subdomain.ccaiplatform.com",
                 delegate: self,
-                languageCode: "en",       // ISO 639 code (defaults to "en")
                 cacheAuthToken: true       // Whether to cache the auth token (defaults to true)
             )
     
-            // 2. Initialize the core SDK
+            // 2. Initialize the Core SDK
             do {
                 try CCAI.shared.initialize(options: options)
             } catch {
@@ -289,22 +296,28 @@ The SDK uses an `InitOptions` struct that bundles all required configuration:
                 return true
             }
     
-            // 3. Initialize feature modules
-            // Chat minimal (no options required)
+            // Optional: set the SDK language (ISO 639 code; defaults to "en")
+            CCAI.shared.languageService?.languageCode = "en"
+    
+            // 3. Initialize Feature Modules
+            // Chat - minimal (no options required)
             CCAI.shared.initializeChat()
     
-            // Chat with optional configuration
+            // Chat - with optional configuration
             // let chatOptions = ChatOptions(
-            //     delegate: webFormDelegate,           // Implement to intercept and render custom web forms within your own UI
-            //     downloadTranscriptVisibility: .hideInPostChat, // Hide the post-chat download affordance
-            //     greeting: "Hello! How can I help you?"
+            //     webFormHandler: { request in await presentWebForm(request) }, // Optional: render web forms in your own UI
+            //     downloadTranscriptVisibility: .hideInPostChat // Hide the post-chat download affordance
             // )
+            // To set a chat greeting, pass greeting: in the ChatRequest
             // CCAI.shared.initializeChat(chatOptions)
+    
+            // Voice (required whenever your app uses voice or scheduled calls)
+            CCAI.shared.initializeCall()
     
             // Screen Share (optional)
             // let screenShareOptions = ScreenShareOptions(
-            //     key: "YOUR_SCREEN_SHARE_KEY",
-            //     domain: "your_domain.com"
+            //     key: "YOUR_SCREEN_SHARE_LICENSE_KEY", // License Key (Settings > Developer Settings > Screen Share)
+            //     domain: "https://your-screen-share-domain.example.com" // Optional: the Screen Share Domain URL
             // )
             // CCAI.shared.initializeScreenShare(screenShareOptions)
     
@@ -322,19 +335,18 @@ The SDK uses an `InitOptions` struct that bundles all required configuration:
         /// The company key used for authentication
         public let key: String
     
-        /// The host URL for CCAI platform (for example, "my-unique-instance.uc1.ccaiplatform.com")
+        /// The host URL for CCAI platform (for example, "my-unique-tenant.uc1.ccaiplatform.com")
         public let urlHost: String
     
-        /// The preferred language code for localization (defaults to "en")
-        public var languageCode: String
-    
-        /// The delegate that receives SDK events and callbacks
-        public weak var delegate: CCAIDelegate?
+        /// The delegate that handles authentication
+        public var delegate: CCAIDelegate?
     
         /// Whether to cache the authentication token (defaults to true)
         public let cacheAuthToken: Bool
     }
     
+
+**Note:** The SDK keeps a strong reference to your delegate, so you can pass a newly created object. To release it, set `CCAI.shared.delegate = nil` or call `CCAI.shared.clearDelegate()`.
 
 ### Available SDK services
 
@@ -344,13 +356,13 @@ After initialization, you can access various services through the `CCAI.shared` 
     let authService = CCAI.shared.authService
     let companyService = CCAI.shared.companyService
     let queueMenuService = CCAI.shared.queueMenuService
-    let optionsService = CCAI.shared.optionsService
     let languageService = CCAI.shared.languageService
     let pushNotificationService = CCAI.shared.pushNotificationService
     let endUserService = CCAI.shared.endUserService
     let chatService = CCAI.shared.chatService           // Only available after initializeChat()
     let screenShareService = CCAI.shared.screenShareService // Only available after initializeScreenShare()
-    let rateService = CCAI.shared.rateService            // For CSAT ratings and survey submission
+    let callService = CCAI.shared.callService           // Only available after initializeCall()
+    let rateService = CCAI.shared.rateService           // For CSAT ratings and survey submission
     let smartActionService = CCAI.shared.smartActionService // Dedicated service for smart action lifecycle
     
 
@@ -413,25 +425,6 @@ Your app must implement the `CCAIDelegate` protocol. The SDK calls the single as
     
             // 2. Authenticate JWT using authService to get an auth token
             return try? await CCAI.shared.authService?.authenticate(jwt)
-        }
-    }
-    
-
-#### Full example with JWT signing for reference and testing
-    
-    
-    class AuthController: CCAIDelegate {
-        func ccaiShouldAuthenticate() async -> String? {
-            var jwt = JWT(claims: claims)
-    
-            // First, sign JWT with company secret (do this on your backend in production)
-            guard let secret = self.companySecret,
-                  let key = secret.data(using: .utf8) else { return nil }
-            let signer = JWTSigner.hs384(key: key)
-            guard let encodedJWT = try? jwt.sign(using: signer) else { return nil }
-    
-            // Then authenticate JWT using authService to get an auth token
-            return try? await CCAI.shared.authService?.authenticate(encodedJWT)
         }
     }
     
@@ -548,22 +541,22 @@ When your backend constructs the final payload to be signed with your company se
 
 The SDK uses push notifications for:
 
-  * Incoming calls.
+  * **Incoming calls** (agent callbacks and scheduled calls).
 
-  * Certain smart actions and call-related events.
+  * **Smart actions** the agent requests during a call.
 
-  * Maintaining state when the app is in the background.
+  * **Alerts** about new agent messages and chat updates while your app is in the background or closed.
 
 
-**Warning:** Push notification delegates must be implemented. If they aren't implemented, the service won't work properly.
+**Note:** Push notifications are optional. If your app doesn't need these features, you can skip this section.
 
 ### Configure certificates
 
-CCAI Platform requires **two** different types of Apple push certificates to be saved in the CCAI Platform administrator portal:
+CCAI Platform uses two types of Apple push certificates, saved in the CCAI Platform administrator portal:
 
-  * An Apple Push Notification service (APNs) SSL certificate - used for standard remote push notifications.
+  * An **Apple Push Notification service (APNs) SSL certificate** used for standard remote push notifications.
 
-  * A VoIP services certificate - used for incoming-call notifications and certain call-related smart actions.
+  * A **VoIP Services certificate** used for incoming calls. You need it only if your app receives incoming calls.
 
 
 
@@ -652,26 +645,29 @@ VoIP services certificates allow your app to receive high-priority push notifica
 
   3. Upload the APNs PEM certificate.
 
-  4. Upload the VoIP PEM certificate.
+  4. If your app receives incoming calls, upload the VoIP PEM certificate.
 
 
-**Warning:** **Both certificates are required.** If either certificate is missing or expired, the corresponding push notification type fails silently. APNs certificates handle standard push delivery, while VoIP certificates handle incoming-call and call-related notifications. Make sure to renew both before they expire (Apple certificates are typically valid for one year).
+**Warning:** If a certificate you use is missing or expired, the push notifications that depend on it fail silently. The APNs certificate handles standard push delivery, including smart actions during a call, and the VoIP certificate handles incoming calls. Renew each certificate before it expires (Apple certificates are typically valid for one year).
 
 ### Request push notification permissions
 
-The SDK provides a convenience method to request push notification authorization (iOS only):
+The SDK provides a convenience method that requests notification permission and, if the user grants it, registers your app with APNs. If your app hasn't asked for notification permission by the time the first chat, instant call, or voicemail starts, the SDK asks then. To control when the prompt appears, request permission yourself earlier, for example during onboarding.
+
+The method doesn't return the user's choice. To track it, subscribe to `grantStatusChanged` before you request permission. The publisher doesn't replay earlier values: it publishes `true` once the APNs device token reaches the SDK, and `false` if the user denies permission or registration fails, so a subscription made after the request can miss the answer.
     
     
-    let options: UNAuthorizationOptions = [.alert, .sound]
-    try await CCAI.shared.pushNotificationService?.registerForPushNotifications(
-        options: options
-    ) { granted in
-        if granted {
-            print("Push notifications granted")
-        } else {
-            print("Push notifications denied")
+    // 1. Subscribe first: grantStatusChanged doesn't replay earlier values
+    CCAI.shared.pushNotificationService?.grantStatusChanged
+        .receive(on: DispatchQueue.main)
+        .sink { granted in
+            print(granted ? "Push notifications enabled" : "Push notifications disabled")
         }
-    }
+        .store(in: &cancellables)
+    
+    // 2. Then request permission and register with APNs
+    let options: UNAuthorizationOptions = [.alert, .sound]
+    try await CCAI.shared.pushNotificationService?.registerForPushNotifications(options: options)
     
 
 ### Register for remote notifications
@@ -716,25 +712,33 @@ When you receive a push payload, forward it to the SDK for processing:
         didReceiveRemoteNotification userInfo: [AnyHashable: Any],
         fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void
     ) {
-        // Let the SDK determine if this push relates to an incoming call,
-        // session update, or another internal event
-        CCAI.shared.pushNotificationService?.handlePushNotification(userInfo)
-        completionHandler(.newData)
+        Task {
+            // handlePushNotification is async, so call it from a Task
+            await CCAI.shared.pushNotificationService?.handlePushNotification(userInfo)
+            completionHandler(.newData)
+        }
     }
     
 
-The SDK determines whether the push relates to an incoming call, session update, or another internal event, and handles it accordingly.
+The SDK processes payloads that CCAI Platform sent and publishes each one on a `pushNotificationService` publisher, such as `chatNotificationReceived`, `callNotificationReceived`, or `requestNotificationReceived`.
 
 ### Register for VoIP push notifications
 
-For **incoming calls** and certain **PSTN-based smart actions** , the SDK requires a VoIP push token in addition to the standard APNs token. VoIP pushes are delivered with high priority and can wake your app from a terminated state.
+For incoming calls, the SDK needs a VoIP push token. VoIP pushes are delivered with high priority and can wake your app from a terminated state. If your app doesn't receive incoming calls, skip this section.
 
-#### Import `PushKit` and create a `PKPushRegistry` in your `AppDelegate`'s `didFinishLaunchingWithOptions`
+**Step 1** : Import `PushKit`, `UIKit`, `CCAIKit`, and `CCAICall`, keep a `PKPushRegistry` in a property of your `AppDelegate`, and configure it in `didFinishLaunchingWithOptions`:
     
     
     import PushKit
+    import UIKit
+    import CCAIKit
+    import CCAICall
     
     class AppDelegate: NSObject, UIApplicationDelegate, PKPushRegistryDelegate {
+    
+        // Keep a strong reference: a registry held only in a local constant is
+        // released, and stops delivering VoIP tokens and pushes
+        private let voipRegistry = PKPushRegistry(queue: .main)
     
         func application(
             _ application: UIApplication,
@@ -744,7 +748,6 @@ For **incoming calls** and certain **PSTN-based smart actions** , the SDK requir
             // ... SDK initialization ...
     
             // Register for VoIP push notifications
-            let voipRegistry = PKPushRegistry(queue: DispatchQueue.main)
             voipRegistry.delegate = self
             voipRegistry.desiredPushTypes = [.voIP]
     
@@ -753,7 +756,7 @@ For **incoming calls** and certain **PSTN-based smart actions** , the SDK requir
     }
     
 
-#### Implement the `PKPushRegistryDelegate` methods to forward VoIP tokens and payloads to the SDK
+**Step 2** : Implement the `PKPushRegistryDelegate` methods to forward VoIP tokens and payloads to the SDK:
     
     
     // MARK: - PKPushRegistryDelegate
@@ -763,6 +766,7 @@ For **incoming calls** and certain **PSTN-based smart actions** , the SDK requir
         didUpdate credentials: PKPushCredentials,
         for type: PKPushType
     ) {
+        guard type == .voIP else { return }
         // Forward the VoIP token to the SDK
         CCAI.shared.pushNotificationService?.updatePushToken(
             data: credentials.token,
@@ -795,18 +799,20 @@ For **incoming calls** and certain **PSTN-based smart actions** , the SDK requir
         // Forward the VoIP payload to the SDK using the `handleVoIPPush`
         // extension on `CCAI` (defined in the `CCAICall` module). The SDK
         // takes ownership of the call lifecycle; invoke PushKit's completion
-        // handler in the trailing closure after the SDK has accepted the
+        // handler in the trailing closure once the SDK has accepted the
         // payload.
         CCAI.shared.handleVoIPPush(payload: payload.dictionaryPayload) { completion() }
     }
     
 
-**Note:** VoIP push notifications only work on physical devices — they aren't supported in the iOS Simulator. Make sure your VoIP services certificate is uploaded in the CCAI Platform administrator portal and that the **Voice-over IP** background mode is enabled.
+`handleVoIPPush` also works on a cold start, before `CCAI.shared.initializeCall()` has run: the SDK reports the incoming call to CallKit right away and hands it to the call service once you initialize the call module.
+
+**Note:** VoIP push notifications only work on physical devices — they are not supported in the iOS Simulator. Make sure your VoIP Services certificate is uploaded in the CCAI Platform administrator portal and that the **Voice over IP** background mode is enabled.
 
 Send feedback 
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-04 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 

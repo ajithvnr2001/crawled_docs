@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/compute/docs/troubleshooting/troubleshooting-vm-creation/
 title: Troubleshoot creating, updating and deleting VMs \u00a0|\u00a0 Compute Engine \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T22:59:22.767108+00:00
+fetched_at: 2026-11-05T00:20:40.537587+00:00
 ---
 
 # Troubleshoot creating, updating and deleting VMs  |  Compute Engine  |  Google Cloud Documentation
@@ -69,7 +69,7 @@ If you update more than one resource at a time, for example, modifying secondary
 
 ### Resource availability
 
-The following are examples of common resource errors that you might encounter when you request new Compute Engine resources or create new reservations:
+When a resource availability error occurs, Compute Engine returns an error message similar to one of the following in the Google Cloud console, the Google Cloud CLI, or the API response:
     
     
     ZONE_RESOURCE_POOL_EXHAUSTED
@@ -80,27 +80,43 @@ The following are examples of common resource errors that you might encounter wh
     
     
     
-    The zone 'projects/PROJECT_ID/zones/ZONE' does not have enough resources available to fulfill the request.
-    Try a different zone, or try again later.
+    REGION_RESOURCE_POOL_EXHAUSTED_WITH_DETAILS
     
     
     
-    A VM_TYPE_AND_SIZE VM instance with RESOURCE_ATTACHMENT is currently unavailable in the ZONE zone.
-    
-    Capacity changes frequently, so try your request in a different zone, with a different VM hardware
-    configuration, or at a later time. For more options, see troubleshooting documentation.
+    POOL_CAPACITY_INSUFFICIENT
     
     
     
-    A VM_TYPE_AND_SIZE VM instance with RESOURCE_ATTACHMENT is currently unavailable in the ZONE zone, because of  REASON.
+    The zone 'projects/PROJECT_ID/zones/ZONE' does not have
+    enough resources available to fulfill the request. Try a different zone, or try
+    again later.
     
-    Consider trying your request in the ZONE zone(s), which currently has capacity to accommodate your request.
     
-    If you cannot move your VM to ZONE, review the REASON failure resolution instructions available in troubleshooting documentation, then try your request again.
-    If your workload can't accommodate the suggested resolution, try your request with a different VM hardware configuration or at a later time.
+    
+    A VM_TYPE_AND_SIZE VM instance with RESOURCE_ATTACHMENT is
+    currently unavailable in the ZONE zone.
+    
+    Capacity changes frequently, so try your request in a different zone, with a
+    different VM hardware configuration, or at a later time. For more options, see
+    troubleshooting documentation.
+    
+    
+    
+    A VM_TYPE_AND_SIZE VM instance with RESOURCE_ATTACHMENT is
+    currently unavailable in the ZONE zone because of REASON.
+    
+    Consider trying your request in the AVAILABLE_ZONES zones, which
+    currently has capacity to accommodate your request.
+    
+    If you cannot move your VM to AVAILABLE_ZONES, review the
+    instructions to resolve the REASON failure that are available in
+    troubleshooting documentation, then try your request again. If your workload
+    can't accommodate the suggested resolution, try your request with a different VM
+    hardware configuration or at a later time.
     
 
-To learn how to resolve resource errors, see [Troubleshooting resource availability errors](https://docs.cloud.google.com/compute/docs/troubleshooting/troubleshooting-resource-availability).
+To learn how to resolve resource errors, see [Troubleshoot resource availability errors](https://docs.cloud.google.com/compute/docs/troubleshooting/troubleshooting-resource-availability).
 
 ### Zone availability
 
@@ -364,6 +380,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-03 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 

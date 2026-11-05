@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/compute/docs/instances/reservations-modify/
 title: Modify reservations \u00a0|\u00a0 Compute Engine \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T23:18:17.949156+00:00
+fetched_at: 2026-11-05T00:20:41.812470+00:00
 ---
 
 # Modify reservations  |  Compute Engine  |  Google Cloud Documentation
@@ -136,7 +136,7 @@ You can increase or decrease the number of reserved compute instances in a reser
 
     * You must have enough unused quota in your project for the additional resources to reserve. To increase quota, see [View and manage quotas](https://docs.cloud.google.com/compute/resource-usage#vm_instance_quota).
 
-    * There must be enough resources available in the zone of the reservation. If not, then your modification request fails with a resource availability error. To troubleshoot this type of error, see [Troubleshooting resource availability errors](https://docs.cloud.google.com/compute/docs/troubleshooting/troubleshooting-resource-availability).
+    * There must be enough resources available in the zone of the reservation. If not, then your modification request fails with a resource availability error. To troubleshoot this type of error, see [Troubleshoot resource availability errors](https://docs.cloud.google.com/compute/docs/troubleshooting/troubleshooting-resource-availability).
 
 **Note:** Even if you meet these conditions, your modification request might fail because of the zone's reservation capacity limit for the machine family. If the zone has reached this limit, then your request fails with a `RESERVATION_CAPACITY_LIMIT_EXCEEDED` error. To troubleshoot this error, see [Reservation capacity limit exceeded](https://docs.cloud.google.com/compute/docs/troubleshooting/troubleshooting-reservation-updates#reservation-capacity-limit-exceeded).
   * To decrease the number of compute instances in a [specifically targeted reservation](https://docs.cloud.google.com/compute/docs/instances/reservations-overview#consumption-type), verify that the number of compute instances that consume the reservation doesn't exceed the new, smaller number. If it does, then do one of the following with the compute instances in excess of the new number:
@@ -768,6 +768,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-03 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/intrusion-detection-system/docs/investigate/
 title: Investigate threat alerts \u00a0|\u00a0 Cloud Intrusion Detection System \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T18:16:19.057472+00:00
+fetched_at: 2026-11-04T23:33:29.238212+00:00
 ---
 
 # Investigate threat alerts  |  Cloud Intrusion Detection System  |  Google Cloud Documentation
@@ -76,7 +76,7 @@ Use the following instructions to search for Common Vulnerabilities and Exposure
      2. Investigate the reputation of domains and IP addresses involved to develop a broad understanding of the potential threat level.
   7. If the traffic has a business impact and you are convinced that the traffic isn't malicious, or if you are willing to accept the risk, you can add [Threat Exceptions](https://docs.cloud.google.com/intrusion-detection-system/docs/configuring-ids#optional-configure-threat-exceptions) to your Cloud IDS endpoint to disable the threat ID.
 
-  8. Implement a [Cloud Armor rule](https://docs.cloud.google.com/armor/docs/rules-language-reference) or a [Cloud NGFW rule](https://docs.cloud.google.com/firewall/docs/firewall-policies-rule-details) to block the malicious traffic using the connection source and destination IP addresses in the finding.
+  8. Implement a [Cloud Armor rule](https://docs.cloud.google.com/armor/docs/create-security-policy-rules) or a [Cloud NGFW rule](https://docs.cloud.google.com/firewall/docs/firewall-policies-rule-details) to block the malicious traffic using the connection source and destination IP addresses in the finding.
 
 
 
@@ -85,6 +85,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-04 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 

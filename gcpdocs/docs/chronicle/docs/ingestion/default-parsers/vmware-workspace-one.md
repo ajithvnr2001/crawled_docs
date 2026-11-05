@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/vmware-workspace-one/
 title: Collect Omnissa Workspace ONE UEM (formerly VMware Workspace ONE) logs \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T07:51:51.061899+00:00
+fetched_at: 2026-11-04T23:43:43.643374+00:00
 ---
 
 # Collect Omnissa Workspace ONE UEM (formerly VMware Workspace ONE) logs  |  Google Security Operations  |  Google Cloud Documentation

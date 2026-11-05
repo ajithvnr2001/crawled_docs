@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/compute/docs/instances/committed-use-discounts-overview/
 title: Committed use discounts (CUDs) for Compute Engine \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T23:03:39.475947+00:00
+fetched_at: 2026-11-05T00:20:44.610671+00:00
 ---
 
 # Committed use discounts (CUDs) for Compute Engine  |  Google Cloud Documentation
@@ -49,10 +49,10 @@ Resource-based commitments are ideal for predictable and steady state usage. The
 
 Each resource-based commitment is linked to the region and project in which you purchase that commitment. You can use a given commitment to cover resources only in the region that was specified by the commitment.
 
-However, depending on the Cloud Billing account's [CUD sharing](https://docs.cloud.google.com/compute/docs/instances/sharing-committed-use-discounts-across-projects) configuration, your commitment can cover resource usage either within the purchasing project or across all projects under the same Cloud Billing account, as follows:
+However, depending on the Cloud Billing account's [CUD sharing](https://docs.cloud.google.com/compute/docs/committed-use-discounts/share-resource-cuds-across-projects) configuration, your commitment can cover resource usage either within the purchasing project or across all projects under the same Cloud Billing account, as follows:
 
   * By default, all new Cloud Billing accounts that were created on or after June 16, 2026 have CUD sharing enabled. For those accounts, resource-based CUDs from any commitment are shared automatically across eligible usage from all projects in that Cloud Billing account.
-  * If a Cloud Billing account was created before June 16, 2026, then see [CUD scope and default configuration](https://docs.cloud.google.com/compute/docs/instances/sharing-committed-use-discounts-across-projects#cud-scope-configuration) for more information.
+  * If a Cloud Billing account was created before June 16, 2026, then see [CUD scope and default configuration](https://docs.cloud.google.com/compute/docs/committed-use-discounts/share-resource-cuds-across-projects#cud-scope-configuration) for more information.
 
 
 
@@ -92,7 +92,7 @@ When you purchase a resource-based commitment, the commitment becomes active on 
 
 ### Learn more and purchase
 
-To learn more about resource-based CUDs for Compute Engine, see [Resource-based committed use discounts](https://docs.cloud.google.com/compute/docs/instances/signing-up-for-committed-use-discounts).
+To learn more about resource-based CUDs for Compute Engine, see [Resource-based committed use discounts](https://docs.cloud.google.com/compute/docs/instances/signing-up-committed-use-discounts).
 
 For purchase information, see one of the following depending on your use case:
 
@@ -174,7 +174,7 @@ After your commitment becomes active, you start receiving eligible resources and
 
 Every hour, until your total spend on eligible SKUs equals the commitment fee, the following things happen: 
 
-  * SKUs for eligible usage are charged at the discounted prices as determined by the [CUD consumption model rates](https://docs.cloud.google.com/billing/docs/how-to/cuds-multiprice#consumption-model-intro). The consumption model ID is `D97B-0795-975B` for 1-year compute flexible commitments and `70D7-D1AB-12A4` for 3-year compute flexible commitments.
+  * SKUs for eligible usage are charged at the discounted prices as determined by the [CUD consumption model rates](https://docs.cloud.google.com/docs/cuds-multiprice#consumption-model-intro). The consumption model ID is `D97B-0795-975B` for 1-year compute flexible commitments and `70D7-D1AB-12A4` for 3-year compute flexible commitments.
   * Your commitment fee offsets these discounted usage costs until your total hourly spend equals the commitment fee value. At this point, your compute flexible commitment is considered to be fully utilized.
 
 
@@ -234,7 +234,7 @@ Any overage usage appears on your cost data exports in the following way:
 
 
 
-For detailed information about your cost data exports and how to interpret charges, see [Spend-based CUDs data model updates](https://docs.cloud.google.com/billing/docs/how-to/cuds-multiprice-datamodel). 
+For detailed information about your cost data exports and how to interpret charges, see [Spend-based CUDs data model updates](https://docs.cloud.google.com/docs/cuds-multiprice-datamodel). 
 
 ### Examples of compute flexible commitments
 
@@ -323,9 +323,9 @@ This flexibility maximizes the utilization of your compute flexible commitments.
 
 You can purchase compute flexible commitments only at a Cloud Billing account level. Before you purchase a commitment, read the [Service Specific Terms](https://cloud.google.com/terms/service-terms). 
 
-For detailed instructions about how to purchase a compute flexible commitment, see [Purchasing spend-based commitments](https://docs.cloud.google.com/billing/docs/how-to/cuds-spend-based#purchasing).
+For detailed instructions about how to purchase a compute flexible commitment, see [Purchasing spend-based commitments](https://docs.cloud.google.com/docs/cuds-multiprice#steps_to_purchase).
 
-After you purchase a commitment, you can't cancel it. For more information, see [Cancel commitments](https://docs.cloud.google.com/billing/docs/how-to/cuds-spend-based#canceling_commitments). 
+After you purchase a commitment, you can't cancel it. For more information, see [How spend-based CUDs work](https://docs.cloud.google.com/docs/cuds-multiprice#how_spend-based_cuds_work). 
 
 ## Order of discount application
 
@@ -368,6 +368,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-03 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 

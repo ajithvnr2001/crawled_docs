@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chronicle/docs/ingestion/data-processing-pipeline/
 title: Manage data processing pipelines \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T09:57:53.419595+00:00
+fetched_at: 2026-11-04T23:31:46.884365+00:00
 ---
 
 # Manage data processing pipelines  |  Google Security Operations  |  Google Cloud Documentation
@@ -140,10 +140,10 @@ This instance ingests the processed data (output from your data processing), as 
 To find the instance in the Google Cloud console, go to **Security > Detections and Controls > Google Security Operations** > **Instance details**.  
 **Customer ID** | Customer ID of your Google SecOps instance.   
   
-In the Google SecOps console, go to **SIEM Settings > Profile > Organization details**.  
+In the Google SecOps console, go to **Settings > Administration > Profile > Organization details**.  
 **Google Cloud project number** | Google Cloud project number of your Google SecOps instance.  
   
-To find the project number in the Google SecOps console, go to **SIEM Settings > Profile > Organization details**.  
+To find the project number in the Google SecOps console, go to **Settings > Administration > Profile > Organization details**.  
 **Credentials** | Service Account credentials are the JSON value required to authenticate and access the Google SecOps Data Pipeline APIs. Get this JSON value from the Google Service Account credential file.  
   
 The Service Account must be located in the same Google Cloud project as your Google SecOps instance and requires either the Chronicle API Admin role (`roles/chronicle.admin`) privileges or a custom role with the required permissions (see Prerequisites).  
@@ -225,7 +225,7 @@ You must select one of the following options:
      * **All Ingestion Methods** : Includes all ingestion methods for the selected log type. When you select this option, it prevents you from adding subsequent streams that use specific ingestion methods for that same log type. **Exception** : You can select other unconfigured specific ingestion methods for this log type in other streams.  
 
      * **_Specific_** ingestion method, such as `Cloud Native Ingestion`, `Feed`, `Modern Chronicle Ingestion API`, or `Workspace Ingestion`.   
-**Feed** | If you select `Feed` as the ingestion method, a subsequent field appears with a list of available feed names (pre-configured in your Google SecOps instance) for the selected log type. You must select the relevant feed to complete the configuration. To view and manage your available feeds, go to **SIEM Settings > Feeds table**.  
+**Feed** | If you select `Feed` as the ingestion method, a subsequent field appears with a list of available feeds in **Settings > Data Management > Feeds** in your Google SecOps instance for the selected log type. You must select the relevant feed to complete the configuration. To view and manage your available feeds, go to **Settings > Data Management > Feeds**. If you are on a SIEM-only platform, go to **Settings > Feeds**.  
   3. Click **Add Stream** to save the new stream.The new data stream immediately appears on the **Pipeline** configuration card. The stream is automatically connected to the processor node and the Google SecOps **Destination**.
 
 
@@ -494,7 +494,7 @@ You can view data processing details from the Google SecOps console:
 
 #### View all data processing configurations
 
-  1. In the Google SecOps console, go to **SIEM Settings > Data Processing** where you can view all of your configured pipelines.
+  1. In the Google SecOps console, go to **Settings > Data Management > Data Processing** where you can view all of your configured pipelines.
   2. In the **Incoming Data Pipelines** search bar, search for any pipeline you built. You can search by elements, such as _pipeline name_ or _components_. The search results display the pipeline's processors and a summary of its configuration. 
   3. From the pipeline summary, you can do any of the following actions: 
      * Review the processor configurations.
@@ -507,7 +507,7 @@ You can view data processing details from the Google SecOps console:
 
 To view configured feeds in your system, do the following: 
 
-  1. In the Google SecOps console, go to **SIEM Settings > Feeds**. The **Feeds** page shows all the feeds that you configured in your system.
+  1. In the Google SecOps console, go to **Settings > Data Management > Feeds**. If you are on a SIEM-only platform, go to **Settings > Feeds**. The **Feeds** page shows all the feeds that you configured in your system.
   2. Hold the pointer over each row to display the ⋮ **More** menu, where you can view feed details, edit, disable, or delete the feed.
   3. Click **View Details** to view the details window.
   4. Click **Open in Bindplane** to open the stream configuration for that feed in the Bindplane console.
@@ -518,7 +518,7 @@ To view configured feeds in your system, do the following:
 
 To view data processing details on the **Available Log Types** page, where you can view all available log types, do the following:
 
-  1. In the Google SecOps console, go to **SIEM Settings > Available Log Types**. The main page displays all your log types.
+  1. In the Google SecOps console, go to **Settings > Data Management > Available Log Types**. If you are on a SIEM-only platform, go to **Settings > Available Log Types**. The main page displays all your log types.
   2. Hold the pointer over each feed row to display the  more_vert  **More** menu. This menu lets you view, edit, disable, or delete feed details.
   3. Click **View Data Processing** to view the feed's configuration.
   4. Click **Open in Bindplane** to open the processor configuration for that processor in the Bindplane console.
@@ -531,6 +531,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-28 UTC.
+Last updated 2026-11-04 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-cx/cx-agent-studio/reference/mcp/tools_list/list_apps/
 title: MCP Tools Reference: ces.googleapis.com \u00a0|\u00a0 CX Agent Studio \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-15T00:33:37.431057+00:00
+fetched_at: 2026-11-04T23:28:38.263737+00:00
 ---
 
 # MCP Tools Reference: ces.googleapis.com  |  CX Agent Studio  |  Google Cloud Documentation
@@ -228,7 +228,7 @@ Fields
 ---  
 `defaultLanguageCode` |  `string` Optional. The default language code of the app.  
 `supportedLanguageCodes[]` |  `string` Optional. List of languages codes supported by the app, in addition to the `default_language_code`.  
-`enableMultilingualSupport` |  `boolean` Optional. Enables multilingual support. If true, agents in the app will use pre-built instructions to improve handling of multilingual input.  
+`enableMultilingualSupport` |  `boolean` Optional. Enables multilingual support. If `true`, agents in the app will use pre-built instructions to improve handling of multilingual input.  
 `fallbackAction  
 **(deprecated)**` |  `string` This item is deprecated!Optional. Deprecated: This feature is no longer supported. Use `enable_multilingual_support` instead to improve handling of multilingual input. The action to perform when an agent receives input in an unsupported language.This can be a predefined action or a custom tool call. Valid values are: - A tool's full resource name, which triggers a specific tool execution. - A predefined system action, such as "escalate" or "exit", which triggers an `EndSession` signal with corresponding `metadata` to terminate the conversation.  
   
@@ -458,7 +458,8 @@ JSON representation
       },
       "metricAnalysisSettings": {
         object ([MetricAnalysisSettings](https://docs.cloud.google.com/gemini-enterprise-cx/cx-agent-studio/reference/mcp/tools_list/list_apps#Output.Schema.MetricAnalysisSettings))
-      }
+      },
+      "requiredRecordingConsent": boolean
     }  
   
 Fields  
@@ -472,6 +473,7 @@ Fields
 `conversationLoggingSettings` |  `object (`[ConversationLoggingSettings](https://docs.cloud.google.com/gemini-enterprise-cx/cx-agent-studio/reference/mcp/tools_list/list_apps#Output.Schema.ConversationLoggingSettings)`)` Optional. Settings to describe the conversation logging behaviors for the app.  
 `evaluationAudioRecordingConfig` |  `object (`[AudioRecordingConfig](https://docs.cloud.google.com/gemini-enterprise-cx/cx-agent-studio/reference/mcp/tools_list/list_apps#Output.Schema.AudioRecordingConfig)`)` Optional. Configuration for how audio interactions should be recorded for the evaluation. By default, audio recording is not enabled for evaluation sessions.  
 `metricAnalysisSettings` |  `object (`[MetricAnalysisSettings](https://docs.cloud.google.com/gemini-enterprise-cx/cx-agent-studio/reference/mcp/tools_list/list_apps#Output.Schema.MetricAnalysisSettings)`)` Optional. Settings to describe the conversation data collection behaviors for the LLM analysis pipeline for the app.  
+`requiredRecordingConsent` |  `boolean` Optional. Whether the app has to say what may be recorded before anything is kept.When true, a session starts with recording off and stays off until the client sends `SessionInput.recording_control`, which then decides every turn from that point on. This covers audio recording as well as conversation history, BigQuery export and Cloud Logging.When `false`, the default, the settings above decide on their own and the client does not have to send anything.  
   
 ### RedactionConfig
 
@@ -487,7 +489,7 @@ JSON representation
   
 Fields  
 ---  
-`enableRedaction` |  `boolean` Optional. If true, redaction will be applied in various logging scenarios, including conversation history, Cloud Logging and audio recording.  
+`enableRedaction` |  `boolean` Optional. If `true`, redaction will be applied in various logging scenarios, including conversation history, Cloud Logging and audio recording.  
 `inspectTemplate` |  `string` Optional. [DLP](https://cloud.google.com/dlp/docs) inspect template name to configure detection of sensitive data types.Format: `projects/{project}/locations/{location}/inspectTemplates/{inspect_template}`  
 `deidentifyTemplate` |  `string` Optional. [DLP](https://cloud.google.com/dlp/docs) deidentify template name to instruct on how to de-identify content.Format: `projects/{project}/locations/{location}/deidentifyTemplates/{deidentify_template}`  
   
@@ -1476,6 +1478,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-09-28 UTC.
+Last updated 2026-11-04 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-09-28 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 

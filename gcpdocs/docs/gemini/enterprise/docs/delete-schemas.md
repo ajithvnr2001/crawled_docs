@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini/enterprise/docs/delete-schemas/
 title: Delete a schema for structured data \u00a0|\u00a0 Gemini Enterprise \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T08:00:55.284592+00:00
+fetched_at: 2026-11-04T23:46:07.984333+00:00
 ---
 
 # Delete a schema for structured data  |  Gemini Enterprise  |  Google Cloud Documentation

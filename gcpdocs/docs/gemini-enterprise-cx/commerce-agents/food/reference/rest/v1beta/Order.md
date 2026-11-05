@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rest/v1beta/Order/
 title: Food Ordering AI Agent \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-30T06:00:14.942293+00:00
+fetched_at: 2026-11-05T00:17:46.098017+00:00
 ---
 
 # Food Ordering AI Agent  |  Google Cloud Documentation
@@ -43,8 +43,6 @@ Send feedback
   * OrderPayment
     * JSON representation
   * TippingInfo
-    * JSON representation
-  * LoyaltyAmount
     * JSON representation
   * PaymentInfo
     * JSON representation
@@ -365,7 +363,7 @@ JSON representation
         object ([TippingInfo](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rest/v1beta/Order#TippingInfo))
       },
       "loyaltyConsumed": {
-        object ([LoyaltyAmount](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rest/v1beta/Order#LoyaltyAmount))
+        object ([LoyaltyAmount](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rest/v1beta/LoyaltyAmount))
       },
       "paymentInfo": {
         object ([PaymentInfo](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rest/v1beta/Order#PaymentInfo))
@@ -375,7 +373,7 @@ JSON representation
 Fields  
 ---  
 `tippingInfo` |  `object (`[TippingInfo](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rest/v1beta/Order#TippingInfo)`)` Optional. Tipping information.  
-`loyaltyConsumed` |  `object (`[LoyaltyAmount](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rest/v1beta/Order#LoyaltyAmount)`)` Optional. Loyalty amount consumed for the payment.  
+`loyaltyConsumed` |  `object (`[LoyaltyAmount](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rest/v1beta/LoyaltyAmount)`)` Optional. Loyalty amount consumed for the payment.  
 `paymentInfo` |  `object (`[PaymentInfo](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rest/v1beta/Order#PaymentInfo)`)` Optional. Information about the payment method used.  
   
 ## TippingInfo
@@ -403,22 +401,6 @@ The tip amount or percentage. The following is a list of mutually exclusive fiel
 `amount` |  `object (`[Money](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rest/Shared.Types/Money)`)` Optional. A specific money amount for the tip.  
 `percentageBps` |  `integer` Optional. Percentage in basis points, e.g., 450 = 4.5%.  
 End of mutually exclusive fields.  
-  
-## LoyaltyAmount
-
-Represents a customer's loyalty amount.
-
-JSON representation  
----  
-      
-    
-    {
-      "units": string
-    }  
-  
-Fields  
----  
-`units` |  `string ([int64](https://developers.google.com/discovery/v1/type-format) format)` Required. The loyalty points.  
   
 ## PaymentInfo
 
@@ -467,6 +449,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-29 UTC.
+Last updated 2026-11-04 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 

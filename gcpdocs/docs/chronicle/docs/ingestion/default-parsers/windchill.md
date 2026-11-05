@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/windchill/
 title: Collect PTC Windchill logs \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T07:53:09.210881+00:00
+fetched_at: 2026-11-04T23:42:53.949926+00:00
 ---
 
 # Collect PTC Windchill logs  |  Google Security Operations  |  Google Cloud Documentation

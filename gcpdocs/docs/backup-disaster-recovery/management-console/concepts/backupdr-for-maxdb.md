@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/backup-disaster-recovery/management-console/concepts/backupdr-for-maxdb/
 title: Backup and DR for SAP MaxDB on a backup/recovery appliance \u00a0|\u00a0 Backup and DR for the management console \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T07:55:20.528762+00:00
+fetched_at: 2026-11-04T23:21:01.720535+00:00
 ---
 
 # Backup and DR for SAP MaxDB on a backup/recovery appliance  |  Backup and DR for the management console  |  Google Cloud Documentation
@@ -25,7 +25,9 @@ Send feedback
 
 **Caution:** Beginning July 31, 2027, support for backing up SAP MaxDB databases using the appliance management console is deprecated. To learn more about this deprecation and alternative backup solutions, see [Migrate from legacy database backups](https://docs.cloud.google.com/backup-disaster-recovery/docs/deprecations/migrating-legacy-databases).
 
-SAP MaxDB is the database management system developed and supported by SAP SE. SAP MaxDB is available on Microsoft Windows, Linux, and Unix, and for the most prominent hardware platforms.
+Backup and DR uses a backup/recovery appliance to capture, store, and recover backups of SAP MaxDB databases running on Microsoft Windows, Linux, and Unix. Depending on your environment and configuration, Backup and DR protects SAP MaxDB databases by using either volume-based backups with Linux Changed Block Tracking (CBT) and Logical Volume Manager (LVM) snapshots, or file-based dump and log backups.
+
+This document explains the backup and recovery workflows for both volume-based and file-based approaches, as well as the SAP MaxDB APIs that Backup and DR uses during these operations.
 
 ## How it works: Backup and DR volume-based backup with Linux CBT
 
@@ -63,8 +65,6 @@ Data backup and recovery with file-based backups follows these steps:
   4. Backup and DR takes an internal snapshot. Log backups are done in a similar fashion directly from the file-system at any schedule that you configure.
 
   5. For data recovery, Backup and DR instantly mounts the staging disk to the database server and initiates the database restore operation. Logs can be played to any point in time after the database is restored.
-
-  6. For recovery, Backup and DR instantly mounts the staging disk to the database server and initiates the database restore operation. Logs can be played to any point in time after the database is restored.
 
 
 
@@ -109,6 +109,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-03 UTC.
+Last updated 2026-11-04 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 

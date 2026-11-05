@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chronicle/docs/soar/investigate/working-with-cases/calculated-fields/
 title: Configure calculated fields \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T09:59:52.446005+00:00
+fetched_at: 2026-11-04T23:33:36.038348+00:00
 ---
 
 # Configure calculated fields  |  Google Security Operations  |  Google Cloud Documentation
@@ -62,14 +62,14 @@ The following scenarios represent the most frequent ways organizations leverage 
 
 Before you create a calculation, make sure your environment meets the following technical requirements:
 
-  * **Permissions** : You must have administrative access to the **Settings** menu and permissions to manage Case Data.
+  * **Permissions** : You must have administrative access to the **Settings** menu and permissions to manage Tags.
   * **Environment check** : Make sure you have existing, active **Custom Fields** (**Free Text** type) to act as target fields.
 
 
 
 Make sure you have existing custom fields to use as target fields in your system. If not, perform the following steps:
 
-  1. Go to **Settings** > **Case Data** > **Custom Fields**.
+  1. Go to **Settings > Investigation > Custom Fields**.
   2. Create a new Custom Field and set the type to **Free Text**.
 
 
@@ -109,7 +109,7 @@ This section outlines how to define a new calculation and address common issues 
 
 To create a new calculation, do the following:
 
-  1. Go to **Settings** > **Case Data** > **Calculated Fields**.
+  1. Go to **Settings > Investigation > Calculated Fields**.
   2. Click  add  **Add**.
   3. In the **Calculated Field Name** field, enter a unique name and description for your calculation.
   4. In the **Target Field** area, select the existing **Custom Field** to store the result.
@@ -307,6 +307,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-28 UTC.
+Last updated 2026-11-04 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 

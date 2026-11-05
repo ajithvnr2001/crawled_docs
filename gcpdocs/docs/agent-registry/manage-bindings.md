@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/agent-registry/manage-bindings/
 title: Manage bindings \u00a0|\u00a0 Agent Registry \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-30T08:40:12.054447+00:00
+fetched_at: 2026-11-04T23:31:42.919571+00:00
 ---
 
 # Manage bindings  |  Agent Registry  |  Google Cloud Documentation
@@ -57,7 +57,9 @@ You can use bindings to connect resources and delegate permissions. For example,
   * **Resource connections** : link a source agent to a target resource, such as another agent, an MCP server, or an endpoint. This scenario lets you map out multi-agent workflows where a primary orchestrator delegates tasks to specialized subagents or tools.
   * **Delegated permissions** : associate an agent with an [auth provider](https://docs.cloud.google.com/agent-registry/component-lifecycle-and-discovery#auth-providers) to let your agent connect to external targets or custom tools using its own credentials or on behalf of an individual user. This binding is required if your agent needs to authenticate to remote MCP servers or tools using OAuth tokens or API keys. With bindings, you don't have to manually define auth providers in your code. For detailed instructions, see Create an auth provider binding in this document.
 
-**Warning:** This feature isn't supported in the `us` and `eu` multi-region locations. You must use a supported region or the `global` location. For more information, see [Agent Registry locations](https://docs.cloud.google.com/agent-registry/locations).
+
+
+You can create and manage bindings in a supported regional location, a supported multi-region, or the `global` location. For more information about supported locations, see [Agent Registry locations](https://docs.cloud.google.com/agent-registry/locations).
 
 ## Create a binding
 
@@ -292,6 +294,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-29 UTC.
+Last updated 2026-11-04 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 

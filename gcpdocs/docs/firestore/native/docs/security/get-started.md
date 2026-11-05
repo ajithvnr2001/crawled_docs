@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/firestore/native/docs/security/get-started/
 title: Getting started with security rules \u00a0|\u00a0 Firestore in Native mode \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T08:01:08.696676+00:00
+fetched_at: 2026-11-04T23:45:41.993122+00:00
 ---
 
 # Getting started with security rules  |  Firestore in Native mode  |  Google Cloud Documentation

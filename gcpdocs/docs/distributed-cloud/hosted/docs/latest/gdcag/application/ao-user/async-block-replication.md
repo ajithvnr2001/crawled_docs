@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/application/ao-user/async-block-replication/
 title: Replicate volumes asynchronously \u00a0|\u00a0 Google Distributed Cloud air-gapped \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-03T09:44:35.390331+00:00
+fetched_at: 2026-11-04T23:27:31.107822+00:00
 ---
 
 # Replicate volumes asynchronously  |  Google Distributed Cloud air-gapped  |  Google Cloud Documentation
@@ -30,7 +30,7 @@ For Platform Administrators managing PVCs using the KRM API, see [Replicate volu
 
 ## Before you begin
 
-To use asynchronous block replication, your Infrastructure Operator (IO) must first set up two zones for asynchronous replication. 
+To use asynchronous block replication, your infrastructure operator (IO) must first set up two zones for asynchronous replication. 
 
 Then, ensure that you have the `app-volume-replication-admin-global` role to administer the VolumeReplicationRelationship resource. In cases where the global API is unavailable, the `volume-replication-admin` role can be used to directly modify the zonal VolumeReplicationRelationshipReplica resource.
 
@@ -87,9 +87,9 @@ The `source` and `destination` fields of the specification indicate where the da
 
 #### Request permissions and access
 
-To replicate virtual machine disks, you must have the Project VirtualMachine Admin role. Follow the steps to [verify that you have the Project VirtualMachine Admin role](https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/application/ao-user/vms/preparation#verify-user-access) (`project-vm-admin`) in the namespace of the project where the VM disk resides.
+To replicate virtual machine disks, you must have the Virtual Machine Project Admin role. Follow the steps to [verify that you have the Virtual Machine Project Admin role](https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/application/ao-user/vms/preparation#verify-user-access) (`project-vm-admin`) in the namespace of the project where the VM disk resides.
 
-For virtual machine operations using the gdcloud CLI, request your IAM Project Admin to assign you both the Project VirtualMachine Admin role and the Project Viewer (`project-viewer`) role.
+For virtual machine operations using the gdcloud CLI, request your IAM Project Admin to assign you both the Virtual Machine Project Admin role and the Project Viewer (`project-viewer`) role.
 
 #### Start asynchronous replication
 
@@ -441,6 +441,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-02 UTC.
+Last updated 2026-11-04 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-02 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 

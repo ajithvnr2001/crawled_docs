@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rest/v1beta/projects.locations.menus/list/
 title: Method: projects.locations.menus.list \u00a0|\u00a0 Food Ordering AI Agent \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T20:10:08.042738+00:00
+fetched_at: 2026-11-05T00:17:42.063055+00:00
 ---
 
 # Method: projects.locations.menus.list  |  Food Ordering AI Agent  |  Google Cloud Documentation
@@ -51,9 +51,9 @@ Parameters
 
 Parameters  
 ---  
-`pageSize` |  `integer` Optional. The maximum number of menus to return. The service may return fewer than this value.  
+`pageSize` |  `integer` Optional. The maximum number of menus to return. The service may return fewer than this value. If unspecified, at most 50 menus will be returned. The maximum value is 100; values above 100 will be coerced to 100.  
 `pageToken` |  `string` Optional. A page token, received from a previous `menus.list` call. Provide this to retrieve the subsequent page.  
-`filter` |  `string` Optional. A filter expression that filters the results. The expression syntax is documented in <https://google.aip.dev/160>.The following fields are supported: - `store` \- `brand``store=projects/my-project/locations/us-central1/brands/my-brand/stores/my-store` \- `brand=projects/my-project/locations/us-central1/brands/my-brand`  
+`filter` |  `string` Optional. A filter expression that filters the results. The expression syntax is documented in <https://google.aip.dev/160>.A filter is required and must specify either `store` or `brand`.The following fields are supported: - `store` \- `brand``store=projects/my-project/locations/us-central1/brands/my-brand/stores/my-store` \- `brand=projects/my-project/locations/us-central1/brands/my-brand`  
 `view` |  `enum (`[MenuView](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rest/v1beta/projects.locations.menus/list#MenuView)`)` Optional. The view to return for the menus.  
   
 ### Request body
@@ -109,6 +109,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-27 UTC.
+Last updated 2026-11-04 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 

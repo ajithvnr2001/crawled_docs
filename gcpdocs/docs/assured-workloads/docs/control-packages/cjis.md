@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/assured-workloads/docs/control-packages/cjis/
 title: Data Boundary for Criminal Justice Information Systems (CJIS) \u00a0|\u00a0 Assured Workloads \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T18:40:53.814259+00:00
+fetched_at: 2026-11-05T00:20:03.723021+00:00
 ---
 
 # Data Boundary for Criminal Justice Information Systems (CJIS)  |  Assured Workloads  |  Google Cloud Documentation
@@ -73,6 +73,10 @@ Supported product | API endpoints | Restrictions or limitations
 [Application Integration](https://docs.cloud.google.com/application-integration/docs/overview) |  `integrations.googleapis.com`  
 |  None   
 [Artifact Registry](https://docs.cloud.google.com/artifact-registry/docs/overview) |  `artifactregistry.googleapis.com`  
+|  None   
+[Audit Manager](https://docs.cloud.google.com/audit-manager/docs/overview) |  `auditmanager.googleapis.com`  
+|  None   
+[Backup and DR Service](https://docs.cloud.google.com/backup-disaster-recovery/docs/concepts/backup-dr) |  `backupdr.googleapis.com`  
 |  None   
 [Backup for Google Kubernetes Engine (GKE)](https://docs.cloud.google.com/kubernetes-engine/docs/add-on/backup-for-gke) |  `gkebackup.googleapis.com`  
 |  None   
@@ -181,7 +185,7 @@ Supported product | API endpoints | Restrictions or limitations
 [Firebase Security Rules](https://firebase.google.com/docs/rules) |  `firebaserules.googleapis.com`  
 |  None   
 [Firestore](https://docs.cloud.google.com/firestore/native/docs/overview) |  `firestore.googleapis.com`  
-|  None   
+|  Organization policy constraints  
 [Google Kubernetes Engine (GKE) Hub](https://docs.cloud.google.com/kubernetes-engine/docs/fleets-overview) |  `gkehub.googleapis.com`  
 |  None   
 [Google Kubernetes Engine (GKE) Identity Service](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/vmware/docs/concepts/authentication) |  `anthosidentityservice.googleapis.com`  
@@ -195,8 +199,15 @@ Supported product | API endpoints | Restrictions or limitations
 [Google Cloud Armor](https://docs.cloud.google.com/armor/docs/cloud-armor-overview) |  `compute.googleapis.com`  
 `networksecurity.googleapis.com`  
 |  Affected features  
+[Google Cloud NetApp Volumes](https://docs.cloud.google.com/netapp/volumes/docs) |  `netapp.googleapis.com`  
+|  Affected features  
 [Google Kubernetes Engine (GKE)](https://docs.cloud.google.com/kubernetes-engine/docs/concepts/kubernetes-engine-overview) |  `container.googleapis.com`  
 `containersecurity.googleapis.com`  
+|  None   
+[Google Security Operations SIEM](https://docs.cloud.google.com/security/products/security-information-event-management) |  `chronicle.googleapis.com`  
+`chronicleservicemanager.googleapis.com`  
+|  None   
+[Google Security Operations SOAR](https://docs.cloud.google.com/chronicle/docs/soar) |  `Not applicable`  
 |  None   
 [Google Admin console](https://support.google.com/a/topic/2413312?ref_topic=4388346) |  `Not applicable`  
 |  None   
@@ -223,6 +234,8 @@ Supported product | API endpoints | Restrictions or limitations
 |  None   
 [Memorystore for Redis](https://docs.cloud.google.com/memorystore/docs/redis) |  `redis.googleapis.com`  
 |  None   
+[Migrate to Containers](https://docs.cloud.google.com/migrate/containers/docs/getting-started) |  `Not applicable`  
+|  None   
 [Model Armor](https://docs.cloud.google.com/security-command-center/docs/model-armor-overview) |  `modelarmor.googleapis.com`  
 |  None   
 [Network Connectivity Center](https://docs.cloud.google.com/network-connectivity/docs/network-connectivity-center/concepts/overview) |  `networkconnectivity.googleapis.com`  
@@ -231,8 +244,10 @@ Supported product | API endpoints | Restrictions or limitations
 |  None   
 [Persistent Disk](https://docs.cloud.google.com/compute/docs/disks/persistent-disks) |  `compute.googleapis.com`  
 |  None   
-[Pub/Sub](https://docs.cloud.google.com/pubsub/docs/overview) |  `pubsub.googleapis.com`  
+[Privileged Access Manager](https://docs.cloud.google.com/iam/docs/pam-overview) |  `privilegedaccessmanager.googleapis.com`  
 |  None   
+[Pub/Sub](https://docs.cloud.google.com/pubsub/docs/overview) |  `pubsub.googleapis.com`  
+|  Organization policy constraints  
 [Regional external Application Load Balancer](https://docs.cloud.google.com/load-balancing/docs/https#regional-td) |  `compute.googleapis.com`  
 |  None   
 [Regional external proxy Network Load Balancer](https://docs.cloud.google.com/load-balancing/docs/tcp#regional-external-proxy-network-load-balancer) |  `compute.googleapis.com`  
@@ -268,21 +283,21 @@ Supported product | API endpoints | Restrictions or limitations
 `accesscontextintelligence.googleapis.com`  
 |  None   
 [Vertex AI Batch prediction](https://docs.cloud.google.com/vertex-ai/docs/predictions/get-batch-predictions) |  `aiplatform.googleapis.com`  
-|  None   
+|  Organization policy constraints  
 [Vertex AI Model Monitoring](https://docs.cloud.google.com/vertex-ai/docs/model-monitoring) |  `aiplatform.googleapis.com`  
-|  None   
+|  Organization policy constraints  
 [Vertex AI Model Registry](https://docs.cloud.google.com/vertex-ai/docs/model-registry) |  `aiplatform.googleapis.com`  
-|  None   
+|  Organization policy constraints  
 [Vertex AI Online prediction](https://docs.cloud.google.com/vertex-ai/docs/predictions/get-online-predictions) |  `aiplatform.googleapis.com`  
-|  None   
+|  Organization policy constraints  
 [Vertex AI Pipelines](https://docs.cloud.google.com/vertex-ai/docs/pipelines) |  `aiplatform.googleapis.com`  
-|  None   
+|  Organization policy constraints  
 [Agent Search](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/vertex-ai-search) |  `discoveryengine.googleapis.com`  
-|  Affected features  
+|  Affected features and organization policy constraints  
 [Vertex AI Training](https://docs.cloud.google.com/vertex-ai/docs/training-overview) |  `aiplatform.googleapis.com`  
-|  None   
+|  Organization policy constraints  
 [Vertex AI Workbench](https://docs.cloud.google.com/vertex-ai/docs/workbench/notebook-solution) |  `notebooks.googleapis.com`  
-|  None   
+|  Organization policy constraints  
 [Virtual Private Cloud (VPC)](https://docs.cloud.google.com/vpc/docs/overview) |  `compute.googleapis.com`  
 |  None   
 [Web Risk](https://docs.cloud.google.com/web-risk/docs/overview) |  `webrisk.googleapis.com`  
@@ -341,12 +356,35 @@ Changing this value by making it less restrictive potentially undermines data re
 Limits the scope of approved folders or projects that can provide [Cloud KMS keys](https://docs.cloud.google.com/kms/docs/algorithms) for encrypting at-rest data using CMEK. This constraint prevents unapproved folders or projects from providing encryption keys, thus helping to guarantee data sovereignty for in-scope services' at-rest data.   
 [`gcp.restrictNonCmekServices`](https://docs.cloud.google.com/kms/docs/cmek-org-policy#require-cmek) | Set to a list of all in-scope [API service names](https://docs.cloud.google.com/iam/docs/full-resource-names), including: 
 
+  * `aiplatform.googleapis.com`
+  * `alloydb.googleapis.com`
+  * `apigee.googleapis.com`
+  * `artifactregistry.googleapis.com`
+  * `backupdr.googleapis.com`
   * `bigquery.googleapis.com`
+  * `bigquerydatatransfer.googleapis.com`
+  * `bigtable.googleapis.com`
+  * `cloudfunctions.googleapis.com`
+  * `cloudtasks.googleapis.com`
+  * `composer.googleapis.com`
   * `compute.googleapis.com`
+  * `contactcenterinsights.googleapis.com`
   * `container.googleapis.com`
+  * `dataflow.googleapis.com`
+  * `dataform.googleapis.com`
+  * `datafusion.googleapis.com`
+  * `dataplex.googleapis.com`
+  * `dataproc.googleapis.com`
+  * `dialogflow.googleapis.com`
+  * `discoveryengine.googleapis.com`
+  * `documentai.googleapis.com`
+  * `eventarc.googleapis.com`
+  * `file.googleapis.com`
+  * `firestore.googleapis.com`
+  * `gkebackup.googleapis.com`
+  * `integrations.googleapis.com`
   * `logging.googleapis.com`
-  * `sqladmin.googleapis.com`
-  * `storage.googleapis.com`
+  * `looker.googleapis.com`
 
 Some features may be affected for each of the services listed above.   
   
@@ -363,6 +401,16 @@ Determines which services can be used by restricting runtime access to their res
   * `TLS_1_1`
 
 For more information, see [Restrict TLS versions](https://docs.cloud.google.com/docs/security/compliance/restrict-tls-versions).   
+  
+### Agent Search
+
+#### Affected Agent Search features
+
+Feature | Description  
+---|---  
+[Search tuning](https://docs.cloud.google.com/generative-ai-app-builder/docs/tune-search) | It is your responsibility not to use the Agent Search search tuning feature because it is not compliant with CJIS.   
+[Generic recommendations](https://docs.cloud.google.com/generative-ai-app-builder/docs/try-generic-recommendations) | It is your responsibility not to use the Agent Search generic recommendations feature because it is not compliant with CJIS.   
+[Media recommendations](https://docs.cloud.google.com/generative-ai-app-builder/docs/try-media-recommendations) | It is your responsibility not to use the Agent Search media recommendations feature because it is not compliant with CJIS.   
   
 ### BigQuery
 
@@ -589,6 +637,16 @@ Feature | Description
 [Data Catalog](https://docs.cloud.google.com/dataplex/docs/catalog-overview) | This feature is deprecated and disabled. You cannot search through nor manage your metadata in Data Catalog.  
 [Lakes and Zones](https://docs.cloud.google.com/dataplex/docs/metadata) | This feature is disabled. You cannot manage lakes, zones and tasks.  
   
+### Firestore
+
+#### Firestore organization policy constraints
+
+Organization policy constraint | Description  
+---|---  
+`firestore.managed.disableEnhancedTextSearch` | Set to **True**.  
+  
+Prevents enabling query enhancements for Firestore full text search.   
+  
 ### Gemini Enterprise
 
 #### Gemini Enterprise features
@@ -631,15 +689,15 @@ Feature | Description
 ---|---  
 [Custom Speech-to-Text models](https://docs.cloud.google.com/speech-to-text/v2/docs/custom-speech-models/overview) | It is your responsibility not to use Custom Speech-to-Text models because they are not compliant with CJIS.   
   
-### Agent Search
+### Vertex AI
 
-#### Affected Agent Search features
+#### Vertex AI organization policy constraints
 
-Feature | Description  
+Organization policy constraint | Description  
 ---|---  
-[Search tuning](https://docs.cloud.google.com/generative-ai-app-builder/docs/tune-search) | It is your responsibility not to use the Agent Search search tuning feature because it is not compliant with CJIS.   
-[Generic recommendations](https://docs.cloud.google.com/generative-ai-app-builder/docs/try-generic-recommendations) | It is your responsibility not to use the Agent Search generic recommendations feature because it is not compliant with CJIS.   
-[Media recommendations](https://docs.cloud.google.com/generative-ai-app-builder/docs/try-media-recommendations) | It is your responsibility not to use the Agent Search media recommendations feature because it is not compliant with CJIS.   
+`vertexai.allowOnlyAllCompliantAPIs` | Set to **True**.  
+  
+Restricts Vertex AI requests to only services and endpoints that meet baseline compliance and data boundary requirements for CJIS.   
   
 ## What's next
 
@@ -652,6 +710,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-03 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 

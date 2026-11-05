@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini/data-agents/querydata/firestore-mongodb-compatibility/context-sets-overview/
 title: Context sets overview \u00a0|\u00a0 Data Agents \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T18:12:27.085875+00:00
+fetched_at: 2026-11-05T00:05:49.428277+00:00
 ---
 
 # Context sets overview  |  Data Agents  |  Google Cloud Documentation
@@ -34,6 +34,7 @@ The following databases are supported:
   * Cloud SQL for PostgreSQL
   * Spanner
   * Firestore with MongoDB compatibility
+  * Bigtable
 
 
 
@@ -41,7 +42,7 @@ The following databases are supported:
 
 To build effective agentic applications, tools such as QueryData must understand your data organization and business logic. You provide this information in the form of a context set.
 
-You define context in files that contain JSON objects for each context type. You can author these context files with the help of the [context engineering agent](https://docs.cloud.google.com/gemini/docs/codeassist/gemini-cli). You then upload the context file to a context set that you create in the Google Cloud console. This process enables tools such as QueryData to learn the specific schema of the database and business logic of the application.
+You define context in files that contain JSON objects for each context type. You can author these context files with the help of the [context engineering agent](https://docs.cloud.google.com/gemini/data-agents/querydata/firestore-mongodb-compatibility/build-context-sets%0A). You then upload the context file to a context set that you create in the Google Cloud console. This process enables tools such as QueryData to learn the specific schema of the database and business logic of the application.
 
 The context file looks similar to the following:
     
@@ -96,7 +97,7 @@ A context set file consists of a curated set of templates, facets, and value sea
 
 To maximize accuracy, ensure that the context set is accurate and comprehensive in its coverage of expected application queries.
 
-Context sets can be created in the `us-central1`, `us-east1`, `europe-west4`, and `asia-southeast1` regions.
+Context sets can be created in the `us-central1`, `us-east1`, `europe-west4`, and `asia-southeast1` regions. You must select a region when you create the first context set in a project. Later context sets use the same region.
 
 ### Query templates
 
@@ -227,6 +228,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-04 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 

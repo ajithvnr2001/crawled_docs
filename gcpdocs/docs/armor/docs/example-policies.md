@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/armor/docs/example-policies/
 title: Example security policies \u00a0|\u00a0 Google Cloud Armor \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T16:19:10.340759+00:00
+fetched_at: 2026-11-04T23:33:29.840315+00:00
 ---
 
 # Example security policies  |  Google Cloud Armor  |  Google Cloud Documentation
@@ -245,7 +245,7 @@ Add more rules:
   4. In the **Match** field, specify the conditions that the rule applies to:
 
      * **Basic mode** : enter IP addresses or IP ranges to match in the rule.
-     * **Advanced mode** : enter an expression to evaluate against incoming requests. See [custom rules language attributes](https://docs.cloud.google.com/armor/docs/rules-language-reference).
+     * **Advanced mode** : enter an expression to evaluate against incoming requests. See [custom rules language attributes](https://docs.cloud.google.com/armor/docs/create-security-policy-rules).
   5. For **Action** , select **Allow** or **Deny**.
 
   6. To enable preview mode, select **Enable**. In preview mode, Cloud Armor logs the rule's effect without enforcing it.
@@ -333,7 +333,7 @@ With the `--preview` flag added, the rule is added to the policy, but not enforc
          --preview
     
 
-Use the `--expression` flag to specify a custom condition. See [custom rules language attributes](https://docs.cloud.google.com/armor/docs/rules-language-reference). The following command adds a rule to allow traffic from the IP address `1.2.3.4` that contains the string `example` in the `User-Agent` header:
+Use the `--expression` flag to specify a custom condition. See [custom rules language attributes](https://docs.cloud.google.com/armor/docs/create-security-policy-rules). The following command adds a rule to allow traffic from the IP address `1.2.3.4` that contains the string `example` in the `User-Agent` header:
     
     gcloud compute security-policies rules create 1000 \
          --security-policy my-policy \
@@ -492,7 +492,7 @@ Replace the following:
 
 ## What's next
 
-  * [Create and view Cloud Armor security policies](https://docs.cloud.google.com/armor/docs/configure-security-policies)
+  * [Create and view Cloud Armor security policies](https://docs.cloud.google.com/armor/docs/create-security-policies)
   * Learn more about [rate limiting](https://docs.cloud.google.com/armor/docs/rate-limiting-overview).
 
 
@@ -501,6 +501,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-04 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 

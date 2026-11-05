@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/docs/database-users/manage-iam-auth/
 title: Manage IAM authentication \u00a0|\u00a0 AlloyDB for PostgreSQL \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T09:51:33.265391+00:00
+fetched_at: 2026-11-05T00:18:40.425773+00:00
 ---
 
 # Manage IAM authentication  |  AlloyDB for PostgreSQL  |  Google Cloud Documentation
@@ -150,9 +150,9 @@ For an IAM service account, provide the address of the service account _without_
 
 ### Grant appropriate database permissions to IAM users
 
-When you add an IAM user to an AlloyDB cluster, the user has no privileges on any databases by default except for the database objects that [PUBLIC](https://www.postgresql.org/docs/17/ddl-priv.html) can access.
+When you add an IAM user to an AlloyDB cluster, the user has no privileges on any databases by default except for the database objects that [PUBLIC](https://www.postgresql.org/docs/18/ddl-priv.html) can access.
 
-If users need additional access, grant more privileges using the [`GRANT` PostgreSQL statement](https://www.postgresql.org/docs/17/sql-grant.html):
+If users need additional access, grant more privileges using the [`GRANT` PostgreSQL statement](https://www.postgresql.org/docs/18/sql-grant.html):
     
     
     GRANT SELECT ON TABLE_NAME TO "USERNAME";
@@ -377,6 +377,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-28 UTC.
+Last updated 2026-11-03 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 

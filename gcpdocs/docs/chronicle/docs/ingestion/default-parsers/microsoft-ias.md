@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/microsoft-ias/
 title: Collect Microsoft IAS / Network Policy Server (NPS) logs \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T07:53:35.868489+00:00
+fetched_at: 2026-11-04T23:44:05.837563+00:00
 ---
 
 # Collect Microsoft IAS / Network Policy Server (NPS) logs  |  Google Security Operations  |  Google Cloud Documentation

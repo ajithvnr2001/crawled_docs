@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/vpc/docs/release-notes/
 title: VPC release notes \u00a0|\u00a0 Virtual Private Cloud \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T10:44:03.305727+00:00
+fetched_at: 2026-11-04T23:31:03.881397+00:00
 ---
 
 # VPC release notes  |  Virtual Private Cloud  |  Google Cloud Documentation
@@ -26,6 +26,12 @@ This page contains release notes for features and updates to Virtual Private Clo
 You can see the latest product updates for all of Google Cloud on the [ Google Cloud](https://docs.cloud.google.com/release-notes) page, browse and filter all release notes in the [Google Cloud console](https://console.cloud.google.com/release-notes), or programmatically access release notes in [BigQuery](https://console.cloud.google.com/bigquery?p=bigquery-public-data&d=google_cloud_release_notes&t=release_notes&page=table). 
 
 To get the latest product updates delivered to you, add the URL of this page to your [feed reader](https://wikipedia.org/wiki/Comparison_of_feed_aggregators), or add the [feed URL](https://docs.cloud.google.com/feeds/vpc-release-notes.xml) directly. 
+
+## November 03, 2026
+
+Feature
+
+**General Availability** : VPC Flow Logs supports logging for IPv6 encapsulation flows. For more information, see [IpConnection field format](https://docs.cloud.google.com/vpc/docs/about-flow-logs-records#IpConnection).
 
 ## October 19, 2026
 

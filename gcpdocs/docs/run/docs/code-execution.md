@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/run/docs/code-execution/
 title: Code execution in Cloud Run \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T05:49:53.908295+00:00
+fetched_at: 2026-11-05T00:18:41.868749+00:00
 ---
 
 # Code execution in Cloud Run  |  Google Cloud Documentation
@@ -68,7 +68,7 @@ Cloud Run sandboxes provide the following key advantages:
   5. [Verify that billing is enabled for your Google Cloud project](https://docs.cloud.google.com/billing/docs/how-to/verify-billing-enabled#confirm_billing_is_enabled_on_a_project). 
 
   6. [Install and initialize](https://docs.cloud.google.com/sdk/docs) the gcloud CLI. 
-  7. Deploy a Cloud Run resource, such as a [second generation ](https://docs.cloud.google.com/run/docs/configuring/execution-environments)[service](https://docs.cloud.google.com/run/docs/deploying), [job](https://docs.cloud.google.com/run/docs/create-jobs), [worker pool](https://docs.cloud.google.com/run/docs/deploy-worker-pools), or [instance](https://docs.cloud.google.com/run/docs/instances/create-and-manage-instances). 
+  7. Deploy a Cloud Run resource, such as a [second generation](https://docs.cloud.google.com/run/docs/configuring/execution-environments) [service](https://docs.cloud.google.com/run/docs/deploying), [job](https://docs.cloud.google.com/run/docs/create-jobs), [worker pool](https://docs.cloud.google.com/run/docs/deploy-worker-pools), or [instance](https://docs.cloud.google.com/run/docs/instances/create-and-manage-instances). 
 
 
 
@@ -133,6 +133,18 @@ To execute the sandbox command directly from the command line, run the following
     
 
 To see the [complete list of available commands](https://docs.cloud.google.com/run/docs/reference/sandbox-cli), run the `sandbox -h` command.
+
+## Security boundaries for untrusted code
+
+When you run untrusted or generated code inside a sandbox, don't relax isolation flags to work around permission or network errors. Review the following security boundaries before configuring sandbox flags:
+
+  * **Network egress (`--allow-egress`)**: Outbound network access is blocked by default. Enabling `--allow-egress` lets sandboxed code connect to external hosts and internal VPC endpoints that your Cloud Run resource can reach.
+  * **Bind mounts (`--mount`)**: Bind mounts attach host directories as read-write by default. Always append `,readonly` when exposing host directories to untrusted code, and never mount paths that contain secrets or credentials.
+  * **Root file system (`--rootfs` and `--write`)**: By default, `--rootfs` mounts the host container's file system as read-only at `/`. Don't store sensitive files on the host container's disk where sandboxed processes can read them.
+  * **Archive snapshots (`--import-tar`, `--export-tar`, `--sync-tar`, and `sandbox tar`)**: Never share writable `tar` archives across different untrusted users or tenants. Don't extract untrusted sandbox archives with `tar -xf` directly on the host container, because archives can contain malicious symlinks. Instead, list archive entries with `tar -tf` or re-import the archive into another sandbox using `--import-tar`.
+  * **Environment variables (`-e` and `--env`)**: Sandboxes don't inherit host environment variables by default. Never pass API keys, service account tokens, or secrets to untrusted code using `--env`.
+
+
 
 ## Use the sandbox command line capabilities
 
@@ -274,9 +286,9 @@ For example, to deploy a background sandbox, write a file to its overlay, and sn
          sandbox tar my-sandbox --file=/tmp/foo.tar
          
 
-  3. Extract and verify that the snapshot archive file contains the data written inside the sandbox:
+  3. List the contents of the snapshot archive file to verify that it contains the data written inside the sandbox:
          
-         tar -xvf /tmp/foo.tar
+         tar -tf /tmp/foo.tar
          
 
 You should see the following results:
@@ -286,6 +298,7 @@ You should see the following results:
          ./workspace/hello.txt
          
 
+**Caution:** Don't extract untrusted sandbox archives with `tar -xf` directly on the host container. Instead, inspect archive entries with `tar -tf` or re-import the archive into a sandbox using `--import-tar`.
 
 
 
@@ -351,7 +364,9 @@ The command fails with the following error:
 
 #### Share data using bind mounts
 
-To allow processes inside the sandbox to write persistable data, attach a shared volume using the `--mount` flag:
+By default, the `--mount` flag attaches host directories as read-write. When you expose host directories to untrusted code, configure read-only mounts by appending `,readonly`.
+
+To allow processes inside the sandbox to write persistable data to a dedicated directory, attach a shared volume using the `--mount` flag:
 
   1. Create a shared volume directory on the host container and seed it with an initial file:
          
@@ -444,6 +459,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-30 UTC.
+Last updated 2026-11-03 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 

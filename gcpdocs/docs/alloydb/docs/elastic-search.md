@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/docs/elastic-search/
 title: Access Elasticsearch data from AlloyDB for PostgreSQL \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T02:30:04.031358+00:00
+fetched_at: 2026-11-05T00:18:12.633281+00:00
 ---
 
 # Access Elasticsearch data from AlloyDB for PostgreSQL  |  Google Cloud Documentation
@@ -122,21 +122,21 @@ AlloyDB supports the following Elasticsearch data types:
 Data type(s) | PostgreSQL type  
 ---|---  
 [`alias`](https://www.elastic.co/docs/reference/elasticsearch/mapping-reference/field-alias) |  PostgreSQL type for the field that `alias` is referencing   
-[`binary`](https://www.elastic.co/docs/reference/elasticsearch/mapping-reference/binary) |  [`bytea`](https://www.postgresql.org/docs/17/datatype-binary.html)  
-[`boolean`](https://www.elastic.co/docs/reference/elasticsearch/mapping-reference/boolean) |  [`BOOLEAN`](https://www.postgresql.org/docs/17/datatype-boolean.html)  
-[`byte`](https://www.elastic.co/docs/reference/elasticsearch/mapping-reference/number),  [`short`](https://www.elastic.co/docs/reference/elasticsearch/mapping-reference/number) |  [`SMALLINT`](https://www.postgresql.org/docs/17/datatype-numeric.html#DATATYPE-INT)  
-[`date`](https://www.elastic.co/docs/reference/elasticsearch/mapping-reference/date) |  [`TIMESTAMPTZ`](https://www.postgresql.org/docs/17/datatype-datetime.html)  
-[`double`](https://www.elastic.co/docs/reference/elasticsearch/mapping-reference/number),  [`scaled_float`](https://www.elastic.co/docs/reference/elasticsearch/mapping-reference/number) |  [`DOUBLE PRECISION`](https://www.postgresql.org/docs/17/datatype-numeric.html#DATATYPE-FLOAT)  
-[`float`](https://www.elastic.co/docs/reference/elasticsearch/mapping-reference/number),  [`half_float`](https://www.elastic.co/docs/reference/elasticsearch/mapping-reference/number) |  [`REAL`](https://www.postgresql.org/docs/17/datatype-numeric.html#DATATYPE-FLOAT)  
-[`integer`](https://www.elastic.co/docs/reference/elasticsearch/mapping-reference/number) |  [`INTEGER`](https://www.postgresql.org/docs/17/datatype-numeric.html#DATATYPE-INT)  
-[`long`](https://www.elastic.co/docs/reference/elasticsearch/mapping-reference/number) |  [`BIGINT`](https://www.postgresql.org/docs/17/datatype-numeric.html#DATATYPE-INT)  
-[`object`](https://www.elastic.co/docs/reference/elasticsearch/mapping-reference/object),  [`flattened`](https://www.elastic.co/docs/reference/elasticsearch/mapping-reference/flattened) |  [`jsonb`](https://www.postgresql.org/docs/17/datatype-json.html)  
-[`text`](https://www.elastic.co/docs/reference/elasticsearch/mapping-reference/text),  [`annotated_text`](https://www.elastic.co/docs/reference/elasticsearch/plugins/mapper-annotated-text-usage),  [`keyword`](https://www.elastic.co/docs/reference/elasticsearch/mapping-reference/keyword#keyword-field-type),  [`constant_keyword`](https://www.elastic.co/docs/reference/elasticsearch/mapping-reference/keyword#constant-keyword-field-type),  [`wildcard`](https://www.elastic.co/docs/reference/elasticsearch/mapping-reference/keyword#wildcard-field-type) |  [`TEXT`](https://www.postgresql.org/docs/17/datatype-character.html)  
-[`unsigned_long`](https://www.elastic.co/docs/reference/elasticsearch/mapping-reference/number) |  [`NUMERIC`](https://www.postgresql.org/docs/17/datatype-numeric.html#DATATYPE-NUMERIC-DECIMAL)  
+[`binary`](https://www.elastic.co/docs/reference/elasticsearch/mapping-reference/binary) |  [`bytea`](https://www.postgresql.org/docs/18/datatype-binary.html)  
+[`boolean`](https://www.elastic.co/docs/reference/elasticsearch/mapping-reference/boolean) |  [`BOOLEAN`](https://www.postgresql.org/docs/18/datatype-boolean.html)  
+[`byte`](https://www.elastic.co/docs/reference/elasticsearch/mapping-reference/number),  [`short`](https://www.elastic.co/docs/reference/elasticsearch/mapping-reference/number) |  [`SMALLINT`](https://www.postgresql.org/docs/18/datatype-numeric.html#DATATYPE-INT)  
+[`date`](https://www.elastic.co/docs/reference/elasticsearch/mapping-reference/date) |  [`TIMESTAMPTZ`](https://www.postgresql.org/docs/18/datatype-datetime.html)  
+[`double`](https://www.elastic.co/docs/reference/elasticsearch/mapping-reference/number),  [`scaled_float`](https://www.elastic.co/docs/reference/elasticsearch/mapping-reference/number) |  [`DOUBLE PRECISION`](https://www.postgresql.org/docs/18/datatype-numeric.html#DATATYPE-FLOAT)  
+[`float`](https://www.elastic.co/docs/reference/elasticsearch/mapping-reference/number),  [`half_float`](https://www.elastic.co/docs/reference/elasticsearch/mapping-reference/number) |  [`REAL`](https://www.postgresql.org/docs/18/datatype-numeric.html#DATATYPE-FLOAT)  
+[`integer`](https://www.elastic.co/docs/reference/elasticsearch/mapping-reference/number) |  [`INTEGER`](https://www.postgresql.org/docs/18/datatype-numeric.html#DATATYPE-INT)  
+[`long`](https://www.elastic.co/docs/reference/elasticsearch/mapping-reference/number) |  [`BIGINT`](https://www.postgresql.org/docs/18/datatype-numeric.html#DATATYPE-INT)  
+[`object`](https://www.elastic.co/docs/reference/elasticsearch/mapping-reference/object),  [`flattened`](https://www.elastic.co/docs/reference/elasticsearch/mapping-reference/flattened) |  [`jsonb`](https://www.postgresql.org/docs/18/datatype-json.html)  
+[`text`](https://www.elastic.co/docs/reference/elasticsearch/mapping-reference/text),  [`annotated_text`](https://www.elastic.co/docs/reference/elasticsearch/plugins/mapper-annotated-text-usage),  [`keyword`](https://www.elastic.co/docs/reference/elasticsearch/mapping-reference/keyword#keyword-field-type),  [`constant_keyword`](https://www.elastic.co/docs/reference/elasticsearch/mapping-reference/keyword#constant-keyword-field-type),  [`wildcard`](https://www.elastic.co/docs/reference/elasticsearch/mapping-reference/keyword#wildcard-field-type) |  [`TEXT`](https://www.postgresql.org/docs/18/datatype-character.html)  
+[`unsigned_long`](https://www.elastic.co/docs/reference/elasticsearch/mapping-reference/number) |  [`NUMERIC`](https://www.postgresql.org/docs/18/datatype-numeric.html#DATATYPE-NUMERIC-DECIMAL)  
   
 ## Query your Elasticsearch data
 
-AlloyDB takes SQL queries and converts them to Elasticsearch REST API queries. During this conversion, AlloyDB attempts to push down as much query logic as possible without changing the query's identity, including the SQL query's `LIMIT`. However, there are cases where you might specify not to push down certain Elasticsearch fields or where query logic cannot be pushed down. For example, [`LIKE`](https://www.postgresql.org/docs/17/functions-matching.html#FUNCTIONS-LIKE) and other text-matching operators cannot be pushed down. For more examples of what can and can't be pushed down, see Pushdown examples.
+AlloyDB takes SQL queries and converts them to Elasticsearch REST API queries. During this conversion, AlloyDB attempts to push down as much query logic as possible without changing the query's identity, including the SQL query's `LIMIT`. However, there are cases where you might specify not to push down certain Elasticsearch fields or where query logic cannot be pushed down. For example, [`LIKE`](https://www.postgresql.org/docs/18/functions-matching.html#FUNCTIONS-LIKE) and other text-matching operators cannot be pushed down. For more examples of what can and can't be pushed down, see Pushdown examples.
 
 In scenarios where the `LIMIT` is set higher than `pagination_num_results` or where `LIMIT` is not specified or cannot be pushed down, AlloyDB uses the [Scroll API](https://www.elastic.co/docs/api/doc/elasticsearch/operation/operation-scroll), which can be resource-intensive.
 
@@ -452,6 +452,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-03 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 

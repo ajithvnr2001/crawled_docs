@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chronicle/docs/soar/investigate/working-with-cases/adddelete-case-stages-admin/
 title: Manage case stages \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T10:02:29.565448+00:00
+fetched_at: 2026-11-04T23:33:43.253906+00:00
 ---
 
 # Manage case stages  |  Google Security Operations  |  Google Cloud Documentation
@@ -31,7 +31,7 @@ This document explains how to customize case stages to match your organization's
 
 To add a new case stage, follow these steps:
 
-  1. Go to **SOAR Settings > Case Data > Case stages**.
+  1. Go to **Settings > Investigation > Case Stages**.
   2. Click  add **Add Stage**.
   3. In the **Add Case Stage** dialog, enter the relevant information for the new case stage.
   4. Click **Create**.
@@ -42,7 +42,7 @@ To add a new case stage, follow these steps:
 
 To delete a case stage, do the following:
 
-  1. Go to **SOAR Settings > Case Data > Case Stages**.
+  1. Go to **Settings > Investigation > Case Stages**.
   2. Select the case stage you want to delete.
   3. Click  edit **Edit Stage** (or double-click the case stage) to open the **Edit Case Stage** dialog.
   4. In the **Edit Case Stage** dialog, click  delete **Delete**.
@@ -56,6 +56,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-28 UTC.
+Last updated 2026-11-04 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 

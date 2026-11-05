@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/build/docs/release-notes/
 title: Cloud Build release notes \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T00:26:50.158714+00:00
+fetched_at: 2026-11-04T23:16:51.210118+00:00
 ---
 
 # Cloud Build release notes  |  Google Cloud Documentation
@@ -235,35 +235,6 @@ Build provenance is verifiable metadata that you can use to audit builds. Cloud 
 
 Learn how to use [build provenance in Cloud Build](https://docs.cloud.google.com/build/docs/securing-builds/generate-validate-build-provenance).
 
-## March 07, 2024
-
-Feature
-
-Cloud Build repositories (2nd gen) now supports integration with [Bitbucket Cloud](https://docs.cloud.google.com/build/docs/automating-builds/bitbucket/connect-host-bitbucket-cloud) and [Bitbucket Data Center](https://docs.cloud.google.com/build/docs/automating-builds/bitbucket/connect-host-bitbucket-data-center?generation=2nd-gen). These features are [generally available](https://cloud.google.com/products/#product-launch-stages).
-
-## January 22, 2024
-
-Change
-
-Cloud Build is now available in the following regions:
-
-  * europe-west10
-  * europe-west12
-  * me-central1
-  * me-central2
-
-
-
-For more information, see [Cloud Build locations](https://docs.cloud.google.com/build/docs/locations).
-
-## January 16, 2024
-
-Announcement
-
-Cloud Build is introducing a new organization policy constraint.
-
-On April 29, 2024, we are introducing changes to Cloud Build's default behavior and use of service accounts in new projects. Organizations can opt out of these changes using a new [organization policy boolean constraint](https://docs.cloud.google.com/build/docs/cloud-build-service-account-updates).
-
 ## November 30, 2023
 
 Change
@@ -456,55 +427,6 @@ Feature
 
 Users can now build repositories from GitLab Enterprise Edition, including instances hosted in a private network. This integration is available at the [preview release stage](https://cloud.google.com/products/#product-launch-stages). To learn more, see [Building repositories from GitLab Enterprise Edition](https://docs.cloud.google.com/build/docs/automating-builds/gitlab/build-repos-from-gitlab-enterprise-edition).
 
-## September 15, 2022
-
-Feature
-
-Users can now use Cloud Build's GitHub Issues notifier to create issues in their GitHub repository in response to build events. To learn more, see [Configuring GitHub Issue notifications](https://docs.cloud.google.com/build/docs/configuring-notifications/configure-githubissues).
-
-## September 13, 2022
-
-Feature
-
-Users can now use Cloud Console to configure a trigger to send build logs to GitHub or GitHub Enterprise. For more information, see [Building repositories from GitHub](https://docs.cloud.google.com/build/docs/automating-builds/github/build-repos-from-github) and [Building repositories from GitHub Enterprise](https://docs.cloud.google.com/build/docs/automating-builds/github/build-repos-from-github-enterprise).
-
-Feature
-
-`gcloud` support for manual triggers is now available. To learn more, see [Manually build code in source repositories](https://docs.cloud.google.com/build/docs/manually-build-code-source-repos).
-
-## September 12, 2022
-
-Change
-
-Cloud Build now supports Supply chain Levels for Software Artifacts (SLSA) level 3 assurance. Taking steps to reach SLSA level 3 can help you protect your build pipeline. To learn more, see [Viewing build provenance](https://docs.cloud.google.com/build/docs/securing-builds/view-build-provenance).
-
-## September 09, 2022
-
-Feature
-
-The Cloud Build script field is now [generally available](https://cloud.google.com/products/#product-launch-stages). This allows users to specify build steps using their scripting language of choice rather than as arguments to Docker. To learn more, see [Running bash scripts](https://docs.cloud.google.com/build/docs/configuring-builds/run-bash-scripts).
-
-## August 17, 2022
-
-Change
-
-Cloud Build is now available in the following regions: 
-
-  * asia-south2
-  * australia-southeast2
-  * northamerica-northeast2
-  * southamerica-west1
-
-
-
-For more information, see [Cloud Build locations](https://docs.cloud.google.com/build/docs/locations).
-
-## July 12, 2022
-
-Change
-
-The `gcr.io/cloud-builders/docker` builder has been upgraded to Docker client version 20.10.14. For instructions on using this builder with the Docker client versions, see [Interacting with Docker Hub images](https://docs.cloud.google.com/build/docs/interacting-with-dockerhub-images#working_with_docker_client_versions).
-
 ## June 27, 2022
 
 Feature
@@ -544,39 +466,6 @@ Cloud Build default pools now support regional builds at the [preview release st
 Feature
 
 Cloud Build now supports regional build triggers at the [preview release stage](https://cloud.google.com/products/#product-launch-stages). To learn more, see [Cloud Build locations](https://docs.cloud.google.com/build/docs/locations).
-
-## March 02, 2022
-
-Change
-
-The operating system of the machine that Cloud Build uses to run builds has been upgraded to Debian 11. This results in faster build start up time when you run builds on:
-
-  * [`e2-highcpu-8` or `e2-highcpu-32`](https://cloud.google.com/build/pricing) in the default pool.
-  * Any of the [available machine types](https://cloud.google.com/build/pricing#private_pools_pricing) in a private pool.
-
-
-
-## February 18, 2022
-
-Feature
-
-The organization policy for integrations with services such as GitHub is now [generally available](https://cloud.google.com/products/#product-launch-stages). Users can now apply the policy to control triggered builds from external services, such as GitHub. To learn more, see [Limiting builds triggered from external services](https://docs.cloud.google.com/build/docs/securing-builds/limit-builds-external-services).
-
-Feature
-
-VPC Service Controls support for Cloud Build is now [generally available](https://cloud.google.com/products/#product-launch-stages). For instructions on using this feature, see [Using VPC Service Controls](https://docs.cloud.google.com/build/docs/private-pools/using-vpc-service-controls).
-
-## February 14, 2022
-
-Feature
-
-Support for configuring triggers to use a particular service account is now [generally available](https://cloud.google.com/products/#product-launch-stages). To learn more, see [Configuring user-specified service accounts](https://docs.cloud.google.com/build/docs/securing-builds/configure-user-specified-service-accounts).
-
-## February 07, 2022
-
-Feature
-
-Cloud Build's Bitbucket Server and Bitbucket Data Center integration is now [generally available](https://cloud.google.com/products/#product-launch-stages). Users can build repositories from Bitbucket Server and Bitbucket Data Center, including on-premises instances. For more information, see [Building repositories from Bitbucket Server](https://docs.cloud.google.com/build/docs/automating-builds/build-repos-from-bitbucket-server) and [Building repositories from Bitbucket Data Center](https://docs.cloud.google.com/build/docs/automating-builds/build-repos-from-bitbucket-data-center).
 
 ## October 12, 2021
 
@@ -635,36 +524,6 @@ Feature
 Feature
 
 Manual triggers are now [generally available](https://cloud.google.com/products/#product-launch-stages), allowing users to run triggers on schedule. For more information, see [Scheduling builds](https://docs.cloud.google.com/build/docs/automating-builds/schedule-builds).
-
-## March 10, 2021
-
-Feature
-
-Pub/Sub triggers are now [generally available](https://cloud.google.com/products/#product-launch-stages). Users can create triggers to execute builds in response to events published to a Pub/Sub topic. For more information see, [Creating Pub/Sub triggers](https://docs.cloud.google.com/build/docs/automating-builds/create-pubsub-triggers).
-
-## February 10, 2021
-
-Feature
-
-Users can now create triggers that execute builds in response to webhook events, including events from external source code management services. This feature is available as a [preview release](https://cloud.google.com/products/#product-launch-stages). To learn more, see [Creating webhook triggers](https://docs.cloud.google.com/build/docs/automating-builds/create-webhook-triggers) and [Building repositories hosted on Bitbucket Server](https://docs.cloud.google.com/build/docs/automating-builds/build-hosted-repos-bitbucket-server).
-
-## February 03, 2021
-
-Feature
-
-You can now [configure Cloud Build to access secrets from Secret Manager](https://docs.cloud.google.com/build/docs/securing-builds/use-secrets) via environment variables.
-
-## January 15, 2021
-
-Feature
-
-Regionalized builds from Cloud Functions are now visible in the Cloud Build History UI. To learn more, see [Viewing build results](https://docs.cloud.google.com/build/docs/view-build-results).
-
-## January 11, 2021
-
-Feature
-
-Users can now specify their own service accounts for Cloud Build to run builds. For more information, see [User-specified service accounts](https://docs.cloud.google.com/build/docs/securing-builds/configure-user-specified-service-accounts).
 
 ## December 15, 2020
 
@@ -892,46 +751,6 @@ For more information, see the [Pricing](https://cloud.google.com/build/pricing) 
 Change
 
 Builds are not triggered if the commit message includes `[skip ci]` or `[ci skip]`.
-
-## August 28, 2017
-
-Change
-
-Upgraded to Docker version 17.06.1.
-
-## August 23, 2017
-
-Change
-
-Builds accept `secrets` and build steps accept `secretEnv` to specify environment variables with values that have been encrypted using [Cloud KMS](https://docs.cloud.google.com/kms). 
-
-See [Encrypting an Environment Variable Using the CryptoKey](https://docs.cloud.google.com/build/docs/securing-builds/use-encrypted-secrets-credentials#encrypting_an_environment_variable_using_the_cryptokey).
-
-## August 03, 2017
-
-Feature
-
-Build steps accept `volumes` to persist specified paths across build steps.
-
-## July 26, 2017
-
-Feature
-
-`cloud-build-local`, a tool for running builds locally, is available. You can install the tool using `gcloud components install cloud-build-local`.
-
-To learn more, see [Running builds locally](https://docs.cloud.google.com/build/docs/concepts/overview#running_builds_locally).
-
-## July 18, 2017
-
-Feature
-
-`gradle` is now a [supported build step](https://github.com/GoogleCloudPlatform/cloud-builders/tree/master/java/gradle).
-
-## July 10, 2017
-
-Feature
-
-`homevol` mounted across build steps as `$HOME` directory.
 
 ## June 15, 2017
 

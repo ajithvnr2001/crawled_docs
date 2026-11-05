@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/computation-based-eval-pipeline/
 title: Run a computation-based evaluation pipeline \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-01T05:38:28.572691+00:00
+fetched_at: 2026-11-04T23:15:34.948947+00:00
 ---
 
 # Run a computation-based evaluation pipeline  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation
@@ -75,7 +75,7 @@ To perform this task, you must grant [Identity and Access Management (IAM)](http
 
 Service account | Default principal | Description | Roles  
 ---|---|---|---  
-Agent Platform Service Agent | `service-PROJECT_NUMBER@gcp-sa-aiplatform.iam.gserviceaccount.com` | The Agent Platform Service Agent is automatically provisioned for your project and granted a predefined role. However, if an org policy modifies the default permissions of the Agent Platform Service Agent, you must manually grant the role to the service agent. | [Agent Platform Service Agent (`roles/aiplatform.serviceAgent`)](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/access-control#aiplatform.serviceAgent)  
+Agent Platform Service Agent | `service-PROJECT_NUMBER@gcp-sa-aiplatform.iam.gserviceaccount.com` | The Agent Platform Service Agent is automatically provisioned for your project and granted a predefined role. However, if an org policy modifies the default permissions of the Agent Platform Service Agent, you must manually grant the role to the service agent. | [Vertex AI Service Agent (`roles/aiplatform.serviceAgent`)](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/access-control#aiplatform.serviceAgent)  
 Agent Platform Pipelines Service Account | `PROJECT_NUMBER-compute@developer.gserviceaccount.com` | The service account that runs the pipeline. The default service account used is the [Compute Engine default service account](https://docs.cloud.google.com/compute/docs/access/service-accounts#default_service_account). Optionally, you can use a custom service account instead of the default service account.  | 
 
   * [Agent Platform User (`roles/aiplatform.user`)](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/access-control#aiplatform.user)
@@ -332,7 +332,7 @@ To create a model evaluation job by using the Google Cloud console, perform the 
      * **Objective** : Select the task that you want to evaluate.
      * **Target column or field** : (Classification only) Enter the target column for prediction. Example: `ground_truth`.
      * **Source path** : Enter or select the URI of your evaluation dataset.
-     * **Output format** : Enter the format of the evaluation output. Currently, only `jsonl` is supported.
+     * **Output format** : Enter the format of the evaluation output. Only `jsonl` is supported.
      * **Cloud Storage path** : Enter or select the URI to store evaluation output.
      * **Class names** : (Classification only) Enter the list of possible class names.
      * **Number of compute nodes** : Enter the number of compute nodes to run the evaluation job.
@@ -369,6 +369,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-30 UTC.
+Last updated 2026-11-04 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 

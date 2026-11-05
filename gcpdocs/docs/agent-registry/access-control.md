@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/agent-registry/access-control/
 title: Access control with IAM \u00a0|\u00a0 Agent Registry \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T07:56:28.201370+00:00
+fetched_at: 2026-11-04T23:45:06.765019+00:00
 ---
 
 # Access control with IAM  |  Agent Registry  |  Google Cloud Documentation

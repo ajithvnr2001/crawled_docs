@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/vmware/docs/vulnerabilities/
 title: Vulnerability fixes \u00a0|\u00a0 Google Distributed Cloud software only for VMware \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T22:56:24.679620+00:00
+fetched_at: 2026-11-04T23:28:58.632136+00:00
 ---
 
 # Vulnerability fixes  |  Google Distributed Cloud software only for VMware  |  Google Cloud Documentation
@@ -80,7 +80,15 @@ Ubuntu | None
   
 ### 1.35
 
-| [1.35.600-gke.141](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/vmware/docs/release-notes#October_13_2026):  
+| [1.35.700-gke.124](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/vmware/docs/release-notes#November_4_2026):  
+Critical Severity | N/A  
+[1.35.700-gke.124](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/vmware/docs/release-notes#November_4_2026):  
+High Severity | N/A  
+[1.35.700-gke.124](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/vmware/docs/release-notes#November_4_2026):  
+Container-Optimized OS |  [CVE-2026-89930](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2026-89930), [CVE-2026-89786](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2026-89786), [CVE-2026-89988](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2026-89988), [CVE-2026-53784](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2026-53784), [CVE-2026-89969](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2026-89969), [CVE-2026-89997](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2026-89997), [CVE-2026-90011](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2026-90011), [CVE-2026-89777](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2026-89777), [CVE-2026-53795](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2026-53795), [CVE-2026-70461](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2026-70461), [CVE-2026-90003](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2026-90003), [CVE-2026-89783](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2026-89783), [CVE-2026-89932](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2026-89932), [CVE-2026-53803](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2026-53803), [CVE-2026-70457](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2026-70457), [CVE-2026-89998](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2026-89998), [CVE-2026-89973](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2026-89973), [CVE-2026-70463](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2026-70463), [CVE-2026-90049](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2026-90049), [CVE-2026-53789](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2026-53789), [CVE-2026-89793](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2026-89793), [CVE-2026-89968](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2026-89968), [CVE-2026-89778](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2026-89778), [CVE-2026-70455](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2026-70455), [CVE-2026-89823](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2026-89823), [CVE-2026-53802](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2026-53802), [CVE-2026-89970](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2026-89970), [CVE-2026-89927](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2026-89927), [CVE-2026-53791](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2026-53791)  
+[1.35.700-gke.124](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/vmware/docs/release-notes#November_4_2026):  
+Ubuntu | N/A  
+[1.35.600-gke.141](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/vmware/docs/release-notes#October_13_2026):  
 Critical Severity | N/A  
 [1.35.600-gke.141](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/vmware/docs/release-notes#October_13_2026):  
 High Severity | N/A  
@@ -640,6 +648,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-04 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 

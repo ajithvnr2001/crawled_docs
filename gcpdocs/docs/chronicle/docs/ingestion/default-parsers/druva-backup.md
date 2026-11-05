@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/druva-backup/
 title: Collect Druva Backup logs \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T07:52:42.416021+00:00
+fetched_at: 2026-11-04T23:32:48.784460+00:00
 ---
 
 # Collect Druva Backup logs  |  Google Security Operations  |  Google Cloud Documentation

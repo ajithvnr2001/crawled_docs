@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/application-design-center/docs/agent-platform-with-governance/
 title: Agent Platform with governance template \u00a0|\u00a0 Application Design Center \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T16:21:56.280888+00:00
+fetched_at: 2026-11-04T23:28:15.108782+00:00
 ---
 
 # Agent Platform with governance template  |  Application Design Center  |  Google Cloud Documentation
@@ -27,9 +27,7 @@ This feature is subject to the "Pre-GA Offerings Terms" in the General Service T
 
 This template uses Agent Gateway, which is in Private Preview. To request access to use Agent Gateway with Agent Runtime, see the [access request page](https://forms.gle/ZLNYKUDW7j2B4a8K7).
 
-Deploy your agent to Gemini Enterprise Agent Platform to consistently apply security, governance, and observability settings for your agents. Connect your agent to an MCP server that supports data retrieval and analysis tasks that align with your governance policies.
-
-This guide helps you understand the _Agent Platform with governance_ application template. You can use this template to quickly deploy your agent, along with its infrastructure and policies, as an application on Google Cloud.
+The _Agent Platform with governance_ application template lets you deploy an AI agent to Gemini Enterprise Agent Platform on Google Cloud with consistent security, governance, and observability settings. The template includes traffic gateways, authorization policies, and safety filters for your agent infrastructure. The template also connects your agent to an MCP server for governed data retrieval and analysis.
 
 For example, you might implement this template to address the following business needs:
 
@@ -94,6 +92,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-04 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 

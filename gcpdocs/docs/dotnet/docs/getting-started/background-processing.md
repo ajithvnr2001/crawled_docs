@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/dotnet/docs/getting-started/background-processing/
 title: Background processing with .NET \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T05:36:39.191467+00:00
+fetched_at: 2026-11-04T23:46:19.586502+00:00
 ---
 
 # Background processing with .NET  |  Google Cloud Documentation

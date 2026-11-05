@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/secret-manager/regional-secrets/access-control-rs/
 title: Access control with IAM \u00a0|\u00a0 Secret Manager Regional Service Documentation \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T05:50:06.858013+00:00
+fetched_at: 2026-11-05T00:18:52.232554+00:00
 ---
 
 # Access control with IAM  |  Secret Manager Regional Service Documentation  |  Google Cloud Documentation
@@ -45,8 +45,18 @@ Role | Permissions
 
 `cloudkms.operations.get` `cloudkms.projects.showEffectiveAutokeyConfig` `resourcemanager.projects.get` `resourcemanager.projects.list` `secretmanager.*`
 
+  * `secretmanager.backups.create`
+  * `secretmanager.backups.delete`
+  * `secretmanager.backups.get`
+  * `secretmanager.backups.list`
+  * `secretmanager.backups.restore`
+  * `secretmanager.backups.update`
   * `secretmanager.locations.get`
   * `secretmanager.locations.list`
+  * `secretmanager.operations.cancel`
+  * `secretmanager.operations.get`
+  * `secretmanager.operations.list`
+  * `secretmanager.secrets.backup`
   * `secretmanager.secrets.create`
   * `secretmanager.secrets.createTagBinding`
   * `secretmanager.secrets.delete`
@@ -57,6 +67,7 @@ Role | Permissions
   * `secretmanager.secrets.list`
   * `secretmanager.secrets.listEffectiveTags`
   * `secretmanager.secrets.listTagBindings`
+  * `secretmanager.secrets.restore`
   * `secretmanager.secrets.rotate`
   * `secretmanager.secrets.setIamPolicy`
   * `secretmanager.secrets.update`
@@ -72,10 +83,16 @@ Role | Permissions
   
 #### Secret Manager Editor 
 
-(`roles/secretmanager.editor`) Editor role for Secret Manager  |  `resourcemanager.projects.get` `resourcemanager.projects.list` `secretmanager.locations.*`
+(`roles/secretmanager.editor`) Editor role for Secret Manager  |  `resourcemanager.projects.get` `resourcemanager.projects.list` `secretmanager.backups.create` `secretmanager.backups.delete` `secretmanager.backups.get` `secretmanager.backups.list` `secretmanager.backups.update` `secretmanager.locations.*`
 
   * `secretmanager.locations.get`
   * `secretmanager.locations.list`
+
+`secretmanager.operations.*`
+
+  * `secretmanager.operations.cancel`
+  * `secretmanager.operations.get`
+  * `secretmanager.operations.list`
 
 `secretmanager.secrets.create` `secretmanager.secrets.delete` `secretmanager.secrets.enableManagedRotation` `secretmanager.secrets.get` `secretmanager.secrets.getIamPolicy` `secretmanager.secrets.list` `secretmanager.secrets.listEffectiveTags` `secretmanager.secrets.listTagBindings` `secretmanager.secrets.rotate` `secretmanager.secrets.update` `secretmanager.versions.add` `secretmanager.versions.destroy` `secretmanager.versions.disable` `secretmanager.versions.enable` `secretmanager.versions.get` `secretmanager.versions.list`  
   
@@ -93,12 +110,12 @@ Role | Permissions
 
   * Secret 
 
-|  `resourcemanager.projects.get` `resourcemanager.projects.list` `secretmanager.locations.*`
+|  `resourcemanager.projects.get` `resourcemanager.projects.list` `secretmanager.backups.get` `secretmanager.backups.list` `secretmanager.locations.*`
 
   * `secretmanager.locations.get`
   * `secretmanager.locations.list`
 
-`secretmanager.secrets.get` `secretmanager.secrets.getIamPolicy` `secretmanager.secrets.list` `secretmanager.secrets.listEffectiveTags` `secretmanager.secrets.listTagBindings` `secretmanager.versions.get` `secretmanager.versions.list`  
+`secretmanager.operations.get` `secretmanager.operations.list` `secretmanager.secrets.get` `secretmanager.secrets.getIamPolicy` `secretmanager.secrets.list` `secretmanager.secrets.listEffectiveTags` `secretmanager.secrets.listTagBindings` `secretmanager.versions.get` `secretmanager.versions.list`  
   
 #### Secret Manager Secret Version Adder 
 
@@ -162,6 +179,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-03 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 

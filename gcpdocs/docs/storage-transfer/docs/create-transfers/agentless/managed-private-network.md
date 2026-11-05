@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/storage-transfer/docs/create-transfers/agentless/managed-private-network/
 title: Transfer over a Google-managed private network \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T05:48:25.056053+00:00
+fetched_at: 2026-11-05T00:17:54.710976+00:00
 ---
 
 # Transfer over a Google-managed private network  |  Google Cloud Documentation
@@ -17,7 +17,7 @@ fetched_at: 2026-10-28T05:48:25.056053+00:00
 
 When transferring data from Amazon S3 to Cloud Storage, data typically traverses public internet peering links, where AWS bills standard internet data egress charges. Storage Transfer Service offers a **Google-managed private network** option for transfers from Amazon S3, allowing your data to flow over secure private routing provisioned automatically by Google.
 
-Using a Google-managed private network reduces AWS internet egress costs and simplifies network security by eliminating the need to configure and maintain customer-managed physical interconnects.
+Using the Google-managed private network reduces AWS internet egress costs and simplifies network security by eliminating the need to configure and maintain customer-managed physical interconnects.
 
 ## Key benefits
 
@@ -29,7 +29,7 @@ The Google-managed private network option provides the following operational and
 
   * **Zero infrastructure maintenance** : Unlike a customer-managed private network, you don't need to provision, configure, or pay recurring port fees for physical interconnects (such as Cloud Interconnect or AWS Direct Connect), VPN gateways, or custom DNS routing. Google fully manages the private networking stack end-to-end.
 
-  * **Instant deployment with zero lead time** : Setting up dedicated interconnect circuits can take weeks. With a Google-managed private network, you can begin transferring over private routing immediately, without installing or managing any transfer agents.
+  * **Instant deployment with zero lead time** : Setting up dedicated interconnect circuits can take weeks. With the Google-managed private network, you can begin transferring over private routing immediately, without installing or managing any transfer agents.
 
 
 
@@ -67,6 +67,8 @@ The Google-managed private network option is available for agentless transfers f
 `us-west-2` |   
 ---|---|---  
   
+Transfers over the Google-managed private network are not supported for AWS GovCloud regions.
+
 ## Before you begin
 
 Before creating your transfer, you must configure IAM and source permissions.
@@ -118,14 +120,8 @@ The bucket name is the name as it appears in the [AWS Management Console](https:
      * **Access key** : Enter your access key in the **Access key ID** field and the secret associated with your access key in the **Secret access key** field.
 
      * **AWS IAM role for identity federation** : Enter your ARN in the **AWS IAM role ARN** field, with the following syntax:
-
-       * Standard AWS regions:
-             
-             arn:aws:iam::AWS_ACCOUNT:role/AWS_ROLE_NAME
-
-       * AWS GovCloud regions:
-             
-             arn:aws-us-gov:iam::AWS_ACCOUNT:role/AWS_ROLE_NAME
+           
+           arn:aws:iam::AWS_ACCOUNT:role/AWS_ROLE_NAME
 
 Replace the following:
 
@@ -135,14 +131,8 @@ Replace the following:
 For more information on ARNs, see [IAM ARNs](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html#identifiers-arns).
 
   9. If this is an [event-driven transfer](https://docs.cloud.google.com/storage-transfer/docs/event-driven-transfers), enter the Amazon SQS queue ARN, which takes the following format:
-
-     * Standard AWS regions:
-           
-           arn:aws:sqs:us-east-1:1234567890:event-queue
-
-     * AWS GovCloud regions:
-           
-           arn:aws-us-gov:sqs:us-gov-east-1:1234567890:event-queue
+         
+         arn:aws:sqs:us-east-1:1234567890:event-queue
 
   10. Optionally, choose to [filter objects by prefix](https://docs.cloud.google.com/storage-transfer/docs/filtering-objects-from-transfers), by last modified date, or by [storage class](https://docs.cloud.google.com/storage-transfer/docs/filtering-by-storage-class). If you specified a folder as your source location, prefix filters are relative to that folder. For example, if your source is `my-test-bucket/path/`, an include filter of `file` includes all files starting with `my-test-bucket/path/file`.
 
@@ -217,11 +207,11 @@ This option ensures that the destination Cloud Storage bucket exactly matches yo
 
 ###  gcloud CLI 
 
-The gcloud CLI does not support configuring transfers over a Google-managed private network. Use the Google Cloud console or REST API to enable this option.
+The gcloud CLI does not support configuring transfers over the Google-managed private network. Use the Google Cloud console or REST API to enable this option.
 
 ###  Client libraries 
 
-Storage Transfer Service client libraries don't support configuring transfers over a Google-managed private network. Use the Google Cloud console or REST API to enable this option.
+Storage Transfer Service client libraries don't support configuring transfers over the Google-managed private network. Use the Google Cloud console or REST API to enable this option.
 
 ###  REST API 
 
@@ -288,6 +278,6 @@ If the Google-managed private network does not meet your workload requirements, 
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-03 UTC.
 
-[[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+[[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 

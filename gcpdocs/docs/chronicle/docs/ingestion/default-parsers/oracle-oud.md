@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/oracle-oud/
 title: Collect Oracle Unified Directory logs \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T07:50:49.717310+00:00
+fetched_at: 2026-11-04T23:34:37.899601+00:00
 ---
 
 # Collect Oracle Unified Directory logs  |  Google Security Operations  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/network-connectivity/docs/interconnect/concepts/cci-overview/
 title: Cross-Cloud Interconnect overview \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-03T09:43:12.420096+00:00
+fetched_at: 2026-11-05T00:19:57.474026+00:00
 ---
 
 # Cross-Cloud Interconnect overview  |  Google Cloud Documentation
@@ -22,16 +22,16 @@ Send feedback
 
 #  Cross-Cloud Interconnect overview Stay organized with collections  Save and categorize content based on your preferences. 
 
-Provisioning Cross-Cloud Interconnect requires that Google creates a dedicated physical connection between the Google network and that of another service provider. Alternatively, you can connect to AWS and OCI by using partner Cross-Cloud Interconnect, which connects your network in another cloud and your VPC networks through a supported service provider. For more information, see the following pages: 
+Provisioning Cross-Cloud Interconnect requires that Google creates a dedicated physical connection between the Google network and that of another service provider. Alternatively, you can connect to another cloud service provider (CSP) by using partner Cross-Cloud Interconnect, which connects your network in another cloud and your VPC networks through a supported service provider. For more information, see the following pages: 
 
-  * [Partner Cross-Cloud Interconnect for AWS overview](https://docs.cloud.google.com/network-connectivity/docs/interconnect/concepts/partner-cci-for-aws-overview)
+  * [Partner Cross-Cloud Interconnect for managed cloud partners overview](https://docs.cloud.google.com/network-connectivity/docs/interconnect/concepts/partner-cci-for-csp-overview)
   * [Partner Cross-Cloud Interconnect for OCI overview](https://docs.cloud.google.com/network-connectivity/docs/interconnect/concepts/partner-cci-for-oci-overview)
 
 
 
-Cross-Cloud Interconnect is a product that helps you establish high-bandwidth dedicated connectivity between Google Cloud and another cloud service provider.
+Cross-Cloud Interconnect is a product that helps you establish high-bandwidth dedicated connectivity between Google Cloud and another CSP.
 
-When you buy Cross-Cloud Interconnect, Google provisions a dedicated physical connection between the Google network and that of another cloud service provider. You can use this connection to peer your Google Virtual Private Cloud (VPC) network with your network that's hosted by a supported cloud service provider.
+When you buy Cross-Cloud Interconnect, Google provisions a dedicated physical connection between the Google network and that of another CSP. You can use this connection to peer your Google Virtual Private Cloud (VPC) network with your network that's hosted by a supported cloud service provider.
 
 [ ![Cross-Cloud Interconnect configuration.](https://docs.cloud.google.com/static/network-connectivity/docs/interconnect/images/99.9.svg)](https://docs.cloud.google.com/static/network-connectivity/docs/interconnect/images/99.9.svg) Cross-Cloud Interconnect configuration (click to enlarge).
 
@@ -103,18 +103,18 @@ Feature | Cross-Cloud Interconnect | Partner Cross-Cloud Interconnect for OCI
 **Performance** |  Optimal latency.  |  Optimal latency.   
 **Support** |  Google supports the connection all the way to the OCI demarcation.  |  Google Cloud and OCI partner on supporting the solution end to end.   
   
-### Comparison to partner Cross-Cloud Interconnect for AWS
+### Comparison to partner Cross-Cloud Interconnect for managed cloud providers
 
-While Cross-Cloud Interconnect lets you turn up dedicated connectivity between Google Cloud and AWS, [partner Cross-Cloud Interconnect for AWS](https://docs.cloud.google.com/network-connectivity/docs/interconnect/concepts/partner-cci-for-aws-overview) lets you connect any Google Cloud and AWS resources privately in [available paired locations](https://docs.cloud.google.com/network-connectivity/docs/interconnect/how-to/partner-cci-for-aws/paired-locations). Use the following table to choose the option that works best for your needs:
+While Cross-Cloud Interconnect lets you turn up dedicated connectivity between Google Cloud and other cloud service providers (CSPs), [partner Cross-Cloud Interconnect for managed cloud partners](https://docs.cloud.google.com/network-connectivity/docs/interconnect/concepts/partner-cci-for-csp-overview) lets you connect any Google Cloud and CSP resources privately in [available paired locations](https://docs.cloud.google.com/network-connectivity/docs/interconnect/how-to/partner-cci-for-csp/paired-locations). Use the following table to choose the option that works best for your needs:
 
-Interconnect connection type | Cross-Cloud Interconnect | Partner Cross-Cloud Interconnect for AWS  
+Interconnect connection type | Cross-Cloud Interconnect | Partner Cross-Cloud Interconnect for managed cloud partners  
 ---|---|---  
 **Description** | Provides dedicated connectivity between Google Cloud and providers like OCI, AWS, Azure, and Alibaba | Provides dedicated connectivity between Google Cloud and providers like AWS  
 **Needs physical provisioning** | Yes | No  
 **Needs physical attachments and ports** | Yes | No  
 **Connection increments** | 10 Gbps or 100 Gbps | Granular pre approved speeds starting from 1 Gbps to 100 Gbps  
 **Provisioning time** | 1-4 weeks | Minutes  
-**Connection ordering** | Must be initiated from Google Cloud | Bidirectional; can be initiated from Google Cloud or Amazon Web Services  
+**Connection ordering** | Must be initiated from Google Cloud | Bidirectional; can be initiated from Google Cloud or remote managed cloud partner  
 **Resiliency** | Must be configured manually | Built into the product  
   
 ## Encryption
@@ -293,6 +293,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-02 UTC.
+Last updated 2026-11-03 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-02 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 

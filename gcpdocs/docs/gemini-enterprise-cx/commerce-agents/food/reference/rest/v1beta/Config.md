@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rest/v1beta/Config/
 title: Config \u00a0|\u00a0 Food Ordering AI Agent \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-30T05:39:15.521326+00:00
+fetched_at: 2026-11-05T00:17:46.237645+00:00
 ---
 
 # Config  |  Food Ordering AI Agent  |  Google Cloud Documentation
@@ -26,6 +26,8 @@ Send feedback
   * UserInfo
     * JSON representation
   * PastOrder
+    * JSON representation
+  * UserLocation
     * JSON representation
   * OrderType
   * FeatureGate
@@ -125,7 +127,10 @@ JSON representation
       ],
       "additionalSavedCustomerNames": [
         string
-      ]
+      ],
+      "location": {
+        object ([UserLocation](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rest/v1beta/Config#UserLocation))
+      }
     }  
   
 Fields  
@@ -141,6 +146,7 @@ Fields
 `savedDeliveryAddress` |  `object (`[DeliveryAddress](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rest/v1beta/Order#DeliveryAddress)`)` Optional. The saved delivery address of the user. Will be replacing the existing string deliveryAddress field.  
 `additionalSavedAddresses[]` |  `object (`[DeliveryAddress](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rest/v1beta/Order#DeliveryAddress)`)` Optional. All past delivery addresses previously used with the user's phone number, deduplicated by the client. Unlike savedDeliveryAddress, these are not confirmed to belong to the current user: e.g. if the session is for a phone call, the phone number might be associated with multiple users. Addresses need not be validated. May include savedDeliveryAddress.  
 `additionalSavedCustomerNames[]` |  `string` Optional. All customer names previously used with the user's phone number, deduplicated by the client. Unlike preferredName, these are not confirmed to belong to the current user: e.g. if the session is for a phone call, the phone number might be associated with multiple users. May include preferredName.  
+`location` |  `object (`[UserLocation](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rest/v1beta/Config#UserLocation)`)` Optional. Represents the current or last-known geographic location of the user's device. Populated only when the client application holds foreground location permission.  
   
 ## PastOrder
 
@@ -159,6 +165,26 @@ JSON representation
 Fields  
 ---  
 `order` |  `object (`[Order](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rest/v1beta/Order)`)` Required. The original Food AI order.  
+  
+## UserLocation
+
+Represents the real-time or recent geographic location of the user's device.
+
+JSON representation  
+---  
+      
+    
+    {
+      "coordinates": {
+        object ([LatLng](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rest/Shared.Types/LatLng))
+      },
+      "captureTime": string
+    }  
+  
+Fields  
+---  
+`coordinates` |  `object (`[LatLng](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rest/Shared.Types/LatLng)`)` Required. Represents the geographic coordinates (WGS84 latitude and longitude) of the user's device.  
+`captureTime` |  `string (`[Timestamp](https://protobuf.dev/reference/protobuf/google.protobuf/#timestamp)` format)` Optional. Represents the timestamp when the device captured this location fix. Allows the service to ignore stale cached fixes (for example, fixes older than 15 minutes).Uses RFC 3339, where generated output will always be Z-normalized and use 0, 3, 6 or 9 fractional digits. Offsets other than "Z" are also accepted. Examples: `"2014-10-02T15:01:23Z"`, `"2014-10-02T15:01:23.045123456Z"` or `"2014-10-02T15:01:23+05:30"`.  
   
 ## OrderType
 
@@ -187,19 +213,26 @@ JSON representation
       "revampedPaymentFlowEnabled": boolean,
       "updatedOrderStateEnabled": boolean,
       "enableOrderStatusRetrieval": boolean,
-      "enableClientEscalationAudio": boolean
+      "enableClientEscalationAudio": boolean,
+      "storeSelectionEnabled": boolean,
+      "offersAndLoyaltyEnabled": boolean
     }  
   
 Fields  
 ---  
-`triggerOfferEngineOnDemand` |  `boolean` Optional. For limited audience only, if set, offer engine will be optional in the payment flow and will only be triggered when users request for it.  
-`triggerLoyaltyOnDemand` |  `boolean` Optional. For limited audience only, if set, loyalty will be optional in the payment flow and will only be triggered when users request for it.  
-`triggerOrderMediaAssistantOnDemand` |  `boolean` Optional. For limited audience only, if set, order media assistant will be optional and will only be triggered when users request for it.  
+`triggerOfferEngineOnDemand  
+**(deprecated)**` |  `boolean` This item is deprecated!Optional. Deprecated: No longer used. For limited audience only, if set, offer engine will be optional in the payment flow and will only be triggered when users request for it.  
+`triggerLoyaltyOnDemand  
+**(deprecated)**` |  `boolean` This item is deprecated!Optional. Deprecated: No longer used. For limited audience only, if set, loyalty will be optional in the payment flow and will only be triggered when users request for it.  
+`triggerOrderMediaAssistantOnDemand  
+**(deprecated)**` |  `boolean` This item is deprecated!Optional. Deprecated: No longer used. For limited audience only, if set, order media assistant will be optional and will only be triggered when users request for it.  
 `menuResponseEnabled` |  `boolean` Optional. Returns the menu data to the client in BidiProcessOrderResponse if set.  
 `revampedPaymentFlowEnabled` |  `boolean` Optional. For limited audience only, if set, a revamped version of the payment flow will be used.  
 `updatedOrderStateEnabled` |  `boolean` Optional. If set, updatedOrderState is returned instead of legacyOrderStateResponse.  
 `enableOrderStatusRetrieval` |  `boolean` Optional. If set, the agent will support order status retrieval.  
 `enableClientEscalationAudio` |  `boolean` Optional. If set, client escalation audio is synthesized and streamed on ClientEscalationEvent.  
+`storeSelectionEnabled` |  `boolean` Optional. Indicates whether voice-mode store selection and switching are enabled for the session. If unset, uses the server-side configuration.  
+`offersAndLoyaltyEnabled` |  `boolean` Optional. Indicates whether conversational offers, deals, and loyalty features are enabled for the session. If unset, uses the server-side configuration.  
   
 ## ClientAppInfo
 
@@ -235,6 +268,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-29 UTC.
+Last updated 2026-11-04 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 

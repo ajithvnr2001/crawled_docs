@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/contact-center/ccai-platform/docs/headless-mobile-sdk-ios-queues-channels-chat/
 title: Headless mobile SDK for iOS: Queues, channels, and chat \u00a0|\u00a0 Google Cloud Contact Center as a Service \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T05:38:34.942073+00:00
+fetched_at: 2026-11-05T00:17:50.841076+00:00
 ---
 
 # Headless mobile SDK for iOS: Queues, channels, and chat  |  Google Cloud Contact Center as a Service  |  Google Cloud Documentation
@@ -21,7 +21,7 @@ Send feedback
 
 #  Headless mobile SDK for iOS: Queues, channels, and chat Stay organized with collections  Save and categorize content based on your preferences. 
 
-This document explains how to integrate and customize the headless mobile SDK in your Android application. It covers how to expose your support entry points (queues and channels) in your app, and how to drive the full chat lifecycle: starting, resuming, sending messages and attachments, indicating typing, redacting sensitive data, escalating to human agents, and ending the session.
+This document explains how to integrate and customize the headless mobile SDK in your iOS application. It covers how to expose your support entry points (queues and channels) in your app, and how to drive the full chat lifecycle: starting, resuming, sending messages and attachments, indicating typing, redacting sensitive data, escalating to human agents, and ending the session.
 
 **Note:** Before you begin, make sure you have completed initialization, authentication, and push-notification setup in [Headless mobile SDK for iOS: getting started](https://docs.cloud.google.com/contact-center/ccai-platform/docs/headless-mobile-sdk-ios-getting-started).
 
@@ -63,9 +63,9 @@ In your app, a typical flow is:
 
 
 
-**Fetching queue menus from the SDK**
+#### Fetch queue menus from the SDK
 
-The SDK provides `queueMenuService` to fetch queue menus. The `get` method returns a tuple of `[QueueMenu]` and a `Bool` indicating direct access:
+The SDK provides `queueMenuService` to fetch queue menus. The `get` method returns a `QueueMenuResult` containing the list of queues (`menus: [QueueMenu]`) and an `isDirectAccess` flag:
     
     
     do {
@@ -84,7 +84,7 @@ The optional `key` parameter lets you bypass the full queue menu and jump the us
 
 A DAP can be configured by admins in the CCAI Platform portal in the following way:
 
-  1. Go to Settings > Queue > Select any queue from the menu structure.
+  1. Go to **Settings > Queue** and select any queue from the menu structure.
 
   2. From the **Access Point** section, click **\+ Create direct access point**.
 
@@ -97,10 +97,36 @@ A DAP can be configured by admins in the CCAI Platform portal in the following w
 
 When a `key` is provided and `isDirectAccess` returns `true`, skip rendering the menu tree and proceed directly to the channel selection or session start for that queue. This is useful for deep-linked support flows (for example, a "Chat about this order" button on an order details screen).
 
-**QueueMenu data structure**
+`QueueMenuResult` also carries the Direct Access Point context of the request:
+
+**Property** | **Type** | **Description**  
+---|---|---  
+`menus` | [QueueMenu]  | The queues to show the user.   
+`isDirectAccess` | Bool  | `true` when the request matched a Direct Access Point.   
+`directAccessKeyId` | Int?  | The ID of the matched Direct Access Point, or `nil` if none matched.   
+`dapRequestId` | String?  | The ID of the routing request when an API Request Direct Access Point for Chat ran (see below), or `nil`.   
+  
+When the user starts a chat from these results, pass `directAccessKeyId` and `dapRequestId` into the `ChatRequest` (see Start a chat from a Direct Access Point).
+
+#### Route through an API Request Direct Access Point for Chat:
+
+If your admins enable API Request Direct Access Point for Chat (**Settings > Developer Settings > Manage API Request Direct Access Point**), the platform calls your routing API when your app fetches the queue menu, and routes the user to the access point that the API selects. To give your API more to route on, pass the user's custom data and first message to get:
     
     
-    public struct QueueMenu: Decodable, Identifiable, Hashable {
+    let menuResult = try await CCAI.shared.queueMenuService?.get(
+        key: nil,
+        language: nil,
+        customData: customData,                              // Signed and/or unsigned custom data
+        initialMessage: "I want to update my billing address" // The user's first message
+    )
+    
+
+**Warning:** When the access point type is Webhook Response, the platform holds the menu response until your system calls back. get waits for the callback, checking every 2 seconds, until routing completes or the API Callback Timeout passes; it then returns the menu. Call it from a Task you can cancel, and show a loading state while it runs.
+
+#### `QueueMenu` data structure
+    
+    
+    public struct QueueMenu: Codable, Identifiable, Hashable {
         public let id: Int
         public let name: String?
         public let hidden: Bool?
@@ -112,28 +138,28 @@ When a `key` is provided and `isDirectAccess` returns `true`, skip rendering the
         public let deflectionFrom: [QueueMenuDeflection]?
     }
     
-    public struct Channels: Decodable {
+    public struct Channels: Codable {
         public let email: EmailChannel?
         public let chat: ChatChannel?
         public let voiceCall: VoiceCallChannel?
         public let externalDeflectionLink: ExternalDeflectionLink?
     }
     
-    // VoiceCallChannel (simplified; see the "Voice, screen share, scheduled call, and email" article for per-field usage)
-    public struct VoiceCallChannel: Decodable {
+    // VoiceCallChannel (simplified - see the "Voice, screen share, scheduled call, and email" article for per-field usage)
+    public struct VoiceCallChannel: Codable {
         public let instantEnabled: Bool?            // Live voice call allowed now
         public let preSessionSmartAction: Bool?     // Per-channel pre-session smart action flag
         public let scheduleEnabled: Bool?           // Scheduled calls supported
         public let recordingOption: RecordingOption? // .always / .never / .askUser
         public let voicemailReason: String?
         public let phoneNumber: String?
-        public let scheduleDeflectionType: String?
+        public let scheduleDeflectionType: DeflectionType?
         public let deflected: Bool?
-        public let deflectedReason: String?
+        public let deflectedReason: DeflectionType?
     }
     
 
-**Fetching wait times**
+#### Fetch wait times
 
 You can also retrieve estimated wait times for a specific queue:
     
@@ -150,9 +176,9 @@ You can also retrieve estimated wait times for a specific queue:
     }
     
 
-**Note:** The `getWaitTimes` method returns a `QueueMenuWaitTimeResponse`. The exact structure and property names may vary - verify against the SDK's actual response when testing.
+**Note:** `getWaitTimes` returns a `QueueMenuWaitTimeResponse` with two `Int` properties, `chat` and `voiceCall`. By default, the SDK raises `voiceCall` to at least 60 seconds so your UI never shows a misleadingly short wait; pass `minimumSeconds: 0` to receive the raw server value.
 
-**Implementation example**
+#### Implementation example
     
     
     func showAvailableChannels(for queueMenu: QueueMenu) {
@@ -186,29 +212,18 @@ The SDK's configuration and metadata tells you which channels are allowed; your 
 
 ### Redirect and deflection
 
-Queues can be configured to **redirect** or **deflect** users to alternate destinations:
+Admins can configure a queue to redirect users instead of offering channels. When `QueueMenu.redirectionExtra` is set, act on it as soon as the user selects the queue:
 
-  * Redirect to a different queue.
+  * `option` says what to do: `.phone`, `.message`, `.url`, `.voicemail`, `.queue`, `.sip`, or `.contact`.
 
-  * Open a phone number or URL.
-
-  * Present a message and alternate options.
+  * `data` carries the value, such as the number to dial, the message to show, or the URL to open.
 
 
 
 
-When the SDK indicates a redirect or deflection for the selected queue (via the `redirectionExtra` and `deflectionFrom` properties on `QueueMenu`), your app should:
+`QueueMenu.deflectionFrom` is different. When a queue deflects to another queue, the platform returns the destination queue in place of the one the user selected and lists the source queues in `deflectionFrom`. It explains a redirect that already happened; it isn't a set of options to offer.
 
-  * Show any message text configured in CCAI Platform.
-
-  * Present any options that are configured (for example, "Call this number" or "Visit our help center").
-
-  * Perform the selected action.
-
-
-
-
-For deeper handling of after-hours and overcapacity deflection, see [Headless mobile SDK for iOS: smart actions, attachments, and deflection](https://docs.cloud.google.com/contact-center/ccai-platform/docs/headless-mobile-sdk-ios-smart-actions).
+After-hours and overcapacity deflection is reported per channel. For how to handle it, see [Headless mobile SDK for iOS: smart actions, attachments, and deflection](https://docs.cloud.google.com/contact-center/ccai-platform/docs/headless-mobile-sdk-ios-smart-actions).
 
 ## Channels
 
@@ -218,7 +233,7 @@ The SDK's job is to securely fetch this configuration and hand it to your app. Y
 
 **Note:** For several channels in a headless architecture, the SDK tells you what is allowed and provides the routing metadata (for example, enabled flags, email addresses, and deflection URLs). Your app is responsible for building the UI and calling the corresponding SDK service APIs for the selected channel.
 
-### Inspecting available channels
+### Inspect available channels
 
 **What the SDK provides:** A real-time list of which support channels are active and available for the specific queue the user selected, respecting your portal's business hours and capacity limits.
 
@@ -229,27 +244,33 @@ The SDK's job is to securely fetch this configuration and hand it to your app. Y
     
     // Assuming 'selectedMenu' is a QueueMenu returned by the SDK
     func setupChannelMenu(for selectedMenu: QueueMenu) {
+        hideAllChannelButtons()  // Start clean for each queue
         guard let channels = selectedMenu.channels else { return }
     
-        if channels.chat != nil {
+        if channels.chat?.enabled == true {
             showChatNowButton()
         }
     
-        if channels.voiceCall != nil {
+        if channels.voiceCall?.instantEnabled == true {
             showCallNowButton()
         }
+        if channels.voiceCall?.scheduleEnabled == true {
+            showScheduleCallButton()
+        }
     
-        if channels.email != nil {
+        if channels.email?.enabled == true {
             showEmailUsButton()
         }
     
-        if channels.externalDeflectionLink != nil {
-            showHelpCenterLinks()
+        if channels.externalDeflectionLink?.enabled == true {
+            showHelpCenterLinks()  // One button per link in externalDeflectionLink.links whose enabled is true
         }
     }
     
 
-The following sections cover each channel in detail. For chat, continue reading this document. For voice, screen share, scheduled call, email, and external deflection links, see [Headless mobile SDK for iOS: voice, screen share, scheduled call, and email](https://support.ujet.co/hc/en-us/articles/57487036903833-Headless-Mobile-SDK-v3-for-iOS-Voice-Screen-Share-Scheduled-Call-and-Email).
+To get the same list the SDK's own menu uses, call `selectedMenu.getEnabledChannels()`. It returns a `[ChannelType]` with one entry per enabled option (`.chat`, `.instantCall`, `.scheduleCall`, `.pstnCall`, `.voiceMail`, `.email`, and `.externalDeflection`).
+
+The next sections cover each channel in detail. For chat, continue reading. For voice, screen share, scheduled call, email, and external deflection links, see [Headless mobile SDK for iOS: voice, screen share, scheduled call, and email](https://docs.cloud.google.com/contact-center/ccai-platform/docs/headless-mobile-sdk-ios-voice).
 
 ## Chat service API
 
@@ -264,32 +285,34 @@ Method | Description
 `resumeChat` | Resumes a previously established chat session.  
 `escalateToHumanAgent` | Transfers from a virtual agent to a human agent.  
 `checkStatus` | Refreshes the current chat status from the server.  
-**Note:** The `chatService` exposes 21 methods in total, including smart action tracking (`notifySmartActionReceived`, `updateSmartActionStatus`), form handling (`fetchWebForm`, `getCustomFormDetails`, `submitCustomForm`), post-session management (`startPostSession`, `readyPostSession`), and transcript download. For complete method signatures and parameters, see the **Headless mobile SDK - iOS API reference**.
+**Note:** Beyond these core methods, the `chatService` also provides smart action tracking (`notifySmartActionReceived`, `updateSmartActionStatus`), form handling (`fetchWebForm`, `getCustomFormDetails`, `submitCustomForm`), post-session management (`startPostSession`, `readyPostSession`), and transcript download. For complete method signatures and parameters, see the **Headless mobile SDK - iOS API reference**.
 
-### ChatRequest and ChatResponse data structures
+### `ChatRequest` and `ChatResponse` data structures
 
 The `ChatRequest` structure contains the configuration for starting a new chat:
     
     
     public struct ChatRequest: Encodable {
-        /// Convenience initializer: pass the following flattened parameters.
+        /// Convenience initializer - pass the flattened parameters.
         /// `ChatRequest` is `Encodable`; the inner `Chat` struct's stored
-        /// properties are internal. Construct a `ChatRequest` with this init
+        /// properties are internal. Construct a `ChatRequest` using this init
         /// rather than touching the inner struct directly.
         public init(
             menuId: Int,
-            lang: String? = nil,
+            lang: String = "en",
             ticketId: String? = nil,
             greeting: String? = nil,
             customData: CustomData? = nil,
             displayOrderInAdapter: [String]? = nil,
+            directAccessKeyId: Int? = nil,   // From QueueMenuResult (Direct Access Point)
+            dapRequestId: String? = nil,     // From QueueMenuResult (Direct Access Point)
             isScreenShareable: Bool? = nil,
             isVerifiable: Bool? = nil
         )
     }
     
 
-The `ChatResponse` struct is returned when you start or resume a chat. The properties you reference most in this guide include:
+After you start or resume a chat, the SDK delivers its `ChatResponse` on the `chatReceived` publisher (`start(request:)` and `resumeChat(_:)` return nothing). The properties you reference most in this guide include:
 
   * `id` \- The unique chat session identifier.
 
@@ -297,58 +320,87 @@ The `ChatResponse` struct is returned when you start or resume a chat. The prope
 
   * `agent` / `virtualAgent` \- The assigned human or virtual agent.
 
-  * `postSessionRequired` \- Whether a post-session flow (CSAT, survey, virtual agent) should be triggered.
+  * `postSessionRequired` \- Whether a post-session virtual agent is configured for the session. Surveys and CSAT are signaled by `surveyEnabled` and `csatSetting`.
 
   * `redactionEnabled` \- Whether automatic PII redaction is active for this session.
 
 
 **Note:** `ChatResponse` contains 20 properties in total (including `providerType`, `region`, `allAgents`, `allVirtualAgents`, `menus`, `features`, `timeoutAt`, `statusText`, `providerChannelId`, `postSessionOptInRequired`, `postSessionTransferStatus`, `csatSetting`, `surveyEnabled`, and more). For the full struct definition, see the **Headless mobile SDK - iOS API reference**.
 
-### Starting a chat session
+### Start a chat session
 
 **Warning:** always call `getLastChatInProgress()` before starting a new chat. If an earlier session is still active (for example, the app was force-quit mid-conversation, or the user switched accounts), starting a second chat fails or produces undefined behavior. This check is especially critical when `userId` changes between sessions.
-    
-    
-    // Before every call to chatService.start()
-    if let existing = try? await CCAI.shared.chatService?.getLastChatInProgress() {
-        // An active session already exists - resume or end it first
-        try? await CCAI.shared.chatService?.resumeChat(existing)
-        return
-    }
-    
 
-To start a chat session, use the `chatService` with a `ChatRequest` specifying the queue's menu ID.
+To start a chat session, use the `chatService` with a `ChatRequest` specifying the queue menu ID.
 
-**Minimal**
+#### Minimal
     
     
     import CCAIKit
     import CCAIChat
+    import CCAIScreenShare // If using Screen Share
     
     // If screen share is initialized, pass isScreenShareable for agent visibility
     let chatRequest = ChatRequest(
         menuId: 123,
         isScreenShareable: CCAI.shared.screenShareService != nil
     )
-    do {
-        try await CCAI.shared.chatService?.start(request: chatRequest)
-    } catch {
-        print("Failed to start chat: \(error)")
+    await startOrResumeChat(chatRequest)
+    
+    // Resumes an earlier chat if there is one; otherwise starts a new one
+    func startOrResumeChat(_ chatRequest: ChatRequest) async {
+        guard let chatService = CCAI.shared.chatService else { return }
+        do {
+            // Pre-flight check: resume an earlier chat instead of starting a second one
+            if let existing = try await chatService.getLastChatInProgress() {
+                try await chatService.resumeChat(existing)
+                return
+            }
+            try await chatService.start(request: chatRequest)
+        } catch {
+            print("Failed to start chat: \(error)")
+        }
     }
     
 
-**With explicit language and custom data**
+If your app doesn't include the `CCAIScreenShare` module, remove `import CCAIScreenShare` and the `isScreenShareable` argument.
+
+#### With explicit language and custom data
     
     
     let chatRequest = ChatRequest(menuId: 123, lang: "en")
-    do {
-        try await CCAI.shared.chatService?.start(request: chatRequest)
-    } catch {
-        print("Failed to start chat: \(error)")
+    await startOrResumeChat(chatRequest) // Defined in the Minimal example
+    
+
+#### Start a chat from a Direct Access Point
+
+When the user reaches a queue through a Direct Access Point, pass the access point context from the `QueueMenuResult` into the `ChatRequest`. The SDK doesn't add it for you.
+
+  * `directAccessKeyId` \- Shows the Greeting Message configured on the access point as the chat's greeting, in place of greeting. The platform uses it only when API Request Direct Access Point for Chat is enabled, and only for a chat started on the access point's own queue.
+
+  * `dapRequestId` \- Links the chat to its routing decision for reporting, and applies any actions your routing API returned for the session (for example, a message to send or an instruction to end the chat).
+
+
+
+    
+    
+    // menuResult: the QueueMenuResult from the get call that listed selectedMenu
+    
+    func startChat(selectedMenu: QueueMenu, menuResult: QueueMenuResult) async {
+        let chatRequest = ChatRequest(
+            menuId: selectedMenu.id,
+            lang: CCAI.shared.languageService?.languageCode ?? "en",
+            directAccessKeyId: menuResult.directAccessKeyId,
+            dapRequestId: menuResult.dapRequestId
+        )
+        // Defined in the Minimal example under Starting a chat session
+        await startOrResumeChat(chatRequest)
     }
     
 
-### Resuming a chat session
+Use the values from the `get` call that led to this queue. Each dapRequestId belongs to a single routing request, so don't reuse it for a later chat. If an earlier chat is still in progress, `startOrResumeChat(_:)` resumes it, and these values aren't used.
+
+### Resume a chat session
 
 Resume a previously established chat session using a `ChatResponse` object:
     
@@ -396,7 +448,7 @@ You can enqueue the current chat for later retrieval or check for existing in-pr
     }
     
 
-### Sending messages
+### Send messages
 
 The `sendMessage` method supports multiple message types through the `OutgoingMessageContent` enum:
     
@@ -625,9 +677,9 @@ Common event use cases include form interactions (`"form_received"`, `"form_clic
 
 ### Network connectivity changes
 
-**What the SDK provides:** A `networkConnectivityChanged` publisher on `chatService` that emits when the SDK detects a connectivity loss or recovery during an active chat.
+**What the SDK provides:** A `networkConnectivityChanged` publisher on chatService that reports whether the device has a network connection. It publishes the current value when you subscribe, and again whenever connectivity is lost or restored.
 
-**What you build:** A subtle banner or toast that reflects the connectivity state (for example, "Reconnecting…" or "Back online"). The SDK handles message buffering and retry internally.
+**What you build:** A subtle banner or toast that reflects the connectivity state (for example, **Reconnecting…** or **Back online**), and the handling for any message that fails to send while the device is offline.
 
 **Implementation example:** Subscribe to `networkConnectivityChanged` and toggle a connectivity banner on the main thread.
     
@@ -642,28 +694,27 @@ Common event use cases include form interactions (`"form_received"`, `"form_clic
 
 ### Download transcript visibility
 
-When initializing chat, the `downloadTranscriptVisibility` parameter on `ChatOptions` controls **where the download-transcript affordance is hidden**. `DownloadTranscriptVisibility` is an `OptionSet`, so combine cases to hide the affordance in multiple places at once.
+The `downloadTranscriptVisibility` parameter on `ChatOptions` stores where your app should offer a transcript download. In a headless integration, your UI draws the download control, so the SDK doesn't hide anything itself: read the setting from `CCAI.shared.chatService?.options?.downloadTranscriptVisibility`, or pass it to `ChatState.availableActions(canEscalate:hasMessageExchange:downloadTranscriptVisibility:)`, which leaves out `.downloadTranscript` when `hideInOptionMenu` is set. `DownloadTranscriptVisibility` is an `OptionSet`, so you can combine cases.
 
-  * `hideInOptionMenu` — the transcript isn't offered from the in-session options menu (during an active session).
+  * `hideInOptionMenu` \- don't offer the transcript during an active session.
 
-  * `hideInPostChat` — the transcript isn't offered from the post-chat surface (after the session ends).
+  * `hideInPostChat` \- don't offer the transcript after the session ends.
 
-  * `hideAll` — the transcript is never offered. Equivalent to `[.hideInOptionMenu, .hideInPostChat]`.
+  * `hideAll` \- never offer the transcript. Equivalent to `[.hideInOptionMenu, .hideInPostChat]`.
+
+  * Omit the parameter (or pass an empty `OptionSet`) to offer it everywhere.
 
 
 
-
-Omit the parameter (or pass an empty `OptionSet`) to leave the affordance visible everywhere.
     
     
-    // Hide only from the post-chat surface; the download is still available
-    // from the in-session options menu.
+    // Offer the download during the session, but not after it ends
     let chatOptions = ChatOptions(
         downloadTranscriptVisibility: .hideInPostChat
     )
     CCAI.shared.initializeChat(chatOptions)
     
-    // Hide the affordance everywhere
+    // Never offer the download
     let chatOptionsHidden = ChatOptions(
         downloadTranscriptVisibility: .hideAll
     )
@@ -674,6 +725,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-03 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 

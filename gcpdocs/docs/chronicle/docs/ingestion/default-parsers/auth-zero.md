@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/auth-zero/
 title: Collect Auth0 logs \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T07:51:35.415871+00:00
+fetched_at: 2026-11-04T23:44:17.213910+00:00
 ---
 
 # Collect Auth0 logs  |  Google Security Operations  |  Google Cloud Documentation

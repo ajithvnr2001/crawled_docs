@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chronicle/docs/soar/respond/working-with-playbooks/using-triggers-in-playbooks/
 title: Manage playbook triggers \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T10:06:43.871655+00:00
+fetched_at: 2026-11-04T23:33:45.873129+00:00
 ---
 
 # Manage playbook triggers  |  Google Security Operations  |  Google Cloud Documentation
@@ -42,7 +42,7 @@ When you configure a playbook with a **Case** scope, the menu filters down to th
 
   * **All** : Attaches the playbook to every newly created case.
   * **Custom Trigger** : Attaches the playbook based on specific filtering rules you define.
-  * **Tag Name** : Attaches the playbook only when a case contains specific tags. You can manage these tags in **SOAR Settings > Case Data > Tags**.
+  * **Tag Name** : Attaches the playbook only when a case contains specific tags. You can manage these tags in **Settings > Investigation > Tags**.
 
 
 
@@ -57,7 +57,7 @@ When you configure a playbook with an **Alert** scope, you can choose from these
   * **Custom Trigger** : Triggers based on custom placeholders for specific matches.
   * **Network Name** : Triggers if an alert involves an entity within a defined subnet.
   * **Product Name** : Triggers when an alert comes from a specific product or connector.
-  * **Tag Name** : Triggers if a specific tag is added during ingestion. You can manage these tags in **SOAR Settings > Case Data > Tags**.
+  * **Tag Name** : Triggers if a specific tag is added during ingestion. You can manage these tags in **Settings > Investigation > Tags**.
 
 
 
@@ -86,6 +86,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-28 UTC.
+Last updated 2026-11-04 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 

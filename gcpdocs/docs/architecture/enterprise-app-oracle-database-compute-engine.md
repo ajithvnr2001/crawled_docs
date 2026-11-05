@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/architecture/enterprise-app-oracle-database-compute-engine/
 title: Enterprise application with Oracle Database on Compute Engine \u00a0|\u00a0 Cloud Architecture Center \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T05:58:01.663447+00:00
+fetched_at: 2026-11-04T23:30:28.317514+00:00
 ---
 
 # Enterprise application with Oracle Database on Compute Engine  |  Cloud Architecture Center  |  Google Cloud Documentation
@@ -66,7 +66,7 @@ This reference architecture uses the following Google Cloud products:
   * [ Cloud NAT](https://cloud.google.com/nat): A service that provides Google Cloud-managed high-performance network address translation. 
   * [ Cloud Monitoring](https://cloud.google.com/monitoring): A service that provides visibility into the performance, availability, and health of your applications and infrastructure. 
   * [ Cloud Logging](https://cloud.google.com/logging): A real-time log management system with storage, search, analysis, and alerting.
-  * [ Cloud Interconnect](https://cloud.google.com/network-connectivity/docs/interconnect/concepts/overview): A service that extends your external network to the Google network through a high-availability, low-latency connection.
+  * [ Cloud Interconnect](https://docs.cloud.google.com/network-connectivity/docs/interconnect/concepts/overview): A service that extends your external network to the Google network through a high-availability, low-latency connection.
   * [ Cloud VPN](https://docs.cloud.google.com/network-connectivity/docs/vpn): A service that securely extends your peer network to Google's network through an IPsec VPN tunnel.
 
 

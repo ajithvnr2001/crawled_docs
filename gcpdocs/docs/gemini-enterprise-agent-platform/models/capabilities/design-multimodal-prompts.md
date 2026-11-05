@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/design-multimodal-prompts/
 title: Design multimodal prompts \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T05:56:50.619705+00:00
+fetched_at: 2026-11-04T23:14:51.303914+00:00
 ---
 
 # Design multimodal prompts  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation
@@ -275,18 +275,23 @@ Prompt | Prompt for troubleshooting
   
 ### Troubleshoot Cloud Storage access and permissions
 
-When you pass Cloud Storage files (`gs://...` URIs or files selected from Cloud Storage in Agent Studio), Agent Platform accesses the objects using the backend Agent Platform Service Agent (`service-PROJECT_NUMBER@gcp-sa-aiplatform.iam.gserviceaccount.com`), not your personal user credentials.
+How Agent Platform authenticates and limits Cloud Storage (`gs://`) URIs depends on the API endpoint:
 
-If a prompt request fails with `Permission denied while accessing input file (HTTP 403 / Error code 7)`:
+  * **`generateContent` and Agent Studio**: Agent Platform accesses `gs://` objects using the calling project's Agent Platform Service Agent (`service-PROJECT_NUMBER@gcp-sa-aiplatform.iam.gserviceaccount.com`), not your personal user credentials, and supports `gs://` URIs up to the per-modality model item limits (3,000 images and PDFs combined, 1,000 audio files, 10 videos, and up to 6,500 combined multimodal files when including plain-text files, up to 2 GiB minus 500 KiB per file).
+  * **Interactions API** : Model interaction requests check `storage.objects.get` permissions using the caller's credentials as a preflight step before the calling project's Agent Platform Service Agent fetches the object from Cloud Storage. For cross-project Cloud Storage buckets or Cloud Storage buckets with custom IAM policies, both the authenticated caller and the service agent need read access. Requests support up to 100 distinct `gs://` URIs across the current turn and any linked `previous_interaction_id` history. For Interactions API setup and error handling, see [Access uploaded Cloud Storage files](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/interactions/developer-guide#access-storage-files).
 
-  1. **Grant Storage Object Viewer to the service agent** : Ensure the Agent Platform Service Agent has the `Storage Object Viewer` (`roles/storage.objectViewer`) role on the Cloud Storage bucket containing the files:
+
+
+If a request fails with a permission error when accessing a Cloud Storage input file (`HTTP 403`), check the following:
+
+  1. **Grant Storage Object Viewer on the Cloud Storage bucket** : Ensure the calling project's Agent Platform Service Agent has the `Storage Object Viewer` (`roles/storage.objectViewer`) role on the Cloud Storage bucket containing the files (and for Interactions API requests, also grant `roles/storage.objectViewer` to the authenticated calling principal):
          
          gcloud storage buckets add-iam-policy-binding gs://BUCKET_NAME \
            --member="serviceAccount:service-PROJECT_NUMBER@gcp-sa-aiplatform.iam.gserviceaccount.com" \
            --role="roles/storage.objectViewer"
          
 
-  2. **Cross-project bucket access** : If the Cloud Storage bucket resides in a different Google Cloud project from your Agent Platform project, you must grant `roles/storage.objectViewer` to the service agent of the project where the Agent Platform request is initiated.
+  2. **Cross-project Cloud Storage bucket access** : If the Cloud Storage bucket resides in a different Google Cloud project from your Agent Platform project, grant `roles/storage.objectViewer` to the service agent of the project where the Agent Platform request is initiated (and to the calling principal when calling the Interactions API).
 
   3. **Grounding and tool compatibility** : Ensure that [Grounding with Google Search](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/grounding/overview) is disabled in the configuration panel when processing Cloud Storage media inputs, or verify tool compatibility with your selected model version.
 
@@ -325,6 +330,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-30 UTC.
+Last updated 2026-11-04 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 

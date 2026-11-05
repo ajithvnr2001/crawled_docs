@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/network-connectivity/docs/interconnect/how-to/custom-constraints/
 title: Use custom organization policies \u00a0|\u00a0 Cloud Interconnect \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-03T09:51:19.830941+00:00
+fetched_at: 2026-11-04T23:32:09.683372+00:00
 ---
 
 # Use custom organization policies  |  Cloud Interconnect  |  Google Cloud Documentation
@@ -26,6 +26,8 @@ This page shows you how to use Organization Policy Service custom constraints to
 
   * `compute.googleapis.com/Interconnect`
   * `compute.googleapis.com/InterconnectAttachment`
+  * `compute.googleapis.com/CrossSiteNetwork`
+  * `compute.googleapis.com/WireGroup`
 
 
 
@@ -100,6 +102,8 @@ The following table lists the Cloud Interconnect resources that you can referenc
 
 Resource | Field  
 ---|---  
+compute.googleapis.com/CrossSiteNetwork |  `resource.description`  
+`resource.name`  
 compute.googleapis.com/Interconnect |  `resource.adminEnabled`  
 `resource.customerName`  
 `resource.description`  
@@ -129,6 +133,15 @@ compute.googleapis.com/InterconnectAttachment |  `resource.adminEnabled`
 `resource.subnetLength`  
 `resource.type`  
 `resource.vlanTag8021q`  
+compute.googleapis.com/WireGroup |  `resource.adminEnabled`  
+`resource.description`  
+`resource.endpoints[*].interconnects[*].interconnect`  
+`resource.endpoints[*].interconnects[*].vlanTags`  
+`resource.name`  
+`resource.wireProperties.bandwidthAllocation`  
+`resource.wireProperties.bandwidthUnmetered`  
+`resource.wireProperties.faultResponse`  
+`resource.wireProperties.flowManagement`  
   
 ## Set up a custom constraint
 
@@ -426,6 +439,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-02 UTC.
+Last updated 2026-11-04 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-02 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 

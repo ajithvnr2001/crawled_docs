@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-cx/cx-agent-studio/reference/mcp/tools_list/get_evaluation_result/
 title: MCP Tools Reference: ces.googleapis.com \u00a0|\u00a0 CX Agent Studio \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-16T14:04:18.578080+00:00
+fetched_at: 2026-11-04T23:28:38.901963+00:00
 ---
 
 # MCP Tools Reference: ces.googleapis.com  |  CX Agent Studio  |  Google Cloud Documentation
@@ -292,6 +292,7 @@ JSON representation
       },
       "parentToolCallId": string,
       "agentName": string,
+      "targetApp": string,
     
       // Union field tool_identifier can be only one of the following:
       "tool": string,
@@ -308,6 +309,7 @@ Fields
 `args` |  `object (`[Struct](https://protobuf.dev/reference/protobuf/google.protobuf/#struct)` format)` Optional. The input parameters and values for the tool in JSON object format.  
 `parentToolCallId` |  `string` Output only. The id of the tool call that caused this one, when it was issued by a sub-agent working on behalf of a parent call. Empty for top-level calls. Lets a client group a sub-agent's work under the call that started it instead of rendering every step as a sibling.  
 `agentName` |  `string` Output only. Human-readable name of the agent that issued this call, e.g. "Contract Architect". Empty when the root agent issued it.  
+`targetApp` |  `string` Output only. The app this call targets, derived by the assistant from the call's resource arguments: an app resource name, `PROJECT` for location-scoped tools, or empty for session-local tools. Set only in project-scoped assistant sessions.  
 Union field `tool_identifier`. The identifier of the tool to execute. It could be either a persisted tool or a tool from a toolset. `tool_identifier` can be only one of the following:  
 `tool` |  `string` Optional. The name of the tool to execute. Format: `projects/{project}/locations/{location}/apps/{app}/tools/{tool}`  
 `toolsetTool` |  `object (`[ToolsetTool](https://docs.cloud.google.com/gemini-enterprise-cx/cx-agent-studio/reference/mcp/tools_list/create_evaluation#Input.Schema.ToolsetTool)`)` Optional. The toolset tool to execute.  
@@ -421,6 +423,7 @@ JSON representation
       },
       "parentToolCallId": string,
       "agentName": string,
+      "targetApp": string,
     
       // Union field tool_identifier can be only one of the following:
       "tool": string,
@@ -437,6 +440,7 @@ Fields
 `response` |  `object (`[Struct](https://protobuf.dev/reference/protobuf/google.protobuf/#struct)` format)` Required. The tool execution result in JSON object format. Use "output" key to specify tool response and "error" key to specify error details (if any). If "output" and "error" keys are not specified, then whole "response" is treated as tool execution result.  
 `parentToolCallId` |  `string` Output only. The id of the tool call that caused this one, when it was issued by a sub-agent working on behalf of a parent call. Empty for top-level calls. Lets a client group a sub-agent's work under the call that started it instead of rendering every step as a sibling.  
 `agentName` |  `string` Output only. Human-readable name of the agent that issued this call, e.g. "Contract Architect". Empty when the root agent issued it.  
+`targetApp` |  `string` Output only. The app the executed tool targeted; mirrors `ToolCall.target_app`.  
 Union field `tool_identifier`. The identifier of the tool that got executed. It could be either a persisted tool or a tool from a toolset. `tool_identifier` can be only one of the following:  
 `tool` |  `string` Optional. The name of the tool to execute. Format: `projects/{project}/locations/{location}/apps/{app}/tools/{tool}`  
 `toolsetTool` |  `object (`[ToolsetTool](https://docs.cloud.google.com/gemini-enterprise-cx/cx-agent-studio/reference/mcp/tools_list/create_evaluation#Input.Schema.ToolsetTool)`)` Optional. The toolset tool that got executed.  
@@ -941,6 +945,11 @@ JSON representation
           object ([EvaluationExpectationResult](https://docs.cloud.google.com/gemini-enterprise-cx/cx-agent-studio/reference/mcp/tools_list/create_evaluation#Input.Schema.EvaluationExpectationResult))
         }
       ],
+      "milestoneResults": [
+        {
+          object ([MilestoneResult](https://docs.cloud.google.com/gemini-enterprise-cx/cx-agent-studio/reference/mcp/tools_list/create_evaluation#Input.Schema.MilestoneResult))
+        }
+      ],
     
       // Union field _all_expectations_satisfied can be only one of the following:
       "allExpectationsSatisfied": boolean
@@ -965,6 +974,7 @@ Fields
 `userGoalSatisfactionResult` |  `object (`[UserGoalSatisfactionResult](https://docs.cloud.google.com/gemini-enterprise-cx/cx-agent-studio/reference/mcp/tools_list/create_evaluation#Input.Schema.UserGoalSatisfactionResult)`)` Output only. The result of the user goal satisfaction check.  
 `spanLatencies[]` |  `object (`[SpanLatency](https://docs.cloud.google.com/gemini-enterprise-cx/cx-agent-studio/reference/mcp/tools_list/create_evaluation#Input.Schema.SpanLatency)`)` Output only. The latency of spans in the conversation.  
 `evaluationExpectationResults[]` |  `object (`[EvaluationExpectationResult](https://docs.cloud.google.com/gemini-enterprise-cx/cx-agent-studio/reference/mcp/tools_list/create_evaluation#Input.Schema.EvaluationExpectationResult)`)` Output only. The results of the evaluation expectations.  
+`milestoneResults[]` |  `object (`[MilestoneResult](https://docs.cloud.google.com/gemini-enterprise-cx/cx-agent-studio/reference/mcp/tools_list/create_evaluation#Input.Schema.MilestoneResult)`)` Output only. The results of each milestone in the scenario.  
 Union field `_all_expectations_satisfied`.`_all_expectations_satisfied` can be only one of the following:  
 `allExpectationsSatisfied` |  `boolean` Output only. Whether all expectations were satisfied for this turn.  
 Union field `_task_completed`.`_task_completed` can be only one of the following:  
@@ -1145,6 +1155,70 @@ Fields
 `explanation` |  `string` Output only. The explanation for the user task satisfaction score.  
 Union field `_score`.`_score` can be only one of the following:  
 `score` |  `integer` Output only. The user task satisfaction score. Can be -1, 0, 1, 2.  
+  
+### MilestoneResult
+
+JSON representation  
+---  
+      
+    
+    {
+      "milestone": {
+        object ([Milestone](https://docs.cloud.google.com/gemini-enterprise-cx/cx-agent-studio/reference/mcp/tools_list/create_evaluation#Input.Schema.Milestone))
+      },
+      "status": enum ([MilestoneStatus](https://docs.cloud.google.com/gemini-enterprise-cx/cx-agent-studio/reference/mcp/tools_list/create_evaluation#Input.Schema.MilestoneStatus)),
+      "justification": string
+    }  
+  
+Fields  
+---  
+`milestone` |  `object (`[Milestone](https://docs.cloud.google.com/gemini-enterprise-cx/cx-agent-studio/reference/mcp/tools_list/create_evaluation#Input.Schema.Milestone)`)` Output only. The milestone being tracked.  
+`status` |  `enum (`[MilestoneStatus](https://docs.cloud.google.com/gemini-enterprise-cx/cx-agent-studio/reference/mcp/tools_list/create_evaluation#Input.Schema.MilestoneStatus)`)` Output only. The current status of the milestone.  
+`justification` |  `string` Output only. The justification for the current status.  
+  
+### Milestone
+
+JSON representation  
+---  
+      
+    
+    {
+      "goal": string,
+      "maxTurnCount": integer,
+      "successCriteria": string,
+      "protocol": string,
+      "staticUtterance": string,
+      "event": {
+        object ([Event](https://docs.cloud.google.com/gemini-enterprise-cx/cx-agent-studio/reference/mcp/tools_list/create_evaluation#Input.Schema.Event))
+      }
+    }  
+  
+Fields  
+---  
+`goal` |  `string` Required. The goal of the milestone.  
+`maxTurnCount` |  `integer` Optional. The maximum number of turns for this milestone.  
+`successCriteria` |  `string` Optional. The success criteria of the milestone.  
+`protocol` |  `string` Optional. The guidelines the agent should follow during the conversation.  
+`staticUtterance` |  `string` Optional. A static utterance that the simulator will send exactly, instead of dynamically generating user input.  
+`event` |  `object (`[Event](https://docs.cloud.google.com/gemini-enterprise-cx/cx-agent-studio/reference/mcp/tools_list/create_evaluation#Input.Schema.Event)`)` Optional. An event input to send instead of dynamic generation.  
+  
+### Event
+
+JSON representation  
+---  
+      
+    
+    {
+      "event": string,
+      "variables": {
+        object
+      }
+    }  
+  
+Fields  
+---  
+`event` |  `string` Required. The name of the event.  
+`variables` |  `object (`[Struct](https://protobuf.dev/reference/protobuf/google.protobuf/#struct)` format)` Optional. Additional variables associated with the event.  
   
 ### EvaluationPersona
 
@@ -1467,6 +1541,17 @@ Enums
 `GUARDRAIL` | Guardrail span.  
 `LLM` | LLM span.  
   
+### MilestoneStatus
+
+The status of the milestone.
+
+Enums  
+---  
+`MILESTONE_STATUS_UNSPECIFIED` | Unspecified status.  
+`NOT_STARTED` | The milestone has not started yet.  
+`IN_PROGRESS` | The milestone is currently in progress.  
+`COMPLETED` | The milestone has been successfully completed.  
+  
 ### BackgroundEnvironment
 
 Simulated audio environment.
@@ -1591,6 +1676,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-09-28 UTC.
+Last updated 2026-11-04 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-09-28 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 

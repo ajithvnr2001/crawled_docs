@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/open-source/ray/create-cluster/
 title: Create a Ray cluster on Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T05:57:16.195344+00:00
+fetched_at: 2026-11-04T23:13:24.125371+00:00
 ---
 
 # Create a Ray cluster on Gemini Enterprise Agent Platform  |  Google Cloud Documentation
@@ -197,7 +197,7 @@ These base images include an installation of Python, Ubuntu, and Ray. They also 
 
 ## Private and public connectivity
 
-By default, Ray on Agent Platform creates a public, secure endpoint for interactive development with the _Ray Client_ on Ray clusters on Gemini Enterprise Agent Platform. Use public connectivity for development or ephemeral use cases. This public endpoint is accessible through the internet. Only authorized users who have, at a minimum, [Gemini Enterprise Agent Platform user role permissions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/access-control#aiplatform.user) on the Ray cluster's user project can access the cluster.
+By default, Ray on Agent Platform creates a public, secure endpoint for interactive development with the _Ray Client_ on Ray clusters on Gemini Enterprise Agent Platform. Use public connectivity for development or ephemeral use cases. This public endpoint is accessible through the internet. Only authorized users who have, at a minimum, [Agent Platform User role permissions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/access-control#aiplatform.user) on the Ray cluster's user project can access the cluster.
 
 If you require a private connection to your cluster or if you use VPC Service Controls, VPC peering is supported for Ray clusters on Gemini Enterprise Agent Platform. Clusters with a private endpoint are only accessible from a client within a VPC network that is peered with Gemini Enterprise Agent Platform.
 
@@ -397,6 +397,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-30 UTC.
+Last updated 2026-11-04 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 

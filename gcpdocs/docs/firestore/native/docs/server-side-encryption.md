@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/firestore/native/docs/server-side-encryption/
 title: Server-side encryption \u00a0|\u00a0 Firestore in Native mode \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T08:01:26.837638+00:00
+fetched_at: 2026-11-04T23:45:28.227832+00:00
 ---
 
 # Server-side encryption  |  Firestore in Native mode  |  Google Cloud Documentation

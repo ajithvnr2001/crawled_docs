@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/run/docs/ai/agent-platform-features/
 title: Configure Agent Platform features for Cloud Run \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T05:50:19.927015+00:00
+fetched_at: 2026-11-05T00:20:20.721738+00:00
 ---
 
 # Configure Agent Platform features for Cloud Run  |  Google Cloud Documentation
@@ -25,7 +25,12 @@ Send feedback
 
 This feature is subject to the "Pre-GA Offerings Terms" in the General Service Terms section of the [Service Specific Terms](https://docs.cloud.google.com/terms/service-terms#1). Pre-GA features are available "as is" and might have limited support. For more information, see the [launch stage descriptions](https://cloud.google.com/products/#product-launch-stages). 
 
-[Gemini Enterprise Agent Platform](https://docs.cloud.google.com/gemini-enterprise-agent-platform/overview) features like [Agent Identity](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/agent-identity-overview) and [Agent Registry](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/agent-registry) provide built-in capabilities for building, deploying, and managing AI agents, Model Context Protocol (MCP) servers, and tools. By enabling these features for your Cloud Run resources, you can take advantage of system-managed identities and automatic registration to simplify discovery and security for your agentic workloads.
+[Gemini Enterprise Agent Platform](https://docs.cloud.google.com/gemini-enterprise-agent-platform/overview) provides built-in capabilities for building, deploying, and managing AI agents, Model Context Protocol (MCP) servers, and tools. This lets you take advantage of system-managed identities and automatic registration to simplify discovery and security for your agentic workloads.
+
+  * [Agent Identity](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/agent-identity-overview) assigns a unique cryptographic identity to your Cloud Run workload so it can connect to other agents, tools, and Google Cloud APIs.
+  * [Agent Registry](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/agent-registry) registers your agents and tools so developers and agents across your organization can discover them.
+
+
 
 This guide covers how to:
 
@@ -34,13 +39,6 @@ This guide covers how to:
   * Configure features for services and jobs
   * View assigned identities
   * View registered agents and tools in Agent Registry
-
-
-
-Cloud Run supports the following Agent Platform features:
-
-  * [Agent Identity](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/agent-identity-overview): assigns a unique, cryptographically verifiable identity to your workload, enabling secure connections to other agents, tools, and Google Cloud APIs.
-  * [Agent Registry](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/agent-registry): automatically registers your agents and tools to make them discoverable by other developers and agents in your organization.
 
 
 
@@ -314,6 +312,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-30 UTC.
+Last updated 2026-11-03 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 

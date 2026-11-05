@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/managed-lustre/docs/overview/
 title: Managed Lustre \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T19:54:34.287962+00:00
+fetched_at: 2026-11-05T00:19:39.698373+00:00
 ---
 
 # Managed Lustre  |  Google Cloud Documentation
@@ -27,8 +27,8 @@ Google Cloud Managed Lustre delivers a high-performance, fully managed parallel 
   * Developed in collaboration with DDN, the leading provider and primary maintainer of the Lustre file system.
   * Supports extreme IOPs and low latency.
   * POSIX compliance ensures compatibility with existing applications, tools, and workflows.
-  * Integrated with Compute Engine and Google Kubernetes Engine, allowing you to mount high-performance storage to your virtual machines and containerized applications.
-  * Provides high-speed and fully managed transfers into and out of Cloud Storage.
+  * Integrated with Compute Engine and Google Kubernetes Engine, allowing you to mount high-performance storage to your client machines and containerized applications.
+  * Provides high-speed on-demand data transfers to and from Cloud Storage, and automated synchronization from Cloud Storage with a [Cloud Storage mirror](https://docs.cloud.google.com/managed-lustre/docs/storage-mirror).
 
 
 
@@ -57,6 +57,8 @@ For more information about the different performance tiers available, see [Perfo
 
   * **Machine learning** : Managed Lustre can handle the large datasets and high throughput requirements of machine learning workloads, enabling efficient training and inference.
 
+  * **Automated training data synchronization** : With a [Cloud Storage mirror](https://docs.cloud.google.com/managed-lustre/docs/storage-mirror), training corpora, models, and supporting libraries hosted in Cloud Storage are automatically synchronized to your file system.
+
 
 
 
@@ -84,6 +86,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-03 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 

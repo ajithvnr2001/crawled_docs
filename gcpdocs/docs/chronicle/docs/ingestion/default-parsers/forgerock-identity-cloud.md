@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/forgerock-identity-cloud/
 title: Collect PingOne Advanced Identity Cloud logs \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T07:49:54.594754+00:00
+fetched_at: 2026-11-04T23:34:41.357874+00:00
 ---
 
 # Collect PingOne Advanced Identity Cloud logs  |  Google Security Operations  |  Google Cloud Documentation

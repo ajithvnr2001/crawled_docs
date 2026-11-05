@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chronicle/docs/ingestion/optimize-ingestion/
 title: Optimize ingestion volume \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T10:06:28.799403+00:00
+fetched_at: 2026-11-04T23:33:37.725428+00:00
 ---
 
 # Optimize ingestion volume  |  Google Security Operations  |  Google Cloud Documentation
@@ -161,7 +161,7 @@ If you send data using the Chronicle API ingestion methods, you can still levera
   * **Testing:** You should test your filters in a non-production environment or with a small subset of data first.
   * **Validate filters:** Use the testing features within the Bindplane Console's pipeline editor. This lets you input sample logs and see the output after your processors are applied, confirming your filters work as expected.
   * **Monitor ingestion:** After deploying pipelines, monitor your ingestion dashboards in Google SecOps to observe the impact on data volume and costs. For more information, see the [Ingestion metrics overview](https://docs.cloud.google.com/chronicle/docs/ingestion/understand-ingestion-metrics).
-  * **View Configurations:** You can view all configurations in the Google SecOps UI under **SIEM Settings > Data Processing**.
+  * **View Configurations:** You can view all configurations in the Google SecOps UI under **Settings > Data Management > Data Processing**.
   * **External Management:** You can search configurations and click **"Open in Bindplane"** to jump directly to the Bindplane console for advanced management.
 
 
@@ -183,6 +183,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-28 UTC.
+Last updated 2026-11-04 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 

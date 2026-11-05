@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/appliance/application/ao-user/vertex-ai-logs-metrics/
 title: View Vertex AI logs and metrics \u00a0|\u00a0 Google Distributed Cloud Hosted Appliance \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T21:45:25.846937+00:00
+fetched_at: 2026-11-05T00:20:35.468792+00:00
 ---
 
 # View Vertex AI logs and metrics  |  Google Distributed Cloud Hosted Appliance  |  Google Cloud Documentation
@@ -23,11 +23,7 @@ Send feedback
 
 #  View Vertex AI logs and metrics Stay organized with collections  Save and categorize content based on your preferences. 
 
-Logs and metrics let you monitor your services and troubleshoot issues with service performance. You can view logs and metrics from Vertex AI services using the monitoring and logging resources from Google Distributed Cloud (GDC) air-gapped appliance. You can also create queries to monitor specific Vertex AI metrics.
-
-This page describes how to query and view logs and metrics from Vertex AI services in Grafana.
-
-This page also contains sample queries that you can use to monitor the Vertex AI platform and services, such as Optical Character Recognition (OCR), Speech-to-Text, and Vertex AI Translation.
+Monitoring and logging tools in Google Distributed Cloud (GDC) air-gapped appliance let you monitor your services and troubleshoot performance across your Vertex AI environment. In Grafana, you can query and visualize logs and metrics to observe the Vertex AI platform and pre-trained services, such as Optical Character Recognition (OCR), Speech-to-Text, and Vertex AI Translation.
 
 ## Before you begin
 
@@ -109,6 +105,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-03 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 

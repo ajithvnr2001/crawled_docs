@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/workload-manager/docs/access-control/access-control-iam/
 title: Access control with IAM \u00a0|\u00a0 Workload Manager \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T07:59:28.505069+00:00
+fetched_at: 2026-11-04T23:45:01.490532+00:00
 ---
 
 # Access control with IAM  |  Workload Manager  |  Google Cloud Documentation

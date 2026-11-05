@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/firestore/native/docs/security/rules-conditions/
 title: Write conditions for security rules \u00a0|\u00a0 Firestore in Native mode \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T08:01:08.246388+00:00
+fetched_at: 2026-11-04T23:45:20.262821+00:00
 ---
 
 # Write conditions for security rules  |  Firestore in Native mode  |  Google Cloud Documentation

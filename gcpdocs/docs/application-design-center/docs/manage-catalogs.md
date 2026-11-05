@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/application-design-center/docs/manage-catalogs/
 title: Manage, publish, and share catalogs \u00a0|\u00a0 Application Design Center \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T05:40:19.401542+00:00
+fetched_at: 2026-11-05T00:19:59.741122+00:00
 ---
 
 # Manage, publish, and share catalogs  |  Application Design Center  |  Google Cloud Documentation
@@ -21,9 +21,7 @@ Send feedback
 
 #  Manage, publish, and share catalogs Stay organized with collections  Save and categorize content based on your preferences. 
 
-When you create [application templates](https://docs.cloud.google.com/application-design-center/docs/design-application-templates) and [import component templates](https://docs.cloud.google.com/application-design-center/docs/import-components) in a space, your templates can be accessed by other space members. This document helps you share templates outside of your space by publishing templates to a catalog, and sharing that catalog with appropriate spaces.
-
-Each space contains a single catalog where you can add templates and control sharing. You can share a catalog from the space that you created in your initial [application management boundary](https://docs.cloud.google.com/application-design-center/docs/key-concepts#app-mgmt-boundary) to spaces in other application management boundaries.
+Catalogs in Application Design Center let you publish and share [application templates](https://docs.cloud.google.com/application-design-center/docs/design-application-templates) and [imported component templates](https://docs.cloud.google.com/application-design-center/docs/import-components) across spaces to standardize architectures and avoid duplicating effort across teams. When you create or import templates in a space, those templates are available only to members of that space by default. You might share a catalog across spaces when a central platform team maintains approved, policy-compliant templates that development teams in other folders or projects need to deploy. Each space includes a single catalog where you can publish templates, edit catalog metadata, and share the catalog with spaces in other [application management boundaries](https://docs.cloud.google.com/application-design-center/docs/key-concepts#app-mgmt-boundary).
 
 ## Before you begin
 
@@ -218,7 +216,8 @@ Remove a template from your catalog.
     --catalog=CATALOG \
     --project=PROJECT \
     --location=LOCATION \
-    --space=SPACE
+    --space=SPACE \
+    --force
     
 
 Replace the following:
@@ -277,12 +276,12 @@ Share a catalog with a space.
 
 Replace the following:
 
-  * `SHARE`: The share ID for the share that you want to delete.
+  * `SHARE`: The share ID for the share that you want to create.
   * `PROJECT`: Your [management project](https://docs.cloud.google.com/application-design-center/docs/key-concepts#mgmt-project) ID.
   * `SPACE`: Your space ID.
   * `LOCATION`: The catalog region.
   * `CATALOG`: The catalog ID for the catalog that you're sharing.
-  * `DESTINATION_SPACE`: The fully qualified space name for the space that you're sharing to. For example, `projects/my-project/locations/us-central1/spaces/my-space`.
+  * `DESTINATION_SPACE`: The fully qualified name of the destination space, such as `projects/my-dest-project/locations/us-central1/spaces/my-dest-space`.
 
 
 
@@ -300,9 +299,7 @@ If you no longer want to share a catalog with a space, stop sharing the catalog 
 
   2. Click **Spaces shared with**.
 
-  3. To stop sharing this catalog with a space, click more_vert
-
-**Actions** and select **Stop sharing**.
+  3. To stop sharing this catalog with a space, click more_vert **Actions** and select **Stop sharing**.
 
      1. In the field, enter the space name.
      2. Click **Stop sharing**.
@@ -394,6 +391,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-03 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 

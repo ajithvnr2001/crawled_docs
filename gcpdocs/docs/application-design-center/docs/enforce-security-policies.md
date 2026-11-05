@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/application-design-center/docs/enforce-security-policies/
 title: Enforce security policies \u00a0|\u00a0 Application Design Center \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-30T08:45:06.784403+00:00
+fetched_at: 2026-11-04T23:31:18.775697+00:00
 ---
 
 # Enforce security policies  |  Application Design Center  |  Google Cloud Documentation
@@ -38,7 +38,7 @@ To attach frameworks to your application templates and perform security assessme
 
 
 
-After [setting up your application management boundary](https://docs.cloud.google.com/application-design-center/docs/setup#choose_your_setup_model), you can view and attach security frameworks in the App Design Center canvas. For more information, see [App Hub as a detection service in Security Command Center](https://docs.cloud.google.com/security-command-center/docs/concepts-security-sources#apphub-integration).
+After you [set up your application management boundary](https://docs.cloud.google.com/application-design-center/docs/setup#choose_your_application_management_boundary), you can view and attach security frameworks in the App Design Center canvas. For more information, see [App Hub as a detection service in Security Command Center](https://docs.cloud.google.com/security-command-center/docs/concepts-security-sources#apphub-integration).
 
 ### Required roles
 
@@ -124,6 +124,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-29 UTC.
+Last updated 2026-11-04 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 

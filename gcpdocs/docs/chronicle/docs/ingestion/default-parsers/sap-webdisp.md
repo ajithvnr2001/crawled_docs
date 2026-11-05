@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/sap-webdisp/
 title: Collect SAP Web Dispatcher logs \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T07:50:44.620633+00:00
+fetched_at: 2026-11-04T23:34:34.866967+00:00
 ---
 
 # Collect SAP Web Dispatcher logs  |  Google Security Operations  |  Google Cloud Documentation

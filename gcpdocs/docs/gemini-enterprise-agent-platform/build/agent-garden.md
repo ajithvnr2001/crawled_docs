@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/agent-garden/
 title: Agent Garden \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T07:54:20.719987+00:00
+fetched_at: 2026-11-04T23:14:24.041273+00:00
 ---
 
 # Agent Garden  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation

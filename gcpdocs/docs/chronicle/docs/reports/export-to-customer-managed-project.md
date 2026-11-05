@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chronicle/docs/reports/export-to-customer-managed-project/
 title: Export to a self-managed BigQuery project \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T10:02:22.996831+00:00
+fetched_at: 2026-11-04T23:33:48.819873+00:00
 ---
 
 # Export to a self-managed BigQuery project  |  Google Security Operations  |  Google Cloud Documentation
@@ -25,7 +25,7 @@ Supported in:
 
 Google SecOps 
 
-Google Security Operations lets you export Unified Data Model (UDM) data to a self-managed project that you own and manage. You can link your own Google Cloud project to your Google SecOps instance and independently manage IAM permissions with no dependency on Google-managed settings. You can also enable and configure the **Bring Your Own BigQuery** (BYOBQ) feature by selecting **SIEM Settings** > **Data Export**.
+Google Security Operations lets you export Unified Data Model (UDM) data to a self-managed project that you own and manage. You can link your own Google Cloud project to your Google SecOps instance and independently manage IAM permissions with no dependency on Google-managed settings. You can also enable and configure the **Bring Your Own BigQuery** (BYOBQ) feature by selecting **Settings > Data Management > Data Export**.
 
 **Note:** Enabling BYOBQ on your **Bring your own project** (BYOP) project may incur additional storage and compute costs.**Note:** BYOBQ is not available for Google SecOps Enterprise Plus customers.
 
@@ -52,7 +52,7 @@ If no retention period is specified, the default behavior is to keep exporting d
 
 In this case, you can set the retention period to **Unlimited** :
 
-  * Click **SIEM Settings** > **Data Export**.
+  * Click **Settings > Data Management > Data Export**.
   * In the **Retention Period** column of the **Data Export** table, select **Unlimited** from the list for the relevant data type.
 
 
@@ -83,7 +83,7 @@ To access your BigQuery data, run your queries within BigQuery itself. Assign th
   1. Create a Google Cloud project where you want your data to be exported. For more information, see [Configure a Google Cloud project for Google SecOps](https://docs.cloud.google.com/chronicle/docs/onboard/configure-cloud-project).
 
 **Note:** The self-managed project must be linked to the Google SecOps instance. Once this capability is enabled, you can't revert to a Google-managed project.
-  2. Link your self-managed project to your Google SecOps instance to establish a connection between Google SecOps and your self-managed project. For more information, see [Link Google Security Operations to Google Cloud services](https://docs.cloud.google.com/chronicle/docs/onboard/link-chronicle-cloud). You can also enable and configure the **Bring Your Own BigQuery** (BYOBQ) feature by selecting **SIEM Settings** > **Data Export**.
+  2. Link your self-managed project to your Google SecOps instance to establish a connection between Google SecOps and your self-managed project. For more information, see [Link Google Security Operations to Google Cloud services](https://docs.cloud.google.com/chronicle/docs/onboard/link-chronicle-cloud). You can also enable and configure the **Bring Your Own BigQuery** (BYOBQ) feature by selecting **Settings > Data Management > Data Export**.
 
   3. To validate that the data is exported to your self-managed project, check the tables under the `datalake` dataset in BigQuery.
 
@@ -113,6 +113,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-28 UTC.
+Last updated 2026-11-04 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 

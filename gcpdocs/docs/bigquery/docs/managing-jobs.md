@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/managing-jobs/
 title: Manage jobs \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T05:42:54.570166+00:00
+fetched_at: 2026-11-04T23:28:14.409649+00:00
 ---
 
 # Manage jobs  |  BigQuery  |  Google Cloud Documentation
@@ -21,7 +21,9 @@ Send feedback  Stay organized with collections  Save and categorize content base
 
 # Manage jobs
 
-This document describes how to manage jobs in BigQuery, including how to view job details, list jobs, cancel a job, repeat a job, and delete job metadata.
+In BigQuery, _jobs_ are asynchronous operations that run on your behalf to load, export, query, or copy data.
+
+This document explains how to view job details, list jobs in a project, cancel running jobs, delete job metadata, and repeat completed jobs.
 
 To monitor, aggregate, and troubleshoot jobs across your organization, see [Monitor jobs](https://docs.cloud.google.com/bigquery/docs/admin-jobs-explorer).
 
@@ -982,6 +984,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-27 UTC.
+Last updated 2026-11-04 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 

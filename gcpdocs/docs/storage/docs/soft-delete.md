@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/storage/docs/soft-delete/
 title: Soft delete overview \u00a0|\u00a0 Cloud Storage \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T06:00:27.709039+00:00
+fetched_at: 2026-11-04T23:16:56.808353+00:00
 ---
 
 # Soft delete overview  |  Cloud Storage  |  Google Cloud Documentation
@@ -31,28 +31,26 @@ This page describes how soft delete works.
 
 **Caution:** If a bucket primarily contains temporary data, enabling soft delete can result in significantly increased storage costs. To learn how to mitigate soft delete costs for such buckets, see Reduce costs for temporary objects.
 
-## Soft delete policies
+## Soft delete policies and retention durations
 
-When soft delete is enabled on a bucket, deleting the bucket or the objects within the bucket results in the resource entering a soft-deleted state instead of being permanently deleted. To enable soft delete on a bucket, you set a soft delete policy that defines how long soft-deleted resources are retained.
+When soft delete is enabled on a bucket, deleting the bucket or the objects within the bucket causes the resources to enter a soft-deleted state instead of being permanently deleted. A bucket's _soft delete policy_ defines the soft delete settings for the bucket, including how long soft-deleted resources are retained before they're permanently deleted.
 
 Soft delete policies work in the following ways:
 
-  * The soft delete policy includes a retention duration that defines how long soft-deleted resources are retained before being permanently deleted. The default retention duration is 7 days and you can customize the retention duration between 7 days and 90 days. To disable soft delete, you set the retention duration to 0.
+  * The soft delete policy includes a retention duration that defines how long soft-deleted resources are retained before they're permanently deleted. The default retention duration is 7 days and you can customize the retention duration between 7 days and 90 days. To disable soft delete, you set the retention duration to 0.
 
   * A default soft delete policy is automatically set on all newly created buckets, except for buckets that use products or capabilities that are incompatible with soft delete (such as zonal buckets that use [Rapid Bucket](https://docs.cloud.google.com/storage/docs/rapid/rapid-bucket)).
 
-  * You can set, edit, or disable a soft delete policy when you create or update a bucket.
+  * When you edit a soft delete policy's retention duration, the updated retention duration applies only to resources that are deleted after the new policy takes effect. Resources that were deleted before the new policy took effect are retained for the retention period that was active at their time of deletion.
 
-When you edit a soft delete policy, the changes you make only apply to resources that are deleted after the new policy takes effect. Resources that were deleted prior to the new policy taking effect are retained for the original retention duration that was in effect when the resource got deleted. In other words, existing soft-deleted resources continue to adhere to the retention period that was active at their time of deletion.
+For example, say you set a soft delete policy on a bucket with a retention duration of 7 days. You delete the object `object-A.png`, which becomes soft deleted. Next, you change the policy's retention duration to 10 days and then you delete the object `object-B.png`, which also becomes soft deleted. `object-A.png` is retained for 7 days in the soft-deleted state, while `object-B.png` is retained for 10 days.
 
-For example, say you set a soft delete policy on a bucket that has a retention duration of seven days. You delete the object `object-A.png`, which becomes soft deleted. Next, you change the policy's retention duration to 10 days and then you delete the object `object-B.png`, which also becomes soft deleted. `object-A.png` will be retained for seven days in the soft-deleted state, while `object-B.png` will be retained for 10 days.
-
-Changes to the retention period of a soft delete policy take up to 30 seconds to propagate.
+Changes to the retention duration take up to 30 seconds to propagate.
 
 
 
 
-To learn how to set and manage soft delete policies on buckets, see [Set and manage soft delete policies](https://docs.cloud.google.com/storage/docs/use-soft-delete).
+For steps to set and manage soft delete policies on buckets, see [Set and manage soft delete policies](https://docs.cloud.google.com/storage/docs/use-soft-delete).
 
 ## Properties of soft-deleted resources
 
@@ -83,7 +81,7 @@ Buckets that don't have soft delete enabled might be deleted immediately when a 
 
 
 
-For instructions on restoring soft-deleted objects or buckets, see [Restore soft-deleted objects](https://docs.cloud.google.com/storage/docs/use-soft-deleted-objects) or [Restore soft-deleted buckets](https://docs.cloud.google.com/storage/docs/use-soft-deleted-buckets).
+For steps to restore soft-deleted objects or buckets, see [Restore soft-deleted objects](https://docs.cloud.google.com/storage/docs/use-soft-deleted-objects) or [Restore soft-deleted buckets](https://docs.cloud.google.com/storage/docs/use-soft-deleted-buckets).
 
 ## Object restores
 
@@ -100,9 +98,11 @@ In this specific scenario, your bucket will contain two copies of the restored o
 
 
 
+If you need more time to restore a soft-deleted bucket and its objects before they're permanently deleted, you can [pause hard deletions for the bucket](https://docs.cloud.google.com/storage/docs/pause-hard-deletions).
+
 ### Object restore methods
 
-You can restore soft-deleted objects by using one of two execution paths, based on your scale requirements:
+You can restore soft-deleted objects by using one of the following methods, based on your scale requirements:
 
   * [Restoring objects one at a time](https://docs.cloud.google.com/storage/docs/use-soft-deleted-objects#restore): Used to synchronously restore individual objects.
 
@@ -134,7 +134,16 @@ To restore, list, or access a specific soft-deleted object version among duplica
 
 ## Pricing
 
-Soft-deleted objects continue to accrue storage charges until their retention period expires and they're permanently deleted. Objects that get soft deleted before their minimum storage duration ends incur early deletion charges, unless that object was stored in Standard storage.
+Be aware of the following pricing considerations when using soft delete:
+
+  * Soft-deleted objects continue to accrue storage charges until their retention period expires and they're permanently deleted.
+
+  * If you pause hard deletions for a bucket, the bucket's soft-deleted objects are retained indefinitely, regardless of the retention duration. These soft-deleted objects continue to accrue storage charges until you resume hard deletions for the bucket and the original retention period expires.
+
+  * Early deletion charges apply when objects are hard deleted before their minimum storage duration ends, unless the objects are stored in a storage class that isn't subject to a minimum storage duration.
+
+
+
 
 For detailed information about costs associated with soft delete, see [Cloud Storage pricing](https://docs.cloud.google.com/storage/pricing).
 
@@ -149,7 +158,7 @@ If a bucket primarily contains short-lived, temporary objects, enabling soft del
 
 
 
-Temporary objects typically have a short lifecycle before they're deleted. Temporary objects might be:
+Temporary objects typically have a short lifecycle before they're deleted. Temporary objects might be the following:
 
   * Data that is used as the source for creating [composite objects](https://docs.cloud.google.com/storage/docs/composite-objects)
 
@@ -188,7 +197,7 @@ When soft delete is enabled, it behaves with other products and features in the 
 
   * [Bucket Lock](https://docs.cloud.google.com/storage/docs/bucket-lock) and [Object Retention Lock](https://docs.cloud.google.com/storage/docs/object-lock) features: These features will prevent you from deleting objects until they fulfill their retention policies. Soft delete then provides an additional layer of protection by retaining deleted objects for a separate soft delete retention duration.
 
-  * [Pub/Sub notifications](https://docs.cloud.google.com/support-hub): Restoring a soft-deleted version of an object triggers an [OBJECT_FINALIZE](https://docs.cloud.google.com/storage/docs/pubsub-notifications#events) event.
+  * [Pub/Sub notifications](https://docs.cloud.google.com/storage/docs/pubsub-notifications): Restoring a soft-deleted version of an object triggers an `OBJECT_FINALIZE` event.
 
   * [Managed folders](https://docs.cloud.google.com/storage/docs/managed-folders): Soft delete cannot restore the IAM policies on [managed folders](https://docs.cloud.google.com/storage/docs/managed-folders). If you soft delete an object and delete a managed folder that grants IAM policies for the object, you might have to recreate those IAM policies before you have the necessary permissions to restore the soft-deleted object.
 
@@ -211,6 +220,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-30 UTC.
+Last updated 2026-11-04 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 

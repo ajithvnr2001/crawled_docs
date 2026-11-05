@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/neural-architecture-search/environment-setup/
 title: Set up your environment \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T05:55:24.012778+00:00
+fetched_at: 2026-11-04T23:15:41.416970+00:00
 ---
 
 # Set up your environment  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation
@@ -92,7 +92,7 @@ To enable APIs, you need the `serviceusage.services.enable` permission. If you c
          gcloud components update
          gcloud components install beta
 
-  16. To grant all Agent Platform Neural Architecture Search Neural Architecture Search users the [Agent Platform User](https://docs.cloud.google.com/iam/docs/roles-permissions/aiplatform) role (`roles/aiplatform.user`), contact your project administrator. 
+  16. To grant all Agent Platform Neural Architecture Search users the [Agent Platform User](https://docs.cloud.google.com/iam/docs/roles-permissions/aiplatform) role (`roles/aiplatform.user`), contact your project administrator. 
 
   17. [Install Docker](https://docs.docker.com/install/linux/docker-ce/ubuntu/). 
 
@@ -250,7 +250,7 @@ You must set up a [service account](https://docs.cloud.google.com/iam/docs/servi
              --display-name=DISPLAY_NAME
          
 
-  2. Grant the `aiplatform.user` and `storage.objectAdmin` role to the service account:
+  2. Grant the `roles/aiplatform.user` and `roles/storage.objectAdmin` roles to the service account:
          
          gcloud projects add-iam-policy-binding PROJECT_ID \
              --member=serviceAccount:NAME@PROJECT_ID.iam.gserviceaccount.com \
@@ -263,7 +263,7 @@ You must set up a [service account](https://docs.cloud.google.com/iam/docs/servi
 
 
 
-For example, the following commands create a service account named `my-nas-sa` under the project `my-nas-project` with the `aiplatform.user` and `storage.objectAdmin` role:
+For example, the following commands create a service account named `my-nas-sa` under the project `my-nas-project` with the `roles/aiplatform.user` and `roles/storage.objectAdmin` roles:
     
     
       gcloud iam service-accounts create my-nas-sa \
@@ -297,6 +297,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-30 UTC.
+Last updated 2026-11-04 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 

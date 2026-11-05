@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/compute/docs/api/libraries/
 title: Compute Engine client libraries \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T07:54:29.512535+00:00
+fetched_at: 2026-11-04T23:12:24.436827+00:00
 ---
 
 # Compute Engine client libraries  |  Google Cloud Documentation
@@ -86,7 +86,7 @@ If you are using [Gradle](https://gradle.org/), add the following to your depend
 If you are using [sbt](https://www.scala-sbt.org/), add the following to your dependencies:
     
     
-    libraryDependencies += "com.google.cloud" % "google-cloud-compute" % "1.110.0"
+    libraryDependencies += "com.google.cloud" % "google-cloud-compute" % "1.111.0"
 
 The older version of the Cloud Client Libraries for Java for Compute Engine is available as version 0.120.x or earlier in the [Maven artifact](https://mvnrepository.com/artifact/com.google.cloud/google-cloud-compute). Versions 0.120.x and earlier of this library are forward-incompatible with later versions. 
 

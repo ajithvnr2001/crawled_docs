@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/vertex-psc-pipelines/
 title: Use Private Service Connect to access training pipelines from on-premises \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T05:54:25.648429+00:00
+fetched_at: 2026-11-05T00:20:17.620031+00:00
 ---
 
 # Use Private Service Connect to access training pipelines from on-premises  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation
@@ -584,7 +584,7 @@ In this section, you create a VM instance that simulates an on-premises data ser
              --role="roles/aiplatform.user"
          
 
-  4. Assign the [Gemini Enterprise Agent Platform Viewer (`roles/aiplatform.viewer`)](https://docs.cloud.google.com/iam/docs/roles-permissions/aiplatform#aiplatform.viewer) role:
+  4. Assign the [Agent Platform Viewer (`roles/aiplatform.viewer`)](https://docs.cloud.google.com/iam/docs/roles-permissions/aiplatform#aiplatform.viewer) role:
          
          gcloud projects add-iam-policy-binding $projectid \
              --member="serviceAccount:onprem-user-managed-sa@$projectid.iam.gserviceaccount.com" \
@@ -1828,6 +1828,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-30 UTC.
+Last updated 2026-11-03 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 

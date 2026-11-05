@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/logging/docs/logs-views/
 title: Configure log views on a log bucket \u00a0|\u00a0 Cloud Logging \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T07:59:29.405472+00:00
+fetched_at: 2026-11-04T23:45:07.782195+00:00
 ---
 
 # Configure log views on a log bucket  |  Cloud Logging  |  Google Cloud Documentation

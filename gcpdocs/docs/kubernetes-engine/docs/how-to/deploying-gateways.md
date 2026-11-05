@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/kubernetes-engine/docs/how-to/deploying-gateways/
 title: Deploying Gateways \u00a0|\u00a0 GKE networking \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T19:38:20.901221+00:00
+fetched_at: 2026-11-04T23:31:24.178837+00:00
 ---
 
 # Deploying Gateways  |  GKE networking  |  Google Cloud Documentation
@@ -210,23 +210,39 @@ You must [configure a proxy-only subnet](https://docs.cloud.google.com/load-bala
              --range=CIDR_RANGE
          
 
+If you are deploying a regional Gateway resource (`gke-l7-rilb` or `gke-l7-regional-external-managed`) on a single-stack IPv6 cluster, you must configure a dual-stack proxy-only subnet with the `--stack-type=IPV4_IPV6` flag. This requirement applies to both IPv4 and IPv6 Gateway resources so that the load balancer proxies can communicate with IPv6 backend Pods. Single-stack IPv6 proxy-only subnets (created with the `--stack-type=IPV6_ONLY` flag) aren't supported, and the VPC network must have an internal ULA IPv6 range enabled (with the `--enable-ula-internal-ipv6` flag):
+         
+         gcloud compute networks subnets create SUBNET_NAME \
+             --purpose=REGIONAL_MANAGED_PROXY \
+             --role=ACTIVE \
+             --region=COMPUTE_REGION \
+             --network=VPC_NETWORK_NAME \
+             --range=CIDR_RANGE \
+             --stack-type=IPV4_IPV6
+         
+
+**Note:** Don't specify the `--ipv6-access-type` flag when creating or updating a `REGIONAL_MANAGED_PROXY` subnet. Compute Engine automatically assigns an internal `/64` Unique Local Address (ULA) IPv6 prefix and rejects the `--ipv6-access-type` flag on proxy-only subnets.
+
 Replace the following:
 
      * `SUBNET_NAME`: the name of the proxy-only subnet.
      * `COMPUTE_REGION`: the region of the proxy-only subnet.
      * `VPC_NETWORK_NAME`: the name of the VPC network in which you create this proxy-only subnet. Ensure this is the same VPC network where your GKE cluster resides and where you deploy the Gateway. This is important for seamless communication between the load balancer and your backend services.
-     * `CIDR_RANGE`: the primary IP address range of the subnet. You must use a subnet mask no longer than `/26` so that at least 64 IP addresses are available for proxies in the region. The recommended subnet mask is `/23`.
+     * `CIDR_RANGE`: the primary IPv4 address range of the subnet. This value must be an IPv4 CIDR range even for a dual-stack (`IPV4_IPV6`) proxy-only subnet because Compute Engine automatically allocates the IPv6 address range. You must use a subnet mask no longer than `/26` so that at least 64 IPv4 addresses are available for proxies in the region. The recommended subnet mask is `/23`.
   2. Verify your proxy-only subnet:
          
          gcloud compute networks subnets describe SUBNET_NAME \
              --region=COMPUTE_REGION
          
 
-The output is similar to the following:
+The output is similar to the following (for a dual-stack proxy-only subnet, the output includes the `internalIpv6Prefix`, `ipv6AccessType`, and `ipv6GceEndpoint` fields):
          
          ...
          gatewayAddress: 10.1.1.1
+         internalIpv6Prefix: fd20:1d14:f522:2:0:0:0:0/64
          ipCidrRange: 10.1.1.0/24
+         ipv6AccessType: INTERNAL
+         ipv6GceEndpoint: VM_AND_FR
          kind: compute#subnetwork
          name: proxy-subnet
          network: https://www.googleapis.com/compute/v1/projects/PROJECT_NAME/global/networks/default
@@ -236,6 +252,7 @@ The output is similar to the following:
          region: https://www.googleapis.com/compute/v1/projects/PROJECT_NAME/regions/REGION
          role: ACTIVE
          selfLink: https://www.googleapis.com/compute/v1/projects/PROJECT_NAME/regions/REGION/subnetworks/proxy-subnet
+         stackType: IPV4_IPV6
          state: READY
          
 
@@ -1261,6 +1278,8 @@ For more information, see [Certificates and Google Cloud load balancers](https:/
 
 #### Create a regional external HTTP(S) Gateway
 
+**Note:** On a single-stack IPv6 cluster whose primary node subnet uses internal IPv6 addresses (`--ipv6-access-type=INTERNAL`), a `gke-l7-regional-external-managed` IPv6 Gateway resource requires a separate subnet in the same VPC network and region with `--ipv6-access-type=EXTERNAL`. Specify that subnet using the `--subnet` flag when creating a static IPv6 address, or attach a GCPGatewayPolicy resource with the `spec.default.subnetwork` field set when using an ephemeral IPv6 address. For instructions, see Regional external IPv6 subnet requirement on internal IPv6 clusters.
+
   1. Create a regional static IP address for the external load balancer.
          
          gcloud compute addresses create IP_ADDRESS_NAME \
@@ -1478,18 +1497,29 @@ This output indicates that requests with the `site.example.com` Host header reac
 
 ## Configure network tier
 
-You can specify the network tier for a regional external Application Load Balancer's listener address by using the `type` field within the `addresses[]` array in the Gateway definition. If you don't specify a network tier, the Gateway defaults to using a Standard Tier ephemeral IP address.
+You can specify the network tier and IP version for a Gateway's ephemeral listener address by using the `type` field within the `addresses[]` array in the Gateway definition. If you omit the `spec.addresses` field, the Gateway controller provisions a default ephemeral IP address based on your cluster's stack type (an IPv4 address on single-stack IPv4 and dual-stack clusters, or an IPv6 address on single-stack IPv6 clusters when a compatible subnetwork is available). For `gke-l7-regional-external-managed` Gateway resources, omitting the `spec.addresses` field defaults to a Standard Tier ephemeral IPv4 address on single-stack IPv4 and dual-stack clusters, or a Premium Tier ephemeral IPv6 address on single-stack IPv6 clusters (Standard Tier isn't supported for IPv6 addresses).
+
+On single-stack IPv6 clusters, when allocating an ephemeral IP address for a regional Gateway resource (`gke-l7-rilb` or `gke-l7-regional-external-managed`), the Gateway controller selects the subnetwork in the following order:
+
+  1. If a GCPGatewayPolicy resource that is attached to the Gateway resource specifies the `spec.default.subnetwork` field, the ephemeral IP address is allocated from that subnetwork.
+  2. If no subnetwork is specified in a GCPGatewayPolicy resource and the cluster's primary node subnetwork has the required IPv6 access type (`INTERNAL` for `gke-l7-rilb` or `EXTERNAL` for `gke-l7-regional-external-managed`), the ephemeral IP address is allocated from the primary node subnetwork.
+  3. If no compatible subnetwork is available, the Gateway controller reports an error. For instructions on configuring a custom subnetwork, see Regional external IPv6 subnet requirement on internal IPv6 clusters.
+
+
 
 Use the following values for the `type` field:
 
-  * `networking.gke.io/premium-ephemeral-ipv4-address`: assigns a Premium Tier IP address.
-  * `networking.gke.io/standard-ephemeral-ipv4-address`: assigns a Standard Tier IP address.
+  * `networking.gke.io/premium-ephemeral-ipv4-address`: assigns a Premium Tier ephemeral IPv4 address (`gke-l7-regional-external-managed`).
+  * `networking.gke.io/standard-ephemeral-ipv4-address`: assigns a Standard Tier ephemeral IPv4 address (`gke-l7-regional-external-managed`).
+  * `networking.gke.io/premium-ephemeral-ipv6-address`: assigns a Premium Tier ephemeral IPv6 address (`gke-l7-regional-external-managed`).
+  * `networking.gke.io/ephemeral-ipv4-address/REGION`: assigns a regional ephemeral IPv4 address in `REGION` (`gke-l7-rilb` and `gke-l7-cross-regional-internal-managed-mc`).
+  * `networking.gke.io/ephemeral-ipv6-address/REGION`: assigns a regional ephemeral IPv6 address in `REGION` (`gke-l7-rilb`).
 
 
 
-To assign IP addresses from both network tiers, specify both types in the `addresses` field.
+To assign IP addresses from both network tiers or both IP versions (for example, both an IPv4 address and an IPv6 address on a dual-stack cluster), specify multiple types in the `addresses` field.
 
-The following example shows you how to make Google Cloud assign a Premium Tier IP address to a Gateway. To provision a Standard Tier IP address, use `networking.gke.io/standard-ephemeral-ipv4-address`.
+The following example shows you how to make Google Cloud assign a Premium Tier IP address to a Gateway. To provision a Standard Tier IPv4 address, use `networking.gke.io/standard-ephemeral-ipv4-address`.
 
   1. Save the following sample manifest as `external-regional-http.yaml`:
          
@@ -1511,19 +1541,21 @@ The following example shows you how to make Google Cloud assign a Premium Tier I
                # Certificates for the Gateway to use to create a new TLS session.
                certificateRefs:
                - name: store-example-com
-             addresses:
-             # Request a Premium Tier ephemeral IPv4 address for the Gateway.
-             - type: networking.gke.io/premium-ephemeral-ipv4-address
+           addresses:
+           # Request a Premium Tier ephemeral IPv4 address for the Gateway.
+           # For a Premium Tier ephemeral IPv6 address, use:
+           # networking.gke.io/premium-ephemeral-ipv6-address
+           - type: networking.gke.io/premium-ephemeral-ipv4-address
          
 
-**Note:** to provision a Standard Tier IP address, use `networking.gke.io/standard-ephemeral-ipv4-address`.
+**Note:** To provision a Standard Tier IPv4 address, use `networking.gke.io/standard-ephemeral-ipv4-address`.
   2. Apply the sample manifest:
          
          kubectl apply -f external-regional-http.yaml
          
 
 
-**Note:** If you create a regional external Application Load Balancer Gateway that uses the `gke-l7-regional-external-managed` GatewayClass without specifying a network tier address, the Gateway defaults to using a Standard Tier ephemeral IP address. Modifying the Gateway manifest later to specify an explicit address type, such as `networking.gke.io/standard-ephemeral-ipv4-address` or `networking.gke.io/premium-ephemeral-ipv4-address`, results in an IP address change, which might disrupt services. To prevent service interruptions, define your address configuration when you create the Gateway.
+**Note:** If you create a regional external Application Load Balancer Gateway resource that uses the `gke-l7-regional-external-managed` GatewayClass without specifying an address in the `spec.addresses` field, the Gateway defaults to using a Standard Tier ephemeral IPv4 address (on single-stack IPv4 and dual-stack clusters) or a Premium Tier ephemeral IPv6 address (on single-stack IPv6 clusters). Modifying the Gateway manifest later to specify an explicit address type, such as `networking.gke.io/standard-ephemeral-ipv4-address`, `networking.gke.io/premium-ephemeral-ipv4-address`, or `networking.gke.io/premium-ephemeral-ipv6-address`, results in an IP address change, which might disrupt services. To prevent service interruptions, define your address configuration when you create the Gateway.
 
 ## Configure the Gateway default backend
 
@@ -1568,43 +1600,136 @@ After a Gateway is deployed, its IP address shows in the status field:
         - value: 10.15.32.3
     
 
-Depending on the GatewayClass, the IP address is allocated from the following subnets: 
+Depending on the GatewayClass, the IP address is allocated from the following pools and subnets: 
 
-**GatewayClasses** | **Default IP Address Pool**  
----|---  
-* gke-l7-rilb
-* gke-l7-rilb-mc
-| Regional private IP addresses from the primary node IPv4/IPv6 address range  
-* gke-l7-regional-external-managed
-* gke-l7-regional-external-managed-mc
-| Regional public IP addresses from [Google's regional external IPv4/IPv6 ranges](https://docs.cloud.google.com/vpc/docs/ip-addresses)  
-* gke-l7-global-external-managed
-* gke-l7-global-external-managed-mc
-* gke-l7-gxlb
-* gke-l7-gxlb-mc
-| Global public IP addresses from [Google's global external IPv4/IPv6 ranges](https://docs.cloud.google.com/vpc/docs/ip-addresses)  
+**GatewayClasses** | **Default IPv4 address pool** | **Default IPv6 address pool (ephemeral and static)**  
+---|---|---  
   
-The field `addresses.NamedAddress` lets you specify an IP address independently of the Gateway. You can create a static IP address resource prior to Gateway deployment and the resource is referenced by the `NamedAddress`. You can reuse the static IP address even if the Gateway is deleted.
+  * `gke-l7-rilb`
+  * `gke-l7-rilb-mc`
 
-### Use a named IP address
+| Regional private IPv4 addresses from the primary node IPv4 address range | Regional internal IPv6 addresses from the primary node subnet internal IPv6 address range (`/64` ULA) when the primary node subnet uses `ipv6AccessType: INTERNAL`, or from a subnetwork in the same region configured with `ipv6AccessType: INTERNAL` (`gke-l7-rilb` only)  
+  
+  * `gke-l7-regional-external-managed`
+  * `gke-l7-regional-external-managed-mc`
 
-You can configure an IPv4 or IPv6 address by specifying a `NamedAddress`. You must provision a static IP address before you create a Gateway.
+| Regional public IPv4 addresses from [Google's regional external IPv4 address pool](https://docs.cloud.google.com/vpc/docs/ip-addresses) | Regional external IPv6 addresses from the primary node subnet external IPv6 address range (`/64` public GUA) when the primary node subnet uses `ipv6AccessType: EXTERNAL`, or from a separate VPC subnetwork in the same region configured with `ipv6AccessType: EXTERNAL` (`gke-l7-regional-external-managed` only; see Regional external IPv6 subnet requirement on internal IPv6 clusters)  
+  
+  * `gke-l7-global-external-managed`
+  * `gke-l7-global-external-managed-mc`
+  * `gke-l7-gxlb`
+  * `gke-l7-gxlb-mc`
 
-  1. Create a static IP address resource:
+| Global public IPv4 addresses from [Google's global external IPv4 address ranges](https://docs.cloud.google.com/vpc/docs/ip-addresses) | Global public IPv6 addresses from [Google's global external IPv6 address ranges](https://docs.cloud.google.com/vpc/docs/ip-addresses)  
+  
+#### Regional external IPv6 subnet requirement on internal IPv6 clusters
+
+Unlike regional external IPv4 addresses (which are allocated from a Google-managed pool independent of VPC subnets), Compute Engine regional external IPv6 addresses (`NETLB`) must be allocated from a VPC subnetwork configured with `ipv6AccessType: EXTERNAL`.
+
+If your cluster's primary node subnet is already configured with `--ipv6-access-type=EXTERNAL`, the Gateway controller uses the primary node subnet by default for `gke-l7-regional-external-managed` IPv6 addresses.
+
+If your cluster uses an internal IPv6 node subnet (`--ipv6-access-type=INTERNAL`), the cluster's primary node subnet has only private Unique Local Addresses (ULA). Before deploying a `gke-l7-regional-external-managed` IPv6 Gateway resource (using either an ephemeral or a static IPv6 address), you must create a subnetwork in the same VPC network and region with `--ipv6-access-type=EXTERNAL`:
+
+  1. Create an IPv6-only (or dual-stack) subnetwork with external IPv6 access in the same VPC network and region as your cluster:
          
-         gcloud compute addresses create IP_ADDRESS_NAME \
-             --purpose=SHARED_LOADBALANCER_VIP \
+         gcloud compute networks subnets create EXTERNAL_IPV6_SUBNET_NAME \
+             --network=VPC_NETWORK_NAME \
              --region=COMPUTE_REGION \
-             --subnet=SUBNET \
-             --project=PROJECT_ID
+             --stack-type=IPV6_ONLY \
+             --ipv6-access-type=EXTERNAL
          
 
 Replace the following:
 
-     * `IP_ADDRESS_NAME`: the name of the new static IP address
-     * `COMPUTE_REGION`: for regional Gateways, the Compute Engine region where your cluster is running. This flag is not needed for global, external Gateways.
-     * `SUBNET`: the subnet for the IP address. This flag is not needed for global, external Gateways.
+     * `EXTERNAL_IPV6_SUBNET_NAME`: the name of the subnetwork with external IPv6 access.
+     * `VPC_NETWORK_NAME`: the name of the VPC network where your GKE cluster runs.
+     * `COMPUTE_REGION`: the Compute Engine region where your cluster runs.
+
+To create a dual-stack subnetwork instead of an IPv6-only subnetwork, replace `--stack-type=IPV6_ONLY` with `--stack-type=IPV4_IPV6 --range=IPV4_CIDR_RANGE`, where `IPV4_CIDR_RANGE` is an unused primary IPv4 CIDR range in the VPC network.
+
+  2. Configure your Gateway resource to use the external IPv6 subnetwork:
+
+     * **For an ephemeral IPv6 address** : attach a GCPGatewayPolicy resource to your Gateway resource and specify the subnetwork name in the `spec.default.subnetwork` field. Save the following manifest as `gateway-policy.yaml`:
+           
+           apiVersion: networking.gke.io/v1
+           kind: GCPGatewayPolicy
+           metadata:
+             name: GATEWAY_POLICY_NAME
+             namespace: GATEWAY_NAMESPACE
+           spec:
+             default:
+               subnetwork: EXTERNAL_IPV6_SUBNET_NAME
+             targetRef:
+               group: gateway.networking.k8s.io
+               kind: Gateway
+               name: GATEWAY_NAME
+           
+
+Replace the following:
+
+       * `GATEWAY_POLICY_NAME`: the name of the GCPGatewayPolicy resource.
+       * `GATEWAY_NAMESPACE`: the namespace of the target Gateway resource.
+       * `EXTERNAL_IPV6_SUBNET_NAME`: the name of the subnetwork that you created in the previous step.
+       * `GATEWAY_NAME`: the name of the target Gateway resource.
+
+Apply the `gateway-policy.yaml` manifest:
+    
+    kubectl apply -f gateway-policy.yaml
+    
+
+**Note:** On single-stack IPv6 clusters, you can also set the `spec.default.subnetwork` field in a GCPGatewayPolicy resource attached to a `gke-l7-rilb` Gateway resource to allocate ephemeral internal IPv4 or IPv6 addresses from a custom subnetwork (for example, if your cluster's primary node subnet uses `--ipv6-access-type=EXTERNAL`).
+     * **For a static IPv6 address (`NamedAddress`)**: specify the `--subnet=EXTERNAL_IPV6_SUBNET_NAME` flag when you create the static IPv6 address resource, as shown in Use a named IP address.
+
+
+**Note:** Compute Engine doesn't support VPC hairpinning from internal IPv6 address (ULA) sources to external IPv6 address (GUA) load balancer destinations in the same VPC network. Requests sent from internal IPv6-only Pods or VMs within the same VPC network can't reach an external `gke-l7-regional-external-managed` IPv6 VIP. Test regional external IPv6 Gateway resources from external IPv6 clients outside the VPC network, or use `gke-l7-rilb` for internal clients.
+
+The field `addresses.NamedAddress` lets you specify an IP address independently of the Gateway. You can create a static IP address resource prior to Gateway deployment and the resource is referenced by the `NamedAddress`. You can reuse the static IP address even if the Gateway is deleted.
+
+### Use a named IP address
+
+You can configure a static IPv4 address or IPv6 address by specifying a `NamedAddress`. You must provision a static IP address before you create a Gateway.
+
+  1. Create a static IP address resource:
+
+     * **Regional internal IPv4 address (`gke-l7-rilb`)**:
+           
+           gcloud compute addresses create IP_ADDRESS_NAME \
+               --purpose=SHARED_LOADBALANCER_VIP \
+               --region=COMPUTE_REGION \
+               --subnet=SUBNET \
+               --project=PROJECT_ID
+           
+
+     * **Regional internal IPv6 address (`gke-l7-rilb`)**:
+           
+           gcloud compute addresses create IP_ADDRESS_NAME \
+               --region=COMPUTE_REGION \
+               --subnet=CLUSTER_NODE_SUBNET \
+               --ip-version=IPV6 \
+               --project=PROJECT_ID
+           
+
+**Note:** The `--purpose=SHARED_LOADBALANCER_VIP` flag isn't supported for internal IPv6 addresses. You can't share a single static internal IPv6 address across multiple forwarding rules or Gateway listeners on different ports.
+     * **Regional external IPv6 address (`gke-l7-regional-external-managed`)**:
+           
+           gcloud compute addresses create IP_ADDRESS_NAME \
+               --region=COMPUTE_REGION \
+               --subnet=EXTERNAL_IPV6_SUBNET_NAME \
+               --ip-version=IPV6 \
+               --endpoint-type=NETLB \
+               --project=PROJECT_ID
+           
+
+Replace the following:
+
+     * `IP_ADDRESS_NAME`: the name of the new static IP address.
+     * `COMPUTE_REGION`: for regional Gateways, the Compute Engine region where your cluster is running. This flag isn't needed for global, external Gateways.
+     * `SUBNET` or `CLUSTER_NODE_SUBNET`: the subnet for the internal IP address. This flag isn't needed for global, external Gateways.
+     * `EXTERNAL_IPV6_SUBNET_NAME`: the regional subnet configured with `ipv6AccessType: EXTERNAL` from which to allocate the regional external IPv6 address.
      * `PROJECT_ID`: the project where your GKE cluster is running.
+
+The preceding commands automatically allocate an IP address from the specified subnet. You can also specify a custom IPv4 address or a custom `/96` IPv6 address range with the `--addresses` flag. For more information, see [Reserve a static internal IP address](https://docs.cloud.google.com/vpc/docs/reserve-static-internal-ip-address) and [Reserve a static external IP address](https://docs.cloud.google.com/vpc/docs/reserve-static-external-ip-address).
+
   2. Save the following manifest to a file named `named-ip-gateway.yaml`:
          
          kind: Gateway
@@ -1660,6 +1785,29 @@ The output is similar to the following:
 
 
 
+
+### Configure IPv6 firewall rules for Shared VPC or manual firewall management
+
+When automatic firewall rule creation is disabled or restricted (such as in Shared VPC service projects), you must manually create an ingress IPv6 firewall rule to allow traffic from Google Cloud IPv6 health check probers (`2600:2d00:1:b029::/64`), Google Front End (GFE) proxies for global external Application Load Balancers (`2600:2d00:1:1::/64`), and the regional proxy-only subnet's `internalIpv6Prefix` for regional Application Load Balancers:
+    
+    
+    gcloud compute firewall-rules create FIREWALL_RULE_NAME \
+        --network=VPC_NETWORK_NAME \
+        --action=ALLOW \
+        --direction=INGRESS \
+        --rules=tcp:80,tcp:443 \
+        --source-ranges="2600:2d00:1:b029::/64,2600:2d00:1:1::/64,PROXY_SUBNET_INTERNAL_IPV6_PREFIX" \
+        --target-tags=GKE_NODE_TAG
+    
+
+Replace the following:
+
+  * `FIREWALL_RULE_NAME`: the name of the firewall rule.
+  * `VPC_NETWORK_NAME`: the name of your VPC network.
+  * `PROXY_SUBNET_INTERNAL_IPV6_PREFIX`: the internal `/64` IPv6 prefix of your regional proxy-only subnet (`internalIpv6Prefix`).
+  * `GKE_NODE_TAG`: the network tag applied to your cluster nodes.
+
+**Note:** In the `--rules` flag, specify the TCP ports that your backend Pods listen on for load-balanced traffic and health checks (such as `tcp:80,tcp:443` or `tcp:8080`).
 
 ## Configure HTTP-to-HTTPS redirects
 
@@ -2928,6 +3076,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-27 UTC.
+Last updated 2026-11-04 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 

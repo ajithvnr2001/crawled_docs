@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/application/ao-user/vms/manage-the-os/configure-ntp-gdc-vm/
 title: Configure NTP on a GDC VM \u00a0|\u00a0 Google Distributed Cloud air-gapped \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-01T05:45:24.927199+00:00
+fetched_at: 2026-11-04T23:27:42.862892+00:00
 ---
 
 # Configure NTP on a GDC VM  |  Google Distributed Cloud air-gapped  |  Google Cloud Documentation
@@ -52,7 +52,7 @@ Before you configure NTP servers, verify or install the gdcloud CLI. All Distrib
 
 To get the permissions that you need to configure NTP and manage VM settings, ask your IAM Project Admin to [grant you](https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/application/ao-user/iam/role-bindings) the following IAM roles in the namespace of the project where the VM resides:
 
-  * Project VirtualMachine Admin (`project-vm-admin`): update VM configurations, modify instance metadata for NTP synchronization, and restart instances to apply system-level changes at the project level
+  * Virtual Machine Project Admin (`project-vm-admin`): update VM configurations, modify instance metadata for NTP synchronization, and restart instances to apply system-level changes at the project level
 
   * Project Viewer (`project-viewer`): read-only access to inspect VM runtime states, list project resources, and audit configuration settings without the ability to modify project data.
 
@@ -144,6 +144,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-30 UTC.
+Last updated 2026-11-04 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 

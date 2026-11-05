@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/agent-registry/manual-registration/
 title: Use manual registration for agents \u00a0|\u00a0 Agent Registry \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-30T08:40:13.764802+00:00
+fetched_at: 2026-11-04T23:31:43.095381+00:00
 ---
 
 # Use manual registration for agents  |  Agent Registry  |  Google Cloud Documentation
@@ -23,9 +23,13 @@ Send feedback
 
 Agent Registry lets you manually register A2A-compliant and standard REST agents that are hosted outside Google Cloud, running on unsupported runtimes, or deployed across different Google Cloud projects. By creating a `Service` resource for these agents, you make their endpoints and capabilities discoverable across your AI ecosystem.
 
+## Registration scope and locations
+
 Agent Registry uses a central Google Cloud [governance project](https://docs.cloud.google.com/agent-registry/overview#governance-project). In this document, the term _remote_ refers to agents hosted outside the governance project or [management boundary](https://docs.cloud.google.com/agent-registry/boundaries-and-topology), such as in separate Google Cloud projects without a management boundary, on-premises environments, or external clouds, or running on unsupported runtimes. Because automatic registration only discovers supported resources deployed in the governance project where Agent Registry is enabled, or across projects when you configure a management boundary, you must manually register remote agents in the governance project's registry in all other cases.
 
-## Types of agents and limitations
+You can manually register agents in a supported regional location, a supported multi-region, or the `global` location. For more information about supported locations, see [Agent Registry locations](https://docs.cloud.google.com/agent-registry/locations).
+
+## Types of agents
 
 You can manually register two types of agents:
 
@@ -33,8 +37,6 @@ You can manually register two types of agents:
   * **Standard REST agents**: remote agents that don't implement the A2A specification and use the `NO_SPEC` type, such as agents that expose a REST API endpoint.
 
 
-
-Manual registration isn't supported in the `us` and `eu` multi-region locations; you must use a supported region or the `global` location. For more information, see [Agent Registry locations](https://docs.cloud.google.com/agent-registry/locations).
 
 ## Before you begin
 
@@ -113,7 +115,7 @@ Replace the following:
 
   * `AGENT_NAME`: the ID you want to give to your agent, for example, `my-support-agent`. The ID must be 4 to 63 characters and can contain only lowercase letters, numbers, and hyphens.
   * `PROJECT_ID`: the project ID.
-  * `REGION`: the [region](https://docs.cloud.google.com/agent-registry/locations) where you want to register the agent. If you don't want to use a specific region, use the value `global`.
+  * `REGION`: the [region](https://docs.cloud.google.com/agent-registry/locations) where you want to register the agent. You can also specify a supported multi-region or `global`.
   * `DISPLAY_NAME`: the human-readable name that you want to give to your agent, for example, `Support Agent`.
 
 
@@ -441,7 +443,7 @@ If you have multiple agents, or if you want to confirm the registration of a sin
 Replace the following:
 
   * `PROJECT_ID`: the project ID.
-  * `REGION`: the [region](https://docs.cloud.google.com/agent-registry/locations) where you want to register the agent. If you don't want to use a specific region, use the value `global`.
+  * `REGION`: the [region](https://docs.cloud.google.com/agent-registry/locations) where you registered the agent. You can also specify a supported multi-region or `global`.
   * `FILTER_EXPRESSION`: the filter expression for the agents that you want to filter. For example, to filter by display name, you can use `displayName='DISPLAY_NAME'`. To filter by the globally unique [agent identifier](https://docs.cloud.google.com/agent-registry/identity-and-identifiers#agent-identifiers) (URN), you can use `agentId='urn:agent:AGENT_URN'`.
 
 
@@ -479,6 +481,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-29 UTC.
+Last updated 2026-11-04 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/amd-dss-firewall/
 title: Collect AMD Pensando DSS Firewall logs \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T07:53:04.908450+00:00
+fetched_at: 2026-11-04T23:32:51.329186+00:00
 ---
 
 # Collect AMD Pensando DSS Firewall logs  |  Google Security Operations  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/iam/docs/service-accounts-custom-constraints/
 title: Use custom organization policies for service accounts and service account keys \u00a0|\u00a0 Identity and Access Management (IAM) \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T07:59:31.853345+00:00
+fetched_at: 2026-11-04T23:45:07.531967+00:00
 ---
 
 # Use custom organization policies for service accounts and service account keys  |  Identity and Access Management (IAM)  |  Google Cloud Documentation

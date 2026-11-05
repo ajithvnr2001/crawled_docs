@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/bare-metal/docs/how-to/serve-3p-llms/
 title: Serve LLMs like DeepSeek-R1 671B or Llama 3.1 405B on bare metal \u00a0|\u00a0 Google Distributed Cloud software only for bare metal \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T20:46:38.394572+00:00
+fetched_at: 2026-11-04T23:29:47.155188+00:00
 ---
 
 # Serve LLMs like DeepSeek-R1 671B or Llama 3.1 405B on bare metal  |  Google Distributed Cloud software only for bare metal  |  Google Cloud Documentation
@@ -22,11 +22,7 @@ Send feedback
 
 #  Serve LLMs like DeepSeek-R1 671B or Llama 3.1 405B on bare metal Stay organized with collections  Save and categorize content based on your preferences. 
 
-## Overview
-
-This guide shows you how to serve state-of-the-art large language models (LLMs) such as [DeepSeek-R1 671B](https://github.com/deepseek-ai/DeepSeek-R1) or [Llama 3.1 405B](https://github.com/meta-llama/llama) on Distributed Cloud software only for bare metal using graphical processing units (GPUs) across multiple nodes.
-
-This guide demonstrates how to use portable open-source technologies, Kubernetes, [vLLM](https://docs.vllm.ai/en/latest/), and the [LeaderWorkerSet](https://github.com/kubernetes-sigs/lws) (LWS) API to deploy and serve AI/ML workloads on bare metal clusters. Google Distributed Cloud extends GKE for use in an on-premises environment, while providing the advantages of GKE's granular control, scalability, resilience, portability, and cost-effectiveness.
+Distributed Cloud software only for bare metal lets you serve large language models (LLMs) such as [DeepSeek-R1 671B](https://github.com/deepseek-ai/DeepSeek-R1) or [Llama 3.1 405B](https://github.com/meta-llama/llama) across multiple GPU nodes. In this document, you use portable open source technologies, such as Kubernetes, [vLLM](https://docs.vllm.ai/en/latest/), and the [LeaderWorkerSet](https://github.com/kubernetes-sigs/lws) (LWS) API, to deploy and serve AI/ML workloads on bare metal clusters.
 
 ## Background
 
@@ -534,6 +530,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-04 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 

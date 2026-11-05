@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/firestore/docs/samples/firestore-data-reference-document/
 title: Create a Firestore document reference \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T08:02:02.793433+00:00
+fetched_at: 2026-11-04T23:45:51.890700+00:00
 ---
 
 # Create a Firestore document reference  |  Google Cloud Documentation

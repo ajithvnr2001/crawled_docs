@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/zscaler-tunnel/
 title: Collect Zscaler Tunnel logs \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T07:51:41.496970+00:00
+fetched_at: 2026-11-04T23:35:10.505411+00:00
 ---
 
 # Collect Zscaler Tunnel logs  |  Google Security Operations  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/gcp-cloudidentity-devices/
 title: Collect Cloud Identity Devices logs \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T07:49:53.739058+00:00
+fetched_at: 2026-11-04T23:43:18.252716+00:00
 ---
 
 # Collect Cloud Identity Devices logs  |  Google Security Operations  |  Google Cloud Documentation

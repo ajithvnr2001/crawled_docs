@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/user-defined-functions-python/
 title: Work with user-defined functions in Python \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T05:58:33.887901+00:00
+fetched_at: 2026-11-04T23:31:37.420675+00:00
 ---
 
 # Work with user-defined functions in Python  |  BigQuery  |  Google Cloud Documentation
@@ -1132,7 +1132,7 @@ Wait until Terraform displays the "Apply complete!" message.
 
 You need the service account ID you copied previously when you configure permissions for the connection. When you create a connection resource, BigQuery creates a unique system service account and associates it with the connection.
 
-To grant the Cloud resource connection service account access to your projects, grant the service account the [Service usage consumer role](https://docs.cloud.google.com/service-usage/docs/access-control#serviceusage.serviceUsageConsumer) (`roles/serviceusage.serviceUsageConsumer`) in `my_query_project` and the [Cloud Translation API user role](https://docs.cloud.google.com/translate/docs/access-control#cloudtranslate.user) (`roles/cloudtranslate.user`) in `my_translate_project`.
+To grant the Cloud resource connection service account access to your projects, grant the service account the [Service usage consumer role](https://docs.cloud.google.com/iam/docs/roles-permissions/serviceusage#serviceusage.serviceUsageConsumer) (`roles/serviceusage.serviceUsageConsumer`) in `my_query_project` and the [Cloud Translation API user role](https://docs.cloud.google.com/translate/docs/access-control#cloudtranslate.user) (`roles/cloudtranslate.user`) in `my_translate_project`.
 
 ### Console
 
@@ -1169,7 +1169,7 @@ To grant the Cloud resource connection service account access to your projects, 
 
 ### SQL
 
-Use the [`GRANT` statement](https://docs.cloud.google.com/bigquery/docs/reference/standard-sql/data-control-language#grant_statement) to grant the [Service usage consumer role](https://docs.cloud.google.com/service-usage/docs/access-control#serviceusage.serviceUsageConsumer) (`roles/serviceusage.serviceUsageConsumer`) to the service account in `my_query_project`:
+Use the [`GRANT` statement](https://docs.cloud.google.com/bigquery/docs/reference/standard-sql/data-control-language#grant_statement) to grant the [Service usage consumer role](https://docs.cloud.google.com/iam/docs/roles-permissions/serviceusage#serviceusage.serviceUsageConsumer) (`roles/serviceusage.serviceUsageConsumer`) to the service account in `my_query_project`:
 
   1. In the Google Cloud console, go to the **BigQuery** page.
 
@@ -1665,6 +1665,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-30 UTC.
+Last updated 2026-11-04 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/sangfor-proxy/
 title: Collect Sangfor Proxy logs \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T07:52:03.236380+00:00
+fetched_at: 2026-11-04T23:42:59.018476+00:00
 ---
 
 # Collect Sangfor Proxy logs  |  Google Security Operations  |  Google Cloud Documentation

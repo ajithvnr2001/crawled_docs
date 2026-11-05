@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/docs/data/
 title: Data analytics \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T22:37:03.333373+00:00
+fetched_at: 2026-11-05T00:17:52.392415+00:00
 ---
 
 # Data analytics  |  Google Cloud Documentation
@@ -52,12 +52,6 @@ Learn how BigQuery helps organizations to get insights into their data.[open_in_
 ###  [ Data and analytics resources ](https://docs.cloud.google.com/architecture/big-data-analytics)
 
 Plan your approach with Architecture Center resources across a variety of data and analytics topics.[open_in_new](https://docs.cloud.google.com/architecture/big-data-analytics)
-
-[ account_tree  ](https://docs.cloud.google.com/architecture/big-data-analytics/analytics-lakehouse)
-
-###  [ Jump Start Solution: Analytics lakehouse ](https://docs.cloud.google.com/architecture/big-data-analytics/analytics-lakehouse)
-
-Plan how to design an analytics lakehouse to store, process, and activate data.[open_in_new](https://docs.cloud.google.com/architecture/big-data-analytics/analytics-lakehouse)
 
 ##  Training, blog articles, and more 
 
@@ -253,15 +247,15 @@ Develop real-time batch and streaming data processing pipelines.
 
 ![](https://docs.cloud.google.com/_static/clouddocs/images/icons/categories/data-analytics-color.svg)
 
-####  [ Dataproc Metastore ](https://docs.cloud.google.com/dataproc-metastore/docs)
-
-A fully managed Apache Hive metastore (HMS) that runs on Google Cloud. 
-
-![](https://docs.cloud.google.com/_static/clouddocs/images/icons/categories/data-analytics-color.svg)
-
 ####  [ Managed Service for Apache Spark ](https://docs.cloud.google.com/managed-spark/docs)
 
 Perform batch processing, querying, and streaming using a managed Apache Spark and Apache Hadoop service. 
+
+![](https://docs.cloud.google.com/_static/clouddocs/images/icons/categories/data-analytics-color.svg)
+
+####  [ Dataproc Metastore (Deprecated) ](https://docs.cloud.google.com/dataproc-metastore/docs)
+
+A fully managed Apache Hive metastore (HMS) that runs on Google Cloud. 
 
 ### Streaming
 
@@ -359,6 +353,6 @@ Use an end-to-end solution that delivers scalable and seamless connectivity betw
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-03 UTC.
 
-[[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+[[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 

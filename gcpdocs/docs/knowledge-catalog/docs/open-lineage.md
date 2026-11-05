@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/knowledge-catalog/docs/open-lineage/
 title: Integrate with OpenLineage \u00a0|\u00a0 Knowledge Catalog \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T20:27:29.502812+00:00
+fetched_at: 2026-11-05T00:04:51.432018+00:00
 ---
 
 # Integrate with OpenLineage  |  Knowledge Catalog  |  Google Cloud Documentation
@@ -23,13 +23,13 @@ Send feedback
 
 #  Integrate with OpenLineage Stay organized with collections  Save and categorize content based on your preferences. 
 
-This document explains how to integrate OpenLineage with Knowledge Catalog (formerly Dataplex Universal Catalog) to import and visualize data lineage from external systems. By acting as an OpenLineage consumer using the `ProcessOpenLineageRunEvent` REST API, Knowledge Catalog lets you unify custom pipeline lineage alongside built-in lineage from Google Cloud services.
+Data lineage in Knowledge Catalog (formerly Dataplex Universal Catalog) lets you import OpenLineage events to track and visualize data movement from external systems. You can unify custom pipeline lineage alongside built-in lineage from Google Cloud services in a single lineage graph.
 
 ## Overview
 
 [OpenLineage](https://openlineage.io/) is an open platform for collecting and analyzing data lineage information. Using an open standard for lineage data, OpenLineage captures lineage events from data pipeline components which use an OpenLineage API to report on runs, jobs, and datasets.
 
-Through the Data Lineage API, you can import OpenLineage events to display in the Knowledge Catalog web interface alongside lineage information from Google Cloud services, such as BigQuery, Managed Service for Apache Airflow, Cloud Data Fusion, and Managed Service for Apache Spark.
+Knowledge Catalog acts as an OpenLineage consumer through the Data Lineage API. You can import OpenLineage events from external systems and custom pipelines to display in the Knowledge Catalog web interface alongside built-in lineage information from Google Cloud services, such as BigQuery, Managed Service for Apache Airflow, Cloud Data Fusion, and Managed Service for Apache Spark.
 
 To import OpenLineage events that use the [OpenLineage specification](https://github.com/OpenLineage/OpenLineage/blob/main/spec/OpenLineage.json), use the [`ProcessOpenLineageRunEvent`](https://docs.cloud.google.com/knowledge-catalog/docs/reference/data-lineage/rest/v1/projects.locations/processOpenLineageRunEvent) REST API method, and map OpenLineage facets to Data Lineage API attributes.
 
@@ -411,6 +411,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-04 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 

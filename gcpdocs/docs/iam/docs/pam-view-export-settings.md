@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/iam/docs/pam-view-export-settings/
 title: View and export Privileged Access Manager settings \u00a0|\u00a0 Identity and Access Management (IAM) \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T08:00:27.404115+00:00
+fetched_at: 2026-11-04T23:44:39.249362+00:00
 ---
 
 # View and export Privileged Access Manager settings  |  Identity and Access Management (IAM)  |  Google Cloud Documentation

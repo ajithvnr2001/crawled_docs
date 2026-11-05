@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/cloud-ftp/quotas/
 title: Quotas and system limits \u00a0|\u00a0 Cloud FTP \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T06:15:07.595511+00:00
+fetched_at: 2026-11-05T00:19:29.672045+00:00
 ---
 
 # Quotas and system limits  |  Cloud FTP  |  Google Cloud Documentation
@@ -72,7 +72,7 @@ Connection limit (number of Private Service Connect endpoints that can be create
 Cloud FTP manages resources in Cloud Storage, such as objects and folders. This means that the resource naming requirements, quotas, and system limits for Cloud Storage also apply to Cloud FTP. For more information, see the following:
 
   * [Object naming considerations](https://docs.cloud.google.com/storage/docs/objects#naming)
-  * [Folder naming considerations](https://docs.cloud.google.com/storage/docs/folders-overview#considerations)
+  * [Folder naming considerations](https://docs.cloud.google.com/storage/docs/folders-overview#naming)
   * [Cloud Storage quotas and limits](https://docs.cloud.google.com/storage/quotas)
 
 
@@ -81,6 +81,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-28 UTC.
+Last updated 2026-11-03 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 

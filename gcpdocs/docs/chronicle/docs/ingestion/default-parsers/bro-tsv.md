@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/bro-tsv/
 title: Collect Zeek (formerly Bro) TSV logs \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T07:51:29.748227+00:00
+fetched_at: 2026-11-04T23:29:06.652246+00:00
 ---
 
 # Collect Zeek (formerly Bro) TSV logs  |  Google Security Operations  |  Google Cloud Documentation

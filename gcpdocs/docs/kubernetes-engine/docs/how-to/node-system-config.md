@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/kubernetes-engine/docs/how-to/node-system-config/
 title: Customizing node system configuration \u00a0|\u00a0 Google Kubernetes Engine (GKE) \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-01T05:43:29.263018+00:00
+fetched_at: 2026-11-05T00:04:52.238984+00:00
 ---
 
 # Customizing node system configuration  |  Google Kubernetes Engine (GKE)  |  Google Cloud Documentation
@@ -176,6 +176,10 @@ Write your node system configuration in YAML. The following example adds configu
       sysctl:
         net.core.somaxconn: '2048'
         net.ipv4.tcp_rmem: '4096 87380 6291456'
+      kernelOverrides:
+        kernelCommandlineOverrides:
+          specRstackOverflow: 'SPEC_RSTACK_OVERFLOW_OFF'
+          initOnAlloc: 'INIT_ON_ALLOC_OFF'
     
 
 In this example, the following applies:
@@ -183,6 +187,7 @@ In this example, the following applies:
   * The `cpuManagerPolicy: static` field configures the `kubelet` to use the [static CPU management policy](https://kubernetes.io/docs/tasks/administer-cluster/cpu-management-policies/#static-policy).
   * The `net.core.somaxconn: '2048'` field limits the `socket listen()` backlog to 2,048 bytes.
   * The `net.ipv4.tcp_rmem: '4096 87380 6291456'` field sets the minimum, default, and maximum value of the TCP socket receive buffer to 4,096 bytes, 87,380 bytes, and 6,291,456 bytes, respectively.
+  * The `kernelCommandlineOverrides` block disables the speculative return stack overflow (SRSO) mitigation and the `init_on_alloc` kernel parameter.
 
 
 
@@ -1125,6 +1130,115 @@ Available on GKE versions 1.36.0-gke.3009000 or later.
   
 Available on GKE versions 1.36.0-gke.3009000 or later.  
   
+## Linux kernel override options
+
+You can use a node system configuration file to override specific Linux kernel parameters, including the kernel command line and Multi-Gen LRU settings. These settings are supported for clusters running GKE versions 1.35.0-gke.1018000 or later.
+
+### Linux kernel command-line options
+
+The following table describes the modifiable kernel command-line options.
+
+Config parameter | Supported values | Description  
+---|---|---  
+`specRstackOverflow` | `SPEC_RSTACK_OVERFLOW_OFF` | Changes the speculative return stack overflow (SRSO) mitigation. The only supported value is `SPEC_RSTACK_OVERFLOW_OFF`.  
+`initOnAlloc` | `INIT_ON_ALLOC_OFF` | Changes the `init_on_alloc` parameter in the kernel command line. The only supported value is `INIT_ON_ALLOC_OFF`.  
+  
+### Multi-Gen LRU configuration options
+
+The following table describes the modifiable Multi-Gen LRU options.
+
+Config parameter | Supported values | Description  
+---|---|---  
+`enabled` | `true`, `false` | Enables or disables the Multi-Gen LRU. This setting configures the [kill switch](https://docs.kernel.org/admin-guide/mm/multigen_lru.html#kill-switch).  
+`minTtlMs` | Positive integer | Optional. Configures the `min_ttl_ms` thrashing prevention value for Multi-Gen LRU.  
+  
+## OS file configuration options
+
+You can use a node system configuration file to add entries to specific OS configuration files on your nodes. These settings are supported for clusters running GKE versions 1.35.0-gke.1018000 or later.
+
+### Additional /etc/hosts entries
+
+This field adds `/etc/hosts` file entries, such as in the following example:
+    
+    
+    linuxConfig:
+      additionalEtcHosts:
+        - ip: 1.2.3.4
+          host: myownpersonaldomain.com
+        - ip: 5.6.7.8
+          host: otherpersonaldomain.com
+    
+
+### Additional /etc/systemd/resolved.conf entries
+
+This field adds `/etc/systemd/resolved.conf` file entries. This field accepts an array of key-value pairs. The following keys are supported:
+
+  * `DNS`
+  * `FallbackDNS`
+  * `Domains`
+  * `LLMNR`
+  * `MulticastDNS`
+  * `DNSSEC`
+  * `DNSOverTLS`
+  * `Cache`
+  * `CacheFromLocalhost`
+  * `DNSStubListener`
+  * `DNSStubListenerExtra`
+  * `ReadEtcHosts`
+  * `ResolveUnicastSingleLabel`
+  * `StaleRetentionSec`
+
+
+
+The following example adds two DNS server values (8.8.8.8 and 8.8.4.4) to the `DNS` key and a domain value (`myownpersonaldomain.com`) to the `Domains` key:
+    
+    
+    linuxConfig:
+      additionalEtcSystemdResolvedConf:
+        - key: DNS
+          value:
+            - 8.8.8.8
+            - 8.8.4.4
+        - key: Domains
+          value:
+            - myownpersonaldomain.com
+    
+
+### Additional /etc/resolv.conf entries
+
+This field adds `/etc/resolv.conf` file entries. This field accepts an array of key-value pairs. The following keys are supported:
+
+  * `nameserver`
+  * `search`
+  * `sortlist`
+  * `options`
+
+
+
+The following example adds a DNS server value (1.1.1.1) to the `nameserver` key and a domain value (`myownpersonaldomain.com`) to the `search` key:
+    
+    
+    linuxConfig:
+      additionalEtcResolvConf:
+        - key: nameserver
+          value:
+            - 1.1.1.1
+        - key: search
+          value:
+            - myownpersonaldomain.com
+    
+
+## Time zone configuration
+
+The `timeZone` field sets the time zone on the node, for example, `America/Los_Angeles`. This setting is supported for clusters running GKE versions 1.35.0-gke.1018000 or later.
+
+The following example sets the `timeZone` field to `America/Los_Angeles`:
+    
+    
+    linuxConfig:
+      timeZone: America/Los_Angeles
+    
+
 ## What's next
 
   * Learn how to [migrate nodes to Linux cgroupv2](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/migrate-cgroupv2).
@@ -1138,6 +1252,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-30 UTC.
+Last updated 2026-11-04 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 

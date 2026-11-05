@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/transfer-appliance/docs/4.0/troubleshoot-online-mode/
 title: Troubleshoot online mode \u00a0|\u00a0 Transfer Appliance \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T05:45:45.619724+00:00
+fetched_at: 2026-11-04T23:41:27.198487+00:00
 ---
 
 # Troubleshoot online mode  |  Transfer Appliance  |  Google Cloud Documentation
@@ -61,6 +61,20 @@ Verify that you did the following items:
 **Solution:**
 
 Contact Transfer Appliance Team at [data-support@google.com](mailto:data-support@google.com) for assistance.
+
+## API has not been used in project or it is disabled
+
+**Error:**
+
+`Storage Transfer API has not been used in project PROJECT_NUMBER before or it is disabled.`
+
+A similar error can occur for the Pub/Sub API or the Cloud Storage API.
+
+**Solution:**
+
+Make sure that the required APIs are enabled in the project that you ordered the appliance from. If the appliance service account belongs to a different project, also enable the required APIs in the project that contains the service account. The project number in the error message identifies the project in which the API must be enabled.
+
+For the list of required APIs, see [Enable the APIs](https://docs.cloud.google.com/transfer-appliance/docs/4.0/prepare-online#enable-apis).
 
 ## Failed to update Operating System
 
@@ -123,6 +137,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-04 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 

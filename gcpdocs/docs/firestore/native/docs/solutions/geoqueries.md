@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/firestore/native/docs/solutions/geoqueries/
 title: Geo queries \u00a0|\u00a0 Firestore in Native mode \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T08:01:38.935432+00:00
+fetched_at: 2026-11-04T23:46:07.143829+00:00
 ---
 
 # Geo queries  |  Firestore in Native mode  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/swimlane/
 title: Collect Swimlane Platform logs \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T07:51:57.851121+00:00
+fetched_at: 2026-11-04T23:43:49.205449+00:00
 ---
 
 # Collect Swimlane Platform logs  |  Google Security Operations  |  Google Cloud Documentation

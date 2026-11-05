@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/storage/docs/json_api/v1/buckets/
 title: Buckets \u00a0|\u00a0 Cloud Storage \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T06:01:57.822207+00:00
+fetched_at: 2026-11-04T23:16:57.701032+00:00
 ---
 
 # Buckets  |  Cloud Storage  |  Google Cloud Documentation
@@ -186,7 +186,11 @@ To try out the methods for this resource, such as creating a new bucket, see Met
       },
       "softDeletePolicy": {
         "retentionDurationSeconds": long,
-        "effectiveTime": datetime
+        "effectiveTime": datetime,
+        "hardDeletePause": {
+          "enabled": boolean,
+          "effectiveTime": "datetime"
+        }
       },
       "rpo": string
     }
@@ -298,6 +302,9 @@ Format: `projects/PROJECT_ID/global/networks/NETWORK_NAME` |  writable
 `rpo` | `string` | The recovery point objective for cross-region replication of the bucket. Applicable only for dual- and multi-region buckets. `"DEFAULT"` uses default replication. `"ASYNC_TURBO"` enables turbo replication, valid for dual-region buckets only. If `rpo` is not specified when the bucket is created, it defaults to `"DEFAULT"`. For more information, see [redundancy across regions](https://docs.cloud.google.com/storage/docs/availability-durability#cross-region-redundancy). |  writable   
 `softDeletePolicy` | `object` |  The bucket's [soft delete policy](https://docs.cloud.google.com/storage/docs/soft-delete), which defines the period of time during which objects in the bucket are retained in a soft-deleted state after being deleted. Objects in a soft-deleted state cannot be permanently deleted, and are restorable until their `hardDeleteTime`.  | writable  
 `softDeletePolicy.effectiveTime` | `datetime` |  The datetime at which the soft delete policy becomes effective, in [RFC 3339](https://datatracker.ietf.org/doc/html/rfc3339) format. `softDeletePolicy.effectiveTime` is updated whenever `softDeletePolicy.retentionDurationSeconds` is increased. |   
+`softDeletePolicy.hardDeletePause` | `object` | The bucket's [hard delete pause settings](https://docs.cloud.google.com/storage/docs/pause-hard-deletions). When hard deletions are paused for a bucket, soft-deleted objects in the bucket are prevented from being permanently deleted, regardless of their soft delete retention durations. | writable  
+`softDeletePolicy.hardDeletePause.enabled` | `boolean` | When set to `true`, soft-deleted objects in the bucket are prevented from being permanently deleted, regardless of their soft delete retention durations. The default is `false`. | writable  
+`softDeletePolicy.hardDeletePause.effectiveTime` | `datetime` | The time when hard deletions were paused for the bucket, in [RFC 3339](https://datatracker.ietf.org/doc/html/rfc3339) format. |   
 `softDeletePolicy.retentionDurationSeconds` | `long` |  The period of time during which a soft-deleted object is retained and cannot be permanently deleted, in seconds. The value must be greater than or equal to 7 days and less than 90 days. The value can also be set to `0`, which disables the soft delete policy.  | writable  
 `storageClass` | `string` | The bucket's default storage class, used whenever no `storageClass` is specified for a newly-created object. If `storageClass` is not specified when the bucket is created, it defaults to `"STANDARD"`. For available storage classes, see [Storage classes](https://docs.cloud.google.com/storage/docs/storage-classes). |  writable   
 `timeCreated` | `datetime`1 | The creation time of the bucket in [RFC 3339](https://datatracker.ietf.org/doc/html/rfc3339) format. |   
@@ -352,6 +359,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-30 UTC.
+Last updated 2026-11-04 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 

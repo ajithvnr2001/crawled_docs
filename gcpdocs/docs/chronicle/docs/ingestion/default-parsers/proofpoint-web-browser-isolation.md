@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/proofpoint-web-browser-isolation/
 title: Collect Proofpoint Web Browser Isolation logs \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T07:50:48.973667+00:00
+fetched_at: 2026-11-04T23:34:26.703586+00:00
 ---
 
 # Collect Proofpoint Web Browser Isolation logs  |  Google Security Operations  |  Google Cloud Documentation

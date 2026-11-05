@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/kubernetes-engine/docs/how-to/routes-based-cluster/
 title: Creating a routes-based cluster \u00a0|\u00a0 GKE networking \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T23:36:59.090185+00:00
+fetched_at: 2026-11-04T23:31:26.324017+00:00
 ---
 
 # Creating a routes-based cluster  |  GKE networking  |  Google Cloud Documentation
@@ -28,7 +28,7 @@ This page shows how to create a routes-based cluster in Google Kubernetes Engine
 
 ## Overview
 
-In GKE, clusters can be distinguished according to the way they route traffic from one Pod to another Pod. A cluster that uses [Google Cloud Routes](https://docs.cloud.google.com/vpc/docs/routes) is called a _routes-based cluster_. A cluster that uses Alias IPs is called a _VPC-native cluster_.
+In GKE, clusters can be distinguished according to the way they route traffic from one Pod to another Pod. A cluster that uses [Google Cloud Routes](https://docs.cloud.google.com/vpc/docs/routes) is called a _routes-based cluster_. A cluster where Pod IP addresses are natively routable within the VPC network is called a _VPC-native cluster_ (using alias IP addresses for IPv4 and dual-stack clusters, or direct subnetwork allocation for single-stack IPv6 clusters).
 
 [VPC-native](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/alias-ips) is the recommended type and is the default for new clusters in GKE versions 1.21.0-gke.1500 and later. To create a routes-based cluster, you must explicitly turn off the VPC-native option.
 
@@ -273,6 +273,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-04 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/managed-spark/docs/concepts/accessing/migrate-hadoop/
 title: Migrate Hadoop \u00a0|\u00a0 Managed Service for Apache Spark \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T21:58:05.917188+00:00
+fetched_at: 2026-11-05T00:20:19.205851+00:00
 ---
 
 # Migrate Hadoop  |  Managed Service for Apache Spark  |  Google Cloud Documentation
@@ -23,17 +23,14 @@ Send feedback
 
 #  Migrate Hadoop Stay organized with collections  Save and categorize content based on your preferences. 
 
-To migrate Apache Hadoop workflows and data to Google Cloud and Managed Service for Apache Spark, see the following documents:
+Migrating Apache Hadoop workloads to Google Cloud and Managed Service for Apache Spark lets you decouple compute from storage and reduce cluster maintenance overhead. This transition helps you scale big data processing dynamically while lowering operating costs.
 
-  * [Migrating On-Premises Hadoop Infrastructure to Google Cloud](https://docs.cloud.google.com/architecture/hadoop)
-  * [Migrating HDFS Data from On-Premises to Google Cloud](https://docs.cloud.google.com/architecture/hadoop/hadoop-gcp-migration-data)
-
-
+To plan your architecture and transfer your datasets, see [Migrating On-Premises Hadoop Infrastructure to Google Cloud](https://docs.cloud.google.com/architecture/hadoop) and [Migrating HDFS Data from On-Premises to Google Cloud](https://docs.cloud.google.com/architecture/hadoop/hadoop-gcp-migration-data).
 
 Send feedback 
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-03 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 

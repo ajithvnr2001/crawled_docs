@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/llama/use-llama/
 title: Request Llama predictions \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T05:56:43.494502+00:00
+fetched_at: 2026-11-04T23:16:17.621412+00:00
 ---
 
 # Request Llama predictions  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation
@@ -329,9 +329,9 @@ By default, Llama Guard 3 8B is enabled on all predictions that you make with Ll
 
 If you want to disable Llama Guard, modify the model safety setting. For more information, see the `model_safety_settings` field in the streaming or unary example.
 
-### Use Vertex AI Studio
+### Use Agent Studio
 
-For Llama models, you can use Vertex AI Studio to quickly prototype and test generative AI models in the Google Cloud console. As an example, you can use Vertex AI Studio to compare Llama model responses with other supported models such as Google's Gemini.
+For Llama models, you can use Agent Studio to quickly prototype and test generative AI models in the Google Cloud console. As an example, you can use Agent Studio to compare Llama model responses with other supported models such as Google's Gemini.
 
 ## Llama model region availability and quotas
 
@@ -361,6 +361,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-30 UTC.
+Last updated 2026-11-04 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 

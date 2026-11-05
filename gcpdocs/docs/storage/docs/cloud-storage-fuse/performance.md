@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/storage/docs/cloud-storage-fuse/performance/
 title: Performance tuning best practices \u00a0|\u00a0 Cloud Storage \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-03T09:41:55.445945+00:00
+fetched_at: 2026-11-05T00:20:42.263904+00:00
 ---
 
 # Performance tuning best practices  |  Cloud Storage  |  Google Cloud Documentation
@@ -707,9 +707,9 @@ To enable JIT caching, you must meet the following requirements:
 
 
 
-## Configure Receive Flow Steering (RFS) for A4X
+## Configure Receive Flow Steering (RFS) for A4X and A4X Max
 
-On Compute Engine instances, [Receive Packet Steering (RPS)](https://www.kernel.org/doc/html/latest/networking/scaling.html#receive-packet-steering-rps) and [Receive Flow Steering (RFS)](https://www.kernel.org/doc/html/latest/networking/scaling.html#receive-flow-steering-rfs) work together to improve network performance by intelligently distributing the processing of network packets across multiple CPUs. We recommend these settings for high-rate network traffic on machine types such as [A4X](https://docs.cloud.google.com/compute/docs/accelerator-optimized-machines#a4x-series).
+On Compute Engine instances, [Receive Packet Steering (RPS)](https://www.kernel.org/doc/html/latest/networking/scaling.html#receive-packet-steering-rps) and [Receive Flow Steering (RFS)](https://www.kernel.org/doc/html/latest/networking/scaling.html#receive-flow-steering-rfs) work together to improve network performance by intelligently distributing the processing of network packets across multiple CPUs. We recommend these settings for high-rate network traffic on machine types such as [A4X and A4X Max](https://docs.cloud.google.com/compute/docs/accelerator-optimized-machines#a4x-series).
 
   * RPS distributes incoming network packets across different CPUs for processing. This helps to balance the load and prevent a single CPU from becoming a bottleneck, which is especially useful for high-rate network traffic and can contribute to lower latency.
 
@@ -834,6 +834,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-30 UTC.
+Last updated 2026-11-03 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 

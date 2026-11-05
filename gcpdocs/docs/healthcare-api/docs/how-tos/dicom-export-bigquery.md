@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/healthcare-api/docs/how-tos/dicom-export-bigquery/
 title: Exporting DICOM metadata to BigQuery \u00a0|\u00a0 Cloud Healthcare API \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T08:00:45.554247+00:00
+fetched_at: 2026-11-04T23:45:18.074700+00:00
 ---
 
 # Exporting DICOM metadata to BigQuery  |  Cloud Healthcare API  |  Google Cloud Documentation

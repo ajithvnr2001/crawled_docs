@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/vmware-engine/docs/vmware-platform/howto-identity-sources/
 title: Configure authentication using Active Directory \u00a0|\u00a0 Google Cloud VMware Engine \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T20:28:04.562449+00:00
+fetched_at: 2026-11-05T00:20:11.586264+00:00
 ---
 
 # Configure authentication using Active Directory  |  Google Cloud VMware Engine  |  Google Cloud Documentation
@@ -44,9 +44,9 @@ Base DN for users | The base distinguished name for users.
 Domain name | The FQDN of the domain, for example, `example.com`. Don't provide an IP address in this field.  
 Domain alias | The domain NetBIOS name. If you use SSPI authentication, add the NetBIOS name of the Active Directory domain as an alias of the identity source.  
 Base DN for groups | The base distinguished name for groups.  
-Primary server URL |  The primary domain controller LDAP server for the domain. Use the format `ldap://hostname:port` or `ldaps://hostname:port`. The port is typically 389 for LDAP connections and 636 for LDAPS connections. For Active Directory multi-domain controller deployments, the port is typically 3268 for LDAP and 3269 for LDAPS. A certificate that establishes trust for the LDAPS endpoint of the Active Directory server is required when you use `ldaps://` in the primary or secondary LDAP URL.  
+Primary server URL |  The primary domain controller LDAP server for the domain. Use the format `ldap://hostname:port` or `ldaps://hostname:port`. The port is typically 389 for LDAP connections and 636 for LDAPS connections. For Active Directory multi-domain controller deployments, the port is typically 3268 for LDAP and 3269 for LDAPS. When you use `ldaps://` in the primary or secondary LDAP URL, you must provide a Base64-encoded X.509 certificate in PEM or CER format that establishes trust for the full certificate path, including the root certificate authority (CA) certificate and any intermediate CA certificates.  
 Secondary server URL | The address of a secondary domain controller LDAP server that is used for failover.  
-Choose certificate | To use LDAPS with your Active Directory LDAP server or OpenLDAP server identity source, click the **Choose certificate** button that appears after you type `ldaps://` in the URL field. A secondary server URL isn't required.  
+Choose certificate |  To use LDAPS with your Active Directory LDAP server or OpenLDAP server identity source, click the **Choose certificate** button that appears after you type `ldaps://` in the URL field. A secondary server URL isn't required. Upload a PEM-encoded or CER-encoded X.509 certificate file that includes the root CA certificate and any intermediate CA certificates in the trust chain. Because domain controllers typically don't send the root CA certificate during the TLS handshake, uploading only the domain controller leaf certificate causes TLS validation to fail and returns a `Can't contact LDAP server` error even when TCP connectivity on port 636 or 3269 succeeds.  
 Username | The ID of a user in the domain who has a minimum of read-only access to the base DN for users and groups.  
 Password | The password of the user who is specified by **Username**.  
   
@@ -59,7 +59,7 @@ The following steps describe how to add your on-premises Active Directory as an 
   3. Select **Single Sign On > Configuration**.
   4. Open the **Identity Sources** tab and click **+Add** to add a new identity source.
   5. Select **Active Directory as an LDAP Server** , and click **Next**.
-  6. Specify the identity source parameters for your environment, and click **Next**.
+  6. Specify the identity source parameters for your environment. If you enter an `ldaps://` URL, click **Choose certificate** and upload the Base64-encoded X.509 certificate file that contains your root CA certificate and any intermediate CA certificates, and then click **Next**.
   7. Review the settings, and click **Finish**.
 
 
@@ -76,7 +76,7 @@ These steps describe how to add an identity source in NSX Manager. If you want t
   6. In the **Type** column, select **Active Directory over LDAP**.
   7. In the **LDAP Servers** column, click **Set** .
   8. In the **Set LDAP Server** window, click **Add LDAP Server**.
-  9. Specify the LDAP server parameters and click **Check status** to verify the connection from NSX manager to your LDAP server.
+  9. Specify the LDAP server parameters. If you select **LDAPS** as the protocol, provide the Base64-encoded X.509 certificate that contains your root CA certificate and any intermediate CA certificates in the **Certificates** field, and then click **Check status** to verify the connection from NSX Manager to your LDAP server.
   10. Click **Add** to add the LDAP server.
   11. Click **Apply** and then click **Save**.
 
@@ -108,6 +108,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-27 UTC.
+Last updated 2026-11-03 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 

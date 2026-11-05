@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chronicle/docs/soar/respond/working-with-playbooks/using-reaction-triggers-in-playbooks/
 title: Use reaction triggers in playbooks \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T10:00:07.107634+00:00
+fetched_at: 2026-11-04T23:33:47.656088+00:00
 ---
 
 # Use reaction triggers in playbooks  |  Google Security Operations  |  Google Cloud Documentation
@@ -121,7 +121,7 @@ To configure a playbook to react to specific platform events or data modificatio
 
      * If using **Case Stage Changed** (Case scope): Configure the `Stage changed from` and `Stage changed to` parameters to detect when a case transitions between different phases of the investigation lifecycle (such as moving from `Triage` to `Containment`).
 
-**Note:** Available investigation stages are configured in the SOAR settings by an administrator.
+**Note:** Available investigation stages are configured in the **Settings** by an administrator.
      * If using **Case Tag Added** (Case scope): Configure the parameters to detect when a tag is added to the case container. Select the appropriate tag from the menu and define whether the trigger logic validates the addition event.
 
   9. To reduce the number of unwanted executions, go to the **Define additional conditions (optional)** section to define criteria that are not directly tied to the reaction trigger itself.
@@ -211,6 +211,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-28 UTC.
+Last updated 2026-11-04 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 

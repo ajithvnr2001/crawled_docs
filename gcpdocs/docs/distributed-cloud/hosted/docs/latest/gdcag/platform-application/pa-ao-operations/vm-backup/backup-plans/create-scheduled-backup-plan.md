@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/platform-application/pa-ao-operations/vm-backup/backup-plans/create-scheduled-backup-plan/
 title: Create a scheduled backup plan \u00a0|\u00a0 Google Distributed Cloud air-gapped \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T19:30:17.717843+00:00
+fetched_at: 2026-11-04T23:28:35.901420+00:00
 ---
 
 # Create a scheduled backup plan  |  Google Distributed Cloud air-gapped  |  Google Cloud Documentation
@@ -42,7 +42,7 @@ To manage the lifecycle of VM backup resources, including creating, viewing, and
 
 ## Create a backup plan template for VMs
 
-**Deprecated:** The `VirtualMachineBackupPlanTemplate` resource is deprecated in release 1.18. GDC supports existing template resources, but you can't create new backup plans with the `VirtualMachineBackupPlanTemplate` resource. Instead, use the direct `backupRepository` reference in `VirtualMachineBackupPlan` to create backup plans. 
+**Deprecated:** Starting in version 1.18, GDC deprecates the `VirtualMachineBackupPlanTemplate` resource. Existing and new templates continue to work, with deprecation warnings, until at least November 9, 2027. After that, new templates might not be accepted. Instead, set the `backupRepository` field directly in the `VirtualMachineBackupPlan` resource. To migrate an existing plan, edit the `VirtualMachineBackupPlan` resource: set `spec.backupConfig.backupRepository` to the repository named in the template's `spec.backupRepository` field, and remove the `spec.virtualMachineBackupPlanTemplate` field. You can't edit a deactivated backup plan. If GDC created a backup plan automatically for a `VirtualMachineBackupRequest` resource that set `spec.virtualMachineBackupPlanTemplate`, migrate that `VirtualMachineBackupPlan` resource first; then, in new `VirtualMachineBackupRequest` resources, set `spec.virtualMachineBackupPlan` instead of `spec.virtualMachineBackupPlanTemplate`, and omit `spec.virtualMachine` and `spec.virtualMachineDisk`. 
 
 To plan your backups, create a `VirtualMachineBackupPlanTemplate` custom resource. Here's an example of a `VirtualMachineBackupPlanTemplate`:
     
@@ -226,6 +226,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-04 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 

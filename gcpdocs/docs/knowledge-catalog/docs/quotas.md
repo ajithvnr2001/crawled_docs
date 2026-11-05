@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/knowledge-catalog/docs/quotas/
 title: Quotas and limits \u00a0|\u00a0 Knowledge Catalog \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T09:56:33.643449+00:00
+fetched_at: 2026-11-04T23:31:59.226172+00:00
 ---
 
 # Quotas and limits  |  Knowledge Catalog  |  Google Cloud Documentation
@@ -83,6 +83,14 @@ Read requests for aspect types, entry types, and entry groups per project per us
 Read requests for aspect types, entry types, and entry groups per project per region per minute | 200  
 Write requests for aspect types, entry types, and entry groups per project per user per region per minute | 10  
 Write requests for aspect types, entry types, and entry groups per project per region per minute | 20  
+Read requests for business glossaries per project per region per minute | 500  
+Read requests for business glossaries per project per user per region per minute | 200  
+Write requests for business glossaries per project per region per minute | 250  
+Write requests for business glossaries per project per user per region per minute | 100  
+Read requests for entry links per project per region per minute | 1000  
+Read requests for entry links per project per user per region per minute | 400  
+Write requests for entry links per project per region per minute | 500  
+Write requests for entry links per project per user per region per minute | 200  
 Search requests per project per user per minute | 900  
 Search requests per project per minute | 1,200  
 Search requests per organization per minute | 2,400  
@@ -171,6 +179,37 @@ Write requests for enrichment task resources (such as `Create`, `Update`, and `D
 Run requests for enrichment task resources per project per region per minute | 20  
 Maximum number of enrichment tasks (`AgentTask` resources) per project per region | 100  
   
+## Quotas and limits for data insights
+
+Data insights uses the Data Analytics API with Gemini (`geminidataanalytics.googleapis.com`) to meter input and output token consumption. By default, daily token quotas are set to unlimited, which lets all insights scans run without interruption.
+
+To control costs in a Google Cloud project, administrators can monitor daily token consumption and set custom daily limits on paid input tokens and paid output tokens. For more information about monitoring token usage for data insights, see [Monitor data insights token usage](https://docs.cloud.google.com/knowledge-catalog/docs/monitor-insights-token-usage).
+
+### Available token quotas
+
+The following token quotas apply to data insights:
+
+Quota | Service | Metric name | Scope and reset window | Default limit  
+---|---|---|---|---  
+Paid input tokens per day per project for Knowledge Catalog Insights | Data Analytics API with Gemini (`geminidataanalytics.googleapis.com`) |  `geminidataanalytics.googleapis.com/cost_control/kc_insights/paid_input_tokens` |  Per project, per day (resets daily at midnight Pacific Time, 00:00 PT)  | Unlimited  
+Paid output tokens per day per project for Knowledge Catalog Insights | Data Analytics API with Gemini (`geminidataanalytics.googleapis.com`) |  `geminidataanalytics.googleapis.com/cost_control/kc_insights/paid_output_tokens` |  Per project, per day (resets daily at midnight Pacific Time, 00:00 PT)  | Unlimited  
+  
+### Check and manage daily token quotas
+
+You can view your current token usage, view usage charts, and set or reset daily token caps on the [**Quotas & System Limits**](https://console.cloud.google.com/iam-admin/quotas) page in the Google Cloud console by filtering for **Service: Data Analytics API with Gemini**.
+
+For step-by-step instructions and required permissions, see the following Cloud Quotas documentation:
+
+  * **Check usage and charts** : see [View the quotas for your project](https://docs.cloud.google.com/docs/quotas/view-manage#view_project_quotas) and [View and export quota usage over time](https://docs.cloud.google.com/docs/quotas/view-manage#charts). Token usage is updated asynchronously after a scan completes and isn't real time.
+  * **Set or reset a daily cap** : see [Create a quota override](https://docs.cloud.google.com/docs/quotas/view-manage#create_override) and [Reset a quota value](https://docs.cloud.google.com/docs/quotas/view-manage#reset_quota). Set a positive integer to cap daily token usage for the project, set `0` to pause all new paid insights generation immediately, or reset the quota value to restore the unlimited default.
+
+Changing a quota limit doesn't reset the tokens already consumed today. Instead, the **Current usage percentage** column immediately recalculates against your new limit: 
+
+  * If you set the limit lower than today's existing token usage, current usage immediately reaches 100% and new scans are blocked for the rest of the day. 
+  * If you set the limit higher than today's existing token usage (or reset it to unlimited), new scans can run immediately using the remaining daily allowance.
+
+
+
 ## Quotas for resources
 
 Resource quota is enforced at per-project level for the following resource types: lake, zone, asset, on-demand task, recurring task. You can check your current usage of Knowledge Catalog quota on the **Quotas** page in the Google Cloud console.
@@ -183,7 +222,7 @@ Resource quota is enforced at per-project level for the following resource types
 
   2. Select the quota you want to modify.
 
-  3. Click more_vert**More actions > Edit quota**.
+  3. Click more_vert**More actions** > Edit quota**.
 
   4. Enter the new quota value and a request description.
 
@@ -248,6 +287,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-28 UTC.
+Last updated 2026-11-04 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 

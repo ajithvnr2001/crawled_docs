@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/windows-defender-av/
 title: Collect Windows Defender Antivirus logs \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T07:50:28.860650+00:00
+fetched_at: 2026-11-04T23:43:08.517985+00:00
 ---
 
 # Collect Windows Defender Antivirus logs  |  Google Security Operations  |  Google Cloud Documentation

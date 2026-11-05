@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/firestore/native/docs/understand-error-codes/
 title: Understand error codes \u00a0|\u00a0 Firestore in Native mode \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T08:01:25.449322+00:00
+fetched_at: 2026-11-04T23:45:41.186280+00:00
 ---
 
 # Understand error codes  |  Firestore in Native mode  |  Google Cloud Documentation

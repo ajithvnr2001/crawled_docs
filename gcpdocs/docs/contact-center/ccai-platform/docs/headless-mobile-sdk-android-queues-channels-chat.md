@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/contact-center/ccai-platform/docs/headless-mobile-sdk-android-queues-channels-chat/
 title: Headless mobile SDK for Android: Queues, channels, and chat \u00a0|\u00a0 Google Cloud Contact Center as a Service \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T23:27:40.656968+00:00
+fetched_at: 2026-11-05T00:17:51.481027+00:00
 ---
 
 # Headless mobile SDK for Android: Queues, channels, and chat  |  Google Cloud Contact Center as a Service  |  Google Cloud Documentation
@@ -25,7 +25,9 @@ This document explains how to make support entry points (queues and channels) av
 
 ## Before you begin
 
-Set up the SDK. For more information, see [Headless mobile SDK for Android: getting started](https://docs.cloud.google.com/contact-center/ccai-platform/docs/headless-mobile-sdk).
+Set up the SDK. For more information, see [Headless mobile SDK for Android: Get started](https://docs.cloud.google.com/contact-center/ccai-platform/docs/headless-mobile-sdk-android-getting-started).
+
+**Note:** For brevity, most samples in this series catch only `Exception`. The SDK also throws `NetworkError` and `ChatServiceError`, which extend `Error`, and `ChatNetworkError`, which extends `Throwable`. An error that no handler catches crashes your app. In production code, use the pattern in [Handling SDK errors in Headless mobile SDK for Android: Advanced topics, localization, and post-session flows](https://docs.cloud.google.com/contact-center/ccai-platform/docs/headless-mobile-sdk-android-advanced-topics#handle-sdk-errors).
 
 ## Select queues and channels
 
@@ -65,20 +67,20 @@ In your app, a typical flow is:
 
 
 
-**Fetching queue menus from the SDK:**
+#### Fetch queue menus from the SDK
 
-The SDK provides `queueMenuService` to fetch queue menus. The `get` method returns a `MenuResult` containing a `List<QueueMenu>` and a `Boolean` indicating direct access. You can either fetch the full menu tree or use a direct access key to jump directly to a specific queue:
+The SDK provides `queueMenuService` to fetch queue menus. The `get` method returns a `QueueMenuResult` containing the list of queues (`List<QueueMenu>`) and an `isDirectAccess` flag. You can either fetch the full menu tree or use a Direct Access Key to jump directly to a specific queue:
     
     
     import com.ccaiplatform.ccaikit.CCAI
-    import com.ccaiplatform.ccaikit.MenuResult
-    import com.ccaiplatform.ccaikit.QueueMenu
+    import com.ccaiplatform.ccaikit.models.response.queuemenu.QueueMenuResult
+    import com.ccaiplatform.ccaikit.models.response.queuemenu.QueueMenu
     
     // Fetch the full queue menu tree
-    val menuResult: MenuResult? = CCAI.queueMenuService?.get()
+    val menuResult: QueueMenuResult? = CCAI.queueMenuService?.get()
     
     // Or fetch a specific queue using a Direct Access Key
-    val menuResult: MenuResult? = CCAI.queueMenuService?.get(key = "billing_vip")
+    val menuResult: QueueMenuResult? = CCAI.queueMenuService?.get(key = "billing_vip")
     
 
 The optional `key` parameter lets you bypass the full queue menu and jump the user directly to a specific queue. In the CCAI Platform platform, this is achieved with a direct access point (DAP).
@@ -96,7 +98,7 @@ A DAP can be configured by administrators in the CCAI Platform portal in the fol
 
 
 
-**`QueueMenu` data structure:**
+#### `QueueMenu` data structure
 
 Each `QueueMenu` contains:
 
@@ -105,12 +107,12 @@ Property | Type | Description
 `id` | Int | The unique identifier for this queue.  
 `name` | String? | The display name (for example, "Billing Support").  
 `children` | List<QueueMenu> | Sub-menus (empty list if this is a leaf node).  
-`channels` | Channels | Available channels for this queue.  
+`channels` | Channels? | Available channels for this queue.  
 `hidden` | Boolean | Whether this queue should be hidden from consumers (administrator configured).  
 `position` | Int? | Server-defined display position - preserves administrator portal ordering.  
 `settings` | List<QueueMenuSetting>? | Queue-level settings configured in the administrator portal.  
-`redirectionExtra` | QueueMenuRedirection? | Automatic redirection metadata when configured (see [Redirect and deflection](https://support.ujet.co/hc/en-us/articles/57485702631961-Headless-Mobile-SDK-v3-for-Android-Queues-Channels-and-Chat#redirectanddeflection)).  
-`deflectionFrom` | List<QueueMenuDeflection>? | Deflection configuration for this queue (see [Deflection](https://support.ujet.co/hc/en-us/articles/57489070509721-Headless-Mobile-SDK-v3-for-Android-Smart-Actions-Attachments-and-Deflection#deflectionafterhoursandovercapacity\)%20in%20\[Headless%20Mobile%20SDK%20for%20Android:%20Smart%20Actions,%20Attachments,%20and%20Deflection\]\(https://support.ujet.co/hc/en-us/articles/57489070509721-Headless-Mobile-SDK-v3-for-Android-Smart-Actions-Attachments-and-Deflection)).  
+`redirectionExtra` | QueueMenuRedirection? | Automatic redirection metadata when configured (see Redirect and deflection).  
+`deflectionFrom` | List<QueueMenuDeflection>? | The queues that deflected to this one. The platform returns this queue in their place, so a non-empty list explains a redirect that already happened (see [Deflection](https://docs.cloud.google.com/contact-center/ccai-platform/docs/headless-mobile-sdk-android-smart-actions#deflection_after_hours_and_over-capacity))  
   
 The `Channels` data class has these properties:
 
@@ -121,7 +123,7 @@ Property | Type | Description
 `email` | EmailChannel? | Email channel configuration (`null` if email isn't available). Access the address using `channels.email?.email`.  
 `externalDeflectionLink` | ExternalDeflectionLink? | External deflection link configuration (`null` if not available). Access the URL using the structured type's properties.  
   
-**`VoiceCallChannel` fields (capability and deflection metadata):**
+#### `VoiceCallChannel` fields (capability and deflection metadata)
     
     
     // VoiceCallChannel.kt (simplified)
@@ -138,28 +140,31 @@ Property | Type | Description
     )
     
 
-**Implementation example:**
+#### Implementation example
     
     
     fun showAvailableChannels(queueMenu: QueueMenu) {
         val channels = queueMenu.channels
     
-        // Update your custom UI based on what the SDK says is active
-        chatButton.isVisible = channels.chat != null
-        callButton.isVisible = channels.voiceCall != null
-        emailButton.isVisible = channels.email != null
+        val voice = channels?.voiceCall
     
-        // External deflection link
-        if (channels.externalDeflectionLink != null) {
-            deflectionLinkButton.isVisible = true
-            deflectionLinkButton.setOnClickListener {
-                openAndroidBrowser(channels.externalDeflectionLink!!)
-            }
-        }
+        // Show only what the platform enabled, and hide everything else so
+        // nothing carries over from a previously selected queue
+        chatButton.isVisible = channels?.chat?.enabled == true
+        callButton.isVisible = voice != null && voice.instantEnabled && !voice.deflected
+        scheduleButton.isVisible = voice?.scheduleEnabled == true
+        emailButton.isVisible = channels?.email?.enabled == true
+    
+        // External deflection links: the enabled entries that have a URL
+        val links = channels?.externalDeflectionLink
+            ?.takeIf { it.enabled }
+            ?.links.orEmpty()
+            .filter { it.enabled && it.url != null }
+        helpLinksButton.isVisible = links.isNotEmpty()
     }
     
 
-**Fetching wait times:**
+#### Fetching wait times
 
 You can also retrieve estimated wait times for a specific queue:
     
@@ -189,29 +194,16 @@ The SDK's configuration and metadata tells you which channels are allowed; your 
 
 ### Redirect and deflection
 
-Queues can be configured to **redirect** or **deflect** users to alternate destinations:
+Admins can configure a queue to redirect users instead of offering channels. When `QueueMenu.redirectionExtra` is set, act on it as soon as the user selects the queue:
 
-  * Redirect to a different queue.
-
-  * Open a phone number or URL.
-
-  * Present a message and alternate options.
+  * `option` says what to do: PHONE, MESSAGE, URL, VOICEMAIL, QUEUE, SIP, or CONTACT.
+  * `data` carries the value, such as the number to dial, the message to show, or the URL to open.
 
 
 
+`QueueMenu.deflectionFrom` is different. When a queue deflects to another queue, the platform returns the destination queue in place of the one the user selected and lists the source queues in deflectionFrom. It explains a redirect that already happened; it isn't a set of options to offer.
 
-When the SDK indicates a redirect or deflection for the selected queue (using the `redirectionExtra` and `deflectionFrom` properties on `QueueMenu`), your app should:
-
-  * Show any message text configured in CCAI Platform.
-
-  * Present any options that are configured (for example, **Call this number** or **Visit our help center**).
-
-  * Perform the selected action.
-
-
-
-
-For deeper handling of after-hours and over-capacity deflection, see [Headless Mobile SDK for Android: Smart Actions, Attachments, and Deflection](https://docs.cloud.google.com/contact-center/ccai-platform/docs/headless-mobile-sdk-android-smart-actions)
+After-hours and over-capacity deflection is reported per channel. For how to handle it, see [Headless Mobile SDK for Android: Smart Actions, Attachments, and Deflection](https://docs.cloud.google.com/contact-center/ccai-platform/docs/headless-mobile-sdk-android-smart-actions).
 
 ## Channels
 
@@ -267,29 +259,32 @@ Method | Description
 `resumeChat` | Resumes a previously established chat session.  
 `escalateToHumanAgent` | Transfers from a virtual agent to a human agent.  
 `checkStatus` | Refreshes the current chat status from the server.  
-**Note:** The `chatService` exposes 23 methods in total; this includes smart action tracking (`notifySmartActionReceived`, `updateSmartActionStatus`), form handling (`fetchWebForm`, `getCustomFormDetails`, `submitCustomForm`), post-session management (`startPostSession`, `readyPostSession`), transcript download (`downloadChatTranscript`), and attachment download (`downloadMedia`). For complete method signatures and parameters, see the Headless Mobile SDK - Android API Reference.
+**Note:** Beyond these core methods, the `chatService` also provides smart action tracking (`notifySmartActionReceived`, `updateSmartActionStatus`), form handling (`fetchWebForm`, `getCustomFormDetails`, `submitCustomForm`), post-session management (`startPostSession`, `readyPostSession`), transcript download (`downloadChatTranscript`, `downloadChatTranscriptData`), and attachment download (`downloadMedia`). For complete method signatures and parameters, see the Headless Mobile SDK - Android API Reference.
 
-### Chat Request and Chat Response data structures
+### `ChatRequest` and `ChatResponse` data structures
 
 The `ChatRequest` data class contains the configuration for starting a new chat:
     
     
     data class ChatRequest(
-        val chat: Chat,                     // Required: session configuration
-        val isScreenShareable: Boolean?     // Optional: enable screen share for this session
+        val chat: Chat? = null,                 // The session configuration (always pass one)
+        val isScreenShareable: Boolean? = null, // Optional: enable screen share for this session
+        val isVerifiable: Boolean? = null       // Optional: allow verification smart actions
     )
     
     data class Chat(
         val menuId: Int,                    // Required: queue menu ID
-        val languageCode: String? = "en",   // Optional: language code override (serialized as "lang"; defaults to "en")
+        val lang: String? = "en",           // Optional: language code override (defaults to "en")
         val ticketId: String? = null,       // Optional: associate with existing ticket
         val greeting: String? = null,       // Optional: custom greeting message
         val customData: CustomData? = null, // Optional: structured custom data
-        val displayOrderInAdapter: List<String>? = null
+        val displayOrderInAdapter: List<String>? = null,
+        val directAccessKeyId: Int? = null, // Optional: from QueueMenuResult (Direct Access Point)
+        val dapRequestId: String? = null    // Optional: from QueueMenuResult (Direct Access Point)
     )
     
 
-The `ChatResponse` is returned when you start or resume a chat. The properties you reference most in this document include:
+After you start or resume a chat, the SDK delivers its `ChatResponse` on the `chatReceived` Flow (`start()` and `resumeChat()` return nothing). The properties you reference most in this guide include:
 
   * `id` \- the unique chat session identifier.
 
@@ -297,72 +292,71 @@ The `ChatResponse` is returned when you start or resume a chat. The properties y
 
   * `agent` / `virtualAgent` \- the assigned human or virtual agent.
 
-  * `postSessionRequired` \- whether a post-session flow (CSAT, survey, VA) should be triggered.
+  * `postSessionRequired` \- whether a post-session virtual agent is configured for the session. Surveys and CSAT are signaled by `surveyEnabled` and `csatSetting`.
 
   * `redactionEnabled` \- whether automatic PII redaction is active for this session.
 
 
 **Note:** `ChatResponse` contains 20 properties in total (including `providerType`, `region`, `allAgents`, `allVirtualAgents`, `menus`, `features`, `timeoutAt`, `statusText`, `providerChannelId`, `postSessionOptInRequired`, `postSessionTransferStatus`, `csatSetting`, `surveyEnabled`, and more). For the full data class definition, see the Headless Mobile SDK - Android API Reference.
 
-### Starting a chat session
+### Start a chat session
 
-**Warning:** Always call `getLastChatInProgress()` before starting a new chat. If an earlier session is still active (for example, the app was force-quit mid-conversation, or the user switched accounts), starting a second chat fails or produces undefined behavior. This check is especially critical when `userId` changes between sessions.
-    
-    
-    // Before every call to chatService.start()
-    lifecycleScope.launch {
-        val existing = CCAI.chatService?.getLastChatInProgress()
-        if (existing != null) {
-            // An active session already exists - resume or end it first
-            CCAI.chatService?.resumeChat(existing)
-            return@launch
-        }
-    }
-    
+**Warning:** Always call `getLastChatInProgress()` before starting a new chat. If an earlier session is still active (for example, the app was force-quit mid-conversation, or the user switched accounts), starting a second chat fails or produces undefined behavior. This check is especially critical when `userId` changes between sessions. These examples run it through `startOrResumeChat()`, defined in the Minimal example.
 
-To start a chat session, use the `chatService` with a `ChatRequest` specifying the queue's menu ID.
+To start a chat session, use the `chatService` with a `ChatRequest` specifying the queue menu ID.
 
-**Minimal:**
+#### Minimal example
     
     
+    import android.util.Log
+    import androidx.lifecycle.lifecycleScope
+    import com.ccaiplatform.ccaichat.chatService
+    import com.ccaiplatform.ccaichat.model.Chat
+    import com.ccaiplatform.ccaichat.model.ChatRequest
     import com.ccaiplatform.ccaikit.CCAI
-    import com.ccaiplatform.ccaichat.ChatRequest
-    import com.ccaiplatform.ccaichat.Chat
+    import com.ccaiplatform.ccaiscreenshare.screenShareService
+    import kotlinx.coroutines.launch
     
     // If screen share is initialized, pass isScreenShareable for agent visibility
     val chatRequest = ChatRequest(
         chat = Chat(menuId = 123),
         isScreenShareable = CCAI.screenShareService != null
     )
+    startOrResumeChat(chatRequest)
     
-    lifecycleScope.launch {
-        try {
-            CCAI.chatService?.start(chatRequest)
-            // Chat started, navigate to your custom chat screen
-        } catch (e: Exception) {
-            Log.e("CCAI", "Failed to start chat: ${e.message}")
+    // Resumes an earlier chat if there is one; otherwise starts a new one
+    fun startOrResumeChat(chatRequest: ChatRequest) {
+        lifecycleScope.launch {
+            val chatService = CCAI.chatService ?: return@launch
+            try {
+                // Pre-flight check: resume an earlier chat instead of starting a second one
+                val existing = chatService.getLastChatInProgress()
+                if (existing != null) {
+                    chatService.resumeChat(existing)
+                    return@launch
+                }
+    
+                chatService.start(chatRequest)
+                // Chat started - navigate to your custom chat screen
+            } catch (e: Exception) {
+                Log.e("CCAI", "Failed to start chat: ${e.message}")
+            }
         }
     }
     
 
-**With explicit language and custom data:**
+If your app doesn't include the `CCAIScreenShare` module, remove the `screenShareService` import and the `isScreenShareable` argument.
+
+#### With explicit language
     
     
     val chatRequest = ChatRequest(
-        chat = Chat(menuId = 123, languageCode = "en")
+        chat = Chat(menuId = 123, lang = "en")
     )
-    
-    lifecycleScope.launch {
-        try {
-            CCAI.chatService?.start(chatRequest)
-            // Chat started - navigate to your custom chat screen
-        } catch (e: Exception) {
-            Log.e("CCAI", "Failed to start chat: ${e.message}")
-        }
-    }
+    startOrResumeChat(chatRequest) // Defined in the Minimal example
     
 
-### Resuming a chat session
+### Resume a chat session
 
 Resume a previously established chat session using a `ChatResponse` object:
     
@@ -378,7 +372,7 @@ Resume a previously established chat session using a `ChatResponse` object:
 
 ### Chat queue management
 
-You can enqueue the current chat for later retrieval or check for existing in-progress chats:
+You can put the current chat back in the queue (its status becomes queued) or check for existing in-progress chats:
     
     
     // Enqueue the current chat (automatically calls checkStatus() after enqueuing)
@@ -418,7 +412,7 @@ You can enqueue the current chat for later retrieval or check for existing in-pr
     }
     
 
-### Sending messages
+### Send messages
 
 The `sendMessage` method supports multiple message types through the `OutgoingMessageContent` sealed class:
     
@@ -426,11 +420,11 @@ The `sendMessage` method supports multiple message types through the `OutgoingMe
     sealed class OutgoingMessageContent {
         data class Text(val content: String) : OutgoingMessageContent()
         data class Photos(
-            val images: List<Uri>,
+            val images: List<UploadableImage>,
             val smartAction: SmartAction? = null
         ) : OutgoingMessageContent()
         data class Videos(
-            val videos: List<Uri>,
+            val video: UploadableVideo,
             val smartAction: SmartAction? = null
         ) : OutgoingMessageContent()
         data class FormComplete(
@@ -445,9 +439,24 @@ The `sendMessage` method supports multiple message types through the `OutgoingMe
     }
     
 
-For photos and videos, pass local `Uri` values for files selected or captured by your app. Avoid holding large media assets in memory while the user is waiting in queue or while an upload is pending.
+The `UploadableImage` and `UploadableVideo` types (in `com.ccaiplatform.ccaikit.models.smartaction`) wrap media for upload:
+    
+    
+    data class UploadableImage(
+        val data: ByteArray,       // The binary data of the image
+        val mimeType: String,      // For example, "image/jpeg" or "image/png"
+        val uri: Uri? = null       // Optional URI for display and local file reference
+    )
+    
+    data class UploadableVideo(
+        val uri: Uri,              // The file URI of the video
+        val mimeType: String       // For example, "video/mp4"
+    )
+    
 
-**Usage examples:**
+`Photos` takes a list of images; `Videos` takes a single video. Avoid holding large media assets in memory while the user is waiting in queue or while an upload is pending.
+
+#### Usage examples
     
     
     // Send text message
@@ -459,14 +468,18 @@ For photos and videos, pass local `Uri` values for files selected or captured by
         }
     }
     
-    // Send image message
-    val imageUris: List<Uri> = listOf(selectedImageUri)
-    
+    // Send image message (read the file off the main thread)
     lifecycleScope.launch {
         try {
+            val imageData = withContext(Dispatchers.IO) {
+                requireNotNull(contentResolver.openInputStream(selectedImageUri)).use { it.readBytes() }
+            }
+            val images = listOf(
+                UploadableImage(data = imageData, mimeType = "image/jpeg", uri = selectedImageUri)
+            )
             CCAI.chatService?.sendMessage(
                 OutgoingMessageContent.Photos(
-                    images = imageUris,
+                    images = images,
                     smartAction = null
                 )
             )
@@ -475,14 +488,14 @@ For photos and videos, pass local `Uri` values for files selected or captured by
         }
     }
     
-    // Send video message
-    val videoUris: List<Uri> = listOf(selectedVideoUri)
+    // Send video message (one video per message)
+    val video = UploadableVideo(uri = selectedVideoUri, mimeType = "video/mp4")
     
     lifecycleScope.launch {
         try {
             CCAI.chatService?.sendMessage(
                 OutgoingMessageContent.Videos(
-                    videos = videoUris,
+                    video = video,
                     smartAction = null
                 )
             )
@@ -492,12 +505,12 @@ For photos and videos, pass local `Uri` values for files selected or captured by
     }
     
     // Send form completion event
-    // Note: status is a nullable String (for example, "success" or "failure").
+    // Note: status is a nullable String: "success", "error", or "cancelled".
     val formCompleteData = FormCompleteEventData(
         smartActionId = 123,
         status = "success",
         timestamp = "2024-01-01T12:00:00Z",
-        details = FormCompleteDataDetails(message = "Form submitted successfully")
+        details = FormCompleteEventDetails(message = "Form submitted successfully")
     )
     
     lifecycleScope.launch {
@@ -527,7 +540,7 @@ The `ScreenShare` message type is used to send screen sharing events and respons
   * `screenShareEnded` \- screen sharing session ended
 
 
-**Note:** If redaction is enabled (via the `redactionEnabled` property in `ChatResponse`), sensitive information in plain text messages is automatically redacted before being sent to the agent. See [_Message redaction_](https://support.ujet.co/hc/en-us/articles/57485702631961-Headless-Mobile-SDK-v3-for-Android-Queues-Channels-and-Chat#messageredaction) for details.
+**Note:** If redaction is enabled (via the `redactionEnabled` property in `ChatResponse`), sensitive information in plain text messages is automatically redacted before being sent to the agent. See Message redaction for details.
 
 ### Typing indicators and message previews
 
@@ -589,7 +602,7 @@ Automatic redaction of sensitive information (PII, credit card numbers, etc.) is
 
 **Note:** Redaction only applies to plain text messages. Redaction is automatically enabled or disabled based on portal configuration. The redaction status is available in `ChatResponse` after starting or resuming a chat. Message previews with timestamps older than the last sent preview are automatically skipped.
 
-### Ending and escalating chats
+### End and escalate chats
     
     
     // End the current chat session
@@ -612,18 +625,19 @@ Automatic redaction of sensitive information (PII, credit card numbers, etc.) is
         }
     }
     
-    // Escalate with deflection options
+    // Record the deflection channel the user chose for an existing escalation
+    // (the escalation must already exist; start one with escalateToHumanAgent())
     val escalationOption = ChatEscalationOption(
         escalationId = 123,
-        deflectionChannel = "email"
+        deflectionChannel = DeflectionChannel.Email
     )
     
     lifecycleScope.launch {
         try {
-            CCAI.chatService?.escalate(option = escalationOption)
-            Log.d("CCAI", "Chat escalated successfully")
+            CCAI.chatService?.updateEscalation(option = escalationOption)
+            Log.d("CCAI", "Escalation updated successfully")
         } catch (e: Exception) {
-            Log.e("CCAI", "Failed to escalate chat: ${e.message}")
+            Log.e("CCAI", "Failed to update escalation: ${e.message}")
         }
     }
     
@@ -680,6 +694,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-03 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 

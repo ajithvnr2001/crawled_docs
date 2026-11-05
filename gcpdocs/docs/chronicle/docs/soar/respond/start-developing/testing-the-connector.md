@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chronicle/docs/soar/respond/start-developing/testing-the-connector/
 title: Test custom connectors \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T10:10:27.793924+00:00
+fetched_at: 2026-11-04T23:33:46.430188+00:00
 ---
 
 # Test custom connectors  |  Google Security Operations  |  Google Cloud Documentation
@@ -63,7 +63,7 @@ To ingest a sample malicious email into the Google SecOps platform, follow these
 
 To run the connector, follow these steps:
 
-  1. Go to **Settings > Ingestion > Connectors**.
+  1. Go to **Settings > Data Management > Connectors**.
   2. On the **Testing** tab, click **Run connector once**. The results appear in the **Output** section and show a new connector instance created in the platform. Each time you run this function, it will execute as if it's the first iteration. No timestamps are saved and no IDs are stored in the backend.   
 If your connector runs successfully, an alert for a single unread email appears. Make sure your mailbox contains at least one unread email for this test. 
   3. Optional: Click **Preview** to see a preview of the email.
@@ -114,6 +114,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-28 UTC.
+Last updated 2026-11-04 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 

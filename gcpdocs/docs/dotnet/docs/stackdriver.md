@@ -1,11 +1,11 @@
 ---
 url: https://docs.cloud.google.com/dotnet/docs/stackdriver/
-title: Google Cloud Observability for .NET \u00a0|\u00a0 Google Cloud Documentation
+title: Observability overview for .NET \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T16:35:34.840214+00:00
+fetched_at: 2026-11-05T00:20:03.377844+00:00
 ---
 
-# Google Cloud Observability for .NET  |  Google Cloud Documentation
+# Observability overview for .NET  |  Google Cloud Documentation
 
 > Source: https://docs.cloud.google.com/dotnet/docs/stackdriver/
 
@@ -20,42 +20,21 @@ fetched_at: 2026-10-27T16:35:34.840214+00:00
 
 Send feedback 
 
-#  Google Cloud Observability for .NET Stay organized with collections  Save and categorize content based on your preferences. 
+#  Observability overview for .NET Stay organized with collections  Save and categorize content based on your preferences. 
 
-[Google Cloud Observability](https://docs.cloud.google.com/stackdriver) provides powerful monitoring, logging, and diagnostics for .NET apps.
-
-## Instrumentation libraries
-
-With the .NET instrumentation libraries, you can integrate Google Cloud Observability services with your app.
-
-  * The [.NET instrumentation library](http://googleapis.github.io/google-cloud-dotnet/docs/Google.Cloud.Diagnostics.AspNet/) includes support for the following Google Cloud Observability services:
-
-    * Error Reporting
-    * Cloud Trace
-  * The [.NET instrumentation library](http://googleapis.github.io/google-cloud-dotnet/docs/Google.Cloud.Diagnostics.AspNetCore/) includes support for the following Google Cloud Observability services:
-
-    * Error Reporting
-    * Logging
-    * Trace
-
-
+[Google Cloud Observability](https://docs.cloud.google.com/stackdriver) provides monitoring, logging, and diagnostics for .NET apps.
 
 ## Error Reporting
 
 [Error Reporting](https://docs.cloud.google.com/error-reporting/docs) aggregates and displays errors produced in your running .NET apps.
 
-To get started with Error Reporting, see [Setting up Error Reporting for .NET apps](https://docs.cloud.google.com/error-reporting/docs/setup/dotnet).
+To get started with Error Reporting, see [Instrument .NET apps for Error Reporting](https://docs.cloud.google.com/error-reporting/docs/setup/dotnet).
 
 ## Cloud Logging
 
-[Logging](https://docs.cloud.google.com/logging/docs) lets you store, search, analyze, monitor, and alert on log data and events in .NET apps. A Log4Net agent is provided, as well as a Cloud Logging API client library.
+[Logging](https://docs.cloud.google.com/logging/docs) lets you store, search, analyze, monitor, and alert on log data and events in .NET apps. A Log4Net agent is provided, as well as Cloud Client Libraries for .NET.
 
-To get started with Logging, see the following articles:
-
-  * [Setting up Logging for .NET apps with Log4Net](https://docs.cloud.google.com/logging/docs/integrate/dotnet)
-  * [Setting up Logging for .NET apps](https://docs.cloud.google.com/appengine/docs/flexible/dotnet/writing-application-logs#writing_application_logs_1)
-
-
+To get started with Logging, see [Using .NET Logging frameworks or calling the API](https://docs.cloud.google.com/logging/docs/integrate/dotnet)
 
 ## Cloud Monitoring
 
@@ -64,7 +43,7 @@ To get started with Logging, see the following articles:
 To get started with Monitoring, see the following articles:
 
   * [Cloud Client Libraries for the Cloud Monitoring API](https://docs.cloud.google.com/monitoring/docs/reference/libraries)
-  * [Installing the Monitoring agent on Windows](https://docs.cloud.google.com/monitoring/agent/install-agent#agent-install-windows)
+  * [Installing the Ops Agent on Windows](https://docs.cloud.google.com/monitoring/agent/ops-agent/installation)
   * [Creating custom metrics](https://docs.cloud.google.com/monitoring/custom-metrics/creating-metrics)
   * [Reading metrics](https://docs.cloud.google.com/monitoring/custom-metrics/reading-metrics)
   * [Browsing metrics](https://docs.cloud.google.com/monitoring/custom-metrics/browsing-metrics)
@@ -75,16 +54,12 @@ To get started with Monitoring, see the following articles:
 
 [Trace](https://docs.cloud.google.com/trace/docs) is a distributed tracing system for Google Cloud that collects latency data from .NET apps and displays it in near real time in the Google Cloud console.
 
-To get started with Trace, see the following article:
-
-  * [Setting up Trace for .NET apps](https://docs.cloud.google.com/trace/docs/setup/aspnet)
-
-
+To get started with Trace, see [Client libraries](https://docs.cloud.google.com/trace/docs/client-libraries) in the Cloud Trace documentation.
 
 Send feedback 
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-03 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 

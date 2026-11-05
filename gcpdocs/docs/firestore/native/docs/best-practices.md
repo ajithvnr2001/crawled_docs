@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/firestore/native/docs/best-practices/
 title: Best practices \u00a0|\u00a0 Firestore in Native mode \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T08:01:07.019167+00:00
+fetched_at: 2026-11-04T23:45:37.157929+00:00
 ---
 
 # Best practices  |  Firestore in Native mode  |  Google Cloud Documentation

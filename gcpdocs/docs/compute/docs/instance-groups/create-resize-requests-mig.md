@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/compute/docs/instance-groups/create-resize-requests-mig/
 title: Create resize requests in a MIG \u00a0|\u00a0 Compute Engine \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T23:00:04.012370+00:00
+fetched_at: 2026-11-04T23:33:51.958028+00:00
 ---
 
 # Create resize requests in a MIG  |  Compute Engine  |  Google Cloud Documentation
@@ -80,9 +80,16 @@ The following permissions are required to create MIG resize requests:
 
 You might also be able to get these permissions with [custom roles](https://docs.cloud.google.com/iam/docs/creating-custom-roles) or other [predefined roles](https://docs.cloud.google.com/iam/docs/roles-overview#predefined). 
 
+**Note** : When you create VMs in a MIG, Compute Engine uses the [Google APIs Service Agent](https://docs.cloud.google.com/compute/docs/access/service-accounts#google_apis_service_agent) (`PROJECT_NUMBER@cloudservices.gserviceaccount.com`) in your project. If your instance template uses resources from another project, then verify that this service agent has the required permissions:
+
+  * **Shared VPC** : if the VMs use a Shared VPC network, then grant the Google APIs Service Agent in the service project the [Compute Network User](https://docs.cloud.google.com/compute/docs/access/iam#compute.networkUser) (`roles/compute.networkUser`) role on the host project or shared subnets. For more information, see [Google APIs service account as a Service Project Admin](https://docs.cloud.google.com/vpc/docs/provisioning-shared-vpc#migs-service-accounts).
+  * **Images from other projects** : if the VMs use an image from another project, then grant the Google APIs Service Agent in your project the [Compute Image User](https://docs.cloud.google.com/compute/docs/access/iam#image_user_role) (`roles/compute.imageUser`) role on the image or the project that owns the image. For more information, see [Grant a managed instance group access to images](https://docs.cloud.google.com/compute/docs/images/managing-access-custom-images#grant_a_managed_instance_group_access_to_images).
+
+
+
 ## Prepare a MIG for resize requests
 
-To create a MIG resize requests, you must configure an instance template and the MIG as described in the following sections.
+To create a MIG resize request, you must configure an instance template and the MIG as described in the following sections.
 
 ### Create an instance template
 
@@ -887,6 +894,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-04 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-cx/cx-agent-studio/reference/rest/v1beta/projects.locations.apps.evaluations.results
 title: REST Resource: projects.locations.apps.evaluations.results \u00a0|\u00a0 CX Agent Studio \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-15T02:33:42.601837+00:00
+fetched_at: 2026-11-04T23:28:21.778423+00:00
 ---
 
 # REST Resource: projects.locations.apps.evaluations.results  |  CX Agent Studio  |  Google Cloud Documentation
@@ -57,6 +57,9 @@ Send feedback
       * JSON representation
     * EvaluationResult.UserGoalSatisfactionResult
       * JSON representation
+    * EvaluationResult.ScenarioResult.MilestoneResult
+      * JSON representation
+    * EvaluationResult.ScenarioResult.MilestoneResult.MilestoneStatus
     * EvaluationResult.ExecutionState
     * EvaluationResult.OutcomeMetadata
   * Methods
@@ -521,6 +524,11 @@ JSON representation
           object ([EvaluationResult.EvaluationExpectationResult](https://docs.cloud.google.com/gemini-enterprise-cx/cx-agent-studio/reference/rest/v1beta/projects.locations.apps.evaluations.results#EvaluationResult.EvaluationResult.EvaluationExpectationResult))
         }
       ],
+      "milestoneResults": [
+        {
+          object ([EvaluationResult.ScenarioResult.MilestoneResult](https://docs.cloud.google.com/gemini-enterprise-cx/cx-agent-studio/reference/rest/v1beta/projects.locations.apps.evaluations.results#EvaluationResult.EvaluationResult.ScenarioResult.MilestoneResult))
+        }
+      ],
       "allExpectationsSatisfied": boolean,
       "taskCompleted": boolean
     }  
@@ -539,6 +547,7 @@ Fields
 `userGoalSatisfactionResult` |  `object (`[EvaluationResult.UserGoalSatisfactionResult](https://docs.cloud.google.com/gemini-enterprise-cx/cx-agent-studio/reference/rest/v1beta/projects.locations.apps.evaluations.results#EvaluationResult.EvaluationResult.UserGoalSatisfactionResult)`)` Output only. The result of the user goal satisfaction check.  
 `spanLatencies[]` |  `object (`[EvaluationResult.SpanLatency](https://docs.cloud.google.com/gemini-enterprise-cx/cx-agent-studio/reference/rest/v1beta/projects.locations.apps.evaluations.results#EvaluationResult.EvaluationResult.SpanLatency)`)` Output only. The latency of spans in the conversation.  
 `evaluationExpectationResults[]` |  `object (`[EvaluationResult.EvaluationExpectationResult](https://docs.cloud.google.com/gemini-enterprise-cx/cx-agent-studio/reference/rest/v1beta/projects.locations.apps.evaluations.results#EvaluationResult.EvaluationResult.EvaluationExpectationResult)`)` Output only. The results of the evaluation expectations.  
+`milestoneResults[]` |  `object (`[EvaluationResult.ScenarioResult.MilestoneResult](https://docs.cloud.google.com/gemini-enterprise-cx/cx-agent-studio/reference/rest/v1beta/projects.locations.apps.evaluations.results#EvaluationResult.EvaluationResult.ScenarioResult.MilestoneResult)`)` Output only. The results of each milestone in the scenario.  
 `allExpectationsSatisfied` |  `boolean` Output only. Whether all expectations were satisfied for this turn.  
 `taskCompleted` |  `boolean` Output only. Whether the task was completed for this turn. This is a composite of all expectations satisfied, no hallucinations, and user goal satisfaction.  
   
@@ -658,6 +667,39 @@ Fields
 `explanation` |  `string` Output only. The explanation for the user task satisfaction score.  
 `score` |  `integer` Output only. The user task satisfaction score. Can be -1, 0, 1, 2.  
   
+### EvaluationResult.ScenarioResult.MilestoneResult
+
+Represents the result of a milestone execution.
+
+JSON representation  
+---  
+      
+    
+    {
+      "milestone": {
+        object ([Evaluation.Scenario.Milestone](https://docs.cloud.google.com/gemini-enterprise-cx/cx-agent-studio/reference/rest/v1beta/Evaluation.Scenario.Milestone))
+      },
+      "status": enum ([EvaluationResult.ScenarioResult.MilestoneResult.MilestoneStatus](https://docs.cloud.google.com/gemini-enterprise-cx/cx-agent-studio/reference/rest/v1beta/projects.locations.apps.evaluations.results#EvaluationResult.EvaluationResult.ScenarioResult.MilestoneResult.MilestoneStatus)),
+      "justification": string
+    }  
+  
+Fields  
+---  
+`milestone` |  `object (`[Evaluation.Scenario.Milestone](https://docs.cloud.google.com/gemini-enterprise-cx/cx-agent-studio/reference/rest/v1beta/Evaluation.Scenario.Milestone)`)` Output only. The milestone being tracked.  
+`status` |  `enum (`[EvaluationResult.ScenarioResult.MilestoneResult.MilestoneStatus](https://docs.cloud.google.com/gemini-enterprise-cx/cx-agent-studio/reference/rest/v1beta/projects.locations.apps.evaluations.results#EvaluationResult.EvaluationResult.ScenarioResult.MilestoneResult.MilestoneStatus)`)` Output only. The current status of the milestone.  
+`justification` |  `string` Output only. The justification for the current status.  
+  
+### EvaluationResult.ScenarioResult.MilestoneResult.MilestoneStatus
+
+The status of the milestone.
+
+Enums  
+---  
+`MILESTONE_STATUS_UNSPECIFIED` | Unspecified status.  
+`NOT_STARTED` | The milestone has not started yet.  
+`IN_PROGRESS` | The milestone is currently in progress.  
+`COMPLETED` | The milestone has been successfully completed.  
+  
 ### EvaluationResult.ExecutionState
 
 The state of the evaluation result execution.
@@ -708,6 +750,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-09-28 UTC.
+Last updated 2026-11-04 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-09-28 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 

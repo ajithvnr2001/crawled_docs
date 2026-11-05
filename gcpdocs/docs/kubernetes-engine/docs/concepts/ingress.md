@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/kubernetes-engine/docs/concepts/ingress/
 title: GKE Ingress for Application Load Balancers \u00a0|\u00a0 GKE networking \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T22:34:41.373008+00:00
+fetched_at: 2026-11-04T23:30:59.785532+00:00
 ---
 
 # GKE Ingress for Application Load Balancers  |  GKE networking  |  Google Cloud Documentation
@@ -240,6 +240,8 @@ To learn how to troubleshoot 502 errors with external Ingress, see [External Ing
 
 ## Limitations of the GKE Ingress controller
 
+  * GKE Ingress is not supported on [single-stack IPv6 clusters](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/single-stack-ipv6). To configure Layer 7 Application Load Balancers on single-stack IPv6 clusters, use [Gateway API](https://docs.cloud.google.com/kubernetes-engine/docs/concepts/gateway-api).
+
   * GKE Ingress does not support certificates managed by Certificate Manager. To use certificates managed by Certificate Manager, use [Gateway API](https://docs.cloud.google.com/kubernetes-engine/docs/concepts/gateway-api).
 
   * In clusters using NEGs, ingress reconciliation time may be affected by the number of ingresses. For example, a cluster with 20 ingresses, each containing 20 distinct NEG backends, may result in a latency of more than 30 minutes for an ingress change to be reconciled. This especially impacts regional clusters due to the increased number of NEGs needed.
@@ -279,6 +281,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-04 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/iam/docs/samples/iam-list-deny-policy/
 title: List deny policies \u00a0|\u00a0 Identity and Access Management (IAM) \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T07:55:56.373539+00:00
+fetched_at: 2026-11-04T23:45:05.723790+00:00
 ---
 
 # List deny policies  |  Identity and Access Management (IAM)  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/iam/docs/cloud-oauth-groups/
 title: Retrieve enterprise groups with the Cloud OAuth API \u00a0|\u00a0 Identity and Access Management (IAM) \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T07:58:06.777838+00:00
+fetched_at: 2026-11-04T23:44:20.366821+00:00
 ---
 
 # Retrieve enterprise groups with the Cloud OAuth API  |  Identity and Access Management (IAM)  |  Google Cloud Documentation

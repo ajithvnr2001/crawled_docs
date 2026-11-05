@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/docs/migration-overview/
 title: Migration overview \u00a0|\u00a0 AlloyDB for PostgreSQL \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T00:41:09.827592+00:00
+fetched_at: 2026-11-05T00:18:34.148168+00:00
 ---
 
 # Migration overview  |  AlloyDB for PostgreSQL  |  Google Cloud Documentation
@@ -53,7 +53,7 @@ As an alternative to manually importing data-dump files, you can use [Database M
 
 ### Supported locales for imported data
 
-AlloyDB supports the following [locales](https://www.postgresql.org/docs/17//locale.html):
+AlloyDB supports the following [locales](https://www.postgresql.org/docs/18//locale.html):
 
   * The full set of ICU-provided locales.
   * A limited set of locales provided by `libc`: 
@@ -64,7 +64,7 @@ AlloyDB supports the following [locales](https://www.postgresql.org/docs/17//loc
 
 If the database you want to import into AlloyDB defaults to a `libc` locale other than the two listed here, you can still import your data, but that default won't carry over. To ensure that SQL queries using `ORDER BY` sort their results properly, you might need to take additional steps after importing your data.
 
-Google recommends allowing your new database to use the default locale for AlloyDB: `C.UTF-8`, provided by `libc`. Then, associate [collations](https://www.postgresql.org/docs/17//collation.html) with any columns that your application's queries might involve in `ORDER BY` clauses, naming an appropriate ICU-based collation for each one. You can do this through [`ALTER TABLE` DDL queries](https://www.postgresql.org/docs/17//sql-altertable.html), such as the following:
+Google recommends allowing your new database to use the default locale for AlloyDB: `C.UTF-8`, provided by `libc`. Then, associate [collations](https://www.postgresql.org/docs/18//collation.html) with any columns that your application's queries might involve in `ORDER BY` clauses, naming an appropriate ICU-based collation for each one. You can do this through [`ALTER TABLE` DDL queries](https://www.postgresql.org/docs/18//sql-altertable.html), such as the following:
     
     
     ALTER TABLE TABLE_NAME
@@ -82,7 +82,7 @@ Replace the following:
 
 
 
-A new AlloyDB cluster defines hundreds of collations based on ICU-provided locales, and you can add more using [the PostgreSQL `CREATE COLLATION` facility](https://www.postgresql.org/docs/17//sql-createcollation.html). To see the full list of ICU-based collation names defined on an AlloyDB cluster, run the following query on any of its instances:
+A new AlloyDB cluster defines hundreds of collations based on ICU-provided locales, and you can add more using [the PostgreSQL `CREATE COLLATION` facility](https://www.postgresql.org/docs/18//sql-createcollation.html). To see the full list of ICU-based collation names defined on an AlloyDB cluster, run the following query on any of its instances:
     
     
     SELECT collname FROM pg_collation WHERE collprovider = 'i';
@@ -113,6 +113,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-03 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 

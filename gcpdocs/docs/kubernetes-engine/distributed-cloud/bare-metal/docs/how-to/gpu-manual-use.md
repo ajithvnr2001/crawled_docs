@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/bare-metal/docs/how-to/gpu-manual-use/
 title: Set up and use NVIDIA GPUs \u00a0|\u00a0 Google Distributed Cloud software only for bare metal \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T20:46:49.829091+00:00
+fetched_at: 2026-11-04T23:29:24.715761+00:00
 ---
 
 # Set up and use NVIDIA GPUs  |  Google Distributed Cloud software only for bare metal  |  Google Cloud Documentation
@@ -22,9 +22,9 @@ Send feedback
 
 #  Set up and use NVIDIA GPUs Stay organized with collections  Save and categorize content based on your preferences. 
 
-The _bring your own node_ aspect of Distributed Cloud software only for bare metal lets you take advantage of your advanced hardware, including machines with GPUs, to get the best performance and flexibility for your clusters.
+The _bring your own node_ model in Distributed Cloud software only for bare metal lets you run GPU-accelerated workloads on your own hardware. To prepare your bare metal clusters for NVIDIA GPUs, you install the [NVIDIA GPU Operator](https://docs.nvidia.com/datacenter/cloud-native/gpu-operator/latest/index.html#about-the-nvidia-gpu-operator) and then verify that your GPUs are recognized and working.
 
-This document describes how to install and use the [NVIDIA GPU Operator](https://docs.nvidia.com/datacenter/cloud-native/gpu-operator/latest/index.html#about-the-nvidia-gpu-operator) to set up bare metal clusters created with Google Distributed Cloud for use with NVIDIA GPUs.
+## Overview of the NVIDIA GPU Operator
 
 The NVIDIA GPU Operator uses the [Operator Framework](https://operatorframework.io/) to manage the NVIDIA software components needed to provision and manage GPU devices. We recommend that you use the NVIDIA GPU Operator for the following flexibility and advantages:
 
@@ -36,8 +36,6 @@ The NVIDIA GPU Operator uses the [Operator Framework](https://operatorframework.
 
 
 
-
-This page is for IT administrators and Operators who manage the lifecycle of the underlying tech infrastructure. To learn more about common roles and example tasks that we reference in Google Cloud content, see [Common GKE user roles and tasks](https://docs.cloud.google.com/kubernetes-engine/enterprise/docs/concepts/roles-tasks).
 
 ## Before you begin
 
@@ -265,6 +263,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-04 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 

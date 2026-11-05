@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chronicle/docs/administration/migrate-to-gcp-project/
 title: Migrate to a Google Cloud project \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T10:00:55.452340+00:00
+fetched_at: 2026-11-04T23:34:22.292283+00:00
 ---
 
 # Migrate to a Google Cloud project  |  Google Security Operations  |  Google Cloud Documentation
@@ -47,15 +47,14 @@ Before you begin, make sure you have the legacy Administrator role in your Googl
 To migrate an existing Google SecOps instance to a customer-owned Google Cloud project, do the following:
 
   1. Sign in to Google SecOps.
-  2. Select **Settings > SIEM Settings**.
-  3. Click **Google Cloud Platform**.
-  4. Enter the Google Cloud project ID to link the project to the Google SecOps instance.
-  5. Click **Generate link**.
-  6. Click **Connect to Google Cloud Platform**. The Google Cloud console opens. If you enter an incorrect Google Cloud project ID in the Google SecOps application, return to the **Google Cloud Platform** page in Google SecOps and enter the correct project ID.
-  7. On the Google Cloud console, go to **Security > Google SecOps**.
-  8. Verify the service account that the system created for the Google Cloud project.
-  9. Optional: You can configure single sign-on (SSO) at this point. Alternatively, you can do that in the next step, [Migrate from legacy authentication to Google Cloud authentication](https://docs.cloud.google.com/chronicle/docs/administration/migrate-from-legacy-auth-to-gcp-auth).
-  10. Click **Connect**.
+  2. Select **Settings > Administration > Google Cloud Platform**.
+  3. Enter the Google Cloud project ID to link the project to the Google SecOps instance.
+  4. Click **Generate link**.
+  5. Click **Connect to Google Cloud Platform**. The Google Cloud console opens. If you enter an incorrect Google Cloud project ID in the Google SecOps application, return to the **Google Cloud Platform** page in Google SecOps and enter the correct project ID.
+  6. On the Google Cloud console, go to **Security > Google SecOps**.
+  7. Verify the service account that the system created for the Google Cloud project.
+  8. Optional: You can configure single sign-on (SSO) at this point. Alternatively, you can do that in the next step, [Migrate from legacy authentication to Google Cloud authentication](https://docs.cloud.google.com/chronicle/docs/administration/migrate-from-legacy-auth-to-gcp-auth).
+  9. Click **Connect**.
 
 
 
@@ -65,6 +64,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-28 UTC.
+Last updated 2026-11-04 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 

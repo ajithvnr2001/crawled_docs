@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/arbor-sightline/
 title: Collect Netscout Arbor Sightline logs \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T07:50:20.322143+00:00
+fetched_at: 2026-11-04T23:31:29.683115+00:00
 ---
 
 # Collect Netscout Arbor Sightline logs  |  Google Security Operations  |  Google Cloud Documentation

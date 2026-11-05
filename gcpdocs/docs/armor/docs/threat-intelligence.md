@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/armor/docs/threat-intelligence/
 title: Apply Google Threat Intelligence \u00a0|\u00a0 Google Cloud Armor \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T23:48:32.805976+00:00
+fetched_at: 2026-11-04T23:33:32.161098+00:00
 ---
 
 # Apply Google Threat Intelligence  |  Google Cloud Armor  |  Google Cloud Documentation
@@ -144,7 +144,7 @@ For example, if a third-party provider has an IP address list of `{ip1, ip2, ip3
 
 Replace `POLICY_NAME` with the name of the security policy that you want to set up.
 
-You cannot create your own custom named IP address lists. This feature is available only with respect to named IP address lists that are maintained by third-party providers that partner with Google. If such named IP address lists don't meet your needs, you can create a security policy where the rules allow or deny access to your resources based on the IP address where requests originate from. For more information, see [Create and view Cloud Armor security policies](https://docs.cloud.google.com/armor/docs/configure-security-policies).
+You cannot create your own custom named IP address lists. This feature is available only with respect to named IP address lists that are maintained by third-party providers that partner with Google. If such named IP address lists don't meet your needs, you can create a security policy where the rules allow or deny access to your resources based on the IP address where requests originate from. For more information, see [Create and view Cloud Armor security policies](https://docs.cloud.google.com/armor/docs/create-security-policies).
 
 To use named IP address lists, you must subscribe to [Cloud Armor Enterprise](https://docs.cloud.google.com/armor/docs/armor-enterprise-overview) and enroll projects in Cloud Armor Enterprise. For more information, see Availability of named IP address lists.
 
@@ -225,7 +225,7 @@ Cloud Armor synchronizes IP address lists with each provider only when it detect
 
 ## What's next
 
-  * [Create and view Cloud Armor security policies](https://docs.cloud.google.com/armor/docs/configure-security-policies)
+  * [Create and view Cloud Armor security policies](https://docs.cloud.google.com/armor/docs/create-security-policies)
   * [View pricing for Cloud Armor Enterprise tiers](https://cloud.google.com/armor/pricing)
   * [Troubleshoot issues](https://docs.cloud.google.com/armor/docs/troubleshooting)
 
@@ -235,6 +235,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-04 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 

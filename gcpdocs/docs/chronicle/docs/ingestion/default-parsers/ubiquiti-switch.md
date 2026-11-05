@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/ubiquiti-switch/
 title: Collect Ubiquiti Unifi switch logs \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T07:50:32.045603+00:00
+fetched_at: 2026-11-04T23:43:16.787621+00:00
 ---
 
 # Collect Ubiquiti Unifi switch logs  |  Google Security Operations  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chronicle/docs/soar/admin-tasks/configuration/setting-the-sla/
 title: Set the SLA \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T10:09:13.121769+00:00
+fetched_at: 2026-11-04T23:33:55.550319+00:00
 ---
 
 # Set the SLA  |  Google Security Operations  |  Google Cloud Documentation
@@ -56,7 +56,46 @@ If multiple SLA rules are set, the system follows a clear priority order:
 
 To add an SLA, follow these steps:
 
-  1. Go to **Settings > Environments > SLA**.
+  1. Go to **Settings > Investigation > SLAs**.
+  2. Click add **Add**.
+  3. Select whether the SLA is based on alert attributes (type or priority) or case attributes (stage or priority).
+  4. Define the timeframes for the **SLA Period** (the time before an SLA is breached) and the **SLA Time to Critical Period** (the time before the SLA enters a critical phase). For example, an **SLA Period** of 10 minutes and an **SLA Time to Critical Period** of 6 minutes results in a 4-minute critical period.
+  5. Click **Add**.
+
+
+
+A Service Level Agreement (SLA) represents a commitment by the SOC to perform specific tasks, such as investigating or remediating a case within a set timeframe. You can configure SLAs for alerts, cases, or both.
+
+## Understand the SLA types
+
+  * **Alert SLA** : the maximum time to close an alert. An alert SLA is mainly based on alert attributes (for example, **Alert Type** or **Alert Priority**), but can also be based on case attributes. The start time begins when the alert is created.
+  * **Case SLA** : the maximum time to close a case. A Case SLA is mainly based on case attributes (for example, `Case Stage` or `Case Priority`), but can also be based on alert attributes. The start time begins when the case is created, unless the SLA is configured by **Case Stage** —in which case it begins when the stage starts. 
+    * When a Case SLA is defined based on a specific Case Stage, the SLA timer is active only while the case is in that stage. Once the case transitions to a different stage, this specific Stage SLA resets.
+    * Similarly, if a Case SLA is based on Case Priority, the SLA resets if the case's priority is changed.
+    * Historical SLA data for previous stages or priorities is not lost. You can review all historical SLA status information within the **Dashboards & Reports** section.
+
+
+
+You can configure an SLA in **Settings** or automatically using a playbook action.
+
+## Manage SLAs
+
+This section explains how to manage SLAs in your environment, including how to create new rules and how to pause and resume them during an investigation.
+
+### Set SLA priorities
+
+If multiple SLA rules are set, the system follows a clear priority order:
+
+  * **Case SLAs** : Playbook action > Case Stage > Case Priority
+  * **Alert SLAs** : Playbook action > Alert Type >Alert Priority
+
+
+
+### Add an SLA
+
+To add an SLA, follow these steps:
+
+  1. Go to **Settings > Investigation > SLAs**.
   2. Click add **Add**.
   3. Select whether the SLA is based on alert attributes (type or priority) or case attributes (stage or priority).
   4. Define the timeframes for the **SLA Period** (the time before an SLA is breached) and the **SLA Time to Critical Period** (the time before the SLA enters a critical phase). For example, an **SLA Period** of 10 minutes and an **SLA Time to Critical Period** of 6 minutes results in a 4-minute critical period.
@@ -137,6 +176,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-28 UTC.
+Last updated 2026-11-04 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 

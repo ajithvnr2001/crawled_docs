@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chronicle/docs/soar/ingest/webhooks/setting-up-a-webhook/
 title: Set up a SOAR webhook \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T10:08:11.127981+00:00
+fetched_at: 2026-11-04T23:34:23.892753+00:00
 ---
 
 # Set up a SOAR webhook  |  Google Security Operations  |  Google Cloud Documentation
@@ -37,7 +37,7 @@ Webhooks are best for scenarios that require basic mapping logic, while connecto
 
 To set up a webhook to ingest alerts, follow these steps:
 
-  1. Go to **SOAR Settings > Ingestion > Webhooks**.
+  1. Go to **Settings > Data Management > SOAR Webhooks**.
   2. Click add **Add incoming webhook**.
   3. Enter a name for the new webhook, and choose an environment.
   4. Click **Save**. After saving, the new webhook appears on the main page.
@@ -94,7 +94,7 @@ Field | Type | Recommended format | Mandatory | Description | Example
 `DeviceVendor` | String | Text | Yes | The vendor of the device or product that generated the alert. This can also be mapped from the event data. | `"Palo Alto Networks"`  
 `RuleGenerator` | String | Text | Yes | The name of the rule in the source system (for example, a SIEM correlation rule) that generated the alert. | `"Brute Force Attempt Detected"`  
 `StartTime` | String or integer | Epoch milliseconds (UTC) or ISO8601 string (for example, "2026-04-09T14:30:00Z") | Yes | The start time of the earliest event in the case. **If providing an integer, it must be in Unix epoch milliseconds.** | `1670000000000` or `"2026-04-09T14:30:00Z"`  
-`Environment` | String | Text | No | The name of the SOAR environment this alert belongs to. This must match an environment defined in your SOAR settings. | `"Default Environment"`  
+`Environment` | String | Text | No | The name of the SOAR environment this alert belongs to. This must match an environment defined in your Settings. | `"Default Environment"`  
 `Description` | String | Text | No | A brief description of the case or alert. | `"Failed login followed by success from new IP"`  
 `DisplayId` | String | UUID or String | No | 
 
@@ -178,6 +178,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-28 UTC.
+Last updated 2026-11-04 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 

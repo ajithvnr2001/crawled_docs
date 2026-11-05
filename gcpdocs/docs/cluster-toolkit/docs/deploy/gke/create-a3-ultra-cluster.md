@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/cluster-toolkit/docs/deploy/gke/create-a3-ultra-cluster/
 title: Create an A3 Ultra GKE cluster \u00a0|\u00a0 Cluster Toolkit \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-01T05:38:57.678396+00:00
+fetched_at: 2026-11-04T23:31:52.867745+00:00
 ---
 
 # Create an A3 Ultra GKE cluster  |  Cluster Toolkit  |  Google Cloud Documentation
@@ -131,12 +131,16 @@ If you don't know which blocks are available in your reservation, then see [View
 
 To modify advanced settings, edit the [`examples/gke-a3-ultragpu/gke-a3-ultragpu.yaml`](https://github.com/GoogleCloudPlatform/cluster-toolkit/blob/main/examples/gke-a3-ultragpu/gke-a3-ultragpu.yaml) file.
 
-  5. [Generate Application Default Credentials (ADC)](https://docs.cloud.google.com/docs/authentication/provide-credentials-adc#google-idp) to provide access to Terraform. If you're using Cloud Shell, use the `gcloud auth application-default login` command: 
+  5. Optional: Configure [Google Cloud Managed Lustre](https://docs.cloud.google.com/managed-lustre/docs/overview) to provision a managed parallel file system optimized for AI and HPC workloads. The blueprint enables the [Managed Lustre CSI driver](https://docs.cloud.google.com/managed-lustre/docs/lustre-csi-driver-overview) by default. To configure Managed Lustre for your A3 Ultra GKE deployment, do the following: 
+     1. Open the [`examples/gke-a3-ultragpu/gke-a3-ultragpu.yaml`](https://github.com/GoogleCloudPlatform/cluster-toolkit/blob/main/examples/gke-a3-ultragpu/gke-a3-ultragpu.yaml) file.
+     2. In the `vars` section, uncomment the Managed Lustre variables `lustre_instance_id`, `lustre_size_gib`, and `per_unit_storage_throughput`.
+     3. Find the section commented `# --- MANAGED LUSTRE ADDITIONS ---` and uncomment the `private_service_access`, `lustre_firewall_rule`, `managed-lustre`, and `lustre-pv` modules.
+  6. [Generate Application Default Credentials (ADC)](https://docs.cloud.google.com/docs/authentication/provide-credentials-adc#google-idp) to provide access to Terraform. If you're using Cloud Shell, use the `gcloud auth application-default login` command: 
          
          gcloud auth application-default login
              
 
-  6. Deploy the blueprint by using the [`gcluster deploy` command](https://docs.cloud.google.com/cluster-toolkit/docs/reference/gcluster-deploy) to provision the GKE infrastructure with A3 Ultra machine types: 
+  7. Deploy the blueprint by using the [`gcluster deploy` command](https://docs.cloud.google.com/cluster-toolkit/docs/reference/gcluster-deploy) to provision the GKE infrastructure with A3 Ultra machine types: 
          
          cd ~/cluster-toolkit
              ./gcluster deploy -d \
@@ -145,7 +149,7 @@ To modify advanced settings, edit the [`examples/gke-a3-ultragpu/gke-a3-ultragpu
              
 
 **Note:** If you encounter an error at the JobSet or Kueue installation stage when you deploy your blueprint, then deploy the blueprint again with the addition of the `-w` flag (`./gcluster deploy -w -d ...`) to complete the deployment.
-  7. When prompted, select **(A)pply** to deploy the blueprint. 
+  8. When prompted, select **(A)pply** to deploy the blueprint. 
      * The blueprint creates VPC networks, a GPU RDMA VPC network, service accounts, a cluster, and a node pool.
      * To support the `fio-bench-job-template` Job template in the blueprint, Google Cloud buckets, network storage, and persistent volume resources are created.
 
@@ -363,6 +367,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-30 UTC.
+Last updated 2026-11-04 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 

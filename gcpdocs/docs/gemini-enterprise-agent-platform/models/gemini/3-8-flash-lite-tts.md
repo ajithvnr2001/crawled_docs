@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-8-flash-lite-tts/
 title: Gemini 3.8 Flash-Lite TTS \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-03T09:52:27.319844+00:00
+fetched_at: 2026-11-04T23:14:47.550968+00:00
 ---
 
 # Gemini 3.8 Flash-Lite TTS  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation
@@ -25,7 +25,7 @@ Gemini 3.8 Flash-Lite TTS (`gemini-3.8-flash-lite-tts`) is Google's fast, cost-e
 
 ## Capabilities
 
-  * **High-throughput efficiency** : Built for bulk production, conversational voice agent cascades, read-aloud features, and everyday single-speaker speech in 101 languages.
+  * **High-throughput efficiency** : Built for bulk production, conversational voice agent cascades, read-aloud features, and everyday single-speaker speech in 103 languages.
   * **Same schema as Gemini 3.8 Flash TTS** : Uses the same request schema and prompting format as `gemini-3.8-flash-tts`, so you can switch models by changing the model ID.
   * **Voice options** : Works with 30 prebuilt voices, more than 2,000 curated voices in the Extended Voice Library, voices that you create with [Voice design](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/text-to-speech/voice-design), and voices that you replicate with [Voice replication](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/text-to-speech/voice-replication).
 
@@ -41,7 +41,7 @@ Feature or workload | Gemini 3.8 Flash-Lite TTS (`gemini-3.8-flash-lite-tts`) | 
 ---|---|---  
 **Primary strength** | High throughput, low latency, and cost efficiency | Voice fidelity, acting nuance, and dialect coverage  
 **Best use cases** | High-volume production, real-time voice agent cascades, read-aloud features, voice replication, everyday single-speaker speech | Audiobooks, studio narration, complex multi-speaker dialogue, frequent vocal-burst tags, difficult pronunciation, regional dialects  
-**Supported languages** | 101 languages | 130 languages  
+**Supported languages** | 103 languages | 132 languages  
   
 [Try in Agent Studio](https://console.cloud.google.com/agent-platform/studio/multimodal?model=gemini-3.8-flash-lite-tts) [View in Model Garden](https://console.cloud.google.com/agent-platform/publishers/google/model-garden/gemini-3.8-flash-lite-tts) [Developer guide](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/text-to-speech/overview) [Pricing](https://cloud.google.com/gemini-enterprise-agent-platform/generative-ai/pricing)
 
@@ -103,7 +103,7 @@ Versions |
     * Release date: October 28, 2026
 
   
-Supported languages |  101 languages. See [Supported languages](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/text-to-speech/overview#languages).   
+Supported languages |  103 languages. See [Supported languages](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/text-to-speech/overview#languages).   
   
 ## Get started
 
@@ -175,6 +175,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-02 UTC.
+Last updated 2026-11-04 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-02 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sdk/docs/initialize/
 title: Initialize the gcloud CLI \u00a0|\u00a0 Google Cloud SDK \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T07:58:13.178746+00:00
+fetched_at: 2026-11-04T23:44:56.284702+00:00
 ---
 
 # Initialize the gcloud CLI  |  Google Cloud SDK  |  Google Cloud Documentation

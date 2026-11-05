@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chronicle/docs/soar/marketplace-integrations/servicenow/
 title: Integrate ServiceNow with Google SecOps \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T09:59:34.845329+00:00
+fetched_at: 2026-11-04T23:34:02.570235+00:00
 ---
 
 # Integrate ServiceNow with Google SecOps  |  Google Security Operations  |  Google Cloud Documentation
@@ -100,7 +100,7 @@ This method uses an OAuth 2.0 Client Credentials Grant alongside user impersonat
 
 #### Phase 2: Configure inside Google SecOps
 
-  1. In **Google SecOps** , navigate to **Response > Integrations Setup** and open the ServiceNow configuration window.
+  1. In **Google SecOps** , navigate to **Automation > Integrations Setup** and open the ServiceNow configuration window.
   2. Enter your **Api Root** (replacing the default placeholder domain with your actual ServiceNow instance URL).
   3. Provide the **Client ID** and **Client Secret** generated during Phase 1.
   4. Ensure the **Username** , **Password** , and **Refresh Token** fields are left completely blank.
@@ -143,7 +143,7 @@ Use this method if your organization requires OAuth security controls using a re
 
 To generate the refresh token, you must temporarily configure the integration to run a helper action.
 
-  1. In **Google SecOps** , go to **Response > Integrations Setup**.
+  1. In **Google SecOps** , go to **Automation > Integrations Setup**.
   2. Ensure the **Use Oauth Authentication** checkbox remains unmarked for this initial setup step.
   3. Configure a temporary ServiceNow integration instance using the **Api Root** , **Username** , **Password** , **Client ID** , and **Client Secret** , and click **Save**.
   4. Simulate a case or open an existing case.
@@ -2990,6 +2990,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-28 UTC.
+Last updated 2026-11-04 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 

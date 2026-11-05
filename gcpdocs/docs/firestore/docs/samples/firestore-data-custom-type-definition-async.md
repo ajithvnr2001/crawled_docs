@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/firestore/docs/samples/firestore-data-custom-type-definition-async/
 title: Use a custom type on the client for Firestore documents (async) \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T08:02:07.691439+00:00
+fetched_at: 2026-11-04T23:45:56.484825+00:00
 ---
 
 # Use a custom type on the client for Firestore documents (async)  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rest/v1/BidiProcessOrderResponse/
 title: BidiProcessOrderResponse \u00a0|\u00a0 Food Ordering AI Agent \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-30T05:38:29.286023+00:00
+fetched_at: 2026-11-05T00:17:48.057980+00:00
 ---
 
 # BidiProcessOrderResponse  |  Food Ordering AI Agent  |  Google Cloud Documentation
@@ -39,7 +39,7 @@ Send feedback
     * JSON representation
   * LoyaltyInfo
     * JSON representation
-  * LoyaltyAmount
+  * LoyaltyRequest
     * JSON representation
   * OrderPricesRequest
     * JSON representation
@@ -246,6 +246,9 @@ JSON representation
       "submitOrderRequest": {
         object ([SubmitOrderRequest](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rest/v1/BidiProcessOrderResponse#SubmitOrderRequest))
       },
+      "loyaltyRequest": {
+        object ([LoyaltyRequest](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rest/v1/BidiProcessOrderResponse#LoyaltyRequest))
+      },
       "orderPricesRequest": {
         object ([OrderPricesRequest](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rest/v1/BidiProcessOrderResponse#OrderPricesRequest))
       },
@@ -264,6 +267,7 @@ Fields
 The specific request to be executed. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:  
 `finalizeOrderRequest` |  `object (`[FinalizeOrderRequest](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rest/v1/BidiProcessOrderResponse#FinalizeOrderRequest)`)` A request to finalize the order.  
 `submitOrderRequest` |  `object (`[SubmitOrderRequest](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rest/v1/BidiProcessOrderResponse#SubmitOrderRequest)`)` A request to submit the order.  
+`loyaltyRequest` |  `object (`[LoyaltyRequest](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rest/v1/BidiProcessOrderResponse#LoyaltyRequest)`)` Optional. Unified loyalty request.  
 `orderPricesRequest` |  `object (`[OrderPricesRequest](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rest/v1/BidiProcessOrderResponse#OrderPricesRequest)`)` A request to get the order prices.  
 `validateDeliveryAddressRequest` |  `object (`[ValidateDeliveryAddressRequest](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rest/v1/BidiProcessOrderResponse#ValidateDeliveryAddressRequest)`)` A request to validate the delivery address.  
 `orderStatusRequest` |  `object (`[OrderStatusRequest](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rest/v1/BidiProcessOrderResponse#OrderStatusRequest)`)` A request to get the order status.  
@@ -311,29 +315,49 @@ JSON representation
     
     {
       "loyaltyAmount": {
-        object ([LoyaltyAmount](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rest/v1/BidiProcessOrderResponse#LoyaltyAmount))
+        object ([LoyaltyAmount](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rest/v1/LoyaltyAmount))
       }
     }  
   
 Fields  
 ---  
-`loyaltyAmount` |  `object (`[LoyaltyAmount](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rest/v1/BidiProcessOrderResponse#LoyaltyAmount)`)` Required. The loyalty amount. This can be a loyalty balance or loyalty consumed.  
+`loyaltyAmount` |  `object (`[LoyaltyAmount](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rest/v1/LoyaltyAmount)`)` Required. The loyalty amount. This can be a loyalty balance or loyalty consumed.  
   
-## LoyaltyAmount
+## LoyaltyRequest
 
-Represents a customer's loyalty amount.
+Request for loyalty operations.
 
 JSON representation  
 ---  
       
     
     {
-      "units": string
+      "category": enum ([LoyaltyActionCategory](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rest/v1/LoyaltyActionCategory)),
+      "code": string,
+      "phoneNumber": string,
+      "email": string,
+      "loyaltyAccountId": string,
+      "rewardIds": [
+        string
+      ],
+      "selectedProductCodes": [
+        string
+      ],
+      "loyaltyAmount": {
+        object ([LoyaltyAmount](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rest/v1/LoyaltyAmount))
+      }
     }  
   
 Fields  
 ---  
-`units` |  `string ([int64](https://developers.google.com/discovery/v1/type-format) format)` Required. The loyalty points.  
+`category` |  `enum (`[LoyaltyActionCategory](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rest/v1/LoyaltyActionCategory)`)` Required. Type of loyalty request.  
+`code` |  `string` Optional. -- Optional identifiers. -- The code to add to the order.  
+`phoneNumber` |  `string` Optional. The phone number of the customer.  
+`email` |  `string` Optional. The email of the customer.  
+`loyaltyAccountId` |  `string` Optional. The loyalty account ID of the customer.  
+`rewardIds[]` |  `string` Optional. -- Action specific fields. -- The reward IDs to add to the order.  
+`selectedProductCodes[]` |  `string` Optional. The product code(s) to redeem the reward for.  
+`loyaltyAmount` |  `object (`[LoyaltyAmount](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rest/v1/LoyaltyAmount)`)` Optional. The loyalty points / balance to redeem.  
   
 ## OrderPricesRequest
 
@@ -520,6 +544,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-29 UTC.
+Last updated 2026-11-04 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 

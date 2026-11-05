@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/lakehouse/docs/set-up-cross-cloud-connection-databricks/
 title: Set up cross-cloud connection for Databricks Unity Catalog \u00a0|\u00a0 Lakehouse \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-03T08:33:50.643279+00:00
+fetched_at: 2026-11-05T00:19:33.514090+00:00
 ---
 
 # Set up cross-cloud connection for Databricks Unity Catalog  |  Lakehouse  |  Google Cloud Documentation
@@ -33,7 +33,7 @@ After you set up the connection, you can manage access to your federated data in
   2. Read [about accessing cross-cloud data](https://docs.cloud.google.com/lakehouse/docs/about-cross-cloud-data-access) to understand how it works.
   3. Review the [supported catalogs](https://docs.cloud.google.com/lakehouse/docs/about-cross-cloud-data-access#supported-catalogs) to verify supported configurations.
   4. Understand how to use [regional Secret Manager secrets](https://docs.cloud.google.com/secret-manager/regional-secrets/overview-rs). This is required to set up a Lakehouse with Databricks Unity Catalog using secret-based authentication.
-  5. Optional: If you plan to route query reads or background metadata refresh over a private interconnect between your Google Cloud Virtual Private Cloud (VPC) network and your remote cloud network (AWS VPC or Azure VNet), verify that you have an active account with your remote provider, provision a [Dedicated Cross-Cloud Interconnect](https://docs.cloud.google.com/network-connectivity/docs/interconnect/concepts/cci-overview#setup-process) or [Partner Cross-Cloud Interconnect](https://docs.cloud.google.com/network-connectivity/docs/interconnect/concepts/partner-cci-for-aws-overview) (for AWS), establish BGP sessions with your Cloud Router, and verify that you have the required Identity and Access Management (IAM) permissions in both cloud environments.
+  5. Optional: If you plan to route query reads or background metadata refresh over a private interconnect between your Google Cloud Virtual Private Cloud (VPC) network and your remote cloud network (AWS VPC or Azure VNet), verify that you have an active account with your remote provider, provision a [Dedicated Cross-Cloud Interconnect](https://docs.cloud.google.com/network-connectivity/docs/interconnect/concepts/cci-overview#setup-process) or [partner Cross-Cloud Interconnect](https://docs.cloud.google.com/network-connectivity/docs/interconnect/concepts/partner-cci-for-csp-overview), establish BGP sessions with your Cloud Router, and verify that you have the required Identity and Access Management (IAM) permissions in both cloud environments.
   6. Optional: If you plan to use user identity federation to propagate end-user identities on queries, ensure that: 
      * Your Identity Provider (IdP) is configured to issue the user's `email` claim as the `sub` subject claim in authentication tokens.
      * Your Databricks account is configured to recognize the end user from their email address so Databricks can recognize the user. Users can be configured in Databricks either by [syncing users from your identity provider using SCIM](https://docs.databricks.com/admin/users-groups/scim/index.html) (recommended) or by [manually adding users in the Databricks Account Console](https://docs.databricks.com/admin/users-groups/users.html).
@@ -86,7 +86,7 @@ You might also be able to get the required permissions through [custom roles](ht
 This section lists the limitations and considerations for accessing cross-cloud data.
 
   * **VPC Service Controls:** If the project that contains your federated catalog endpoint or underlying Cloud Storage bucket is inside a VPC Service Controls service perimeter, then you must configure egress or ingress rules. For more information, see [Use VPC Service Controls with federated catalog endpoints](https://docs.cloud.google.com/lakehouse/docs/vpc-sc-federated-catalogs).
-  * **Supported cloud providers for Cross-Cloud Interconnect:** Using a private interconnect to route query transport, background metadata refresh, or both is supported with AWS and Azure. You can use [Dedicated Cross-Cloud Interconnect](https://docs.cloud.google.com/network-connectivity/docs/interconnect/concepts/cci-overview#setup-process) (for AWS or Azure) or [Partner Cross-Cloud Interconnect](https://docs.cloud.google.com/network-connectivity/docs/interconnect/concepts/partner-cci-for-aws-overview) (for AWS).
+  * **Supported cloud providers for Cross-Cloud Interconnect:** Using a private interconnect to route query transport, background metadata refresh, or both is supported with AWS and Azure. You can use [Dedicated Cross-Cloud Interconnect](https://docs.cloud.google.com/network-connectivity/docs/interconnect/concepts/cci-overview#setup-process) (for AWS or Azure) or [partner Cross-Cloud Interconnect](https://docs.cloud.google.com/network-connectivity/docs/interconnect/concepts/partner-cci-for-csp-overview).
   * **Network routing:** If you don't configure a private interconnect for query transport or background metadata refresh, the corresponding traffic routes over the public internet using TLS. Routing query reads over the public internet can result in higher egress fees from your remote cloud provider and less predictable performance.
   * **Databricks Unity Catalog configuration:**
     * Only Databricks Unity Catalogs that use an [external location on AWS](https://docs.databricks.com/aws/en/sql/language-manual/sql-ref-external-locations), an [external location on Azure](https://learn.microsoft.com/azure/databricks/sql/language-manual/sql-ref-external-locations), or an [external location on Google Cloud](https://docs.databricks.com/gcp/en/sql/language-manual/sql-ref-external-locations) are supported. Unity Catalogs that use [default storage on AWS](https://docs.databricks.com/aws/en/storage/default-storage), [default storage on Azure](https://learn.microsoft.com/azure/databricks/storage/default-storage), or [default storage on Google Cloud](https://docs.databricks.com/gcp/en/storage/default-storage) are _not supported_.
@@ -120,7 +120,7 @@ By default, both query data reads and background metadata refresh travel over th
 You can provision either of the following private interconnect options:
 
   * [**Dedicated Cross-Cloud Interconnect**](https://docs.cloud.google.com/network-connectivity/docs/interconnect/concepts/cci-overview#setup-process): A dedicated physical connection to AWS or Azure.
-  * [**Partner Cross-Cloud Interconnect**](https://docs.cloud.google.com/network-connectivity/docs/interconnect/concepts/partner-cci-for-aws-overview): A connection to AWS through a supported service provider.
+  * [**Partner Cross-Cloud Interconnect**](https://docs.cloud.google.com/network-connectivity/docs/interconnect/concepts/partner-cci-for-csp-overview): A connection to AWS through a supported service provider.
 
 
 

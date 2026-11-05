@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/compute/docs/instances/nested-virtualization/creating-nested-vms/
 title: Create nested VMs \u00a0|\u00a0 Compute Engine \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T23:01:58.258790+00:00
+fetched_at: 2026-11-05T00:20:11.512515+00:00
 ---
 
 # Create nested VMs  |  Compute Engine  |  Google Cloud Documentation
@@ -23,15 +23,15 @@ Send feedback
 
 Linux 
 
-Nested virtualization is allowed by default, so unless somebody modifies the constraint for nested virtualization, you do not need to make any changes before you create nested VMs in an organization, folder, or project. If your project doesn't belong to an organization, nested virtualization is allowed by default and you can't change the constraint. For information about how to modify the constraint that determines whether you can create nested VMs, see [Manage the nested virtualization constraint](https://docs.cloud.google.com/compute/docs/instances/nested-virtualization/managing-constraint).
+Nested virtualization is allowed by default, so unless you modify the constraint for nested virtualization, you don't need to make any changes before you create nested VMs in an organization, folder, or project. If your project doesn't belong to an organization, nested virtualization is allowed by default and you can't change the constraint. For information about how to modify the constraint that determines whether you can create nested VMs, see [Manage the nested virtualization constraint](https://docs.cloud.google.com/compute/docs/instances/nested-virtualization/managing-constraint).
 
 This document describes how to create various types of level 2 (L2) virtual machine (VM) instances. Before creating a nested VM, you must [create an L1 VM that has nested virtualization enabled](https://docs.cloud.google.com/compute/docs/instances/nested-virtualization/enabling). For a description of L1 and L2 VMs, see the [Nested virtualization overview](https://docs.cloud.google.com/compute/docs/instances/nested-virtualization/overview).
 
-After creating an L1 VM that has nested virtualization enabled, you can do any of the following:
+After you create an L1 VM that has nested virtualization enabled, you can complete any of the following tasks:
 
-  * Create an L2 VM with external network access
-  * Create an L2 VM with a private network bridge to the L1 VM
-  * Create an L2 VM with network access from outside the L1 VM
+  * Create an L2 VM with external network access.
+  * Create an L2 VM with a private network bridge to the L1 VM.
+  * Create an L2 VM with network access from outside the L1 VM.
 
 
 
@@ -65,9 +65,9 @@ For more information, see [Authenticate for using REST](https://docs.cloud.googl
 
 
 
-## Creating an L2 VM with external network access
+## Create an L2 VM with external network access
 
-Create an L2 VM with external network access by using the following procedure. This procedure uses [`qemu-system-x86_64`](https://manpages.debian.org/stretch/qemu-system-x86/qemu-system-x86_64.1.en.html) to start the L2 VM. If you are using another procedure to create an L2 VM and are experiencing trouble, reproduce the issue using this procedure before contacting [Support](https://docs.cloud.google.com/support).
+To create an L2 VM with external network access, follow this procedure. This procedure uses [`qemu-system-x86_64`](https://manpages.debian.org/stretch/qemu-system-x86/qemu-system-x86_64.1.en.html) to start the L2 VM. If you're using another procedure to create an L2 VM and are experiencing trouble, reproduce the issue using this procedure before contacting [Support](https://docs.cloud.google.com/support).
 
   1. [Create an L1 VM that has nested virtualization enabled](https://docs.cloud.google.com/compute/docs/instances/nested-virtualization/enabling).
 
@@ -85,14 +85,14 @@ Replace `VM_NAME` with the name of the VM to connect to.
 
   4. Download a QEMU-compatible OS image to use for the L2 VM.
 
-  5. Use the following command to start the L2 VM. When prompted, log in with `user: root`, `password: root`.
+  5. Use the following command to start the L2 VM. When prompted, sign in with `user: root`, `password: root`.
          
          sudo qemu-system-x86_64 -enable-kvm -hda IMAGE_NAME -m 512 -curses
          
 
 Replace `IMAGE_NAME` with the name of the QEMU-compatible OS image to use for the L2 VM.
 
-  6. Test that your L2 VM has external access:
+  6. Test whether your L2 VM has external access:
          
          user@nested-vm:~$ host google.com
          
@@ -100,9 +100,9 @@ Replace `IMAGE_NAME` with the name of the QEMU-compatible OS image to use for th
 
 
 
-## Creating an L2 VM with a private network bridge to the L1 VM
+## Create an L2 VM with a private network bridge to the L1 VM
 
-Create an L2 VM with a private network bridge to the previously created L1 VM by using the following procedure. For information about changing the default maximum transmission unit (MTU) for your VPC network, see the [maximum transmission unit overview](https://docs.cloud.google.com/vpc/docs/mtu).
+To create an L2 VM with a private network bridge to the previously created L1 VM, follow this procedure. For information about changing the default maximum transmission unit (MTU) for your VPC network, see the [maximum transmission unit overview](https://docs.cloud.google.com/vpc/docs/mtu).
 
   1. [Create an L1 VM that has nested virtualization enabled](https://docs.cloud.google.com/compute/docs/instances/nested-virtualization/enabling).
 
@@ -180,14 +180,14 @@ Replace `VM_NAME` with the name of the VM to connect to.
          screen
          
 
-  13. Use the following command to start the L2 VM. When prompted, login in with `user: root`, `password: root`.
+  13. Use the following command to start the L2 VM. When prompted, sign in with `user: root`, `password: root`.
          
          sudo qemu-system-x86_64 -enable-kvm -hda IMAGE_NAME -m 512 -net nic -net tap,ifname=tap0,script=no -curses
          
 
 Replace `IMAGE_NAME` with the name of the QEMU-compatible OS image to use for the L2 VM.
 
-  14. On the L2 VM, run `ip addr show` to confirm that the VM has an address in the `virbr0` space—for example, `192.168.122.89`:
+  14. On the L2 VM, run `ip addr show` to confirm that the VM has an address in the `virbr0` space — for example, `192.168.122.89`:
          
          user@nested-vm:~$ ip addr
          
@@ -199,7 +199,7 @@ Replace `IMAGE_NAME` with the name of the QEMU-compatible OS image to use for th
 
   16. Detach from the `screen` session with `Ctrl+A`, `Ctrl+D`.
 
-  17. Test that your L1 VM can ping the L2 VM, replacing the following IP address with the IP address of the L2 VM:
+  17. To test whether your L1 VM can ping the L2 VM, replace the following IP address with the IP address of the L2 VM:
          
          curl 192.168.122.89:8000
          
@@ -224,7 +224,7 @@ Replace `IMAGE_NAME` with the name of the QEMU-compatible OS image to use for th
 
 
 
-## Creating an L2 VM with network access from outside the L1 VM
+## Create an L2 VM with network access from outside the L1 VM
 
 #### Permissions required for this task
 
@@ -234,7 +234,7 @@ To perform this task, you must have the following [permissions](https://docs.clo
 
 
 
-You can set up an L2 VM with an alias IP so that VMs outside the L1 VM can access the L2 VM. Use the following procedure to create an L2 VM with network access by way of an alias IP from outside the previously created L1 VM. For information about creating alias IP addresses, see [Configure alias IP ranges](https://docs.cloud.google.com/vpc/docs/configure-alias-ip-ranges).
+You can set up an L2 VM with an alias IP so that VMs outside the L1 VM can access the L2 VM. To create an L2 VM with network access by way of an alias IP from outside the previously created L1 VM, use the following procedure. For information about creating alias IP addresses, see [Configure alias IP ranges](https://docs.cloud.google.com/vpc/docs/configure-alias-ip-ranges).
 
 The following procedure assumes a previously created subnet called `subnet1`. If you already have a subnet with a different name, replace `subnet1` with the name of your subnet, or create a new subnet named `subnet1`.
 
@@ -361,7 +361,7 @@ Replace `VM_NAME` with the name of the VM to connect to.
          screen
          
 
-  13. Use the following command to start the nested VM. When prompted, login in with `user: root`, `password: root`.
+  13. Use the following command to start the nested VM. When prompted, sign in with `user: root`, `password: root`.
          
          sudo qemu-system-x86_64 -enable-kvm -hda IMAGE_NAME -m 512 -net nic -net tap,ifname=tap0,script=no -curses
          
@@ -380,7 +380,7 @@ Replace `IMAGE_NAME` with the name of the QEMU-compatible OS image to use for th
 
   16. Detach from the `screen` session with `Ctrl+A`, `Ctrl+D`.
 
-  17. Test that your L1 VM can ping the L2 VM, replace the IP address below with the IP address of the L2 VM:
+  17. To test whether your L1 VM can ping the L2 VM, replace the IP address with the IP address of the L2 VM:
          
          curl 192.168.122.89:8000
          
@@ -402,7 +402,7 @@ Replace `IMAGE_NAME` with the name of the QEMU-compatible OS image to use for th
          </html>
          
 
-  19. On the L1 VM, set up `iptables` to allow forwarding from the L1 VM to the L2 VM. For the L2 OS image used in these instructions, you must flush the IP tables:
+  19. On the L1 VM, set up IPtables to allow forwarding from the L1 VM to the L2 VM. For the L2 OS image used in these instructions, you must flush the IPtables:
          
          sudo iptables -F
          
@@ -441,7 +441,7 @@ Replace `IMAGE_NAME` with the name of the QEMU-compatible OS image to use for th
 
 For information about troubleshooting `iptables`, see [`iptables` not forwarding traffic](https://docs.cloud.google.com/compute/docs/troubleshooting/troubleshooting-nested-vms#iptables_not_forwarding_traffic).
 
-  23. Verify L2 VM access from outside the L1 VM by logging onto another VM that is on the same network as the L1 VM, and making a `curl` request to the alias IP, replacing the IP address below with the L2 VM's alias IP:
+  23. To verify L2 VM access from outside the L1 VM, sign in to another VM that is on the same network as the L1 VM, and make a `curl` request to the alias IP by replacing the IP address with the L2 VM's alias IP:
          
          user@another-vm:~$ curl 10.128.0.13:8000
          
@@ -476,6 +476,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-03 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 

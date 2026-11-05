@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/docs/overview/
 title: AlloyDB overview \u00a0|\u00a0 AlloyDB for PostgreSQL \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T09:51:30.019044+00:00
+fetched_at: 2026-11-04T23:32:03.827190+00:00
 ---
 
 # AlloyDB overview  |  AlloyDB for PostgreSQL  |  Google Cloud Documentation
@@ -23,15 +23,18 @@ Send feedback
 
 AlloyDB for PostgreSQL is a fully managed, PostgreSQL-compatible database service. It pairs a Google-built database engine with a cloud-based, multi-node architecture to deliver enterprise-grade performance, reliability, and availability for your most demanding applications.
 
+For rapid prototyping, development, and testing with coding agents, start with the AlloyDB Express configuration ([Preview](https://cloud.google.com/products#product-launch-stages)), which provides fast provisioning, scale-to-zero compute, and a one-click upgrade to production-ready AlloyDB. For more information, see [AlloyDB Express overview](https://docs.cloud.google.com/alloydb/docs/express-overview).
+
 ## Use cases for AlloyDB
 
 AlloyDB provides a scalable alternative to self-managed, standard PostgreSQL. Use AlloyDB if you want to spend less time managing infrastructure and more time building applications.
 
-AlloyDB is designed for demanding workloads, including:
+AlloyDB is designed for demanding workloads, including the following:
 
-  * Hybrid Transactional and Analytical Processing (HTAP): run complex analytical queries against your live transactional data without impacting performance or availability.
-  * Low-latency AI applications: build generative AI applications by using AlloyDB AI, which integrates vector search and machine learning model invocation directly into the database engine, removing the need for high-latency external data movement.
+  * Hybrid Transactional and Analytical Processing (HTAP): run complex analytical queries against your live transactional data without affecting performance or availability.
+  * Low-latency AI applications: build generative AI applications using AlloyDB AI, which integrates vector search and machine learning model invocation directly into the database engine, removing the need for high-latency external data movement.
   * Enterprise-grade mission-critical workloads: deploy applications that require the highest levels of performance, reliability, and availability, supported by a disaggregated compute and storage architecture that spans multiple availability zones.
+  * Prototyping and workflows that use AI coding agents: use AlloyDB Express to create databases for development and testing. When your database is idle, compute scales down to zero, and you aren't billed for compute.
 
 
 
@@ -49,18 +52,18 @@ AlloyDB offers many services so you don't have to build and maintain them yourse
 
 ## Database administration
 
-AlloyDB manages the underlying infrastructure of your database, such as automated backups, security patches, and resource allocation. However, AlloyDB is not a standalone database administration tool. You still need administrative tools to manage the schemas, data, and users within your databases.
+AlloyDB manages the underlying infrastructure of your database, such as automated backups, security patches, and resource allocation. However, AlloyDB isn't a standalone database administration tool. You still need administrative tools to manage the schemas, data, and users within your databases.
 
 You can use the following tools to connect to and manage your databases:
 
   * AlloyDB Studio: a web-based tool built directly into the Google Cloud console that lets you explore and manage your data using an interactive SQL interface.
-  * PostgreSQL clients: because AlloyDB is fully PostgreSQL-compatible, you can use standard administrative clients and command-line tools, such as psql and pgAdmin, to work with your database.
+  * PostgreSQL clients: because AlloyDB is fully PostgreSQL-compatible, you can use standard administrative clients and command-line tools, such as `psql` and pgAdmin, to work with your database.
 
 
 
 ## AlloyDB pricing
 
-AlloyDB uses a consumption-based pricing model, meaning you are billed for the resources you use. AlloyDB pricing varies based on your configuration settings and depends on the following factors:
+AlloyDB uses a consumption-based pricing model, meaning you're billed for the resources that you use. AlloyDB pricing varies based on your configuration settings and depends on the following factors:
 
   * Instance resources: the machine type (number of vCPUs and amount of RAM) selected for your primary and read pool instances.
   * Storage: the amount of data stored in your cluster's flexible storage layer.
@@ -68,17 +71,19 @@ AlloyDB uses a consumption-based pricing model, meaning you are billed for the r
 
 
 
-For more detailed information, see [AlloyDB for PostgreSQL pricing](https://docs.cloud.google.com/alloydb/pricing). 
+For more information, see [AlloyDB pricing](https://docs.cloud.google.com/alloydb/pricing).
+
+The AlloyDB Express configuration offers usage-based pricing for compute and storage and includes a monthly free tier for the first 12 months. For more information, see [AlloyDB Express pricing](https://docs.cloud.google.com/alloydb/docs/express-overview#pricing). 
 
 ## How AlloyDB works
 
 An application connects to AlloyDB instances using standard PostgreSQL protocols.
 
-Under the surface, AlloyDB uses a disaggregated architecture and a hierarchy of resources designed to maximize availability and performance.
+AlloyDB uses a disaggregated architecture and a hierarchy of resources designed to maximize availability and performance.
 
 ### Architectural difference from standard PostgreSQL
 
-Traditional PostgreSQL couples the database engine that processes queries with storage on the same server. AlloyDB uses a disaggregated architecture, where compute and storage layers are separate and scale independently.
+Standard PostgreSQL couples the database engine that processes queries with storage on the same server. AlloyDB uses a disaggregated architecture, where compute and storage layers are separate and scale independently.
 
   * Compute: virtual machines, or nodes, that process your queries.
   * Storage: a cloud-native, distributed storage engine that persists your data across multiple availability zones and scales automatically as your data grows.
@@ -94,8 +99,8 @@ The following diagram illustrates the AlloyDB resource hierarchy, featuring a cl
 ![Diagram showing a cluster containing a primary instance and read pool instances](https://docs.cloud.google.com/static/alloydb/images/alloydb-architecture.svg)
 
   * Cluster: a top-level resource that acts as a logical container for your databases, logs, and other metadata within a region. You can create multiple clusters in the same project and region.
-  * Instance: a cluster contains one or more instances. An instance provides the connection point for your applications.
-  * Node: an instance is powered by one or more nodes. A node is a virtual machine (VM) dedicated to running the database engine.
+  * Instance: the connection point for your applications. A cluster contains one or more instances.
+  * Node: a virtual machine (VM) dedicated to running the database engine. One or more nodes power each instance.
 
 
 
@@ -105,13 +110,13 @@ An AlloyDB instance is the access point for your database. Each instance has a p
 
 AlloyDB uses two types of instances:
 
-  * **Primary instance** : provides read and write access to your data. Every cluster has exactly one _primary instance_. A primary instance can be either highly available (HA) or basic.
+  * Primary instance: provides read and write access to your data. Every cluster has exactly one primary instance. A primary instance can be either highly available (HA) or basic.
 
-    * **Highly available** : contains two nodes, an active node and a standby node, located in different zones for automatic failover.
+    * Highly available instance: contains two nodes, an active node and a standby node, located in different zones for automatic failover.
 
-    * **Basic instance** : contains a single node for non-production environments that don't require high availability. A basic instance has only one node, with no standby node. For more information, see [Reduce costs using basic instances](https://docs.cloud.google.com/alloydb/docs/basic-instance).
+    * Basic instance: contains a single node with no standby node, for non-production environments that don't require high availability. For more information, see [Reduce costs using basic instances](https://docs.cloud.google.com/alloydb/docs/basic-instance).
 
-  * **Read pool instance** : provides read-only access to scale your workloads. You can add one or more read pool instances, each containing up to 20 nodes total across the cluster. AlloyDB automatically load-balances requests across the nodes in a read pool.
+  * Read pool instance: provides read-only access to scale your workloads. You can add one or more read pool instances, each containing up to 20 nodes total across the cluster. AlloyDB automatically load-balances requests across the nodes in a read pool.
 
 
 
@@ -122,7 +127,7 @@ AlloyDB distinguishes itself from a stock PostgreSQL installation in a number of
 
 ### Automatic and adaptive database features
 
-The fully PostgreSQL-compatible database engine that powers every AlloyDB node has several features that continuously analyze the structure and frequency of the queries that your instances handle, using this information to suggest schema improvements or automatically apply optimizations:
+The fully PostgreSQL-compatible database engine that powers every AlloyDB node continuously analyzes the structure and frequency of your queries. The database engine uses this information to suggest schema improvements or automatically apply the following optimizations:
 
   * An [index advisor](https://docs.cloud.google.com/alloydb/docs/use-index-advisor) helps you find opportunities to optimize your database schema using new indexes based on your usage patterns.
 
@@ -147,13 +152,13 @@ For more information about region-specific considerations, see [Geography and re
 
 ### Data backup and disaster recovery
 
-AlloyDB features a continuous backup and recovery system that lets you create a new cluster based on any point in time within an adjustable retention period. This lets you recover quickly from data-loss accidents.
+AlloyDB features a continuous backup and recovery system that lets you create a new cluster based on any point in time within an adjustable retention period. This lets you recover from data-loss accidents.
 
 In addition, AlloyDB can create and store complete backups of your cluster's data, either on demand or on a regular schedule. At any time, you can restore from a backup to a new AlloyDB cluster that contains all the data from the original cluster at the moment of the backup's creation.
 
 For more information, see [About backups](https://docs.cloud.google.com/alloydb/docs/backup/overview).
 
-As a further method of disaster recovery, you can achieve cross-region replication by creating secondary clusters in separate Google Cloud regions. AlloyDB asynchronously streams data from a designated primary cluster to each of its secondary clusters. At any time, you can promote a secondary cluster into a primary cluster, or perform a cross-region failover ([Preview](https://docs.cloud.google.com/products#product-launch-stages)) to automatically maintain your replication topology during an outage.
+As a further method of disaster recovery, you can achieve cross-region replication by creating secondary clusters in separate Google Cloud regions. AlloyDB asynchronously streams data from a designated primary cluster to each of its secondary clusters. At any time, you can promote a secondary cluster into a primary cluster, or perform a cross-region failover ([Preview](https://cloud.google.com/products#product-launch-stages)) to automatically maintain your replication topology during an outage.
 
 For more information, see [About cross-region replication](https://docs.cloud.google.com/alloydb/docs/cross-region-replication/about-cross-region-replication).
 
@@ -161,13 +166,13 @@ For more information, see [About cross-region replication](https://docs.cloud.go
 
 You can configure a cluster to require connection with the secure AlloyDB Auth Proxy, which uses IAM for access control. For more information, see [Authorization](https://docs.cloud.google.com/alloydb/docs/connection-overview#authz).
 
-AlloyDB uses the standard PostgreSQL user role system for authentication, introducing a handful of additional roles specific to AlloyDB. For more information, see [Manage AlloyDB user roles](https://docs.cloud.google.com/alloydb/docs/database-users/manage-roles).
+AlloyDB uses the standard PostgreSQL user role system for authentication, introducing several additional roles specific to AlloyDB. For more information, see [Manage AlloyDB user roles](https://docs.cloud.google.com/alloydb/docs/database-users/manage-roles).
 
 ### Encryption
 
-AlloyDB protects all data at rest using Google-owned and Google-managed encryption keys by default. If you instead need to encrypt your data using a key that you provide, then you can specify a customer-managed encryption key (CMEK) when creating a cluster. AlloyDB then uses the CMEK key to encrypt all data written to that cluster.
+AlloyDB protects all data at rest using Google-owned and Google-managed encryption keys by default. If you instead need to encrypt your data using a key that you provide, then you can specify a customer-managed encryption key (CMEK) when creating a cluster. AlloyDB then uses the CMEK to encrypt all data written to that cluster.
 
-CMEK also applies to backups. You can specify a CMEK key when creating an on-demand backup, configuring a backup schedule, or restoring from a backup.
+CMEK also applies to backups. You can specify a CMEK when creating an on-demand backup, configuring a backup schedule, or restoring from a backup.
 
 For more information, see [About CMEK](https://docs.cloud.google.com/alloydb/docs/cmek).
 
@@ -180,7 +185,7 @@ Over the life of an AlloyDB cluster, two kinds of updates can occur:
 
 
 
-AlloyDB maintenance operations are designed to be non-disruptive. This is accomplished by preparing replacement servers and quickly swapping them with the active servers when ready. During this process, primary instances typically experience less than a second of downtime, while read pools remain continuously available. Any active connections to the database are momentarily dropped, but you can continue using your database normally throughout the process.
+AlloyDB maintenance operations are non-disruptive. AlloyDB prepares replacement servers and swaps them with the active servers when ready. During this process, primary instances typically experience less than a second of downtime, while read pools remain continuously available. The swap momentarily drops active database connections, but you can continue using your database normally throughout the process.
 
 To apply a flag update faster even if it incurs longer downtime, you can use the [`FORCE_APPLY` update mode](https://docs.cloud.google.com/alloydb/docs/instance-configure-database-flags).
 
@@ -190,10 +195,10 @@ AlloyDB AI integrates a suite of AI and ML features directly into your AlloyDB d
 
 To facilitate the development of AI applications, AlloyDB AI provides the following extensions:
 
-  * `vector` (a version of `pgvector` customized for AlloyDB AI): stores and indexes vector embeddings for semantic search. Supports running hybrid queries and similarity searches. To get started with vector search, see [Perform a vector search](https://docs.cloud.google.com/alloydb/docs/ai/perform-vector-search).
-  * `alloydb_scann`: provides high-performance approximate nearest-neighbor search by implementing a highly efficient nearest-neighbor index powered by the ScaNN algorithm. For more information, see [Create a ScaNN index](https://docs.cloud.google.com/alloydb/docs/ai/create-scann-index).
-  * `google_ml_integration`: provides access to the AI functions, which enables ML model invocation from AlloyDB for tasks such as generating embeddings, semantic ranking, AI-based filters and joins, and text generation and summarization. Model endpoint management allows registration and invocation of AI models, including external models by OpenAI or Anthropic. For more information, see [Register a model endpoint](https://docs.cloud.google.com/alloydb/docs/ai/register-model-endpoint) and [Evaluate semantic queries with AI operators](https://docs.cloud.google.com/alloydb/docs/ai/evaluate-semantic-queries-ai-operators).
-  * `alloydb_ai_nl`: Enables interaction with your database using natural language. It enables application developers to generate accurate and secure SQL queries in response to end-user natural language questions, enabling non-SQL users to access data. For more information, see [Natural language overview](https://docs.cloud.google.com/alloydb/docs/ai/natural-language-landing).
+  * `vector` extension (a version of `pgvector` customized for AlloyDB AI): stores and indexes vector embeddings for semantic search, and supports hybrid queries and similarity searches. To get started with vector search, see [Perform a vector search](https://docs.cloud.google.com/alloydb/docs/ai/perform-vector-search).
+  * `alloydb_scann` extension: provides high-performance approximate nearest-neighbor search by implementing a highly efficient nearest-neighbor index powered by the ScaNN algorithm. For more information, see [Create a ScaNN index](https://docs.cloud.google.com/alloydb/docs/ai/create-scann-index).
+  * `google_ml_integration` extension: provides access to the AI functions, which lets you invoke ML models from AlloyDB for tasks such as generating embeddings, semantic ranking, AI-based filters and joins, and text generation and summarization. Model endpoint management lets you register and invoke AI models, including external models by OpenAI or Anthropic. For more information, see [Register a model endpoint](https://docs.cloud.google.com/alloydb/docs/ai/register-model-endpoint) and [Evaluate semantic queries with AI operators](https://docs.cloud.google.com/alloydb/docs/ai/evaluate-semantic-queries-ai-operators).
+  * `alloydb_ai_nl` extension: lets you interact with your database using natural language. It lets application developers generate accurate and secure SQL queries in response to end-user natural language questions, letting non-SQL users access data. For more information, see [Natural language overview](https://docs.cloud.google.com/alloydb/docs/ai/natural-language-landing).
 
 
 
@@ -207,14 +212,31 @@ AlloyDB includes support for a number of popular PostgreSQL extensions. For the 
 
 As an alternative to running AlloyDB within Google Cloud, Google offers AlloyDB Omni. This streamlined, downloadable edition of AlloyDB lets you run its powerful database engine on your own Linux-based computing environment, wherever that might be.
 
-To explore deployment options, codelabs, and manage subscriptions in the Google Cloud console, go to the [AlloyDB Omni console page](https://console.cloud.google.com/alloydb/omni).
+To explore deployment options and codelabs, and to manage subscriptions in the Google Cloud console, go to the [AlloyDB Omni console page](https://console.cloud.google.com/alloydb/omni).
 
 For more information, see [AlloyDB Omni overview](https://docs.cloud.google.com/alloydb/omni/docs/overview). 
 
+## AlloyDB Express for prototyping and coding agents
+
+**Preview — AlloyDB Express**
+
+This feature is subject to the "Pre-GA Offerings Terms" in the General Service Terms section of the [Service Specific Terms](https://docs.cloud.google.com/terms/service-terms#1). Pre-GA features are available "as is" and might have limited support. For more information, see the [launch stage descriptions](https://cloud.google.com/products/#product-launch-stages). 
+
+AlloyDB Express is a configuration in AlloyDB for rapid prototyping, development, testing, and workflows that use AI coding agents. AlloyDB Express provides the following features:
+
+  * Fast provisioning: instances are ready to accept connections within approximately 2 seconds for public DNS and within 20 seconds for Private Service Connect endpoints.
+  * Scale-to-zero compute: idle instances scale down to zero compute, so you aren't billed for compute during periods of inactivity.
+  * Private Service Connect and public DNS connectivity: you can connect to your instance from your VPC network through Private Service Connect endpoints, or from clients outside of your VPC network using public DNS.
+  * In-place upgrade to AlloyDB: you can upgrade an AlloyDB Express cluster to AlloyDB with one click.
+
+
+
+For more information, see [AlloyDB Express overview](https://docs.cloud.google.com/alloydb/docs/express-overview).
+
 ## What's next
 
-  * [Choose how to connect to AlloyDB](https://docs.cloud.google.com/alloydb/docs/choose-alloydb-connectivity).
-  * [Quickstart: Create and connect to a database](https://docs.cloud.google.com/alloydb/docs/quickstart/create-and-connect).
+  * [Choose how to connect to AlloyDB](https://docs.cloud.google.com/alloydb/docs/choose-alloydb-connectivity)
+  * [Quickstart: Create and connect to a database](https://docs.cloud.google.com/alloydb/docs/quickstart/create-and-connect)
 
   * [Perform a vector search](https://docs.cloud.google.com/alloydb/docs/ai/perform-vector-search)
 
@@ -229,6 +251,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-28 UTC.
+Last updated 2026-11-04 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 

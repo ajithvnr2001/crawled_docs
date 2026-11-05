@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/sonic-firewall/
 title: Collect SonicWall logs \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T07:51:59.096396+00:00
+fetched_at: 2026-11-04T23:32:51.562316+00:00
 ---
 
 # Collect SonicWall logs  |  Google Security Operations  |  Google Cloud Documentation

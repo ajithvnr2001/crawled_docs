@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/atlassian-bitbucket/
 title: Collect Atlassian Bitbucket logs \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T07:53:03.469048+00:00
+fetched_at: 2026-11-04T23:32:50.920027+00:00
 ---
 
 # Collect Atlassian Bitbucket logs  |  Google Security Operations  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/docs/advanced-query-insights-overview/
 title: Advanced query insights features overview \u00a0|\u00a0 AlloyDB for PostgreSQL \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T18:27:30.526398+00:00
+fetched_at: 2026-11-04T23:32:05.555569+00:00
 ---
 
 # Advanced query insights features overview  |  AlloyDB for PostgreSQL  |  Google Cloud Documentation
@@ -31,6 +31,7 @@ To help you proactively identify and troubleshoot root causes of query performan
   * View your query execution plan using complete SQL statements, along with accompanying comments. You can opt in to view comments associated with a query, where applicable.
   * Troubleshoot complex performance issues by analyzing telemetry, like wait events. A _wait event_ is a component that causes a delay in processing a query-related operation. Wait event metrics, enabled by default, help you diagnose and debug performance issues for long-running queries and their associated wait times.
   * View [index advisor recommendations](https://docs.cloud.google.com/alloydb/docs/use-index-advisor-with-query-insights) about creating indexes.
+  * [Monitor active queries](https://docs.cloud.google.com/alloydb/docs/monitor-active-queries) and identify blocked and blocking queries using [blocked query analysis](https://docs.cloud.google.com/alloydb/docs/monitor-active-queries#blocked-query-analysis).
   * Configure your query insight settings. For example, you can customize query lengths, enable wait event analysis, and store query comments and application tags. You can access historical and near real-time data.
   * Analyze data for up to a 30-day period for a long term performance view.
 
@@ -70,7 +71,7 @@ Traces from advanced query insights features are stored in Cloud Trace and have 
   * The metrics exposed by advanced query insights features aren't available using the Cloud Monitoring API.
   * Client IP address support is in [Preview](https://cloud.google.com/products#product-launch-stages) and can only be configured using `gcloud beta`, Terraform, or the `v1beta` REST API.
   * You cannot enable advanced query insights features on secondary clusters.
-  * AlloyDB stores query insights data for its primary and read pool instances for 30 days. Storing data for primary instances consumes about 180 GB and might increase based on the number of read pool nodes present in the cluster. The maximum consumed storage size is 700 GB.
+  * AlloyDB stores query insights data for its primary and read pool instances for 30 days.
   * You must [enable advanced query insights features](https://docs.cloud.google.com/alloydb/docs/using-advanced-query-insights#enable-advanced-features) on a primary instance before enabling them on a read pool instance.
   * The query insights dashboard resets after you enable advanced query insights features. However, you can still access the standard query insights metrics using the [Metrics Explorer](https://docs.cloud.google.com/monitoring/charts/metrics-explorer).
 
@@ -79,6 +80,7 @@ Traces from advanced query insights features are stored in Cloud Trace and have 
 ## What's next
 
   * [Improve query performance using query insights](https://docs.cloud.google.com/alloydb/docs/using-advanced-query-insights).
+  * [Monitor active queries](https://docs.cloud.google.com/alloydb/docs/monitor-active-queries).
   * Learn about [AlloyDB metrics](https://docs.cloud.google.com/monitoring/api/metrics_gcp_a_b#gcp-alloydb).
 
 
@@ -87,6 +89,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-04 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 

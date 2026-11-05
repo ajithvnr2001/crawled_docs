@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/illumio-core/
 title: Collect Illumio Core logs \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T07:51:01.725808+00:00
+fetched_at: 2026-11-04T23:42:34.494812+00:00
 ---
 
 # Collect Illumio Core logs  |  Google Security Operations  |  Google Cloud Documentation

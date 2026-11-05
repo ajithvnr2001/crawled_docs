@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/armor/docs/address-groups-using/
 title: Configure address groups \u00a0|\u00a0 Google Cloud Armor \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T16:19:06.405365+00:00
+fetched_at: 2026-11-04T23:33:28.601381+00:00
 ---
 
 # Configure address groups  |  Google Cloud Armor  |  Google Cloud Documentation
@@ -276,7 +276,7 @@ For this example, imagine that you have an IP address group called `MALICIOUS_IP
     evaluateAddressGroup('MALICIOUS_IPS', origin.user_ip)
     
 
-For more information about IP addresses, see [Attributes](https://docs.cloud.google.com/armor/docs/rules-language-reference#attributes).
+For more information about IP addresses, see [Attributes](https://docs.cloud.google.com/armor/docs/create-security-policy-rules#attributes).
 
 For more information about user IP addresses, see [User IP addresses overview](https://docs.cloud.google.com/armor/docs/user-ip-overview).
 
@@ -527,13 +527,13 @@ For this example, imagine that you have an IP address group called `MALICIOUS_IP
     evaluateOrganizationAddressGroup('MALICIOUS_IPS', origin.user_ip)
     
 
-For more information about IP addresses, see [Attributes](https://docs.cloud.google.com/armor/docs/rules-language-reference#attributes).
+For more information about IP addresses, see [Attributes](https://docs.cloud.google.com/armor/docs/create-security-policy-rules#attributes).
 
 For more information about user IP addresses, see [User IP addresses overview](https://docs.cloud.google.com/armor/docs/user-ip-overview).
 
 ## What's next
 
-  * [Configure custom rules language attributes](https://docs.cloud.google.com/armor/docs/rules-language-reference)
+  * [Create and view security policy rules](https://docs.cloud.google.com/armor/docs/create-security-policy-rules)
 
 
 
@@ -541,6 +541,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-04 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 

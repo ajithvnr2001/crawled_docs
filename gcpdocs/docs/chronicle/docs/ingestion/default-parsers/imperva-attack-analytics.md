@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/imperva-attack-analytics/
 title: Collect Imperva Attack Analytics logs \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T07:53:42.294758+00:00
+fetched_at: 2026-11-04T23:42:41.867364+00:00
 ---
 
 # Collect Imperva Attack Analytics logs  |  Google Security Operations  |  Google Cloud Documentation

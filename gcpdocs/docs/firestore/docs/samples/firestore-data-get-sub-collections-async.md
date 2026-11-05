@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/firestore/docs/samples/firestore-data-get-sub-collections-async/
 title: Get Firestore documents in nested collections (async) \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T08:02:04.457446+00:00
+fetched_at: 2026-11-04T23:45:50.398297+00:00
 ---
 
 # Get Firestore documents in nested collections (async)  |  Google Cloud Documentation

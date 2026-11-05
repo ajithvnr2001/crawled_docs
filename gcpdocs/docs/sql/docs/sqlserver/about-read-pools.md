@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sql/docs/sqlserver/about-read-pools/
 title: About read pools \u00a0|\u00a0 Cloud SQL for SQL Server \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T09:47:55.235488+00:00
+fetched_at: 2026-11-04T23:31:19.787376+00:00
 ---
 
 # About read pools  |  Cloud SQL for SQL Server  |  Google Cloud Documentation
@@ -34,7 +34,7 @@ Each read replica in the read pool is called a _read pool node_.
 
 You can scale your read pool in several ways:
 
-  * **Scale in or out** : scale load balancing capacity horizontally by modifying the number of read pool nodes in the read pool. Each read pool supports between 1 and 7 read pool nodes.
+  * **Scale in or out** : scale load balancing capacity horizontally by modifying the number of read pool nodes in the read pool. Each read pool supports between 1 and 7 read pool nodes. 
   * **Scale up or down** : scale load balancing capacity vertically by modifying the machine type associated with a read pool node. Once defined, configuration is uniformly applied across each read pool node in the read pool.
 
 
@@ -49,15 +49,24 @@ Each read pool node also has its own IP address. While not recommended as an eff
 
 For more information on how to retrieve the connection information for the read pool or the read pool nodes (either IP addresses or a connection string), see [View read pool information](https://docs.cloud.google.com/sql/docs/sqlserver/create-read-pool#view-read-pool).
 
-### Replication
+## Replication
 
 Cloud SQL read pool replication is implemented using [SQL Server Read Scale Availability Groups](https://docs.microsoft.com/en-us/sql/database-engine/availability-groups/windows/read-scale-availability-groups?view=sql-server-linux-2017#read-scale-availability-groups-without-cluster). 
 
 For more information, see [About replication](https://docs.cloud.google.com/sql/docs/sqlserver/replication).
 
-### Read pool characteristics
+## Read pool autoscaling
+
+You can configure your read pool to automatically resize to adapt to your application's changing workload needs. For more information, see [Read pool autoscaling](https://docs.cloud.google.com/sql/docs/sqlserver/read-pool-autoscaling).
+
+## Read pool characteristics
 
 The following characteristics apply:
+
+  * Read pools don't have a unique Cloud SQL-supported API. Any operation to create, configure, or view a read pool is done using the Cloud SQL instance API.   
+
+
+For example, when using the `gcloud CLI` to create a read pool, you use the `gcloud sql instances create` command. Similarly, to check the number of read pool nodes configured on a read pool, you use the `gcloud sql instances describe` command.
 
   * A read pool with two or more nodes is covered under the [Service Level Agreement (SLA)](https://cloud.google.com/sql/sla).
   * Read pool nodes of the read pool always reside in the same region, as specified by the user. Google Cloud alternates read pool node residency among all zones in the region.
@@ -72,16 +81,35 @@ The following characteristics apply:
 
 
 
+### Maximum read pool node count per primary instance
+
+You can assign a maximum of seven read replicas per primary instance.
+
+The combined number of read replicas and read pool nodes replicating from the same primary instance can't exceed seven.
+
+#### How to calculate maximum read pool node count per primary instance
+
+Conceptually, you can think of a read replica as a single read pool node.
+
+You can convert a read replica to a read pool, and then change the number of read pool nodes to some number greater than one.
+
+You can then assign autoscaling to the read pool so that the read pool node count dynamically adjusts up or down to match workload needs.
+
+When autoscaling is enabled on a read pool, you must indicate a valid maximum node count for the read pool. That number, combined with the number of existing read replicas replicating from the same primary, or read pool nodes belonging to other read pools replicating from the same primary, can't exceed seven.
+
+As an example, if a primary instance has two read replicas, and one read pool with two read pool nodes, and a second read pool with autoscaling enabled, the maximum read pool node count for the second read pool can't be a value greater than three.
+
+For more information, see [Read pool autoscaling](https://docs.cloud.google.com/sql/docs/sqlserver/read-pool-autoscaling).
+
 ## Limitations
 
 The following limitations apply:
 
   * Read pools are only available for [Cloud SQL Enterprise Plus edition](https://docs.cloud.google.com/sql/docs/sqlserver/editions-intro) instances on the [new network architecture](https://docs.cloud.google.com/sql/docs/sqlserver/upgrade-cloud-sql-instance-new-network-architecture#check-single-instance). The primary instance associated with a read pool must also be a Cloud SQL Enterprise Plus edition instance.
-  * You can create a maximum of seven read replicas per primary instance. This value can include any combined number of read replicas and [read pool node count under a read pool instance](https://docs.cloud.google.com/sql/docs/sqlserver/about-read-pools). For example, a primary instance might have two read replicas, and a separate read pool of five read replicas (read pool nodes). 
-  * Read pool autoscaling isn't supported for SQL Server instances.
+  * You can assign a maximum of 7 read replicas per primary instance. For more information, see Maximum node count.
   * [Advanced disaster recovery](https://docs.cloud.google.com/sql/docs/sqlserver/use-advanced-disaster-recovery) isn't compatible with read pools. Primary instances can't use both read pools and [cascadable replicas](https://docs.cloud.google.com/sql/docs/sqlserver/replication#cascading-replicas-sqlserver). 
   * Traffic is served from read pool nodes based on whether the database is healthy, but regardless of how high replication lag on that read pool node is. Traffic can be served from a lagging read pool node even if another read pool node is available that isn't lagging. A database is considered healthy if the database process is up and can answer queries, but there is no requirement on how fresh the data being served is.
-  * No guarantee is made about a single logical session connecting to multiple read pool nodes in the read pool. It's possible for later requests in a session to connect to a read pool node that has a lower replication position than the read pool node that served an earlier request, which can cause the state of the database to appear to go back in time.
+  * No guarantee is made about a single logical session connecting to multiple read pool nodes in the read pool.
   * The following types of updates aren't supported: 
     * While read pools still receive Cloud SQL maintenance updates, you can't update your read pool or its associated primary instance to a new major database version. 
     * Starting or stopping nodes of the read pool.
@@ -146,6 +174,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-04 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 

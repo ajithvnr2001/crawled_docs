@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/dell-openmanage/
 title: Collect Dell OpenManage logs \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T07:52:42.648421+00:00
+fetched_at: 2026-11-04T23:43:01.768908+00:00
 ---
 
 # Collect Dell OpenManage logs  |  Google Security Operations  |  Google Cloud Documentation

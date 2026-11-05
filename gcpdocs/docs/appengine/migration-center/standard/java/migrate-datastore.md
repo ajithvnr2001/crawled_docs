@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/appengine/migration-center/standard/java/migrate-datastore/
 title: Migrate from App Engine Datastore to Firestore in Datastore mode \u00a0|\u00a0 App Engine migration center \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T07:48:09.149385+00:00
+fetched_at: 2026-11-04T23:43:52.735894+00:00
 ---
 
 # Migrate from App Engine Datastore to Firestore in Datastore mode  |  App Engine migration center  |  Google Cloud Documentation

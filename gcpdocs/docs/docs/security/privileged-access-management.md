@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/docs/security/privileged-access-management/
 title: Privileged access in Google Cloud \u00a0|\u00a0 Security \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T22:50:47.544751+00:00
+fetched_at: 2026-11-04T23:31:57.346178+00:00
 ---
 
 # Privileged access in Google Cloud  |  Security  |  Google Cloud Documentation
@@ -20,7 +20,7 @@ Send feedback
 
 #  Privileged access in Google Cloud Stay organized with collections  Save and categorize content based on your preferences. 
 
-_This content was last updated in February 2025, and represents the status quo as of the time it was written. Google's security policies and systems may change going forward, as we continually improve protection for our customers_.
+_This content was last updated in October 2026, and represents the status quo as of the time it was written. Google's security policies and systems may change going forward, as we continually improve protection for our customers_.
 
 This document describes the features and products that help you control the access that Google personnel have to your customer data. As defined in the [Google Cloud Terms of Service](https://cloud.google.com/terms), _customer data_ is data that customers or end users provide to Google through the services under their account.
 
@@ -84,7 +84,7 @@ Although Google Cloud is designed to automate, minimize, or eliminate the need f
 
 #### Customer-initiated support
 
-Google personnel access to customer data in services that use Access Transparency are usually the result of customer-initiated events such as contacting Customer Care. When you contact Customer Care personnel to resolve an issue, Customer Care personnel only obtain access to low-sensitive data. For example, if you lost access to a bucket, Customer Care personnel only have access to low-sensitive data such as the bucket name.
+Google personnel access to customer data in services that use Access Transparency are usually the result of customer-initiated events such as contacting Cloud Customer Care. When you contact Customer Care personnel to resolve an issue, Customer Care personnel only obtain access to low-sensitive data. For example, if you lost access to a bucket, Customer Care personnel only have access to low-sensitive data such as the bucket name.
 
 #### Outage or tool failure
 
@@ -185,9 +185,10 @@ Confidential Computing | Use Confidential Computing to encrypt data in use. Goog
   * **Confidential Google Kubernetes Engine Nodes** : Enable encryption of data in use for workloads that use containers
   * **Confidential Dataflow** : Enable encryption of data in use for streaming analytics and machine learning
   * **Confidential Managed Service for Apache Spark** : Enable encryption of data in use for data processing
+  * **Gemini Enterprise Agent Platform Workbench** : Enable encryption of data in use for notebook instances
   * **Confidential Space** : Enable encryption of data in use for joint data analysis and machine learning
 
-These services let you reduce your [trust boundary](https://en.wikipedia.org/wiki/Trust_boundary) so that fewer resources have access to your confidential data. For more information, see [Implement confidential computing on Google Cloud](https://docs.cloud.google.com/architecture/confidential-computing-analytics-ai#implement-confidential).  
+These services let you reduce your [trust boundary](https://en.wikipedia.org/wiki/Trust_boundary) so that fewer resources have access to your confidential data. For more information, see [Confidential Computing overview](https://docs.cloud.google.com/confidential-computing/docs/confidential-computing-overview).  
 Key Access Justifications | Use [Key Access Justifications](https://docs.cloud.google.com/assured-workloads/key-access-justifications/docs/overview) for data sovereignty and discovery.Key Access Justifications gives you a justification every time your externally hosted keys are used to decrypt data. Key Access Justifications requires Cloud KMS with Cloud HSM or Cloud KMS with Cloud EKM to advance the control that you have over your data. You must approve access before Google personnel can decrypt your data at rest.  
   
 ## What's next
@@ -204,4 +205,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],[],[],[]] 
+Last updated 2026-11-04 UTC.
+
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 

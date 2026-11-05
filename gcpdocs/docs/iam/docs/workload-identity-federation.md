@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/iam/docs/workload-identity-federation/
 title: Workload Identity Federation \u00a0|\u00a0 Identity and Access Management (IAM) \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T07:58:15.454877+00:00
+fetched_at: 2026-11-04T23:44:20.279202+00:00
 ---
 
 # Workload Identity Federation  |  Identity and Access Management (IAM)  |  Google Cloud Documentation

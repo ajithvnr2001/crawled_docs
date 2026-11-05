@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/island-browser/
 title: Collect Island Enterprise Browser logs \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T07:53:38.187390+00:00
+fetched_at: 2026-11-04T23:44:07.958202+00:00
 ---
 
 # Collect Island Enterprise Browser logs  |  Google Security Operations  |  Google Cloud Documentation

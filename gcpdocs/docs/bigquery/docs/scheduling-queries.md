@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/scheduling-queries/
 title: Scheduling queries \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T05:44:55.770618+00:00
+fetched_at: 2026-11-04T23:31:33.391198+00:00
 ---
 
 # Scheduling queries  |  BigQuery  |  Google Cloud Documentation
@@ -809,13 +809,13 @@ To authenticate to BigQuery, set up Application Default Credentials. For more in
 
 To update a scheduled query, follow these steps:
 
-  1. In the navigation menu, click **Scheduled queries** or **Scheduling**.
+  1. In the navigation menu, click **Pipelines & Connections** and select the **Pipelines** tab. If your navigation menu doesn't have this option, click **Scheduled queries**.
   2. In the list of scheduled queries, click the name of the query that you want to change.
   3. On the **Scheduled query details** page that opens, click **Edit**. ![Edit scheduled query details.](https://docs.cloud.google.com/static/bigquery/images/edit-scheduled-query-details.png)
   4. Optional: Change the query text in the query editing pane.
-  5. Click **Schedule query** and then select **Update scheduled query**.
+  5. Click **File > Schedule > Update scheduled query**.
   6. Optional: Change any other scheduling options for the query.
-  7. Click **Update**.
+  7. Click **Save**.
 
 
 
@@ -1148,7 +1148,7 @@ After setting up a scheduled query, here's how you can run the query by using a 
 
 ###  Console 
 
-After clicking **Schedule** to save your scheduled query, you can click the **Scheduled queries** button to see the list of scheduled queries. Click any display name to see the query schedule's details. At the top right of the page, click **Schedule backfill** to specify a historical date range.
+To view the list of scheduled queries after clicking **Save** , go to the main navigation menu for BigQuery, click **Pipelines & Connections** and select the **Pipelines** tab. If your menu doesn't have this option, click **Scheduled queries**. Click any display name to see the query details of the scheduled query. At the top of the page, click **Schedule backfill** to specify a historical date range.
 
 ![Schedule backfill button.](https://docs.cloud.google.com/static/bigquery/images/scheduled-query-manual-run-button-console.png)
 
@@ -1563,6 +1563,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-27 UTC.
+Last updated 2026-11-04 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/kubernetes-engine/docs/how-to/backend-service-based-external-load-balancer/
 title: Create a backend service-based external load balancer \u00a0|\u00a0 GKE networking \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T22:14:12.450565+00:00
+fetched_at: 2026-11-04T23:28:55.833376+00:00
 ---
 
 # Create a backend service-based external load balancer  |  GKE networking  |  Google Cloud Documentation
@@ -50,6 +50,8 @@ Before you start, make sure that you have performed the following tasks:
   * If your cluster is on a version earlier than 1.36, the `HttpLoadBalancing` add-on must be enabled in your cluster. This add-on is enabled by default. For more information see [HttpLoadBalancing prerequisite](https://docs.cloud.google.com/kubernetes-engine/docs/concepts/service-load-balancer#prerequisite-httpaddon).
 
   * To enable Cloud Logging for an external LoadBalancer Service, your GKE cluster must use version 1.36.0-gke.2459000 or later.
+
+  * To use [bring your own IP (BYOIP) IPv6 addresses](https://docs.cloud.google.com/vpc/docs/bring-your-own-ip) with a single-stack IPv6 external LoadBalancer Service, your GKE cluster must use version 1.37.1-gke.2097000 or later.
 
 
 
@@ -209,14 +211,207 @@ The output is similar to the following:
 
 Note the following points about this sample manifest:
 
-     * If your cluster runs GKE 1.33.1-gke.1779000 to 1.36, you must set the `spec.loadBalancerClass` field to the `networking.gke.io/l4-regional-external` value at the time the manifest is first applied to the cluster. This field instructs GKE to create a backend service-based regional external passthrough Network Load Balancer. In GKE 1.37 and later, this configuration is the default behavior and the field is not required. Backend service-based regional external passthrough Network Load Balancers are _required_ to support features like IPv6 and weighted load balancing.
+     * If your cluster runs GKE 1.33.1-gke.1779000 to 1.36, you must set the `spec.loadBalancerClass` field to the `networking.gke.io/l4-regional-external` value at the time the manifest is first applied to the cluster. This field instructs GKE to create a backend service-based regional external passthrough Network Load Balancer. In GKE 1.37 and later, this configuration is the default behavior and the field is not required. Backend service-based regional external passthrough Network Load Balancers are _required_ to support features like IPv6 traffic and weighted load balancing.
 
      * GKE uses either `GCE_VM_IP` NEG backends or unmanaged instance group backends, depending on the cluster's version. In clusters with version 1.32.2-gke.1652000, the backend service-based regional external passthrough Network Load Balancer uses `GCE_VM_IP` NEGs. In previous versions, the backend service-based regional external passthrough Network Load Balancer uses unmanaged instance groups.
 
      * This `spec.loadBalancerClass` field is immutable and must be set when you create the Service. Because this field is immutable, you can't add or modify it on the manifest of an _existing_ LoadBalancer Service. Any attempt to do so will result in an error and the Service update will fail.
 
+     * To create a single-stack IPv6 Service in a dual-stack cluster, set the value of the `spec.ipFamilyPolicy` field to `SingleStack` and set the value of the `spec.ipFamilies` field to `IPv6`. In a single-stack IPv6 cluster, these are the default values and you can omit them. For more information, see [IPv6 LoadBalancer Services](https://docs.cloud.google.com/kubernetes-engine/docs/concepts/service-load-balancer-parameters#ipv6-lb-svc).
 
 
+
+
+### Create an external LoadBalancer Service on a single-stack IPv6 cluster
+
+**Preview**
+
+This product or feature is subject to the "Pre-GA Offerings Terms" in the General Service Terms section of the [Service Specific Terms](https://docs.cloud.google.com/terms/service-terms#1). Pre-GA products and features are available "as is" and might have limited support. For more information, see the [launch stage descriptions](https://cloud.google.com/products/#product-launch-stages). 
+
+When you create a single-stack IPv6 external LoadBalancer Service on a [single-stack IPv6 cluster](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/single-stack-ipv6) or a [dual-stack cluster](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/alias-ips#create_dual_stack_cluster), the subnetwork used by the load balancer depends on whether your cluster's node subnetwork uses an `EXTERNAL` or `INTERNAL` IPv6 access type. On a dual-stack cluster, you must set the value of the `spec.ipFamilyPolicy` field to `SingleStack` and set the value of the `spec.ipFamilies` field to `IPv6` (on a single-stack IPv6 cluster, these are the default values and you can omit them). IPv6 external LoadBalancer Services always use a backend-service based regional external passthrough Network Load Balancer in [Premium Tier](https://docs.cloud.google.com/network-tiers/docs/overview). The following examples set the `spec.loadBalancerClass` field to `networking.gke.io/l4-regional-external` explicitly, although this load balancer variant is the default in GKE version 1.37 and later:
+
+  * **Clusters with external nodes (`EXTERNAL` GUA access type):** if your cluster nodes run on an external subnetwork with Global Unicast Addresses (GUA), the external load balancer automatically uses the existing node subnetwork. Create your Service without custom subnetwork annotations:
+        
+        apiVersion: v1
+        kind: Service
+        metadata:
+          name: ext-ipv6-svc
+        spec:
+          type: LoadBalancer
+          loadBalancerClass: networking.gke.io/l4-regional-external
+          ipFamilyPolicy: SingleStack
+          ipFamilies:
+          - IPv6
+          selector:
+            app: store
+          ports:
+          - protocol: TCP
+            port: 8080
+            targetPort: 8080
+        
+
+  * **Clusters with internal nodes (`INTERNAL` ULA access type):** if your cluster nodes run on an internal subnetwork with Unique Local Unicast Addresses (ULA), an external load balancer cannot use that subnetwork directly. You must provision a dedicated external (`EXTERNAL`) IPv6 subnetwork and reference it by using the `networking.gke.io/load-balancer-subnet` annotation on your Service:
+
+    1. Create a dedicated external IPv6 subnetwork:
+           
+           gcloud compute networks subnets create SUBNET_NAME \
+               --stack-type=ipv6_only \
+               --ipv6-access-type=EXTERNAL \
+               --network=NETWORK_NAME \
+               --region=COMPUTE_REGION
+           
+
+Replace the following:
+
+       * `SUBNET_NAME`: the name of the subnet to create.
+       * `NETWORK_NAME`: the name of the VPC network in which you create this subnet.
+       * `COMPUTE_REGION`: the [Compute Engine region](https://docs.cloud.google.com/compute/docs/regions-zones#available) for the subnet.
+    2. Create the Service referencing your dedicated subnetwork name in the `networking.gke.io/load-balancer-subnet` annotation:
+           
+           apiVersion: v1
+           kind: Service
+           metadata:
+             name: ext-ipv6-svc
+             annotations:
+               networking.gke.io/load-balancer-subnet: SUBNET_NAME
+           spec:
+             type: LoadBalancer
+             loadBalancerClass: networking.gke.io/l4-regional-external
+             ipFamilyPolicy: SingleStack
+             ipFamilies:
+             - IPv6
+             selector:
+               app: store
+             ports:
+             - protocol: TCP
+               port: 8080
+               targetPort: 8080
+           
+
+
+
+  1. Verify the assigned Service IP address:
+         
+         kubectl get svc ext-ipv6-svc
+         
+
+The output confirms that the `CLUSTER-IP` and `EXTERNAL-IP` columns (a public GUA address) are populated:
+         
+         NAME           TYPE           CLUSTER-IP                          EXTERNAL-IP                      PORT(S)        AGE
+         ext-ipv6-svc   LoadBalancer   2600:2d00:0:4:1a1e:d3b3:de4d:c401   2600:1900:4000:2714:8000:0:0:0   80:31114/TCP   51s
+         
+
+
+
+
+For more information, see [IPv6 LoadBalancer Services](https://docs.cloud.google.com/kubernetes-engine/docs/concepts/service-load-balancer-parameters#ipv6-lb-svc).
+
+#### Use bring your own IPv6 addresses (BYOIPv6)
+
+In GKE version 1.37.1-gke.2097000 and later, you can configure a single-stack IPv6 external LoadBalancer Service to use [bring your own IPv6 addresses (BYOIPv6)](https://docs.cloud.google.com/vpc/docs/bring-your-own-ip) from a regional IPv6 sub-prefix of a public delegated prefix (PDP) in `EXTERNAL_IPV6_FORWARDING_RULE_CREATION` mode.
+
+Before you create the Service, make sure that you meet the following requirements:
+
+  * Your cluster runs GKE version 1.37.1-gke.2097000 or later. The cluster can be single-stack IPv6 or dual-stack (the Service must be single-stack IPv6 in both cases), and the cluster's subnet can have either an `INTERNAL` or an `EXTERNAL` IPv6 access type; an external IPv6 subnet range isn't required because the address range comes from the public delegated prefix.
+  * You have a regional IPv6 sub-prefix in `EXTERNAL_IPV6_FORWARDING_RULE_CREATION` mode with an allocatable prefix length of `/96` and the `ANNOUNCED` status, in the same region as your cluster. For instructions, see [Create IPv6 sub-prefixes](https://docs.cloud.google.com/vpc/docs/create-ipv6-sub-prefixes#create-subprefix).
+  * The [GKE service agent](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/service-accounts#gke-service-agents) (`service-PROJECT_NUMBER@container-engine-robot.iam.gserviceaccount.com`) has the Compute Public IP Admin role (`roles/compute.publicIpAdmin`) on the project that owns the public delegated prefix. To grant the role, run the following command:
+        
+        gcloud projects add-iam-policy-binding PDP_PROJECT_ID \
+            --member="serviceAccount:service-PROJECT_NUMBER@container-engine-robot.iam.gserviceaccount.com" \
+            --role="roles/compute.publicIpAdmin"
+        
+
+Replace the following:
+
+    * `PDP_PROJECT_ID`: the ID of the project that owns the public delegated prefix.
+    * `PROJECT_NUMBER`: the project number of the project that contains your cluster.
+  * The Service is a single-stack IPv6 Service (`spec.ipFamilyPolicy: SingleStack` and `spec.ipFamilies: ["IPv6"]`) that sets the `spec.loadBalancerClass` field to `networking.gke.io/l4-regional-external` and uses [Premium Tier](https://docs.cloud.google.com/network-tiers/docs/overview). Dual-stack Services, IPv4 Services, and Standard Tier aren't supported with BYOIPv6.
+
+  * The Service doesn't include the `networking.gke.io/load-balancer-subnet` annotation, which can't be combined with the `networking.gke.io/ip-collection-v6` annotation.
+
+
+
+
+Choose whether to allocate an ephemeral external BYOIPv6 address range or use a reserved static external BYOIPv6 address range:
+
+  * **Ephemeral external BYOIPv6 address range** : add the `networking.gke.io/ip-collection-v6` annotation to your Service manifest and set it to the full resource URL or the partial resource path of your regional sub-prefix:
+        
+        apiVersion: v1
+        kind: Service
+        metadata:
+          name: ext-byoipv6-svc
+          annotations:
+            networking.gke.io/ip-collection-v6: "projects/PROJECT_ID/regions/REGION/publicDelegatedPrefixes/SUB_PREFIX_NAME"
+        spec:
+          type: LoadBalancer
+          loadBalancerClass: networking.gke.io/l4-regional-external
+          ipFamilyPolicy: SingleStack
+          ipFamilies:
+          - IPv6
+          selector:
+            app: store
+          ports:
+          - name: tcp-port
+            protocol: TCP
+            port: 80
+            targetPort: 8080
+        
+
+Replace the following:
+
+    * `PROJECT_ID`: the ID of the project that contains the sub-prefix.
+    * `REGION`: the region of your cluster.
+    * `SUB_PREFIX_NAME`: the name of your regional sub-prefix in `EXTERNAL_IPV6_FORWARDING_RULE_CREATION` mode.
+
+If you later change the `networking.gke.io/ip-collection-v6` annotation, GKE re-creates the IPv6 forwarding rule with a new address from the new prefix, which briefly disrupts traffic to the Service. If you remove the annotation, the Service reverts to a Google-provided address from a subnet with an external IPv6 range. If your cluster's subnet has an internal IPv6 range, add the `networking.gke.io/load-balancer-subnet` annotation at the same time.
+
+  * **Static external BYOIPv6 address range** : reserve a regional static external `/96` IPv6 address range from the sub-prefix and reference it by using the `networking.gke.io/load-balancer-ip-addresses` annotation:
+
+    1. Create a regional static external IPv6 address range from your sub-prefix:
+           
+           gcloud compute addresses create STATIC_BYOIPV6_NAME \
+               --region=REGION \
+               --ip-version=IPV6 \
+               --endpoint-type=NETLB \
+               --ip-collection=projects/PROJECT_ID/regions/REGION/publicDelegatedPrefixes/SUB_PREFIX_NAME
+           
+
+Replace the following:
+
+       * `STATIC_BYOIPV6_NAME`: a name for the static IPv6 address resource.
+       * `REGION`: the region of your cluster.
+       * `PROJECT_ID`: the ID of the project that contains the sub-prefix.
+       * `SUB_PREFIX_NAME`: the name of your regional sub-prefix in `EXTERNAL_IPV6_FORWARDING_RULE_CREATION` mode.
+
+The `networking.gke.io/ip-collection-v6` annotation is optional when you use a static external BYOIPv6 address range; if you set this annotation, the annotation must reference the same sub-prefix that you reserved the address range from.
+
+    2. Reference the reserved static IPv6 address resource name in your Service manifest:
+           
+           apiVersion: v1
+           kind: Service
+           metadata:
+             name: ext-static-byoipv6-svc
+             annotations:
+               networking.gke.io/load-balancer-ip-addresses: STATIC_BYOIPV6_NAME
+           spec:
+             type: LoadBalancer
+             loadBalancerClass: networking.gke.io/l4-regional-external
+             ipFamilyPolicy: SingleStack
+             ipFamilies:
+             - IPv6
+             selector:
+               app: store
+             ports:
+             - name: tcp-port
+               protocol: TCP
+               port: 80
+               targetPort: 8080
+           
+
+
+
+
+For more information, see [Bring your own IPv6 addresses (BYOIPv6)](https://docs.cloud.google.com/kubernetes-engine/docs/concepts/service-load-balancer-parameters#byoipv6).
 
 ### Enable weighted load balancing
 
@@ -548,9 +743,9 @@ You can create a new external LoadBalancer Service powered by a backend service-
   * A backend service-based regional external passthrough Network Load Balancer with instance group backends
   * A target pool-based regional external passthrough Network Load Balancer
 
-**Note:** Switching to a backend service-based regional external passthrough Network Load Balancer using `GCE_VM_IP` NEG backends requires a few minutes of downtime to replace the Service.
+**Note:** Switching to a backend-service based regional external passthrough Network Load Balancer that uses `GCE_VM_IP` NEG backends requires a few minutes of downtime to replace the Service.
 
-To switch to a backend service-based regional external passthrough Network Load Balancer using `GCE_VM_IP` NEG backends:
+To preserve an external IPv4 address when you switch to a backend service-based regional external passthrough Network Load Balancer that uses `GCE_VM_IP` NEG backends (IPv6 external LoadBalancer Services don't require this migration):
 
   1. If you haven't already, upgrade your cluster to GKE version 1.32.2-gke.1652000 or later.
 
@@ -638,7 +833,7 @@ For more information about this annotation, see [Static IP addresses](https://do
 
 ## Troubleshoot
 
-This section describes an issue that you might encounter when you configure weighted load balancing.
+This section describes issues that you might encounter when you configure a backend-service based external LoadBalancer Service.
 
 ### Wrong external traffic policy for weighted load balancing
 
@@ -657,6 +852,23 @@ If you don't set the `externalTrafficPolicy: Local` value when you enable weight
 
 To effectively enable weighted load balancing, you must set the `externalTrafficPolicy: Local` value.
 
+### Error creating an IPv6 load balancer in Standard Tier
+
+If an IPv6 external LoadBalancer Service shows a `SyncExternalLoadBalancerFailed` event with the `Network tier Standard is not supported for IPv6 External Load Balancer` message, remove the `cloud.google.com/network-tier: Standard` annotation from the Service manifest. IPv6 external LoadBalancer Services are supported only in Premium Tier.
+
+### Errors when configuring bring your own IPv6 addresses (BYOIPv6)
+
+When you configure bring your own IPv6 addresses (BYOIPv6) for an external LoadBalancer Service, you might see `SyncExternalLoadBalancerFailed` warning events when you run the `kubectl describe service SERVICE_NAME` command. The event message starts with `Error ensuring Resource for L4 External LoadBalancer, err:` followed by one of the following errors:
+
+  * **`networking.gke.io/ip-collection-v6 is currently only supported for IPv6-only Services`** : make sure that your Service manifest specifies `spec.ipFamilyPolicy: SingleStack` and `spec.ipFamilies: ["IPv6"]`.
+  * **`static IPv6 address " ADDRESS_NAME" is a BYOIP address from IP collection "SUB_PREFIX", which is currently only supported for IPv6-only Services`**: make sure that your Service manifest specifies `spec.ipFamilyPolicy: SingleStack` and `spec.ipFamilies: ["IPv6"]`. This error indicates that the Service is dual-stack or IPv4, but references a static BYOIPv6 address.
+  * **`cannot specify both networking.gke.io/load-balancer-subnet (" SUBNET") and networking.gke.io/ip-collection-v6 ("SUB_PREFIX") for LoadBalancer`**: remove the `networking.gke.io/load-balancer-subnet` annotation from the Service manifest when you use the `networking.gke.io/ip-collection-v6` annotation.
+  * **`invalid networking.gke.io/ip-collection-v6 " VALUE": expected projects/PROJECT/regions/REGION/publicDelegatedPrefixes/NAME`** or **`invalid networking.gke.io/ip-collection-v6 " VALUE": the public delegated prefix must be in the cluster region REGION`**: set the annotation to the full resource URL or the partial resource path (`projects/PROJECT_ID/regions/REGION/publicDelegatedPrefixes/SUB_PREFIX_NAME`) of a sub-prefix in the same region as your cluster. A bare sub-prefix name isn't accepted.
+  * **`reserved address (" ADDRESS_NAME") is not valid, err: ipCollection mismatch, expected "SUB_PREFIX_A", actual: "SUB_PREFIX_B"`**: make sure that the `networking.gke.io/ip-collection-v6` annotation matches the public delegated prefix that you used to reserve the static IPv6 address, or omit the `networking.gke.io/ip-collection-v6` annotation when you use the `networking.gke.io/load-balancer-ip-addresses` annotation.
+  * **`googleapi: Error 403: Required 'compute.publicDelegatedPrefixes.use' permission for ' SUB_PREFIX', forbidden`**: grant the Compute Public IP Admin role (`roles/compute.publicIpAdmin`) to the GKE service agent (`service-PROJECT_NUMBER@container-engine-robot.iam.gserviceaccount.com`) on the project that owns the public delegated prefix. GKE needs this permission every time it syncs the Service, so don't remove the role after GKE creates the Service.
+
+
+
 ## What's next
 
   * For a general overview of Load Balancer Services, see [LoadBalancer Services](https://docs.cloud.google.com/kubernetes-engine/docs/concepts/service-load-balancer).
@@ -669,6 +881,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-04 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 

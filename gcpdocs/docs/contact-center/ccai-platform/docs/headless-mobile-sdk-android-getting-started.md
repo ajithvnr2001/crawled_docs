@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/contact-center/ccai-platform/docs/headless-mobile-sdk-android-getting-started/
 title: Headless Mobile SDK for Android: Get started \u00a0|\u00a0 Google Cloud Contact Center as a Service \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T05:39:01.827397+00:00
+fetched_at: 2026-11-05T00:20:43.191572+00:00
 ---
 
 # Headless Mobile SDK for Android: Get started  |  Google Cloud Contact Center as a Service  |  Google Cloud Documentation
@@ -66,7 +66,7 @@ The following platform requirements apply to Android:
 
   * **Gradle / Android Studio** : a recent Android Gradle Plugin and Android Studio version compatible with your app and the SDK release you're using
 
-  * **Kotlin version** : 1.6.0 or higher
+  * **Kotlin version** : 2.0 or higher
 
 
 
@@ -103,9 +103,9 @@ Typical Android permissions include (the actual list may vary by SDK version and
 
   * **Microphone** : for voice calls.
 
-  * **Notifications** : for Firebase Cloud Messaging (FCM) push notifications.
+  * **Notifications** : only if you use push notifications (see Push notifications below).
 
-  * **Storage / media** : for attachments.
+  * **Storage / media** : only if your app reads photos, videos, or files from shared storage directly. Your app's own files and the system photo picker don't need a permission.
 
   * **Camera** : for photo or video capture in smart actions.
 
@@ -236,7 +236,7 @@ Google Cloud recommends using a Gradle version catalog for managing SDK dependen
     
     
     [versions]
-    ccaiVersion = "3.3.1"
+    ccaiVersion = "3.5.0"
     
     [libraries]
     ccai-kit       = { group = "com.ccaiplatform.android", name = "CCAIKit",        version.ref = "ccaiVersion" }
@@ -307,17 +307,18 @@ Initialize the SDK during app launch. Because of the SDK's modular architecture,
 The SDK uses a `CCAIDelegate` interface for authentication callbacks. The key method is a Kotlin suspend function `ccaiShouldAuthenticate()` that the SDK calls when it needs a JWT.
     
     
+    import com.ccaiplatform.ccaikit.CCAI
     import com.ccaiplatform.ccaikit.CCAIDelegate
+    import kotlinx.coroutines.CancellationException
     
     class MyCCAIDelegate : CCAIDelegate {
     
         /**
-         *   Called by the SDK when it needs a signed JWT for authentication.
-         *   This is a suspend function - you can make network calls here.
+         * Called by the SDK when it needs a signed JWT for authentication.
+         * This is a suspend function - you can make network calls here.
          *
-         *   @return The auth token returned by `authService.authenticate(jwt)`,
-    
-    *   or null on failure. This is what the SDK expects - not the raw JWT.
+         * @return The auth token returned by `authService.authenticate(jwt)`,
+         *         or null on failure. This is what the SDK expects - not the raw JWT.
          */
         override suspend fun ccaiShouldAuthenticate(): String? {
             return try {
@@ -327,7 +328,10 @@ The SDK uses a `CCAIDelegate` interface for authentication callbacks. The key me
                 // 2. Exchange the JWT for an auth token using authService - this is
                 //    what the SDK expects to be returned (not the raw JWT).
                 CCAI.authService?.authenticate(jwt)
-            } catch (e: Exception) {
+            } catch (e: CancellationException) {
+                throw e
+            } catch (e: Throwable) {
+                // Includes NetworkError, which extends Error rather than Exception
                 null // Return null to signal authentication failure
             }
         }
@@ -347,7 +351,7 @@ See Authenticate end users and pass custom data for the full authentication cont
 
 ### Initialize the SDK in your application class
 
-Initialize the SDK in your custom application class using the `CCAI` singleton object:
+Initialize the SDK in your custom `Application` class using the `CCAI` singleton object:
     
     
     import android.app.Application
@@ -356,7 +360,7 @@ Initialize the SDK in your custom application class using the `CCAI` singleton o
     import com.ccaiplatform.ccaichat.initializeChat
     import com.ccaiplatform.ccaichat.model.ChatOptions
     import com.ccaiplatform.ccaicall.initializeCall
-    import com.ccaiplatform.ccaikit.initializeScreenShare
+    // import com.ccaiplatform.ccaiscreenshare.initializeScreenShare  // If using screen share
     import com.ccaiplatform.ccaikit.models.screenShare.ScreenShareOptions
     
     class MainApplication : Application() {
@@ -370,25 +374,28 @@ Initialize the SDK in your custom application class using the `CCAI` singleton o
             val initOptions = InitOptions(
                 key = "YOUR_COMPANY_KEY",
                 urlHost = "your_subdomain.ccaiplatform.com",
-                languageCode = "en",       // Optional: ISO 639 code
-                delegate = delegate        // Your delegate implementation
+                delegate = delegate            // Your CCAIDelegate implementation
             )
     
-            // 2. Initialize the core SDK
+            // 2. Initialize the Core SDK
             CCAI.initialize(
                 context = this,
                 options = initOptions
             )
     
-            // 3. Initialize chat (minimal)
+            // Optional: set the SDK language (ISO 639 code). See Languages and localization
+            // in Headless Mobile SDK v3 for Android: Advanced Topics, Localization, and Post-Session Flows.
+            CCAI.languageService?.languageCode = "en"
+    
+            // 3. Initialize Chat - minimal
             CCAI.initializeChat(context = this)
     
-            // Initialize chat (with optional configuration)
+            // Initialize Chat - with optional configuration
             // val chatOptions = ChatOptions(
-            //     webFormInterface = null,              // Implement to intercept and render custom web forms within your own UI
-            //     downloadTranscriptVisibility = DownloadTranscriptVisibility.SHOW_ALL,
-            //     greeting = "Hello! How can I help you?"
+            //     webFormHandler = null,                // Optional suspend handler that renders web forms in your own UI
+            //     downloadTranscriptVisibility = DownloadTranscriptVisibility.SHOW_ALL
             // )
+            // To set a chat greeting, pass Chat(greeting = ...) in the ChatRequest
             // CCAI.initializeChat(
             //     context = this,
             //     options = chatOptions
@@ -401,8 +408,8 @@ Initialize the SDK in your custom application class using the `CCAI` singleton o
             // CCAI.initializeScreenShare(
             //     context = this,
             //     options = ScreenShareOptions(
-            //         key = "YOUR_COMPANY_KEY",
-            //         domain = "your_subdomain.ccaiplatform.com"
+            //         key = "YOUR_SCREEN_SHARE_LICENSE_KEY",   // License Key (Settings > Developer Settings > Screen Share)
+            //         domain = "https://your-screen-share-domain.example.com" // Optional: the Screen Share Domain URL
             //     )
             // )
         }
@@ -451,9 +458,10 @@ After initialization, you can access various services through the `CCAI` singlet
     val authService = CCAI.authService
     val companyService = CCAI.companyService
     val queueMenuService = CCAI.queueMenuService
-    val optionsService = CCAI.optionsService
     val languageService = CCAI.languageService
     val pushNotificationService = CCAI.pushNotificationService
+    val smartActionService = CCAI.smartActionService
+    val endUserService = CCAI.endUserService
     val chatService = CCAI.chatService              // Only available after initializeChat()
     val screenShareService = CCAI.screenShareService // Only available after initializeScreenShare()
     val rateService = CCAI.rateService              // For CSAT ratings and survey submission
@@ -462,7 +470,7 @@ After initialization, you can access various services through the `CCAI` singlet
 
 **Note:** `CCAI` is an object (singleton) in Kotlin, so you access properties directly using `CCAI.propertyName` — no need to call `getInstance()` or use a shared accessor.**Warning:** `callService` requires its own initialization step. Unlike the other core services, `CCAI.callService` lives in the `CCAICall` module and is registered as an extension property on `CCAI` only after you call `CCAI.initializeCall(context)`. If you skip that step, `CCAI.callService` will be `null` at runtime and the scheduling APIs in Headless Mobile SDK for Android: voice, screen share, scheduled call, and email will be unreachable.
 
-### Fetching company configuration
+### Fetch company configuration
 
 After initialization, you can fetch company-level configuration using the `companyService`. This is useful for populating language pickers, displaying the company name, or reading support contact details before the user enters a queue.
     
@@ -471,9 +479,9 @@ After initialization, you can fetch company-level configuration using the `compa
     val company = CCAI.companyService?.get()
     
     // CompanyResponse contains:
-    // - displayName: String
+    // - displayName: String?
     // - supportEmail: String?
-    // - languages: List<String>
+    // - languages: List<LanguageSetting>? (each with lang, name, and enabled)
     // - phoneNumber: String?
     // ...
     
@@ -492,13 +500,11 @@ The SDK uses a simplified two-step async authentication flow:
 
   2. It calls your `CCAIDelegate` method - `ccaiShouldAuthenticate()` \- which is a suspend function.
 
-  3. Your app signs a JWT remotely on your backend server using your `Company
+  3. Your app calls your backend server to get a signed JWT.
 
-  4. Your app signs a JWT remotely on your backend server using your `Company Secret Code`.
+  4. Your app then passes the signed JWT to `CCAI.authService?.authenticate(jwt)` to exchange it for an auth token.
 
-  5. Your app then passes the signed JWT to `CCAI.authService?.authenticate(jwt)` to exchange it for an auth token.
-
-  6. The auth token is returned to the SDK to complete the connection.
+  5. The auth token is returned to the SDK to complete the connection.
 
 
 **Warning:** JWT signing must always be performed on your backend server. Never embed the `Company Secret Code` inside your compiled Android app - doing so creates a severe security vulnerability.
@@ -518,7 +524,7 @@ Your app must implement the `CCAIDelegate` interface. The SDK calls the first su
 #### Implementation example (Kotlin)
     
     
-    class CCAIDelegate : CCAIDelegate {
+    class MyCCAIDelegate : CCAIDelegate {
         override suspend fun ccaiShouldAuthenticate(): String? {
             // 1. Sign JWT remotely on your backend server
             val jwt = signJWTRemotely() ?: return null
@@ -526,28 +532,10 @@ Your app must implement the `CCAIDelegate` interface. The SDK calls the first su
             // 2. Authenticate JWT using authService to get an auth token
             return try {
                 CCAI.authService?.authenticate(jwt)
-            } catch (e: Exception) {
-                null
-            }
-        }
-    }
-    
-
-#### Full example with JWT signing (for reference and testing only)
-    
-    
-    class AuthController : CCAIDelegate {
-        override suspend fun ccaiShouldAuthenticate(): String? {
-            // First, sign JWT with company secret (do this on your backend in production)
-            val jwt = Jwts.builder()
-                .setClaims(claims)
-                .signWith(SignatureAlgorithm.HS384, companySecret?.encodeToByteArray())
-                .compact()
-    
-            // Then authenticate JWT using authService to get an auth token
-            return try {
-                CCAI.authService?.authenticate(jwt)
-            } catch (e: Exception) {
+            } catch (e: CancellationException) {
+                throw e
+            } catch (e: Throwable) {
+                // Includes NetworkError, which extends Error rather than Exception
                 null
             }
         }
@@ -794,7 +782,7 @@ At app startup (after SDK initialization), proactively register the current FCM 
 
 ### Notification permission handling (Android 13+)
 
-On Android 13 (API level 33) and the aforementioned apps must request the `POST_NOTIFICATIONS` runtime permission. The SDK provides a built-in utility for this:
+On Android 13 (API level 33) and higher, your app needs the `POST_NOTIFICATIONS` runtime permission to display notifications. The SDK provides a built-in utility to request it:
     
     
     import com.ccaiplatform.ccaikit.util.PermissionUtil
@@ -815,6 +803,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-03 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 

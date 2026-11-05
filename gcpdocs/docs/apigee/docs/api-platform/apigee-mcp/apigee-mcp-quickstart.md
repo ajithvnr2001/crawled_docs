@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/apigee/docs/api-platform/apigee-mcp/apigee-mcp-quickstart/
 title: Get started with Apigee and MCP \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T18:03:51.200116+00:00
+fetched_at: 2026-11-05T00:19:27.317104+00:00
 ---
 
 # Get started with Apigee and MCP  |  Google Cloud Documentation
@@ -493,6 +493,106 @@ The method returns all the tools that the MCP endpoint supports. A successful re
       }
     }
 
+### List tools with the stateless MCP protocol
+
+**Note (Apigee hybrid):** The stateless MCP protocol is supported on Apigee only. On Apigee hybrid, skip this step.
+
+MCP names its protocol versions by release date. Starting with version `2026-07-28`, MCP is a stateless protocol: the MCP client doesn't open a session with `initialize`, and each request carries everything Apigee needs to handle it. Earlier versions, such as `2025-11-25`, are stateful. Which protocol your MCP client uses depends on the MCP version it implements; see the documentation for your MCP client or SDK. If your client sends an `initialize` request first, as in the previous steps, it uses the stateful protocol, and you can skip this step.
+
+In the stateless protocol, each request carries the protocol version (for example, `2026-07-28`) in the `params._meta` object and in the `MCP-Protocol-Version` header, and names the method in the `Mcp-Method` header. For the full set of requirements, see [Supported MCP protocol versions](https://docs.cloud.google.com/apigee/docs/api-platform/apigee-mcp/apigee-mcp-overview#supported-protocol-versions).
+
+Send a stateless request to the `tools/list` method:
+    
+    
+    curl -X POST "https://MCP_ENDPOINT_URL/mcp" \
+      -H "Content-Type: application/json" \
+      -H "Accept: application/json, text/event-stream" \
+      -H "MCP-Protocol-Version: 2026-07-28" \
+      -H "Mcp-Method: tools/list" \
+      -d '{
+            "jsonrpc": "2.0",
+            "id": 1,
+            "method": "tools/list",
+            "params": {
+              "_meta": {
+                "io.modelcontextprotocol/protocolVersion": "2026-07-28",
+                "io.modelcontextprotocol/clientCapabilities": {},
+                "io.modelcontextprotocol/clientInfo": {
+                  "name": "CLIENT_NAME",
+                  "version": "CLIENT_VERSION"
+                }
+              }
+            }
+          }' \
+      -H "Authorization: Bearer TOKEN"
+
+Replace the following:
+
+  * `MCP_ENDPOINT_URL`: your MCP endpoint base URI. For example, `cymbal.products.com`.
+  * `CLIENT_NAME` and `CLIENT_VERSION`: the name and version of your MCP client. The `clientInfo` object is optional, but the MCP specification recommends sending it on every request.
+  * (Optional) `TOKEN`: OAuth 2.0 access token
+
+
+
+The response lists the same tools as the stateful response. The stateless result also includes the `resultType`, `cacheScope`, and `ttlMs` fields defined by MCP version `2026-07-28`. A successful response looks similar to the following, with additional tools omitted for brevity:
+    
+    
+    {
+      "id": 1,
+      "jsonrpc": "2.0",
+      "result": {
+        "cacheScope": "public",
+        "resultType": "complete",
+        "tools": [
+          {
+            "description": "Returns a list of artists",
+            "inputSchema": {
+              "properties": {
+                "id": {
+                  "description": "Unique identifier for the artist",
+                  "format": "uuid",
+                  "type": "string"
+                }
+              },
+              "type": "object"
+            },
+            "name": "listArtists"
+          }
+        ],
+        "ttlMs": 0
+      }
+    }
+
+To call a tool with the stateless protocol, send a `tools/call` request with the same `_meta` object, set the `Mcp-Method` header to `tools/call`, and set the `Mcp-Name` header to the tool name:
+    
+    
+    curl -X POST "https://MCP_ENDPOINT_URL/mcp" \
+      -H "Content-Type: application/json" \
+      -H "Accept: application/json, text/event-stream" \
+      -H "MCP-Protocol-Version: 2026-07-28" \
+      -H "Mcp-Method: tools/call" \
+      -H "Mcp-Name: listArtists" \
+      -d '{
+            "jsonrpc": "2.0",
+            "id": 2,
+            "method": "tools/call",
+            "params": {
+              "name": "listArtists",
+              "arguments": {},
+              "_meta": {
+                "io.modelcontextprotocol/protocolVersion": "2026-07-28",
+                "io.modelcontextprotocol/clientCapabilities": {},
+                "io.modelcontextprotocol/clientInfo": {
+                  "name": "CLIENT_NAME",
+                  "version": "CLIENT_VERSION"
+                }
+              }
+            }
+          }' \
+      -H "Authorization: Bearer TOKEN"
+
+The `Mcp-Name` header must match `params.name`. The result includes `"resultType": "complete"` and the content that the tool returns.
+
 Now that your endpoint is initialized, your MCP tools are discoverable by developers and agents using your API product.
 
 ## Monitoring and analytics
@@ -511,6 +611,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-03 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 

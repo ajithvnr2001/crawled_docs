@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chronicle/docs/soar/admin-tasks/advanced/migrate-soar-permissions-iam/
 title: Migrate SOAR permissions to IAM \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T10:00:21.847344+00:00
+fetched_at: 2026-11-04T23:34:10.267553+00:00
 ---
 
 # Migrate SOAR permissions to IAM  |  Google Security Operations  |  Google Cloud Documentation
@@ -27,7 +27,7 @@ Google SecOps  [ SOAR ](https://docs.cloud.google.com/chronicle/docs/secops/goog
 
 This document guides both Google Security Operations unified customers and SOAR standalone users who need to migrate their environment from existing SOAR permission groups to Google Cloud Identity and Access Management (IAM) for access control. For a video walkthrough of this procedure, see [SOAR IAM Migration video](https://youtu.be/UBfwcgDvc0s)
 
-**Note:** The migration tool can help you propose new custom IAM bindings for existing **SOAR Settings** permissions. For more information, see [Feature RBAC](https://docs.cloud.google.com/chronicle/docs/onboard/configure-feature-access).
+**Note:** The migration tool can help you propose new custom IAM bindings for existing **Settings** SOAR permissions. For more information, see [Feature RBAC](https://docs.cloud.google.com/chronicle/docs/onboard/configure-feature-access).
 
 The Google Cloud console verification process automates the transition from SOAR permissions to Google Cloud IAM by doing the following key steps:
 
@@ -57,9 +57,9 @@ Before starting the migration, confirm the following requirements are met:
 
 The SOAR admin should carry out the steps in the following procedure:
 
-  1. In the Google SecOps platform, go to **SOAR Settings > Advanced > Permission Groups (API Keys)**.
+  1. In the Google SecOps platform, go to **Settings > Access Management > Permission Groups (API Keys)**.
   2. Create a Permission Group making sure that the **Settings** module and the options under Settings are all checked.
-  3. Go to **SOAR Settings > Advanced > API Keys**.
+  3. Go to **Settings > Access Management > API Keys**.
   4. Add a new API key making sure to select the Permission Group that you created.
   5. Copy the generated API key. 
 
@@ -190,6 +190,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-28 UTC.
+Last updated 2026-11-04 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 

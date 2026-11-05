@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/locations/
 title: Deployments and endpoints \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-03T09:52:31.404540+00:00
+fetched_at: 2026-11-04T23:12:44.846469+00:00
 ---
 
 # Deployments and endpoints  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation
@@ -272,7 +272,7 @@ Gemini models
 Embeddings models   
 [Gemini Embedding 2](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/embedding-2)   
 `(gemini-embedding-2)` |   
-Gemini Embedding   
+[Gemini Embedding](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/embeddings/get-text-embeddings)   
 `(gemini-embedding-001)` |   
 Embeddings for Text  |   
 Embeddings for Multimodal  |   
@@ -365,7 +365,7 @@ Gemini models
 Embeddings models   
 [Gemini Embedding 2](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/embedding-2)   
 `(gemini-embedding-2)` |  |   
-Gemini Embedding   
+[Gemini Embedding](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/embeddings/get-text-embeddings)   
 `(gemini-embedding-001)` |  |   
 Embeddings for Text  |  |   
 Embeddings for Multimodal  |  |   
@@ -463,7 +463,7 @@ Gemini models
 Embeddings models   
 [Gemini Embedding 2](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/embedding-2)   
 `(gemini-embedding-2)` |  |  |  |  |  |  |   
-Gemini Embedding   
+[Gemini Embedding](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/embeddings/get-text-embeddings)   
 `(gemini-embedding-001)` |  |  |  |  |  |  |   
 Embeddings for Text  |  |  |  |  |  |  |   
 Embeddings for Multimodal  |  |  |  |  |  |  |   
@@ -556,7 +556,7 @@ Gemini models
 Embeddings models   
 [Gemini Embedding 2](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/embedding-2)   
 `(gemini-embedding-2)` |  |   
-Gemini Embedding   
+[Gemini Embedding](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/embeddings/get-text-embeddings)   
 `(gemini-embedding-001)` |  |   
 Embeddings for Text  |  |   
 Embeddings for Multimodal  |  |   
@@ -657,7 +657,7 @@ Gemini models
 Embeddings models   
 [Gemini Embedding 2](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/embedding-2)   
 `(gemini-embedding-2)` |  |  |  |  |  |  |  |  |  |   
-Gemini Embedding   
+[Gemini Embedding](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/embeddings/get-text-embeddings)   
 `(gemini-embedding-001)` |  |  |  |  |  |  |  |  |  |   
 Embeddings for Text  |  |  |  |  |  |  |  |  |  |   
 Embeddings for Multimodal  |  |  |  |  |  |  |  |  |  |   
@@ -755,7 +755,7 @@ Gemini models
 Embeddings models   
 [Gemini Embedding 2](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/embedding-2)   
 `(gemini-embedding-2)` |  |  |  |  |  |  |   
-Gemini Embedding   
+[Gemini Embedding](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/embeddings/get-text-embeddings)   
 `(gemini-embedding-001)` |  |  |  |  |  |  |   
 Embeddings for Text  |  |  |  |  |  |  |   
 Embeddings for Multimodal  |  |  |  |  |  |  |   
@@ -849,7 +849,7 @@ Gemini models
 Embeddings models   
 [Gemini Embedding 2](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/embedding-2)   
 `(gemini-embedding-2)` |  |  |   
-Gemini Embedding   
+[Gemini Embedding](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/embeddings/get-text-embeddings)   
 `(gemini-embedding-001)` |  |  |   
 Embeddings for Text  |  |  |   
 Embeddings for Multimodal  |  |  |   
@@ -898,7 +898,7 @@ Anthropic's Claude Opus 4.7 on Google Cloud  |
 Anthropic's Claude Opus 4.6 on Google Cloud  |   
 Anthropic's Claude Opus 4.5 on Google Cloud  |   
 Anthropic's Claude Sonnet 4.6 on Google Cloud  |   
-Anthropic's Claude Sonnet 4.5 on Google Cloud  |   
+Anthropic's Claude Sonnet 4.5 on Google Cloud (deprecated)  |   
 Anthropic's Claude Haiku 4.5 on Google Cloud  |   
 Anthropic's Claude 3.7 Sonnet on Google Cloud  |   
 Anthropic's Claude 3.5 Haiku on Google Cloud  |   
@@ -935,7 +935,7 @@ Anthropic's Claude Opus 4.7 on Google Cloud  |  |
 Anthropic's Claude Opus 4.6 on Google Cloud  |  |   
 Anthropic's Claude Opus 4.5 on Google Cloud  |  |   
 Anthropic's Claude Sonnet 4.6 on Google Cloud  |  |   
-Anthropic's Claude Sonnet 4.5 on Google Cloud  |  |   
+Anthropic's Claude Sonnet 4.5 on Google Cloud (deprecated)  |  |   
 Anthropic's Claude Haiku 4.5 on Google Cloud  |  |   
 Anthropic's Claude 3.7 Sonnet on Google Cloud  |  |   
 Anthropic's Claude 3.5 Haiku on Google Cloud  |  |   
@@ -977,7 +977,7 @@ Anthropic's Claude Opus 4.7 on Google Cloud  |  |  |  |  |  |  |
 Anthropic's Claude Opus 4.6 on Google Cloud  |  |  |  |  |  |  |   
 Anthropic's Claude Opus 4.5 on Google Cloud  |  |  |  |  |  |  |   
 Anthropic's Claude Sonnet 4.6 on Google Cloud  |  |  |  |  |  |  |   
-Anthropic's Claude Sonnet 4.5 on Google Cloud  |  |  |  |  |  |  |   
+Anthropic's Claude Sonnet 4.5 on Google Cloud (deprecated)  |  |  |  |  |  |  |   
 Anthropic's Claude Haiku 4.5 on Google Cloud  |  |  |  |  |  |  |   
 Anthropic's Claude 3.7 Sonnet on Google Cloud  |  |  |  |  |  |  |   
 Anthropic's Claude 3.5 Haiku on Google Cloud  |  |  |  |  |  |  |   
@@ -1014,7 +1014,7 @@ Anthropic's Claude Opus 4.7 on Google Cloud  |  |
 Anthropic's Claude Opus 4.6 on Google Cloud  |  |   
 Anthropic's Claude Opus 4.5 on Google Cloud  |  |   
 Anthropic's Claude Sonnet 4.6 on Google Cloud  |  |   
-Anthropic's Claude Sonnet 4.5 on Google Cloud  |  |   
+Anthropic's Claude Sonnet 4.5 on Google Cloud (deprecated)  |  |   
 Anthropic's Claude Haiku 4.5 on Google Cloud  |  |   
 Anthropic's Claude 3.7 Sonnet on Google Cloud  |  |   
 Anthropic's Claude 3.5 Haiku on Google Cloud  |  |   
@@ -1059,7 +1059,7 @@ Anthropic's Claude Opus 4.7 on Google Cloud  |  |  |  |  |  |  |  |  |  |
 Anthropic's Claude Opus 4.6 on Google Cloud  |  |  |  |  |  |  |  |  |  |   
 Anthropic's Claude Opus 4.5 on Google Cloud  |  |  |  |  |  |  |  |  |  |   
 Anthropic's Claude Sonnet 4.6 on Google Cloud  |  |  |  |  |  |  |  |  |  |   
-Anthropic's Claude Sonnet 4.5 on Google Cloud  |  |  |  |  |  |  |  |  |  |   
+Anthropic's Claude Sonnet 4.5 on Google Cloud (deprecated)  |  |  |  |  |  |  |  |  |  |   
 Anthropic's Claude Haiku 4.5 on Google Cloud  |  |  |  |  |  |  |  |  |  |   
 Anthropic's Claude 3.7 Sonnet on Google Cloud  |  |  |  |  |  |  |  |  |  |   
 Anthropic's Claude 3.5 Haiku on Google Cloud  |  |  |  |  |  |  |  |  |  |   
@@ -1101,7 +1101,7 @@ Anthropic's Claude Opus 4.7 on Google Cloud  |  |  |  |  |  |  |
 Anthropic's Claude Opus 4.6 on Google Cloud  |  |  |  |  |  |  |   
 Anthropic's Claude Opus 4.5 on Google Cloud  |  |  |  |  |  |  |   
 Anthropic's Claude Sonnet 4.6 on Google Cloud  |  |  |  |  |  |  |   
-Anthropic's Claude Sonnet 4.5 on Google Cloud  |  |  |  |  |  |  |   
+Anthropic's Claude Sonnet 4.5 on Google Cloud (deprecated)  |  |  |  |  |  |  |   
 Anthropic's Claude Haiku 4.5 on Google Cloud  |  |  |  |  |  |  |   
 Anthropic's Claude 3.7 Sonnet on Google Cloud  |  |  |  |  |  |  |   
 Anthropic's Claude 3.5 Haiku on Google Cloud  |  |  |  |  |  |  |   
@@ -1139,7 +1139,7 @@ Anthropic's Claude Opus 4.7 on Google Cloud  |  |  |
 Anthropic's Claude Opus 4.6 on Google Cloud  |  |  |   
 Anthropic's Claude Opus 4.5 on Google Cloud  |  |  |   
 Anthropic's Claude Sonnet 4.6 on Google Cloud  |  |  |   
-Anthropic's Claude Sonnet 4.5 on Google Cloud  |  |  |   
+Anthropic's Claude Sonnet 4.5 on Google Cloud (deprecated)  |  |  |   
 Anthropic's Claude Haiku 4.5 on Google Cloud  |  |  |   
 Anthropic's Claude 3.7 Sonnet on Google Cloud  |  |  |   
 Anthropic's Claude 3.5 Haiku on Google Cloud  |  |  |   
@@ -1584,6 +1584,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-02 UTC.
+Last updated 2026-11-04 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-02 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 

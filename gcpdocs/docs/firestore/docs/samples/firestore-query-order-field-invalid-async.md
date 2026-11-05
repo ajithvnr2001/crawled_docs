@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/firestore/docs/samples/firestore-query-order-field-invalid-async/
 title: An example of an invalid order and limit Firestore query (async) \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T08:01:47.307401+00:00
+fetched_at: 2026-11-04T23:45:57.017126+00:00
 ---
 
 # An example of an invalid order and limit Firestore query (async)  |  Google Cloud Documentation

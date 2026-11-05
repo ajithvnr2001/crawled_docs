@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/docs/choose-access-bigquery-data-from-alloydb/
 title: Choose how to access BigQuery data from AlloyDB \u00a0|\u00a0 AlloyDB for PostgreSQL \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T09:51:32.243878+00:00
+fetched_at: 2026-11-04T23:32:20.157333+00:00
 ---
 
 # Choose how to access BigQuery data from AlloyDB  |  AlloyDB for PostgreSQL  |  Google Cloud Documentation
@@ -36,6 +36,8 @@ Compare the performance characteristics, data freshness, and use cases for each 
 Lakehouse federation provides real-time access to your BigQuery data directly from AlloyDB for PostgreSQL without moving or duplicating the data. To bridge the two systems, this method uses the `bigquery_fdw` extension, which lets you query live datasets in place. Because you query the source data directly, you gain insights from the most current data available, bypassing the latency and maintenance overhead of data pipelines or synchronization intervals.
 
 To optimize performance, AlloyDB pushes standard filters, limits, and aggregations down to BigQuery, streaming only the relevant, pre-filtered results back to your instance. For more information, see [AlloyDB access to real-time data in BigQuery overview](https://docs.cloud.google.com/alloydb/docs/access-real-time-data-overview).
+
+Alternatively, to query Apache Iceberg tables stored in Cloud Storage or registered in [Lakehouse runtime catalog](https://docs.cloud.google.com/lakehouse/docs/about-lakehouse-catalogs) without routing query execution through BigQuery, you can use the AlloyDB columnar engine. For more information, see [Access Iceberg data from AlloyDB](https://docs.cloud.google.com/alloydb/docs/access-iceberg-data-from-alloydb).
 
 ### Use cases
 
@@ -103,6 +105,7 @@ Periodic operations support the following use cases:
 ## What's next
 
   * Learn more about [querying live data in BigQuery from AlloyDB](https://docs.cloud.google.com/alloydb/docs/access-real-time-data-overview).
+  * [Access Apache Iceberg data from AlloyDB](https://docs.cloud.google.com/alloydb/docs/access-iceberg-data-from-alloydb).
   * [Configure access to real-time data](https://docs.cloud.google.com/alloydb/docs/configure-access-real-time-data).
   * [Data synchronization overview](https://docs.cloud.google.com/alloydb/docs/data-synchronization-overview).
   * [Sync BigQuery data to AlloyDB](https://docs.cloud.google.com/alloydb/docs/sync-bigquery-data-to-alloydb).
@@ -113,6 +116,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-28 UTC.
+Last updated 2026-11-04 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 

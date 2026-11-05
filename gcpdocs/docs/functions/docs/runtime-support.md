@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/functions/docs/runtime-support/
 title: Runtime support \u00a0|\u00a0 Cloud Run functions \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T08:00:59.520043+00:00
+fetched_at: 2026-11-04T23:45:37.571376+00:00
 ---
 
 # Runtime support  |  Cloud Run functions  |  Google Cloud Documentation

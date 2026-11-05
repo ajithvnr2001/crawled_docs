@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/storage/docs/folders-overview/
 title: About folders in buckets with hierarchical namespace enabled \u00a0|\u00a0 Cloud Storage \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T05:53:34.270124+00:00
+fetched_at: 2026-11-05T00:19:29.918580+00:00
 ---
 
 # About folders in buckets with hierarchical namespace enabled  |  Cloud Storage  |  Google Cloud Documentation
@@ -51,7 +51,7 @@ This section describes the operations you can perform on folders. Some operation
 
 You can explicitly create folders by using the folder creation operation. Additionally, when you create an object and specify a non-existent folder in its path, the missing parent folder is automatically created for you. For example, creating an object named `dir1/foo.txt` automatically creates the folder `dir1/` if it doesn't already exist.
 
-For information about folder naming, see Considerations.
+For information about folder naming, see Folder naming guidelines.
 
 ### List folders
 
@@ -71,9 +71,7 @@ This operation returns a folder's metadata, which provides structured informatio
 
 Renaming a folder and moving a folder use the same underlying operation. The operation is an atomic, metadata-only change that updates the folder's path without physically copying or deleting the underlying objects. Renaming a folder also updates the folder's path for resources within the folder, such as child folders, objects, and managed folders. This makes the operation fast and avoids object copy costs.
 
-The folder rename operation initiates a long-running operation.
-
-During a folder rename operation, you can read and list the folders being renamed, but you can't run write operations on them.
+The folder rename operation initiates a long-running operation. The time that the operation takes to complete depends on the number of folders it renames, including the folder itself and all of its child folders. To track the progress of a folder rename operation, see [Use long-running operations](https://docs.cloud.google.com/storage/docs/using-long-running-operations). During a folder rename operation, you can read and list the folders being renamed, but you can't run write operations on them.
 
 In the JSON API and Google Cloud CLI, the renaming and moving operations use the same URL endpoint or command. In the Google Cloud console, **Rename folder** and **Move folder** are presented as two distinct options, but both options execute the same backend operation.
 
@@ -100,23 +98,28 @@ If you don't have the required permissions to delete the folder's associated man
 
 For information about naming requirements for folders that have an associated managed folder, see [Naming for folders](https://docs.cloud.google.com/storage/docs/hns-overview#naming).
 
-## Considerations
+## Folder naming guidelines
 
-When creating folders, consider the following:
+When creating folders, refer to the following guidelines:
 
-  * **Object and folder names** : Buckets with hierarchical namespace enabled, support all valid [object names](https://docs.cloud.google.com/storage/docs/objects#naming), including those with leading, trailing slashes (`/`) or consecutive slashes. Each forward slash (`/`) in an object name represents a folder. The following table shows examples of the relationship between object names and their corresponding location in the folder hierarchy:
+  * **The relationship between object names and folder names** : In buckets with hierarchical namespace enabled, folders and objects are distinct resources, even though an object's name includes its folder path. An object name is always the full path within the bucket (such as `dir1/foo.txt`), while each forward slash (`/`) acts as a delimiter that places the object inside a folder resource (such as `dir1/`).
 
-Object name | Location in the folder hierarchy  
----|---  
-`foo.txt` | Every bucket includes a root folder. Object `foo.txt` resides under the root folder of the bucket.  
-`dir1/foo.txt` | Object `foo.txt` resides within a top-level folder named `dir1/`. The top-level folder is distinct from the root folder.  
-`dir1/` | The trailing slash in object names like `dir1/` indicates that the object resides within the folder. In this example, the object name `dir1/` is the same as the parent folder name `dir1/`.   
-`dir1//foo.txt` | Object `foo.txt` resides in a second-level folder named `dir1//`, a child folder of `dir1/`.   
-  * **Maximum folder depth** : Buckets with hierarchical namespace enabled support a maximum folder depth of 50. Folders can be created with up to 50 stacked child folders (for example, `folder1/folder2/folder3/.../folder50/my-data.txt`). However, if a folder has an associated managed folder, it can only have up to 15 stacked child folders.
+Buckets with hierarchical namespace enabled support all valid [object names](https://docs.cloud.google.com/storage/docs/objects#naming), including those with leading, trailing, or consecutive slashes. When you upload an object, Cloud Storage automatically creates any missing folder resources in its path.
+
+The following table shows how object names map to folder resources:
+
+Object name | Parent folder | Location in the folder hierarchy  
+---|---|---  
+`foo.txt` | Root folder | Every bucket has an unnamed root folder. Because `foo.txt` contains no slash, the object resides directly in the root folder.  
+`dir1/foo.txt` | `dir1/` | The object's full name is `dir1/foo.txt`, not `foo.txt`. It resides in the top-level folder `dir1/`, which is distinct from the root folder.  
+`dir1/` | `dir1/` | A trailing slash doesn't turn an object into a folder. Instead, an object named `dir1/` is a separate object resource that resides inside the folder `dir1/`.   
+`/foo.txt` | `/` | A leading slash defines a top-level folder named `/`, which is distinct from the root folder. The object `/foo.txt` resides inside the folder `/`.   
+`dir1//foo.txt` | `dir1//` | Consecutive slashes define nested folders. The object `dir1//foo.txt` resides in the second-level folder `dir1//`, which is a child of `dir1/`.   
+  * **Sensitive or personally identifiable information (PII)** : Folder names are more broadly visible than folder metadata. For example, folder names appear in URLs and when listing folders or objects in a bucket. Don't include sensitive information or PII in folder names.
 
   * **Maximum folder name size** : 512 bytes (UTF-8 encoded).
 
-  * **Sensitive or personally identifiable information (PII)** : Folder names are more broadly visible than folder metadata. For example, folder names appear in URLs and when listing folders or objects in a bucket. Don't include sensitive information or PII in folder names.
+  * **Maximum folder depth** : Buckets with hierarchical namespace enabled support a maximum folder depth of 50. Folders can be created with up to 50 stacked child folders (for example, `folder1/folder2/folder3/.../folder50/my-data.txt`). However, if a folder has an associated managed folder, it can only have up to 15 stacked child folders.
 
 
 
@@ -139,6 +142,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-30 UTC.
+Last updated 2026-11-03 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 

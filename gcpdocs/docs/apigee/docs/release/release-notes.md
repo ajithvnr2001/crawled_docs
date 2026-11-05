@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/apigee/docs/release/release-notes/
 title: Apigee release notes \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T05:58:43.550271+00:00
+fetched_at: 2026-11-04T23:20:20.231356+00:00
 ---
 
 # Apigee release notes  |  Google Cloud Documentation
@@ -59,6 +59,30 @@ You can see the latest product updates for all of Google Cloud on the [ Google C
 
 To get the latest product updates delivered to you, add the URL of this page to your [feed reader](https://wikipedia.org/wiki/Comparison_of_feed_aggregators), or add the [feed URL](https://docs.cloud.google.com/feeds/apigee-x-release-notes.xml) directly. 
 
+## November 03, 2026
+
+Announcement
+
+On November 3, 2026, we released an updated version of Apigee (1-18-0-apigee-8).
+
+**Note:** Rollouts of this release began today and can take four or more business days to complete across all Google Cloud zones. Your instances might not have the features and fixes available until the rollout is complete.
+
+Security
+
+Bug ID | Description  
+---|---  
+**N/A** | **Security fix for Apigee infrastructure.**  
+  
+Fixed
+
+Bug ID | Description  
+---|---  
+**574037227** | Added config override token `oauth_default_access_token_expiry_time_in_millis` (per-org via the deployment contract) that overrides the default OAuthV2 access token lifetime (ms) applied when a policy omits `<ExpiresIn>`. When unset, behavior is unchanged (installation default, typically 30 days).  
+**573326336** | Proxies that declare `<ProxyOperationMode>MCP` are now recognized as [MCP proxies](https://docs.cloud.google.com/apigee/docs/api-platform/apigee-mcp/apigee-mcp-overview) regardless of their basepath.  
+**576697209** | LLMTokenQuota no longer counts tokens for responses that SemanticCacheLookup serves from the cache, and records no ai_llm_response_token_count for them.  
+**578314600** | The Apigee Connect agent now uses HTTP/2 keepalive pings on the control-plane connection, detecting a silently dropped connection in ~80s (vs ~2h) while honoring HTTPS_PROXY (including proxy credentials), so proxy-only clusters re-establish connectivity.  
+**N/A** | Updates to infrastructure and libraries.  
+  
 ## November 02, 2026
 
 Announcement

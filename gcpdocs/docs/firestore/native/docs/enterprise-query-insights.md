@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/firestore/native/docs/enterprise-query-insights/
 title: Analyze query performance statistics \u00a0|\u00a0 Firestore in Native mode \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T08:01:03.128916+00:00
+fetched_at: 2026-11-04T23:45:43.391530+00:00
 ---
 
 # Analyze query performance statistics  |  Firestore in Native mode  |  Google Cloud Documentation

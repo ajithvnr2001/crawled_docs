@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/load-balancing/docs/https/https-logging-monitoring/
 title: Global external Application Load Balancer logging and monitoring \u00a0|\u00a0 Cloud Load Balancing \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-03T09:54:21.904229+00:00
+fetched_at: 2026-11-05T00:20:42.880887+00:00
 ---
 
 # Global external Application Load Balancer logging and monitoring  |  Cloud Load Balancing  |  Google Cloud Documentation
@@ -528,6 +528,9 @@ Filter this table:  statusDetails (failure) | Meaning | Common accompanying stat
 `failed_to_negotiate_alpn` | The load balancer and the backend failed to negotiate an application layer protocol (such as HTTP/2) to use to communicate with each other over TLS.  | `502`, `503`  
 `headers_too_long` | The request headers were larger than the maximum allowed.  | `413`  
 `http_version_not_supported` | HTTP version not supported. Only HTTP 0.9, 1.0, 1.1, and 2.0 are supported.  | `400`  
+`image_optimization_bad_request` | The `imop` query parameter in a Cloud CDN [image optimization](https://docs.cloud.google.com/cdn/docs/imageoptimization) request has an invalid format, or an operation or parameter value failed validation.  | `400`  
+`image_optimization_method_not_allowed` | The client sent a Cloud CDN [image optimization](https://docs.cloud.google.com/cdn/docs/imageoptimization) request with an unsupported HTTP method. Only `GET`, `HEAD`, and `OPTIONS` methods are allowed.  | `405`  
+`image_optimization_not_acceptable` | The `Accept` header in a Cloud CDN [image optimization](https://docs.cloud.google.com/cdn/docs/imageoptimization) request doesn't match any supported image format or the format specified in the `imop` query parameter.  | `406`  
 `internal_error` | Internal error at the load balancer. Normally represents a transient error in the load balancer infrastructure. Retry your query.  | `4 _XX_` or `5 _XX_`  
 `invalid_chunk_framing` | Requests and responses sent with the `Transfer-Encoding: Chunked` header are not RFC 9112 compliant. As per the RFC, both the `chunked_body` and the `last-chunk` fields must end in `CRLF`. | `400`  
 `invalid_external_origin_endpoint` | The configuration for the external backend is invalid. Review the [internet NEG configuration](https://docs.cloud.google.com/load-balancing/docs/negs/internet-neg-concepts) and ensure that it specifies a valid FQDN/IP address and port.  | `4 _XX_`  
@@ -791,6 +794,8 @@ The dashboard provides data analysis in default intervals of 1H (one hour), 6H (
 
 You can monitor the following metrics for external Application Load Balancers.
 
+For metrics that support App Hub applications and Application Monitoring, see Metrics for App Hub applications. 
+
 The following metrics for global external Application Load Balancers are [reported into Cloud Monitoring](https://docs.cloud.google.com/monitoring/api/metrics).
 
 **Note:** The Response code class fraction metric is available per entire load balancer only, with no further breakdowns available.
@@ -826,6 +831,34 @@ Backend response bytes count | `loadbalancing.googleapis.com/https/backend_respo
 * For monitoring websocket connections, create a backend service specifically for websockets.
 
 † The sum of Frontend RTT and Backend latencies might not be less than or equal to Total latencies. This is because although we poll RTT over the socket from the GFE to the client at the time the HTTP response is acknowledged, we rely on kernel reporting for some of these measurements, and we cannot be sure that the kernel will have an RTT measurement for the given HTTP response. The end result is a smoothed RTT value that is also affected by previous HTTP responses, SYN/ACKs, and SSL handshakes that aren't affecting current HTTP request actual timings.
+
+#### Metrics for App Hub applications
+
+Application Load Balancers also report metrics on individual forwarding rules and backend services. These metrics use the `gce_forwarding_rule` and `gce_backend_service` monitored resource types, and they're reported for load balancers that use the `EXTERNAL`, `EXTERNAL_MANAGED`, or `INTERNAL_MANAGED` load balancing scheme.
+
+When you register a forwarding rule or backend service with an [App Hub](https://docs.cloud.google.com/app-hub/docs/overview) application, these metrics include [application-specific labels](https://docs.cloud.google.com/monitoring/docs/application-monitoring-labels). These labels let you do the following:
+
+  * View golden signals, such as traffic, server error rate, and latency, for the load balancer on [Application Monitoring](https://docs.cloud.google.com/monitoring/docs/about-application-monitoring) dashboards.
+  * Filter and group the load balancer metrics by App Hub application, service, or workload in [Monitoring custom dashboards](https://docs.cloud.google.com/monitoring/charts/dashboards).
+
+
+
+The following table lists the metrics that Application Load Balancers report on forwarding rules and backend services:
+
+Filter this table:  Metric | Name | Monitored resource | Description  
+---|---|---|---  
+Request count | `loadbalancing.googleapis.com/application_lb/request_count` | `gce_forwarding_rule` | The number of requests served by the load balancer.  
+Request bytes | `loadbalancing.googleapis.com/application_lb/request_bytes_count` | `gce_forwarding_rule` | The number of bytes sent as requests from clients to the load balancer.  
+Response bytes | `loadbalancing.googleapis.com/application_lb/response_bytes_count` | `gce_forwarding_rule` | The number of bytes sent as responses from the load balancer to clients.  
+Total latencies | `loadbalancing.googleapis.com/application_lb/total_latencies` | `gce_forwarding_rule` | A distribution of the latency, calculated from when the proxy receives the request until the proxy gets an acknowledgment from the client for the last response byte.  
+Backend request count | `loadbalancing.googleapis.com/application_lb/backend_request_count` | `gce_backend_service` | The number of requests sent from the load balancer to the backends.  
+Backend request bytes | `loadbalancing.googleapis.com/application_lb/backend_request_bytes_count` | `gce_backend_service` | The number of bytes sent as requests from the load balancer to the backends.  
+Backend response bytes | `loadbalancing.googleapis.com/application_lb/backend_response_bytes_count` | `gce_backend_service` | The number of bytes sent as responses from the backends to the load balancer.  
+Backend latencies | `loadbalancing.googleapis.com/application_lb/backend_latencies` | `gce_backend_service` | A distribution of the latency, calculated from when the proxy sends the request to the backend until the proxy receives the last byte of the response from the backend.  
+  
+You can filter and group these metrics by the following metric labels: `protocol`, `response_code`, `response_code_class`, `cache_result`, `matcher_type`, `matcher_name`, `matched_path`, `load_balancing_scheme`, `client_country`, and `proxy_continent`. For label descriptions, see the entries for these metrics in the [Google Cloud metrics list](https://docs.cloud.google.com/monitoring/api/metrics_gcp_i_o#loadbalancing/application_lb/backend_latencies).
+
+For more information about which load balancer resources are integrated with App Hub, see [Supported infrastructure resources](https://docs.cloud.google.com/monitoring/docs/application-monitoring-services#infrastructure-list).
 
 ### Filtering dimensions for metrics
 
@@ -905,6 +938,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-02 UTC.
+Last updated 2026-11-03 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-02 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 

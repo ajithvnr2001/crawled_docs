@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/one-identity-identity-manager/
 title: Collect One Identity Identity Manager logs \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T07:50:52.107045+00:00
+fetched_at: 2026-11-04T23:43:30.701883+00:00
 ---
 
 # Collect One Identity Identity Manager logs  |  Google Security Operations  |  Google Cloud Documentation

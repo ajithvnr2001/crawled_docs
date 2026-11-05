@@ -1,22 +1,8 @@
 ---
 url: https://docs.cloud.google.com/gemini/data-agents/querydata/firestore-mongodb-compatibility/manage-data-agents/
 title: Manage context sets in Firestore Studio \u00a0|\u00a0 Data Agents \u00a0|\u00a0 Google Cloud Documentation
-method: httpx+scrapegraph (scrapling: scrapling status 429 | crawl4ai: crawl4ai failed: Unexpected error in _crawl_web at line 1299 in create_browser_context (../../../../usr/local/lib/python3.10/dist-packages/crawl4ai/browser_manager.py):
-Error: Browser is not available. It may have been closed, crashed, or not yet started. Ensure the browser is running before creating new contexts.
-
-Code context:
-1294                   raise RuntimeError(
-1295                       "Cannot create new browser contexts when using "
-1296                       "use_persistent_context=True. Persistent context uses a "
-1297                       "single shared context."
-1298                   )
-1299 →             raise RuntimeError(
-1300                   "Browser is not available. It may have been closed, crashed, "
-1301                   "or not yet started. Ensure the browser is running before "
-1302                   "creating new contexts."
-1303               )
-1304           # Base settings)
-fetched_at: 2026-10-27T16:25:03.239164+00:00
+method: scrapling+scrapegraph
+fetched_at: 2026-11-05T00:05:48.992784+00:00
 ---
 
 # Manage context sets in Firestore Studio  |  Data Agents  |  Google Cloud Documentation
@@ -39,7 +25,7 @@ Send feedback
 
 This feature is subject to the "Pre-GA Offerings Terms" in the General Service Terms section of the [Service Specific Terms](https://docs.cloud.google.com/terms/service-terms#1), and the [Additional Terms for Generative AI Preview Products](https://cloud.google.com/trustedtester/aitos). Pre-GA features are available "as is" and might have limited support. For more information, see the [launch stage descriptions](https://cloud.google.com/products/#product-launch-stages). 
 
-This document describes how to create context sets in Firestore Studio using a context set file. Context set names must be unique within a database.
+This document describes how to create context sets in Firestore Studio using a context set file. Context set names must be unique within a project.
 
 To learn about context sets, see [Context sets overview](https://docs.cloud.google.com/gemini/data-agents/querydata/firestore-mongodb-compatibility/context-sets-overview). 
 
@@ -85,11 +71,15 @@ To create a context set, perform the following steps:
 
   5. Click **Create context set**.
 
-  6. In **Context set name** , provide a unique context set name. The context set name is case-sensitive and can contain letters, numbers, hyphens, and underscores.
+  6. In **Context set name** , provide a unique context set name. The context set name is case-sensitive and can contain letters, numbers, hyphens, and underscores. Names must be 4-30 characters.
+
+The context set ID is derived from the context set name but is not necessarily identical. For the context set ID, the context set name is converted to lowercase and non-alphanumeric characters are replaced with the `-` character. For example, the context set name `querydata_e2e_test` has the context set ID `querydata-e2e-test`.
 
   7. Optional. In **Context set description** , add a description for your context set.
 
-  8. Click **Create**.
+  8. Optional. To upload a context set file, click **Browse** in the **Upload context set file** section, and select the context set file.
+
+  9. Click **Create**.
 
 
 **Note:** Creating the first context set in a project can take several minutes.
@@ -110,11 +100,11 @@ To edit a context set, perform the following steps:
 
   3. In the navigation menu, click **Firestore Studio**. 
 
-  4. In the **Explorer pane** , next to **Context sets** , click **View actions**.
+  4. Click **View actions** next to the context set you want to edit.
 
-  5. Click **Edit context set**.
+  5. Click **Edit context set**. 
 
-  6. Optional. Edit **Context set description**.
+  6. Optional. Edit **Context set description**. 
 
   7. Click **Browse** in the **Upload context set file** section, and select the context set file.
 
@@ -135,11 +125,11 @@ To delete a context set, perform the following steps:
 
   3. In the navigation menu, click **Firestore Studio**. 
 
-  4. In the **Explorer pane** , next to **Context sets** , click **View actions**.
+  4. Click **View actions** next to the context set you want to delete.
 
   5. Click **Delete context set**.
 
-  6. In the **Delete context set** confirmation dialog, enter the name of the context set.
+  6. In the **Delete context set** confirmation dialog, enter the ID of the context set.
 
   7. Click **Confirm** to delete the context set.
 
@@ -158,6 +148,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-04 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 

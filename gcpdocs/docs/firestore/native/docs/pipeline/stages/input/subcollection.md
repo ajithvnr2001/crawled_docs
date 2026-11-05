@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/firestore/native/docs/pipeline/stages/input/subcollection/
 title: Subcollection (Input Stage) \u00a0|\u00a0 Firestore in Native mode \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T08:01:18.028310+00:00
+fetched_at: 2026-11-04T23:45:55.551790+00:00
 ---
 
 # Subcollection (Input Stage)  |  Firestore in Native mode  |  Google Cloud Documentation

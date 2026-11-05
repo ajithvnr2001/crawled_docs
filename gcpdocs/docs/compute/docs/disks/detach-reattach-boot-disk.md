@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/compute/docs/disks/detach-reattach-boot-disk/
 title: Detaching and reattaching disks \u00a0|\u00a0 Compute Engine \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T23:06:34.734210+00:00
+fetched_at: 2026-11-05T00:19:34.639100+00:00
 ---
 
 # Detaching and reattaching disks  |  Compute Engine  |  Google Cloud Documentation
@@ -77,7 +77,7 @@ To perform this task, you must have the following [permissions](https://docs.clo
 
 ## Move a boot disk between instances
 
-Before you move a boot disk between instances that use different machine series, confirm the boot disk architecture of both instances match For example, you can't attach a boot disk from a C4A instance to a C4 instance because C4A and C4 use Arm and x86 architectures, respectively. To determine the architecture of a machine series, see the **Architecture** row in the [Machine series comparison](https://docs.cloud.google.com/compute/docs/machine-resource#machine_type_comparison) table.
+Before you move a boot disk between instances that use different machine series, confirm that the boot disk architecture of both instances match. For example, you can't attach a boot disk from a C4A instance to a C4 instance because C4A and C4 use Arm and x86 architectures, respectively. To determine the architecture of a machine series, see the **Architecture** row in the [Machine series comparison](https://docs.cloud.google.com/compute/docs/machine-resource#machine_type_comparison) table.
 
 For additional factors to consider when moving a boot disk between machine series, see [Move your workload to a new compute instance](https://docs.cloud.google.com/compute/docs/import/migrate-to-new-vm#storage-resources).
 
@@ -138,7 +138,7 @@ Replace the following:
 
   * `PROJECT_ID`: the ID of your project.
   * `INSTANCE_NAME`: the name of the instance.
-  * `ZONE`: the zone where your instances is located.
+  * `ZONE`: the zone where your instance is located.
   * `DISK_NAME`: the name of the disk to detach. The disk name is usually the same as the instance name.
 
 
@@ -309,6 +309,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-03 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 

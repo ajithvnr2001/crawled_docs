@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/universal-ledger/how-to/set-up-cli/
 title: Set up the Universal Ledger CLI \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-14T10:36:08.404335+00:00
+fetched_at: 2026-11-05T00:19:14.415644+00:00
 ---
 
 # Set up the Universal Ledger CLI  |  Google Cloud Documentation
@@ -20,12 +20,6 @@ fetched_at: 2026-10-14T10:36:08.404335+00:00
 Send feedback 
 
 #  Set up the Universal Ledger CLI Stay organized with collections  Save and categorize content based on your preferences. 
-
-**Preview**
-
-This product is subject to the "Pre-GA Offerings Terms" in the General Service Terms section of the [Service Specific Terms](https://docs.cloud.google.com/terms/service-terms#1). Pre-GA products are available "as is" and might have limited support. For more information, see the [launch stage descriptions](https://cloud.google.com/products/#product-launch-stages). 
-
-For information about access to this release, see the [ access request page](https://cloud.google.com/application/web3/universal-ledger). 
 
 The Universal Ledger CLI is a command line interface provided for experimentation purposes to facilitate submitting transactions and interacting with a Universal Ledger network. For production use cases, it is recommended to build integrations using the [Universal Ledger APIs](https://docs.cloud.google.com/universal-ledger/apis) instead.
 
@@ -61,17 +55,19 @@ In the Google Cloud console, activate Cloud Shell.
 
 [Activate Cloud Shell](https://console.cloud.google.com/?cloudshell=true)
 
-**Experimental:** The `ul-cli` binary is made available as a Docker image to customers participating in the [Universal Ledger preview](https://docs.cloud.google.com/universal-ledger/preview-onboarding). This binary is in active development and subject to change or removal in new versions of the product.
+**Experimental:** The `ul-cli` binary, made available as a Docker image, is in active development and subject to change or removal in new versions of the product.
 
 Run the following command to create a directory to hold the CLI configuration files.
     
     
     mkdir -p ~/.config/ul-cli
 
-Run each of the following commands to pull the `ul-cli` Docker image, define an alias for running the binary, and confirm that the binary works.
+### Pull the image and configure the alias
+
+Run each of the following commands to pull the `ul-cli` Docker image, define an alias for running the binary, and confirm that the binary works:
     
     
-    docker pull us-docker.pkg.dev/gcul-artifacts/images/client/ul-cli:preview
+    docker pull us-central1-docker.pkg.dev/universal-ledger-artifacts/images/client/ul-cli:stable
     alias ul-cli="docker run --rm -i --user $(id -u):$(id -g) \
         --volume /tmp:/tmp \
         --volume ~/.config/ul-cli:/home/.config/ul-cli \
@@ -79,8 +75,10 @@ Run each of the following commands to pull the `ul-cli` Docker image, define an 
         --volume .:/workspace \
         --env HOME=/home \
         --workdir /workspace \
-        us-docker.pkg.dev/gcul-artifacts/images/client/ul-cli:preview"
+        us-central1-docker.pkg.dev/universal-ledger-artifacts/images/client/ul-cli:stable"
     ul-cli --help
+
+### Configure the ul-cli
 
 Run the following command to configure the CLI.
     
@@ -95,15 +93,9 @@ Replace the following:
 
 
 
-If you need help choosing a suitable endpoint, see [Available networks and regions](https://docs.cloud.google.com/universal-ledger/preview-onboarding#available_networks_and_regions).
+If you need help choosing a suitable endpoint, see [Universal Ledger networks and locations](https://docs.cloud.google.com/universal-ledger/locations).
 
-The previous command will create a file under
-    
-    
-    ~/.config/ul-cli/config.yaml
-    
-
-with the configuration that will be used and maintained by the CLI.
+This command creates the CLI configuration file at `~/.config/ul-cli/config.yaml` (on Linux and macOS).
 
 ## Manage Universal Ledger accounts
 
@@ -157,7 +149,7 @@ Run `ul-cli accounts create --help` to view the options available for other kind
 
 ### Create a new account for someone else
 
-To create an account for someone else, ask them to share with you their public key with you and store it in a file. It's generally recommended that you use PEM encoding format for keys. For example, if their signing key uses the P-256 elliptic curve with SHA256 digest, save it in a file named `pem_ec_p256_sha256.pub`:
+To create an account for someone else, ask them to share with you their public key and store it in a file. It's generally recommended that you use PEM encoding format for keys. For example, if their signing key uses the P-256 elliptic curve with SHA256 digest, save it in a file named `pem_ec_p256_sha256.pub`:
     
     
     -----BEGIN PUBLIC KEY-----
@@ -179,7 +171,7 @@ Then, run the following command to create the account:
 
 Replace the following:
 
-  * `NEW_ACCOUNT_ALIAS`: a short string used locally by the CLI to identify this account in future command invocations. Note, however, since you don't have its private key, you won't be able to sign or submit transactions.
+  * `NEW_ACCOUNT_ALIAS`: a short string used locally by the CLI to identify this account in future command invocations. Note, however, because you don't have its private key, you cannot sign or submit transactions.
   * `NEW_ACCOUNT_COMMENT`: a string with any relevant information to record on the ledger associated with the new user account. This is an opaque value that is stored on ledger but not interpreted otherwise by the Universal Ledger. Once created, this field is immutable and readable by anyone with access to the network.
   * `NEW_ACCOUNT_ROLES`: a comma separated list of [Role](https://docs.cloud.google.com/universal-ledger/reference/rpc/google.cloud.universalledger.v1#role) to be assigned to the new user account. For example: `payer`, `receiver`, `contract-creator`, or `contract-participant`.
   * `ACCOUNT_MANAGER_ALIAS`: the alias of an account manager previously registered or created with the CLI.
@@ -201,7 +193,7 @@ Run the following command to view all of the accounts locally registered or crea
 
 Use the `--help` flag to explore all other commands and subcommands available on the Universal Ledger CLI.
 
-For example, to view the top level commands available run:
+For example, to view the available top level commands, run:
     
     
     ul-cli --help
@@ -227,6 +219,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-09-02 UTC.
+Last updated 2026-10-26 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-09-02 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/managed-spark/docs/concepts/components/ranger/
 title: Managed Service for Apache Spark optional Ranger component \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T21:57:42.712939+00:00
+fetched_at: 2026-11-05T00:20:21.496451+00:00
 ---
 
 # Managed Service for Apache Spark optional Ranger component  |  Google Cloud Documentation
@@ -23,20 +23,9 @@ Send feedback
 
 #  Managed Service for Apache Spark optional Ranger component Stay organized with collections  Save and categorize content based on your preferences. 
 
-You can install additional components like Ranger when you create a Managed Service for Apache Spark cluster using the [Optional components](https://docs.cloud.google.com/managed-spark/docs/concepts/components/overview#available_optional_components) feature. This page describes the Ranger component.
+The [Apache Ranger](https://ranger.apache.org/) [optional component](https://docs.cloud.google.com/managed-spark/docs/concepts/components/overview#available_optional_components) lets you manage permissions and auditing for the Hadoop ecosystem on Managed Service for Apache Spark clusters. When you install this component during cluster creation, the Ranger `admin` server and Web UI are available on port `6080` on the cluster's first master node.
 
-The [Apache Ranger](https://ranger.apache.org/) component is an open source framework to manage permission and auditing for the Hadoop ecosystem. The Ranger `admin` server and Web UI are available on port `6080` on the cluster's first master node.
-
-**Also see:**
-
-  * [Using Ranger with Kerberos](https://docs.cloud.google.com/managed-spark/docs/concepts/components/ranger-w-kerberos)
-
-  * [Back up and restore a Ranger schema](https://docs.cloud.google.com/managed-spark/docs/concepts/components/backup-ranger-schema)
-
-  * [Best practices to use Apache Ranger on Dataproc](https://cloud.google.com/blog/products/data-analytics/running-cloud-managed-spark-and-hadoop-using-ranger)
-
-
-
+For related tasks and guidance, see how to [use Ranger with Kerberos](https://docs.cloud.google.com/managed-spark/docs/concepts/components/ranger-w-kerberos), [back up and restore a Ranger schema](https://docs.cloud.google.com/managed-spark/docs/concepts/components/backup-ranger-schema), and review [best practices to use Apache Ranger on Managed Service for Apache Spark](https://cloud.google.com/blog/products/data-analytics/running-cloud-managed-spark-and-hadoop-using-ranger).
 
 ## Install the component
 
@@ -164,6 +153,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-03 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 

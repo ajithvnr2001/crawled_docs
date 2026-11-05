@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/nimble-os/
 title: Collect HPE Nimble Storage OS logs \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T07:50:53.000575+00:00
+fetched_at: 2026-11-04T23:34:40.304910+00:00
 ---
 
 # Collect HPE Nimble Storage OS logs  |  Google Security Operations  |  Google Cloud Documentation

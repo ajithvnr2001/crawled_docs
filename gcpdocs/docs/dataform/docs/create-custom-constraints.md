@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/dataform/docs/create-custom-constraints/
 title: Create custom organization policy constraints \u00a0|\u00a0 Dataform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-03T09:51:34.165486+00:00
+fetched_at: 2026-11-04T23:32:08.642741+00:00
 ---
 
 # Create custom organization policy constraints  |  Dataform  |  Google Cloud Documentation
@@ -157,8 +157,11 @@ dataform.googleapis.com/ReleaseConfig |  `resource.codeCompilationConfig.asserti
 `resource.timeZone`  
 dataform.googleapis.com/Repository |  `resource.containingFolder`  
 `resource.displayName`  
+`resource.endUserAuthConfig.oauthConfig.additionalOauthScopes`  
+`resource.gitRemoteSettings.accountConnector`  
 `resource.gitRemoteSettings.authenticationTokenSecretVersion`  
 `resource.gitRemoteSettings.defaultBranch`  
+`resource.gitRemoteSettings.gitRepositoryLink`  
 `resource.gitRemoteSettings.sshAuthenticationConfig.hostPublicKey`  
 `resource.gitRemoteSettings.sshAuthenticationConfig.userPrivateKeySecretVersion`  
 `resource.gitRemoteSettings.url`  
@@ -173,6 +176,7 @@ dataform.googleapis.com/Repository |  `resource.containingFolder`
 dataform.googleapis.com/TeamFolder |  `resource.displayName`  
 dataform.googleapis.com/WorkflowConfig |  `resource.cronSchedule`  
 `resource.disabled`  
+`resource.invocationConfig.concurrentActionsLimit`  
 `resource.invocationConfig.endUserAuthConfig.oauthConfig.additionalOauthScopes`  
 `resource.invocationConfig.executionMode`  
 `resource.invocationConfig.fullyRefreshIncrementalTablesEnabled`  
@@ -194,6 +198,7 @@ dataform.googleapis.com/WorkflowConfig |  `resource.cronSchedule`
 `resource.workflowTriggerConfig.workflowTriggers.tableUpdateTrigger.table.name`  
 `resource.workflowTriggerConfig.workflowTriggers.tableUpdateTrigger.table.schema`  
 dataform.googleapis.com/WorkflowInvocation |  `resource.compilationResult`  
+`resource.invocationConfig.concurrentActionsLimit`  
 `resource.invocationConfig.endUserAuthConfig.oauthConfig.additionalOauthScopes`  
 `resource.invocationConfig.executionMode`  
 `resource.invocationConfig.fullyRefreshIncrementalTablesEnabled`  
@@ -533,6 +538,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-02 UTC.
+Last updated 2026-11-04 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-02 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 

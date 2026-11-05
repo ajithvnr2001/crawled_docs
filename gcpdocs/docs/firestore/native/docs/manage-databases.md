@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/firestore/native/docs/manage-databases/
 title: Create and manage databases \u00a0|\u00a0 Firestore in Native mode \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T08:01:01.073443+00:00
+fetched_at: 2026-11-04T23:45:21.764023+00:00
 ---
 
 # Create and manage databases  |  Firestore in Native mode  |  Google Cloud Documentation

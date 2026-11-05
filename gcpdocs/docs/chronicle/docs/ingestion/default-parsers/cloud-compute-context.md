@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/cloud-compute-context/
 title: Collect Google Cloud Compute context logs \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T07:54:02.543019+00:00
+fetched_at: 2026-11-04T23:42:21.241217+00:00
 ---
 
 # Collect Google Cloud Compute context logs  |  Google Security Operations  |  Google Cloud Documentation

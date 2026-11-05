@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/docs/database-users/overview/
 title: About database user management in AlloyDB for PostgreSQL \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T00:19:26.766091+00:00
+fetched_at: 2026-11-05T00:18:28.973020+00:00
 ---
 
 # About database user management in AlloyDB for PostgreSQL  |  Google Cloud Documentation
@@ -25,11 +25,11 @@ To control access to your AlloyDB for PostgreSQL databases, you can create and m
 
 ## How database user management works
 
-AlloyDB shares the same concepts of roles, users, and groups as [PostgreSQL](https://www.postgresql.org/docs/17/user-manag.html). For a brief explanation, see the following descriptions:
+AlloyDB shares the same concepts of roles, users, and groups as [PostgreSQL](https://www.postgresql.org/docs/18/user-manag.html). For a brief explanation, see the following descriptions:
 
   * **Role:** the top-level designation that describes both database users and groups of database users across a cluster. Roles provide, and restrict, access to database objects, such as tables and functions.
 
-  * **User:** the role that's given the [`LOGIN`](https://www.postgresql.org/docs/17/role-attributes.html#ROLE-ATTRIBUTES) attribute. Users can authenticate and sign in to AlloyDB database clusters.
+  * **User:** the role that's given the [`LOGIN`](https://www.postgresql.org/docs/18/role-attributes.html#ROLE-ATTRIBUTES) attribute. Users can authenticate and sign in to AlloyDB database clusters.
 
   * **Group:** the role that's granted to one or more users. The purpose of groups is to control the privileges that many users have as a whole.
 
@@ -40,14 +40,14 @@ AlloyDB shares the same concepts of roles, users, and groups as [PostgreSQL](htt
 
 To authenticate and sign in to your AlloyDB database clusters, you have two options:
 
-  * [Built-in PostgreSQL password-based authentication](https://www.postgresql.org/docs/17/auth-password.html#AUTH-PASSWORD): to verify user identity, AlloyDB compares the provided credentials against stored, hashed passwords. The supported methods include `md5`, `scram-sha-256`, and `password`.
+  * [Built-in PostgreSQL password-based authentication](https://www.postgresql.org/docs/18/auth-password.html#AUTH-PASSWORD): to verify user identity, AlloyDB compares the provided credentials against stored, hashed passwords. The supported methods include `md5`, `scram-sha-256`, and `password`.
   * [IAM authentication](https://docs.cloud.google.com/alloydb/docs/database-users/manage-iam-auth): lets database users authenticate using IAM. This provides enhanced security and centralizes access control across other Google Cloud services.
 
 
 
 ## Predefined roles
 
-PostgreSQL provides [predefined roles](https://www.postgresql.org/docs/17/predefined-roles.html#PREDEFINED-ROLES) with various privileges. In addition to these predefined roles, AlloyDB provides several more predefined user and group roles.
+PostgreSQL provides [predefined roles](https://www.postgresql.org/docs/18/predefined-roles.html#PREDEFINED-ROLES) with various privileges. In addition to these predefined roles, AlloyDB provides several more predefined user and group roles.
 
 The following table lists the roles and role privileges that AlloyDB provides:
 
@@ -120,7 +120,7 @@ The `alloydbreplica` role is an internal AlloyDB system role. The AlloyDB servic
 
 ### `alloydbiamuser` group role
 
-Database users within the `alloydbiamuser` group authenticate with an AlloyDB instance by using IAM, instead of using built-in PostgreSQL [password-based authentication](https://www.postgresql.org/docs/17/auth-password.html#AUTH-PASSWORD).
+Database users within the `alloydbiamuser` group authenticate with an AlloyDB instance by using IAM, instead of using built-in PostgreSQL [password-based authentication](https://www.postgresql.org/docs/18/auth-password.html#AUTH-PASSWORD).
 
 AlloyDB doesn't let you grant the `alloydbiamuser` role to users using the `GRANT` PostgreSQL command or similar methods. Instead, you can use AlloyDB administrative tools to create and manage IAM-based database users. For more information, see [Manage IAM authentication](https://docs.cloud.google.com/alloydb/docs/database-users/manage-iam-auth).
 
@@ -141,6 +141,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-03 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 

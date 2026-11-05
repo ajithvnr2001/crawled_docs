@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/managed-lustre/docs/apis/
 title: APIs and reference \u00a0|\u00a0 Managed Lustre \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T19:55:22.569174+00:00
+fetched_at: 2026-11-05T00:18:37.491222+00:00
 ---
 
 # APIs and reference  |  Managed Lustre  |  Google Cloud Documentation
@@ -25,7 +25,7 @@ Send feedback
   * ### [REST API reference A reference for using the Managed Lustre REST API.  ](https://docs.cloud.google.com/managed-lustre/docs/reference/rest)
   * ### [gcloud CLI reference A reference of `gcloud lustre` commands.  ](https://docs.cloud.google.com/sdk/gcloud/reference/lustre)
   * ### [Terraform reference A reference for the Managed Lustre Terraform resource.  ](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/lustre_instance)
-  * ### [Cluster Toolkit module A reference for the Managed Lustre Cluster Toolkit module.  ](https://github.com/GoogleCloudPlatform/cluster-toolkit/blob/main/examples/README.md#gke-managed-lustreyaml-)
+  * ### [Cluster Toolkit module A reference for the Managed Lustre Cluster Toolkit module.  ](https://docs.cloud.google.com/cluster-toolkit/docs/modules/managed-lustre-instance)
 
 
 

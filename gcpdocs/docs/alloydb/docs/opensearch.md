@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/docs/opensearch/
 title: Access OpenSearch data from AlloyDB \u00a0|\u00a0 AlloyDB for PostgreSQL \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T02:30:03.811579+00:00
+fetched_at: 2026-11-05T00:18:03.230479+00:00
 ---
 
 # Access OpenSearch data from AlloyDB  |  AlloyDB for PostgreSQL  |  Google Cloud Documentation
@@ -109,17 +109,17 @@ AlloyDB supports the following OpenSearch data types:
 Data type(s) | AlloyDB type  
 ---|---  
 [`alias`](https://opensearch.org/docs/latest/field-types/supported-field-types/alias/) |  PostgreSQL type for the field that `alias` is referencing   
-[`binary`](https://opensearch.org/docs/latest/field-types/supported-field-types/binary/) |  [`bytea`](https://www.postgresql.org/docs/17/datatype-binary.html)  
-[`boolean`](https://opensearch.org/docs/latest/field-types/supported-field-types/boolean/) |  [`BOOLEAN`](https://www.postgresql.org/docs/17/datatype-boolean.html)  
-[`byte`](https://opensearch.org/docs/latest/field-types/supported-field-types/numeric/),  [`short`](https://opensearch.org/docs/latest/field-types/supported-field-types/numeric/) |  [`SMALLINT`](https://www.postgresql.org/docs/17/datatype-numeric.html#DATATYPE-INT)  
-[`date`](https://opensearch.org/docs/latest/field-types/supported-field-types/date/) |  [`TIMESTAMPTZ`](https://www.postgresql.org/docs/17/datatype-datetime.html)  
-[`double`](https://opensearch.org/docs/latest/field-types/supported-field-types/numeric/),  [`scaled_float`](https://opensearch.org/docs/latest/field-types/supported-field-types/numeric/) |  [`DOUBLE PRECISION`](https://www.postgresql.org/docs/17/datatype-numeric.html#DATATYPE-FLOAT)  
-[`float`](https://opensearch.org/docs/latest/field-types/supported-field-types/numeric/),  [`half_float`](https://opensearch.org/docs/latest/field-types/supported-field-types/numeric/) |  [`REAL`](https://www.postgresql.org/docs/17/datatype-numeric.html#DATATYPE-FLOAT)  
-[`integer`](https://opensearch.org/docs/latest/field-types/supported-field-types/numeric/) |  [`INTEGER`](https://www.postgresql.org/docs/17/datatype-numeric.html#DATATYPE-INT)  
-[`long`](https://opensearch.org/docs/latest/field-types/supported-field-types/numeric/) |  [`BIGINT`](https://www.postgresql.org/docs/17/datatype-numeric.html#DATATYPE-INT)  
-[`object`](https://opensearch.org/docs/latest/field-types/supported-field-types/object/),  [`flattened`](https://opensearch.org/docs/latest/field-types/supported-field-types/flattened/) |  [`jsonb`](https://www.postgresql.org/docs/17/datatype-json.html)  
-[`text`](https://opensearch.org/docs/latest/field-types/supported-field-types/text/),  [`keyword`](https://opensearch.org/docs/latest/field-types/supported-field-types/keyword/),  `constant_keyword`,  `wildcard` |  [`TEXT`](https://www.postgresql.org/docs/17/datatype-character.html)  
-[`unsigned_long`](https://opensearch.org/docs/latest/field-types/supported-field-types/numeric/) |  [`NUMERIC`](https://www.postgresql.org/docs/17/datatype-numeric.html#DATATYPE-NUMERIC-DECIMAL)  
+[`binary`](https://opensearch.org/docs/latest/field-types/supported-field-types/binary/) |  [`bytea`](https://www.postgresql.org/docs/18/datatype-binary.html)  
+[`boolean`](https://opensearch.org/docs/latest/field-types/supported-field-types/boolean/) |  [`BOOLEAN`](https://www.postgresql.org/docs/18/datatype-boolean.html)  
+[`byte`](https://opensearch.org/docs/latest/field-types/supported-field-types/numeric/),  [`short`](https://opensearch.org/docs/latest/field-types/supported-field-types/numeric/) |  [`SMALLINT`](https://www.postgresql.org/docs/18/datatype-numeric.html#DATATYPE-INT)  
+[`date`](https://opensearch.org/docs/latest/field-types/supported-field-types/date/) |  [`TIMESTAMPTZ`](https://www.postgresql.org/docs/18/datatype-datetime.html)  
+[`double`](https://opensearch.org/docs/latest/field-types/supported-field-types/numeric/),  [`scaled_float`](https://opensearch.org/docs/latest/field-types/supported-field-types/numeric/) |  [`DOUBLE PRECISION`](https://www.postgresql.org/docs/18/datatype-numeric.html#DATATYPE-FLOAT)  
+[`float`](https://opensearch.org/docs/latest/field-types/supported-field-types/numeric/),  [`half_float`](https://opensearch.org/docs/latest/field-types/supported-field-types/numeric/) |  [`REAL`](https://www.postgresql.org/docs/18/datatype-numeric.html#DATATYPE-FLOAT)  
+[`integer`](https://opensearch.org/docs/latest/field-types/supported-field-types/numeric/) |  [`INTEGER`](https://www.postgresql.org/docs/18/datatype-numeric.html#DATATYPE-INT)  
+[`long`](https://opensearch.org/docs/latest/field-types/supported-field-types/numeric/) |  [`BIGINT`](https://www.postgresql.org/docs/18/datatype-numeric.html#DATATYPE-INT)  
+[`object`](https://opensearch.org/docs/latest/field-types/supported-field-types/object/),  [`flattened`](https://opensearch.org/docs/latest/field-types/supported-field-types/flattened/) |  [`jsonb`](https://www.postgresql.org/docs/18/datatype-json.html)  
+[`text`](https://opensearch.org/docs/latest/field-types/supported-field-types/text/),  [`keyword`](https://opensearch.org/docs/latest/field-types/supported-field-types/keyword/),  `constant_keyword`,  `wildcard` |  [`TEXT`](https://www.postgresql.org/docs/18/datatype-character.html)  
+[`unsigned_long`](https://opensearch.org/docs/latest/field-types/supported-field-types/numeric/) |  [`NUMERIC`](https://www.postgresql.org/docs/18/datatype-numeric.html#DATATYPE-NUMERIC-DECIMAL)  
   
 ## Query your OpenSearch data
 
@@ -396,6 +396,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-03 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 

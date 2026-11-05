@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/cisco-secure-workload/
 title: Collect Cisco Secure Workload (formerly Tetration Analytics) logs \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T07:52:52.533827+00:00
+fetched_at: 2026-11-04T23:43:26.499812+00:00
 ---
 
 # Collect Cisco Secure Workload (formerly Tetration Analytics) logs  |  Google Security Operations  |  Google Cloud Documentation

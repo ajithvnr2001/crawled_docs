@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/resource-manager/docs/super-admin-best-practices/
 title: Super administrator account best practices \u00a0|\u00a0 Resource Manager \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-03T08:19:21.569827+00:00
+fetched_at: 2026-11-05T00:17:48.308955+00:00
 ---
 
 # Super administrator account best practices  |  Resource Manager  |  Google Cloud Documentation

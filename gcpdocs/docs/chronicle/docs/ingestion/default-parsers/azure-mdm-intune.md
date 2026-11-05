@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/azure-mdm-intune/
 title: Collect Azure MDM Intune logs \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T07:52:58.880894+00:00
+fetched_at: 2026-11-04T23:42:08.369726+00:00
 ---
 
 # Collect Azure MDM Intune logs  |  Google Security Operations  |  Google Cloud Documentation

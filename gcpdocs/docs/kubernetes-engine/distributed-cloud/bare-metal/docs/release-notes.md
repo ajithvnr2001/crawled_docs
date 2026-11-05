@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/bare-metal/docs/release-notes/
 title: Google Distributed Cloud (software only) for bare metal combined release notes (all minor versions) \u00a0|\u00a0 Google Distributed Cloud software only for bare metal \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-30T05:42:36.588047+00:00
+fetched_at: 2026-11-04T23:30:19.644209+00:00
 ---
 
 # Google Distributed Cloud (software only) for bare metal combined release notes (all minor versions)  |  Google Distributed Cloud software only for bare metal  |  Google Cloud Documentation
@@ -27,6 +27,44 @@ This document lists production updates to Google Distributed Cloud (software onl
 You can see the latest product updates for all of Google Cloud on the [ Google Cloud](https://docs.cloud.google.com/release-notes) page, browse and filter all release notes in the [Google Cloud console](https://console.cloud.google.com/release-notes), or programmatically access release notes in [BigQuery](https://console.cloud.google.com/bigquery?p=bigquery-public-data&d=google_cloud_release_notes&t=release_notes&page=table). 
 
 To get the latest product updates delivered to you, add the URL of this page to your [feed reader](https://wikipedia.org/wiki/Comparison_of_feed_aggregators), or add the [feed URL](https://docs.cloud.google.com/feeds/anthos-bare-metal-release-notes.xml) directly. 
+
+## November 04, 2026
+
+1.35
+
+Announcement
+
+Google Distributed Cloud (software only) for bare metal 1.35.700-gke.124 is now available for download. To upgrade, see [Upgrade clusters](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/bare-metal/docs/how-to/upgrade). Google Distributed Cloud for bare metal 1.35.700-gke.124 runs on Kubernetes v1.35.8-gke.100.
+
+After a release, it takes approximately 7 to 14 days for the version to become available for installations or upgrades with the GKE On-Prem API clients: the Google Cloud console, the gcloud CLI, and Terraform.
+
+If you use a third-party storage vendor, check the listing of our previously-qualified [storage partners](https://docs.cloud.google.com/kubernetes-engine/enterprise/docs/resources/partner-storage).
+
+1.35
+
+Feature
+
+The following changes were added in 1.35.700-gke.124:
+
+  * Updated system components and container base images to remove the distrusted eMudhra (emSign) and AAA Certificate Services root CAs and reject compromised eMudhra intermediate CAs. 
+
+
+
+1.35
+
+Fixed
+
+The following issues were fixed in 1.35.700-gke.124:
+
+  * Fixed vulnerabilities listed in [Vulnerability fixes](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/bare-metal/docs/vulnerabilities).
+  * Fixed an issue where removing a node from a cluster left behind its local `PersistentVolume` resources instead of garbage collecting them. This fix applies to Google Distributed Cloud for bare metal local `PersistentVolume` resources created after upgrading to 1.35.700-gke.124; existing orphaned `PersistentVolume` resources must be deleted manually. 
+  * Fixed an issue where resetting or removing a control plane node could remove the wrong `etcd` or `etcd-events` member if another control plane node's IP address shared the same prefix (for example, `10.201.0.2` and `10.201.0.26`), causing the affected node to become `NotReady` and stalling cluster upgrades. 
+  * Improved `containerd` resilience against state corruption if a node reboots while unpacking container images. 
+  * Fixed an issue where the periodic configuration drift health check failed with a `version not supported` error while a cluster upgrade or rollback was in progress. 
+  * Fixed an issue where `audit-proxy` retried audit log exports indefinitely on permanent errors, generating excessive audit logging traffic. 
+  * Fixed an issue where the Kubernetes preflight health check scanned all namespaces in the admin cluster instead of the target cluster's namespace, causing cluster upgrades to fail if an unrelated cluster had stale reconciling resources. 
+
+
 
 ## October 27, 2026
 
@@ -16298,6 +16336,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-04 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 

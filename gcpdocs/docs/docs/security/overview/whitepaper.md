@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/docs/security/overview/whitepaper/
 title: Google security overview \u00a0|\u00a0 Security \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T05:48:30.826883+00:00
+fetched_at: 2026-11-04T23:31:58.675004+00:00
 ---
 
 # Google security overview  |  Security  |  Google Cloud Documentation
@@ -191,7 +191,7 @@ For more information, see [Encryption in transit in Google Cloud](https://docs.c
 
 #### Software supply chain integrity
 
-Software supply chain integrity verifies the underlying code and binaries for the services that process your data by performing attestation tests. In Google Cloud, we developed [Binary Authorization for Borg (BAB)](https://docs.cloud.google.com/docs/security/binary-authorization-for-borg) to review and authorize production software that we deploy. BAB helps ensure that only authorized code can process your data. In addition to BAB, we use hardware security chips (called Titan) that we deploy on servers, devices, and peripherals. These chips offer core security features such as secure key storage, root of trust, and signing authority.
+Software supply chain integrity verifies the underlying code and binaries for the services that process your data by performing attestation tests. In Google Cloud, we developed [Binary Authorization for Borg](https://docs.cloud.google.com/docs/security/binary-authorization-for-borg) to review and authorize production software that we deploy. Binary Authorization for Borg helps ensure that only authorized code can process your data. In addition to Binary Authorization for Borg, we use hardware security chips (called Titan) that we deploy on servers, devices, and peripherals. These chips offer core security features such as secure key storage, root of trust, and signing authority.
 
 To help secure your software supply chain, you can implement [Binary Authorization](https://docs.cloud.google.com/binary-authorization/docs) to enforce your policies before deploying your code. For information about securing your supply chain, see [SLSA](https://slsa.dev/).
 
@@ -311,6 +311,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-30 UTC.
+Last updated 2026-11-04 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 

@@ -1,22 +1,8 @@
 ---
 url: https://docs.cloud.google.com/apigee/docs/api-platform/apigee-mcp/apigee-mcp-overview/
 title: Model Context Protocol (MCP) in Apigee overview \u00a0|\u00a0 Google Cloud Documentation
-method: httpx+scrapegraph (scrapling: scrapling status 429 | crawl4ai: crawl4ai failed: Unexpected error in _crawl_web at line 1299 in create_browser_context (../../../../usr/local/lib/python3.10/dist-packages/crawl4ai/browser_manager.py):
-Error: Browser is not available. It may have been closed, crashed, or not yet started. Ensure the browser is running before creating new contexts.
-
-Code context:
-1294                   raise RuntimeError(
-1295                       "Cannot create new browser contexts when using "
-1296                       "use_persistent_context=True. Persistent context uses a "
-1297                       "single shared context."
-1298                   )
-1299 →             raise RuntimeError(
-1300                   "Browser is not available. It may have been closed, crashed, "
-1301                   "or not yet started. Ensure the browser is running before "
-1302                   "creating new contexts."
-1303               )
-1304           # Base settings)
-fetched_at: 2026-10-27T16:18:42.075508+00:00
+method: scrapling+scrapegraph
+fetched_at: 2026-11-05T00:19:26.478641+00:00
 ---
 
 # Model Context Protocol (MCP) in Apigee overview  |  Google Cloud Documentation
@@ -66,7 +52,7 @@ MCP endpoints for Google, Google Cloud, and Apigee implement the MCP server spec
 
 Any MCP client that supports remote MCP endpoints over `HTTP/S` can access these tools. Because the endpoints are managed, you don't need to install or manage local MCP servers, remote MCP servers, or additional infrastructure to enable agentic applications to access your services.
 
-MCP in Apigee offers JSON-RPC support for `tools/list` and `tools/call` methods. You can customize your MCP endpoint with parameters for discoverability, security, network availability, and observability.
+MCP in Apigee offers JSON-RPC support for `tools/list` and `tools/call` methods, and for the `server/discover` method in the stateless MCP protocol. You can customize your MCP endpoint with parameters for discoverability, security, network availability, and observability. For the MCP protocol versions that Apigee supports, see Supported MCP protocol versions.
 
 ### Deployment models
 
@@ -94,6 +80,99 @@ Two properties of this architecture matter for planning and security review:
 
 
 
+## Supported MCP protocol versions
+
+**Note (Apigee hybrid):** The stateless MCP protocol (version `2026-07-28`) is supported on Apigee only. On Apigee hybrid, use one of the stateful MCP protocol versions.
+
+MCP in Apigee supports the [stateless MCP protocol](https://modelcontextprotocol.io/specification/2026-07-28/basic/#statelessness), version `2026-07-28`, and the stateful MCP protocol versions `2025-11-25`, `2025-06-18`, `2025-03-26`, and `2024-11-05`. An MCP endpoint serves both protocols at the same time, so existing MCP clients keep working when MCP clients that use the stateless protocol call the same endpoint.
+
+On this page, _stateless_ refers to the per-request metadata model introduced in MCP version `2026-07-28`, which the MCP specification also calls _modern_. _Stateful_ refers to the earlier model that starts with an `initialize` request, which the MCP specification also calls _legacy_. For a worked example, see [List tools with the stateless MCP protocol](https://docs.cloud.google.com/apigee/docs/api-platform/apigee-mcp/apigee-mcp-quickstart#list-tools-stateless) in the quickstart.
+
+Protocol | Versions | Supported methods  
+---|---|---  
+Stateless | `2026-07-28` | 
+
+  * `server/discover`
+  * `tools/list`
+  * `tools/call`
+
+  
+Stateful | 
+
+  * `2025-11-25`
+  * `2025-06-18`
+  * `2025-03-26`
+  * `2024-11-05`
+
+| 
+
+  * `initialize`
+  * `notifications/initialized`
+  * `tools/list`
+  * `tools/call`
+
+  
+  
+### How Apigee selects the protocol
+
+**Apigee selects the protocol from the request body, not from the`MCP-Protocol-Version` header.** A request whose `params._meta` object contains `io.modelcontextprotocol/protocolVersion` with a JSON string value uses the stateless protocol. A request without that key, or with a value that isn't a string, uses the stateful protocol.
+
+  * Any string value selects the stateless protocol. If the string names a version that Apigee doesn't support, the request still uses the stateless protocol and fails with JSON-RPC error `-32022` (`Unsupported protocol version`). It doesn't fall back to the stateful protocol.
+  * A request with an `MCP-Protocol-Version` header of `2026-07-28` but no `io.modelcontextprotocol/protocolVersion` in `params._meta` is a stateful request. Version `2026-07-28` isn't a stateful version, so Apigee rejects it with HTTP `400` and the stateful protocol's JSON-RPC error `-32602` (`Unsupported protocol version`), not the stateless error `-32022`. To use version `2026-07-28`, a request must use the stateless request format.
+  * If an `initialize` request asks for version `2026-07-28`, or for any version that Apigee doesn't support, Apigee negotiates version `2025-11-25`.
+  * The `server/discover` method is available only in the stateless protocol. A stateful `server/discover` request follows the stateful protocol's error handling: it gets HTTP `200` with JSON-RPC error `-32601` (`Method server/discover is not supported`) in the response body. The HTTP `404` status in Stateless protocol errors applies only to stateless requests.
+
+
+
+### Stateless protocol requests
+
+Every stateless request must carry the protocol version in both the request body and a header. If you're moving an MCP client from the stateful protocol, these are the main differences:
+
+  * The MCP client doesn't call `initialize`. Apigee doesn't create sessions for the stateless protocol.
+  * The MCP client doesn't send an `Mcp-Session-Id` header. If a stateless request includes one, Apigee ignores it.
+  * Every request carries a `params._meta` object with the protocol version and the client capabilities.
+  * Every request carries the `MCP-Protocol-Version` and `Mcp-Method` headers, and a `tools/call` request also carries the `Mcp-Name` header.
+  * Invalid requests get HTTP `400` or `404` with the error codes in Stateless protocol errors.
+
+
+
+A stateless request must include the following fields in the request body:
+
+  * `params._meta["io.modelcontextprotocol/protocolVersion"]`: must be the JSON string `"2026-07-28"`, not a number.
+  * `params._meta["io.modelcontextprotocol/clientCapabilities"]`: must be a JSON object. If the MCP client declares no capabilities, send an empty object (`{}`).
+  * Optional: `params._meta["io.modelcontextprotocol/clientInfo"]`, an object with the MCP client's `name` and `version`. The MCP specification recommends that MCP clients send it on every request.
+
+
+
+A stateless request must include the following HTTP headers:
+
+Header | Required for | Value  
+---|---|---  
+`MCP-Protocol-Version` | All methods | `2026-07-28`. Must match the protocol version in `_meta`.  
+`Mcp-Method` | All methods | The JSON-RPC method, for example `tools/list`. Must match the `method` field in the request body.  
+`Mcp-Name` | `tools/call` only | The tool name. Must match `params.name` in the request body. Send the tool name as a plain ASCII header value. If the tool name contains non-ASCII characters or control characters, has leading or trailing whitespace, or matches the pattern `=?base64?...?=`, you must encode it as `=?base64?ENCODED_NAME?=`, where `ENCODED_NAME` is the padded base64 encoding of the UTF-8 tool name. For details, see [Value encoding](https://modelcontextprotocol.io/specification/2026-07-28/basic/transports/streamable-http#value-encoding) in the MCP specification. Don't send `Mcp-Name` with `tools/list` or `server/discover`.  
+  
+Send each header once. Apigee treats a repeated `MCP-Protocol-Version`, `Mcp-Method`, or `Mcp-Name` header as a header mismatch.
+
+Stateless results include `"resultType": "complete"`. Results of `tools/list` and `server/discover` also include `"cacheScope": "public"` and `"ttlMs": 0`. A `ttlMs` of `0` means that the results are stale as soon as they arrive: Apigee doesn't offer a cache window for them, so `cacheScope` has no practical effect. The `server/discover` result lists the supported protocol versions in `supportedVersions`, the server capabilities in `capabilities` (`"tools": {"listChanged": false}`), and the server information in `_meta["io.modelcontextprotocol/serverInfo"]`. The order of fields in a JSON object isn't guaranteed, so MCP clients must read fields by name.
+
+If a stateless `tools/call` request includes the OpenTelemetry keys `traceparent`, `tracestate`, or `baggage` in `params._meta`, Apigee forwards their values to the backend as HTTP headers of the same name.
+
+Apigee doesn't add `x-mcp-header` annotations to the tool definitions that `tools/list` returns, so MCP clients don't send `Mcp-Param-NAME` headers to Apigee.
+
+### Stateless protocol errors
+
+Apigee rejects a stateless request that doesn't meet the requirements in Stateless protocol requests with one of the following errors. To fix a `400` error, check the request against those requirements. Apigee doesn't require any client capability, so it doesn't return JSON-RPC error `-32021` (`MissingRequiredClientCapability`).
+
+Condition | HTTP status | JSON-RPC error code | Error message  
+---|---|---|---  
+The `MCP-Protocol-Version`, `Mcp-Method`, or `Mcp-Name` header is missing. | `400` | `-32020` | `Missing HEADER header`  
+A header doesn't match the request body, is empty, or appears more than once. | `400` | `-32020` | `Header mismatch: HEADER header does not match request body`  
+The protocol version is not supported. The error `data` contains the requested version in `requested` and the supported versions in `supported`. | `400` | `-32022` | `Unsupported protocol version`  
+`io.modelcontextprotocol/clientCapabilities` is missing from `_meta`. | `400` | `-32602` | `Missing io.modelcontextprotocol/clientCapabilities in _meta`  
+`io.modelcontextprotocol/clientCapabilities` is not a JSON object. | `400` | `-32602` | `io.modelcontextprotocol/clientCapabilities in _meta is not an object`  
+The method isn't supported in the stateless protocol, for example `initialize`, `notifications/initialized`, `ping`, `resources/list`, `resources/read`, `prompts/list`, or `subscriptions/listen`. | `404` | `-32601` | `Method METHOD is not supported`  
+  
 ## Key features of MCP in Apigee
 
 MCP in Apigee offers features for tool discovery, security, and governance. These features help you manage how agentic applications interact with your services.
@@ -250,6 +329,7 @@ The following limitations apply to MCP in Apigee hybrid:
   * **MCP pod resource sizing is customer-managed.** The MCP pods run with the resource requests and limits set by the built-in defaults in the Apigee hybrid Helm charts. If your workload requires more capacity, adjust CPU and memory in `overrides.yaml`. See the [`overrides.yaml` field reference](https://docs.cloud.google.com/apigee/docs/api-platform/apigee-mcp/enable-mcp#reference) for the available fields.
   * **One MCP data plane per Apigee organization, per cluster.** In version `1.17.0`, the Apigee operator provisions one MCP data plane for each Apigee organization installed in the cluster. A cluster that hosts multiple Apigee organizations runs one MCP data plane per organization; the data planes are independent and do not share configuration.
   * **Uniform enablement across an environment group is required.** Enable MCP uniformly across all clusters serving the same Apigee environment group. If MCP is enabled on some clusters and not others within a group, MCP requests that route to a cluster without MCP enabled will receive a `503 Service Unavailable` response.
+  * **The stateless MCP protocol is not supported.** Apigee hybrid supports only the stateful MCP protocol versions `2025-11-25`, `2025-06-18`, `2025-03-26`, and `2024-11-05`. See Supported MCP protocol versions.
   * **One-way TLS between Message Processor and MCP data plane.** Version `1.17.0` uses one-way TLS between Message Processor and the MCP data plane.
   * **The MCP data plane relies on Message Processor for caller identity.** The MCP data plane in the cluster does not independently authenticate its callers in `1.17.0`; it trusts that requests reaching it have already been authenticated by an Apigee proxy running in Message Processor. Every MCP request that should be authenticated must arrive through an Apigee MCP proxy that enforces an authentication policy (see [Manage MCP tool access](https://docs.cloud.google.com/apigee/docs/api-platform/apigee-mcp/manage-mcp-tool-access)). Production customers should apply cluster ingress controls so that only Message Processor pods (Kubernetes label `app=apigee-runtime` in the same Kubernetes namespace where Apigee hybrid is installed) can reach the MCP Service on TCP `443`. Use whichever policy engine your platform supports (Kubernetes NetworkPolicy, Cilium, Calico, Istio AuthorizationPolicy) to enforce this restriction.
 
@@ -267,6 +347,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-03 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 

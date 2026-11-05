@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/compute/docs/regions-zones/gpu-regions-zones/
 title: GPU locations \u00a0|\u00a0 Compute Engine \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T09:45:17.071134+00:00
+fetched_at: 2026-11-05T00:19:31.811152+00:00
 ---
 
 # GPU locations  |  Compute Engine  |  Google Cloud Documentation
@@ -29,7 +29,7 @@ This document focuses on accelerator availability for Compute Engine, [Google Ku
 
   * [Vertex AI: accelerator locations](https://docs.cloud.google.com/vertex-ai/docs/general/locations#accelerators)
   * [Cloud Run: regions that support GPUs](https://docs.cloud.google.com/run/docs/configuring/services/gpu#supported-regions)
-  * [Confidential Computing: zones that support GPUs](https://docs.cloud.google.com/confidential-computing/confidential-vm/docs/supported-configurations#supported-zones)
+  * [Confidential Computing: zones that support GPUs](https://docs.cloud.google.com/confidential-computing/confidential-vm/docs/supported-configurations#zones)
 
 
 
@@ -464,6 +464,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-28 UTC.
+Last updated 2026-11-03 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 

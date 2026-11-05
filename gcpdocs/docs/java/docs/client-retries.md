@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/java/docs/client-retries/
 title: Configure client-side retries \u00a0|\u00a0 Java \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T08:00:43.944749+00:00
+fetched_at: 2026-11-04T23:45:16.783186+00:00
 ---
 
 # Configure client-side retries  |  Java  |  Google Cloud Documentation

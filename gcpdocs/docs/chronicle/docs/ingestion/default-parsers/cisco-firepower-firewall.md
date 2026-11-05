@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/cisco-firepower-firewall/
 title: Collect Cisco Firepower NGFW logs \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T07:50:08.817090+00:00
+fetched_at: 2026-11-04T23:42:17.091564+00:00
 ---
 
 # Collect Cisco Firepower NGFW logs  |  Google Security Operations  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/kubernetes-engine/docs/how-to/setup-multinetwork-support-for-pods/
 title: Set up multi-network support for Pods \u00a0|\u00a0 GKE networking \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T23:16:20.676219+00:00
+fetched_at: 2026-11-04T23:30:59.990235+00:00
 ---
 
 # Set up multi-network support for Pods  |  GKE networking  |  Google Cloud Documentation
@@ -44,7 +44,7 @@ Multi-network support for Pods has the following requirements and limitations:
 
 ### General limitations
 
-  * Multi-network support for Pods doesn't work for clusters that are enabled for [dual-stack networking](https://docs.cloud.google.com/kubernetes-engine/docs/concepts/alias-ips#dual_stack_network).
+  * Multi-network support for Pods doesn't work for clusters that are enabled for [dual-stack networking](https://docs.cloud.google.com/kubernetes-engine/docs/concepts/alias-ips#dual_stack_network). In [single-stack IPv6 clusters](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/single-stack-ipv6) ([Preview](https://cloud.google.com/products#product-launch-stages)), multi-network support for Pods is supported with secondary IPv4-only networks (Layer 3 VPC networks); secondary IPv6 Pod networks are not supported.
   * [Multi-Pod CIDR](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/multi-pod-cidr) is supported only for the default Pod network.
   * Any Pod-networks in a single GKE cluster can't have overlapping CIDR ranges.
   * When you enable multi-network support for Pods, you can't add or remove node-network interfaces or Pod-networks after creating a node pool. To change these settings, you must recreate the node pool.
@@ -1093,9 +1093,97 @@ The output of a valid configuration is similar to the following:
 
 
 
+## Set up multi-network support on single-stack IPv6 clusters
+
+**Preview**
+
+This product or feature is subject to the "Pre-GA Offerings Terms" in the General Service Terms section of the [Service Specific Terms](https://docs.cloud.google.com/terms/service-terms#1). Pre-GA products and features are available "as is" and might have limited support. For more information, see the [launch stage descriptions](https://cloud.google.com/products/#product-launch-stages). 
+
+In [single-stack IPv6 clusters](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/single-stack-ipv6), you can configure multi-network support for Pods to attach secondary IPv4-only Pod networks backed by a VPC network and subnetwork pair to workloads whose primary interface uses IPv6 networking. This configuration enables hybrid IPv4/IPv6 communication with IPv4 resources in secondary VPC subnetworks.
+
+### Key considerations and limitations for IPv6 clusters
+
+Before you configure multi-network support on a single-stack IPv6 cluster, review the following considerations and limitations:
+
+  * **Primary interface:** the default Pod network interface (`eth0`) runs on single-stack IPv6 networking.
+  * **Secondary interfaces:** secondary Pod networks must be IPv4-only (`IPV4` stack type) and use Layer 3 VPC networks. Single-stack IPv6 clusters don't support secondary IPv6 Pod networks.
+  * **Default interface routing:** the `networking.gke.io/default-interface` annotation configures the default gateway interface only for IPv4 traffic. No default interface is configured for IPv6 traffic.
+
+
+
+### Configure secondary IPv4 networks on single-stack IPv6 clusters
+
+To configure secondary IPv4 networks on a single-stack IPv6 cluster, complete the following steps:
+
+  1. **Create the cluster:** when creating your single-stack IPv6 cluster, append the `--enable-multi-networking` flag:
+
+     * For Autopilot clusters:
+           
+           gcloud container clusters create-auto CLUSTER_NAME \
+               --enable-dataplane-v2 \
+               --cluster-dns=clouddns \
+               --enable-multi-networking \
+               --network=NETWORK_NAME \
+               --subnetwork=NODE_SUBNET_NAME \
+               --private-endpoint-subnetwork=PSC_SUBNET_NAME \
+               --location=COMPUTE_LOCATION
+           
+
+     * For Standard clusters:
+           
+           gcloud container clusters create CLUSTER_NAME \
+               --enable-dataplane-v2 \
+               --cluster-dns=clouddns \
+               --stack-type=ipv6 \
+               --enable-multi-networking \
+               --network=NETWORK_NAME \
+               --subnetwork=NODE_SUBNET_NAME \
+               --private-endpoint-subnetwork=PSC_SUBNET_NAME \
+               --location=COMPUTE_LOCATION
+           
+
+  2. **Create the Network and GKENetworkParamSet resources:** define the GKENetworkParamSet and Network resources referencing your secondary IPv4 VPC and subnetwork as described in Configure `Layer 3` VPC network.
+
+  3. **Provision node pools:**
+
+     * In Autopilot and Standard clusters with managed nodes, GKE automatically provisions node pools with the required secondary interfaces when a Pod referencing the network is scheduled.
+     * In Standard clusters with standard node pools, create a node pool with the `--additional-pod-network` flag referencing your secondary network:
+           
+           gcloud container node-pools create POOL_NAME \
+               --cluster=CLUSTER_NAME \
+               --additional-pod-network=subnetwork=SECONDARY_SUBNET_NAME \
+               --location=COMPUTE_LOCATION
+           
+
+  4. **Deploy Pods with network annotations:** reference both the primary IPv6 network (`default`) and your secondary IPv4 network in your Pod manifest:
+         
+         apiVersion: v1
+         kind: Pod
+         metadata:
+           name: ipv6-ipv4-multinetwork-pod
+           annotations:
+             networking.gke.io/default-interface: 'eth1'
+             networking.gke.io/interfaces: |
+               [
+                 {"interfaceName":"eth0","network":"default"},
+                 {"interfaceName":"eth1","network":"secondary-ipv4-net"}
+               ]
+         spec:
+           containers:
+           - name: workload
+             image: busybox
+             command: ["sleep", "3600"]
+         
+
+In this configuration, the `eth0` interface receives an IPv6 address from the cluster's default IPv6 Pod CIDR range, while the `eth1` interface receives an IPv4 address from the `secondary-ipv4-net` network. The `networking.gke.io/default-interface: 'eth1'` annotation designates the `eth1` interface as the default interface for IPv4 egress traffic.
+
+
+
+
 ## What's next
 
   * [Learn how to create VPC-native clusters](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/alias-ips)
+  * [Create and manage single-stack IPv6 clusters](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/single-stack-ipv6)
   * [Codelabs](https://codelabs.developers.google.com/codelabs/gke-multinic-l3netdevice)
   * [Demo video](https://youtu.be/cLL2IvZXbIc?feature=shared)
 
@@ -1105,6 +1193,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-04 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 

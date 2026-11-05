@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/ai-hypercomputer/docs/create/create-self-managed-slurm-cluster/
 title: Create a self-managed Slurm cluster for AI workloads \u00a0|\u00a0 AI Hypercomputer \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T18:27:52.862672+00:00
+fetched_at: 2026-11-04T23:31:48.214852+00:00
 ---
 
 # Create a self-managed Slurm cluster for AI workloads  |  AI Hypercomputer  |  Google Cloud Documentation
@@ -129,14 +129,18 @@ Before creating a Slurm cluster, if you haven't already done so, complete the fo
 
   1. **Choose a consumption option** : your choice of consumption option determines how you get and use GPU resources. To learn more, see [Choose a consumption option](https://docs.cloud.google.com/ai-hypercomputer/docs/consumption-models).
   2. **Obtain capacity** : the process to obtain capacity differs for each consumption option. To learn about the process to obtain capacity for your chosen consumption option, see [Capacity overview](https://docs.cloud.google.com/ai-hypercomputer/docs/obtain-capacity). **Note:** When you request A4X Max or A4X capacity, you obtain it in the _all capacity mode_. This mode is the only supported reservation operational mode for A4X Max or A4X machine types. For more information about all capacity mode, see [ Reservation operational mode](https://docs.cloud.google.com/ai-hypercomputer/docs/create/review-configurations#reservation-operational-mode). 
-  3. **Verify that you have enough Filestore capacity quota** : you need to have enough Filestore quota in your target region before deploying. The required minimum capacity depends on the machine types in your cluster: 
-     * **A4X Max, A4X, A4, A3 Ultra, and A3 Mega** : requires a minimum of 10 TiB (10,240 GiB) of HIGH_SCALE_SSD (zonal) capacity.
-     * **A3 High** : requires a minimum of 2.5 TiB (2,560 GiB) of BASIC_SSD (standard) capacity.
+  3. **Verify that you have enough Filestore or Google Cloud Managed Lustre quota** : you need to have enough Filestore or Managed Lustre quota in your target region and zone before you deploy. The required minimum quota depends on the storage service and machine types in your cluster: 
+     * **Managed Lustre** : 
+       * **A4X Max** : requires a minimum of 18,000 GiB of storage capacity quota and 9 GBps of throughput quota.
+       * **A4X, A4, A3 Ultra, A3 Mega, and A3 High** : requires a minimum of 36,000 GiB of storage capacity quota and 18 GBps of throughput quota.
+     * **Filestore** : 
+       * **A4X Max, A4X, A4, A3 Ultra, and A3 Mega** : requires a minimum of 10 TiB (10,240 GiB) of HIGH_SCALE_SSD (zonal) capacity quota.
+       * **A3 High** : requires a minimum of 2.5 TiB (2,560 GiB) of BASIC_SSD (standard) capacity quota.
 
 To check quota or request a quota increase, see the following:
 
      * To check quota in your project, see [View API-specific quota](https://docs.cloud.google.com/docs/quotas/view-manage#api_specific_quota).
-     * If you don't have enough quota, then [request a quota increase](https://docs.cloud.google.com/filestore/docs/requesting-quota-increases).
+     * If you don't have enough quota, then [request a Filestore quota increase](https://docs.cloud.google.com/filestore/docs/requesting-quota-increases) or [request additional Managed Lustre quota](https://docs.cloud.google.com/managed-lustre/docs/quotas#request_additional_quota).
   4. **Install Cluster Toolkit** : to provision Slurm clusters, you must use [Cluster Toolkit](https://docs.cloud.google.com/cluster-toolkit/docs/overview) version `v1.62.0` or later. 
 
 To install Cluster Toolkit, see [Set up Cluster Toolkit](https://docs.cloud.google.com/cluster-toolkit/docs/setup/configure-environment).
@@ -196,7 +200,7 @@ After you install Cluster Toolkit, go to the directory that contains the [`gclus
         
         cd cluster-toolkit
 
-This cluster deployment requires Cluster Toolkit `v1.62.0` or later. To check the current version, run the following command:
+This cluster deployment requires Cluster Toolkit `v1.62.0` or later. Check the installed version:
         
         ./gcluster --version
 
@@ -776,12 +780,16 @@ To provision the cluster, select one of the following options to run the [`gclus
 
 ###  A4X Max 
 
-**Note:** A4X Max uses the ARM64 architecture and runs on [bare metal instances](https://docs.cloud.google.com/compute/docs/instances/bare-metal-instances). Any software installed on these nodes must be compatible with that architecture.
+The A4X Max blueprint integrates Managed Lustre for high-performance home directory storage (`/home`). The blueprint automatically configures private service access (PSA) to peer your VPC network with Managed Lustre. The blueprint also configures Lustre networking (LNet) on the `eth0` primary network interface. For more information, see the [Managed Lustre overview](https://docs.cloud.google.com/managed-lustre/docs/overview).
+
+**Note:** A4X Max uses the Arm64 architecture and runs on [bare metal instances](https://docs.cloud.google.com/compute/docs/instances/bare-metal-instances). Any software installed on these nodes must be compatible with that architecture.
     
     
     ./gcluster deploy -d a4xmax-bm-slurm-deployment.yaml examples/machine-learning/a4x-maxgpu-4g-metal/a4xmax-bm-slurm-blueprint.yaml --auto-approve
 
 ###  A4X 
+
+The A4X blueprint integrates [Managed Lustre](https://docs.cloud.google.com/managed-lustre/docs/overview) for high-performance home directory storage (`/home`). The blueprint automatically configures private service access (PSA) to peer your VPC network with Managed Lustre.
 
 **Note:** A4X uses the ARM64 architecture. Any software installed on these compute instances must be compatible with that architecture.
 
@@ -792,6 +800,8 @@ By default, the cluster blueprint deploys compute instances that use prebuilt [A
 
 ###  A4 
 
+The A4 blueprint integrates [Managed Lustre](https://docs.cloud.google.com/managed-lustre/docs/overview) for high-performance home directory storage (`/home`). The blueprint automatically configures private service access (PSA) to peer your VPC network with Managed Lustre.
+
 By default, the cluster blueprint deploys compute instances that use prebuilt [Advanced Compute Images](https://docs.cloud.google.com/compute/docs/images/workload/aci-images). These images come preconfigured with specialized drivers and software to run your workloads, including NVIDIA drivers, CUDA, network fabrics, and Slurm agents, which removes the need for manual image building during deployment. To learn more about the prebuilt software packages and configuration tools that you are deploying, see [Overview of Advanced Compute Images](https://docs.cloud.google.com/compute/docs/images/workload/aci-images).
     
     
@@ -799,17 +809,23 @@ By default, the cluster blueprint deploys compute instances that use prebuilt [A
 
 ###  A3 Ultra 
 
+The A3 Ultra blueprint integrates [Managed Lustre](https://docs.cloud.google.com/managed-lustre/docs/overview) for high-performance home directory storage (`/home`). The blueprint automatically configures private service access (PSA) to peer your VPC network with Managed Lustre.
+
 By default, the cluster blueprint deploys compute instances that use prebuilt [Advanced Compute Images](https://docs.cloud.google.com/compute/docs/images/workload/aci-images). These images come preconfigured with specialized drivers and software to run your workloads, including NVIDIA drivers, CUDA, network fabrics, and Slurm agents, which removes the need for manual image building during deployment. To learn more about the prebuilt software packages and configuration tools that you are deploying, see [Overview of Advanced Compute Images](https://docs.cloud.google.com/compute/docs/images/workload/aci-images).
     
     
     ./gcluster deploy -d a3ultra-slurm-deployment.yaml examples/machine-learning/a3-ultragpu-8g/a3ultra-slurm-blueprint.yaml --auto-approve
 
 ###  A3 Mega 
+
+The A3 Mega blueprint integrates [Managed Lustre](https://docs.cloud.google.com/managed-lustre/docs/overview) for high-performance home directory storage (`/home`). The blueprint automatically configures private service access (PSA) to peer your VPC network with Managed Lustre.
     
     
     ./gcluster deploy -d a3mega-slurm-deployment.yaml examples/machine-learning/a3-megagpu-8g/a3mega-slurm-blueprint.yaml --auto-approve
 
 ###  A3 High 
+
+The A3 High blueprint integrates [Managed Lustre](https://docs.cloud.google.com/managed-lustre/docs/overview) for high-performance home directory storage (`/home`). The blueprint automatically configures private service access (PSA) to peer your VPC network with Managed Lustre.
     
     
     ./gcluster deploy -d a3high-slurm-deployment.yaml examples/machine-learning/a3-highgpu-8g/a3high-slurm-blueprint.yaml --auto-approve
@@ -906,13 +922,13 @@ To redeploy the cluster infrastructure (`cluster-env,cluster`) without running a
 
 ## Destroy the Slurm cluster
 
-By default, the A4X Max, A4X, A4, and A3 Ultra blueprints enable deletion protection on the Filestore instance. To delete the Filestore instance when you destroy the Slurm cluster, disable deletion protection before running the destroy command. For instructions, see [Set or remove deletion protection on an existing instance](https://docs.cloud.google.com/filestore/docs/deletion-protection#setting-or-removing).
+When you destroy the cluster, Cluster Toolkit automatically deletes the Managed Lustre instance and all data stored on it.
 
 **Tip:** To learn how to cleanly destroy infrastructure and for advanced manual deployment instructions, see the `DEPLOYMENT_FOLDER/instructions.txt` file in the cluster.
 
 To destroy your Slurm cluster, complete the following steps:
 
-  1. If you haven't already, disconnect from the cluster .
+  1. If you haven't already, disconnect from the cluster.
 
   2. Before you run the `destroy` command, navigate to the root of the Cluster Toolkit directory.
 
@@ -948,6 +964,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-04 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 

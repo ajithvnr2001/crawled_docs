@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/cloud-sql-instance-access/
 title: Configure Cloud SQL instance access \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T05:42:16.621392+00:00
+fetched_at: 2026-11-04T23:32:35.726041+00:00
 ---
 
 # Configure Cloud SQL instance access  |  BigQuery  |  Google Cloud Documentation
@@ -21,7 +21,7 @@ Send feedback  Stay organized with collections  Save and categorize content base
 
 # Configure Cloud SQL instance access
 
-BigQuery Data Transfer Service lets you transfer data from a private Cloud SQL instance across different Google Cloud projects over an internal IP address. To establish this private connection for the [BigQuery Data Transfer Service MySQL connector](https://docs.cloud.google.com/bigquery/docs/mysql-transfer) or the [BigQuery Data Transfer Service PostgreSQL connector](https://docs.cloud.google.com/bigquery/docs/postgresql-transfer), you configure Virtual Private Cloud peering, a Cloud SQL proxy, and a network attachment.
+BigQuery Data Transfer Service lets you transfer data from a private Cloud SQL instance across different Google Cloud projects over an internal IP address. To establish this private connection for the [BigQuery Data Transfer Service MySQL connector](https://docs.cloud.google.com/bigquery/docs/mysql-transfer) or the [BigQuery Data Transfer Service PostgreSQL connector](https://docs.cloud.google.com/bigquery/docs/postgresql-transfer), you configure Virtual Private Cloud peering, a Cloud SQL Auth Proxy, and a network attachment.
 
 ## Architecture overview
 
@@ -39,7 +39,7 @@ Ensure you have the following:
 
   * Access to a Google Cloud project with the BigQuery Data Transfer Service connector and another Google Cloud project with the Cloud SQL instance.
   * An existing MySQL or PostgreSQL database in a Google Cloud project.
-  * The appropriate permissions to [create a VPC](https://docs.cloud.google.com/vpc/docs/create-modify-vpc-networks), [create firewall rules](https://docs.cloud.google.com/network-connectivity/docs/vpn/how-to/configuring-firewall-rules), and install software.
+  * The appropriate permissions to [create a VPC network](https://docs.cloud.google.com/vpc/docs/create-modify-vpc-networks), [create firewall rules](https://docs.cloud.google.com/network-connectivity/docs/vpn/how-to/configuring-firewall-rules), and install software.
   * A [virtual machine (VM) instance](https://docs.cloud.google.com/compute/docs/instances/create-start-instance).
 
 
@@ -50,7 +50,7 @@ To set up VPC peering, you must create VPC peering from the BigQuery Data Transf
 
 ### Create VPC peering from the BigQuery Data Transfer Service connector project
 
-  1. In the Google Cloud console, go to the **VPC network peering** page for your BigQuery Data Transfer Service connector project.
+  1. In the Google Cloud console, go to the **VPC Network Peering** page for your BigQuery Data Transfer Service connector project.
 
 [Go to VPC Network Peering](https://console.cloud.google.com/networking/vpc-connectivity/peering)
 
@@ -75,7 +75,7 @@ To set up VPC peering, you must create VPC peering from the BigQuery Data Transf
 
 To create VPC peering in the Cloud SQL database project to the BigQuery Data Transfer Service project, do the following:
 
-  1. In the Google Cloud console, go to the **VPC Network Peering** page for your BigQuery Data Transfer Service connector project.
+  1. In the Google Cloud console, go to the **VPC Network Peering** page for your Cloud SQL database project.
 
 [Go to VPC Network Peering](https://console.cloud.google.com/networking/vpc-connectivity/peering)
 
@@ -117,27 +117,29 @@ If you didn't select import-export routes while configuring the peering connecti
 
 
 
-## Set up the Cloud SQL proxy
+## Set up the Cloud SQL Auth Proxy
 
   1. Use SSH to connect to a virtual machine (VM) instance in the BigQuery Data Transfer Service connector project.
 
-  2. In the terminal, download the Cloud SQL proxy:
+  2. In the terminal, download the Cloud SQL Auth Proxy:
          
-         wget https://dl.google.com/cloudsql/cloud_sql_proxy.linux.amd64 -O cloud_sql_proxy
-         
-
-  3. Update the permissions for the downloaded files:
-         
-         chmod +x cloud_sql_proxy
+         wget https://storage.googleapis.com/cloud-sql-connectors/cloud-sql-proxy/v2.26.2/cloud-sql-proxy.linux.amd64 -O cloud-sql-proxy
          
 
-  4. Run the Cloud SQL proxy:
+  3. Update the permissions for the downloaded file:
          
-         ./cloud_sql_proxy -instances=NAME=tcp:3306 or 5432 &
+         chmod +x cloud-sql-proxy
          
 
-Replace `NAME` with the name of your Cloud SQL instance connection.
+  4. Run the Cloud SQL Auth Proxy:
+         
+         ./cloud-sql-proxy --address 0.0.0.0 --port PORT NAME &
+         
 
+Replace the following:
+
+     * `PORT`: the port number (`3306` for MySQL or `5432` for PostgreSQL)
+     * `NAME`: the connection name of your Cloud SQL instance
 
 
 
@@ -175,7 +177,7 @@ To create the network attachment in the BigQuery Data Transfer Service connector
 
 ## Test the connection
 
-  1. Verify that the VM with the Cloud SQL proxy can connect to the Cloud SQL instance:
+  1. Verify that the VM with the Cloud SQL Auth Proxy can connect to the Cloud SQL instance:
          
          mysql -u USERNAME -p -h IP_ADDRESS
          
@@ -204,6 +206,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-27 UTC.
+Last updated 2026-11-04 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 

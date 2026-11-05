@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/migration/oracle-migration/
 title: Oracle to BigQuery migration \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T07:12:54.846821+00:00
+fetched_at: 2026-11-04T23:46:24.399642+00:00
 ---
 
 # Oracle to BigQuery migration  |  Google Cloud Documentation

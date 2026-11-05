@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/docs/ai/what-is-alloydb-ai/
 title: What is AlloyDB AI \u00a0|\u00a0 AlloyDB for PostgreSQL \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T01:29:11.069925+00:00
+fetched_at: 2026-11-05T00:18:13.588366+00:00
 ---
 
 # What is AlloyDB AI  |  AlloyDB for PostgreSQL  |  Google Cloud Documentation
@@ -29,7 +29,7 @@ AlloyDB AI brings generative AI directly to your operational data in AlloyDB for
 
 ###  [ AI search → ](https://docs.cloud.google.com/alloydb/docs/ai/vector-search-landing)
 
-Combine PostgreSQL vector search, keyword search, and reranking. Get 10x faster ScaNN search with Adaptive Filtering, and 4x faster HNSW with the AlloyDB columnar engine. 
+Combine PostgreSQL vector search, keyword search, and reranking. Get 10x faster ScaNN search with Adaptive Filtering, and 5x faster HNSW with the AlloyDB columnar engine. 
 
 ![AlloyDB AI functions overview](https://docs.cloud.google.com/static/alloydb/images/inference.png)
 
@@ -51,7 +51,7 @@ AlloyDB AI organizes its features into three pillars to make it easier to build 
 
 AlloyDB AI provides a unified search experience by combining high-performance vector search, keyword full-text search (FTS), structured SQL filtering, and reranking within a single database engine. For more information, see [AI search](https://docs.cloud.google.com/alloydb/docs/ai/vector-search-landing).
 
-  * Fast vector search: Perform PostgreSQL-compatible filtered vector search up to 10x faster than standard pgvector using Google's [ScaNN index](https://docs.cloud.google.com/alloydb/docs/ai/create-scann-index) and [Adaptive Filtering](https://docs.cloud.google.com/alloydb/docs/ai/activate-adaptive-filtering). Accelerate HNSW queries up to 4x using the built-in [Columnar Engine](https://docs.cloud.google.com/alloydb/docs/ai/accelerate-with-ce) in AlloyDB.
+  * Fast vector search: Perform PostgreSQL-compatible filtered vector search up to 10x faster than standard pgvector using Google's [ScaNN index](https://docs.cloud.google.com/alloydb/docs/ai/create-scann-index) and [Adaptive Filtering](https://docs.cloud.google.com/alloydb/docs/ai/activate-adaptive-filtering). Accelerate HNSW queries up to 5x using the built-in [Columnar Engine](https://docs.cloud.google.com/alloydb/docs/ai/accelerate-with-ce) in AlloyDB.
   * Unified [hybrid search](https://docs.cloud.google.com/alloydb/docs/ai/run-hybrid-vector-similarity-search): Process semantic vector similarity and exact keyword searches concurrently using your choice of [full-text search indexes](https://docs.cloud.google.com/alloydb/docs/ai/full-text-search-overview) such as BM25, RUM, GIN and reranking models for reciprocal rank fusion, semantic cross-encoders, and LLM-based reranking.
   * Automated ScaNN indexes: Use [Auto mode](https://docs.cloud.google.com/alloydb/docs/ai/maintain-vector-indexes) to automatically configure and maintain ScaNN indexes for your workload, which eliminates manual tuning.
 
@@ -141,6 +141,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-03 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 

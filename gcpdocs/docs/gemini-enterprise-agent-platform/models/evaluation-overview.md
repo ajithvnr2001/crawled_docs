@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/evaluation-overview/
 title: Gen AI evaluation service overview \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-03T09:53:22.297546+00:00
+fetched_at: 2026-11-04T23:13:04.282444+00:00
 ---
 
 # Gen AI evaluation service overview  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation
@@ -292,7 +292,7 @@ The following regions are supported for the Gen AI evaluation service:
 Notebook links | Description  
 ---|---  
 [Getting Started: Quick Gen AI Evaluation](https://github.com/GoogleCloudPlatform/generative-ai/blob/main/gemini/evaluation/quick_start_gen_ai_eval.ipynb) | Provides an introduction to the Gen AI evaluation service.  
-[Evaluating third-party models with the Gen AI evaluation service](https://github.com/GoogleCloudPlatform/generative-ai/blob/main/gemini/evaluation/evaluating_third_party_llms_vertex_ai_gen_ai_eval_sdk.ipynb) | Demonstrates how to use the **Agent Platform SDK** to evaluate various types of third-party models, including models accessed using API (like OpenAI, Anthropic), Model as a Service (MaaS) from Vertex Model Garden, and Bring Your Own Model (BYOM) endpoints.  
+[Evaluating third-party models with the Gen AI evaluation service](https://github.com/GoogleCloudPlatform/generative-ai/blob/main/gemini/evaluation/evaluating_third_party_llms_vertex_ai_gen_ai_eval_sdk.ipynb) | Demonstrates how to use the **Agent Platform SDK** to evaluate various types of third-party models, including models accessed using API (like OpenAI, Anthropic), Model as a Service (MaaS) from Gemini Enterprise Agent Platform Model Garden, and Bring Your Own Model (BYOM) endpoints.  
 [Model migration with the Gen AI evaluation service](https://github.com/GoogleCloudPlatform/generative-ai/blob/main/gemini/evaluation/model_migration_with_gen_ai_eval.ipynb) | Shows how to use the **Agent Platform SDK** for Gen AI evaluation service to compare two first-party models (such as Gemini 2.0 Flash to Gemini 2.5 Flash). It highlights using predefined adaptive rubric-based metrics and how evaluation results can guide prompt optimization. Key features like multi-candidate evaluation, in-notebook visualization, and asynchronous batch evaluation are also covered.  
 [Evaluating text-to-image quality with the Gen AI evaluation service](https://github.com/GoogleCloudPlatform/generative-ai/blob/main/gemini/evaluation/evaluate_images_with_predefined_gecko.ipynb) | Shows how to use the Vertex AI SDK for Gen AI evaluation service to evaluate the quality of generated images based on text prompts. It demonstrates using the predefined adaptive rubric-based [Gecko](https://arxiv.org/abs/2404.16820) metric.  
 [Evaluating text-to-video quality with the Gen AI evaluation service](https://github.com/GoogleCloudPlatform/generative-ai/blob/main/gemini/evaluation/evaluate_videos_with_predefined_gecko.ipynb) | Shows how to use the **Agent Platform SDK** for Gen AI evaluation service to evaluate the quality of generated videos based on text prompts. It demonstrates using the predefined adaptive rubric-based [Gecko](https://arxiv.org/abs/2404.16820) metric.  
@@ -310,6 +310,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-02 UTC.
+Last updated 2026-11-04 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-02 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 

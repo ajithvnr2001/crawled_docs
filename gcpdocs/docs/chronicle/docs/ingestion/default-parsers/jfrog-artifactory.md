@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/jfrog-artifactory/
 title: Collect JFrog Artifactory logs \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T07:51:00.260368+00:00
+fetched_at: 2026-11-04T23:34:39.124409+00:00
 ---
 
 # Collect JFrog Artifactory logs  |  Google Security Operations  |  Google Cloud Documentation

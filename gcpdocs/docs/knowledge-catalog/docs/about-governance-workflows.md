@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/knowledge-catalog/docs/about-governance-workflows/
 title: About governance workflows \u00a0|\u00a0 Knowledge Catalog \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T20:45:53.477894+00:00
+fetched_at: 2026-11-05T00:17:51.581395+00:00
 ---
 
 # About governance workflows  |  Knowledge Catalog  |  Google Cloud Documentation
@@ -27,82 +27,104 @@ Send feedback
 
 This product or feature is subject to the "Pre-GA Offerings Terms" in the General Service Terms section of the [Service Specific Terms](https://docs.cloud.google.com/terms/service-terms#1). Pre-GA products and features are available "as is" and might have limited support. For more information, see the [launch stage descriptions](https://cloud.google.com/products/#product-launch-stages). 
 
-Governance workflows in Knowledge Catalog let you set up automated controls and approval mechanisms for organizational data resources. You can then route requests to authorized individuals or teams to manage access to your data products.
+**Note:** Requesting single metadata changes to business glossaries and entries is available in private preview. To request access to this feature, fill in the [access form](https://forms.gle/eFMGqsaKTUJ62mrR7). 
 
-## Benefits
+Governance workflows let you set up automated controls and approval mechanisms for organizational data resources. With these workflows, you can help ensure that authorized individuals or teams manage access to your data products and curate catalog and glossary metadata.
 
-Using governance workflows for managing access requests has the following benefits:
+Using governance workflows has the following benefits:
 
-  * Data consumers can find relevant data products and request access directly within Knowledge Catalog, replacing manual support ticketing processes.
-  * Upon request approval, the system automatically grants the required IAM roles and group memberships, eliminating manual administrative overhead and reducing time-to-access.
-  * System logs capture complete audit trails of all requests, justifications, approver decisions, and timestamps to simplify regulatory compliance auditing.
-  * Centralized approval mechanisms for sensitive data assets ensure access is restricted to authorized users and teams.
+  * Data consumers can find relevant data products and request access directly within Knowledge Catalog (formerly Dataplex Universal Catalog), replacing manual support ticketing processes.
+  * Upon request approval, the system automatically grants the required Identity and Access Management (IAM) roles and group memberships, eliminating manual administrative overhead and reducing time-to-access.
+  * System logs capture audit trails of requests, justifications, approver decisions, and timestamps to support compliance auditing.
+  * Centralized approval mechanisms for sensitive data assets help ensure that access and metadata updates are restricted to authorized users and teams.
 
 
 
 ## Use cases
 
-Governance workflows support automated access management across various industry scenarios:
+Governance workflows support automated access management and metadata curation across various scenarios:
 
-  * **Retail and e-commerce:** A marketing manager requests access to a regional sales data product (for example, a curated `theLook eCommerce` dataset) to analyze customer behavior and build a targeted ad campaign. Upon approval, the required IAM roles are automatically provisioned.
-  * **Healthcare:** A clinical research analyst requests access to a de-identified patient outcomes data product (for example, a curated anonymized patient records dataset) to evaluate treatment efficacy across patient demographics. Upon approval, the required IAM roles are automatically provisioned.
-  * **Finance:** A risk analyst requests access to a transaction history data product (for example, an aggregated credit activity and fraud monitoring dataset) to build predictive risk models and ensure compliance auditing. Upon approval, the required IAM roles are automatically provisioned.
+  * **Data product access management** : a marketing manager or risk analyst requests access to a curated sales or transaction history data product to analyze customer behavior or build risk models. Upon approval, the required IAM roles are automatically provisioned.
+  * **Business glossary curation** : an organization delegates creating and updating business glossary categories and terms to domain contributors or external contractors. Contractors submit governance requests for review by central data stewards before updating the glossary.
+  * **Catalog entry and batch metadata enrichment** : data contributors or automated enrichment agents propose single or batch updates to catalog entries, such as creating custom entries, updating descriptions and aspects, or linking entries to business glossary terms. Data owners can review and approve the changes in a single workflow.
 
 
-
-In each use case, the system provides the required IAM roles when the approver accepts the request.
 
 ## Use governance workflows in Knowledge Catalog
 
-You can use governance workflows to request access to data products and suggest changes to business glossaries and Knowledge Catalog entries.
+You can use governance workflows to request access to data products, request single-resource metadata changes to business glossaries and Knowledge Catalog entries, and request batch metadata changes for entries and entry links.
 
-For more information on how to request access to data products, see [request access to data products](https://docs.cloud.google.com/knowledge-catalog/docs/use-data-products#request-access).
+### Concurrency
 
-**Note:** Requesting metadata changes to business glossaries and Knowledge Catalog entries with governance workflows is available in **private preview**. To request access to the feature, fill in the following [access form](https://forms.gle/eFMGqsaKTUJ62mrR7).
+Multiple pending metadata change requests can coexist on a single resource. Knowledge Catalog uses a _last writer wins_ model, which means the most recently approved change overwrites prior updates, regardless of when requests were submitted. Pending requests remain valid even if the resource is updated directly or by another approved request.
+
+### Supported metadata operations
+
+The following table lists the resources and operations supported by metadata change requests:
+
+Resource | Create | Update | Delete  
+---|---|---|---  
+**Glossary category** | Yes | Yes | Yes  
+**Glossary term** | Yes | Yes | Yes  
+**Entry** | Yes | Yes | Yes  
+**Entry link** | Yes | No | Yes  
+  
+## Batch metadata change requests
+
+You can use the Dataplex API to group metadata operations into a single change request.
+
+### Supported batch metadata operations
+
+The following table lists the resources and operations supported by batch metadata change requests:
+
+Resource | Create | Update | Delete  
+---|---|---|---  
+**Entry** | Yes | Yes | Yes  
+**Entry link** | Yes | Yes | Yes  
+  
+A batch metadata change request can originate in the following ways:
+
+  * **Submitted directly by a user** : you send a REST API request to create a batch change request for entries and entry links.
+  * **Generated automatically by the enrichment agent** : when an enrichment agent run generates metadata recommendations that require human review instead of auto-publishing, the agent creates a batch change request.
+
+
 
 ## Governance workflows processing path
 
-Knowledge Catalog tracks requests throughout their lifecycle using workflow status values (`NEW`, `APPROVED`, `REJECTED`, `DELETED`).
+Knowledge Catalog tracks requests throughout their lifecycle using status values. The following table describes each status for single and batch change requests:
 
-The following table lists the steps in the request processing path, their corresponding status values, and descriptions:
-
-Step | Status | Description  
+Status | Single requests | Batch metadata change requests  
 ---|---|---  
-**Request creation** | `NEW` | A requester submits a new request (for example, to access a data product). The system logs the request and assigns it the `NEW` status.  
-**Review** | `NEW` | The request remains in `NEW` status while awaiting evaluation by an authorized approver.  
-**Approver decision** | `APPROVED` or `REJECTED` | The approver evaluates the request and decides to approve or reject it: 
-
-  * **Request approved** : The system automatically provisions the requested access or applies the metadata changes, and notifies the requester by email.
-  * **Request rejected** : The status updates to `REJECTED`. The requester receives an email with the decision justification.
-
+`NEW` | Pending review. Only the author can edit the request, and only the author or a workflow administrator can delete it. | Pending review. The author can edit user-submitted requests, reviewers can edit enrichment agent requests, and the author or a workflow administrator can delete the request.  
+`APPLYING` | Not applicable. | Approved and being applied in the background.  
+`APPROVED` | Approved and applied. | Approved, and at least one change in the batch succeeded. Any item-level errors are listed in the response.  
+`FAILED` | Couldn't be applied. Updating the request resets its status to `NEW` for re-approval. | None of the changes in the batch could be applied. Updating the request resets its status to `NEW` for re-approval.  
+`REJECTED` | Declined by an approver. No changes were applied. | Declined by an approver. No changes were applied.  
   
-**Expiration or deletion** | `DELETED` | A request transitions to `DELETED` in the following scenarios: 
+When a request is manually deleted, its target resource is deleted, or it expires after 90 days, Knowledge Catalog permanently removes the request from storage. Subsequent queries for the request return a `404 NOT_FOUND` error.
 
-  * The request remains unaddressed in `NEW` status for the 90-day time to live (TTL) period.
-  * The target resource associated with a pending request is deleted.
-  * A requester or workflow administrator manually deletes the request.
-
-  
-  
 ## Governance workflows roles
 
 Governance workflows roles include requesters, approvers, and workflow administrators. The following table describes the roles in detail:
 
 Role | Description  
 ---|---  
-**Requester** | A requester creates and submits requests.  
-**Approver** | An approver approves or rejects requests.  
-**Workflow administrator** | Ensures compliance, configures workflow policies, and maintains the request backlog. Administrators can view audit trails across all request states and have administrative deletion permissions to remove requests in any state.  
+**Requester** | Creates and submits requests, and can edit or delete their own requests while in the `NEW` state.  
+**Approver** | Reviews, approves, or rejects requests. For batch metadata change requests generated by the enrichment agent, approvers can also edit the proposed batch changes before approving.  
+**Workflow administrator** | Monitors compliance, configures workflow policies, and maintains the request backlog. Administrators can view audit trails across all request states and have administrative deletion permissions to remove requests in any state.  
   
 ## Limitations
 
-  * Governance workflows aren't supported for [Assured Workload](https://docs.cloud.google.com/assured-workloads/docs/overview) projects.
-  * Governance workflows don't support [customer-managed encryption keys](https://docs.cloud.google.com/knowledge-catalog/docs/cmek).
+  * Governance workflows aren't supported for [Assured Workloads](https://docs.cloud.google.com/assured-workloads/docs/overview) projects.
+  * Governance workflows don't support [customer-managed encryption keys (CMEK)](https://docs.cloud.google.com/knowledge-catalog/docs/cmek).
+  * Governance workflows don't support [VPC Service Controls](https://docs.cloud.google.com/knowledge-catalog/docs/vpc-sc).
 
 
 
 ## What's next
 
+  * Learn how to [request single-resource metadata changes](https://docs.cloud.google.com/knowledge-catalog/docs/metadata-change-workflows).
+  * Learn how to [request batch metadata changes](https://docs.cloud.google.com/knowledge-catalog/docs/request-batch-metadata-changes).
   * Learn how to [manage requests](https://docs.cloud.google.com/knowledge-catalog/docs/manage-requests).
   * Learn how to [request access to data products](https://docs.cloud.google.com/knowledge-catalog/docs/use-data-products#request-access).
 
@@ -112,6 +134,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-03 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 

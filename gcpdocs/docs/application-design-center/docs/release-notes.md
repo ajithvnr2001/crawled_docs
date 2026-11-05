@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/application-design-center/docs/release-notes/
 title: Application Design Center release notes \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T01:46:43.564881+00:00
+fetched_at: 2026-11-04T23:31:18.319177+00:00
 ---
 
 # Application Design Center release notes  |  Google Cloud Documentation
@@ -26,6 +26,24 @@ This page documents production updates to Application Design Center. Check this 
 You can see the latest product updates for all of Google Cloud on the [ Google Cloud](https://docs.cloud.google.com/release-notes) page, browse and filter all release notes in the [Google Cloud console](https://console.cloud.google.com/release-notes), or programmatically access release notes in [BigQuery](https://console.cloud.google.com/bigquery?p=bigquery-public-data&d=google_cloud_release_notes&t=release_notes&page=table). 
 
 To get the latest product updates delivered to you, add the URL of this page to your [feed reader](https://wikipedia.org/wiki/Comparison_of_feed_aggregators), or add the [feed URL](https://docs.cloud.google.com/feeds/applicationdesigncenter-release-notes.xml) directly. 
+
+## November 03, 2026
+
+Feature
+
+Application Design Center is available in the following regions:
+
+  * Osaka, Japan (`asia-northeast2`)
+  * Mumbai, India (`asia-south1`)
+  * Bangkok, Thailand (`asia-southeast3`)
+  * Sydney, Australia (`australia-southeast1`)
+  * Berlin, Germany (`europe-west10`)
+  * Moncks Corner, South Carolina (`us-east1`)
+  * Dammam, Saudi Arabia (`me-central2`)
+
+
+
+For more information, see [App Design Center locations](https://docs.cloud.google.com/application-design-center/docs/locations).
 
 ## October 13, 2026
 
@@ -293,11 +311,11 @@ Application Design Center [supports](https://docs.cloud.google.com/application-d
 
 Change
 
-When you create a new application, the **Application scope** is set to `Global` by default. For more information, see [Create an application draft](https://docs.cloud.google.com/application-design-center/docs/manage-applications).
+If your deployment fails, the **Application details** panel displays error messages. For more information, see [View application details](https://docs.cloud.google.com/application-design-center/docs/deploy-applications#view-application-details).
 
 Change
 
-If your deployment fails, error messages are displayed in the **Application details** panel. For more information, see [View application details](https://docs.cloud.google.com/application-design-center/docs/deploy-from-console#view-application-details).
+When you create a new application, the **Application scope** is set to `Global` by default. For more information, see [Create an application draft](https://docs.cloud.google.com/application-design-center/docs/manage-applications).
 
 Change
 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sql/docs/sqlserver/upgrade-major-db-version-inplace/
 title: Upgrade the database major version in-place \u00a0|\u00a0 Cloud SQL for SQL Server \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-03T09:43:58.812845+00:00
+fetched_at: 2026-11-05T00:17:55.864662+00:00
 ---
 
 # Upgrade the database major version in-place  |  Cloud SQL for SQL Server  |  Google Cloud Documentation
@@ -477,7 +477,18 @@ For the most part, Query Optimizer changes in upgraded compatibility levels impr
 
 ## Complete the major version upgrade
 
-After upgrading your primary instance, perform acceptance tests to make sure that the upgraded system performs as expected.
+After you finish upgrading your primary instance, perform the following steps to complete your upgrade:
+
+  1. Refresh the database statistics. 
+
+Run `EXEC sp_updatestats;` on each database in your primary instance to update the optimization statistics after the upgrade. Accurate statistics make sure that the query optimizer processes queries optimally. Outdated or missing statistics can lead to inefficient query plans, which in turn might degrade performance and consume excessive resources. 
+
+  2. Perform acceptance tests. 
+
+Run tests to make sure that the upgraded system performs as expected. 
+
+
+
 
 ## Troubleshoot a major version upgrade
 
@@ -606,6 +617,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-28 UTC.
+Last updated 2026-11-03 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 

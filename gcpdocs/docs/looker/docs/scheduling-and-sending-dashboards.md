@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/looker/docs/scheduling-and-sending-dashboards/
 title: Scheduling and sending dashboards \u00a0|\u00a0 Looker \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T23:54:33.623460+00:00
+fetched_at: 2026-11-04T23:31:21.377525+00:00
 ---
 
 # Scheduling and sending dashboards  |  Looker  |  Google Cloud Documentation
@@ -87,10 +87,10 @@ The top of the **Schedule Delivery** or **Send** window shows the name that is a
 
 Depending on the destination of your delivery, the title may also appear in other places:
 
-  * For email deliveries, the title is used for the email's subject line and as part of the filename if you select a format that uses an email attachment.
+  * For email deliveries, the title is used for the email's subject line and as part of the filename if you select a format that uses an email attachment. The filename of the attachment follows the format `TITLE_TIMESTAMP`, where `TIMESTAMP` follows the pattern `YYYY-MM-DDTHHMM` (for example, the timestamp portion looks like `2026-10-31T0822` for October 31, 2026 at 8:22 AM). The timestamp's time zone matches the **Delivery time zone**.
   * For webhooks, the title is included in the webhook payload under the **Title** field.
-  * For deliveries to an Amazon S3 bucket, the title is used in the filename of the delivery and in any error emails that are sent. The filename of the delivery follows the format `TITLE_TIMESTAMP_HASH`, where `HASH` is a random six-character identifier and `TIMESTAMP` follows the pattern `YYYY-MM-DDTHHMM` (for example, the timestamp portion would look like `2019-05-31T0933` for May 31, 2019 at 9:33 AM). The timestamp's timezone will match the **Delivery time zone**.
-  * For SFTP deliveries, the title is included in the filename of the delivery. The filename of the delivery follows the format `TITLE_TIMESTAMP_HASH`, where `HASH` is a random six-character identifier and `TIMESTAMP` follows the pattern `YYYY-MM-DDTHHMM` (for example, the timestamp portion would look like `2019-05-31T0933` for May 31, 2019 at 9:33 AM). The timestamp's timezone will match the **Delivery time zone**.
+  * For deliveries to an Amazon S3 bucket, the title is used in the filename of the delivery and in any error emails that are sent. The filename of the delivery follows the format `TITLE_TIMESTAMP_HASH`, where `HASH` is a random six-character identifier and `TIMESTAMP` follows the pattern `YYYY-MM-DDTHHMM` (for example, the timestamp portion would look like `2025-05-31T0933` for May 31, 2025 at 9:33 AM). The timestamp's timezone will match the **Delivery time zone**.
+  * For SFTP deliveries, the title is included in the filename of the delivery. The filename of the delivery follows the format `TITLE_TIMESTAMP_HASH`, where `HASH` is a random six-character identifier and `TIMESTAMP` follows the pattern `YYYY-MM-DDTHHMM` (for example, the timestamp portion would look like `2025-05-31T0933` for May 31, 2025 at 9:33 AM). The timestamp's timezone will match the **Delivery time zone**.
   * For deliveries to integrated services that generate a file attachment, the title is included in the filename of the delivery.
 
 
@@ -639,6 +639,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-27 UTC.
+Last updated 2026-11-04 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 

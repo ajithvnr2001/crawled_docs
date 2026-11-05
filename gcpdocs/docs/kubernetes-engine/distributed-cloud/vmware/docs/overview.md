@@ -1,11 +1,11 @@
 ---
 url: https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/vmware/docs/overview/
-title: Google Distributed Cloud (software only) for VMware overview \u00a0|\u00a0 Google Distributed Cloud software only for VMware \u00a0|\u00a0 Google Cloud Documentation
+title: Distributed Cloud software only for VMware overview \u00a0|\u00a0 Google Distributed Cloud software only for VMware \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T22:56:26.770588+00:00
+fetched_at: 2026-11-04T23:17:00.267709+00:00
 ---
 
-# Google Distributed Cloud (software only) for VMware overview  |  Google Distributed Cloud software only for VMware  |  Google Cloud Documentation
+# Distributed Cloud software only for VMware overview  |  Google Distributed Cloud software only for VMware  |  Google Cloud Documentation
 
 > Source: https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/vmware/docs/overview/
 
@@ -19,87 +19,87 @@ fetched_at: 2026-10-27T22:56:26.770588+00:00
 
 Send feedback 
 
-#  Google Distributed Cloud (software only) for VMware overview Stay organized with collections  Save and categorize content based on your preferences. 
+#  Distributed Cloud software only for VMware overview Stay organized with collections  Save and categorize content based on your preferences. 
 
-Google Distributed Cloud is a fully managed software and hardware solution that extends Google Cloud infrastructure and services into your data center. Google Distributed Cloud is available in both connected and air-gapped configurations that run on Google-provided hardware. Google Distributed Cloud is also available as a software-only product that runs on your own hardware on either VMware or bare metal. This guide is for Google Distributed Cloud software that runs on your own hardware in a VMware vSphere environment.
+Distributed Cloud software only for VMware lets you deploy and manage [Google Kubernetes Engine (GKE)](https://docs.cloud.google.com/kubernetes-engine/docs/concepts/kubernetes-engine-overview) clusters in a VMware vSphere environment. You can run and upgrade containerized applications in your data center while using Google Cloud features and infrastructure.
 
-Google Distributed Cloud is based on [Google Kubernetes Engine (GKE)](https://docs.cloud.google.com/kubernetes-engine/docs/concepts/kubernetes-engine-overview), with its own Kubernetes package that extends GKE for use in an on-premises environment. With Google Distributed Cloud you can create, manage, and upgrade GKE clusters on your own premises while using Google Cloud features, and deploy and operate containerized applications on your clusters at scale using Google infrastructure.
+To run software-only clusters directly on physical servers, see the [Distributed Cloud software only for bare metal overview](https://docs.cloud.google.com/distributed-cloud/bare-metal/docs/concepts/about-bare-metal).
 
-With Google Distributed Cloud software installed, you can use many Google Cloud features for governing, managing, and operating containerized workloads at scale. You can find out more about the features available on VMware in the [GKE overview](https://docs.cloud.google.com/kubernetes-engine/docs/concepts/kubernetes-engine-overview).
+**Note:** Distributed Cloud software only was formerly known as Google Distributed Cloud Virtual, previously known as Anthos clusters on VMware.
 
-This page provides an overview of how Google Distributed Cloud works on VMware, giving you the background you need before going on to a minimal or production installation.
+## Why use Distributed Cloud software only for VMware?
+
+Running Distributed Cloud software only for VMware on your existing vSphere infrastructure lets you modernize applications with GKE while keeping the virtualization platform, storage, and operational processes that your teams already use.
+
+### Integration with your vSphere environment
+
+Google Distributed Cloud runs cluster nodes as virtual machines in your existing vCenter environment, so you can add containerized workloads to the vSphere hosts that you already operate. Clusters store data in vSphere datastores backed by vSAN, VMFS, or NFS, and you can assign different datastores to individual node pools. The [vSphere Container Storage Interface (CSI) driver](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/vmware/docs/how-to/using-vsphere-csi-driver) provisions persistent volumes for stateful workloads. For details, see [Storage](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/vmware/docs/concepts/storage).
+
+### Centralized management with on-premises data
+
+Manage, monitor, and troubleshoot clusters from the Google Cloud console, the Google Cloud CLI, or Terraform by using the GKE On-Prem API, without logging in to the admin workstation. Your applications and business data stay in your data center; Google Cloud receives only cluster metadata, health, and usage information. For details, see Data that stays in your data center.
+
+### Enterprise reliability and operations
+
+Google Distributed Cloud includes production-ready operational features:
+
+  * **High availability** : High-availability admin clusters and user cluster control planes use three control plane nodes, so you can administer your environment even if a node fails.
+  * **Automatic node repair** : Periodic health checks detect unhealthy nodes, and [node auto repair](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/vmware/docs/how-to/node-auto-repair) repairs them automatically. This feature is enabled by default.
+  * **Cluster autoscaling** : The [cluster autoscaler](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/vmware/docs/how-to/cluster-autoscaler) adds or removes nodes in a node pool based on the resource requests of your workloads.
+  * **Flexible load balancing** : Use the bundled MetalLB load balancer, which runs on your cluster nodes, or configure a third-party load balancer such as F5 BIG-IP or Citrix. For details, see [Overview of load balancing](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/vmware/docs/how-to/setup-load-balance).
+
+
 
 ## How it works
 
-Google Distributed Cloud extends [GKE](https://docs.cloud.google.com/kubernetes-engine/docs/concepts/kubernetes-engine-overview) to let you create GKE clusters in a [vSphere environment](https://techdocs.broadcom.com/us/en/vmware-cis/vsphere.html) on your own premises, and manage them in Google Cloud along with regular GKE clusters and clusters in other environments as part of a [fleet](https://docs.cloud.google.com/anthos/fleet-management/docs).
+Google Distributed Cloud extends [GKE](https://docs.cloud.google.com/kubernetes-engine/docs/concepts/kubernetes-engine-overview) to let you create clusters on physical servers in a [vSphere environment](https://techdocs.broadcom.com/us/en/vmware-cis/vsphere.html). You manage these on-premises clusters in Google Cloud alongside cloud-based clusters as part of a unified [fleet](https://docs.cloud.google.com/kubernetes-engine/fleet-management/docs).
 
-Because the Google Distributed Cloud software runs in your data center rather than on Google Cloud, it requires you to install some admin and control plane software in addition to the GKE software itself. The software that runs in your data center is downloaded as part of the installation and upgrade processes.
+In GKE clusters running in Google Cloud, Google manages the Kubernetes control plane and network infrastructure. For Google Distributed Cloud clusters running in your data center, Google Cloud provides administrative and control plane software that is downloaded and deployed onto your vSphere virtual machines as part of the installation and upgrade processes.
 
-The following diagram shows the simplified result of a completed installation.
+The following diagram shows the architecture of a completed installation with an admin cluster and a user cluster:
 
-[ ![Diagram of an admin cluster and a user cluster](https://docs.cloud.google.com/static/kubernetes-engine/distributed-cloud/vmware/docs/images/diagram-overview.svg)](https://docs.cloud.google.com/static/kubernetes-engine/distributed-cloud/vmware/docs/images/diagram-overview.svg) Google Distributed Cloud architecture with one user cluster
+[ ![Diagram of an admin cluster and a user cluster](https://docs.cloud.google.com/static/kubernetes-engine/distributed-cloud/vmware/docs/images/diagram-overview.svg)](https://docs.cloud.google.com/static/kubernetes-engine/distributed-cloud/vmware/docs/images/diagram-overview.svg) Google Distributed Cloud architecture on VMware with an admin cluster and a user cluster
 
 ### Key components
 
-The following components make up a software-only installation on VMware of Google Distributed Cloud:
+The following components make up an installation of Distributed Cloud software only for VMware:
 
-  * A user cluster is where the workloads that implement your applications run, like in GKE on Google Cloud. The nodes that run your workloads are called _worker nodes_. A user cluster also has one or more control plane nodes. In the preceding diagram, the user cluster has one control plane node.
-
-  * The admin cluster manages one or more user clusters. In the preceding diagram, the admin cluster has three control plane nodes.
-
-  * The admin workstation is a separate machine that includes the tools that cluster creators and developers need to manage their installation:
-
-    * Running `gkectl` from the admin workstation lets you create and update clusters and perform some other administrative tasks.
-    * Running `kubectl` from the admin workstation lets you interact with your admin and user clusters, including deploying and managing workloads.
-  * The Google Cloud console provides a web interface for your Google Cloud project, including your clusters on VMware. You can perform a subset of administrative tasks, including cluster creation, from the Google Cloud console as an alternative to running commands on the admin workstation.
-
-  * Cluster admins and developers use `kubectl` and virtual IP addresses (VIPs) to access the control planes in the admin and user clusters. You configure VIPs during cluster creation. Users and developers calling workloads in your user clusters use Service and Ingress VIPs. Each node in the installation also has its own IP address. You can learn more about IP planning for Google Distributed Cloud in [Plan your IP addresses](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/vmware/docs/how-to/plan-ip-addresses).
-
+  * **Admin cluster** : Manages one or more user clusters. Admin clusters consist of one or more control plane nodes running on dedicated virtual machines.
+  * **User cluster** : Runs your containerized workloads. Each user cluster consists of at least one control plane node and one or more worker nodes.
+  * **Admin workstation** : A dedicated virtual machine that includes cluster configuration files and management tools: 
+    * `gkectl`: Creates, updates, and manages cluster deployments.
+    * `kubectl`: Interacts with admin and user clusters to manage workloads.
+  * **Google Cloud console** : A web interface in Google Cloud for viewing cluster health and performing lifecycle operations without logging in to the admin workstation.
+  * **Virtual IP addresses (VIPs)** : Virtual IPs configured during installation. Cluster administrators and developers use `kubectl` and control plane VIPs to access control planes in admin and user clusters. Application users and developers use Service and Ingress VIPs to access and expose workloads, respectively. For details, see [Plan your IP addresses](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/vmware/docs/how-to/plan-ip-addresses).
 
 
 
 ### Connecting to the fleet
 
-All Google Distributed Cloud clusters are members of a [fleet](https://docs.cloud.google.com/anthos/fleet-management/docs): a logical grouping of Kubernetes clusters. Fleets let your organization uplevel management from individual clusters to entire groups of clusters, and can help your teams adopt similar best practices to those used at Google. You can view and manage fleet clusters together in the Google Cloud console, and use fleet-enabled features to help you manage, govern, and operate your workloads at scale. You can see a complete list of available [fleet features](https://docs.cloud.google.com/anthos/deployment-options#features_available_on_anthos_clusters_outside_of_google_cloud) for on-premises environments.
+All user clusters are members of a [fleet](https://docs.cloud.google.com/kubernetes-engine/fleet-management/docs), which is a logical grouping of Kubernetes clusters that provides unified management across environments. Fleets let you view clusters together in the Google Cloud console and use [fleet-enabled features](https://docs.cloud.google.com/kubernetes-engine/enterprise/docs/deployment-options#features_available_on_clusters_outside_of_google_cloud) to manage, govern, and operate workloads at scale.
 
-Each fleet cluster's connection to Google Cloud is managed by a Connect Agent, which is deployed as part of the Google Distributed Cloud installation process. You can learn more about how this agent works in the [Connect Agent overview](https://docs.cloud.google.com/anthos/fleet-management/docs/connect-agent).
-
-Fleet membership is also used to manage Google Distributed Cloud pricing, as described in the next section.
+Each cluster connects to Google Cloud through the [Connect Agent](https://docs.cloud.google.com/kubernetes-engine/fleet-management/docs/connect-agent), which deploys automatically during cluster installation. Fleet membership also determines billing for Distributed Cloud software only for VMware.
 
 ## Pricing
 
-GKE clusters on-premises created as part of Google Distributed Cloud are billed per vCPU. You enable billing by enabling the [Anthos API](https://console.cloud.google.com/apis/library/anthos.googleapis.com) in your Google Cloud project.
+On-premises clusters created using Google Distributed Cloud are billed per vCPU. To enable billing, enable the [Anthos API](https://console.cloud.google.com/apis/library/anthos.googleapis.com) in your Google Cloud project.
 
-**Note:** Google Distributed Cloud software-only was formerly known as Anthos.
+For full pricing information, including how to contact sales, see [Google Kubernetes Engine pricing](https://cloud.google.com/kubernetes-engine/pricing).
 
-For full pricing information, including how to contact sales, see [GKE pricing](https://cloud.google.com/kubernetes-engine/pricing).
+## Versions
 
-## Installing Google Distributed Cloud on VMware
+This documentation covers all supported versions of Google Distributed Cloud. Where relevant, Google also retains limited information for older, unsupported versions in this documentation.
 
-Because the Google Distributed Cloud software runs in your own infrastructure, it is highly configurable to meet your particular organizational and use case needs: you can choose from a range of supported load balancing modes, vSphere configurations, IP addressing options, security features, connectivity options, and more. This means that setting up Google Distributed Cloud involves making decisions before and during installation in consultation with your networking, vSphere, and application teams to ensure that your installation meets your needs. This documentation set includes guides to help your team make these decisions.
+For supported versions and release policies, see the following resources:
 
-However, if you just need to see Google Distributed Cloud in action, we also provide a basic installation path for a small test installation where we've made a lot of these choices for you, letting you quickly get a workload up and running.
-
-In each case, the installation process is as follows:
-
-  1. **Plan your installation**. Minimally, this includes ensuring you can meet the resource and vSphere requirements for Google Distributed Cloud, as well as planning your IP addresses.
-  2. **Set up your on-premises environment** to support Google Distributed Cloud, including setting up vSphere inventory objects and your connection to Google.
-  3. **Set up Google Cloud resources** , including the Google Cloud project you will use when setting up and managing Google Distributed Cloud.
-  4. **Create an admin workstation** with the resources and tools you need to create clusters.
-  5. **Create an admin cluster** to create, manage, and update user clusters.
-  6. **Create user clusters** to run your actual workloads.
+  * [Version Support Policy](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/vmware/docs/getting-support#version-support): Maintenance schedules and support windows.
+  * [Versioning](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/vmware/docs/version-history): Supported minor versions and available patches.
 
 
 
-## Supported versions
+Starting with the 1.29 release, we no longer create a directory for the previous minor release. Differences in behavior are noted in the documentation. When a new feature becomes available, the supported version for the feature is documented.
 
-This documentation covers all supported versions of Google Distributed Cloud. Where relevant, we also retain limited information for older, unsupported versions in this documentation. Version-specific differences in requirements and behavior are noted in the documentation. Similarly, when a new feature becomes available, the supported version for the feature is documented.
-
-For a list of the supported minor versions and available patches, see [Versioning](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/vmware/docs/version-history).
-
-Starting with the 1.29 release, we no longer create a directory for the previous minor release. Differences in behavior are noted in the documentation. Similarly, when a new feature becomes available, the supported version for the feature is documented.
-
-You can find the complete documentation for an earlier version by adding the minor version number in the following URL:
+Documentation for version 1.16 and earlier is archived at:
     
     
     https://cloud.google.com/anthos/clusters/docs/on-prem/VERSION/
@@ -161,10 +161,10 @@ Data | What's sent | Use and storage | Default
 **Audit logs**  
 (`anthosaudit.googleapis.com`) | Admin Activity audit logs: who changed what through the `kube-apiserver`, and when. Entries include the time, cluster, host or VM, user or service account, RBAC role, operation, and result. Read requests aren't recorded. | Stored in Cloud Audit Logs in the Google Cloud project set in `cloudAuditLogging.projectID`, in the `_Required` bucket, and kept for 400 days. | **Optional**. To turn it on, fill in the `cloudAuditLogging` section. For admin clusters, you can turn it on only at creation. To turn it off for a user cluster, delete the section and update the cluster.  
   
-## What's next?
+## What's next
 
   * To start a minimal proof-of-concept installation, see [Set up minimal infrastructure](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/vmware/docs/how-to/minimal-infrastructure).
-  * To review some of the considerations needed to plan a Google Distributed Cloud installation, start a production installation, or both, see the [installation overview](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/vmware/docs/how-to/install-overview).
+  * To plan a production deployment, see the [installation overview](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/vmware/docs/how-to/install-overview).
 
 
 
@@ -172,6 +172,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-04 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 

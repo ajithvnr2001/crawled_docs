@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/nasuni-file-services/
 title: Collect Nasuni File Data Services logs \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T07:49:38.202644+00:00
+fetched_at: 2026-11-04T23:43:13.116550+00:00
 ---
 
 # Collect Nasuni File Data Services logs  |  Google Security Operations  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/database-migration/docs/postgresql-to-alloydb/create-migration-job/
 title: Create a migration job to a new destination cluster \u00a0|\u00a0 Database Migration Service for PostgreSQL to AlloyDB \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-03T09:54:19.622710+00:00
+fetched_at: 2026-11-05T00:17:48.816389+00:00
 ---
 
 # Create a migration job to a new destination cluster  |  Database Migration Service for PostgreSQL to AlloyDB  |  Google Cloud Documentation
@@ -83,15 +83,17 @@ Database Migration Service is a fully-regional product, meaning all entities rel
 On the **Define a source** page, perform the following steps:
 
   1. From the **Source connection profile** drop-down menu, select the connection profile for your source database (or click **Create a connection profile** ; see [Create a source connection profile](https://docs.cloud.google.com/database-migration/docs/postgresql-to-alloydb/create-connection-profiles)). 
-  2. In the **Customize data dump configurations** section, click **Show data dump configurations**. 
+  2. In the **Customize parallelism configurations** section, click **Show parallelism configurations**. 
 
-The speed of data dump parallelism is related to the amount of load induced on your source database. You can use the following settings:
+During the initial full dump, the `pglogical` extension replicates data at the table level and doesn't split an individual non-partitioned table, leaf partition, or table without a primary key across multiple subscriptions. This means that enhanced data dump parallelism can't increase the initial dump speed for a single large non-partitioned table, because that table is copied within one subscription. For more information, see [Data dump parallelism considerations](https://docs.cloud.google.com/database-migration/docs/postgresql-to-alloydb/known-limitations#parallelism-considerations). 
 
-     * **Optimal (recommended)** : Balanced performance with optimal load on the source database.
-     * **Maximum** : Provides the highest dump speeds, but might cause increased load on the source database.
-     * **Minimum** : Takes the lowest amount of compute resources on the source database, but might have slower dump throughput.
+The speed of data dump parallelism is related to the amount of load induced on your source database:
 
-If you choose adjusted parallelism settings, make sure to increase the `max_replication_slots`, `max_wal_senders`, and `max_worker_processes` parameters on your source database. You can verify your configuration by running the migration job test at the end of migration job creation. 
+     * **Optimal (recommended)** : Balanced performance with optimal load on the source database. Database Migration Service creates up to 2 subscriptions per database (up to 2 total across all databases, with at least 1 subscription per migrated database). 
+     * **Maximum** : Provides the highest dump speeds, but might cause increased load on the source database. Database Migration Service creates up to 4 subscriptions per database (up to 4 total across all databases, with at least 1 subscription per migrated database). 
+     * **Minimum** : Takes the lowest amount of compute resources on the source database, but might have slower dump throughput. Database Migration Service creates 1 subscription per database. 
+
+If you choose adjusted data dump parallelism settings, make sure to increase the `max_replication_slots`, `max_wal_senders`, and `max_worker_processes` parameters on your source database. 
 
   3. Click **Save and continue**.
 
@@ -359,6 +361,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-02 UTC.
+Last updated 2026-11-03 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-02 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 

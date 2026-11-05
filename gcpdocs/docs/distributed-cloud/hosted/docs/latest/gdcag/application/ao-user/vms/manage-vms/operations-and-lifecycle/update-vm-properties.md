@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/application/ao-user/vms/manage-vms/operations-and-lifecycle/update-vm-properties/
 title: Update VM properties \u00a0|\u00a0 Google Distributed Cloud air-gapped \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T08:22:21.910658+00:00
+fetched_at: 2026-11-04T23:27:38.546719+00:00
 ---
 
 # Update VM properties  |  Google Distributed Cloud air-gapped  |  Google Cloud Documentation
@@ -24,11 +24,11 @@ Send feedback
 
 This document explains how to update virtual machine (VM) instance properties in Google Distributed Cloud (GDC) air-gapped.
 
-You can update VM properties to align the virtual infrastructure with the changing demands of the workloads running on an instance. You might increase vCPUs or physical memory (RAM), or decrease them to redistribute resources elwhere in the project.
+You can update VM properties to align the virtual infrastructure with the changing demands of the workloads running on an instance. You might increase vCPUs or physical memory (RAM), or decrease them to redistribute resources elsewhere in the project.
 
 Rather than destroying a VM, rebuilding it, and migrating your data, you can choose to update its properties instead. While updating properties usually requires a quick reboot, this approach can save you hours of configuration time.
 
-This document is for developers in platform administrator or application operator groups that view and update VM properties in a Distributed Cloud environment. For more information, see [Audiences for GDC air-gapped documentation](https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/resources/audiences).
+This document is for developers in platform administrator or application operator groups that view and update VM properties in a GDC environment. For more information, see [Audiences for GDC air-gapped documentation](https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/resources/audiences).
 
 ## Before you begin
 
@@ -51,7 +51,7 @@ Contact your IAM Project Admin to request the following roles on your project:
 
   * **Virtual Machine Project Admin** (`project-vm-admin`): create, modify, list, and delete VMs in the project namespace.
 
-  * **Project Viewer**(`project-viewer`): view all resources within the project namespaces.
+  * **Project Viewer** (`project-viewer`): view all resources within the project namespaces.
 
 
 
@@ -60,11 +60,25 @@ All VM roles must bind to the namespace of the project where the VM resides. Fol
 
 ## Updatable properties
 
-You can only change the properties that are in the `spec` of the VM.
+You can update the VM properties in the `spec` and `metadata` fields. Most `spec` property updates require that you first stop the VM, edit the properties, save the changes, and then restart the VM for the changes to take effect.
 
+Since you can't edit all VM properties in the GDC console, you must use the kubectl CLI to update machine configuration (`compute`), `firmware`, `startupScripts`, or `guestEnvironment`.
+
+The following table lists the updatable VM properties, the interfaces that you can use to update each property, and whether the update requires a VM restart:
+
+Property | Description | Supported interfaces | Requires VM restart  
+---|---|---|---  
+`compute` | Machine type (`virtualMachineType`), vCPUs (`vcpus`), and memory (`memory`) | kubectl CLI (the GDC console displays this as read-only) | Yes  
+`disks` | Boot disk replacement and secondary disk attachments | GDC console, kubectl CLI | Yes  
+`firmware` | Firmware settings, such as Secure Boot | kubectl CLI only | Yes  
+[`startupScripts`](https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/application/ao-user/vms/manage-the-os/startup-script-vm-instance) | Automated scripts that run on VM boot | kubectl CLI | Yes  
+`guestEnvironment` | Access management and guest health checks | kubectl CLI | No (takes effect immediately)  
+`runningState` | VM power state (`Running` or `Stopped`) | GDC console (**Start** , **Stop** , **Reset**), kubectl CLI | No (takes effect immediately)  
+`description`, `labels` | VM metadata description and user labels | GDC console, kubectl CLI | No (takes effect immediately)  
+  
 ### View updatable properties
 
-Find properties you want to change by using the GDC console or `kubectl`.
+Find properties you want to change by using the GDC console or the kubectl CLI.
 
 ###  Console 
 
@@ -72,8 +86,12 @@ Find properties you want to change by using the GDC console or `kubectl`.
 
   2. In the list of VMs, click a VM name to view its properties.
 
-  3. Editable properties have an _edit_ **Edit** icon.
+  3. Review the properties on the instance details page:
 
+     * **Description** and **Labels** display an _edit_ **Edit** icon that lets you modify their values.
+     * **Disks** lets you replace the boot disk or add and edit additional disks.
+     * The **Start** , **Stop** , and **Reset** buttons let you update the running state of the VM.
+     * The GDC console displays **Machine configuration** (`compute`, including machine type, vCPUs, and memory) and **On host maintenance** as read-only fields. To view all editable `spec` fields, use the kubectl CLI.
 
 
 
@@ -165,27 +183,11 @@ The output is similar to the following:
 
 
 
-All of the properties can be updated on a running VM, but often require the VM to be restarted to take effect.
-
-These property updates require that the VM be restarted for the changes to take effect:
-
-  * compute
-  * disks
-  * firmware
-  * [startupScripts](https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/application/ao-user/vms/manage-the-os/startup-script-vm-instance)
-
-
-
-These property updates take effect immediately:
-
-  * guestEnvironment
-  * runningState
-
-
-
 ## Update VM properties
 
-Update VM properties by using the GDC console or `kubectl`.
+Update VM properties by using the GDC console or the kubectl CLI.
+
+**Note:** In the GDC console, you can only update description, labels, disks (`disks`), and running state (`runningState`). To update `compute` (machine type, vCPUs, or memory), `firmware`, `startupScripts`, or `guestEnvironment`, use the kubectl CLI.
 
 ###  Console 
 
@@ -193,36 +195,37 @@ Update VM properties by using the GDC console or `kubectl`.
 
   2. In the list of VMs, click a VM name to view its properties.
 
-  3. Click _edit_ **Edit** next to the property that you want to edit and make your changes.
+  3. Update the supported properties:
 
-  4. If you want to replace the boot disk or add a new disk, see [Replace a boot disk](https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/application/ao-user/vms/manage-vm-boot-disks/replace-a-boot-disk) or [Add a disk to a VM](https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/application/ao-user/vms/manage-storage/add-a-vm-disk).
-
-  5. Click **Save**.
-
+     * To update the **Description** or **Labels** , click _edit_ **Edit** next to the field, make your changes, and then click **Save**.
+     * To replace the boot disk or attach a new disk (`disks`), see [Replace a boot disk](https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/application/ao-user/vms/manage-vm-boot-disks/replace-a-boot-disk) or [Add a persistent disk to your VM](https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/application/ao-user/vms/manage-storage/add-a-vm-disk).
+     * To change the VM running state (`runningState`), see [Start and stop a VM](https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/application/ao-user/vms/manage-vms/operations-and-lifecycle/start-and-stop-vm).
 
 
 
 ###  kubectl 
 
-  1. Run the following command:
+  1. If you are updating `compute`, `disks`, `firmware`, or `startupScripts`, [stop the VM](https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/application/ao-user/vms/manage-vms/operations-and-lifecycle/start-and-stop-vm#stop-a-vm) by setting `spec.runningState` to `Stopped`, and wait until `status.conditions` shows `type: Editable` with `status: "True"`.
+
+  2. Run `kubectl edit` to update the VM properties:
          
          kubectl --kubeconfig MANAGEMENT_API_SERVER \
             -n PROJECT \
             edit virtualmachines.virtualmachine.gdc.goog VM_NAME
          
 
-Replace the variables as defined in the following table.
+Replace the variables by using the definitions in the following table:
 
 Variable| Definition  
 ---|---  
-`MANAGEMENT_API_SERVER`| The Management API server kubeconfig file.  
+`MANAGEMENT_API_SERVER`| The management API server kubeconfig file.  
 `VM_NAME`| The VM's name.  
 `PROJECT`| The project name.  
-  2. Edit the `spec` to update the required fields and values for the updatable properties.
+  3. Edit the `spec` to update the required fields and values for the updatable properties.
 
-  3. Save the file.
+  4. Save the file.
 
-  4. If the property update requires the VM to be restarted, use the [Restart a VM](https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/application/ao-user/vms/manage-vms/operations-and-lifecycle/start-and-stop-vm#restart-a-vm) instructions to restart the VM.
+  5. If you stopped the VM before updating the properties, [start the VM](https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/application/ao-user/vms/manage-vms/operations-and-lifecycle/start-and-stop-vm#start-a-vm) by setting `spec.runningState` to `Running`.
 
 
 
@@ -231,6 +234,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-04 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 

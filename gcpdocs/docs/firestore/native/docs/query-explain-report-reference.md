@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/firestore/native/docs/query-explain-report-reference/
 title: Query Explain report reference \u00a0|\u00a0 Firestore in Native mode \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T08:01:29.553535+00:00
+fetched_at: 2026-11-04T23:45:49.691539+00:00
 ---
 
 # Query Explain report reference  |  Firestore in Native mode  |  Google Cloud Documentation

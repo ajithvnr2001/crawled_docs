@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/universal-ledger/tutorial/deploy-contract/
 title: Deploy a programmable contract \u00a0|\u00a0 Universal Ledger \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-14T09:45:08.379428+00:00
+fetched_at: 2026-11-05T00:19:16.193865+00:00
 ---
 
 # Deploy a programmable contract  |  Universal Ledger  |  Google Cloud Documentation
@@ -21,13 +21,7 @@ Send feedback
 
 #  Deploy a programmable contract Stay organized with collections  Save and categorize content based on your preferences. 
 
-**Preview**
-
-This product is subject to the "Pre-GA Offerings Terms" in the General Service Terms section of the [Service Specific Terms](https://docs.cloud.google.com/terms/service-terms#1). Pre-GA products are available "as is" and might have limited support. For more information, see the [launch stage descriptions](https://cloud.google.com/products/#product-launch-stages). 
-
-For information about access to this release, see the [ access request page](https://cloud.google.com/application/web3/universal-ledger). 
-
-**Preview:** Programmable contracts are a preview feature of the Universal Ledger. The `gculpyc` compiler is under active development to add new features and improve capabilities. Because of this, the binary produced by the compiler could change depending on the version used. Deployed contracts could also behave differently after major updates. For notices and guidance around such changes see [Release notes](https://docs.cloud.google.com/universal-ledger/reference/gculpy-language#release_notes) in the GCULpy language reference.
+**Experimental:** Programmable contracts are an experimental feature of the Universal Ledger. The `gculpyc` compiler is under active development to add new features and improve capabilities. Because of this, the binary produced by the compiler could change depending on the version used. Deployed contracts could also behave differently after major updates. For notices and guidance around such changes, see [Release notes](https://docs.cloud.google.com/universal-ledger/reference/gculpy-language#release_notes) in the GCULpy language reference.
 
 The Universal Ledger supports programmable contracts that can be deployed in a network to automate and enforce agreements amongst interested participants.
 
@@ -56,17 +50,17 @@ Universal Ledger roles can be assigned to a User Account when created by their A
 
 To simplify the setup, this tutorial has been written for the default environment provided in a Cloud Shell session. You might need to modify these commands if you are using a different environment.
 
-**Experimental:** The `gculpyc` binary is made available as a Docker image to customers participating in the [Universal Ledger preview](https://docs.cloud.google.com/universal-ledger/preview-onboarding). This binary is in active development and subject to change or removal in new versions of the product.
+**Experimental:** The `gculpyc` binary, made available as a Docker image, is in active development and subject to change or removal in new versions of the product.
 
 The `gculpyc` compiler takes source code written in the GCULpy language and produces bytecode for the Universal Ledger.
 
 Run each of the following commands to pull the `gculpyc` Docker image, define an alias for running the binary, and confirm that the binary works.
     
     
-    docker pull us-docker.pkg.dev/gcul-artifacts/images/client/gculpyc:preview
+    docker pull us-docker.pkg.dev/gcul-artifacts/images/client/gculpyc:stable
     alias gculpyc="docker run --rm -i --user $(id -u):$(id -g) \
         --volume .:/workspace --workdir /workspace \
-        us-docker.pkg.dev/gcul-artifacts/images/client/gculpyc:preview"
+        us-docker.pkg.dev/gcul-artifacts/images/client/gculpyc:stable"
     gculpyc --help
 
 ## Write your contract
@@ -178,6 +172,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-08-26 UTC.
+Last updated 2026-10-26 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-08-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 

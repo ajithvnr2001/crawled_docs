@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/iam/docs/samples/iam-delete-role/
 title: Delete a custom role \u00a0|\u00a0 Identity and Access Management (IAM) \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T07:59:34.311594+00:00
+fetched_at: 2026-11-04T23:44:43.408095+00:00
 ---
 
 # Delete a custom role  |  Identity and Access Management (IAM)  |  Google Cloud Documentation

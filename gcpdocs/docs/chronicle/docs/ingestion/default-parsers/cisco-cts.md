@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/cisco-cts/
 title: Collect Cisco CTS logs \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T07:51:25.461758+00:00
+fetched_at: 2026-11-04T23:29:07.114177+00:00
 ---
 
 # Collect Cisco CTS logs  |  Google Security Operations  |  Google Cloud Documentation

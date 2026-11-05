@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/compute/docs/disks/data-protection/
 title: Data protection options for disks and instances \u00a0|\u00a0 Compute Engine \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T23:08:41.560771+00:00
+fetched_at: 2026-11-05T00:19:27.712402+00:00
 ---
 
 # Data protection options for disks and instances  |  Compute Engine  |  Google Cloud Documentation
@@ -177,7 +177,7 @@ To learn more about disk clones, see [Duplicate a disk with clones](https://docs
 
 #### Instant snapshots
 
-To quickly back up a disk for operational purposes, such software upgrades or system testing, use an instant snapshot. Instant snapshots are in-place backups stored in the same zone or region as the source disk, which lets you restore data to a new disk in minutes. This rapid recovery helps minimize downtime and avoid long maintenance windows.
+To quickly back up a disk for operational purposes, such as software upgrades or system testing, use an instant snapshot. Instant snapshots are in-place backups stored in the same zone or region as the source disk, which lets you restore data to a new disk in minutes. This rapid recovery helps minimize downtime and avoid long maintenance windows.
 
 Instant snapshots are designed for fast, operational recovery, not disaster recovery. Instant snapshots are stored in the same location as the source disk and are automatically deleted when the source disk is deleted. For long-term storage or disaster recovery, use standard or archive snapshots instead of instant snapshots.
 
@@ -239,6 +239,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-03 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 

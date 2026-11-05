@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/firestore/native/docs/audit-logging/
 title: Firestore audit logging information \u00a0|\u00a0 Firestore in Native mode \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T08:01:08.117316+00:00
+fetched_at: 2026-11-04T23:45:20.148843+00:00
 ---
 
 # Firestore audit logging information  |  Firestore in Native mode  |  Google Cloud Documentation

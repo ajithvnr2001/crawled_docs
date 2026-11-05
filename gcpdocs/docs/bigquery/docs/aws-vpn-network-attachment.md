@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/aws-vpn-network-attachment/
 title: Set up AWS VPN and network attachments \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T05:44:09.758158+00:00
+fetched_at: 2026-11-04T23:32:35.589700+00:00
 ---
 
 # Set up AWS VPN and network attachments  |  BigQuery  |  Google Cloud Documentation
@@ -28,7 +28,7 @@ A VPN and network attachment let you establish a reliable, security-enhanced con
 Ensure that you have the following:
 
   * Access to AWS and Google Cloud accounts with appropriate permissions.
-  * Existing [Virtual Private Clouds](https://docs.cloud.google.com/vpc/docs/overview) in both AWS and Google Cloud.
+  * Existing [Virtual Private Cloud (VPC) networks](https://docs.cloud.google.com/vpc/docs/overview) in both AWS and Google Cloud.
 
 
 
@@ -47,7 +47,7 @@ The setup on Google Cloud requires creating the VPN gateway and VPN tunnels, con
 
 ### Create the VPN gateway
 
-**Note:** The following steps describe how to create a [Classic VPN](https://docs.cloud.google.com/network-connectivity/docs/vpn/concepts/overview#classic-vpn). You can create a high-availability (HA) VPN instead if it fits your use case. For more information, see [Create an HA VPN gateway to a peer VPN gateway](https://docs.cloud.google.com/network-connectivity/docs/vpn/how-to/creating-ha-vpn).
+**Note:** The following steps describe how to create a [Classic VPN](https://docs.cloud.google.com/network-connectivity/docs/vpn/concepts/overview#classic-vpn). You can create an HA VPN gateway instead if it fits your use case. For more information, see [Create an HA VPN gateway to a peer VPN gateway](https://docs.cloud.google.com/network-connectivity/docs/vpn/how-to/creating-ha-vpn).
 
   1. In the Google Cloud console, go to the **Cloud VPN gateways** page.
 
@@ -126,6 +126,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-27 UTC.
+Last updated 2026-11-04 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 

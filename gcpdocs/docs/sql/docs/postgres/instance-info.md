@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sql/docs/postgres/instance-info/
 title: View instance information \u00a0|\u00a0 Cloud SQL for PostgreSQL \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T08:57:38.247263+00:00
+fetched_at: 2026-11-05T00:20:13.212444+00:00
 ---
 
 # View instance information  |  Cloud SQL for PostgreSQL  |  Google Cloud Documentation
@@ -112,116 +112,6 @@ Enabling Private Service Connect | `pscEnabled` | Whether an instance has Privat
 
 
 **Note:** To obtain the write endpoint for your Cloud SQL instance, use the `[gcloud sql instances describe](https://docs.cloud.google.com/sdk/gcloud/reference/sql/instances/describe)` command. This endpoint is the value that's associated with the `psaWriteEndpoint` parameter.
-
-### Terraform
-
-To create an instance, use a [Terraform resource](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/sql_database_instance).
-    
-    
-    resource "google_sql_database_instance" "postgres_pvp_instance_name" {
-      name             = "postgres-pvp-instance-name"
-      region           = "asia-northeast1"
-      database_version = "POSTGRES_14"
-      root_password    = "abcABC123!"
-      settings {
-        tier = "db-custom-2-7680"
-        password_validation_policy {
-          min_length                  = 6
-          reuse_interval              = 2
-          complexity                  = "COMPLEXITY_DEFAULT"
-          disallow_username_substring = true
-          password_change_interval    = "30s"
-          enable_password_policy      = true
-        }
-      }
-      # set `deletion_protection` to true, will ensure that one cannot accidentally delete this instance by
-      # use of Terraform whereas `deletion_protection_enabled` flag protects this instance at the GCP level.
-      deletion_protection = false
-    }
-
-#### Apply the changes
-
-To apply your Terraform configuration in a Google Cloud project, complete the steps in the following sections.
-
-## Prepare Cloud Shell
-
-  1. Launch [Cloud Shell](https://shell.cloud.google.com/).
-  2. Set the default Google Cloud project where you want to apply your Terraform configurations. 
-
-You only need to run this command once per project, and you can run it in any directory.
-         
-         export GOOGLE_CLOUD_PROJECT=PROJECT_ID
-
-Environment variables are overridden if you set explicit values in the Terraform configuration file.
-
-
-
-
-## Prepare the directory
-
-Each Terraform configuration file must have its own directory (also called a _root module_).
-
-  1. In [Cloud Shell](https://shell.cloud.google.com/), create a directory and a new file within that directory. The filename must have the `.tf` extension—for example `main.tf`. In this tutorial, the file is referred to as `main.tf`. 
-         
-         mkdir DIRECTORY && cd DIRECTORY && touch main.tf
-
-  2. If you are following a tutorial, you can copy the sample code in each section or step.
-
-Copy the sample code into the newly created `main.tf`.
-
-Optionally, copy the code from GitHub. This is recommended when the Terraform snippet is part of an end-to-end solution. 
-
-  3. Review and modify the sample parameters to apply to your environment.
-  4. Save your changes.
-  5. Initialize Terraform. You only need to do this once per directory. 
-         
-         terraform init
-
-Optionally, to use the latest Google provider version, include the `-upgrade` option: 
-         
-         terraform init -upgrade
-
-
-
-
-## Apply the changes
-
-  1. Review the configuration and verify that the resources that Terraform is going to create or update match your expectations: 
-         
-         terraform plan
-
-Make corrections to the configuration as necessary.
-
-  2. Apply the Terraform configuration by running the following command and entering `yes` at the prompt: 
-         
-         terraform apply
-
-Wait until Terraform displays the "Apply complete!" message.
-
-  3. [Open your Google Cloud project](https://console.cloud.google.com/) to view the results. In the Google Cloud console, navigate to your resources in the UI to make sure that Terraform has created or updated them. 
-
-**Note:** Terraform samples typically assume that the required APIs are enabled in your Google Cloud project. 
-
-#### Delete the changes
-
-To delete your changes, do the following:
-
-  1. To disable deletion protection, in your Terraform configuration file set the `deletion_protection` argument to `false`. 
-         
-         deletion_protection =  "false"
-
-  2. Apply the updated Terraform configuration by running the following command and entering `yes` at the prompt: 
-         
-         terraform apply
-
-
-
-  3. Remove resources previously applied with your Terraform configuration by running the following command and entering `yes` at the prompt:
-         
-         terraform destroy
-
-
-
 
 ### REST v1
 
@@ -482,6 +372,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-03 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 

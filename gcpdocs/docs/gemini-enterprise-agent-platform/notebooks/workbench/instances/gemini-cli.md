@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/instances/gemini-cli/
 title: Use the Gemini CLI with a Gemini Enterprise Agent Platform Workbench instance \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T05:56:01.385143+00:00
+fetched_at: 2026-11-05T00:20:15.317687+00:00
 ---
 
 # Use the Gemini CLI with a Gemini Enterprise Agent Platform Workbench instance  |  Google Cloud Documentation
@@ -113,13 +113,13 @@ To use the Gemini CLI in Agent Platform Workbench, you must grant permissions to
 
 #### Grant permissions to the user of the instance
 
-To get the permissions that you need to use the Gemini CLI in a Agent Platform Workbench instance, ask your administrator to grant you the [Agent Platform User](https://docs.cloud.google.com/iam/docs/roles-permissions/aiplatform#aiplatform.user) (`roles/aiplatform.user)` IAM role on the project. For more information about granting roles, see [Manage access to projects, folders, and organizations](https://docs.cloud.google.com/iam/docs/granting-changing-revoking-access). 
+To get the permissions that you need to use the Gemini CLI in a Agent Platform Workbench instance, ask your administrator to grant you the [](https://docs.cloud.google.com/iam/docs/roles-permissions/aiplatform#aiplatform.user)[Agent Platform User](https://docs.cloud.google.com/iam/docs/roles-permissions/aiplatform#aiplatform.user) (`roles/aiplatform.user`) IAM role on the project. For more information about granting roles, see [Manage access to projects, folders, and organizations](https://docs.cloud.google.com/iam/docs/granting-changing-revoking-access). 
 
 You might also be able to get the required permissions through [custom roles](https://docs.cloud.google.com/iam/docs/creating-custom-roles) or other [predefined roles](https://docs.cloud.google.com/iam/docs/roles-overview#predefined). 
 
 #### Grant a permission to your instance's service account
 
-To ensure that your Agent Platform Workbench instance's service account has the necessary permission to enable the Gemini CLI to run in a Agent Platform Workbench instance, ask your administrator to grant the [Agent Platform User](https://docs.cloud.google.com/iam/docs/roles-permissions/aiplatform#aiplatform.user) (`roles/aiplatform.user)` IAM role to your Agent Platform Workbench instance's service account on the project. **Important:** You must grant this role to your Agent Platform Workbench instance's service account, _not_ to your user account. Failure to grant the role to the correct principal might result in permission errors.  For more information about granting roles, see [Manage access to projects, folders, and organizations](https://docs.cloud.google.com/iam/docs/granting-changing-revoking-access). 
+To ensure that your Agent Platform Workbench instance's service account has the necessary permission to enable the Gemini CLI to run in a Agent Platform Workbench instance, ask your administrator to grant the [](https://docs.cloud.google.com/iam/docs/roles-permissions/aiplatform#aiplatform.user)[Agent Platform User](https://docs.cloud.google.com/iam/docs/roles-permissions/aiplatform#aiplatform.user) (`roles/aiplatform.user`) IAM role to your Agent Platform Workbench instance's service account on the project. **Important:** You must grant this role to your Agent Platform Workbench instance's service account, _not_ to your user account. Failure to grant the role to the correct principal might result in permission errors.  For more information about granting roles, see [Manage access to projects, folders, and organizations](https://docs.cloud.google.com/iam/docs/granting-changing-revoking-access). 
 
 This predefined role contains the `aiplatform.endpoints.predict` permission, which is required to enable the Gemini CLI to run in a Agent Platform Workbench instance. 
 
@@ -218,6 +218,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-30 UTC.
+Last updated 2026-11-03 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 

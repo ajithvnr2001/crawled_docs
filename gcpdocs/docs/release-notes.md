@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/release-notes/
 title: Google Cloud release notes \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T08:00:43.246140+00:00
+fetched_at: 2026-11-04T23:20:46.168352+00:00
 ---
 
 # Google Cloud release notes  |  Google Cloud Documentation
@@ -24,6 +24,232 @@ You can also see and filter all release notes in the [Google Cloud console](http
 
 To get the latest product updates delivered to you, add the URL of this page to your [feed reader](https://wikipedia.org/wiki/Comparison_of_feed_aggregators), or add the [feed URL](https://docs.cloud.google.com/feeds/gcp-release-notes.xml) directly. 
 
+## November 04, 2026
+
+**AlloyDB for PostgreSQL**
+
+Feature
+
+Direct Iceberg access in AlloyDB for PostgreSQL is available for PostgreSQL 18 and later ([in Preview](https://cloud.google.com/products#product-launch-stages)). This feature lets you query Apache Iceberg tables in Cloud Storage or Lakehouse runtime catalog and accelerate analytical queries using the AlloyDB columnar engine.
+
+For more information, see [Access Iceberg data from AlloyDB](https://docs.cloud.google.com/alloydb/docs/access-iceberg-data-from-alloydb).
+
+Feature
+
+Syncing data from BigQuery into AlloyDB is generally available ([GA](https://cloud.google.com/products#product-launch-stages)). This feature lets you copy or mirror analytical tables from BigQuery into AlloyDB for low-latency operational access using the `alloydb_sync` extension.
+
+For more information, see [Sync BigQuery data to AlloyDB](https://docs.cloud.google.com/alloydb/docs/sync-bigquery-data-to-alloydb).
+
+Feature
+
+AlloyDB Express is available in [Preview](https://cloud.google.com/products#product-launch-stages) for PostgreSQL 18. Optimized for rapid prototyping and for workflows that use AI coding agents, this configuration provides the following features:
+
+  * Fast provisioning
+  * Scale-to-zero compute when idle
+  * A monthly free tier for the first 12 months of usage
+  * One-click upgrades to AlloyDB for PostgreSQL
+
+
+
+For more information, see [AlloyDB Express overview](https://docs.cloud.google.com/alloydb/docs/express-overview).
+
+**Apigee Operator for kubernetes**
+
+Announcement
+
+On November 4, 2026, we released an updated version of Apigee.
+
+Feature
+
+**The Apigee Operator for Kubernetes version 1.1.2 is now available.**
+
+Security
+
+Bug ID | Description  
+---|---  
+**521387476, 521388685, 521389473, 521389648, 521390401, 521390431, 521418315, 521467563, 521470029, 521523106, 521532318, 522502328, 522502515, 522502723, 522508097, 522515015, 522515987, 523406508, 524990439, 525000385, 525013469, 545525835, 545535262, 545546643, 545547894, 545594793, 545595426, 545604082, 545605504, 545613200, 545619209, 546865118, 549708263, 572097689, 572100132** | **Security fixes for Netty in the Apigee Operator for Kubernetes.** Upgraded Netty to 4.1.137.Final. This addresses the following vulnerabilities:
+
+  * [CVE-2026-33870](https://nvd.nist.gov/vuln/detail/CVE-2026-33870)
+  * [CVE-2026-33871](https://nvd.nist.gov/vuln/detail/CVE-2026-33871)
+  * [CVE-2026-41417](https://nvd.nist.gov/vuln/detail/CVE-2026-41417)
+  * [CVE-2026-42578](https://nvd.nist.gov/vuln/detail/CVE-2026-42578)
+  * [CVE-2026-42579](https://nvd.nist.gov/vuln/detail/CVE-2026-42579)
+  * [CVE-2026-42580](https://nvd.nist.gov/vuln/detail/CVE-2026-42580)
+  * [CVE-2026-42581](https://nvd.nist.gov/vuln/detail/CVE-2026-42581)
+  * [CVE-2026-42583](https://nvd.nist.gov/vuln/detail/CVE-2026-42583)
+  * [CVE-2026-42584](https://nvd.nist.gov/vuln/detail/CVE-2026-42584)
+  * [CVE-2026-42585](https://nvd.nist.gov/vuln/detail/CVE-2026-42585)
+  * [CVE-2026-42587](https://nvd.nist.gov/vuln/detail/CVE-2026-42587)
+  * [CVE-2026-44249](https://nvd.nist.gov/vuln/detail/CVE-2026-44249)
+  * [CVE-2026-45416](https://nvd.nist.gov/vuln/detail/CVE-2026-45416)
+  * [CVE-2026-45673](https://nvd.nist.gov/vuln/detail/CVE-2026-45673)
+  * [CVE-2026-45674](https://nvd.nist.gov/vuln/detail/CVE-2026-45674)
+  * [CVE-2026-47244](https://nvd.nist.gov/vuln/detail/CVE-2026-47244)
+  * [CVE-2026-47691](https://nvd.nist.gov/vuln/detail/CVE-2026-47691)
+  * [CVE-2026-48043](https://nvd.nist.gov/vuln/detail/CVE-2026-48043)
+  * [CVE-2026-50010](https://nvd.nist.gov/vuln/detail/CVE-2026-50010)
+  * [CVE-2026-50020](https://nvd.nist.gov/vuln/detail/CVE-2026-50020)
+  * [CVE-2026-50560](https://nvd.nist.gov/vuln/detail/CVE-2026-50560)
+  * [CVE-2026-55831](https://nvd.nist.gov/vuln/detail/CVE-2026-55831)
+  * [CVE-2026-55833](https://nvd.nist.gov/vuln/detail/CVE-2026-55833)
+  * [CVE-2026-56745](https://nvd.nist.gov/vuln/detail/CVE-2026-56745)
+  * [CVE-2026-56746](https://nvd.nist.gov/vuln/detail/CVE-2026-56746)
+  * [CVE-2026-56819](https://nvd.nist.gov/vuln/detail/CVE-2026-56819)
+  * [CVE-2026-59898](https://nvd.nist.gov/vuln/detail/CVE-2026-59898)
+  * [CVE-2026-59899](https://nvd.nist.gov/vuln/detail/CVE-2026-59899)
+  * [CVE-2026-59900](https://nvd.nist.gov/vuln/detail/CVE-2026-59900)
+  * [CVE-2026-59901](https://nvd.nist.gov/vuln/detail/CVE-2026-59901)
+  * [CVE-2026-59903](https://nvd.nist.gov/vuln/detail/CVE-2026-59903)
+  * [CVE-2026-59921](https://nvd.nist.gov/vuln/detail/CVE-2026-59921)
+  * [CVE-2026-73508](https://nvd.nist.gov/vuln/detail/CVE-2026-73508)
+  * [CVE-2026-75595](https://nvd.nist.gov/vuln/detail/CVE-2026-75595)
+  * [CVE-2026-75596](https://nvd.nist.gov/vuln/detail/CVE-2026-75596)
+
+  
+**527492626, 527495614, 527497578, 527498733, 545553137, 572096453, 572096754, 572096884, 572097054, 572097090, 572097183, 572098198, 572098299, 572099894, 572100881, 578504005** | **Security fixes for Jackson in the Apigee Operator for Kubernetes.** Upgraded Jackson to 2.21.7. This addresses the following vulnerabilities:
+
+  * [CVE-2026-18401](https://nvd.nist.gov/vuln/detail/CVE-2026-18401)
+  * [CVE-2026-19032](https://nvd.nist.gov/vuln/detail/CVE-2026-19032)
+  * [CVE-2026-54512](https://nvd.nist.gov/vuln/detail/CVE-2026-54512)
+  * [CVE-2026-54513](https://nvd.nist.gov/vuln/detail/CVE-2026-54513)
+  * [CVE-2026-54514](https://nvd.nist.gov/vuln/detail/CVE-2026-54514)
+  * [CVE-2026-54515](https://nvd.nist.gov/vuln/detail/CVE-2026-54515)
+  * [CVE-2026-59888](https://nvd.nist.gov/vuln/detail/CVE-2026-59888)
+  * [CVE-2026-59889](https://nvd.nist.gov/vuln/detail/CVE-2026-59889)
+  * [CVE-2026-68494](https://nvd.nist.gov/vuln/detail/CVE-2026-68494)
+  * [CVE-2026-68497](https://nvd.nist.gov/vuln/detail/CVE-2026-68497)
+  * [CVE-2026-77310](https://nvd.nist.gov/vuln/detail/CVE-2026-77310)
+  * [CVE-2026-83557](https://nvd.nist.gov/vuln/detail/CVE-2026-83557)
+  * [CVE-2026-89407](https://nvd.nist.gov/vuln/detail/CVE-2026-89407)
+  * [CVE-2026-89425](https://nvd.nist.gov/vuln/detail/CVE-2026-89425)
+  * [CVE-2026-91776](https://nvd.nist.gov/vuln/detail/CVE-2026-91776)
+  * [CVE-2026-91777](https://nvd.nist.gov/vuln/detail/CVE-2026-91777)
+
+  
+**521477919, 545546100, 545555197, 545603496, 545608493** | **Security fixes for Jetty in the Apigee Operator for Kubernetes.** Upgraded Jetty to 12.0.36. This addresses the following vulnerabilities:
+
+  * [CVE-2025-11143](https://nvd.nist.gov/vuln/detail/CVE-2025-11143)
+  * [CVE-2026-1605](https://nvd.nist.gov/vuln/detail/CVE-2026-1605)
+  * [CVE-2026-2332](https://nvd.nist.gov/vuln/detail/CVE-2026-2332)
+  * [CVE-2026-6790](https://nvd.nist.gov/vuln/detail/CVE-2026-6790)
+  * [CVE-2026-8384](https://nvd.nist.gov/vuln/detail/CVE-2026-8384)
+  * [CVE-2026-10050](https://nvd.nist.gov/vuln/detail/CVE-2026-10050)
+  * [CVE-2026-10051](https://nvd.nist.gov/vuln/detail/CVE-2026-10051)
+
+  
+**522503039** | **Security fixes for Vert.x in the Apigee Operator for Kubernetes.** Upgraded Vert.x to 4.5.35. This addresses the following vulnerabilities:
+
+  * [CVE-2026-1002](https://nvd.nist.gov/vuln/detail/CVE-2026-1002)
+  * [CVE-2026-6860](https://nvd.nist.gov/vuln/detail/CVE-2026-6860)
+
+  
+**579151884** | **Security fixes for Guava in the Apigee Operator for Kubernetes.** Upgraded Guava to 33.7.2-jre. This addresses the following vulnerabilities:
+
+  * [CVE-2026-102554](https://nvd.nist.gov/vuln/detail/CVE-2026-102554)
+
+  
+  
+**Cloud SQL for SQL Server**
+
+Feature
+
+Cloud SQL for SQL Server now supports [read pool autoscaling](https://docs.cloud.google.com/sql/docs/sqlserver/read-pool-autoscaling) ([GA](https://cloud.google.com/products#product-launch-stages)), which helps you more easily manage your application's workload needs.
+
+This feature automates read pool scale in and scale out operations based on one or both of the following conditions:
+
+  * Allowed CPU usage of the read pool
+  * Allowed number of client connections to the read pool
+
+
+
+**Cloud Storage**
+
+Feature
+
+You can pause hard deletions for a bucket when you need more time to restore soft-deleted objects before they're permanently deleted. For more information, see [Pause permanent (hard) deletions of soft-deleted objects](https://docs.cloud.google.com/storage/docs/pause-hard-deletions).
+
+**Gemini Enterprise**
+
+Feature
+
+**Gemini Enterprise: Switch between teams in the mobile app**
+
+You can switch between multiple teams in the Gemini Enterprise mobile app without logging out and rescanning the QR code. (Teams were previously called instances.)
+
+When you open a team for the first time, the mobile app saves it to your teams list. Additionally, you can rename teams in the list and you can remove teams from your list.
+
+This feature is generally available (GA). For more information, see [Teams](https://docs.cloud.google.com/gemini/enterprise/docs/use-the-mobile-app#teams) in _Use the mobile app_.
+
+**Google Distributed Cloud (software only) for VMware**
+
+Announcement
+
+Google Distributed Cloud (software only) for VMware 1.35.700-gke.124 is now available for download. To upgrade, see [Upgrade clusters](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/vmware/docs/how-to/upgrading). Google Distributed Cloud 1.35.700-gke.124 runs on Kubernetes v1.35.8-gke.100.
+
+If you use a third-party storage vendor, check the listing of our previously-qualified [storage partners](https://docs.cloud.google.com/kubernetes-engine/enterprise/docs/resources/partner-storage).
+
+After a release, it takes approximately 7 to 14 days for the version to become available for use with GKE On-Prem API clients: the Google Cloud console, the gcloud CLI, and Terraform.
+
+Feature
+
+The following changes were added in 1.35.700-gke.124:
+
+  * Updated system components and container base images to remove the distrusted eMudhra (emSign) and AAA Certificate Services root CAs and reject compromised eMudhra intermediate CAs. 
+  * Upgraded Container-Optimized OS (COS) to milestone 121 (`cos-121-18867-652-7`), which removes the distrusted eMudhra (emSign) and AAA Certificate Services root CAs. 
+  * Updated the Ubuntu 24.04 node and admin workstation base image to `ubuntu-gke-op-2404-1-34-v20261024` to remove the distrusted eMudhra (emSign) root CAs (USN-8944-1). 
+
+
+
+Fixed
+
+The following issues were fixed in 1.35.700-gke.124:
+
+  * Fixed vulnerabilities listed in [Vulnerability fixes](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/vmware/docs/vulnerabilities).
+  * Fixed an issue where `audit-proxy` retried audit log exports indefinitely on permanent errors, generating excessive audit logging traffic. 
+  * Fixed an issue where the Kubernetes preflight health check scanned all namespaces in the admin cluster instead of the target cluster's namespace, causing cluster upgrades to fail if an unrelated cluster had stale reconciling resources. 
+
+
+
+**Google Distributed Cloud (software only) for bare metal**
+
+Announcement
+
+Google Distributed Cloud (software only) for bare metal 1.35.700-gke.124 is now available for download. To upgrade, see [Upgrade clusters](https://docs.cloud.google.com/release-notes/how-to/upgrade). Google Distributed Cloud for bare metal 1.35.700-gke.124 runs on Kubernetes v1.35.8-gke.100.
+
+After a release, it takes approximately 7 to 14 days for the version to become available for installations or upgrades with the GKE On-Prem API clients: the Google Cloud console, the gcloud CLI, and Terraform.
+
+If you use a third-party storage vendor, check the listing of our previously-qualified [storage partners](https://docs.cloud.google.com/kubernetes-engine/enterprise/docs/resources/partner-storage).
+
+Feature
+
+The following changes were added in 1.35.700-gke.124:
+
+  * Updated system components and container base images to remove the distrusted eMudhra (emSign) and AAA Certificate Services root CAs and reject compromised eMudhra intermediate CAs. 
+
+
+
+Fixed
+
+The following issues were fixed in 1.35.700-gke.124:
+
+  * Fixed vulnerabilities listed in [Vulnerability fixes](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/bare-metal/docs/vulnerabilities).
+  * Fixed an issue where removing a node from a cluster left behind its local `PersistentVolume` resources instead of garbage collecting them. This fix applies to Google Distributed Cloud for bare metal local `PersistentVolume` resources created after upgrading to 1.35.700-gke.124; existing orphaned `PersistentVolume` resources must be deleted manually. 
+  * Fixed an issue where resetting or removing a control plane node could remove the wrong `etcd` or `etcd-events` member if another control plane node's IP address shared the same prefix (for example, `10.201.0.2` and `10.201.0.26`), causing the affected node to become `NotReady` and stalling cluster upgrades. 
+  * Improved `containerd` resilience against state corruption if a node reboots while unpacking container images. 
+  * Fixed an issue where the periodic configuration drift health check failed with a `version not supported` error while a cluster upgrade or rollback was in progress. 
+  * Fixed an issue where `audit-proxy` retried audit log exports indefinitely on permanent errors, generating excessive audit logging traffic. 
+  * Fixed an issue where the Kubernetes preflight health check scanned all namespaces in the admin cluster instead of the target cluster's namespace, causing cluster upgrades to fail if an unrelated cluster had stale reconciling resources. 
+
+
+
+**Google SecOps**
+
+Announcement
+
+**Consolidated Settings and Navigation**
+
+The **Consolidated Settings and Navigation** feature is now in public preview. It replaces the separate SIEM Settings and SOAR Settings menus with a single Settings menu, grouped into Administration, Access Management, Investigation, Detection and Data Management, and also updates the left navigation menu. Each settings page is shown only to users with the correct permissions. Cloud IAM, Viewer and Editor users can now view certain SOAR settings pages in read-only mode. Note that the Google SecOps documentation has been updated to reflect the new navigational changes. For more information, see [Navigate the Google SecOps platform](https://docs.cloud.google.com/chronicle/docs/secops/navigate-the-secops-platform).
+
 ## November 03, 2026
 
 **API Gateway**
@@ -36,6 +262,181 @@ Streaming gateways can now call Google Cloud APIs such as `aiplatform.googleapis
 
 For more information, see [Securing backend services](https://docs.cloud.google.com/api-gateway/docs/securing-backend-services#other-gcp-apis).
 
+**AlloyDB for PostgreSQL**
+
+Change
+
+AlloyDB for PostgreSQL now defaults to [PostgreSQL major version 18](https://docs.cloud.google.com/alloydb/docs/db-version-policies#support-table) for new clusters.
+
+**Apigee X**
+
+Announcement
+
+On November 3, 2026, we released an updated version of Apigee (1-18-0-apigee-8).
+
+**Note:** Rollouts of this release began today and can take four or more business days to complete across all Google Cloud zones. Your instances might not have the features and fixes available until the rollout is complete.
+
+Security
+
+Bug ID | Description  
+---|---  
+**N/A** | **Security fix for Apigee infrastructure.**  
+  
+Fixed
+
+Bug ID | Description  
+---|---  
+**574037227** | Added config override token `oauth_default_access_token_expiry_time_in_millis` (per-org via the deployment contract) that overrides the default OAuthV2 access token lifetime (ms) applied when a policy omits `<ExpiresIn>`. When unset, behavior is unchanged (installation default, typically 30 days).  
+**573326336** | Proxies that declare `<ProxyOperationMode>MCP` are now recognized as [MCP proxies](https://docs.cloud.google.com/apigee/docs/api-platform/apigee-mcp/apigee-mcp-overview) regardless of their basepath.  
+**576697209** | LLMTokenQuota no longer counts tokens for responses that SemanticCacheLookup serves from the cache, and records no ai_llm_response_token_count for them.  
+**578314600** | The Apigee Connect agent now uses HTTP/2 keepalive pings on the control-plane connection, detecting a silently dropped connection in ~80s (vs ~2h) while honoring HTTPS_PROXY (including proxy credentials), so proxy-only clusters re-establish connectivity.  
+**N/A** | Updates to infrastructure and libraries.  
+  
+**Apigee hybrid**
+
+Announcement
+
+### v1.15.10
+
+On November 3, 2026 we released an updated version of the Apigee hybrid software, v1.15.10.
+
+  * For information about upgrading, see [Upgrading Apigee hybrid to v1.15.10](https://docs.cloud.google.com/apigee/docs/hybrid/v1.15/upgrade).
+  * For information about new installations, see [The big picture](https://docs.cloud.google.com/apigee/docs/hybrid/v1.15/big-picture).
+
+**Note:** This is a patch release. The container images used in patch releases are integrated with the Apigee hybrid Helm charts. Upgrading to a patch by using the Helm chart automatically updates the images. You don't typically need to make manual image changes. For information about container image support in Apigee hybrid releases, see [Apigee release process](https://docs.cloud.google.com/apigee/docs/release/apigee-release-process#apigee-hybrid-container-images).
+
+Fixed
+
+#### Fixed in this release
+
+Bug ID | Description  
+---|---  
+**578314600** | **Fixed an issue where`apigee-connect-agent` ignored `HTTPS_PROXY` and failed to establish a tether in clusters that require an HTTP forward proxy for egress; the agent now uses HTTP/2 keepalive pings on the control-plane connection while honoring `HTTPS_PROXY` (including proxy credentials).**  
+**576707253** | **Removed the compromised emSign roots and the cross-signing Comodo AAA Services root from the system and Java (`cacerts`) trust stores across containers.**  
+  
+Security
+
+Bug ID | Description  
+---|---  
+**N/A** | **Security fixes for`apigee-asm-ingress`.**   
+This addresses the following vulnerabilities: 
+
+  * [CVE-2026-116585](https://nvd.nist.gov/vuln/detail/CVE-2026-116585)
+  * [CVE-2026-116586](https://nvd.nist.gov/vuln/detail/CVE-2026-116586)
+  * [CVE-2026-63209](https://nvd.nist.gov/vuln/detail/CVE-2026-63209)
+
+  
+**N/A** | **Security fixes for`apigee-asm-istiod`.**   
+This addresses the following vulnerabilities: 
+
+  * [CVE-2026-116585](https://nvd.nist.gov/vuln/detail/CVE-2026-116585)
+  * [CVE-2026-116586](https://nvd.nist.gov/vuln/detail/CVE-2026-116586)
+  * [CVE-2026-40179](https://nvd.nist.gov/vuln/detail/CVE-2026-40179)
+  * [CVE-2026-42151](https://nvd.nist.gov/vuln/detail/CVE-2026-42151)
+  * [CVE-2026-42154](https://nvd.nist.gov/vuln/detail/CVE-2026-42154)
+  * [CVE-2026-44903](https://nvd.nist.gov/vuln/detail/CVE-2026-44903)
+  * [CVE-2026-63209](https://nvd.nist.gov/vuln/detail/CVE-2026-63209)
+
+  
+**N/A** | **Security fixes for`apigee-envoy`.**   
+This addresses the following vulnerabilities: 
+
+  * [CVE-2026-5450](https://nvd.nist.gov/vuln/detail/CVE-2026-5450)
+  * [CVE-2026-5928](https://nvd.nist.gov/vuln/detail/CVE-2026-5928)
+
+  
+**N/A** | **Security fixes for`apigee-fluent-bit`.**   
+This addresses the following vulnerabilities: 
+
+  * [CVE-2026-111497](https://nvd.nist.gov/vuln/detail/CVE-2026-111497)
+  * [CVE-2026-8286](https://nvd.nist.gov/vuln/detail/CVE-2026-8286)
+  * [CVE-2026-8924](https://nvd.nist.gov/vuln/detail/CVE-2026-8924)
+  * [CVE-2026-8927](https://nvd.nist.gov/vuln/detail/CVE-2026-8927)
+  * [CVE-2026-92392](https://nvd.nist.gov/vuln/detail/CVE-2026-92392)
+
+  
+**N/A** | **Security fixes for`apigee-hybrid-cassandra`.**   
+This addresses the following vulnerabilities: 
+
+  * [CVE-2026-56857](https://nvd.nist.gov/vuln/detail/CVE-2026-56857)
+  * [CVE-2026-56866](https://nvd.nist.gov/vuln/detail/CVE-2026-56866)
+  * [CVE-2026-78659](https://nvd.nist.gov/vuln/detail/CVE-2026-78659)
+  * [CVE-2026-78660](https://nvd.nist.gov/vuln/detail/CVE-2026-78660)
+  * [CVE-2026-78663](https://nvd.nist.gov/vuln/detail/CVE-2026-78663)
+  * [CVE-2026-78667](https://nvd.nist.gov/vuln/detail/CVE-2026-78667)
+  * [CVE-2026-78669](https://nvd.nist.gov/vuln/detail/CVE-2026-78669)
+  * [CVE-2026-94439](https://nvd.nist.gov/vuln/detail/CVE-2026-94439)
+  * [CVE-2026-94440](https://nvd.nist.gov/vuln/detail/CVE-2026-94440)
+  * [CVE-2026-94444](https://nvd.nist.gov/vuln/detail/CVE-2026-94444)
+  * [CVE-2026-94447](https://nvd.nist.gov/vuln/detail/CVE-2026-94447)
+  * [CVE-2026-94448](https://nvd.nist.gov/vuln/detail/CVE-2026-94448)
+  * [CVE-2026-97030](https://nvd.nist.gov/vuln/detail/CVE-2026-97030)
+  * [CVE-2026-97031](https://nvd.nist.gov/vuln/detail/CVE-2026-97031)
+  * [CVE-2026-97032](https://nvd.nist.gov/vuln/detail/CVE-2026-97032)
+
+  
+**N/A** | **Security fixes for`apigee-kube-rbac-proxy`.**   
+This addresses the following vulnerabilities: 
+
+  * [CVE-2026-56857](https://nvd.nist.gov/vuln/detail/CVE-2026-56857)
+  * [CVE-2026-56866](https://nvd.nist.gov/vuln/detail/CVE-2026-56866)
+  * [CVE-2026-78659](https://nvd.nist.gov/vuln/detail/CVE-2026-78659)
+  * [CVE-2026-78660](https://nvd.nist.gov/vuln/detail/CVE-2026-78660)
+  * [CVE-2026-78663](https://nvd.nist.gov/vuln/detail/CVE-2026-78663)
+  * [CVE-2026-78667](https://nvd.nist.gov/vuln/detail/CVE-2026-78667)
+  * [CVE-2026-78669](https://nvd.nist.gov/vuln/detail/CVE-2026-78669)
+  * [CVE-2026-94439](https://nvd.nist.gov/vuln/detail/CVE-2026-94439)
+  * [CVE-2026-94440](https://nvd.nist.gov/vuln/detail/CVE-2026-94440)
+  * [CVE-2026-94444](https://nvd.nist.gov/vuln/detail/CVE-2026-94444)
+  * [CVE-2026-94447](https://nvd.nist.gov/vuln/detail/CVE-2026-94447)
+  * [CVE-2026-94448](https://nvd.nist.gov/vuln/detail/CVE-2026-94448)
+  * [CVE-2026-97030](https://nvd.nist.gov/vuln/detail/CVE-2026-97030)
+  * [CVE-2026-97031](https://nvd.nist.gov/vuln/detail/CVE-2026-97031)
+  * [CVE-2026-97032](https://nvd.nist.gov/vuln/detail/CVE-2026-97032)
+
+  
+**N/A** | **Security fixes for`apigee-operators`.**   
+This addresses the following vulnerability: 
+
+  * [CVE-2026-63209](https://nvd.nist.gov/vuln/detail/CVE-2026-63209)
+
+  
+**N/A** | **Security fixes for`apigee-prom-prometheus`.**   
+This addresses the following vulnerabilities: 
+
+  * [CVE-2026-56857](https://nvd.nist.gov/vuln/detail/CVE-2026-56857)
+  * [CVE-2026-56866](https://nvd.nist.gov/vuln/detail/CVE-2026-56866)
+  * [CVE-2026-78659](https://nvd.nist.gov/vuln/detail/CVE-2026-78659)
+  * [CVE-2026-78660](https://nvd.nist.gov/vuln/detail/CVE-2026-78660)
+  * [CVE-2026-78663](https://nvd.nist.gov/vuln/detail/CVE-2026-78663)
+  * [CVE-2026-78667](https://nvd.nist.gov/vuln/detail/CVE-2026-78667)
+  * [CVE-2026-78669](https://nvd.nist.gov/vuln/detail/CVE-2026-78669)
+  * [CVE-2026-81870](https://nvd.nist.gov/vuln/detail/CVE-2026-81870)
+  * [CVE-2026-94439](https://nvd.nist.gov/vuln/detail/CVE-2026-94439)
+  * [CVE-2026-94440](https://nvd.nist.gov/vuln/detail/CVE-2026-94440)
+  * [CVE-2026-94444](https://nvd.nist.gov/vuln/detail/CVE-2026-94444)
+  * [CVE-2026-94447](https://nvd.nist.gov/vuln/detail/CVE-2026-94447)
+  * [CVE-2026-94448](https://nvd.nist.gov/vuln/detail/CVE-2026-94448)
+  * [CVE-2026-97030](https://nvd.nist.gov/vuln/detail/CVE-2026-97030)
+  * [CVE-2026-97031](https://nvd.nist.gov/vuln/detail/CVE-2026-97031)
+  * [CVE-2026-97032](https://nvd.nist.gov/vuln/detail/CVE-2026-97032)
+
+  
+**N/A** | **Security fixes for`apigee-udca`.**   
+This addresses the following vulnerabilities: 
+
+  * [CVE-2026-116585](https://nvd.nist.gov/vuln/detail/CVE-2026-116585)
+  * [CVE-2026-116586](https://nvd.nist.gov/vuln/detail/CVE-2026-116586)
+  * [CVE-2026-116587](https://nvd.nist.gov/vuln/detail/CVE-2026-116587)
+
+  
+**N/A** | **Security fixes for`apigee-watcher`.**   
+This addresses the following vulnerability: 
+
+  * [CVE-2026-63209](https://nvd.nist.gov/vuln/detail/CVE-2026-63209)
+
+  
+  
 **Application Design Center**
 
 Feature
@@ -55,6 +456,10 @@ Application Design Center is available in the following regions:
 For more information, see [App Design Center locations](https://docs.cloud.google.com/application-design-center/docs/locations).
 
 **BigQuery**
+
+Feature
+
+You can now use persistent and temporary [SQL user-defined functions (UDFs)](https://docs.cloud.google.com/bigquery/docs/user-defined-functions#continuous-queries) in [BigQuery continuous queries](https://docs.cloud.google.com/bigquery/docs/continuous-queries#use-sql-udfs) to encapsulate and reuse custom real-time transformation logic. Only SQL UDFs are supported in continuous queries.
 
 Change
 
@@ -269,6 +674,52 @@ Breaking
 
 Subscribe to these release notes at <https://groups.google.com/forum/#!forum/google-cloud-sdk-announce>.
 
+**Cloud SQL for PostgreSQL**
+
+Change
+
+The rollout of the following Cloud SQL for PostgreSQL minor version and extension upgrades is complete:
+
+**Minor versions**
+
+  * 14.23 is upgraded to 14.24.
+
+  * 15.18 is upgraded to 15.19.
+
+  * 16.14 is upgraded to 16.15.
+
+  * 17.10 is upgraded to 17.11.
+
+  * 18.4 is upgraded to 18.6. This version includes a backported fix for [PostgreSQL bug #19616](https://git.postgresql.org/gitweb/?p=postgresql.git;h=caa463e3f8d2b9c1441e6a59c50f90b8598439f3) that prevents logical decoding from emitting `STREAM_ABORT` messages for unstreamed transactions when an aborted transaction with a subtransaction is truncated during memory eviction.
+
+
+
+
+**Extensions**
+
+  * `hll` (`postgresql-hll`) is upgraded from 2.18 to 2.20.
+
+  * `pg_qualstats` is upgraded from 2.1.2 to 2.1.4.
+
+  * `pglogical` is upgraded from 2.4.5 (for PostgreSQL 17 and earlier) and 2.4.6 (for PostgreSQL 18) to 2.4.8.
+
+  * `pgTAP` is upgraded from 1.3.0 to 1.3.4.
+
+  * `pgtt` is upgraded from 4.0 to 4.6.0 for PostgreSQL 12 and later.
+
+  * `PL/Proxy` is upgraded from 2.11.0 to 2.12.0.
+
+  * `PostGIS` is upgraded from 3.5.2 (for PostgreSQL 13 through 17) and 3.6.0 (for PostgreSQL 18) to 3.6.4 for PostgreSQL 13 and later.
+
+  * `roaringbitmap` (`pg_roaringbitmap`) is upgraded from 0.5 to 1.2 for PostgreSQL 12 and later.
+
+
+
+
+The new maintenance version is [`[PostgreSQL version].R20261013.02_04`](https://docs.cloud.google.com/sql/docs/postgres/maintenance-changelog). If you use a maintenance window, then the updates to the minor and extension versions happen according to the timeframe that you set in the window. Otherwise, the updates occur within the next few weeks.
+
+For more information about checking your maintenance version, see [Perform self-service maintenance](https://docs.cloud.google.com/sql/docs/postgres/self-service-maintenance). To find your maintenance window or to manage maintenance updates, see [Find and set maintenance windows](https://docs.cloud.google.com/sql/docs/postgres/set-maintenance-window). For more information about supported extensions, see [Configure PostgreSQL extensions](https://docs.cloud.google.com/sql/docs/postgres/extensions).
+
 **Gemini Enterprise**
 
 Feature
@@ -285,6 +736,14 @@ Feature
 
 In GKE version 1.37.0-gke.3570000 and later, you can split each Local SSD on a node between ephemeral storage and raw block storage. When you create a cluster or node pool, use the `capacity` property of the `--ephemeral-storage-local-ssd` flag to set how much Local SSD capacity GKE formats for ephemeral storage. GKE leaves the rest of each Local SSD unformatted, so that workloads like databases and caches can use it as raw block storage. This feature is available in GKE Standard clusters. For more information, see [Provision and use mixed Local SSDs for raw block and ephemeral storage](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/persistent-volumes/mixed-local-ssd).
 
+**Knowledge Catalog**
+
+Feature
+
+Governance workflows in Knowledge Catalog support batch metadata change requests. You can group up to 250 create, update, and delete operations for entries and entry links into a single change request and curate batch proposals generated by the enrichment agent before approval. This feature is [available in preview](https://cloud.google.com/products#product-launch-stages).
+
+For more information, see [About governance workflows](https://docs.cloud.google.com/knowledge-catalog/docs/about-governance-workflows).
+
 **Oracle Database@Google Cloud**
 
 Feature
@@ -298,6 +757,12 @@ This feature is [generally available (GA)](https://cloud.google.com/products#pro
 Change
 
 Sensitive Data Protection now records the [last generated timestamp](https://docs.cloud.google.com/sensitive-data-protection/docs/metrics-reference) for [data profiles](https://docs.cloud.google.com/sensitive-data-protection/docs/data-profiles) with improved precision, close to the time when the resource data is read.
+
+**Virtual Private Cloud**
+
+Feature
+
+**General Availability** : VPC Flow Logs supports logging for IPv6 encapsulation flows. For more information, see [IpConnection field format](https://docs.cloud.google.com/vpc/docs/about-flow-logs-records#IpConnection).
 
 ## November 02, 2026
 
@@ -921,7 +1386,75 @@ This addresses the following vulnerability:
 
 Feature
 
+**Note:** These fixes and updates are available starting with Backup and DR release 11.0.17.508. These fixes aren't rolled out to the 11.0.16 release. To receive these updates, upgrade the backup/recovery appliance to version 11.0.17.
+
+The following feature is available for the Backup and DR agent:
+
+  * Expanded Linux Changed Block Tracking (CBT) support across kernel updates for Red Hat Enterprise Linux (RHEL) 8, RHEL 9, and RHEL 10 distributions. For more information, see [Backup and DR supported operating systems and kernels](https://docs.cloud.google.com/backup-disaster-recovery/docs/reference/backupdr-supported-os-kernels).
+
+
+
+Security
+
+**Note:** These fixes and updates are available starting with Backup and DR release 11.0.17.508. These fixes aren't rolled out to the 11.0.16 release. To receive these updates, upgrade the backup/recovery appliance to version 11.0.17.
+
+The following security updates are available for the backup/recovery appliance:
+
+  * Addressed multiple input sanitization vulnerabilities, including SQL injection and OS command injection, across appliance backend services and management workflows.
+  * Strengthened TLS, certificate truststore, and SSH host key validation across appliance and cluster communications.
+  * Remediated authorization and validation vulnerabilities in policy option management and host lookup workflows.
+  * Addressed memory safety and access control vulnerabilities in appliance storage management services.
+
+
+
+The following security updates are available for the Backup and DR agent:
+
+  * Strengthened local device access controls for Linux Changed Block Tracking (CBT) components to prevent unprivileged local access.
+  * Improved temporary file creation, path verification, and file permission handling across Linux and Windows Backup and DR agents to mitigate symlink race conditions and local privilege escalation vulnerabilities.
+  * Hardened Oracle and IBM Db2 database integration scripts on protected hosts to improve credential and directory permission handling during recovery and migration workflows.
+  * Addressed memory handling vulnerabilities and refined system logging rules in Linux Backup and DR agent components.
+
+
+
+The following library updates are available for the backup/recovery appliance:
+
+  * Upgraded the Java runtime environment and third-party application libraries on the appliance to remediate reported security vulnerabilities.
+  * Updated base operating system and database packages across backup/recovery appliance and management server images to mitigate reported vulnerabilities.
+
+
+
+Feature
+
 You can now edit existing backup plans for Cloud SQL instances to update settings such as backup rules and maximum custom on-demand retention periods. To learn more, see [Back up Cloud SQL instances to a backup vault](https://docs.cloud.google.com/backup-disaster-recovery/docs/cloud-console/sql/csql-backup).
+
+Fixed
+
+**Note:** The following fixes and updates are available starting with Backup and DR release 11.0.17.507. These fixes aren't rolled out to the 11.0.16 release. To receive the following updates, upgrade your backup/recovery appliance to version 11.0.17.
+
+The following issues are resolved for the backup/recovery appliance:
+
+  * Application discovery and management API requests can time out when multiple discovery operations run concurrently.
+  * Hostnames containing special characters prevented active jobs from being accurately detected during Backup and DR agent upgrade pre-checks.
+  * Excessive informational log messages in appliance service logs when replication optimization was turned off.
+  * Appliance image packaging issue by including required system libraries for fresh appliance deployments.
+
+
+
+The following issue is resolved for the Backup and DR agent:
+
+  * Scheduling conflict where concurrent database log backups and full database backups, such as SAP Sybase IQ and SAP MaxDB backups, can interrupt an in-progress backup job.
+
+
+
+Deprecated
+
+**Note:** These fixes and updates are available starting with Backup and DR release 11.0.17.508. These fixes aren't rolled out to the 11.0.16 release. To receive these updates, upgrade the backup/recovery appliance to version 11.0.17.
+
+The following deprecation applies to the Backup and DR agent:
+
+  * Deprecated support for end-of-life and non-Extended Update Support (non-EUS) Red Hat Enterprise Linux (RHEL) and SUSE Linux Enterprise Server (SLES) releases. For more information, see [Backup and DR supported operating systems and kernels](https://docs.cloud.google.com/backup-disaster-recovery/docs/reference/backupdr-supported-os-kernels).
+
+
 
 **BigQuery**
 
@@ -2867,7 +3400,7 @@ Feature
 
 Feature
 
-Cloud Armor supports advanced match conditions to include attributes for inspecting request body content and parameters. This lets you write custom CEL rules to filter traffic based on raw body content, structured data (JSON, Form Data, GraphQL), and query parameters. For more information, see [Configure custom rules language attributes](https://docs.cloud.google.com/armor/docs/rules-language-reference). This feature is [generally available (GA)](https://cloud.google.com/products#product-launch-stages).
+Cloud Armor supports advanced match conditions to include attributes for inspecting request body content and parameters. This lets you write custom CEL rules to filter traffic based on raw body content, structured data (JSON, Form Data, GraphQL), and query parameters. For more information, see [Attributes](https://docs.cloud.google.com/armor/docs/create-security-policy-rules#attributes) in "Create and view Cloud Armor security policy rules." This feature is [generally available (GA)](https://cloud.google.com/products#product-launch-stages).
 
 **Google Cloud VMware Engine**
 
@@ -4304,6 +4837,16 @@ Announcement
 
 ## October 23, 2026
 
+**API Gateway**
+
+Deprecated
+
+**Negative backend deadlines are deprecated**
+
+A negative backend `deadline` in an OpenAPI 2.0 `x-google-backend` extension or a gRPC `BackendRule` uses the default deadline, the same as `0`. Negative values there are deprecated and will be rejected in a future release; until then, creating an API config with one returns a warning in the operation metadata. OpenAPI 3.x backends already reject a negative deadline. To use the default, omit the field or set it to `0`.
+
+For more information, see [OpenAPI 2.0 extensions](https://docs.cloud.google.com/api-gateway/docs/oasv2-extensions#deadline) and [OpenAPI 3.x extensions](https://docs.cloud.google.com/api-gateway/docs/oasv3-extensions#backends_object).
+
 **Cloud Database Migration Service**
 
 Security
@@ -4964,9 +5507,11 @@ Feature
 In the enhanced Investigation Management experience, you can select up to 50 cases at a time in the case queue to perform bulk operations:
 
   * **Range selection:** Hold `Shift` while clicking to select a range of cases.
-  * **Select all:** Click the header checkbox to select up to 50 loaded cases; this action automatically scrolls your view back to the top of the list.
+  * **Select all:** Click the header checkbox to select up to 50 loaded cases; this action automatically scrolls your view back to the top of the list. **Consolidated Settings and Navigation**
 
 
+
+The **Consolidated Settings and Navigation** feature is now in public preview. It replaces the separate SIEM Settings and SOAR Settings menus with a single Settings menu, grouped into Administration, Access Management, Investigation, Detection and Data Management, and updates the navigation menu. Each settings page is shown only to users with the correct permissions. Cloud IAM, Viewer and Editor users can now view certain SOAR settings pages in read-only mode. Note that the Google SecOps documentation has been updated to reflect the new navigational changes imposed by the unified Settings menu. For more information, see [Navigate the Google SecOps platform](https://docs.cloud.google.com/chronicle/docs/secops/navigate-the-secops-platform).
 
 **Looker**
 
@@ -6489,50 +7034,6 @@ Feature
 For more information, see [Locations](https://docs.cloud.google.com/bigquery/docs/conversational-analytics#locations).
 
 **Cloud SQL for PostgreSQL**
-
-Change
-
-The rollout of the following Cloud SQL for PostgreSQL minor version and extension upgrades is complete:
-
-**Minor versions**
-
-  * 14.23 is upgraded to 14.24.
-
-  * 15.18 is upgraded to 15.19.
-
-  * 16.14 is upgraded to 16.15.
-
-  * 17.10 is upgraded to 17.11.
-
-  * 18.4 is upgraded to 18.6. This version includes a backported fix for [PostgreSQL bug #19616](https://git.postgresql.org/gitweb/?p=postgresql.git;h=caa463e3f8d2b9c1441e6a59c50f90b8598439f3) that prevents logical decoding from emitting `STREAM_ABORT` messages for unstreamed transactions when an aborted transaction with a subtransaction is truncated during memory eviction.
-
-
-
-
-**Extensions**
-
-  * `hll` (`postgresql-hll`) is upgraded from 2.18 to 2.20.
-
-  * `pg_qualstats` is upgraded from 2.1.2 to 2.1.4.
-
-  * `pglogical` is upgraded from 2.4.5 (for PostgreSQL 17 and earlier) and 2.4.6 (for PostgreSQL 18) to 2.4.8.
-
-  * `pgTAP` is upgraded from 1.3.0 to 1.3.4.
-
-  * `pgtt` is upgraded from 4.0 to 4.6.0 for PostgreSQL 12 and later.
-
-  * `PL/Proxy` is upgraded from 2.11.0 to 2.12.0.
-
-  * `PostGIS` is upgraded from 3.5.2 (for PostgreSQL 13 through 17) and 3.6.0 (for PostgreSQL 18) to 3.6.4 for PostgreSQL 13 and later.
-
-  * `roaringbitmap` (`pg_roaringbitmap`) is upgraded from 0.5 to 1.2 for PostgreSQL 12 and later.
-
-
-
-
-The new maintenance version is [`[PostgreSQL version].R20261013.02_04`](https://docs.cloud.google.com/sql/docs/postgres/maintenance-changelog). If you use a maintenance window, then the updates to the minor and extension versions happen according to the timeframe that you set in the window. Otherwise, the updates occur within the next few weeks.
-
-For more information about checking your maintenance version, see [Perform self-service maintenance](https://docs.cloud.google.com/sql/docs/postgres/self-service-maintenance). To find your maintenance window or to manage maintenance updates, see [Find and set maintenance windows](https://docs.cloud.google.com/sql/docs/postgres/set-maintenance-window). For more information about supported extensions, see [Configure PostgreSQL extensions](https://docs.cloud.google.com/sql/docs/postgres/extensions).
 
 Change
 
@@ -9858,16 +10359,6 @@ Remediation suggestions analyze access denial events and generate actionable, na
 For more information, see [Resolve access denials with remediation suggestions](https://docs.cloud.google.com/vpc-service-controls/docs/remediation-suggestions).
 
 ## October 07, 2026
-
-**API Gateway**
-
-Deprecated
-
-**Negative backend deadlines are deprecated**
-
-A negative backend `deadline` in an OpenAPI 2.0 `x-google-backend` extension or a gRPC `BackendRule` uses the default deadline, the same as `0`. Negative values there are deprecated and will be rejected in a future release; until then, creating an API config with one returns a warning in the operation metadata. OpenAPI 3.x backends already reject a negative deadline. To use the default, omit the field or set it to `0`.
-
-For more information, see [OpenAPI 2.0 extensions](https://docs.cloud.google.com/api-gateway/docs/oasv2-extensions#deadline) and [OpenAPI 3.x extensions](https://docs.cloud.google.com/api-gateway/docs/oasv3-extensions).
 
 **Anti Money Laundering AI**
 
@@ -19918,14 +20409,6 @@ Feature
 This feature is in preview. Google SecOps now supports case playbooks. You can run playbooks or execute manual actions across an entire case container rather than individual alerts, consolidating response tasks and reducing redundant operations during investigations.
 
 For more information, see [Case playbooks overview](https://docs.cloud.google.com/chronicle/docs/soar/respond/working-with-playbooks/case-playbooks).
-
-## September 05, 2026
-
-**Google SecOps SOAR**
-
-Announcement
-
-[Release 6.3.99](https://docs.cloud.google.com/chronicle/docs/soar/release-notes#August_30_2026) is now available for all regions.
 
 Send feedback 
 

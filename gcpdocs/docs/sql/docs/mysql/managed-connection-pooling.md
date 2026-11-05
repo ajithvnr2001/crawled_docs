@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sql/docs/mysql/managed-connection-pooling/
 title: Managed Connection Pooling overview \u00a0|\u00a0 Cloud SQL for MySQL \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T08:56:49.861003+00:00
+fetched_at: 2026-11-05T00:20:15.004296+00:00
 ---
 
 # Managed Connection Pooling overview  |  Cloud SQL for MySQL  |  Google Cloud Documentation
@@ -52,6 +52,17 @@ When using Managed Connection Pooling with your Cloud SQL Enterprise Plus editio
 
 
 
+## Thread pooling versus connection multiplexing
+
+In Cloud SQL for MySQL, Managed Connection Pooling uses a server-side thread pool rather than an external connection multiplexer:
+
+  * **Thread pooling (Managed Connection Pooling):** clients connect directly to the database server, which reuses a bounded pool of worker threads (`max_pool_size`) to execute queries across active sessions instead of creating a dedicated thread per connection. This reduces CPU and memory overhead during high concurrency, but each open client connection still maintains a dedicated server session and counts toward the [`max_connections`](https://docs.cloud.google.com/sql/docs/quotas#maximum_concurrent_connections) limit.
+  * **Connection multiplexing (such as[ProxySQL](https://proxysql.com/)):** clients connect through an intermediary proxy that shares a smaller pool of backend database connections across many client connections. This directly reduces the total number of open server-side connections.
+
+
+
+If your workload requires reducing the number of server-side connections to avoid reaching the `max_connections` limit, then use an external connection pooler such as [ProxySQL](https://proxysql.com/). Alternatively, you can increase the [`max_connections`](https://docs.cloud.google.com/sql/docs/mysql/flags#config) flag based on your instance's memory capacity.
+
 ## What's next
 
   * [Create an instance](https://docs.cloud.google.com/sql/docs/mysql/create-instance)
@@ -63,6 +74,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-03 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 

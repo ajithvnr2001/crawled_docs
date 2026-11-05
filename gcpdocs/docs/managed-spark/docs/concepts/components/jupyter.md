@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/managed-spark/docs/concepts/components/jupyter/
 title: Managed Service for Apache Spark optional Jupyter component \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T21:57:29.663247+00:00
+fetched_at: 2026-11-05T00:20:19.911499+00:00
 ---
 
 # Managed Service for Apache Spark optional Jupyter component  |  Google Cloud Documentation
@@ -23,11 +23,13 @@ Send feedback
 
 #  Managed Service for Apache Spark optional Jupyter component Stay organized with collections  Save and categorize content based on your preferences. 
 
-You can install additional components like Jupyter when you create a Managed Service for Apache Spark cluster using the [Optional components](https://docs.cloud.google.com/managed-spark/docs/concepts/components/overview#available_optional_components) feature. This page describes the Jupyter component.
+The Jupyter [optional component](https://docs.cloud.google.com/managed-spark/docs/concepts/components/overview#available_optional_components) lets you run interactive data analytics notebooks on a Managed Service for Apache Spark cluster. The component provides a web-based, single-user [Jupyter](http://jupyter.org/) notebook environment that supports the [JupyterLab](https://jupyterlab.readthedocs.io/en/stable/index.html) web UI.
 
-The [Jupyter](http://jupyter.org/) component is a Web-based **single-user** notebook for interactive data analytics and supports the [JupyterLab](https://jupyterlab.readthedocs.io/en/stable/index.html) Web UI. The Jupyter Web UI is available on port `8123` on the cluster's first master node.
+## Multi-user notebook alternatives
 
-**Launch notebooks for multiple users.** You can create a Managed Service for Apache Spark-enabled [Vertex AI Workbench instance](https://docs.cloud.google.com/vertex-ai/docs/workbench/instances/create-dataproc-enabled) or [install the Managed Service for Apache Spark JupyterLab plugin](https://docs.cloud.google.com/managed-spark/docs/quickstarts/jupyterlab-sessions) on a VM to serve notebooks to multiple users.
+To serve notebooks to multiple users, create a Managed Service for Apache Spark-enabled [Vertex AI Workbench instance](https://docs.cloud.google.com/vertex-ai/docs/workbench/instances/create-dataproc-enabled). Alternatively, [install the Managed Service for Apache Spark JupyterLab plugin](https://docs.cloud.google.com/managed-spark/docs/quickstarts/jupyterlab-sessions) on a VM.
+
+## Configuration
 
 **Configure Jupyter.** Jupyter can be configured by providing `dataproc:jupyter` [cluster properties](https://docs.cloud.google.com/managed-spark/docs/concepts/configuring-clusters/cluster-properties#service_properties). To reduce the risk of remote code execution over unsecured notebook server APIs, the default `dataproc:jupyter.listen.all.interfaces` cluster property setting is `false`, which restricts connections to `localhost (127.0.0.1)` when the [Component Gateway](https://docs.cloud.google.com/managed-spark/docs/concepts/accessing/gateways) is enabled (Component Gateway activation is required when installing the Jupyter component).
 
@@ -102,6 +104,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-03 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 

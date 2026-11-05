@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/kubernetes-engine/docs/concepts/about-ip-addressing/
 title: Understand IP addressing in GKE \u00a0|\u00a0 GKE networking \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T20:03:37.277190+00:00
+fetched_at: 2026-11-04T23:31:26.646185+00:00
 ---
 
 # Understand IP addressing in GKE  |  GKE networking  |  Google Cloud Documentation
@@ -43,7 +43,7 @@ GKE builds upon the Kubernetes networking model, which requires that each compon
 
   * **Pods** : following the Kubernetes "IP-per-Pod" model, GKE assigns each Pod a unique IP address from a Pod CIDR range allocated to the node. In GKE, the VPC network natively routes Pod IP addresses. This built-in routability enables direct communication between Pods—even across different nodes—without requiring Network Address Translation (NAT). All containers within a single Pod share the same IP address and can communicate over `localhost`.
 
-  * **Services** : GKE assigns each Kubernetes Service a stable, virtual IP address (the `ClusterIP`) from a dedicated secondary IP address range. This `ClusterIP` provides a single, reliable endpoint for a group of Pods. When you send traffic to the `ClusterIP`, GKE automatically load balances it to a healthy Pod within that Service.
+  * **Services (`ClusterIP`)**: GKE assigns each `ClusterIP`, `NodePort`, and `LoadBalancer` Service a stable, internal virtual IP address (the `ClusterIP`). For IPv4 Services, GKE allocates this address from a dedicated secondary IP address range (or from the `34.118.224.0/20` range). For IPv6 Services (in dual-stack and single-stack IPv6 clusters), GKE doesn't use a secondary IP address range; instead, GKE assigns addresses from the Google-owned private `2600:2D00:0:4::0:0/64` IPv6 address range. This `ClusterIP` provides a single, reliable internal endpoint for a group of Pods. When you send traffic to the `ClusterIP`, GKE automatically load balances it to a healthy Pod within that Service.
 
   * **Control plane** : in private clusters, the control plane resides within a Google-managed tenant project and uses its own internal IP address range. This tenant project connects to your VPC network, enabling secure communication between the control plane and the nodes in your cluster's VPC network. This connection typically uses Private Service Connect.
 
@@ -58,7 +58,7 @@ Component | How IP addresses are assigned
 ---|---  
 **Node** | GKE assigns an internal IP address to each node. GKE allocates this IP address from the primary IP address range of the subnet associated with the node's node pool. This subnet can be either the cluster's default subnet or an additional subnet.  
 **Pod** | GKE assigns each Pod a unique IP address from the Pod CIDR range allocated to its node.  
-**Service (ClusterIP)** | GKE assigns each Service a stable virtual IP address (`ClusterIP`) from a dedicated secondary IP address range within the cluster's VPC network.  
+**Service (ClusterIP)** | GKE assigns each Service a stable virtual IP address (`ClusterIP`). For IPv4 Services, GKE allocates this address from a dedicated secondary IP address range within the cluster's VPC network (or from `34.118.224.0/20`). For IPv6 Services, GKE doesn't use a secondary IP address range. Instead, GKE assigns addresses from the `2600:2D00:0:4::0:0/64` range.  
 **Control plane** | In private clusters, the GKE control plane has its own internal IP address range within a Google-managed tenant project. This tenant project connects to your VPC network, typically by using Private Service Connect.  
 **Load balancer** | External load balancers use public IP addresses. Internal load balancers use internal IP addresses from the primary IP address range of the cluster's subnet.  
   
@@ -68,7 +68,7 @@ To effectively use GKE, you must understand the differences between the abstract
 
   * **Kubernetes IP addressing model** : the open-source Kubernetes project specifies that each Pod receives a unique IP address. All Pod IP addresses can communicate directly without Network Address Translation (NAT). This approach helps ensure a flat network space where Pods can reach each other by using their assigned IP addresses.
 
-  * **GKE IP addressing implementation** : GKE implements the Kubernetes IP addressing model on Google Cloud by integrating with VPC-native networking. When you create a Pod, GKE allocates its IP address from a **VPC alias IP address range**. This makes each Pod's IP address natively routable within your entire VPC network. This enables direct communication not only between Pods but also with other Google Cloud resources, such as Compute Engine instances and Cloud SQL databases. Similarly, GKE manages Kubernetes `Service` IP addresses (such as `ClusterIP`s) within the VPC network. When you create `LoadBalancer` Services for external exposure, GKE provisions Google Cloud Load Balancers. These load balancers use public or internal IP addresses from your VPC network. GKE uses Google Cloud's robust IP addressing and networking infrastructure to implement Kubernetes IP-based networking concepts in a scalable and secure manner.
+  * **GKE IP addressing implementation** : GKE implements the Kubernetes IP addressing model on Google Cloud by integrating with VPC-native networking. In IPv4 and dual-stack clusters, when you create a Pod, GKE allocates its IP address from a **VPC alias IP address range**. In single-stack IPv6 clusters, GKE doesn't use alias IP address ranges. Instead, GKE allocates Pod IP addresses directly from a subrange on the node. This makes each Pod's IP address natively routable within your entire VPC network. This enables direct communication not only between Pods but also with other Google Cloud resources, such as Compute Engine instances and Cloud SQL databases. Similarly, GKE manages Kubernetes `Service` IP addresses (such as `ClusterIP`s) within the VPC network. When you create `LoadBalancer` Services for external exposure, GKE provisions Google Cloud Load Balancers. These load balancers use public or internal IP addresses from your VPC network. GKE uses Google Cloud's robust IP addressing and networking infrastructure to implement Kubernetes IP-based networking concepts in a scalable and secure manner.
 
 
 
@@ -77,7 +77,7 @@ To effectively use GKE, you must understand the differences between the abstract
 
 GKE implements the Kubernetes networking model by using VPC-native networking, which is a core Google Cloud capability.
 
-This model uses alias IP address ranges. In a [VPC-native cluster](https://docs.cloud.google.com/kubernetes-engine/docs/concepts/alias-ips), Kubernetes configures Pod IP addresses as alias IP address ranges on the node's virtual network interface.
+In IPv4 and dual-stack clusters, this model uses alias IP address ranges: in a [VPC-native cluster](https://docs.cloud.google.com/kubernetes-engine/docs/concepts/alias-ips), Kubernetes configures Pod IP addresses as alias IP address ranges on the node's virtual network interface. Single-stack IPv6 clusters allocate node and Pod IP address ranges directly from the subnetwork CIDR block without using alias IP address ranges.
 
 This implementation offers several key advantages:
 
@@ -101,7 +101,7 @@ To ensure your cluster can scale and maintain application health, you must plan 
 
 ### Choose an IP addressing model for your cluster
 
-GKE supports several network stack configurations to meet your networking requirements, including IPv4-only, dual-stack (IPv4 and IPv6), and upcoming IPv6-only options.
+GKE supports several network stack configurations to meet your networking requirements, including IPv4-only, dual-stack (IPv4 and IPv6 addresses), and single-stack IPv6 options.
 
 #### IPv4-only (single stack)
 
@@ -114,19 +114,26 @@ This is the standard and most common configuration, where all cluster components
 
 #### Dual stack (IPv4 and IPv6)
 
-A dual-stack cluster uses both IPv4 and IPv6 protocols. GKE assigns both an IPv4 and an IPv6 address to nodes, Pods, and Services in a dual-stack cluster. This model is ideal for:
+A dual-stack cluster uses both IPv4 and IPv6 protocols. GKE assigns both an IPv4 address and an IPv6 address to nodes, Pods, and Services in a dual-stack cluster. This model is ideal for:
 
-  * Facilitating a gradual transition to IPv6.
+  * Facilitating a gradual transition to IPv6 addresses.
   * Ensuring compatibility with both IPv6-ready workloads and existing IPv4-only clients and services.
 
 
 
-You can enable dual-stack networking when you create a cluster, or you can update an existing single-stack cluster to dual-stack.
+You can enable dual-stack networking when you create a cluster, or you can update an existing IPv4 single-stack cluster to dual-stack.
+
+#### Single-stack IPv6 (Preview)
+
+A single-stack IPv6 cluster assigns only IPv6 addresses across the entire cluster data plane (Pods, nodes, and Services). This model bypasses private IPv4 address depletion bottlenecks (RFC 1918) while maintaining secure internal or external ingress and egress connectivity. Unlike IPv4 and dual-stack clusters that use alias IP address ranges, single-stack IPv6 clusters allocate a `/96` subrange of IPv6 addresses per node directly from your subnetwork (`/64`), and assign a `/112` address range to Pods on each node. Services (`ClusterIP`) receive addresses from a Google-owned private IPv6 address range (`2600:2D00:0:4::0:0/64`). Single-stack IPv6 clusters also support BYOIP IPv6 address ranges configured by using the BYOIPv6 EAP process.
+
+To learn more about single-stack IPv6 address allocation and behavior, see [Create and manage single-stack IPv6 clusters](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/single-stack-ipv6).
 
 ### What's next
 
   * To learn more about the benefits of GKE's default networking mode, see [About VPC-native clusters](https://docs.cloud.google.com/kubernetes-engine/docs/concepts/alias-ips).
   * To get started, learn how to [create a VPC-native cluster](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/alias-ips).
+  * To create an IPv6-only cluster, see [Create and manage single-stack IPv6 clusters](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/single-stack-ipv6).
   * For guidance on sizing your cluster's IP address ranges, see [IP address range planning for VPC-native clusters](https://docs.cloud.google.com/kubernetes-engine/docs/concepts/alias-ips#ip-range-planning).
   * For help with common issues, see [troubleshoot the IP Masquerade Agent](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/ip-masquerade-agent#troubleshooting).
 
@@ -136,6 +143,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-04 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 

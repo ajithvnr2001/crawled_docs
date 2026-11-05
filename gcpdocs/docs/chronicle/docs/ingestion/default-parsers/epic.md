@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/epic/
 title: Collect Epic Systems logs \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T07:49:59.111744+00:00
+fetched_at: 2026-11-04T23:34:18.185907+00:00
 ---
 
 # Collect Epic Systems logs  |  Google Security Operations  |  Google Cloud Documentation

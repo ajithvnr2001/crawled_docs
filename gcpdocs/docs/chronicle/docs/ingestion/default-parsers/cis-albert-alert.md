@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/cis-albert-alert/
 title: Collect CIS Albert alert logs \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T07:50:07.310620+00:00
+fetched_at: 2026-11-04T23:43:53.560484+00:00
 ---
 
 # Collect CIS Albert alert logs  |  Google Security Operations  |  Google Cloud Documentation

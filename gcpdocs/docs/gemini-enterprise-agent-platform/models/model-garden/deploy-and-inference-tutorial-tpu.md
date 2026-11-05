@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/model-garden/deploy-and-inference-tutorial-tpu/
 title: Deploy and inference Gemma using Model Garden and Gemini Enterprise Agent Platform TPU-backed endpoints \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T08:00:48.285824+00:00
+fetched_at: 2026-11-04T23:45:51.551990+00:00
 ---
 
 # Deploy and inference Gemma using Model Garden and Gemini Enterprise Agent Platform TPU-backed endpoints  |  Google Cloud Documentation

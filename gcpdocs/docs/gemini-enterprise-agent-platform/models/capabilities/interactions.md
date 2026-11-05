@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/interactions/
 title: Interactions API overview \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-03T09:52:11.809868+00:00
+fetched_at: 2026-11-04T23:13:57.792489+00:00
 ---
 
 # Interactions API overview  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation
@@ -21,11 +21,7 @@ Send feedback
 
 #  Interactions API overview Stay organized with collections  Save and categorize content based on your preferences. 
 
-**Preview**
-
-This feature is subject to the "Pre-GA Offerings Terms" in the General Service Terms section of the [Service Specific Terms](https://docs.cloud.google.com/terms/service-terms#1), and the [Additional Terms for Generative AI Preview Products](https://cloud.google.com/trustedtester/aitos). You can process personal data for this feature as outlined in the [Cloud Data Processing Addendum](https://docs.cloud.google.com/terms/data-processing-addendum), subject to the obligations and restrictions described in the agreement under which you access Google Cloud. Pre-GA features are available "as is" and might have limited support. For more information, see the [launch stage descriptions](https://cloud.google.com/products/#product-launch-stages). 
-
-The Interactions API provides a unified, stateful interface for building generative AI applications and agentic workflows using Gemini models and agents hosted on Gemini Enterprise Agent Platform. While there is feature overlap with the existing `generateContent` API, the `generateContent` API remains fully supported.
+The Interactions API provides a unified, stateful interface for building generative AI applications and agentic workflows using Gemini models and agents hosted on Gemini Enterprise Agent Platform. The `generateContent` API remains fully supported alongside the Interactions API.
 
 ## Why use the Interactions API?
 
@@ -33,7 +29,6 @@ The Interactions API provides several key advantages for building generative AI 
 
   * **Single API for models and agents** : One unified endpoint and pattern for calling standard Gemini models as well as specialized agents directly (such as Gemini Deep Research Agent and custom managed agents).
   * **New capabilities out of the box** : Features like optional server-side conversation state using `previous_interaction_id`, observable execution steps for debugging and UI rendering, and background execution for long-running tasks using `background=true`.
-  * **Where new features launch** : Going forward, all new models, multimodal capabilities, tools, and agentic features will be supported on the Interactions API.
 
 
 
@@ -56,8 +51,18 @@ The following Gemini models support the Interactions API:
 
 #### Click to expand supported models
 
+  * [Gemini Omni Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/omni-flash-preview) preview
+  * [Gemini Omni 1.1 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/omni-1-1-flash) preview
   * [Gemini 4 Argon Cyber Permissive](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/4-argon#cyber)
   * [Gemini 4 Argon](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/4-argon)
+  * [Gemini 3.8 Flash Cyber](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-8-flash-cyber)
+  * [Gemini 3.8 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-8-flash)
+  * [Gemini 3.7 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-7-flash)
+  * [Gemini 3.6 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-6-flash)
+  * [Gemini 3.5 Flash-Lite](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-5-flash-lite)
+  * [Gemini 3.5 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-5-flash)
+  * [Gemini 3.1 Pro](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-1-pro) preview
+  * [Gemini 3.1 Flash-Lite](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-1-flash-lite)
 
 
 
@@ -84,7 +89,17 @@ The following sections describe the core capabilities, technical specifications,
 
 ### State management
 
-By default, the Interactions API stores requests so you can leverage the server-side state management features by using `previous_interaction_id`. You can opt into stateless behavior by setting `store=false`.
+By default, the Interactions API stores interactions on the server (`store=true`) for 7 days so you can chain multi-turn conversations with `previous_interaction_id` and run asynchronous background tasks (`background=true`). To opt into stateless execution and support [Zero Data Retention (ZDR)](https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/zero-data-retention#customer-data-retention) workflows, set `store=false`. For details, see [Manage session storage and conversation state](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/interactions/developer-guide#stateful-conversations).
+
+### Request and multimodal limits
+
+The Interactions API enforces the following request payload and multimodal input limits:
+
+  * **Request payload limits** : The compressed HTTP request payload can't exceed 256 MiB for synchronous and streaming `interactions.create` requests. When `service_tier` is set to `deferred` (which requires both `background` and `store` to be `true`), the uncompressed request can't exceed 9.75 MiB.
+  * **URI limit for Cloud Storage files** : Standard Gemini model interaction requests support up to 100 distinct Cloud Storage (`gs://`) URIs per request, including URIs carried forward from earlier conversation turns through `previous_interaction_id`. Managed agent interactions, Gemini Omni models, and Lyria 3 models are excluded from this 100-URI limit. For permissions and multi-turn URI handling, see [Access uploaded Cloud Storage files](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/interactions/developer-guide#access-storage-files).
+  * **Multimodal item and token limits** : Standard Gemini models accept the same per-modality item counts as `generateContent` (up to 3,000 images and PDFs combined, 1,000 audio files, 10 videos, and up to 6,500 combined multimodal files when including plain-text files), bounded by the model's 1,048,576-token context window. Individual Cloud Storage files can't exceed 2 GiB minus 500 KiB, and public HTTP or HTTPS URLs can't exceed 15 MiB. To send more than 100 files in a single request, pass additional attachments inline within the request payload limit or call [`generateContent`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/models/inference).
+
+
 
 ### Supported tools and grounding
 
@@ -92,9 +107,11 @@ The following built-in tools, grounding providers, and search capabilities are s
 
   * **[Grounding with Google Search](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/grounding/grounding-with-google-search) and [Web Grounding for Enterprise](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/grounding/web-grounding-enterprise)**: Grounds model responses with real-time web information from Google Search or Web Grounding for Enterprise.
   * **Agent Search and RAG Engine on Gemini Enterprise Agent Platform** : Grounds model responses against private enterprise datastores and document repositories using Agent Search and RAG Engine.
-  * **xAI Search** : Connects models to real-time social search and knowledge grounding.
-  * **Parallel Search** : Grounds model responses with real-time public web data provided by Parallel Web Systems' search API.
+  * **Exa Web Search** : Grounds model responses with web search results from Exa's search API.
+  * **Parallel Web Search** : Grounds model responses with real-time public web data provided by Parallel Web Systems' search API.
+  * **[URL context](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/url-context)** : Retrieves and analyzes content from public web URLs included in your prompt.
   * **[Code execution](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tools/code-execution)** : Lets the model generate and execute Python code in a secure, sandboxed environment.
+  * **[Computer use](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/computer-use)** : Enables browser and user-interface automation workflows.
   * **[Function calling](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tools/function-calling)** : Enables models to connect to external tools, APIs, and databases by returning structured function arguments.
 
 
@@ -114,13 +131,14 @@ Billing for interrupted or unfulfilled requests is handled as follows:
 
 ### Security and compliance
 
-During Preview, the Interactions API has the following security, compliance, and data residency considerations:
+The Interactions API supports the following [security controls](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/security-controls), compliance certifications, and endpoint configurations:
 
-  * **Security & compliance certifications**: The Interactions API preview doesn't support FedRAMP, and isn't compliant with Department of Defense (DoD) Impact Level 5 (IL5) or International Traffic in Arms Regulations (ITAR) requirements.
-  * **Customer-managed encryption keys (CMEK)** : The Interactions API supports [CMEK for stored interaction data](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/interactions/developer-guide#cmek) through [serving profiles](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/cmek#serving-profiles) (with `scope` set to `INTERACTIONS_API`) in the `us` and `eu` multi-regions.
-  * **VPC Service Controls** : The Interactions API preview supports VPC-SC to secure your API perimeter.
-  * **Data residency** : The Interactions API preview doesn't support Data residency and doesn't make any commitments for session storage.
-  * **Endpoints** : The Interactions API preview supports the global endpoint (`locations/global`), and supports the `us` and `eu` multi-region endpoints (`locations/us` and `locations/eu`) when using CMEK.
+  * **Endpoints** : The Interactions API supports the global endpoint (`locations/global` on `aiplatform.googleapis.com`) and the `us` and `eu` multi-region endpoints (`locations/us` on `aiplatform.us.rep.googleapis.com` and `locations/eu` on `aiplatform.eu.rep.googleapis.com`). Single-region endpoints (such as `us-central1` or `europe-west1`) aren't supported.
+  * **[Data residency](https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/data-residency)** : The Interactions API supports data residency for both ML processing (in-use) and stored interaction data at rest (`store=true`) when you use the `us` and `eu` multi-region endpoints (`locations/us` and `locations/eu`). Requests sent to the `global` endpoint don't provide data residency guarantees.
+  * **Customer-managed encryption keys (CMEK)** : The Interactions API supports [CMEK for stored interaction data](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/interactions/developer-guide#cmek) through [serving profiles](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/cmek#serving-profiles) (with `scope` set to `INTERACTIONS_API`) in the `us` and `eu` multi-regions. The `global` endpoint isn't supported for CMEK.
+  * **[VPC Service Controls (VPC-SC)](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/vpc-service-controls)** : The Interactions API supports VPC-SC to help secure your API perimeter and mitigate data exfiltration risks.
+  * **[Access Transparency (AXT)](https://docs.cloud.google.com/assured-workloads/access-transparency/docs/overview)** : The Interactions API supports AXT logs for near-real-time visibility when Google personnel access stored interaction content.
+  * **Security and compliance certifications** : The Interactions API meets [FedRAMP High](https://cloud.google.com/security/compliance/fedramp) requirements within the Google Cloud FedRAMP High authorization boundary. The Interactions API isn't compliant with Department of Defense (DoD) Impact Level 5 (IL5) or International Traffic in Arms Regulations (ITAR) requirements.
 
 
 
@@ -150,6 +168,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-02 UTC.
+Last updated 2026-11-04 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-02 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 

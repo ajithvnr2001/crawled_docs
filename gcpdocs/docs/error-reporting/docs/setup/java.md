@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/error-reporting/docs/setup/java/
 title: Instrument Java apps for Error Reporting \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T08:00:40.338626+00:00
+fetched_at: 2026-11-05T00:04:49.203889+00:00
 ---
 
 # Instrument Java apps for Error Reporting  |  Google Cloud Documentation
@@ -104,7 +104,7 @@ If you are using [Gradle](https://gradle.org/), add the following to your depend
 
 If you are using [sbt](https://www.scala-sbt.org/), add the following to your dependencies:
     
-    libraryDependencies += "com.google.cloud" % "google-cloud-errorreporting" % "0.221.0-beta"
+    libraryDependencies += "com.google.cloud" % "google-cloud-errorreporting" % "0.222.0-beta"
 
 If you're using Visual Studio Code or IntelliJ, you can add client libraries to your project using the following IDE plugins:
 

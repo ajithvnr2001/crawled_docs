@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/cisco-acs/
 title: Collect Cisco Secure ACS logs \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T07:51:24.571653+00:00
+fetched_at: 2026-11-04T23:42:49.778497+00:00
 ---
 
 # Collect Cisco Secure ACS logs  |  Google Security Operations  |  Google Cloud Documentation

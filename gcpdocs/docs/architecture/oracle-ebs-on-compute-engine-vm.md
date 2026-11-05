@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/architecture/oracle-ebs-on-compute-engine-vm/
 title: Oracle E-Business Suite with Oracle Database on Compute Engine \u00a0|\u00a0 Cloud Architecture Center \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T05:57:53.438068+00:00
+fetched_at: 2026-11-04T23:29:28.288073+00:00
 ---
 
 # Oracle E-Business Suite with Oracle Database on Compute Engine  |  Cloud Architecture Center  |  Google Cloud Documentation
@@ -145,7 +145,7 @@ These reference architectures use the following Google Cloud products:
   * [ Google Cloud Armor](https://cloud.google.com/security/products/armor): A network security service that offers web application firewall (WAF) rules and helps to protect against DDoS and application attacks. 
   * [ Virtual Private Cloud (VPC)](https://cloud.google.com/vpc): A virtual system that provides global, scalable networking functionality for your Google Cloud workloads. VPC includes VPC Network Peering, Private Service Connect, private services access, and Shared VPC.
   * [ Cloud NAT](https://cloud.google.com/nat): A service that provides Google Cloud-managed high-performance network address translation. 
-  * [ Cloud Interconnect](https://cloud.google.com/network-connectivity/docs/interconnect/concepts/overview): A service that extends your external network to the Google network through a high-availability, low-latency connection.
+  * [ Cloud Interconnect](https://docs.cloud.google.com/network-connectivity/docs/interconnect/concepts/overview): A service that extends your external network to the Google network through a high-availability, low-latency connection.
   * [ Cloud VPN](https://docs.cloud.google.com/network-connectivity/docs/vpn): A service that securely extends your peer network to Google's network through an IPsec VPN tunnel.
 
 

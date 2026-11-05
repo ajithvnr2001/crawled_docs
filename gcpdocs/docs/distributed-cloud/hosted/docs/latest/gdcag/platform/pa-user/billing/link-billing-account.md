@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/platform/pa-user/billing/link-billing-account/
 title: Link billing account to project \u00a0|\u00a0 Google Distributed Cloud air-gapped \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T05:49:04.021572+00:00
+fetched_at: 2026-11-04T23:27:40.738811+00:00
 ---
 
 # Link billing account to project  |  Google Distributed Cloud air-gapped  |  Google Cloud Documentation
@@ -26,16 +26,16 @@ This document provides instructions for linking a billing account to a project i
 
 ## Before you begin
 
-Ask your Organization Identity and Access Management (IAM) Admin to grant you the following required roles:
+Ask your IAM Org Admin to grant you the following required roles:
 
-  * **Global Organization Billing Account Admin** : create, manage, and bind the `BillingAccount` resource in the `platform` namespace. Ask your Organization IAM administrator to grant you the `organization-billing-account-admin` role in the `platform` namespace.
+  * **Billing Account Org Admin** : create, manage, and bind the `BillingAccount` resource in the `platform` namespace. Ask your IAM Org Admin to grant you the `organization-billing-account-admin` role in the `platform` namespace.
 
-  * **Global Organization Billing Account User** : read, list, and bind the `BillingAccount` resource in the `platform` namespace. Ask your Organization IAM administrator to grant you the `organization-billing-account-user` role in the `platform` namespace.
+  * **Billing Account Org User** : read, list, and bind the `BillingAccount` resource in the `platform` namespace. Ask your IAM Org Admin to grant you the `organization-billing-account-user` role in the `platform` namespace.
 
-  * **Global Organization Billing Account Manager** : read, list, create, and update the `BillingAccountBinding` resource across namespaces (such as the `platform` namespace for organization-level billing or a project namespace for project-level billing). Ask your Organization IAM administrator to grant you the `organization-billing-manager` role.
+  * **Billing Org Manager** : read, list, create, and update the `BillingAccountBinding` resource across namespaces (such as the `platform` namespace for organization-level billing or a project namespace for project-level billing). Ask your IAM Org Admin to grant you the `organization-billing-manager` role.
 
 
-**Note:** Billing for all projects is managed by the same IAM role. To separate billing administration for different projects, one dedicated role is required for each project. Contact your Organization IAM Admin to create additional roles for individual project administration requirements.
+**Note:** Billing for all projects is managed by the same IAM role. To separate billing administration for different projects, one dedicated role is required for each project. Contact your IAM Org Admin to create additional roles for individual project administration requirements.
 
 ### Get the kubeconfig file
 
@@ -59,6 +59,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-28 UTC.
+Last updated 2026-11-04 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 

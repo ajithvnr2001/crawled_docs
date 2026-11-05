@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/workday-user-activity/
 title: Collect Workday User Activity logs \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T07:50:28.221640+00:00
+fetched_at: 2026-11-04T23:29:05.542249+00:00
 ---
 
 # Collect Workday User Activity logs  |  Google Security Operations  |  Google Cloud Documentation

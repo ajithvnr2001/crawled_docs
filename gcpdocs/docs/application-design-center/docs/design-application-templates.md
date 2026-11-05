@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/application-design-center/docs/design-application-templates/
 title: Design standard application templates \u00a0|\u00a0 Application Design Center \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-30T08:53:03.609445+00:00
+fetched_at: 2026-11-05T00:20:00.398499+00:00
 ---
 
 # Design standard application templates  |  Application Design Center  |  Google Cloud Documentation
@@ -21,11 +21,7 @@ Send feedback
 
 #  Design standard application templates Stay organized with collections  Save and categorize content based on your preferences. 
 
-Administrators create standard application templates to help ensure that their preferred architecture is used by each development team. This lets you govern the resources and configurations that developers use in their application deployments. Once you create a standard template, others in your space can access it. You can also add a template to a catalog to share with other spaces.
-
-Developers can use your template to create and deploy an application, or you can embed your template as part of a larger [composite template](https://docs.cloud.google.com/application-design-center/docs/design-composite-templates). When developers create an application, they can configure each component from the template, but they can't add or remove any components. The template generates Terraform code, which developers can download or deploy from App Design Center.
-
-This document helps you design, configure, and share a standard application template using App Design Center.
+Standard application templates in Application Design Center let you define a preferred architecture and govern the resources and configurations that development teams use in their deployments. You can share a standard template with members of your space, publish the template to a catalog for other spaces, or embed the template in a larger [composite template](https://docs.cloud.google.com/application-design-center/docs/design-composite-templates). When developers create an application from a standard template, they can configure each component without adding or removing components. Each template generates Terraform code that developers can download or deploy directly from App Design Center.
 
 **Tip:** To use natural language assistance to design and refine your application template, see [Design and deploy an application with Gemini assistance](https://docs.cloud.google.com/cloud-assist/design-application).
 
@@ -594,6 +590,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-03 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 

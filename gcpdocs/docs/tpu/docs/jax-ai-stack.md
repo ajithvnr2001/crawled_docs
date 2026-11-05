@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/tpu/docs/jax-ai-stack/
 title: Building production AI on Cloud TPUs with JAX \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T10:49:40.531440+00:00
+fetched_at: 2026-11-05T00:20:35.598041+00:00
 ---
 
 # Building production AI on Cloud TPUs with JAX  |  Google Cloud Documentation
@@ -269,7 +269,7 @@ For more complex parallelism patterns, **Multiple Program Multiple Data (MPMD)**
 
 #### Pathways: A unified runtime for massive scale distributed computation
 
-[Pathways](https://docs.cloud.google.com/ai-hypercomputer/docs/workloads/pathways-on-cloud/pathways-intro) offers abstractions for distributed training and inference with built in fault tolerance and recovery, allowing ML researchers to code as if they are using a single, powerful machine.
+[Pathways](https://docs.cloud.google.com/ai-hypercomputer/docs/workloads/pathways-on-cloud/pathways-intro) offers abstractions for distributed training with built-in fault tolerance and recovery, allowing ML researchers to code as if they are using a single, powerful machine.
 
 ##### Motivation
 
@@ -452,7 +452,7 @@ This solution consists of two core components, as illustrated in the following d
 ![JAX serving diagram](https://docs.cloud.google.com/static/tpu/docs/images/serving_orbax_nse.png)
 
   1. **Orbax Serialization Library:** Provides user-friendly APIs for serializing JAX models into a new, robust Orbax serialization format. This format is optimized for production deployment. It directly represents JAX model computations using **StableHLO** , allowing the computation graph to be represented natively. It also leverages **TensorStore** for storing weights, enabling fast checkpoint loading for serving.
-  2. **Neptune Serving Engine (NSE):** This is the accompanying high-performance, flexible serving engine (typically deployed as a C++ binary) designed to natively run JAX models in the Orbax format. NSE offers production-essential capabilities, such as fast model loading, high-throughput concurrent serving with built-in batching, support for multiple model versions, and both single and multiple host serving (leveraging PJRT and Pathways). Use the Neptune Serving Engine for: 
+  2. **Neptune Serving Engine (NSE):** This is the accompanying high-performance, flexible serving engine (typically deployed as a C++ binary) designed to natively run JAX models in the Orbax format. NSE offers production-essential capabilities, such as fast model loading, high-throughput concurrent serving with built-in batching, support for multiple model versions, and both single and multiple host serving (leveraging PJRT). Use the Neptune Serving Engine for: 
      * Non-LLM models: It is a general-purpose solution ideal for workloads like recommender systems, diffusion models, and other AI models.
      * Small LLMs and "one-shot" serving: It is designed for non-autoregressive models or smaller models that are served in a "unary" fashion, where the entire output is generated in a single pass without the need for complex state management like a KV cache.
 
@@ -554,6 +554,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-03 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 

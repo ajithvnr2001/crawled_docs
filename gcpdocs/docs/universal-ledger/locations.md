@@ -1,11 +1,11 @@
 ---
 url: https://docs.cloud.google.com/universal-ledger/locations/
-title: Universal Ledger locations \u00a0|\u00a0 Google Cloud Documentation
+title: Universal Ledger networks and locations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-14T19:36:14.687257+00:00
+fetched_at: 2026-11-05T00:19:11.513455+00:00
 ---
 
-# Universal Ledger locations  |  Google Cloud Documentation
+# Universal Ledger networks and locations  |  Google Cloud Documentation
 
 > Source: https://docs.cloud.google.com/universal-ledger/locations/
 
@@ -13,64 +13,40 @@ fetched_at: 2026-10-14T19:36:14.687257+00:00
   * [ Documentation ](https://docs.cloud.google.com/docs)
   * [ Industry solutions ](https://docs.cloud.google.com/docs/industry)
   * [ Universal Ledger ](https://docs.cloud.google.com/universal-ledger)
+  * [ Resources ](https://docs.cloud.google.com/universal-ledger/resources)
 
 
 
 Send feedback 
 
-#  Universal Ledger locations Stay organized with collections  Save and categorize content based on your preferences. 
+#  Universal Ledger networks and locations Stay organized with collections  Save and categorize content based on your preferences. 
 
-Universal Ledger is available in the following zones, regions, and multi-regions. For more information about regions and zones, see [Geography and regions](https://docs.cloud.google.com/docs/geography-and-regions).
+The following Universal Ledger networks are available:
 
-## Zones
-
-The following table lists the zones in Asia Pacific where Universal Ledger is available.
-
-Zone description | Zone name  
+Network name | Network description  
 ---|---  
-Hong Kong | `asia-east2-a`  
-Hong Kong | `asia-east2-b`  
-... | ...  
-  
-The following table lists the zones in Europe where Universal Ledger is available.
-
-Zone description | Zone name  
----|---  
-Finland | `europe-north1-a`  
-Finland | `europe-north1-b`  
-... | ...  
+`mainnet` |  Live Universal Ledger production network. Real-value transactions. Access is restricted and provisioned upon request.   
+`user-testing` |  Pre-production network for User Acceptance Testing (UAT) and end-user validation prior to release. Assets may represent real economic value, for example, as a result of executing live pilot transactions.   
+`integration-testing` |  Integration testing network dedicated to development, API integration, and end-to-end testing as well as experimentation with new features and capabilities that are still under development. No real value represented.   
   
 ## Regions
 
-The following table lists the regions in Asia Pacific where Universal Ledger is available.
+For all of the networks, validators are deployed and the API is available in the following regions:
 
-Region description | Region name  
+Region name | Region description  
 ---|---  
-Hong Kong | `asia-east2`  
-Taiwan | `asia-east1`  
-... | ...  
+`europe-west2` | London  
+`europe-west3` | Frankfurt  
+`us-central1` | Iowa  
+`us-east4` | Northern Virginia  
+`us-west1` | Oregon  
   
-The following table lists the regions in Europe where Universal Ledger is available.
+For more information about regions and zones, see [Geography and regions](https://docs.cloud.google.com/docs/geography-and-regions).
 
-Region description | Region name  
----|---  
-Finland | `europe-north1`  
-Frankfurt | `europe-west3`  
-... | ...  
-  
-## Multi-regions
-
-The following table lists the multi-regions where Universal Ledger is available.
-
-Multi-region description | Multi-region name  
----|---  
-Data centers in Europe | `EU`  
-... | ...  
-  
 Send feedback 
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-08-26 UTC.
+Last updated 2026-10-26 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-08-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 

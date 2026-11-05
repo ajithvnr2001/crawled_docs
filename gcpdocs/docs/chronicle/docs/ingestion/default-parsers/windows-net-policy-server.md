@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/windows-net-policy-server/
 title: Collect Windows Network Policy Server logs \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T07:53:08.781406+00:00
+fetched_at: 2026-11-04T23:34:46.246489+00:00
 ---
 
 # Collect Windows Network Policy Server logs  |  Google Security Operations  |  Google Cloud Documentation

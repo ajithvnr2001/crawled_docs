@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/armor/docs/integrating-cloud-armor/
 title: Integrate with other Google products \u00a0|\u00a0 Google Cloud Armor \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T23:48:04.797702+00:00
+fetched_at: 2026-11-04T23:33:28.924717+00:00
 ---
 
 # Integrate with other Google products  |  Google Cloud Armor  |  Google Cloud Documentation
@@ -43,7 +43,7 @@ The previous diagram shows the following deployment configuration:
   2. Deploy backend application instances to the VMs in the instance groups.
   3. Create a global external Application Load Balancer or a classic Application Load Balancer in Premium Tier. Configure a URL map and a single backend service whose backends are the two instance groups that you created in the previous step. The load balancer's forwarding rule must use the `120.1.1.1` external IP address.
   4. Configure a Cloud Armor security policy that allows traffic from 100.1.1.0/24 and 100.1.2.0/24 and denies all other traffic.
-  5. Associate this policy with the load balancer's backend service. For instructions, see [Create and view Cloud Armor security policies](https://docs.cloud.google.com/armor/docs/configure-security-policies). External HTTP(S) load balancers with more complex URL maps can reference multiple backend services. You can associate the security policy with one or more of the backend services as needed.
+  5. Associate this policy with the load balancer's backend service. For instructions, see [Create and view Cloud Armor security policies](https://docs.cloud.google.com/armor/docs/create-security-policies). External HTTP(S) load balancers with more complex URL maps can reference multiple backend services. You can associate the security policy with one or more of the backend services as needed.
   6. Configure ingress allow firewall rules to permit traffic from the global external Application Load Balancer or the classic Application Load Balancer. For more information, see [Firewall rules](https://docs.cloud.google.com/load-balancing/docs/https#firewall-rules).
 
 
@@ -196,7 +196,7 @@ You can [enable the Global Front End Enterprise billing tier in your Google Clou
 
 ## What's next
 
-  * [Create and view security policies, rules, and expressions](https://docs.cloud.google.com/armor/docs/configure-security-policies)
+  * [Create and view security policies, rules, and expressions](https://docs.cloud.google.com/armor/docs/create-security-policies)
   * [Learn about the features in Cloud Armor Enterprise tiers](https://docs.cloud.google.com/armor/docs/armor-enterprise-overview)
   * [Troubleshoot issues](https://docs.cloud.google.com/armor/docs/troubleshooting)
 
@@ -206,6 +206,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-04 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 

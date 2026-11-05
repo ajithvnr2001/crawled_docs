@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/iam/docs/best-practices-for-using-workload-identity-federation/
 title: Best practices for using Workload Identity Federation \u00a0|\u00a0 Identity and Access Management (IAM) \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T07:58:08.484369+00:00
+fetched_at: 2026-11-04T23:44:32.240545+00:00
 ---
 
 # Best practices for using Workload Identity Federation  |  Identity and Access Management (IAM)  |  Google Cloud Documentation

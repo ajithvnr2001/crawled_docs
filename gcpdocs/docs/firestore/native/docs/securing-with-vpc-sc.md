@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/firestore/native/docs/securing-with-vpc-sc/
 title: VPC Service Controls \u00a0|\u00a0 Firestore in Native mode \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T08:01:26.997473+00:00
+fetched_at: 2026-11-04T23:45:42.137487+00:00
 ---
 
 # VPC Service Controls  |  Firestore in Native mode  |  Google Cloud Documentation

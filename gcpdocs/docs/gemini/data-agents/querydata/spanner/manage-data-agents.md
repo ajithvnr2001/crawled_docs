@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini/data-agents/querydata/spanner/manage-data-agents/
 title: Manage context sets in Spanner Studio \u00a0|\u00a0 Data Agents \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T16:25:59.572762+00:00
+fetched_at: 2026-11-05T00:05:48.446972+00:00
 ---
 
 # Manage context sets in Spanner Studio  |  Data Agents  |  Google Cloud Documentation
@@ -27,7 +27,7 @@ This feature is subject to the "Pre-GA Offerings Terms" in the General Service T
 
 **PostgreSQL interface note:** The examples in this topic are intended for GoogleSQL-dialect databases. This feature doesn't support PostgreSQL interface. 
 
-This document describes how to create context sets in Spanner Studio using a context set file. Context set names must be unique within a database.
+This document describes how to create context sets in Spanner Studio using a context set file. Context set names must be unique within a project.
 
 To learn about context sets, see [Context sets overview](https://docs.cloud.google.com/gemini/data-agents/querydata/spanner/context-sets-overview). 
 
@@ -78,11 +78,15 @@ To create a context set, perform the following steps:
 
   5. Click **Create context set**.
 
-  6. In **Context set name** , provide a unique context set name. The context set name is case-sensitive and can contain letters, numbers, hyphens, and underscores.
+  6. In **Context set name** , provide a unique context set name. The context set name is case-sensitive and can contain letters, numbers, hyphens, and underscores. Names must be 4-30 characters.
+
+The context set ID is derived from the context set name but is not necessarily identical. For the context set ID, the context set name is converted to lowercase and non-alphanumeric characters are replaced with the `-` character. For example, the context set name `querydata_e2e_test` has the context set ID `querydata-e2e-test`.
 
   7. Optional. In **Context set description** , add a description for your context set.
 
-  8. Click **Create**.
+  8. Optional. To upload a context set file, click **Browse** in the **Upload context set file** section, and select the context set file.
+
+  9. Click **Create**.
 
 
 **Note:** Creating the first context set in a project can take several minutes.
@@ -103,11 +107,11 @@ To edit a context set, perform the following steps:
 
   3. In the navigation menu, click **Spanner Studio**. 
 
-  4. In the **Explorer pane** , next to **Context sets** , click **View actions**.
+  4. Click **View actions** next to the context set you want to edit.
 
-  5. Click **Edit context set**.
+  5. Click **Edit context set**. 
 
-  6. Optional. Edit **Context set description**.
+  6. Optional. Edit **Context set description**. 
 
   7. Click **Browse** in the **Upload context set file** section, and select the context set file.
 
@@ -128,11 +132,11 @@ To delete a context set, perform the following steps:
 
   3. In the navigation menu, click **Spanner Studio**. 
 
-  4. In the **Explorer pane** , next to **Context sets** , click **View actions**.
+  4. Click **View actions** next to the context set you want to delete.
 
   5. Click **Delete context set**.
 
-  6. In the **Delete context set** confirmation dialog, enter the name of the context set.
+  6. In the **Delete context set** confirmation dialog, enter the ID of the context set.
 
   7. Click **Confirm** to delete the context set.
 
@@ -151,6 +155,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-04 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 

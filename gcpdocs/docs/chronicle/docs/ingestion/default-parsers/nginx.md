@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/nginx/
 title: Collect NGINX logs \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T07:50:53.650476+00:00
+fetched_at: 2026-11-04T23:35:15.475391+00:00
 ---
 
 # Collect NGINX logs  |  Google Security Operations  |  Google Cloud Documentation

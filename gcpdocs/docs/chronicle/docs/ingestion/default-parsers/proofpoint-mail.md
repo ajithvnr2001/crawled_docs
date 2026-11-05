@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/proofpoint-mail/
 title: Collect Proofpoint TAP alerts logs \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T07:53:28.178523+00:00
+fetched_at: 2026-11-04T23:42:46.791229+00:00
 ---
 
 # Collect Proofpoint TAP alerts logs  |  Google Security Operations  |  Google Cloud Documentation

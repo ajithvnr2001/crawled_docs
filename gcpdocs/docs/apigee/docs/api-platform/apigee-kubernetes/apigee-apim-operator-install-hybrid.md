@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/apigee/docs/api-platform/apigee-kubernetes/apigee-apim-operator-install-hybrid/
 title: Install the Apigee Operator for Kubernetes for Apigee hybrid \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T18:46:49.849981+00:00
+fetched_at: 2026-11-04T23:31:09.971125+00:00
 ---
 
 # Install the Apigee Operator for Kubernetes for Apigee hybrid  |  Google Cloud Documentation
@@ -338,7 +338,7 @@ Install the Kubernetes custom resources definitions (CRDs) and Apigee Operator f
          
          helm install apigee-apim-crds -n apim \
            oci://us-docker.pkg.dev/apigee-release/apigee-k8s-tooling-helm-charts/apigee-apim-operator-crds \
-           --version 1.1.0 \
+           --version 1.1.2 \
            --atomic
          
 
@@ -346,7 +346,7 @@ Install the Kubernetes custom resources definitions (CRDs) and Apigee Operator f
          
          helm install apigee-apim-operator -n apim \
            oci://us-docker.pkg.dev/apigee-release/apigee-k8s-tooling-helm-charts/apigee-apim-operator-helm \
-           --version 1.1.0 \
+           --version 1.1.2 \
            --set serviceAccount=apigee-apim-gsa@$PROJECT_ID.iam.gserviceaccount.com \
            --set apigeeOrg=$APIGEE_ORG \
            --set apigeeEnv=ENV_NAME \
@@ -364,8 +364,8 @@ Where ENV_NAME is the name of the Apigee Hybrid environment in which you want to
 The output should look similar to the following:
          
          NAME  NAMESPACE  REVISION  UPDATED  STATUS  CHART  APP VERSION
-         apigee-apim-crds  apim  1  2025-09-01 00:17:03.399810627 +0000 UTC  deployed  apigee-apim-operator-crds-1.1.0  1.1.0
-         apigee-apim-operator  apim  1  2025-09-01 00:15:00.362829981 +0000 UTC  deployed  apigee-apim-operator-helm-1.1.0  1.1.0
+         apigee-apim-crds  apim  1  2025-09-01 00:17:03.399810627 +0000 UTC  deployed  apigee-apim-operator-crds-1.1.2  1.1.2
+         apigee-apim-operator  apim  1  2025-09-01 00:15:00.362829981 +0000 UTC  deployed  apigee-apim-operator-helm-1.1.2  1.1.2
          
 
   5. Confirm that the Kubernetes service account (KSA) was created with the required annotation: 
@@ -617,6 +617,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-04 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 

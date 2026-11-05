@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/bare-metal/docs/how-to/scale/
 title: Scale up Google Distributed Cloud clusters \u00a0|\u00a0 Google Distributed Cloud software only for bare metal \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T20:46:17.738986+00:00
+fetched_at: 2026-11-04T23:29:47.447175+00:00
 ---
 
 # Scale up Google Distributed Cloud clusters  |  Google Distributed Cloud software only for bare metal  |  Google Cloud Documentation
@@ -22,7 +22,7 @@ Send feedback
 
 #  Scale up Google Distributed Cloud clusters Stay organized with collections  Save and categorize content based on your preferences. 
 
-Like any Kubernetes cluster, Google Distributed Cloud cluster scalability has many interrelated dimensions. This document is intended to help you understand the key dimensions that you can adjust to scale up your clusters without disrupting your workloads.
+To increase the capacity of your Google Distributed Cloud clusters, you can adjust several related cluster limits, such as the number of nodes, Pods, and Services. This document explains how these dimensions interact and describes the requirements and best practices that help you scale up without disrupting your workloads.
 
 ## Understanding the limits
 
@@ -177,7 +177,7 @@ You can consider exposing the VIP through other mechanisms, such as F5 BIG-IP. A
 
 ### Fine tune Cloud Logging and Cloud Monitoring components
 
-In large clusters, depending on the application profiles and traffic pattern, the default resource configurations for the Cloud Logging and Cloud Monitoring components might not be sufficient. For instructions to tune the resource requests and limits for the observability components, refer to [Configuring Stackdriver component resources](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/bare-metal/docs/how-to/log-monitoring#configuring_stackdriver_component_resources).
+In large clusters, depending on the application profiles and traffic pattern, the default resource configurations for the Cloud Logging and Cloud Monitoring components might not be sufficient. For instructions to tune the resource requests and limits for the observability components, refer to [Configuring Stackdriver component resources](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/bare-metal/docs/how-to/log-monitoring#overriding_the_default_cpu_and_memory_requests_and_limits_for_a_stackdriver_component).
 
 In particular, kube-state-metrics in clusters with a large number of services and endpoints might cause excessive memory usage on both the `kube-state-metrics` itself and the `gke-metrics-agent` on the same node. The resource usage of metrics-server can also scale in terms of nodes, Pods, and Services. If you experience resource issues on these components, reach out to [ Cloud Customer Care](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/bare-metal/docs/getting-support).
 
@@ -302,6 +302,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-04 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 

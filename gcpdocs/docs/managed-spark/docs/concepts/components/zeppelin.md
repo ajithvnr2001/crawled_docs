@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/managed-spark/docs/concepts/components/zeppelin/
 title: Managed Service for Apache Spark optional Zeppelin component \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T21:58:14.073228+00:00
+fetched_at: 2026-11-05T00:20:20.356426+00:00
 ---
 
 # Managed Service for Apache Spark optional Zeppelin component  |  Google Cloud Documentation
@@ -23,16 +23,16 @@ Send feedback
 
 #  Managed Service for Apache Spark optional Zeppelin component Stay organized with collections  Save and categorize content based on your preferences. 
 
-You can install additional components like Zeppelin when you create a Managed Service for Apache Spark cluster using the [Optional components](https://docs.cloud.google.com/managed-spark/docs/concepts/components/overview#available_optional_components) feature. This page describes the Zeppelin component.
-
-The [Zeppelin Notebook](https://zeppelin.apache.org/) component is a Web-based notebook for interactive data analytics. The Zeppelin Web UI is available on port `8080` on the cluster's first master node.
-
-By default, notebooks are saved in Cloud Storage in the Managed Service for Apache Spark staging bucket, which is specified by the user or [auto-created](https://docs.cloud.google.com/managed-spark/docs/guides/create-cluster#auto-created_staging_bucket) when the cluster is created. The location can be changed at cluster creation time via the [`zeppelin:zeppelin.notebook.gcs.dir` property](https://docs.cloud.google.com/managed-spark/docs/concepts/configuring-clusters/cluster-properties#dataproc-properties).
+The [Apache Zeppelin](https://zeppelin.apache.org/) optional component lets you run web-based, interactive data analytics on your clusters. You can install Zeppelin when creating a Managed Service for Apache Spark cluster using [optional components](https://docs.cloud.google.com/managed-spark/docs/concepts/components/overview#available_optional_components) to execute Spark workloads and visualize data in shared notebooks.
 
   * Zeppelin can be configured by providing `zeppelin` and `zeppelin-env` prefixed [cluster properties](https://docs.cloud.google.com/managed-spark/docs/concepts/configuring-clusters/cluster-properties#formatting). 
     * To reduce the risk of remote code execution over unsecured notebook server APIs, the default `zeppelin:zeppelin.server.addr` cluster property setting for image versions 1.3+ is `127.0.0.1`, which restricts connections to `localhost` when [Component Gateway](https://docs.cloud.google.com/managed-spark/docs/concepts/accessing/gateways) is enabled.
 
 
+
+The [Zeppelin Notebook](https://zeppelin.apache.org/) component is a Web-based notebook for interactive data analytics. The Zeppelin Web UI is available on port `8080` on the cluster's first master node.
+
+By default, notebooks are saved in Cloud Storage in the Managed Service for Apache Spark staging bucket, which is specified by the user or [auto-created](https://docs.cloud.google.com/managed-spark/docs/guides/create-cluster#auto-created_staging_bucket) when the cluster is created. The location can be changed at cluster creation time via the [`zeppelin:zeppelin.notebook.gcs.dir` property](https://docs.cloud.google.com/managed-spark/docs/concepts/configuring-clusters/cluster-properties#dataproc-properties).
 
 ## Install the component
 
@@ -75,6 +75,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-03 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 

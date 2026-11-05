@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/looker/docs/filters-user-defined-dashboards/
 title: Adding and editing user-defined dashboard filters \u00a0|\u00a0 Looker \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T22:34:28.214067+00:00
+fetched_at: 2026-11-04T23:20:28.887555+00:00
 ---
 
 # Adding and editing user-defined dashboard filters  |  Looker  |  Google Cloud Documentation
@@ -387,23 +387,9 @@ The **Filters as tiles** feature lets you place dashboard filters directly onto 
 
 Additionally, **Filters as tiles** allows users to view the list of filters that are applied to a specific visualization tile.
 
-**Preview**
-
-This product or feature is subject to the "Pre-GA Offerings Terms" in the General Service Terms section of the [Service Specific Terms](https://docs.cloud.google.com/terms/service-terms#1). Pre-GA products and features are available "as is" and might have limited support. For more information, see the [launch stage descriptions](https://cloud.google.com/products/#product-launch-stages). 
-
-**Note:** **Filters as tiles** is available as a preview feature. To use this feature, a Looker admin must enable the **Filters as tiles and tile-level filter context** Labs toggle on the **Preview** page in the **Admin** settings. The toggle is disabled by default.
-
-The Filters as tiles feature is in preview with limited support. We encourage you to share your feedback to help us improve. To report bugs or issues, [use this form](https://forms.gle/95T98mf3CTnE5dw29) and provide the following details: 
-
-  * A clear description of the problem and the expected behavior
-  * Steps to reproduce the issue
-  * Any additional relevant details
-
-
-
 ### Placing filters as dashboard tiles
 
-Once the [**Filters as tiles and tile-level filter context** preview toggle](https://docs.cloud.google.com/looker/docs/admin-panel-general-preview-features#filters-as-tiles-and-tile-level-filter-context) is enabled, dashboard editors can convert filters into draggable tiles on the dashboard canvas in the following ways:
+Dashboard editors can convert filters into draggable tiles on the dashboard canvas in the following ways:
 
   * To send a filter from the filter bar to the dashboard canvas:
 
@@ -626,6 +612,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-04 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/chromeos-xdr/
 title: Collect ChromeOS XDR logs \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T07:52:54.112698+00:00
+fetched_at: 2026-11-04T23:35:13.289663+00:00
 ---
 
 # Collect ChromeOS XDR logs  |  Google Security Operations  |  Google Cloud Documentation

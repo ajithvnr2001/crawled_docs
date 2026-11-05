@@ -1,11 +1,11 @@
 ---
 url: https://docs.cloud.google.com/docs/starter-tier/
-title: Learn about the Google Cloud Starter Tier \u00a0|\u00a0 Get started \u00a0|\u00a0 Google Cloud Documentation
+title: Starter Tier overview \u00a0|\u00a0 Get started \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T22:37:04.508325+00:00
+fetched_at: 2026-11-04T23:20:28.123312+00:00
 ---
 
-# Learn about the Google Cloud Starter Tier  |  Get started  |  Google Cloud Documentation
+# Starter Tier overview  |  Get started  |  Google Cloud Documentation
 
 > Source: https://docs.cloud.google.com/docs/starter-tier/
 
@@ -18,94 +18,95 @@ fetched_at: 2026-10-27T22:37:04.508325+00:00
 
 Send feedback 
 
-#  Learn about the Google Cloud Starter Tier Stay organized with collections  Save and categorize content based on your preferences. 
+#  Starter Tier overview Stay organized with collections  Save and categorize content based on your preferences. 
 
-Supported Google products, such as [Google AI Studio](https://ai.google.dev/aistudio), offer a streamlined path to deploy applications to Google Cloud using the Starter Tier.
+Starter Tier provides a no-cost, _Google-managed_ project that lets you build and deploy web apps and use select Google Cloud and Google products. If you sign in with an eligible Google Account, Google provisions a Starter Tier project on your behalf without requiring a payment method or Cloud Billing account.
 
-The Starter Tier lets an individual Google Account use a limited set of resources as part of the application deployment process. It offers essential capabilities to run your applications, and you don't need to enter billing information.
+This document explains how Starter Tier projects work, who is eligible, where Starter Tier is supported, and how to upgrade your project.
 
-This document explains how Starter Tier resources are provisioned, how to manage your applications, and how to upgrade to a paid Cloud Billing account when you're ready to scale.
+## How Starter Tier projects work
 
-## How the Starter Tier works
+If you're eligible, Google automatically provisions your resources in a _Google-managed_ Google Cloud project when you use a product or tool that supports Starter Tier. This project is called a Starter Tier project. Google manages the project and its underlying infrastructure on your behalf, so you can build and deploy apps or use certain Google products without providing billing information.
 
-When you deploy an application using the Starter Tier from a supported product, your resources and the underlying infrastructure required to run the application are automatically provisioned in a fully managed Google Cloud project. Google manages the project and project configuration on your behalf, so you can use the project without providing any billing information.
+Because Google manages the underlying infrastructure, a Starter Tier project requires no manual setup and differs from _user-managed_ Google Cloud projects in the following ways:
 
-Because Google manages the underlying infrastructure, this environment requires no configuration and differs from standard Google Cloud projects in the following ways:
-
-  * **No Cloud Billing account:** You don't need to provide a credit card or set up a Cloud Billing account to deploy your applications.
-  * **Preconfigured environment:** Available Google Cloud regions, IAM roles, quotas, organization policies, and API enablements are strictly managed by Google.
-  * **Separate Terms of Service:** Your Starter Tier resources aren't Google Cloud services and aren't controlled by the standard Google Cloud Terms of Service. Instead, your resources are governed by the [Starter Tier Additional Terms of Service](https://cloud.google.com/terms/starter-tier-additional-terms-of-service).
+  * **No Cloud Billing account or trial period:** You don't need to provide a payment method or set up a Cloud Billing account. A Starter Tier project has no fixed expiration period. If a service reaches its no-cost quota limit, usage pauses until the quota resets or you upgrade your project.
+  * **Preconfigured project and usage limits:** Google limits each eligible Google Account to one Starter Tier project per supported product and manages the available regions, [Identity and Access Management (IAM)](https://docs.cloud.google.com/iam/docs/overview) roles, resource quotas, organization policies, and API enablements.
+  * **Separate Terms of Service:** Your Starter Tier resources aren't standard Google Cloud services and aren't governed by the Google Cloud Terms of Service. Instead, your resources are governed by the [Starter Tier Additional Terms of Service](https://cloud.google.com/terms/starter-tier-additional-terms-of-service), which also cover Google Workspace APIs. Depending on the services that you use, you might also need to accept the [Google Maps Platform Demo API Key Terms of Service](https://cloud.google.com/terms/maps-platform/demo-project-terms) and the [Firebase Terms of Service](https://firebase.google.com/terms).
 
 
 
-### Capabilities and limits
+## Starter Tier eligibility
 
-The Starter Tier helps you build and deploy functional applications with no upfront costs. If you have a [Google Account](https://myaccount.google.com/), you can automatically use a limited number of published applications and resources at no cost. This includes a free allowance for the underlying infrastructure required to run them.
+Starter Tier is available to individual [Google Accounts](https://myaccount.google.com/) that meet all of the following criteria:
 
-Depending on the product you use to deploy your application, the Starter Tier enforces specific technical limits for the underlying infrastructure, such as maximum instances and storage. These limits help manage capacity and help prevent abuse or security risks. Additionally, all resources within your Starter Tier project are restricted to a limited set of geographic regions.
+  * **Personal Google Account:** Your account isn't associated with a Google Workspace organization. Accounts in paid or free Google Workspace, Google Workspace for Education, or Google Workspace for Nonprofits aren't eligible.
+  * **No paid Cloud Billing history:** Your account doesn't have an active or prior paid Cloud Billing account.
+  * **Account activity and supported location:** Your account has sufficient account activity and is located in a supported territory.
 
-For detailed information on specific limits, quotas, and resources, see the product documentation. You can find links to this documentation in Supported products.
 
-If you require service capabilities beyond the Starter Tier, you must upgrade your project to a standard Google Cloud project.
 
-## Supported products
+### What happens if your account isn't eligible
 
-The following table lists the Google products that offer the Starter Tier deployment experience and the list of underlying resources that the Starter Tier provides for running your applications.
+If your account doesn't qualify for Starter Tier, you can still use the supported services in a _user-managed_ Google Cloud project:
 
-Product | Description | Starter Tier capabilities and underlying resources  
----|---|---  
-[Google AI Studio](https://ai.google.dev/aistudio) |  Deploy functional web applications and agents directly from the AI Studio interface without providing a Cloud Billing account or credit card. For deployment instructions, see [Deploy from Google AI Studio](https://ai.google.dev/gemini-api/docs/aistudio-deploying). |  Provisions a bundled ecosystem of resources, including the following:
+  * **Services that don't require billing:** You can use many services in a user-managed project within their no-cost limits without a Cloud Billing account, such as Firebase Authentication, Firestore, and Google Workspace APIs.
+  * **Services that require billing:** To use services that require a Cloud Billing account in a user-managed project, such as deploying a live web app to Cloud Run or provisioning a Cloud SQL for PostgreSQL (developer edition) instance, you must [set up or link a Cloud Billing account](https://docs.cloud.google.com/billing/docs/in-product-billing-setup). Both Cloud Run and Cloud SQL for PostgreSQL (developer edition) include [monthly no-cost usage limits](https://docs.cloud.google.com/free/docs/free-cloud-features#free-tier-usage-limits) on eligible user-managed Google Cloud projects.
 
-  * [Cloud Run](https://docs.cloud.google.com/run/docs/overview/what-is-cloud-run)
-  * [Firebase Authentication](https://firebase.google.com/docs/ai-assistance/ai-studio-integration)
-  * [Firestore](https://firebase.google.com/docs/ai-assistance/ai-studio-integration#understand-shared-quota)
-  * [Cloud SQL for PostgreSQL (developer edition)](https://docs.cloud.google.com/sql/docs/postgres/ai-assisted-coding-and-cloud-sql#starter-tier-and-pricing)
 
-Google AI Studio also integrates with the following connected services:
 
-  * [Google Maps Platform](https://developers.google.com/maps/ai/ai-studio) provides a Google AI Studio integration using a Demo Key to prototype location-aware applications at no cost.
+## Supported services
 
+You can use Starter Tier to build and deploy full-stack web apps from [Google AI Studio](https://aistudio.google.com/apps) by using a curated set of Google Cloud and Google services. For step-by-step deployment instructions and project limits, see [Deploy from Google AI Studio](https://aistudio.google.com/docs/aistudio-deploying).
+
+The following table describes the services (offered with limited functionality and quotas) included in your Starter Tier project when you build and deploy web apps from Google AI Studio:
+
+Service | Use case  
+---|---  
+[Cloud Run](https://docs.cloud.google.com/run/docs/overview/what-is-cloud-run) |  Host your live web app and backend from your code, with no servers to manage and automatic scaling when traffic grows or drops to zero.  
+[Firebase Authentication](https://firebase.google.com/docs/ai-assistance/ai-studio-integration) |  Add user sign-in and authentication to your app with Google Sign-In, email and password, or anonymous authentication.  
+[Firestore](https://firebase.google.com/docs/ai-assistance/ai-studio-integration#understand-shared-quota) |  Store and sync your app's data in a NoSQL document database with automated auditing of security rules to help keep your app's data secure.  
+[Cloud SQL for PostgreSQL (developer edition)](https://docs.cloud.google.com/sql/docs/postgres/ai-assisted-coding-and-cloud-sql) |  Provision a relational PostgreSQL database that automatically pauses and scales to zero when there are no active connections. For details on scale-to-zero behavior and pricing after upgrading, see [Starter Tier and pricing](https://docs.cloud.google.com/sql/docs/postgres/ai-assisted-coding-and-cloud-sql#starter-tier-and-pricing).  
+[Google Maps Platform](https://developers.google.com/maps/ai/ai-studio) |  Add interactive maps, Places search, address lookup, and directions to location-aware apps at no cost by using auto-provisioned Demo API Keys.  
+[Google Workspace APIs](https://developers.google.com/workspace/guides/get-started) |  Connect your web app to a user's Google Drive, Google Docs, Google Sheets, Google Slides, Google Calendar, Gmail, Google Forms, Google Tasks, and Google Picker with built-in Google sign-in permissions.  
   
-  
-Additional requirements or restrictions might apply to the product. For detailed limits, see the product documentation.
+## Upgrade your Starter Tier project
 
-## Manage your Starter Tier resources
+After you've tried services in your Starter Tier project, you might need higher quotas, more compute resources, custom domains, additional regions, or access to other Google Cloud services. To unlock these capabilities, you can upgrade your _Google-managed_ Starter Tier project to a _user-managed_ Google Cloud project.
 
-To help you focus on your application logs, metrics, and basic configuration, Google Cloud provides a simplified view of the Google Cloud console for your Starter Tier project. This tailored interface removes complex organizational controls and doesn't require billing information.
+Upgrading converts your Starter Tier project in place, so you don't need to create a new project or manually migrate your resources, databases, API keys, or web app URLs.
 
-If you are a Starter Tier user, you can see your applications, view telemetry data, and manage your Starter Tier resources directly in the Google Cloud console.
+### Where to initiate an upgrade
 
-[Go to Google Cloud console](https://console.cloud.google.com/)
+You can initiate a one-step upgrade from Google AI Studio, the [Firebase console](https://console.firebase.google.com/), or the [Google Cloud console](https://console.cloud.google.com/). To upgrade and convert your Starter Tier project to a user-managed Google Cloud project, you must accept the Google Cloud Terms of Service and link or create a [Cloud Billing account](https://docs.cloud.google.com/billing/docs/concepts#billing_account) by using [in-product Cloud Billing setup](https://docs.cloud.google.com/billing/docs/in-product-billing-setup).
 
-## Explore other Google Cloud products
+### What happens when you upgrade
 
-Your Starter Tier applications run in an isolated, strictly managed environment. You can't enable other Google Cloud APIs within that same project.
+During the upgrade process, your project transitions in place to a _user-managed_ Google Cloud project:
 
-If you navigate to the Google Cloud console and try to use a product or service that the Starter Tier doesn't support, you aren't automatically redirected to your fully managed Starter Tier project. Instead, you are directed to sign up for the Google Cloud [Free Trial](https://docs.cloud.google.com/free/docs/free-cloud-features) and create your own standard Google Cloud project, separate from your Google-managed Starter Tier project. This option lets you explore and evaluate Google Cloud at no cost in a different environment, without upgrading your Starter Tier applications to a paid plan.
-
-Alternatively, if you want full access to Google Cloud from the same Starter Tier project you use, you must upgrade your Starter Tier project to a standard Google Cloud project, using the interface of the product you use to deploy your applications.
-
-## Upgrade your Starter Tier project to a standard Google Cloud project
-
-As your applications evolve, you might require capabilities beyond the Starter Tier, such as higher quotas, increased compute resources, access to additional Google Cloud regions, or access to the broader Google Cloud platform. To unlock these capabilities, you can convert your fully managed Starter Tier project into a standard Google Cloud project.
-
-When you initiate this upgrade directly from the interface of the product you use to deploy your applications, such as Google AI Studio, you are prompted to accept the standard Terms of Service and set up a [Cloud Billing account](https://docs.cloud.google.com/billing/docs/concepts#billing_account).
-
-During the upgrade process, your project is converted to a standard Google Cloud project through a seamless transition:
-
-  * There is no downtime for your applications.
-  * Your application state, databases, and deployment URLs are preserved.
-  * You gain full [IAM](https://docs.cloud.google.com/iam/docs/overview) control and ownership over the project.
+  * Your running apps experience no downtime.
+  * Your app state, databases, API keys, and web app URLs are preserved.
+  * You gain full [IAM](https://docs.cloud.google.com/iam/docs/overview) control and ownership of the project.
   * You can enable any Google Cloud API.
+  * If you're a first-time Google Cloud user, you might qualify for the $300 [Google Cloud Free Trial](https://docs.cloud.google.com/free/docs/free-cloud-features) credit or an in-product [welcome credit](https://docs.cloud.google.com/billing/docs/in-product-billing-setup#welcome-credits), as well as monthly [Free Tier](https://docs.cloud.google.com/free/docs/free-cloud-features#free-tier) usage limits.
 
 
 
-After upgrading to a standard project, your resources are billed according to standard Google Cloud pricing against your connected Cloud Billing account, and the project becomes subject to the standard Google Cloud Terms of Service.
+After you upgrade to a user-managed project, your resources are billed at standard rates against your linked Cloud Billing account. The upgraded project is governed by the [Google Cloud Terms of Service](https://cloud.google.com/terms).
+
+**Note:** If your Starter Tier project includes a Firestore database, linking a Cloud Billing account doesn't automatically remove the daily quota cap. For instructions on how to remove this cap, see [Add billing to get more Firestore quota](https://firebase.google.com/docs/ai-assistance/ai-studio-integration#add-billing).
+
+## What's next
+
+  * [Deploy from Google AI Studio](https://aistudio.google.com/docs/aistudio-deploying)
+  * [Learn about the in-product Cloud Billing setup](https://docs.cloud.google.com/billing/docs/in-product-billing-setup)
+
+
 
 Send feedback 
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-04 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 

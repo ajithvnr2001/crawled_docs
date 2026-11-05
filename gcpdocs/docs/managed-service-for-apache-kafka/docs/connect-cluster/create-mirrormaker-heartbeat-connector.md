@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/managed-service-for-apache-kafka/docs/connect-cluster/create-mirrormaker-heartbeat-connector/
 title: Create a MirrorMaker 2.0 Heartbeat connector \u00a0|\u00a0 Managed Service for Apache Kafka \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T05:48:08.383895+00:00
+fetched_at: 2026-11-05T00:19:59.152997+00:00
 ---
 
 # Create a MirrorMaker 2.0 Heartbeat connector  |  Managed Service for Apache Kafka  |  Google Cloud Documentation
@@ -56,22 +56,15 @@ The **Connect cluster details** page displays.
 
   5. In the **Connector plugin** list, select "MirrorMaker 2.0 Heartbeat".
 
-  6. For **Primary Kafka cluster** , choose one of the following options:
-
-     * **Use primary Kafka cluster as source cluster**.
-     * **Use primary Kafka cluster as target cluster**.
-
-The connector writes heartbeats to the _target_ cluster.
-
-  7. For **Target cluster** or **Source cluster** , choose one of the following options:
+  6. For **Source cluster** , choose one of the following options:
 
      * **Managed Service for Apache Kafka Cluster**. If you select this option, select the Managed Service for Apache Kafka cluster in the **Kafka cluster** list.
      * **Self-managed or External Kafka Cluster** : If you select this option, enter the bootstrap address of the Kafka cluster, in the format `HOSTNAME:PORT_NUMBER`.
-  8. Optional: In the **Configurations** box, add configuration properties or edit the default properties. For more information, see Configure the connector.
+  7. Optional: In the **Configurations** box, add configuration properties or edit the default properties. For more information, see Configure the connector.
 
-  9. Select the **Task restart policy**. For more information, see [Task restart policy](https://docs.cloud.google.com/managed-service-for-apache-kafka/docs/connect-cluster/connectors-overview#task-restart-policy).
+  8. Select the **Task restart policy**. For more information, see [Task restart policy](https://docs.cloud.google.com/managed-service-for-apache-kafka/docs/connect-cluster/connectors-overview#task-restart-policy).
 
-  10. Click **Create**.
+  9. Click **Create**.
 
 
 
@@ -143,6 +136,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-30 UTC.
+Last updated 2026-11-03 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 

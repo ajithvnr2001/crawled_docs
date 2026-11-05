@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/compute/docs/disks/add-hyperdisk/
 title: Create a new Hyperdisk volume \u00a0|\u00a0 Compute Engine \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T23:06:35.006698+00:00
+fetched_at: 2026-11-05T00:19:29.153701+00:00
 ---
 
 # Create a new Hyperdisk volume  |  Compute Engine  |  Google Cloud Documentation
@@ -163,7 +163,7 @@ You might also be able to get these permissions with [custom roles](https://docs
 
 To create a Hyperdisk volume using the Google Cloud CLI, REST, or the Cloud Client Libraries for Compute Engine, you must indicate the Hyperdisk type to create by providing the value in the **Reference name** column in the following table.
 
-The size you specify for a Hyperdisk volume must be within the ranges listed in following table.
+The size you specify for a Hyperdisk volume must be within the ranges listed in the following table.
 
 Disk type | Reference name | Minimum size | Maximum size | Default size  
 ---|---|---|---|---  
@@ -554,6 +554,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-03 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 

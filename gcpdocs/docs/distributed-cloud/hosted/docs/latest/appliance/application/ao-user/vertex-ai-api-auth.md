@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/appliance/application/ao-user/vertex-ai-api-auth/
 title: Authenticate API requests \u00a0|\u00a0 Google Distributed Cloud Hosted Appliance \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T22:05:22.043336+00:00
+fetched_at: 2026-11-04T23:20:59.975274+00:00
 ---
 
 # Authenticate API requests  |  Google Distributed Cloud Hosted Appliance  |  Google Cloud Documentation
@@ -23,11 +23,7 @@ Send feedback
 
 #  Authenticate API requests Stay organized with collections  Save and categorize content based on your preferences. 
 
-Vertex AI on Google Distributed Cloud (GDC) air-gapped appliance provides APIs and services that require authentication. Authentication is how you prove your identity to access services by using tokens.
-
-Tokens are digital objects that verify a caller provided proper credentials and that they have been successfully exchanged for the token. The token carries information about the identity of the requesting account and the specific access it is authorized to have.
-
-This page describes how to authenticate to Vertex AI APIs programmatically. Depending on whether you access the Vertex AI APIs as a user or with a service account, this page describes the steps to get an authentication token for your API requests.
+Vertex AI on Google Distributed Cloud (GDC) air-gapped appliance lets you access APIs programmatically by authenticating your requests with tokens. You can obtain an authentication token by using either a user account or a service account.
 
 Choose one of the following options to get an authentication token:
 
@@ -144,6 +140,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-04 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 

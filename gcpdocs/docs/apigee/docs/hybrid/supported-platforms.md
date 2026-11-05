@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/apigee/docs/hybrid/supported-platforms/
 title: Apigee hybrid supported platforms and versions \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T05:36:49.097480+00:00
+fetched_at: 2026-11-04T23:46:20.539487+00:00
 ---
 
 # Apigee hybrid supported platforms and versions  |  Google Cloud Documentation

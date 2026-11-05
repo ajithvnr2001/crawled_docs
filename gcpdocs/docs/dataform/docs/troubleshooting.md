@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/dataform/docs/troubleshooting/
 title: Troubleshoot Dataform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T20:54:23.395371+00:00
+fetched_at: 2026-11-04T23:32:06.389965+00:00
 ---
 
 # Troubleshoot Dataform  |  Google Cloud Documentation
@@ -236,7 +236,7 @@ The following error occurs when the size of packages defined in `package.json` e
 
 To resolve this error, remove redundant packages from `package.json`. Make sure the `package.json` file does not contain `@dataform/cli`, and that the total size of defined NPM dependencies does not exceed 200Mb.
 
-If your [release configurations](https://docs.cloud.google.com/dataform/docs/configure-compilation#create-release-configuration) reference Git commitishes, make sure that the `package.json` files at their targets are valid.
+If your [release configurations](https://docs.cloud.google.com/dataform/docs/configure-compilation#create-release-configuration) reference Git commitishes, such as branches, tags, or commit SHAs, make sure that the `package.json` files at their targets are valid.
 
 ## Permission denied to act as a service account
 
@@ -311,7 +311,7 @@ If the error occurs sporadically during scheduled executions or when multiple wo
 
 To optimize production reliability and prevent transient connection errors, follow these best practices:
 
-  1. **Avoid frequent commitish compilations in production** : Calling `CreateCompilationResult` directly on a Git commitish, such as `main` or a specific Git tag, requires Dataform to perform a fresh Git clone and install packages over the network on every execution. Triggering frequent commitish compilations across multiple pipelines increases external network dependency and execution latency.
+  1. **Avoid frequent commitish compilations in production** : Calling `CreateCompilationResult` directly on a Git commitish, such as a branch, tag, or commit SHA, requires Dataform to perform a fresh Git clone and install packages over the network on every execution. Triggering frequent commitish compilations across multiple pipelines increases external network dependency and execution latency.
   2. **Use release configurations** : For production execution, use [release configurations](https://docs.cloud.google.com/dataform/docs/configure-compilation#create-release-configuration). A release configuration compiles your repository on a controlled schedule and saves the immutable compilation result. Downstream workflow executions use this cached result instantly without querying your external Git repository.
   3. **Stagger scheduled executions** : When scheduling multiple compilations or release triggers, stagger their cron schedules to distribute network load. For example, offset the schedules by 5–10 minutes instead of running all jobs at the same time.
   4. **Add retries in orchestration workflows** : When orchestrating Dataform compilations from external schedulers such as Managed Service for Apache Airflow, configure automated retries with exponential backoff on your operator to gracefully handle temporary network unreliability. For example, in an Airflow DAG using `DataformCreateCompilationResultOperator`, configure retries in the following way:
@@ -389,6 +389,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-04 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 

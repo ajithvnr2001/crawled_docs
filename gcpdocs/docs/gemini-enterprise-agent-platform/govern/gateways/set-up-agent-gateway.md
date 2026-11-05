@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/set-up-agent-gateway/
 title: Set up Agent Gateway \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-03T09:52:38.776675+00:00
+fetched_at: 2026-11-04T23:14:20.160863+00:00
 ---
 
 # Set up Agent Gateway  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation
@@ -118,7 +118,7 @@ Depending on the features, observability tools, and agent runtimes that you use 
     * **Telemetry API (`telemetry.googleapis.com`):** Collects and streams runtime telemetry and performance metrics across platform components.
     * **Cloud Trace API (`cloudtrace.googleapis.com`):** Provides distributed tracing to inspect multi-hop requests across agents and backends.
   * **Agent runtimes and semantic governance:**
-    * **Vertex AI API (`aiplatform.googleapis.com`):** Required in projects that host Agent Runtime agents or use [Semantic governance policies](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/configure-semantic-governance).
+    * **Agent Platform API (`aiplatform.googleapis.com`):** Required in projects that host Agent Runtime agents or use [Semantic governance policies](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/configure-semantic-governance).
     * **Discovery Engine API (`discoveryengine.googleapis.com`):** Required in projects that host Gemini Enterprise apps and agents.
     * **Agent Identity API (`agentidentity.googleapis.com`):** Required only if you manage outbound credentials with [Agent Identity auth manager](https://docs.cloud.google.com/iam/docs/auth-manager-overview) or view Agent Identity auth providers in the Google Cloud console.
 
@@ -616,6 +616,12 @@ Learn how to delegate authorization for Agent Gateway to IAP, Model Armor, or yo
 
 Guide 
 
+###  [ Manage Agent Gateway ](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/manage-agent-gateways)
+
+Learn how to view, update, disassociate, and delete Agent Gateway resources. 
+
+Guide 
+
 ###  [ Monitor Agent Gateway ](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/monitor-agent-gateway)
 
 Learn how to monitor Agent Gateway. 
@@ -636,6 +642,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-02 UTC.
+Last updated 2026-11-04 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-02 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 

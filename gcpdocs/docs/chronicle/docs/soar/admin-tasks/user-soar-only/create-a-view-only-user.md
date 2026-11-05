@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chronicle/docs/soar/admin-tasks/user-soar-only/create-a-view-only-user/
 title: Create a view-only user \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T10:00:44.178230+00:00
+fetched_at: 2026-11-04T23:33:40.225828+00:00
 ---
 
 # Create a view-only user  |  Google Security Operations  |  Google Cloud Documentation
@@ -46,7 +46,7 @@ The procedure to add these users is the same as that of adding regular users:
 
 ## Set up a permission group
 
-  1. Go to **Settings > Organization > Permissions**.
+  1. Go to **Settings > Access Management > Permissions (API keys)**.
   2. Click the predefined permissions group called **View Only** or create a new one.
   3. Select the **landing page** from the list. 
   4. Click **Save**.
@@ -55,7 +55,7 @@ The procedure to add these users is the same as that of adding regular users:
 
 ## Create a view only user - for SOAR standalone users only
 
-  1. Go to **Settings > Organization > User Management**.
+  1. Go to **Settings > Access Management > User Managemen**.
   2. Click add **Add** to open the **Add User** dialog.
   3. In the **License Type** field, select the **View Only** type.
   4. In the **Permission Group** list, select the **View Only** group (or any new group) that you created for **View Only** users. 
@@ -70,6 +70,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-28 UTC.
+Last updated 2026-11-04 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 

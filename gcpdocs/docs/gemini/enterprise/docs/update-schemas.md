@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini/enterprise/docs/update-schemas/
 title: Update a schema \u00a0|\u00a0 Gemini Enterprise \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T08:01:37.807970+00:00
+fetched_at: 2026-11-04T23:33:24.341194+00:00
 ---
 
 # Update a schema  |  Gemini Enterprise  |  Google Cloud Documentation
@@ -336,15 +336,15 @@ To authenticate to Gemini Enterprise, set up Application Default Credentials. Fo
     # - It may require specifying regional endpoints when creating the service
     #   client as shown in:
     #   https://googleapis.dev/python/google-api-core/latest/client_options.html
-    from google.cloud import discoveryengine_v1
+    from google.cloud import [discoveryengine_v1](https://docs.cloud.google.com/python/docs/reference/discoveryengine/latest)
     
     
     def sample_update_schema():
         # Create a client
-        client = discoveryengine_v1.[SchemaServiceClient](https://docs.cloud.google.com/python/docs/reference/discoveryengine/latest/google.cloud.discoveryengine_v1.services.schema_service.SchemaServiceClient.html)()
+        client = [discoveryengine_v1](https://docs.cloud.google.com/python/docs/reference/discoveryengine/latest).[SchemaServiceClient](https://docs.cloud.google.com/python/docs/reference/discoveryengine/latest/google.cloud.discoveryengine_v1.services.schema_service.SchemaServiceClient.html)()
     
         # Initialize request argument(s)
-        request = discoveryengine_v1.[UpdateSchemaRequest](https://docs.cloud.google.com/python/docs/reference/discoveryengine/latest/google.cloud.discoveryengine_v1.types.UpdateSchemaRequest.html)()
+        request = [discoveryengine_v1](https://docs.cloud.google.com/python/docs/reference/discoveryengine/latest).[UpdateSchemaRequest](https://docs.cloud.google.com/python/docs/reference/discoveryengine/latest/google.cloud.discoveryengine_v1.types.UpdateSchemaRequest.html)()
     
         # Make the request
         operation = client.[update_schema](https://docs.cloud.google.com/python/docs/reference/discoveryengine/latest/google.cloud.discoveryengine_v1.services.schema_service.SchemaServiceClient.html#google_cloud_discoveryengine_v1_services_schema_service_SchemaServiceClient_update_schema)(request=request)

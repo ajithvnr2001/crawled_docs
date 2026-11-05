@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/iam/docs/workforce-identity-federation/
 title: Workforce Identity Federation \u00a0|\u00a0 Identity and Access Management (IAM) \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T07:56:30.581320+00:00
+fetched_at: 2026-11-04T23:44:37.429175+00:00
 ---
 
 # Workforce Identity Federation  |  Identity and Access Management (IAM)  |  Google Cloud Documentation

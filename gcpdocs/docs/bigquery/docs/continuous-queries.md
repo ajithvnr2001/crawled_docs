@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/continuous-queries/
 title: Create continuous queries \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-03T09:52:00.413686+00:00
+fetched_at: 2026-11-04T23:28:28.397559+00:00
 ---
 
 # Create continuous queries  |  BigQuery  |  Google Cloud Documentation
@@ -21,17 +21,7 @@ Send feedback  Stay organized with collections  Save and categorize content base
 
 # Create continuous queries
 
-This document describes how to run a [continuous query](https://docs.cloud.google.com/bigquery/docs/continuous-queries-introduction) in BigQuery.
-
-BigQuery continuous queries are SQL statements that run continuously and process data in near real-time. You can use continuous queries to read incoming data from standard BigQuery tables or [Apache Iceberg managed tables](https://docs.cloud.google.com/bigquery/docs/biglake-iceberg-tables-in-bigquery), and write or export the output rows produced by a continuous query to the following destinations:
-
-  * BigQuery tables
-  * [Apache Iceberg managed tables](https://docs.cloud.google.com/bigquery/docs/biglake-iceberg-tables-in-bigquery)
-  * Pub/Sub topics
-  * Bigtable tables
-  * Spanner tables
-
-
+[Continuous queries](https://docs.cloud.google.com/bigquery/docs/continuous-queries-introduction) in BigQuery are SQL statements that run continuously and let you process incoming data in near real time. You can create and run continuous queries to write or export output rows to BigQuery tables, [Apache Iceberg managed tables](https://docs.cloud.google.com/bigquery/docs/biglake-iceberg-tables-in-bigquery), Pub/Sub topics, Bigtable tables, or Spanner tables.
 
 ## Choose an account type
 
@@ -72,6 +62,16 @@ To write data to a BigQuery table, the user account must have the `bigquery.tabl
 
 
 
+To call a persistent [SQL user-defined function (UDF)](https://docs.cloud.google.com/bigquery/docs/user-defined-functions#sql-udf-structure) created by another user, the user account must have the `bigquery.routines.get` IAM permission on the routine or dataset. Each of the following IAM roles grants the `bigquery.routines.get` permission:
+
+  * [BigQuery Metadata Viewer (`roles/bigquery.metadataViewer`)](https://docs.cloud.google.com/bigquery/docs/access-control#bigquery.metadataViewer)
+  * [BigQuery Data Viewer (`roles/bigquery.dataViewer`)](https://docs.cloud.google.com/bigquery/docs/access-control#bigquery.dataViewer)
+  * [BigQuery Data Editor (`roles/bigquery.dataEditor`)](https://docs.cloud.google.com/bigquery/docs/access-control#bigquery.dataEditor)
+  * [BigQuery Data Owner (`roles/bigquery.dataOwner`)](https://docs.cloud.google.com/bigquery/docs/access-control#bigquery.dataOwner)
+  * [BigQuery Admin (`roles/bigquery.admin`)](https://docs.cloud.google.com/bigquery/docs/access-control#bigquery.admin)
+
+
+
 If the user account must enable the APIs required for your continuous query use case, the user account must have the [Service Usage Admin (`roles/serviceusage.serviceUsageAdmin`)](https://docs.cloud.google.com/iam/docs/roles-permissions/serviceusage#serviceusage.serviceUsageAdmin) role.
 
 To read data from or write data to [Apache Iceberg managed tables](https://docs.cloud.google.com/bigquery/docs/biglake-iceberg-tables-in-bigquery), in addition to the BigQuery permissions, the user account must also have the [BigQuery Connection User (`roles/bigquery.connectionUser`)](https://docs.cloud.google.com/iam/docs/roles-permissions/bigquery#bigquery.connectionUser) role to use the Google Cloud resource connection associated with the Iceberg managed table. Furthermore, the service account associated with that connection must have the appropriate permissions (for example, [`roles/storage.objectUser`](https://docs.cloud.google.com/storage/docs/access-control/iam-roles#storage.objectUser) and `roles/storage.legacyBucketReader`) on the underlying Cloud Storage bucket. For more information, see [Create and use Apache Iceberg managed tables](https://docs.cloud.google.com/bigquery/docs/biglake-iceberg-tables-in-bigquery). 
@@ -105,6 +105,16 @@ To export data from a BigQuery table, the service account must have the `bigquer
 
 To write data to a BigQuery table, the service account must have the `bigquery.tables.updateData` IAM permission. Each of the following IAM roles grants the `bigquery.tables.updateData` permission: 
 
+  * [BigQuery Data Editor (`roles/bigquery.dataEditor`)](https://docs.cloud.google.com/bigquery/docs/access-control#bigquery.dataEditor)
+  * [BigQuery Data Owner (`roles/bigquery.dataOwner`)](https://docs.cloud.google.com/bigquery/docs/access-control#bigquery.dataOwner)
+  * [BigQuery Admin (`roles/bigquery.admin`)](https://docs.cloud.google.com/bigquery/docs/access-control#bigquery.admin)
+
+
+
+To call a persistent [SQL user-defined function (UDF)](https://docs.cloud.google.com/bigquery/docs/user-defined-functions#sql-udf-structure), the service account must have the `bigquery.routines.get` IAM permission on the routine or dataset. Each of the following IAM roles grants the `bigquery.routines.get` permission:
+
+  * [BigQuery Metadata Viewer (`roles/bigquery.metadataViewer`)](https://docs.cloud.google.com/bigquery/docs/access-control#bigquery.metadataViewer)
+  * [BigQuery Data Viewer (`roles/bigquery.dataViewer`)](https://docs.cloud.google.com/bigquery/docs/access-control#bigquery.dataViewer)
   * [BigQuery Data Editor (`roles/bigquery.dataEditor`)](https://docs.cloud.google.com/bigquery/docs/access-control#bigquery.dataEditor)
   * [BigQuery Data Owner (`roles/bigquery.dataOwner`)](https://docs.cloud.google.com/bigquery/docs/access-control#bigquery.dataOwner)
   * [BigQuery Admin (`roles/bigquery.admin`)](https://docs.cloud.google.com/bigquery/docs/access-control#bigquery.admin)
@@ -196,6 +206,20 @@ Additional APIs, IAM permissions, and Google Cloud resources are required to use
 
 
 When you use an AI function in a continuous query, consider whether the query output will remain within the [quota](https://docs.cloud.google.com/bigquery/quotas#cloud_ai_service_functions) for the function. If you exceed the quota, you might have to separately handle the records that don't get processed.
+
+## Use SQL UDFs
+
+You can encapsulate custom transformation logic in a continuous query by calling persistent or temporary [SQL UDFs](https://docs.cloud.google.com/bigquery/docs/user-defined-functions#sql-udf-structure). Only SQL UDFs are supported in continuous queries. JavaScript UDFs, Python UDFs, remote functions, and user-defined aggregate functions aren't supported.
+
+When using SQL UDFs in a continuous query, keep the following considerations in mind:
+
+  * The SQL expression inside the SQL UDF must only use SQL syntax, functions, and data sources that are [supported in continuous queries](https://docs.cloud.google.com/bigquery/docs/continuous-queries-introduction#supported_functionality). For example, a SQL UDF called by a continuous query can't query external tables or run scalar subqueries that scan other tables.
+  * To call a persistent SQL UDF, the account running the continuous query must have the `bigquery.routines.get` permission on the routine or dataset, as well as permission to access any resources referenced by the UDF unless it is configured as an [authorized routine](https://docs.cloud.google.com/bigquery/docs/authorized-routines). For more information, see Required permissions.
+  * If you update (including metadata or label changes) or delete a persistent SQL UDF while a continuous query that references it is running, BigQuery terminates the continuous query job. This also applies if you update or delete a nested SQL UDF that is referenced by an outer SQL UDF. To apply an updated UDF definition without losing data, update the UDF and then start a new continuous query from the point in time at which the previous job stopped by using the `APPENDS` or `CHANGES` function. For a similar workflow, see Modify the SQL of a continuous query.
+
+
+
+For an example, see Transform data by using a SQL UDF.
 
 ## Specify a starting time for the continuous query
 
@@ -686,6 +710,66 @@ Suppose you want to join a taxi rides table to a taxi requests table to understa
      window_end,
      geohash;
 
+### Transform data by using a SQL UDF
+
+The following examples show how to encapsulate custom transformation logic in a continuous query by using a persistent or temporary [SQL UDF](https://docs.cloud.google.com/bigquery/docs/user-defined-functions#sql-udf-structure).
+
+To use a persistent SQL UDF, first create the function in a standard BigQuery query:
+    
+    
+    CREATE FUNCTION `myproject.real_time_taxi_streaming.calculate_fare_per_passenger`(
+      meter_reading FLOAT64,
+      passenger_count INT64)
+    RETURNS FLOAT64
+    AS (
+      ROUND(SAFE_DIVIDE(meter_reading, passenger_count), 2)
+    );
+
+After creating the persistent SQL UDF, call it in a continuous query:
+    
+    
+    INSERT INTO `myproject.real_time_taxi_streaming.transformed_taxirides`
+    SELECT
+      timestamp,
+      meter_reading,
+      ride_status,
+      passenger_count,
+      `myproject.real_time_taxi_streaming.calculate_fare_per_passenger`(
+        meter_reading, passenger_count) AS cost_per_passenger
+    FROM
+      APPENDS(TABLE `myproject.real_time_taxi_streaming.taxirides`,
+        -- Configure the APPENDS TVF start_timestamp to specify when you want to
+        -- start processing data using your continuous query.
+        -- This example starts processing at 10 minutes before the current time.
+        CURRENT_TIMESTAMP() - INTERVAL 10 MINUTE)
+    WHERE
+      ride_status = 'dropoff';
+
+Alternatively, you can define and call a temporary SQL UDF directly within the continuous query job:
+    
+    
+    CREATE TEMP FUNCTION calculate_fare_per_passenger(
+      meter_reading FLOAT64,
+      passenger_count INT64)
+    RETURNS FLOAT64
+    AS (
+      ROUND(SAFE_DIVIDE(meter_reading, passenger_count), 2)
+    );
+    
+    INSERT INTO `myproject.real_time_taxi_streaming.transformed_taxirides`
+    SELECT
+      timestamp,
+      meter_reading,
+      ride_status,
+      passenger_count,
+      calculate_fare_per_passenger(
+        meter_reading, passenger_count) AS cost_per_passenger
+    FROM
+      APPENDS(TABLE `myproject.real_time_taxi_streaming.taxirides`,
+        CURRENT_TIMESTAMP() - INTERVAL 10 MINUTE)
+    WHERE
+      ride_status = 'dropoff';
+
 ## Modify the SQL of a continuous query
 
 You can't update the SQL used in a continuous query while the continuous query job is running. You must cancel the continuous query job, modify the SQL, and then start a new continuous query job from the point where you stopped the original continuous query job.
@@ -744,6 +828,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-02 UTC.
+Last updated 2026-11-04 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-02 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 

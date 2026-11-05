@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/compute/docs/disks/about-snapshot-schedules/
 title: About snapshot schedules for disks \u00a0|\u00a0 Compute Engine \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T23:09:50.660459+00:00
+fetched_at: 2026-11-05T00:19:26.770278+00:00
 ---
 
 # About snapshot schedules for disks  |  Compute Engine  |  Google Cloud Documentation
@@ -23,7 +23,7 @@ Send feedback
 
 Linux  Windows 
 
-A snapshot schedule creates standard snapshots, which are geo-redundant disk backups, at specified intervals. Use snapshot schedules as a best practice to backup your Compute Engine disks. You can use snapshot schedules to regularly and automatically back up zonal and regional Persistent Disk volumes and Google Cloud Hyperdisk volumes.
+A snapshot schedule creates standard snapshots, which are geo-redundant disk backups, at specified intervals. Use snapshot schedules as a best practice to back up your Compute Engine disks. You can use snapshot schedules to regularly and automatically back up zonal and regional Persistent Disk volumes and Google Cloud Hyperdisk volumes.
 
 ## Snapshot schedule properties
 
@@ -113,7 +113,7 @@ If you are applying a snapshot schedule to disks that are attached to Windows VM
 
 ## Snapshot locality rules and snapshot labels
 
-Similar to manually generated snapshots, you can also apply [resource labels](https://docs.cloud.google.com/compute/docs/labeling-resources) and [select the storage location](https://docs.cloud.google.com/compute/docs/disks/snapshots#selecting_a_storage_location) for auto-generated snapshots. If you set these in your snapshot schedule, any auto-generated snapshots from this schedule will have these properties applied to it. For example, if you set a snapshot locality as `US`, all snapshots generated from this schedule will be stored in the United States of America. See [Create a snapshot schedule](https://docs.cloud.google.com/compute/docs/disks/scheduled-snapshots#create_snapshot_schedule) for examples on how to set these options.
+Similar to manually generated snapshots, you can also apply [resource labels](https://docs.cloud.google.com/compute/docs/labeling-resources) and [select the storage location](https://docs.cloud.google.com/compute/docs/disks/snapshots#selecting_a_storage_location) for auto-generated snapshots. If you set these in your snapshot schedule, any auto-generated snapshots from this schedule will have these properties applied to them. For example, if you set a snapshot locality as `US`, all snapshots generated from this schedule will be stored in the United States of America. See [Create a snapshot schedule](https://docs.cloud.google.com/compute/docs/disks/scheduled-snapshots#create_snapshot_schedule) for examples on how to set these options.
 
 ## Limitations for snapshot schedules
 
@@ -122,7 +122,7 @@ Snapshot schedules have the following limitations:
   * Snapshot schedules apply only in the project that they were created in. Snapshot schedules can't be used in other projects or organizations.
   * You can't create [archive snapshots](https://docs.cloud.google.com/compute/docs/disks/snapshots#archive) or [instant snapshots](https://docs.cloud.google.com/compute/docs/disks/instant-snapshots) using a snapshot schedule.
   * After you create a snapshot schedule, you can make changes to the description, schedule, retention policy, and labels. To update other values for a snapshot schedule, you must delete the snapshot schedule and create a new one.
-  * For disks that use a [customer-supplied encryption key (CSEK)](https://docs.cloud.google.com/security/encryption/customer-supplied-encryption-keys), you can't create snapshot schedules.
+  * For disks that use a [customer-supplied encryption key (CSEK)](https://cloud.google.com/security/encryption/customer-supplied-encryption-keys), you can't create snapshot schedules.
   * For disks that use a [customer-managed encryption key (CMEK)](https://docs.cloud.google.com/kms/docs/cmek), all snapshots created with a snapshot schedule are automatically encrypted with the same key.
   * You can attach a maximum of 10 snapshot schedules at a time to a Persistent Disk volume using the Google Cloud CLI or REST. On the Google Cloud console, you can attach only one snapshot schedule to a disk.
   * You can attach a snapshot schedule to a maximum of 1000 disks.
@@ -142,6 +142,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-03 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 

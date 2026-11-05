@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chronicle/docs/secops/mssp-multi-tenant-operations/
 title: MSSP multi-tenant operations \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T10:10:35.668964+00:00
+fetched_at: 2026-11-04T23:33:40.976639+00:00
 ---
 
 # MSSP multi-tenant operations  |  Google Security Operations  |  Google Cloud Documentation
@@ -37,7 +37,7 @@ The following terms apply to Federated Search and multi-tenant operations:
 
   * **Managing instance** : The central Google SecOps instance with the required permissions to manage linked instances, organize federation groups, and execute federated searches.
   * **Managed instances** : Connected Google SecOps instances that respond to federation requests initiated from the managing instance.
-  * **Instances menu** : The drop-down selector in **Investigation > Search** that lets you choose which linked managed instances or instance groups to include in a federated search. This menu only appears when you sign in to a managing instance that has linked subtenants under **SIEM settings > Linked Instances** and your account has the `chronicle.googleapis.com/federationAdmin` or `chronicle.googleapis.com/federationViewer` role.
+  * **Instances menu** : The drop-down selector in **Investigation > Search** that lets you choose which linked managed instances or instance groups to include in a federated search. This menu only appears when you sign in to a managing instance that has linked subtenants under **Settings > Administration > SIEM Linked Instances** and your account has the `chronicle.googleapis.com/federationAdmin` or `chronicle.googleapis.com/federationViewer` role.
   * **Instance code** : The unique identifier assigned to each managed instance (`instance_code`) that tags returned events and aggregated statistical rows in federated search results.
   * **Federation administrator** : The IAM role (`chronicle.googleapis.com/federationAdmin`) required on the managing instance project to create federation groups and perform federated searches.
   * **Federation viewer** : The IAM role (`chronicle.googleapis.com/federationViewer`) that grants read-only access to view federation configurations and run federated searches without creating or deleting groups.
@@ -124,7 +124,7 @@ Within your managing instance, you can view linked tenants and organize them int
 Verify that your managed tenants are linked and visible to the managing instance before creating groups or running searches:
 
   1. Sign in to your managing Google SecOps instance.
-  2. Go to **SIEM settings > Linked Instances**.
+  2. Go to **Settings > Administration > SIEM Linked Instances**.
   3. Review the table of linked instances, which displays the following details for each tenant:
 
      * **Name** : Display name of the instance.
@@ -140,7 +140,7 @@ Verify that your managed tenants are linked and visible to the managing instance
 Create logical instance groups (for example, grouping banks and credit unions) to run targeted federated searches across specific customer segments:
 
   1. Sign in to your managing Google SecOps instance.
-  2. Click **SIEM settings > Linked Instances**.
+  2. Click **Settings > Administration > SIEM Linked Instances**.
   3. Click **Manage Groups**.
   4. Click **Add**.
   5. In the **Group name** field, enter a descriptive name for the group.
@@ -330,7 +330,7 @@ Use the following table to diagnose and resolve common Federated Search issues:
 Issue or error code | Description | Actionable fix  
 ---|---|---  
 `HTTP 409` | **Query rate limit exceeded** : The organization has exceeded the maximum of 30 federated search queries per hour. | Wait for the hourly quota window to reset before running additional federated searches, or run targeted queries directly on individual managed instances.  
-Missing tenant in **Linked Instances** | **Tenant not visible in federation list** : A newly created or moved instance doesn't appear under **SIEM settings > Linked Instances**. | Wait up to 5 minutes for automatic discovery sync. If the instance remains missing, verify that it resides in the same Google Cloud organization and region and is located in a subfolder of the managing instance's Google Cloud folder.  
+Missing tenant in **Linked Instances** | **Tenant not visible in federation list** : A newly created or moved instance doesn't appear under **Settings > Administration > SIEM Linked Instances**. | Wait up to 5 minutes for automatic discovery sync. If the instance remains missing, verify that it resides in the same Google Cloud organization and region and is located in a subfolder of the managing instance's Google Cloud folder.  
 Permission denied or unauthorized | **Unable to run federated query or manage groups** : You can't access the managing instance, create groups, or query a managed tenant. | Verify that your account has `chronicle.googleapis.com/federationAdmin` (or `federationViewer`) on the managing project, `chronicle.events.udmSearch` permission, and data RBAC access on each targeted subtenant.  
 Query compilation error | **Unsupported query syntax** : Query fails when attempting to use joins, data tables, reference lists, or ECG fields. | Remove joins, data tables, reference lists, and ECG references from the federated query, or pivot to a single-tenant instance using **Run UDM query** to execute advanced single-tenant searches.  
   
@@ -350,6 +350,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-28 UTC.
+Last updated 2026-11-04 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/iam/docs/service-account-overview/
 title: Service accounts overview \u00a0|\u00a0 Identity and Access Management (IAM) \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T07:56:30.886939+00:00
+fetched_at: 2026-11-04T23:44:24.976096+00:00
 ---
 
 # Service accounts overview  |  Identity and Access Management (IAM)  |  Google Cloud Documentation

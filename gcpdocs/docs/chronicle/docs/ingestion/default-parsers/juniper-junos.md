@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/juniper-junos/
 title: Collect Juniper Junos logs \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T07:52:28.471281+00:00
+fetched_at: 2026-11-04T23:35:19.809556+00:00
 ---
 
 # Collect Juniper Junos logs  |  Google Security Operations  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chronicle/docs/soar/investigate/working-with-cases/adding-custom-fields/
 title: Create custom fields for cases \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T10:02:18.775942+00:00
+fetched_at: 2026-11-04T23:33:53.836238+00:00
 ---
 
 # Create custom fields for cases  |  Google Security Operations  |  Google Cloud Documentation
@@ -34,7 +34,7 @@ This document describes how to create and manage custom fields, and how to use t
 
 Administrators can create up to 1,000 custom fields. Once a custom field is saved, you can't modify its **Scope** , **Type** , or **Name**. To create a custom field, do the following:
 
-  1. Go to **SOAR Settings > Case Data > Custom Fields**.
+  1. Go to **Settings > Investigation > Custom Fields**.
   2. Click  Add **Add** to create a new custom field.
   3. Select **Scope** and then select **Case** , **Alert** , or **All** (both). The **Scope** field is required and can't be changed once the custom field is created.
   4. Enter a custom field **Name**. The **Name** field is required and can't be changed after the custom field is created.
@@ -89,7 +89,7 @@ This use case outlines the steps to define three custom fields: a radio button, 
 
 After defining custom fields, add them to the **Custom Fields Form** widget. Each widget can hold up to fifty custom fields. The following steps show how to add the three custom fields you created previously to the **Custom Fields Form** widget to enrich the default alert view.
 
-  1. Go to **SOAR Settings** > **Case Data** > **Views** > **Default Alert View**. The **Default Alert View** opens with the available widgets.
+  1. Go to **Settings > Investigation > Views > Default Alert View**. The **Default Alert View** opens with the available widgets.
   2. On the **General** tab, drag the **Custom Fields Form** widget to the **Default Alert View**.
   3. In the **Custom Fields Form** widget, click  **Settings** **Configuration** to open its settings.
   4. In the **Widget Title** field, enter `True or False Positive Alert`.
@@ -286,6 +286,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-28 UTC.
+Last updated 2026-11-04 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 

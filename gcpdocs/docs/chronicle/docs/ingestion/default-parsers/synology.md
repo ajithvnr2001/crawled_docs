@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/synology/
 title: Collect Synology logs \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T07:53:20.815988+00:00
+fetched_at: 2026-11-04T23:34:55.078055+00:00
 ---
 
 # Collect Synology logs  |  Google Security Operations  |  Google Cloud Documentation

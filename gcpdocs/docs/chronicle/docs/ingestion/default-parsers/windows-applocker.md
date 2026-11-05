@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/windows-applocker/
 title: Collect Windows AppLocker logs \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T07:51:43.176981+00:00
+fetched_at: 2026-11-04T23:43:03.800448+00:00
 ---
 
 # Collect Windows AppLocker logs  |  Google Security Operations  |  Google Cloud Documentation

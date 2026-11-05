@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chronicle/docs/soar/admin-tasks/user-soar-only/how-do-i-add-a-new-user-to-the-platform/
 title: Manage SOAR standalone users \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T10:07:00.017510+00:00
+fetched_at: 2026-11-04T23:33:35.440550+00:00
 ---
 
 # Manage SOAR standalone users  |  Google Security Operations  |  Google Cloud Documentation
@@ -47,7 +47,7 @@ The Google Security Operations SOAR user types include:
 
 To add a new user to the Google Security Operations SOAR platform, follow these steps:
 
-  1. Go to **Settings > Organization > User Management**.
+  1. Go to **Settings > Access Management > User Managemen**.
   2. Click add**Add**.
   3. Fill out the required information in the fields. You can edit this information after the user is created. The **Login ID** field must contain an email address for internal users. If you edit the **Login ID** field, the user's status changes to **Pending** until the next sign-in.
 **Note:** For SAML authentication, select the required SAML provider in the **User Type** field. The **Login ID** field must conform to your SAML specifications, and the **Email** field is intended for notification purposes only. 
@@ -79,6 +79,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-28 UTC.
+Last updated 2026-11-04 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 

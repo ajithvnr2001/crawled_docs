@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/firestore/native/docs/security/rules-query/
 title: Securely querying data \u00a0|\u00a0 Firestore in Native mode \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T08:01:40.904422+00:00
+fetched_at: 2026-11-04T23:46:06.593071+00:00
 ---
 
 # Securely querying data  |  Firestore in Native mode  |  Google Cloud Documentation

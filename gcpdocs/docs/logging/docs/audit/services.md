@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/logging/docs/audit/services/
 title: Google Cloud services with audit logs \u00a0|\u00a0 Cloud Logging \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-01T05:44:03.274219+00:00
+fetched_at: 2026-11-05T00:20:06.794474+00:00
 ---
 
 # Google Cloud services with audit logs  |  Cloud Logging  |  Google Cloud Documentation
@@ -47,7 +47,7 @@ Google Cloud services with audit logs | Service Name
 [AutoML](https://docs.cloud.google.com/vertex-ai/docs/general/audit-logging) | `automl.googleapis.com`  
 [Backup for GKE](https://docs.cloud.google.com/kubernetes-engine/docs/add-on/backup-for-gke/how-to/audit-logging) | `gkebackup.googleapis.com`  
 [Gemini for Google Cloud](https://docs.cloud.google.com/gemini/docs/audit-logging) | `cloudaicompanion.googleapis.com`  
-[Business AI Code](https://docs.cloud.google.com/gemini/docs/codeassist/business-audit-logging) | `businessaicode.googleapis.com`  
+[Business AI Code](https://docs.cloud.google.com/gemini/enterprise/docs/business-audit-logging) | `businessaicode.googleapis.com`  
 [Gemini Cloud Assist](https://docs.cloud.google.com/cloud-assist/audit-logging) | `geminicloudassist.googleapis.com`  
 [Conversational Analytics API](https://docs.cloud.google.com/gemini/data-agents/conversational-analytics-api/audit-logging) | `geminidataanalytics.googleapis.com`  
 [Gemini Enterprise for Customer Experience](https://docs.cloud.google.com/customer-engagement-ai/conversational-agents/ps/audit-logging) | `ces.googleapis.com`  
@@ -270,6 +270,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-30 UTC.
+Last updated 2026-11-03 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/sap-btp/
 title: Collect SAP BTP logs \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T07:52:01.099303+00:00
+fetched_at: 2026-11-04T23:44:15.254088+00:00
 ---
 
 # Collect SAP BTP logs  |  Google Security Operations  |  Google Cloud Documentation

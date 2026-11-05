@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/migration/migration-lineage/
 title: Plan a migration with migration lineage \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T07:48:40.612206+00:00
+fetched_at: 2026-11-04T23:34:49.929215+00:00
 ---
 
 # Plan a migration with migration lineage  |  BigQuery  |  Google Cloud Documentation

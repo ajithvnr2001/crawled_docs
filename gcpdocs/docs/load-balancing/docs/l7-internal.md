@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/load-balancing/docs/l7-internal/
 title: Internal Application Load Balancer overview \u00a0|\u00a0 Cloud Load Balancing \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T22:34:44.955364+00:00
+fetched_at: 2026-11-04T23:31:22.846405+00:00
 ---
 
 # Internal Application Load Balancer overview  |  Cloud Load Balancing  |  Google Cloud Documentation
@@ -162,7 +162,7 @@ Regional internal Application Load Balancer | Depending on whether you use an IP
   * VPC network: you must use a custom mode VPC network configured with the `--enable-ula-internal-ipv6` flag.
   * Forwarding rule subnet: this subnet must be a dual-stack (`IPv4_IPv6`) or `IPV6_ONLY` subnet with the `ipv6-access-type` set to `INTERNAL`.
 
-**IPv6 address allocation options.** The forwarding rule must reference a `/96` range of IPv6 addresses from the subnet's `/64` internal IPv6 address range. When you configure the forwarding rule with the `--ip-version=IPV6` flag, Google Cloud automatically allocates a random `/96` IPv6 prefix from within the range of the subnet. **Limitations.** To specify a custom ephemeral IPv6 address, you must use the Google Cloud CLI or the API. The Google Cloud console doesn't support specifying custom ephemeral IPv6 addresses for forwarding rules.   
+**IPv6 address allocation options.** The forwarding rule must reference a `/96` range of IPv6 addresses from the subnet's `/64` internal IPv6 address range. When you configure the forwarding rule with the `--ip-version=IPV6` flag, Google Cloud automatically allocates a random `/96` IPv6 prefix from within the range of the subnet. **Limitations.** To specify a custom ephemeral IPv6 address, you must use the Google Cloud CLI or the API. The Google Cloud console doesn't support specifying custom ephemeral IPv6 addresses for forwarding rules. To deploy a regional internal Application Load Balancer with an IPv6 address on GKE, see [Deploy an internal Gateway](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/deploying-gateways#internal-gateway) in the GKE documentation.  
   
 ### Target proxy
 
@@ -1045,6 +1045,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-04 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 

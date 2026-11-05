@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/interactions/developer-guide/
 title: Interactions API developer guide \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T05:54:30.232455+00:00
+fetched_at: 2026-11-04T23:16:26.260880+00:00
 ---
 
 # Interactions API developer guide  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation
@@ -21,15 +21,11 @@ Send feedback
 
 #  Interactions API developer guide Stay organized with collections  Save and categorize content based on your preferences. 
 
-**Preview**
-
-This feature is subject to the "Pre-GA Offerings Terms" in the General Service Terms section of the [Service Specific Terms](https://docs.cloud.google.com/terms/service-terms#1), and the [Additional Terms for Generative AI Preview Products](https://cloud.google.com/trustedtester/aitos). You can process personal data for this feature as outlined in the [Cloud Data Processing Addendum](https://docs.cloud.google.com/terms/data-processing-addendum), subject to the obligations and restrictions described in the agreement under which you access Google Cloud. Pre-GA features are available "as is" and might have limited support. For more information, see the [launch stage descriptions](https://cloud.google.com/products/#product-launch-stages). 
-
 To see an example of how to use the Interactions API, run the "Gemini API: Getting started with Interactions API" notebook in one of the following environments: 
 
 [![](https://docs.cloud.google.com/static/vertex-ai/images/colab-logo-32px.png)Open in Colab](https://colab.research.google.com/github/GoogleCloudPlatform/generative-ai/blob/main/gemini/getting-started/intro_interactions_api.ipynb) | [![](https://docs.cloud.google.com/static/vertex-ai/images/colab-enterprise-logo-32px.png)Open in Colab Enterprise](https://console.cloud.google.com/agent-platform/colab/import/https%3A%2F%2Fraw.githubusercontent.com%2FGoogleCloudPlatform%2Fgenerative-ai%2Fmain%2Fgemini%2Fgetting-started%2Fintro_interactions_api.ipynb) | [![](https://docs.cloud.google.com/static/vertex-ai/images/vertex-ai-workbench-logo-32px.png)Open in Agent Platform Workbench](https://console.cloud.google.com/agent-platform/workbench/deploy-notebook?download_url=https%3A%2F%2Fraw.githubusercontent.com%2FGoogleCloudPlatform%2Fgenerative-ai%2Fmain%2Fgemini%2Fgetting-started%2Fintro_interactions_api.ipynb) | [![](https://docs.cloud.google.com/static/vertex-ai/images/github-logo-32px.png)View on GitHub](https://github.com/GoogleCloudPlatform/generative-ai/blob/main/gemini/getting-started/intro_interactions_api.ipynb)
 
-The Interactions API provides a unified, stateful interface for building generative AI applications with Gemini models and autonomous agents on Gemini Enterprise Agent Platform. Use the Interactions API to run multi-turn conversations, stream real-time responses, enforce structured outputs, execute function calls, and orchestrate long-running background tasks.
+The Interactions API provides a unified, stateful interface for building generative AI applications with Gemini models and autonomous agents on Gemini Enterprise Agent Platform. Use the Interactions API to manage session storage and multi-turn conversations, stream real-time responses, enforce structured outputs, invoke built-in tools and grounding, execute function calls, and orchestrate long-running background tasks.
 
 This guide shows you how to install the Google Gen AI SDK, authenticate your client, and implement common interaction workflows. For conceptual details about the interaction lifecycle, see the [Interactions API overview](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/interactions).
 
@@ -136,8 +132,11 @@ To enable APIs, you need the `serviceusage.services.enable` permission. If you c
 Review the following concepts to understand how the Interactions API manages state and responses:
 
   * **`Interaction`** : The Interactions API centers around a core resource: an `Interaction`. An `Interaction` represents a complete turn in a conversation or task, tracking the chronology of model thoughts, tool calls, and final outputs. It provides a unified envelope for prompt-response interactions and complex, multi-step agent workflows.
+
   * **Stateful retention** : Interactions are stored server-side by default (`store=True` in Python or `store: true` in TypeScript/JavaScript). Stored interactions persist for 7 days and are automatically deleted after that time. Setting `store=False` opts into stateless mode, which disables server-side retention and is Zero Data Retention (ZDR) compliant. Stateless mode also disables `previous_interaction_id` chaining and asynchronous execution (`background=True`).
+
   * **Response helpers** : Google Gen AI SDK version `2.3.0` and later provides convenience properties on the interaction response, including `interaction.output_text`, `interaction.output_image`, and `interaction.output_audio`. Use `interaction.output_text` to read text responses instead of manually indexing into the steps array (such as `interaction.steps[-1].content[0].text`).
+
 
 
 
@@ -145,10 +144,8 @@ Review the following concepts to understand how the Interactions API manages sta
 
 Ensure your environment and requests meet the following requirements before integrating with the Interactions API:
 
-  * **SDK version support** : Use the unified Google Gen AI SDK (`>= 2.3.0` for Python or `@google/genai >= 2.3.0` for TypeScript and JavaScript).
+  * **SDK version support** : Use one of the [Supported Google Gen AI SDK libraries](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/interactions#sdks).
 
-    * Version `2.3.0` or later is required for response helper properties and agent capabilities, while version 2.0.0 supports the base `steps` schema.
-    * Legacy SDKs (`google-cloud-aiplatform`, `@google-cloud/vertexai`, and `google-generativeai`) don't support the Interactions API.
   * **Supported models** : Use supported Gemini 3 models or later. Earlier model families don't support this API. For a complete list of supported models, see [Supported models](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/interactions#supported-models) and [Migrate to the latest model versions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/migrate).
 
   * **Turn-scoped parameters** : Configuration parameters such as `tools`, `system_instruction`, and `generation_config` apply only to the current turn. Pass these parameters on each subsequent interaction turn if your workflow requires them across a multi-turn conversation.
@@ -158,7 +155,7 @@ Ensure your environment and requests meet the following requirements before inte
 
 ## Install the Google Gen AI SDK
 
-Install or upgrade the Google Gen AI SDK (`>= 2.3.0`) for your preferred language:
+Install or upgrade the Google Gen AI SDK for your preferred language:
 
 ### Python
     
@@ -172,21 +169,39 @@ Install or upgrade the Google Gen AI SDK (`>= 2.3.0`) for your preferred languag
     npm install "@google/genai>=2.3.0"
     
 
+### Go
+    
+    
+    go get google.golang.org/genai
+    
+
+### Java
+    
+    
+    <dependencies>
+      <dependency>
+        <groupId>com.google.genai</groupId>
+        <artifactId>google-genai</artifactId>
+        <version>1.78.0</version>
+      </dependency>
+    </dependencies>
+    
+
 ## Authenticate your client
 
 You can connect to the Interactions API on Agent Platform using either of the following authentication methods:
 
-  * [Google Cloud project with Application Default Credentials](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/interactions/developer-guide#connect-adc)
-  * [Express mode with an API key](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/interactions/developer-guide#connect-api-key)
+  * Google Cloud project with Application Default Credentials
+  * Express mode with an API key
 
 
 
 ### Connect using a Google Cloud project with Application Default Credentials (ADC)
 
-We recommend using this authentication method for enterprise workloads and production deployments on Google Cloud. To authenticate with Application Default Credentials (ADC), initialize the client with the following properties:
+Use this authentication method for enterprise workloads and production deployments on Google Cloud. To authenticate with Application Default Credentials (ADC), initialize the client with the following properties:
 
   * `enterprise=True`
-  * `project= Google Cloud project ID`
+  * `project="PROJECT_ID"`
   * `location="global"`
 
 
@@ -238,13 +253,13 @@ In the following code sample, replace PROJECT_ID with your Google Cloud project 
 ### REST
     
     
-    curl -X POST "https://aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/global/interactions" \
+    curl -X POST "https://aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/global/interactions" \
       -H "Authorization: Bearer $(gcloud auth application-default print-access-token)" \
       -H "Content-Type: application/json" \
       -d '{
         "model": "gemini-3.8-flash",
         "input": [{
-          "role": "user",
+          "type": "user_input",
           "content": [{
             "type": "text",
             "text": "Explain serverless computing in one sentence."
@@ -257,9 +272,9 @@ In the following code sample, replace PROJECT_ID with your Google Cloud project 
 
 ### Connect using express mode (API key)
 
-We recommend using this authentication method for rapid prototyping, lightweight scripts, or environments that authenticate with an API key. Pass your API key when initializing the client or in the `x-goog-api-key` HTTP header.
+Use this authentication method for rapid prototyping, lightweight scripts, or environments that authenticate with an API key. Pass your API key when initializing the client or in the `x-goog-api-key` HTTP header.
 
-In the following code sample, replace API_KEY with your API key.
+In the following code sample, replace API_KEY with your API key and PROJECT_ID with your Google Cloud project ID.
 
 ### Python
     
@@ -300,13 +315,13 @@ In the following code sample, replace API_KEY with your API key.
 ### REST
     
     
-    curl -X POST "https://aiplatform.googleapis.com/v1beta1/locations/global/interactions" \
+    curl -X POST "https://aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/global/interactions" \
       -H "x-goog-api-key: API_KEY" \
       -H "Content-Type: application/json" \
       -d '{
         "model": "gemini-3.8-flash",
         "input": [{
-          "role": "user",
+          "type": "user_input",
           "content": [{
             "type": "text",
             "text": "Explain serverless computing in one sentence."
@@ -317,18 +332,47 @@ In the following code sample, replace API_KEY with your API key.
 
 ## Common interaction workflows
 
-After you configure your client, you can use the `interactions.create` method to build multi-turn conversations, stream output tokens in real time, generate schema-validated JSON, call external functions, and run autonomous agents.
+After you configure your client, you can use the `interactions.create` method to manage session storage and multi-turn conversations, stream output tokens in real time, generate schema-validated JSON, invoke built-in tools and grounding, call external functions, and run autonomous agents.
 
-### Manage stateful multi-turn conversations
+### Manage session storage and conversation state
 
-Unlike stateless chat APIs that require you to resend the full message history with every request, the Interactions API manages conversation state on the server by default (`store=True` in Python or `store: true` in TypeScript/JavaScript).
+The Interactions API supports both server-side stateful storage (`store=True`, default) and client-managed stateless execution (`store=False`). The following table compares stateful and stateless interaction modes:
 
-To continue an existing conversation, pass the `id` of the preceding interaction to the `previous_interaction_id` parameter. Agent Platform automatically retrieves the stored conversation context and appends the new turn. If you set `store=False` (`store: false` in TypeScript/JavaScript), server-side persistence is disabled and you can't chain subsequent turns with `previous_interaction_id`.
+Feature | Stateful mode (`store=true`, default) | Stateless mode (`store=false`)  
+---|---|---  
+**Server-side persistence** |  Stores inputs, intermediate steps, and outputs on the server for 7 days.  |  Disables server-side interaction storage to support [ Zero Data Retention (ZDR)](https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/zero-data-retention#customer-data-retention) workflows.   
+**Multi-turn context** |  Chains turns by passing the preceding interaction `id` in `previous_interaction_id`.  |  Requires passing the full array of prior conversation `steps` in `input` on each turn. Passing `previous_interaction_id` returns a `400 Bad Request` error.   
+**Background execution (`background=true`)** | Supported for long-running model and agent interactions. |  Not supported. Asynchronous background execution requires server-side state persistence.   
+**Session lifecycle methods** |  Supports retrieving (`get`), listing (`list`), canceling (`cancel`), and deleting (`delete`) interactions.  |  Not retrievable after the synchronous or streaming response completes.   
+**Encryption at rest** |  Encrypted by default with a Google-owned and Google-managed encryption key, or with customer-managed encryption keys (CMEK) in the `us` and `eu` multi-regions.  | No interaction state is stored at rest.  
+  
+#### Run stateful multi-turn conversations
+
+By default, the Interactions API stores conversation state on the server (`store=True` in Python or `store: true` in TypeScript/JavaScript). To continue an existing conversation, pass the `id` of the preceding interaction to the `previous_interaction_id` parameter. Agent Platform retrieves the stored conversation context, appends the new turn, and reuses cached prefix tokens.
+
+When chaining interactions across endpoints, observe the following location rules:
+
+  * **Same location** : You can chain interactions within the same location (such as `global` to `global`, `us` to `us`, or `eu` to `eu`).
+
+  * **Across different locations** : Chaining across different endpoint locations (between `global` and `us` or `eu`, or between `us` and `eu`) isn't supported. Each endpoint stores interaction state in isolated storage, so referencing an interaction ID created in another location returns a `404 Not Found` error.
+
+
+
+
+In the following example, replace PROJECT_ID with your Google Cloud project ID:
 
 ### Python
     
     
-    # Turn 1: Start a conversation (store=True by default)
+    from google import genai
+    
+    client = genai.Client(
+        enterprise=True,
+        project="PROJECT_ID",
+        location="global",
+    )
+    
+    # Turn 1: Start a stateful conversation (store=True by default)
     turn1 = client.interactions.create(
         model="gemini-3.8-flash",
         input="Hi! My name is John. I am working on AI agents.",
@@ -348,7 +392,15 @@ To continue an existing conversation, pass the `id` of the preceding interaction
 ### TypeScript / JavaScript
     
     
-    // Turn 1: Start a conversation (store: true by default)
+    import { GoogleGenAI } from "@google/genai";
+    
+    const ai = new GoogleGenAI({
+        enterprise: true,
+        project: "PROJECT_ID",
+        location: "global",
+    });
+    
+    // Turn 1: Start a stateful conversation (store: true by default)
     const turn1 = await ai.interactions.create({
         model: "gemini-3.8-flash",
         input: "Hi! My name is John. I am working on AI agents.",
@@ -364,6 +416,408 @@ To continue an existing conversation, pass the `id` of the preceding interaction
     });
     console.log(`Turn 2: ${turn2.output_text}`);
     
+
+### Java
+    
+    
+    import com.google.genai.Client;
+    import com.google.genai.gaos.models.interactions.CreateModelInteraction;
+    import com.google.genai.gaos.models.interactions.Interaction;
+    import com.google.genai.gaos.models.interactions.InteractionsInput;
+    import com.google.genai.gaos.models.interactions.Model;
+    import com.google.genai.gaos.models.operations.CreateInteractionRequestBody;
+    
+    Client client =
+        Client.builder()
+            .enterprise(true)
+            .project("PROJECT_ID")
+            .location("global")
+            .build();
+    
+    // Turn 1: Start a stateful conversation (store is true by default)
+    CreateModelInteraction req1 =
+        CreateModelInteraction.builder()
+            .model(Model.of("gemini-3.8-flash"))
+            .input(InteractionsInput.of("Hi! My name is John. I am working on AI agents."))
+            .store(true)
+            .build();
+    
+    Interaction turn1 =
+        client.interactions.create(CreateInteractionRequestBody.of(req1)).interaction().orElseThrow();
+    System.out.println("Turn 1: " + turn1.outputText().orElse(""));
+    
+    // Turn 2: Reference the stored conversation state using previousInteractionId
+    CreateModelInteraction req2 =
+        CreateModelInteraction.builder()
+            .model(Model.of("gemini-3.8-flash"))
+            .previousInteractionId(turn1.id().orElseThrow())
+            .input(InteractionsInput.of("What is my name?"))
+            .build();
+    
+    Interaction turn2 =
+        client.interactions.create(CreateInteractionRequestBody.of(req2)).interaction().orElseThrow();
+    System.out.println("Turn 2: " + turn2.outputText().orElse(""));
+    
+
+### REST
+    
+    
+    # Turn 1: Start a stateful conversation
+    curl -X POST "https://aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/global/interactions" \
+      -H "Authorization: Bearer $(gcloud auth application-default print-access-token)" \
+      -H "Content-Type: application/json" \
+      -d '{
+        "model": "gemini-3.8-flash",
+        "store": true,
+        "input": "Hi! My name is John. I am working on AI agents."
+      }'
+    
+    # Turn 2: Pass the interaction ID from Turn 1 in previous_interaction_id
+    curl -X POST "https://aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/global/interactions" \
+      -H "Authorization: Bearer $(gcloud auth application-default print-access-token)" \
+      -H "Content-Type: application/json" \
+      -d '{
+        "model": "gemini-3.8-flash",
+        "previous_interaction_id": "PREVIOUS_INTERACTION_ID",
+        "input": "What is my name?"
+      }'
+    
+
+#### Run stateless multi-turn conversations
+
+If your workload requires [Zero Data Retention (ZDR)](https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/zero-data-retention#customer-data-retention), explicitly set `store=False` (`store: false` in TypeScript/JavaScript or `"store": false` in REST) on every request.
+
+In stateless mode, you manage conversation history on the client by maintaining a list of [`Step`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/models/interactions-api#Resource:Step) objects (`user_input`, `thought`, `function_call`, `function_result`, and `model_output`) and sending the accumulated `steps` array in `input` on each turn:
+
+### Python
+    
+    
+    from google import genai
+    
+    client = genai.Client(
+        enterprise=True,
+        project="PROJECT_ID",
+        location="global",
+    )
+    
+    history = [
+        {
+            "type": "user_input",
+            "content": [{"type": "text", "text": "Hi! My name is John."}],
+        }
+    ]
+    
+    # Turn 1: Stateless request (store=False)
+    turn1 = client.interactions.create(
+        model="gemini-3.8-flash",
+        input=history,
+        store=False,
+    )
+    print(f"Turn 1: {turn1.output_text}")
+    
+    # Append the model's generated steps and the next user turn to local history
+    history.extend(turn1.steps)
+    history.append(
+        {
+            "type": "user_input",
+            "content": [{"type": "text", "text": "What is my name?"}],
+        }
+    )
+    
+    # Turn 2: Send the full step history with store=False
+    turn2 = client.interactions.create(
+        model="gemini-3.8-flash",
+        input=history,
+        store=False,
+    )
+    print(f"Turn 2: {turn2.output_text}")
+    
+
+### TypeScript / JavaScript
+    
+    
+    import { GoogleGenAI, Step } from "@google/genai";
+    
+    const ai = new GoogleGenAI({
+        enterprise: true,
+        project: "PROJECT_ID",
+        location: "global",
+    });
+    
+    const history: Step[] = [
+        {
+            type: "user_input",
+            content: [{ type: "text", text: "Hi! My name is John." }],
+        },
+    ];
+    
+    // Turn 1: Stateless request (store: false)
+    const turn1 = await ai.interactions.create({
+        model: "gemini-3.8-flash",
+        input: history,
+        store: false,
+    });
+    console.log(`Turn 1: ${turn1.output_text}`);
+    
+    // Append the model's generated steps and the next user turn to local history
+    if (turn1.steps) {
+        history.push(...turn1.steps);
+    }
+    history.push({
+        type: "user_input",
+        content: [{ type: "text", text: "What is my name?" }],
+    });
+    
+    // Turn 2: Send the full step history with store: false
+    const turn2 = await ai.interactions.create({
+        model: "gemini-3.8-flash",
+        input: history,
+        store: false,
+    });
+    console.log(`Turn 2: ${turn2.output_text}`);
+    
+
+### Java
+    
+    
+    import com.google.genai.Client;
+    import com.google.genai.gaos.models.interactions.CreateModelInteraction;
+    import com.google.genai.gaos.models.interactions.Interaction;
+    import com.google.genai.gaos.models.interactions.InteractionsInput;
+    import com.google.genai.gaos.models.interactions.Model;
+    import com.google.genai.gaos.models.interactions.Step;
+    import com.google.genai.gaos.models.interactions.TextContent;
+    import com.google.genai.gaos.models.interactions.UserInputContent;
+    import com.google.genai.gaos.models.interactions.UserInputStep;
+    import com.google.genai.gaos.models.operations.CreateInteractionRequestBody;
+    import java.util.ArrayList;
+    import java.util.List;
+    
+    Client client =
+        Client.builder()
+            .enterprise(true)
+            .project("PROJECT_ID")
+            .location("global")
+            .build();
+    
+    List<Step> history = new ArrayList<>();
+    history.add(
+        Step.of(
+            UserInputStep.builder()
+                .content(
+                    List.of(
+                        UserInputContent.of(
+                            TextContent.builder().text("Hi! My name is John.").build())))
+                .build()));
+    
+    // Turn 1: Stateless request (store(false))
+    CreateModelInteraction req1 =
+        CreateModelInteraction.builder()
+            .model(Model.of("gemini-3.8-flash"))
+            .input(InteractionsInput.ofSteps(history))
+            .store(false)
+            .build();
+    
+    Interaction turn1 =
+        client.interactions.create(CreateInteractionRequestBody.of(req1)).interaction().orElseThrow();
+    System.out.println("Turn 1: " + turn1.outputText().orElse(""));
+    
+    // Append the model's generated steps and the next user turn to local history
+    turn1.steps().ifPresent(history::addAll);
+    history.add(
+        Step.of(
+            UserInputStep.builder()
+                .content(
+                    List.of(
+                        UserInputContent.of(
+                            TextContent.builder().text("What is my name?").build())))
+                .build()));
+    
+    // Turn 2: Send the full step history with store(false)
+    CreateModelInteraction req2 =
+        CreateModelInteraction.builder()
+            .model(Model.of("gemini-3.8-flash"))
+            .input(InteractionsInput.ofSteps(history))
+            .store(false)
+            .build();
+    
+    Interaction turn2 =
+        client.interactions.create(CreateInteractionRequestBody.of(req2)).interaction().orElseThrow();
+    System.out.println("Turn 2: " + turn2.outputText().orElse(""));
+    
+
+### REST
+    
+    
+    curl -X POST "https://aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/global/interactions" \
+      -H "Authorization: Bearer $(gcloud auth application-default print-access-token)" \
+      -H "Content-Type: application/json" \
+      -d '{
+        "model": "gemini-3.8-flash",
+        "store": false,
+        "input": [
+          {
+            "type": "user_input",
+            "content": [{"type": "text", "text": "Hi! My name is John."}]
+          },
+          {
+            "type": "model_output",
+            "content": [{"type": "text", "text": "Hello John! How can I help you today?"}]
+          },
+          {
+            "type": "user_input",
+            "content": [{"type": "text", "text": "What is my name?"}]
+          }
+        ]
+      }'
+    
+
+#### Retention and session lifecycle
+
+Stored interactions (`store=True`) follow these retention and branching rules:
+
+  * **7-day time-to-live (TTL)** : Each stored interaction persists for 7 days from its `created` timestamp and is automatically deleted when the 7-day TTL expires.
+
+  * **Independent parent and child storage** : When you chain a new turn using `previous_interaction_id`, Agent Platform copies the ancestor conversation history into the new interaction record. Because each turn stores its own copy of the conversation history, expiring or deleting an earlier turn has the following effects:
+
+    * **Continuing from a later turn succeeds** : If Turn 1 (`interaction_1`) expires or is deleted after Turn 2 (`interaction_2`) has already been created, you can still create Turn 3 using `previous_interaction_id=interaction_2.id` until `interaction_2` itself expires or is deleted.
+
+    * **Branching from an expired or deleted turn fails** : Attempting to create a new interaction directly referencing an expired or deleted interaction ID in `previous_interaction_id` returns a `400 Bad Request` (`Previous Interaction ID not found`) error.
+
+
+
+
+#### Retrieve, list, cancel, and delete stored interactions
+
+You can inspect and manage stored interactions throughout their lifecycle using the following methods:
+
+  * **Retrieve an interaction ([`interactions.get`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/models/interactions-api#getInteractionById))**: Fetches the complete `Interaction` resource by `id`, including `user_input` steps, intermediate `thought` and tool steps, and `model_output` steps. Set `stream=True` (and optional `last_event_id`) to stream or resume an in-progress interaction.
+
+  * **List interactions ([`interactions.list`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/models/interactions-api#listInteractions))**: Queries stored interaction IDs in your project over REST using `page_size` (default `10`, maximum `500`) and `page_token`. Returns a list of [`InteractionMetadata`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/models/interactions-api#Resource:InteractionMetadata) resources.
+
+  * **Cancel an in-progress interaction ([`interactions.cancel`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/models/interactions-api#cancelInteractionById))**: Halts an asynchronous background interaction (`background=True`) that is in the `in_progress` or `requires_action` state and transitions its status to `cancelled`. You are billed for any tokens generated prior to cancellation.
+
+  * **Delete a stored interaction ([`interactions.delete`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/models/interactions-api#deleteInteraction))**: Permanently removes a stored interaction before its 7-day TTL expires. Only interactions in a terminal state (`completed`, `failed`, or `cancelled`) can be deleted; if an interaction is still running in the background, cancel it before deleting it.
+
+
+
+
+In the following example, replace PROJECT_ID with your Google Cloud project ID and INTERACTION_ID with the target interaction ID:
+
+### Python
+    
+    
+    from google import genai
+    
+    client = genai.Client(
+        enterprise=True,
+        project="PROJECT_ID",
+        location="global",
+    )
+    
+    # Retrieve a stored interaction by ID
+    interaction = client.interactions.get(id="INTERACTION_ID")
+    print(f"Status: {interaction.status}")
+    
+    # Cancel an in-progress background interaction
+    cancelled = client.interactions.cancel(id="INTERACTION_ID")
+    print(f"After cancel: {cancelled.status}")
+    
+    # Delete a completed, failed, or cancelled interaction before its 7-day TTL
+    client.interactions.delete(id="INTERACTION_ID")
+    print("Interaction deleted.")
+    
+
+### TypeScript / JavaScript
+    
+    
+    import { GoogleGenAI } from "@google/genai";
+    
+    const ai = new GoogleGenAI({
+        enterprise: true,
+        project: "PROJECT_ID",
+        location: "global",
+    });
+    
+    // Retrieve a stored interaction by ID
+    const interaction = await ai.interactions.get("INTERACTION_ID");
+    console.log(`Status: ${interaction.status}`);
+    
+    // Cancel an in-progress background interaction
+    const cancelled = await ai.interactions.cancel("INTERACTION_ID");
+    console.log(`After cancel: ${cancelled.status}`);
+    
+    // Delete a completed, failed, or cancelled interaction before its 7-day TTL
+    await ai.interactions.delete("INTERACTION_ID");
+    console.log("Interaction deleted.");
+    
+
+### Java
+    
+    
+    import com.google.genai.Client;
+    import com.google.genai.gaos.models.interactions.Interaction;
+    import com.google.genai.gaos.models.interactions.InteractionStatus;
+    import com.google.genai.gaos.models.operations.CancelInteractionByIdResponse;
+    import com.google.genai.gaos.models.operations.GetInteractionByIdRequest;
+    import com.google.genai.gaos.models.operations.GetInteractionByIdResponse;
+    
+    Client client =
+        Client.builder()
+            .enterprise(true)
+            .project("PROJECT_ID")
+            .location("global")
+            .build();
+    
+    String interactionId = "INTERACTION_ID";
+    
+    // Retrieve a stored interaction by ID
+    GetInteractionByIdResponse getResponse =
+        client.interactions.get(new GetInteractionByIdRequest(interactionId));
+    Interaction interaction = getResponse.interaction().orElseThrow();
+    System.out.println("Status: " + interaction.status().map(InteractionStatus::value).orElse(""));
+    
+    // Cancel an in-progress background interaction
+    CancelInteractionByIdResponse cancelResponse = client.interactions.cancel(interactionId);
+    Interaction cancelled = cancelResponse.interaction().orElseThrow();
+    System.out.println("After cancel: " + cancelled.status().map(InteractionStatus::value).orElse(""));
+    
+    // Delete a completed, failed, or cancelled interaction before its 7-day TTL
+    client.interactions.delete(interactionId);
+    System.out.println("Interaction deleted.");
+    
+
+### REST
+    
+    
+    # Retrieve a stored interaction by ID
+    curl -X GET "https://aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/global/interactions/INTERACTION_ID" \
+      -H "Authorization: Bearer $(gcloud auth application-default print-access-token)"
+    
+    # List stored interactions (up to 500 per page)
+    curl -X GET "https://aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/global/interactions?page_size=10" \
+      -H "Authorization: Bearer $(gcloud auth application-default print-access-token)"
+    
+    # Cancel an in-progress background interaction
+    curl -X POST "https://aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/global/interactions/INTERACTION_ID/cancel" \
+      -H "Authorization: Bearer $(gcloud auth application-default print-access-token)"
+    
+    # Delete a completed, failed, or cancelled interaction
+    curl -X DELETE "https://aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/global/interactions/INTERACTION_ID" \
+      -H "Authorization: Bearer $(gcloud auth application-default print-access-token)"
+    
+
+#### Stateful storage quotas and limits
+
+In addition to model token and request rate limits, stateful interactions (`store=True`) are subject to the following project-level storage and concurrency limits:
+
+Quota or system limit | Default limit (per project) | Description  
+---|---|---  
+**Stateful interactions creation throughput per day** | `240 GiB` per day | Maximum total volume of interaction data written to server-side storage per day across `interactions.create` requests with `store=true`.  
+**Stateful interactions retrieval throughput per day** | `480 GiB` per day | Maximum total volume of stored interaction data read per day across `interactions.get` requests and multi-turn requests that load prior turns using `previous_interaction_id`.  
+**Concurrent stateful interactions** | `500` concurrent interactions | Maximum number of active stateful interactions executing concurrently in a project.  
+  
+For more information about viewing and managing quotas on Agent Platform, see [Quotas and system limits](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/quotas).
 
 ### Stream responses in real time
 
@@ -454,7 +908,9 @@ When your application requires responses in a predictable, machine-readable form
 Function calling lets a model request the execution of custom functions or external APIs to gather information before formulating a final response. In a stateful interaction workflow, function calling follows a two-turn pattern:
 
   1. **Declare and pass tools** : Provide your function declarations in the `tools` parameter on the initial request.
+
   2. **Execute and return results** : Inspect the response steps (`interaction.steps`) for `function_call` steps, run your local function using the model-supplied `arguments`, and send a follow-up interaction containing a `function_result` item linked by `call_id` and `previous_interaction_id`.
+
 
 
 
@@ -557,6 +1013,453 @@ Function calling lets a model request the execution of custom functions or exter
     }
     
 
+### Use built-in tools
+
+In addition to client-side function calling, the Interactions API supports built-in server-side tools for Gemini 3 models. When you enable a built-in tool in the `tools` parameter, Agent Platform executes the tool on the server during a single `interactions.create` call and records the tool invocation (`*_call`) and output (`*_result`) steps in `interaction.steps`.
+
+The Interactions API supports the following built-in tools:
+
+  * **Code execution** (`{"type": "code_execution"}`): Generates and executes Python code in a sandboxed environment to perform calculations, data analysis, and code-based reasoning. For supported libraries, billing, and limitations, see [Code execution](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tools/code-execution).
+
+  * **URL context** (`{"type": "url_context"}`): Retrieves and analyzes content from public web URLs included in your prompt. For details on index caching, live fetches, and combining URL context with search, see [URL context](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/url-context).
+
+  * **Grounding with Google Search** (`{"type": "google_search"}`): Grounds model responses in real-time web information and returns inline citations. See Ground responses with Google Search.
+
+  * **[Computer use](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/computer-use)** (`{"type": "computer_use"}`): Enables browser and user-interface automation workflows. For configuration and safety controls, see [Computer use](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/computer-use).
+
+
+
+
+#### Execute Python code
+
+To enable code execution, include `{"type": "code_execution"}` in the `tools` list. The returned `interaction.steps` array contains `code_execution_call` steps (with `arguments.code` and `arguments.language`), `code_execution_result` steps (with `result` and `is_error`), and the final `model_output` step.
+
+In the following example, replace PROJECT_ID with your Google Cloud project ID:
+
+### Python
+    
+    
+    from google import genai
+    
+    client = genai.Client(
+        enterprise=True,
+        project="PROJECT_ID",
+        location="global",
+    )
+    
+    interaction = client.interactions.create(
+        model="gemini-3.8-flash",
+        input="Calculate the 50th Fibonacci number and find its closest prime.",
+        tools=[{"type": "code_execution"}],
+    )
+    
+    for step in interaction.steps:
+        if step.type == "code_execution_call":
+            print(f"Generated code:\n{step.arguments.code}")
+        elif step.type == "code_execution_result":
+            print(f"Execution result:\n{step.result}")
+        elif step.type == "model_output":
+            for content in step.content:
+                if content.type == "text":
+                    print(content.text)
+    
+
+### TypeScript / JavaScript
+    
+    
+    import { GoogleGenAI } from "@google/genai";
+    
+    const ai = new GoogleGenAI({
+        enterprise: true,
+        project: "PROJECT_ID",
+        location: "global",
+    });
+    
+    const interaction = await ai.interactions.create({
+        model: "gemini-3.8-flash",
+        input: "Calculate the 50th Fibonacci number and find its closest prime.",
+        tools: [{ type: "code_execution" }],
+    });
+    
+    for (const step of interaction.steps ?? []) {
+        if (step.type === "code_execution_call") {
+            console.log(`Generated code:\n${step.arguments?.code}`);
+        } else if (step.type === "code_execution_result") {
+            console.log(`Execution result:\n${step.result}`);
+        } else if (step.type === "model_output") {
+            for (const content of step.content ?? []) {
+                if (content.type === "text") {
+                    console.log(content.text);
+                }
+            }
+        }
+    }
+    
+
+### Java
+    
+    
+    import com.google.genai.Client;
+    import com.google.genai.gaos.models.interactions.CodeExecution;
+    import com.google.genai.gaos.models.interactions.CodeExecutionCallStep;
+    import com.google.genai.gaos.models.interactions.CodeExecutionResultStep;
+    import com.google.genai.gaos.models.interactions.CreateModelInteraction;
+    import com.google.genai.gaos.models.interactions.Interaction;
+    import com.google.genai.gaos.models.interactions.InteractionsInput;
+    import com.google.genai.gaos.models.interactions.Model;
+    import com.google.genai.gaos.models.interactions.Step;
+    import com.google.genai.gaos.models.operations.CreateInteractionRequestBody;
+    import java.util.List;
+    
+    Client client =
+        Client.builder()
+            .enterprise(true)
+            .project("PROJECT_ID")
+            .location("global")
+            .build();
+    
+    CreateModelInteraction request =
+        CreateModelInteraction.builder()
+            .model(Model.of("gemini-3.8-flash"))
+            .input(
+                InteractionsInput.of(
+                    "Calculate the 50th Fibonacci number and find its closest prime."))
+            .tools(List.of(CodeExecution.builder().build()))
+            .build();
+    
+    Interaction interaction =
+        client.interactions.create(CreateInteractionRequestBody.of(request)).interaction().orElseThrow();
+    
+    for (Step step : interaction.steps().orElse(List.of())) {
+        if (step instanceof CodeExecutionCallStep callStep) {
+            callStep
+                .arguments()
+                .flatMap(args -> args.code())
+                .ifPresent(code -> System.out.println("Generated code:\n" + code));
+        } else if (step instanceof CodeExecutionResultStep resultStep) {
+            resultStep
+                .result()
+                .ifPresent(res -> System.out.println("Execution result:\n" + res));
+        }
+    }
+    System.out.println(interaction.outputText().orElse(""));
+    
+
+### REST
+    
+    
+    curl -X POST "https://aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/global/interactions" \
+      -H "Authorization: Bearer $(gcloud auth application-default print-access-token)" \
+      -H "Content-Type: application/json" \
+      -d '{
+        "model": "gemini-3.8-flash",
+        "input": "Calculate the 50th Fibonacci number and find its closest prime.",
+        "tools": [{"type": "code_execution"}]
+      }'
+    
+
+#### Retrieve web page content with URL context
+
+To enable the model to fetch and analyze web pages referenced in your prompt, include `{"type": "url_context"}` in the `tools` list. The API records the fetched URLs in `url_context_call` and `url_context_result` steps and attaches `url_citation` annotations to the generated text in `model_output`.
+
+In the following example, replace PROJECT_ID with your Google Cloud project ID and YOUR_URL_1 and YOUR_URL_2 with the public URLs to compare:
+
+### Python
+    
+    
+    from google import genai
+    
+    client = genai.Client(
+        enterprise=True,
+        project="PROJECT_ID",
+        location="global",
+    )
+    
+    interaction = client.interactions.create(
+        model="gemini-3.8-flash",
+        input="Compare the key findings from YOUR_URL_1 and YOUR_URL_2.",
+        tools=[{"type": "url_context"}],
+    )
+    
+    print(interaction.output_text)
+    
+
+### TypeScript / JavaScript
+    
+    
+    import { GoogleGenAI } from "@google/genai";
+    
+    const ai = new GoogleGenAI({
+        enterprise: true,
+        project: "PROJECT_ID",
+        location: "global",
+    });
+    
+    const interaction = await ai.interactions.create({
+        model: "gemini-3.8-flash",
+        input: "Compare the key findings from YOUR_URL_1 and YOUR_URL_2.",
+        tools: [{ type: "url_context" }],
+    });
+    
+    console.log(interaction.output_text);
+    
+
+### Java
+    
+    
+    import com.google.genai.Client;
+    import com.google.genai.gaos.models.interactions.CreateModelInteraction;
+    import com.google.genai.gaos.models.interactions.Interaction;
+    import com.google.genai.gaos.models.interactions.InteractionsInput;
+    import com.google.genai.gaos.models.interactions.Model;
+    import com.google.genai.gaos.models.interactions.URLContext;
+    import com.google.genai.gaos.models.operations.CreateInteractionRequestBody;
+    import java.util.List;
+    
+    Client client =
+        Client.builder()
+            .enterprise(true)
+            .project("PROJECT_ID")
+            .location("global")
+            .build();
+    
+    CreateModelInteraction request =
+        CreateModelInteraction.builder()
+            .model(Model.of("gemini-3.8-flash"))
+            .input(
+                InteractionsInput.of(
+                    "Compare the key findings from YOUR_URL_1 and YOUR_URL_2."))
+            .tools(List.of(URLContext.builder().build()))
+            .build();
+    
+    Interaction interaction =
+        client.interactions.create(CreateInteractionRequestBody.of(request)).interaction().orElseThrow();
+    
+    System.out.println(interaction.outputText().orElse(""));
+    
+
+### REST
+    
+    
+    curl -X POST "https://aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/global/interactions" \
+      -H "Authorization: Bearer $(gcloud auth application-default print-access-token)" \
+      -H "Content-Type: application/json" \
+      -d '{
+        "model": "gemini-3.8-flash",
+        "input": "Compare the key findings from YOUR_URL_1 and YOUR_URL_2.",
+        "tools": [{"type": "url_context"}]
+      }'
+    
+
+### Ground responses with Google Search
+
+Grounding connects Gemini models to verifiable external sources to reduce hallucinations and provide up-to-date answers with citations. For an overview of grounding options on Agent Platform, see the [Grounding overview](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/grounding/overview), [Grounding with Google Search](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/grounding/grounding-with-google-search), and [Web Grounding for Enterprise](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/grounding/web-grounding-enterprise).
+
+When you enable Grounding with Google Search by passing `{"type": "google_search"}` in the `tools` list, the Interactions API returns search and attribution data directly in the `interaction.steps` timeline:
+
+  * **`google_search_call`** : Contains the search queries issued by the model (`step.arguments.queries`).
+
+  * **`google_search_result`** : Contains search suggestions (`result[].search_suggestions`), an HTML/CSS snippet used for rendering search suggestions in user interfaces. Web resources with source URLs and titles are provided as inline `url_citation` annotations on `model_output` text blocks.
+
+  * **Inline`url_citation` annotations**: Each `text` content block (`TextContent`) inside a `model_output` step can include an `annotations` array. Each `url_citation` annotation identifies the character or byte span (`start_index` and `end_index`) in the response text along with the source `title` and `url`.
+
+
+
+
+In the following example, replace PROJECT_ID with your Google Cloud project ID:
+
+### Python
+    
+    
+    from google import genai
+    
+    client = genai.Client(
+        enterprise=True,
+        project="PROJECT_ID",
+        location="global",
+    )
+    
+    interaction = client.interactions.create(
+        model="gemini-3.8-flash",
+        input="Who won the 2026 Super Bowl?",
+        tools=[{"type": "google_search"}],
+    )
+    
+    print(interaction.output_text)
+    
+    # Parse inline url_citation annotations from model_output steps
+    print("\nSources:")
+    for step in interaction.steps:
+        if step.type == "model_output" and step.content:
+            for content in step.content:
+                if content.type == "text" and getattr(content, "annotations", None):
+                    for annotation in content.annotations:
+                        if annotation.type == "url_citation":
+                            span = content.text[annotation.start_index:annotation.end_index]
+                            print(f"- [{annotation.title}]({annotation.url}) (cited text: {span!r})")
+    
+
+### TypeScript / JavaScript
+    
+    
+    import { GoogleGenAI } from "@google/genai";
+    
+    const ai = new GoogleGenAI({
+        enterprise: true,
+        project: "PROJECT_ID",
+        location: "global",
+    });
+    
+    const interaction = await ai.interactions.create({
+        model: "gemini-3.8-flash",
+        input: "Who won the 2026 Super Bowl?",
+        tools: [{ type: "google_search" }],
+    });
+    
+    console.log(interaction.output_text);
+    
+    // Parse inline url_citation annotations from model_output steps
+    console.log("\nSources:");
+    for (const step of interaction.steps ?? []) {
+        if (step.type === "model_output") {
+            for (const content of step.content ?? []) {
+                if (content.type === "text" && content.annotations) {
+                    for (const annotation of content.annotations) {
+                        if (annotation.type === "url_citation") {
+                            const span = content.text.slice(
+                                annotation.start_index,
+                                annotation.end_index,
+                            );
+                            console.log(
+                                `- [${annotation.title}](${annotation.url}) (cited text: "${span}")`,
+                            );
+                        }
+                    }
+                }
+            }
+        }
+    }
+    
+
+### Java
+    
+    
+    import com.google.genai.Client;
+    import com.google.genai.gaos.models.interactions.Annotation;
+    import com.google.genai.gaos.models.interactions.Content;
+    import com.google.genai.gaos.models.interactions.CreateModelInteraction;
+    import com.google.genai.gaos.models.interactions.GoogleSearch;
+    import com.google.genai.gaos.models.interactions.Interaction;
+    import com.google.genai.gaos.models.interactions.InteractionsInput;
+    import com.google.genai.gaos.models.interactions.Model;
+    import com.google.genai.gaos.models.interactions.ModelOutputStep;
+    import com.google.genai.gaos.models.interactions.Step;
+    import com.google.genai.gaos.models.interactions.TextContent;
+    import com.google.genai.gaos.models.interactions.URLCitation;
+    import com.google.genai.gaos.models.operations.CreateInteractionRequestBody;
+    import java.util.List;
+    
+    Client client =
+        Client.builder()
+            .enterprise(true)
+            .project("PROJECT_ID")
+            .location("global")
+            .build();
+    
+    CreateModelInteraction request =
+        CreateModelInteraction.builder()
+            .model(Model.of("gemini-3.8-flash"))
+            .input(InteractionsInput.of("Who won the 2026 Super Bowl?"))
+            .tools(List.of(GoogleSearch.builder().build()))
+            .build();
+    
+    Interaction interaction =
+        client.interactions.create(CreateInteractionRequestBody.of(request)).interaction().orElseThrow();
+    
+    System.out.println(interaction.outputText().orElse(""));
+    
+    // Parse inline URLCitation annotations from ModelOutputStep blocks
+    System.out.println("\nSources:");
+    for (Step step : interaction.steps().orElse(List.of())) {
+        if (step instanceof ModelOutputStep outputStep) {
+            for (Content content : outputStep.content().orElse(List.of())) {
+                if (content instanceof TextContent textContent) {
+                    for (Annotation annotation : textContent.annotations().orElse(List.of())) {
+                        if (annotation instanceof URLCitation citation) {
+                            System.out.printf(
+                                "- %s: %s (span: %d..%d)%n",
+                                citation.title().orElse(""),
+                                citation.url().orElse(""),
+                                citation.startIndex().orElse(0L),
+                                citation.endIndex().orElse(0L));
+                        }
+                    }
+                }
+            }
+        }
+    }
+    
+
+### REST
+    
+    
+    # Request
+    curl -X POST "https://aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/global/interactions" \
+      -H "Authorization: Bearer $(gcloud auth application-default print-access-token)" \
+      -H "Content-Type: application/json" \
+      -d '{
+        "model": "gemini-3.8-flash",
+        "input": "Who won the 2026 Super Bowl?",
+        "tools": [{"type": "google_search"}]
+      }'
+    
+
+The response includes `google_search_call`, `google_search_result`, and `model_output` steps with inline `url_citation` annotations:
+    
+    
+    {
+      "id": "v1_ChdPU0F4YWFtNkFwS2kxZThQZ05lbXdROA",
+      "model": "gemini-3.8-flash",
+      "status": "completed",
+      "steps": [
+        {
+          "type": "google_search_call",
+          "id": "search_call_1",
+          "arguments": {
+            "queries": ["2026 Super Bowl winner"]
+          }
+        },
+        {
+          "type": "google_search_result",
+          "call_id": "search_call_1",
+          "result": [
+            {
+              "search_suggestions": "<!-- HTML and CSS for search suggestions -->"
+            }
+          ]
+        },
+        {
+          "type": "model_output",
+          "content": [
+            {
+              "type": "text",
+              "text": "The Seattle Seahawks won Super Bowl LX on February 8, 2026.",
+              "annotations": [
+                {
+                  "type": "url_citation",
+                  "start_index": 0,
+                  "end_index": 59,
+                  "title": "Super Bowl LX",
+                  "url": "https://example.com/super-bowl-lx"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+    
+
 ### Run agents and long-running background tasks
 
 In addition to foundation models, the Interactions API lets you invoke specialized autonomous agents using the `agent` parameter:
@@ -602,22 +1505,31 @@ Before trying this sample, replace PROJECT_ID with your Google Cloud project ID.
 
 ### Access uploaded Cloud Storage files
 
-You can use the Interactions API to access uploaded Cloud Storage files. See the following example:
+You can use the Interactions API to access uploaded Cloud Storage files. In the following example, replace PROJECT_ID with your Google Cloud project ID:
     
     
     from google import genai
     
     # Credentials must belong to an identity with storage.objects.get permissions
-    client = genai.Client()
+    client = genai.Client(
+        enterprise=True,
+        project="PROJECT_ID",
+        location="global",
+    )
     
     interaction = client.interactions.create(
         model="gemini-3.8-flash",
         input=[
-            {"type": "text", "text": "Summarize the attached document:"},
             {
-                "type": "document",
-                "uri": "gs://my-secure-bucket/quarterly_report.pdf",
-                "mime_type": "application/pdf"
+                "type": "user_input",
+                "content": [
+                    {"type": "text", "text": "Summarize the attached document:"},
+                    {
+                        "type": "document",
+                        "uri": "gs://my-secure-bucket/quarterly_report.pdf",
+                        "mime_type": "application/pdf",
+                    },
+                ],
             }
         ],
     )
@@ -625,16 +1537,20 @@ You can use the Interactions API to access uploaded Cloud Storage files. See the
     print(interaction.output_text)
     
 
-When passing Cloud Storage URIs (for example, `gs://bucket-name/path/to/file`) to the Interactions API, requests are evaluated using end-user credentials (EUC). The API fetches Cloud Storage objects using the identity of the authenticated caller rather than a background project service agent.
+When passing Cloud Storage URIs (for example, `gs://bucket-name/path/to/file`) to the Interactions API, requests verify read access using the caller's credentials before the calling project's Agent Platform Service Agent (`service-PROJECT_NUMBER@gcp-sa-aiplatform.iam.gserviceaccount.com`) fetches the object from Cloud Storage.
 
-To pass Cloud Storage files in an interaction request, the calling principal (user account, service account, or federated identity) must hold the `storage.objects.get` permission for all referenced objects.
+To pass Cloud Storage files in an interaction request, the calling principal (user account, service account, or federated identity) must hold the `storage.objects.get` permission for all referenced objects. For cross-project Cloud Storage buckets or Cloud Storage buckets with custom IAM policies, grant read access to both the calling principal and the calling project's service agent.
+
+Each standard Gemini model interaction request supports up to 100 distinct Cloud Storage (`gs://`) URIs (up to 2 GiB minus 500 KiB per file). When you chain stateful turns using `previous_interaction_id`, Agent Platform counts distinct `gs://` URIs cumulatively across the conversation history and the current turn. Managed agent interactions (requests that set `agent` instead of `model`), Gemini Omni models, and Lyria 3 models are excluded from this 100-URI limit.
 
 #### Configure IAM roles for accessing Cloud Storage files
 
 Grant one of the standard predefined roles that include the `storage.objects.get` permission:
 
   * Storage Object Viewer (`roles/storage.objectViewer`): Read access to objects (recommended).
+
   * Storage Object User (`roles/storage.objectUser`): Read and write access to objects.
+
 
 
 
@@ -664,7 +1580,7 @@ If the calling principal lacks sufficient permissions, the Interactions API retu
     storage.objects.get on one or more Cloud Storage URIs.
     
 
-To resolve this issue, grant the Storage Object Viewer role (`roles/storage.objectViewer`) on the bucket or object to the authenticated caller.
+To resolve this issue, grant the Storage Object Viewer role (`roles/storage.objectViewer`) on the Cloud Storage bucket or object to the authenticated caller (and to the calling project's Agent Platform Service Agent for cross-project or custom-IAM Cloud Storage buckets).
 
 If the specified object doesn't exist, or if bucket permissions prevent the caller from seeing whether the object exists, the Interactions API returns a `404 Not Found` error similar to the following:
     
@@ -675,6 +1591,20 @@ If the specified object doesn't exist, or if bucket permissions prevent the call
     
 
 To resolve this issue, verify that the Cloud Storage URI is correct and confirm that the authenticated caller has read access to the bucket.
+
+If a model interaction request references more than 100 distinct Cloud Storage URIs across the current turn and any linked `previous_interaction_id` history, the Interactions API returns a `400 Bad Request` error similar to the following:
+    
+    
+    INVALID_ARGUMENT - 400 Bad Request: Request references 101 distinct gs:// URIs, which exceeds the maximum of 100.
+    
+
+To resolve this issue, do one of the following:
+
+  * Start a new interaction without `previous_interaction_id` when files from earlier turns are no longer needed.
+  * Combine smaller documents or pass additional files inline within the request payload limit (256 MiB compressed for synchronous or streaming requests, or 9.75 MiB uncompressed when `service_tier` is set to `deferred` with `background` and `store` set to `true`).
+  * Use [`generateContent`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/models/inference) for requests that reference `gs://` URIs up to the per-modality model item limits (3,000 images and PDFs combined, 1,000 audio files, and 10 videos, or up to 6,500 files when including plain-text files).
+
+
 
 ### Encrypt interaction data with CMEK
 
@@ -692,7 +1622,7 @@ To set up CMEK for the Interactions API, do the following:
          curl -X POST \
            -H "Authorization: Bearer $(gcloud auth print-access-token)" \
            -H "Content-Type: application/json" \
-           "https://aiplatform.LOCATION.rep.googleapis.com/v1beta1/projects/PROJECT_ID/locations/LOCATION/servingProfiles?servingProfileId=SERVING_PROFILE_ID" \
+           "https://aiplatform.LOCATION.rep.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/servingProfiles?servingProfileId=SERVING_PROFILE_ID" \
            -d '{
              "displayName": "Interactions API CMEK profile",
              "description": "CMEK for Interactions API",
@@ -710,7 +1640,7 @@ Wait for the long-running create operation to complete (`"done": true`). For mor
   5. Send your interaction requests to the same `us` or `eu` multi-region as your serving profile. Serving profile CMEK isn't available on the `global` endpoint.
 
      * **Google Gen AI SDK** : Initialize the client with `location="us"` or `location="eu"` (`location: "us"` or `location: "eu"` in TypeScript/JavaScript).
-     * **REST** : Send requests to the multi-region endpoint `https://aiplatform.LOCATION.rep.googleapis.com/v1beta1/projects/PROJECT_ID/locations/LOCATION/interactions`, where LOCATION is `us` or `eu`.
+     * **REST** : Send requests to the multi-region endpoint `https://aiplatform.LOCATION.rep.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/interactions`, where LOCATION is `us` or `eu`.
 
 If you disable the key or revoke the service agent's access, requests that create or read stored interactions fail with a `FAILED_PRECONDITION` error.
 
@@ -726,13 +1656,13 @@ For shell-based automation, CI/CD pipelines, or environments without a Python or
 Send `POST` requests to the following Interactions API endpoint:
     
     
-    POST https://aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/LOCATION/interactions
+    POST https://aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/interactions
     
 
 Replace the following variables in your requests:
 
   * PROJECT_ID: Your Google Cloud project ID.
-  * LOCATION: Set to `global` (or `us` or `eu` with the multi-region host `https://aiplatform.LOCATION.rep.googleapis.com` when encrypting interaction data with CMEK).
+  * LOCATION: Set to `global` (or `us` or `eu` with the multi-region host `https://aiplatform.LOCATION.rep.googleapis.com` for [data residency](https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/data-residency) or CMEK).
 
 
 
@@ -785,7 +1715,7 @@ To continue a stored conversation over REST, pass the `id` from a previous respo
 Before trying this sample, replace PREVIOUS_INTERACTION_ID with the `id` returned by a previous interaction.
     
     
-    curl -X POST "https://aiplatform.googleapis.com/v1beta1/projects/${PROJECT_ID}/locations/global/interactions" \
+    curl -X POST "https://aiplatform.googleapis.com/v1/projects/${PROJECT_ID}/locations/global/interactions" \
       -H "Authorization: Bearer ${ACCESS_TOKEN}" \
       -H "Content-Type: application/json" \
       -d '{
@@ -793,7 +1723,7 @@ Before trying this sample, replace PREVIOUS_INTERACTION_ID with the `id` returne
         "store": true,
         "previous_interaction_id": "PREVIOUS_INTERACTION_ID",
         "input": [{
-          "role": "user",
+          "type": "user_input",
           "content": [{
             "type": "text",
             "text": "Can you elaborate on that?"
@@ -807,14 +1737,14 @@ Before trying this sample, replace PREVIOUS_INTERACTION_ID with the `id` returne
 To stream incremental updates over REST, include `"stream": true` in the JSON request body:
     
     
-    curl -X POST "https://aiplatform.googleapis.com/v1beta1/projects/${PROJECT_ID}/locations/global/interactions" \
+    curl -X POST "https://aiplatform.googleapis.com/v1/projects/${PROJECT_ID}/locations/global/interactions" \
       -H "Authorization: Bearer ${ACCESS_TOKEN}" \
       -H "Content-Type: application/json" \
       -d '{
         "model": "'"${MODEL_ID}"'",
         "stream": true,
         "input": [{
-          "role": "user",
+          "type": "user_input",
           "content": [{
             "type": "text",
             "text": "Write a long story about space travel."
@@ -830,7 +1760,7 @@ When `"stream": true` is set, the server responds with `Transfer-Encoding: chunk
 To start a long-running managed agent task asynchronously over REST, specify the target `agent`, set `"background": true`, and configure `"environment": "remote"`:
     
     
-    curl -X POST "https://aiplatform.googleapis.com/v1beta1/projects/${PROJECT_ID}/locations/global/interactions" \
+    curl -X POST "https://aiplatform.googleapis.com/v1/projects/${PROJECT_ID}/locations/global/interactions" \
       -H "Authorization: Bearer ${ACCESS_TOKEN}" \
       -H "Content-Type: application/json" \
       -d '{
@@ -838,7 +1768,7 @@ To start a long-running managed agent task asynchronously over REST, specify the
         "environment": "remote",
         "background": true,
         "input": [{
-          "role": "user",
+          "type": "user_input",
           "content": [{
             "type": "text",
             "text": "Analyze competitive positioning for commercial solar energy providers."
@@ -849,9 +1779,16 @@ To start a long-running managed agent task asynchronously over REST, specify the
 
 ## What's next
 
+Explore the following resources to learn more about the Interactions API, built-in tools, and grounding:
+
   * Learn more about key concepts in the [Interactions API overview](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/interactions).
+
   * Explore request and response schemas in the [Interactions API reference](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/models/interactions-api).
+
+  * Learn more about [Code execution](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tools/code-execution), [URL context](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/url-context), and [Grounding with Google Search](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/grounding/grounding-with-google-search).
+
   * Learn how to [interact with managed agents](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/managed-agents/interact-with-agents) and [use the Gemini Deep Research Agent](https://docs.cloud.google.com/gemini-enterprise-agent-platform/agents/use-deep-research).
+
 
 
 
@@ -859,6 +1796,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-30 UTC.
+Last updated 2026-11-04 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 

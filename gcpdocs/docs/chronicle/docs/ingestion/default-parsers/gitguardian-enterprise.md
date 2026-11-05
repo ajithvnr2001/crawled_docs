@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/gitguardian-enterprise/
 title: Collect GitGuardian Enterprise logs \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T07:53:48.235118+00:00
+fetched_at: 2026-11-04T23:35:03.846404+00:00
 ---
 
 # Collect GitGuardian Enterprise logs  |  Google Security Operations  |  Google Cloud Documentation

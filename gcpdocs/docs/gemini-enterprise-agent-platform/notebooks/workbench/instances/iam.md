@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/instances/iam/
 title: Agent Platform Workbench instances access control \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T05:54:39.212358+00:00
+fetched_at: 2026-11-04T23:14:34.020023+00:00
 ---
 
 # Agent Platform Workbench instances access control  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation
@@ -85,7 +85,7 @@ Role | Permissions
   * `aiplatform.schedules.list`
   * `aiplatform.schedules.update`
 
-`compute.acceleratorTypes.*`
+`compute.acceleratorInterconnectMemberInstances.list` `compute.acceleratorInterconnects.get` `compute.acceleratorInterconnects.list` `compute.acceleratorInterconnects.queryFormability` `compute.acceleratorTypes.*`
 
   * `compute.acceleratorTypes.get`
   * `compute.acceleratorTypes.list`
@@ -240,7 +240,7 @@ Role | Permissions
   
 #### Notebooks Editor 
 
-(`roles/notebooks.editor`) Editor role for notebooks  |  `aiplatform.notebookExecutionJobs.get` `aiplatform.notebookExecutionJobs.list` `aiplatform.schedules.get` `aiplatform.schedules.list` `compute.acceleratorTypes.*`
+(`roles/notebooks.editor`) Editor role for notebooks  |  `aiplatform.notebookExecutionJobs.get` `aiplatform.notebookExecutionJobs.list` `aiplatform.schedules.get` `aiplatform.schedules.list` `compute.acceleratorInterconnectMemberInstances.list` `compute.acceleratorInterconnects.get` `compute.acceleratorInterconnects.list` `compute.acceleratorInterconnects.queryFormability` `compute.acceleratorTypes.*`
 
   * `compute.acceleratorTypes.get`
   * `compute.acceleratorTypes.list`
@@ -347,7 +347,7 @@ Role | Permissions
 
   * Instance 
 
-|  `aiplatform.notebookExecutionJobs.get` `aiplatform.notebookExecutionJobs.list` `aiplatform.schedules.get` `aiplatform.schedules.list` `compute.acceleratorTypes.*`
+|  `aiplatform.notebookExecutionJobs.get` `aiplatform.notebookExecutionJobs.list` `aiplatform.schedules.get` `aiplatform.schedules.list` `compute.acceleratorInterconnectMemberInstances.list` `compute.acceleratorInterconnects.get` `compute.acceleratorInterconnects.list` `compute.acceleratorInterconnects.queryFormability` `compute.acceleratorTypes.*`
 
   * `compute.acceleratorTypes.get`
   * `compute.acceleratorTypes.list`
@@ -451,6 +451,12 @@ Role | Permissions
 
 `cloudkms.operations.get` `cloudkms.projects.showEffectiveAutokeyConfig` `compute.*`
 
+  * `compute.acceleratorInterconnectMemberInstances.list`
+  * `compute.acceleratorInterconnects.create`
+  * `compute.acceleratorInterconnects.delete`
+  * `compute.acceleratorInterconnects.get`
+  * `compute.acceleratorInterconnects.list`
+  * `compute.acceleratorInterconnects.queryFormability`
   * `compute.acceleratorTypes.get`
   * `compute.acceleratorTypes.list`
   * `compute.addresses.create`
@@ -1627,7 +1633,7 @@ Role | Permissions
   
 #### Notebooks Legacy Viewer 
 
-(`roles/notebooks.legacyViewer`) Read-only access to Notebooks all resources through compute API.  |  `compute.acceleratorTypes.*`
+(`roles/notebooks.legacyViewer`) Read-only access to Notebooks all resources through compute API.  |  `compute.acceleratorInterconnectMemberInstances.list` `compute.acceleratorInterconnects.get` `compute.acceleratorInterconnects.list` `compute.acceleratorInterconnects.queryFormability` `compute.acceleratorTypes.*`
 
   * `compute.acceleratorTypes.get`
   * `compute.acceleratorTypes.list`
@@ -1738,7 +1744,7 @@ Role | Permissions
   * `aiplatform.schedules.list`
   * `aiplatform.schedules.update`
 
-`compute.acceleratorTypes.*`
+`compute.acceleratorInterconnectMemberInstances.list` `compute.acceleratorInterconnects.get` `compute.acceleratorInterconnects.list` `compute.acceleratorInterconnects.queryFormability` `compute.acceleratorTypes.*`
 
   * `compute.acceleratorTypes.get`
   * `compute.acceleratorTypes.list`
@@ -1856,7 +1862,7 @@ Role | Permissions
   * `aiplatform.schedules.list`
   * `aiplatform.schedules.update`
 
-`backupdr.backupPlanAssociations.createForComputeDisk` `backupdr.backupPlanAssociations.createForComputeInstance` `backupdr.backupPlanAssociations.deleteForComputeDisk` `backupdr.backupPlanAssociations.deleteForComputeInstance` `backupdr.backupPlanAssociations.fetchForComputeDisk` `backupdr.backupPlanAssociations.getForComputeDisk` `backupdr.backupPlanAssociations.list` `backupdr.backupPlanAssociations.triggerBackupForComputeDisk` `backupdr.backupPlanAssociations.triggerBackupForComputeInstance` `backupdr.backupPlanAssociations.updateForComputeDisk` `backupdr.backupPlanAssociations.updateForComputeInstance` `backupdr.backupPlans.get` `backupdr.backupPlans.list` `backupdr.backupPlans.useForComputeDisk` `backupdr.backupPlans.useForComputeInstance` `backupdr.backupVaults.get` `backupdr.backupVaults.list` `backupdr.locations.list` `backupdr.operations.get` `backupdr.operations.list` `backupdr.serviceConfig.initialize` `compute.acceleratorTypes.*`
+`backupdr.backupPlanAssociations.createForComputeDisk` `backupdr.backupPlanAssociations.createForComputeInstance` `backupdr.backupPlanAssociations.deleteForComputeDisk` `backupdr.backupPlanAssociations.deleteForComputeInstance` `backupdr.backupPlanAssociations.fetchForComputeDisk` `backupdr.backupPlanAssociations.getForComputeDisk` `backupdr.backupPlanAssociations.list` `backupdr.backupPlanAssociations.triggerBackupForComputeDisk` `backupdr.backupPlanAssociations.triggerBackupForComputeInstance` `backupdr.backupPlanAssociations.updateForComputeDisk` `backupdr.backupPlanAssociations.updateForComputeInstance` `backupdr.backupPlans.get` `backupdr.backupPlans.list` `backupdr.backupPlans.useForComputeDisk` `backupdr.backupPlans.useForComputeInstance` `backupdr.backupVaults.get` `backupdr.backupVaults.list` `backupdr.locations.list` `backupdr.operations.get` `backupdr.operations.list` `backupdr.serviceConfig.initialize` `compute.acceleratorInterconnectMemberInstances.list` `compute.acceleratorInterconnects.get` `compute.acceleratorInterconnects.list` `compute.acceleratorInterconnects.queryFormability` `compute.acceleratorTypes.*`
 
   * `compute.acceleratorTypes.get`
   * `compute.acceleratorTypes.list`
@@ -2313,6 +2319,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-30 UTC.
+Last updated 2026-11-04 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 

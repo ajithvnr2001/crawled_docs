@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/linkshadow-ndr/
 title: Collect LinkShadow NDR logs \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T07:52:26.372189+00:00
+fetched_at: 2026-11-04T23:42:28.229401+00:00
 ---
 
 # Collect LinkShadow NDR logs  |  Google Security Operations  |  Google Cloud Documentation

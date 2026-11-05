@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/identity-platform/docs/admin/create-custom-tokens/
 title: Creating custom tokens \u00a0|\u00a0 Identity Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T16:29:58.279510+00:00
+fetched_at: 2026-11-05T00:04:47.481815+00:00
 ---
 
 # Creating custom tokens  |  Identity Platform  |  Google Cloud Documentation
@@ -68,7 +68,7 @@ The following example shows how to create a custom token:
     String customToken = FirebaseAuth.getInstance().createCustomToken(uid);
     // Send token back to client
     
-    [FirebaseAuthSnippets.java](https://github.com/firebase/firebase-admin-java/blob/2d89465e59689e6256b0965cf50197cf3ddaf823/src/test/java/com/google/firebase/snippets/FirebaseAuthSnippets.java#L238-L241)
+    [FirebaseAuthSnippets.java](https://github.com/firebase/firebase-admin-java/blob/c37e514e0bc899066dff4d8ef2aa895a04568ee0/src/test/java/com/google/firebase/snippets/FirebaseAuthSnippets.java#L238-L241)
 
 ### Python
     
@@ -104,7 +104,7 @@ The following example shows how to create a custom token:
     string customToken = await FirebaseAuth.DefaultInstance.CreateCustomTokenAsync(uid);
     // Send token back to client
     
-    [FirebaseAuthSnippets.cs](https://github.com/firebase/firebase-admin-dotnet/blob/c08a6533b109f960bfec5eaa93a55126dd62fe9e/FirebaseAdmin/FirebaseAdmin.Snippets/FirebaseAuthSnippets.cs#L33-L36)
+    [FirebaseAuthSnippets.cs](https://github.com/firebase/firebase-admin-dotnet/blob/d46549cc22df6f6238d7f74ecb56baf3a40825c9/FirebaseAdmin/FirebaseAdmin.Snippets/FirebaseAuthSnippets.cs#L33-L36)
 
 After you create a custom token, your app can use it to [sign in a user](https://docs.cloud.google.com/identity-platform/docs/web/custom).
 
@@ -142,7 +142,7 @@ The following example shows how to add a `premiumAccount` claim:
         .createCustomToken(uid, additionalClaims);
     // Send token back to client
     
-    [FirebaseAuthSnippets.java](https://github.com/firebase/firebase-admin-java/blob/2d89465e59689e6256b0965cf50197cf3ddaf823/src/test/java/com/google/firebase/snippets/FirebaseAuthSnippets.java#L248-L254)
+    [FirebaseAuthSnippets.java](https://github.com/firebase/firebase-admin-java/blob/c37e514e0bc899066dff4d8ef2aa895a04568ee0/src/test/java/com/google/firebase/snippets/FirebaseAuthSnippets.java#L248-L254)
 
 ### Python
     
@@ -190,7 +190,7 @@ The following example shows how to add a `premiumAccount` claim:
         .CreateCustomTokenAsync(uid, additionalClaims);
     // Send token back to client
     
-    [FirebaseAuthSnippets.cs](https://github.com/firebase/firebase-admin-dotnet/blob/c08a6533b109f960bfec5eaa93a55126dd62fe9e/FirebaseAdmin/FirebaseAdmin.Snippets/FirebaseAuthSnippets.cs#L44-L52)
+    [FirebaseAuthSnippets.cs](https://github.com/firebase/firebase-admin-dotnet/blob/d46549cc22df6f6238d7f74ecb56baf3a40825c9/FirebaseAdmin/FirebaseAdmin.Snippets/FirebaseAuthSnippets.cs#L44-L52)
 
 Identity Platform complies with the [OpenID Connect JWT specification](https://openid.net/specs/openid-connect-core-1_0.html). This means the following claims are reserved and cannot be specified:
 
@@ -299,6 +299,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-03 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 

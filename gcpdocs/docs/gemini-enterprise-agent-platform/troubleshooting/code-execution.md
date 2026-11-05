@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/troubleshooting/code-execution/
 title: Code Execution troubleshooting \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T05:55:41.115996+00:00
+fetched_at: 2026-11-04T23:14:24.853826+00:00
 ---
 
 # Code Execution troubleshooting  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation
@@ -29,7 +29,7 @@ This document provides descriptions of common issues and their solutions when wo
 
 ## Sandbox creation issues
 
-  * **Permissions error:** If you encounter errors when creating a sandbox, ensure your Google Cloud project has the Agent Platform User `(roles/aiplatform.user)` Identity and Access Management (IAM) role.
+  * **Permissions error:** If you encounter errors when creating a sandbox, ensure your Google Cloud project has the Agent Platform User (`roles/aiplatform.user`) Identity and Access Management (IAM) role.
 
   * **Invalid Project ID or Location:** Verify that the `PROJECT_ID` and `LOCATION` variables used in your code are correct and supported. For a list of supported regions, see [Supported regions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/agent-locations).
 
@@ -72,6 +72,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-30 UTC.
+Last updated 2026-11-04 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 

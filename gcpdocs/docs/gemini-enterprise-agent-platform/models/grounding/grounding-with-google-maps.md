@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/grounding/grounding-with-google-maps/
 title: Grounding with Google Maps in Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-03T09:52:26.371142+00:00
+fetched_at: 2026-11-04T23:13:01.366462+00:00
 ---
 
 # Grounding with Google Maps in Gemini Enterprise Agent Platform  |  Google Cloud Documentation
@@ -165,7 +165,7 @@ Before using any of the request data, make the following replacements:
   * GROUNDING_TYPES: The types of Google Maps grounding to enable. Currently supports `places` and `routing`. 
     * `places`: Search for place information including establishments, prominent points of interest, and geographical locations.
     * `routing`: Find directions and search along route.
-If not specified, it defaults to `places` only. 
+If not specified, Gemini 4 and later models enable `places` and `routing`, and earlier models enable `places` only. If specified, only the listed types are enabled. 
 
 
 
@@ -412,7 +412,14 @@ The following are examples of the types of questions that Find Directions suppor
 
 ### Enable Find Directions
 
-In the REST API and SDKs, Grounding with Google Maps defaults to Places data only when `grounding_types` is omitted. To enable directions capabilities, you must explicitly configure `routing` in `grounding_types` in your request configuration. If you want to use both Places and Routing tools, you must specify both `places` and `routing` in `grounding_types`.
+In the REST API and SDKs, what Grounding with Google Maps enables when `grounding_types` is omitted depends on the model:
+
+  * Gemini 4 and later models: Places and Routing, so Find Directions is available by default.
+  * Earlier models: Places data only. To enable directions capabilities, you must explicitly configure `routing` in `grounding_types` in your request configuration.
+
+
+
+If you set `grounding_types`, only the grounding types that you list are enabled. To use both Places and Routing tools, specify both `places` and `routing` in `grounding_types`. To use Places data only, specify only `places`.
 
 ### Understand the response
 
@@ -477,7 +484,7 @@ The following examples illustrate the types of questions the Search Along Route 
 
 ### Enable Search Along Route
 
-Search Along Route requires both **Places** and **Routing** capabilities to discover places situated along a travel route. In the REST API and SDKs, you must explicitly configure both `places` and `routing` in `grounding_types` in your request configuration.
+Search Along Route requires both **Places** and **Routing** capabilities to discover places situated along a travel route. In the REST API and SDKs, both are enabled by default for Gemini 4 and later models when `grounding_types` is omitted. For earlier models, or if you set `grounding_types`, you must include both `places` and `routing` in `grounding_types` to enable Search Along Route.
 
 ### Understand the response
 
@@ -661,7 +668,7 @@ Grounding with Google Maps has restrictions for certain content and activities t
 
 Grounding with Google Maps charges for each Google Maps query (see [Pricing](https://cloud.google.com/gemini-enterprise-agent-platform/generative-ai/pricing)).
 
-A customer-submitted request to Gemini may result in one or more queries to Google Maps. The following table shows a few examples:
+A customer-submitted request to Gemini may result in one or more queries to Google Maps. For Gemini 4 and later models, Places and Routing are both enabled when `grounding_types` is omitted, so such a request can result in Place Search, Find Directions, and Search Along Route queries. To limit a request to Place Search queries, specify only `places` in `grounding_types`. The following table shows a few examples:
 
 Example prompt | Potential number of Google Maps queries | Example query generation  
 ---|---|---  
@@ -692,6 +699,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-02 UTC.
+Last updated 2026-11-04 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-02 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 

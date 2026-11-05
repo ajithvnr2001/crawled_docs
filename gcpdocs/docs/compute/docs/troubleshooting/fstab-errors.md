@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/compute/docs/troubleshooting/fstab-errors/
 title: Troubleshoot Linux VM boot issues due to fstab errors \u00a0|\u00a0 Compute Engine \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T23:27:53.019871+00:00
+fetched_at: 2026-11-04T23:31:55.316233+00:00
 ---
 
 # Troubleshoot Linux VM boot issues due to fstab errors  |  Compute Engine  |  Google Cloud Documentation
@@ -73,7 +73,7 @@ For more information, see [Authenticate for using REST](https://docs.cloud.googl
 
 ## Identify fstab issues
 
-For boot issues, Google highly recommendeds that you check the boot logs in the Serial Console of the Linux VM. The VM goes into emergency mode with an error message hinting that the issue is with fstab.
+For boot issues, Google highly recommends that you check the boot logs in the Serial Console of the Linux VM. The VM goes into emergency mode with an error message hinting that the issue is with fstab.
     
     
       [K[[1;31m TIME [0m] Timed out waiting for device dev-incorrect.device.
@@ -178,6 +178,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-04 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/nyansa-events/
 title: Collect Nyansa Voyance / VMware Edge Network Intelligence logs \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T07:53:30.371698+00:00
+fetched_at: 2026-11-04T23:42:16.156260+00:00
 ---
 
 # Collect Nyansa Voyance / VMware Edge Network Intelligence logs  |  Google Security Operations  |  Google Cloud Documentation

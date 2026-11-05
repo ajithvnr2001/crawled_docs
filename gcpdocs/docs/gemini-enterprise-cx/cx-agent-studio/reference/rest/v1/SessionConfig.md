@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-cx/cx-agent-studio/reference/rest/v1/SessionConfig/
 title: SessionConfig \u00a0|\u00a0 CX Agent Studio \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-13T22:22:41.061178+00:00
+fetched_at: 2026-11-04T23:28:39.074783+00:00
 ---
 
 # SessionConfig  |  CX Agent Studio  |  Google Cloud Documentation
@@ -59,7 +59,9 @@ JSON representation
         object ([SessionConfig.RemoteDialogflowQueryParameters](https://docs.cloud.google.com/gemini-enterprise-cx/cx-agent-studio/reference/rest/v1/SessionConfig#SessionConfig.RemoteDialogflowQueryParameters))
       },
       "enableTextStreaming": boolean,
-      "excludeDiagnosticInfo": boolean
+      "includeLlmThoughtSummary": boolean,
+      "excludeDiagnosticInfo": boolean,
+      "includeProgressUpdate": boolean
     }  
   
 Fields  
@@ -73,8 +75,15 @@ Fields
 `timeZone` |  `string` Optional. The time zone of the user. If provided, the agent will use the time zone for date and time related variables. Otherwise, the agent will use the time zone specified in the App.time_zone_settings.The format is the IANA Time Zone Database time zone, e.g. "America/Los_Angeles".  
 `useToolFakes` |  `boolean` Optional. Whether to use tool fakes for the session. If this field is set, the agent will attempt use tool fakes instead of calling the real tools.  
 `remoteDialogflowQueryParameters` |  `object (`[SessionConfig.RemoteDialogflowQueryParameters](https://docs.cloud.google.com/gemini-enterprise-cx/cx-agent-studio/reference/rest/v1/SessionConfig#SessionConfig.RemoteDialogflowQueryParameters)`)` Optional. [QueryParameters](https://cloud.google.com/dialogflow/cx/docs/reference/rpc/google.cloud.dialogflow.cx.v3#queryparameters) to send to the remote [Dialogflow](https://cloud.google.com/dialogflow/cx/docs/concept/console-conversational-agents) agent when the session control is transferred to the remote agent.  
-`enableTextStreaming` |  `boolean` Optional. Whether to enable streaming text outputs from the model. By default, text outputs from the model are collected before sending to the client. NOTE: This is only supported for text (non-voice) sessions via `[StreamRunSession](https://docs.cloud.google.com/gemini-enterprise-cx/cx-agent-studio/reference/rest/v1/projects.locations.apps.sessions/streamRunSession#google.cloud.ces.v1.SessionService.StreamRunSession)` or `BidiRunSession`.  
+`enableTextStreaming` |  `boolean` Optional. Whether to stream text output from the model to the client incrementally as it is generated. Defaults to `false`.
+
+  * When disabled, the model's text output is buffered, and each text output sent to the client is a complete sentence. Clients can render each text output on a new line.
+  * When enabled, each text output may contain only part of a sentence. Clients should concatenate consecutive text outputs to render the complete response.
+
+NOTE: This is only supported for text (non-voice) sessions using `[StreamRunSession](https://docs.cloud.google.com/gemini-enterprise-cx/cx-agent-studio/reference/rest/v1/projects.locations.apps.sessions/streamRunSession#google.cloud.ces.v1.SessionService.StreamRunSession)` or `BidiRunSession`.  
+`includeLlmThoughtSummary` |  `boolean` Optional. Whether to include LLM thought summaries in the session outputs.  
 `excludeDiagnosticInfo` |  `boolean` Optional. Whether to exclude diagnostic info from the session output.  
+`includeProgressUpdate` |  `boolean` Optional. Whether to include intermediate processing update to the client. If enabled, the update will be sent back in `[SessionOutput.progress](https://docs.cloud.google.com/gemini-enterprise-cx/cx-agent-studio/reference/rest/v1/RunSessionResponse#SessionOutput.FIELDS.progress)`.  
   
 ## InputAudioConfig
 
@@ -156,6 +165,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-07-23 UTC.
+Last updated 2026-11-04 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-07-23 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 

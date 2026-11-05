@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/access-control/
 title: Agent Platform access control with IAM \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-03T09:53:41.717971+00:00
+fetched_at: 2026-11-04T23:12:40.770610+00:00
 ---
 
 # Agent Platform access control with IAM  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation
@@ -213,6 +213,16 @@ Role | Permissions
   * `aiplatform.deploymentResourcePools.list`
   * `aiplatform.deploymentResourcePools.queryDeployedModels`
   * `aiplatform.deploymentResourcePools.update`
+
+`aiplatform.detectors.*`
+
+  * `aiplatform.detectors.create`
+  * `aiplatform.detectors.delete`
+  * `aiplatform.detectors.disable`
+  * `aiplatform.detectors.enable`
+  * `aiplatform.detectors.get`
+  * `aiplatform.detectors.list`
+  * `aiplatform.detectors.update`
 
 `aiplatform.edgeDeploymentJobs.*`
 
@@ -955,6 +965,16 @@ Role | Permissions
   * `aiplatform.deploymentResourcePools.queryDeployedModels`
   * `aiplatform.deploymentResourcePools.update`
 
+`aiplatform.detectors.*`
+
+  * `aiplatform.detectors.create`
+  * `aiplatform.detectors.delete`
+  * `aiplatform.detectors.disable`
+  * `aiplatform.detectors.enable`
+  * `aiplatform.detectors.get`
+  * `aiplatform.detectors.list`
+  * `aiplatform.detectors.update`
+
 `aiplatform.edgeDeploymentJobs.*`
 
   * `aiplatform.edgeDeploymentJobs.create`
@@ -1610,6 +1630,16 @@ Role | Permissions
   * `aiplatform.deploymentResourcePools.queryDeployedModels`
   * `aiplatform.deploymentResourcePools.update`
 
+`aiplatform.detectors.*`
+
+  * `aiplatform.detectors.create`
+  * `aiplatform.detectors.delete`
+  * `aiplatform.detectors.disable`
+  * `aiplatform.detectors.enable`
+  * `aiplatform.detectors.get`
+  * `aiplatform.detectors.list`
+  * `aiplatform.detectors.update`
+
 `aiplatform.edgeDeploymentJobs.*`
 
   * `aiplatform.edgeDeploymentJobs.create`
@@ -2070,7 +2100,7 @@ Role | Permissions
   * `aiplatform.analyzedSessions.get`
   * `aiplatform.analyzedSessions.list`
 
-`aiplatform.annotationSpecs.get` `aiplatform.annotationSpecs.list` `aiplatform.annotations.get` `aiplatform.annotations.list` `aiplatform.apps.get` `aiplatform.apps.list` `aiplatform.artifacts.get` `aiplatform.artifacts.list` `aiplatform.batchPredictionJobs.get` `aiplatform.batchPredictionJobs.list` `aiplatform.cacheConfigs.get` `aiplatform.cachedContents.get` `aiplatform.cachedContents.list` `aiplatform.consents.get` `aiplatform.contexts.get` `aiplatform.contexts.list` `aiplatform.contexts.queryContextLineageSubgraph` `aiplatform.customJobs.get` `aiplatform.customJobs.list` `aiplatform.dataItems.get` `aiplatform.dataItems.list` `aiplatform.dataLabelingJobs.get` `aiplatform.dataLabelingJobs.list` `aiplatform.datasetVersions.get` `aiplatform.datasetVersions.list` `aiplatform.datasets.get` `aiplatform.datasets.list` `aiplatform.deploymentResourcePools.get` `aiplatform.deploymentResourcePools.list` `aiplatform.deploymentResourcePools.queryDeployedModels` `aiplatform.edgeDeploymentJobs.get` `aiplatform.edgeDeploymentJobs.list` `aiplatform.edgeDeviceDebugInfo.get` `aiplatform.edgeDevices.get` `aiplatform.edgeDevices.list` `aiplatform.endpoints.explain` `aiplatform.endpoints.get` `aiplatform.endpoints.getIamPolicy` `aiplatform.endpoints.list` `aiplatform.entityTypes.get` `aiplatform.entityTypes.getIamPolicy` `aiplatform.entityTypes.list` `aiplatform.entityTypes.readFeatureValues` `aiplatform.entityTypes.streamingReadFeatureValues` `aiplatform.evaluationExperiments.get` `aiplatform.evaluationExperiments.list` `aiplatform.evaluationItems.get` `aiplatform.evaluationItems.list` `aiplatform.evaluationMetrics.get` `aiplatform.evaluationMetrics.list` `aiplatform.evaluationRuns.get` `aiplatform.evaluationRuns.list` `aiplatform.evaluationSets.get` `aiplatform.evaluationSets.list` `aiplatform.exampleStores.get` `aiplatform.exampleStores.list` `aiplatform.exampleStores.readExample` `aiplatform.executions.get` `aiplatform.executions.list` `aiplatform.executions.queryExecutionInputsAndOutputs` `aiplatform.extensions.get` `aiplatform.extensions.list` `aiplatform.featureGroups.get` `aiplatform.featureGroups.getIamPolicy` `aiplatform.featureGroups.list` `aiplatform.featureMonitorJobs.get` `aiplatform.featureMonitorJobs.list` `aiplatform.featureMonitors.get` `aiplatform.featureMonitors.list` `aiplatform.featureOnlineStores.get` `aiplatform.featureOnlineStores.getIamPolicy` `aiplatform.featureOnlineStores.list` `aiplatform.featureViewSyncs.*`
+`aiplatform.annotationSpecs.get` `aiplatform.annotationSpecs.list` `aiplatform.annotations.get` `aiplatform.annotations.list` `aiplatform.apps.get` `aiplatform.apps.list` `aiplatform.artifacts.get` `aiplatform.artifacts.list` `aiplatform.batchPredictionJobs.get` `aiplatform.batchPredictionJobs.list` `aiplatform.cacheConfigs.get` `aiplatform.cachedContents.get` `aiplatform.cachedContents.list` `aiplatform.consents.get` `aiplatform.contexts.get` `aiplatform.contexts.list` `aiplatform.contexts.queryContextLineageSubgraph` `aiplatform.customJobs.get` `aiplatform.customJobs.list` `aiplatform.dataItems.get` `aiplatform.dataItems.list` `aiplatform.dataLabelingJobs.get` `aiplatform.dataLabelingJobs.list` `aiplatform.datasetVersions.get` `aiplatform.datasetVersions.list` `aiplatform.datasets.get` `aiplatform.datasets.list` `aiplatform.deploymentResourcePools.get` `aiplatform.deploymentResourcePools.list` `aiplatform.deploymentResourcePools.queryDeployedModels` `aiplatform.detectors.get` `aiplatform.detectors.list` `aiplatform.edgeDeploymentJobs.get` `aiplatform.edgeDeploymentJobs.list` `aiplatform.edgeDeviceDebugInfo.get` `aiplatform.edgeDevices.get` `aiplatform.edgeDevices.list` `aiplatform.endpoints.explain` `aiplatform.endpoints.get` `aiplatform.endpoints.getIamPolicy` `aiplatform.endpoints.list` `aiplatform.entityTypes.get` `aiplatform.entityTypes.getIamPolicy` `aiplatform.entityTypes.list` `aiplatform.entityTypes.readFeatureValues` `aiplatform.entityTypes.streamingReadFeatureValues` `aiplatform.evaluationExperiments.get` `aiplatform.evaluationExperiments.list` `aiplatform.evaluationItems.get` `aiplatform.evaluationItems.list` `aiplatform.evaluationMetrics.get` `aiplatform.evaluationMetrics.list` `aiplatform.evaluationRuns.get` `aiplatform.evaluationRuns.list` `aiplatform.evaluationSets.get` `aiplatform.evaluationSets.list` `aiplatform.exampleStores.get` `aiplatform.exampleStores.list` `aiplatform.exampleStores.readExample` `aiplatform.executions.get` `aiplatform.executions.list` `aiplatform.executions.queryExecutionInputsAndOutputs` `aiplatform.extensions.get` `aiplatform.extensions.list` `aiplatform.featureGroups.get` `aiplatform.featureGroups.getIamPolicy` `aiplatform.featureGroups.list` `aiplatform.featureMonitorJobs.get` `aiplatform.featureMonitorJobs.list` `aiplatform.featureMonitors.get` `aiplatform.featureMonitors.list` `aiplatform.featureOnlineStores.get` `aiplatform.featureOnlineStores.getIamPolicy` `aiplatform.featureOnlineStores.list` `aiplatform.featureViewSyncs.*`
 
   * `aiplatform.featureViewSyncs.get`
   * `aiplatform.featureViewSyncs.list`
@@ -2095,7 +2125,7 @@ Role | Permissions
   
 #### Agent Platform Agents Admin Role Beta
 
-(`roles/aiplatform.agentsAdmin`) Grants full administrative access to Agent Platform agents, including reading and managing their memories and their access control policies.  |  `aiplatform.agentMemories.*`
+(`roles/aiplatform.agentsAdmin`) Grants full administrative access to Agent Platform agents, including reading and managing their memories and their access control policies.  |  `agentidentity.authProviders.get` `agentidentity.authProviders.list` `aiplatform.agentMemories.*`
 
   * `aiplatform.agentMemories.delete`
   * `aiplatform.agentMemories.get`
@@ -2114,15 +2144,24 @@ Role | Permissions
   * `aiplatform.agents.unsuspend`
   * `aiplatform.agents.update`
 
-`aiplatform.tasks.delete`  
+`aiplatform.tasks.cancel` `aiplatform.tasks.delete`  
   
 #### Agent Platform Agents Creator Role Beta
 
-(`roles/aiplatform.agentsCreator`) Grants access to create and discover Agent Platform agents and their auth providers.  |  `aiplatform.agents.create` `aiplatform.agents.list`  
+(`roles/aiplatform.agentsCreator`) Grants access to create and discover Agent Platform agents and their auth providers, and to create and list collaborative projects.  |  `agentidentity.authProviders.get` `agentidentity.authProviders.list` `aiplatform.agents.create` `aiplatform.agents.list`  
   
 #### Agent Platform Agents User Role Beta
 
-(`roles/aiplatform.agentsUser`) Grants access to view agents and to create, update, and delete their tasks.  |  `aiplatform.agents.get` `aiplatform.agents.list` `aiplatform.tasks.create` `aiplatform.tasks.delete` `aiplatform.tasks.get` `aiplatform.tasks.list` `aiplatform.tasks.update`  
+(`roles/aiplatform.agentsUser`) Grants access to view agents and to create, update, cancel, and delete their tasks.  |  `aiplatform.agents.get` `aiplatform.agents.list` `aiplatform.tasks.*`
+
+  * `aiplatform.tasks.cancel`
+  * `aiplatform.tasks.create`
+  * `aiplatform.tasks.delete`
+  * `aiplatform.tasks.get`
+  * `aiplatform.tasks.list`
+  * `aiplatform.tasks.update`
+
+  
   
 #### Agent Platform Agents Viewer Role Beta
 
@@ -2268,19 +2307,7 @@ Role | Permissions
   * `dataform.workspaces.setIamPolicy`
   * `dataform.workspaces.writeFile`
 
-`developerconnect.connections.constructGitHubAppManifest` `developerconnect.connections.create` `developerconnect.connections.delete` `developerconnect.connections.fetchGitHubInstallations` `developerconnect.connections.fetchLinkableGitRepositories` `developerconnect.connections.generateGitHubStateToken` `developerconnect.connections.get` `developerconnect.connections.list` `developerconnect.connections.processGitHubAppCreationCallback` `developerconnect.connections.processGitHubOAuthCallback` `developerconnect.connections.update` `developerconnect.gitRepositoryLinks.*`
-
-  * `developerconnect.gitRepositoryLinks.create`
-  * `developerconnect.gitRepositoryLinks.delete`
-  * `developerconnect.gitRepositoryLinks.fetchGitRefs`
-  * `developerconnect.gitRepositoryLinks.fetchReadToken`
-  * `developerconnect.gitRepositoryLinks.fetchReadWriteToken`
-  * `developerconnect.gitRepositoryLinks.get`
-  * `developerconnect.gitRepositoryLinks.gitProxyRead`
-  * `developerconnect.gitRepositoryLinks.gitProxyWrite`
-  * `developerconnect.gitRepositoryLinks.list`
-
-`developerconnect.locations.*`
+`developerconnect.connections.constructGitHubAppManifest` `developerconnect.connections.create` `developerconnect.connections.delete` `developerconnect.connections.fetchGitHubInstallations` `developerconnect.connections.fetchLinkableGitRepositories` `developerconnect.connections.generateGitHubStateToken` `developerconnect.connections.get` `developerconnect.connections.list` `developerconnect.connections.processGitHubAppCreationCallback` `developerconnect.connections.processGitHubOAuthCallback` `developerconnect.connections.update` `developerconnect.gitRepositoryLinks.create` `developerconnect.gitRepositoryLinks.delete` `developerconnect.gitRepositoryLinks.fetchGitRefs` `developerconnect.gitRepositoryLinks.fetchReadToken` `developerconnect.gitRepositoryLinks.fetchReadWriteToken` `developerconnect.gitRepositoryLinks.get` `developerconnect.gitRepositoryLinks.gitProxyRead` `developerconnect.gitRepositoryLinks.gitProxyWrite` `developerconnect.gitRepositoryLinks.list` `developerconnect.locations.*`
 
   * `developerconnect.locations.get`
   * `developerconnect.locations.list`
@@ -2862,6 +2889,16 @@ Role | Permissions
   * `aiplatform.deploymentResourcePools.list`
   * `aiplatform.deploymentResourcePools.queryDeployedModels`
   * `aiplatform.deploymentResourcePools.update`
+
+`aiplatform.detectors.*`
+
+  * `aiplatform.detectors.create`
+  * `aiplatform.detectors.delete`
+  * `aiplatform.detectors.disable`
+  * `aiplatform.detectors.enable`
+  * `aiplatform.detectors.get`
+  * `aiplatform.detectors.list`
+  * `aiplatform.detectors.update`
 
 `aiplatform.edgeDeploymentJobs.*`
 
@@ -3458,7 +3495,7 @@ Role | Permissions
   
 #### Vertex AI Service Agent 
 
-(`roles/aiplatform.serviceAgent`) Gives Vertex AI the permissions it needs to function.  **Warning:** Do not grant service agent roles to any principals except [service agents](https://docs.cloud.google.com/iam/docs/service-agents).  |  `agentregistry.agents.get` `agentregistry.agents.list` `agentregistry.bindings.fetchAvailable` `agentregistry.bindings.get` `agentregistry.bindings.list` `agentregistry.endpoints.*`
+(`roles/aiplatform.serviceAgent`) Gives Vertex AI the permissions it needs to function.  **Warning:** Do not grant service agent roles to any principals except [service agents](https://docs.cloud.google.com/iam/docs/service-agents).  |  `agentregistry.agents.get` `agentregistry.agents.list` `agentregistry.aiApplications.get` `agentregistry.aiApplications.list` `agentregistry.bindings.fetchAvailable` `agentregistry.bindings.get` `agentregistry.bindings.list` `agentregistry.endpoints.*`
 
   * `agentregistry.endpoints.get`
   * `agentregistry.endpoints.list`
@@ -3605,6 +3642,16 @@ Role | Permissions
   * `aiplatform.deploymentResourcePools.list`
   * `aiplatform.deploymentResourcePools.queryDeployedModels`
   * `aiplatform.deploymentResourcePools.update`
+
+`aiplatform.detectors.*`
+
+  * `aiplatform.detectors.create`
+  * `aiplatform.detectors.delete`
+  * `aiplatform.detectors.disable`
+  * `aiplatform.detectors.enable`
+  * `aiplatform.detectors.get`
+  * `aiplatform.detectors.list`
+  * `aiplatform.detectors.update`
 
 `aiplatform.edgeDeploymentJobs.*`
 
@@ -4245,7 +4292,7 @@ Role | Permissions
   
 #### Vertex AI Service Agent 
 
-(`roles/aiplatform.serviceAgent`) Gives Vertex AI the permissions it needs to function.  **Warning:** Do not grant service agent roles to any principals except [service agents](https://docs.cloud.google.com/iam/docs/service-agents).  |  `agentregistry.agents.get` `agentregistry.agents.list` `agentregistry.bindings.fetchAvailable` `agentregistry.bindings.get` `agentregistry.bindings.list` `agentregistry.endpoints.*`
+(`roles/aiplatform.serviceAgent`) Gives Vertex AI the permissions it needs to function.  **Warning:** Do not grant service agent roles to any principals except [service agents](https://docs.cloud.google.com/iam/docs/service-agents).  |  `agentregistry.agents.get` `agentregistry.agents.list` `agentregistry.aiApplications.get` `agentregistry.aiApplications.list` `agentregistry.bindings.fetchAvailable` `agentregistry.bindings.get` `agentregistry.bindings.list` `agentregistry.endpoints.*`
 
   * `agentregistry.endpoints.get`
   * `agentregistry.endpoints.list`
@@ -4392,6 +4439,16 @@ Role | Permissions
   * `aiplatform.deploymentResourcePools.list`
   * `aiplatform.deploymentResourcePools.queryDeployedModels`
   * `aiplatform.deploymentResourcePools.update`
+
+`aiplatform.detectors.*`
+
+  * `aiplatform.detectors.create`
+  * `aiplatform.detectors.delete`
+  * `aiplatform.detectors.disable`
+  * `aiplatform.detectors.enable`
+  * `aiplatform.detectors.get`
+  * `aiplatform.detectors.list`
+  * `aiplatform.detectors.update`
 
 `aiplatform.edgeDeploymentJobs.*`
 
@@ -5047,6 +5104,16 @@ Role | Permissions
   * `aiplatform.deploymentResourcePools.queryDeployedModels`
   * `aiplatform.deploymentResourcePools.update`
 
+`aiplatform.detectors.*`
+
+  * `aiplatform.detectors.create`
+  * `aiplatform.detectors.delete`
+  * `aiplatform.detectors.disable`
+  * `aiplatform.detectors.enable`
+  * `aiplatform.detectors.get`
+  * `aiplatform.detectors.list`
+  * `aiplatform.detectors.update`
+
 `aiplatform.edgeDeploymentJobs.*`
 
   * `aiplatform.edgeDeploymentJobs.create`
@@ -5520,7 +5587,7 @@ Role | Permissions
   * `aiplatform.schedules.list`
   * `aiplatform.schedules.update`
 
-`backupdr.backupPlanAssociations.createForComputeDisk` `backupdr.backupPlanAssociations.createForComputeInstance` `backupdr.backupPlanAssociations.deleteForComputeDisk` `backupdr.backupPlanAssociations.deleteForComputeInstance` `backupdr.backupPlanAssociations.fetchForComputeDisk` `backupdr.backupPlanAssociations.getForComputeDisk` `backupdr.backupPlanAssociations.list` `backupdr.backupPlanAssociations.triggerBackupForComputeDisk` `backupdr.backupPlanAssociations.triggerBackupForComputeInstance` `backupdr.backupPlanAssociations.updateForComputeDisk` `backupdr.backupPlanAssociations.updateForComputeInstance` `backupdr.backupPlans.get` `backupdr.backupPlans.list` `backupdr.backupPlans.useForComputeDisk` `backupdr.backupPlans.useForComputeInstance` `backupdr.backupVaults.get` `backupdr.backupVaults.list` `backupdr.locations.list` `backupdr.operations.get` `backupdr.operations.list` `backupdr.serviceConfig.initialize` `compute.acceleratorTypes.*`
+`backupdr.backupPlanAssociations.createForComputeDisk` `backupdr.backupPlanAssociations.createForComputeInstance` `backupdr.backupPlanAssociations.deleteForComputeDisk` `backupdr.backupPlanAssociations.deleteForComputeInstance` `backupdr.backupPlanAssociations.fetchForComputeDisk` `backupdr.backupPlanAssociations.getForComputeDisk` `backupdr.backupPlanAssociations.list` `backupdr.backupPlanAssociations.triggerBackupForComputeDisk` `backupdr.backupPlanAssociations.triggerBackupForComputeInstance` `backupdr.backupPlanAssociations.updateForComputeDisk` `backupdr.backupPlanAssociations.updateForComputeInstance` `backupdr.backupPlans.get` `backupdr.backupPlans.list` `backupdr.backupPlans.useForComputeDisk` `backupdr.backupPlans.useForComputeInstance` `backupdr.backupVaults.get` `backupdr.backupVaults.list` `backupdr.locations.list` `backupdr.operations.get` `backupdr.operations.list` `backupdr.serviceConfig.initialize` `compute.acceleratorInterconnectMemberInstances.list` `compute.acceleratorInterconnects.get` `compute.acceleratorInterconnects.list` `compute.acceleratorInterconnects.queryFormability` `compute.acceleratorTypes.*`
 
   * `compute.acceleratorTypes.get`
   * `compute.acceleratorTypes.list`
@@ -6049,6 +6116,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-02 UTC.
+Last updated 2026-11-04 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-02 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 

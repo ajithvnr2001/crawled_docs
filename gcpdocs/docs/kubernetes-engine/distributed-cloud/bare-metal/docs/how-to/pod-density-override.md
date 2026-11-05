@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/bare-metal/docs/how-to/pod-density-override/
 title: Override Pod density for a node pool \u00a0|\u00a0 Google Distributed Cloud software only for bare metal \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T20:47:02.963946+00:00
+fetched_at: 2026-11-04T23:30:04.771661+00:00
 ---
 
 # Override Pod density for a node pool  |  Google Distributed Cloud software only for bare metal  |  Google Cloud Documentation
@@ -22,9 +22,7 @@ Send feedback
 
 #  Override Pod density for a node pool Stay organized with collections  Save and categorize content based on your preferences. 
 
-This document describes how to specify Pod density for individual node pools in your cluster, overriding the cluster-wide setting. Although node-level configurations typically apply to the entire cluster, you can configure Pod density on a specific node pool. Overriding the Pod density for specific node pools can improve resource efficiency. This capability is useful for specialized node pools, such as nodes with GPUs, where specific workload requirements or efficient IP address allocation necessitate a different value for maximum Pods per node.
-
-The capability to override the cluster-wide Pod density setting is available for clusters at version 1.33 and higher.
+You can configure Pod density for individual node pools to override the cluster-wide setting, which helps you improve resource efficiency. This capability is useful for specialized node pools, such as nodes with GPUs, where workload requirements or efficient IP address allocation require a different value for maximum Pods per node.
 
 ## Before you begin
 
@@ -102,6 +100,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-04 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 

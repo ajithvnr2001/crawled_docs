@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/kubernetes-engine/docs/integrations/ai-infra/
 title: AI/ML orchestration on GKE documentation \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-01T05:44:11.783446+00:00
+fetched_at: 2026-11-04T23:41:31.116674+00:00
 ---
 
 # AI/ML orchestration on GKE documentation  |  Google Cloud Documentation
@@ -190,11 +190,31 @@ Concept
 
 Training and tutorials
 
+###  [ Plan an architecture for AI agent workloads on GKE ](https://docs.cloud.google.com/kubernetes-engine/docs/concepts/machine-learning/agent-workloads)
+
+Learn how to design an execution architecture for AI agent workloads on GKE. 
+
+Agentic AI Agent Substrate Agent Sandbox
+
+Best practice 
+
+Training and tutorials
+
+###  [ Design your infrastructure for Agent Substrate on GKE ](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/design-substrate-infrastructure)
+
+Learn how to right-size GKE cluster components for Agent Substrate, configure automated node provisioning, and plan for cluster maintenance and upgrades. 
+
+Agentic AI Agent Substrate
+
+Concept 
+
+Training and tutorials
+
 ###  [ About Agent Substrate on GKE ](https://docs.cloud.google.com/kubernetes-engine/ai-ml/about-agent-substrate)
 
 Learn about how to use Agent Substrate on GKE to run agentic workloads at scale on Kubernetes clusters. 
 
-Agentic AI  Agent Substrate
+Agentic AI Agent Substrate
 
 Reference architecture 
 
@@ -814,6 +834,6 @@ View reference architectures and solutions for deploying accelerated workloads o
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-30 UTC.
+Last updated 2026-11-04 UTC.
 
-[[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 
+[[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 

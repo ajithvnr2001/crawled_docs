@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/cluster-toolkit/docs/deploy/slurm/create-a3-high-cluster/
 title: Create an A3 High Slurm cluster \u00a0|\u00a0 Cluster Toolkit \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-01T05:38:55.806261+00:00
+fetched_at: 2026-11-04T23:31:52.691398+00:00
 ---
 
 # Create an A3 High Slurm cluster  |  Cluster Toolkit  |  Google Cloud Documentation
@@ -52,13 +52,14 @@ Before creating a Slurm cluster, if you haven't already done so, complete the fo
 
   1. **Choose a consumption option** : your choice of consumption option determines how you get and use GPU resources. To learn more, see [Choose a consumption option](https://docs.cloud.google.com/ai-hypercomputer/docs/consumption-models).
   2. **Obtain capacity** : the process to obtain capacity differs for each consumption option. To learn about the process to obtain capacity for your chosen consumption option, see [Capacity overview](https://docs.cloud.google.com/ai-hypercomputer/docs/obtain-capacity). 
-  3. **Verify that you have enough Filestore capacity quota** : you need to have enough Filestore quota in your target region before deploying. The required minimum capacity depends on the machine types in your cluster: 
-     * **A3 High** : requires a minimum of 2.5 TiB (2,560 GiB) of BASIC_SSD (standard) capacity.
+  3. **Verify that you have enough Filestore or Google Cloud Managed Lustre quota** : you need to have enough Filestore or Managed Lustre quota in your target region and zone before you deploy. The required minimum quota depends on the storage service and machine types in your cluster: 
+     * **Managed Lustre** : for A3 High machine types, you require a minimum of 36,000 GiB of storage capacity quota and 18 GBps of throughput quota.
+     * **Filestore** : for A3 High machine types, you require a minimum of 2.5 TiB (2,560 GiB) of BASIC_SSD (standard) capacity quota.
 
 To check quota or request a quota increase, see the following:
 
      * To check quota in your project, see [View API-specific quota](https://docs.cloud.google.com/docs/quotas/view-manage#api_specific_quota).
-     * If you don't have enough quota, then [request a quota increase](https://docs.cloud.google.com/filestore/docs/requesting-quota-increases).
+     * If you don't have enough quota, then [request a Filestore quota increase](https://docs.cloud.google.com/filestore/docs/requesting-quota-increases) or [request additional Managed Lustre quota](https://docs.cloud.google.com/managed-lustre/docs/quotas#request_additional_quota).
   4. **Install Cluster Toolkit** : to provision Slurm clusters, you must use [Cluster Toolkit](https://docs.cloud.google.com/cluster-toolkit/docs/overview) version `v1.62.0` or later. 
 
 To install Cluster Toolkit, see [Set up Cluster Toolkit](https://docs.cloud.google.com/cluster-toolkit/docs/setup/configure-environment).
@@ -118,12 +119,12 @@ Replace the following:
 
 ## Open the Cluster Toolkit directory
 
-To use Slurm with Google Cloud, you must [install Cluster Toolkit](https://docs.cloud.google.com/cluster-toolkit/docs/setup/configure-environment). After you install Cluster Toolkit, verify that you are in the Cluster Toolkit directory by running the following command:
+To use Slurm with Google Cloud, you must [install Cluster Toolkit](https://docs.cloud.google.com/cluster-toolkit/docs/setup/configure-environment). After you install Cluster Toolkit, verify that you are in the Cluster Toolkit directory:
     
     
     cd cluster-toolkit
 
-This cluster deployment requires Cluster Toolkit `v1.62.0` or later. To check your version, you can run the following command:
+This cluster deployment requires Cluster Toolkit `v1.62.0` or later. Verify your installed version:
     
     
     ./gcluster --version
@@ -279,6 +280,8 @@ Replace the following:
 
 Cluster Toolkit provisions the cluster based on the deployment file you created in the previous step and the default cluster blueprint. For more information about the software that is installed by the blueprint, including NVIDIA drivers and CUDA, [learn more about Slurm custom images](https://docs.cloud.google.com/ai-hypercomputer/docs/images#slurm-images).
 
+The A3 High blueprint integrates [Managed Lustre](https://docs.cloud.google.com/managed-lustre/docs/overview) for high-performance home directory storage (`/home`). The blueprint automatically configures private service access (PSA) to peer your VPC network with Managed Lustre.
+
 To provision the cluster, run the [`./gcluster deploy` command](https://docs.cloud.google.com/cluster-toolkit/docs/reference/gcluster-deploy) for your machine type from the Cluster Toolkit directory. This step takes approximately 20-30 minutes.
     
     
@@ -350,6 +353,8 @@ This command is only for redeployments where an image already exists, it only re
 
 ## Destroy the Slurm cluster
 
+When you destroy the Slurm cluster, all provisioned resources are deleted, including the Managed Lustre instance and all of the data stored on it.
+
   1. Disconnect from the cluster if you haven't already.
 
   2. Before running the destroy command, navigate to the root of the Cluster Toolkit directory. By default, DEPLOYMENT_FOLDER is located at the root of the Cluster Toolkit directory.
@@ -382,6 +387,7 @@ To learn how to cleanly destroy infrastructure and for advanced manual deploymen
   * [Monitor Compute Engine instances and Slurm clusters](https://docs.cloud.google.com/ai-hypercomputer/docs/monitor)
   * [Optimize cluster networking by using NCCL/gIB](https://docs.cloud.google.com/ai-hypercomputer/docs/nccl/overview)
   * [Report faulty host](https://docs.cloud.google.com/ai-hypercomputer/docs/manage/report-faulty-host)
+  * [Learn about Managed Lustre](https://docs.cloud.google.com/managed-lustre/docs/overview)
 
 
 
@@ -389,6 +395,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-30 UTC.
+Last updated 2026-11-04 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 

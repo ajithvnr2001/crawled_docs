@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/kubernetes-engine/config-sync/docs/how-to/updating-private-registry/
 title: Update Config Sync using a private registry \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T20:46:38.796584+00:00
+fetched_at: 2026-11-05T00:17:50.941820+00:00
 ---
 
 # Update Config Sync using a private registry  |  Google Cloud Documentation
@@ -31,6 +31,73 @@ Each version of Config Sync requires a specific set of versioned images to run. 
 To push version-specific Config Sync images to a private registry, click the plus icon for the version that you want to use and complete the listed steps.
 
 **Note:** Use a client from which you can pull from `gcr.io` and push to your private registry.
+
+### 1.25.2
+
+To add the images to a private registry, complete the following steps:
+
+  1. Pull the Config Sync images: 
+         
+         docker pull gcr.io/config-management-release/admission-webhook:v1.25.2-rc.2
+         docker pull gcr.io/config-management-release/gcenode-askpass-sidecar:v1.25.2-rc.2
+         docker pull gcr.io/config-management-release/git-sync:v4.5.0-gke.3__linux_amd64
+         docker pull gcr.io/config-management-release/helm-sync:v1.25.2-rc.2
+         docker pull gcr.io/config-management-release/hydration-controller:v1.25.2-rc.2
+         docker pull gcr.io/config-management-release/oci-sync:v1.25.2-rc.2
+         docker pull gcr.io/config-management-release/otelcontribcol:v0.159.0-gke.4
+         docker pull gcr.io/config-management-release/reconciler-manager:v1.25.2-rc.2
+         docker pull gcr.io/config-management-release/reconciler:v1.25.2-rc.2
+         docker pull gcr.io/config-management-release/resource-group-controller:v1.25.2-rc.2
+         
+
+  2. Create a variable for your private registry URL: 
+         
+         export PRIVATE_REGISTRY_URL=PRIVATE_REGISTRY_URL
+         
+
+Replace `PRIVATE_REGISTRY_URL` with your private registry URL. 
+  3. Tag the images with your private registry URL: 
+         
+         docker tag gcr.io/config-management-release/admission-webhook:v1.25.2-rc.2 \
+          ${PRIVATE_REGISTRY_URL}/admission-webhook:v1.25.2-rc.2
+         docker tag gcr.io/config-management-release/gcenode-askpass-sidecar:v1.25.2-rc.2 \
+          ${PRIVATE_REGISTRY_URL}/gcenode-askpass-sidecar:v1.25.2-rc.2
+         docker tag gcr.io/config-management-release/git-sync:v4.5.0-gke.3__linux_amd64 \
+          ${PRIVATE_REGISTRY_URL}/git-sync:v4.5.0-gke.3__linux_amd64
+         docker tag gcr.io/config-management-release/helm-sync:v1.25.2-rc.2 \
+          ${PRIVATE_REGISTRY_URL}/helm-sync:v1.25.2-rc.2
+         docker tag gcr.io/config-management-release/hydration-controller:v1.25.2-rc.2 \
+          ${PRIVATE_REGISTRY_URL}/hydration-controller:v1.25.2-rc.2
+         docker tag gcr.io/config-management-release/oci-sync:v1.25.2-rc.2 \
+          ${PRIVATE_REGISTRY_URL}/oci-sync:v1.25.2-rc.2
+         docker tag gcr.io/config-management-release/otelcontribcol:v0.159.0-gke.4 \
+          ${PRIVATE_REGISTRY_URL}/otelcontribcol:v0.159.0-gke.4
+         docker tag gcr.io/config-management-release/reconciler-manager:v1.25.2-rc.2 \
+          ${PRIVATE_REGISTRY_URL}/reconciler-manager:v1.25.2-rc.2
+         docker tag gcr.io/config-management-release/reconciler:v1.25.2-rc.2 \
+          ${PRIVATE_REGISTRY_URL}/reconciler:v1.25.2-rc.2
+         docker tag gcr.io/config-management-release/resource-group-controller:v1.25.2-rc.2 \
+          ${PRIVATE_REGISTRY_URL}/resource-group-controller:v1.25.2-rc.2
+         
+
+  4. Push the tagged images to your private registry: 
+         
+         docker push ${PRIVATE_REGISTRY_URL}/admission-webhook:v1.25.2-rc.2
+         docker push ${PRIVATE_REGISTRY_URL}/gcenode-askpass-sidecar:v1.25.2-rc.2
+         docker push ${PRIVATE_REGISTRY_URL}/git-sync:v4.5.0-gke.3__linux_amd64
+         docker push ${PRIVATE_REGISTRY_URL}/helm-sync:v1.25.2-rc.2
+         docker push ${PRIVATE_REGISTRY_URL}/hydration-controller:v1.25.2-rc.2
+         docker push ${PRIVATE_REGISTRY_URL}/oci-sync:v1.25.2-rc.2
+         docker push ${PRIVATE_REGISTRY_URL}/otelcontribcol:v0.159.0-gke.4
+         docker push ${PRIVATE_REGISTRY_URL}/reconciler-manager:v1.25.2-rc.2
+         docker push ${PRIVATE_REGISTRY_URL}/reconciler:v1.25.2-rc.2
+         docker push ${PRIVATE_REGISTRY_URL}/resource-group-controller:v1.25.2-rc.2
+         
+
+
+
+
+If you can pull the tagged images from your private registry, then the procedure was successful. 
 
 ### 1.25.1
 
@@ -706,6 +773,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-03 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 

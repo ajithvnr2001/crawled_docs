@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chronicle/docs/soar/admin-tasks/permissions/allow-google-support-access/
 title: Provide access to Google Support \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T10:03:16.191999+00:00
+fetched_at: 2026-11-04T23:33:41.198523+00:00
 ---
 
 # Provide access to Google Support  |  Google Security Operations  |  Google Cloud Documentation
@@ -29,7 +29,7 @@ Google Support may require access to your Google Security Operations instance to
 
 **Note:** This feature is only relevant for the SOAR functionality of the Google SecOps platform.
 
-  1. Go to **Settings > Advanced > Support Access**.
+  1. Go to **Settings > Administration > SOAR Support Access**.
   2. Click the **Allow Access** toggle to the on position.
   3. Select the required **SOC Role** , **Permission Group** , and **Environments**. These settings determine the access privileges for the Google Support user. The selected permission group must have the correct **Edit** and **View** settings for the required modules.
   4. Select a time period. This period determines how long a Google Support user has access to your system. We recommend that this matches the period you defined in your local settings. You can shorten the access period at any time by clicking the **Allow Access** toggle to the off position.
@@ -43,6 +43,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-28 UTC.
+Last updated 2026-11-04 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 

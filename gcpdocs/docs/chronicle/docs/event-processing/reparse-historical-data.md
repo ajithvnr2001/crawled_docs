@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chronicle/docs/event-processing/reparse-historical-data/
 title: Re-parse historical data (Log Replay) \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T10:10:40.334262+00:00
+fetched_at: 2026-11-04T23:34:15.880743+00:00
 ---
 
 # Re-parse historical data (Log Replay)  |  Google Security Operations  |  Google Cloud Documentation
@@ -92,7 +92,7 @@ Complete the following steps to validate your parser and submit a Log Replay req
 
 Confirm that the target parser or parser extension is active and normalizing live telemetry before requesting historical re-parsing.
 
-  1. In the Google SecOps console, go to **SIEM Settings** > **Parsers**.
+  1. In the Google SecOps console, go to **Settings > Data Management > Parsers**. If you are on a SIEM-only platform, go to **Settings > Parsers**.
   2. Locate your target log type and verify that the updated prebuilt parser, custom parser, or parser extension has an **Active** status and normalizes live incoming logs as expected.
 
 **Note:** If you submit a replay request while the target parser or extension is still in **Draft** or **Pending** status, Google Cloud Support can't execute the replay against the updated mappings. Activate the parser and verify live UDM output first.
@@ -148,7 +148,7 @@ Use this table to resolve common issues when requesting or validating a Log Repl
 
 Issue | Description | Fix  
 ---|---|---  
-Request rejected due to inactive parser | The requested custom parser or parser extension is in **Draft** or **Pending** status. | In **SIEM Settings** > **Parsers** , activate the parser configuration, verify that live logs parse as expected, and resubmit the support case.  
+Request rejected due to inactive parser | The requested custom parser or parser extension is in **Draft** or **Pending** status. | In **Settings > Data Management > Parsers**, activate the parser configuration, verify that live logs parse as expected, and resubmit the support case.  
 Request rejected due to time window limit | The requested start timestamp is more than 180 days in the past. | Adjust the start and end timestamps in your support case description to fall within the supported 180-day retention window.  
 Updated UDM fields missing in search | UDM search results for the target time window don't show the new field mappings yet. | Wait for the asynchronous backend replay task to finish processing the full time range, and verify your query syntax in **SIEM Search**.  
   
@@ -168,6 +168,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-28 UTC.
+Last updated 2026-11-04 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 

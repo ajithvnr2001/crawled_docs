@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/armor/docs/common-use-cases/
 title: Use cases for security policies \u00a0|\u00a0 Google Cloud Armor \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T16:48:17.763387+00:00
+fetched_at: 2026-11-04T23:33:31.848024+00:00
 ---
 
 # Use cases for security policies  |  Google Cloud Armor  |  Google Cloud Documentation
@@ -79,9 +79,9 @@ Use denylists to reject traffic from specific IP addresses or CIDR ranges. In th
 
 Define expressions in a rule's match condition using the Cloud Armor custom rules language. Cloud Armor evaluates incoming requests against these expressions. If a request matches, the rule's action applies, either denying or allowing the traffic.
 
-The following examples are expressions that are written in the Cloud Armor extension of the [Common Expression Language (CEL)](https://github.com/google/cel-spec). For more information, see the [Custom rules language reference](https://docs.cloud.google.com/armor/docs/rules-language-reference).
+The following examples are expressions that are written in the Cloud Armor extension of the [Common Expression Language (CEL)](https://github.com/google/cel-spec). For more information, see the [Custom rules language reference](https://docs.cloud.google.com/armor/docs/create-security-policy-rules).
 
-Define expressions by using the Google Cloud CLI `--expression` flag or the Google Cloud console. For more information, see [Create security policies, rules, and expressions](https://docs.cloud.google.com/armor/docs/configure-security-policies#creating-policy-rules).
+Define expressions by using the Google Cloud CLI `--expression` flag or the Google Cloud console. For more information, see [Create security policies, rules, and expressions](https://docs.cloud.google.com/armor/docs/create-security-policies#creating-policy-rules).
 
 In the following example, requests from `2001:db8::/32` (such as your alpha testers) in the `AU` region match the following expression:
     
@@ -95,7 +95,7 @@ The following example matches with requests from `192.0.2.0/24` and with a user 
     inIpRange(origin.ip, '192.0.2.0/24') && has(request.headers['user-agent']) && request.headers['user-agent'].contains('WordPress')
     
 
-For additional examples, see [Example expressions](https://docs.cloud.google.com/armor/docs/rules-language-reference#expression-examples) in the custom rules language reference.
+For additional examples, see [Example expressions](https://docs.cloud.google.com/armor/docs/create-security-policy-rules#expression-examples) in the custom rules language reference.
 
 ## Protect your deployment against application layer attacks and help mitigate OWASP Top 10 risks
 
@@ -110,11 +110,11 @@ To mitigate the risks, follow these steps:
 
 
 
-Use preconfigured rules to detect and block common application layer attacks. Preconfigured rules are predefined expression sets that you can add to a security policy. To add these expression sets to a rule, use the gcloud CLI `--expression` flag or Google Cloud console. For more information, see [Creating security policies, rules, and expressions](https://docs.cloud.google.com/armor/docs/configure-security-policies#creating-policy-rules).
+Use preconfigured rules to detect and block common application layer attacks. Preconfigured rules are predefined expression sets that you can add to a security policy. To add these expression sets to a rule, use the gcloud CLI `--expression` flag or Google Cloud console. For more information, see [Creating security policies, rules, and expressions](https://docs.cloud.google.com/armor/docs/create-security-policies#creating-policy-rules).
 
 A preconfigured rule inspects up to the first 8 kB of a request body by default. However, you can configure this limit per policy. For more information about configuring this inspection limit for a request body when using preconfigured WAF rules, see [Request body inspection limitation](https://docs.cloud.google.com/armor/docs/security-policy-overview#request-body).
 
-For more information about preconfigured rules, see [Preconfigured rules](https://docs.cloud.google.com/armor/docs/rules-language-reference#preconfigured-rules) in the custom rules language reference.
+For more information about preconfigured rules, see [Preconfigured rules](https://docs.cloud.google.com/armor/docs/create-security-policy-rules#preconfigured-rules) in the custom rules language reference.
 
 The following example uses a preconfigured rule to mitigate cross-site scripting (XSS) attacks:
     
@@ -219,8 +219,8 @@ For more information, see [Advanced Network DDoS protection overview](https://do
 
 ## What's next
 
-  * [Configure security policies](https://docs.cloud.google.com/armor/docs/configure-security-policies)
-  * [Learn about the custom rules language](https://docs.cloud.google.com/armor/docs/rules-language-reference)
+  * [Configure security policies](https://docs.cloud.google.com/armor/docs/create-security-policies)
+  * [Learn about the custom rules language](https://docs.cloud.google.com/armor/docs/create-security-policy-rules)
   * [Tune WAF rules](https://docs.cloud.google.com/armor/docs/rule-tuning)
 
 
@@ -229,6 +229,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-04 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 

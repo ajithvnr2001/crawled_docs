@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/dataflow/docs/guides/troubleshoot-templates/
 title: Troubleshoot Flex Templates \u00a0|\u00a0 Cloud Dataflow \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T08:23:45.345955+00:00
+fetched_at: 2026-11-05T00:20:12.623563+00:00
 ---
 
 # Troubleshoot Flex Templates  |  Cloud Dataflow  |  Google Cloud Documentation
@@ -173,11 +173,11 @@ Additionally, make sure that your VPC's DNS settings allow for the resolution of
 
 If your Flex Template container image is large, pulling and launching the template may exceed the default 12-minute timeout leading to job failure.
 
-To mitigate the issue, try the following strategies :
+To mitigate the issue, try the following strategies:
 
   * Optimize your image to reduce its size to speed up the pulling process.
   * Use the `--launcher-machine-type` flag to select a machine type with more CPU cores, which helps pull the image faster and leads to a faster launch.
-  * Use the `--launcher-vm-timeout-secs` flag to specify a longer timeout duration for the launcher VM, allowing it to go beyond the default 12-minute limit.
+  * Extend the launch timeout beyond the default 12-minute (720-second) limit by using the `--launcher-vm-timeout-secs` flag in the gcloud CLI or the `ft_launch_timeout_secs` launch option in the REST API and Managed Service for Apache Airflow. For examples, see Extend the Flex Template launch timeout.
 
 
 
@@ -198,7 +198,7 @@ Pipelines launched directly that don't use a template don't have these limitatio
 
 If the code in your main program takes too long to execute, the Flex Template might time out before the pipeline launches. This can happen if the code performs complex computations or makes synchronous calls to external resources during initialization.
 
-To diagnose this issue, [check the job logs](https://docs.cloud.google.com/dataflow/docs/guides/logging#MonitoringLogs) for any operation that takes a long time to complete. Examples include requests for external resources, large data lookups, or heavy initialization logic that you can move to the pipeline execution phase.
+To diagnose this issue, [check the job logs](https://docs.cloud.google.com/dataflow/docs/guides/logging#MonitoringLogs) for any operation that takes a long time to complete. Examples include requests for external resources, large data lookups, or heavy initialization logic that you can move to the pipeline execution phase. If your pipeline still requires more than 12 minutes to launch after you optimize initialization, see Extend the Flex Template launch timeout.
 
 ### Intermittent network or Cloud Storage errors
 
@@ -234,7 +234,90 @@ When using Flex Templates, you can configure some but not all pipeline options d
 
 If you're running a Python Flex Template job that supplies extra dependencies in a `requirements.txt` file, your job might fail to launch. This failure happens when downloading or installing the dependencies specified in the requirements file takes longer than the time allocated for launching the Flex template.
 
-To optimize your job's performance, prepackage the dependencies when building your template to avoid the necessity to download or install the dependencies during template launch. For more information, see the [Package dependencies for Python](https://docs.cloud.google.com/dataflow/docs/guides/templates/configuring-flex-templates#dependencies-python) section in "Configure Flex Templates."
+To optimize your job's performance, prepackage the dependencies when building your template to avoid the necessity to download or install the dependencies during template launch. For more information, see the [Package dependencies for Python](https://docs.cloud.google.com/dataflow/docs/guides/templates/configuring-flex-templates#dependencies-python) section in "Configure Flex Templates." If staging dependencies or building the execution graph still exceeds the default 12-minute launch timeout, see Extend the Flex Template launch timeout.
+
+### Extend the Flex Template launch timeout
+
+By default, Dataflow enforces a 720-second (12-minute) timeout on the Flex Template launch phase. When pulling large container images, staging dependencies, or constructing complex execution graphs takes longer than 720 seconds, you can increase this timeout by configuring the launch timeout option for your launch method.
+
+###  gcloud CLI 
+
+To extend the launcher VM timeout when you run a Flex Template from the gcloud CLI, pass the [`--launcher-vm-timeout-secs`](https://docs.cloud.google.com/sdk/gcloud/reference/dataflow/flex-template/run#--launcher-vm-timeout-secs) flag to the `gcloud dataflow flex-template run` command:
+    
+    
+    gcloud dataflow flex-template run JOB_NAME \
+      --template-file-gcs-location=TEMPLATE_GCS_PATH \
+      --region=REGION \
+      --launcher-vm-timeout-secs=TIMEOUT_SECONDS
+    
+
+Replace the following values:
+
+  * `JOB_NAME`: the name of your Dataflow job.
+  * `TEMPLATE_GCS_PATH`: the Cloud Storage URI of your Flex Template specification file, such as `gs://my-bucket/templates/my-template.json`.
+  * `REGION`: the Dataflow region where the job runs.
+  * `TIMEOUT_SECONDS`: the launcher VM timeout duration in seconds. Specify a positive integer without a unit suffix. The default timeout is `720`, which is 12 minutes. To extend the timeout, specify an integer greater than `720` and up to `5400`, which is 90 minutes, such as `1200` for 20 minutes or `1800` for 30 minutes.
+
+
+
+###  REST API 
+
+When you launch a Flex Template by calling the [`projects.locations.flexTemplates.launch`](https://docs.cloud.google.com/dataflow/docs/reference/rest/v1b3/projects.locations.flexTemplates/launch#launchflextemplateparameter) REST endpoint, set the `ft_launch_timeout_secs` key in the `launchParameter.launchOptions` map to a string containing the timeout duration in seconds as an integer, without a unit suffix:
+    
+    
+    {
+      "launchParameter": {
+        "jobName": "JOB_NAME",
+        "containerSpecGcsPath": "TEMPLATE_GCS_PATH",
+        "launchOptions": {
+          "ft_launch_timeout_secs": "TIMEOUT_SECONDS"
+        }
+      }
+    }
+    
+
+Replace the following values:
+
+  * `JOB_NAME`: the name of your Dataflow job.
+  * `TEMPLATE_GCS_PATH`: the Cloud Storage URI of your Flex Template specification file, such as `gs://my-bucket/templates/my-template.json`.
+  * `TIMEOUT_SECONDS`: the launcher VM timeout duration in seconds. Specify a positive integer as a string without a unit suffix. The default timeout is `"720"`, which is 12 minutes. To extend the timeout, specify an integer greater than `720` and up to `5400`, which is 90 minutes, such as `"1200"` for 20 minutes or `"1800"` for 30 minutes.
+
+
+
+###  Managed Airflow 
+
+When you orchestrate Flex Template jobs in Managed Airflow or Apache Airflow with the `DataflowStartFlexTemplateOperator` operator, include the `ft_launch_timeout_secs` key under `launchParameter.launchOptions` in the `body` dictionary:
+    
+    
+    from airflow.providers.google.cloud.operators.dataflow import (
+        DataflowStartFlexTemplateOperator,
+    )
+    
+    start_flex_template = DataflowStartFlexTemplateOperator(
+        task_id="start_flex_template",
+        project_id="PROJECT_ID",
+        location="REGION",
+        body={
+            "launchParameter": {
+                "jobName": "JOB_NAME",
+                "containerSpecGcsPath": "TEMPLATE_GCS_PATH",
+                "launchOptions": {
+                    "ft_launch_timeout_secs": "TIMEOUT_SECONDS",
+                },
+            }
+        },
+    )
+    
+
+Replace the following values:
+
+  * `PROJECT_ID`: the ID of your Google Cloud project.
+  * `REGION`: the Dataflow region where the job runs.
+  * `JOB_NAME`: the name of your Dataflow job.
+  * `TEMPLATE_GCS_PATH`: the Cloud Storage URI of your Flex Template specification file, such as `gs://my-bucket/templates/my-template.json`.
+  * `TIMEOUT_SECONDS`: the launcher VM timeout duration in seconds. Specify a positive integer as a string without a unit suffix. The default timeout is `"720"`, which is 12 minutes. To extend the timeout, specify an integer greater than `720` and up to `5400`, which is 90 minutes, such as `"1200"` for 20 minutes or `"1800"` for 30 minutes.
+
+
 
 ## Job launch failures
 
@@ -512,6 +595,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-03 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 

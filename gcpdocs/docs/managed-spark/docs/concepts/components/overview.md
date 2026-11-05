@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/managed-spark/docs/concepts/components/overview/
 title: Managed Service for Apache Spark components \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-03T09:53:44.776987+00:00
+fetched_at: 2026-11-05T00:20:21.282201+00:00
 ---
 
 # Managed Service for Apache Spark components  |  Google Cloud Documentation
@@ -23,7 +23,7 @@ Send feedback
 
 #  Managed Service for Apache Spark components Stay organized with collections  Save and categorize content based on your preferences. 
 
-This document provides an overview of the different types of components available in Managed Service for Apache Spark clusters. Understanding these components is essential for configuring your clusters to include the necessary tools and services for your big data workloads. Managed Service for Apache Spark components are categorized as installed, optional, or initialization action components.
+Managed Service for Apache Spark lets you customize cluster environments with the tools and services required for your big data workloads. These components are categorized as installed, optional, or initialization action components.
 
 ## Types of components
 
@@ -58,23 +58,23 @@ Optional components have the following advantages over initialization actions us
 Optional component | Component name  
 in Google Cloud CLI commands and API requests | Image Version | Release Stage  
 ---|---|---|---  
-[Delta Lake](https://docs.cloud.google.com/managed-spark/docs/concepts/components/delta) | DELTA  | [2.2.46](https://docs.cloud.google.com/managed-spark/docs/concepts/versioning/dataproc-release-2.2) and later  | [GA](https://cloud.google.com/products/#product-launch-stages)  
-[Docker](https://docs.cloud.google.com/managed-spark/docs/concepts/components/docker) | DOCKER  | [1.5](https://docs.cloud.google.com/managed-spark/docs/concepts/versioning/dataproc-release-1.5) and later  | [GA](https://cloud.google.com/products/#product-launch-stages)  
-[Flink](https://docs.cloud.google.com/managed-spark/docs/concepts/components/flink) | FLINK  | [1.5](https://docs.cloud.google.com/managed-spark/docs/concepts/versioning/dataproc-release-1.5) and later  | [GA](https://cloud.google.com/products/#product-launch-stages)  
+[Delta Lake](https://docs.cloud.google.com/managed-spark/docs/concepts/components/delta) | DELTA  | [2.2.46](https://docs.cloud.google.com/managed-spark/docs/concepts/versioning/dataproc-release-2.2) and later  | [GA](https://cloud.google.com/products#product-launch-stages)  
+[Docker](https://docs.cloud.google.com/managed-spark/docs/concepts/components/docker) | DOCKER  | [1.5](https://docs.cloud.google.com/managed-spark/docs/concepts/versioning/dataproc-release-1.5) and later  | [GA](https://cloud.google.com/products#product-launch-stages)  
+[Flink](https://docs.cloud.google.com/managed-spark/docs/concepts/components/flink) | FLINK  | [1.5](https://docs.cloud.google.com/managed-spark/docs/concepts/versioning/dataproc-release-1.5) and later  | [GA](https://cloud.google.com/products#product-launch-stages)  
 [HBase](https://docs.cloud.google.com/managed-spark/docs/concepts/components/hbase) | HBASE  | [1.5](https://docs.cloud.google.com/managed-spark/docs/concepts/versioning/dataproc-release-1.5) and later  
-(not available in [2.1](https://docs.cloud.google.com/managed-spark/docs/concepts/versioning/dataproc-release-2.1) and later)  | [Deprecated](https://cloud.google.com/products/#product-launch-stages)  
-[Hive WebHCat](https://docs.cloud.google.com/managed-spark/docs/concepts/components/hivewebhcat) | HIVE_WEBHCAT  | [1.3](https://docs.cloud.google.com/managed-spark/docs/concepts/versioning/dataproc-release-1.3) and later  | [GA](https://cloud.google.com/products/#product-launch-stages)  
-[Hudi](https://docs.cloud.google.com/managed-spark/docs/concepts/components/hudi) | HUDI  | [1.5](https://docs.cloud.google.com/managed-spark/docs/concepts/versioning/dataproc-release-1.5) and later  | [GA](https://cloud.google.com/products/#product-launch-stages)  
-[Iceberg](https://docs.cloud.google.com/managed-spark/docs/concepts/components/iceberg) | ICEBERG  | [2.2](https://docs.cloud.google.com/managed-spark/docs/concepts/versioning/dataproc-release-2.2) and later  | [GA](https://cloud.google.com/products/#product-launch-stages)  
-[Jupyter Notebook](https://docs.cloud.google.com/managed-spark/docs/concepts/components/jupyter) | JUPYTER  | [1.3](https://docs.cloud.google.com/managed-spark/docs/concepts/versioning/dataproc-release-1.3) and later  | [GA](https://cloud.google.com/products/#product-launch-stages)  
-[Pig](https://docs.cloud.google.com/managed-spark/docs/concepts/components/pig) | PIG  | [1.5*](https://docs.cloud.google.com/managed-spark/docs/concepts/versioning/dataproc-release-1.3) and later  | [GA](https://cloud.google.com/products/#product-launch-stages)  
+(not available in [2.1](https://docs.cloud.google.com/managed-spark/docs/concepts/versioning/dataproc-release-2.1) and later)  | [Deprecated](https://cloud.google.com/products#product-launch-stages)  
+[Hive WebHCat](https://docs.cloud.google.com/managed-spark/docs/concepts/components/hivewebhcat) | HIVE_WEBHCAT  | [1.3](https://docs.cloud.google.com/managed-spark/docs/concepts/versioning/dataproc-release-1.3) and later  | [GA](https://cloud.google.com/products#product-launch-stages)  
+[Hudi](https://docs.cloud.google.com/managed-spark/docs/concepts/components/hudi) | HUDI  | [1.5](https://docs.cloud.google.com/managed-spark/docs/concepts/versioning/dataproc-release-1.5) and later  | [GA](https://cloud.google.com/products#product-launch-stages)  
+[Iceberg](https://docs.cloud.google.com/managed-spark/docs/concepts/components/iceberg) | ICEBERG  | [2.2](https://docs.cloud.google.com/managed-spark/docs/concepts/versioning/dataproc-release-2.2) and later  | [GA](https://cloud.google.com/products#product-launch-stages)  
+[Jupyter Notebook](https://docs.cloud.google.com/managed-spark/docs/concepts/components/jupyter) | JUPYTER  | [1.3](https://docs.cloud.google.com/managed-spark/docs/concepts/versioning/dataproc-release-1.3) and later  | [GA](https://cloud.google.com/products#product-launch-stages)  
+[Pig](https://docs.cloud.google.com/managed-spark/docs/concepts/components/pig) | PIG  | [1.5*](https://docs.cloud.google.com/managed-spark/docs/concepts/versioning/dataproc-release-1.3) and later  | [GA](https://cloud.google.com/products#product-launch-stages)  
 [Presto](https://docs.cloud.google.com/managed-spark/docs/concepts/components/presto) | PRESTO  | [1.3](https://docs.cloud.google.com/managed-spark/docs/concepts/versioning/dataproc-release-1.3) and later  
-(not available in [2.1](https://docs.cloud.google.com/managed-spark/docs/concepts/versioning/dataproc-release-2.1) and later)  | [GA](https://cloud.google.com/products/#product-launch-stages)  
-[Ranger](https://docs.cloud.google.com/managed-spark/docs/concepts/components/ranger) | RANGER  | [1.3](https://docs.cloud.google.com/managed-spark/docs/concepts/versioning/dataproc-release-1.3) and later  | [GA](https://cloud.google.com/products/#product-launch-stages)  
-[Solr](https://docs.cloud.google.com/managed-spark/docs/concepts/components/solr) | SOLR  | [1.3](https://docs.cloud.google.com/managed-spark/docs/concepts/versioning/dataproc-release-1.3) and later  | [GA](https://cloud.google.com/products/#product-launch-stages)  
-[Trino](https://docs.cloud.google.com/managed-spark/docs/concepts/components/trino)[](https://docs.cloud.google.com/managed-spark/docs/concepts/components/trino) | TRINO  | [2.1](https://docs.cloud.google.com/managed-spark/docs/concepts/versioning/dataproc-release-1.3) and later  | [GA](https://cloud.google.com/products/#product-launch-stages)  
-[Zeppelin Notebook](https://docs.cloud.google.com/managed-spark/docs/concepts/components/zeppelin) | ZEPPELIN  | [1.3](https://docs.cloud.google.com/managed-spark/docs/concepts/versioning/dataproc-release-1.3) and later  | [GA](https://cloud.google.com/products/#product-launch-stages)  
-[ZooKeeper](https://docs.cloud.google.com/managed-spark/docs/concepts/components/zookeeper) | ZOOKEEPER  | [1.0](https://docs.cloud.google.com/managed-spark/docs/concepts/versioning/dataproc-release-1.0) and later  | [GA](https://cloud.google.com/products/#product-launch-stages)  
+(not available in [2.1](https://docs.cloud.google.com/managed-spark/docs/concepts/versioning/dataproc-release-2.1) and later)  | [GA](https://cloud.google.com/products#product-launch-stages)  
+[Ranger](https://docs.cloud.google.com/managed-spark/docs/concepts/components/ranger) | RANGER  | [1.3](https://docs.cloud.google.com/managed-spark/docs/concepts/versioning/dataproc-release-1.3) and later  | [GA](https://cloud.google.com/products#product-launch-stages)  
+[Solr](https://docs.cloud.google.com/managed-spark/docs/concepts/components/solr) | SOLR  | [1.3](https://docs.cloud.google.com/managed-spark/docs/concepts/versioning/dataproc-release-1.3) and later  | [GA](https://cloud.google.com/products#product-launch-stages)  
+[Trino](https://docs.cloud.google.com/managed-spark/docs/concepts/components/trino)[](https://docs.cloud.google.com/managed-spark/docs/concepts/components/trino) | TRINO  | [2.1](https://docs.cloud.google.com/managed-spark/docs/concepts/versioning/dataproc-release-1.3) and later  | [GA](https://cloud.google.com/products#product-launch-stages)  
+[Zeppelin Notebook](https://docs.cloud.google.com/managed-spark/docs/concepts/components/zeppelin) | ZEPPELIN  | [1.3](https://docs.cloud.google.com/managed-spark/docs/concepts/versioning/dataproc-release-1.3) and later  | [GA](https://cloud.google.com/products#product-launch-stages)  
+[ZooKeeper](https://docs.cloud.google.com/managed-spark/docs/concepts/components/zookeeper) | ZOOKEEPER  | [1.0](https://docs.cloud.google.com/managed-spark/docs/concepts/versioning/dataproc-release-1.0) and later  | [GA](https://cloud.google.com/products#product-launch-stages)  
   
 Notes:
 
@@ -84,7 +84,7 @@ See [Cluster web interfaces](https://docs.cloud.google.com/managed-spark/docs/co
 
 ## Add optional components
 
-**Note:** The following usage examples apply to [General Availability (GA)](https://cloud.google.com/products/#product-launch-stages) components.
+**Note:** The following usage examples apply to [General Availability (GA)](https://cloud.google.com/products#product-launch-stages) components.
 
 ### Google Cloud console
 
@@ -113,6 +113,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-03 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 

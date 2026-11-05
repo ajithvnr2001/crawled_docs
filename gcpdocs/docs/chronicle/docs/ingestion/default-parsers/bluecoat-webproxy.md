@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/bluecoat-webproxy/
 title: Collect Blue Coat ProxySG logs \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T07:50:10.880927+00:00
+fetched_at: 2026-11-04T23:34:56.969499+00:00
 ---
 
 # Collect Blue Coat ProxySG logs  |  Google Security Operations  |  Google Cloud Documentation

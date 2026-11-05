@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/cluster-toolkit/docs/deploy/slurm/create-a4x-cluster/
 title: Create an A4X Slurm cluster \u00a0|\u00a0 Cluster Toolkit \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-01T05:38:54.550995+00:00
+fetched_at: 2026-11-04T23:31:52.413431+00:00
 ---
 
 # Create an A4X Slurm cluster  |  Cluster Toolkit  |  Google Cloud Documentation
@@ -50,13 +50,14 @@ Before creating a Slurm cluster, if you haven't already done so, complete the fo
 
   1. **Choose a consumption option** : your choice of consumption option determines how you get and use GPU resources. To learn more, see [Choose a consumption option](https://docs.cloud.google.com/ai-hypercomputer/docs/consumption-models).
   2. **Obtain capacity** : the process to obtain capacity differs for each consumption option. To learn about the process to obtain capacity for your chosen consumption option, see [Capacity overview](https://docs.cloud.google.com/ai-hypercomputer/docs/obtain-capacity). **Note:** When you request A4X Max or A4X capacity, you obtain it in the _all capacity mode_. This mode is the only supported reservation operational mode for A4X Max or A4X machine types. For more information about all capacity mode, see [ Reservation operational mode](https://docs.cloud.google.com/ai-hypercomputer/docs/create/review-configurations#reservation-operational-mode). 
-  3. **Verify that you have enough Filestore capacity quota** : you need to have enough Filestore quota in your target region before deploying. The required minimum capacity depends on the machine types in your cluster: 
-     * **A4X** : requires a minimum of 10 TiB (10,240 GiB) of HIGH_SCALE_SSD (zonal) capacity.
+  3. **Verify that you have enough Filestore or Google Cloud Managed Lustre quota** : you need to have enough Filestore or Managed Lustre quota in your target region and zone before you deploy. The required minimum quota depends on the storage service and machine types in your cluster: 
+     * **Managed Lustre** : for A4X machine types, you require a minimum of 36,000 GiB of storage capacity quota and 18 GBps of throughput quota.
+     * **Filestore** : for A4X machine types, you require a minimum of 10 TiB (10,240 GiB) of HIGH_SCALE_SSD (zonal) capacity quota.
 
 To check quota or request a quota increase, see the following:
 
      * To check quota in your project, see [View API-specific quota](https://docs.cloud.google.com/docs/quotas/view-manage#api_specific_quota).
-     * If you don't have enough quota, then [request a quota increase](https://docs.cloud.google.com/filestore/docs/requesting-quota-increases).
+     * If you don't have enough quota, then [request a Filestore quota increase](https://docs.cloud.google.com/filestore/docs/requesting-quota-increases) or [request additional Managed Lustre quota](https://docs.cloud.google.com/managed-lustre/docs/quotas#request_additional_quota).
   4. **Install Cluster Toolkit** : to provision Slurm clusters, you must use [Cluster Toolkit](https://docs.cloud.google.com/cluster-toolkit/docs/overview) version `v1.62.0` or later. 
 
 To install Cluster Toolkit, see [Set up Cluster Toolkit](https://docs.cloud.google.com/cluster-toolkit/docs/setup/configure-environment).
@@ -164,6 +165,8 @@ For optimal network performance, we recommend that you specify a value that is a
 
 Cluster Toolkit provisions the cluster based on the deployment file that you created in the previous step and the default cluster blueprint. By default, the turnkey cluster blueprints deploy compute instances that use prebuilt [Advanced Compute Images](https://docs.cloud.google.com/compute/docs/images/workload/aci-images). These images come preconfigured with specialized drivers and software to run your workloads, including NVIDIA drivers, CUDA, network fabrics, and Slurm agents, which removes the need for manual image building during deployment.
 
+The A4X blueprint integrates [Managed Lustre](https://docs.cloud.google.com/managed-lustre/docs/overview) for high-performance home directory storage (`/home`). The blueprint automatically configures private service access (PSA) to peer your VPC network with Managed Lustre.
+
 To learn more about the prebuilt software packages and configuration tools that you are deploying, see [Overview of Advanced Compute Images](https://docs.cloud.google.com/compute/docs/images/workload/aci-images). To learn about custom images or deploying Slurm with a custom OS image, see [Slurm custom images](https://docs.cloud.google.com/ai-hypercomputer/docs/images#slurm-images).
 
 To provision the cluster, use the [`./gcluster deploy` command](https://docs.cloud.google.com/cluster-toolkit/docs/reference/gcluster-deploy) for your machine type from the Cluster Toolkit directory. This process can take about 20 to 30 minutes.
@@ -242,9 +245,7 @@ This command redeploys your cluster and its infrastructure without running image
 
 ## Destroy the Slurm cluster
 
-By default, the A4X, A4, and A3 Ultra blueprints turn on deletion protection on the Filestore instance. To delete the Filestore instance when you destroy the Slurm cluster, you must turn off deletion protection before you use the destroy command.
-
-For instructions, see [set or remove deletion protection on an existing instance](https://docs.cloud.google.com/filestore/docs/deletion-protection#setting-or-removing).
+When you destroy the Slurm cluster, all provisioned resources are deleted, including the Managed Lustre instance and all data stored on it.
 
   1. If you are connected to the cluster, then disconnect from it.
 
@@ -285,6 +286,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-30 UTC.
+Last updated 2026-11-04 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 

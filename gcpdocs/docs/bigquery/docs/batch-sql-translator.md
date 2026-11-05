@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/batch-sql-translator/
 title: Migrate code with the batch SQL translator \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T07:55:08.267777+00:00
+fetched_at: 2026-11-04T23:29:04.742980+00:00
 ---
 
 # Migrate code with the batch SQL translator  |  BigQuery  |  Google Cloud Documentation
@@ -95,7 +95,7 @@ Upload the configuration YAML file to the Cloud Storage directory that contains 
 
 This product or feature is subject to the "Pre-GA Offerings Terms" in the General Service Terms section of the [Service Specific Terms](https://docs.cloud.google.com/terms/service-terms#1). Pre-GA products and features are available "as is" and might have limited support. For more information, see the [launch stage descriptions](https://cloud.google.com/products/#product-launch-stages). 
 
-The flags that you use with the [`gcloud alpha bq translation translate-batch` command](https://docs.cloud.google.com/sdk/gcloud/reference/alpha/bq/translation/translate-batch) depend on where the configuration YAML file is stored:
+The flags that you use with the [`gcloud alpha bq migration translate-batch` command](https://docs.cloud.google.com/sdk/gcloud/reference/alpha/bq/migration/translate-batch) depend on where the configuration YAML file is stored:
 
   * If the configuration YAML file is in the same directory as your source files, then you don't need any additional flags. When you set that directory in the `--source-gcs-uris` or `--source-local-dirs` flag, the job includes the configuration YAML file automatically.
   * If the configuration YAML file is stored separately on your local machine, then use the `--source-local-files` flag to upload it and add it to the job.
@@ -106,7 +106,7 @@ The flags that you use with the [`gcloud alpha bq translation translate-batch` c
 For example, the following command uploads your source files and a separately stored configuration YAML file from your local machine, and then runs the translation job:
     
     
-    gcloud alpha bq translation translate-batch \
+    gcloud alpha bq migration translate-batch \
       --source-dialect=SOURCE_DIALECT \
       --target-dialect=TARGET_DIALECT \
       --location=LOCATION \
@@ -189,14 +189,14 @@ After you create the translation job, you can see its status in the translation 
 
 This product or feature is subject to the "Pre-GA Offerings Terms" in the General Service Terms section of the [Service Specific Terms](https://docs.cloud.google.com/terms/service-terms#1). Pre-GA products and features are available "as is" and might have limited support. For more information, see the [launch stage descriptions](https://cloud.google.com/products/#product-launch-stages). 
 
-To submit a batch translation job, use the [`gcloud alpha bq translation translate-batch` command](https://docs.cloud.google.com/sdk/gcloud/reference/alpha/bq/translation/translate-batch). The flags that you use to identify your source files depend on whether the files are in Cloud Storage or on your local machine.
+To submit a batch translation job, use the [`gcloud alpha bq migration translate-batch` command](https://docs.cloud.google.com/sdk/gcloud/reference/alpha/bq/migration/translate-batch). The flags that you use to identify your source files depend on whether the files are in Cloud Storage or on your local machine.
 
 #### Translate SQL files in Cloud Storage
 
 To translate SQL files that you already uploaded to Cloud Storage, identify the source directories with the `--source-gcs-uris` flag. If you want to include files that are not in `--source-gcs-uris`, you can use the `--source-gcs-files` flag:
     
     
-    gcloud alpha bq translation translate-batch \
+    gcloud alpha bq migration translate-batch \
         --source-dialect=SOURCE_DIALECT \
         --target-dialect=TARGET_DIALECT \
         --location=LOCATION \
@@ -219,7 +219,7 @@ Replace the following:
 To translate files that are on your local machine, map each local directory to a Cloud Storage URI with the `--source-local-dirs` flag. The command uploads the directory to that URI and then includes the URI in the translation job, so you don't need to upload the files yourself:
     
     
-    gcloud alpha bq translation translate-batch \
+    gcloud alpha bq migration translate-batch \
         --source-dialect=SOURCE_DIALECT \
         --target-dialect=TARGET_DIALECT \
         --location=LOCATION \
@@ -235,10 +235,10 @@ To map individual files instead of directories, use the `--source-local-files` f
 
 To generate Gemini suggestions alongside the translated SQL, add the `--enable-ai-suggestion` flag.
 
-By default, the command waits for the translation job to finish. To submit the job and return immediately, add the `--async` flag. The command then prints a translation ID that you can pass to the [`gcloud alpha bq translation describe` command](https://docs.cloud.google.com/sdk/gcloud/reference/alpha/bq/translation/describe) to check the job status:
+By default, the command waits for the translation job to finish. To submit the job and return immediately, add the `--async` flag. The command then prints a translation ID that you can pass to the [`gcloud alpha bq migration translation describe` command](https://docs.cloud.google.com/sdk/gcloud/reference/alpha/bq/migration/translation/describe) to check the job status:
     
     
-    gcloud alpha bq translation describe TRANSLATION_ID \
+    gcloud alpha bq migration translation describe TRANSLATION_ID \
         --location=LOCATION
     
 
@@ -291,10 +291,10 @@ You can translate metadata either as a job of its own, or as an extra output of 
 
 **Translate metadata on its own**
 
-Use the [`gcloud alpha bq translation translate-metadata` command](https://docs.cloud.google.com/sdk/gcloud/reference/alpha/bq/translation/translate-metadata) when your inputs are metadata ZIP files and you don't have SQL to translate:
+Use the [`gcloud alpha bq migration translate-metadata` command](https://docs.cloud.google.com/sdk/gcloud/reference/alpha/bq/migration/translate-metadata) when your inputs are metadata ZIP files and you don't have SQL to translate:
     
     
-    gcloud alpha bq translation translate-metadata \
+    gcloud alpha bq migration translate-metadata \
       --source-dialect=SOURCE_DIALECT \
       --target-dialect=TARGET_DIALECT \
       --location=LOCATION \
@@ -321,7 +321,7 @@ As with a batch translation job, the command waits for the job to finish. Add th
 If your batch translation inputs already include your metadata ZIP files, then you don't need a second job. Add `metadata` to the translation outputs of the batch job with the `--target-types` flag, and the job writes the translated SQL and the DDL statements in a single run:
     
     
-    gcloud alpha bq translation translate-batch \
+    gcloud alpha bq migration translate-batch \
       --source-dialect=SOURCE_DIALECT \
       --target-dialect=TARGET_DIALECT \
       --location=LOCATION \
@@ -360,10 +360,10 @@ If the translation produces `RelationNotFound` or `AttributeNotFound` issues, th
 
 ###  gcloud 
 
-The [`gcloud alpha bq translation generate-source-ddl` command](https://docs.cloud.google.com/sdk/gcloud/reference/alpha/bq/translation/generate-source-ddl) reads your source SQL and returns suggested source DDL statements:
+The [`gcloud alpha bq migration translation generate-source-ddl` command](https://docs.cloud.google.com/sdk/gcloud/reference/alpha/bq/migration/translation/generate-source-ddl) reads your source SQL and returns suggested source DDL statements:
     
     
-    gcloud alpha bq translation generate-source-ddl \
+    gcloud alpha bq migration translation generate-source-ddl \
       --source-dialect=SOURCE_DIALECT \
       --target-dialect=TARGET_DIALECT \
       --location=LOCATION \
@@ -586,10 +586,10 @@ You see the input and output files populated in the interactive SQL translator t
 
 This product or feature is subject to the "Pre-GA Offerings Terms" in the General Service Terms section of the [Service Specific Terms](https://docs.cloud.google.com/terms/service-terms#1). Pre-GA products and features are available "as is" and might have limited support. For more information, see the [launch stage descriptions](https://cloud.google.com/products/#product-launch-stages). 
 
-To re-translate and inspect a single query without opening the Google Cloud console, use the [`gcloud alpha bq translation translate` command](https://docs.cloud.google.com/sdk/gcloud/reference/alpha/bq/translation/translate). This is useful when you have narrowed a batch translation problem down to one query and want to iterate on it locally.
+To re-translate and inspect a single query without opening the Google Cloud console, use the [`gcloud alpha bq migration translate` command](https://docs.cloud.google.com/sdk/gcloud/reference/alpha/bq/migration/translate). This is useful when you have narrowed a batch translation problem down to one query and want to iterate on it locally.
     
     
-    gcloud alpha bq translation translate \
+    gcloud alpha bq migration translate \
       --source-dialect=SOURCE_DIALECT \
       --target-dialect=TARGET_DIALECT \
       --location=LOCATION \
@@ -818,6 +818,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-03 UTC.
+Last updated 2026-11-04 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 

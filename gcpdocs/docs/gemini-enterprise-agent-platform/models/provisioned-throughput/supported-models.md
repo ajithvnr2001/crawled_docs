@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/provisioned-throughput/supported-models/
 title: Supported models \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-03T09:52:16.419081+00:00
+fetched_at: 2026-11-04T23:14:39.462272+00:00
 ---
 
 # Supported models  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation
@@ -29,7 +29,7 @@ Provisioned Throughput only supports models that you call directly from your pro
 
 While Provisioned Throughput assures capacity for your model requests, it doesn't include or bypass quotas for other tools that you might use, such as [Grounding](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/grounding/overview). Depending on the size of your workload, you might need to request additional quota for these tools separately.
 
-Moreover, Provisioned Throughput doesn't support models that are called by other Gemini Enterprise Agent Platform products, such as Vertex AI Agents and Agent Search. For example, if you make API calls to Gemini 3.5 Flash while using Agent Search, your Provisioned Throughput order for Gemini 3.5 Flash won't guarantee the calls made by Agent Search.
+Moreover, Provisioned Throughput doesn't support models that are called by other Gemini Enterprise Agent Platform products, such as Agent Conversation on Gemini Enterprise Agent Platform and Agent Search on Gemini Enterprise Agent Platform. For example, if you make API calls to Gemini 3.5 Flash while using Agent Search, your Provisioned Throughput order for Gemini 3.5 Flash won't guarantee the calls made by Agent Search.
 
 Provisioned Throughput doesn't support [batch prediction](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/batch-prediction-gemini) calls.
 
@@ -342,7 +342,7 @@ Anthropic's Anthropic's Claude Opus 4.5 on Google Cloud | 210 | 35 | 1 | 1 input
 1 cache write 5m token = 1.25 tokens  
 1 cache write 1h token = 2 tokens  
 1 cache hit token = 0.1 token  
-Anthropic's Anthropic's Claude Sonnet 4.5 on Google Cloud | 350 | 25 | 1 | **Less than 200,000 input tokens:**  
+Anthropic's Claude Sonnet 4.5 on Google Cloud (deprecated) | 350 | 25 | 1 | **Less than 200,000 input tokens:**  
 1 input token = 1 token  
 1 output token = 5 tokens  
 1 cache write 5m token = 1.25 tokens  
@@ -543,6 +543,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-02 UTC.
+Last updated 2026-11-04 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-02 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 

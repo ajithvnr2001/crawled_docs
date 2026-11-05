@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/model-armor/access-control/access-control-iam/
 title: Access control with IAM \u00a0|\u00a0 Model Armor \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T07:56:29.983695+00:00
+fetched_at: 2026-11-04T23:45:00.698637+00:00
 ---
 
 # Access control with IAM  |  Model Armor  |  Google Cloud Documentation

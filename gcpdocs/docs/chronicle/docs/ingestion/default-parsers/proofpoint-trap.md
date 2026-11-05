@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/proofpoint-trap/
 title: Collect Proofpoint Threat Response (TRAP) logs \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T07:50:50.288675+00:00
+fetched_at: 2026-11-04T23:42:33.953709+00:00
 ---
 
 # Collect Proofpoint Threat Response (TRAP) logs  |  Google Security Operations  |  Google Cloud Documentation

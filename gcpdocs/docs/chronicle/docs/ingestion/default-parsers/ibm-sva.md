@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/ibm-sva/
 title: Collect IBM Verify Identity Access logs \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T07:49:48.848818+00:00
+fetched_at: 2026-11-04T23:43:18.844860+00:00
 ---
 
 # Collect IBM Verify Identity Access logs  |  Google Security Operations  |  Google Cloud Documentation

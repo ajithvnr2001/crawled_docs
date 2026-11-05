@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini/data-agents/conversational-analytics/spanner/
 title: Conversational analytics for Spanner overview \u00a0|\u00a0 Data Agents \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T16:31:20.483756+00:00
+fetched_at: 2026-11-04T23:41:24.812882+00:00
 ---
 
 # Conversational analytics for Spanner overview  |  Data Agents  |  Google Cloud Documentation
@@ -28,7 +28,7 @@ This feature is subject to the "Pre-GA Offerings Terms" in the General Service T
 Conversational analytics in Spanner lets you chat with agents about your database data using natural language. To get answers about your data, you:
 
   * Create _data agents_ for a set of knowledge sources, such as tables and views, that you select.
-  * [Optional] Create context and instructions for an agent to configure the data agent to effectively answer questions for specific use cases.
+  * Optional: create context and instructions for an agent to configure the data agent to effectively answer questions for specific use cases.
 
 
 
@@ -37,7 +37,7 @@ Before customizing an agent, we recommend that you first work with the context a
 Conversational analytics provides **the following types of context** :
 
   * Guided – you create this context in the Google Cloud console. This option is well suited for users who don't want to write code directly.
-  * Advanced – you create this context in the Gemini CLI or in your IDE. We recommend this approach for users who want more control of agent quality. This context resuses the context [for the QueryData method](https://docs.cloud.google.com/spanner/docs/data-agent-overview#agent-context).
+  * Advanced – you create this context in the Gemini CLI or in your IDE. We recommend this approach for users who want more control of agent quality. This context resuses the context [for the QueryData method](https://docs.cloud.google.com/spanner/docs/data-agent-overview#agent-context). 
 
 
 
@@ -74,7 +74,7 @@ You can create, manage, and work with the following types of data agents on the 
 
 For more information, see [Create data agents](https://docs.cloud.google.com/gemini/data-agents/conversational-analytics/spanner/create-data-agents). 
 
-Other services in the project that support data agents, such as the [Conversational Analytics API](https://docs.cloud.google.com/gemini/docs/conversational-analytics-api/overview), can access data agents that you create in Spanner. You can also access an agent created in the Google Cloud console by calling it using the Conversational Analytics API.
+Other services in the project that support data agents, such as the [Conversational Analytics API](https://docs.cloud.google.com/gemini/docs/conversational-analytics-api/overview), can access data agents that you create in Spanner . You can also access an agent created in the Google Cloud console by calling it using the Conversational Analytics API.
 
 ## Conversations
 
@@ -82,7 +82,7 @@ Conversations are persisted chats with a data agent or database data source. You
 
 The chat response returned to you provides the following features:
 
-  * The answer to your question as text, code, or charts (where appropriate)
+  * The answer to your question as text, code, or charts (where appropriate).
   * The agent's reasoning behind the results.
   * Metadata about the conversation, such as the agent and database data sources used.
 
@@ -90,11 +90,11 @@ The chat response returned to you provides the following features:
 
 When you create a direct conversation with a database data source, the [Conversational Analytics API](https://docs.cloud.google.com/gemini/docs/conversational-analytics-api/overview) interprets your question without the context and processing instructions that a data agent offers. Because of this, direct conversation results can be less accurate. Use data agents for cases that require greater accuracy.
 
-You can create and manage conversations in Spanner using the Google Cloud console. For more information, see [Analyze data with conversations](https://docs.cloud.google.com/gemini/data-agents/conversational-analytics/spanner/create-conversations).
+You can create and manage conversations in Spanner using the Google Cloud console. For more information, see [Analyze data with conversations](https://docs.cloud.google.com/gemini/data-agents/conversational-analytics/spanner/create-conversations). 
 
 ## Security
 
-You can manage access to conversational analytics in Spanner using [Conversational Analytics API IAM roles and permissions](https://docs.cloud.google.com/gemini/data-agents/conversational-analytics-api/access-control). For information about the roles needed for specific operations, see the [data agent required roles](https://docs.cloud.google.com/gemini/data-agents/conversational-analytics/spanner/create-data-agents#before-begin) and the [conversation required roles](https://docs.cloud.google.com/gemini/data-agents/conversational-analytics/spanner/create-conversations#before-begin).
+You can manage access to conversational analytics in Spanner using [Conversational Analytics API IAM roles and permissions](https://docs.cloud.google.com/gemini/data-agents/conversational-analytics-api/access-control). For information about the roles needed for specific operations, see the [data agent required roles](https://docs.cloud.google.com/gemini/data-agents/conversational-analytics/spanner/create-data-agents#before-begin) and the [conversation required roles](https://docs.cloud.google.com/gemini/data-agents/conversational-analytics/spanner/create-conversations#before-begin). 
 
 ## Locations
 
@@ -102,7 +102,7 @@ When you use conversational analytics to create an agent, the control plane—wh
 
 ## Pricing
 
-You are charged at [Spanner compute pricing](https://cloud.google.com/spanner/pricing) for queries that run when you create data agents and have conversations with data agents or database data sources. There is no additional charge for creating and using data agents and conversations during the [Preview](https://cloud.google.com/products#product-launch-stages) period.
+You are charged [Spanner compute pricing](https://cloud.google.com/spanner/pricing) for queries that run when you create data agents and have conversations with data agents or database data sources. There is no additional charge for creating and using data agents and conversations during the [Preview](https://cloud.google.com/products#product-launch-stages) period.
 
 ## Dynamic shared quota
 
@@ -122,6 +122,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-04 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 

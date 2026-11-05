@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/managed-spark/docs/concepts/components/delta/
 title: Install the Delta Lake component on a cluster \u00a0|\u00a0 Managed Service for Apache Spark \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T21:56:44.562506+00:00
+fetched_at: 2026-11-05T00:20:21.174995+00:00
 ---
 
 # Install the Delta Lake component on a cluster  |  Managed Service for Apache Spark  |  Google Cloud Documentation
@@ -23,11 +23,9 @@ Send feedback
 
 #  Install the Delta Lake component on a cluster Stay organized with collections  Save and categorize content based on your preferences. 
 
-This document explains how to install and configure the [Delta Lake](https://delta.io/) optional component on a Managed Service for Apache Spark cluster. When enabled, the Delta Lake component installs the necessary libraries and sets up Spark and Hive to work with Delta Lake.
+The [Delta Lake](https://delta.io/) optional component lets you run Delta Lake workloads on a Managed Service for Apache Spark cluster. When enabled, the component installs the necessary libraries and sets up Spark and Hive to work with Delta Lake.
 
-**Note:** Delta Lake `4.x`, which is included in Managed Service for Apache Spark image version `3.0`, doesn't support Hive.
-
-To learn more about other available optional components in Managed Service for Apache Spark, see [Available optional components](https://docs.cloud.google.com/managed-spark/docs/concepts/components/overview#available_optional_components).
+Delta Lake `4.x`, which is included in Managed Service for Apache Spark image version `3.0`, doesn't support Hive. To learn more about other available optional components in Managed Service for Apache Spark, see [Available optional components](https://docs.cloud.google.com/managed-spark/docs/concepts/components/overview#available_optional_components).
 
 ## Compatible Managed Service for Apache Spark image versions
 
@@ -232,6 +230,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-03 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 

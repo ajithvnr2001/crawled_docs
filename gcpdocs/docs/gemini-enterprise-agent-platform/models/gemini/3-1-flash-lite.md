@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-1-flash-lite/
 title: Gemini 3.1 Flash-Lite \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-03T09:52:09.861298+00:00
+fetched_at: 2026-11-04T23:13:55.634918+00:00
 ---
 
 # Gemini 3.1 Flash-Lite  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation
@@ -80,7 +80,7 @@ APIs |
 
   * [GenerateContent API](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/models/inference)   
 Supported
-  * [Interactions API](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/interactions) previewPreview feature  
+  * [Interactions API](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/interactions)   
 Supported
   * [Gemini Live API](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/live-api)   
 Not supported
@@ -103,20 +103,36 @@ Supported
 Not supported
 
   
+Input size limit | 
+
+  * GenerateContent API: 500 MiB compressed
+  * Interactions API: 256 MiB compressed (synchronous or streaming); 9.75 MiB uncompressed (deferred, when background and store are true)
+
+  
+Interactions API URI limit |  Up to 100 distinct Cloud Storage (`gs://`) URIs per request across all modalities on the [Interactions API](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/interactions), including URIs carried forward from earlier turns using `previous_interaction_id`. `generateContent` supports `gs://` URIs up to the per-modality model item limits (up to 6,500 combined multimodal files when including plain-text files).   
 Technical specifications |  **Image** photo | 
 
-  * Maximum images per prompt: 3,000
-  * Maximum file size per file for inline data or direct uploads through the console: 7 MB
-  * Maximum file size per file from Google Cloud Storage: 30 MB
+  * Maximum images per prompt: 3,000 (images and PDFs combined)
+  * Maximum inline part size (GenerateContent API): 256 MB
+  * Maximum file size per file from Cloud Storage: 2 GiB minus 500 KiB
+  * Maximum file size per file from public HTTP or HTTPS URLs: 15 MiB
+  * Maximum file size per file for direct local uploads in the console: 7 MiB inline (up to 50 MiB staged to Cloud Storage)
+  * Maximum file size per file for Google Drive imports in the console: 7 MB (10 MB total)
+  * Default resolution tokens: 1,120
   * Supported MIME types: `image/png`, `image/jpeg`, `image/webp`, `image/heic`, `image/heif`
 
   
 **Text** description | 
 
-  * Maximum number of files per prompt: 3,000
+  * Maximum number of files per prompt: 3,000 PDFs (shared with images; up to 6,500 total files when including plain text)
   * Maximum number of pages per file: 3,000
-  * Maximum file size per file for the API or Cloud Storage imports: 50 MB(application/pdf) or 7 MB(text/plain)
-  * Maximum file size per file for direct uploads through the console: 7 MB
+  * Maximum inline part size (GenerateContent API): 256 MB
+  * Maximum file size per file from Cloud Storage: 2 GiB minus 500 KiB
+  * Maximum file size per file from public HTTP or HTTPS URLs: 15 MiB
+  * Maximum file size per file for direct local uploads in the console: 7 MiB inline (up to 50 MiB staged to Cloud Storage)
+  * Maximum file size per file for Google Drive imports in the console: 7 MB (10 MB total)
+  * Default resolution tokens: 560
+  * OCR for scanned PDFs: Not used by default
   * Supported MIME types: `application/pdf`, `text/plain`
 
   
@@ -125,13 +141,21 @@ Technical specifications |  **Image** photo |
   * Maximum video length (with audio): Approximately 45 minutes
   * Maximum video length (without audio): Approximately 1 hour
   * Maximum number of videos per prompt: 10
+  * Maximum inline part size (GenerateContent API): 256 MB
+  * Maximum file size per file from Cloud Storage: 2 GiB minus 500 KiB
+  * Maximum file size per file from public HTTP or HTTPS URLs: 15 MiB
+  * Default resolution tokens per frame: 70
   * Supported MIME types: `video/x-flv`, `video/quicktime`, `video/mpeg`, `video/mpegs`, `video/mpg`, `video/mp4`, `video/webm`, `video/wmv`, `video/3gpp`
 
   
 **Audio** mic | 
 
   * Maximum audio length per prompt: Approximately 8.4 hours, or up to 1 million tokens
-  * Maximum number of audio files per prompt: 1
+  * Maximum number of audio files per prompt: 1,000
+  * Maximum inline part size (GenerateContent API): 256 MB
+  * Maximum file size per file from Cloud Storage: 2 GiB minus 500 KiB
+  * Maximum file size per file from public HTTP or HTTPS URLs: 15 MiB
+  * Speech understanding for: Audio summarization, transcription, and translation
   * Supported MIME types: `audio/x-aac`, `audio/flac`, `audio/mp3`, `audio/m4a`, `audio/mpeg`, `audio/mpga`, `audio/mp4`, `audio/ogg`, `audio/pcm`, `audio/wav`, `audio/webm`
 
   
@@ -195,6 +219,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-02 UTC.
+Last updated 2026-11-04 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-02 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 

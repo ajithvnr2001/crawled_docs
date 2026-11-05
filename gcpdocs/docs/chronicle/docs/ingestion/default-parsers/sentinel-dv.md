@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/sentinel-dv/
 title: Collect SentinelOne Deep Visibility logs \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T07:53:25.020887+00:00
+fetched_at: 2026-11-04T23:42:09.144856+00:00
 ---
 
 # Collect SentinelOne Deep Visibility logs  |  Google Security Operations  |  Google Cloud Documentation

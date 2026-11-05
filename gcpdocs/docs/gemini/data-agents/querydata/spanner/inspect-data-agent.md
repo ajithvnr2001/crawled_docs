@@ -1,22 +1,8 @@
 ---
 url: https://docs.cloud.google.com/gemini/data-agents/querydata/spanner/inspect-data-agent/
 title: Test QueryData in Spanner Studio \u00a0|\u00a0 Data Agents \u00a0|\u00a0 Google Cloud Documentation
-method: httpx+scrapegraph (scrapling: scrapling status 429 | crawl4ai: crawl4ai failed: Unexpected error in _crawl_web at line 1299 in create_browser_context (../../../../usr/local/lib/python3.10/dist-packages/crawl4ai/browser_manager.py):
-Error: Browser is not available. It may have been closed, crashed, or not yet started. Ensure the browser is running before creating new contexts.
-
-Code context:
-1294                   raise RuntimeError(
-1295                       "Cannot create new browser contexts when using "
-1296                       "use_persistent_context=True. Persistent context uses a "
-1297                       "single shared context."
-1298                   )
-1299 →             raise RuntimeError(
-1300                   "Browser is not available. It may have been closed, crashed, "
-1301                   "or not yet started. Ensure the browser is running before "
-1302                   "creating new contexts."
-1303               )
-1304           # Base settings)
-fetched_at: 2026-10-27T16:27:03.732989+00:00
+method: scrapling+scrapegraph
+fetched_at: 2026-11-05T00:05:49.074148+00:00
 ---
 
 # Test QueryData in Spanner Studio  |  Data Agents  |  Google Cloud Documentation
@@ -71,7 +57,7 @@ To test a QueryData, perform the following steps:
 
   7. Enter a natural language question in the editor to generate a SQL query, and click **Generate**.
 
-  8. Review the SQL query for accuracy.
+  8. Review the SQL query for accuracy. Click **Insert** to add the query to the editor.
 
 
 
@@ -82,9 +68,9 @@ If you are not satisfied with the generated SQL query for a natural language que
 
 To download and update a context set, perform the following steps:
 
-  1. In the **Explorer pane** , click **View actions**.
+  1. In the **Explorer pane** , click **View actions** next to the context set you're using.
   2. Click **Download context file**.
-  3. Follow steps in [Build contexts sets using the context engineering agent](https://docs.cloud.google.com/spanner/docs/build-context-gemini-cli) to update context with additional query pairs.
+  3. Follow steps in [Build context sets using the context engineering agent](https://docs.cloud.google.com/spanner/docs/build-context-gemini-cli) to update context with additional query pairs.
   4. In the **Explorer pane** , click **View actions** next to the context set you're using.
   5. Click **Edit context set**.
   6. Click **Browse** in the **Upload context set file** section, and select the updated context set file.
@@ -112,14 +98,14 @@ To connect a data application to the QueryData agent, you need the context set's
 
   5. Click **Edit context set**.
 
-  6. Note the context ID in **Context set ID**. The context set ID format is similar to `projects/data-agents-project/locations/us-central1/contextSets/bdf_pg_all_templates`.
+  6. Note the context ID in **Context set ID**. The context set ID format is similar to `projects/PROJECT_ID/locations/LOCATION/contextSetGroups/GROUP_ID/contextSets/CONTEXT_SET_ID@v1`.
 
 
 
 
 ## Connect QueryData to application
 
-Set the context set ID in the `QueryData` method call to provide authored context for database data sources such as AlloyDB, Spanner, Cloud SQL, Cloud SQL for PostgreSQL, and Firestore. For more information, see [Define data agent context for database data sources](https://docs.cloud.google.com/gemini/docs/conversational-analytics-api/data-agent-authored-context-databases).
+Set the context set ID in the `QueryData` method call to provide authored context for database data sources such as AlloyDB, Spanner, Cloud SQL, Cloud SQL for PostgreSQL, Firestore, and Bigtable. For more information, see [Define data agent context for database data sources](https://docs.cloud.google.com/gemini/docs/conversational-analytics-api/data-agent-authored-context-databases).
 
 After testing the context set, you can reference the database data source in your `QueryData` call.
 
@@ -211,7 +197,7 @@ Here is an example of a successful response from a `QueryData` call:
 ## What's next
 
   * Learn more about [context sets](https://docs.cloud.google.com/spanner/docs/context-sets-overview).
-  * Learn how to [build contexts sets using the context engineering agent](https://docs.cloud.google.com/spanner/docs/build-context-gemini-cli).
+  * Learn how to [build context sets using the context engineering agent](https://docs.cloud.google.com/spanner/docs/build-context-gemini-cli).
   * Learn how to [Manage context sets in Spanner Studio](https://docs.cloud.google.com/spanner/docs/manage-data-agents).
 
 
@@ -220,6 +206,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-04 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 

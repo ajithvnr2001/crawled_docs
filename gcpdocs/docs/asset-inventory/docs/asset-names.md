@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/asset-inventory/docs/asset-names/
 title: Asset names \u00a0|\u00a0 Cloud Asset Inventory \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-03T09:42:40.718976+00:00
+fetched_at: 2026-11-04T23:20:22.540343+00:00
 ---
 
 # Asset names  |  Cloud Asset Inventory  |  Google Cloud Documentation
@@ -230,6 +230,7 @@ Resource type | Name format
 ` cloudresourcemanager.googleapis.com/TagBinding ` |  `//cloudresourcemanager.googleapis.com/tagBindings/TAG_BINDING`  
 ` cloudresourcemanager.googleapis.com/TagKey ` |  `//cloudresourcemanager.googleapis.com/tagKeys/TAG_KEY_ID`  
 ` cloudresourcemanager.googleapis.com/TagValue ` |  `//cloudresourcemanager.googleapis.com/tagValues/TAG_VALUE_ID`  
+` cloudscheduler.googleapis.com/Job ` |  `//cloudscheduler.googleapis.com/projects/PROJECT_ID/locations/LOCATION/jobs/JOB`  
 ` cloudtasks.googleapis.com/Queue ` |  `//cloudtasks.googleapis.com/projects/PROJECT_NUMBER/locations/LOCATION/queues/QUEUE`  
 ` composer.googleapis.com/Environment ` |  `//composer.googleapis.com/projects/PROJECT_ID/locations/LOCATION/environments/ENVIRONMENT`  
 ` compute.googleapis.com/Address ` |  `//compute.googleapis.com/projects/PROJECT_ID/regions/REGION/addresses/ADDRESS`  
@@ -977,6 +978,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-02 UTC.
+Last updated 2026-11-04 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-02 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 

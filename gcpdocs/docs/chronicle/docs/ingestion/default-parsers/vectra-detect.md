@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/vectra-detect/
 title: Collect Vectra Detect logs \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T07:49:09.812436+00:00
+fetched_at: 2026-11-04T23:42:26.703275+00:00
 ---
 
 # Collect Vectra Detect logs  |  Google Security Operations  |  Google Cloud Documentation

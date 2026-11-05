@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/bare-metal/docs/how-to/node-problem-detector/
 title: Node Problem Detector \u00a0|\u00a0 Google Distributed Cloud software only for bare metal \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T20:46:17.364651+00:00
+fetched_at: 2026-11-04T23:29:37.703248+00:00
 ---
 
 # Node Problem Detector  |  Google Distributed Cloud software only for bare metal  |  Google Cloud Documentation
@@ -22,9 +22,7 @@ Send feedback
 
 #  Node Problem Detector Stay organized with collections  Save and categorize content based on your preferences. 
 
-[Node Problem Detector](https://github.com/kubernetes/node-problem-detector) is an open source library that monitors the health of nodes and detects common node problems, such as hardware, kernel, or container runtime issues. In Google Distributed Cloud, it runs as a [systemd](https://www.freedesktop.org/wiki/Software/systemd/) service on each node.
-
-Starting with Google Distributed Cloud release 1.10.0, Node Problem Detector is enabled by default.
+The [Node Problem Detector](https://github.com/kubernetes/node-problem-detector) open source library lets you monitor node health and detect common hardware, kernel, or container runtime issues. In Google Distributed Cloud, it runs as a [systemd](https://www.freedesktop.org/wiki/Software/systemd/) service on each node and is enabled by default in release 1.10.0 and later. In version 1.32 and later, Node Problem Detector can also automatically repair select node problems.
 
 If you need additional assistance, reach out to [Cloud Customer Care](https://cloud.google.com/support-hub). You can also see [Getting support](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/bare-metal/docs/getting-support) for more information about support resources, including the following: 
 
@@ -230,6 +228,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-04 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 

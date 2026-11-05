@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/docs/export-dmp-file/
 title: Export a DMP file \u00a0|\u00a0 AlloyDB for PostgreSQL \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T22:59:14.375332+00:00
+fetched_at: 2026-11-05T00:18:35.454941+00:00
 ---
 
 # Export a DMP file  |  AlloyDB for PostgreSQL  |  Google Cloud Documentation
@@ -103,7 +103,7 @@ Replace the following:
      * `DB_NAME`: The name of the database you want to export.
      * `DMP_FILE_NAME`: Provide a file name for the DMP file to create on the client host's local file system.
 
-For information about additional options that the `pg_dump` command supports, see the [PostgreSQL `pg_dump` documentation](https://www.postgresql.org/docs/17/app-pgdump.html).
+For information about additional options that the `pg_dump` command supports, see the [PostgreSQL `pg_dump` documentation](https://www.postgresql.org/docs/18/app-pgdump.html).
 
   4. Copy the DMP file to the Cloud Storage bucket you created earlier: 
          
@@ -127,6 +127,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-03 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 

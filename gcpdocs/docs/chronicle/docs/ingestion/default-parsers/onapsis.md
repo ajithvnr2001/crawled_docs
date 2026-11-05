@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/onapsis/
 title: Collect Onapsis Platform logs \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T07:52:11.347029+00:00
+fetched_at: 2026-11-04T23:42:09.366572+00:00
 ---
 
 # Collect Onapsis Platform logs  |  Google Security Operations  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/kubernetes-engine/docs/release-notes/
 title: GKE release notes \u00a0|\u00a0 Google Kubernetes Engine (GKE) \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-01T05:44:49.451508+00:00
+fetched_at: 2026-11-05T00:20:11.115482+00:00
 ---
 
 # GKE release notes  |  Google Kubernetes Engine (GKE)  |  Google Cloud Documentation
@@ -86,6 +86,12 @@ To view release notes for versions prior to 2020, see the [Release notes archive
 You can see the latest product updates for all of Google Cloud on the [ Google Cloud](https://docs.cloud.google.com/release-notes) page, browse and filter all release notes in the [Google Cloud console](https://console.cloud.google.com/release-notes), or programmatically access release notes in [BigQuery](https://console.cloud.google.com/bigquery?p=bigquery-public-data&d=google_cloud_release_notes&t=release_notes&page=table). 
 
 To get the latest product updates delivered to you, add the URL of this page to your [feed reader](https://wikipedia.org/wiki/Comparison_of_feed_aggregators), or add the [feed URL](https://docs.cloud.google.com/feeds/gke-main-release-notes.xml) directly. 
+
+## November 03, 2026
+
+Feature
+
+In GKE version 1.37.0-gke.3570000 and later, you can split each Local SSD on a node between ephemeral storage and raw block storage. When you create a cluster or node pool, use the `capacity` property of the `--ephemeral-storage-local-ssd` flag to set how much Local SSD capacity GKE formats for ephemeral storage. GKE leaves the rest of each Local SSD unformatted, so that workloads like databases and caches can use it as raw block storage. This feature is available in GKE Standard clusters. For more information, see [Provision and use mixed Local SSDs for raw block and ephemeral storage](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/persistent-volumes/mixed-local-ssd).
 
 ## October 29, 2026
 
@@ -37979,7 +37985,7 @@ Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["
 
 
 
-[ ![Google Developers](https://www.gstatic.com/devrel-devsite/prod/ve828226d17bf98b2ac333a1bbe96ed6401cc6183d543bad39ccac2722acbc6a7/clouddocs/images/lockup-google-for-developers.svg)](https://developers.google.com/)
+[ ![Google Developers](https://www.gstatic.com/devrel-devsite/prod/veed85ba0e3651062c793a40796e84fb34afbf8489308d45f92d5448e587e3f03/clouddocs/images/lockup-google-for-developers.svg)](https://developers.google.com/)
 
   * [ Android ](https://developer.android.com/)
   * [ Chrome ](https://developer.chrome.com/)

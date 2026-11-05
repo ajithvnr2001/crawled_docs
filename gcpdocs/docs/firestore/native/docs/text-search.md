@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/firestore/native/docs/text-search/
 title: Use text search \u00a0|\u00a0 Firestore in Native mode \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T08:01:26.012744+00:00
+fetched_at: 2026-11-04T23:45:42.518931+00:00
 ---
 
 # Use text search  |  Firestore in Native mode  |  Google Cloud Documentation

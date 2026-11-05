@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/docs/get-started/aws-azure-gcp-service-comparison/
 title: Compare AWS and Azure services to Google Cloud \u00a0|\u00a0 Get started \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T05:37:11.238616+00:00
+fetched_at: 2026-11-04T23:46:21.136422+00:00
 ---
 
 # Compare AWS and Azure services to Google Cloud  |  Get started  |  Google Cloud Documentation

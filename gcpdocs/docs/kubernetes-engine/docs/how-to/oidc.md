@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/kubernetes-engine/docs/how-to/oidc/
 title: Use external identity providers to authenticate to GKE \u00a0|\u00a0 GKE security \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T07:56:29.375824+00:00
+fetched_at: 2026-11-04T23:44:58.175769+00:00
 ---
 
 # Use external identity providers to authenticate to GKE  |  GKE security  |  Google Cloud Documentation

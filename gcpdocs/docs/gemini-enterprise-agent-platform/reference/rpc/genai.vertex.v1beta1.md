@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/genai.vertex.v1beta1
 title: Package genai.vertex.v1beta1 \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-13T17:00:04.887540+00:00
+fetched_at: 2026-11-05T00:19:45.006405+00:00
 ---
 
 # Package genai.vertex.v1beta1  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation
@@ -23,7 +23,6 @@ Send feedback
 
 ## Index
 
-  * `[InteractionsHttpService](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/genai.vertex.v1beta1#genai.vertex.v1beta1.InteractionsHttpService)` (interface)
   * `[AgentInteraction](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/genai.vertex.v1beta1#genai.vertex.v1beta1.AgentInteraction)` (message)
   * `[AllowedTools](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/genai.vertex.v1beta1#genai.vertex.v1beta1.AllowedTools)` (message)
   * `[AntigravityAgentConfig](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/genai.vertex.v1beta1#genai.vertex.v1beta1.AntigravityAgentConfig)` (message)
@@ -34,7 +33,6 @@ Send feedback
   * `[AudioResponseFormat](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/genai.vertex.v1beta1#genai.vertex.v1beta1.AudioResponseFormat)` (message)
   * `[AudioResponseFormat.Delivery](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/genai.vertex.v1beta1#genai.vertex.v1beta1.AudioResponseFormat.Delivery)` (enum)
   * `[AudioResponseFormat.MimeType](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/genai.vertex.v1beta1#genai.vertex.v1beta1.AudioResponseFormat.MimeType)` (enum)
-  * `[CancelInteractionHttpTranscoderRequest](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/genai.vertex.v1beta1#genai.vertex.v1beta1.CancelInteractionHttpTranscoderRequest)` (message)
   * `[CancelInteractionRequest](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/genai.vertex.v1beta1#genai.vertex.v1beta1.CancelInteractionRequest)` (message)
   * `[CodeExecution](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/genai.vertex.v1beta1#genai.vertex.v1beta1.CodeExecution)` (message)
   * `[CodeExecutionCallContent](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/genai.vertex.v1beta1#genai.vertex.v1beta1.CodeExecutionCallContent)` (message) **(deprecated)**
@@ -63,7 +61,6 @@ Send feedback
   * `[ContentStart](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/genai.vertex.v1beta1#genai.vertex.v1beta1.ContentStart)` (message)
   * `[ContentStop](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/genai.vertex.v1beta1#genai.vertex.v1beta1.ContentStop)` (message)
   * `[CreateInteractionHttpRequest](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/genai.vertex.v1beta1#genai.vertex.v1beta1.CreateInteractionHttpRequest)` (message)
-  * `[CreateInteractionHttpTranscoderRequest](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/genai.vertex.v1beta1#genai.vertex.v1beta1.CreateInteractionHttpTranscoderRequest)` (message)
   * `[CreateInteractionRequest](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/genai.vertex.v1beta1#genai.vertex.v1beta1.CreateInteractionRequest)` (message)
   * `[DeepResearchAgentConfig](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/genai.vertex.v1beta1#genai.vertex.v1beta1.DeepResearchAgentConfig)` (message)
   * `[DeepResearchAgentConfig.VisualizationMode](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/genai.vertex.v1beta1#genai.vertex.v1beta1.DeepResearchAgentConfig.VisualizationMode)` (enum)
@@ -102,7 +99,6 @@ Send feedback
   * `[FunctionResultSubcontent](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/genai.vertex.v1beta1#genai.vertex.v1beta1.FunctionResultSubcontent)` (message)
   * `[FunctionResultSubcontentList](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/genai.vertex.v1beta1#genai.vertex.v1beta1.FunctionResultSubcontentList)` (message)
   * `[GenerationConfig](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/genai.vertex.v1beta1#genai.vertex.v1beta1.GenerationConfig)` (message)
-  * `[GetInteractionHttpTranscoderRequest](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/genai.vertex.v1beta1#genai.vertex.v1beta1.GetInteractionHttpTranscoderRequest)` (message)
   * `[GetInteractionRequest](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/genai.vertex.v1beta1#genai.vertex.v1beta1.GetInteractionRequest)` (message)
   * `[GoogleMaps](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/genai.vertex.v1beta1#genai.vertex.v1beta1.GoogleMaps)` (message)
   * `[GoogleMapsCallContent](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/genai.vertex.v1beta1#genai.vertex.v1beta1.GoogleMapsCallContent)` (message) **(deprecated)**
@@ -157,7 +153,6 @@ Send feedback
   * `[LegacyImageContent](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/genai.vertex.v1beta1#genai.vertex.v1beta1.LegacyImageContent)` (message) **(deprecated)**
   * `[LegacyTextContent](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/genai.vertex.v1beta1#genai.vertex.v1beta1.LegacyTextContent)` (message) **(deprecated)**
   * `[LegacyVideoContent](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/genai.vertex.v1beta1#genai.vertex.v1beta1.LegacyVideoContent)` (message) **(deprecated)**
-  * `[ListInteractionsHttpTranscoderRequest](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/genai.vertex.v1beta1#genai.vertex.v1beta1.ListInteractionsHttpTranscoderRequest)` (message)
   * `[ListInteractionsRequest](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/genai.vertex.v1beta1#genai.vertex.v1beta1.ListInteractionsRequest)` (message)
   * `[ListInteractionsResponse](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/genai.vertex.v1beta1#genai.vertex.v1beta1.ListInteractionsResponse)` (message)
   * `[ListValue](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/genai.vertex.v1beta1#genai.vertex.v1beta1.ListValue)` (message)
@@ -262,79 +257,6 @@ Send feedback
 
 
 
-## InteractionsHttpService
-
-API that acts as the transcoder for users to interact with models and agents.
-
-CancelInteractionHttp  
----  
-` rpc CancelInteractionHttp(`[CancelInteractionHttpTranscoderRequest](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/genai.vertex.v1beta1#genai.vertex.v1beta1.CancelInteractionHttpTranscoderRequest)`) returns (`[HttpBody](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.api#google.api.HttpBody)`) ` Cancels an interaction.
-
-Authorization scopes
-     Requires the following OAuth scope:
-
-  * `https://www.googleapis.com/auth/cloud-platform`
-
-For more information, see the [Authentication Overview](https://docs.cloud.google.com/docs/authentication#authorization-gcp).
-
-IAM Permissions
-     Requires the following [IAM](https://cloud.google.com/iam/docs) permission on the `name` resource:
-
-  * `aiplatform.interactions.cancel`
-
-For more information, see the [IAM documentation](https://cloud.google.com/iam/docs).  
-CreateInteractionHttp  
----  
-` rpc CreateInteractionHttp(`[CreateInteractionHttpTranscoderRequest](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/genai.vertex.v1beta1#genai.vertex.v1beta1.CreateInteractionHttpTranscoderRequest)`) returns (`[HttpBody](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.api#google.api.HttpBody)`) `
-
-Authorization scopes
-     Requires the following OAuth scope:
-
-  * `https://www.googleapis.com/auth/cloud-platform`
-
-For more information, see the [Authentication Overview](https://docs.cloud.google.com/docs/authentication#authorization-gcp).
-
-IAM Permissions
-     Requires the following [IAM](https://cloud.google.com/iam/docs) permission on the `parent` resource:
-
-  * `aiplatform.interactions.create`
-
-For more information, see the [IAM documentation](https://cloud.google.com/iam/docs).  
-GetInteractionHttp  
----  
-` rpc GetInteractionHttp(`[GetInteractionHttpTranscoderRequest](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/genai.vertex.v1beta1#genai.vertex.v1beta1.GetInteractionHttpTranscoderRequest)`) returns (`[HttpBody](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.api#google.api.HttpBody)`) ` Gets an interaction.
-
-Authorization scopes
-     Requires the following OAuth scope:
-
-  * `https://www.googleapis.com/auth/cloud-platform`
-
-For more information, see the [Authentication Overview](https://docs.cloud.google.com/docs/authentication#authorization-gcp).
-
-IAM Permissions
-     Requires the following [IAM](https://cloud.google.com/iam/docs) permission on the `name` resource:
-
-  * `aiplatform.interactions.get`
-
-For more information, see the [IAM documentation](https://cloud.google.com/iam/docs).  
-ListInteractionsHttp  
----  
-` rpc ListInteractionsHttp(`[ListInteractionsHttpTranscoderRequest](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/genai.vertex.v1beta1#genai.vertex.v1beta1.ListInteractionsHttpTranscoderRequest)`) returns (`[HttpBody](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.api#google.api.HttpBody)`) ` Lists interactions.
-
-Authorization scopes
-     Requires the following OAuth scope:
-
-  * `https://www.googleapis.com/auth/cloud-platform`
-
-For more information, see the [Authentication Overview](https://docs.cloud.google.com/docs/authentication#authorization-gcp).
-
-IAM Permissions
-     Requires the following [IAM](https://cloud.google.com/iam/docs) permission on the `parent` resource:
-
-  * `aiplatform.interactions.list`
-
-For more information, see the [IAM documentation](https://cloud.google.com/iam/docs).  
-  
 ## AgentInteraction
 
 Interaction for generating the completion using agents.
@@ -454,14 +376,6 @@ Enums
 `TYPE_WAV` | WAV audio format.  
 `TYPE_ALAW` | A-law audio format.  
 `TYPE_MULAW` | Mu-law audio format.  
-  
-## CancelInteractionHttpTranscoderRequest
-
-Request for InteractionsHttpService.CancelInteractionHttp.
-
-Fields  
----  
-`name` |  `string` Required. The name of the interaction to cancel. Format: interactionsHttp/{interaction}  
   
 ## CancelInteractionRequest
 
@@ -726,15 +640,6 @@ Fields
 ## CreateInteractionHttpRequest
 
 Request message for [InteractionsService.CreateInteractionHttp].
-
-Fields  
----  
-`parent` |  `string` Required. The parent resource where this interaction will be created. Format: `projects/{project}/locations/{location}`Supported only by the Vertex API only.  
-`http_body` |  `[HttpBody](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.api#google.api.HttpBody)` Required. The interaction to create.  
-  
-## CreateInteractionHttpTranscoderRequest
-
-Request message for InteractionsHttpService.CreateInteractionHttp.
 
 Fields  
 ---  
@@ -1091,18 +996,6 @@ Fields
 Union field `tool_choice`. The tool choice configuration. `tool_choice` can be only one of the following:  
 `tool_choice_mode` |  `[ToolChoiceType](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/genai.vertex.v1beta1#genai.vertex.v1beta1.ToolChoiceType)` The mode of the tool choice.  
 `tool_choice_config` |  `[ToolChoiceConfig](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/genai.vertex.v1beta1#genai.vertex.v1beta1.ToolChoiceConfig)` The config for the tool choice.  
-  
-## GetInteractionHttpTranscoderRequest
-
-Request for InteractionsHttpService.GetInteractionHttp.
-
-Fields  
----  
-`name` |  `string` Required. The name of the interaction to retrieve. Format: interactionsHttp/{interaction}  
-`stream` |  `bool` If true, streams the interaction events as Server-Sent Events.  
-`last_event_id` |  `string` If set, resumes the interaction stream from the chunk after the event marked by the event id. Can only be used if `stream` is true.  
-`include_input  
-**(deprecated)**` |  `bool` This item is deprecated!If true, includes the input in the response.  
   
 ## GetInteractionRequest
 
@@ -1703,16 +1596,6 @@ Union field `data_or_uri`.`data_or_uri` can be only one of the following:
 Union field `processing`.`processing` can be only one of the following:  
 `processing_type` |  `[Processing](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/genai.vertex.v1beta1#genai.vertex.v1beta1.VideoContent.Processing)`  
 `processing_config` |  `[MediaProcessing](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/genai.vertex.v1beta1#genai.vertex.v1beta1.VideoContent.MediaProcessing)`  
-  
-## ListInteractionsHttpTranscoderRequest
-
-Request message for InteractionsHttpService.ListInteractionsHttp.
-
-Fields  
----  
-`parent` |  `string` Required. The parent, which owns this collection of interactions. Format: `projects/{project}/locations/{location}`Supported only by the Agent Platform Platform.  
-`page_size` |  `int32` The maximum number of `Interactions` to return (per page). The service may return fewer `Interactions`.If unspecified, at most 10 `Interactions` will be returned. The maximum size limit is 20 `Interactions` per page.  
-`page_token` |  `string` A page token, received from a previous `ListInteractions` call.Provide the `next_page_token` returned in the response as an argument to the next request to retrieve the next page.When paginating, all other parameters provided to `ListInteractions` must match the call that provided the page token.  
   
 ## ListInteractionsRequest
 
@@ -2782,6 +2665,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-09 UTC.
+Last updated 2026-11-03 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-09 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 

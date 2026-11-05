@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/kubernetes-engine/docs/concepts/alias-ips/
 title: VPC-native clusters \u00a0|\u00a0 GKE networking \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T20:03:35.271918+00:00
+fetched_at: 2026-11-04T23:31:26.973105+00:00
 ---
 
 # VPC-native clusters  |  GKE networking  |  Google Cloud Documentation
@@ -32,7 +32,7 @@ This page is for Cloud architects and Networking specialists who design and arch
 
 In GKE, clusters can be distinguished according to the way they route traffic from one Pod to another Pod.
 
-A cluster that uses [alias IP address ranges](https://docs.cloud.google.com/vpc/docs/alias-ip) is called a _VPC-native cluster_. A cluster that uses [custom static routes in a VPC network](https://docs.cloud.google.com/vpc/docs/routes) is called a _routes-based cluster_.
+A cluster where Pod IP addresses are natively routable within the VPC network without using custom static routes is called a _VPC-native cluster_. In IPv4 and dual-stack clusters, VPC-native networking uses [alias IP address ranges](https://docs.cloud.google.com/vpc/docs/alias-ip). In single-stack IPv6 clusters, VPC-native networking allocates node and Pod IP address subranges directly from the subnetwork CIDR block without using alias IP address ranges. In contrast, a cluster that uses [custom static routes in a VPC network](https://docs.cloud.google.com/vpc/docs/routes) is called a _routes-based cluster_.
 
 **Best practice** : 
 
@@ -84,7 +84,7 @@ VPC-native clusters allocate IPv4 addresses for nodes, Pods, and Services as fol
 
 
 
-#### IPv6 address allocation (dual-stack networking)
+#### IPv6 address allocation for dual-stack networking
 
   * **Node and Pod IPv6 addresses** : in clusters enabled for dual-stack networking, the node's IPv6 address and all Pod IPv6 addresses originate from the node's designated `/96` IPv6 address range. The node IP address itself is the first `/128` (single IPv6 address) within this range. For more information, see dual-stack networking.
 
@@ -92,6 +92,17 @@ VPC-native clusters allocate IPv4 addresses for nodes, Pods, and Services as fol
 
 
 
+
+#### IPv6 address allocation for single-stack networking (Preview)
+
+In single-stack IPv6 clusters, GKE doesn't use alias IP address ranges. Instead, GKE directly allocates the addresses as follows:
+
+  * **Node and Pod IPv6 addresses** : GKE assigns each node a `/96` subrange directly from the cluster subnetwork's `/64` IPv6 CIDR block. Subsequently, GKE assigns Pods that run on a worker node IPv6 addresses from a `/112` subset of the node's `/96` subrange.
+  * **Service IPv6 addresses** : GKE clusters use the `2600:2D00:0:4::0:0/64` IPv6 address range for Services (`ClusterIP`). Google Cloud uses the `2600:2D00:0:4::0:0/64` address range for private purposes and doesn't publish any routes on the public internet for this range. You can't use this range for external IPv6 addresses of your resources.
+
+
+
+For more information, see [Create and manage single-stack IPv6 clusters](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/single-stack-ipv6).
 
 The following table provides a summary of IP address ranges for nodes, Pods, and Services:
 
@@ -471,12 +482,12 @@ Dual-stack networking with GKE has the following restrictions:
 
   * Dual-stack networking is only available for [VPC-native clusters](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/alias-ips) clusters with [ GKE Dataplane V2](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/dataplane-v2) enabled.
   * Dual-stack networking is only supported on subnets in custom mode VPCs. For more information, see [Google Cloud types of VPC networks](https://docs.cloud.google.com/vpc/docs/vpc#subnet-ranges).
-  * Single-stack IPv6 addresses for Pods or nodes are not supported.
-  * Dual-stack clusters consume additional memory per node to support both IPv4 and IPv6 compared to IPv4 only clusters. Consider this characteristic when setting up large-scale clusters.
-  * Dual-stack clusters don't support Private Google Access over IPv6.
+  * Dual-stack clusters don't support single-stack IPv6 addresses for Pods or nodes; GKE assigns both IPv4 and IPv6 addresses to Pods and nodes. To deploy workloads in an IPv6-only networking environment, see [Create and manage single-stack IPv6 clusters](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/single-stack-ipv6).
+  * Dual-stack clusters consume additional memory per node to support both IPv4 and IPv6 networking compared to IPv4-only clusters. Consider this characteristic when setting up large-scale clusters.
+  * Dual-stack clusters don't support Private Google Access over IPv6 addresses.
   * GKE versions 1.26.0-gke.2200 and later supports IPv6 (AAAA records) with Cloud DNS for cluster-internal operations and external DNS queries.
   * Dual-stack Services are supported for `ClusterIP`, `NodePort`, and `LoadBalancer` Services.
-  * IPv6 is not supported for Windows nodes.
+  * Windows nodes don't support IPv6 networking.
 
 
 
@@ -526,6 +537,7 @@ You can expose a Deployment with a Service of type `ClusterIP`, `NodePort`, or `
 
   * [Learn more about VPC Network Peering](https://docs.cloud.google.com/vpc/docs/vpc-peering).
   * [Learn how to create a VPC-native cluster](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/alias-ips).
+  * [Learn how to create and manage single-stack IPv6 clusters](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/single-stack-ipv6).
   * [Learn about GKE IP address utilization insights](https://docs.cloud.google.com/network-intelligence-center/docs/network-analyzer/insights/kubernetes-engine/gke-ip-utilization).
 
 
@@ -534,6 +546,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-04 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 

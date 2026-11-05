@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/ibm-sim/
 title: Collect IBM Security Identity Manager logs \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T07:52:31.222835+00:00
+fetched_at: 2026-11-04T23:42:58.476962+00:00
 ---
 
 # Collect IBM Security Identity Manager logs  |  Google Security Operations  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chronicle/docs/soar/admin-tasks/advanced/control-access-to-platform/
 title: SOAR access overview \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T10:10:10.605514+00:00
+fetched_at: 2026-11-04T23:33:49.040108+00:00
 ---
 
 # SOAR access overview  |  Google Security Operations  |  Google Cloud Documentation
@@ -58,10 +58,7 @@ For more information about environment groups, see [Work with environments.](htt
 
 ##  Permission groups or IAM roles 
 
-Google SecOps lets you create groups of users and assign different permission levels to various modules. Prior to [migrating SOAR to Google Cloud](https://docs.cloud.google.com/chronicle/docs/soar/admin-tasks/advanced/migrate-to-gcp), these are controlled by permission groups in the SOAR Settings. After you complete the SOAR migration to Google Cloud, these are controlled by IAM roles.
-
-  
-
+Google SecOps lets you create groups of users and assign different permission levels to various modules. Prior to [migrating SOAR to Google Cloud](https://docs.cloud.google.com/chronicle/docs/soar/admin-tasks/advanced/migrate-to-gcp), these are controlled by permission groups in **Settings > Access Management > Group Mapping**. After you complete the SOAR migration to Google Cloud, these are controlled by IAM roles.
 
 ### Permission groups (pre-migration)
 
@@ -133,6 +130,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-28 UTC.
+Last updated 2026-11-04 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 

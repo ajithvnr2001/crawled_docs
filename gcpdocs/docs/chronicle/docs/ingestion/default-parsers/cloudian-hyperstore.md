@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/cloudian-hyperstore/
 title: Collect Cloudian HyperStore logs \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T07:54:01.971183+00:00
+fetched_at: 2026-11-04T23:42:41.490538+00:00
 ---
 
 # Collect Cloudian HyperStore logs  |  Google Security Operations  |  Google Cloud Documentation

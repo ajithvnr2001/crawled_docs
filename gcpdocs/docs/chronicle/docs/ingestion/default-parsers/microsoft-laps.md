@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/microsoft-laps/
 title: Collect Microsoft LAPS logs \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T07:50:58.096464+00:00
+fetched_at: 2026-11-04T23:44:03.513334+00:00
 ---
 
 # Collect Microsoft LAPS logs  |  Google Security Operations  |  Google Cloud Documentation

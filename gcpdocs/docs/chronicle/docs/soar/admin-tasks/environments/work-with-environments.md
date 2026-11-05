@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chronicle/docs/soar/admin-tasks/environments/work-with-environments/
 title: Environments overview \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T10:09:52.139326+00:00
+fetched_at: 2026-11-04T23:31:46.641949+00:00
 ---
 
 # Environments overview  |  Google Security Operations  |  Google Cloud Documentation
@@ -35,11 +35,11 @@ The platform provides a predefined environment named **Default Environment** by 
 
 Use the following steps to configure and register a new environment in Google Security Operations
 
-  1. Go to **Settings** > **Organization** > **Environments**. 
+  1. Go to **Settings > Access Management > Environments**. 
   2. Click  add  **Add**. 
   3. In the **Add Environment** dialog, enter the required information. 
   4. Optional: Select the **Append to all Users and API Keys** checkbox to automatically assign the new environment to all existing users and API keys. You can also add an alias if a third-party integration uses a different tenant name. 
-  5. If the **Allow Data Retention Period per Environment** checkbox is not selected in **Settings** > **Advanced** > **General** , specify the time period for deleting information related to closed cases in this environment. 
+  5. If the **Allow Data Retention Period per Environment** checkbox is not selected in **Settings > Investigation > Cross Environment Policy**, specify the time period for deleting information related to closed cases in this environment. 
   6. Click **Create**. The new environment appears in the list of environments. 
 
 **Note:** You can't rename environments once they're created. 
@@ -62,7 +62,7 @@ Under **Move Case** option, you can control whether users are granted permission
 
 To assign a case, follow these steps:
 
-  1. Go to **Settings** > **Advanced** > **General**.
+  1. Go to **Settings > Investigation > Cross Environment Policy**.
   2. In the **Cross Environment Policy** dialog, under **Assign Case** , select **Allow users to assign cases to users from other environments**.  
 
   3. Click **Save**.
@@ -73,7 +73,7 @@ To assign a case, follow these steps:
 
 To move cases to a different environment, follow these steps:
 
-  1. Click **Settings** > **Advanced** > **General**.
+  1. Click **Settings > Investigation > Cross Environment Policy**.
   2. In the **Cross Environment Policy** dialog, under **Move Case** , select **Allow users to move cases between environments**.  
 
   3. Click **Save**.  
@@ -85,7 +85,7 @@ To move cases to a different environment, follow these steps:
 
 To delete an environment, follow these steps: 
 
-  1. Go to **Settings** > **Organization** > **Environments**.
+  1. Go to **Settings > Access Management > Environments**.
   2. Select the required environment, and then click edit**Edit**. 
   3. In the **Edit Environment** dialog, click delete**Delete**. The **Delete** page lists all configurations and utilities associated with this environment. Once you delete this environment, you can't undo this action. 
   4. Click **Confirm**. 
@@ -98,6 +98,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-28 UTC.
+Last updated 2026-11-04 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 

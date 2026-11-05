@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/iam/docs/configure-scim-okta/
 title: Configure SCIM in Okta \u00a0|\u00a0 Identity and Access Management (IAM) \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T08:00:34.424185+00:00
+fetched_at: 2026-11-04T23:44:44.608590+00:00
 ---
 
 # Configure SCIM in Okta  |  Identity and Access Management (IAM)  |  Google Cloud Documentation

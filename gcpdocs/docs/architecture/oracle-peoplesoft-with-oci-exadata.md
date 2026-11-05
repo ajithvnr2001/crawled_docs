@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/architecture/oracle-peoplesoft-with-oci-exadata/
 title: Oracle PeopleSoft on Compute Engine with Oracle Exadata \u00a0|\u00a0 Cloud Architecture Center \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T05:57:49.727918+00:00
+fetched_at: 2026-11-04T23:29:57.657506+00:00
 ---
 
 # Oracle PeopleSoft on Compute Engine with Oracle Exadata  |  Cloud Architecture Center  |  Google Cloud Documentation
@@ -78,7 +78,7 @@ This reference architecture uses the following Google Cloud products:
   * [ Cloud Load Balancing](https://cloud.google.com/load-balancing): A portfolio of high performance, scalable, global and regional load balancers. 
   * [ Google Cloud Armor](https://cloud.google.com/security/products/armor): A network security service that offers web application firewall (WAF) rules and helps to protect against DDoS and application attacks. 
   * [ Virtual Private Cloud (VPC)](https://cloud.google.com/vpc): A virtual system that provides global, scalable networking functionality for your Google Cloud workloads. VPC includes VPC Network Peering, Private Service Connect, private services access, and Shared VPC.
-  * [ Cloud Interconnect](https://cloud.google.com/network-connectivity/docs/interconnect/concepts/overview): A service that extends your external network to the Google network through a high-availability, low-latency connection.
+  * [ Cloud Interconnect](https://docs.cloud.google.com/network-connectivity/docs/interconnect/concepts/overview): A service that extends your external network to the Google network through a high-availability, low-latency connection.
   * [ Partner Interconnect](https://docs.cloud.google.com/network-connectivity/docs/interconnect/concepts/partner-overview): A service that provides connectivity between your on-premises network and your Virtual Private Cloud networks and other networks through a supported service provider.
   * [ Cloud VPN](https://docs.cloud.google.com/network-connectivity/docs/vpn): A service that securely extends your peer network to Google's network through an IPsec VPN tunnel.
   * [ Cloud NAT](https://cloud.google.com/nat): A service that provides Google Cloud-managed high-performance network address translation. 

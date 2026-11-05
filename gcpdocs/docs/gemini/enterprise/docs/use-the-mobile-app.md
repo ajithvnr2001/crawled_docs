@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini/enterprise/docs/use-the-mobile-app/
 title: Use the mobile app \u00a0|\u00a0 Gemini Enterprise \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T05:51:00.603390+00:00
+fetched_at: 2026-11-04T23:31:04.384711+00:00
 ---
 
 # Use the mobile app  |  Gemini Enterprise  |  Google Cloud Documentation
@@ -53,10 +53,69 @@ The Gemini Enterprise mobile app includes the following key features:
 
 
 
+## Teams
+
+In the Gemini Enterprise mobile app, a _team_ is the equivalent of a Gemini Enterprise web app in a browser.
+
+Your administrator might give you access to more than one team, just as they might give you access to more than one web app. In a browser, you can open multiple web apps in different tabs and bookmark their URLs.
+
+In the mobile app, you can't have multiple teams open at the same time, but you can switch between them without rescanning the QR code each time. But, don't throw away your QR code, you need it to sign in to a mobile app after your session times out.
+
+When you open a team for the first time, the mobile app saves it to your teams list.
+
+### Switch teams
+
+To switch to a different team from within the mobile app, do the following:
+
+  1. Tap your profile icon.
+
+  2. Tap **Teams**.
+
+If you don't see **Teams** , maybe your administrator has disabled it by [configuring MDM](https://docs.cloud.google.com/gemini/enterprise/docs/configure-mobile-app#mdm-solution).
+
+  3. Tap the team name, or tap **Scan new QR code** to add a new team.
+
+
+
+
+### Set a nickname for your team
+
+You can rename a team in the teams list to make it easier to recognize.
+
+To rename a team, do the following:
+
+  1. Tap your profile icon.
+
+  2. Tap **Teams**.
+
+  3. For the team that you want to rename, tap the more_vert icon, and then tap **Rename**.
+
+The name is private to you; other users don't see the name that you choose.
+
+
+
+
+### Remove a team from the list
+
+You might want to remove a team from the list, for example, if it's a team that you don't use anymore.
+
+To remove a team from the list, do the following:
+
+  1. Tap your profile icon.
+
+  2. Tap **Teams**.
+
+  3. For the team that you want to remove, tap the more_vert icon, and then tap **Remove**.
+
+If you want to use that team later, you must rescan its QR code.
+
+
+
+
 Send feedback 
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-30 UTC.
+Last updated 2026-11-04 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 

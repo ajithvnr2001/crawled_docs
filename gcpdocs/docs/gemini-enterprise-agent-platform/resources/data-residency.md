@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/data-residency/
 title: Data residency \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-03T09:53:33.221940+00:00
+fetched_at: 2026-11-04T23:12:26.244543+00:00
 ---
 
 # Data residency  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation
@@ -62,7 +62,7 @@ The tables in this section cover the regional support for ML processing at a per
   * Partner models
   * Open models
 
-
+**Note:** Checkmarks in the following tables indicate the geographic boundary where ML processing occurs, not which endpoint types a model supports. A checkmark under **US multi-region** or **EU multi-region** applies when you call a supported `us` or `eu` multi-region endpoint or a supported US or EU single-region endpoint. For example, `gemini-embedding-001` doesn't support the `us` or `eu` multi-region endpoints, but requests to US or EU single-region endpoints such as `us-central1` or `europe-west4` are processed within that multi-region. For a list of supported endpoints for each model, see [Deployments and endpoints](https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/locations).
 
 ### Google models
 
@@ -157,7 +157,7 @@ Anthropic's Anthropic's Claude Opus 4.5 on Google Cloud  |  |  |  |  |  |
 Anthropic's Anthropic's Claude Opus 4.8 on Google Cloud  |  |  |  |  |  |   
 Anthropic's Anthropic's Claude Opus 4.7 on Google Cloud  |  |  |  |  |  |   
 Anthropic's Anthropic's Claude Opus 4.6 on Google Cloud  |  |  |  |  |  |   
-Anthropic's Anthropic's Claude Sonnet 4.5 on Google Cloud  |  |  |  |  |  |   
+Anthropic's Claude Sonnet 4.5 on Google Cloud (deprecated)  |  |  |  |  |  |   
 Anthropic's Anthropic's Claude Sonnet 4.6 on Google Cloud  |  |  |  |  |  |   
 Anthropic's Claude 3.5 Haiku on Google Cloud (deprecated)  |  |  |  |  |  |   
 Anthropic's Claude 3 Haiku on Google Cloud (deprecated)  |  |  |  |  |  |   
@@ -209,6 +209,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-02 UTC.
+Last updated 2026-11-04 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-02 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 

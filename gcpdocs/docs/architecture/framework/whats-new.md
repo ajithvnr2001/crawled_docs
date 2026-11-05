@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/architecture/framework/whats-new/
 title: What's new in the Well-Architected Framework \u00a0|\u00a0 Cloud Architecture Center \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-30T05:50:42.396964+00:00
+fetched_at: 2026-11-05T00:17:52.230515+00:00
 ---
 
 # What's new in the Well-Architected Framework  |  Cloud Architecture Center  |  Google Cloud Documentation
@@ -22,6 +22,13 @@ Send feedback
 Last reviewed 2026-10-29 UTC
 
 This document lists significant changes to the Google Cloud Well-Architected Framework.
+
+## November 3, 2026
+
+  * [AI and ML perspective](https://docs.cloud.google.com/architecture/framework/perspectives/ai-ml): 
+    * In [Optimize self-managed serving](https://docs.cloud.google.com/architecture/framework/perspectives/ai-ml/performance-optimization#optimize-self-managed-serving), removed the recommendation to use Pathways for multi-host inferencing.
+
+
 
 ## October 29, 2026
 

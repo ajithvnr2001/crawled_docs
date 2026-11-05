@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/data-studio/bigquery-connector-troubleshooting/
 title: Troubleshoot BigQuery connector errors and limitations \u00a0|\u00a0 Data Studio \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T05:37:31.013905+00:00
+fetched_at: 2026-11-04T23:12:23.372231+00:00
 ---
 
 # Troubleshoot BigQuery connector errors and limitations  |  Data Studio  |  Google Cloud Documentation
@@ -185,11 +185,24 @@ When you query a dataset, the chart fails and returns the following error:
 
 `User Configuration Error: CONDITION_NOT_MET`
 
-**Cause:** The connector does not support **Customer-Managed Encryption Keys (CMEK)**. If an organization policy requires CMEK encryption for queries or temporary storage ([Organization Policy Service](https://docs.cloud.google.com/resource-manager/docs/organization-policy/overview)), charts display `User Configuration Error: CONDITION_NOT_MET`.
+**Cause:** When Data Studio runs a query job, BigQuery writes the query results to a temporary table in the billing project. If the [`constraints/gcp.restrictNonCmekServices` organization policy constraint](https://docs.cloud.google.com/bigquery/docs/customer-managed-encryption#services_constraint) is enforced for BigQuery on the billing project, BigQuery requires a customer-managed encryption key (CMEK) for all new tables, including temporary query result tables. Because the connector doesn't pass a Cloud Key Management Service key in query job requests, queries fail with `User Configuration Error: CONDITION_NOT_MET` unless a project default Cloud KMS key is configured.
 
 ####  Steps to resolve 
 
-Work with your organization administrator to exempt the reporting project from the CMEK policy, or export reporting data into a dataset governed by standard Google-owned and Google-managed encryption keys.
+Configure a project default Cloud KMS key in BigQuery so that BigQuery automatically encrypts temporary query result tables:
+
+  1. Grant the **Cloud KMS CryptoKey Encrypter/Decrypter** (`roles/cloudkms.cryptoKeyEncrypterDecrypter`) role on your Cloud KMS key to the [BigQuery encryption service account](https://docs.cloud.google.com/bigquery/docs/customer-managed-encryption#assign_role) for the billing project.
+  2. [Set a project default Cloud KMS key](https://docs.cloud.google.com/bigquery/docs/customer-managed-encryption#project_default_key) (`region-LOCATION.default_kms_key_name`) in the billing project for the location of the dataset that you are querying. For example: 
+         
+         ALTER PROJECT PROJECT_ID
+         SET OPTIONS (
+           `region-LOCATION.default_kms_key_name` = 'projects/KMS_PROJECT_ID/locations/LOCATION/keyRings/KEY_RING/cryptoKeys/KEY'
+         );
+
+
+
+
+Alternatively, work with your organization administrator to exempt the billing project from the `constraints/gcp.restrictNonCmekServices` policy.
 
 * * *
 
@@ -287,6 +300,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-04 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 

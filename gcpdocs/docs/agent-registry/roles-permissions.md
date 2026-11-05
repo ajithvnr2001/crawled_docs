@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/agent-registry/roles-permissions/
 title: Roles and permissions \u00a0|\u00a0 Agent Registry \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-30T08:40:11.210685+00:00
+fetched_at: 2026-11-05T00:18:51.442126+00:00
 ---
 
 # Roles and permissions  |  Agent Registry  |  Google Cloud Documentation
@@ -64,13 +64,17 @@ The following table lists the permissions that each Agent Registry IAM role has:
 
 Agent Registry API AdminAgent Registry API EditorAgent Registry API ViewerAgent Registry UserClear all
 
-#### Agent Registry API Admin Beta
+#### Agent Registry API Admin 
 
 (`roles/agentregistry.admin`) Full access to Agent Registry API resources.  |  `agentregistry.*`
 
   * `agentregistry.agents.get`
   * `agentregistry.agents.list`
   * `agentregistry.agents.search`
+  * `agentregistry.aiApplications.get`
+  * `agentregistry.aiApplications.getIamPolicy`
+  * `agentregistry.aiApplications.list`
+  * `agentregistry.aiApplications.setIamPolicy`
   * `agentregistry.bindings.create`
   * `agentregistry.bindings.delete`
   * `agentregistry.bindings.fetchAvailable`
@@ -111,7 +115,7 @@ Agent Registry API AdminAgent Registry API EditorAgent Registry API ViewerAgent 
   
 ---|---  
   
-#### Agent Registry API Editor Beta
+#### Agent Registry API Editor 
 
 (`roles/agentregistry.editor`) Edit access to Agent Registry API resources.  |  `agentregistry.agents.*`
 
@@ -119,7 +123,7 @@ Agent Registry API AdminAgent Registry API EditorAgent Registry API ViewerAgent 
   * `agentregistry.agents.list`
   * `agentregistry.agents.search`
 
-`agentregistry.bindings.fetchAvailable` `agentregistry.bindings.get` `agentregistry.bindings.list` `agentregistry.endpoints.*`
+`agentregistry.aiApplications.get` `agentregistry.aiApplications.list` `agentregistry.bindings.fetchAvailable` `agentregistry.bindings.get` `agentregistry.bindings.list` `agentregistry.endpoints.*`
 
   * `agentregistry.endpoints.get`
   * `agentregistry.endpoints.list`
@@ -164,7 +168,7 @@ Agent Registry API AdminAgent Registry API EditorAgent Registry API ViewerAgent 
 
 `agentregistry.skills.create` `agentregistry.skills.delete` `agentregistry.skills.get` `agentregistry.skills.list` `agentregistry.skills.search` `agentregistry.skills.update`  
   
-#### Agent Registry API Viewer Beta
+#### Agent Registry API Viewer 
 
 (`roles/agentregistry.viewer`) Readonly access to Agent Registry API resources.  |  `agentregistry.agents.*`
 
@@ -172,7 +176,7 @@ Agent Registry API AdminAgent Registry API EditorAgent Registry API ViewerAgent 
   * `agentregistry.agents.list`
   * `agentregistry.agents.search`
 
-`agentregistry.bindings.fetchAvailable` `agentregistry.bindings.get` `agentregistry.bindings.list` `agentregistry.endpoints.*`
+`agentregistry.aiApplications.get` `agentregistry.aiApplications.list` `agentregistry.bindings.fetchAvailable` `agentregistry.bindings.get` `agentregistry.bindings.list` `agentregistry.endpoints.*`
 
   * `agentregistry.endpoints.get`
   * `agentregistry.endpoints.list`
@@ -203,7 +207,7 @@ Agent Registry API AdminAgent Registry API EditorAgent Registry API ViewerAgent 
   * `agentregistry.agents.list`
   * `agentregistry.agents.search`
 
-`agentregistry.bindings.fetchAvailable` `agentregistry.bindings.get` `agentregistry.bindings.list` `agentregistry.endpoints.*`
+`agentregistry.aiApplications.get` `agentregistry.aiApplications.list` `agentregistry.bindings.fetchAvailable` `agentregistry.bindings.get` `agentregistry.bindings.list` `agentregistry.endpoints.*`
 
   * `agentregistry.endpoints.get`
   * `agentregistry.endpoints.list`
@@ -276,6 +280,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-29 UTC.
+Last updated 2026-11-03 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 

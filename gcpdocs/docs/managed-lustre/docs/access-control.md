@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/managed-lustre/docs/access-control/
 title: Access control with IAM \u00a0|\u00a0 Managed Lustre \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T19:55:22.460820+00:00
+fetched_at: 2026-11-05T00:19:42.226788+00:00
 ---
 
 # Access control with IAM  |  Managed Lustre  |  Google Cloud Documentation
@@ -39,6 +39,11 @@ Permission | Description
 `lustre.instances.importData` | Import data from Cloud Storage to Managed Lustre  
 `lustre.locations.get` | Get a location  
 `lustre.locations.list` | List all supported locations  
+`lustre.mirrors.create` | Create new mirrors  
+`lustre.mirrors.delete` | Delete mirrors  
+`lustre.mirrors.update` | Update mirrors  
+`lustre.mirrors.get` | Describe mirrors  
+`lustre.mirrors.list` | List mirrors  
 `lustre.operations.list` | List operations  
 `lustre.operations.get` | Get an operation  
 `lustre.operations.cancel` | Cancel an operation  
@@ -55,13 +60,14 @@ The following table lists the permissions granted by the predefined roles for Ma
 
 Capability | Editor (`roles/editor`) | Managed Lustre (`roles/lustre.*`)   
 ---|---|---  
-`admin` | `viewer`  
+Admin (`roles/lustre.admin`) | Viewer (`roles/lustre.viewer`)  
 Create instances |  |  |   
 Delete instances |  |  |   
 Update instances |  |  |   
 Get instances |  |  |   
 List instances |  |  |   
 Import/export data from/to Cloud Storage |  |  |   
+Configure a Cloud Storage mirror |  |  |   
 Get a location |  |  |   
 List supported locations |  |  |   
 List long-running operations |  |  |   
@@ -88,6 +94,7 @@ The following features require granting IAM roles to the service agent:
 Feature | Required role | Target resource | Description  
 ---|---|---|---  
 [Customer-managed encryption keys (CMEK)](https://docs.cloud.google.com/managed-lustre/docs/cmek) | `roles/cloudkms.cryptoKeyEncrypterDecrypter` | Cloud KMS key | Allows the service agent to encrypt and decrypt data at rest using your key.  
+[Cloud Storage mirror](https://docs.cloud.google.com/managed-lustre/docs/storage-mirror) | Custom role granting `storage.buckets.get`, `storage.buckets.update`, `storage.objects.get`, and `storage.objects.list` | Cloud Storage bucket | Allows the service agent to create Pub/Sub notifications and mirror objects from the bucket into the instance.  
 [Transfer data from Cloud Storage](https://docs.cloud.google.com/managed-lustre/docs/transfer-data) | `roles/storage.objectViewer` | Cloud Storage bucket | Allows the service agent to read and import objects from your bucket into the instance.  
 [Transfer data to and from Cloud Storage](https://docs.cloud.google.com/managed-lustre/docs/transfer-data) | `roles/storage.objectUser` | Cloud Storage bucket | Allows the service agent to read and write objects during import and export operations.  
   
@@ -134,6 +141,7 @@ After obtaining your service agent identity, see the following documentation to 
 
   * [Customer-managed encryption keys (CMEK)](https://docs.cloud.google.com/managed-lustre/docs/cmek#grant-permissions)
   * [Transfer data to and from Cloud Storage](https://docs.cloud.google.com/managed-lustre/docs/transfer-data#grant-permissions)
+  * [Cloud Storage mirror](https://docs.cloud.google.com/managed-lustre/docs/storage-mirror#grant-sa-permissions)
 
 
 
@@ -151,6 +159,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-03 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 

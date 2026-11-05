@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/docs/security/compliance/restrict-tls-cipher-suites/
 title: Restrict TLS cipher suites \u00a0|\u00a0 Security \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T02:29:50.275028+00:00
+fetched_at: 2026-11-04T23:28:55.997098+00:00
 ---
 
 # Restrict TLS cipher suites  |  Security  |  Google Cloud Documentation
@@ -324,11 +324,12 @@ Access Context Manager  |  accesscontextmanager.googleapis.com
   
 Agent Gateway  |  networkservices.googleapis.com  
   
-Agent Registry  |  agentregistry.googleapis.com  
-  
 Agent Identity API  |  agentidentity.googleapis.com  
   
 Agent Identity Credentials API  |  agentidentitycredentials.googleapis.com  
+  
+Agent Registry  |  agentregistry.googleapis.com  
+apphubendpoint.googleapis.com  
   
 AlloyDB for PostgreSQL  |  alloydb.googleapis.com  
   
@@ -629,6 +630,8 @@ GKE Multi-Cloud  |  gkemulticloud.googleapis.com
 GKE On-Prem API  |  gkeonprem.googleapis.com  
   
 Gemini for Google Cloud API  |  cloudaicompanion.googleapis.com  
+  
+Google Antigravity for Enterprise  |  businessaicode.googleapis.com  
   
 Google Cloud API  |  cloud.googleapis.com  
   

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/digitalguardian-edr/
 title: Collect Fortra Digital Guardian (formerly Digital Guardian EDR) logs \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T07:52:40.286651+00:00
+fetched_at: 2026-11-04T23:34:55.995267+00:00
 ---
 
 # Collect Fortra Digital Guardian (formerly Digital Guardian EDR) logs  |  Google Security Operations  |  Google Cloud Documentation

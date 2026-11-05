@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/storage/docs/create-folders/
 title: Create and manage folders \u00a0|\u00a0 Cloud Storage \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T06:00:50.770098+00:00
+fetched_at: 2026-11-05T00:19:30.438525+00:00
 ---
 
 # Create and manage folders  |  Cloud Storage  |  Google Cloud Documentation
@@ -58,7 +58,7 @@ To see which roles are associated with which permissions, refer to [IAM roles fo
 
   2. In the bucket list, click the name of the bucket you want to create the folder in. 
   3. In the **Bucket details** page, click **Create folder** to create an empty folder. 
-  4. In the **Name** field, enter a name for your folder. For naming considerations, see [Considerations](https://docs.cloud.google.com/storage/docs/folders-overview#considerations). 
+  4. In the **Name** field, enter a name for your folder. For naming guidelines, see [Folder naming guidelines](https://docs.cloud.google.com/storage/docs/folders-overview#naming). 
   5. Click **Create**. 
 
 Your newly created folder appears in the **Folder browser** pane.
@@ -81,7 +81,7 @@ At the bottom of the Google Cloud console, a [Cloud Shell](https://docs.cloud.go
 Where:
 
      * `BUCKET_NAME` is the name of your bucket. For example, `my-bucket`.
-     * `FOLDER_NAME` is the name of the folder you want to create. For example, `my-folder/`. For information about folder names, see the [folders overview documentation](https://docs.cloud.google.com/storage/docs/folders-overview#considerations).
+     * `FOLDER_NAME` is the name of the folder you want to create. For example, `my-folder/`. For information about folder names, see the [folders overview documentation](https://docs.cloud.google.com/storage/docs/folders-overview#naming).
      * `--recursive` is a flag that automatically creates all non-existent parent folders along with the folder. This setting is optional when parent folders already exist.
 
 If the request is successful, the command returns the following message:
@@ -392,7 +392,7 @@ To authenticate to Cloud Storage, set up Application Default Credentials. For mo
            "name": "FOLDER_NAME",
          }
 
-Where FOLDER_NAME is the name of the folder you want to create. For example, `my-folder/`. For information about folder names, see the [folders overview documentation](https://docs.cloud.google.com/storage/docs/folders-overview#considerations).
+Where FOLDER_NAME is the name of the folder you want to create. For example, `my-folder/`. For information about folder names, see the [folders overview documentation](https://docs.cloud.google.com/storage/docs/folders-overview#naming).
 
   3. Use [`cURL`](http://curl.haxx.se/) to call the [JSON API](https://docs.cloud.google.com/storage/docs/json_api): 
          
@@ -1608,6 +1608,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-30 UTC.
+Last updated 2026-11-03 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 

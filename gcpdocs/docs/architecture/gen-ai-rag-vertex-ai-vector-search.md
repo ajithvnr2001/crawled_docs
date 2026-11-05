@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/architecture/gen-ai-rag-vertex-ai-vector-search/
 title: RAG infrastructure for generative AI using Agent Platform and Vector Search \u00a0|\u00a0 Cloud Architecture Center \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T05:58:04.264050+00:00
+fetched_at: 2026-11-04T23:30:01.892494+00:00
 ---
 
 # RAG infrastructure for generative AI using Agent Platform and Vector Search  |  Cloud Architecture Center  |  Google Cloud Documentation

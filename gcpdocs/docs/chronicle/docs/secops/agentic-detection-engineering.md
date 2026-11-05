@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chronicle/docs/secops/agentic-detection-engineering/
 title: Use the Detection Engineering Agent \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T10:02:09.708911+00:00
+fetched_at: 2026-11-04T23:27:47.066319+00:00
 ---
 
 # Use the Detection Engineering Agent  |  Google Security Operations  |  Google Cloud Documentation
@@ -167,8 +167,23 @@ The `generate_threat_detection_opportunity` tool extracts and enriches raw threa
 
 ### Generate synthetic events
 
-The Detection Engineering Agent generates User Data Model (UDM) logs that simulate an input TDO. 
+To generate synthetic events for a TDO, your Google SecOps instance must have ingested raw logs and an active parser for at least one of the supported log types in that TDO.
 
+#### Supported log types
+
+Synthetic event generation supports the following eight log types:
+
+Category | Vendor or product | Log type  
+---|---|---  
+Endpoint detection and response (EDR) | [CrowdStrike Falcon](https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/cs-edr) | `CS_EDR`  
+Endpoint detection and response (EDR) | [Microsoft Defender for Endpoint](https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/microsoft-defender-endpoint) | `MICROSOFT_DEFENDER_ENDPOINT`  
+Endpoint detection and response (EDR) | [SentinelOne EDR](https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/sentinel-edr) | `SENTINEL_EDR`  
+Antivirus and endpoint | [Windows Defender ATP](https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/windows-defender-atp) | `WINDOWS_DEFENDER_ATP`  
+DNS | [Zscaler DNS](https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/zscaler-dns) | `ZSCALER_DNS`  
+Google Cloud | [Google Workspace Activities](https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/workspace-activity) | `WORKSPACE_ACTIVITY`  
+Identity and access management | [Okta](https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/okta) | `OKTA`  
+SaaS applications | [Microsoft 365 (Office 365)](https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/office-365) | `OFFICE_365`  
+  
 ### Evaluate coverage
 
 Checks whether existing rules in your Google SecOps instance trigger on simulated events ingested through [event simulation](https://docs.cloud.google.com/chronicle/docs/secops/event-simulation). If any rules match the simulated events, the tool returns the matching rule identifiers and coverage result metadata. If no rules match, an empty result is returned, signaling a coverage gap.
@@ -186,19 +201,11 @@ The `generate_rules` tool doesn't automatically add the draft rules to your Goog
 
 ## Troubleshooting
 
-This section outlines performance expectations and provides self-service fixes for common issues during the evaluation process.
-
-### Latency and limits
-
-Ensure your system has available parsers for the logs associated with your input TDOs; otherwise, synthetic event generation will fail.
-
-### Error remediation
-
-Use this table to quickly self-remediate deployment issues:
+Use the following table to self-remediate common issues during the evaluation process:
 
 Issue | Description | Fix  
 ---|---|---  
-**Tool failure** | The synthetic event generation tool repeatedly fails. | Check the supplied TDO and ensure your environment has a parser for at least one of the input log types. If not, your system might not have coverage for this specific TDO as evaluated by the system. Continue the flow with other TDOs output by the first tool.  
+**Tool failure** | The `generate_synthetic_events` tool repeatedly fails. | Verify that the TDO includes at least one of the supported log types and that your Google SecOps instance has ingested raw logs and an active parser for that log type. Otherwise, skip synthetic event generation for that TDO and continue with the remaining TDOs.  
 **Summarization error** | The AI abbreviates log types or takes shortcuts during execution. | Ensure the `detection-engineering-coverage-evaluation` skill is actively being used to interface with the system.  
   
 **Need more help?** [Get answers from Community members and Google SecOps professionals.](https://security.googlecloudcommunity.com/)
@@ -207,6 +214,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-28 UTC.
+Last updated 2026-11-04 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 

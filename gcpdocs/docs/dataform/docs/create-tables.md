@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/dataform/docs/create-tables/
 title: Create tables \u00a0|\u00a0 Dataform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T22:57:56.740089+00:00
+fetched_at: 2026-11-04T23:32:02.456694+00:00
 ---
 
 # Create tables  |  Dataform  |  Google Cloud Documentation
@@ -261,6 +261,19 @@ The following code sample shows a table definition with a `SELECT` statement and
     
     GROUP BY 1, 2, 3, 4, 5
     
+
+### Mitigate column schema limitations
+
+When you define a table in a `type: "table"` or `type: "incremental"` SQLX file, Dataform compiles the `SELECT` query into a `CREATE OR REPLACE TABLE ... AS SELECT` statement in BigQuery without an explicit column schema definition list. As a result, BigQuery creates columns in `NULLABLE` mode by default.
+
+Dataform table definitions don't support setting the [mode](https://docs.cloud.google.com/bigquery/docs/schemas#modes) of a column to `REQUIRED` (`NOT NULL`) in the `config` block or in the `columns` property. In BigQuery, you also can't change the mode of an existing column from `NULLABLE` to `REQUIRED` without recreating the table with an explicit schema definition. For more information about modifying column modes in BigQuery, see [Change a column's mode](https://docs.cloud.google.com/bigquery/docs/managing-table-schemas#change_a_columns_mode).
+
+To validate non-null values or create tables with `REQUIRED` columns, use one of the following approaches:
+
+Validate non-null values with assertions
+    Add a built-in `nonNull` or `rowConditions` assertion in the `config` block of the table, such as `assertions: { nonNull: ["column_name"] }` or `assertions: { rowConditions: ["column_name IS NOT NULL"] }`. You can also define a manual assertion in a separate `type: "assertion"` SQLX file. Assertions check that rows don't contain `NULL` values during workflow execution, without changing the underlying BigQuery column mode from `NULLABLE` to `REQUIRED`. For more information about assertions, see [Test data with assertions](https://docs.cloud.google.com/dataform/docs/test-data#assertions).
+Define `NOT NULL` columns with custom SQL operations or in BigQuery
+    To create a table whose BigQuery schema sets columns to `REQUIRED` mode, write a `CREATE OR REPLACE TABLE` DDL statement with explicit `NOT NULL` column constraints in a [custom SQL operation](https://docs.cloud.google.com/dataform/docs/custom-sql) file with `config { type: "operations", hasOutput: true }`, or create and manage the table schema directly in BigQuery. For more information about defining `REQUIRED` columns in DDL statements, see [Creating a table with `REQUIRED` columns](https://docs.cloud.google.com/bigquery/docs/reference/standard-sql/data-definition-language#creating_a_table_with_required_columns).
 
 ### Add manual table dependencies
 
@@ -900,6 +913,8 @@ The following code sample shows table, column, and record descriptions in the `c
         "second" AS record_column2_name) AS record_name
     
 
+**Note:** The `columns` property configures column and record descriptions and BigQuery policy tags, and doesn't configure column data types or `REQUIRED` (`NOT NULL`) schema modes. For more information about column modes, see Mitigate column schema limitations.
+
 ### Reuse column documentation with includes
 
 You can reuse descriptions of columns in Dataform across your SQL workflow with JavaScript includes. You might want to reuse column documentation if you have multiple columns with the same name and description in your SQL workflow.
@@ -1181,6 +1196,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-04 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 

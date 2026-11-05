@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/identity-platform/docs/install-admin-sdk/
 title: Installing the Admin SDK \u00a0|\u00a0 Identity Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T18:16:14.302041+00:00
+fetched_at: 2026-11-05T00:04:48.954125+00:00
 ---
 
 # Installing the Admin SDK  |  Identity Platform  |  Google Cloud Documentation
@@ -227,7 +227,7 @@ Add the following code to your server app to initialize the Admin SDK using the 
     
     FirebaseApp.initializeApp();
     
-    [FirebaseAppSnippets.java](https://github.com/firebase/firebase-admin-java/blob/2d89465e59689e6256b0965cf50197cf3ddaf823/src/test/java/com/google/firebase/snippets/FirebaseAppSnippets.java#L71-L71)
+    [FirebaseAppSnippets.java](https://github.com/firebase/firebase-admin-java/blob/c37e514e0bc899066dff4d8ef2aa895a04568ee0/src/test/java/com/google/firebase/snippets/FirebaseAppSnippets.java#L71-L71)
 
 ### Python
     
@@ -252,7 +252,7 @@ Add the following code to your server app to initialize the Admin SDK using the 
     FirebaseApp.Create();
     
     
-    [FirebaseAppSnippets.cs](https://github.com/firebase/firebase-admin-dotnet/blob/c08a6533b109f960bfec5eaa93a55126dd62fe9e/FirebaseAdmin/FirebaseAdmin.Snippets/FirebaseAppSnippets.cs#L69-L69)
+    [FirebaseAppSnippets.cs](https://github.com/firebase/firebase-admin-dotnet/blob/d46549cc22df6f6238d7f74ecb56baf3a40825c9/FirebaseAdmin/FirebaseAdmin.Snippets/FirebaseAppSnippets.cs#L69-L69)
 
 ## Initializing the SDK with a service account key file
 
@@ -280,7 +280,7 @@ You can also manually specify a service account key file:
     
     FirebaseApp.initializeApp(options);
     
-    [FirebaseAppSnippets.java](https://github.com/firebase/firebase-admin-java/blob/2d89465e59689e6256b0965cf50197cf3ddaf823/src/test/java/com/google/firebase/snippets/FirebaseAppSnippets.java#L34-L41)
+    [FirebaseAppSnippets.java](https://github.com/firebase/firebase-admin-java/blob/c37e514e0bc899066dff4d8ef2aa895a04568ee0/src/test/java/com/google/firebase/snippets/FirebaseAppSnippets.java#L34-L41)
 
 ### Python
     
@@ -314,7 +314,7 @@ You can also manually specify a service account key file:
     });
     
     
-    [FirebaseAppSnippets.cs](https://github.com/firebase/firebase-admin-dotnet/blob/c08a6533b109f960bfec5eaa93a55126dd62fe9e/FirebaseAdmin/FirebaseAdmin.Snippets/FirebaseAppSnippets.cs#L28-L31)
+    [FirebaseAppSnippets.cs](https://github.com/firebase/firebase-admin-dotnet/blob/d46549cc22df6f6238d7f74ecb56baf3a40825c9/FirebaseAdmin/FirebaseAdmin.Snippets/FirebaseAppSnippets.cs#L28-L31)
 
 ## Initializing multiple apps
 
@@ -356,7 +356,7 @@ Typically, you'll only want to initialize a single, default app. However, you ca
     FirebaseAuth otherAuth = FirebaseAuth.getInstance(otherApp);
     FirebaseDatabase otherDatabase = FirebaseDatabase.getInstance(otherApp);
     
-    [FirebaseAppSnippets.java](https://github.com/firebase/firebase-admin-java/blob/2d89465e59689e6256b0965cf50197cf3ddaf823/src/test/java/com/google/firebase/snippets/FirebaseAppSnippets.java#L105-L120)
+    [FirebaseAppSnippets.java](https://github.com/firebase/firebase-admin-java/blob/c37e514e0bc899066dff4d8ef2aa895a04568ee0/src/test/java/com/google/firebase/snippets/FirebaseAppSnippets.java#L105-L120)
 
 ### Python
     
@@ -427,7 +427,7 @@ Typically, you'll only want to initialize a single, default app. However, you ca
     var otherAuth = FirebaseAuth.GetAuth(otherApp);
     
     
-    [FirebaseAppSnippets.cs](https://github.com/firebase/firebase-admin-dotnet/blob/c08a6533b109f960bfec5eaa93a55126dd62fe9e/FirebaseAdmin/FirebaseAdmin.Snippets/FirebaseAppSnippets.cs#L103-L116)
+    [FirebaseAppSnippets.cs](https://github.com/firebase/firebase-admin-dotnet/blob/d46549cc22df6f6238d7f74ecb56baf3a40825c9/FirebaseAdmin/FirebaseAdmin.Snippets/FirebaseAppSnippets.cs#L103-L116)
 
 ## Setting scopes
 
@@ -479,6 +479,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-03 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/multi-party-compute/user-guide/
 title: Multi-party Compute User Guide \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-01T05:43:08.876799+00:00
+fetched_at: 2026-11-04T23:28:47.939478+00:00
 ---
 
 # Multi-party Compute User Guide  |  Google Cloud Documentation
@@ -1090,7 +1090,7 @@ Policy evaluation and signing initiation happen together when a `SIGNER` calls [
 
 ### A. Create Transaction (Evaluate Policy & Initiate Signing)
 
-**Important:** **Transaction Decision Signature Structure (`TransactionSigningPayload`)**: Rather than signing the raw 32-byte digest directly, the initiating signer and each co-signer sign a serialized `google.cloud.mpc.v1beta.TransactionSigningPayload` protobuf message (`key = 1` for `CreateTransaction` or `transaction = 2` for `RecordSignerDecision`, `decision = 3` where `AUTHORIZE = 1` and `DENY = 2`, `digest = 4` for `EC_SIGN_SECP256K1` or `raw_message = 5` for `EC_SIGN_ED25519`, and `metadata = 6` if set). Ensure the `digest` bytes match the hash of `payload`.
+**Important:** **Transaction Decision Signature Structure (`TransactionSigningPayload`)**: Rather than signing the raw 32-byte digest directly, the initiating signer and each co-signer sign a serialized `google.cloud.mpc.v1beta.TransactionSigningPayload` protobuf message (`key = 1` for `CreateTransaction` or `transaction = 2` for `RecordSignerDecision`, `decision = 3` where `AUTHORIZE = 1` and `DENY = 2`, and `signing_message = 4`). Ensure the `signing_message` bytes match the hash of `payload` (or `payload` itself for `EC_SIGN_ED25519`).
 
 Submit the transaction as Signer 1 (`alice@example.com`) for policy evaluation and signing:
 
@@ -1137,7 +1137,7 @@ Attempt to create a transaction of **3 ETH** (exceeds our 2 ETH policy limit):
           \"action\": \"Action::\\\"Transfer\\\"\",
           \"schema\": \"ETHEREUM_TX_V2\",
           \"payload\": \"${PAYLOAD_B64}\",
-          \"digest\": \"${DIGEST_B64}\"
+          \"signingMessage\": \"${DIGEST_B64}\"
         },
         \"authorizationInfo\": {
           \"signature\": \"${SIGNER_1_SIG_B64}\",
@@ -1173,7 +1173,7 @@ Create a transaction of **1 Gwei** (within our 2 ETH limit):
           \"action\": \"Action::\\\"Transfer\\\"\",
           \"schema\": \"ETHEREUM_TX_V2\",
           \"payload\": \"${PAYLOAD_B64}\",
-          \"digest\": \"${DIGEST_B64}\"
+          \"signingMessage\": \"${DIGEST_B64}\"
         },
         \"authorizationInfo\": {
           \"signature\": \"${SIGNER_1_SIG_B64}\",
@@ -1225,7 +1225,7 @@ Attempt to create a transaction of **3 ETH** (exceeds our 2 ETH policy limit):
           \"action\": \"Action::\\\"Transfer\\\"\",
           \"schema\": \"ETHEREUM_TX_V2\",
           \"payload\": \"${PAYLOAD_B64}\",
-          \"digest\": \"${DIGEST_B64}\"
+          \"signingMessage\": \"${DIGEST_B64}\"
         },
         \"authorizationInfo\": {
           \"signature\": \"${SIGNER_1_SIG_B64}\",
@@ -1261,7 +1261,7 @@ Create a transaction of **1 Gwei** (within our 2 ETH limit):
           \"action\": \"Action::\\\"Transfer\\\"\",
           \"schema\": \"ETHEREUM_TX_V2\",
           \"payload\": \"${PAYLOAD_B64}\",
-          \"digest\": \"${DIGEST_B64}\"
+          \"signingMessage\": \"${DIGEST_B64}\"
         },
         \"authorizationInfo\": {
           \"signature\": \"${SIGNER_1_SIG_B64}\",
@@ -1389,7 +1389,7 @@ Attempt to create a transaction where the miner fee exceeds the 10,000 satoshi p
           \"action\": \"Action::\\\"Transfer\\\"\",
           \"schema\": \"BITCOIN_TX_V2\",
           \"payload\": \"${REJECTED_PAYLOAD_B64}\",
-          \"digest\": \"${REJECTED_DIGEST_B64}\"
+          \"signingMessage\": \"${REJECTED_DIGEST_B64}\"
         },
         \"authorizationInfo\": {
           \"signature\": \"${SIGNER_1_SIG_B64}\",
@@ -1423,7 +1423,7 @@ Create a transaction with the previously constructed valid PSBT (`RECIPIENT_SATS
           \"action\": \"Action::\\\"Transfer\\\"\",
           \"schema\": \"BITCOIN_TX_V2\",
           \"payload\": \"${PAYLOAD_B64}\",
-          \"digest\": \"${DIGEST_B64}\"
+          \"signingMessage\": \"${DIGEST_B64}\"
         },
         \"authorizationInfo\": {
           \"signature\": \"${SIGNER_1_SIG_B64}\",
@@ -1544,7 +1544,7 @@ Attempt to create a transaction where the miner fee exceeds the 10,000 satoshi p
           \"action\": \"Action::\\\"Transfer\\\"\",
           \"schema\": \"BITCOIN_TX_V2\",
           \"payload\": \"${REJECTED_PAYLOAD_B64}\",
-          \"digest\": \"${REJECTED_DIGEST_B64}\"
+          \"signingMessage\": \"${REJECTED_DIGEST_B64}\"
         },
         \"authorizationInfo\": {
           \"signature\": \"${SIGNER_1_SIG_B64}\",
@@ -1578,7 +1578,7 @@ Create a transaction with the previously constructed valid PSBT (`RECIPIENT_SATS
           \"action\": \"Action::\\\"Transfer\\\"\",
           \"schema\": \"BITCOIN_TX_V2\",
           \"payload\": \"${PAYLOAD_B64}\",
-          \"digest\": \"${DIGEST_B64}\"
+          \"signingMessage\": \"${DIGEST_B64}\"
         },
         \"authorizationInfo\": {
           \"signature\": \"${SIGNER_1_SIG_B64}\",
@@ -1611,7 +1611,7 @@ Poll the transaction status by running the following command periodically:
 
 Because `CreateTransaction` in Step 6.A already recorded Signer 1's `AUTHORIZE` decision (1 of 2 required by the 2-of-3 `KeyPolicy` threshold), only one additional co-signer holding a key share needs to authorize the transaction using [`transactions.recordSignerDecision`](https://docs.cloud.google.com/multi-party-compute/reference/rest/v1beta/projects.locations.instances.keyRings.keys.transactions/recordSignerDecision) (`RecordSignerDecision`).
 
-**Note:** Steps 6.B and 6.C operate identically across Ethereum and Bitcoin because the MPC threshold keys sign the 32-byte `digest` verified against `payload`.
+**Note:** Steps 6.B and 6.C operate identically across Ethereum and Bitcoin because the MPC threshold keys sign the 32-byte `signing_message` verified against `payload`.
 
 Sign the `TransactionSigningPayload` naming `transaction` (`${TRANSACTION_NAME}`) and call `recordSignerDecision` as Signer 2 (`bob@example.com`):
 
@@ -2104,9 +2104,9 @@ Inspect transactions and signing status.
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-28 UTC.
+Last updated 2026-11-04 UTC.
 
-[[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 
+[[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 
 
   * ### Products and pricing
 
@@ -2138,7 +2138,7 @@ Last updated 2026-10-28 UTC.
 
 
 
-[ ![Google Developers](https://www.gstatic.com/devrel-devsite/prod/ve828226d17bf98b2ac333a1bbe96ed6401cc6183d543bad39ccac2722acbc6a7/clouddocs/images/lockup-google-for-developers.svg)](https://developers.google.com/)
+[ ![Google Developers](https://www.gstatic.com/devrel-devsite/prod/veed85ba0e3651062c793a40796e84fb34afbf8489308d45f92d5448e587e3f03/clouddocs/images/lockup-google-for-developers.svg)](https://developers.google.com/)
 
   * [ Android ](https://developer.android.com/)
   * [ Chrome ](https://developer.chrome.com/)

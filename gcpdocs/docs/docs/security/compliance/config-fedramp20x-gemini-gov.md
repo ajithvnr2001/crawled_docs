@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/docs/security/compliance/config-fedramp20x-gemini-gov/
 title: Configure Gemini for Government for FedRAMP 20x Class B (Low) \u00a0|\u00a0 Security \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T05:48:29.012578+00:00
+fetched_at: 2026-11-04T23:31:57.698280+00:00
 ---
 
 # Configure Gemini for Government for FedRAMP 20x Class B (Low)  |  Security  |  Google Cloud Documentation

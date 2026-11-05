@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/dell-emc-nas/
 title: Collect Dell EMC Isilon NAS logs \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T07:51:15.772272+00:00
+fetched_at: 2026-11-04T23:34:10.967475+00:00
 ---
 
 # Collect Dell EMC Isilon NAS logs  |  Google Security Operations  |  Google Cloud Documentation

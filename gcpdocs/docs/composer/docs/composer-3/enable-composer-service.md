@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/composer/docs/composer-3/enable-composer-service/
 title: Enable and disable the Managed Airflow service \u00a0|\u00a0 Managed Service for Apache Airflow \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T23:23:31.721475+00:00
+fetched_at: 2026-11-04T23:31:34.874955+00:00
 ---
 
 # Enable and disable the Managed Airflow service  |  Managed Service for Apache Airflow  |  Google Cloud Documentation
@@ -62,7 +62,7 @@ This section describes how to enable the Managed Airflow service in your Google 
 
 ### Before you enable the service
 
-  * To enable the Managed Airflow service, you must have the correct [Identity and Access Management](https://docs.cloud.google.com/iam) permissions. To learn about the IAM requirements for Service Usage, see Service Usage page for [Access Control](https://docs.cloud.google.com/service-usage/docs/access-control).
+  * To enable the Managed Airflow service, you must have the correct [Identity and Access Management](https://docs.cloud.google.com/iam) permissions, which are available in the [**Service Usage Admin**](https://docs.cloud.google.com/iam/docs/roles-permissions/serviceusage#serviceusage.serviceUsageAdmin) role.
 
   * Make sure that [billing is enabled](https://docs.cloud.google.com/billing/docs/how-to/modify-project) in your project.
 
@@ -122,7 +122,7 @@ This section describes how to disable the Managed Airflow service in your Google
 
 **Warning:** You cannot recover environments in your project after you disable the Cloud Composer API. After the API is disabled, you still have access to data stored in your environment's buckets, but the environments themselves are no longer usable.
 
-  * To disable the Managed Airflow service, you must have the correct [Identity and Access Management](https://docs.cloud.google.com/iam) permissions. To learn about the IAM requirements for Service Usage, see the Service Usage page for [Access Control](https://docs.cloud.google.com/service-usage/docs/access-control).
+  * To disable the Managed Airflow service, you must have the correct [Identity and Access Management](https://docs.cloud.google.com/iam) permissions. To learn about the IAM requirements for Service Usage, see the Service Usage page for [Access Control](https://docs.cloud.google.com/iam/docs/roles-permissions/serviceusage#serviceusage.serviceUsageAdmin).
 
   * Make sure that all Managed Airflow environments in your project are deleted. Disabling the API irreversibly deletes tenant project parts of Managed Airflow environments, and these environments become unusable.
 
@@ -212,6 +212,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-04 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 

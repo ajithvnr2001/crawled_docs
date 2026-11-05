@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/firestore/native/docs/pipeline/stages/transformation/aggregate/
 title: Aggregate (Transformation Stage) \u00a0|\u00a0 Firestore in Native mode \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T08:01:17.919989+00:00
+fetched_at: 2026-11-04T23:45:22.028322+00:00
 ---
 
 # Aggregate (Transformation Stage)  |  Firestore in Native mode  |  Google Cloud Documentation

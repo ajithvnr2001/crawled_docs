@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/application/ao-user/db-export-cluster/
 title: Export a database cluster \u00a0|\u00a0 Google Distributed Cloud air-gapped \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T07:48:22.234888+00:00
+fetched_at: 2026-11-04T23:42:21.710620+00:00
 ---
 
 # Export a database cluster  |  Google Distributed Cloud air-gapped  |  Google Cloud Documentation
@@ -31,7 +31,7 @@ The Database Service system automatically creates this service account when the 
     
     kubectl get dbclusters.postgresql <var>DATABASE_CLUSTER_NAME</var> -n <var>PROJECT_NAMESPACE</var> -o jsonpath='{.status.serviceAccounts.export}'
     
-    kubectl get dbclusters.pos<tgr>esql varDATABASE_CLUS<TER_>NAME</va>r -n varPROJECT_N<AMES>PACE/var -o jsonpath='{.status.serviceAccounts.import}'
+    kubectl get dbclusters.postgresql <var>DATABASE_CLUSTER_NAME</var> -n <var>PROJECT_NAMESPACE</var> -o jsonpath='{.status.serviceAccounts.import}'
     
 
 Once you have the namespace, the service account you're looking for is named `postgresql-export-DATABASE_CLUSTER_NAME`.

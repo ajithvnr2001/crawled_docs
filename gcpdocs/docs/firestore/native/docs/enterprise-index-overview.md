@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/firestore/native/docs/enterprise-index-overview/
 title: Enterprise edition index overview \u00a0|\u00a0 Firestore in Native mode \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T08:01:04.068150+00:00
+fetched_at: 2026-11-04T23:45:20.740966+00:00
 ---
 
 # Enterprise edition index overview  |  Firestore in Native mode  |  Google Cloud Documentation

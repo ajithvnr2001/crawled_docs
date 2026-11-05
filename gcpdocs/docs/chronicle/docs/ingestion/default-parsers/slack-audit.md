@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/slack-audit/
 title: Collect Slack Audit logs \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T07:49:21.859971+00:00
+fetched_at: 2026-11-04T23:42:17.425764+00:00
 ---
 
 # Collect Slack Audit logs  |  Google Security Operations  |  Google Cloud Documentation

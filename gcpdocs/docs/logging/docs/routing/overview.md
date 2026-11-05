@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/logging/docs/routing/overview/
 title: Route log entries \u00a0|\u00a0 Cloud Logging \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-03T09:53:32.526236+00:00
+fetched_at: 2026-11-05T00:19:59.081428+00:00
 ---
 
 # Route log entries  |  Cloud Logging  |  Google Cloud Documentation
@@ -27,7 +27,7 @@ By default, Cloud Logging routes all log entries to log buckets in the project, 
 
 At a high level, this is how Cloud Logging routes and stores log entries:
 
-![Figure illustrating how Cloud Logging routes log entries.](https://docs.cloud.google.com/static/logging/docs/images/routing-overview.png)
+![Diagram illustrating how Cloud Logging routes log entries.](https://docs.cloud.google.com/static/logging/docs/images/routing-overview-updated.svg)**Figure 1.** Diagram illustrating how Cloud Logging routes log entries.
 
 The previous figure applies to log buckets that are in a project. You can't create user-defined log buckets in folders or organizations. Also, you can't extend the retention period of any log bucket that is in a folder or organization.
 
@@ -149,7 +149,7 @@ A log entry is routed by a log sink based on these rules:
 
 The filters in a log sink are specified by using the [Logging query language](https://docs.cloud.google.com/logging/docs/view/logging-query-language).
 
-You can't use exclusion filters to reduce the consumption of your [`entries.write` API quota](https://docs.cloud.google.com/logging/quotas#api-limits) or the number of [`entries.write` API calls](https://docs.cloud.google.com/logging/quotas#log-limits). Exclusion filters are applied after log entries are received by the Logging API.
+You can't use exclusion filters to reduce the consumption of your [`entries.write` API quota](https://docs.cloud.google.com/logging/quotas#api-limits) or the number of [`entries.write` API calls](https://docs.cloud.google.com/logging/quotas#log-limits). Exclusion filters are applied after log entries are received by the Logging API or Telemetry API.
 
 ## System-created log sinks
 
@@ -389,6 +389,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-02 UTC.
+Last updated 2026-11-03 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-02 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 

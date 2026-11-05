@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/sessions-write-queries/
 title: Write queries in sessions \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T05:46:27.482441+00:00
+fetched_at: 2026-11-04T23:32:29.767891+00:00
 ---
 
 # Write queries in sessions  |  BigQuery  |  Google Cloud Documentation
@@ -21,13 +21,9 @@ Send feedback  Stay organized with collections  Save and categorize content base
 
 # Write queries in sessions
 
-This document describes how to write queries in a BigQuery session. It is intended for users who already have a general understanding of BigQuery [sessions](https://docs.cloud.google.com/bigquery/docs/sessions-intro) and know how to [run queries in a session](https://docs.cloud.google.com/bigquery/docs/sessions#run-queries).
+Writing queries in a BigQuery [session](https://docs.cloud.google.com/bigquery/docs/sessions-intro) lets you store and reuse state across multiple query entries. For example, if you create a temporary table or variable in one query entry, you can reference it in subsequent queries throughout the rest of the session.
 
-A session stores state. State created in a session is maintained and usable throughout the entire session. So, if you create a temporary table in one query entry, you can use that temporary table in other query entries for the rest of the session.
-
-A session includes support for session variables, session system variables, multi-statement queries, and multi-statement transactions.
-
-Before you complete these steps, ensure you have the necessary [permissions](https://docs.cloud.google.com/bigquery/docs/sessions-intro#roles_and_permissions) to work in a session.
+Sessions support session variables, session system variables, multi-statement queries, and multi-statement transactions. Before you complete these steps, make sure that you know how to [run queries in a session](https://docs.cloud.google.com/bigquery/docs/sessions#run-queries) and have the required [permissions](https://docs.cloud.google.com/bigquery/docs/sessions-intro#roles_and_permissions).
 
 ## Use system variables in a session
 
@@ -246,6 +242,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-27 UTC.
+Last updated 2026-11-04 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/memorystore/docs/cluster/about-maintenance/
 title: About maintenance \u00a0|\u00a0 Memorystore for Redis Cluster \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T21:39:36.408632+00:00
+fetched_at: 2026-11-04T23:31:54.099621+00:00
 ---
 
 # About maintenance  |  Memorystore for Redis Cluster  |  Google Cloud Documentation
@@ -33,6 +33,8 @@ Maintenance typically falls into the following categories:
   * **Database patches.** Maintenance can include a Redis update to improve security, performance, and reliability characteristics for clusters beyond what Redis provides.
 
 
+
+Memorystore for Redis Cluster doesn't automatically update clusters for every maintenance release. To determine the best time to schedule comprehensive maintenance, Google Cloud periodically evaluates available updates. If you need a specific maintenance version sooner, then you can use [self-service maintenance](https://docs.cloud.google.com/memorystore/docs/cluster/self-service-maintenance) after an [update is available](https://docs.cloud.google.com/memorystore/docs/cluster/about-maintenance#upcoming_maintenance_notifications). For more information about maintenance versions, including the maintenance version numbers and details, see [Memorystore for Redis Cluster maintenance changelogs](https://docs.cloud.google.com/memorystore/docs/cluster/maintenance-changelog).
 
 ## Configure your client application
 
@@ -240,6 +242,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-04 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 

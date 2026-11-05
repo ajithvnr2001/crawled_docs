@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/cyberark-epm/
 title: Collect CyberArk Endpoint Privilege Manager logs \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T07:50:05.830078+00:00
+fetched_at: 2026-11-04T23:42:38.054055+00:00
 ---
 
 # Collect CyberArk Endpoint Privilege Manager logs  |  Google Security Operations  |  Google Cloud Documentation

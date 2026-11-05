@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/compute/docs/samples/compute-stop-instance/
 title: Stop a VM instance \u00a0|\u00a0 Compute Engine \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T07:48:38.536236+00:00
+fetched_at: 2026-11-04T23:31:08.833479+00:00
 ---
 
 # Stop a VM instance  |  Compute Engine  |  Google Cloud Documentation
@@ -54,7 +54,7 @@ To authenticate to Compute Engine, set up Application Default Credentials. For m
     	// instanceName := "your_instance_name"
     
     	ctx := context.Background()
-    	instancesClient, err := compute.NewInstancesRESTClient(ctx)
+    	instancesClient, err := compute.[NewInstancesRESTClient](https://docs.cloud.google.com/go/docs/reference/cloud.google.com/go/compute/latest/apiv1.html#cloud_google_com_go_compute_apiv1_InstancesClient_NewInstancesRESTClient)(ctx)
     	if err != nil {
     		return fmt.Errorf("NewInstancesRESTClient: %w", err)
     	}
@@ -88,11 +88,11 @@ Before trying this sample, follow the Java setup instructions in the [Compute En
 To authenticate to Compute Engine, set up Application Default Credentials. For more information, see [Set up authentication for a local development environment](https://docs.cloud.google.com/docs/authentication/set-up-adc-local-dev-environment). 
     
     
-    import com.google.api.gax.longrunning.OperationFuture;
-    import com.google.cloud.compute.v1.InstancesClient;
-    import com.google.cloud.compute.v1.Operation;
-    import com.google.cloud.compute.v1.Operation.Status;
-    import com.google.cloud.compute.v1.StopInstanceRequest;
+    import com.google.api.gax.longrunning.[OperationFuture](https://docs.cloud.google.com/java/docs/reference/gax/latest/com.google.api.gax.longrunning.OperationFuture.html);
+    import com.google.cloud.compute.v1.[InstancesClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.InstancesClient.html);
+    import com.google.cloud.compute.v1.[Operation](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.Operation.html);
+    import com.google.cloud.compute.v1.[Operation](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.Operation.html).[Status](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.Status.html);
+    import com.google.cloud.compute.v1.[StopInstanceRequest](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.StopInstanceRequest.html);
     import java.io.IOException;
     import java.util.concurrent.ExecutionException;
     import java.util.concurrent.TimeUnit;
@@ -121,19 +121,19 @@ To authenticate to Compute Engine, set up Application Default Credentials. For m
            once, and can be reused for multiple requests. After completing all of your requests, call
            the `instancesClient.close()` method on the client to safely
            clean up any remaining background resources. */
-        try (InstancesClient instancesClient = InstancesClient.create()) {
+        try ([InstancesClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.InstancesClient.html) instancesClient = [InstancesClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.InstancesClient.html).create()) {
     
-          StopInstanceRequest stopInstanceRequest = StopInstanceRequest.newBuilder()
+          [StopInstanceRequest](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.StopInstanceRequest.html) stopInstanceRequest = [StopInstanceRequest](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.StopInstanceRequest.html).newBuilder()
               .setProject(project)
               .setZone(zone)
               .setInstance(instanceName)
               .build();
     
-          OperationFuture<Operation, Operation> operation = instancesClient.stopAsync(
+          OperationFuture<Operation, Operation> operation = instancesClient.[stopAsync](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.InstancesClient.html#com_google_cloud_compute_v1_InstancesClient_stopAsync_com_google_cloud_compute_v1_StopInstanceRequest_)(
               stopInstanceRequest);
-          Operation response = operation.get(3, TimeUnit.MINUTES);
+          [Operation](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.Operation.html) response = operation.get(3, TimeUnit.MINUTES);
     
-          if (response.getStatus() == Status.DONE) {
+          if (response.[getStatus](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.Operation.html#com_google_cloud_compute_v1_Operation_getStatus__)() == [Status](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.Status.html).DONE) {
             System.out.println("Instance stopped successfully ! ");
           }
         }
@@ -154,10 +154,10 @@ To authenticate to Compute Engine, set up Application Default Credentials. For m
     // const zone = 'europe-central2-b'
     // const instanceName = 'YOUR_INSTANCE_NAME'
     
-    const compute = require('@google-cloud/compute');
+    const compute = require('[@google-cloud/compute](https://docs.cloud.google.com/nodejs/docs/reference/compute/latest/overview.html)');
     
     async function stopInstance() {
-      const instancesClient = new compute.InstancesClient();
+      const instancesClient = new compute.[InstancesClient](https://docs.cloud.google.com/nodejs/docs/reference/compute/latest/overview.html)();
     
       const [response] = await instancesClient.stop({
         project: projectId,
@@ -165,7 +165,7 @@ To authenticate to Compute Engine, set up Application Default Credentials. For m
         instance: instanceName,
       });
       let operation = response.latestResponse;
-      const operationsClient = new compute.ZoneOperationsClient();
+      const operationsClient = new compute.[ZoneOperationsClient](https://docs.cloud.google.com/nodejs/docs/reference/compute/latest/overview.html)();
     
       // Wait for the operation to complete.
       while (operation.status !== 'DONE') {
@@ -238,7 +238,7 @@ To authenticate to Compute Engine, set up Application Default Credentials. For m
     from typing import Any
     
     from google.api_core.extended_operation import ExtendedOperation
-    from google.cloud import compute_v1
+    from google.cloud import [compute_v1](https://docs.cloud.google.com/python/docs/reference/compute/latest)
     
     
     def wait_for_extended_operation(
@@ -297,9 +297,9 @@ To authenticate to Compute Engine, set up Application Default Credentials. For m
             zone: name of the zone your instance belongs to.
             instance_name: name of the instance your want to stop.
         """
-        instance_client = compute_v1.InstancesClient()
+        instance_client = [compute_v1](https://docs.cloud.google.com/python/docs/reference/compute/latest).[InstancesClient](https://docs.cloud.google.com/python/docs/reference/compute/latest/google.cloud.compute_v1.services.instances.InstancesClient.html)()
     
-        operation = instance_client.stop(
+        operation = instance_client.[stop](https://docs.cloud.google.com/python/docs/reference/compute/latest/google.cloud.compute_v1.services.instances.InstancesClient.html#google_cloud_compute_v1_services_instances_InstancesClient_stop)(
             project=project_id, zone=zone, instance=instance_name
         )
         wait_for_extended_operation(operation, "instance stopping")

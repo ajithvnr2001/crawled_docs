@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/backup-disaster-recovery/management-console/configuration/discover-sap-hana-scaleout/
 title: Add an SAP HANA database host and discover and protect its databases in the appliance management console \u00a0|\u00a0 Backup and DR for the management console \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T07:13:42.691399+00:00
+fetched_at: 2026-11-04T23:31:42.804634+00:00
 ---
 
 # Add an SAP HANA database host and discover and protect its databases in the appliance management console  |  Backup and DR for the management console  |  Google Cloud Documentation
@@ -23,7 +23,7 @@ Send feedback
 
 **Caution:** Support for backing up and restoring workloads managed using the legacy appliance management console is deprecated. For more information, see [Feature deprecations](https://docs.cloud.google.com/backup-disaster-recovery/docs/deprecations) in the Backup and DR documentation. 
 
-Before you can protect an SAP HANA database, you must [onboard the Compute Engine instance](https://docs.cloud.google.com/backup-disaster-recovery/management-console/configuration/discover-compute-engine).
+To discover and protect SAP HANA scale-out databases running on Compute Engine, you must add the host instance to the appliance management console. Protecting these databases helps you maintain business continuity and reduce recovery times during an outage. Before you can protect an SAP HANA database, you must [onboard its Compute Engine host instance](https://docs.cloud.google.com/backup-disaster-recovery/management-console/configuration/discover-compute-engine).
 
 **Note:** This information is for SAP HANA scale-out instances. For scale-up and HA 1+1 configurations, see [Backup and DR for SAP HANA](https://docs.cloud.google.com/backup-disaster-recovery/management-console/concepts/backupdr-for-sap-hana).
 
@@ -165,6 +165,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-03 UTC.
+Last updated 2026-11-04 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini/enterprise/docs/connectors/custom-mcp-server/import-govern-mcp-server-agent-registry/
 title: Import MCP servers from Agent Registry \u00a0|\u00a0 Gemini Enterprise \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T05:51:16.770463+00:00
+fetched_at: 2026-11-04T23:28:55.298621+00:00
 ---
 
 # Import MCP servers from Agent Registry  |  Gemini Enterprise  |  Google Cloud Documentation
@@ -83,6 +83,8 @@ Before you begin, make sure you've completed the following prerequisites:
 
   * You've set up a gateway to route agent traffic through Agent Gateway. For more information, see [Route Gemini Enterprise traffic through Agent Gateway](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/agent-gateway-ge-deploy).
 
+  * If the MCP server that you import is a Google-managed MCP server (its URL is on a `googleapis.com` domain, such as the BigQuery, Cloud Storage, or GKE MCP server), grant the users who call its tools the [MCP Tool User (`roles/mcp.toolUser`)](https://docs.cloud.google.com/iam/docs/roles-permissions/mcp#mcp.toolUser) role on the project where the MCP server is used, in addition to the IAM roles that the underlying service requires. Without this role, tool calls fail with a `403 PERMISSION_DENIED` error.
+
 
 
 
@@ -125,10 +127,12 @@ Field | Description
 If your authorization server requires an `audience` parameter, you can add it as a parameter in this setting. For example, `&audience=https://api.your-domain.com/v1/`.   
 **Token URL** | The endpoint is used for token exchange. For example, `https://mcp.example.com/token`.  
 **Client ID** | The unique identifier of the OAuth app that you registered in your identity provider to represent Gemini Enterprise.  
-**Client Secret** | The confidential key associated with the OAuth app that you registered in your identity provider to represent Gemini Enterprise.  
+**Client Secret** | The confidential key associated with the OAuth app that you registered in your identity provider to represent Gemini Enterprise. If your identity provider uses a public client that doesn't issue a client secret, select **Enable PKCE Support** , leave this field empty, and clear the **Use HTTP Basic Authentication** checkbox.  
 **Scopes** | The permissions that define what actions Gemini Enterprise is allowed to perform on behalf of a user, or what data it's allowed to access. The scopes are used to access the MCP server. Gemini Enterprise requests these scopes during user authorization. Ensure that your OAuth app is configured to use these scopes.   
   
 When you specify scopes ensure that the provided scopes are sufficient to let the user sign in and use the tools or actions enabled by the administrator; otherwise, the agent cannot access your app.   
+**Enable PKCE Support** | Optional. Select this checkbox to enable Proof Key for Code Exchange (PKCE, RFC 7636) for additional OAuth security. Enable this setting if your MCP server's OAuth provider supports PKCE.  
+**Use HTTP Basic Authentication** | Optional. Selected by default. Sends the client ID and client secret in the HTTP `Authorization` header using Basic authentication instead of in the token request body. Clear this checkbox if your identity provider expects the client ID and client secret in the token request body, or if you use a public client without a client secret.  
   10. Click **Finish**.
 
 
@@ -153,6 +157,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-30 UTC.
+Last updated 2026-11-04 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 

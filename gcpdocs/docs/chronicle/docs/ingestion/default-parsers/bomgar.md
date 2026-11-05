@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/bomgar/
 title: Collect BeyondTrust Remote Support logs \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T07:50:11.814437+00:00
+fetched_at: 2026-11-04T23:43:46.038076+00:00
 ---
 
 # Collect BeyondTrust Remote Support logs  |  Google Security Operations  |  Google Cloud Documentation

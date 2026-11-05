@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chronicle/docs/reports/export-rawLogs-to-self-managed-gcs-bucket/
 title: Export raw logs to a self-managed Google Cloud Storage bucket \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T06:01:19.221500+00:00
+fetched_at: 2026-11-04T23:33:34.993788+00:00
 ---
 
 # Export raw logs to a self-managed Google Cloud Storage bucket  |  Google Security Operations  |  Google Cloud Documentation
@@ -121,7 +121,7 @@ These permissions form part of the following predefined IAM roles:
      * [Chronicle API Viewer](https://docs.cloud.google.com/iam/docs/roles-permissions/chronicle#chronicle.viewer): grants read-only access to view job configurations and history using the API. Without the `restrictedDataAccess` role, a user with this role can view all data (see the **\+ Add Another Role** step and add a condition). 
   2. **Apply data RBAC scopes to a user**. Do the following to restrict a user to specific data access scopes:
 
-     1. Ensure the data RBAC scopes that you want to apply are already created within the Google SecOps UI under **Settings > SIEM Settings > Data Access > Scopes**. Note the full name of each scope you intend to assign to the user. 
+     1. Ensure the data RBAC scopes that you want to apply are already created under **Settings > Access Management > Data Access > Scopes**. Note the full name of each scope you intend to assign to the user. 
      2. Create an Identity and Access Management (IAM) custom role for data export management. Because predefined roles might grant too much access, or not have the specific combination of permissions, do the following to create a custom role tailored for managing data exports within a scoped context:
 
         1. In the Google Cloud console, go to **IAM & Admin > Roles**.
@@ -250,6 +250,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-30 UTC.
+Last updated 2026-11-04 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/memorystore/docs/cluster/maintenance-changelog/
 title: Memorystore for Redis Cluster maintenance changelogs \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T21:57:35.415915+00:00
+fetched_at: 2026-11-04T23:31:54.009957+00:00
 ---
 
 # Memorystore for Redis Cluster maintenance changelogs  |  Google Cloud Documentation
@@ -24,18 +24,237 @@ Send feedback
 
 This page contains a log of maintenance changes. Memorystore for Redis Cluster releases maintenance updates for new features, security patches, bug fixes, performance improvements, and more.
 
-You can perform maintenance updates by using [self-service maintenance](https://docs.cloud.google.com/memorystore/docs/cluster/self-service-maintenance). Memorystore for Redis Cluster also performs scheduled maintenance updates once every few months. You can set windows for when maintenance updates occur. For more information, see [Find and set maintenance windows](https://docs.cloud.google.com/memorystore/docs/cluster/find-and-set-maintenance-windows).
+Memorystore for Redis Cluster also performs scheduled maintenance updates once every few months. This is known as _automatic maintenance_. If you want the updates sooner, then you can perform maintenance updates by using self-service maintenance. You can also set windows for when maintenance updates occur. For more information, see [Find and set maintenance windows](https://docs.cloud.google.com/memorystore/docs/cluster/find-and-set-maintenance-windows).
 
 To view the maintenance version, use the [`gcloud redis clusters describe`](https://docs.cloud.google.com/sdk/gcloud/reference/redis/clusters/describe) command. The maintenance version appears next to the `effectiveMaintenanceVersion` parameter. For more information, see [View cluster information](https://docs.cloud.google.com/memorystore/docs/cluster/view-instance-information). Also, to learn more about maintenance updates, see [About maintenance](https://docs.cloud.google.com/memorystore/docs/cluster/about-maintenance).
 
 To get the latest maintenance changes, add the URL for the [XML file](https://docs.cloud.google.com/static/feeds/memorystore-for-redis-cluster-maintenance-changelog.xml) of the maintenance changelog for Memorystore for Redis Cluster to your feed reader.
 
+## REDISCLUSTER_20261022_04_00
+
+**Date released** : 2026-11-02
+
+### Summary
+
+Covered clusters | Summary  
+---|---  
+All clusters in Memorystore for Redis Cluster | Refresh all versions of the Redis binary to address the CVEs listed in Security patches.   
+All clusters in Memorystore for Redis Cluster | Set the Redis host OS version to [cos-125-19216-760-8](https://docs.cloud.google.com/container-optimized-os/docs/release-notes/m125#cos-125-19216-760-8_).  
+  
+### Security patches
+
+#### 2026
+
+  * [CVE-2026-98405](https://nvd.nist.gov/vuln/detail/CVE-2026-98405)
+  * [CVE-2026-98402](https://nvd.nist.gov/vuln/detail/CVE-2026-98402)
+  * [CVE-2026-98401](https://nvd.nist.gov/vuln/detail/CVE-2026-98401)
+  * [CVE-2026-98394](https://nvd.nist.gov/vuln/detail/CVE-2026-98394)
+  * [CVE-2026-98388](https://nvd.nist.gov/vuln/detail/CVE-2026-98388)
+  * [CVE-2026-98384](https://nvd.nist.gov/vuln/detail/CVE-2026-98384)
+  * [CVE-2026-98383](https://nvd.nist.gov/vuln/detail/CVE-2026-98383)
+  * [CVE-2026-98382](https://nvd.nist.gov/vuln/detail/CVE-2026-98382)
+  * [CVE-2026-98381](https://nvd.nist.gov/vuln/detail/CVE-2026-98381)
+  * [CVE-2026-98380](https://nvd.nist.gov/vuln/detail/CVE-2026-98380)
+  * [CVE-2026-98379](https://nvd.nist.gov/vuln/detail/CVE-2026-98379)
+  * [CVE-2026-98378](https://nvd.nist.gov/vuln/detail/CVE-2026-98378)
+  * [CVE-2026-98377](https://nvd.nist.gov/vuln/detail/CVE-2026-98377)
+  * [CVE-2026-98374](https://nvd.nist.gov/vuln/detail/CVE-2026-98374)
+  * [CVE-2026-98373](https://nvd.nist.gov/vuln/detail/CVE-2026-98373)
+  * [CVE-2026-98370](https://nvd.nist.gov/vuln/detail/CVE-2026-98370)
+  * [CVE-2026-98369](https://nvd.nist.gov/vuln/detail/CVE-2026-98369)
+  * [CVE-2026-98368](https://nvd.nist.gov/vuln/detail/CVE-2026-98368)
+  * [CVE-2026-98359](https://nvd.nist.gov/vuln/detail/CVE-2026-98359)
+  * [CVE-2026-98354](https://nvd.nist.gov/vuln/detail/CVE-2026-98354)
+  * [CVE-2026-98322](https://nvd.nist.gov/vuln/detail/CVE-2026-98322)
+  * [CVE-2026-98320](https://nvd.nist.gov/vuln/detail/CVE-2026-98320)
+  * [CVE-2026-98319](https://nvd.nist.gov/vuln/detail/CVE-2026-98319)
+  * [CVE-2026-98303](https://nvd.nist.gov/vuln/detail/CVE-2026-98303)
+  * [CVE-2026-98301](https://nvd.nist.gov/vuln/detail/CVE-2026-98301)
+  * [CVE-2026-98300](https://nvd.nist.gov/vuln/detail/CVE-2026-98300)
+  * [CVE-2026-98299](https://nvd.nist.gov/vuln/detail/CVE-2026-98299)
+  * [CVE-2026-98276](https://nvd.nist.gov/vuln/detail/CVE-2026-98276)
+  * [CVE-2026-98271](https://nvd.nist.gov/vuln/detail/CVE-2026-98271)
+  * [CVE-2026-98269](https://nvd.nist.gov/vuln/detail/CVE-2026-98269)
+  * [CVE-2026-98267](https://nvd.nist.gov/vuln/detail/CVE-2026-98267)
+  * [CVE-2026-98262](https://nvd.nist.gov/vuln/detail/CVE-2026-98262)
+  * [CVE-2026-98261](https://nvd.nist.gov/vuln/detail/CVE-2026-98261)
+  * [CVE-2026-98260](https://nvd.nist.gov/vuln/detail/CVE-2026-98260)
+  * [CVE-2026-98255](https://nvd.nist.gov/vuln/detail/CVE-2026-98255)
+  * [CVE-2026-98254](https://nvd.nist.gov/vuln/detail/CVE-2026-98254)
+  * [CVE-2026-98253](https://nvd.nist.gov/vuln/detail/CVE-2026-98253)
+  * [CVE-2026-98252](https://nvd.nist.gov/vuln/detail/CVE-2026-98252)
+  * [CVE-2026-98248](https://nvd.nist.gov/vuln/detail/CVE-2026-98248)
+  * [CVE-2026-98245](https://nvd.nist.gov/vuln/detail/CVE-2026-98245)
+  * [CVE-2026-98241](https://nvd.nist.gov/vuln/detail/CVE-2026-98241)
+  * [CVE-2026-98235](https://nvd.nist.gov/vuln/detail/CVE-2026-98235)
+  * [CVE-2026-98234](https://nvd.nist.gov/vuln/detail/CVE-2026-98234)
+  * [CVE-2026-98233](https://nvd.nist.gov/vuln/detail/CVE-2026-98233)
+  * [CVE-2026-98232](https://nvd.nist.gov/vuln/detail/CVE-2026-98232)
+  * [CVE-2026-98231](https://nvd.nist.gov/vuln/detail/CVE-2026-98231)
+  * [CVE-2026-98230](https://nvd.nist.gov/vuln/detail/CVE-2026-98230)
+  * [CVE-2026-98229](https://nvd.nist.gov/vuln/detail/CVE-2026-98229)
+  * [CVE-2026-98205](https://nvd.nist.gov/vuln/detail/CVE-2026-98205)
+  * [CVE-2026-98201](https://nvd.nist.gov/vuln/detail/CVE-2026-98201)
+  * [CVE-2026-98175](https://nvd.nist.gov/vuln/detail/CVE-2026-98175)
+  * [CVE-2026-98174](https://nvd.nist.gov/vuln/detail/CVE-2026-98174)
+  * [CVE-2026-98173](https://nvd.nist.gov/vuln/detail/CVE-2026-98173)
+  * [CVE-2026-98172](https://nvd.nist.gov/vuln/detail/CVE-2026-98172)
+  * [CVE-2026-98171](https://nvd.nist.gov/vuln/detail/CVE-2026-98171)
+  * [CVE-2026-98170](https://nvd.nist.gov/vuln/detail/CVE-2026-98170)
+  * [CVE-2026-98169](https://nvd.nist.gov/vuln/detail/CVE-2026-98169)
+  * [CVE-2026-98167](https://nvd.nist.gov/vuln/detail/CVE-2026-98167)
+  * [CVE-2026-97505](https://nvd.nist.gov/vuln/detail/CVE-2026-97505)
+  * [CVE-2026-97481](https://nvd.nist.gov/vuln/detail/CVE-2026-97481)
+  * [CVE-2026-97472](https://nvd.nist.gov/vuln/detail/CVE-2026-97472)
+  * [CVE-2026-97456](https://nvd.nist.gov/vuln/detail/CVE-2026-97456)
+  * [CVE-2026-97455](https://nvd.nist.gov/vuln/detail/CVE-2026-97455)
+  * [CVE-2026-97454](https://nvd.nist.gov/vuln/detail/CVE-2026-97454)
+  * [CVE-2026-97453](https://nvd.nist.gov/vuln/detail/CVE-2026-97453)
+  * [CVE-2026-97452](https://nvd.nist.gov/vuln/detail/CVE-2026-97452)
+  * [CVE-2026-97451](https://nvd.nist.gov/vuln/detail/CVE-2026-97451)
+  * [CVE-2026-97450](https://nvd.nist.gov/vuln/detail/CVE-2026-97450)
+  * [CVE-2026-97449](https://nvd.nist.gov/vuln/detail/CVE-2026-97449)
+  * [CVE-2026-97448](https://nvd.nist.gov/vuln/detail/CVE-2026-97448)
+  * [CVE-2026-97447](https://nvd.nist.gov/vuln/detail/CVE-2026-97447)
+  * [CVE-2026-97446](https://nvd.nist.gov/vuln/detail/CVE-2026-97446)
+  * [CVE-2026-97445](https://nvd.nist.gov/vuln/detail/CVE-2026-97445)
+  * [CVE-2026-97444](https://nvd.nist.gov/vuln/detail/CVE-2026-97444)
+  * [CVE-2026-97443](https://nvd.nist.gov/vuln/detail/CVE-2026-97443)
+  * [CVE-2026-97441](https://nvd.nist.gov/vuln/detail/CVE-2026-97441)
+  * [CVE-2026-93140](https://nvd.nist.gov/vuln/detail/CVE-2026-93140)
+  * [CVE-2026-89823](https://nvd.nist.gov/vuln/detail/CVE-2026-89823)
+  * [CVE-2026-89816](https://nvd.nist.gov/vuln/detail/CVE-2026-89816)
+  * [CVE-2026-89793](https://nvd.nist.gov/vuln/detail/CVE-2026-89793)
+  * [CVE-2026-89787](https://nvd.nist.gov/vuln/detail/CVE-2026-89787)
+  * [CVE-2026-89786](https://nvd.nist.gov/vuln/detail/CVE-2026-89786)
+  * [CVE-2026-89785](https://nvd.nist.gov/vuln/detail/CVE-2026-89785)
+  * [CVE-2026-89784](https://nvd.nist.gov/vuln/detail/CVE-2026-89784)
+  * [CVE-2026-89783](https://nvd.nist.gov/vuln/detail/CVE-2026-89783)
+  * [CVE-2026-89782](https://nvd.nist.gov/vuln/detail/CVE-2026-89782)
+  * [CVE-2026-89781](https://nvd.nist.gov/vuln/detail/CVE-2026-89781)
+  * [CVE-2026-89779](https://nvd.nist.gov/vuln/detail/CVE-2026-89779)
+  * [CVE-2026-89778](https://nvd.nist.gov/vuln/detail/CVE-2026-89778)
+  * [CVE-2026-89777](https://nvd.nist.gov/vuln/detail/CVE-2026-89777)
+  * [CVE-2026-89776](https://nvd.nist.gov/vuln/detail/CVE-2026-89776)
+  * [CVE-2026-89771](https://nvd.nist.gov/vuln/detail/CVE-2026-89771)
+  * [CVE-2026-89765](https://nvd.nist.gov/vuln/detail/CVE-2026-89765)
+  * [CVE-2026-89762](https://nvd.nist.gov/vuln/detail/CVE-2026-89762)
+  * [CVE-2026-89761](https://nvd.nist.gov/vuln/detail/CVE-2026-89761)
+  * [CVE-2026-89756](https://nvd.nist.gov/vuln/detail/CVE-2026-89756)
+  * [CVE-2026-89753](https://nvd.nist.gov/vuln/detail/CVE-2026-89753)
+  * [CVE-2026-89752](https://nvd.nist.gov/vuln/detail/CVE-2026-89752)
+  * [CVE-2026-89751](https://nvd.nist.gov/vuln/detail/CVE-2026-89751)
+  * [CVE-2026-89749](https://nvd.nist.gov/vuln/detail/CVE-2026-89749)
+  * [CVE-2026-89747](https://nvd.nist.gov/vuln/detail/CVE-2026-89747)
+  * [CVE-2026-89744](https://nvd.nist.gov/vuln/detail/CVE-2026-89744)
+  * [CVE-2026-89726](https://nvd.nist.gov/vuln/detail/CVE-2026-89726)
+  * [CVE-2026-89713](https://nvd.nist.gov/vuln/detail/CVE-2026-89713)
+  * [CVE-2026-89712](https://nvd.nist.gov/vuln/detail/CVE-2026-89712)
+  * [CVE-2026-89711](https://nvd.nist.gov/vuln/detail/CVE-2026-89711)
+  * [CVE-2026-89710](https://nvd.nist.gov/vuln/detail/CVE-2026-89710)
+  * [CVE-2026-89707](https://nvd.nist.gov/vuln/detail/CVE-2026-89707)
+  * [CVE-2026-89706](https://nvd.nist.gov/vuln/detail/CVE-2026-89706)
+  * [CVE-2026-89704](https://nvd.nist.gov/vuln/detail/CVE-2026-89704)
+  * [CVE-2026-89703](https://nvd.nist.gov/vuln/detail/CVE-2026-89703)
+  * [CVE-2026-89702](https://nvd.nist.gov/vuln/detail/CVE-2026-89702)
+  * [CVE-2026-89699](https://nvd.nist.gov/vuln/detail/CVE-2026-89699)
+  * [CVE-2026-89696](https://nvd.nist.gov/vuln/detail/CVE-2026-89696)
+  * [CVE-2026-89694](https://nvd.nist.gov/vuln/detail/CVE-2026-89694)
+  * [CVE-2026-89691](https://nvd.nist.gov/vuln/detail/CVE-2026-89691)
+  * [CVE-2026-89690](https://nvd.nist.gov/vuln/detail/CVE-2026-89690)
+  * [CVE-2026-89688](https://nvd.nist.gov/vuln/detail/CVE-2026-89688)
+  * [CVE-2026-89684](https://nvd.nist.gov/vuln/detail/CVE-2026-89684)
+  * [CVE-2026-89683](https://nvd.nist.gov/vuln/detail/CVE-2026-89683)
+  * [CVE-2026-89680](https://nvd.nist.gov/vuln/detail/CVE-2026-89680)
+  * [CVE-2026-89671](https://nvd.nist.gov/vuln/detail/CVE-2026-89671)
+  * [CVE-2026-89669](https://nvd.nist.gov/vuln/detail/CVE-2026-89669)
+  * [CVE-2026-89666](https://nvd.nist.gov/vuln/detail/CVE-2026-89666)
+  * [CVE-2026-89663](https://nvd.nist.gov/vuln/detail/CVE-2026-89663)
+  * [CVE-2026-89662](https://nvd.nist.gov/vuln/detail/CVE-2026-89662)
+  * [CVE-2026-89658](https://nvd.nist.gov/vuln/detail/CVE-2026-89658)
+  * [CVE-2026-89645](https://nvd.nist.gov/vuln/detail/CVE-2026-89645)
+  * [CVE-2026-89644](https://nvd.nist.gov/vuln/detail/CVE-2026-89644)
+  * [CVE-2026-89643](https://nvd.nist.gov/vuln/detail/CVE-2026-89643)
+  * [CVE-2026-89618](https://nvd.nist.gov/vuln/detail/CVE-2026-89618)
+  * [CVE-2026-89617](https://nvd.nist.gov/vuln/detail/CVE-2026-89617)
+  * [CVE-2026-89616](https://nvd.nist.gov/vuln/detail/CVE-2026-89616)
+  * [CVE-2026-89615](https://nvd.nist.gov/vuln/detail/CVE-2026-89615)
+  * [CVE-2026-89604](https://nvd.nist.gov/vuln/detail/CVE-2026-89604)
+  * [CVE-2026-89581](https://nvd.nist.gov/vuln/detail/CVE-2026-89581)
+  * [CVE-2026-89580](https://nvd.nist.gov/vuln/detail/CVE-2026-89580)
+  * [CVE-2026-89579](https://nvd.nist.gov/vuln/detail/CVE-2026-89579)
+  * [CVE-2026-89574](https://nvd.nist.gov/vuln/detail/CVE-2026-89574)
+  * [CVE-2026-89573](https://nvd.nist.gov/vuln/detail/CVE-2026-89573)
+  * [CVE-2026-89567](https://nvd.nist.gov/vuln/detail/CVE-2026-89567)
+  * [CVE-2026-89566](https://nvd.nist.gov/vuln/detail/CVE-2026-89566)
+  * [CVE-2026-89565](https://nvd.nist.gov/vuln/detail/CVE-2026-89565)
+  * [CVE-2026-89563](https://nvd.nist.gov/vuln/detail/CVE-2026-89563)
+  * [CVE-2026-89562](https://nvd.nist.gov/vuln/detail/CVE-2026-89562)
+  * [CVE-2026-89558](https://nvd.nist.gov/vuln/detail/CVE-2026-89558)
+  * [CVE-2026-89557](https://nvd.nist.gov/vuln/detail/CVE-2026-89557)
+  * [CVE-2026-89552](https://nvd.nist.gov/vuln/detail/CVE-2026-89552)
+  * [CVE-2026-89551](https://nvd.nist.gov/vuln/detail/CVE-2026-89551)
+  * [CVE-2026-89550](https://nvd.nist.gov/vuln/detail/CVE-2026-89550)
+  * [CVE-2026-89549](https://nvd.nist.gov/vuln/detail/CVE-2026-89549)
+  * [CVE-2026-89548](https://nvd.nist.gov/vuln/detail/CVE-2026-89548)
+  * [CVE-2026-89547](https://nvd.nist.gov/vuln/detail/CVE-2026-89547)
+  * [CVE-2026-89545](https://nvd.nist.gov/vuln/detail/CVE-2026-89545)
+  * [CVE-2026-89544](https://nvd.nist.gov/vuln/detail/CVE-2026-89544)
+  * [CVE-2026-89543](https://nvd.nist.gov/vuln/detail/CVE-2026-89543)
+  * [CVE-2026-89535](https://nvd.nist.gov/vuln/detail/CVE-2026-89535)
+  * [CVE-2026-89526](https://nvd.nist.gov/vuln/detail/CVE-2026-89526)
+  * [CVE-2026-89525](https://nvd.nist.gov/vuln/detail/CVE-2026-89525)
+  * [CVE-2026-89520](https://nvd.nist.gov/vuln/detail/CVE-2026-89520)
+  * [CVE-2026-89515](https://nvd.nist.gov/vuln/detail/CVE-2026-89515)
+  * [CVE-2026-89508](https://nvd.nist.gov/vuln/detail/CVE-2026-89508)
+  * [CVE-2026-89503](https://nvd.nist.gov/vuln/detail/CVE-2026-89503)
+  * [CVE-2026-89502](https://nvd.nist.gov/vuln/detail/CVE-2026-89502)
+  * [CVE-2026-89501](https://nvd.nist.gov/vuln/detail/CVE-2026-89501)
+  * [CVE-2026-89500](https://nvd.nist.gov/vuln/detail/CVE-2026-89500)
+  * [CVE-2026-89485](https://nvd.nist.gov/vuln/detail/CVE-2026-89485)
+  * [CVE-2026-89484](https://nvd.nist.gov/vuln/detail/CVE-2026-89484)
+  * [CVE-2026-89483](https://nvd.nist.gov/vuln/detail/CVE-2026-89483)
+  * [CVE-2026-89482](https://nvd.nist.gov/vuln/detail/CVE-2026-89482)
+  * [CVE-2026-89481](https://nvd.nist.gov/vuln/detail/CVE-2026-89481)
+  * [CVE-2026-89480](https://nvd.nist.gov/vuln/detail/CVE-2026-89480)
+  * [CVE-2026-89453](https://nvd.nist.gov/vuln/detail/CVE-2026-89453)
+  * [CVE-2026-89451](https://nvd.nist.gov/vuln/detail/CVE-2026-89451)
+  * [CVE-2026-89448](https://nvd.nist.gov/vuln/detail/CVE-2026-89448)
+  * [CVE-2026-86140](https://nvd.nist.gov/vuln/detail/CVE-2026-86140)
+  * [CVE-2026-81005](https://nvd.nist.gov/vuln/detail/CVE-2026-81005)
+  * [CVE-2026-81002](https://nvd.nist.gov/vuln/detail/CVE-2026-81002)
+  * [CVE-2026-81000](https://nvd.nist.gov/vuln/detail/CVE-2026-81000)
+  * [CVE-2026-80978](https://nvd.nist.gov/vuln/detail/CVE-2026-80978)
+  * [CVE-2026-80977](https://nvd.nist.gov/vuln/detail/CVE-2026-80977)
+  * [CVE-2026-80963](https://nvd.nist.gov/vuln/detail/CVE-2026-80963)
+  * [CVE-2026-80932](https://nvd.nist.gov/vuln/detail/CVE-2026-80932)
+  * [CVE-2026-80925](https://nvd.nist.gov/vuln/detail/CVE-2026-80925)
+  * [CVE-2026-80860](https://nvd.nist.gov/vuln/detail/CVE-2026-80860)
+  * [CVE-2026-80847](https://nvd.nist.gov/vuln/detail/CVE-2026-80847)
+  * [CVE-2026-80841](https://nvd.nist.gov/vuln/detail/CVE-2026-80841)
+  * [CVE-2026-80836](https://nvd.nist.gov/vuln/detail/CVE-2026-80836)
+  * [CVE-2026-80536](https://nvd.nist.gov/vuln/detail/CVE-2026-80536)
+  * [CVE-2026-80521](https://nvd.nist.gov/vuln/detail/CVE-2026-80521)
+  * [CVE-2026-74496](https://nvd.nist.gov/vuln/detail/CVE-2026-74496)
+  * [CVE-2026-74347](https://nvd.nist.gov/vuln/detail/CVE-2026-74347)
+  * [CVE-2026-74334](https://nvd.nist.gov/vuln/detail/CVE-2026-74334)
+  * [CVE-2026-74289](https://nvd.nist.gov/vuln/detail/CVE-2026-74289)
+  * [CVE-2026-74268](https://nvd.nist.gov/vuln/detail/CVE-2026-74268)
+  * [CVE-2026-74258](https://nvd.nist.gov/vuln/detail/CVE-2026-74258)
+  * [CVE-2026-72463](https://nvd.nist.gov/vuln/detail/CVE-2026-72463)
+  * [CVE-2026-72438](https://nvd.nist.gov/vuln/detail/CVE-2026-72438)
+  * [CVE-2026-72402](https://nvd.nist.gov/vuln/detail/CVE-2026-72402)
+  * [CVE-2026-72315](https://nvd.nist.gov/vuln/detail/CVE-2026-72315)
+  * [CVE-2026-49265](https://nvd.nist.gov/vuln/detail/CVE-2026-49265)
+  * [CVE-2026-49264](https://nvd.nist.gov/vuln/detail/CVE-2026-49264)
+  * [CVE-2026-15308](https://nvd.nist.gov/vuln/detail/CVE-2026-15308)
+
+
+
 ## REDISCLUSTER_20261001_00_00
 
-**Date released** | **Release type**  
----|---  
-2026-10-21 | Self-service  
-  
+**Date released** : 2026-10-21
+
 ### Summary
 
 Covered clusters | Summary  
@@ -919,10 +1138,8 @@ All clusters in Memorystore for Redis Cluster | Set the Redis host OS version to
 
 ## REDISCLUSTER_20260602_00_00
 
-**Date released** | **Release type**  
----|---  
-2026-07-10 | Self-service  
-  
+**Date released** : 2026-07-10
+
 ### Summary
 
 Covered clusters | Summary  
@@ -1271,10 +1488,8 @@ All clusters in Memorystore for Redis Cluster | Refresh all versions of the Redi
 
 ## REDISCLUSTER_20260512_00_00
 
-**Date released** | **Release type**  
----|---  
-2026-06-08 | Self-service  
-  
+**Date released** : 2026-06-08
+
 ### Summary
 
 Covered clusters | Summary  
@@ -1558,10 +1773,8 @@ All clusters | Set the Redis host OS version to [cos-125-19216-395-4](https://do
 
 ## REDISCLUSTER_20260312_02_02
 
-**Date released** | **Release type**  
----|---  
-2026-03-24 | Self-service  
-  
+**Date released** : 2026-03-24
+
 ### Summary
 
 Covered clusters | Summary  
@@ -1692,10 +1905,8 @@ All clusters in Memorystore for Redis Cluster | Refresh all versions of the Redi
 
 ## REDISCLUSTER_20251008_00_00
 
-**Date released** | **Release type**  
----|---  
-2025-10-08 | Self-service  
-  
+**Date released** : 2025-10-08
+
 ### Summary
 
 Covered clusters | Summary  
@@ -2193,6 +2404,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-04 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 

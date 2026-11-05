@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/dataflow/quotas/
 title: Quotas and limits \u00a0|\u00a0 Cloud Dataflow \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T06:15:06.294591+00:00
+fetched_at: 2026-11-04T23:31:22.399052+00:00
 ---
 
 # Quotas and limits  |  Cloud Dataflow  |  Google Cloud Documentation
@@ -91,9 +91,41 @@ When you run your pipeline on the Dataflow service, Dataflow creates Compute Eng
 
 Compute Engine quota is specified per region. Review your project's Compute Engine [quota](https://docs.cloud.google.com/compute/quotas-limits) and [request](https://support.google.com/cloud/answer/6075746) the following adjustments if needed:
 
-  * **CPUs:** By default, Dataflow uses Auto VM Selection to select machine types for worker VMs. This feature improves job reliability by automatically selecting an available machine type from a flexible range of compatible VM families at runtime. For more information, see [Auto VM Selection for worker machine types](https://docs.cloud.google.com/dataflow/docs/guides/right-fitting#auto_vm_selection). 
+  * **CPUs:** In the following regions, the default machine types for Dataflow are `n1-standard-1` for batch, `n1-standard-2` for jobs that use Streaming Engine, `n1-standard-4` for streaming jobs that don't use Streaming Engine, and `n1-standard-2` for jobs that use Flexible Resource Scheduling (FlexRS). FlexRS uses 90% preemptible VMs and 10% regular VMs. 
+    * `asia-east1`
+    * `asia-east2`
+    * `asia-northeast1`
+    * `asia-northeast2`
+    * `asia-northeast3`
+    * `asia-south1`
+    * `asia-south2`
+    * `asia-southeast1`
+    * `asia-southeast2`
+    * `australia-southeast1`
+    * `australia-southeast2`
+    * `europe-central2`
+    * `europe-north1`
+    * `europe-west1`
+    * `europe-west2`
+    * `europe-west3`
+    * `europe-west4`
+    * `europe-west5`
+    * `europe-west6`
+    * `northamerica-northeast1`
+    * `northamerica-northeast2`
+    * `southamerica-east1`
+    * `us-central1`
+    * `us-central2`
+    * `us-east1`
+    * `us-east4`
+    * `us-west1`
+    * `us-west2`
+    * `us-west3`
+    * `us-west4`
 
-Compute Engine calculates the number of CPUs by summing each instance's total CPU count. For example, running 10 instances that each have 4 vCPUs counts as 40 CPUs. For a mapping of machine types to CPU count, see [Compute Engine machine types](https://docs.cloud.google.com/compute/docs/machine-types).
+For other regions, the default machine types are `e2-standard-2` for batch, `e2-standard-2` for jobs that use Streaming Engine, `e2-standard-4` for streaming jobs that don't use Streaming Engine, and `e2-standard-2` for jobs that use FlexRS.
+
+Compute Engine calculates the number of CPUs by summing each instance's total CPU count. For example, running 10 `n1-standard-4` instances counts as 40 CPUs. For a mapping of machine types to CPU count, see [Compute Engine machine types](https://docs.cloud.google.com/compute/docs/machine-types).
 
   * **In-Use IP Addresses:** The number of in-use IP addresses in your project must be sufficient to accommodate the desired number of instances. To use 10 Compute Engine instances, you'll need 10 in-use IP addresses.
   * **Persistent Disk:** Dataflow attaches Persistent Disk to each instance. 
@@ -173,6 +205,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-28 UTC.
+Last updated 2026-11-04 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 

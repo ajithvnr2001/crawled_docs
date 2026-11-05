@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/firestore/docs/firestore-regulatory-compliance/
 title: Regulatory support in Firestore \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T08:01:59.014282+00:00
+fetched_at: 2026-11-04T23:46:18.999762+00:00
 ---
 
 # Regulatory support in Firestore  |  Google Cloud Documentation

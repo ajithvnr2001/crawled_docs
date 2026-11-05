@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/managed-spark/docs/concepts/accessing/gateways/
 title: Managed Service for Apache Spark Component Gateway \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T21:56:21.981089+00:00
+fetched_at: 2026-11-05T00:20:19.065721+00:00
 ---
 
 # Managed Service for Apache Spark Component Gateway  |  Google Cloud Documentation
@@ -23,9 +23,9 @@ Send feedback
 
 #  Managed Service for Apache Spark Component Gateway Stay organized with collections  Save and categorize content based on your preferences. 
 
-Some of the default open source components included with Google Managed Service for Apache Spark clusters, such as [Apache Hadoop](https://hadoop.apache.org/) and [Apache Spark](http://spark.apache.org/), provide [web interfaces](https://docs.cloud.google.com/managed-spark/docs/concepts/accessing/cluster-web-interfaces#available_interfaces_). These interfaces can be used to manage and monitor cluster resources and facilities, such as the YARN resource manager, the Hadoop Distributed File System (HDFS), MapReduce, and Spark. Component Gateway provides secure access to web endpoints for Managed Service for Apache Spark default and [optional components](https://docs.cloud.google.com/managed-spark/docs/concepts/components/overview#available_optional_components).
+Component Gateway lets you securely access web endpoints for default and [optional components](https://docs.cloud.google.com/managed-spark/docs/concepts/components/overview#available_optional_components) on Google Managed Service for Apache Spark clusters. You can use these [web interfaces](https://docs.cloud.google.com/managed-spark/docs/concepts/accessing/cluster-web-interfaces#available_interfaces_) to manage and monitor cluster resources and facilities, such as the YARN resource manager, the Hadoop Distributed File System (HDFS), MapReduce, [Apache Hadoop](https://hadoop.apache.org/), and [Apache Spark](http://spark.apache.org/).
 
-Clusters created with [supported Managed Service for Apache Spark image versions](https://docs.cloud.google.com/managed-spark/docs/concepts/versioning/dataproc-version-clusters#supported_dataproc_versions) can enable access to component web interfaces without relying on [SSH tunnels](https://docs.cloud.google.com/managed-spark/docs/concepts/accessing/cluster-web-interfaces#create_an_ssh_tunnel) or [modifying firewall rules](https://docs.cloud.google.com/managed-spark/docs/concepts/configuring-clusters/network) to allow inbound traffic.
+On clusters created with [supported Managed Service for Apache Spark image versions](https://docs.cloud.google.com/managed-spark/docs/concepts/versioning/dataproc-version-clusters#supported_dataproc_versions), Component Gateway provides access to component web interfaces without requiring [SSH tunnels](https://docs.cloud.google.com/managed-spark/docs/concepts/accessing/cluster-web-interfaces#create_an_ssh_tunnel) or [modifying firewall rules](https://docs.cloud.google.com/managed-spark/docs/concepts/configuring-clusters/network) to allow inbound traffic.
 
 ## Considerations
 
@@ -322,6 +322,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-03 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/omni/kubernetes/15.17.0/docs/ai/adaptive-filtering/
 title: Activate adaptive filtering in AlloyDB Omni \u00a0|\u00a0 AlloyDB Omni using the container orchestrator: 15.17.0 \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T05:38:25.732951+00:00
+fetched_at: 2026-11-04T23:27:46.846435+00:00
 ---
 
 # Activate adaptive filtering in AlloyDB Omni  |  AlloyDB Omni using the container orchestrator: 15.17.0  |  Google Cloud Documentation

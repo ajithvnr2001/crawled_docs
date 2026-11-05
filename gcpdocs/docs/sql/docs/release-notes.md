@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sql/docs/release-notes/
 title: Cloud SQL release notes \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T07:55:53.433505+00:00
+fetched_at: 2026-11-04T23:28:55.073762+00:00
 ---
 
 # Cloud SQL release notes  |  Google Cloud Documentation
@@ -24,6 +24,69 @@ Send feedback
 You can see the latest product updates for all of Google Cloud on the [ Google Cloud](https://docs.cloud.google.com/release-notes) page, browse and filter all release notes in the [Google Cloud console](https://console.cloud.google.com/release-notes), or programmatically access release notes in [BigQuery](https://console.cloud.google.com/bigquery?p=bigquery-public-data&d=google_cloud_release_notes&t=release_notes&page=table). 
 
 To get the latest product updates delivered to you, add the URL of this page to your [feed reader](https://wikipedia.org/wiki/Comparison_of_feed_aggregators), or add the [feed URL](https://docs.cloud.google.com/feeds/cloud-sql-release-notes.xml) directly. 
+
+## November 04, 2026
+
+**Cloud SQL for SQL Server**
+
+Feature
+
+Cloud SQL for SQL Server now supports [read pool autoscaling](https://docs.cloud.google.com/sql/docs/sqlserver/read-pool-autoscaling) ([GA](https://cloud.google.com/products#product-launch-stages)), which helps you more easily manage your application's workload needs.
+
+This feature automates read pool scale in and scale out operations based on one or both of the following conditions:
+
+  * Allowed CPU usage of the read pool
+  * Allowed number of client connections to the read pool
+
+
+
+## November 03, 2026
+
+**Cloud SQL for PostgreSQL**
+
+Change
+
+The rollout of the following Cloud SQL for PostgreSQL minor version and extension upgrades is complete:
+
+**Minor versions**
+
+  * 14.23 is upgraded to 14.24.
+
+  * 15.18 is upgraded to 15.19.
+
+  * 16.14 is upgraded to 16.15.
+
+  * 17.10 is upgraded to 17.11.
+
+  * 18.4 is upgraded to 18.6. This version includes a backported fix for [PostgreSQL bug #19616](https://git.postgresql.org/gitweb/?p=postgresql.git;h=caa463e3f8d2b9c1441e6a59c50f90b8598439f3) that prevents logical decoding from emitting `STREAM_ABORT` messages for unstreamed transactions when an aborted transaction with a subtransaction is truncated during memory eviction.
+
+
+
+
+**Extensions**
+
+  * `hll` (`postgresql-hll`) is upgraded from 2.18 to 2.20.
+
+  * `pg_qualstats` is upgraded from 2.1.2 to 2.1.4.
+
+  * `pglogical` is upgraded from 2.4.5 (for PostgreSQL 17 and earlier) and 2.4.6 (for PostgreSQL 18) to 2.4.8.
+
+  * `pgTAP` is upgraded from 1.3.0 to 1.3.4.
+
+  * `pgtt` is upgraded from 4.0 to 4.6.0 for PostgreSQL 12 and later.
+
+  * `PL/Proxy` is upgraded from 2.11.0 to 2.12.0.
+
+  * `PostGIS` is upgraded from 3.5.2 (for PostgreSQL 13 through 17) and 3.6.0 (for PostgreSQL 18) to 3.6.4 for PostgreSQL 13 and later.
+
+  * `roaringbitmap` (`pg_roaringbitmap`) is upgraded from 0.5 to 1.2 for PostgreSQL 12 and later.
+
+
+
+
+The new maintenance version is [`[PostgreSQL version].R20261013.02_04`](https://docs.cloud.google.com/sql/docs/postgres/maintenance-changelog). If you use a maintenance window, then the updates to the minor and extension versions happen according to the timeframe that you set in the window. Otherwise, the updates occur within the next few weeks.
+
+For more information about checking your maintenance version, see [Perform self-service maintenance](https://docs.cloud.google.com/sql/docs/postgres/self-service-maintenance). To find your maintenance window or to manage maintenance updates, see [Find and set maintenance windows](https://docs.cloud.google.com/sql/docs/postgres/set-maintenance-window). For more information about supported extensions, see [Configure PostgreSQL extensions](https://docs.cloud.google.com/sql/docs/postgres/extensions).
 
 ## October 30, 2026
 
@@ -176,50 +239,6 @@ In response to [GCP-2026-071](https://docs.cloud.google.com/support/bulletins#gc
 ## October 16, 2026
 
 **Cloud SQL for PostgreSQL**
-
-Change
-
-The rollout of the following Cloud SQL for PostgreSQL minor version and extension upgrades is complete:
-
-**Minor versions**
-
-  * 14.23 is upgraded to 14.24.
-
-  * 15.18 is upgraded to 15.19.
-
-  * 16.14 is upgraded to 16.15.
-
-  * 17.10 is upgraded to 17.11.
-
-  * 18.4 is upgraded to 18.6. This version includes a backported fix for [PostgreSQL bug #19616](https://git.postgresql.org/gitweb/?p=postgresql.git;h=caa463e3f8d2b9c1441e6a59c50f90b8598439f3) that prevents logical decoding from emitting `STREAM_ABORT` messages for unstreamed transactions when an aborted transaction with a subtransaction is truncated during memory eviction.
-
-
-
-
-**Extensions**
-
-  * `hll` (`postgresql-hll`) is upgraded from 2.18 to 2.20.
-
-  * `pg_qualstats` is upgraded from 2.1.2 to 2.1.4.
-
-  * `pglogical` is upgraded from 2.4.5 (for PostgreSQL 17 and earlier) and 2.4.6 (for PostgreSQL 18) to 2.4.8.
-
-  * `pgTAP` is upgraded from 1.3.0 to 1.3.4.
-
-  * `pgtt` is upgraded from 4.0 to 4.6.0 for PostgreSQL 12 and later.
-
-  * `PL/Proxy` is upgraded from 2.11.0 to 2.12.0.
-
-  * `PostGIS` is upgraded from 3.5.2 (for PostgreSQL 13 through 17) and 3.6.0 (for PostgreSQL 18) to 3.6.4 for PostgreSQL 13 and later.
-
-  * `roaringbitmap` (`pg_roaringbitmap`) is upgraded from 0.5 to 1.2 for PostgreSQL 12 and later.
-
-
-
-
-The new maintenance version is [`[PostgreSQL version].R20261013.02_04`](https://docs.cloud.google.com/sql/docs/postgres/maintenance-changelog). If you use a maintenance window, then the updates to the minor and extension versions happen according to the timeframe that you set in the window. Otherwise, the updates occur within the next few weeks.
-
-For more information about checking your maintenance version, see [Perform self-service maintenance](https://docs.cloud.google.com/sql/docs/postgres/self-service-maintenance). To find your maintenance window or to manage maintenance updates, see [Find and set maintenance windows](https://docs.cloud.google.com/sql/docs/postgres/set-maintenance-window). For more information about supported extensions, see [Configure PostgreSQL extensions](https://docs.cloud.google.com/sql/docs/postgres/extensions).
 
 Change
 

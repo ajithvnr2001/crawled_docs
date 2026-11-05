@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/omni/docs/resources/
 title: Resources \u00a0|\u00a0 AlloyDB Omni \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T18:55:11.633368+00:00
+fetched_at: 2026-11-04T23:31:24.394356+00:00
 ---
 
 # Resources  |  AlloyDB Omni  |  Google Cloud Documentation
@@ -27,6 +27,7 @@ To estimate costs, manage license subscriptions, and track software releases and
   * ### [Release notes Stay informed about AlloyDB Omni releases, features, updates, and known issues.  ](https://docs.cloud.google.com/alloydb/omni/docs/release-notes)
   * ### [Manage subscriptions Purchase, update, and manage license subscriptions for your AlloyDB Omni instances in the Google Cloud console.  ](https://console.cloud.google.com/alloydb/omni/subscriptions)
   * ### [Database version policies Read how AlloyDB Omni supports PostgreSQL database version releases.  ](https://docs.cloud.google.com/alloydb/omni/docs/db-version-policies)
+  * ### [Security bulletin View Common Vulnerabilities and Exposures (CVE) information and security updates for AlloyDB Omni.  ](https://docs.cloud.google.com/alloydb/omni/docs/security-bulletins)
 
 
 

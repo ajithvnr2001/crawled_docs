@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/logging/docs/agent/ops-agent/troubleshoot-run-ingest/
 title: Troubleshoot Ops Agent data ingestion \u00a0|\u00a0 Cloud Logging \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T22:57:19.761661+00:00
+fetched_at: 2026-11-04T23:21:01.550669+00:00
 ---
 
 # Troubleshoot Ops Agent data ingestion  |  Cloud Logging  |  Google Cloud Documentation
@@ -309,6 +309,7 @@ Common causes of connectivity issues include the following:
 
   * Firewall rules that interfere with incoming traffic. For information about firewall rules, see [Use VPC firewall rules](https://docs.cloud.google.com/vpc/docs/using-firewalls).
   * Problems in the HTTP proxy configuration.
+  * TLS inspection on an outbound proxy.
   * DNS configuration.
 
 
@@ -336,6 +337,42 @@ A problem with the HTTP proxy configuration might generate errors. For example, 
 To fix this issue, confirm that the HTTP proxy has been configured correctly. For instructions on how to set up the HTTP proxy, see [Configure an HTTP proxy](https://docs.cloud.google.com/logging/docs/agent/ops-agent/installation#configure-proxy).
 
 For HTTP proxy format specifications, see the [Fluent Bit official manual](https://docs.fluentbit.io/manual/administration/http-proxy).
+
+#### TLS inspection on an outbound proxy
+
+If an outbound proxy or firewall performs TLS inspection on traffic to `*.googleapis.com` using a custom CA certificate that your VM doesn't trust, then TLS handshakes fail. Subagent logs record certificate errors such as `x509: certificate signed by unknown authority`, and telemetry stops reaching Cloud Logging and Cloud Monitoring.
+
+During sustained export failures, queued retry batches can accumulate in memory in the `otelopscol` process and increase memory usage on the VM. Beginning in Ops Agent version 2.66.0, the `otelopscol` process handles the default logging pipeline, and beginning in version 2.72.0, it handles all supported logging pipelines.
+
+To check whether an outbound proxy is intercepting TLS connections from a Linux VM, run the `openssl s_client` command to inspect the certificate chain for `logging.googleapis.com`:
+    
+    
+    echo | openssl s_client -connect logging.googleapis.com:443 \
+      -servername logging.googleapis.com
+    
+
+If your VM routes traffic through an explicit HTTP proxy, then include the `-proxy` flag:
+    
+    
+    echo | openssl s_client -proxy PROXY_HOST:PROXY_PORT \
+      -connect logging.googleapis.com:443 -servername logging.googleapis.com
+    
+
+Replace the following:
+
+  * `PROXY_HOST`: the hostname or IP address of your HTTP proxy.
+  * `PROXY_PORT`: the port number of your HTTP proxy.
+
+
+
+If the value of the certificate `issuer` field is your proxy or firewall CA instead of Google Trust Services, with a non-zero `Verify return code` value, then TLS inspection is active.
+
+To resolve this issue, do one of the following, and then [restart the Ops Agent](https://docs.cloud.google.com/logging/docs/agent/ops-agent/installation#restart):
+
+  * Configure your outbound proxy or firewall to bypass TLS inspection for `*.googleapis.com`, including `logging.googleapis.com`, `monitoring.googleapis.com`, `telemetry.googleapis.com`, and `oauth2.googleapis.com`.
+  * Install your proxy's root CA certificate in the VM's system trust store.
+
+
 
 ## I want to collect only metrics or logs, not both
 
@@ -771,6 +808,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-04 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 

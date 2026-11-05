@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/api-gateway/docs/securing-backend-services/
 title: Securing backend services \u00a0|\u00a0 API Gateway \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T23:09:50.846609+00:00
+fetched_at: 2026-11-05T00:19:16.129761+00:00
 ---
 
 # Securing backend services  |  API Gateway  |  Google Cloud Documentation
@@ -84,14 +84,23 @@ To enable API Gateway to call your App Engine backend service, follow the steps 
 
 ### Other Google Cloud APIs
 
-API Gateway does not support proxying to other Google Cloud APIs. This means API configs that reference one or more backends with `*.googleapis.com` (such as `bigquery.googleapis.com`) will result in calls failing with a `401` response code.
+Google Cloud APIs, such as `aiplatform.googleapis.com` or `bigquery.googleapis.com`, require an [access token](https://docs.cloud.google.com/docs/authentication/token-types#access-tokens) and reject the [ID token](https://docs.cloud.google.com/docs/authentication/token-types#identity-tokens) that API Gateway sends to other backends. Whether a gateway can call these APIs depends on its [streaming mode](https://docs.cloud.google.com/api-gateway/docs/streaming-configure#gateway-properties):
 
-API Gateway authenticates to backends with an [ID token](https://docs.cloud.google.com/docs/authentication/token-types#identity-tokens) while other Google Cloud APIs require an [access token](https://docs.cloud.google.com/docs/authentication/token-types#access-tokens). There are no built-in workarounds at this time.
+  * **Streaming gateways** : A gateway with an `effectiveStreamingMode` of `EFFECTIVE_STREAMING_MODE_ENABLED` authenticates with an access token for the gateway's service account to each backend whose host ends in `.googleapis.com` or `.vertexai.goog`. The access token has only the `https://www.googleapis.com/auth/cloud-platform` scope, so the gateway can't call API methods that require a different OAuth scope.
+
+Other backends on the same gateway still receive an ID token. A backend with `disable_auth` (OpenAPI 2.0) or `disableAuth` (OpenAPI 3.x) set receives no token. The `jwt_audience` (OpenAPI 2.0) and `jwtAudience` (OpenAPI 3.x) fields have no effect on these backends.
+
+Grant the gateway's service account the IAM role that the target API requires, such as the Agent Platform User (`roles/aiplatform.user`) role for Gemini Enterprise Agent Platform (`aiplatform.googleapis.com`). A streaming gateway that doesn't yet send access tokens starts doing so when API Gateway next rolls out a gateway update. To switch it immediately, [update it to a new API config](https://docs.cloud.google.com/api-gateway/docs/deploying-api#update_a_gateway).
+
+  * **Other gateways** : A gateway with an `effectiveStreamingMode` of `EFFECTIVE_STREAMING_MODE_DISABLED` doesn't support calling Google Cloud APIs, and calls can fail with a `401` response code.
+
+
+
 
 Send feedback 
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-03 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 

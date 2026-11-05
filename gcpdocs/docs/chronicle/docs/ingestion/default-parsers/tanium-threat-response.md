@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/tanium-threat-response/
 title: Collect Tanium Threat Response logs \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T07:53:19.728011+00:00
+fetched_at: 2026-11-04T23:34:49.748745+00:00
 ---
 
 # Collect Tanium Threat Response logs  |  Google Security Operations  |  Google Cloud Documentation

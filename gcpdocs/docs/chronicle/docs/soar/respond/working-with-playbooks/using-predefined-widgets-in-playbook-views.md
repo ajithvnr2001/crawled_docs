@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chronicle/docs/soar/respond/working-with-playbooks/using-predefined-widgets-in-playbook-views/
 title: Configure predefined widgets in playbook views \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T10:05:28.968413+00:00
+fetched_at: 2026-11-04T23:33:50.106603+00:00
 ---
 
 # Configure predefined widgets in playbook views  |  Google Security Operations  |  Google Cloud Documentation
@@ -37,7 +37,7 @@ You can use these widgets in existing playbooks or when creating new ones.
   2. Click **Read More**. Some of the VirusTotal actions come with predefined widgets.  
 
   3. Download and configure the VirusTotal integration as required.
-  4. Go to **Response > Playbooks** and explore how to use an action with a predefined widget.
+  4. Go to **Automation > Playbooks** and explore how to use an action with a predefined widget.
   5. Create a new playbook, open the **Step Selector** and drag the **VirusTotal Enrich hash** action. 
   6. Click **Add View** and enter a name (contains VirusTotal widgets) and choose a role. In this example, leave the checkbox selected to include predefined widgets. You can choose to opt out or remove them later after creating the view.  
 
@@ -65,6 +65,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-28 UTC.
+Last updated 2026-11-04 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 

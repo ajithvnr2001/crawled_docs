@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/storage/docs/traces/
 title: Use client-side traces \u00a0|\u00a0 Cloud Storage \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T06:00:36.008953+00:00
+fetched_at: 2026-11-05T00:17:40.660371+00:00
 ---
 
 # Use client-side traces  |  Cloud Storage  |  Google Cloud Documentation
@@ -28,6 +28,8 @@ This page describes how to enable client-side traces with [OpenTelemetry](https:
   * [The Python client library](https://docs.cloud.google.com/storage/docs/reference/libraries#client-libraries-install-python)
 
   * [The Java client library](https://docs.cloud.google.com/storage/docs/reference/libraries#client-libraries-install-java)
+
+  * [The Rust client library](https://docs.cloud.google.com/rust/docs/quickstart-storage)
 
 
 
@@ -304,6 +306,72 @@ Use the following instructions to configure tracing and begin collecting trace d
 
 
 
+### Rust
+
+  1. Add the [Cloud Storage Rust client library](https://docs.cloud.google.com/rust/docs/quickstart-storage) and the `tracing` and OpenTelemetry crates to your `Cargo.toml` manifest file:
+         
+         cargo add google-cloud-storage opentelemetry opentelemetry_sdk opentelemetry-otlp tracing tracing-opentelemetry tracing-subscriber
+
+  2. Configure an OpenTelemetry `SdkTracerProvider` struct with an OTLP exporter (for example, sending spans to an [OpenTelemetry Collector](https://docs.cloud.google.com/stackdriver/docs/instrumentation/choose-approach) or the Telemetry API), register a `tracing` subscriber, and build a [`Storage`](https://docs.rs/google-cloud-storage/latest/google_cloud_storage/client/struct.Storage.html) client with the [`.with_tracing()`](https://docs.rs/google-cloud-storage/latest/google_cloud_storage/builder/storage/struct.ClientBuilder.html#method.with_tracing) method enabled:
+         
+         use google_cloud_storage::client::Storage;
+         use opentelemetry::trace::TracerProvider as _;
+         use tracing_subscriber::Registry;
+         use tracing_subscriber::layer::SubscriberExt;
+         
+         pub async fn sample(bucket_id: &str) -> anyhow::Result<()> {
+             const NAME: &str = "enable-otel-tracing.txt";
+         
+             // Create an OTLP exporter to send spans to an OpenTelemetry Collector
+             // running on localhost (the default).
+             let exporter = opentelemetry_otlp::SpanExporter::builder()
+                 .with_tonic()
+                 .build()?;
+             let provider = opentelemetry_sdk::trace::SdkTracerProvider::builder()
+                 .with_batch_exporter(exporter)
+                 .build();
+             let tracer = provider.tracer("storage-quickstart");
+         
+             // Create a tracing layer and register the subscriber for the current scope.
+             // In an application's `main`, use `tracing::subscriber::set_global_default` instead.
+             let telemetry = tracing_opentelemetry::layer().with_tracer(tracer);
+             let subscriber = Registry::default().with(telemetry);
+             let _guard = tracing::subscriber::set_default(subscriber);
+         
+             // Build a Storage client with client-side tracing enabled.
+             let client = Storage::builder().with_tracing().build().await?;
+         
+             let object = client
+                 .write_object(
+                     format!("projects/_/buckets/{bucket_id}"),
+                     NAME,
+                     "Hello, world!",
+                 )
+                 .set_if_generation_match(0)
+                 .send_unbuffered()
+                 .await?;
+             println!("Uploaded object {} to bucket {bucket_id}.", object.name);
+         
+             let mut reader = client
+                 .read_object(format!("projects/_/buckets/{bucket_id}"), NAME)
+                 .send()
+                 .await?;
+             let mut contents = Vec::new();
+             while let Some(chunk) = reader.next().await.transpose()? {
+                 contents.extend_from_slice(&chunk);
+             }
+             println!(
+                 "Downloaded {} bytes from object {NAME} in bucket {bucket_id}.",
+                 contents.len()
+             );
+         
+             Ok(())
+         }
+
+**Note:** You can also enable client telemetry by setting the `GOOGLE_CLOUD_RUST_LOGGING=true` environment variable. For more information, see [Enable telemetry signals in Rust client libraries](https://docs.cloud.google.com/rust/docs/observability).
+
+
+
 ## View your traces
 
 Use the Cloud Trace explorer to view your trace data in the Google Cloud console:
@@ -348,6 +416,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-30 UTC.
+Last updated 2026-11-04 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 

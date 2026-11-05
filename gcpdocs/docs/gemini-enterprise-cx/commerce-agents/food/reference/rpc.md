@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rpc/
 title: Food Ordering AI Agent API \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-30T06:00:10.406756+00:00
+fetched_at: 2026-11-05T00:17:41.699983+00:00
 ---
 
 # Food Ordering AI Agent API  |  Google Cloud Documentation
@@ -86,7 +86,7 @@ Methods
 ``[DeleteInventory](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rpc/google.cloud.foodorderingaiagent.v1#google.cloud.foodorderingaiagent.v1.MenuService.DeleteInventory)`` |  Deletes the specified inventory.  
 ``[DeleteMenu](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rpc/google.cloud.foodorderingaiagent.v1#google.cloud.foodorderingaiagent.v1.MenuService.DeleteMenu)`` |  Deletes the specified menu.  
 ``[DeleteRemediation](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rpc/google.cloud.foodorderingaiagent.v1#google.cloud.foodorderingaiagent.v1.MenuService.DeleteRemediation)`` |  Deletes a remediation.  
-``[DeleteSessionRecord](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rpc/google.cloud.foodorderingaiagent.v1#google.cloud.foodorderingaiagent.v1.MenuService.DeleteSessionRecord)`` |  Deletes an SessionRecord.  
+``[DeleteSessionRecord](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rpc/google.cloud.foodorderingaiagent.v1#google.cloud.foodorderingaiagent.v1.MenuService.DeleteSessionRecord)`` |  Deletes a SessionRecord.  
 ``[DeleteStore](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rpc/google.cloud.foodorderingaiagent.v1#google.cloud.foodorderingaiagent.v1.MenuService.DeleteStore)`` |  Deletes the specified store.  
 ``[DeleteStoreRevision](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rpc/google.cloud.foodorderingaiagent.v1#google.cloud.foodorderingaiagent.v1.MenuService.DeleteStoreRevision)`` |  Deletes the specified StoreRevision.  
 ``[DeleteWebhookSubscription](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rpc/google.cloud.foodorderingaiagent.v1#google.cloud.foodorderingaiagent.v1.MenuService.DeleteWebhookSubscription)`` |  Deletes the specified webhook subscription.  
@@ -213,7 +213,7 @@ Methods
 ``[DeleteInventory](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rpc/google.cloud.foodorderingaiagent.v1beta#google.cloud.foodorderingaiagent.v1beta.MenuService.DeleteInventory)`` |  Deletes the specified inventory.  
 ``[DeleteMenu](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rpc/google.cloud.foodorderingaiagent.v1beta#google.cloud.foodorderingaiagent.v1beta.MenuService.DeleteMenu)`` |  Deletes the specified menu.  
 ``[DeleteRemediation](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rpc/google.cloud.foodorderingaiagent.v1beta#google.cloud.foodorderingaiagent.v1beta.MenuService.DeleteRemediation)`` |  Deletes a remediation.  
-``[DeleteSessionRecord](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rpc/google.cloud.foodorderingaiagent.v1beta#google.cloud.foodorderingaiagent.v1beta.MenuService.DeleteSessionRecord)`` |  Deletes an SessionRecord.  
+``[DeleteSessionRecord](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rpc/google.cloud.foodorderingaiagent.v1beta#google.cloud.foodorderingaiagent.v1beta.MenuService.DeleteSessionRecord)`` |  Deletes a SessionRecord.  
 ``[DeleteStore](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rpc/google.cloud.foodorderingaiagent.v1beta#google.cloud.foodorderingaiagent.v1beta.MenuService.DeleteStore)`` |  Deletes the specified store.  
 ``[DeleteStoreRevision](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rpc/google.cloud.foodorderingaiagent.v1beta#google.cloud.foodorderingaiagent.v1beta.MenuService.DeleteStoreRevision)`` |  Deletes the specified StoreRevision.  
 ``[DeleteWebhookSubscription](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rpc/google.cloud.foodorderingaiagent.v1beta#google.cloud.foodorderingaiagent.v1beta.MenuService.DeleteWebhookSubscription)`` |  Deletes the specified webhook subscription.  
@@ -296,6 +296,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-29 UTC.
+Last updated 2026-11-04 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/kubernetes-engine/docs/how-to/internal-load-balancing-across-vpc-net/
 title: Create an internal load balancer across VPC networks \u00a0|\u00a0 GKE networking \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T22:56:22.244649+00:00
+fetched_at: 2026-11-04T23:30:59.475819+00:00
 ---
 
 # Create an internal load balancer across VPC networks  |  GKE networking  |  Google Cloud Documentation
@@ -61,6 +61,24 @@ As a service producer, you can use service attachments to make your services ava
 
 
 
+### IP version compatibility for Services and NAT subnets
+
+When you create a ServiceAttachment resource, the GKE Private Service Connect controller creates a single Compute Engine service attachment associated with a producer forwarding rule. The producer forwarding rule uses either an IPv4 address or an IPv6 address. The following table shows how the controller selects the forwarding rule based on the IP family configuration (`spec.ipFamilies` field) of the referenced Kubernetes Service and the stack types of all subnets specified in the `spec.natSubnets` field:
+
+Kubernetes Service (forwarding rules) | Stack types of subnets in the `natSubnets` field | Compute Engine service attachment forwarding rule | Notes  
+---|---|---|---  
+**Single-stack IPv4** | `IPV4_ONLY`, `IPV4_IPV6`, or both | IPv4 address | Supported.  
+Contains any `IPV6_ONLY` subnet | None (error) | Configuration error. All NAT subnets must support IPv4 addresses.  
+**Dual-stack (IPv4 and IPv6 addresses)** | `IPV4_ONLY`, `IPV4_IPV6`, or both (no `IPV6_ONLY` subnet) | IPv4 address | Supported. Uses the IPv4 forwarding rule. An IPv4 service attachment can accept connections from both IPv4 and IPv6 consumer endpoints.  
+`IPV6_ONLY`, or a combination of `IPV6_ONLY` and `IPV4_IPV6` (no `IPV4_ONLY` subnet) | IPv6 address | Supported. Uses the IPv6 forwarding rule because an `IPV6_ONLY` subnet is present. An IPv6 service attachment accepts connections only from IPv6 consumer endpoints.  
+Contains both `IPV4_ONLY` and `IPV6_ONLY` subnets | None (error) | Configuration error. All NAT subnets must share a common IP version.  
+**Single-stack IPv6** | `IPV6_ONLY`, `IPV4_IPV6`, or both | IPv6 address | Supported.  
+Contains any `IPV4_ONLY` subnet | None (error) | Configuration error. All NAT subnets must support IPv6 addresses.  
+  
+For more information about how consumer endpoints connect to IPv4 and IPv6 service attachments, see [IP version translation](https://docs.cloud.google.com/vpc/docs/about-vpc-hosted-services#ip-version-translation).
+
+**Note:** You can only append subnets to the `spec.natSubnets` field and cannot remove existing subnets. For example, consider a ServiceAttachment for a dual-stack Service that's initially created with `IPV4_ONLY` subnets or `IPV4_IPV6` subnets that use the IPv4 forwarding rule. If you want to switch to the IPv6 forwarding rule, you must delete and recreate the ServiceAttachment resource with `IPV6_ONLY` subnets.
+
 ### Create a `ServiceAttachment`
 
   1. Create a subnet.
@@ -81,7 +99,10 @@ Replace the following:
      * `PROJECT_ID`: the ID of your Google Cloud project.
      * `NETWORK_NAME`: the name of the VPC network for the subnet.
      * `REGION`: the region for the new subnet. You must use the same region as the service that you create.
-     * `SUBNET_RANGE`: the IP address range to use for the subnet.
+     * `SUBNET_RANGE`: the IPv4 address range to use for the subnet.
+
+To create a dual-stack or IPv6-only Private Service Connect subnet, include the `--stack-type=IPV4_IPV6` and `--ipv6-access-type=INTERNAL` flags or the `--stack-type=IPV6_ONLY` and `--ipv6-access-type=INTERNAL` flags (omit the `--range` flag when using the `IPV6_ONLY` stack type). Ensure the subnet stack type is compatible with your Service's IP family as described in IP version compatibility for Services and NAT subnets.
+
   2. Deploy a workload.
 
 The following manifest describes a Deployment that runs a sample web application container image. Save the manifest as `my-deployment.yaml`:
@@ -421,6 +442,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-04 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 

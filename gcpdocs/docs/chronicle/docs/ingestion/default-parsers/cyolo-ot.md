@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/cyolo-ot/
 title: Collect Cyolo OT logs \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T07:52:44.866238+00:00
+fetched_at: 2026-11-04T23:42:47.979216+00:00
 ---
 
 # Collect Cyolo OT logs  |  Google Security Operations  |  Google Cloud Documentation

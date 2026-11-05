@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/reservations-tasks/
 title: Manage workload reservations \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-30T05:51:46.240203+00:00
+fetched_at: 2026-11-04T23:31:23.319712+00:00
 ---
 
 # Manage workload reservations  |  BigQuery  |  Google Cloud Documentation
@@ -23,7 +23,7 @@ Send feedback  Stay organized with collections  Save and categorize content base
 
 The BigQuery Reservation API lets you purchase dedicated slots (called [_commitments_](https://docs.cloud.google.com/bigquery/docs/reservations-workload-management#slot_commitments)), create pools of slots (called [_reservations_](https://docs.cloud.google.com/bigquery/docs/reservations-intro#reservations)), and assign projects, folders, and organizations to those reservations.
 
-Reservations allow you to assign a dedicated number of slots to a workload. For example, you might not want a production workload to compete with test workloads for slots. You could create a reservation named `prod` and assign your production workloads to this reservation. For more information, see [Understand reservations](https://docs.cloud.google.com/bigquery/docs/reservations-workload-management).
+This document explains how to create, update, and delete dedicated and predictable reservations. It also covers how to enable reservation-based fairness and BigQuery fluid scaling, configure and prioritize idle slots with reservation groups, and control access to reservations. For conceptual details, see [Understand reservations](https://docs.cloud.google.com/bigquery/docs/reservations-workload-management).
 
 ## Create reservations
 
@@ -1416,6 +1416,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-29 UTC.
+Last updated 2026-11-04 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 

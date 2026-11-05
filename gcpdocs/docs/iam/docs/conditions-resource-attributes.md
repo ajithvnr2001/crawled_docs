@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/iam/docs/conditions-resource-attributes/
 title: Resource attributes for IAM Conditions \u00a0|\u00a0 Identity and Access Management (IAM) \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T07:56:26.892107+00:00
+fetched_at: 2026-11-04T23:44:21.485040+00:00
 ---
 
 # Resource attributes for IAM Conditions  |  Identity and Access Management (IAM)  |  Google Cloud Documentation

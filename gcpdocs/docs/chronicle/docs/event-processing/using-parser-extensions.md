@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chronicle/docs/event-processing/using-parser-extensions/
 title: Develop parser extensions \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T10:04:50.830720+00:00
+fetched_at: 2026-11-04T23:33:42.073719+00:00
 ---
 
 # Develop parser extensions  |  Google Security Operations  |  Google Cloud Documentation
@@ -247,7 +247,7 @@ Search for your log type in these lists:
 
 To ensure there is a custom parser for a log type:
 
-  1. In the navigation bar, select **SIEM Settings** > **Parsers**.
+  1. In the navigation bar, select **Settings > Data Management > Parsers**. If you are on a SIEM-only platform, go to **Settings > Parsers**.
   2. Search the **Parsers** table for the log type you want to extend.
 
      * If that log type _doesn't have a default or custom parser yet_ , click **Add New Parser** (or **Create parser**), and follow the steps in, [Create a custom parser based on mapping instructions](https://docs.cloud.google.com/chronicle/docs/event-processing/configure-custom-parsers#create_custom_parser).
@@ -259,7 +259,7 @@ To ensure there is a custom parser for a log type:
 
 To check if a parser is active for a log type, perform the following steps:
 
-  1. In the navigation bar, select **SIEM Settings** > **Parsers**.
+  1. In the navigation bar, select **Settings > Data Management > Parsers**. If you are on a SIEM-only platform, go to **Settings > Parsers**.
   2. Search the **Parsers** table for the log type you want to extend.
 
 If the parser for the log type is _not active_ , activate it:
@@ -340,7 +340,7 @@ It is recommended to understand the existing data mapping used by the default (o
 
 To view the data mapping between raw log source fields and destination UDM fields used in the existing default (or custom) parser:
 
-  1. In the navigation bar, select **SIEM Settings** > **Parsers**.
+  1. In the navigation bar, select **Settings > Data Management > Parsers**. If you are on a SIEM-only platform, go to **Settings > Parsers**.
   2. Search the **Parsers** table for the log type you want to extend.
   3. Navigate to that row, then click the more_vert **Menu** > **View**.
 
@@ -421,7 +421,7 @@ You can open the **Parser Extension** page in the following ways, from the **Set
 
 To open the **Parser Extension** page from the **Settings menu** :
 
-  1. In the navigation bar, select **SIEM Settings** > **Parsers**.
+  1. In the navigation bar, select **Settings > Data Management > Parsers**. If you are on a SIEM-only platform, go to **Settings > Parsers**.
 
 The **Parsers** table displays a list of [default parsers](https://docs.cloud.google.com/chronicle/docs/ingestion/parser-list/supported-default-parsers) by log type.
 
@@ -796,15 +796,13 @@ To create a parser extension using the code snippet approach, do the following:
 
 The following example illustrates a code snippet.
 
-This is an example the raw log:
+This is an example of the raw log (with additional `jsonPayload` fields omitted for brevity):
     
     
       {
           "insertId": "00000000",
           "jsonPayload": {
-              ...section omitted for brevity...
-              "packets_sent": "4",
-              ...section omitted for brevity...
+              "packets_sent": "4"
           },
           "timestamp": "2022-05-03T01:45:00.150614953Z"
       }
@@ -878,7 +876,7 @@ You can view, edit, delete, and control access to existing parser extensions.
 
 ### View an existing parser extension
 
-  1. In the navigation bar, select **SIEM Settings** > **Parsers**.
+  1. In the navigation bar, select **Settings > Data Management > Parsers**. If you are on a SIEM-only platform, go to **Settings > Parsers**.
   2. In the Parsers list, find the parser (log type) that you want to view. Parsers with a parser extension are indicated by the `EXTENSION` (or `EXTN`) text next to their name.
   3. Go to that row, then click the more_vert **Menu** > **Extend Parser** > **View Extension**.
 
@@ -934,7 +932,7 @@ Parser | View | View parser extensions.
 
 You can use parser extensions to remove an existing UDM field mapping.
 
-  1. Click **SIEM Settings** > **Parsers**.
+  1. Click **Settings > Data Management > Parsers**. If you are on a SIEM-only platform, go to **Settings > Parsers**.
   2. Use either of the following methods to view the **Parser Extension** page: 
      * For an existing extension, click more_vert **Menu** > **Extend Parser** > **View Extension**.
      * For new parser extensions, click more_vert **Menu** > **Extend Parser** > **Create Extension**.
@@ -966,7 +964,7 @@ If an event timestamp appears ahead of the ingestion time (`ingested_timestamp <
         }
         
 
-  * **Configure a forwarder collector timezone override** : Go to **SIEM Settings** > **Forwarders** , edit the target collector, enable **Override timezone** , and select the source IANA timezone from the **Timezone** menu (for example, `Europe/Paris`) to adjust timestamps automatically during ingestion.
+  * **Configure a forwarder collector timezone override** : Go to **Settings > Data Management > Forwarders**, edit the target collector, enable **Override timezone** , and select the source IANA timezone from the **Timezone** menu (for example, `Europe/Paris`) to adjust timestamps automatically during ingestion.
 
 
 
@@ -977,6 +975,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-28 UTC.
+Last updated 2026-11-04 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 

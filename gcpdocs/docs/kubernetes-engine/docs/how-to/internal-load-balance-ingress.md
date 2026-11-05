@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/kubernetes-engine/docs/how-to/internal-load-balance-ingress/
 title: Configuring Ingress for internal Application Load Balancers \u00a0|\u00a0 GKE networking \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T22:55:53.321725+00:00
+fetched_at: 2026-11-04T23:30:58.191891+00:00
 ---
 
 # Configuring Ingress for internal Application Load Balancers  |  GKE networking  |  Google Cloud Documentation
@@ -47,6 +47,7 @@ Ingress for internal Application Load Balancers has the following requirements:
   * Your cluster must have the `HttpLoadBalancing` add-on enabled. This add-on is enabled by default. You must not disable it.
   * You must use [Network Endpoint Groups (NEGs)](https://docs.cloud.google.com/load-balancing/docs/negs) as backends for your Service.
   * You can't enable global access for your internal Application Load Balancer. If you need global access, we recommend that you [deploy an internal Gateway](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/deploying-gateways#internal-gateway).
+  * [Single-stack IPv6 clusters](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/single-stack-ipv6) don't support GKE Ingress. To configure internal Application Load Balancers on single-stack IPv6 clusters, [deploy an internal Gateway](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/deploying-gateways#internal-gateway) instead.
 
 
 
@@ -663,6 +664,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-04 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/managed-spark/docs/concepts/components/solr/
 title: Managed Service for Apache Spark optional Solr component \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T21:58:03.873412+00:00
+fetched_at: 2026-11-05T00:20:21.930451+00:00
 ---
 
 # Managed Service for Apache Spark optional Solr component  |  Google Cloud Documentation
@@ -23,11 +23,9 @@ Send feedback
 
 #  Managed Service for Apache Spark optional Solr component Stay organized with collections  Save and categorize content based on your preferences. 
 
-You can install additional components like Solr when you create a Managed Service for Apache Spark cluster using the [Optional components](https://docs.cloud.google.com/managed-spark/docs/concepts/components/overview#available_optional_components) feature. This page describes the Solr component.
+The [Apache Solr](https://lucene.apache.org/solr/) [optional component](https://docs.cloud.google.com/managed-spark/docs/concepts/components/overview#available_optional_components) lets you deploy an open source enterprise search platform on Managed Service for Apache Spark clusters. This integration provides distributed search and indexing capabilities, hosting the Solr server and Web UI on port `8983` on the cluster master nodes.
 
-The [Apache Solr](https://lucene.apache.org/solr/) component is an open source enterprise search platform. The Solr server and Web UI are available on port `8983` on the cluster's master node(s).
-
-**Persisting Solr files:** By default, Solr writes and reads the index and transaction log files in [HDFS](https://hadoop.apache.org/docs/r1.2.1/hdfs_design.html). To persist Solr files, use a Cloud Storage path as the Solr home directory by setting the `dataproc:solr.gcs.path` [cluster property](https://docs.cloud.google.com/managed-spark/docs/concepts/configuring-clusters/cluster-properties#dataproc-properties) when you install the component.
+By default, Solr stores index and transaction log files in [HDFS](https://hadoop.apache.org/docs/r1.2.1/hdfs_design.html). To persist your Solr files beyond the cluster lifecycle, you can specify a Cloud Storage path as the Solr home directory by setting the `dataproc:solr.gcs.path` [cluster property](https://docs.cloud.google.com/managed-spark/docs/concepts/configuring-clusters/cluster-properties#dataproc-properties) when you [install the component](https://docs.cloud.google.com/managed-spark/docs/concepts/components/solr#install_the_component).
 
 ## Install the component
 
@@ -75,6 +73,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-03 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 

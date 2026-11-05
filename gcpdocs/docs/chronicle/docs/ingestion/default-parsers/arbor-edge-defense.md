@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/arbor-edge-defense/
 title: Collect NETSCOUT Arbor Edge Defense logs \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T07:50:20.519842+00:00
+fetched_at: 2026-11-04T23:42:15.918509+00:00
 ---
 
 # Collect NETSCOUT Arbor Edge Defense logs  |  Google Security Operations  |  Google Cloud Documentation

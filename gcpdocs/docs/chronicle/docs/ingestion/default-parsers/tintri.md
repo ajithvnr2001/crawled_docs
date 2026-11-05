@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/tintri/
 title: Collect Tintri logs \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T07:53:17.176646+00:00
+fetched_at: 2026-11-04T23:42:33.281039+00:00
 ---
 
 # Collect Tintri logs  |  Google Security Operations  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/migration-center/docs/ramp-user-guide/
 title: RaMP user guide \u00a0|\u00a0 Migration Center \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T21:42:24.823822+00:00
+fetched_at: 2026-11-04T23:31:04.316743+00:00
 ---
 
 # RaMP user guide  |  Migration Center  |  Google Cloud Documentation
@@ -39,7 +39,7 @@ To start your RaMP assessment, [try our free migration assessment](https://cloud
 
 After a RaMP assessment is complete, a RaMP Agreement must be signed and the identified RaMP workloads (which can be one or more workloads) must be tagged to qualify for any RaMP incentives.
 
-### RaMP Workload
+### RaMP workloads
 
 A RaMP workload is a collection of resources within a Google Cloud project that function together to achieve a business outcome and drive spend on Google Cloud. The following are Workload Types that can earn incentives:
 
@@ -61,7 +61,6 @@ Workload type | Workload type details
 **Modern infrastructure**  
 (Google Kubernetes Engine (GKE), Cloud Run, Arm or Axion) | A Modern Infrastructure Workload refers to the deployment of workloads on Google Cloud utilizing GKE, Cloud Run, or Arm or Axion.  
 **Oracle** | An Oracle Workload refers to the deployment of Oracle Databases alongside custom or first-party Oracle applications (E-Business Suite, PeopleSoft, JD Edwards, Siebel, Hyperion, ATG Web Commerce, or Fusion Middleware) on Compute Engine within Google Cloud.  
-**SAP** | An SAP Workload refers to the migration of SAP HANA, S/4HANA, BW/4HANA, Business One, or other qualified SAP apps and databases to Google Cloud.  
 **VMware** | A VMware workload refers to the deployment of VMware VMs on Google Cloud sourced from on-premises, colocation, or other VMware clouds. These VMs must reside on Google Cloud VMware Engine or, if replatformed, Compute Engine or GKE, provided at least 75% of the source scope are VMware VMs.  
 **Windows** | A Windows Workload refers to any application or server environment running on a Windows Server OS that is deployed and hosted on Google Cloud (on Compute Engine or VMware Engine).  
 **General** | A General Workload refers to any other RaMP-eligible application, dataset, service, or IT process that can be effectively migrated or refactored to run on Google Cloud (some service exclusions may apply).  
@@ -199,6 +198,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-04 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 

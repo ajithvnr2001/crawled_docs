@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/grounding/grounding-with-google-search/
 title: Grounding with Google Search \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-03T09:52:26.748088+00:00
+fetched_at: 2026-11-04T23:15:32.909915+00:00
 ---
 
 # Grounding with Google Search  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation
@@ -86,7 +86,7 @@ Search results can be customized for a specific geographic location of the end u
 
 ### Console
 
-To use Grounding with Google Search with the Agent Studio on Gemini Enterprise Agent Platform, follow these steps:
+To use Grounding with Google Search with Agent Studio, follow these steps:
 
   1. In the Google Cloud console, go to the **Agent Studio** page. 
 
@@ -642,13 +642,13 @@ The following example shows the `groundingMetadata` structure in a response:
 
 ## Understand your response
 
-If your model prompt successfully uses Grounding with Google Search from the Agent Studio or from the API, then the responses include metadata with source links (web URLs). However, there are several reasons this metadata might not be provided, and the prompt response won't be grounded. These reasons include low source relevance or incomplete information within the model's response.
+If your model prompt successfully uses Grounding with Google Search from Agent Studio or from the API, then the responses include metadata with source links (web URLs). However, there are several reasons this metadata might not be provided, and the prompt response won't be grounded. These reasons include low source relevance or incomplete information within the model's response.
 
 ## Inline citations
 
 Inline citations use the structured `grounding_metadata` returned by the API to link specific segments of generated text to verifiable sources.
 
-This capability supports all grounding methods including Search, Google Maps, and Agent Search, providing the precise source details required to display accurate, interactive citations within your application.
+This capability supports all grounding methods including Search, Google Maps, and Agent Search on Gemini Enterprise Agent Platform, providing the precise source details required to display accurate, interactive citations within your application.
     
     
     response = client.models.generate_content(
@@ -835,6 +835,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-02 UTC.
+Last updated 2026-11-04 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-02 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 

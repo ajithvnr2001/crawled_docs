@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chronicle/docs/event-processing/auto-extraction/
 title: Auto-extraction overview \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T09:58:11.848769+00:00
+fetched_at: 2026-11-04T23:34:07.890681+00:00
 ---
 
 # Auto-extraction overview  |  Google Security Operations  |  Google Cloud Documentation
@@ -57,13 +57,13 @@ The benefit of auto extraction is reduced reliance on parsers, ensuring that dat
 
 Extractors let you extract fields from all supported log sources, and are designed to optimize log management. By using extractors, you can reduce event size, enhance parsing efficiency, and gain better control over data extraction. This is especially useful for managing new log types or minimizing processing time. 
 
-You can create extractors using the **SIEM Settings** menu or by performing a raw log search.
+You can create extractors using the **Settings** menu or by performing a raw log search.
 
 ### Create extractors
 
   1. Go to the **Extract Additional Fields** pane using either of the following methods:
 
-     * Click **SIEM Settings** > **Parsers** , and do the following: 
+     * Click **Settings > Data Management > Parsers**. If you are on a SIEM-only platform, go to **Settings > Parsers**. Do the following: 
        1. In the **PARSERS** table that appears, identify a parser (log source) and click more_vert **Menu** > **Extend Parser** > **Extract Additional Fields**.
      * Use [Raw Log Scan](https://docs.cloud.google.com/chronicle/docs/investigation/search-raw-logs) and do the following: 
        1. Select the required log sources (parsers) from the **Log Sources** menu.
@@ -105,6 +105,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-28 UTC.
+Last updated 2026-11-04 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 

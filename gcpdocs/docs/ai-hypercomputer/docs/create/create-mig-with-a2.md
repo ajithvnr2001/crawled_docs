@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/ai-hypercomputer/docs/create/create-mig-with-a2/
 title: Create an AI-optimized A2 MIG \u00a0|\u00a0 AI Hypercomputer \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T18:55:12.752957+00:00
+fetched_at: 2026-11-04T23:31:43.468870+00:00
 ---
 
 # Create an AI-optimized A2 MIG  |  AI Hypercomputer  |  Google Cloud Documentation
@@ -80,6 +80,9 @@ Before creating a MIG, if you haven't already done so, complete the following st
 
   1. **Choose a consumption option** : your choice of consumption option determines how you get and use GPU resources. To learn more, see [Choose a consumption option](https://docs.cloud.google.com/ai-hypercomputer/docs/consumption-models).
   2. **Obtain capacity** : the process to obtain capacity differs for each consumption option. To learn about the process to obtain capacity for your chosen consumption option, see [Capacity overview](https://docs.cloud.google.com/ai-hypercomputer/docs/obtain-capacity). 
+  3. **Verify Google APIs Service Agent permissions** : when you create VMs in a MIG, Compute Engine uses the [Google APIs Service Agent](https://docs.cloud.google.com/compute/docs/access/service-accounts#google_apis_service_agent) (`PROJECT_NUMBER@cloudservices.gserviceaccount.com`) in your project. If your instance template uses resources from another project, then verify that this service agent has the required permissions: 
+     * **Shared VPC** : if the VMs use a Shared VPC network, then grant the Google APIs Service Agent in the service project the [Compute Network User](https://docs.cloud.google.com/compute/docs/access/iam#compute.networkUser) (`roles/compute.networkUser`) role on the host project or shared subnets. For more information, see [Google APIs service account as a Service Project Admin](https://docs.cloud.google.com/vpc/docs/provisioning-shared-vpc#migs-service-accounts).
+     * **Images from other projects** : if the VMs use an image from another project, then grant the Google APIs Service Agent in your project the [Compute Image User](https://docs.cloud.google.com/compute/docs/access/iam#image_user_role) (`roles/compute.imageUser`) role on the image or the project that owns the image. For more information, see [Grant a managed instance group access to images](https://docs.cloud.google.com/compute/docs/images/managing-access-custom-images#grant_a_managed_instance_group_access_to_images).
 
 
 
@@ -1551,6 +1554,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-04 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 

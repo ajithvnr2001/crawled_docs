@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/iam/docs/auth-with-2lo/
 title: Authenticate using 2-legged OAuth with auth manager \u00a0|\u00a0 Identity and Access Management (IAM) \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T08:00:36.225372+00:00
+fetched_at: 2026-11-04T23:44:55.836489+00:00
 ---
 
 # Authenticate using 2-legged OAuth with auth manager  |  Identity and Access Management (IAM)  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/compute/docs/disks/benchmarking-local-ssd-performance/
 title: Benchmarking Local SSD performance \u00a0|\u00a0 Compute Engine \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T23:06:29.260739+00:00
+fetched_at: 2026-11-05T00:19:29.625693+00:00
 ---
 
 # Benchmarking Local SSD performance  |  Compute Engine  |  Google Cloud Documentation
@@ -27,21 +27,21 @@ Local SSD performance limits provided in the [Choose a storage option section](h
 
 These instructions assume that you are using a Linux operating system with the `apt` package manager installed.
 
-**Note:** These instructions create Local SSDs connected to an instance using the NVMe interface. If you use the SCSI interface instead, replace the disk location `/dev/disk/by-id/google-local-nvme-ssd-0` with `/dev/disk/by-id/google-local-ssd-0` in the following commands.
+**Note:** These instructions create Local SSD disks connected to an instance using the NVMe interface. If you use the SCSI interface instead, replace the disk location `/dev/disk/by-id/google-local-nvme-ssd-0` with `/dev/disk/by-id/google-local-ssd-0` in the following commands.
 
-## Create a VM with one Local SSD device
+## Create a VM with one Local SSD disk
 
-The number of Local SSD that a VM can have is based on the machine type you use to create the VM. For details, see [Choosing a valid number of Local SSDs](https://docs.cloud.google.com/compute/docs/disks/local-ssd#choose_number_local_ssds).
+The number of Local SSD disks that a VM can have is based on the machine type you use to create the VM. For details, see [Choosing a valid number of Local SSD disks](https://docs.cloud.google.com/compute/docs/disks/local-ssd#choose_number_local_ssds).
 
   1. Create a Local SSD instance that has four or eight vCPUs for each device, depending on your workload.
 
-For example, the following command creates a C3 VM with 4 vCPUs and 1 Local SSD.
+For example, the following command creates a C3 VM with four vCPUs and one Local SSD disk.
          
          gcloud compute instances create c3-ssd-test-instance \
              --machine-type "c3-standard-4-lssd"
          
 
-For second generation and earlier machine types, you specify the number of Local SSD to attach to the VM using the `--local-ssd` flag. The following command creates an N2 VM with 8 vCPUs and 1 Local SSD that uses the NVMe disk interface:
+For second generation and earlier machine types, you specify the number of Local SSD disks to attach to the VM using the `--local-ssd` flag. The following command creates an N2 VM with eight vCPUs and one Local SSD disk that uses the NVMe disk interface:
          
          gcloud compute instances create ssd-test-instance \
              --machine-type "n2-standard-8" \
@@ -79,9 +79,9 @@ For second generation and earlier machine types, you specify the number of Local
 
 
 
-## Create a VM with the maximum number of Local SSD
+## Create a VM with the maximum number of Local SSD disks
 
-  1. If you want to attach [24 or more Local SSD devices](https://docs.cloud.google.com/compute/docs/disks/local-ssd#capacity) to an instance, use a machine type with 32 or more vCPUs.
+  1. If you want to attach [24 or more Local SSD disks](https://docs.cloud.google.com/compute/docs/disks/local-ssd#capacity) to an instance, use a machine type with 32 or more vCPUs.
 
 The following commands create a VM with the maximum allowed number of Local SSD disks using the NVMe interface:
 
@@ -140,7 +140,7 @@ Newer machine series offer `-lssd` machine types that come with a predetermined 
          sudo zypper install -y mdadm
          
 
-  3. Use the `find` command to identify all of the Local SSDs that you want to mount together:
+  3. Use the `find` command to identify all of the Local SSD disks that you want to mount together:
          
          find /dev/ | grep google-local-nvme-ssd
          
@@ -173,7 +173,7 @@ The output looks similar to the following:
          /dev/disk/by-id/google-local-nvme-ssd-0
          
 
-`find` does not guarantee an ordering. It's alright if the devices are listed in a different order as long as number of output lines match the expected number of SSD partitions.
+`find` does not guarantee an ordering. It's alright if the disks are listed in a different order as long as number of output lines match the expected number of SSD partitions.
 
 If using SCSI devices, use the following `find` command: 
          
@@ -230,7 +230,7 @@ The output should look similar to the following for each device in the array.
           ...
          
 
-  5. Run the following script on your VM. The script replicates the settings used to achieve the SSD performance figures provided in the [performance section](https://docs.cloud.google.com/compute/docs/disks/local-ssd#performance). that the `--bs` parameter defines the block size, which affects the results for different types of read and write operations.
+  5. Run the following script on your VM. The script replicates the settings used to achieve the SSD performance figures provided in the [performance section](https://docs.cloud.google.com/compute/docs/disks/local-ssd#performance). Note that the `--bs` parameter defines the block size, which affects the results for different types of read and write operations.
          
          # install tools
          sudo apt-get -y update
@@ -258,9 +258,9 @@ The output should look similar to the following for each device in the array.
 
 
 
-## Benchmarking Storage Optimized VMs
+## Benchmarking storage-optimized VMs
 
-  1. Storage Optimized VMs (like the Z3 Family) should be benchmarked directly against the device partitions. You can get the partition names with `lsblk`
+  1. Storage-optimized VMs (like the Z3 Family) should be benchmarked directly against the device partitions. You can get the partition names with `lsblk`:
          
          lsblk -o name,size -lpn | grep 2.9T | awk '{print $1}'
          
@@ -332,6 +332,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-03 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 

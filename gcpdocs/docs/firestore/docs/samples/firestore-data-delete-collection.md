@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/firestore/docs/samples/firestore-data-delete-collection/
 title: Delete a Firestore collection \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T08:02:07.085401+00:00
+fetched_at: 2026-11-04T23:46:11.577898+00:00
 ---
 
 # Delete a Firestore collection  |  Google Cloud Documentation

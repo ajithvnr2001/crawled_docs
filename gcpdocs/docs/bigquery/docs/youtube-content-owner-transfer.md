@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/youtube-content-owner-transfer/
 title: Load YouTube Content Owner data into BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T05:44:30.919417+00:00
+fetched_at: 2026-11-04T23:28:28.687973+00:00
 ---
 
 # Load YouTube Content Owner data into BigQuery  |  Google Cloud Documentation
@@ -45,7 +45,9 @@ By default, data transfers are scheduled at the time when the data transfer is c
 Refresh window | The YouTube Content Owner connector retrieves YouTube Content Owner data from up to 1 day at the time the data transfer is run.   
   
 For more information, see Refresh windows.  
-Backfill data availability | [Run a data backfill](https://docs.cloud.google.com/bigquery/docs/working-with-transfers#manually_trigger_a_transfer) to retrieve data outside of your scheduled data transfer. You can retrieve data as far back as the data retention policy on your data source allows.  
+Backfill data availability | During each scheduled transfer run, the YouTube Content Owner connector automatically backfills newly generated or updated reports from up to 60 days prior to the transfer run date. For more information, see Automatic backfills.  
+  
+You can also [run a data backfill](https://docs.cloud.google.com/bigquery/docs/working-with-transfers#manually_trigger_a_transfer) to manually retrieve data outside of your scheduled data transfer. You can retrieve data as far back as the data retention policy on your data source allows.  
   
 YouTube reports containing historical data are available for 30 days from the time that they are generated. (Reports that contain non-historical data are available for 60 days.) For more information, see [Historical data](https://developers.google.com/youtube/reporting/v1/reports/#historical-data).  
   
@@ -55,11 +57,15 @@ When you transfer data from YouTube Content Owner reports into BigQuery, the dat
 
 ### Refresh windows
 
-A _refresh window_ is the number of days that a data transfer retrieves data when a data transfer occurs. For example, if the refresh window is three days and a daily transfer occurs, the BigQuery Data Transfer Service retrieves all data from your source table from the past three days. In this example, when a daily transfer occurs, the BigQuery Data Transfer Service creates a new BigQuery destination table partition with a copy of your source table data from the current day, then automatically triggers backfill runs to update the BigQuery destination table partitions with your source table data from the past two days. The automatically triggered backfill runs will either overwrite or incrementally update your BigQuery destination table, depending on whether or not incremental updates are supported in the BigQuery Data Transfer Service connector.
+A _refresh window_ is the number of days that a data transfer retrieves data when a data transfer occurs. For example, if the refresh window is three days and a daily transfer occurs, the BigQuery Data Transfer Service retrieves all data from your source table from the past three days. In this example, when a daily transfer occurs, the BigQuery Data Transfer Service creates a new BigQuery destination table partition with a copy of your source table data from the current day, then automatically triggers backfill runs to update the BigQuery destination table partitions with your source table data from the past two days. The automatically triggered backfill runs will either overwrite or incrementally update your BigQuery destination table, depending on whether or not incremental updates are supported in the BigQuery Data Transfer Service connector. 
 
 When you run a data transfer for the first time, the data transfer retrieves all source data available within the refresh window. For example, if the refresh window is three days and you run the data transfer for the first time, the BigQuery Data Transfer Service retrieves all source data within three days.
 
-To retrieve data outside the refresh window, such as historical data, or to recover data from any transfer outages or gaps, you can initiate or schedule a [backfill run](https://docs.cloud.google.com/bigquery/docs/working-with-transfers#manually_trigger_a_transfer).
+This connector automatically backfills delayed or updated reports from the past 60 days. To retrieve other data outside the refresh window, such as historical data, or to recover data from any transfer outages or gaps, you can manually initiate or schedule a [backfill run](https://docs.cloud.google.com/bigquery/docs/working-with-transfers#manually_trigger_a_transfer). 
+
+### Automatic backfills
+
+When YouTube Content Owner reports are delayed or regenerated for a previous date, BigQuery Data Transfer Service automatically backfills the reports. During each scheduled transfer run, BigQuery Data Transfer Service checks for reports that cover dates within the past 60 days and were generated after the previous scheduled transfer run. For each date with newly available reports, BigQuery Data Transfer Service automatically schedules a backfill transfer run to load the updated data into the corresponding table partition. You don't need to manually trigger a backfill when YouTube reports are delayed or updated within this 60 day window.
 
 ## Limitations
 
@@ -318,6 +324,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-27 UTC.
+Last updated 2026-11-04 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 

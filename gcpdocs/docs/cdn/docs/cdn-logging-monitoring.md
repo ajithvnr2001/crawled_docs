@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/cdn/docs/cdn-logging-monitoring/
 title: Logs and metrics for backend services \u00a0|\u00a0 Cloud CDN \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T19:43:03.716991+00:00
+fetched_at: 2026-11-05T00:20:43.857393+00:00
 ---
 
 # Logs and metrics for backend services  |  Cloud CDN  |  Google Cloud Documentation
@@ -528,6 +528,9 @@ Filter this table:  statusDetails (failure) | Meaning | Common accompanying stat
 `failed_to_negotiate_alpn` | The load balancer and the backend failed to negotiate an application layer protocol (such as HTTP/2) to use to communicate with each other over TLS.  | `502`, `503`  
 `headers_too_long` | The request headers were larger than the maximum allowed.  | `413`  
 `http_version_not_supported` | HTTP version not supported. Only HTTP 0.9, 1.0, 1.1, and 2.0 are supported.  | `400`  
+`image_optimization_bad_request` | The `imop` query parameter in a Cloud CDN [image optimization](https://docs.cloud.google.com/cdn/docs/imageoptimization) request has an invalid format, or an operation or parameter value failed validation.  | `400`  
+`image_optimization_method_not_allowed` | The client sent a Cloud CDN [image optimization](https://docs.cloud.google.com/cdn/docs/imageoptimization) request with an unsupported HTTP method. Only `GET`, `HEAD`, and `OPTIONS` methods are allowed.  | `405`  
+`image_optimization_not_acceptable` | The `Accept` header in a Cloud CDN [image optimization](https://docs.cloud.google.com/cdn/docs/imageoptimization) request doesn't match any supported image format or the format specified in the `imop` query parameter.  | `406`  
 `internal_error` | Internal error at the load balancer. Normally represents a transient error in the load balancer infrastructure. Retry your query.  | `4 _XX_` or `5 _XX_`  
 `invalid_chunk_framing` | Requests and responses sent with the `Transfer-Encoding: Chunked` header are not RFC 9112 compliant. As per the RFC, both the `chunked_body` and the `last-chunk` fields must end in `CRLF`. | `400`  
 `invalid_external_origin_endpoint` | The configuration for the external backend is invalid. Review the [internet NEG configuration](https://docs.cloud.google.com/load-balancing/docs/negs/internet-neg-concepts) and ensure that it specifies a valid FQDN/IP address and port.  | `4 _XX_`  
@@ -781,6 +784,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-03 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 

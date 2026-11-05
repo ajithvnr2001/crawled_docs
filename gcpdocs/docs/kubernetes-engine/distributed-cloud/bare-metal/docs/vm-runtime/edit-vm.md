@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/bare-metal/docs/vm-runtime/edit-vm/
 title: Edit VM configuration in VM Runtime on GDC \u00a0|\u00a0 Google Distributed Cloud software only for bare metal \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T22:56:27.297332+00:00
+fetched_at: 2026-11-04T23:29:56.767393+00:00
 ---
 
 # Edit VM configuration in VM Runtime on GDC  |  Google Distributed Cloud software only for bare metal  |  Google Cloud Documentation
@@ -22,11 +22,9 @@ Send feedback
 
 #  Edit VM configuration in VM Runtime on GDC Stay organized with collections  Save and categorize content based on your preferences. 
 
-This document is intended for application owners that use VM Runtime on GDC to run virtual machines (VMs) in clusters created with Distributed Cloud software only for bare metal. This document shows you how to edit VMs running in bare metal clusters. For example, you can edit resource allocation, such as CPU and memory, or change the network a VM connects to.
+VM Runtime on GDC lets you edit virtual machine (VM) configurations, such as compute resources, attached disks, and network settings, as your workload requirements change.
 
-You can modify any field in the `spec` section of a `VirtualMachine` resource. You can also edit the labels for a VM. Other fields, such as the VM name (`metadata.name`), can't be edited. By default, your VM must be in a `Stopped` state before you edit the resource. However, starting with Google Distributed Cloud version 1.13.0, you can configure your `VirtualMachine` resource to restart automatically whenever you change the configuration.
-
-If your edits to the `VirtualMachine` resource contain errors when you save them, the changes are rejected and you see a notification. Correct the errors and try to save the `VirtualMachine` resource again. If your VM doesn't start after you make changes, use the `kubectl describe gvm VM_NAME` command to view troubleshooting information and correct the errors.
+You can update any field in the `spec` section of a `VirtualMachine` resource and modify VM labels, but other fields, such as the VM name (`metadata.name`), can't be changed. By default, a VM must be in a `Stopped` state before you edit it. You can configure the VM to restart automatically when its configuration changes.
 
 ## Before you begin
 
@@ -399,6 +397,10 @@ Note the following situational feature behavior:
 
 
 
+## Troubleshoot VM edits
+
+If your edits to the `VirtualMachine` resource contain errors when you save them, the changes are rejected and you see a notification. Correct the errors and try to save the `VirtualMachine` resource again. If your VM doesn't start after you make changes, use the `kubectl describe gvm VM_NAME` command to view troubleshooting information and correct the errors.
+
 ## What's next
 
   * [Create VMs with specific vCPU and memory compute configurations](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/bare-metal/docs/vm-runtime/compute-configurations).
@@ -412,6 +414,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-04 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 

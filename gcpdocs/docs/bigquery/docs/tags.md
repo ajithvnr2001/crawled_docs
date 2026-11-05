@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/tags/
 title: Control access with tags \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-03T09:52:06.636883+00:00
+fetched_at: 2026-11-04T23:31:25.071809+00:00
 ---
 
 # Control access with tags  |  BigQuery  |  Google Cloud Documentation
@@ -2317,17 +2317,7 @@ To set or view the `default_data_policy_projects` option at the organization lev
 
 
 
-### Troubleshoot data governance tags
-
-This section describes how to troubleshoot common issues when controlling access to columns with data governance tags.
-
-#### Incorrectly formatted tag names
-
-When you create tags, you define a short name (for example, `ssn`). However, when you attach tags to columns in your schema or use them in conditions, the tag key must use the namespaced format (`PROJECT_ID/TAG_KEY` or `ORGANIZATION_ID/TAG_KEY`), while the tag value still uses the short name. Supplying only the short name for the tag key produces an `Invalid tagKey` or `Invalid tagValue` error.
-
-#### Cross-project policy application
-
-By default, only the data policies of the table's project are evaluated. Policies from other projects don't apply unless a default data policy project is configured at the organization level. For more information about configuring and evaluating cross-project policies, see Configure a default data policy project.
+For more information about troubleshooting common issues with data governance tags, see [Troubleshoot data governance tags](https://docs.cloud.google.com/bigquery/docs/troubleshoot-access-control#troubleshoot-gov-tags).
 
 ## What's next
 
@@ -2342,6 +2332,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-02 UTC.
+Last updated 2026-11-04 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-02 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 

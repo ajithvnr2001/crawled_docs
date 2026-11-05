@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/dataform/docs/best-practices-repositories/
 title: Best practices for repositories \u00a0|\u00a0 Dataform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T08:23:33.445497+00:00
+fetched_at: 2026-11-04T23:32:04.676868+00:00
 ---
 
 # Best practices for repositories  |  Dataform  |  Google Cloud Documentation
@@ -419,7 +419,7 @@ The following example shows a subdirectory structure inside the `definitions` di
 When configuring scheduled executions and orchestration workflows for your repository, follow these best practices to ensure reliable compilation:
 
   * **Use release configurations for scheduled production executions** : A [release configuration](https://docs.cloud.google.com/dataform/docs/configure-compilation#create-release-configuration) compiles your repository code on a predictable schedule and stores the resulting compilation result. When your production execution pipelines run, they execute against this saved result immediately without initiating network requests to your remote Git repository.
-  * **Limit commitish compilation to development and low-frequency tasks** : Calling `CreateCompilationResult` directly on a Git commitish, such as `main` or a specific Git tag, requires Dataform to clone the repository over the network on every invocation. Avoid configuring production cron jobs or orchestration DAGs to repeatedly compile from a Git commitish at high frequencies.
+  * **Limit commitish compilation to development and low-frequency tasks** : Calling `CreateCompilationResult` directly on a Git commitish, such as a branch, tag, or commit SHA, requires Dataform to clone the repository over the network on every invocation. Avoid configuring production cron jobs or orchestration DAGs to repeatedly compile from a Git commitish at high frequencies.
   * **Configure automated retries and stagger schedules** : If your architecture requires compiling from a Git commitish in external schedulers, configure automated retries with exponential backoff and stagger concurrent cron timers. For detailed retry code examples and troubleshooting steps, see [Remote repository cannot be reached](https://docs.cloud.google.com/dataform/docs/troubleshooting#remote-repository-not-reached).
 
 
@@ -438,6 +438,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-04 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 

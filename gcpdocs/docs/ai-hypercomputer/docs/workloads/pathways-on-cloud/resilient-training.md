@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/ai-hypercomputer/docs/workloads/pathways-on-cloud/resilient-training/
 title: Resilient training with Pathways \u00a0|\u00a0 AI Hypercomputer \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T18:57:09.898015+00:00
+fetched_at: 2026-11-05T00:17:55.198666+00:00
 ---
 
 # Resilient training with Pathways  |  AI Hypercomputer  |  Google Cloud Documentation
@@ -23,179 +23,260 @@ Send feedback
 
 Pathways provides resiliency benefits in the following ways:
 
-  * **Suspend-Resume** : tolerance in face of planned interruptions like preemption notices without needing the user to write any custom preemption handling code.
-  * **Elastic Training** : tolerance in face of unplanned hardware failures without causing the client to crash but requiring users to write model specific recovery code.
+  * **Suspend-Resume** : lets your workload tolerate planned interruptions such as preemption notices without requiring custom preemption-handling code.
+  * **Elastic training** : lets your workload tolerate unplanned hardware failures without crashing the client by using recovery logic in your training code.
 
 
 
 ## Before you begin
 
-Make sure you have:
+Before you begin, complete the following tasks:
 
   * [Set up Cluster Toolkit](https://docs.cloud.google.com/cluster-toolkit/docs/setup/configure-environment)
-  * [Installed Kubernetes tools](https://kubernetes.io/docs/tasks/tools/)
-  * [Installed the gcloud CLI](https://docs.cloud.google.com/sdk/docs/install)
-  * [Enabled the GKE API](https://docs.cloud.google.com/endpoints/docs/openapi/enable-api)
+  * [Install Kubernetes tools](https://kubernetes.io/docs/tasks/tools/)
+  * [Install the Google Cloud CLI CLI](https://docs.cloud.google.com/sdk/docs/install)
+  * [Enable the Google Kubernetes Engine API](https://docs.cloud.google.com/endpoints/docs/openapi/enable-api)
 
 
 
 ## Suspend-resume
 
-Typically, GKE sends a preemption notice to an accelerator pod, before the pod is preempted. Pathways preemption tolerance is enabled by default on all cloud deployments and Pathways accelerator jobs listen for these notices.
+Google Kubernetes Engine (GKE) typically sends a preemption notice to an accelerator Pod before the Pod is preempted. Pathways preemption tolerance is enabled by default on all cloud deployments and Pathways accelerator jobs listen for these notices.
 
-When a preemption notice arrives, Pathways first determines whether the current workload is restorable - whether Pathways can transparently save and restore the workload. If so, then it attempts to transparently suspend your ML workload by writing out its current state to persistent storage such as Cloud Storage before GKE evicts your accelerator jobs. When GKE reschedules your jobs later, Pathways resumes your ML workload by reading back its persisted state.
+When a preemption notice arrives, Pathways first determines whether Pathways can transparently save and restore the workload. If so, then it attempts to transparently suspend your ML workload by writing out its current state to persistent storage such as Cloud Storage before GKE evicts your accelerator jobs. When GKE reschedules your jobs later, Pathways resumes your ML workload by reading back its persisted state.
 
-If the workload is not restorable, Pathways shuts down the accelerator job and forwards the failure to your job if Elastic training is configured. If Elastic training is not configured, GKE restarts the entire workload based on the JobSet restart policy.
+If the workload isn't restorable, Pathways shuts down the accelerator job and forwards the failure to your job if elastic training is configured. If elastic training isn't configured, GKE restarts the entire workload based on the JobSet restart policy.
 
-Typical ML workloads defined using JAX rely on stateless Pathways XLA components which are restorable using a high bandwidth memory (HBM) snapshot. Certain ML workloads such as those defined using the [JAX colocated python API](https://github.com/jax-ml/jax/blob/main/jax/experimental/colocated_python/api.py) rely on stateful Pathways components; these are not restorable.
+Typical ML workloads defined using JAX rely on stateless Pathways XLA components which are restorable using a high bandwidth memory (HBM) snapshot. Certain ML workloads such as those defined using the [JAX colocated python API](https://github.com/jax-ml/jax/blob/main/jax/experimental/colocated_python/api.py) rely on stateful Pathways components; these workloads aren't restorable.
 
 ## Elastic training
 
-Elastic training allows your training job to continue even when hardware failures occur. This is achieved through a combination of Pathways system capabilities and user-defined model recovery logic:
+Elastic training lets your training job continue when hardware failures or slice preemptions occur, without restarting the entire workload. In a multi-slice training job, Pathways keeps the single-controller client process and the healthy TPU slices alive when an individual slice becomes unavailable.
 
-  * **Detection of failure** : When a hardware failure happens (for example, a TPU worker crashes), the Pathways system detects this and notifies the user's training job through an exception the next time data that was located on that hardware is accessed. This notification doesn't crash your workload; it allows your code to handle the notification and reconfigure your resources to either continue processing or exit gracefully.
-  * **User-defined elasticity handler** : User's model code needs to be able to handle this exception. This is what makes it "model-specific recovery". 
-    * **Snapshotting** : The most common approach is to periodically save snapshots of your model's state. When a failure occurs, you can load from the most recent snapshot to resume training.
-    * **Reconfiguration** : You will likely need to reconfigure your training job to adjust for the number of available slices. For example, if one slice stops working, you might reduce the number of active slices by one until a replacement is available. For more information, see Elastic Handler.
-    * **Data/Computation graph updates** : Your code needs to handle any changes in the number of devices available to your computation by re-creating the computation graph as needed. This might involve re-partitioning data or re-compiling your model.
-  * **Pathways' role in recovery** : Pathways provides the primitives to support user defined reconfiguration: 
-    * **Slice replacement** : If a failed slice is replaced, the client can be informed once the new slice is available. Your code can then reconfigure to use this new slice.
-    * **Transparent recovery** : Pathways handles the lower-level details of the recovery, like re-establishing connections to the healthy portions of the cluster.
-  * **Utilities in pathwaysutils** : A set of Pathways utilities defined in [pathways-utils](https://github.com/AI-Hypercomputer/pathways-utils).
+Elastic training combines Pathways system capabilities with recovery logic in your training code:
+
+  * **Failure detection** : When a hardware failure or preemption occurs on a TPU slice, Pathways unassigns the affected slice and raises a `jax.errors.JaxRuntimeError` the next time your workload accesses data on that slice. Because the client process remains active, your code can catch this error, reconfigure your resources, and continue training.
+  * **Recovery modes** : The `pathwaysutils.elastic.manager.Manager` class and its `elastic_retry` decorator support two recovery strategies: 
+    * **Pause and resume** : When `minimum_slice_count` is `None` or equal to the total number of slices in the job, training pauses when a slice is lost and waits until all slices are healthy again before resuming. Because the slice count doesn't change across attempts, your workload can reuse its existing device mesh and compiled executables.
+    * **Replica resize** : When `minimum_slice_count` is less than the total number of slices, training continues immediately on the remaining active slices by rebuilding the device mesh and recompiling for the smaller topology. A background monitor thread periodically checks inactive slices and records newly healthy slices in `elastic_manager.available_inactive_slices`. Your training loop can then rebuild the device mesh with the replacement slices, reinitialize for the expanded topology, and place the current state onto the new mesh.
+  * **State recovery** : To resume training after an elastic event, your workload restores model parameters, optimizer state, and data iterator state using in-memory snapshots. The `Snapshotter` class in `orbax.checkpoint` asynchronously copies replicated state from TPU HBM to `pinned_host` CPU memory on each slice. During recovery, `Snapshotter` reconstructs the state from surviving host replicas and reshards it directly onto the active TPU mesh without reading from remote storage.
 
 
 
-### Implement an elastic handler
+### Enable elasticity on the Pathways proxy server
 
-Most of the code you will have to write will be in a user-defined elastic handler. This handler reacts to elastic events (such as a TPU slice becoming unavailable) by re-creating the mesh and reinitializing the training loop.
-
-Each workload is unique. The complexity of the elastic handler may scale with the complexity of the workload. The inputs and outputs of the handler should be the minimum arguments and return values needed to reinitialize the train loop.
+To enable elastic device sets on Pathways in GKE, add the `--num_elastic_instances` flag to the `args` field of the `pathways-proxy` container in your JobSet manifest and specify the number of elastic TPU slices in your workload:
     
     
-    def elastic_handler(elastic_utils, *args, **kwargs):
-      mesh = initialize_mesh(**kwargs["mesh_kwargs"])
-      initial_state, initial_step, jitted_train_step, other_variables =
-          initialize_training_loop(mesh, **kwargs["initialize_training_loop_kwargs"])
-    
-      step, snapshot = elastic_utils.get_next_snapshot()
-      state = initial_state.replace(**snapshot)
-    
-      return state, step, mesh, jitted_train_step, other_variables
+    - name: pathways-proxy
+      image: us-docker.pkg.dev/cloud-tpu-v2-images/pathways/proxy_server:latest
+      args:
+      - --resource_manager_address=$(PATHWAYS_HEAD):29001
+      - --server_port=29000
+      - --gcs_scratch_location=gs://BUCKET_NAME
+      - --num_elastic_instances=NUM_SLICES
     
 
-### Update your training loop
+Replace the following:
 
-You need to make the following changes to your training loop:
-
-  1. Create an elastic manager
-  2. Wrap your training loop inside a try-except blocks that handles `jax.errors.JaxRuntimeError`s
-  3. Within your `jax.errors.JaxRuntimeError` handler, call `maybe_reshard_down`. The elastic manager will reshard down if the error is related to an elastic event or otherwise reraise it.
-  4. Call `maybe_snapshot` and `maybe_reshard_up` at the end of the training loop
+  * `BUCKET_NAME`: the Cloud Storage bucket used for Pathways temporary files.
+  * `NUM_SLICES`: the number of TPU slices in your workload.
 
 
+
+### Filter active devices and build the device mesh
+
+In a Pathways workload, `jax.devices()` returns all devices in the initial allocation for the lifetime of the client process. When you use elastic training, use `elastic_manager.active_devices` so that your device mesh and batch size only use healthy, active slices:
     
     
+    import jax
+    import numpy as np
+    from pathwaysutils.elastic import manager
+    
+    elastic_manager = manager.Manager()
+    
+    
+    def create_mesh(
+        elastic_manager: manager.Manager, devices_per_slice: int
+    ) -> jax.sharding.Mesh:
+      device_array = np.asarray(elastic_manager.active_devices).reshape(
+          (elastic_manager.active_slice_count, devices_per_slice)
+      )
+      return jax.sharding.Mesh(device_array, axis_names=("replica", "model"))
+    
+
+When the number of active slices changes in replica resize mode, use an elastic data loader such as `grain.experimental.ElasticIterator`. Standard per-host data iterators save state per host and can't restore onto a different number of hosts, whereas `ElasticIterator` tracks a single global dataset position that can be restored across any number of active slices.
+
+### Elastic training loop
+
+An elastic training loop coordinates slice monitoring, failure recovery, and in-memory snapshotting, as shown in the following code example:
+
+  * Your `train` function creates a single `manager.Manager()` instance and an Orbax `Snapshotter` outside the retry wrapper so slice tracking and host-memory snapshots persist across attempts.
+  * Decorating the inner `run_training_loop` function with `@elastic_manager.elastic_retry` waits for healthy slices, sets `jax.default_device` to an active slice, keeps the background monitor thread active across steps, and retries the loop when a `jax.errors.JaxRuntimeError` occurs.
+  * When recovering from a slice failure at the start of an attempt, your code must rebuild the device mesh from `elastic_manager.active_devices` and call `snapshotter.load` to restore the latest snapshot onto the updated mesh shardings, while letting device buffers from the failed attempt go out of scope.
+  * During each step of the loop, your code periodically calls `snapshotter.save` to back up the training state, and checks `elastic_manager.available_inactive_slices` to detect healthy replacement slices. When replacement slices are available, your code adds them to `elastic_manager.active_slice_indices`, rebuilds the mesh, reinitializes the training loop, and places the state onto the expanded mesh.
+
+
+
+The following example shows how to implement an elastic training loop by combining `manager.Manager`, `elastic_retry`, and Orbax's in-memory `Snapshotter`:
+    
+    
+    import jax
+    import orbax.checkpoint as ocp
     import pathwaysutils
     from pathwaysutils.elastic import manager
     
     pathwaysutils.initialize()
     
-    def initialize_mesh(**kwargs):
-      ...
     
-    
-    def initialize_training_loop(**kwargs):
-      ...
-    
-    
-    def train_loop(
-        final_step,
-        elastic_manager,
-        mesh_kwargs,
-        initialize_training_loop_kwargs,
+    def train(
+        final_step: int,
+        snapshot_interval: int,  # in steps
+        devices_per_slice: int,
     ):
-      mesh = initialize_mesh(**mesh_kwargs)
-      initial_state, initial_step, jitted_train_step, other_variables =
-          initialize_training_loop(mesh, **initialize_training_loop_kwargs)
+      elastic_manager = manager.Manager()
+      snapshotter = ocp.v1.training.pathways.Snapshotter(replica_axis_index=0)
     
-      step = initial_step
-      while step < final_step:
-        try:
-          state = jitted_train_step(state)
+      @elastic_manager.elastic_retry(
+          minimum_slice_count=1,
+          poll_interval=10,  # in seconds
+          timeout=300,  # in seconds
+          retry_policy=manager.ElasticRetryLimit(max_attempts=10),
+      )
+      def run_training_loop():
+        mesh = create_mesh(elastic_manager, devices_per_slice)
+        state, abstract_state, jitted_train_step, data_iterator = (
+            initialize_training_loop(mesh)
+        )
+        step = 0
     
-          elastic_manager.maybe_snapshot(step=step, snapshot=state)
-          handler_returns = elastic_manager.maybe_reshard_up(
-              step=step,
-              snapshot=state,
-              elastic_handler=elastic_handler,
-              handler_args=(),
-              handler_kwargs=dict(
-                  mesh_kwargs=mesh_kwargs,
-                  initialize_training_loop_kwargs=initialize_training_loop_kwargs,
-              ),
-          )
-          if handler_returns:
-            state, step, mesh, jitted_train_step, other_variables = handler_returns
+        # Restore from the latest in-memory snapshot after a slice failure.
+        if snapshotter.latest is not None:
+          snapshotter.join()
+          restored = snapshotter.load({
+              "state": abstract_state,
+              "step": step,
+              "iterator_state": data_iterator.get_state(),
+          })
+          state = restored["state"]
+          step = int(restored["step"]) + 1
+          data_iterator.set_state(restored["iterator_state"])
+    
+        while step < final_step:
+          batch = next(data_iterator)
+          state = jitted_train_step(state, batch)
+    
+          if step % snapshot_interval == 0:
+            snapshotter.save(
+                step,
+                {
+                    "state": state,
+                    "step": step,
+                    "iterator_state": data_iterator.get_state(),
+                },
+            )
+    
+          # If replacement slices are healthy, reinitialize and place state onto the new mesh.
+          if elastic_manager.available_inactive_slices:
+            elastic_manager.active_slice_indices |= (
+                elastic_manager.available_inactive_slices
+            )
+            mesh = create_mesh(elastic_manager, devices_per_slice)
+            iterator_state = data_iterator.get_state()
+            _, abstract_state, jitted_train_step, data_iterator = (
+                initialize_training_loop(mesh)
+            )
+            data_iterator.set_state(iterator_state)
+            state_shardings = jax.tree.map(lambda x: x.sharding, abstract_state)
+            state = jax.device_put(state, state_shardings)
+    
           step += 1
-        except jax.errors.JaxRuntimeError as error:
-          handler_returns = elastic_manager.maybe_reshard_down(
-              error=error,
-              elastic_handler=elastic_handler,
-              handler_args=(),
-              handler_kwargs=dict(
-                  mesh_kwargs=mesh_kwargs,
-                  initialize_training_loop_kwargs=initialize_training_loop_kwargs,
-              ),
-          )
-          if handler_returns:
-            state, step, mesh, jitted_train_step, other_variables = handler_returns
     
+        return state
+    
+      state = run_training_loop()
+      snapshotter.join()
       return state
     
-    
-    def main():
-      elastic_manager = manager.Manager(
-          devices=jax.devices(),
-          snapshot_period=10,
-          snapshot_buffer_size=1,
-          reshard_check_period=5,
-          max_elastic_down_event_count=10,
-          max_reshard_retry_count=3,
-      )
-    
-      train_loop(100, elastic_manager, {}, {})
-    
 
-### Configure the elastic manager
+### Configure the elastic manager and retry behavior
 
-The elastic manager can be configured in a few different ways. The frequency of snapshotting is determined by the snapshot period. The snapshot period effects the average number of steps lost due to an elastic event. The reshard check period determines how often your training loop will poll for slice availability. The `max_elastic_down_event_count` lets you set the number of elastic events due to slice loss your training loop will support. The `max_reshard_retry_count` specifies the number of times the elastic manager should retry resharding. The manager is a singleton object and should be created only once.
+You instantiate `manager.Manager(devices=None)` once per process. If you omit `devices`, the manager uses `jax.devices()` and groups devices by their `slice_index` attribute.
 
-### Snapshots
+The `Manager` instance exposes the following properties to inspect cluster topology during training:
 
-Based on the elastic manager configuration, the function may snapshot data onto host memory that will be available to use by your elastic handler during an elastic event.
+  * `slice_to_devices`: A mapping from each `slice_index` to the sequence of `jax.Device` objects belonging to that slice.
+  * `all_slice_indices`: A `frozenset` of all slice indices in the allocation.
+  * `active_slice_indices`: A `frozenset` of slice indices participating in the active computation mesh.
+  * `active_devices`: A list of `jax.Device` objects belonging to the active slices, ordered by `slice_index`.
+  * `inactive_slice_indices`: A `frozenset` of slice indices in the allocation that aren't participating in the computation mesh.
+  * `available_inactive_slices`: A `frozenset` of inactive slice indices that the background monitor thread has detected as healthy and ready to rejoin.
+  * `total_slice_count` and `active_slice_count`: The total number of allocated slices and the number of active slices.
+  * `default_device`: Device `0` from an active slice, which `elastic_retry` automatically sets as the default JAX device for each attempt.
 
-### Reduce sharding
 
-After catching a `jax.errors.JaxRuntimeError`, Pathways will check if the error is due to an elastic event due to a lost slice. If so, it will call the elastic handler in a loop until success or the maximum retry attempts. If the error is not due to an elastic event, the error will be raised again. The return values of the elastic handler are passed through to the caller.
 
-### Increase sharding
+You can customize retry and scaling behavior by passing the following arguments to `@elastic_manager.elastic_retry`:
 
-Based on the elastic manager configuration and if there are unavailable slices, Pathways will check if additional slices have become available. If so, it will immediately save a snapshot (if a pre-existing snapshot for the current step was not already taken) and call the elastic handler in a loop until success or the maximum number of retry attempts is reached. If re-sharding occurs, the return values of the elastic handler are passed through to the caller. Otherwise, `None` is returned.
+  * `minimum_slice_count`: The minimum number of healthy slices required before starting the initial execution or a retry attempt. If set to `None` (the default), `elastic_retry` waits for all slices in the allocation (`total_slice_count`), operating in pause and resume mode. If set to a smaller integer (such as `1`), `elastic_retry` operates in replica resize mode.
+  * `poll_interval`: The interval in seconds between slice health checks performed by the elastic training manager (`Manager`) during training. Defaults to `10`.
+  * `timeout`: The maximum number of seconds to wait for `minimum_slice_count` slices to become active before raising a `TimeoutError`. Defaults to `None` (no timeout).
+  * `pre_callback`: An optional callback that is run at the beginning of each attempt after `active_slice_indices` is updated and before the wrapped training loop function runs.
+  * `on_elastic_event_callback`: An optional callback that is run after a slice-down `jax.errors.JaxRuntimeError` is caught, before the next retry attempt begins. You can use this callback to clean up incomplete checkpoints or reset data iterators.
+  * `retry_policy`: A callable `(attempt: int, error: Exception) -> bool` that determines whether to continue retrying after an elastic event. Use `manager.ElasticRetryLimit(max_attempts)` to cap the total number of attempts. If omitted, `elastic_retry` retries indefinitely.
+
+
+
+On an elastic event, JAX frees device buffers from the failed attempt once the stack frame unwinds and no variables reference those arrays. Avoid keeping references to device arrays from a failed attempt inside global variables or long-lived callbacks so that memory is released before the next attempt starts.
+
+### In-memory snapshots with Orbax
+
+The `ocp.v1.training.pathways.Snapshotter` class (available in `orbax-checkpoint` version 0.12.6 and later) maintains an in-memory backup of your training state in `pinned_host` memory across slices:
+
+  * `Snapshotter(replica_axis_index=0)`: Initializes the snapshotter and specifies which mesh axis represents data-parallel slice replicas. All JAX arrays in the saved state must be replicated along this mesh axis so that surviving slices retain a complete copy of the model and optimizer state when a slice fails. If your state contains single-device arrays, replicate them across the mesh before calling `save`.
+  * `save(step, state)`: Asynchronously transfers `state` to `pinned_host` memory and splits it into per-replica trees along `replica_axis_index`. If a previous snapshot transfer is still in progress, `save` skips the new request to avoid stalling the training loop.
+  * `load(abstract_state, reset_snapshot_state=True)`: Probes the saved host replicas to identify surviving slices, concatenates the healthy replicas, and reshards the state onto the target shardings specified by `abstract_state`.
+  * `join()`: Blocks until any queued snapshot operation completes.
+  * `latest`: Returns metadata (including `step`) for the most recently completed snapshot, or `None` if no snapshot has completed.
+
+
+
+### Reduce sharding on slice failure
+
+When a TPU slice fails or is preempted during execution, Pathways raises a `jax.errors.JaxRuntimeError` (such as `DATA_LOSS`, `DEADLINE_EXCEEDED`, `NOT_FOUND`, or `INTERNAL`). The `elastic_retry` decorator catches this exception and checks `elastic.is_error_due_to_slice_down(error)`:
+
+  * If the error isn't caused by a slice-down event, `elastic_retry` re-raises the exception immediately.
+  * If the error is caused by a slice-down event, `elastic_retry` stops any active JAX profiler trace, runs `on_elastic_event_callback`, and evaluates `retry_policy(attempt, error)`.
+  * Before starting the next attempt, `elastic_retry` calls `elastic.wait_for_slices` once, which polls slice health until at least `minimum_slice_count` slices are active, updates `elastic_manager.active_slice_indices`, and runs your training loop function on the surviving slices.
+
+
+
+### Increase sharding when slices rejoin
+
+When your workload runs on a reduced number of slices in replica resize mode, the background monitor thread periodically runs health checks on `elastic_manager.inactive_slice_indices`. When repaired or rescheduled slices pass the health check, the monitor thread adds their slice indices to `elastic_manager.available_inactive_slices`.
+
+When `elastic_manager.available_inactive_slices` is non-empty at the end of a training step, the workload scales back up in place without losing training progress:
+
+  * Adding the slice indices in `elastic_manager.available_inactive_slices` to `elastic_manager.active_slice_indices` incorporates the rejoined slices into `elastic_manager.active_devices` and clears them from `available_inactive_slices`.
+  * Rebuilding the device mesh from `elastic_manager.active_devices` and reinitializing the training step and data iterator adapts the computation to the expanded topology.
+  * Calling `jax.device_put` places the current training state onto the new mesh shardings without restoring from a snapshot.
+
+
 
 ## Hot-swap
 
-Hot-Swap refers to a feature of the GKE JobSet API where a higher-priority job can quickly take over resources from a lower-priority job, minimizing downtime and ensuring faster recovery.
+Hot-swap refers to a feature of the GKE JobSet API where a higher-priority job can quickly take over resources from a lower-priority job, minimizing downtime and ensuring faster recovery.
 
-When a JobSet is created, GKE schedules the workload across multiple slices, as specified in the JobSet configuration. If a hardware failure occurs on one or more slices, the affected Pods are marked as failed. When rescheduling this Jobset, if you have elected to keep a spare slice in your GKE cluster which could be utilized for a lower priority Job, the JobSet system will remap the workload of the failed slice of the higher-priority job onto the spare slice being utilized by the lower priority job within the same GKE cluster. This remapping typically takes less than a minute.
+When a JobSet is created, GKE schedules the workload across multiple slices, as specified in the JobSet configuration. If a hardware failure occurs on one or more slices, the affected Pods are marked as failed. If your GKE cluster has a spare slice running a lower-priority job, the JobSet system remaps the failed slice's workload from the higher-priority job onto that spare slice. This remapping typically takes less than a minute.
 
-Upon JobSet restart, hot-swap can occur in the following situations:
+When a JobSet restarts, hot-swap can occur in the following situations:
 
-  1. **Default Mode** : If spare, idle TPU slices are available within the same cluster, the Kubernetes scheduler will prioritize scheduling the restarted jobs onto these slices rather than waiting for the failed slices to be repaired. This provides faster recovery.
-  2. **Heterogeneous Workloads** : In clusters running multiple workloads with a configured Kubernetes PriorityClass, a restarted JobSet can trigger a hot swap. If the restarted job's affinity matches a lower-priority job's resources, Kubernetes preempts the lower-priority job, allowing the higher-priority job to start immediately. For example, you can configure your Pathways worker pods with different priorities using `PriorityClass`.
+  * **Default mode** : If spare, idle TPU slices are available within the same cluster, the Kubernetes scheduler prioritizes scheduling the restarted jobs onto these slices rather than waiting for the failed slices to be repaired. This scheduling behavior provides faster recovery.
+  * **Heterogeneous workloads** : In clusters running multiple workloads with a configured Kubernetes `PriorityClass` resource, a restarted JobSet can trigger a hot-swap. If the restarted job's affinity matches a lower-priority job's resources, Kubernetes preempts the lower-priority job so that the higher-priority job can start without waiting for slice repair. For example, you can configure your Pathways worker Pods with different priorities by using a `PriorityClass` resource.
 
 
 
-To use priorities in your cluster, define a priority class, for example:
+To use priorities in your cluster, define a `PriorityClass` manifest:
     
     
     kind: PriorityClass
@@ -223,7 +304,6 @@ Next, attach the new priority class to your Pathways worker job by adding the fo
   * [Create a GKE cluster with Pathways](https://docs.cloud.google.com/ai-hypercomputer/docs/workloads/pathways-on-cloud/create-gke-cluster)
   * [Run a batch workload with Pathways](https://docs.cloud.google.com/ai-hypercomputer/docs/workloads/pathways-on-cloud/batch-workload)
   * [Pathways interactive mode](https://docs.cloud.google.com/ai-hypercomputer/docs/workloads/pathways-on-cloud/pathways-interactive-mode)
-  * [Multihost inference with Pathways](https://docs.cloud.google.com/ai-hypercomputer/docs/workloads/pathways-on-cloud/multihost-inference)
   * [Porting JAX workloads to Pathways](https://docs.cloud.google.com/ai-hypercomputer/docs/workloads/pathways-on-cloud/porting-jax-workloads)
   * [Troubleshoot Pathways on cloud](https://docs.cloud.google.com/ai-hypercomputer/docs/workloads/pathways-on-cloud/troubleshooting-pathways)
 
@@ -233,6 +313,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-03 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 

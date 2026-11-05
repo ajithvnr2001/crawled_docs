@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/firestore/native/docs/extend-with-functions/
 title: Extending Firestore with Cloud Functions \u00a0|\u00a0 Firestore in Native mode \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T08:01:02.716972+00:00
+fetched_at: 2026-11-04T23:45:42.689497+00:00
 ---
 
 # Extending Firestore with Cloud Functions  |  Firestore in Native mode  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/elastic-winlogbeat/
 title: Collect Elastic Windows Event Log Beats logs \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T07:50:00.390778+00:00
+fetched_at: 2026-11-04T23:43:21.881134+00:00
 ---
 
 # Collect Elastic Windows Event Log Beats logs  |  Google Security Operations  |  Google Cloud Documentation

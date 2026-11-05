@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/firestore/native/docs/billing-example/
 title: Billing example \u00a0|\u00a0 Firestore in Native mode \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T08:01:06.925828+00:00
+fetched_at: 2026-11-04T23:45:40.814381+00:00
 ---
 
 # Billing example  |  Firestore in Native mode  |  Google Cloud Documentation

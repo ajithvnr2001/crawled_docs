@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rest/v1beta/projects.locations.brands.sessionRecords
 title: REST Resource: projects.locations.brands.sessionRecords \u00a0|\u00a0 Food Ordering AI Agent \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-30T06:00:14.290856+00:00
+fetched_at: 2026-11-05T00:17:45.965352+00:00
 ---
 
 # REST Resource: projects.locations.brands.sessionRecords  |  Food Ordering AI Agent  |  Google Cloud Documentation
@@ -68,6 +68,16 @@ Send feedback
   * SuggestedStores
     * JSON representation
   * SuggestedStore
+    * JSON representation
+  * SuggestedOffers
+    * JSON representation
+  * SuggestedOffer
+    * JSON representation
+  * LoyaltyReward
+    * JSON representation
+  * LoyaltyConditionDetail
+    * JSON representation
+  * LoyaltySlotDetail
     * JSON representation
   * SuggestedModifierGroups
     * JSON representation
@@ -468,6 +478,9 @@ JSON representation
       },
       "suggestedStores": {
         object ([SuggestedStores](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rest/v1beta/projects.locations.brands.sessionRecords#SuggestedStores))
+      },
+      "suggestedOffers": {
+        object ([SuggestedOffers](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rest/v1beta/projects.locations.brands.sessionRecords#SuggestedOffers))
       }
       // End of mutually exclusive fields.
     }  
@@ -481,6 +494,7 @@ The suggested options. The following is a list of mutually exclusive fields. At 
 `suggestedItems` |  `object (`[SuggestedItems](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rest/v1beta/projects.locations.brands.sessionRecords#SuggestedItems)`)` A list of items to suggest to the customer.  
 `suggestedModifiers` |  `object (`[SuggestedModifiers](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rest/v1beta/projects.locations.brands.sessionRecords#SuggestedModifiers)`)` A list of modifiers to suggest to the customer.  
 `suggestedStores` |  `object (`[SuggestedStores](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rest/v1beta/projects.locations.brands.sessionRecords#SuggestedStores)`)` A list of stores to suggest to the customer.  
+`suggestedOffers` |  `object (`[SuggestedOffers](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rest/v1beta/projects.locations.brands.sessionRecords#SuggestedOffers)`)` Optional. Contains promotional offers, deals, or loyalty rewards to suggest to the customer.  
 End of mutually exclusive fields.  
   
 ## SuggestedItems
@@ -716,6 +730,146 @@ Fields
 `open` |  `boolean` Whether the store is currently open.  
 `timeZone` |  `object (`[TimeZone](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rest/Shared.Types/TimeZone)`)` The timezone of the store.  
   
+## SuggestedOffers
+
+Represents a list of promotional offers or loyalty rewards to suggest to the customer.
+
+JSON representation  
+---  
+      
+    
+    {
+      "offers": [
+        {
+          object ([SuggestedOffer](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rest/v1beta/projects.locations.brands.sessionRecords#SuggestedOffer))
+        }
+      ]
+    }  
+  
+Fields  
+---  
+`offers[]` |  `object (`[SuggestedOffer](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rest/v1beta/projects.locations.brands.sessionRecords#SuggestedOffer)`)` Optional. Contains the ordered list of offers to display to the customer.  
+  
+## SuggestedOffer
+
+Represents a loyalty reward redemption or promotional discount suggested to the customer.
+
+JSON representation  
+---  
+      
+    
+    {
+    
+      // The following is a list of mutually exclusive fields. At most one of the
+      // fields will be set in a response:
+      "loyaltyReward": {
+        object ([LoyaltyReward](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rest/v1beta/projects.locations.brands.sessionRecords#LoyaltyReward))
+      },
+      "discount": {
+        object ([Discount](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rest/v1beta/projects.locations.brands.stores.discounts#Discount))
+      }
+      // End of mutually exclusive fields.
+    }  
+  
+Fields  
+---  
+Specifies the loyalty reward redemption or promotional discount to display. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:  
+`loyaltyReward` |  `object (`[LoyaltyReward](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rest/v1beta/projects.locations.brands.sessionRecords#LoyaltyReward)`)` Optional. Represents a point-based or wallet loyalty reward.  
+`discount` |  `object (`[Discount](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rest/v1beta/projects.locations.brands.stores.discounts#Discount)`)` Optional. Represents a store or dynamic promotional discount. Only customer-facing display fields are populated on outbound responses; item matchers, integration attributes, and promo codes are omitted.  
+End of mutually exclusive fields.  
+  
+## LoyaltyReward
+
+Details of a loyalty reward.
+
+JSON representation  
+---  
+      
+    
+    {
+      "rewardId": string,
+      "displayName": string,
+      "conditions": [
+        {
+          object ([LoyaltyConditionDetail](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rest/v1beta/projects.locations.brands.sessionRecords#LoyaltyConditionDetail))
+        }
+      ],
+      "slotDetails": [
+        {
+          object ([LoyaltySlotDetail](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rest/v1beta/projects.locations.brands.sessionRecords#LoyaltySlotDetail))
+        }
+      ],
+      "redemptionCost": {
+        object ([LoyaltyAmount](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rest/v1beta/LoyaltyAmount))
+      },
+      "description": string,
+      "image": {
+        object ([Image](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rest/v1beta/Image))
+      },
+      "expireTime": string,
+      "customIntegrationAttributes": {
+        object
+      }
+    }  
+  
+Fields  
+---  
+`rewardId` |  `string` Optional. Unique ID for the reward.  
+`displayName` |  `string` Optional. Display name for the reward.  
+`conditions[]` |  `object (`[LoyaltyConditionDetail](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rest/v1beta/projects.locations.brands.sessionRecords#LoyaltyConditionDetail)`)` Optional. Order-level conditions for redeeming/earning the reward. For more than one condition, all conditions must be met, which are AND'd together. Each condition can have multiple sub-conditions, which are OR'd together.  
+`slotDetails[]` |  `object (`[LoyaltySlotDetail](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rest/v1beta/projects.locations.brands.sessionRecords#LoyaltySlotDetail)`)` Optional. Slot-level conditions for redeeming/earning the reward.  
+`redemptionCost` |  `object (`[LoyaltyAmount](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rest/v1beta/LoyaltyAmount)`)` Optional. Represents the loyalty points required to redeem this reward.  
+`description` |  `string` Optional. Provides a human-readable summary or subtitle for the reward.  
+`image` |  `object (`[Image](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rest/v1beta/Image)`)` Optional. Represents the image to display for this reward.  
+`expireTime` |  `string (`[Timestamp](https://protobuf.dev/reference/protobuf/google.protobuf/#timestamp)` format)` Optional. Represents the timestamp when this reward expires.Uses RFC 3339, where generated output will always be Z-normalized and use 0, 3, 6 or 9 fractional digits. Offsets other than "Z" are also accepted. Examples: `"2014-10-02T15:01:23Z"`, `"2014-10-02T15:01:23.045123456Z"` or `"2014-10-02T15:01:23+05:30"`.  
+`customIntegrationAttributes` |  `object (`[Struct](https://protobuf.dev/reference/protobuf/google.protobuf/#struct)` format)` Optional. Contains partner-specific metadata and display attributes associated with this reward for downstream integrations. Must not contain personally identifiable information, authentication or payment tokens, or secret redemption codes.  
+  
+## LoyaltyConditionDetail
+
+Conditions associated with a reward.
+
+JSON representation  
+---  
+      
+    
+    {
+      "description": string,
+      "preTaxMinimumSpend": {
+        object ([Money](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rest/Shared.Types/Money))
+      },
+      "postTaxMinimumSpend": {
+        object ([Money](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rest/Shared.Types/Money))
+      }
+    }  
+  
+Fields  
+---  
+`description` |  `string` Optional. Description of conditions.  
+`preTaxMinimumSpend` |  `object (`[Money](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rest/Shared.Types/Money)`)` Optional. Pre-tax amount condition, e.g. Spend $10 pre-tax, get 10% off.  
+`postTaxMinimumSpend` |  `object (`[Money](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rest/Shared.Types/Money)`)` Optional. Post-tax amount condition, e.g. Spend $10 post-tax, get 10% off.  
+  
+## LoyaltySlotDetail
+
+Details for a specific requirement slot.
+
+JSON representation  
+---  
+      
+    
+    {
+      "eligibleProductCodes": [
+        string
+      ],
+      "quantityRequired": integer,
+      "conditionalFill": boolean
+    }  
+  
+Fields  
+---  
+`eligibleProductCodes[]` |  `string` Optional. List of product codes that are eligible for current slot.  
+`quantityRequired` |  `integer` Optional. Quantity of products required for this slot.  
+`conditionalFill` |  `boolean` Optional. If true, this slot is conditionally filled. If all other non-conditional slots are filled and each condition modeled as ConditionDetail are met, e.g. Buy X And Spend $Y, Then Get Z Free. Note: This will only be enabled if there is a single eligible product code for this slot.  
+  
 ## SuggestedModifierGroups
 
 A list of modifier groups to suggest to the customer.
@@ -886,7 +1040,7 @@ Fields
   
 ### `[delete](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rest/v1beta/projects.locations.brands.sessionRecords/delete)`
 
-|  Deletes an SessionRecord.  
+|  Deletes a SessionRecord.  
   
 ### `[get](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rest/v1beta/projects.locations.brands.sessionRecords/get)`
 
@@ -900,6 +1054,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-29 UTC.
+Last updated 2026-11-04 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 

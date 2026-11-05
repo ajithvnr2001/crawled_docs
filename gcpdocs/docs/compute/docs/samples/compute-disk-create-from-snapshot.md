@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/compute/docs/samples/compute-disk-create-from-snapshot/
 title: Create a disk from a snapshot \u00a0|\u00a0 Compute Engine \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T07:48:32.372624+00:00
+fetched_at: 2026-11-04T23:31:09.409055+00:00
 ---
 
 # Create a disk from a snapshot  |  Compute Engine  |  Google Cloud Documentation
@@ -63,7 +63,7 @@ To authenticate to Compute Engine, set up Application Default Credentials. For m
     	// diskSizeGb := 120
     
     	ctx := context.Background()
-    	disksClient, err := compute.NewDisksRESTClient(ctx)
+    	disksClient, err := compute.[NewDisksRESTClient](https://docs.cloud.google.com/go/docs/reference/cloud.google.com/go/compute/latest/apiv1.html#cloud_google_com_go_compute_apiv1_DisksClient_NewDisksRESTClient)(ctx)
     	if err != nil {
     		return fmt.Errorf("NewDisksRESTClient: %w", err)
     	}
@@ -103,10 +103,10 @@ Before trying this sample, follow the Java setup instructions in the [Compute En
 To authenticate to Compute Engine, set up Application Default Credentials. For more information, see [Set up authentication for a local development environment](https://docs.cloud.google.com/docs/authentication/set-up-adc-local-dev-environment). 
     
     
-    import com.google.cloud.compute.v1.Disk;
-    import com.google.cloud.compute.v1.DisksClient;
-    import com.google.cloud.compute.v1.InsertDiskRequest;
-    import com.google.cloud.compute.v1.Operation;
+    import com.google.cloud.compute.v1.[Disk](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.Disk.html);
+    import com.google.cloud.compute.v1.[DisksClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.DisksClient.html);
+    import com.google.cloud.compute.v1.[InsertDiskRequest](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.InsertDiskRequest.html);
+    import com.google.cloud.compute.v1.[Operation](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.Operation.html);
     import java.io.IOException;
     import java.util.concurrent.ExecutionException;
     import java.util.concurrent.TimeUnit;
@@ -153,10 +153,10 @@ To authenticate to Compute Engine, set up Application Default Credentials. For m
         // once, and can be reused for multiple requests. After completing all of your requests, call
         // the `disksClient.close()` method on the client to safely
         // clean up any remaining background resources.
-        try (DisksClient disksClient = DisksClient.create()) {
+        try ([DisksClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.DisksClient.html) disksClient = [DisksClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.DisksClient.html).create()) {
     
           // Set the disk properties and the source snapshot.
-          Disk disk = Disk.newBuilder()
+          [Disk](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.Disk.html) disk = [Disk](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.Disk.html).newBuilder()
               .setName(diskName)
               .setZone(zone)
               .setSizeGb(diskSizeGb)
@@ -165,21 +165,21 @@ To authenticate to Compute Engine, set up Application Default Credentials. For m
               .build();
     
           // Create the insert disk request.
-          InsertDiskRequest insertDiskRequest = InsertDiskRequest.newBuilder()
+          [InsertDiskRequest](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.InsertDiskRequest.html) insertDiskRequest = [InsertDiskRequest](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.InsertDiskRequest.html).newBuilder()
               .setProject(projectId)
               .setZone(zone)
               .setDiskResource(disk)
               .build();
     
           // Wait for the create disk operation to complete.
-          Operation response = disksClient.insertAsync(insertDiskRequest)
+          [Operation](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.Operation.html) response = disksClient.insertAsync(insertDiskRequest)
               .get(3, TimeUnit.MINUTES);
     
-          if (response.hasError()) {
+          if (response.[hasError](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.Operation.html#com_google_cloud_compute_v1_Operation_hasError__)()) {
             System.out.println("Disk creation failed!" + response);
             return;
           }
-          System.out.println("Disk created. Operation Status: " + response.getStatus());
+          System.out.println("Disk created. Operation Status: " + response.[getStatus](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.Operation.html#com_google_cloud_compute_v1_Operation_getStatus__)());
         }
       }
     }
@@ -201,10 +201,10 @@ To authenticate to Compute Engine, set up Application Default Credentials. For m
     // const diskSizeGb = 10;
     // const snapshotLink = 'projects/project_name/global/snapshots/snapshot_name';
     
-    const compute = require('@google-cloud/compute');
+    const compute = require('[@google-cloud/compute](https://docs.cloud.google.com/nodejs/docs/reference/compute/latest/overview.html)');
     
     async function createDiskFromSnapshot() {
-      const disksClient = new compute.DisksClient();
+      const disksClient = new compute.[DisksClient](https://docs.cloud.google.com/nodejs/docs/reference/compute/latest/overview.html)();
     
       const [response] = await disksClient.insert({
         project: projectId,
@@ -218,7 +218,7 @@ To authenticate to Compute Engine, set up Application Default Credentials. For m
         },
       });
       let operation = response.latestResponse;
-      const operationsClient = new compute.ZoneOperationsClient();
+      const operationsClient = new compute.[ZoneOperationsClient](https://docs.cloud.google.com/nodejs/docs/reference/compute/latest/overview.html)();
     
       // Wait for the create disk operation to complete.
       while (operation.status !== 'DONE') {
@@ -247,7 +247,7 @@ To authenticate to Compute Engine, set up Application Default Credentials. For m
     from typing import Any
     
     from google.api_core.extended_operation import ExtendedOperation
-    from google.cloud import compute_v1
+    from google.cloud import [compute_v1](https://docs.cloud.google.com/python/docs/reference/compute/latest)
     
     
     def wait_for_extended_operation(
@@ -323,18 +323,18 @@ To authenticate to Compute Engine, set up Application Default Credentials. For m
         Returns:
             An unattached Disk instance.
         """
-        disk_client = compute_v1.DisksClient()
-        disk = compute_v1.Disk()
+        disk_client = [compute_v1](https://docs.cloud.google.com/python/docs/reference/compute/latest).[DisksClient](https://docs.cloud.google.com/python/docs/reference/compute/latest/google.cloud.compute_v1.services.disks.DisksClient.html)()
+        disk = [compute_v1](https://docs.cloud.google.com/python/docs/reference/compute/latest).[Disk](https://docs.cloud.google.com/python/docs/reference/compute/latest/google.cloud.compute_v1.types.Disk.html)()
         disk.zone = zone
         disk.size_gb = disk_size_gb
         disk.source_snapshot = snapshot_link
         disk.type_ = disk_type
         disk.name = disk_name
-        operation = disk_client.insert(project=project_id, zone=zone, disk_resource=disk)
+        operation = disk_client.[insert](https://docs.cloud.google.com/python/docs/reference/compute/latest/google.cloud.compute_v1.services.disks.DisksClient.html#google_cloud_compute_v1_services_disks_DisksClient_insert)(project=project_id, zone=zone, disk_resource=disk)
     
         wait_for_extended_operation(operation, "disk creation")
     
-        return disk_client.get(project=project_id, zone=zone, disk=disk_name)
+        return disk_client.[get](https://docs.cloud.google.com/python/docs/reference/compute/latest/google.cloud.compute_v1.services.disks.DisksClient.html#google_cloud_compute_v1_services_disks_DisksClient_get)(project=project_id, zone=zone, disk=disk_name)
     
     
 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/hp-linux/
 title: Collect HP Linux logs \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T07:51:03.294414+00:00
+fetched_at: 2026-11-04T23:43:20.930245+00:00
 ---
 
 # Collect HP Linux logs  |  Google Security Operations  |  Google Cloud Documentation

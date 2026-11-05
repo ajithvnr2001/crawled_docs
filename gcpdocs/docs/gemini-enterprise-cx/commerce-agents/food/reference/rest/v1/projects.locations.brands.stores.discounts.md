@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rest/v1/projects.locations.brands.stores.discounts
 title: REST Resource: projects.locations.brands.stores.discounts \u00a0|\u00a0 Food Ordering AI Agent \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-30T06:00:17.264108+00:00
+fetched_at: 2026-11-05T00:17:46.716265+00:00
 ---
 
 # REST Resource: projects.locations.brands.stores.discounts  |  Food Ordering AI Agent  |  Google Cloud Documentation
@@ -48,7 +48,7 @@ Send feedback
 
 ## Resource: Discount
 
-A discount that can be applied to orders at a store. Next ID: 16
+A discount that can be applied to orders at a store.
 
 JSON representation  
 ---  
@@ -85,7 +85,8 @@ JSON representation
       },
       "image": {
         object ([Image](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rest/v1/Image))
-      }
+      },
+      "description": string
     }  
   
 Fields  
@@ -105,6 +106,7 @@ Fields
 `additionalConstraint` |  `object (`[Constraint](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rest/v1/projects.locations.brands.stores.discounts#Constraint)`)` Optional. Additional constraint to apply this discount.  
 `integrationAttributes` |  `object (`[DiscountIntegrationAttributes](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rest/v1/projects.locations.brands.stores.discounts#DiscountIntegrationAttributes)`)` Optional. Metadata associated with this entity used for downstream integrations.  
 `image` |  `object (`[Image](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rest/v1/Image)`)` Optional. Image to display for this discount in the UI.  
+`description` |  `string` Optional. Provides a human-readable summary or subtitle for this discount.  
   
 ## DiscountType
 
@@ -355,6 +357,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-29 UTC.
+Last updated 2026-11-04 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 

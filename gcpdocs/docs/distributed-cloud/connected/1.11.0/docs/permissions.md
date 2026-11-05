@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/distributed-cloud/connected/1.11.0/docs/permissions/
 title: Roles and permissions \u00a0|\u00a0 Google Distributed Cloud connected \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T19:01:05.619657+00:00
+fetched_at: 2026-11-05T00:19:08.148557+00:00
 ---
 
 # Roles and permissions  |  Google Distributed Cloud connected  |  Google Cloud Documentation
@@ -590,9 +590,13 @@ Role | Permissions
   * `gdchardwaremanagement.comments.get`
   * `gdchardwaremanagement.comments.list`
   * `gdchardwaremanagement.hardware.create`
+  * `gdchardwaremanagement.hardware.createTagBinding`
   * `gdchardwaremanagement.hardware.delete`
+  * `gdchardwaremanagement.hardware.deleteTagBinding`
   * `gdchardwaremanagement.hardware.get`
   * `gdchardwaremanagement.hardware.list`
+  * `gdchardwaremanagement.hardware.listEffectiveTags`
+  * `gdchardwaremanagement.hardware.listTagBindings`
   * `gdchardwaremanagement.hardware.update`
   * `gdchardwaremanagement.hardwareGroups.create`
   * `gdchardwaremanagement.hardwareGroups.delete`
@@ -606,22 +610,38 @@ Role | Permissions
   * `gdchardwaremanagement.operations.get`
   * `gdchardwaremanagement.operations.list`
   * `gdchardwaremanagement.orders.create`
+  * `gdchardwaremanagement.orders.createTagBinding`
   * `gdchardwaremanagement.orders.delete`
+  * `gdchardwaremanagement.orders.deleteTagBinding`
   * `gdchardwaremanagement.orders.get`
   * `gdchardwaremanagement.orders.list`
+  * `gdchardwaremanagement.orders.listEffectiveTags`
+  * `gdchardwaremanagement.orders.listTagBindings`
   * `gdchardwaremanagement.orders.submit`
   * `gdchardwaremanagement.orders.update`
   * `gdchardwaremanagement.sites.create`
+  * `gdchardwaremanagement.sites.createTagBinding`
   * `gdchardwaremanagement.sites.delete`
+  * `gdchardwaremanagement.sites.deleteTagBinding`
   * `gdchardwaremanagement.sites.get`
   * `gdchardwaremanagement.sites.list`
+  * `gdchardwaremanagement.sites.listEffectiveTags`
+  * `gdchardwaremanagement.sites.listTagBindings`
   * `gdchardwaremanagement.sites.update`
   * `gdchardwaremanagement.skus.get`
   * `gdchardwaremanagement.skus.list`
+  * `gdchardwaremanagement.zoneOperations.createTagBinding`
+  * `gdchardwaremanagement.zoneOperations.deleteTagBinding`
+  * `gdchardwaremanagement.zoneOperations.listEffectiveTags`
+  * `gdchardwaremanagement.zoneOperations.listTagBindings`
   * `gdchardwaremanagement.zones.create`
+  * `gdchardwaremanagement.zones.createTagBinding`
   * `gdchardwaremanagement.zones.delete`
+  * `gdchardwaremanagement.zones.deleteTagBinding`
   * `gdchardwaremanagement.zones.get`
   * `gdchardwaremanagement.zones.list`
+  * `gdchardwaremanagement.zones.listEffectiveTags`
+  * `gdchardwaremanagement.zones.listTagBindings`
   * `gdchardwaremanagement.zones.update`
 
 `resourcemanager.projects.get` `resourcemanager.projects.list`  
@@ -633,17 +653,17 @@ Role | Permissions
   * `gdchardwaremanagement.changeLogEntries.get`
   * `gdchardwaremanagement.changeLogEntries.list`
 
-`gdchardwaremanagement.comments.get` `gdchardwaremanagement.comments.list` `gdchardwaremanagement.hardware.get` `gdchardwaremanagement.hardware.list` `gdchardwaremanagement.hardwareGroups.get` `gdchardwaremanagement.hardwareGroups.list` `gdchardwaremanagement.locations.*`
+`gdchardwaremanagement.comments.get` `gdchardwaremanagement.comments.list` `gdchardwaremanagement.hardware.get` `gdchardwaremanagement.hardware.list` `gdchardwaremanagement.hardware.listEffectiveTags` `gdchardwaremanagement.hardware.listTagBindings` `gdchardwaremanagement.hardwareGroups.get` `gdchardwaremanagement.hardwareGroups.list` `gdchardwaremanagement.locations.*`
 
   * `gdchardwaremanagement.locations.get`
   * `gdchardwaremanagement.locations.list`
 
-`gdchardwaremanagement.operations.get` `gdchardwaremanagement.operations.list` `gdchardwaremanagement.orders.get` `gdchardwaremanagement.orders.list` `gdchardwaremanagement.sites.get` `gdchardwaremanagement.sites.list` `gdchardwaremanagement.skus.*`
+`gdchardwaremanagement.operations.get` `gdchardwaremanagement.operations.list` `gdchardwaremanagement.orders.get` `gdchardwaremanagement.orders.list` `gdchardwaremanagement.orders.listEffectiveTags` `gdchardwaremanagement.orders.listTagBindings` `gdchardwaremanagement.sites.get` `gdchardwaremanagement.sites.list` `gdchardwaremanagement.sites.listEffectiveTags` `gdchardwaremanagement.sites.listTagBindings` `gdchardwaremanagement.skus.*`
 
   * `gdchardwaremanagement.skus.get`
   * `gdchardwaremanagement.skus.list`
 
-`gdchardwaremanagement.zones.get` `gdchardwaremanagement.zones.list` `resourcemanager.projects.get` `resourcemanager.projects.list`  
+`gdchardwaremanagement.zoneOperations.listEffectiveTags` `gdchardwaremanagement.zoneOperations.listTagBindings` `gdchardwaremanagement.zones.get` `gdchardwaremanagement.zones.list` `gdchardwaremanagement.zones.listEffectiveTags` `gdchardwaremanagement.zones.listTagBindings` `resourcemanager.projects.get` `resourcemanager.projects.list`  
   
 #### GDC Hardware Management Operator Beta
 
@@ -661,9 +681,13 @@ Role | Permissions
 `gdchardwaremanagement.hardware.*`
 
   * `gdchardwaremanagement.hardware.create`
+  * `gdchardwaremanagement.hardware.createTagBinding`
   * `gdchardwaremanagement.hardware.delete`
+  * `gdchardwaremanagement.hardware.deleteTagBinding`
   * `gdchardwaremanagement.hardware.get`
   * `gdchardwaremanagement.hardware.list`
+  * `gdchardwaremanagement.hardware.listEffectiveTags`
+  * `gdchardwaremanagement.hardware.listTagBindings`
   * `gdchardwaremanagement.hardware.update`
 
 `gdchardwaremanagement.hardwareGroups.*`
@@ -679,17 +703,28 @@ Role | Permissions
   * `gdchardwaremanagement.locations.get`
   * `gdchardwaremanagement.locations.list`
 
-`gdchardwaremanagement.operations.get` `gdchardwaremanagement.operations.list` `gdchardwaremanagement.orders.create` `gdchardwaremanagement.orders.get` `gdchardwaremanagement.orders.list` `gdchardwaremanagement.orders.update` `gdchardwaremanagement.sites.create` `gdchardwaremanagement.sites.get` `gdchardwaremanagement.sites.list` `gdchardwaremanagement.sites.update` `gdchardwaremanagement.skus.*`
+`gdchardwaremanagement.operations.get` `gdchardwaremanagement.operations.list` `gdchardwaremanagement.orders.create` `gdchardwaremanagement.orders.createTagBinding` `gdchardwaremanagement.orders.deleteTagBinding` `gdchardwaremanagement.orders.get` `gdchardwaremanagement.orders.list` `gdchardwaremanagement.orders.listEffectiveTags` `gdchardwaremanagement.orders.listTagBindings` `gdchardwaremanagement.orders.update` `gdchardwaremanagement.sites.create` `gdchardwaremanagement.sites.createTagBinding` `gdchardwaremanagement.sites.deleteTagBinding` `gdchardwaremanagement.sites.get` `gdchardwaremanagement.sites.list` `gdchardwaremanagement.sites.listEffectiveTags` `gdchardwaremanagement.sites.listTagBindings` `gdchardwaremanagement.sites.update` `gdchardwaremanagement.skus.*`
 
   * `gdchardwaremanagement.skus.get`
   * `gdchardwaremanagement.skus.list`
 
+`gdchardwaremanagement.zoneOperations.*`
+
+  * `gdchardwaremanagement.zoneOperations.createTagBinding`
+  * `gdchardwaremanagement.zoneOperations.deleteTagBinding`
+  * `gdchardwaremanagement.zoneOperations.listEffectiveTags`
+  * `gdchardwaremanagement.zoneOperations.listTagBindings`
+
 `gdchardwaremanagement.zones.*`
 
   * `gdchardwaremanagement.zones.create`
+  * `gdchardwaremanagement.zones.createTagBinding`
   * `gdchardwaremanagement.zones.delete`
+  * `gdchardwaremanagement.zones.deleteTagBinding`
   * `gdchardwaremanagement.zones.get`
   * `gdchardwaremanagement.zones.list`
+  * `gdchardwaremanagement.zones.listEffectiveTags`
+  * `gdchardwaremanagement.zones.listTagBindings`
   * `gdchardwaremanagement.zones.update`
 
 `resourcemanager.projects.get` `resourcemanager.projects.list`  
@@ -701,22 +736,22 @@ Role | Permissions
   * `gdchardwaremanagement.changeLogEntries.get`
   * `gdchardwaremanagement.changeLogEntries.list`
 
-`gdchardwaremanagement.comments.get` `gdchardwaremanagement.comments.list` `gdchardwaremanagement.hardware.get` `gdchardwaremanagement.hardware.list` `gdchardwaremanagement.hardwareGroups.get` `gdchardwaremanagement.hardwareGroups.list` `gdchardwaremanagement.locations.*`
+`gdchardwaremanagement.comments.get` `gdchardwaremanagement.comments.list` `gdchardwaremanagement.hardware.get` `gdchardwaremanagement.hardware.list` `gdchardwaremanagement.hardware.listEffectiveTags` `gdchardwaremanagement.hardware.listTagBindings` `gdchardwaremanagement.hardwareGroups.get` `gdchardwaremanagement.hardwareGroups.list` `gdchardwaremanagement.locations.*`
 
   * `gdchardwaremanagement.locations.get`
   * `gdchardwaremanagement.locations.list`
 
-`gdchardwaremanagement.operations.get` `gdchardwaremanagement.operations.list` `gdchardwaremanagement.orders.get` `gdchardwaremanagement.orders.list` `gdchardwaremanagement.sites.get` `gdchardwaremanagement.sites.list` `gdchardwaremanagement.skus.*`
+`gdchardwaremanagement.operations.get` `gdchardwaremanagement.operations.list` `gdchardwaremanagement.orders.get` `gdchardwaremanagement.orders.list` `gdchardwaremanagement.orders.listEffectiveTags` `gdchardwaremanagement.orders.listTagBindings` `gdchardwaremanagement.sites.get` `gdchardwaremanagement.sites.list` `gdchardwaremanagement.sites.listEffectiveTags` `gdchardwaremanagement.sites.listTagBindings` `gdchardwaremanagement.skus.*`
 
   * `gdchardwaremanagement.skus.get`
   * `gdchardwaremanagement.skus.list`
 
-`gdchardwaremanagement.zones.get` `gdchardwaremanagement.zones.list` `resourcemanager.projects.get` `resourcemanager.projects.list`  
+`gdchardwaremanagement.zoneOperations.listEffectiveTags` `gdchardwaremanagement.zoneOperations.listTagBindings` `gdchardwaremanagement.zones.get` `gdchardwaremanagement.zones.list` `gdchardwaremanagement.zones.listEffectiveTags` `gdchardwaremanagement.zones.listTagBindings` `resourcemanager.projects.get` `resourcemanager.projects.list`  
   
 Send feedback 
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-03 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 

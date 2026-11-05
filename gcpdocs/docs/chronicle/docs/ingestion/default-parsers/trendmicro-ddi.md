@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/trendmicro-ddi/
 title: Collect Trend Micro DDI logs \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T07:50:34.102611+00:00
+fetched_at: 2026-11-04T23:34:35.813424+00:00
 ---
 
 # Collect Trend Micro DDI logs  |  Google Security Operations  |  Google Cloud Documentation

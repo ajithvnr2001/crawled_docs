@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/compute/docs/disks/snapshots/
 title: About archive and standard disk snapshots \u00a0|\u00a0 Compute Engine \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T05:40:07.260738+00:00
+fetched_at: 2026-11-05T00:17:54.158249+00:00
 ---
 
 # About archive and standard disk snapshots  |  Compute Engine  |  Google Cloud Documentation
@@ -23,7 +23,7 @@ Send feedback
 
 Standard snapshots incrementally back up data on a disk. After you create a snapshot, you can use it to create a new disk that contains the captured data. The new disk can immediately achieve its maximum performance and doesn't require pre-warming. 
 
-Standard snapshots provide geo-redundant backups of a single disk regardless of whether the disk is attached to a running virtual machine (VM) instance. To backup an entire VM or multiple disks at once, create a [machine image](https://docs.cloud.google.com/compute/docs/machine-images). For other scenarios, see the chart describing [data backup options](https://docs.cloud.google.com/compute/docs/disks/data-protection).
+Standard snapshots provide geo-redundant backups of a single disk regardless of whether the disk is attached to a running virtual machine (VM) instance. To back up an entire VM or multiple disks at once, create a [machine image](https://docs.cloud.google.com/compute/docs/machine-images). For other scenarios, see the chart describing [data backup options](https://docs.cloud.google.com/compute/docs/disks/data-protection).
 
 This document describes how standard snapshots work and how to use them to back up your disks for disaster recovery. The information in this document applies to both archive and standard snapshots, unless otherwise noted.
 
@@ -346,6 +346,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-03 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chronicle/docs/event-processing/manage-parser-updates/
 title: Manage prebuilt parsers \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T10:09:46.462158+00:00
+fetched_at: 2026-11-04T23:34:07.263023+00:00
 ---
 
 # Manage prebuilt parsers  |  Google Security Operations  |  Google Cloud Documentation
@@ -73,7 +73,7 @@ To view the pending update do the following:
 
   1. [Log in](https://docs.cloud.google.com/chronicle/docs/log-in-to-ui) to your Google SecOps instance.
 
-  2. Select **Settings** > **SIEM Settings** > **Parsers**.
+  2. Select **Settings > Data Management > Parsers**. If you are on a SIEM-only platform, go to **Settings > Parsers**.
 
   3. Click filter_alt **Filter**.
 
@@ -149,7 +149,7 @@ If you activated the parser update early, you can still revert to the previous v
 
 To switch back to the previous parser version, follow these steps:
 
-  1. From the apps **Application menu** , select **Settings** > **Parsers**.
+  1. From the left hand navigation menu, select **Settings > Data Management > Parsers**. If you are on a SIEM-only platform, go to **Settings > Parsers**.
 
   2. Click more_vert **Menu** against the parser that you want to revert.
 
@@ -183,7 +183,7 @@ For multi-event rules, the analysis uses a sample of your events rather than all
 
 To run an analysis of the impact of the upcoming parser version on your detection rules, do the following:
 
-  1. In the Google SecOps Console, go to **Settings** > **SIEM Settings** > **Parsers**.
+  1. In the Google SecOps console, go to **Settings > Data Management > Parsers**. If you are on a SIEM-only platform, go to **Settings > Parsers**.
   2. Select a specific **Log type** (prebuilt parser).
   3. Select one of the parser update options: **Update to latest version** , **Rollback to last used version** , or **Opt-in to a Release Candidate**.
   4. Go to the parser **Impact** tab and click **Check impact on rules**. The impact check may take some time to complete.
@@ -212,7 +212,7 @@ This section describes the full parser version management lifecycle in Google Se
 
 If you turn off automatic updates, the parser stays on its current version until you turn on auto-updates or manually update it. To turn off automatic updates, do the following:
 
-  1. From the apps **Application menu** , select **Settings** > **Parsers**.
+  1. From the navigation menu, go to **Settings > Data Management > Parsers**. If you are on a SIEM-only platform, go to **Settings > Parsers**.
 
   2. Click more_vert**Menu** for the required prebuilt parser.
 
@@ -223,7 +223,7 @@ If you turn off automatic updates, the parser stays on its current version until
 
 When automatic updates are enabled, the parser updates with every new stable release. To turn on automatic updates, do the following:
 
-  1. From the apps **Application menu** , select **Settings** > **Parsers**.
+  1. From the navigation menu, go to **Settings > Data Management > Parsers**. If you are on a SIEM-only platform, go to **Settings > Parsers**.
 
   2. Click more_vert**Menu** for the required prebuilt parser.
 
@@ -238,7 +238,7 @@ If automatic updates are off, you can choose when to update a parser to a new ve
 
 **Note:** You can only upgrade to the latest parser version and not any versions in between. To update a parser, do the following:
 
-  1. From the apps **Application menu** , select **Settings** > **Parsers**.
+  1. From the navigation menu, select **Settings > Data Management > Parsers**. If you are on a SIEM-only platform, go to **Settings > Parsers**.
 
   2. Click more_vert**Menu** for the required parser.
 
@@ -263,7 +263,7 @@ The **Compare parsers** page appears. You can view the following:
 
 You can revert a parser to the version that you last used, regardless of its automatic update status. To roll back a parser version, do the following:
 
-  1. From the apps **Application menu** , select **Settings** > **Parsers**.
+  1. From the navigation menu, select **Settings > Data Management > Parsers**. If you are on a SIEM-only platform, go to **Settings > Parsers**.
 
   2. Click more_vert**Menu** for the required parser.
 
@@ -312,6 +312,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-28 UTC.
+Last updated 2026-11-04 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 

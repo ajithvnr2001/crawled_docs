@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/docs/security/compliance/deploy-gemini-gov/
 title: Deployment guidance for Gemini for Government \u00a0|\u00a0 Security \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T05:57:41.133605+00:00
+fetched_at: 2026-11-04T23:31:54.761998+00:00
 ---
 
 # Deployment guidance for Gemini for Government  |  Security  |  Google Cloud Documentation
@@ -66,17 +66,53 @@ Third-party federated connectors (such as Microsoft Office 365 Government Commun
   
 ## Model support
 
-This section describes support for Google and third-party models.
+This section describes support for built-in and third-party models.
 
-### Google model support
+### Built-in model support
 
-Only [Google models that support US multi-regional endpoints](https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/data-residency#ml-processing-google-models), including Gemini models that are generally available, offer data residency (DRZ) commitments and can support FedRAMP High, DoD IL4, DOD IL5, ITAR, and CJIS requirements without requiring you to configure additional settings.
+You can use certain built-in models that support [US multi-regional endpoints](https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/data-residency#ml-processing-google-models), are generally available, and support data residency (DRZ) commitments.
 
-If you require DRZ commitments, it is your responsibility to restrict access to Google models that only support global endpoints. See [Restrict endpoint usage](https://docs.cloud.google.com/docs/security/compliance/restrict-endpoint-usage) for more information on how to restrict access to these models.
+If you require DRZ commitments, it is your responsibility to restrict access to models that only support global endpoints. See [Restrict endpoint usage](https://docs.cloud.google.com/docs/security/compliance/restrict-endpoint-usage) for more information on how to restrict access to these models.
 
+The following table lists the built-in models that support FedRAMP High, IL4, IL5, ITAR, and CJIS.
+
+  
+Model | FedRAMP High | IL4 and IL5 | ITAR | CJIS  
+---|---|---|---|---  
+Gemini 4 Argon  
+(`gemini-4-argon`) |  |  |  |   
+Gemini 3.8 Flash  
+(`gemini-3.8-flash`) |  |  |  |   
+Gemini 3.7 Flash  
+(`gemini-3.7-flash`) |  |  |  |   
+Gemini 3.6 Flash  
+(`gemini-3.6-flash`) |  |  |  |   
+Gemini 3.5 Flash-Lite  
+(`gemini-3.5-flash-lite`) |  |  |  |   
+Gemini 3.5 Flash  
+(`gemini-3.5-flash`) |  |  |  |   
+Gemini 3.1 Flash Image  
+(`gemini-3.1-flash-image`) |  |  |  |   
+Gemini 3.1 Flash-Lite  
+(`gemini-3.1-flash-lite`) |  |  |  |   
+Anthropic's Claude Haiku 5.5 on Google Cloud |  |  |  |   
+Anthropic's Claude Opus 5.5 on Google Cloud |  |  |  |   
+Anthropic's Claude Sonnet 5.5 on Google Cloud |  |  |  |   
+Anthropic's Claude Sonnet 5 on Google Cloud |  |  |  |   
+Anthropic's Claude Opus 5 on Google Cloud |  |  |  |   
+Anthropic's Claude Fable 5.1 on Google Cloud |  |  |  |   
+Anthropic's Claude Fable 5 on Google Cloud |  |  |  |   
+Anthropic's Claude Haiku 4.5 on Google Cloud |  |  |  |   
+Anthropic's Claude Opus 4.5 on Google Cloud |  |  |  |   
+Anthropic's Claude Opus 4.8 on Google Cloud |  |  |  |   
+Anthropic's Claude Opus 4.7 on Google Cloud |  |  |  |   
+Anthropic's Claude Opus 4.6 on Google Cloud |  |  |  |   
+Anthropic's Claude Sonnet 4.5 on Google Cloud |  |  |  |   
+Anthropic's Claude Sonnet 4.6 on Google Cloud |  |  |  |   
+  
 ### Third-party model support
 
-Google Cloud is responsible for maintaining authorizations for its serving infrastructure and custom-built containers so that you can deploy third-party models for FedRAMP High and DoD IL4 and IL5.
+Google Cloud is responsible for maintaining authorizations for its serving infrastructure and custom-built containers so that you can deploy your own third-party models for FedRAMP High and DoD IL4 and IL5.
 
 Although Google doesn't validate the compliance status of third-party model deployments or usage of these third-party models, you can use authorized services (such as Generative AI on Gemini Enterprise Agent Platform and Gemini Enterprise Agent Platform Inference: Batch and Online) to interact with more than 200 first-party, third-party, and open-source large language models (LLMs) available in Model Garden. It is your responsibility to ensure third-party models are deployed, configured, and secured in compliance with your FedRAMP and DoD IL4 and IL5 compliance requirements. For more information, see [Overview of self-deployed models](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/model-garden/self-deployed-models) and [Control access to Model Garden models](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/control-model-access).
 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/knowledge-catalog/docs/lineage-track-external-system-information/
 title: Track external system lineage information \u00a0|\u00a0 Knowledge Catalog \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T20:46:41.022822+00:00
+fetched_at: 2026-11-05T00:04:51.925018+00:00
 ---
 
 # Track external system lineage information  |  Knowledge Catalog  |  Google Cloud Documentation
@@ -23,9 +23,11 @@ Send feedback
 
 #  Track external system lineage information Stay organized with collections  Save and categorize content based on your preferences. 
 
-To maintain a complete, end-to-end view of your data, you can manually record lineage information for systems that aren't supported by [automated data lineage tracking](https://docs.cloud.google.com/knowledge-catalog/docs/about-data-lineage#lineage-supported-systems). For example, use this feature to track data movement when integrating with external or on-premises databases.
+Data lineage in Knowledge Catalog (formerly Dataplex Universal Catalog) lets you manually record lineage information for systems that aren't supported by [automated data lineage tracking](https://docs.cloud.google.com/knowledge-catalog/docs/about-data-lineage#lineage-supported-systems), such as external or on-premises databases. You can use the Data Lineage API to log custom processes, runs, and events that capture data movement and maintain a complete, end-to-end view of your data.
 
 ## Record custom events
+
+To track data movement when integrating with external or on-premises databases, create the following resources in order:
 
   1. Create a [process](https://docs.cloud.google.com/knowledge-catalog/docs/reference/data-lineage/rest/v1/projects.locations.processes#Process) using the [processes.create](https://docs.cloud.google.com/knowledge-catalog/docs/reference/data-lineage/rest/v1/projects.locations.processes/create) method.
   2. Create a [run](https://docs.cloud.google.com/knowledge-catalog/docs/reference/data-lineage/rest/v1/projects.locations.processes.runs#resource:-run) using the [processes.runs.create](https://docs.cloud.google.com/knowledge-catalog/docs/reference/data-lineage/rest/v1/projects.locations.processes.runs/create) method.
@@ -37,6 +39,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-04 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 

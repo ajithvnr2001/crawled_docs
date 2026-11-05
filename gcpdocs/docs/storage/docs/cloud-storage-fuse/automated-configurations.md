@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/storage/docs/cloud-storage-fuse/automated-configurations/
 title: Automated configuration values for high-performance machine types \u00a0|\u00a0 Cloud Storage \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-03T09:41:54.868298+00:00
+fetched_at: 2026-11-05T00:20:41.897443+00:00
 ---
 
 # Automated configuration values for high-performance machine types  |  Cloud Storage  |  Google Cloud Documentation
@@ -32,8 +32,8 @@ Series type | Machine type
 [A2 machine series](https://docs.cloud.google.com/compute/docs/gpus#a100-gpus) |  `a2-megagpu-16g` `a2-ultragpu-8g`  
 [A3 machine series](https://docs.cloud.google.com/compute/docs/gpus#a3-series) |  `a3-edgegpu-8g` `a3-highgpu-8g` `a3-megagpu-8g` `a3-ultragpu-8g`  
 [A4 machine series](https://docs.cloud.google.com/compute/docs/gpus#b200-gpus) |  `a4-highgpu-8g-lowmem`  
-[A4X machine series](https://docs.cloud.google.com/compute/docs/gpus#gb200-gpus) |   
-| `a4x-highgpu-4g`  
+[A4X machine series](https://docs.cloud.google.com/compute/docs/gpus#gb200-gpus) |  `a4x-highgpu-4g`  
+[A4X Max machine series](https://docs.cloud.google.com/compute/docs/gpus#gb300-gpus) |  `a4x-maxgpu-4g-metal`  
 [TPU v5e](https://docs.cloud.google.com/tpu/docs/v5e) |  `ct5l-hightpu-8t` `ct5lp-hightpu-8t`  
 [TPU v5p](https://docs.cloud.google.com/tpu/docs/v5p) |  `ct5p-hightpu-4t` `ct5p-hightpu-4t-tpu`  
 [TPU v6e (Trillium)](https://docs.cloud.google.com/tpu/docs/v6e) |  `ct6e-standard-4t` `ct6e-standard-4t-tpu` `ct6e-standard-8t` `ct6e-standard-8t-tpu`  
@@ -81,6 +81,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-30 UTC.
+Last updated 2026-11-03 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/compute/docs/instance-groups/getting-info-about-migs/
 title: View information about MIGs and managed instances \u00a0|\u00a0 Compute Engine \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T10:18:19.997532+00:00
+fetched_at: 2026-11-05T00:20:40.358282+00:00
 ---
 
 # View information about MIGs and managed instances  |  Compute Engine  |  Google Cloud Documentation
@@ -981,7 +981,7 @@ Compute Engine retains the most recent 500 errors for the last 8 days even if th
 
 ### Check if a VM instance is part of a MIG
 
-To check if a specific VM is a member of a group, you can use the console or REST.
+To check if a specific VM is a member of a group, you can use the console, the gcloud CLI, or REST.
 
 ###  Console 
 
@@ -993,6 +993,10 @@ To check if a specific VM is a member of a group, you can use the console or RES
   3. If the VM instance is a member of a MIG, the name of that MIG appears under the heading **In use by**. If the VM instance is not a member of a group, the heading **In use by** doesn't appear on the instance details page.
 
 
+
+###  gcloud 
+
+See [Viewing referrers to VM instances](https://docs.cloud.google.com/compute/docs/instances/view-references-between-resources).
 
 ###  REST 
 
@@ -1044,6 +1048,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-28 UTC.
+Last updated 2026-11-03 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 

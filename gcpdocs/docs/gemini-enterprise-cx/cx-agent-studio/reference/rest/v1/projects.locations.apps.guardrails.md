@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-cx/cx-agent-studio/reference/rest/v1/projects.locations.apps.guardrails
 title: REST Resource: projects.locations.apps.guardrails \u00a0|\u00a0 CX Agent Studio \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-13T22:22:34.079530+00:00
+fetched_at: 2026-11-04T23:28:22.590753+00:00
 ---
 
 # REST Resource: projects.locations.apps.guardrails  |  CX Agent Studio  |  Google Cloud Documentation
@@ -140,7 +140,10 @@ JSON representation
         string
       ],
       "matchType": enum ([Guardrail.ContentFilter.MatchType](https://docs.cloud.google.com/gemini-enterprise-cx/cx-agent-studio/reference/rest/v1/projects.locations.apps.guardrails#Guardrail.Guardrail.ContentFilter.MatchType)),
-      "disregardDiacritics": boolean
+      "disregardDiacritics": boolean,
+      "sensitiveWordsExemptions": [
+        string
+      ]
     }  
   
 Fields  
@@ -150,6 +153,7 @@ Fields
 `bannedContentsInAgentResponse[]` |  `string` Optional. List of banned phrases. Applies only to agent responses.  
 `matchType` |  `enum (`[Guardrail.ContentFilter.MatchType](https://docs.cloud.google.com/gemini-enterprise-cx/cx-agent-studio/reference/rest/v1/projects.locations.apps.guardrails#Guardrail.Guardrail.ContentFilter.MatchType)`)` Required. Match type for the content filter.  
 `disregardDiacritics` |  `boolean` Optional. If true, diacritics are ignored during matching.  
+`sensitiveWordsExemptions[]` |  `string` Optional. Entries of the sensitive words list that this guardrail allows. Only valid when matchType is SENSITIVE_WORDS. Each value must equal a list entry (case-insensitive, surrounding whitespace ignored); other values have no effect. Applies to this guardrail only. At most 1000 entries of up to 256 characters each.  
   
 ### Guardrail.ContentFilter.MatchType
 
@@ -161,6 +165,7 @@ Enums
 `SIMPLE_STRING_MATCH` | Content is matched for substrings character by character.  
 `WORD_BOUNDARY_STRING_MATCH` | Content only matches if the pattern found in the text is surrounded by word delimiters. Banned phrases can also contain word delimiters.  
 `REGEXP_MATCH` | Content is matched using regular expression syntax.  
+`SENSITIVE_WORDS` | Content is matched against a system-managed list of sensitive words and phrases. Attaching a guardrail with this match type to an app or agent replaces the default sensitive words filter for the affected agents; disable the guardrail to opt out of the default filter.  
   
 ### Guardrail.LlmPromptSecurity
 
@@ -231,7 +236,7 @@ Fields
 ---  
 `maxConversationMessages` |  `integer` Optional. When checking this policy, consider the last 'n' messages in the conversation. When not set a default value of 10 will be used.  
 `modelSettings` |  `object (`[ModelSettings](https://docs.cloud.google.com/gemini-enterprise-cx/cx-agent-studio/reference/rest/v1/ModelSettings)`)` Optional. Model settings.  
-`prompt` |  `string` Required. Policy prompt.  
+`prompt` |  `string` Required. Policy prompt. Supports session variable placeholders (`{var}`) as well as `{agent_system_instruction}` to inject the agent's resolved system instructions.  
 `policyScope` |  `enum (`[Guardrail.LlmPolicy.PolicyScope](https://docs.cloud.google.com/gemini-enterprise-cx/cx-agent-studio/reference/rest/v1/projects.locations.apps.guardrails#Guardrail.Guardrail.LlmPolicy.PolicyScope)`)` Required. Defines when to apply the policy check during the conversation. If set to `POLICY_SCOPE_UNSPECIFIED`, the policy will be applied to the user input. When applying the policy to the agent response, additional latency will be introduced before the agent can respond.  
 `failOpen` |  `boolean` Optional. If an error occurs during the policy check, fail open and do not trigger the guardrail.  
 `allowShortUtterance` |  `boolean` Optional. By default, the LLM policy check is bypassed for short utterances. Enabling this setting applies the policy check to all utterances, including those that would normally be skipped.  
@@ -516,6 +521,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-09-28 UTC.
+Last updated 2026-11-04 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-09-28 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 

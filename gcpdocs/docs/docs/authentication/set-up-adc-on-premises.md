@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/docs/authentication/set-up-adc-on-premises/
 title: Set up ADC for on-premises or another cloud provider \u00a0|\u00a0 Authentication \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T08:00:37.987322+00:00
+fetched_at: 2026-11-04T23:45:09.029689+00:00
 ---
 
 # Set up ADC for on-premises or another cloud provider  |  Authentication  |  Google Cloud Documentation

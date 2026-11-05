@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/compute/docs/disks/retain-deleted-resources/
 title: Retain deleted resources in the recycle bin \u00a0|\u00a0 Compute Engine \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T05:40:00.936353+00:00
+fetched_at: 2026-11-05T00:19:27.882952+00:00
 ---
 
 # Retain deleted resources in the recycle bin  |  Compute Engine  |  Google Cloud Documentation
@@ -143,10 +143,10 @@ For example, suppose you want to keep deleted snapshots in your organization for
 To configure such a policy for the recycle bin, follow these steps:
 
   1. Create or choose a tag to identify audit-related standard snapshots.
-  2. Create a seven-day tag-based rule for the tag within the organization
+  2. Create a seven-day tag-based rule for the tag within the organization.
   3. Apply the tag to all audit-related standard snapshots.
-  4. Set a five-day default rule for the research project
-  5. Set a one-day retention rule for the organization
+  4. Set a five-day default rule for the research project.
+  5. Set a one-day retention rule for the organization.
 
 
 
@@ -245,6 +245,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-03 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 

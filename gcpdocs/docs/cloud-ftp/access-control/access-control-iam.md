@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/cloud-ftp/access-control/access-control-iam/
 title: Access control with IAM \u00a0|\u00a0 Cloud FTP \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T07:58:12.155327+00:00
+fetched_at: 2026-11-04T23:44:59.688841+00:00
 ---
 
 # Access control with IAM  |  Cloud FTP  |  Google Cloud Documentation

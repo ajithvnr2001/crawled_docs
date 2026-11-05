@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/universal-ledger/reference/rest/
 title: Universal Ledger API \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-14T07:53:03.914401+00:00
+fetched_at: 2026-11-05T00:19:11.132904+00:00
 ---
 
 # Universal Ledger API  |  Google Cloud Documentation
@@ -60,12 +60,14 @@ Methods
 Gets the details of a specific endpoint.  
 `[list](https://docs.cloud.google.com/universal-ledger/reference/rest/v1/projects.locations.endpoints/list)` |  `GET /v1/{parent=projects/*/locations/*}/endpoints`   
 Lists all endpoints for a given project and location.  
-`[queryAccount](https://docs.cloud.google.com/universal-ledger/reference/rest/v1/projects.locations.endpoints/queryAccount)` |  `GET /v1/{endpoint=projects/*/locations/*/endpoints/*}:queryAccount`   
-Queries all the information stored about an account in the network.  
+`[queryAccount](https://docs.cloud.google.com/universal-ledger/reference/rest/v1/projects.locations.endpoints/queryAccount)   
+**(deprecated)**` |  `GET /v1/{endpoint=projects/*/locations/*/endpoints/*}:queryAccount`   
+Deprecated: Use the `[QueryData](https://docs.cloud.google.com/universal-ledger/reference/rest/v1/projects.locations.endpoints/queryData#google.cloud.universalledger.v1.UniversalLedger.QueryData)` method instead.  
 `[queryData](https://docs.cloud.google.com/universal-ledger/reference/rest/v1/projects.locations.endpoints/queryData)` |  `POST /v1/{endpoint=projects/*/locations/*/endpoints/*}:queryData`   
 Queries the network for information stored on the ledger, such as accounts and transactions.  
-`[queryTransactionState](https://docs.cloud.google.com/universal-ledger/reference/rest/v1/projects.locations.endpoints/queryTransactionState)` |  `GET /v1/{endpoint=projects/*/locations/*/endpoints/*}:queryTransactionState`   
-Queries the state of a transaction.  
+`[queryTransactionState](https://docs.cloud.google.com/universal-ledger/reference/rest/v1/projects.locations.endpoints/queryTransactionState)   
+**(deprecated)**` |  `GET /v1/{endpoint=projects/*/locations/*/endpoints/*}:queryTransactionState`   
+Deprecated: Use the `[QueryData](https://docs.cloud.google.com/universal-ledger/reference/rest/v1/projects.locations.endpoints/queryData#google.cloud.universalledger.v1.UniversalLedger.QueryData)` method instead.  
 `[submitOperationalTransaction](https://docs.cloud.google.com/universal-ledger/reference/rest/v1/projects.locations.endpoints/submitOperationalTransaction)` |  `POST /v1/{endpoint=projects/*/locations/*/endpoints/*}:submitOperationalTransaction`   
 Submits an operational transaction to the network.  
 `[submitTransaction](https://docs.cloud.google.com/universal-ledger/reference/rest/v1/projects.locations.endpoints/submitTransaction)` |  `POST /v1/{endpoint=projects/*/locations/*/endpoints/*}:submitTransaction`   
@@ -75,6 +77,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-08-26 UTC.
+Last updated 2026-09-18 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-08-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-09-18 UTC."],[],[]] 

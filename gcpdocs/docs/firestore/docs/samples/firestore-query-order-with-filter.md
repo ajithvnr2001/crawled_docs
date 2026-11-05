@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/firestore/docs/samples/firestore-query-order-with-filter/
 title: Ordering a Firestore query with a filter \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T08:01:45.337334+00:00
+fetched_at: 2026-11-04T23:46:03.415387+00:00
 ---
 
 # Ordering a Firestore query with a filter  |  Google Cloud Documentation

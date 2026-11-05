@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/write-sql-gemini/
 title: Write queries with Gemini assistance \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T07:48:38.748610+00:00
+fetched_at: 2026-11-04T23:34:48.121127+00:00
 ---
 
 # Write queries with Gemini assistance  |  BigQuery  |  Google Cloud Documentation

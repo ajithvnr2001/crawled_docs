@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/artifact-analysis/docs/create-notes-occurrences/
 title: Create custom notes and occurrences \u00a0|\u00a0 Artifact Analysis \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T07:55:38.018968+00:00
+fetched_at: 2026-11-04T23:16:54.760320+00:00
 ---
 
 # Create custom notes and occurrences  |  Artifact Analysis  |  Google Cloud Documentation

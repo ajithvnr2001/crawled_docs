@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/service-mesh/v1.20/docs/unified-install/install-anthos-service-mesh/
 title: Install Cloud Service Mesh \u00a0|\u00a0 Cloud Service Mesh v1.20 \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T09:46:22.198680+00:00
+fetched_at: 2026-11-05T00:20:13.908388+00:00
 ---
 
 # Install Cloud Service Mesh  |  Cloud Service Mesh v1.20  |  Google Cloud Documentation
@@ -156,7 +156,7 @@ Run the following commands on Google Distributed Cloud or Google Distributed Clo
 
 
 
-To view SLOs and infrastructure metrics in the Cloud Service Mesh UI, you must also perform the first three steps in [Enable application logging and monitoring](https://docs.cloud.google.com/anthos/clusters/docs/bare-metal/latest/how-to/application-logging-monitoring#enable_cloud_logging_for_user_applications). If logging and monitoring are not enabled and do not receive custom logs and metrics, the Cloud Service Mesh dashboard will not display SLOs, error logs, or CPU and memory metrics.
+To view SLOs and infrastructure metrics in the Cloud Service Mesh UI, you must also perform the first three steps in [Enable application logging and monitoring](https://docs.cloud.google.com/anthos/clusters/docs/bare-metal/latest/how-to/application-logging-monitoring#enable_cloud_logging). If logging and monitoring are not enabled and do not receive custom logs and metrics, the Cloud Service Mesh dashboard will not display SLOs, error logs, or CPU and memory metrics.
 
 **Note:** Prometheus monitoring is enabled by default. Enabling Prometheus and having `enableStackdriverForApplications` set to `true` may incur extra Cloud Monitoring charges. For more information, see [GKE on GDC known issues](https://docs.cloud.google.com/anthos/clusters/docs/on-prem/latest/known-issues#unexpected-monitoring-billing). To disable Prometheus annotations during Cloud Service Mesh installation, see [disable Prometheus metrics merging feature](https://istio.io/latest/docs/ops/integrations/prometheus/#option-1-metrics-merging).
 
@@ -193,7 +193,7 @@ Run the following commands on GKE on AWS to install the control plane with defau
 
 
 
-To view SLOs and infrastructure metrics in the Cloud Service Mesh UI, you must also perform the first three steps in [Enable application logging and monitoring](https://docs.cloud.google.com/anthos/clusters/docs/bare-metal/latest/how-to/application-logging-monitoring#enable_cloud_logging_for_user_applications). If logging and monitoring are not enabled and do not receive custom logs and metrics, the Cloud Service Mesh dashboard will not display SLOs, error logs, or CPU and memory metrics.
+To view SLOs and infrastructure metrics in the Cloud Service Mesh UI, you must also perform the first three steps in [Enable application logging and monitoring](https://docs.cloud.google.com/anthos/clusters/docs/bare-metal/latest/how-to/application-logging-monitoring#enable_cloud_logging). If logging and monitoring are not enabled and do not receive custom logs and metrics, the Cloud Service Mesh dashboard will not display SLOs, error logs, or CPU and memory metrics.
 
 ### Azure
 
@@ -228,7 +228,7 @@ Run the following commands on GKE on Azure (preview) to install the control plan
 
 
 
-To view SLOs and infrastructure metrics in the Cloud Service Mesh UI, you must also perform the first three steps in [Enable application logging and monitoring](https://docs.cloud.google.com/anthos/clusters/docs/bare-metal/latest/how-to/application-logging-monitoring#enable_cloud_logging_for_user_applications). If logging and monitoring are not enabled and do not receive custom logs and metrics, the Cloud Service Mesh dashboard will not display SLOs, error logs, or CPU and memory metrics.
+To view SLOs and infrastructure metrics in the Cloud Service Mesh UI, you must also perform the first three steps in [Enable application logging and monitoring](https://docs.cloud.google.com/anthos/clusters/docs/bare-metal/latest/how-to/application-logging-monitoring#enable_cloud_logging). If logging and monitoring are not enabled and do not receive custom logs and metrics, the Cloud Service Mesh dashboard will not display SLOs, error logs, or CPU and memory metrics.
 
 ### Amazon EKS
 
@@ -267,7 +267,7 @@ Run the following commands on Amazon EKS to install the control plane with defau
 
 
 
-To view SLOs and infrastructure metrics in the Cloud Service Mesh UI, you must also perform the first three steps in [Enable application logging and monitoring](https://docs.cloud.google.com/anthos/clusters/docs/bare-metal/latest/how-to/application-logging-monitoring#enable_cloud_logging_for_user_applications). If logging and monitoring are not enabled and do not receive custom logs and metrics, the Cloud Service Mesh dashboard will not display SLOs, error logs, or CPU and memory metrics.
+To view SLOs and infrastructure metrics in the Cloud Service Mesh UI, you must also perform the first three steps in [Enable application logging and monitoring](https://docs.cloud.google.com/anthos/clusters/docs/bare-metal/latest/how-to/application-logging-monitoring#enable_cloud_logging). If logging and monitoring are not enabled and do not receive custom logs and metrics, the Cloud Service Mesh dashboard will not display SLOs, error logs, or CPU and memory metrics.
 
 ### Microsoft AKS
 
@@ -308,7 +308,7 @@ Run the following commands on Microsoft AKS to install the control plane with de
 
 
 
-To view SLOs and infrastructure metrics in the Cloud Service Mesh UI, you must also perform the first three steps in [Enable application logging and monitoring](https://docs.cloud.google.com/anthos/clusters/docs/bare-metal/latest/how-to/application-logging-monitoring#enable_cloud_logging_for_user_applications). If logging and monitoring are not enabled and do not receive custom logs and metrics, the Cloud Service Mesh dashboard will not display SLOs, error logs, or CPU and memory metrics.
+To view SLOs and infrastructure metrics in the Cloud Service Mesh UI, you must also perform the first three steps in [Enable application logging and monitoring](https://docs.cloud.google.com/anthos/clusters/docs/bare-metal/latest/how-to/application-logging-monitoring#enable_cloud_logging). If logging and monitoring are not enabled and do not receive custom logs and metrics, the Cloud Service Mesh dashboard will not display SLOs, error logs, or CPU and memory metrics.
 
 ### Install default features and Certificate Authority (CA) Service
 
@@ -450,7 +450,7 @@ Run the following commands on Google Distributed Cloud or Google Distributed Clo
 
 
 
-To view SLOs and infrastructure metrics in the Cloud Service Mesh UI, you must also perform the first three steps in [Enable application logging and monitoring](https://docs.cloud.google.com/anthos/clusters/docs/bare-metal/latest/how-to/application-logging-monitoring#enable_cloud_logging_for_user_applications). If logging and monitoring are not enabled and do not receive custom logs and metrics, the Cloud Service Mesh dashboard will not display SLOs, error logs, or CPU and memory metrics.
+To view SLOs and infrastructure metrics in the Cloud Service Mesh UI, you must also perform the first three steps in [Enable application logging and monitoring](https://docs.cloud.google.com/anthos/clusters/docs/bare-metal/latest/how-to/application-logging-monitoring#enable_cloud_logging). If logging and monitoring are not enabled and do not receive custom logs and metrics, the Cloud Service Mesh dashboard will not display SLOs, error logs, or CPU and memory metrics.
 
 ### Install default features with Istio CA
 
@@ -942,7 +942,7 @@ Run the following commands on Google Distributed Cloud or Google Distributed Clo
      * `--cert_chain` The certificate chain
      * `--option stackdriver` Enables Stackdriver option. Note that you can also enable both Stackdriver and Prometheus by using `--option prometheus-and-stackdriver`. 
 
-To view SLOs and infrastructure metrics in the Cloud Service Mesh UI, you must also perform the first three steps in [Enable application logging and monitoring](https://docs.cloud.google.com/anthos/clusters/docs/bare-metal/latest/how-to/application-logging-monitoring#enable_cloud_logging_for_user_applications). If logging and monitoring are not enabled and do not receive custom logs and metrics, the Cloud Service Mesh dashboard will not display SLOs, error logs, or CPU and memory metrics.
+To view SLOs and infrastructure metrics in the Cloud Service Mesh UI, you must also perform the first three steps in [Enable application logging and monitoring](https://docs.cloud.google.com/anthos/clusters/docs/bare-metal/latest/how-to/application-logging-monitoring#enable_cloud_logging). If logging and monitoring are not enabled and do not receive custom logs and metrics, the Cloud Service Mesh dashboard will not display SLOs, error logs, or CPU and memory metrics.
 
 
 
@@ -1471,6 +1471,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-03 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 

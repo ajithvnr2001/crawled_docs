@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/
 title: Agent Platform API \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-14T10:02:20.037252+00:00
+fetched_at: 2026-11-05T00:19:46.200040+00:00
 ---
 
 # Agent Platform API  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation
@@ -27,15 +27,6 @@ The Agent Platform API lets you manage Agent Platform resources in Google Cloud.
 
 The Service name `aiplatform.googleapis.com` is needed to create RPC client stubs.
 
-## `[genai.vertex.v1beta1.InteractionsHttpService](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/genai.vertex.v1beta1#genai.vertex.v1beta1.InteractionsHttpService)`
-
-Methods  
----  
-``[CancelInteractionHttp](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/genai.vertex.v1beta1#genai.vertex.v1beta1.InteractionsHttpService.CancelInteractionHttp)`` |  Cancels an interaction.  
-``[CreateInteractionHttp](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/genai.vertex.v1beta1#genai.vertex.v1beta1.InteractionsHttpService.CreateInteractionHttp)`` |   
-``[GetInteractionHttp](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/genai.vertex.v1beta1#genai.vertex.v1beta1.InteractionsHttpService.GetInteractionHttp)`` |  Gets an interaction.  
-``[ListInteractionsHttp](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/genai.vertex.v1beta1#genai.vertex.v1beta1.InteractionsHttpService.ListInteractionsHttp)`` |  Lists interactions.  
-  
 ## `[google.cloud.aiplatform.v1.DataFoundryService](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.DataFoundryService)`
 
 Methods  
@@ -1346,6 +1337,23 @@ Methods
 ``[SetIamPolicy](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.iam.v1#google.iam.v1.IAMPolicy.SetIamPolicy)`` |  Sets the access control policy on the specified resource.  
 ``[TestIamPermissions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.iam.v1#google.iam.v1.IAMPolicy.TestIamPermissions)`` |  Returns permissions that a caller has on the specified resource.  
   
+## `[google.learning.vertex.api.interactions.v1.InteractionsService](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.learning.vertex.api.interactions.v1#google.learning.vertex.api.interactions.v1.InteractionsService)`
+
+Methods  
+---  
+``[CancelInteraction](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.learning.vertex.api.interactions.v1#google.learning.vertex.api.interactions.v1.InteractionsService.CancelInteraction)`` |  Cancels an interaction.  
+``[CancelInteractionHttp](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.learning.vertex.api.interactions.v1#google.learning.vertex.api.interactions.v1.InteractionsService.CancelInteractionHttp)`` |  Cancels an interaction by id.  
+``[CreateInteraction](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.learning.vertex.api.interactions.v1#google.learning.vertex.api.interactions.v1.InteractionsService.CreateInteraction)`` |  Creates an interaction.  
+``[CreateInteractionHttp](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.learning.vertex.api.interactions.v1#google.learning.vertex.api.interactions.v1.InteractionsService.CreateInteractionHttp)`` |  Creates a new interaction.  
+``[CreateInteractionStream](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.learning.vertex.api.interactions.v1#google.learning.vertex.api.interactions.v1.InteractionsService.CreateInteractionStream)`` |  Creates an interaction and streams the response.  
+``[DeleteInteraction](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.learning.vertex.api.interactions.v1#google.learning.vertex.api.interactions.v1.InteractionsService.DeleteInteraction)`   
+**(deprecated)**` |  Deletes an interaction.  
+``[GetInteraction](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.learning.vertex.api.interactions.v1#google.learning.vertex.api.interactions.v1.InteractionsService.GetInteraction)`` |  Fully typed proto, unary version of GetInteraction that returns Interaction proto.  
+``[GetInteractionHttp](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.learning.vertex.api.interactions.v1#google.learning.vertex.api.interactions.v1.InteractionsService.GetInteractionHttp)`` |  Retrieves the full details of a single interaction based on its `Interaction.id`.  
+``[GetInteractionStream](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.learning.vertex.api.interactions.v1#google.learning.vertex.api.interactions.v1.InteractionsService.GetInteractionStream)`` |  Fully typed proto, streaming version of GetInteraction that returns Interaction proto.  
+``[ListInteractions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.learning.vertex.api.interactions.v1#google.learning.vertex.api.interactions.v1.InteractionsService.ListInteractions)`` |  List interactions.  
+``[ListInteractionsHttp](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.learning.vertex.api.interactions.v1#google.learning.vertex.api.interactions.v1.InteractionsService.ListInteractionsHttp)`` |  List interactions.  
+  
 ## `[google.learning.vertex.api.interactions.v1beta1.InteractionsService](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.learning.vertex.api.interactions.v1beta1#google.learning.vertex.api.interactions.v1beta1.InteractionsService)`
 
 Methods  
@@ -1387,6 +1395,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-09-28 UTC.
+Last updated 2026-11-03 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-09-28 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 

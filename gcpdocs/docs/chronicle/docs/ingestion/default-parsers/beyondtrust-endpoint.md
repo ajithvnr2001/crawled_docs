@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/beyondtrust-endpoint/
 title: Collect BeyondTrust Endpoint Privilege Management (EPM) logs \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T07:51:30.497890+00:00
+fetched_at: 2026-11-04T23:34:36.363376+00:00
 ---
 
 # Collect BeyondTrust Endpoint Privilege Management (EPM) logs  |  Google Security Operations  |  Google Cloud Documentation

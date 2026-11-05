@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/data-engineering-agent-pipelines/
 title: Use the Data Engineering Agent to build and modify data pipelines \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-03T09:51:10.265102+00:00
+fetched_at: 2026-11-04T23:31:36.722863+00:00
 ---
 
 # Use the Data Engineering Agent to build and modify data pipelines  |  BigQuery  |  Google Cloud Documentation
@@ -53,7 +53,7 @@ Make sure that Gemini in BigQuery is enabled for your Google Cloud project. For 
 
 ### Enable the required APIs
 
-**Note:** If you don't have permission to enable the APIs, ask your project administrator to enable the APIs for you from the [APIs & Services dashboard](https://console.cloud.google.com/apis/dashboard). Alternatively, your project administrator can grant you the [Service Usage Admin (`roles/serviceusage.serviceUsageAdmin`)](https://docs.cloud.google.com/service-usage/docs/access-control#serviceusage.serviceUsageAdmin) role, which lets you manage APIs for the current project.
+**Note:** If you don't have permission to enable the APIs, ask your project administrator to enable the APIs for you from the [APIs & Services dashboard](https://console.cloud.google.com/apis/dashboard). Alternatively, your project administrator can grant you the [Service Usage Admin (`roles/serviceusage.serviceUsageAdmin`)](https://docs.cloud.google.com/iam/docs/roles-permissions/serviceusage#serviceusage.serviceUsageAdmin) role, which lets you manage APIs for the current project.
 
 ### console
 
@@ -461,6 +461,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-02 UTC.
+Last updated 2026-11-04 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-02 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 

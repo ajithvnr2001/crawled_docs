@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/universal-ledger/quickstart-client-libraries/
 title: Quickstart: Using client libraries \u00a0|\u00a0 Universal Ledger \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-15T03:08:08.908183+00:00
+fetched_at: 2026-11-05T00:19:11.803495+00:00
 ---
 
 # Quickstart: Using client libraries  |  Universal Ledger  |  Google Cloud Documentation
@@ -37,7 +37,7 @@ This page shows you how to get started with the Universal Ledger API in your fav
 
   3. [Verify that billing is enabled for your Google Cloud project](https://docs.cloud.google.com/billing/docs/how-to/verify-billing-enabled#confirm_billing_is_enabled_on_a_project). 
 
-  4. Enable the Universal Ledger API. 
+  4. Enable the Universal Ledger API, if it is not already enabled. 
 
 **Roles required to enable APIs**
 
@@ -116,7 +116,7 @@ Replace `KEY_PATH` with the path of the JSON file that contains your credentials
 
   9. [Verify that billing is enabled for your Google Cloud project](https://docs.cloud.google.com/billing/docs/how-to/verify-billing-enabled#confirm_billing_is_enabled_on_a_project). 
 
-  10. Enable the Universal Ledger API. 
+  10. Enable the Universal Ledger API, if it is not already enabled. 
 
 **Roles required to enable APIs**
 

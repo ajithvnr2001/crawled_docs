@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/comodo-av/
 title: Collect Xcitium Endpoint Security logs \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T07:52:46.305854+00:00
+fetched_at: 2026-11-04T23:43:29.401482+00:00
 ---
 
 # Collect Xcitium Endpoint Security logs  |  Google Security Operations  |  Google Cloud Documentation

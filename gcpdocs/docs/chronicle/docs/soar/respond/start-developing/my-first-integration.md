@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chronicle/docs/soar/respond/start-developing/my-first-integration/
 title: Develop your first custom integration \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T10:03:08.507597+00:00
+fetched_at: 2026-11-04T23:33:40.773056+00:00
 ---
 
 # Develop your first custom integration  |  Google Security Operations  |  Google Cloud Documentation
@@ -44,7 +44,7 @@ In this custom integration example, you'll build a custom integration for the **
 
 To create your first custom integration in the IDE, follow these steps:
 
-  1. On the **Response > IDE** page, click  add  **Add** to add a new IDE item.
+  1. On the **Automation > IDE** page, click  add  **Add** to add a new IDE item.
   2. Select the **Integration** radio button and enter a name for the integration.
   3. Click **Create**. The integration appears with a custom integration icon.
   4. Click settings **Settings**.
@@ -68,7 +68,7 @@ Once you create the integration, you can view it in your Google SecOps Response 
 
 ## Create a Ping action
 
-  1. In **Response > IDE**, click  add **Add > Add New IDE Item**.
+  1. In **Automation > IDE**, click  add **Add > Add New IDE Item**.
   2. Select the **Action** radio button, enter a name, and select the integration.
   3. Click **Create**. Review the generated code template.
   4. Copy the following code for the **Ping** action. The **Ping** action uses the `API Key` parameter you configured for the integration and puts it in the URL provided by the product for testing purposes. For details, see [Create custom actions](https://docs.cloud.google.com/chronicle/docs/soar/respond/start-developing/my-first-action). 
@@ -113,6 +113,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-28 UTC.
+Last updated 2026-11-04 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 

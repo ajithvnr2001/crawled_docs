@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/docs/troubleshoot/columnar-engine/
 title: Troubleshoot the columnar engine \u00a0|\u00a0 AlloyDB for PostgreSQL \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T09:52:31.824263+00:00
+fetched_at: 2026-11-04T23:32:18.403294+00:00
 ---
 
 # Troubleshoot the columnar engine  |  AlloyDB for PostgreSQL  |  Google Cloud Documentation
@@ -21,11 +21,11 @@ Send feedback
 
 #  Troubleshoot the columnar engine Stay organized with collections  Save and categorize content based on your preferences. 
 
-This page provides recommended fixes and information for common issues and questions regarding the AlloyDB for PostgreSQL columnar engine.
+Resolve common issues that you might encounter when you use the AlloyDB for PostgreSQL columnar engine.
 
 ## You added referenced columns to the columnar engine, but your SELECT query doesn't use them
 
-**Description:** To use the columnar engine, all columns referenced in a query fragment—such as joins and scans—must be in the column store. If any referenced column isn't in the columnar engine, then the query fragment defaults to the row-based store.
+**Description:** To use the columnar engine, all columns referenced in a query fragment—such as joins and scans—must be in the column store. If any referenced column isn't in the columnar engine, then the query fragment defaults to the row store.
 
 A _query fragment_ in this context is a query that can have multiple scan nodes. For example, the query fragment can have two scan nodes for a join. One scan node might use non-columnar and another scan node might use columnar. All columns of a scan node—filter columns and projection columns—must be populated in columnar. Similarly, a query can have some partitions in columnar and other partitions in non-columnar.
 
@@ -65,10 +65,22 @@ If the recommended tables and columns exceed the physical memory of the columnar
 
 You can also adjust the columnar engine memory and storage cache allocation. The columnar engine is provisioned with a default size for memory and storage cache. You can manually configure the memory and storage cache. To change the amount of memory or storage cache allocated to the columnar engine, see [Configure memory for the columnar engine](https://docs.cloud.google.com/alloydb/docs/columnar-engine/configure#configure-memory).
 
+## Queries against Apache Iceberg tables fail or don't use the columnar engine
+
+**Description:** Queries on Apache Iceberg tables created using the `USING iceberg` table access method fail with errors or fall back to direct scans.
+
+**Recommended fix:**
+
+  1. Make sure that the `google_columnar_engine.enable_iceberg_reads` flag is set to `on` on the instance and that the instance has restarted. For more information, see [Configure database flags](https://docs.cloud.google.com/alloydb/docs/access-iceberg-data-from-alloydb#configure-flags).
+  2. Verify that your AlloyDB cluster service agent has the Storage Object Viewer (`roles/storage.objectViewer`) role on the Cloud Storage bucket containing your Iceberg data and metadata, and if using Lakehouse runtime catalog, the BigLake Viewer (`roles/biglake.viewer`) role on the project hosting your BigLake catalog.
+  3. To verify columnar execution, execute `EXPLAIN (ANALYZE, COSTS OFF)` and confirm that the plan contains a `Custom Scan (ColumnarScan)` node. For detailed troubleshooting steps, see [Troubleshoot direct Iceberg access](https://docs.cloud.google.com/alloydb/docs/access-iceberg-data-from-alloydb#troubleshooting).
+
+
+
 Send feedback 
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-28 UTC.
+Last updated 2026-11-04 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 

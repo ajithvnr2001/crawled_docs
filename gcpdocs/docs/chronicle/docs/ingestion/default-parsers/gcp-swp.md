@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/gcp-swp/
 title: Collect Secure Web Proxy logs \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T07:52:30.668969+00:00
+fetched_at: 2026-11-04T23:42:11.773453+00:00
 ---
 
 # Collect Secure Web Proxy logs  |  Google Security Operations  |  Google Cloud Documentation

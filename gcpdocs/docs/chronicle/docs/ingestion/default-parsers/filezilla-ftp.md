@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/filezilla-ftp/
 title: Collect FileZilla FTP logs \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T07:49:56.963019+00:00
+fetched_at: 2026-11-04T23:43:44.895472+00:00
 ---
 
 # Collect FileZilla FTP logs  |  Google Security Operations  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/docs/troubleshoot/find-fix-inconsistent-indexes/
 title: Find and fix inconsistent indexes \u00a0|\u00a0 AlloyDB for PostgreSQL \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T09:52:33.294124+00:00
+fetched_at: 2026-11-05T00:18:42.524603+00:00
 ---
 
 # Find and fix inconsistent indexes  |  AlloyDB for PostgreSQL  |  Google Cloud Documentation
@@ -441,7 +441,7 @@ The output of this statement is similar to the following:
 
 #### Set memory size to use for reindexing
 
-Based on the size of your index as determined in the previous section, it is important to set the appropriate value for the [`maintenance_work_mem`](https://www.postgresql.org/docs/17//runtime-config-resource.html#GUC-MAINTENANCE-WORK-MEM) configuration parameter. This parameter specifies the amount of memory to use for the reindexing operation. For example, if your index size is greater than 15 GB, we recommend that you adjust your maintenance memory.
+Based on the size of your index as determined in the previous section, it is important to set the appropriate value for the [`maintenance_work_mem`](https://www.postgresql.org/docs/18//runtime-config-resource.html#GUC-MAINTENANCE-WORK-MEM) configuration parameter. This parameter specifies the amount of memory to use for the reindexing operation. For example, if your index size is greater than 15 GB, we recommend that you adjust your maintenance memory.
 
 The following example shows how to set `maintenance_work_mem`:
 
@@ -565,6 +565,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-28 UTC.
+Last updated 2026-11-03 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 

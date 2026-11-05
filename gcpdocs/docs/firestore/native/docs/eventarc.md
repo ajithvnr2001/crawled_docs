@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/firestore/native/docs/eventarc/
 title: Create event-driven architectures with Eventarc \u00a0|\u00a0 Firestore in Native mode \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T08:01:02.799532+00:00
+fetched_at: 2026-11-04T23:45:18.934374+00:00
 ---
 
 # Create event-driven architectures with Eventarc  |  Firestore in Native mode  |  Google Cloud Documentation

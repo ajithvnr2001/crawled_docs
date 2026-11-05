@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/managed-spark/docs/concepts/components/flink/
 title: Managed Service for Apache Spark optional Flink component \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T21:57:46.524810+00:00
+fetched_at: 2026-11-05T00:20:20.598129+00:00
 ---
 
 # Managed Service for Apache Spark optional Flink component  |  Google Cloud Documentation
@@ -23,20 +23,9 @@ Send feedback
 
 #  Managed Service for Apache Spark optional Flink component Stay organized with collections  Save and categorize content based on your preferences. 
 
-You can activate additional components like Flink when you create a Managed Service for Apache Spark cluster using the [Optional components](https://docs.cloud.google.com/managed-spark/docs/concepts/components/overview#available_optional_components) feature. This page shows you how to create a Managed Service for Apache Spark cluster with the [Apache Flink](https://flink.apache.org/) optional component activated (a Flink cluster), and then run Flink jobs on the cluster.
+The [Apache Flink](https://flink.apache.org/) [optional component](https://docs.cloud.google.com/managed-spark/docs/concepts/components/overview#available_optional_components) lets you create a Managed Service for Apache Spark cluster configured to run distributed streaming and batch processing workloads. Activating this component prepares the runtime to execute stateful pipelines and large-scale data applications.
 
-You can use your Flink cluster to:
-
-  1. Run Flink jobs using the `Jobs` resource from the Google Cloud console, Google Cloud CLI, or the Dataproc API.
-
-  2. Run Flink jobs using the `flink` CLI running on the Flink cluster master node.
-
-  3. Run Apache Beam jobs on Flink
-
-  4. Run Flink on a Kerberized cluster
-
-
-
+You can use your Flink cluster to [run Flink jobs using the `Jobs` resource](https://docs.cloud.google.com/managed-spark/docs/concepts/components/flink#run-flink-jobs-resource) from the Google Cloud console, Google Cloud CLI, or Dataproc API, or execute workloads with the [`flink` CLI](https://docs.cloud.google.com/managed-spark/docs/concepts/components/flink#run-flink-jobs-cli) on the master node. The component also supports [Apache Beam jobs](https://docs.cloud.google.com/managed-spark/docs/concepts/components/flink#run-flink-jobs-beam) and running on [Kerberized clusters](https://docs.cloud.google.com/managed-spark/docs/concepts/components/flink#run-flink-jobs-kerberized).
 
 ## Create a Flink cluster
 
@@ -653,6 +642,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-03 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 

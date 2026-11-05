@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/agents/codemender/set-up-environment/
 title: Install and configure the CLI \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T05:54:36.256839+00:00
+fetched_at: 2026-11-04T23:13:31.060925+00:00
 ---
 
 # Install and configure the CLI  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation
@@ -375,10 +375,8 @@ Here is what the core default parameters mean:
     * **What it means:** Configuration block for security policies.
     * **Sub-parameters:**
       * **`protected_files: []`** : (List of Strings) Additional files or directories on the host system that you want to mount **read-only** inside the sandbox to protect them from modification. Supports path expansion (`~`) and wildcards (`*`). Even when `protected_files` is empty, the sandbox always protects `.git/hooks`, `.git/config`, `.hg/hgrc`, and `.codemender` as read-only and excludes common credential directories (`~/.ssh`, `~/.gnupg`, `~/.aws`, `~/.config/gcloud`, `~/.config/gh`, `~/.kube`, `~/.docker`).
-  * **`model: "gemini-3.8-flash"`**
+  * **Model** : `config.yaml` doesn't set the model. To choose a model, pass `--model` to `cm find`, `cm verify`, or `cm fix`. For the supported models and the default, see [Specifying the model](https://docs.cloud.google.com/gemini-enterprise-agent-platform/agents/codemender#specifying-the-model).
 
-    * **What it means:** The default intelligence engine powering the backend reasoning loops.
-    * **Why this is the default:** `gemini-3.8-flash` offers the optimal balance of speed, cost, and analytical reasoning required to suggest patches. (Users can override this to `gemini-4-argon` (Gemini 4 Argon) for deeper, more complex reasoning when needed).
   * **`vcs: { type: "git" }`**
 
     * **What it means:** Defines the type of version control system your project uses through the `vcs` key. If you leave this unconfigured, the tool attempts to automatically identify Git or Mercurial repositories. If you set `vcs` to `none`, the CLI outputs a warning but continues execution without VCS functionality. CodeMender relies on this setting to manage speculative security fixes, track codebase modifications, and integrate with your local repository.
@@ -524,7 +522,20 @@ Redirected files and non-interactive CI/CD streams keep `plain` set to `false` b
 
 ## Telemetry
 
-To help us monitor and improve product health, we collect anonymous telemetry data through the CLI. We fully anonymize all collected data, which includes basic usage metrics and performance diagnostics. Telemetry never collects or transmits source code, file contents, findings, patches, or user identities.
+To help us monitor and improve product health, the CLI sends usage telemetry to Google: an event when a command starts, an event when it exits, and an event for each error it reports. When the CLI can determine them, events identify the Google Account or service account that runs the CLI and the Google Cloud project that it uses.
+
+Telemetry events can contain the following:
+
+  * Your Google Account ID or service account ID, the Google Cloud project ID, and the team ID, if you set one.
+  * A random ID for each command, the command name, the server session ID, the selected model, and the CLI version.
+  * The operating system family, platform, and version.
+  * Whether the sandbox is turned on, and whether `-y` (`--yes`) is set to skip confirmation prompts.
+  * On exit: the duration, exit code, and outcome; token counts; the number of lines, files, and bytes scanned and the languages detected; and the number of findings by severity or the result of a verification or fix.
+  * On error: the error category and reason, and a stack trace of the CLI's own code.
+
+
+
+Telemetry doesn't contain source code, file contents, file paths, prompts, findings, patches, or error message text. The CLI sends telemetry to a global Google endpoint. Telemetry is Service Data, as described in the [Google Cloud Privacy Notice](https://cloud.google.com/terms/cloud-privacy-notice).
 
 By default, telemetry is enabled. If you want to disable telemetry, set the `CM_TELEMETRY_OPT_OUT` environment variable to `1` or `true`.
 
@@ -570,6 +581,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-30 UTC.
+Last updated 2026-11-04 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 

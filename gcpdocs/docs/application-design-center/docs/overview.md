@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/application-design-center/docs/overview/
 title: Application Design Center overview \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-30T08:52:16.285002+00:00
+fetched_at: 2026-11-04T23:31:18.856075+00:00
 ---
 
 # Application Design Center overview  |  Google Cloud Documentation
@@ -51,7 +51,7 @@ To determine the best design and deployment approach for your purpose, use the f
 
 Your goal | Primary benefit | Approach  
 ---|---|---  
-Visualize your architecture | Real-time suggestions and visual layout | [Design canvas](https://docs.cloud.google.com/application-design-center/docs/design-application-templates#design_your_template)  
+Visualize your architecture | Real-time suggestions and visual layout | [Design canvas](https://docs.cloud.google.com/application-design-center/docs/design-application-templates#design-template)  
 Rapid prototyping | AI-driven starting points from requirements | [Natural language chat](https://docs.cloud.google.com/cloud-assist/design-application)  
 Automation and integration | Repeatable, programmable workflows | [REST API](https://docs.cloud.google.com/application-design-center/docs/reference/rest)  
 Command-line management | Efficient terminal-based operations | [Google Cloud CLI](https://docs.cloud.google.com/sdk/gcloud/reference/design-center)  
@@ -139,7 +139,7 @@ Each space can have the following catalog types:
 
 ### Deployment standardization
 
-An [application](https://docs.cloud.google.com/application-design-center/docs/manage-application-instances) draft is a customized version of a template that is ready to deploy. When the development team deploys the draft, it becomes an application. This model gives developers the flexibility to configure their specific application, while building on top of a standardized, governed foundation.
+An [application draft](https://docs.cloud.google.com/application-design-center/docs/manage-applications) is a customized version of a template that is ready to deploy. When the development team deploys the draft, it becomes an application. This model gives developers the flexibility to configure their specific application, while building on top of a standardized, governed foundation.
 
 ## What's next
 
@@ -155,6 +155,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-29 UTC.
+Last updated 2026-11-04 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 

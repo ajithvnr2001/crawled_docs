@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chronicle/docs/reports/response-health-monitoring-and-troubleshooting-dashboard/
 title: Monitor response and playbook health \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T10:07:50.781607+00:00
+fetched_at: 2026-11-04T23:34:26.437027+00:00
 ---
 
 # Monitor response and playbook health  |  Google Security Operations  |  Google Cloud Documentation
@@ -202,7 +202,7 @@ If multiple playbooks fail simultaneously, the root cause is often a shared thir
      * `FAULTED` or `FAULTED_AND_SKIPPED`: Indicates that the action returned an execution error. Review **Latest Failure Reasons** for details such as `401 Unauthorized`, `403 Forbidden`, or invalid input parameters.
      * `UNHANDLED_TIMEDOUT`: Indicates that the action or remote agent timed out before completing execution.
      * `PENDING_ACTION_TIMEOUT`: Indicates that an asynchronous or manual pending action exceeded its configured waiting timeout before receiving a response.
-  3. Navigate to **Response** > **IDE** or **Settings** > **SOAR Settings** > **Environments** to verify and test the integration instance configuration and credentials for the affected environment.
+  3. Navigate to **Automation > IDE** or **Settings > Access Management > Environments** to verify and test the integration instance configuration and credentials for the affected environment.
 
 
 
@@ -294,6 +294,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-28 UTC.
+Last updated 2026-11-04 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/use-partner-models/
 title: Gemini Enterprise Agent Platform partner models for MaaS \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-03T09:53:17.464560+00:00
+fetched_at: 2026-11-04T23:12:56.078855+00:00
 ---
 
 # Gemini Enterprise Agent Platform partner models for MaaS  |  Google Cloud Documentation
@@ -53,7 +53,7 @@ Anthropic's Claude Opus 4.7 on Google Cloud | Language, Vision | Anthropic's Cla
 Anthropic's Claude Sonnet 4.6 on Google Cloud | Language, Vision | Anthropic's Claude Sonnet 4.6 on Google Cloud delivers frontier intelligence at scale—built for coding, agents, and enterprise workflows. | [Model card](https://console.cloud.google.com/agent-platform/publishers/anthropic/model-garden/claude-sonnet-4-6)  
 Anthropic's Claude Opus 4.6 on Google Cloud | Language, Vision | Anthropic's Claude Opus 4.6 on Google Cloud is a high-intelligence model from Anthropic and an industry leader across coding, agents, computer use, and enterprise workflows. | [Model card](https://console.cloud.google.com/agent-platform/publishers/anthropic/model-garden/claude-opus-4-6)  
 Anthropic's Claude Opus 4.5 on Google Cloud | Language, Vision | Anthropic's Claude Opus 4.5 on Google Cloud is a high-intelligence model from Anthropic and an industry leader across coding, agents, computer use, and enterprise workflows. | [Model card](https://console.cloud.google.com/agent-platform/publishers/anthropic/model-garden/claude-opus-4-5)  
-Anthropic's Claude Sonnet 4.5 on Google Cloud | Language, Vision | Anthropic's mid-sized model for powering real-world agents, with capabilities in coding, computer use, cybersecurity, and working with office files like spreadsheets. | [Model card](https://console.cloud.google.com/agent-platform/publishers/anthropic/model-garden/claude-sonnet-4-5)  
+Anthropic's Claude Sonnet 4.5 on Google Cloud (deprecated) | Language, Vision | Anthropic's mid-sized model for powering real-world agents, with capabilities in coding, computer use, cybersecurity, and working with office files like spreadsheets. | [Model card](https://console.cloud.google.com/agent-platform/publishers/anthropic/model-garden/claude-sonnet-4-5)  
 Anthropic's Claude Haiku 4.5 on Google Cloud | Language, Vision | Anthropic's Claude Haiku 4.5 on Google Cloud is a high-performance model for a wide range of use cases and coding tasks, with the speed and cost efficiency to power free products and high-volume user experiences. | [Model card](https://console.cloud.google.com/agent-platform/publishers/anthropic/model-garden/claude-haiku-4-5)  
 Anthropic's Claude 3.5 Sonnet v2 on Google Cloud | Language, Vision | Claude 3.5 Sonnet on Google Cloud is a high-performance model for real-world software engineering tasks and agentic capabilities. Claude 3.5 Sonnet on Google Cloud delivers these advancements at the same price and speed as its predecessor. | [Model card](https://console.cloud.google.com/agent-platform/publishers/anthropic/model-garden/claude-3-5-sonnet-v2)  
 Anthropic's Claude 3.5 Sonnet on Google Cloud | Language | Claude 3.5 Sonnet on Google Cloud outperforms Anthropic's Claude 3 Opus on Google Cloud on a wide range of Anthropic's evaluations with the speed and cost of Anthropic's mid-tier model, Claude 3 Sonnet on Google Cloud. | [Model card](https://console.cloud.google.com/agent-platform/publishers/anthropic/model-garden/claude-3-5-sonnet)  
@@ -218,7 +218,7 @@ The following roles and permissions are required to use partner models:
 
   * You must have the Consumer Procurement Entitlement Manager Identity and Access Management (IAM) role. Anyone who's been granted this role can enable partner models in Model Garden.
 
-  * You must have the `aiplatform.endpoints.predict` permission. This permission is included in the Agent Platform User IAM role. For more information, see [Gemini Enterprise Agent Platform User](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/access-control#aiplatform.user) and [Access control](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/access-control#permissions).
+  * You must have the `aiplatform.endpoints.predict` permission. This permission is included in the Agent Platform User IAM role. For more information, see [Agent Platform User](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/access-control#aiplatform.user) and [Access control](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/access-control#permissions).
 
 
 
@@ -296,6 +296,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-02 UTC.
+Last updated 2026-11-04 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-02 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 

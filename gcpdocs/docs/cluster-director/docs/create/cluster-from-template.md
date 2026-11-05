@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/cluster-director/docs/create/cluster-from-template/
 title: Create an AI-optimized cluster based on a template \u00a0|\u00a0 Cluster Director \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-03T09:54:27.746485+00:00
+fetched_at: 2026-11-04T23:29:00.337199+00:00
 ---
 
 # Create an AI-optimized cluster based on a template  |  Cluster Director  |  Google Cloud Documentation
@@ -294,7 +294,7 @@ In the **Storage** section, to configure the storage resources that your cluster
 
 To configure the Slurm environment in your cluster, complete the following steps:
 
-  1. Optional: To edit the number and type of compute instances that the login node uses, expand the **Login node** section, and then follow the prompts to update the compute resources.
+  1. Optional: To edit the number of compute instances, machine type, or OS image for the login nodes, expand the **Login node** section. Then, follow the prompts to configure the login nodes.
 
   2. Optional: To edit partitions of your cluster to organize your compute resources, expand the **Partitions** section, and then do one of the following:
 
@@ -308,17 +308,19 @@ To configure the Slurm environment in your cluster, complete the following steps
 
        4. In the **Resource configuration** field, select a compute resource configuration that you created in the previous steps.
 
-       5. In the **Source image** list, select one of the [supported OS images for Cluster Director](https://docs.cloud.google.com/cluster-director/docs/os-images).
+       5. In the **Image family** list, select an OS image family to use for the compute nodes in the nodeset. For more information about supported image families, see [Supported OS images for Cluster Director](https://docs.cloud.google.com/cluster-director/docs/os-images).
 
-       6. In the **Boot disk type** list and **Boot disk size** field, enter the type and size of the boot disk for the compute instances to use.
+       6. Optional: In the **Image** list, select a specific OS image version. By default, the **Image** list selects the latest OS image version for the machine series specified in the nodeset.
 
-       7. Optional: To share disk capacity and performance across nodes in a nodeset, specify an existing Hyperdisk pool or Hyperdisk Exapool as follows:
+       7. In the **Boot disk type** list and **Boot disk size** field, enter the type and size of the boot disk for the compute instances to use.
+
+       8. Optional: To share disk capacity and performance across nodes in a nodeset, specify an existing Hyperdisk pool or Hyperdisk Exapool as follows:
 
           1. Select the **Enable storage pool** checkbox.
 
           2. In the **Select a storage pool** list, select a storage pool that uses Hyperdisk Balanced volumes.
 
-       8. Configure the node counts for the nodeset:
+       9. Configure the node counts for the nodeset:
 
           * For GPU or CPU nodesets, in the **Static node count** field, enter the minimum number of compute nodes that must run at all times. In the **Dynamic node count** field, enter the maximum number of additional compute nodes that Cluster Director can create when demand increases.
 
@@ -328,9 +330,9 @@ To configure the Slurm environment in your cluster, complete the following steps
 
             * To keep persistent TPU slices active between jobs, select **Use static nodes**. Then, in the **TPU topology** section that appears, select a slice topology and the number of slices.
 
-       9. Optional: To specify more advanced configurations for the compute node, expand **Advanced nodeset settings**. Then, follow the prompts to add or remove startup scripts, or add or remove labels.
+       10. Optional: To specify more advanced configurations for the compute node, expand **Advanced nodeset settings**. Then, follow the prompts to add or remove startup scripts, or add or remove labels.
 
-       10. Click **Done**.
+       11. Click **Done**.
 
      * To remove a partition, click delete **Delete partition**.
 
@@ -364,6 +366,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-03 UTC.
+Last updated 2026-11-04 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 

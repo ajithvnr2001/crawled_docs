@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/velo-firewall/
 title: Collect Arista VeloCloud SD-WAN logs \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T07:53:12.168650+00:00
+fetched_at: 2026-11-04T23:44:13.290520+00:00
 ---
 
 # Collect Arista VeloCloud SD-WAN logs  |  Google Security Operations  |  Google Cloud Documentation

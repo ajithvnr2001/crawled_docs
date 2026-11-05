@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/firestore/docs/samples/firestore-query-order-limit-field-valid/
 title: Ordering and limiting Firestore queries with a filter \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T08:01:47.413574+00:00
+fetched_at: 2026-11-04T23:46:15.655717+00:00
 ---
 
 # Ordering and limiting Firestore queries with a filter  |  Google Cloud Documentation

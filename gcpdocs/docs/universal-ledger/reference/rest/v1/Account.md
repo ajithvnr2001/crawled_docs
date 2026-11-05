@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/universal-ledger/reference/rest/v1/Account/
 title: Account \u00a0|\u00a0 Universal Ledger \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-14T07:35:11.852580+00:00
+fetched_at: 2026-11-05T00:19:11.976603+00:00
 ---
 
 # Account  |  Universal Ledger  |  Google Cloud Documentation
@@ -88,13 +88,7 @@ JSON representation
       
     
     {
-      "accountManager": {
-        object ([Entity](https://docs.cloud.google.com/universal-ledger/reference/rest/v1/Account#Entity))
-      },
       "accountManagerId": string,
-      "tokenManager": {
-        object ([Entity](https://docs.cloud.google.com/universal-ledger/reference/rest/v1/Account#Entity))
-      },
       "tokenManagerId": string,
       "roles": [
         enum ([Role](https://docs.cloud.google.com/universal-ledger/reference/rest/v1/Account#Role))
@@ -102,12 +96,6 @@ JSON representation
       "accountStatus": enum ([AccountStatus](https://docs.cloud.google.com/universal-ledger/reference/rest/v1/Account#AccountStatus)),
       "balance": {
         object ([CurrencyValue](https://docs.cloud.google.com/universal-ledger/reference/rest/v1/Account#CurrencyValue))
-      },
-      "accountFields": {
-        string: {
-          object ([Fields](https://docs.cloud.google.com/universal-ledger/reference/rest/v1/Account#Fields))
-        },
-        ...
       },
       "contractAccountFields": {
         string: {
@@ -119,34 +107,12 @@ JSON representation
   
 Fields  
 ---  
-`accountManager  
-**(deprecated)**` |  `object (`[Entity](https://docs.cloud.google.com/universal-ledger/reference/rest/v1/Account#Entity)`)` This item is deprecated!Output only. Deprecated: Use `accountManagerId` instead. The account manager for this user.  
 `accountManagerId` |  `string` Output only. The ID of the account manager for this user.  
-`tokenManager  
-**(deprecated)**` |  `object (`[Entity](https://docs.cloud.google.com/universal-ledger/reference/rest/v1/Account#Entity)`)` This item is deprecated!Output only. Deprecated: Use `tokenManagerId` instead. The token manager for this user.  
 `tokenManagerId` |  `string` Output only. The ID of the token manager for this user.  
 `roles[]` |  `enum (`[Role](https://docs.cloud.google.com/universal-ledger/reference/rest/v1/Account#Role)`)` Output only. The list of roles granted to this account.  
 `accountStatus` |  `enum (`[AccountStatus](https://docs.cloud.google.com/universal-ledger/reference/rest/v1/Account#AccountStatus)`)` Output only. The status of this account.  
 `balance` |  `object (`[CurrencyValue](https://docs.cloud.google.com/universal-ledger/reference/rest/v1/Account#CurrencyValue)`)` Output only. The token balance of this user account.  
-`accountFields  
-**(deprecated)**` |  `map (key: string, value: object (`[Fields](https://docs.cloud.google.com/universal-ledger/reference/rest/v1/Account#Fields)`))` This item is deprecated!Output only. Deprecated: Use `contractAccountFields` instead. The contract account fields (contract ID -> fields) for this user.An object containing a list of `"key": value` pairs. Example: `{ "name": "wrench", "mass": "1.3kg", "count": "3" }`.  
 `contractAccountFields` |  `map (key: string, value: object (`[Fields](https://docs.cloud.google.com/universal-ledger/reference/rest/v1/Account#Fields)`))` Output only. The contract account fields (contract ID -> fields) for this user.An object containing a list of `"key": value` pairs. Example: `{ "name": "wrench", "mass": "1.3kg", "count": "3" }`.  
-  
-## Entity
-
-An entity in the Universal Ledger network. All accounts are attached to an entity. The entity ID, also often referred to as the account ID, is unique and immutable across the network.
-
-JSON representation  
----  
-      
-    
-    {
-      "id": string
-    }  
-  
-Fields  
----  
-`id` |  `string` Output only. The ID assigned to the entity. This is assigned by the network on account creation.  
   
 ## Role
 
@@ -223,12 +189,20 @@ JSON representation
       "boolValue": boolean,
       "int64Value": string,
       "stringValue": string,
-      "accountId": string,
       "dictValue": {
         object ([DictValue](https://docs.cloud.google.com/universal-ledger/reference/rest/v1/Account#DictValue))
       },
+      "contractValue": {
+        object ([ContractValue](https://docs.cloud.google.com/universal-ledger/reference/rest/v1/Account#ContractValue))
+      },
+      "listValue": {
+        object ([ListValue](https://docs.cloud.google.com/universal-ledger/reference/rest/v1/Account#ListValue))
+      },
       "qualifiedCurrencyValue": {
         object ([QualifiedCurrencyValue](https://docs.cloud.google.com/universal-ledger/reference/rest/v1/Account#QualifiedCurrencyValue))
+      },
+      "accountValue": {
+        object ([AccountValue](https://docs.cloud.google.com/universal-ledger/reference/rest/v1/Account#AccountValue))
       },
       "amountValue": {
         object ([AmountValue](https://docs.cloud.google.com/universal-ledger/reference/rest/v1/Account#AmountValue))
@@ -243,9 +217,11 @@ The actual value. The following is a list of mutually exclusive fields. At most 
 `boolValue` |  `boolean` Optional. A boolean value.  
 `int64Value` |  `string ([int64](https://developers.google.com/discovery/v1/type-format) format)` Optional. An int64 value.  
 `stringValue` |  `string` Optional. A string value.  
-`accountId` |  `string` Optional. An account ID.  
 `dictValue` |  `object (`[DictValue](https://docs.cloud.google.com/universal-ledger/reference/rest/v1/Account#DictValue)`)` Optional. A dictionary value.  
+`contractValue` |  `object (`[ContractValue](https://docs.cloud.google.com/universal-ledger/reference/rest/v1/Account#ContractValue)`)` Optional. A contract reference.  
+`listValue` |  `object (`[ListValue](https://docs.cloud.google.com/universal-ledger/reference/rest/v1/Account#ListValue)`)` Optional. A list value.  
 `qualifiedCurrencyValue` |  `object (`[QualifiedCurrencyValue](https://docs.cloud.google.com/universal-ledger/reference/rest/v1/Account#QualifiedCurrencyValue)`)` Optional. A qualified currency value.  
+`accountValue` |  `object (`[AccountValue](https://docs.cloud.google.com/universal-ledger/reference/rest/v1/Account#AccountValue)`)` Optional. An account value.  
 `amountValue` |  `object (`[AmountValue](https://docs.cloud.google.com/universal-ledger/reference/rest/v1/Account#AmountValue)`)` Optional. An amount value.  
 End of mutually exclusive fields.  
   
@@ -278,8 +254,8 @@ JSON representation
       "int64Keys": {
         object ([Int64List](https://docs.cloud.google.com/universal-ledger/reference/rest/v1/Account#Int64List))
       },
-      "accountIdKeys": {
-        object ([AccountIdList](https://docs.cloud.google.com/universal-ledger/reference/rest/v1/Account#AccountIdList))
+      "genericKeys": {
+        object ([RepeatedValue](https://docs.cloud.google.com/universal-ledger/reference/rest/v1/Account#RepeatedValue))
       }
       // End of mutually exclusive fields.
     
@@ -294,8 +270,8 @@ JSON representation
       "int64Values": {
         object ([Int64List](https://docs.cloud.google.com/universal-ledger/reference/rest/v1/Account#Int64List))
       },
-      "dictValues": {
-        object ([DictList](https://docs.cloud.google.com/universal-ledger/reference/rest/v1/Account#DictList))
+      "genericValues": {
+        object ([RepeatedValue](https://docs.cloud.google.com/universal-ledger/reference/rest/v1/Account#RepeatedValue))
       }
       // End of mutually exclusive fields.
     }  
@@ -306,13 +282,13 @@ Each key can be exactly one kind. The following is a list of mutually exclusive 
 `boolKeys` |  `object (`[BoolList](https://docs.cloud.google.com/universal-ledger/reference/rest/v1/Account#BoolList)`)` Optional. A list of boolean keys.  
 `stringKeys` |  `object (`[StringList](https://docs.cloud.google.com/universal-ledger/reference/rest/v1/Account#StringList)`)` Optional. A list of string keys.  
 `int64Keys` |  `object (`[Int64List](https://docs.cloud.google.com/universal-ledger/reference/rest/v1/Account#Int64List)`)` Optional. A list of int64 keys.  
-`accountIdKeys` |  `object (`[AccountIdList](https://docs.cloud.google.com/universal-ledger/reference/rest/v1/Account#AccountIdList)`)` Optional. A list of account ID keys.  
+`genericKeys` |  `object (`[RepeatedValue](https://docs.cloud.google.com/universal-ledger/reference/rest/v1/Account#RepeatedValue)`)` Optional. A generic list of keys.  
 End of mutually exclusive fields.  
 Each value can be exactly one kind. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:  
 `boolValues` |  `object (`[BoolList](https://docs.cloud.google.com/universal-ledger/reference/rest/v1/Account#BoolList)`)` Optional. A list of boolean values.  
 `stringValues` |  `object (`[StringList](https://docs.cloud.google.com/universal-ledger/reference/rest/v1/Account#StringList)`)` Optional. A list of string values.  
 `int64Values` |  `object (`[Int64List](https://docs.cloud.google.com/universal-ledger/reference/rest/v1/Account#Int64List)`)` Optional. A list of int64 values.  
-`dictValues` |  `object (`[DictList](https://docs.cloud.google.com/universal-ledger/reference/rest/v1/Account#DictList)`)` Optional. Values are a list of nested dictionaries.  
+`genericValues` |  `object (`[RepeatedValue](https://docs.cloud.google.com/universal-ledger/reference/rest/v1/Account#RepeatedValue)`)` Optional. A generic list of values as values.  
 End of mutually exclusive fields.  
   
 ## BoolList
@@ -369,27 +345,9 @@ Fields
 ---  
 `values[]` |  `string ([int64](https://developers.google.com/discovery/v1/type-format) format)` Optional. The int64 values.  
   
-## AccountIdList
+## RepeatedValue
 
-A list of account IDs.
-
-JSON representation  
----  
-      
-    
-    {
-      "values": [
-        string
-      ]
-    }  
-  
-Fields  
----  
-`values[]` |  `string` Optional. The account ID values.  
-  
-## DictList
-
-A list of dictionaries.
+A generic list of values.
 
 JSON representation  
 ---  
@@ -398,14 +356,66 @@ JSON representation
     {
       "values": [
         {
-          object ([DictValue](https://docs.cloud.google.com/universal-ledger/reference/rest/v1/Account#DictValue))
+          object ([Value](https://docs.cloud.google.com/universal-ledger/reference/rest/v1/Account#Value))
         }
       ]
     }  
   
 Fields  
 ---  
-`values[]` |  `object (`[DictValue](https://docs.cloud.google.com/universal-ledger/reference/rest/v1/Account#DictValue)`)` Optional. The DictValue values. All nested dicts must have the same concrete type.  
+`values[]` |  `object (`[Value](https://docs.cloud.google.com/universal-ledger/reference/rest/v1/Account#Value)`)` Optional. The values in the list.  
+  
+## ContractValue
+
+Represents a contract reference.
+
+JSON representation  
+---  
+      
+    
+    {
+      "contractId": string
+    }  
+  
+Fields  
+---  
+`contractId` |  `string` Required. The contract ID.  
+  
+## ListValue
+
+A list of values.
+
+JSON representation  
+---  
+      
+    
+    {
+    
+      // The following is a list of mutually exclusive fields. At most one of the
+      // fields will be set in a response:
+      "boolValues": {
+        object ([BoolList](https://docs.cloud.google.com/universal-ledger/reference/rest/v1/Account#BoolList))
+      },
+      "stringValues": {
+        object ([StringList](https://docs.cloud.google.com/universal-ledger/reference/rest/v1/Account#StringList))
+      },
+      "int64Values": {
+        object ([Int64List](https://docs.cloud.google.com/universal-ledger/reference/rest/v1/Account#Int64List))
+      },
+      "genericValues": {
+        object ([RepeatedValue](https://docs.cloud.google.com/universal-ledger/reference/rest/v1/Account#RepeatedValue))
+      }
+      // End of mutually exclusive fields.
+    }  
+  
+Fields  
+---  
+Each value can be exactly one kind. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:  
+`boolValues` |  `object (`[BoolList](https://docs.cloud.google.com/universal-ledger/reference/rest/v1/Account#BoolList)`)` Optional. A list of boolean values.  
+`stringValues` |  `object (`[StringList](https://docs.cloud.google.com/universal-ledger/reference/rest/v1/Account#StringList)`)` Optional. A list of string values.  
+`int64Values` |  `object (`[Int64List](https://docs.cloud.google.com/universal-ledger/reference/rest/v1/Account#Int64List)`)` Optional. A list of int64 values.  
+`genericValues` |  `object (`[RepeatedValue](https://docs.cloud.google.com/universal-ledger/reference/rest/v1/Account#RepeatedValue)`)` Optional. A generic list of values.  
+End of mutually exclusive fields.  
   
 ## QualifiedCurrencyValue
 
@@ -422,6 +432,24 @@ JSON representation
 Fields  
 ---  
 `operatorId` |  `string` Required. The Currency Operator ID administering the currency.  
+  
+## AccountValue
+
+A reference to an account on the ledger.
+
+This reference is swapped out for a full `gcul.Account` object by the ledger's runtime. For more details, see the [`gcul.Account` class](https://docs.cloud.google.com/universal-ledger/reference/gculpy-language#account-class) in the GCULpy language reference.
+
+JSON representation  
+---  
+      
+    
+    {
+      "accountId": string
+    }  
+  
+Fields  
+---  
+`accountId` |  `string` Required. The account ID.  
   
 ## AmountValue
 
@@ -452,17 +480,12 @@ JSON representation
       
     
     {
-      "tokenManager": {
-        object ([Entity](https://docs.cloud.google.com/universal-ledger/reference/rest/v1/Account#Entity))
-      },
       "numAccounts": integer,
       "tokenManagerId": string
     }  
   
 Fields  
 ---  
-`tokenManager  
-**(deprecated)**` |  `object (`[Entity](https://docs.cloud.google.com/universal-ledger/reference/rest/v1/Account#Entity)`)` This item is deprecated!Output only. Deprecated: Use `tokenManagerId` instead. The default token manager for accounts created by this account manager.  
 `numAccounts` |  `integer` Output only. The number of accounts created by this account manager.  
 `tokenManagerId` |  `string` Output only. The ID of the default token manager for accounts created by this account manager.  
   
@@ -523,9 +546,6 @@ JSON representation
       
     
     {
-      "owner": {
-        object ([Entity](https://docs.cloud.google.com/universal-ledger/reference/rest/v1/Account#Entity))
-      },
       "ownerId": string,
       "code": string,
       "contractFields": {
@@ -541,8 +561,6 @@ JSON representation
   
 Fields  
 ---  
-`owner  
-**(deprecated)**` |  `object (`[Entity](https://docs.cloud.google.com/universal-ledger/reference/rest/v1/Account#Entity)`)` This item is deprecated!Output only. Deprecated: Use `ownerId` instead. The owner of the contract.  
 `ownerId` |  `string` Output only. The ID of the owner of the contract.  
 `code` |  `string ([bytes](https://developers.google.com/discovery/v1/type-format) format)` Output only. The serialized contract code.A base64-encoded string.  
 `contractFields` |  `object (`[Fields](https://docs.cloud.google.com/universal-ledger/reference/rest/v1/Account#Fields)`)` Output only. The contract fields (field name -> value) for this contract.  
@@ -581,13 +599,7 @@ JSON representation
       
     
     {
-      "balancePayer": {
-        object ([Entity](https://docs.cloud.google.com/universal-ledger/reference/rest/v1/Account#Entity))
-      },
       "balancePayerId": string,
-      "balanceReceiver": {
-        object ([Entity](https://docs.cloud.google.com/universal-ledger/reference/rest/v1/Account#Entity))
-      },
       "balanceReceiverId": string,
       "balance": {
         object ([CurrencyValue](https://docs.cloud.google.com/universal-ledger/reference/rest/v1/Account#CurrencyValue))
@@ -596,11 +608,7 @@ JSON representation
   
 Fields  
 ---  
-`balancePayer  
-**(deprecated)**` |  `object (`[Entity](https://docs.cloud.google.com/universal-ledger/reference/rest/v1/Account#Entity)`)` This item is deprecated!Output only. Deprecated: Use `balancePayerId` instead. The account which owes the balance to be settled.  
 `balancePayerId` |  `string` Output only. The ID of the account which owes the balance to be settled.  
-`balanceReceiver  
-**(deprecated)**` |  `object (`[Entity](https://docs.cloud.google.com/universal-ledger/reference/rest/v1/Account#Entity)`)` This item is deprecated!Output only. Deprecated: Use `balanceReceiverId` instead. The account which is owed the balance to be settled.  
 `balanceReceiverId` |  `string` Output only. The ID of the account which is owed the balance to be settled.  
 `balance` |  `object (`[CurrencyValue](https://docs.cloud.google.com/universal-ledger/reference/rest/v1/Account#CurrencyValue)`)` Output only. The balance to settle. Must be positive.  
   
@@ -623,38 +631,20 @@ JSON representation
       
     
     {
-      "currency": string,
       "currencyCode": string,
       "accountStatus": enum ([AccountStatus](https://docs.cloud.google.com/universal-ledger/reference/rest/v1/Account#AccountStatus)),
-      "previousEntityId": {
-        object ([Entity](https://docs.cloud.google.com/universal-ledger/reference/rest/v1/Account#Entity))
-      },
       "previousCurrencyOperatorId": string,
-      "platformOperatorEntityId": {
-        object ([Entity](https://docs.cloud.google.com/universal-ledger/reference/rest/v1/Account#Entity))
-      },
       "platformOperatorId": string,
-      "contractTokenManager": {
-        object ([Entity](https://docs.cloud.google.com/universal-ledger/reference/rest/v1/Account#Entity))
-      },
       "contractTokenManagerId": string,
       "clearinghouseId": string
     }  
   
 Fields  
 ---  
-`currency  
-**(deprecated)**` |  `string` This item is deprecated!Output only. Deprecated: Use `currencyCode` instead. The currency associated with this account, represented by the 3-letter ISO 4217 code.  
 `currencyCode` |  `string` Output only. The ID of the currency associated with this account, represented by the 3-letter ISO 4217 code.  
 `accountStatus` |  `enum (`[AccountStatus](https://docs.cloud.google.com/universal-ledger/reference/rest/v1/Account#AccountStatus)`)` Output only. The status of this account.  
-`previousEntityId  
-**(deprecated)**` |  `object (`[Entity](https://docs.cloud.google.com/universal-ledger/reference/rest/v1/Account#Entity)`)` This item is deprecated!Output only. Deprecated: Use `previousCurrencyOperatorId` instead. The previous currency operator which transferred ownership of the currency operator role to this account. If this is the first currency operator for the currency, this will be empty.  
 `previousCurrencyOperatorId` |  `string` Output only. The ID of the previous currency operator which transferred ownership of the currency operator role to this account. If this is the first currency operator for the currency, this will be empty.  
-`platformOperatorEntityId  
-**(deprecated)**` |  `object (`[Entity](https://docs.cloud.google.com/universal-ledger/reference/rest/v1/Account#Entity)`)` This item is deprecated!Output only. Deprecated: Use `platformOperatorId` instead. The platform operator which created this currency operator.  
 `platformOperatorId` |  `string` Output only. The ID of the platform operator which created this currency operator.  
-`contractTokenManager  
-**(deprecated)**` |  `object (`[Entity](https://docs.cloud.google.com/universal-ledger/reference/rest/v1/Account#Entity)`)` This item is deprecated!Output only. Deprecated: Use `contractTokenManagerId` instead. The contract token manager associated with this currency operator.  
 `contractTokenManagerId` |  `string` Output only. The ID of the contract token manager associated with this currency operator.  
 `clearinghouseId` |  `string` Output only. The ID of the clearinghouse associated with this currency operator.  
   
@@ -668,23 +658,18 @@ JSON representation
     
     {
       "accountStatus": enum ([AccountStatus](https://docs.cloud.google.com/universal-ledger/reference/rest/v1/Account#AccountStatus)),
-      "previousEntityId": {
-        object ([Entity](https://docs.cloud.google.com/universal-ledger/reference/rest/v1/Account#Entity))
-      },
       "previousPlatformOperatorId": string
     }  
   
 Fields  
 ---  
 `accountStatus` |  `enum (`[AccountStatus](https://docs.cloud.google.com/universal-ledger/reference/rest/v1/Account#AccountStatus)`)` Output only. The status of this account.  
-`previousEntityId  
-**(deprecated)**` |  `object (`[Entity](https://docs.cloud.google.com/universal-ledger/reference/rest/v1/Account#Entity)`)` This item is deprecated!Output only. Deprecated: Use `previousPlatformOperatorId` instead. The previous platform operator which transferred ownership of the platform operator role to this account. If this is the first platform operator, this will be empty.  
 `previousPlatformOperatorId` |  `string` Output only. The ID of the previous platform operator which transferred ownership of the platform operator role to this account. If this is the first platform operator, this will be empty.  
   
 Send feedback 
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-08-27 UTC.
+Last updated 2026-09-17 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-08-27 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-09-17 UTC."],[],[]] 

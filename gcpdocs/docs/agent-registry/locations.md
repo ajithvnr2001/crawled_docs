@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/agent-registry/locations/
 title: Agent Registry locations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-30T08:40:10.365548+00:00
+fetched_at: 2026-11-04T23:31:42.980981+00:00
 ---
 
 # Agent Registry locations  |  Google Cloud Documentation
@@ -21,7 +21,7 @@ Send feedback
 
 #  Agent Registry locations Stay organized with collections  Save and categorize content based on your preferences. 
 
-Agent Registry lets you register and discover agentic components in specific Google Cloud regions or in the `global` location to meet your latency, availability, and data residency requirements. Choosing the appropriate regional or global location scopes component discovery and gateway routing across your [governance project](https://docs.cloud.google.com/agent-registry/overview#governance-project) and workloads. For more information about regions and zones, see [Geography and regions](https://docs.cloud.google.com/docs/geography-and-regions).
+Agent Registry lets you register and discover agentic components in specific Google Cloud regions, multi-regions, or in the `global` location to meet your latency, availability, and data residency requirements. Choosing the appropriate location scopes component discovery and gateway routing across your [governance project](https://docs.cloud.google.com/agent-registry/overview#governance-project) and workloads. For more information about regions and zones, see [Geography and regions](https://docs.cloud.google.com/docs/geography-and-regions).
 
 ## Governance scope across regional and global locations
 
@@ -34,7 +34,7 @@ When deploying and governing agentic architectures across Agent Registry, Agent 
   * **Egress policy bindings** : apply IAP egress authorization bindings in the same location where the target resource is registered in Agent Registry: 
     * For automatically registered Google and Google Cloud remote MCP servers, apply the binding in `global` with `--region=global`, even when the calling agent sends traffic through a regional gateway.
     * For resources registered in a specific region, apply the binding in that region. For troubleshooting information, see [Resource entity not found error when managing IAP policies](https://docs.cloud.google.com/agent-registry/troubleshooting#resource-entity-not-found).
-  * **Registration locations** : you must manually register agents, MCP servers, and endpoints, and create bindings, in a supported regional location or the `global` location. For details on multi-region support, see Multi-regions.
+  * **Registration locations** : you can create bindings and manually register agentic components and standalone skills, in a supported regional location, a supported multi-region, or the `global` location.
   * **Cross-project management boundaries** : when you configure a [management boundary](https://docs.cloud.google.com/agent-registry/boundaries-and-topology), cross-project rollup is supported across all supported Google Cloud locations on your [management project](https://docs.cloud.google.com/agent-registry/boundaries-and-topology#management-project). Querying a location on the management project aggregates auto-discovered components deployed in that same location across the management project and all member projects in the boundary. Query results also include `Service` and `Binding` resources created in that location on the management project. For details, see [Centralized query rollup](https://docs.cloud.google.com/agent-registry/boundaries-and-topology#query-rollup).
   * **Regional alignment for policy enforcement** : if you configure [Model Armor policy filters](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/configure-model-armor) on Agent Gateway, the gateway, the Model Armor templates, and the authorization extension and policy must reside in the same region. Because Model Armor inspects request and response payloads at the regional gateway, the gateway can still inspect and govern traffic routed to MCP servers registered in the `global` location as well as regional destinations. For troubleshooting information, see [Region mismatch errors when configuring Model Armor on Agent Gateway](https://docs.cloud.google.com/agent-registry/troubleshooting#model-armor-region-mismatch).
   * **Organization policy location restrictions** : if your organization has specific requirements for the geographic location of resources, your organization policy might include [resource location constraints](https://docs.cloud.google.com/resource-manager/docs/organization-policy/defining-locations) (`constraints/gcp.resourceLocations`). Agent Registry enforces those constraints when you create regional `Service`, `Binding`, `Skill`, or `SkillRevision` resources. Organization policy compliance isn't enforced retroactively, so applying a resource location constraint doesn't affect existing Agent Registry resources or updates to those resources. For more information, see [Services that support restricting resource locations](https://docs.cloud.google.com/organization-policy/reference/restrict-locations-supported-services#agent-registry).
@@ -48,10 +48,6 @@ You can register and discover resources without a specific geographic restrictio
 All resources in Agent Registry are supported in the `global` location.
 
 ## Multi-regions
-
-In supported [multi-regions](https://docs.cloud.google.com/architecture/deployment-archetypes/multiregional), you can discover [automatically registered](https://docs.cloud.google.com/agent-registry/component-lifecycle-and-discovery#automatic-registration) agents and MCP servers from [Gemini Enterprise](https://docs.cloud.google.com/gemini/enterprise/docs) and register or discover standalone [skills](https://docs.cloud.google.com/agent-registry/skills-architecture).
-
-Manual registration of agents, MCP servers, or endpoints, and the creation of bindings, are only supported in regional locations or the `global` location. Those operations aren't supported in multi-region locations. For troubleshooting information, see [Manual registration or binding creation fails in a multi-region location](https://docs.cloud.google.com/agent-registry/troubleshooting#multi-region-unsupported-operation).
 
 The following table lists the multi-regions where Agent Registry is available.
 
@@ -140,6 +136,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-29 UTC.
+Last updated 2026-11-04 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 

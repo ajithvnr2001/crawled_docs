@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/kemp-loadbalancer/
 title: Collect Kemp Load Balancer logs \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T07:49:45.502599+00:00
+fetched_at: 2026-11-04T23:31:31.665456+00:00
 ---
 
 # Collect Kemp Load Balancer logs  |  Google Security Operations  |  Google Cloud Documentation

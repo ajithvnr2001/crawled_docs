@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/compute/docs/memory-optimized-machines/
 title: Memory-optimized machine family for Compute Engine \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-30T09:01:51.824078+00:00
+fetched_at: 2026-11-05T00:05:00.740357+00:00
 ---
 
 # Memory-optimized machine family for Compute Engine  |  Google Cloud Documentation
@@ -117,8 +117,6 @@ X5 bare metal instances give you access to the raw compute resources of the host
 To move your workload from a VM instance to an X5 bare metal instance, see [Move your workload to a new compute instance](https://docs.cloud.google.com/compute/docs/import/migrate-to-new-vm).
 
 Contact your [Google Cloud account manager](https://cloud.google.com/tam) for pricing and ordering information for X5, or to discuss on-demand pricing for testing X5 instances.
-
-When purchasing [resource-based commitments](https://docs.cloud.google.com/compute/docs/committed-use-discounts/purchase-commitments) for X5 machine types, note that the commitment type is separate for each X5 machine type.
 
 ### X5 Limitations
 
@@ -889,6 +887,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-27 UTC.
+Last updated 2026-11-04 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 

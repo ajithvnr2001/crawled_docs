@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/ai-hypercomputer/docs/workloads/pathways-on-cloud/porting-jax-workloads/
 title: Port JAX workloads to Pathways \u00a0|\u00a0 AI Hypercomputer \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T09:46:31.403656+00:00
+fetched_at: 2026-11-04T23:32:10.331493+00:00
 ---
 
 # Port JAX workloads to Pathways  |  AI Hypercomputer  |  Google Cloud Documentation
@@ -77,7 +77,7 @@ When you run a multiprocess data loader (such as [Grain](https://github.com/goog
 
 
 
-For optimal performance at scale, we strongly recommend co-locating your input data pipeline by using colocated Python to run your data pipeline directly on the accelerators. This eliminates the CPU bottleneck and leverages the TPU's fast interconnects for data transfer.
+For optimal performance at scale, we strongly recommend colocating your input data pipeline by using colocated Python to run your data pipeline directly on the accelerators. This eliminates the CPU bottleneck and leverages the TPU's fast interconnects for data transfer.
 
 You can find a reference implementation of migrating a TFDS based input pipeline in the `RemoteIterator` implementation in [multihost_dataloading.py](https://github.com/AI-Hypercomputer/maxtext/blob/main/src/maxtext/input_pipeline/multihost_dataloading.py). This implementation works on both multi-controller JAX and Pathways in a distributed manner using the colocated Python JAX API.
 
@@ -127,10 +127,10 @@ These trace files can be analyzed with TensorBoard by running the following comm
     
     
     # verify trace files are present
-    gsutil ls -l -r gs://BUCKET/PREFIX
+    gcloud storage ls -l -r gs://BUCKET/PREFIX
     
     # View on tensorboard
-    tensorboard --logdir=gs://BUCKET/PREFIX
+    tensorboard --load_fast=false --logdir=gs://BUCKET/PREFIX
 
 Replace the following:
 
@@ -168,7 +168,8 @@ To manually capture profile information, you must start the profiler server from
     import pathwaysutils
     
     pathwaysutils.initialize()
-    jax.profiler.start_server(jax_profiler_port)
+    
+    jax.profiler.start_server(JAX_PROFILER_PORT)
     
     # Your JAX code
     jax.profiler.stop_server() # this is functionally a no-op
@@ -178,9 +179,11 @@ While the profiler server is running, you can capture a profile and export the d
     
     
     export DURATION_IN_SECS=6
-    export OUTPUT_DIR=gs://<var>BUCKET</var>/<var>PREFIX</var>
+    export OUTPUT_DIR="gs://BUCKET/PREFIX/"
     
-    curl -d "{\"duration_ms\":\"${DURATION_IN_SECS} * 1000 }}\", \"repository_path\":\"${OUTPUT_DIR}\"}" -H "Content-Type: application/json" -X POST http://localhost:<jax_profiler_port>
+    curl -X POST http://localhost:JAX_PROFILER_PORT/profiling \
+         -H "Content-Type: application/json" \
+         -d "{\"duration_ms\": $((DURATION_IN_SECS * 1000)), \"repository_path\": \"${OUTPUT_DIR}\"}"
     
 
 You can find timing information for IFRT proxy client methods like `Compile` and `Execute` within your program's trace. These events, which detail the interactions with the IFRT Proxy gRPC server during compilation and execution, appear on the thread named `GrpcClientSessionUserFuturesWorkQueue`. By examining this thread in your trace, you can gain insights into the performance of these operations.
@@ -206,7 +209,6 @@ To inspect High Level Optimizer (HLO) inputs that are given to the XLA compiler,
 ## What's next
 
   * [Create a GKE cluster with Pathways](https://docs.cloud.google.com/ai-hypercomputer/docs/workloads/pathways-on-cloud/create-gke-cluster)
-  * [Multihost inference with Pathways](https://docs.cloud.google.com/ai-hypercomputer/docs/workloads/pathways-on-cloud/multihost-inference)
   * [Run a batch workload with Pathways](https://docs.cloud.google.com/ai-hypercomputer/docs/workloads/pathways-on-cloud/batch-workload)
   * [Pathways interactive mode](https://docs.cloud.google.com/ai-hypercomputer/docs/workloads/pathways-on-cloud/pathways-interactive-mode)
   * [Resilient training with Pathways](https://docs.cloud.google.com/ai-hypercomputer/docs/workloads/pathways-on-cloud/resilient-training)
@@ -218,6 +220,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-28 UTC.
+Last updated 2026-11-04 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 

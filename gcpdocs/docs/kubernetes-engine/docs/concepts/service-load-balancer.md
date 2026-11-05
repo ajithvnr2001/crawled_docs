@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/kubernetes-engine/docs/concepts/service-load-balancer/
 title: About LoadBalancer Services \u00a0|\u00a0 GKE networking \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T23:37:22.079160+00:00
+fetched_at: 2026-11-04T23:28:56.428731+00:00
 ---
 
 # About LoadBalancer Services  |  GKE networking  |  Google Cloud Documentation
@@ -152,6 +152,22 @@ For more details of how zonal affinity configuration affects load balancer behav
 
 Because zonal affinity does not natively integrate with the HorizontalPodAutoscaler (HPA), scaling issues can occur when traffic within a zone exceeds the capacity of Pods in that zone. The HPA scales Pods based on aggregate cluster metrics rather than per-zone load. As a result, a zone experiencing high traffic (zonal overload) might not receive additional Pods, leading to degraded performance or dropped connections for clients in that zone, even if the cluster overall is underutilized.
 
+### IP address families
+
+A LoadBalancer Service can be single-stack (IPv4 only or IPv6 only) or dual-stack. You control this with the `spec.ipFamilyPolicy` and `spec.ipFamilies` fields. A single-stack Service has one forwarding rule, and a dual-stack Service has two: one for IPv4 and one for IPv6.
+
+IPv6 LoadBalancer Services have the following additional characteristics:
+
+  * They always use `GCE_VM_IP` NEG backends.
+  * Their IPv6 addresses come from a subnet range in your VPC network (whose IPv6 access type must match the type of load balancer) or from [bring your own IPv6 addresses (BYOIPv6)](https://docs.cloud.google.com/vpc/docs/bring-your-own-ip): 
+    * Internal IPv6 LoadBalancer Services can use internal subnets provisioned from a BYOIPv6 public delegated prefix.
+    * In GKE version 1.37.1-gke.2097000 and later, single-stack external IPv6 LoadBalancer Services support direct allocation of external BYOIPv6 address ranges from a regional IPv6 sub-prefix of a public delegated prefix. You can configure this allocation either by using the `networking.gke.io/ip-collection-v6` annotation or by specifying a static external BYOIPv6 address range.
+  * External IPv6 LoadBalancer Services require a backend service-based regional external passthrough Network Load Balancer.
+
+
+
+For more information, see [IPv6 LoadBalancer Services](https://docs.cloud.google.com/kubernetes-engine/docs/concepts/service-load-balancer-parameters#ipv6-lb-svc) and [Bring your own IPv6 addresses (BYOIPv6)](https://docs.cloud.google.com/kubernetes-engine/docs/concepts/service-load-balancer-parameters#byoipv6).
+
 ## Special considerations for internal LoadBalancer Services
 
 This section describes the GKE subsetting feature, which is unique to internal LoadBalancer Services, and how GKE subsetting interacts with the `externalTrafficPolicy` to influence the maximum number of load-balanced nodes.
@@ -262,6 +278,8 @@ When GKE creates an internal passthrough Network Load Balancer or backend servic
 
   * The `externalTrafficPolicy` of the Service and the number of nodes in the cluster determine which nodes are added as endpoints to the Service's `GCE_VM_IP` NEG(s).
 
+  * For an IPv6 LoadBalancer Service, GKE populates the `GCE_VM_IP` NEG with the IPv6 addresses of the node network interfaces.
+
 
 **Note:** `GCE_VM_IP` NEGs are different from `GCE_VM_IP_PORT` NEGs. `GCE_VM_IP_PORT` NEGs contain Pod IP and container port endpoints, and are used by Gateway and Ingress (container-native). `GCE_VM_IP` NEGs identify network interfaces of node VMs by using the node's IP address, even though load-balanced packets have destinations that match the IP address of the load balancer's forwarding rule and one of the configured ports for the forwarding rule.
 
@@ -348,6 +366,17 @@ If your load balancer backends report as unhealthy (for example, displaying `0/X
   * **`externalTrafficPolicy: Local` behavior:** if your Service is configured with the `externalTrafficPolicy: Local` setting, nodes that don't host a ready, serving Pod for that Service intentionally fail the load balancer health check. If all Pods for the Service are unready or terminating across the cluster, all backend nodes report as unhealthy (`0/X healthy`).
 
 
+
+### Health check probe ranges for IPv6 LoadBalancer Services
+
+Health check probes for IPv6 LoadBalancer Services come from different source ranges than IPv4 probes. GKE creates ingress allow firewall rules for the following IPv6 source ranges:
+
+  * `2600:2d00:1:b029::/64` for internal passthrough Network Load Balancers.
+  * `2600:1901:8001::/48` for regional external passthrough Network Load Balancers.
+
+
+
+If you [manage your own firewall rules](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/user-managed-firewall-rules), you must allow ingress from these ranges to your cluster nodes, or health checks for IPv6 LoadBalancer Services fail.
 
 ## Packet processing
 
@@ -449,6 +478,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-04 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 

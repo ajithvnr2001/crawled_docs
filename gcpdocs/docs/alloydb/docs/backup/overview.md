@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/docs/backup/overview/
 title: Data backup and recovery overview \u00a0|\u00a0 AlloyDB for PostgreSQL \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T01:32:02.420395+00:00
+fetched_at: 2026-11-04T23:28:36.442266+00:00
 ---
 
 # Data backup and recovery overview  |  AlloyDB for PostgreSQL  |  Google Cloud Documentation
@@ -26,14 +26,14 @@ To protect your data in AlloyDB for PostgreSQL databases, you can use several fe
 AlloyDB provides the following ways to back up and recover your data:
 
   * _Continuous backup and recovery_ , enabled on all clusters by default, is an AlloyDB feature that lets you create a new cluster based on any recent state of another cluster in the same region as the source cluster, and it can be in a different Google Cloud project.
-  * _On-demand and automated backups_ are file-based resources that contain complete copies of your cluster's databases. AlloyDB creates them on-demand, or according to a regular schedule that you define. You can restore any of these backups into new clusters.
+  * _On-demand and automated backups_ are file-based resources that capture the state of your cluster's databases at a specific moment in time. AlloyDB creates full backups on demand, or incremental backups according to a regular schedule that you define. You can restore any of these backups into new clusters.
 
 
 
 AlloyDB offers the following backup services to manage your backups:
 
-  * Enhanced backups: backups are managed and stored in a centralized backup management project that uses the Backup and DR Service, which provides the [Backup and DR Service backup vault](https://docs.cloud.google.com/backup-disaster-recovery/docs/concepts/backup-vault), enforced retention, granular scheduling, and monitoring. For more information, see the [Backup and DR overview](https://docs.cloud.google.com/backup-disaster-recovery/docs/concepts/backup-dr).
-  * Standard backups: backups are created, managed, and stored by AlloyDB.
+  * **Enhanced backups** : Backups are managed and stored in a centralized backup management project that uses the Backup and DR Service, which provides the [Backup and DR Service backup vault](https://docs.cloud.google.com/backup-disaster-recovery/docs/concepts/backup-vault), enforced retention, granular scheduling, and monitoring. For more information, see the [Backup and DR overview](https://docs.cloud.google.com/backup-disaster-recovery/docs/concepts/backup-dr).
+  * **Standard backups** : Backups are created, managed, and stored by AlloyDB.
 
 
 
@@ -43,9 +43,9 @@ For more information about each backup option and its features, see Backup optio
 
 AlloyDB offers different types of backups for your clusters. The following table provides an overview of each backup type:
 
-**Backup type** | **Description**  
+Backup type | Description  
 ---|---  
-Continuous backup and recovery | Lets you restore an existing cluster to any moment from its recent history, with microsecond granularity, using point-in-time recovery (PITR). This feature is enabled by default, with a configurable retention window of 1 to 35 days. As part of this process, AlloyDB creates daily incremental backups.  
+Continuous backup and recovery | Lets you restore an existing cluster to any moment from its recent history, with microsecond granularity, by using point-in-time recovery (PITR). This feature is enabled by default, with a configurable retention window of 1 to 35 days. As part of this process, AlloyDB creates daily incremental backups.  
 On-demand backup | A full backup of your cluster that you initiate manually at any time. You can also take an on-demand backup of your cluster before you delete it.  
 Automated backup | Incremental backups that AlloyDB creates automatically based on a schedule you define.  
 System backups | Backups that AlloyDB automatically creates in specific situations. Examples include backups created during [cross-region failover](https://docs.cloud.google.com/alloydb/docs/cross-region-replication/work-with-cross-region-replication#backup-on-failover) ([Preview](https://docs.cloud.google.com/products#product-launch-stages)) operations, and backups created before and after an [in-place major version upgrade](https://docs.cloud.google.com/alloydb/docs/upgrade-db-inplace-major-version) to serve as a rollback point.  
@@ -66,8 +66,8 @@ In AlloyDB, a backup is a file-based resource containing a copy of a cluster's d
 
 AlloyDB has the following ways of creating backups:
 
-  * AlloyDB always creates one backup every day as part of its continuous backup and recovery system, unless you disable this feature. Continuous backups are _incremental backups_ : AlloyDB stores only the data that changed relative to previous backups. This approach keeps the backup files as small as possible, which helps to reduce your backup storage costs. These backups vary in size, depending on factors such as how much data is written since the last backup. Full continuous backups are also taken periodically; the backup size is similar to the cluster size.
-  * You can create an [on-demand backup](https://docs.cloud.google.com/alloydb/docs/backup/create-on-demand) at any time using the Google Cloud CLI, the Google Cloud console, or the Backup and DR Service API (if you're using enhanced backups). On-demand backups are _full backups_ : each backup includes all the data that was in its cluster's databases when the backup operation began.
+  * AlloyDB always creates one backup every day as part of its continuous backup and recovery system, unless you disable this feature. Continuous backups are _incremental backups_ : AlloyDB stores only the data that changed relative to previous backups. This approach keeps the backup files as small as possible, which helps to reduce your backup storage costs. These backups vary in size, depending on factors such as how much data is written since the last backup. AlloyDB also takes full continuous backups periodically. The backup size is similar to the cluster size.
+  * You can create an [on-demand backup](https://docs.cloud.google.com/alloydb/docs/backup/create-on-demand) at any time by using the Google Cloud CLI, the Google Cloud console, or the [AlloyDB remote MCP server](https://docs.cloud.google.com/alloydb/docs/reference/mcp/alloydb/mcp/tools_list/create_backup). If you are using enhanced backups, you can also use the Backup and DR Service API. On-demand backups are _full backups_ : each backup includes all the data that was in its cluster's databases when the backup operation began.
   * If you enable an AlloyDB [automated backup](https://docs.cloud.google.com/alloydb/docs/backup/configure) schedule, then AlloyDB creates additional backups regularly, according to your preferences. Automated backups are incremental, similar to continuous backups. If you configure automated backups to use a retention window longer than 35 days, then AlloyDB might store multiple chains of incremental backups to cover the necessary time span.
 
 
@@ -80,33 +80,33 @@ AlloyDB offers two options of backup services to manage your cluster's backups: 
 
 The following table provides an overview of the features available with each backup option:
 
-**Feature** | **Standard backup tier**(managed by AlloyDB) | **Enhanced backup tier**(managed by Backup and DR)  
+Feature | Standard backup tier(managed by AlloyDB) | Enhanced backup tier(managed by Backup and DR)  
 ---|---|---  
 Backups secured against unauthorized deletion and changes | Immutable backups through backup vault | Immutable and indelible backups through backup vault  
-Automated backup frequency | Daily with continuous log archival (continuous backups and recovery)Hourly/daily/weekly (Automated backups) | Hourly, daily, weekly, monthly, or annually  
-Backups protected against source project deletion | – | ✅  
-Centralized backup management | – | ✅  
-Backup protected against source cluster deletion | ✅ | ✅  
-Point-in-time recovery (PITR) using logs | ✅ | ✅  
-Cross-regional backup | ✅ | –  
-On-demand backup retention | Can be retained up to 1 year | Can be retained up to 1 year; eligible for manual deletion or expiration after the retention period elapses  
+Automated backup frequency | Daily with continuous log archival for continuous backups and recoveryHourly, daily, or weekly for automated backups | Hourly, daily, weekly, monthly, or annually  
+Backups protected against source project deletion | No | Yes  
+Centralized backup management | No | Yes  
+Backups protected against source cluster deletion | Yes | Yes  
+Point-in-time recovery (PITR) using logs | Yes | Yes  
+Cross-regional backup | Yes | No  
+On-demand backup retention | Can be retained for up to one year | Can be retained for up to one year. Eligible for manual deletion or expiration after the retention period elapses.  
   
 ### Standard backups
 
-AlloyDB's standard backup capabilities are built-in data protection features available by default on all clusters. This system provides a foundational layer of protection through two primary mechanisms: continuous backups and on-demand or automated backups.
+The standard backup capabilities in AlloyDB are built-in data protection features available by default on all clusters. This system provides a foundational layer of protection through two primary mechanisms: continuous backups and on-demand or automated backups.
 
-Continuous backup and recovery is enabled on all clusters by default. It lets you restore a new cluster to any moment from its recent history with microsecond granularity using point-in-time recovery (PITR). The PITR window defaults to 14 days, but you can configure the window between 1 and 35 days. AlloyDB creates one daily incremental backup as part of this system, which stores only the data that changed since the last backup.
+Continuous backup and recovery is enabled on all clusters by default. It lets you restore a new cluster to any moment from its recent history with microsecond granularity by using point-in-time recovery (PITR). The PITR window defaults to 14 days, but you can configure the window between 1 and 35 days. AlloyDB creates one daily incremental backup as part of this system, which stores only the data that changed since the last backup.
 
-On-demand or automated backups are file-based resources that contain complete copies of the cluster's data from a specific moment in time. On-demand backups are full backups that include all cluster data at the time of creation. Automated backups are incremental backups that are created according to a user-defined schedule. After a backup is created, the backup data is immutable, preventing alterations. Backups are stored in the same region as the cluster by default, but you can specify a custom cross-region location for on-demand backups.
+On-demand or automated backups are file-based resources that capture the cluster's data from a specific moment in time. On-demand backups are full backups that include all cluster data at the time of creation. Automated backups are incremental backups that AlloyDB creates according to a user-defined schedule. After a backup is created, the backup data is immutable, preventing alterations. Backups are stored in the same region as the cluster by default, but you can specify a custom cross-region location for on-demand backups.
 
 ### Enhanced backups
 
-AlloyDB's enhanced backup capability integrates with the Backup and DR Service, Google Cloud's central, enterprise-class backup service. Enhanced backups are best suited for select and enterprise segments and highly regulated workloads, and they provide protection from ransomware for mission-critical applications. With enhanced backups, you get the following features, which are in addition to the standard backup capabilities:
+The enhanced backup capability in AlloyDB integrates with the Backup and DR Service, the central, enterprise-class backup service in Google Cloud. Enhanced backups are best suited for select and enterprise segments and highly regulated workloads, and they provide protection from ransomware for mission-critical applications. With enhanced backups, you get the following features, which are in addition to the standard backup capabilities:
 
-  * Immutable storage: backups are stored in a Backup and DR-managed [backup vault](https://docs.cloud.google.com/backup-disaster-recovery/docs/concepts/backup-vault).
-  * Enforced retention: policies prevent accidental or malicious deletion of backups.
-  * Advanced scheduling: highly customized backup frequency and retention rules.
-  * Centralized management: uniform monitoring and reporting across multiple Google Cloud workloads like AlloyDB, Cloud SQL, and Compute Engine.
+  * **Immutable storage** : Backups are stored in a Backup and DR-managed [backup vault](https://docs.cloud.google.com/backup-disaster-recovery/docs/concepts/backup-vault).
+  * **Enforced retention** : Policies prevent accidental or malicious deletion of backups.
+  * **Advanced scheduling** : Highly customized backup frequency and retention rules.
+  * **Centralized management** : Uniform monitoring and reporting across multiple Google Cloud workloads such as AlloyDB, Cloud SQL, and Compute Engine.
 
 
 
@@ -120,13 +120,13 @@ Backups older than their retention period might still appear when you [view your
 
 ### Backup deletion protections
 
-You can manually delete your backups, but AlloyDB provides strong protections to prevent you from accidentally or unintentionally deleting backups that are actively managed or have dependencies.
+You can manually delete your backups, but AlloyDB provides strong protections to prevent you from accidentally or unintentionally deleting backups that are actively managed or have dependencies. You can delete on-demand backups at any time (unless they are enhanced backups within an enforced retention period), and you can delete automated backups unless a subsequent automated backup depends on them.
 
 You can't delete AlloyDB backups under the following conditions:
 
-  * Active continuous backup plan: you can't delete a continuous backup if an active continuous backup configuration manages it on the source cluster and the backup is still in the cluster's recovery window. To delete these continuous backups, first disable continuous backup or shorten its recovery window. You can delete on-demand or automated backups at any time.
-  * Dependency chain: you can't delete a backup if a later one needs it for a restore operation. For example, in a chain of incremental backups, you must delete the most recent incremental backup before you can delete the one that came before it.
-  * Enhanced backups are in a Backup and DR backup vault inside the [enforced retention period](https://docs.cloud.google.com/backup-disaster-recovery/docs/concepts/backup-vault#enforced-retention). This compliance feature prevents accidental or malicious deletion. During this period, no one can delete the backup.
+  * **Active continuous backup plan** : You can't delete a continuous backup if an active continuous backup configuration manages it on the source cluster and the backup is still in the cluster's recovery window. To delete these continuous backups, first disable continuous backup or shorten its recovery window.
+  * **Dependency chain** : You can't delete a continuous or automated backup if a later one needs it for a restore operation. For example, in a chain of incremental backups, you must delete the most recent incremental backup before you can delete the one that came before it.
+  * **Enforced retention** : Enhanced backups are in a Backup and DR backup vault inside the [enforced retention period](https://docs.cloud.google.com/backup-disaster-recovery/docs/concepts/backup-vault#enforced-retention). This compliance feature prevents accidental or malicious deletion. During this period, no one can delete the backup.
 
 
 
@@ -138,13 +138,13 @@ AlloyDB prepares to create a new backup by checking that the cluster and its pri
 
 ## Efficient and independent backups
 
-Backups you create from your AlloyDB data are managed entirely by AlloyDB's storage layer. This means that backup and restore operations have no impact on the read and write performance of your AlloyDB cluster, because they are performed by resources that are separate from the resources that store and query that cluster's data.
+Backups that you create from your AlloyDB data are managed entirely by the AlloyDB storage layer. This means that backup and restore operations have no impact on the read and write performance of your AlloyDB cluster, because they are performed by resources that are separate from the resources that store and query that cluster's data.
 
 This separation of storage resources also means that a backup exists independently from its original cluster. You can restore from that backup even if its source cluster is deleted.
 
-To learn more about how AlloyDB's storage layer enables independent backups, see [AlloyDB for PostgreSQL under the hood: Intelligent, database-aware storage](https://cloud.google.com/blog/products/databases/alloydb-for-postgresql-intelligent-scalable-storage).
+To learn more about how the AlloyDB storage layer enables independent backups, see [AlloyDB for PostgreSQL under the hood: Intelligent, database-aware storage](https://cloud.google.com/blog/products/databases/alloydb-for-postgresql-intelligent-scalable-storage).
 
-## On-demand backups locations
+## On-demand backup locations
 
 For [on-demand backups](https://docs.cloud.google.com/alloydb/docs/backup/overview#on-demand-or), AlloyDB backup locations include the following:
 
@@ -163,12 +163,10 @@ AlloyDB lets you select a custom cross-region location for your backup data, whi
 
 When selecting a cross-region location for a backup, consider the following:
 
-  * **Cost** : pricing may differ between the regions.
-  * **Proximity to your application server** : you might want to store the backup as close to your serving application as possible.
+  * **Cost** : Pricing might differ between regions.
+  * **Proximity to your application server** : You might want to store the backup as close to your serving application as possible.
 
-
-
-**Note** : If you change the location where backups are stored, existing backups remain in their original location.
+**Note:** If you change the location where backups are stored, existing backups remain in their original location.
 
 ## Cluster restoration
 
@@ -183,7 +181,7 @@ In both cases, AlloyDB creates a new cluster and then initiates a long-running o
 
 Cluster restores occur in the same region, but on-demand backups can be stored cross-region. Backups and restores are supported across different Google Cloud projects and organizations.
 
-For more, see [Restore from a backup](https://docs.cloud.google.com/alloydb/docs/backup/restore).
+For more information, see [Restore a cluster from a backup](https://docs.cloud.google.com/alloydb/docs/backup/restore).
 
 ## What's next
 
@@ -198,6 +196,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-04 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 

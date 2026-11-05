@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-cx/cx-agent-studio/reference/rest/v1beta-overview/
 title: Gemini Enterprise for Customer Experience API \u00a0|\u00a0 CX Agent Studio \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-13T22:22:41.611055+00:00
+fetched_at: 2026-11-04T23:28:41.287828+00:00
 ---
 
 # Gemini Enterprise for Customer Experience API  |  CX Agent Studio  |  Google Cloud Documentation
@@ -24,6 +24,7 @@ Send feedback
   * REST Resource: v1beta.projects.locations
   * REST Resource: v1beta.projects.locations.apps
   * REST Resource: v1beta.projects.locations.apps.agents
+  * REST Resource: v1beta.projects.locations.apps.assistantSessions
   * REST Resource: v1beta.projects.locations.apps.changelogs
   * REST Resource: v1beta.projects.locations.apps.conversations
   * REST Resource: v1beta.projects.locations.apps.deployments
@@ -83,6 +84,8 @@ Updates the security settings for the project and location.
 
 Methods  
 ---  
+`[chatAiAssistant](https://docs.cloud.google.com/gemini-enterprise-cx/cx-agent-studio/reference/rest/v1beta/projects.locations.apps/chatAiAssistant)` |  `POST /v1beta/{app=projects/*/locations/*/apps/*}:chatAiAssistant`   
+Runs Arc, the AI assistant, for the specified assistant session.  
 `[create](https://docs.cloud.google.com/gemini-enterprise-cx/cx-agent-studio/reference/rest/v1beta/projects.locations.apps/create)` |  `POST /v1beta/{parent=projects/*/locations/*}/apps`   
 Creates a new app in the given project and location.  
 `[delete](https://docs.cloud.google.com/gemini-enterprise-cx/cx-agent-studio/reference/rest/v1beta/projects.locations.apps/delete)` |  `DELETE /v1beta/{name=projects/*/locations/*/apps/*}`   
@@ -93,6 +96,8 @@ Executes the given tool with the given arguments.
 Exports the specified app.  
 `[generateAppResource](https://docs.cloud.google.com/gemini-enterprise-cx/cx-agent-studio/reference/rest/v1beta/projects.locations.apps/generateAppResource)` |  `POST /v1beta/{parent=projects/*/locations/*/apps/*}:generateAppResource`   
 Generates specific resources (e.g.  
+`[generateOnboardingSuggestions](https://docs.cloud.google.com/gemini-enterprise-cx/cx-agent-studio/reference/rest/v1beta/projects.locations.apps/generateOnboardingSuggestions)` |  `POST /v1beta/{name=projects/*/locations/*/apps/*}:generateOnboardingSuggestions`   
+Generates personalized onboarding suggestions for the Arc zero state: classifies the requesting user (new / exploring / returning) from their assistant-session history in the app and returns suggestion chips (resume a session, continue work, or start something new) to render before any message is sent.  
 `[get](https://docs.cloud.google.com/gemini-enterprise-cx/cx-agent-studio/reference/rest/v1beta/projects.locations.apps/get)` |  `GET /v1beta/{name=projects/*/locations/*/apps/*}`   
 Gets details of the specified app.  
 `[getExtendedAgentCard](https://docs.cloud.google.com/gemini-enterprise-cx/cx-agent-studio/reference/rest/v1beta/projects.locations.apps/getExtendedAgentCard)` |  `GET /v1beta/{tenant=projects/*/locations/*/apps/*}/extendedAgentCard`   
@@ -107,6 +112,8 @@ Lists apps in the given project and location.
 Updates the specified app.  
 `[retrieveToolSchema](https://docs.cloud.google.com/gemini-enterprise-cx/cx-agent-studio/reference/rest/v1beta/projects.locations.apps/retrieveToolSchema)` |  `POST /v1beta/{parent=projects/*/locations/*/apps/*}:retrieveToolSchema`   
 Retrieve the schema of the given tool.  
+`[runAssistant](https://docs.cloud.google.com/gemini-enterprise-cx/cx-agent-studio/reference/rest/v1beta/projects.locations.apps/runAssistant)` |  `POST /v1beta/{app=projects/*/locations/*/apps/*}:runAssistant`   
+Runs the assistant agent for the specified assistant session.  
 `[runEvaluation](https://docs.cloud.google.com/gemini-enterprise-cx/cx-agent-studio/reference/rest/v1beta/projects.locations.apps/runEvaluation)` |  `POST /v1beta/{app=projects/*/locations/*/apps/*}:runEvaluation`   
 Runs an evaluation of the app.  
 `[testPersonaVoice](https://docs.cloud.google.com/gemini-enterprise-cx/cx-agent-studio/reference/rest/v1beta/projects.locations.apps/testPersonaVoice)` |  `POST /v1beta/{app=projects/*/locations/*/apps/*}:testPersonaVoice`   
@@ -126,6 +133,23 @@ Gets details of the specified agent.
 Lists agents in the given app.  
 `[patch](https://docs.cloud.google.com/gemini-enterprise-cx/cx-agent-studio/reference/rest/v1beta/projects.locations.apps.agents/patch)` |  `PATCH /v1beta/{agent.name=projects/*/locations/*/apps/*/agents/*}`   
 Updates the specified agent.  
+  
+## REST Resource: [v1beta.projects.locations.apps.assistantSessions](https://docs.cloud.google.com/gemini-enterprise-cx/cx-agent-studio/reference/rest/v1beta/projects.locations.apps.assistantSessions)
+
+Methods  
+---  
+`[cancelAssistantTurn](https://docs.cloud.google.com/gemini-enterprise-cx/cx-agent-studio/reference/rest/v1beta/projects.locations.apps.assistantSessions/cancelAssistantTurn)` |  `POST /v1beta/{name=projects/*/locations/*/apps/*/assistantSessions/*}:cancelAssistantTurn`   
+Cancels the assistant session's in-flight turn, if any: the explicit user stop for a turn running detached from any stream.  
+`[create](https://docs.cloud.google.com/gemini-enterprise-cx/cx-agent-studio/reference/rest/v1beta/projects.locations.apps.assistantSessions/create)` |  `POST /v1beta/{parent=projects/*/locations/*/apps/*}/assistantSessions`   
+Creates a new assistant session in the given app.  
+`[delete](https://docs.cloud.google.com/gemini-enterprise-cx/cx-agent-studio/reference/rest/v1beta/projects.locations.apps.assistantSessions/delete)` |  `DELETE /v1beta/{name=projects/*/locations/*/apps/*/assistantSessions/*}`   
+Deletes the specified assistant session.  
+`[get](https://docs.cloud.google.com/gemini-enterprise-cx/cx-agent-studio/reference/rest/v1beta/projects.locations.apps.assistantSessions/get)` |  `GET /v1beta/{name=projects/*/locations/*/apps/*/assistantSessions/*}`   
+Gets details of the specified assistant session.  
+`[list](https://docs.cloud.google.com/gemini-enterprise-cx/cx-agent-studio/reference/rest/v1beta/projects.locations.apps.assistantSessions/list)` |  `GET /v1beta/{parent=projects/*/locations/*/apps/*}/assistantSessions`   
+Lists all assistant sessions in the given app.  
+`[streamChatAiAssistant](https://docs.cloud.google.com/gemini-enterprise-cx/cx-agent-studio/reference/rest/v1beta/projects.locations.apps.assistantSessions/streamChatAiAssistant)` |  `POST /v1beta/{name=projects/*/locations/*/apps/*/assistantSessions/*}:streamChatAiAssistant`   
+Runs Arc, the AI assistant, for the specified assistant session in a streaming fashion.  
   
 ## REST Resource: [v1beta.projects.locations.apps.changelogs](https://docs.cloud.google.com/gemini-enterprise-cx/cx-agent-studio/reference/rest/v1beta/projects.locations.apps.changelogs)
 
@@ -396,6 +420,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-09-28 UTC.
+Last updated 2026-11-04 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-09-28 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 

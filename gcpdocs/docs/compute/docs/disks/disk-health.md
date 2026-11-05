@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/compute/docs/disks/disk-health/
 title: Monitor disk health \u00a0|\u00a0 Compute Engine \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T23:09:49.528895+00:00
+fetched_at: 2026-11-05T00:19:30.768104+00:00
 ---
 
 # Monitor disk health  |  Compute Engine  |  Google Cloud Documentation
@@ -250,8 +250,8 @@ As shown in the flowchart, you should only contact support if there are no known
 
 ## What's next
 
-  * Learn more about [creating charts with Metric Explorer](https://docs.cloud.google.com/monitoring/charts/metrics-explorer) and how to refine query results by [adding filters to a chart](https://docs.cloud.google.com/monitoring/charts/selecting-aggregating-metrics#filter-option).
-  * Check for active and past service health events in the [Personal Service Health dashboard](https://docs.cloud.google.com/service-health/docs/view-events) and the [Google Service Health](https://status.cloud.google.com/)
+  * Learn more about [creating charts with Metrics Explorer](https://docs.cloud.google.com/monitoring/charts/metrics-explorer) and how to refine query results by [adding filters to a chart](https://docs.cloud.google.com/monitoring/charts/selecting-aggregating-metrics#filter-option).
+  * Check for active and past service health events in the [Personal Service Health dashboard](https://docs.cloud.google.com/service-health/docs/view-events) and the [Google Service Health](https://status.cloud.google.com/).
   * For performance optimization guidelines, see [Optimize Hyperdisk](https://docs.cloud.google.com/compute/docs/disks/optimize-hyperdisk) and [Optimize Persistent Disk](https://docs.cloud.google.com/compute/docs/disks/optimizing-pd-performance).
 
 
@@ -260,6 +260,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-03 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 

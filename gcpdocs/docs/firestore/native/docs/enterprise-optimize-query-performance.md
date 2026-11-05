@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/firestore/native/docs/enterprise-optimize-query-performance/
 title: Optimize query performance \u00a0|\u00a0 Firestore in Native mode \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T08:01:03.806967+00:00
+fetched_at: 2026-11-05T00:05:15.611442+00:00
 ---
 
 # Optimize query performance  |  Firestore in Native mode  |  Google Cloud Documentation
@@ -105,7 +105,7 @@ The following example forces the planner to use index with ID `CICAgOi36pgK`:
     	Limit(100).
     	Execute(ctx)
     
-    [pipeline_snippets_general.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/ed08282a171f47c035cf0984a5caa406b76f5bcd/firestore/pipeline_snippets_general.go#L1497-L1501)
+    [pipeline_snippets_general.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/db12cf239dd4dcddd2c15c703bb21991d4193a8a/firestore/pipeline_snippets_general.go#L1497-L1501)
 
 Here are some use cases for forcing a specific index:
 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rpc/google.cloud.foodorderingaiagent.v1beta
 title: Package google.cloud.foodorderingaiagent.v1beta \u00a0|\u00a0 Food Ordering AI Agent \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-30T06:00:13.419757+00:00
+fetched_at: 2026-11-05T00:17:45.415183+00:00
 ---
 
 # Package google.cloud.foodorderingaiagent.v1beta  |  Food Ordering AI Agent  |  Google Cloud Documentation
@@ -27,11 +27,13 @@ Send feedback
   * `[EvaluationRunService](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rpc/google.cloud.foodorderingaiagent.v1beta#google.cloud.foodorderingaiagent.v1beta.EvaluationRunService)` (interface)
   * `[FoodOrderingService](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rpc/google.cloud.foodorderingaiagent.v1beta#google.cloud.foodorderingaiagent.v1beta.FoodOrderingService)` (interface)
   * `[MenuService](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rpc/google.cloud.foodorderingaiagent.v1beta#google.cloud.foodorderingaiagent.v1beta.MenuService)` (interface)
+  * `[AccrualForecast](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rpc/google.cloud.foodorderingaiagent.v1beta#google.cloud.foodorderingaiagent.v1beta.AccrualForecast)` (message)
   * `[AgentAudio](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rpc/google.cloud.foodorderingaiagent.v1beta#google.cloud.foodorderingaiagent.v1beta.AgentAudio)` (message)
   * `[AgentEvent](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rpc/google.cloud.foodorderingaiagent.v1beta#google.cloud.foodorderingaiagent.v1beta.AgentEvent)` (message)
   * `[AgentText](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rpc/google.cloud.foodorderingaiagent.v1beta#google.cloud.foodorderingaiagent.v1beta.AgentText)` (message)
   * `[AnalyticsMetrics](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rpc/google.cloud.foodorderingaiagent.v1beta#google.cloud.foodorderingaiagent.v1beta.AnalyticsMetrics)` (message)
   * `[AppendIngestionPhaseRequest](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rpc/google.cloud.foodorderingaiagent.v1beta#google.cloud.foodorderingaiagent.v1beta.AppendIngestionPhaseRequest)` (message)
+  * `[AppliedDonation](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rpc/google.cloud.foodorderingaiagent.v1beta#google.cloud.foodorderingaiagent.v1beta.AppliedDonation)` (message)
   * `[AudioInput](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rpc/google.cloud.foodorderingaiagent.v1beta#google.cloud.foodorderingaiagent.v1beta.AudioInput)` (message)
   * `[AuditLogEntry](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rpc/google.cloud.foodorderingaiagent.v1beta#google.cloud.foodorderingaiagent.v1beta.AuditLogEntry)` (message)
   * `[Availability](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rpc/google.cloud.foodorderingaiagent.v1beta#google.cloud.foodorderingaiagent.v1beta.Availability)` (message)
@@ -72,6 +74,8 @@ Send feedback
   * `[ClientAppInfo](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rpc/google.cloud.foodorderingaiagent.v1beta#google.cloud.foodorderingaiagent.v1beta.ClientAppInfo)` (message)
   * `[ClientExecutionRequest](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rpc/google.cloud.foodorderingaiagent.v1beta#google.cloud.foodorderingaiagent.v1beta.ClientExecutionRequest)` (message)
   * `[ClientExecutionResult](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rpc/google.cloud.foodorderingaiagent.v1beta#google.cloud.foodorderingaiagent.v1beta.ClientExecutionResult)` (message)
+  * `[ClientExecutionStatus](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rpc/google.cloud.foodorderingaiagent.v1beta#google.cloud.foodorderingaiagent.v1beta.ClientExecutionStatus)` (message)
+  * `[ClientExecutionStatus.RejectionReason](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rpc/google.cloud.foodorderingaiagent.v1beta#google.cloud.foodorderingaiagent.v1beta.ClientExecutionStatus.RejectionReason)` (enum)
   * `[ClosingOffer](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rpc/google.cloud.foodorderingaiagent.v1beta#google.cloud.foodorderingaiagent.v1beta.ClosingOffer)` (message)
   * `[ClosingOffer.ClosingMessage](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rpc/google.cloud.foodorderingaiagent.v1beta#google.cloud.foodorderingaiagent.v1beta.ClosingOffer.ClosingMessage)` (message)
   * `[ClusteredEntityIssue](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rpc/google.cloud.foodorderingaiagent.v1beta#google.cloud.foodorderingaiagent.v1beta.ClusteredEntityIssue)` (message)
@@ -99,6 +103,7 @@ Send feedback
   * `[CreateRemediationRequest](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rpc/google.cloud.foodorderingaiagent.v1beta#google.cloud.foodorderingaiagent.v1beta.CreateRemediationRequest)` (message)
   * `[CreateStoreRequest](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rpc/google.cloud.foodorderingaiagent.v1beta#google.cloud.foodorderingaiagent.v1beta.CreateStoreRequest)` (message)
   * `[CreateWebhookSubscriptionRequest](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rpc/google.cloud.foodorderingaiagent.v1beta#google.cloud.foodorderingaiagent.v1beta.CreateWebhookSubscriptionRequest)` (message)
+  * `[CustomerInformation](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rpc/google.cloud.foodorderingaiagent.v1beta#google.cloud.foodorderingaiagent.v1beta.CustomerInformation)` (message)
   * `[DateRange](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rpc/google.cloud.foodorderingaiagent.v1beta#google.cloud.foodorderingaiagent.v1beta.DateRange)` (message)
   * `[DeleteBrandRequest](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rpc/google.cloud.foodorderingaiagent.v1beta#google.cloud.foodorderingaiagent.v1beta.DeleteBrandRequest)` (message)
   * `[DeleteBrandRevisionRequest](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rpc/google.cloud.foodorderingaiagent.v1beta#google.cloud.foodorderingaiagent.v1beta.DeleteBrandRevisionRequest)` (message)
@@ -132,6 +137,12 @@ Send feedback
   * `[Discount.Scope](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rpc/google.cloud.foodorderingaiagent.v1beta#google.cloud.foodorderingaiagent.v1beta.Discount.Scope)` (enum)
   * `[DiscountIntegrationAttributes](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rpc/google.cloud.foodorderingaiagent.v1beta#google.cloud.foodorderingaiagent.v1beta.DiscountIntegrationAttributes)` (message)
   * `[DiscountType](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rpc/google.cloud.foodorderingaiagent.v1beta#google.cloud.foodorderingaiagent.v1beta.DiscountType)` (enum)
+  * `[DonationInfo](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rpc/google.cloud.foodorderingaiagent.v1beta#google.cloud.foodorderingaiagent.v1beta.DonationInfo)` (message)
+  * `[DonationOffer](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rpc/google.cloud.foodorderingaiagent.v1beta#google.cloud.foodorderingaiagent.v1beta.DonationOffer)` (message)
+  * `[DonationOffer.SuppressionReason](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rpc/google.cloud.foodorderingaiagent.v1beta#google.cloud.foodorderingaiagent.v1beta.DonationOffer.SuppressionReason)` (enum)
+  * `[DonationOption](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rpc/google.cloud.foodorderingaiagent.v1beta#google.cloud.foodorderingaiagent.v1beta.DonationOption)` (message)
+  * `[DonationRequestStatus](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rpc/google.cloud.foodorderingaiagent.v1beta#google.cloud.foodorderingaiagent.v1beta.DonationRequestStatus)` (enum)
+  * `[DonationType](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rpc/google.cloud.foodorderingaiagent.v1beta#google.cloud.foodorderingaiagent.v1beta.DonationType)` (enum)
   * `[DtmfInput](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rpc/google.cloud.foodorderingaiagent.v1beta#google.cloud.foodorderingaiagent.v1beta.DtmfInput)` (message)
   * `[EndSession](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rpc/google.cloud.foodorderingaiagent.v1beta#google.cloud.foodorderingaiagent.v1beta.EndSession)` (message)
   * `[EndSession.EndType](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rpc/google.cloud.foodorderingaiagent.v1beta#google.cloud.foodorderingaiagent.v1beta.EndSession.EndType)` (enum)
@@ -303,8 +314,15 @@ Send feedback
   * `[ListStoresResponse](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rpc/google.cloud.foodorderingaiagent.v1beta#google.cloud.foodorderingaiagent.v1beta.ListStoresResponse)` (message)
   * `[ListWebhookSubscriptionsRequest](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rpc/google.cloud.foodorderingaiagent.v1beta#google.cloud.foodorderingaiagent.v1beta.ListWebhookSubscriptionsRequest)` (message)
   * `[ListWebhookSubscriptionsResponse](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rpc/google.cloud.foodorderingaiagent.v1beta#google.cloud.foodorderingaiagent.v1beta.ListWebhookSubscriptionsResponse)` (message)
+  * `[LoyaltyActionCategory](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rpc/google.cloud.foodorderingaiagent.v1beta#google.cloud.foodorderingaiagent.v1beta.LoyaltyActionCategory)` (enum)
   * `[LoyaltyAmount](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rpc/google.cloud.foodorderingaiagent.v1beta#google.cloud.foodorderingaiagent.v1beta.LoyaltyAmount)` (message)
+  * `[LoyaltyConditionDetail](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rpc/google.cloud.foodorderingaiagent.v1beta#google.cloud.foodorderingaiagent.v1beta.LoyaltyConditionDetail)` (message)
   * `[LoyaltyInfo](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rpc/google.cloud.foodorderingaiagent.v1beta#google.cloud.foodorderingaiagent.v1beta.LoyaltyInfo)` (message)
+  * `[LoyaltyMetadata](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rpc/google.cloud.foodorderingaiagent.v1beta#google.cloud.foodorderingaiagent.v1beta.LoyaltyMetadata)` (message)
+  * `[LoyaltyRequest](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rpc/google.cloud.foodorderingaiagent.v1beta#google.cloud.foodorderingaiagent.v1beta.LoyaltyRequest)` (message)
+  * `[LoyaltyResponse](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rpc/google.cloud.foodorderingaiagent.v1beta#google.cloud.foodorderingaiagent.v1beta.LoyaltyResponse)` (message)
+  * `[LoyaltyReward](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rpc/google.cloud.foodorderingaiagent.v1beta#google.cloud.foodorderingaiagent.v1beta.LoyaltyReward)` (message)
+  * `[LoyaltySlotDetail](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rpc/google.cloud.foodorderingaiagent.v1beta#google.cloud.foodorderingaiagent.v1beta.LoyaltySlotDetail)` (message)
   * `[Menu](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rpc/google.cloud.foodorderingaiagent.v1beta#google.cloud.foodorderingaiagent.v1beta.Menu)` (message)
   * `[MenuCategory](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rpc/google.cloud.foodorderingaiagent.v1beta#google.cloud.foodorderingaiagent.v1beta.MenuCategory)` (message)
   * `[MenuIngestionConfig](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rpc/google.cloud.foodorderingaiagent.v1beta#google.cloud.foodorderingaiagent.v1beta.MenuIngestionConfig)` (message)
@@ -401,6 +419,7 @@ Send feedback
   * `[SessionRecord](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rpc/google.cloud.foodorderingaiagent.v1beta#google.cloud.foodorderingaiagent.v1beta.SessionRecord)` (message)
   * `[SpeechRecognition](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rpc/google.cloud.foodorderingaiagent.v1beta#google.cloud.foodorderingaiagent.v1beta.SpeechRecognition)` (message)
   * `[Store](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rpc/google.cloud.foodorderingaiagent.v1beta#google.cloud.foodorderingaiagent.v1beta.Store)` (message)
+  * `[StoreChange](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rpc/google.cloud.foodorderingaiagent.v1beta#google.cloud.foodorderingaiagent.v1beta.StoreChange)` (message)
   * `[StoreHours](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rpc/google.cloud.foodorderingaiagent.v1beta#google.cloud.foodorderingaiagent.v1beta.StoreHours)` (message)
   * `[StoreIngestionConfig](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rpc/google.cloud.foodorderingaiagent.v1beta#google.cloud.foodorderingaiagent.v1beta.StoreIngestionConfig)` (message)
   * `[StoreIngestionConfig.StoreTimeZoneConfig](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rpc/google.cloud.foodorderingaiagent.v1beta#google.cloud.foodorderingaiagent.v1beta.StoreIngestionConfig.StoreTimeZoneConfig)` (message)
@@ -421,6 +440,8 @@ Send feedback
   * `[SuggestedModifier](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rpc/google.cloud.foodorderingaiagent.v1beta#google.cloud.foodorderingaiagent.v1beta.SuggestedModifier)` (message)
   * `[SuggestedModifierGroups](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rpc/google.cloud.foodorderingaiagent.v1beta#google.cloud.foodorderingaiagent.v1beta.SuggestedModifierGroups)` (message)
   * `[SuggestedModifiers](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rpc/google.cloud.foodorderingaiagent.v1beta#google.cloud.foodorderingaiagent.v1beta.SuggestedModifiers)` (message)
+  * `[SuggestedOffer](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rpc/google.cloud.foodorderingaiagent.v1beta#google.cloud.foodorderingaiagent.v1beta.SuggestedOffer)` (message)
+  * `[SuggestedOffers](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rpc/google.cloud.foodorderingaiagent.v1beta#google.cloud.foodorderingaiagent.v1beta.SuggestedOffers)` (message)
   * `[SuggestedOptions](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rpc/google.cloud.foodorderingaiagent.v1beta#google.cloud.foodorderingaiagent.v1beta.SuggestedOptions)` (message)
   * `[SuggestedStore](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rpc/google.cloud.foodorderingaiagent.v1beta#google.cloud.foodorderingaiagent.v1beta.SuggestedStore)` (message)
   * `[SuggestedStores](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rpc/google.cloud.foodorderingaiagent.v1beta#google.cloud.foodorderingaiagent.v1beta.SuggestedStores)` (message)
@@ -452,6 +473,7 @@ Send feedback
   * `[UpsellMetrics.UpsellTypeMetrics](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rpc/google.cloud.foodorderingaiagent.v1beta#google.cloud.foodorderingaiagent.v1beta.UpsellMetrics.UpsellTypeMetrics)` (message)
   * `[UpsellStrategy](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rpc/google.cloud.foodorderingaiagent.v1beta#google.cloud.foodorderingaiagent.v1beta.UpsellStrategy)` (message)
   * `[UserInfo](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rpc/google.cloud.foodorderingaiagent.v1beta#google.cloud.foodorderingaiagent.v1beta.UserInfo)` (message)
+  * `[UserLocation](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rpc/google.cloud.foodorderingaiagent.v1beta#google.cloud.foodorderingaiagent.v1beta.UserLocation)` (message)
   * `[ValidDeliveryStore](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rpc/google.cloud.foodorderingaiagent.v1beta#google.cloud.foodorderingaiagent.v1beta.ValidDeliveryStore)` (message)
   * `[ValidateDeliveryAddressRequest](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rpc/google.cloud.foodorderingaiagent.v1beta#google.cloud.foodorderingaiagent.v1beta.ValidateDeliveryAddressRequest)` (message)
   * `[ValidateDeliveryAddressResponse](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rpc/google.cloud.foodorderingaiagent.v1beta#google.cloud.foodorderingaiagent.v1beta.ValidateDeliveryAddressResponse)` (message)
@@ -921,7 +943,7 @@ Authorization scopes
 For more information, see the [Authentication Overview](https://docs.cloud.google.com/docs/authentication#authorization-gcp).  
 DeleteSessionRecord  
 ---  
-` rpc DeleteSessionRecord(`[DeleteSessionRecordRequest](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rpc/google.cloud.foodorderingaiagent.v1beta#google.cloud.foodorderingaiagent.v1beta.DeleteSessionRecordRequest)`) returns (`[Empty](https://protobuf.dev/reference/protobuf/google.protobuf/#empty)`) ` Deletes an SessionRecord. Note: This operation will remove the session details from the Spanner database. Associated data like audio recordings in GCS may also be removed depending on the implementation.
+` rpc DeleteSessionRecord(`[DeleteSessionRecordRequest](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rpc/google.cloud.foodorderingaiagent.v1beta#google.cloud.foodorderingaiagent.v1beta.DeleteSessionRecordRequest)`) returns (`[Empty](https://protobuf.dev/reference/protobuf/google.protobuf/#empty)`) ` Deletes a SessionRecord. Note: This operation will remove the session details from the Spanner database. Associated data like audio recordings in Cloud Storage may also be removed depending on the implementation.
 
 Authorization scopes
      Requires the following OAuth scope:
@@ -1600,6 +1622,15 @@ Authorization scopes
 
 For more information, see the [Authentication Overview](https://docs.cloud.google.com/docs/authentication#authorization-gcp).  
   
+## AccrualForecast
+
+Forecast of loyalty points to be accrued.
+
+Fields  
+---  
+`potential_accrual` |  `[LoyaltyAmount](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rpc/google.cloud.foodorderingaiagent.v1beta#google.cloud.foodorderingaiagent.v1beta.LoyaltyAmount)` Optional. Potential points / balance to be earned.  
+`upsell_nudge` |  `string` Optional. Nudge text suggesting upsell opportunities.  
+  
 ## AgentAudio
 
 The audio response from the agent.
@@ -1616,6 +1647,7 @@ Fields
 ---  
 Union field `event`. The event from the agent. `event` can be only one of the following:  
 `restart_order` |  `[RestartOrder](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rpc/google.cloud.foodorderingaiagent.v1beta#google.cloud.foodorderingaiagent.v1beta.RestartOrder)` Customer requests to restart the order.  
+`store_change` |  `[StoreChange](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rpc/google.cloud.foodorderingaiagent.v1beta#google.cloud.foodorderingaiagent.v1beta.StoreChange)` Event indicating that the agent switched the active store for the session.  
   
 ## AgentText
 
@@ -1643,6 +1675,15 @@ Fields
 `name` |  `string` Required. The name of the ingestion log to append the phase to. Format: projects/{project}/locations/{location}/brands/{brand}/ingestionLogs/{ingestion_log}  
 `ingestion_phase` |  `[IngestionPhase](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rpc/google.cloud.foodorderingaiagent.v1beta#google.cloud.foodorderingaiagent.v1beta.IngestionPhase)` Required. The ingestion phase to append.  
 `menu` |  `string` Optional. The resource name of the menu created or updated by this ingestion. Format: projects/{project}/locations/{location}/menus/{menu}  
+  
+## AppliedDonation
+
+A donation currently applied to the client order.
+
+Fields  
+---  
+`type` |  `[DonationType](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rpc/google.cloud.foodorderingaiagent.v1beta#google.cloud.foodorderingaiagent.v1beta.DonationType)` Optional. The kind of donation.  
+`amount` |  `[Money](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rpc/google.type#google.type.Money)` Optional. The donation amount.  
   
 ## AudioInput
 
@@ -2078,6 +2119,7 @@ Fields
 Union field `request`. The specific request to be executed. `request` can be only one of the following:  
 `finalize_order_request` |  `[FinalizeOrderRequest](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rpc/google.cloud.foodorderingaiagent.v1beta#google.cloud.foodorderingaiagent.v1beta.FinalizeOrderRequest)` A request to finalize the order.  
 `submit_order_request` |  `[SubmitOrderRequest](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rpc/google.cloud.foodorderingaiagent.v1beta#google.cloud.foodorderingaiagent.v1beta.SubmitOrderRequest)` A request to submit the order.  
+`loyalty_request` |  `[LoyaltyRequest](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rpc/google.cloud.foodorderingaiagent.v1beta#google.cloud.foodorderingaiagent.v1beta.LoyaltyRequest)` Optional. Unified loyalty request.  
 `order_prices_request` |  `[OrderPricesRequest](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rpc/google.cloud.foodorderingaiagent.v1beta#google.cloud.foodorderingaiagent.v1beta.OrderPricesRequest)` A request to get the order prices.  
 `validate_delivery_address_request` |  `[ValidateDeliveryAddressRequest](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rpc/google.cloud.foodorderingaiagent.v1beta#google.cloud.foodorderingaiagent.v1beta.ValidateDeliveryAddressRequest)` A request to validate the delivery address.  
 `order_status_request` |  `[OrderStatusRequest](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rpc/google.cloud.foodorderingaiagent.v1beta#google.cloud.foodorderingaiagent.v1beta.OrderStatusRequest)` A request to get the order status.  
@@ -2089,12 +2131,36 @@ The result of a client execution request.
 Fields  
 ---  
 `execution_id` |  `string` Required. The ID of the execution request this is a result for.  
+`client_execution_status` |  `[ClientExecutionStatus](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rpc/google.cloud.foodorderingaiagent.v1beta#google.cloud.foodorderingaiagent.v1beta.ClientExecutionStatus)` Optional. Client execution status.  
 Union field `response`. The specific result of the execution. `response` can be only one of the following:  
 `finalize_order_response` |  `[FinalizeOrderResponse](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rpc/google.cloud.foodorderingaiagent.v1beta#google.cloud.foodorderingaiagent.v1beta.FinalizeOrderResponse)` The result of finalizing the order.  
 `submit_order_response` |  `[SubmitOrderResponse](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rpc/google.cloud.foodorderingaiagent.v1beta#google.cloud.foodorderingaiagent.v1beta.SubmitOrderResponse)` The result of submitting the order.  
+`loyalty_response` |  `[LoyaltyResponse](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rpc/google.cloud.foodorderingaiagent.v1beta#google.cloud.foodorderingaiagent.v1beta.LoyaltyResponse)` Optional. Unified loyalty response.  
 `order_prices_response` |  `[OrderPricesResponse](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rpc/google.cloud.foodorderingaiagent.v1beta#google.cloud.foodorderingaiagent.v1beta.OrderPricesResponse)` The result of getting the order prices.  
 `validate_delivery_address_response` |  `[ValidateDeliveryAddressResponse](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rpc/google.cloud.foodorderingaiagent.v1beta#google.cloud.foodorderingaiagent.v1beta.ValidateDeliveryAddressResponse)` The result of validating the delivery address.  
 `order_status_response` |  `[OrderStatusResponse](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rpc/google.cloud.foodorderingaiagent.v1beta#google.cloud.foodorderingaiagent.v1beta.OrderStatusResponse)` The result of getting the order status.  
+  
+## ClientExecutionStatus
+
+Status details for the response.
+
+Fields  
+---  
+`http_status_code` |  `int32` Optional. The HTTP status code from the provider.  
+`raw_provider_message` |  `string` Optional. The raw response message from the provider.  
+`rejection_reason` |  `[RejectionReason](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rpc/google.cloud.foodorderingaiagent.v1beta#google.cloud.foodorderingaiagent.v1beta.ClientExecutionStatus.RejectionReason)` Optional. Structured rejection reason if applicable.  
+  
+## RejectionReason
+
+Reasons for rejecting a loyalty request.
+
+Enums  
+---  
+`REJECTION_REASON_UNSPECIFIED` | The rejection reason is not specified.  
+`REJECTION_REASON_INVALID_ID` | The ID provided was invalid.  
+`REJECTION_REASON_COOLDOWN_PERIOD` | The loyalty account is subject to a cooldown period.  
+`REJECTION_REASON_INSUFFICIENT_FUNDS` | The loyalty account has insufficient funds.  
+`REJECTION_REASON_INSUFFICIENT_POINTS` | The loyalty account has insufficient points.  
   
 ## ClosingOffer
 
@@ -2393,6 +2459,18 @@ Fields
 `webhook_subscription` |  `[WebhookSubscription](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rpc/google.cloud.foodorderingaiagent.v1beta#google.cloud.foodorderingaiagent.v1beta.WebhookSubscription)` Required. The webhook subscription to create.  
 `webhook_subscription_id` |  `string` Optional. The ID to use for the webhook subscription, which will become the final component of the webhook subscription's resource name.This value should be 4-63 characters, and valid characters are [a-z0-9-], with the first character a letter and the last a letter or a number (RFC-1034).  
   
+## CustomerInformation
+
+Information about the customer.
+
+Fields  
+---  
+`name` |  `string` Optional. The name of the customer.  
+`points_balance  
+**(deprecated)**` |  `int32` This item is deprecated!Optional. The customer's loyalty amount - points or balance.  
+`loyalty_amount` |  `[LoyaltyAmount](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rpc/google.cloud.foodorderingaiagent.v1beta#google.cloud.foodorderingaiagent.v1beta.LoyaltyAmount)` Optional. The customer's loyalty amount - points or balance.  
+`tier` |  `string` Optional. The customer's tier.  
+  
 ## DateRange
 
 Represents a date range, inclusive of both ends.
@@ -2634,7 +2712,7 @@ Fields
   
 ## Discount
 
-A discount that can be applied to orders at a store. Next ID: 16
+A discount that can be applied to orders at a store.
 
 Fields  
 ---  
@@ -2653,6 +2731,7 @@ Fields
 `additional_constraint` |  `[Constraint](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rpc/google.cloud.foodorderingaiagent.v1beta#google.cloud.foodorderingaiagent.v1beta.Discount.Constraint)` Optional. Additional constraint to apply this discount.  
 `integration_attributes` |  `[DiscountIntegrationAttributes](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rpc/google.cloud.foodorderingaiagent.v1beta#google.cloud.foodorderingaiagent.v1beta.DiscountIntegrationAttributes)` Optional. Metadata associated with this entity used for downstream integrations.  
 `image` |  `[Image](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rpc/google.cloud.foodorderingaiagent.v1beta#google.cloud.foodorderingaiagent.v1beta.Image)` Optional. Image to display for this discount in the UI.  
+`description` |  `string` Optional. Provides a human-readable summary or subtitle for this discount.  
   
 ## Constraint
 
@@ -2697,6 +2776,73 @@ Enums
 `PERCENT_OFF` | A percentage discount (e.g., 20% off an item or order).  
 `FIXED_TOTAL` | Sets the final price of the discounted items to a fixed total (e.g., 2 items for $10.00).  
 `FREE_DELIVERY` | Waives the delivery fee for the order.  
+  
+## DonationInfo
+
+Charity donation offer, applied donations, and request status for the order.
+
+Fields  
+---  
+`offer` |  `[DonationOffer](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rpc/google.cloud.foodorderingaiagent.v1beta#google.cloud.foodorderingaiagent.v1beta.DonationOffer)` Optional. The donation the agent may offer, evaluated by the client from store settings and session rules. If omitted, the agent does not offer a donation.  
+`applied_donations[]` |  `[AppliedDonation](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rpc/google.cloud.foodorderingaiagent.v1beta#google.cloud.foodorderingaiagent.v1beta.AppliedDonation)` Optional. The donations currently applied to the client order. Empty if no donations are applied.  
+`request_status` |  `[DonationRequestStatus](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rpc/google.cloud.foodorderingaiagent.v1beta#google.cloud.foodorderingaiagent.v1beta.DonationRequestStatus)` Optional. The outcome of the donation change derived by the client from the order state since the previous finalization, such as when a donation item is added or removed. Unspecified if no donation changed.  
+  
+## DonationOffer
+
+Donation offer directives evaluated by the client from store settings and session rules.
+
+Fields  
+---  
+`eligible` |  `bool` Optional. Whether the agent should proactively offer a donation.  
+`options[]` |  `[DonationOption](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rpc/google.cloud.foodorderingaiagent.v1beta#google.cloud.foodorderingaiagent.v1beta.DonationOption)` Optional. The donation options the agent may offer, such as a round-up or fixed-amount tiers. The first option is the default offer.  
+`suppression_reason` |  `[SuppressionReason](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rpc/google.cloud.foodorderingaiagent.v1beta#google.cloud.foodorderingaiagent.v1beta.DonationOffer.SuppressionReason)` Optional. The reason a donation should not be offered. Set only when `eligible` is `false`.  
+  
+## SuppressionReason
+
+Reasons a donation should not be offered.
+
+Enums  
+---  
+`SUPPRESSION_REASON_UNSPECIFIED` | Indicates that the suppression reason is not specified.  
+`SUPPRESSION_REASON_STORE_DISABLED` | Indicates that donations are disabled for the store.  
+`SUPPRESSION_REASON_ZERO_TOTAL` | Indicates that the total amount due is zero.  
+`SUPPRESSION_REASON_WHOLE_AMOUNT` | Indicates that the total amount due is already a whole currency amount, so there is nothing to round up.  
+`SUPPRESSION_REASON_BELOW_MIN_THRESHOLD` | Indicates that the round-up amount is below the minimum threshold for an offer.  
+`SUPPRESSION_REASON_ALREADY_APPLIED` | Indicates that a donation is already applied to the order.  
+  
+## DonationOption
+
+One donation option that the agent may offer.
+
+Fields  
+---  
+`type` |  `[DonationType](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rpc/google.cloud.foodorderingaiagent.v1beta#google.cloud.foodorderingaiagent.v1beta.DonationType)` Optional. The kind of donation.  
+`amount` |  `[Money](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rpc/google.type#google.type.Money)` Optional. The donation amount, such as $0.25 for a round-up or $5.00 for a fixed tier.  
+`projected_total` |  `[Money](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rpc/google.type#google.type.Money)` Optional. The total amount due if this option is applied.  
+`charity_display_name` |  `string` Optional. The display name of the charity presented to the customer.  
+  
+## DonationRequestStatus
+
+The outcome of a donation change derived by the client from the order state.
+
+Enums  
+---  
+`DONATION_REQUEST_STATUS_UNSPECIFIED` | Indicates that no donation changed or the status is not specified.  
+`DONATION_REQUEST_STATUS_APPLIED` | Indicates that the donation is applied to the order.  
+`DONATION_REQUEST_STATUS_REMOVED` | Indicates that the donation is removed from the order.  
+`DONATION_REQUEST_STATUS_NOT_ELIGIBLE` | Indicates that the donation is not applied because the order is not eligible, for example when the total amount due is already a whole currency amount.  
+`DONATION_REQUEST_STATUS_FAILED` | Fails to apply or remove the donation.  
+  
+## DonationType
+
+The kind of donation.
+
+Enums  
+---  
+`DONATION_TYPE_UNSPECIFIED` | Indicates that the donation type is not specified.  
+`DONATION_TYPE_ROUND_UP` | Rounds the total amount due up to the next whole currency unit.  
+`DONATION_TYPE_FIXED_AMOUNT` | A fixed donation tier offered by the brand, such as $5.00.  
+`DONATION_TYPE_CUSTOM_AMOUNT` | An arbitrary donation amount chosen by the customer.  
   
 ## DtmfInput
 
@@ -2744,6 +2890,7 @@ Enums
 `REQUESTED_CHECKOUT` | The customer requested to check out.  
 `REQUESTED_ORDER_STATUS` | The customer asked about their order status.  
 `STORE_CLOSED` | The store is closed.  
+`REQUESTED_STORE_SELECTION` | Indicates that the customer needs to select a store in the client application.  
   
 ## EvaluationCase
 
@@ -3063,14 +3210,19 @@ The feature gates for the session. This is used to enable or disable features fo
 
 Fields  
 ---  
-`trigger_offer_engine_on_demand` |  `bool` Optional. For limited audience only, if set, offer engine will be optional in the payment flow and will only be triggered when users request for it.  
-`trigger_loyalty_on_demand` |  `bool` Optional. For limited audience only, if set, loyalty will be optional in the payment flow and will only be triggered when users request for it.  
-`trigger_order_media_assistant_on_demand` |  `bool` Optional. For limited audience only, if set, order media assistant will be optional and will only be triggered when users request for it.  
+`trigger_offer_engine_on_demand  
+**(deprecated)**` |  `bool` This item is deprecated!Optional. Deprecated: No longer used. For limited audience only, if set, offer engine will be optional in the payment flow and will only be triggered when users request for it.  
+`trigger_loyalty_on_demand  
+**(deprecated)**` |  `bool` This item is deprecated!Optional. Deprecated: No longer used. For limited audience only, if set, loyalty will be optional in the payment flow and will only be triggered when users request for it.  
+`trigger_order_media_assistant_on_demand  
+**(deprecated)**` |  `bool` This item is deprecated!Optional. Deprecated: No longer used. For limited audience only, if set, order media assistant will be optional and will only be triggered when users request for it.  
 `menu_response_enabled` |  `bool` Optional. Returns the menu data to the client in BidiProcessOrderResponse if set.  
 `revamped_payment_flow_enabled` |  `bool` Optional. For limited audience only, if set, a revamped version of the payment flow will be used.  
 `updated_order_state_enabled` |  `bool` Optional. If set, updated_order_state is returned instead of legacy_order_state_response.  
 `enable_order_status_retrieval` |  `bool` Optional. If set, the agent will support order status retrieval.  
 `enable_client_escalation_audio` |  `bool` Optional. If set, client escalation audio is synthesized and streamed on ClientEscalationEvent.  
+`store_selection_enabled` |  `bool` Optional. Indicates whether voice-mode store selection and switching are enabled for the session. If unset, uses the server-side configuration.  
+`offers_and_loyalty_enabled` |  `bool` Optional. Indicates whether conversational offers, deals, and loyalty features are enabled for the session. If unset, uses the server-side configuration.  
   
 ## FeaturesConfig
 
@@ -3232,6 +3384,7 @@ Fields
 `payment_info` |  `[PaymentInfo](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rpc/google.cloud.foodorderingaiagent.v1beta#google.cloud.foodorderingaiagent.v1beta.PaymentInfo)` Optional. The payment information of the customer. No-op if payment_flow_enabled is false. Only `credit_card_last_four_digits` and `payment_method` should be populated here; raw cardholder or sensitive authentication data must never be included.  
 `total_amount_due` |  `[Money](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rpc/google.type#google.type.Money)` Optional. The total amount due for the order.  
 `order_price_info` |  `[OrderPriceInfo](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rpc/google.cloud.foodorderingaiagent.v1beta#google.cloud.foodorderingaiagent.v1beta.OrderPriceInfo)` Optional. The detailed price information of the order.  
+`donation_info` |  `[DonationInfo](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rpc/google.cloud.foodorderingaiagent.v1beta#google.cloud.foodorderingaiagent.v1beta.DonationInfo)` Optional. Charity donation information for the order, including any offer to present, currently applied donations, and the outcome of a donation change.  
   
 ## FulfillmentMethod
 
@@ -4263,9 +4416,9 @@ Request message for `[MenuService.ListMenus](https://docs.cloud.google.com/gemin
 Fields  
 ---  
 `parent` |  `string` Required. The parent, which owns this collection of menus. Format: projects/{project}/locations/{location}  
-`page_size` |  `int32` Optional. The maximum number of menus to return. The service may return fewer than this value.  
+`page_size` |  `int32` Optional. The maximum number of menus to return. The service may return fewer than this value. If unspecified, at most 50 menus will be returned. The maximum value is 100; values above 100 will be coerced to 100.  
 `page_token` |  `string` Optional. A page token, received from a previous `ListMenus` call. Provide this to retrieve the subsequent page.  
-`filter` |  `string` Optional. A filter expression that filters the results. The expression syntax is documented in <https://google.aip.dev/160>.The following fields are supported: - `store` \- `brand``store=projects/my-project/locations/us-central1/brands/my-brand/stores/my-store` \- `brand=projects/my-project/locations/us-central1/brands/my-brand`  
+`filter` |  `string` Optional. A filter expression that filters the results. The expression syntax is documented in <https://google.aip.dev/160>.A filter is required and must specify either `store` or `brand`.The following fields are supported: - `store` \- `brand``store=projects/my-project/locations/us-central1/brands/my-brand/stores/my-store` \- `brand=projects/my-project/locations/us-central1/brands/my-brand`  
 `view` |  `[MenuView](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rpc/google.cloud.foodorderingaiagent.v1beta#google.cloud.foodorderingaiagent.v1beta.MenuView)` Optional. The view to return for the menus.  
   
 ## ListMenusResponse
@@ -4408,6 +4561,19 @@ Fields
 `webhook_subscriptions[]` |  `[WebhookSubscription](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rpc/google.cloud.foodorderingaiagent.v1beta#google.cloud.foodorderingaiagent.v1beta.WebhookSubscription)` The webhook subscriptions from the specified collection.  
 `next_page_token` |  `string` A token, which can be sent as `page_token` to retrieve the next page. If this field is omitted, there are no subsequent pages.  
   
+## LoyaltyActionCategory
+
+The type of loyalty action.
+
+Enums  
+---  
+`LOYALTY_ACTION_CATEGORY_UNSPECIFIED` | Unspecified loyalty action category.  
+`LOYALTY_ACTION_CATEGORY_ADD_CODE` | Add a loyalty code.  
+`LOYALTY_ACTION_CATEGORY_IDENTIFY_CUSTOMER` | Identify the customer.  
+`LOYALTY_ACTION_CATEGORY_ADD_REWARD` | Add a reward.  
+`LOYALTY_ACTION_CATEGORY_REDEEM_POINTS` | Redeem points.  
+`LOYALTY_ACTION_CATEGORY_REMOVE_LOYALTY` | Remove loyalty information from the session.  
+  
 ## LoyaltyAmount
 
 Represents a customer's loyalty amount.
@@ -4416,6 +4582,16 @@ Fields
 ---  
 `units` |  `int64` Required. The loyalty points.  
   
+## LoyaltyConditionDetail
+
+Conditions associated with a reward.
+
+Fields  
+---  
+`description` |  `string` Optional. Description of conditions.  
+`pre_tax_minimum_spend` |  `[Money](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rpc/google.type#google.type.Money)` Optional. Pre-tax amount condition, e.g. Spend $10 pre-tax, get 10% off.  
+`post_tax_minimum_spend` |  `[Money](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rpc/google.type#google.type.Money)` Optional. Post-tax amount condition, e.g. Spend $10 post-tax, get 10% off.  
+  
 ## LoyaltyInfo
 
 Represents a customer's loyalty information.
@@ -4423,6 +4599,69 @@ Represents a customer's loyalty information.
 Fields  
 ---  
 `loyalty_amount` |  `[LoyaltyAmount](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rpc/google.cloud.foodorderingaiagent.v1beta#google.cloud.foodorderingaiagent.v1beta.LoyaltyAmount)` Required. The loyalty amount. This can be a loyalty balance or loyalty consumed.  
+  
+## LoyaltyMetadata
+
+Metadata for the loyalty session.
+
+Fields  
+---  
+`customer` |  `[CustomerInformation](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rpc/google.cloud.foodorderingaiagent.v1beta#google.cloud.foodorderingaiagent.v1beta.CustomerInformation)` Optional. Customer information associated with the session.  
+`accrual` |  `[AccrualForecast](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rpc/google.cloud.foodorderingaiagent.v1beta#google.cloud.foodorderingaiagent.v1beta.AccrualForecast)` Optional. Forecast of points accrual.  
+`available_rewards[]` |  `[LoyaltyReward](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rpc/google.cloud.foodorderingaiagent.v1beta#google.cloud.foodorderingaiagent.v1beta.LoyaltyReward)` Optional. Available rewards for the customer.  
+`applied_codes[]` |  `string` Optional. Codes that are currently applied to the order/session.  
+`applied_reward_ids[]` |  `string` Optional. Reward IDs that are currently applied to the order/session.  
+  
+## LoyaltyRequest
+
+Request for loyalty operations.
+
+Fields  
+---  
+`category` |  `[LoyaltyActionCategory](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rpc/google.cloud.foodorderingaiagent.v1beta#google.cloud.foodorderingaiagent.v1beta.LoyaltyActionCategory)` Required. Type of loyalty request.  
+`code` |  `string` Optional. -- Optional identifiers. -- The code to add to the order.  
+`phone_number` |  `string` Optional. The phone number of the customer.  
+`email` |  `string` Optional. The email of the customer.  
+`loyalty_account_id` |  `string` Optional. The loyalty account ID of the customer.  
+`reward_ids[]` |  `string` Optional. -- Action specific fields. -- The reward IDs to add to the order.  
+`selected_product_codes[]` |  `string` Optional. The product code(s) to redeem the reward for.  
+`loyalty_amount` |  `[LoyaltyAmount](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rpc/google.cloud.foodorderingaiagent.v1beta#google.cloud.foodorderingaiagent.v1beta.LoyaltyAmount)` Optional. The loyalty points / balance to redeem.  
+  
+## LoyaltyResponse
+
+Response for loyalty operations.
+
+Fields  
+---  
+`category` |  `[LoyaltyActionCategory](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rpc/google.cloud.foodorderingaiagent.v1beta#google.cloud.foodorderingaiagent.v1beta.LoyaltyActionCategory)` Optional. Type of loyalty response.  
+`loyalty_metadata` |  `[LoyaltyMetadata](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rpc/google.cloud.foodorderingaiagent.v1beta#google.cloud.foodorderingaiagent.v1beta.LoyaltyMetadata)` Optional. Loyalty metadata.  
+`custom_integration_attributes` |  `[Struct](https://protobuf.dev/reference/protobuf/google.protobuf/#struct)` Optional. Contains partner-specific loyalty metadata that does not map to typed fields in LoyaltyMetadata. Must not contain personally identifiable information, authentication or payment tokens, or secret redemption codes.  
+  
+## LoyaltyReward
+
+Details of a loyalty reward.
+
+Fields  
+---  
+`reward_id` |  `string` Optional. Unique ID for the reward.  
+`display_name` |  `string` Optional. Display name for the reward.  
+`conditions[]` |  `[LoyaltyConditionDetail](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rpc/google.cloud.foodorderingaiagent.v1beta#google.cloud.foodorderingaiagent.v1beta.LoyaltyConditionDetail)` Optional. Order-level conditions for redeeming/earning the reward. For more than one condition, all conditions must be met, which are AND'd together. Each condition can have multiple sub-conditions, which are OR'd together.  
+`slot_details[]` |  `[LoyaltySlotDetail](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rpc/google.cloud.foodorderingaiagent.v1beta#google.cloud.foodorderingaiagent.v1beta.LoyaltySlotDetail)` Optional. Slot-level conditions for redeeming/earning the reward.  
+`redemption_cost` |  `[LoyaltyAmount](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rpc/google.cloud.foodorderingaiagent.v1beta#google.cloud.foodorderingaiagent.v1beta.LoyaltyAmount)` Optional. Represents the loyalty points required to redeem this reward.  
+`description` |  `string` Optional. Provides a human-readable summary or subtitle for the reward.  
+`image` |  `[Image](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rpc/google.cloud.foodorderingaiagent.v1beta#google.cloud.foodorderingaiagent.v1beta.Image)` Optional. Represents the image to display for this reward.  
+`expire_time` |  `[Timestamp](https://protobuf.dev/reference/protobuf/google.protobuf/#timestamp)` Optional. Represents the timestamp when this reward expires.  
+`custom_integration_attributes` |  `[Struct](https://protobuf.dev/reference/protobuf/google.protobuf/#struct)` Optional. Contains partner-specific metadata and display attributes associated with this reward for downstream integrations. Must not contain personally identifiable information, authentication or payment tokens, or secret redemption codes.  
+  
+## LoyaltySlotDetail
+
+Details for a specific requirement slot.
+
+Fields  
+---  
+`eligible_product_codes[]` |  `string` Optional. List of product codes that are eligible for current slot.  
+`quantity_required` |  `int32` Optional. Quantity of products required for this slot.  
+`conditional_fill` |  `bool` Optional. If true, this slot is conditionally filled. If all other non-conditional slots are filled and each condition modeled as ConditionDetail are met, e.g. Buy X And Spend $Y, Then Get Z Free. Note: This will only be enabled if there is a single eligible product code for this slot.  
   
 ## Menu
 
@@ -5476,6 +5715,14 @@ Fields
 `integration_attributes` |  `[Struct](https://protobuf.dev/reference/protobuf/google.protobuf/#struct)` Optional. Free-form key-value pairs for brand-specific integration attributes.  
 `ownership_type` |  `[OwnershipType](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rpc/google.cloud.foodorderingaiagent.v1beta#google.cloud.foodorderingaiagent.v1beta.OwnershipType)` Optional. The ownership type of the store.  
   
+## StoreChange
+
+Event indicating that the agent switched the active store for the session.
+
+Fields  
+---  
+`store` |  `string` Output only. Identifies the newly active store for the session. Format: `projects/{project}/locations/{location}/brands/{brand}/stores/{store}`  
+  
 ## StoreHours
 
 The operating hours of the store.
@@ -5695,6 +5942,24 @@ Fields
 `modifiers[]` |  `[SuggestedModifier](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rpc/google.cloud.foodorderingaiagent.v1beta#google.cloud.foodorderingaiagent.v1beta.SuggestedModifier)` The modifiers to suggest to the customer.  
 `parent_uid` |  `string` The unique identifier of the parent item/modifier to apply the modifiers to.  
   
+## SuggestedOffer
+
+Represents a loyalty reward redemption or promotional discount suggested to the customer.
+
+Fields  
+---  
+Union field `offer`. Specifies the loyalty reward redemption or promotional discount to display. `offer` can be only one of the following:  
+`loyalty_reward` |  `[LoyaltyReward](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rpc/google.cloud.foodorderingaiagent.v1beta#google.cloud.foodorderingaiagent.v1beta.LoyaltyReward)` Optional. Represents a point-based or wallet loyalty reward.  
+`discount` |  `[Discount](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rpc/google.cloud.foodorderingaiagent.v1beta#google.cloud.foodorderingaiagent.v1beta.Discount)` Optional. Represents a store or dynamic promotional discount. Only customer-facing display fields are populated on outbound responses; item matchers, integration attributes, and promo codes are omitted.  
+  
+## SuggestedOffers
+
+Represents a list of promotional offers or loyalty rewards to suggest to the customer.
+
+Fields  
+---  
+`offers[]` |  `[SuggestedOffer](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rpc/google.cloud.foodorderingaiagent.v1beta#google.cloud.foodorderingaiagent.v1beta.SuggestedOffer)` Optional. Contains the ordered list of offers to display to the customer.  
+  
 ## SuggestedOptions
 
 Options to suggest to the customer.
@@ -5708,6 +5973,7 @@ Union field `suggested_options`. The suggested options. `suggested_options` can 
 `suggested_items` |  `[SuggestedItems](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rpc/google.cloud.foodorderingaiagent.v1beta#google.cloud.foodorderingaiagent.v1beta.SuggestedItems)` A list of items to suggest to the customer.  
 `suggested_modifiers` |  `[SuggestedModifiers](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rpc/google.cloud.foodorderingaiagent.v1beta#google.cloud.foodorderingaiagent.v1beta.SuggestedModifiers)` A list of modifiers to suggest to the customer.  
 `suggested_stores` |  `[SuggestedStores](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rpc/google.cloud.foodorderingaiagent.v1beta#google.cloud.foodorderingaiagent.v1beta.SuggestedStores)` A list of stores to suggest to the customer.  
+`suggested_offers` |  `[SuggestedOffers](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rpc/google.cloud.foodorderingaiagent.v1beta#google.cloud.foodorderingaiagent.v1beta.SuggestedOffers)` Optional. Contains promotional offers, deals, or loyalty rewards to suggest to the customer.  
   
 ## SuggestedStore
 
@@ -6024,6 +6290,16 @@ Fields
 `saved_delivery_address` |  `[DeliveryAddress](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rpc/google.cloud.foodorderingaiagent.v1beta#google.cloud.foodorderingaiagent.v1beta.DeliveryAddress)` Optional. The saved delivery address of the user. Will be replacing the existing string delivery_address field.  
 `additional_saved_addresses[]` |  `[DeliveryAddress](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rpc/google.cloud.foodorderingaiagent.v1beta#google.cloud.foodorderingaiagent.v1beta.DeliveryAddress)` Optional. All past delivery addresses previously used with the user's phone number, deduplicated by the client. Unlike saved_delivery_address, these are not confirmed to belong to the current user: e.g. if the session is for a phone call, the phone number might be associated with multiple users. Addresses need not be validated. May include saved_delivery_address.  
 `additional_saved_customer_names[]` |  `string` Optional. All customer names previously used with the user's phone number, deduplicated by the client. Unlike preferred_name, these are not confirmed to belong to the current user: e.g. if the session is for a phone call, the phone number might be associated with multiple users. May include preferred_name.  
+`location` |  `[UserLocation](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rpc/google.cloud.foodorderingaiagent.v1beta#google.cloud.foodorderingaiagent.v1beta.UserLocation)` Optional. Represents the current or last-known geographic location of the user's device. Populated only when the client application holds foreground location permission.  
+  
+## UserLocation
+
+Represents the real-time or recent geographic location of the user's device.
+
+Fields  
+---  
+`coordinates` |  `[LatLng](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rpc/google.type#google.type.LatLng)` Required. Represents the geographic coordinates (WGS84 latitude and longitude) of the user's device.  
+`capture_time` |  `[Timestamp](https://protobuf.dev/reference/protobuf/google.protobuf/#timestamp)` Optional. Represents the timestamp when the device captured this location fix. Allows the service to ignore stale cached fixes (for example, fixes older than 15 minutes).  
   
 ## ValidDeliveryStore
 
@@ -6127,6 +6403,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-29 UTC.
+Last updated 2026-11-04 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 

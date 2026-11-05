@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/sessions/
 title: Work with sessions \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T05:46:26.201647+00:00
+fetched_at: 2026-11-04T23:32:32.276022+00:00
 ---
 
 # Work with sessions  |  BigQuery  |  Google Cloud Documentation
@@ -21,9 +21,9 @@ Send feedback  Stay organized with collections  Save and categorize content base
 
 # Work with sessions
 
-This document describes how to create, use, terminate, and list your [sessions](https://docs.cloud.google.com/bigquery/docs/sessions-intro).
+[Sessions](https://docs.cloud.google.com/bigquery/docs/sessions-intro) in BigQuery let you maintain state—such as temporary tables, temporary functions, and variables—across multiple SQL queries. You can create, run queries in, list, and terminate sessions in the Google Cloud console, the bq command-line tool, or the BigQuery API.
 
-Before you complete these steps, ensure you have the necessary [permissions](https://docs.cloud.google.com/bigquery/docs/sessions-intro#roles_and_permissions).
+Before you complete these steps, make sure that you have the necessary [permissions](https://docs.cloud.google.com/bigquery/docs/sessions-intro#roles_and_permissions).
 
 ## Create a session
 
@@ -437,6 +437,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-27 UTC.
+Last updated 2026-11-04 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 

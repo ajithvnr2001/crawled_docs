@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/tabular-workflows/service-accounts/
 title: Service accounts for Tabular Workflows \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T05:54:45.187758+00:00
+fetched_at: 2026-11-04T23:13:15.028111+00:00
 ---
 
 # Service accounts for Tabular Workflows  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation
@@ -49,7 +49,7 @@ Grant the following roles to the service account for Gemini Enterprise Agent Pla
 
 Role | Permissions  
 ---|---  
-[Gemini Enterprise Agent Platform User](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/access-control#predefined-roles) |  `aiplatform.metadataStores.get` allows the service account to create a pipeline job. `aiplatform.models.upload` allows the service account to upload the model.   
+[Agent Platform User](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/access-control#predefined-roles) |  `aiplatform.metadataStores.get` allows the service account to create a pipeline job. `aiplatform.models.upload` allows the service account to upload the model.   
 [Storage Object Admin](https://docs.cloud.google.com/storage/docs/access-control/iam-roles) | The `storage.objects.get` and `storage.objects.create` permissions of Storage Object Admin allow the service account to access the bucket for the root directory of the pipeline job. The service account needs these permissions even if you are not using a Cloud Storage data source.  
 [Dataflow Developer](https://docs.cloud.google.com/dataflow/docs/concepts/access-control#dataflow.developer) | `dataflow.jobs.create` allows the service account to create Dataflow jobs during evaluation.  
 [Service Account User](https://docs.cloud.google.com/iam/docs/roles-permissions/iam#iam.serviceAccountUser) |  `iam.serviceAccounts.actAs` allows the Agent Platform Pipelines service account to act as the Dataflow worker service account during evaluation.   
@@ -100,7 +100,7 @@ Ensure that the AI Platform Service Agent in the pipeline project has the follow
 
 Role | Permissions  
 ---|---  
-[Gemini Enterprise Agent Platform Service Agent](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/access-control#service-agents) |  This role grants permissions for service agents. These permissions include the `storage.object.get` permission and access rights to container images in the Artifact Registry repository.   
+[Vertex AI Service Agent](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/access-control#service-agents) |  This role grants permissions for service agents. These permissions include the `storage.object.get` permission and access rights to container images in the Artifact Registry repository.   
   
 If your data source is a BigQuery dataset from another project, grant the following roles to the AI Platform Service Agent in the dataset project:
 
@@ -131,7 +131,7 @@ Grant the following roles to the service account for Gemini Enterprise Agent Pla
 
 Role | Permissions  
 ---|---  
-[Gemini Enterprise Agent Platform User](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/access-control#predefined-roles) |  `aiplatform.metadataStores.get` allows the service account to create a pipeline job. `aiplatform.models.upload` allows the service account to upload the model.   
+[Agent Platform User](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/access-control#predefined-roles) |  `aiplatform.metadataStores.get` allows the service account to create a pipeline job. `aiplatform.models.upload` allows the service account to upload the model.   
 [BigQuery Data Editor](https://docs.cloud.google.com/bigquery/docs/access-control#bigquery.dataEditor) | `bigquery.tables.create` allows the service account to create temporary tables for Feature Transform Engine prior to launching a Dataflow job. The service account needs this permission even if your data source is not a BigQuery dataset. This role includes all of the permissions granted by the [BigQuery Data Viewer](https://docs.cloud.google.com/bigquery/docs/access-control#bigquery.dataViewer) role.  
 [BigQuery Job User](https://docs.cloud.google.com/bigquery/docs/access-control#bigquery.jobUser) | `bigquery.jobs.create` allows the service account to run BigQuery jobs for Feature Transform Engine prior to launching a Dataflow job. The service account needs this permission even if your data source is not a BigQuery dataset.  
 [Service Account User](https://docs.cloud.google.com/iam/docs/roles-permissions/iam#iam.serviceAccountUser) |  `iam.serviceAccounts.actAs` allows the Agent Platform Pipelines service account to act as the Dataflow worker service account during evaluation.   
@@ -212,7 +212,7 @@ Ensure that the AI Platform Service Agent in the pipeline project has the follow
 
 Role | Permissions  
 ---|---  
-[Gemini Enterprise Agent Platform Service Agent](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/access-control#service-agents) |  This role grants permissions for service agents. These permissions include the `storage.object.get` permission and access rights to container images in the Artifact Registry repository.   
+[Vertex AI Service Agent](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/access-control#service-agents) |  This role grants permissions for service agents. These permissions include the `storage.object.get` permission and access rights to container images in the Artifact Registry repository.   
   
 If you perform model evaluation, provide a BigQuery dataset to serve as a destination for the predicted examples. In the project that contains this dataset, grant the following roles to the Gemini Enterprise Agent Platform Pipelines service account:
 
@@ -239,7 +239,7 @@ Grant the following roles to the service account for Gemini Enterprise Agent Pla
 
 Role | Permissions  
 ---|---  
-[Gemini Enterprise Agent Platform User](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/access-control#predefined-roles) |  `aiplatform.metadataStores.get` allows the service account to create a pipeline job. `aiplatform.models.upload` allows the service account to upload the model.   
+[Agent Platform User](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/access-control#predefined-roles) |  `aiplatform.metadataStores.get` allows the service account to create a pipeline job. `aiplatform.models.upload` allows the service account to upload the model.   
 [BigQuery Data Editor](https://docs.cloud.google.com/bigquery/docs/access-control#bigquery.dataEditor) | `bigquery.tables.create` allows the service account to create temporary tables for Feature Transform Engine prior to launching a Dataflow job. The service account needs this permission even if your data source is not a BigQuery dataset. This role includes all of the permissions granted by the [BigQuery Data Viewer](https://docs.cloud.google.com/bigquery/docs/access-control#bigquery.dataViewer) role.  
 [BigQuery Job User](https://docs.cloud.google.com/bigquery/docs/access-control#bigquery.jobUser) | `bigquery.jobs.create` allows the service account to run BigQuery jobs for Feature Transform Engine prior to launching a Dataflow job. The service account needs this permission even if your data source is not a BigQuery dataset.  
 [Service Account User](https://docs.cloud.google.com/iam/docs/roles-permissions/iam#iam.serviceAccountUser) |  `iam.serviceAccounts.actAs` allows the Agent Platform Pipelines service account to act as the Dataflow worker service account during evaluation.   
@@ -313,7 +313,7 @@ Ensure that the AI Platform Service Agent in the pipeline project has the follow
 
 Role | Permissions  
 ---|---  
-[Gemini Enterprise Agent Platform Service Agent](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/access-control#service-agents) |  This role grants permissions for service agents. These permissions include the `storage.object.get` permission and access rights to container images in the Artifact Registry repository.   
+[Vertex AI Service Agent](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/access-control#service-agents) |  This role grants permissions for service agents. These permissions include the `storage.object.get` permission and access rights to container images in the Artifact Registry repository.   
   
 ## Service accounts for ARIMA+
 
@@ -332,7 +332,7 @@ Grant the following roles to the service account for Gemini Enterprise Agent Pla
 
 Role | Permissions  
 ---|---  
-[Gemini Enterprise Agent Platform User](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/access-control#predefined-roles) |  `aiplatform.metadataStores.get` allows the service account to create a pipeline job. `aiplatform.models.upload` allows the service account to upload the model.   
+[Agent Platform User](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/access-control#predefined-roles) |  `aiplatform.metadataStores.get` allows the service account to create a pipeline job. `aiplatform.models.upload` allows the service account to upload the model.   
 [BigQuery Data Editor](https://docs.cloud.google.com/bigquery/docs/access-control#bigquery.dataEditor) | `bigquery.tables.create` allows the service account to create temporary tables for Feature Transform Engine prior to launching a Dataflow job. The service account needs this permission even if your data source is not a BigQuery dataset. This role includes all of the permissions granted by the [BigQuery Data Viewer](https://docs.cloud.google.com/bigquery/docs/access-control#bigquery.dataViewer) role.  
 [BigQuery Job User](https://docs.cloud.google.com/bigquery/docs/access-control#bigquery.jobUser) | `bigquery.jobs.create` allows the service account to run BigQuery jobs for Feature Transform Engine prior to launching a Dataflow job. The service account needs this permission even if your data source is not a BigQuery dataset.  
 [Service Account User](https://docs.cloud.google.com/iam/docs/roles-permissions/iam#iam.serviceAccountUser) |  `iam.serviceAccounts.actAs` allows the Agent Platform Pipelines service account to act as the Dataflow worker service account during evaluation.   
@@ -370,12 +370,12 @@ Ensure that the AI Platform Service Agent in the pipeline project has the follow
 
 Role | Permissions  
 ---|---  
-[Gemini Enterprise Agent Platform Service Agent](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/access-control#service-agents) |  This role grants permissions for service agents. These permissions include the `storage.object.get` permission and access rights to container images in the Artifact Registry repository.   
+[Vertex AI Service Agent](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/access-control#service-agents) |  This role grants permissions for service agents. These permissions include the `storage.object.get` permission and access rights to container images in the Artifact Registry repository.   
   
 Send feedback 
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-30 UTC.
+Last updated 2026-11-04 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 

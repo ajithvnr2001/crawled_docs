@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/azion/
 title: Collect Azion firewall logs \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T07:54:14.744662+00:00
+fetched_at: 2026-11-04T23:44:18.013606+00:00
 ---
 
 # Collect Azion firewall logs  |  Google Security Operations  |  Google Cloud Documentation

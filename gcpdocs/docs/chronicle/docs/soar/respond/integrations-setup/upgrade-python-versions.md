@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chronicle/docs/soar/respond/integrations-setup/upgrade-python-versions/
 title: Upgrade the Python version \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T10:06:20.296818+00:00
+fetched_at: 2026-11-04T23:33:59.364973+00:00
 ---
 
 # Upgrade the Python version  |  Google Security Operations  |  Google Cloud Documentation
@@ -37,7 +37,7 @@ Make sure that your permission group includes **All Environments** access. For m
 
 ## Upgrade integrations
 
-  1. Go to **Response > IDE**; if any integrations are using outdated Python versions, a banner appears in the IDE, Content Hub, and Playbooks pages.
+  1. Go to **Automation > IDE**; if any integrations are using outdated Python versions, a banner appears in the IDE, Content Hub, and Playbooks pages.
   2. Click **View Integration** to see a list of integrations.
   3. Click **Close** to dismiss the banner.
   4. In the integrations list, select the integration to upgrade.
@@ -56,7 +56,7 @@ Make sure to  update each connector as well.
 
 ## Upgrade certified integrations to the latest Python version
 
-  1. In **Response > IDE**, click **Upgrade** to switch the integration and its dependencies to the latest Python version.
+  1. In **Automation > IDE**, click **Upgrade** to switch the integration and its dependencies to the latest Python version.
   2. If this integration includes custom elements, update their code accordingly.
   3. In the **Testing** section, enter the required parameters, including the staging instance that you configured earlier. 
   4. Verify that there are no errors in the **Debug Output**.
@@ -81,7 +81,7 @@ Follow this procedure to update the **Script Dependencies** in custom integratio
 
 If you're working with Remote Agents, you need to upgrade both the agent and its integrations, running on them as follows: 
 
-  1. Go to **SOAR Settings > Advanced > Remote Agents**.
+  1. Go to **Settings > Administration > SOAR Remote Agents**.
   2. Click **Update Available**. 
   3. Upgrade the agent using the appropriate method:
      * Docker: Follow [ Perform a major upgrade of a Docker image](https://docs.cloud.google.com/chronicle/docs/soar/working-with-remote-agents/upgrade-agent-docker-image).
@@ -95,7 +95,7 @@ If you're working with Remote Agents, you need to upgrade both the agent and its
 
 You need to upgrade connectors, both custom and commercial, to the latest Python versions. 
 
-  1. Go to **SOAR Settings > Ingestion > Connectors**.
+  1. Go to **Settings > Data Management > Connectors**.
   2. Click the yellow **Update** button on the top of the screen. 
   3. Click **Save**. 
 
@@ -107,6 +107,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-28 UTC.
+Last updated 2026-11-04 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 

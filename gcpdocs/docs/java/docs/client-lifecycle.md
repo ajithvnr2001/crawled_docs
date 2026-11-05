@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/java/docs/client-lifecycle/
 title: Manage client lifecycles on Java Cloud Client Libraries \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T08:00:43.816487+00:00
+fetched_at: 2026-11-04T23:45:15.933401+00:00
 ---
 
 # Manage client lifecycles on Java Cloud Client Libraries  |  Google Cloud Documentation

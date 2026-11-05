@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/load-balancing/docs/https/https-reg-logging-monitoring/
 title: Regional external Application Load Balancer logging and monitoring \u00a0|\u00a0 Cloud Load Balancing \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-03T09:54:19.267322+00:00
+fetched_at: 2026-11-05T00:20:42.123379+00:00
 ---
 
 # Regional external Application Load Balancer logging and monitoring  |  Cloud Load Balancing  |  Google Cloud Documentation
@@ -716,6 +716,8 @@ The dashboard provides data analysis in default intervals of 1H (one hour), 6H (
 
 You can monitor the following metrics for external Application Load Balancers.
 
+For metrics that support App Hub applications and Application Monitoring, see Metrics for App Hub applications. 
+
 The following metrics for regional external Application Load Balancers are [reported into Cloud Monitoring](https://docs.cloud.google.com/monitoring/api/metrics).
 
 These metrics from the table start with `network.googleapis.com/loadbalancer/backend/` ([Preview](https://cloud.google.com/products#product-launch-stages)):
@@ -744,6 +746,34 @@ Request bytes count | `loadbalancing.googleapis.com/https/external/regional/requ
 Response bytes count | `loadbalancing.googleapis.com/https/external/regional/response_bytes` | The number of bytes sent as responses from the regional external Application Load Balancer to the client.   
 Total latencies | `loadbalancing.googleapis.com/https/external/regional/total_latencies` |  A distribution of the total latency. Total latency is the time in milliseconds between the first byte of the request received by the proxy and the last byte of the response sent by the proxy. It includes: the time taken by the proxy to process the request, the time taken for the request to be sent from the proxy to the backend, the time taken by the backend to process the request, the time taken for the response to be sent back to the proxy, and the time taken for the proxy to process the response and send the response to the client. It doesn't include the RTT between the client and the proxy. Additionally, pauses between requests on the same connection that use `Connection: keep-alive` do not affect the measurement. This measurement is typically reduced to the 95th percentile in Cloud Monitoring views.  
   
+#### Metrics for App Hub applications
+
+Application Load Balancers also report metrics on individual forwarding rules and backend services. These metrics use the `gce_forwarding_rule` and `gce_backend_service` monitored resource types, and they're reported for load balancers that use the `EXTERNAL`, `EXTERNAL_MANAGED`, or `INTERNAL_MANAGED` load balancing scheme.
+
+When you register a forwarding rule or backend service with an [App Hub](https://docs.cloud.google.com/app-hub/docs/overview) application, these metrics include [application-specific labels](https://docs.cloud.google.com/monitoring/docs/application-monitoring-labels). These labels let you do the following:
+
+  * View golden signals, such as traffic, server error rate, and latency, for the load balancer on [Application Monitoring](https://docs.cloud.google.com/monitoring/docs/about-application-monitoring) dashboards.
+  * Filter and group the load balancer metrics by App Hub application, service, or workload in [Monitoring custom dashboards](https://docs.cloud.google.com/monitoring/charts/dashboards).
+
+
+
+The following table lists the metrics that Application Load Balancers report on forwarding rules and backend services:
+
+Filter this table:  Metric | Name | Monitored resource | Description  
+---|---|---|---  
+Request count | `loadbalancing.googleapis.com/application_lb/request_count` | `gce_forwarding_rule` | The number of requests served by the load balancer.  
+Request bytes | `loadbalancing.googleapis.com/application_lb/request_bytes_count` | `gce_forwarding_rule` | The number of bytes sent as requests from clients to the load balancer.  
+Response bytes | `loadbalancing.googleapis.com/application_lb/response_bytes_count` | `gce_forwarding_rule` | The number of bytes sent as responses from the load balancer to clients.  
+Total latencies | `loadbalancing.googleapis.com/application_lb/total_latencies` | `gce_forwarding_rule` | A distribution of the latency, calculated from when the proxy receives the request until the proxy gets an acknowledgment from the client for the last response byte.  
+Backend request count | `loadbalancing.googleapis.com/application_lb/backend_request_count` | `gce_backend_service` | The number of requests sent from the load balancer to the backends.  
+Backend request bytes | `loadbalancing.googleapis.com/application_lb/backend_request_bytes_count` | `gce_backend_service` | The number of bytes sent as requests from the load balancer to the backends.  
+Backend response bytes | `loadbalancing.googleapis.com/application_lb/backend_response_bytes_count` | `gce_backend_service` | The number of bytes sent as responses from the backends to the load balancer.  
+Backend latencies | `loadbalancing.googleapis.com/application_lb/backend_latencies` | `gce_backend_service` | A distribution of the latency, calculated from when the proxy sends the request to the backend until the proxy receives the last byte of the response from the backend.  
+  
+You can filter and group these metrics by the following metric labels: `protocol`, `response_code`, `response_code_class`, `cache_result`, `matcher_type`, `matcher_name`, `matched_path`, `load_balancing_scheme`, `client_country`, and `proxy_continent`. For label descriptions, see the entries for these metrics in the [Google Cloud metrics list](https://docs.cloud.google.com/monitoring/api/metrics_gcp_i_o#loadbalancing/application_lb/backend_latencies).
+
+For more information about which load balancer resources are integrated with App Hub, see [Supported infrastructure resources](https://docs.cloud.google.com/monitoring/docs/application-monitoring-services#infrastructure-list).
+
 ### Filtering dimensions for metrics
 
 You can apply filters for metrics for external Application Load Balancers.
@@ -804,6 +834,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-02 UTC.
+Last updated 2026-11-03 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-02 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 

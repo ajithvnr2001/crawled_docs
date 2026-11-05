@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/kubernetes-engine/docs/concepts/gke-compare-network-models/
 title: Compare network models in GKE \u00a0|\u00a0 GKE networking \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T22:56:50.413150+00:00
+fetched_at: 2026-11-04T23:31:26.415996+00:00
 ---
 
 # Compare network models in GKE  |  GKE networking  |  Google Cloud Documentation
@@ -254,7 +254,7 @@ GKE uses a fully integrated network model where clusters are deployed in a Virtu
 
 ### Understand IP address management in VPC-native clusters
 
-When you use a VPC-native cluster, Pod IP addresses are [secondary IP addresses](https://docs.cloud.google.com/vpc/docs/alias-ip#subnet_primary_and_secondary_cidr_ranges) on each node. Each node is assigned a specific subnet of a Pod IP address range that you select out of your internal IP address space when you create the cluster. By default, a VPC-native cluster assigns [a `/24` subnet](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) to each node for use as Pod IP addresses. A `/24` subnet corresponds to 256 IP addresses. In Autopilot, the cluster uses a `/26` subnet that corresponds to 64 addresses, and you can't change this subnet setting.
+In IPv4 and dual-stack VPC-native clusters, Pod IP addresses are [secondary IP addresses](https://docs.cloud.google.com/vpc/docs/alias-ip#subnet_primary_and_secondary_cidr_ranges) on each node. Each node is assigned a specific subnet of a Pod IP address range that you select out of your internal IP address space when you create the cluster. By default, an IPv4 or dual-stack VPC-native cluster assigns [a `/24` subnet](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) to each node for use as Pod IP addresses. A `/24` subnet corresponds to 256 IP addresses. In Autopilot, the cluster uses a `/26` subnet that corresponds to 64 addresses, and you can't change this subnet setting. (In single-stack IPv6 clusters, GKE allocates Pod IP addresses directly from a `/112` subset of the node's `/96` subnetwork range.)
 
 GKE networking model doesn't allow IP addresses to be reused across the network. When you migrate to GKE, you must plan your IP address allocation to [Reduce internal IP address usage in GKE](https://docs.cloud.google.com/kubernetes-engine/docs/concepts/gke-ip-address-mgmt-strategies#reduce-private-ip-address-usage-in-gke).
 
@@ -309,6 +309,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-04 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 

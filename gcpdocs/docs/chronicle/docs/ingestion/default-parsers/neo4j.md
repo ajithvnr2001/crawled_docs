@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/neo4j/
 title: Collect Neo4j Aura logs \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T07:49:38.391582+00:00
+fetched_at: 2026-11-04T23:43:54.608056+00:00
 ---
 
 # Collect Neo4j Aura logs  |  Google Security Operations  |  Google Cloud Documentation

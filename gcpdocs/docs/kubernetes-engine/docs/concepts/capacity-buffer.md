@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/kubernetes-engine/docs/concepts/capacity-buffer/
 title: About capacity buffers \u00a0|\u00a0 Google Kubernetes Engine (GKE) \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-03T09:52:03.393396+00:00
+fetched_at: 2026-11-05T00:20:43.977453+00:00
 ---
 
 # About capacity buffers  |  Google Kubernetes Engine (GKE)  |  Google Cloud Documentation
@@ -22,10 +22,6 @@ Send feedback
 #  About capacity buffers Stay organized with collections  Save and categorize content based on your preferences. 
 
 [ Standard ](https://docs.cloud.google.com/kubernetes-engine/docs/concepts/choose-cluster-mode) [ Autopilot ](https://docs.cloud.google.com/kubernetes-engine/docs/concepts/autopilot-overview)
-
-**Preview**
-
-This product is subject to the "Pre-GA Offerings Terms" in the General Service Terms section of the [Service Specific Terms](https://docs.cloud.google.com/terms/service-terms#1). Pre-GA products are available "as is" and might have limited support. For more information, see the [launch stage descriptions](https://cloud.google.com/products/#product-launch-stages). 
 
 Capacity buffers help you reduce Pod startup latency for your Google Kubernetes Engine (GKE) workloads by letting you proactively declare tiers of active or standby capacity buffers in your cluster. By declaring spare capacity ahead of time, you can achieve faster workload startups in a cost-efficient manner.
 
@@ -155,7 +151,7 @@ For both active and standby buffers, avoid creating many buffers that each requi
 
 Capacity buffers have the following requirements and limitations:
 
-  * Capacity buffers are available for GKE clusters running version 1.35.2-gke.1842000 or later for active buffers, and version 1.36.0-gke.2253000 for standby buffers.
+  * Capacity buffers are available for GKE clusters running version 1.37.1-gke.3020000 or later.
   * Capacity buffers support only workloads that use a [node-based billing model](https://cloud.google.com/kubernetes-engine/pricing#compute) for Standard node pools and [Autopilot node pools that select specific hardware](https://cloud.google.com/kubernetes-engine/pricing#autopilot-workloads-that-select-specific-hardware). Capacity buffers don't support workloads that use the [Pod-based billing model](https://docs.cloud.google.com/kubernetes-engine/docs/concepts/about-autopilot-mode-standard-clusters#pricing).
   * On Standard clusters, we recommend that you enable [node pool auto-creation](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/node-auto-provisioning). Node pool auto-creation lets the cluster autoscaler create new node pools based on the resource requests in your CapacityBuffer. If you don't enable node pool auto-creation, the cluster autoscaler only scales up existing node pools.
   * Active and standby capacity buffers consume quotas differently: 
@@ -169,7 +165,7 @@ Capacity buffers have the following requirements and limitations:
 Standby buffers have the following additional limitations:
 
   * They are supported on Standard clusters with [node pool auto-creation](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/node-auto-provisioning) enabled.
-  * They are supported on Autopilot clusters running version 1.36.0-gke.2853000 or later.
+  * They are supported on Autopilot clusters with [custom ComputeClasses](https://docs.cloud.google.com/kubernetes-engine/docs/concepts/about-custom-compute-classes).
   * Nodes with attached GPUs or TPUs are not supported.
   * Local SSDs are not supported.
   * Although standby buffers support customer-managed encryption keys ([CMEK](https://docs.cloud.google.com/kms/docs/cmek)) for the node's storage, the node's memory is encrypted using Google-owned and Google-managed encryption keys during suspension.
@@ -194,6 +190,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-02 UTC.
+Last updated 2026-11-03 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-02 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 

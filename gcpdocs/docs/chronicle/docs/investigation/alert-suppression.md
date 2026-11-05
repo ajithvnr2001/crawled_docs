@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chronicle/docs/investigation/alert-suppression/
 title: Configure alert suppression \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T09:57:23.874167+00:00
+fetched_at: 2026-11-05T00:17:41.497650+00:00
 ---
 
 # Configure alert suppression  |  Google Security Operations  |  Google Cloud Documentation
@@ -140,7 +140,7 @@ This configuration lets analysts investigate the initial activity without proces
 
 An exclusion prevents specific detections by filtering matches before they trigger an alert. If a match satisfies the exclusion logic, the system suppresses the detection. Events that meet the rule logic, but don't meet the exclusion criteria, continue to trigger detections normally. Once applied, exclusions remain active until you manually disable them.
 
-**Note:** Exclusions are only available for curated rules. For custom rules, you can add suppression logic directly to the rule text.**Caution:** Don't apply a rule exclusion directly to a composite rule. You must apply the exclusion to the foundational underlying rules that feed into the composite rule. This is because rule exclusions are evaluated against UDM fields (like `principal.user.userid`), but composite rules trigger based on other detections rather than UDM fields. If you apply a rule exclusion directly to a composite rule, the exclusion will fail to match, and the event won't get excluded. 
+**Note:** Exclusions are only available for curated rules. For custom rules, add suppression logic directly to the rule text, or use [data tables](https://docs.cloud.google.com/chronicle/docs/investigation/data-tables#filter-udm) to maintain reusable exclusion lists across multiple rules.**Caution:** Don't apply a rule exclusion directly to a composite rule. You must apply the exclusion to the foundational underlying rules that feed into the composite rule. This is because rule exclusions are evaluated against UDM fields (like `principal.user.userid`), but composite rules trigger based on other detections rather than UDM fields. If you apply a rule exclusion directly to a composite rule, the exclusion will fail to match, and the event won't get excluded. 
 
 To find the foundational rule:
 
@@ -240,12 +240,14 @@ To find the foundational rule:
     3. Locate the composite rule and click **View & Manage**.
     4. Select **Rule Definition** to view the underlying YARA-L source code.
     5. Review the `events:` section of the YARA-L logic to identify the foundational rule names.
+  * **Query syntax and field depth** : API exclusion queries must use flat Conjunctive Normal Form (CNF) boolean syntax and UDM field paths with up to 6 dot-separated segments. For more information, see [Query syntax and field rules](https://docs.cloud.google.com/chronicle/docs/investigation/rule-exclusion-api#query-syntax-and-field-rules).
+
 
 
 
 Additionally, note these functional differences between the console and the API:
 
-  * **Rule scope** : In the console, you can apply exclusions to multiple curated rules simultaneously, but you can only apply to a single custom rule at a time.
+  * **Rule scope** : Rule exclusions apply only to curated rules and curated rule sets in both the console and the API. Custom rules aren't supported. To suppress alerts from custom rules, add exclusion logic to the YARA-L rule text, or use [data tables](https://docs.cloud.google.com/chronicle/docs/investigation/data-tables) to maintain exclusion lists across multiple rules. For more information, see [Filter UDM event and entity data using a data table](https://docs.cloud.google.com/chronicle/docs/investigation/data-tables#filter-udm) and [Left anti-join examples in rules](https://docs.cloud.google.com/chronicle/docs/investigation/outer-joins#rule-anti-join-examples).
 
   * **Outcome variables** : To create exclusions that use logic based on outcome variables, you must use the API.
 
@@ -274,6 +276,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-28 UTC.
+Last updated 2026-11-04 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 

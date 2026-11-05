@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini/enterprise/docs/record-user-events/
 title: Record real-time user events \u00a0|\u00a0 Gemini Enterprise \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T07:55:23.718633+00:00
+fetched_at: 2026-11-05T00:05:34.581018+00:00
 ---
 
 # Record real-time user events  |  Gemini Enterprise  |  Google Cloud Documentation
@@ -300,15 +300,15 @@ To authenticate to Gemini Enterprise, set up Application Default Credentials. Fo
     # - It may require specifying regional endpoints when creating the service
     #   client as shown in:
     #   https://googleapis.dev/python/google-api-core/latest/client_options.html
-    from google.cloud import [discoveryengine_v1](https://docs.cloud.google.com/python/docs/reference/discoveryengine/latest)
+    from google.cloud import discoveryengine_v1
     
     
     def sample_write_user_event():
         # Create a client
-        client = [discoveryengine_v1](https://docs.cloud.google.com/python/docs/reference/discoveryengine/latest).[UserEventServiceClient](https://docs.cloud.google.com/python/docs/reference/discoveryengine/latest/google.cloud.discoveryengine_v1.services.user_event_service.UserEventServiceClient.html)()
+        client = discoveryengine_v1.[UserEventServiceClient](https://docs.cloud.google.com/python/docs/reference/discoveryengine/latest/google.cloud.discoveryengine_v1.services.user_event_service.UserEventServiceClient.html)()
     
         # Initialize request argument(s)
-        request = [discoveryengine_v1](https://docs.cloud.google.com/python/docs/reference/discoveryengine/latest).[WriteUserEventRequest](https://docs.cloud.google.com/python/docs/reference/discoveryengine/latest/google.cloud.discoveryengine_v1.types.WriteUserEventRequest.html)(
+        request = discoveryengine_v1.[WriteUserEventRequest](https://docs.cloud.google.com/python/docs/reference/discoveryengine/latest/google.cloud.discoveryengine_v1.types.WriteUserEventRequest.html)(
             parent="parent_value",
         )
     

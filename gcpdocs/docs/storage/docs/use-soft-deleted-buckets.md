@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/storage/docs/use-soft-deleted-buckets/
 title: Use soft-deleted buckets \u00a0|\u00a0 Cloud Storage \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T06:00:41.017012+00:00
+fetched_at: 2026-11-04T23:16:57.210366+00:00
 ---
 
 # Use soft-deleted buckets  |  Cloud Storage  |  Google Cloud Documentation
@@ -25,8 +25,6 @@ Send feedback
 
 This page describes how to list and restore soft-deleted buckets.
 
-## Overview
-
 After a bucket is soft-deleted, it's retained by Cloud Storage until its hard delete time, and cannot be modified while in a soft-deleted state. The hard delete time is at least as long as the latest hard delete time of the bucket's objects. After the hard delete time has elapsed, Cloud Storage permanently deletes the bucket. When you restore a soft-deleted bucket, it is returned to a live state, and objects that were in the bucket at the time of deletion can also be restored.
 
 ## Considerations
@@ -42,6 +40,8 @@ After a bucket is soft-deleted, it's retained by Cloud Storage until its hard de
   * When you restore a soft-deleted bucket by using the gcloud CLI or JSON API, the objects in the bucket aren't restored. To restore soft-deleted objects, you'll need to perform an object restore operation after you restore the soft-deleted bucket.
 
   * Tag bindings might not be recovered when you restore a soft-deleted bucket with tags. To avoid data loss, when you restore a soft-deleted bucket with tag bindings, we recommend checking to ensure the bucket's tag bindings were recovered. If the bucket's tag bindings weren't recovered, you'll need to [manually bind the unrecovered tags to the bucket](https://docs.cloud.google.com/resource-manager/docs/tags/tags-creating-and-managing#attaching).
+
+  * If you need more time to restore a soft-deleted bucket and its objects before they're permanently deleted, you can [pause hard deletions for the bucket](https://docs.cloud.google.com/storage/docs/pause-hard-deletions).
 
 
 
@@ -215,6 +215,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-30 UTC.
+Last updated 2026-11-04 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 

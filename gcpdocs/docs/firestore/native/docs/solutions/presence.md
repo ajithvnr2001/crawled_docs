@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/firestore/native/docs/solutions/presence/
 title: Build presence in apps with Cloud Functions \u00a0|\u00a0 Firestore in Native mode \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T08:01:38.746123+00:00
+fetched_at: 2026-11-04T23:46:15.942820+00:00
 ---
 
 # Build presence in apps with Cloud Functions  |  Firestore in Native mode  |  Google Cloud Documentation

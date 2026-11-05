@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/model-armor/configure-floor-settings/
 title: Configure floor settings \u00a0|\u00a0 Model Armor \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-30T06:00:08.267650+00:00
+fetched_at: 2026-11-05T00:20:36.950693+00:00
 ---
 
 # Configure floor settings  |  Model Armor  |  Google Cloud Documentation
@@ -184,12 +184,120 @@ To configure floor settings, choose one of the following options:
 
   9. In the **Logs** section, select **Enable Cloud Logging** to log all user prompts, model responses, and the floor settings detector results.
 
-  10. Select **Enable multi-language support** to use the [multi-language detection settings](https://docs.cloud.google.com/model-armor/overview#languages-supported%7D).
+  10. Select **Enable multi-language support** to use the [multi-language detection settings](https://docs.cloud.google.com/model-armor/overview#languages-supported).
 
   11. Click **Save floor settings**.
 
 
 
+
+###  gcloud 
+
+Run the [`gcloud model-armor floorsettings update`](https://docs.cloud.google.com/sdk/gcloud/reference/model-armor/floorsettings/update) command to configure floor settings:
+    
+    
+    gcloud model-armor floorsettings update \
+        --full-uri='RESOURCE_PARENT/locations/global/floorSetting' \
+        --rai-settings-filters='[{"filterType": "HATE_SPEECH", "confidenceLevel": "MEDIUM_AND_ABOVE"}, {"filterType": "HARASSMENT", "confidenceLevel": "HIGH"}, {"filterType": "DANGEROUS", "confidenceLevel": "MEDIUM_AND_ABOVE"}, {"filterType": "SEXUALLY_EXPLICIT", "confidenceLevel": "MEDIUM_AND_ABOVE"}]' \
+        --basic-config-filter-enforcement=ENABLED \
+        --pi-and-jailbreak-filter-settings-enforcement=ENABLED \
+        --pi-and-jailbreak-filter-settings-confidence-level=HIGH \
+        --malicious-uri-filter-settings-enforcement=ENABLED \
+        --enable-floor-setting-enforcement=true \
+        --add-integrated-services=AI_PLATFORM,GOOGLE_MCP_SERVER \
+        --vertex-ai-enforcement-type=INSPECT_AND_BLOCK \
+        --enable-vertex-ai-cloud-logging \
+        --google-mcp-server-enforcement-type=INSPECT_AND_BLOCK \
+        --enable-google-mcp-server-cloud-logging \
+        --enable-multi-language-detection
+    
+
+Replace `RESOURCE_PARENT` with the hierarchy scope where the floor setting applies:
+
+  * Organization level: `organizations/ORGANIZATION_ID`, which governs all folders and projects in the organization.
+
+  * Folder level: `folders/FOLDER_ID`, which governs all projects in the folder.
+
+  * Project level: `projects/PROJECT_ID`, which governs a single project.
+
+
+**Note:** Integrated service flags (`--add-integrated-services`, `--vertex-ai-enforcement-type`, `--enable-vertex-ai-cloud-logging`, `--google-mcp-server-enforcement-type`, and `--enable-google-mcp-server-cloud-logging`) are supported only at the project level (`projects/PROJECT_ID`). Omit these flags when configuring floor settings for a folder or an organization.
+
+###  REST 
+
+To configure floor settings using the REST API, send a `PATCH` request to the [`floorSetting`](https://docs.cloud.google.com/model-armor/reference/rest/v1/projects.locations/updateFloorSetting) resource:
+    
+    
+    curl -X PATCH \
+        -H "Authorization: Bearer $(gcloud auth print-access-token)" \
+        -H "Content-Type: application/json" \
+        -d '{
+          "filterConfig": {
+            "raiSettings": {
+              "raiFilters": [
+                {
+                  "filterType": "HATE_SPEECH",
+                  "confidenceLevel": "MEDIUM_AND_ABOVE"
+                },
+                {
+                  "filterType": "HARASSMENT",
+                  "confidenceLevel": "HIGH"
+                },
+                {
+                  "filterType": "DANGEROUS",
+                  "confidenceLevel": "MEDIUM_AND_ABOVE"
+                },
+                {
+                  "filterType": "SEXUALLY_EXPLICIT",
+                  "confidenceLevel": "MEDIUM_AND_ABOVE"
+                }
+              ]
+            },
+            "sdpSettings": {
+              "basicConfig": {
+                "filterEnforcement": "ENABLED"
+              }
+            },
+            "piAndJailbreakFilterSettings": {
+              "filterEnforcement": "ENABLED",
+              "confidenceLevel": "HIGH"
+            },
+            "maliciousUriFilterSettings": {
+              "filterEnforcement": "ENABLED"
+            }
+          },
+          "enableFloorSettingEnforcement": true,
+          "integratedServices": [
+            "AI_PLATFORM",
+            "GOOGLE_MCP_SERVER"
+          ],
+          "aiPlatformFloorSetting": {
+            "inspectAndBlock": true,
+            "enableCloudLogging": true
+          },
+          "googleMcpServerFloorSetting": {
+            "inspectAndBlock": true,
+            "enableCloudLogging": true
+          },
+          "floorSettingMetadata": {
+            "multiLanguageDetection": {
+              "enableMultiLanguageDetection": true
+            }
+          }
+        }' \
+        "https://modelarmor.googleapis.com/v1/RESOURCE_PARENT/locations/global/floorSetting"
+    
+
+Replace `RESOURCE_PARENT` with the hierarchy scope where the floor setting applies:
+
+  * Organization level: `organizations/ORGANIZATION_ID`, which governs all folders and projects in the organization.
+
+  * Folder level: `folders/FOLDER_ID`, which governs all projects in the folder.
+
+  * Project level: `projects/PROJECT_ID`, which governs a single project.
+
+
+**Note:** The `integratedServices`, `aiPlatformFloorSetting`, and `googleMcpServerFloorSetting` fields are supported only at the project level (`projects/PROJECT_ID`). Omit these fields when configuring floor settings for a folder or an organization.
 
 ###  Terraform 
 
@@ -270,7 +378,7 @@ Replace `RESOURCE_PARENT` with the hierarchy scope where the floor setting appli
   * Project level: `projects/PROJECT_ID`, which governs a single project.
 
 
-
+**Note:** The `integrated_services`, `ai_platform_floor_setting`, and `google_mcp_server_floor_setting` blocks are supported only at the project level (`projects/PROJECT_ID`). Omit these blocks when configuring floor settings for a folder or an organization.
 
 Allow a few minutes for the changes to the floor settings to take effect.
 
@@ -985,7 +1093,7 @@ Run the following command to update the Model Armor floor settings.
 ### gcloud
     
     
-       gcloud model-armor floorsettings update --full-uri=<full-uri-of-the-floorsetting>
+       gcloud model-armor floorsettings update --full-uri=FULL_URI
     
 
 Example command:
@@ -1011,6 +1119,7 @@ To configure floor settings with multi-language detection enabled, run the follo
 
 Replace the following:
 
+  * `FULL_URI`: the full resource URI of the floor setting.
   * `PROJECT_ID`: the ID of the project for the floor settings.
   * `FOLDER_ID`: the ID of the folder for the floor settings.
 
@@ -1020,11 +1129,10 @@ Replace the following:
 
   * Update the Model Armor floor setting for a given project.
         
-        curl -X PATCH
-          -d '{"filterConfig" :{"piAndJailbreakFilterSettings": { "filterEnforcement": "ENABLED"}, "maliciousUriFilterSettings": { "filterEnforcement": "ENABLED" }, "rai_settings":{"rai_filters":{"filter_type":"DANGEROUS", "confidence_level":"LOW_AND_ABOVE" }, \
-          "rai_filters":{"filter_type":"HATE_SPEECH", "confidence_level":"LOW_AND_ABOVE" }, "rai_filters":{"filter_type":"HARASSMENT", "confidence_level":"LOW_AND_ABOVE" }, "rai_filters":{"filter_type":"SEXUALLY_EXPLICIT", "confidence_level":"LOW_AND_ABOVE" }}},"enableFloorSettingEnforcement":"true"}' \
+        curl -X PATCH \
+          -d '{"filterConfig": {"piAndJailbreakFilterSettings": {"filterEnforcement": "ENABLED"}, "maliciousUriFilterSettings": {"filterEnforcement": "ENABLED"}, "raiSettings": {"raiFilters": [{"filterType": "DANGEROUS", "confidenceLevel": "LOW_AND_ABOVE"}, {"filterType": "HATE_SPEECH", "confidenceLevel": "LOW_AND_ABOVE"}, {"filterType": "HARASSMENT", "confidenceLevel": "LOW_AND_ABOVE"}, {"filterType": "SEXUALLY_EXPLICIT", "confidenceLevel": "LOW_AND_ABOVE"}]}}, "enableFloorSettingEnforcement": true}' \
           -H "Content-Type: application/json" \
-          -H "Authorization: Bearer $(gcloud auth print-access-token) \
+          -H "Authorization: Bearer $(gcloud auth print-access-token)" \
           "https://modelarmor.googleapis.com/v1/projects/PROJECT_ID/locations/global/floorSetting"
 
   * Update the Model Armor floor setting for a given folder.
@@ -2164,6 +2272,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-29 UTC.
+Last updated 2026-11-03 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 

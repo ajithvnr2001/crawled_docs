@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/virtru-email-encryption/
 title: Collect Virtru Email Encryption logs \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T07:51:53.436983+00:00
+fetched_at: 2026-11-04T23:35:01.970860+00:00
 ---
 
 # Collect Virtru Email Encryption logs  |  Google Security Operations  |  Google Cloud Documentation

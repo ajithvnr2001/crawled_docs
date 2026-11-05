@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/lakehouse/docs/about-cross-cloud-data-access/
 title: About cross-cloud data access \u00a0|\u00a0 Lakehouse \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-03T08:33:52.647095+00:00
+fetched_at: 2026-11-05T00:19:35.176104+00:00
 ---
 
 # About cross-cloud data access  |  Lakehouse  |  Google Cloud Documentation
@@ -102,7 +102,7 @@ Select the transport method that matches your architectural and security require
 
 ###  Customer-owned (CCI) 
 
-You can configure BigQuery to query data stored in Amazon S3 buckets or Azure Data Lake Storage Gen2 (ADLS Gen2) containers over a private Cross-Cloud Interconnect using either [**Dedicated Cross-Cloud Interconnect**](https://docs.cloud.google.com/network-connectivity/docs/interconnect/concepts/cci-overview#setup-process) or [**Partner Cross-Cloud Interconnect**](https://docs.cloud.google.com/network-connectivity/docs/interconnect/concepts/partner-cci-for-aws-overview).
+You can configure BigQuery to query data stored in Amazon S3 buckets or Azure Data Lake Storage Gen2 (ADLS Gen2) containers over a private Cross-Cloud Interconnect using either [**Dedicated Cross-Cloud Interconnect**](https://docs.cloud.google.com/network-connectivity/docs/interconnect/concepts/cci-overview#setup-process) or [**Partner Cross-Cloud Interconnect**](https://docs.cloud.google.com/network-connectivity/docs/interconnect/concepts/partner-cci-for-csp-overview).
 
 Using a private interconnect provides the following benefits:
 

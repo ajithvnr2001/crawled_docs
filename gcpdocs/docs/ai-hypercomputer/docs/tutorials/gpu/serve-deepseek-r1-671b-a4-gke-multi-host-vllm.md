@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/ai-hypercomputer/docs/tutorials/gpu/serve-deepseek-r1-671b-a4-gke-multi-host-vllm/
 title: Serve DeepSeek-R1 671B on GKE with multi-host vLLM on A4 VMs \u00a0|\u00a0 AI Hypercomputer \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-30T05:40:54.438107+00:00
+fetched_at: 2026-11-04T23:28:15.405014+00:00
 ---
 
 # Serve DeepSeek-R1 671B on GKE with multi-host vLLM on A4 VMs  |  AI Hypercomputer  |  Google Cloud Documentation
@@ -175,12 +175,31 @@ Download Cluster Toolkit and provision a GKE cluster in Standard mode with two `
            deployment_name: ${CLUSTER_NAME}
            region: ${REGION}
            zone: ${ZONE}
-           static_node_count: 2
            authorized_cidr: 0.0.0.0/0
+         
+         ## Choose ONE consumption model from the options below (default is Specific Reservation):
+         
+         ## --- Option 1: Specific Reservation ---
            reservation_affinity:
              consume_reservation_type: SPECIFIC_RESERVATION
              specific_reservations:
              - name: ${RESERVATION_NAME}
+           static_node_count: 2
+         
+         ## --- Option 2: DWS Flex Start ---
+           #enable_flex_start: true
+           #static_node_count: null
+         
+         ## --- Option 3: DWS Flex Start + Queued Provisioning ---
+           #enable_flex_start: true
+           #enable_queued_provisioning: true
+           #static_node_count: null
+         
+         ## --- Option 4: Spot ---
+           #spot: true
+           #static_node_count: 2
+           #placement_policy:
+           #  type: COMPACT
          EOF
 
 **Note:** Cluster Toolkit version `v1.104.0` and later include built-in capacity consumption options for `examples/gke-a4/gke-a4-deployment.yaml` (see [GKE consumption options](https://docs.cloud.google.com/cluster-toolkit/docs/deploy/gke/gke-consumption-options)). In versions earlier than `v1.104.0`, you must add these capacity options manually.
@@ -205,6 +224,9 @@ Cluster creation takes approximately 30 to 45 minutes. If you run `./gcluster de
          gcloud container clusters get-credentials "${CLUSTER_NAME}" \
              --project="${PROJECT_ID}" \
              --location="${REGION}"
+         
+         kubectl rollout status deployment/jobset-controller -n jobset-system --timeout=300s
+         kubectl rollout status daemonset/nccl-rdma-installer -n kube-system --timeout=900s
 
 
 
@@ -293,6 +315,9 @@ The IAM permissions granted by the preceding script include the Storage Legacy B
                    set -euo pipefail
          
                    echo "=== 1. Installing huggingface_hub ==="
+                   if ! command -v pip3 >/dev/null 2>&1; then
+                     apt-get update -qq && apt-get install -y -qq --no-install-recommends python3-pip
+                   fi
                    pip3 install --break-system-packages -q -U "huggingface_hub"
          
                    echo "=== 2. Downloading deepseek-ai/DeepSeek-R1 to Local NVMe SSD ==="
@@ -631,6 +656,7 @@ To scale this deployment to more hosts, update the parameters in `deepseek_r1_se
 
   3. Monitor the leader and worker Pod logs until server startup has completed:
          
+         kubectl wait --for=condition=Ready pod -l jobset.sigs.k8s.io/jobset-name=vllm-r1 --timeout=600s
          # monitor leader
          kubectl logs -l jobset.sigs.k8s.io/replicatedjob-name=leader -c vllm-leader -f --tail=-1
          # monitor worker
@@ -803,6 +829,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-29 UTC.
+Last updated 2026-11-03 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 

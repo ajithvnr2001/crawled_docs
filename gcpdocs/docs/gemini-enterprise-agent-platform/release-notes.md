@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/release-notes/
 title: Gemini Enterprise Agent Platform release notes \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-03T09:41:49.005754+00:00
+fetched_at: 2026-11-05T00:04:59.570940+00:00
 ---
 
 # Gemini Enterprise Agent Platform release notes  |  Google Cloud Documentation
@@ -23,6 +23,23 @@ Send feedback
 This page documents production updates to Gemini Enterprise Agent Platform. Check this page for announcements about new or updated features, bug fixes, known issues, and deprecated functionality. 
 
 You can see the latest product updates for all of Google Cloud on the [ Google Cloud](https://docs.cloud.google.com/release-notes) page, browse and filter all release notes in the [Google Cloud console](https://console.cloud.google.com/release-notes), or programmatically access release notes in [BigQuery](https://console.cloud.google.com/bigquery?p=bigquery-public-data&d=google_cloud_release_notes&t=release_notes&page=table). 
+
+## November 04, 2026
+
+Feature
+
+**AlphaGenome gRPC and unified HTTP serving support**
+
+AlphaGenome (`alphagenome-004`) now supports unified HTTP/2 gRPC streaming and chunked binary protobuf HTTP streaming on Gemini Enterprise Agent Platform:
+
+  * Streams compressed binary tensor chunks directly over gRPC on shared endpoints (`PredictionService.StreamDirectRawPredict` on port `8081`) and chunked binary protobuf payloads (`proto_b64`) over HTTP on dedicated endpoints (`streamRawPredict` on port `8080`) across all seven `DnaModelService` methods (`predict_sequence`, `predict_interval`, `predict_variant`, `score_variant`, `score_interval`, `score_ism_variants`, and `output_metadata`) and 11 genomic modalities, reducing latency for 1 MB track predictions.
+  * Supports concurrent multi-variant evaluation for in silico saturation mutagenesis (`score_ism_variants`) without HTTP gateway timeouts.
+  * Supports model fold selection (`ALL_FOLDS`, `FOLD_0`, `FOLD_1`, `FOLD_2`, and `FOLD_3`) across both gRPC and HTTP clients through the unified `alphagenome_cloud_sdk` Python SDK.
+  * Retains `alphagenome-003` in Model Garden for backward compatibility with existing legacy HTTP deployments.
+
+
+
+For more information, see the [AlphaGenome documentation](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/open-models/alphagenome).
 
 ## November 02, 2026
 
@@ -1688,6 +1705,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-30 UTC.
+Last updated 2026-11-04 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 

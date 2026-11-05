@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/kubernetes-engine/docs/how-to/vtpms/
 title: Access vTPMs and attestation information in Confidential GKE Nodes \u00a0|\u00a0 GKE security \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-01T05:42:27.714426+00:00
+fetched_at: 2026-11-05T00:19:31.500819+00:00
 ---
 
 # Access vTPMs and attestation information in Confidential GKE Nodes  |  GKE security  |  Google Cloud Documentation
@@ -72,7 +72,7 @@ You can use Confidential GKE Nodes under the following conditions:
     * **vTPMs** : any GKE version.
     * **AMD SEV-SNP hardware-based devices** : GKE version 1.33.5-gke.1350000 and later or version 1.34.1-gke.2037000 and later.
     * **Intel TDX hardware-based devices** : GKE version 1.33.5-gke.1697000 and later or version 1.34.1-gke.2909000 and later.
-  * The node pools must be in a Compute Engine location that has the corresponding machine types. For more information about regional availability, see [Machine types, CPUs, and zones](https://docs.cloud.google.com/confidential-computing/confidential-vm/docs/supported-configurations#machine-type-cpu-zone).
+  * The node pools must be in a Compute Engine location that has the corresponding machine types. For more information about regional availability, see [Machine types](https://docs.cloud.google.com/confidential-computing/confidential-vm/docs/supported-configurations#machine-types).
 
   * The nodes must use the [Container-Optimized OS node image](https://docs.cloud.google.com/kubernetes-engine/docs/concepts/node-images#cos).
 
@@ -240,6 +240,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-30 UTC.
+Last updated 2026-11-03 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 

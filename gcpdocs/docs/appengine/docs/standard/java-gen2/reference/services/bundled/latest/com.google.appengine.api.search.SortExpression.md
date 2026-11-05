@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/appengine/docs/standard/java-gen2/reference/services/bundled/latest/com.google.appengine.api.search.SortExpression
 title: Class SortExpression (5.0.3) \u00a0|\u00a0 App Engine standard environment \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-14T18:43:32.470476+00:00
+fetched_at: 2026-11-04T23:28:14.992204+00:00
 ---
 
 # Class SortExpression (5.0.3)  |  App Engine standard environment  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/firestore/native/docs/apis/
 title: APIs and client libraries reference \u00a0|\u00a0 Firestore in Native mode \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T08:01:07.298489+00:00
+fetched_at: 2026-11-04T23:45:52.628754+00:00
 ---
 
 # APIs and client libraries reference  |  Firestore in Native mode  |  Google Cloud Documentation

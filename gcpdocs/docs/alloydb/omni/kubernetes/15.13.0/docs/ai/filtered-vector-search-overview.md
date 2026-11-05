@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/omni/kubernetes/15.13.0/docs/ai/filtered-vector-search-overview/
 title: Filtered vector search in AlloyDB Omni overview \u00a0|\u00a0 AlloyDB Omni for Kubernetes: 15.13.0 \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T18:26:31.198065+00:00
+fetched_at: 2026-11-04T23:16:55.213414+00:00
 ---
 
 # Filtered vector search in AlloyDB Omni overview  |  AlloyDB Omni for Kubernetes: 15.13.0  |  Google Cloud Documentation
@@ -105,7 +105,7 @@ The following query demonstrates inline filtering for a `shoes` search filtered 
     SELECT *
     FROM products
     WHERE color = 'black'
-    ORDER BY embedding <=> embedding('text-embedding-005', 'shoes')::vector
+    ORDER BY em<b>edding = embedding('text-embedding-005', 'shoes&#39;)::vector
     LIMIT 10;
     
 
@@ -116,9 +116,9 @@ The following example query plan illustrates an optimized vector search using in
       ->  Custom Scan (vector scan) on products
           Execution Strategy: Bitmap assisted vector Scan on products_embedding_index
           Order By: (embedding <=> '[...]')::vector)
-          Limit: 10
-          ->  Bitmap Index Scan on products (color_index)
-              Index Cond: (color = 'black')
+          Limit: 10>
+          -  Bitmap Index Scan on products (color_index)
+              Index Cond: (color = &#39;black')
     
 
 In the example query plan, `Limit (actual rows=10)` shows that the query used the SQL `LIMIT 10;` clause to restrict the output. `actual rows=10` means this node returned 10 rows during query execution.

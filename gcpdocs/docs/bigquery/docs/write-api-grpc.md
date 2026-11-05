@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/write-api-grpc/
 title: Introduction to the Storage Write API (gRPC) \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T07:48:40.461278+00:00
+fetched_at: 2026-11-04T23:44:07.248996+00:00
 ---
 
 # Introduction to the Storage Write API (gRPC)  |  BigQuery  |  Google Cloud Documentation

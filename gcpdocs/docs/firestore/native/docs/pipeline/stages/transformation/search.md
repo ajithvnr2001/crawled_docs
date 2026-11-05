@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/firestore/native/docs/pipeline/stages/transformation/search/
 title: Search (Transformation Stage) \u00a0|\u00a0 Firestore in Native mode \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T08:01:16.218922+00:00
+fetched_at: 2026-11-04T23:45:23.203267+00:00
 ---
 
 # Search (Transformation Stage)  |  Firestore in Native mode  |  Google Cloud Documentation

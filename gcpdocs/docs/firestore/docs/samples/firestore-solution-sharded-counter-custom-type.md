@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/firestore/docs/samples/firestore-solution-sharded-counter-custom-type/
 title: Create custom shard and counter types for Firestore distributed counters \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T08:01:43.477492+00:00
+fetched_at: 2026-11-04T23:46:10.137815+00:00
 ---
 
 # Create custom shard and counter types for Firestore distributed counters  |  Google Cloud Documentation

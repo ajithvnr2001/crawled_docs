@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/dialogflow/es/docs/knowledge-connectors/
 title: Knowledge connectors \u00a0|\u00a0 Dialogflow ES \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T07:48:23.205302+00:00
+fetched_at: 2026-11-04T23:42:26.838831+00:00
 ---
 
 # Knowledge connectors  |  Dialogflow ES  |  Google Cloud Documentation
@@ -231,7 +231,7 @@ You should receive a JSON response similar to the following:
 To authenticate to Dialogflow CX, set up Application Default Credentials. For more information, see [Set up authentication for a local development environment](https://docs.cloud.google.com/docs/authentication/set-up-adc-local-dev-environment). 
     
     
-    import com.google.api.gax.rpc.ApiException;
+    import com.google.api.gax.rpc.[ApiException](https://docs.cloud.google.com/java/docs/reference/gax/latest/com.google.api.gax.rpc.ApiException.html);
     import com.google.cloud.dialogflow.v2beta1.DetectIntentRequest;
     import com.google.cloud.dialogflow.v2beta1.DetectIntentResponse;
     import com.google.cloud.dialogflow.v2beta1.KnowledgeAnswers;
@@ -256,7 +256,7 @@ To authenticate to Dialogflow CX, set up Application Default Credentials. For mo
           String sessionId,
           String languageCode,
           List<String> texts)
-          throws IOException, ApiException {
+          throws IOException, [ApiException](https://docs.cloud.google.com/java/docs/reference/gax/latest/com.google.api.gax.rpc.ApiException.html) {
         // Instantiates a client
         Map<String, KnowledgeAnswers> allKnowledgeAnswers = Maps.newHashMap();
         try (SessionsClient sessionsClient = SessionsClient.create()) {
@@ -318,9 +318,9 @@ To authenticate to Dialogflow CX, set up Application Default Credentials. For mo
     
     
     // Imports the Dialogflow client library
-    const dialogflow = require('@google-cloud/dialogflow').v2beta1;
+    const dialogflow = require('[@google-cloud/dialogflow](https://docs.cloud.google.com/nodejs/docs/reference/dialogflow/latest/overview.html)').v2beta1;
     // Instantiate a DialogFlow client.
-    const sessionClient = new dialogflow.SessionsClient();
+    const sessionClient = new dialogflow.[SessionsClient](https://docs.cloud.google.com/nodejs/docs/reference/dialogflow-cx/latest/overview.html)();
     
     /**
      * TODO(developer): Uncomment the following lines before running the sample.

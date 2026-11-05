@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/materialized-views-monitor/
 title: Monitor materialized views \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T07:49:04.941047+00:00
+fetched_at: 2026-11-04T23:31:17.315533+00:00
 ---
 
 # Monitor materialized views  |  BigQuery  |  Google Cloud Documentation
@@ -178,8 +178,8 @@ You can create a custom metric, alert policy, notification channel, and logging 
     
     resource "google_logging_metric" "failed_mv_refresh_metric" {
     project = var.project_id
-    name    = var.logging_metric_name<<
-    filter = trimspace(EOT
+    name    = var.logging_metric_name
+    filter = trimspace(<<EOT
       severity="ERROR"
       AND protoPayload.metadata.jobChange.after="DONE"
       AND protoPayload.metadata.jobChange.job.jobConfig.queryConfig.query=~"CALL BQ.REFRESH_MATERIALIZED_VIEW\('.*'\)"
@@ -269,7 +269,7 @@ For example:
     FROM
       region-US.INFORMATION_SCHEMA.JOBS_BY_PROJECT
     WHERE
-      job_id = &<#39;my-query-jo>b-id';
+      job_id = '<my-query-job-id>';
 
 To view the usage of a materialized view over time, query the [`INFORMATION_SCHEMA.JOBS_BY_*` views](https://docs.cloud.google.com/bigquery/docs/information-schema-jobs).
 

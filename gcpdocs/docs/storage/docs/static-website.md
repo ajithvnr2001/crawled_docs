@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/storage/docs/static-website/
 title: Static website examples and tips \u00a0|\u00a0 Cloud Storage \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T06:00:50.905261+00:00
+fetched_at: 2026-11-05T00:20:12.957458+00:00
 ---
 
 # Static website examples and tips  |  Cloud Storage  |  Google Cloud Documentation
@@ -170,9 +170,9 @@ If you are serving assets from a bucket configured as a static website or servin
 
 You may also incur networking charges if you use an external Application Load Balancer to set up HTTPS. See [Network Pricing](https://docs.cloud.google.com/vpc/network-pricing#lb) for more details.
 
-The [simple pricing example](https://docs.cloud.google.com/storage/pricing-examples#simple) on the pricing examples page can be used as an approximation for the use case of a low-traffic, static website. Note, however, that the example does not account for charges associated with the external Application Load Balancer, which can often be the largest charge for static website hosting. You can use the [Pricing Calculator](https://docs.cloud.google.com/products/calculator) to generate a cost estimate based on your projected usage.
+The [simple pricing example](https://docs.cloud.google.com/storage/pricing-examples#simple) on the pricing examples page can be used as an approximation for the use case of a low-traffic, static website. Note, however, that the example does not account for charges associated with the external Application Load Balancer, which can often be the largest charge for static website hosting. You can use the [Pricing Calculator](https://cloud.google.com/products/calculator/) to generate a cost estimate based on your projected usage.
 
-New Google Cloud users might be eligible for a [free trial](https://docs.cloud.google.com/free). 
+New Google Cloud users might be eligible for a [free trial](https://cloud.google.com/free/). 
 
 If you are a current Google Cloud user, you can get a detailed breakdown of your project costs on the [billing page](https://console.cloud.google.com/billing).
 
@@ -197,6 +197,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-30 UTC.
+Last updated 2026-11-03 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 

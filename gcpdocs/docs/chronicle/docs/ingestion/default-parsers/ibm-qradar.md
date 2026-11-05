@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/ibm-qradar/
 title: Collect IBM QRadar logs \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T07:51:03.707266+00:00
+fetched_at: 2026-11-04T23:34:34.044325+00:00
 ---
 
 # Collect IBM QRadar logs  |  Google Security Operations  |  Google Cloud Documentation

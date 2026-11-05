@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rest/v1beta/BidiProcessOrderResponse/
 title: BidiProcessOrderResponse \u00a0|\u00a0 Food Ordering AI Agent \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-30T05:40:45.367138+00:00
+fetched_at: 2026-11-05T00:17:46.592343+00:00
 ---
 
 # BidiProcessOrderResponse  |  Food Ordering AI Agent  |  Google Cloud Documentation
@@ -32,10 +32,14 @@ Send feedback
     * JSON representation
   * RestartOrder
     * JSON representation
+  * StoreChange
+    * JSON representation
   * ClientExecutionRequest
     * JSON representation
   * FinalizeOrderRequest
   * SubmitOrderRequest
+    * JSON representation
+  * LoyaltyRequest
     * JSON representation
   * OrderPricesRequest
     * JSON representation
@@ -205,6 +209,9 @@ JSON representation
       // fields will be set in a response:
       "restartOrder": {
         object ([RestartOrder](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rest/v1beta/BidiProcessOrderResponse#RestartOrder))
+      },
+      "storeChange": {
+        object ([StoreChange](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rest/v1beta/BidiProcessOrderResponse#StoreChange))
       }
       // End of mutually exclusive fields.
     }  
@@ -213,6 +220,7 @@ Fields
 ---  
 The event from the agent. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:  
 `restartOrder` |  `object (`[RestartOrder](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rest/v1beta/BidiProcessOrderResponse#RestartOrder)`)` Customer requests to restart the order.  
+`storeChange` |  `object (`[StoreChange](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rest/v1beta/BidiProcessOrderResponse#StoreChange)`)` Event indicating that the agent switched the active store for the session.  
 End of mutually exclusive fields.  
   
 ## RestartOrder
@@ -230,6 +238,22 @@ JSON representation
 Fields  
 ---  
 `confirmationStep` |  `boolean` The agent is asking the customer to confirm the restarting request.  
+  
+## StoreChange
+
+Event indicating that the agent switched the active store for the session.
+
+JSON representation  
+---  
+      
+    
+    {
+      "store": string
+    }  
+  
+Fields  
+---  
+`store` |  `string` Output only. Identifies the newly active store for the session. Format: `projects/{project}/locations/{location}/brands/{brand}/stores/{store}`  
   
 ## ClientExecutionRequest
 
@@ -250,6 +274,9 @@ JSON representation
       "submitOrderRequest": {
         object ([SubmitOrderRequest](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rest/v1beta/BidiProcessOrderResponse#SubmitOrderRequest))
       },
+      "loyaltyRequest": {
+        object ([LoyaltyRequest](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rest/v1beta/BidiProcessOrderResponse#LoyaltyRequest))
+      },
       "orderPricesRequest": {
         object ([OrderPricesRequest](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rest/v1beta/BidiProcessOrderResponse#OrderPricesRequest))
       },
@@ -268,6 +295,7 @@ Fields
 The specific request to be executed. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:  
 `finalizeOrderRequest` |  `object (`[FinalizeOrderRequest](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rest/v1beta/BidiProcessOrderResponse#FinalizeOrderRequest)`)` A request to finalize the order.  
 `submitOrderRequest` |  `object (`[SubmitOrderRequest](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rest/v1beta/BidiProcessOrderResponse#SubmitOrderRequest)`)` A request to submit the order.  
+`loyaltyRequest` |  `object (`[LoyaltyRequest](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rest/v1beta/BidiProcessOrderResponse#LoyaltyRequest)`)` Optional. Unified loyalty request.  
 `orderPricesRequest` |  `object (`[OrderPricesRequest](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rest/v1beta/BidiProcessOrderResponse#OrderPricesRequest)`)` A request to get the order prices.  
 `validateDeliveryAddressRequest` |  `object (`[ValidateDeliveryAddressRequest](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rest/v1beta/BidiProcessOrderResponse#ValidateDeliveryAddressRequest)`)` A request to validate the delivery address.  
 `orderStatusRequest` |  `object (`[OrderStatusRequest](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rest/v1beta/BidiProcessOrderResponse#OrderStatusRequest)`)` A request to get the order status.  
@@ -304,6 +332,42 @@ Fields
 `paymentInfo` |  `object (`[PaymentInfo](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rest/v1beta/Order#PaymentInfo)`)` Required. The payment information for the order.  
 `loyaltyInfo` |  `object (`[LoyaltyInfo](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rest/v1beta/LoyaltyInfo)`)` Optional. The loyalty consumed for the order.  
 `tipAmount` |  `object (`[Money](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rest/Shared.Types/Money)`)` Optional. The tip amount for the order.  
+  
+## LoyaltyRequest
+
+Request for loyalty operations.
+
+JSON representation  
+---  
+      
+    
+    {
+      "category": enum ([LoyaltyActionCategory](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rest/v1beta/LoyaltyActionCategory)),
+      "code": string,
+      "phoneNumber": string,
+      "email": string,
+      "loyaltyAccountId": string,
+      "rewardIds": [
+        string
+      ],
+      "selectedProductCodes": [
+        string
+      ],
+      "loyaltyAmount": {
+        object ([LoyaltyAmount](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rest/v1beta/LoyaltyAmount))
+      }
+    }  
+  
+Fields  
+---  
+`category` |  `enum (`[LoyaltyActionCategory](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rest/v1beta/LoyaltyActionCategory)`)` Required. Type of loyalty request.  
+`code` |  `string` Optional. -- Optional identifiers. -- The code to add to the order.  
+`phoneNumber` |  `string` Optional. The phone number of the customer.  
+`email` |  `string` Optional. The email of the customer.  
+`loyaltyAccountId` |  `string` Optional. The loyalty account ID of the customer.  
+`rewardIds[]` |  `string` Optional. -- Action specific fields. -- The reward IDs to add to the order.  
+`selectedProductCodes[]` |  `string` Optional. The product code(s) to redeem the reward for.  
+`loyaltyAmount` |  `object (`[LoyaltyAmount](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rest/v1beta/LoyaltyAmount)`)` Optional. The loyalty points / balance to redeem.  
   
 ## OrderPricesRequest
 
@@ -465,6 +529,7 @@ Enums
 `REQUESTED_CHECKOUT` | The customer requested to check out.  
 `REQUESTED_ORDER_STATUS` | The customer asked about their order status.  
 `STORE_CLOSED` | The store is closed.  
+`REQUESTED_STORE_SELECTION` | Indicates that the customer needs to select a store in the client application.  
   
 ## RecommendedOrders
 
@@ -528,6 +593,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-29 UTC.
+Last updated 2026-11-04 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 

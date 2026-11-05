@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/kubernetes-engine/docs/concepts/about-multinetwork-support-for-pods/
 title: About multi-network support for Pods \u00a0|\u00a0 GKE networking \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T20:03:36.800415+00:00
+fetched_at: 2026-11-04T23:31:25.415065+00:00
 ---
 
 # About multi-network support for Pods  |  GKE networking  |  Google Cloud Documentation
@@ -78,6 +78,7 @@ Multi-network support for Pods address the following use cases:
   * **Run DPDK applications with VFIO:** you want to run DPDK applications that require access to NIC on the node through the VFIO driver. You can achieve the optimal packet rate by bypassing the kernel, Kubernetes and GKE Dataplane V2 completely.
   * **Enable direct access to vNIC bypassing Kubernetes and GKE Dataplane V2:** you run the Network Functions in Containers that requires direct access to the Network Interface Card (NIC) on the node. For example, High-Performance Computing (HPC) applications that want to bypass Kubernetes and GKE Dataplane V2 to achieve lowest latency. Some applications also want access to PCIe topology information of the NIC to collocate with other devices like GPU.
   * **Expose workloads on secondary networks using load balancers** : you can use external and internal passthrough Network Load Balancers to expose workloads (such as Containerized Network Functions) directly on secondary VPCs. This lets you provide access to your applications on specific network interfaces without using the cluster's default network.
+  * **Attach secondary IPv4 networks to single-stack IPv6 clusters:** in [single-stack IPv6 clusters](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/single-stack-ipv6) ([Preview](https://cloud.google.com/products#product-launch-stages)), Pods that run on an IPv6-only primary network can attach secondary IPv4-only Layer 3 VPC networks. This configuration enables workloads to communicate with IPv4 resources in secondary VPC subnetworks. Note that secondary IPv6 Pod networks are not supported.
 
 
 
@@ -107,6 +108,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-04 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 

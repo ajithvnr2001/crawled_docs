@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/kubernetes-engine/docs/how-to/config-auto-net-for-accelerators/
 title: Configure automated networking for accelerator VMs \u00a0|\u00a0 GKE networking \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T22:14:58.616132+00:00
+fetched_at: 2026-11-04T23:30:57.856767+00:00
 ---
 
 # Configure automated networking for accelerator VMs  |  GKE networking  |  Google Cloud Documentation
@@ -488,6 +488,47 @@ The following example output shows the default `eth0` and `lo` interfaces, along
 
 
 
+## Configure multi-NIC node networks on single-stack IPv6 clusters
+
+In Standard [single-stack IPv6 clusters](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/single-stack-ipv6) ([Preview](https://cloud.google.com/products#product-launch-stages)), you can configure node pools with multiple network interfaces (multi-NIC) to attach secondary data networks (`RDMA` or `DIORITE`) for AI/ML workloads.
+
+Although your cluster control plane and default Pod network operate on IPv6-only subnetworks, secondary network interfaces can run on IPv4-only, dual-stack, or IPv6-only subnetworks depending on your machine profile and network setup:
+
+  * **Automated multi-NIC (`Managed DRANET`):** you can use automated networking on node pools inside single-stack IPv6 clusters. To automatically provision and attach high-performance secondary networks, append the `--accelerator-network-profile=auto` flag when you create your node pool as described in Create a node pool with a default network profile.
+
+  * **Manual multi-NIC:** you can manually define secondary node networks when you create a node pool by using the `--additional-node-network` flag, which accepts the following parameters:
+
+`--additional-node-network="network=NETWORK,subnetwork=SUBNET,stack_type=STACK_TYPE"`
+
+You can set the `stack_type` parameter to `IPV4` (IPv4-only), `IPV4_IPV6` (dual-stack), or `IPV6` (IPv6-only). Choose the stack type based on your secondary network profile:
+
+    * **RDMA IPv4 NICs:** VPC network created with an RDMA network profile; subnetwork created with an IPv4 stack type or dual-stack stack type.
+    * **DIORITE IPv4 NICs:** VPC network created without an RDMA network profile; subnetwork created with an IPv4 stack type or dual-stack stack type.
+    * **DIORITE IPv6 NICs:** VPC network created without an RDMA network profile; subnetwork created with an IPv6-only stack type or dual-stack stack type.
+    * **IPv6 RDMA NICs on`a4-max` bare-metal machines:** VPC network created with a bare-metal RDMA network profile. An IPv6-only subnetwork is automatically created alongside the network profile.
+
+For example, the following command creates a node pool inside a single-stack IPv6 cluster with an additional network interface configured for dual-stack (`IPV4_IPV6`) communication:
+    
+    gcloud container node-pools create POOL_NAME \
+        --cluster=CLUSTER_NAME \
+        --additional-node-network=network=NETWORK_NAME,subnetwork=SUBNET_NAME,stack_type=IPV4_IPV6 \
+        --node-locations=COMPUTE_ZONE \
+        --machine-type=MACHINE_TYPE
+    
+
+Replace the following:
+
+    * `POOL_NAME`: the name of your new multi-NIC node pool.
+    * `CLUSTER_NAME`: the name of your existing single-stack IPv6 cluster.
+    * `NETWORK_NAME`: the name of the secondary VPC network.
+    * `SUBNET_NAME`: the name of the secondary subnetwork.
+    * `COMPUTE_ZONE`: the Compute Engine zone for your node pool.
+    * `MACHINE_TYPE`: the accelerator-equipped machine type for your nodes.
+
+
+
+To learn more about the `--additional-node-network` parameter and secondary Pod networks, see [Set up multi-network support for Pods](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/setup-multinetwork-support-for-pods).
+
 ## Troubleshoot
 
 To check the network setup for a node pool, run the following command:
@@ -512,8 +553,9 @@ The output shows the additional networks and subnetworks attached to the node po
 
   * Read about [accelerator-optimized machines](https://docs.cloud.google.com/compute/docs/accelerator-optimized-machines).
   * Learn how to [Provision GPUs with DRA](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/set-up-dra).
-  * Learn how to [Set up multi-network support for pods](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/setup-multinetwork-support-for-pods).
+  * Learn how to [Set up multi-network support for Pods](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/setup-multinetwork-support-for-pods).
   * Learn about [Allocate network resources using GKE managed DRANET](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/allocate-network-resources-dra)
+  * Learn how to [Create and manage single-stack IPv6 clusters](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/single-stack-ipv6).
 
 
 
@@ -521,6 +563,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-04 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 

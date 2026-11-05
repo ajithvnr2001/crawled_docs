@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sql/docs/sqlserver/using-query-insights/
 title: Use query insights to improve query performance \u00a0|\u00a0 Cloud SQL for SQL Server \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-03T09:53:19.950496+00:00
+fetched_at: 2026-11-05T00:20:39.754822+00:00
 ---
 
 # Use query insights to improve query performance  |  Cloud SQL for SQL Server  |  Google Cloud Documentation
@@ -341,6 +341,24 @@ Also, you can use one or more of the following optional flags:
 
 
 Here's an example:
+    
+    
+      resource "google_sql_database_instance" "INSTANCE_NAME" {
+      name                = "INSTANCE_NAME"
+      database_version    = "SQLSERVER_VERSION"
+      region              = "REGION"
+      root_password       = "PASSWORD"
+      deletion_protection = false # set to true to prevent destruction of the resource
+      settings {
+        tier = "DB_TIER"
+        insights_config {
+          query_insights_enabled  = true
+          query_string_length     = 2048 # Optional
+          query_plans_per_minute  = 10 # Optional
+        }
+      }
+      }
+      
 
 To apply your Terraform configuration in a Google Cloud project, complete the steps in the following sections.
 
@@ -634,7 +652,7 @@ To disable query insights for a Cloud SQL instance by using `gcloud`, run [`gclo
 
 ### REST
 
-To disable query insights for a Cloud SQL instance by using the REST API, call the [`instances.patch`](https://docs.cloud.google.com/sql/docs/postgres/admin-api/rest/v1beta4/instances/patch) method with `queryInsightsEnabled` set to `false` as follows. 
+To disable query insights for a Cloud SQL instance by using the REST API, call the [`instances.patch`](https://docs.cloud.google.com/sql/docs/sqlserver/admin-api/rest/v1beta4/instances/patch) method with `queryInsightsEnabled` set to `false` as follows. 
 
 Before using any of the request data, make the following replacements: 
 
@@ -705,6 +723,89 @@ You should receive a JSON response similar to the following:
     }
     
 
+### Terraform
+
+To use Terraform to disable query insights for a Cloud SQL instance, set the `query_insights_enabled` flag to `false`.
+
+Here's an example:
+    
+    
+      resource "google_sql_database_instance" "INSTANCE_NAME" {
+      name                = "INSTANCE_NAME"
+      database_version    = "SQLSERVER_VERSION"
+      region              = "REGION"
+      root_password       = "PASSWORD"
+      deletion_protection = false # set to true to prevent destruction of the resource
+      settings {
+        tier = "DB_TIER"
+        insights_config {
+          query_insights_enabled  = false
+        }
+      }
+      }
+      
+
+To apply your Terraform configuration in a Google Cloud project, complete the steps in the following sections.
+
+## Prepare Cloud Shell
+
+  1. Launch [Cloud Shell](https://shell.cloud.google.com/).
+  2. Set the default Google Cloud project where you want to apply your Terraform configurations. 
+
+You only need to run this command once per project, and you can run it in any directory.
+         
+         export GOOGLE_CLOUD_PROJECT=PROJECT_ID
+
+Environment variables are overridden if you set explicit values in the Terraform configuration file.
+
+
+
+
+## Prepare the directory
+
+Each Terraform configuration file must have its own directory (also called a _root module_).
+
+  1. In [Cloud Shell](https://shell.cloud.google.com/), create a directory and a new file within that directory. The filename must have the `.tf` extension—for example `main.tf`. In this tutorial, the file is referred to as `main.tf`. 
+         
+         mkdir DIRECTORY && cd DIRECTORY && touch main.tf
+
+  2. If you are following a tutorial, you can copy the sample code in each section or step.
+
+Copy the sample code into the newly created `main.tf`.
+
+Optionally, copy the code from GitHub. This is recommended when the Terraform snippet is part of an end-to-end solution. 
+
+  3. Review and modify the sample parameters to apply to your environment.
+  4. Save your changes.
+  5. Initialize Terraform. You only need to do this once per directory. 
+         
+         terraform init
+
+Optionally, to use the latest Google provider version, include the `-upgrade` option: 
+         
+         terraform init -upgrade
+
+
+
+
+## Apply the changes
+
+  1. Review the configuration and verify that the resources that Terraform is going to create or update match your expectations: 
+         
+         terraform plan
+
+Make corrections to the configuration as necessary.
+
+  2. Apply the Terraform configuration by running the following command and entering `yes` at the prompt: 
+         
+         terraform apply
+
+Wait until Terraform displays the "Apply complete!" message.
+
+  3. [Open your Google Cloud project](https://console.cloud.google.com/) to view the results. In the Google Cloud console, navigate to your resources in the UI to make sure that Terraform has created or updated them. 
+
+**Note:** Terraform samples typically assume that the required APIs are enabled in your Google Cloud project. 
+
 ### Disable query insights for Cloud SQL Enterprise Plus edition
 
 To disable query insights for Cloud SQL Enterprise Plus edition, do the following:
@@ -737,6 +838,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-02 UTC.
+Last updated 2026-11-03 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-02 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 

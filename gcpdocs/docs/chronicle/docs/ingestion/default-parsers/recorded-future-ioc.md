@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/recorded-future-ioc/
 title: Collect Recorded Future IOC logs \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T07:52:06.325440+00:00
+fetched_at: 2026-11-04T23:43:05.732193+00:00
 ---
 
 # Collect Recorded Future IOC logs  |  Google Security Operations  |  Google Cloud Documentation

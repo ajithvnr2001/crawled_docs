@@ -1,11 +1,11 @@
 ---
 url: https://docs.cloud.google.com/gemini-enterprise-cx/agent-assist/aaforsalesforce-voice-genesys/
-title: Agent Assist for Salesforce voice with Genesys CX Cloud \u00a0|\u00a0 Google Cloud Documentation
+title: Agent Assist for Salesforce voice integration with Genesys CX Cloud \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T16:32:34.850531+00:00
+fetched_at: 2026-11-04T23:28:40.265122+00:00
 ---
 
-# Agent Assist for Salesforce voice with Genesys CX Cloud  |  Google Cloud Documentation
+# Agent Assist for Salesforce voice integration with Genesys CX Cloud  |  Google Cloud Documentation
 
 > Source: https://docs.cloud.google.com/gemini-enterprise-cx/agent-assist/aaforsalesforce-voice-genesys/
 
@@ -19,9 +19,9 @@ fetched_at: 2026-10-27T16:32:34.850531+00:00
 
 Send feedback 
 
-#  Agent Assist for Salesforce voice with Genesys CX Cloud Stay organized with collections  Save and categorize content based on your preferences. 
+#  Agent Assist for Salesforce voice integration with Genesys CX Cloud Stay organized with collections  Save and categorize content based on your preferences. 
 
-This Salesforce voice integration uses Service Cloud Voice to bring Genesys Cloud into your Salesforce instance. Agent Assist uses the media stream from the [Genesys Cloud audiohook](https://help.genesys.cloud/articles/about-audiohook-monitor/) integration to provide suggestions to your agents in the [Salesforce Lightning Service console](https://help.salesforce.com/s/articleView?id=service.console_lex_service_intro.htm&type=5) with Agent Assist for Salesforce. The following diagram illustrates this integration architecture:
+This voice integration uses Salesforce Service Cloud Voice to bring Genesys Cloud into your Salesforce instance. Agent Assist uses the media stream from the [Genesys Cloud audiohook](https://help.genesys.cloud/articles/about-audiohook-monitor/) integration to provide suggestions to your agents in the [Salesforce Lightning Service console](https://help.salesforce.com/s/articleView?id=service.console_lex_service_intro.htm&type=5) with Agent Assist for Salesforce. The following diagram illustrates this integration architecture:
 
 ![Architecture for the Agent Assist and Genesys Cloud integration with Salesforce.](https://docs.cloud.google.com/static/gemini-enterprise-cx/agent-assist/images/genesys_diagram.webp)
 
@@ -383,6 +383,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-04 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/kubernetes-engine/docs/how-to/gatewayclass-capabilities/
 title: GatewayClass capabilities \u00a0|\u00a0 GKE networking \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T19:53:58.845854+00:00
+fetched_at: 2026-11-04T23:31:23.560473+00:00
 ---
 
 # GatewayClass capabilities  |  GKE networking  |  Google Cloud Documentation
@@ -179,7 +179,36 @@ For more information, see [`spec.addresses`](https://gateway-api.sigs.k8s.io/ref
 
 Fields | `gke-l7-global-external-managed` | `gke-l7-global-external-managed-mc` | `gke-l7-regional-external-managed` | `gke-l7-regional-external-managed-mc` | `gke-l7-cross-regional-internal-managed-mc` | `gke-l7-rilb` | `gke-l7-rilb-mc` | `gke-l7-gxlb` | `gke-l7-gxlb-mc`  
 ---|---|---|---|---|---|---|---|---|---  
-`type` | `NamedAddress`  
+`type` | `NamedAddress` | 
+
+  * `NamedAddress`
+  * `networking.gke.io/premium-ephemeral-ipv4-address`
+  * `networking.gke.io/standard-ephemeral-ipv4-address`
+  * `networking.gke.io/premium-ephemeral-ipv6-address`
+
+| 
+
+  * `NamedAddress`
+  * `networking.gke.io/premium-ephemeral-ipv4-address`
+  * `networking.gke.io/standard-ephemeral-ipv4-address`
+
+| 
+
+  * `NamedAddress`
+  * `networking.gke.io/ephemeral-ipv4-address/REGION`
+
+| 
+
+  * `NamedAddress`
+  * `networking.gke.io/ephemeral-ipv4-address/REGION`
+  * `networking.gke.io/ephemeral-ipv6-address/REGION`
+
+| 
+
+  * `NamedAddress`
+  * `networking.gke.io/ephemeral-ipv4-address/REGION`
+
+| `NamedAddress`  
 `value` | Static global external address | Static regional external address | Static regional internal address | Static global external address  
   
 #### `spec.listeners`
@@ -426,6 +455,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-27 UTC.
+Last updated 2026-11-04 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 

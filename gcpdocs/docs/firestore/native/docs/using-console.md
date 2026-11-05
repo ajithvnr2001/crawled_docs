@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/firestore/native/docs/using-console/
 title: Use Firestore Studio for Standard edition \u00a0|\u00a0 Firestore in Native mode \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T08:01:23.978691+00:00
+fetched_at: 2026-11-04T23:45:26.473657+00:00
 ---
 
 # Use Firestore Studio for Standard edition  |  Firestore in Native mode  |  Google Cloud Documentation

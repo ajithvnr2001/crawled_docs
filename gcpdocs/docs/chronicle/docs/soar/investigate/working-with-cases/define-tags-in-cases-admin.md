@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chronicle/docs/soar/investigate/working-with-cases/define-tags-in-cases-admin/
 title: Manage case and alert tags \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T10:08:08.891865+00:00
+fetched_at: 2026-11-04T23:34:33.265248+00:00
 ---
 
 # Manage case and alert tags  |  Google Security Operations  |  Google Cloud Documentation
@@ -29,7 +29,7 @@ This document explains how to manage tags in Google Security Operations cases.
 
 Tags help classify and organize cases for easier filtering and analysis. They can be assigned automatically based on predefined rules or added manually from the case and alert views. 
 
-While you can remove tags from individual cases, the tags themselves remain available in the system's autocomplete list unless an administrator removes them from the table in the **Case Data > Tags** settings.
+While you can remove tags from individual cases, the tags themselves remain available in the system's autocomplete list unless an administrator removes them from the table in the **Settings > Investigation > Tags** page.
 
 You may also want to import tags—for example, when migrating from a staging to a production environment or for backup purposes. For more information, see Import tags.
 
@@ -40,7 +40,7 @@ Tags help you track and categorize your cases. You can quickly identify cases by
 You can manage tags from the following places:
 
   * **Case or Alert** : Manually add and remove tags from a specific case or an individual alert.
-  * **Main menu** : Click **Settings > Case Data > Tags**. For more information, see Create an automatic tagging rule. 
+  * **Main menu** : Click **Settings > Investigation > Tags**. For more information, see Create an automatic tagging rule. 
   * **Playbooks** : Trigger a playbook on a tag name using the tag trigger. You can also add a case tag to a playbook block: select a playbook block, click **Open Step Selection** , and in the **Triggers** tab, select **Tag Name**. 
 
 **Note:** To add or manage case tags, the SLA module must be enabled in your environment, in addition to standard case management permissions. 
@@ -81,7 +81,7 @@ Manually assigned alert-level tags remain attached to the specific alert during 
 
 To import a tag, follow these steps:
 
-  1. Go to **SOAR Settings > Case Data > Tags**. 
+  1. Go to **Settings > Investigation > Tags**. 
   2. Click  vertical_align_bottom  **Download template**. The CSV file shows the required tag import structure.
   3. Enter the tag information.
   4. Click  login  **Import**. The imported tags should appear in the platform.
@@ -90,9 +90,9 @@ To import a tag, follow these steps:
 
 ### Remove a tag from autocomplete
 
-To prevent a tag from appearing in autocomplete suggestions, you must remove it from the Tag table in the Case Data settings.
+To prevent a tag from appearing in autocomplete suggestions, you must remove it from the Tag table in the Settings.
 
-  1. Go to **SOAR Settings > Case Data > Tags**.
+  1. Go to **Settings > Investigation > Tags**.
   2. Locate the tag in the table and click delete **Delete**.
 
 **Note:** Deleting a tag from the Tag table removes it from autocomplete suggestions, but does not remove the tag from cases or alerts where it has already been applied. 
@@ -101,7 +101,7 @@ To prevent a tag from appearing in autocomplete suggestions, you must remove it 
 
 To create a rule that automatically assigns tags to incoming alerts based on specific conditions, follow these steps:
 
-  1. Go to **SOAR Settings > Case Data > Tags**. 
+  1. Go to **Settings > Investigation > Tags**. 
   2. Click  add  **Add Tag**.
   3. In the **Tag name** field, enter a name for the tag.
   4. Select a match source from **Entities** , **Product** , **Rule Generator** and **Vendor**.
@@ -124,6 +124,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-28 UTC.
+Last updated 2026-11-04 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 

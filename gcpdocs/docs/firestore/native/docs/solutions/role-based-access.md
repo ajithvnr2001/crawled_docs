@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/firestore/native/docs/solutions/role-based-access/
 title: Secure data access for users and groups \u00a0|\u00a0 Firestore in Native mode \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T08:01:38.454045+00:00
+fetched_at: 2026-11-04T23:46:05.462856+00:00
 ---
 
 # Secure data access for users and groups  |  Firestore in Native mode  |  Google Cloud Documentation

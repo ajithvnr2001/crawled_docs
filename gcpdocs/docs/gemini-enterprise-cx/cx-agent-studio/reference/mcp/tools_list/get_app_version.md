@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-cx/cx-agent-studio/reference/mcp/tools_list/get_app_version/
 title: MCP Tools Reference: ces.googleapis.com \u00a0|\u00a0 CX Agent Studio \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-15T14:22:25.809818+00:00
+fetched_at: 2026-11-04T23:28:29.956263+00:00
 ---
 
 # MCP Tools Reference: ces.googleapis.com  |  CX Agent Studio  |  Google Cloud Documentation
@@ -288,7 +288,7 @@ Fields
 ---  
 `defaultLanguageCode` |  `string` Optional. The default language code of the app.  
 `supportedLanguageCodes[]` |  `string` Optional. List of languages codes supported by the app, in addition to the `default_language_code`.  
-`enableMultilingualSupport` |  `boolean` Optional. Enables multilingual support. If true, agents in the app will use pre-built instructions to improve handling of multilingual input.  
+`enableMultilingualSupport` |  `boolean` Optional. Enables multilingual support. If `true`, agents in the app will use pre-built instructions to improve handling of multilingual input.  
 `fallbackAction  
 **(deprecated)**` |  `string` This item is deprecated!Optional. Deprecated: This feature is no longer supported. Use `enable_multilingual_support` instead to improve handling of multilingual input. The action to perform when an agent receives input in an unsupported language.This can be a predefined action or a custom tool call. Valid values are: - A tool's full resource name, which triggers a specific tool execution. - A predefined system action, such as "escalate" or "exit", which triggers an `EndSession` signal with corresponding `metadata` to terminate the conversation.  
   
@@ -518,7 +518,8 @@ JSON representation
       },
       "metricAnalysisSettings": {
         object ([MetricAnalysisSettings](https://docs.cloud.google.com/gemini-enterprise-cx/cx-agent-studio/reference/mcp/tools_list/list_apps#Output.Schema.MetricAnalysisSettings))
-      }
+      },
+      "requiredRecordingConsent": boolean
     }  
   
 Fields  
@@ -532,6 +533,7 @@ Fields
 `conversationLoggingSettings` |  `object (`[ConversationLoggingSettings](https://docs.cloud.google.com/gemini-enterprise-cx/cx-agent-studio/reference/mcp/tools_list/list_apps#Output.Schema.ConversationLoggingSettings)`)` Optional. Settings to describe the conversation logging behaviors for the app.  
 `evaluationAudioRecordingConfig` |  `object (`[AudioRecordingConfig](https://docs.cloud.google.com/gemini-enterprise-cx/cx-agent-studio/reference/mcp/tools_list/list_apps#Output.Schema.AudioRecordingConfig)`)` Optional. Configuration for how audio interactions should be recorded for the evaluation. By default, audio recording is not enabled for evaluation sessions.  
 `metricAnalysisSettings` |  `object (`[MetricAnalysisSettings](https://docs.cloud.google.com/gemini-enterprise-cx/cx-agent-studio/reference/mcp/tools_list/list_apps#Output.Schema.MetricAnalysisSettings)`)` Optional. Settings to describe the conversation data collection behaviors for the LLM analysis pipeline for the app.  
+`requiredRecordingConsent` |  `boolean` Optional. Whether the app has to say what may be recorded before anything is kept.When true, a session starts with recording off and stays off until the client sends `SessionInput.recording_control`, which then decides every turn from that point on. This covers audio recording as well as conversation history, BigQuery export and Cloud Logging.When `false`, the default, the settings above decide on their own and the client does not have to send anything.  
   
 ### RedactionConfig
 
@@ -547,7 +549,7 @@ JSON representation
   
 Fields  
 ---  
-`enableRedaction` |  `boolean` Optional. If true, redaction will be applied in various logging scenarios, including conversation history, Cloud Logging and audio recording.  
+`enableRedaction` |  `boolean` Optional. If `true`, redaction will be applied in various logging scenarios, including conversation history, Cloud Logging and audio recording.  
 `inspectTemplate` |  `string` Optional. [DLP](https://cloud.google.com/dlp/docs) inspect template name to configure detection of sensitive data types.Format: `projects/{project}/locations/{location}/inspectTemplates/{inspect_template}`  
 `deidentifyTemplate` |  `string` Optional. [DLP](https://cloud.google.com/dlp/docs) deidentify template name to instruct on how to de-identify content.Format: `projects/{project}/locations/{location}/deidentifyTemplates/{deidentify_template}`  
   
@@ -3131,6 +3133,7 @@ JSON representation
       },
       "parentToolCallId": string,
       "agentName": string,
+      "targetApp": string,
     
       // Union field tool_identifier can be only one of the following:
       "tool": string,
@@ -3147,6 +3150,7 @@ Fields
 `args` |  `object (`[Struct](https://protobuf.dev/reference/protobuf/google.protobuf/#struct)` format)` Optional. The input parameters and values for the tool in JSON object format.  
 `parentToolCallId` |  `string` Output only. The id of the tool call that caused this one, when it was issued by a sub-agent working on behalf of a parent call. Empty for top-level calls. Lets a client group a sub-agent's work under the call that started it instead of rendering every step as a sibling.  
 `agentName` |  `string` Output only. Human-readable name of the agent that issued this call, e.g. "Contract Architect". Empty when the root agent issued it.  
+`targetApp` |  `string` Output only. The app this call targets, derived by the assistant from the call's resource arguments: an app resource name, `PROJECT` for location-scoped tools, or empty for session-local tools. Set only in project-scoped assistant sessions.  
 Union field `tool_identifier`. The identifier of the tool to execute. It could be either a persisted tool or a tool from a toolset. `tool_identifier` can be only one of the following:  
 `tool` |  `string` Optional. The name of the tool to execute. Format: `projects/{project}/locations/{location}/apps/{app}/tools/{tool}`  
 `toolsetTool` |  `object (`[ToolsetTool](https://docs.cloud.google.com/gemini-enterprise-cx/cx-agent-studio/reference/mcp/tools_list/list_app_versions#Output.Schema.ToolsetTool)`)` Optional. The toolset tool to execute.  
@@ -3181,6 +3185,7 @@ JSON representation
       },
       "parentToolCallId": string,
       "agentName": string,
+      "targetApp": string,
     
       // Union field tool_identifier can be only one of the following:
       "tool": string,
@@ -3197,6 +3202,7 @@ Fields
 `response` |  `object (`[Struct](https://protobuf.dev/reference/protobuf/google.protobuf/#struct)` format)` Required. The tool execution result in JSON object format. Use "output" key to specify tool response and "error" key to specify error details (if any). If "output" and "error" keys are not specified, then whole "response" is treated as tool execution result.  
 `parentToolCallId` |  `string` Output only. The id of the tool call that caused this one, when it was issued by a sub-agent working on behalf of a parent call. Empty for top-level calls. Lets a client group a sub-agent's work under the call that started it instead of rendering every step as a sibling.  
 `agentName` |  `string` Output only. Human-readable name of the agent that issued this call, e.g. "Contract Architect". Empty when the root agent issued it.  
+`targetApp` |  `string` Output only. The app the executed tool targeted; mirrors `ToolCall.target_app`.  
 Union field `tool_identifier`. The identifier of the tool that got executed. It could be either a persisted tool or a tool from a toolset. `tool_identifier` can be only one of the following:  
 `tool` |  `string` Optional. The name of the tool to execute. Format: `projects/{project}/locations/{location}/apps/{app}/tools/{tool}`  
 `toolsetTool` |  `object (`[ToolsetTool](https://docs.cloud.google.com/gemini-enterprise-cx/cx-agent-studio/reference/mcp/tools_list/list_app_versions#Output.Schema.ToolsetTool)`)` Optional. The toolset tool that got executed.  
@@ -3292,7 +3298,10 @@ JSON representation
         string
       ],
       "matchType": enum ([MatchType](https://docs.cloud.google.com/gemini-enterprise-cx/cx-agent-studio/reference/mcp/tools_list/list_guardrails#Output.Schema.MatchType)),
-      "disregardDiacritics": boolean
+      "disregardDiacritics": boolean,
+      "sensitiveWordsExemptions": [
+        string
+      ]
     }  
   
 Fields  
@@ -3302,6 +3311,7 @@ Fields
 `bannedContentsInAgentResponse[]` |  `string` Optional. List of banned phrases. Applies only to agent responses.  
 `matchType` |  `enum (`[MatchType](https://docs.cloud.google.com/gemini-enterprise-cx/cx-agent-studio/reference/mcp/tools_list/list_guardrails#Output.Schema.MatchType)`)` Required. Match type for the content filter.  
 `disregardDiacritics` |  `boolean` Optional. If true, diacritics are ignored during matching.  
+`sensitiveWordsExemptions[]` |  `string` Optional. Entries of the sensitive words list that this guardrail allows. Only valid when match_type is SENSITIVE_WORDS. Each value must equal a list entry (case-insensitive, surrounding whitespace ignored); other values have no effect. Applies to this guardrail only. At most 1000 entries of up to 256 characters each.  
   
 ### LlmPromptSecurity
 
@@ -3364,7 +3374,7 @@ Fields
 ---  
 `maxConversationMessages` |  `integer` Optional. When checking this policy, consider the last 'n' messages in the conversation. When not set a default value of 10 will be used.  
 `modelSettings` |  `object (`[ModelSettings](https://docs.cloud.google.com/gemini-enterprise-cx/cx-agent-studio/reference/mcp/tools_list/list_apps#Output.Schema.ModelSettings)`)` Optional. Model settings.  
-`prompt` |  `string` Required. Policy prompt.  
+`prompt` |  `string` Required. Policy prompt. Supports session variable placeholders (`{var}`) as well as `{agent_system_instruction}` to inject the agent's resolved system instructions.  
 `policyScope` |  `enum (`[PolicyScope](https://docs.cloud.google.com/gemini-enterprise-cx/cx-agent-studio/reference/mcp/tools_list/list_guardrails#Output.Schema.PolicyScope)`)` Required. Defines when to apply the policy check during the conversation. If set to `POLICY_SCOPE_UNSPECIFIED`, the policy will be applied to the user input. When applying the policy to the agent response, additional latency will be introduced before the agent can respond.  
 `failOpen` |  `boolean` Optional. If an error occurs during the policy check, fail open and do not trigger the guardrail.  
 `allowShortUtterance` |  `boolean` Optional. By default, the LLM policy check is bypassed for short utterances. Enabling this setting applies the policy check to all utterances, including those that would normally be skipped.  
@@ -4101,6 +4111,7 @@ Enums
 `SIMPLE_STRING_MATCH` | Content is matched for substrings character by character.  
 `WORD_BOUNDARY_STRING_MATCH` | Content only matches if the pattern found in the text is surrounded by word delimiters. Banned phrases can also contain word delimiters.  
 `REGEXP_MATCH` | Content is matched using regular expression syntax.  
+`SENSITIVE_WORDS` | Content is matched against a system-managed list of sensitive words and phrases. Attaching a guardrail with this match type to an app or agent replaces the default sensitive words filter for the affected agents; disable the guardrail to opt out of the default filter.  
   
 ### PolicyScope
 
@@ -4185,6 +4196,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-09-28 UTC.
+Last updated 2026-11-04 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-09-28 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 

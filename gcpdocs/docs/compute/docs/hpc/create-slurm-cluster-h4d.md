@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/compute/docs/hpc/create-slurm-cluster-h4d/
 title: Create an H4D Slurm cluster with enhanced management capabilities \u00a0|\u00a0 Compute Engine \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T23:06:48.552411+00:00
+fetched_at: 2026-11-04T23:31:46.431282+00:00
 ---
 
 # Create an H4D Slurm cluster with enhanced management capabilities  |  Compute Engine  |  Google Cloud Documentation
@@ -38,14 +38,18 @@ Before creating a Slurm cluster, if you haven't already done so, complete the fo
 
 To learn more, see [Choose a consumption option and obtain capacity](https://docs.cloud.google.com/compute/docs/hpc/overview-hpc-clusters#consumption-and-capacity).
 
-  3. **Verify that you have enough Filestore capacity quota** : you need to have enough Filestore quota in your target region before deploying. The required minimum capacity depends on the machine types in your cluster: 
-     * **A4X Max, A4X, A4, A3 Ultra, and A3 Mega** : requires a minimum of 10 TiB (10,240 GiB) of HIGH_SCALE_SSD (zonal) capacity.
-     * **A3 High** : requires a minimum of 2.5 TiB (2,560 GiB) of BASIC_SSD (standard) capacity.
+  3. **Verify that you have enough Filestore or Google Cloud Managed Lustre quota** : you need to have enough Filestore or Managed Lustre quota in your target region and zone before you deploy. The required minimum quota depends on the storage service and machine types in your cluster: 
+     * **Managed Lustre** : 
+       * **A4X Max** : requires a minimum of 18,000 GiB of storage capacity quota and 9 GBps of throughput quota.
+       * **A4X, A4, A3 Ultra, A3 Mega, and A3 High** : requires a minimum of 36,000 GiB of storage capacity quota and 18 GBps of throughput quota.
+     * **Filestore** : 
+       * **A4X Max, A4X, A4, A3 Ultra, and A3 Mega** : requires a minimum of 10 TiB (10,240 GiB) of HIGH_SCALE_SSD (zonal) capacity quota.
+       * **A3 High** : requires a minimum of 2.5 TiB (2,560 GiB) of BASIC_SSD (standard) capacity quota.
 
 To check quota or request a quota increase, see the following:
 
      * To check quota in your project, see [View API-specific quota](https://docs.cloud.google.com/docs/quotas/view-manage#api_specific_quota).
-     * If you don't have enough quota, then [request a quota increase](https://docs.cloud.google.com/filestore/docs/requesting-quota-increases).
+     * If you don't have enough quota, then [request a Filestore quota increase](https://docs.cloud.google.com/filestore/docs/requesting-quota-increases) or [request additional Managed Lustre quota](https://docs.cloud.google.com/managed-lustre/docs/quotas#request_additional_quota).
   4. **Install Cluster Toolkit** : to provision Slurm clusters, you must use [Cluster Toolkit](https://docs.cloud.google.com/cluster-toolkit/docs/overview) version `v1.62.0` or later. 
 
 To install Cluster Toolkit, see [Set up Cluster Toolkit](https://docs.cloud.google.com/cluster-toolkit/docs/setup/configure-environment).
@@ -321,6 +325,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-04 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.datasets/searchDataItems/
 title: Method: datasets.searchDataItems \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T12:57:01.843382+00:00
+fetched_at: 2026-11-05T00:19:54.174950+00:00
 ---
 
 # Method: datasets.searchDataItems  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation
@@ -110,7 +110,7 @@ A container for a single DataItem and Annotations on it.
 
 Fields  
   
-`dataItem` `object (`[DataItem](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/DataItem)`)` The DataItem. | `annotations[]` `object (`[Annotation](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/Annotation)`)` The Annotations on the DataItem. If too many Annotations should be returned for the DataItem, this field will be truncated per annotationsLimit in request. If it was, then the hasTruncatedAnnotations will be set to true. | `hasTruncatedAnnotations` `boolean` True if and only if the Annotations field has been truncated. It happens if more Annotations for this DataItem met the request's annotationFilter than are allowed to be returned by annotationsLimit. Note that if Annotations field is not being returned due to field mask, then this field will not be set to true no matter how many Annotations are there. | JSON representation  
+`dataItem` `object (`[DataItem](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/DataItem)`)` The DataItem. | `annotations[]` `object (`Annotation`)` The Annotations on the DataItem. If too many Annotations should be returned for the DataItem, this field will be truncated per annotationsLimit in request. If it was, then the hasTruncatedAnnotations will be set to true. | `hasTruncatedAnnotations` `boolean` True if and only if the Annotations field has been truncated. It happens if more Annotations for this DataItem met the request's annotationFilter than are allowed to be returned by annotationsLimit. Note that if Annotations field is not being returned due to field mask, then this field will not be set to true no matter how many Annotations are there. | JSON representation  
 ---  
       
     
@@ -120,7 +120,7 @@ Fields
       },
       "annotations": [
         {
-          object ([Annotation](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/Annotation))
+          object (Annotation)
         }
       ],
       "hasTruncatedAnnotations": boolean
@@ -130,6 +130,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-11-03 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 

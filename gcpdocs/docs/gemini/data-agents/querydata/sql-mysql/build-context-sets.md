@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini/data-agents/querydata/sql-mysql/build-context-sets/
 title: Build context sets using the context engineering agent \u00a0|\u00a0 Data Agents \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T16:26:28.468644+00:00
+fetched_at: 2026-11-05T00:05:48.010389+00:00
 ---
 
 # Build context sets using the context engineering agent  |  Data Agents  |  Google Cloud Documentation
@@ -197,10 +197,10 @@ Depending on your selected agent harness, follow the corresponding installation 
 
 To install the context engineering agent in the Antigravity CLI, follow these steps:
 
-  1. Install the Antigravity CLI. See [Get Started with Antigravity CLI](https://antigravity.google/docs/cli/getting-started/).
-  2. Install the context engineering agent plugin, which includes workflows for context generation: 
+  1. Install the Antigravity CLI. See [Get Started with Antigravity CLI](https://antigravity.google/docs/cli).
+  2. Install the context engineering agent plugin, which includes workflows for context generation. Replace VERSION with the required [released version](https://github.com/GoogleCloudPlatform/db-context-enrichment/releases): 
          
-         agy plugin install https://github.com/GoogleCloudPlatform/db-context-enrichment/tree/main/plugin
+         agy plugin install https://github.com/GoogleCloudPlatform/db-context-enrichment/tree/VERSION
 
   3. Start the Antigravity CLI: 
          
@@ -209,11 +209,11 @@ To install the context engineering agent in the Antigravity CLI, follow these st
 
 
 
-To update the plugin to the latest version:
+To update the plugin to the latest version run the following command. Replace VERSION with the required [released version](https://github.com/GoogleCloudPlatform/db-context-enrichment/releases):
     
     
     agy plugin uninstall google-cloud-db-context-engineering
-    agy plugin install https://github.com/GoogleCloudPlatform/db-context-enrichment/tree/main/plugin
+    agy plugin install https://github.com/GoogleCloudPlatform/db-context-enrichment/tree/VERSION
 
 ### Claude Code
 
@@ -249,7 +249,7 @@ To install the context engineering agent in the Gemini CLI, follow these steps:
 
   3. Update the extension: 
          
-         gemini extensions update mcp-db-context-enrichment
+         gemini extensions update google-cloud-db-context-engineering
 
 
 
@@ -267,7 +267,7 @@ Configure [Application Default Credentials (ADC)](https://docs.cloud.google.com/
 
 
 
-Run the following commands in your terminal to authenticate:
+Run the following command in your terminal to authenticate:
     
     
     gcloud auth application-default login
@@ -278,7 +278,7 @@ The agent requires a database connection for context generation, which the [MCP 
 
 The configuration file specifies your database source and tools required to either fetch schemas or execute SQL. The context engineering agent comes with pre-installed Agent Skills to help you generate the configuration.
 
-**Note:** If this connection is not established, the agent returns error messages, such as "Error Discovering tools from mcp_toolbox", and context generation doesn't work.
+**Note:** Until `autoctx/tools.yaml` is created and reloaded, the Toolbox MCP server fails to connect with `/mcp` and returns `unable to read config file at "autoctx/tools.yaml: ... no such file or directory`.
 
   1. Start your agent environment.
 
@@ -321,16 +321,8 @@ Creating a representative golden dataset manually is time-consuming, and small d
 Optionally, you can let the agent execute the generated SQL against your database. This verification confirms that queries execute successfully before you add them to the dataset.
 
 The dataset is a JSON file containing question-SQL pairs:
-    
-    
-    [
-      {
-        "id": "example_001",
-        "nlq": "What is the total revenue for the top 5 products?",
-        "golden_sql": "SELECT product_id, sum(net_revenue) FROM sales GROUP BY product_id ORDER BY sum(net_revenue) DESC LIMIT 5;"
-      }
-    ]
-    
+
+`json [ { "id": "example_001", "nlq": "What is the total revenue for the top 5 products?", "golden_sql": "SELECT product_id, sum(net_revenue) FROM sales GROUP BY product_id ORDER BY sum(net_revenue) DESC LIMIT 5;" } ]`
 
 Approved pairs populate the `autoctx/golden.json` file in your workspace, where they are ready for evaluation. You can provide an existing file or write some evaluation examples inline for the agent to expand.
 
@@ -377,7 +369,8 @@ You can use the following example prompts to instruct the agent:
 To re-run a previously generated evaluation configuration without setting it up again, ask the agent or invoke the CLI directly:
     
     
-    uvx google-evalbench --run_config=autoctx/experiments/my-experiment/eval_configs/run_config.json
+    uvx google-evalbench --experiment_config=autoctx/experiments/my-experiment/eval_configs/run_config.yaml
+    
 
 For details on the evaluation configuration schema and how to customize evaluation runs, see the [Evalbench documentation](https://github.com/GoogleCloudPlatform/evalbench).
 
@@ -400,7 +393,7 @@ You can use the following example prompts to instruct the agent:
 
 
 
-To prepare for the next iteration, upload the improved context to the target context set using Data Agents Studio, follow the [instructions](https://docs.cloud.google.com/sql/docs/mysql/manage-data-agents#edit-context-set). 
+To prepare for the next iteration, upload the improved context to the target context set using Cloud SQL Studio, follow the [instructions](https://docs.cloud.google.com/sql/docs/mysql/manage-data-agents#edit-context-set). 
 
 ### Author specific context items on demand
 
@@ -453,6 +446,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-04 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 

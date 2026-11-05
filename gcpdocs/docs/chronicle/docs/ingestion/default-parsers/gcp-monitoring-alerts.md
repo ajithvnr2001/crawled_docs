@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/gcp-monitoring-alerts/
 title: Collect Google Cloud Monitoring alerting activity logs \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T07:49:53.925391+00:00
+fetched_at: 2026-11-04T23:42:36.534493+00:00
 ---
 
 # Collect Google Cloud Monitoring alerting activity logs  |  Google Security Operations  |  Google Cloud Documentation

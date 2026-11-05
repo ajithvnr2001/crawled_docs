@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/docs/security/compliance/restrict-endpoint-usage/
 title: Restrict endpoint usage \u00a0|\u00a0 Security \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-03T09:44:23.558524+00:00
+fetched_at: 2026-11-04T23:32:43.671848+00:00
 ---
 
 # Restrict endpoint usage  |  Security  |  Google Cloud Documentation
@@ -1456,6 +1456,18 @@ Locational API endpoints:
 Gemini for Google Cloud API  |  Global API endpoints: 
 
   * `cloudaicompanion.googleapis.com`
+
+  
+|  None   
+Google Antigravity for Enterprise  |  Global API endpoints: 
+
+  * `businessaicode.googleapis.com`
+
+  
+Regional API endpoints: 
+
+  * `businessaicode.eu.rep.googleapis.com`
+  * `businessaicode.us.rep.googleapis.com`
 
   
 |  None   

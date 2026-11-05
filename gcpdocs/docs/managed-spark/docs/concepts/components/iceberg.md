@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/managed-spark/docs/concepts/components/iceberg/
 title: Managed Service for Apache Spark optional Iceberg component \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T22:15:26.173326+00:00
+fetched_at: 2026-11-05T00:20:21.596428+00:00
 ---
 
 # Managed Service for Apache Spark optional Iceberg component  |  Google Cloud Documentation
@@ -23,15 +23,9 @@ Send feedback
 
 #  Managed Service for Apache Spark optional Iceberg component Stay organized with collections  Save and categorize content based on your preferences. 
 
-You can install additional components like Iceberg when you create a Managed Service for Apache Spark cluster using the [Optional components](https://docs.cloud.google.com/managed-spark/docs/concepts/components/overview#available_optional_components) feature. This page describes how you can optionally install the Iceberg component on a Managed Service for Apache Spark cluster.
+The Iceberg optional component lets you manage data lakehouse tables with ACID transactions and schema evolution on Managed Service for Apache Spark clusters. You can install Iceberg during cluster creation by using the [Optional components](https://docs.cloud.google.com/managed-spark/docs/concepts/components/overview#available_optional_components) feature to query and update tables across Spark and Hive workloads.
 
-## Overview
-
-[Apache Iceberg](https://iceberg.apache.org/) is an open table format for large analytic datasets. It brings the reliability and simplicity of SQL tables to Big Data, while making it possible for engines such as Spark, Trino, PrestoDB, Flink, and Hive to safely work with the same tables at the same time.
-
-When installed on a Managed Service for Apache Spark cluster, the [Apache Iceberg](https://iceberg.apache.org/) component installs Iceberg libraries and configures Spark and Hive to work with Iceberg on the cluster.
-
-### Key Iceberg features
+## Key Iceberg features
 
 Iceberg features include the following:
 
@@ -41,12 +35,6 @@ Iceberg features include the following:
   * **ACID transactions:** Ensure data consistency and prevent conflicts.
 
 
-
-## Compatible Managed Service for Apache Spark image versions
-
-You can install the Iceberg component on Managed Service for Apache Spark clusters created with [2.2.47](https://docs.cloud.google.com/managed-spark/docs/concepts/versioning/dataproc-release-2.2) and later image versions. The Iceberg version installed on the cluster is listed in the [2.2 release versions](https://docs.cloud.google.com/managed-spark/docs/concepts/versioning/dataproc-release-2.2) page.
-
-**Note:** Managed Service for Apache Spark image version `3.0` includes Hive 4.2, which supports Iceberg through the Iceberg REST catalog.
 
 ## Iceberg related properties
 
@@ -78,7 +66,9 @@ Config file | Property | Default value
   
 ## Install the Iceberg optional component
 
-Install the Iceberg component when you [create a Managed Service for Apache Spark cluster](https://docs.cloud.google.com/managed-spark/docs/guides/create-cluster#creating_a_cloud_dataproc_cluster). The [Managed Service for Apache Spark cluster image version list](https://docs.cloud.google.com/managed-spark/docs/concepts/versioning/dataproc-version-clusters#supported-dataproc-image-versions) pages show the Iceberg component version included in the latest Managed Service for Apache Spark cluster image versions.
+You can install the Iceberg component on Managed Service for Apache Spark clusters created with [2.2.47](https://docs.cloud.google.com/managed-spark/docs/concepts/versioning/dataproc-release-2.2) and later image versions. The [Managed Service for Apache Spark cluster image version list](https://docs.cloud.google.com/managed-spark/docs/concepts/versioning/dataproc-version-clusters#supported-dataproc-image-versions) pages show the Iceberg component version included in the latest Managed Service for Apache Spark cluster image versions.
+
+**Note:** Managed Service for Apache Spark image version `3.0` includes Hive 4.2, which supports Iceberg through the Iceberg REST catalog.
 
 ### Google Cloud console
 
@@ -363,6 +353,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-03 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 

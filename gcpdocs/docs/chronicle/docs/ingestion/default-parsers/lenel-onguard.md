@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/lenel-onguard/
 title: Collect LenelS2 OnGuard logs \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T07:49:42.682695+00:00
+fetched_at: 2026-11-04T23:34:23.705360+00:00
 ---
 
 # Collect LenelS2 OnGuard logs  |  Google Security Operations  |  Google Cloud Documentation

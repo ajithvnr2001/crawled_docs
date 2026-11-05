@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/knowledge-catalog/docs/faq/
 title: Knowledge Catalog FAQ \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-30T08:45:05.544842+00:00
+fetched_at: 2026-11-05T00:20:22.465359+00:00
 ---
 
 # Knowledge Catalog FAQ  |  Google Cloud Documentation
@@ -104,6 +104,46 @@ To avoid incurring charges, verify your ongoing scans and stop triggering new sc
 
 Google Cloud provides metering for data tokens. This metering lets administrators and agent owners monitor their token consumption. To track token consumption for data insights scan jobs and build custom dashboards in Cloud Monitoring, see [Monitor data insights token usage](https://docs.cloud.google.com/knowledge-catalog/docs/monitor-insights-token-usage).
 
+### How can I control costs and set token limits for data insights?
+
+To manage costs and set limits on data insights token usage, see [Quotas and limits for data insights](https://docs.cloud.google.com/knowledge-catalog/docs/quotas#data-insights-quotas).
+
+### What happens when data insights quota limits are reached?
+
+Knowledge Catalog checks both input and output token quotas before starting a scan and deducts the consumed tokens after a scan completes.
+
+#### What happens to scans already in progress when the limit is crossed?
+
+Knowledge Catalog checks quota only at the start of a scan, not mid-scan. If a scan starts while quota is still available and its token usage pushes the project over the daily limit, that scan completes normally and publishes its generated insights. After the post-scan billing reconciliation completes, Knowledge Catalog marks the daily quota bucket as exhausted (100%) for the remainder of the day.
+
+#### What happens to subsequent scans triggered after the limit is reached?
+
+After the input or output daily token quota is exhausted, Knowledge Catalog immediately blocks any new on-demand or scheduled insights scan before execution. Rejected scans don't incur token charges.
+
+#### What do I see in the Google Cloud console?
+
+When a scan fails because the token quota is exceeded, BigQuery Studio and Knowledge Catalog in the Google Cloud console display the following behavior:
+
+  * **On a table or dataset with existing insights** : regeneration fails with the following inline error banner:
+
+`Knowledge Catalog Insights token quota limit exceeded for this project.`
+
+All previously generated descriptions and suggested SQL queries remain visible and usable.
+
+  * **On a new table or dataset with no prior insights** : generation fails and displays the quota-exceeded error banner in the empty state. The **Generate insights** button remains available to retry.
+
+
+
+
+#### How can I resume data insights generation?
+
+To resume data insights generation, do one of the following:
+
+  * **Wait for the daily reset** : daily token counters automatically reset to 0 at midnight Pacific Time (00:00 PT).
+  * **Increase the quota limit** : a project administrator can raise the daily limit (or reset it to unlimited) on the [**Quotas & System Limits**](https://console.cloud.google.com/iam-admin/quotas) page in the Google Cloud console to resume insights generation immediately.
+
+
+
 ## Billing and cost monitoring
 
 Explore frequently asked questions about monitoring and attributing compute costs in Knowledge Catalog.
@@ -125,6 +165,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-30 UTC.
+Last updated 2026-11-03 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 

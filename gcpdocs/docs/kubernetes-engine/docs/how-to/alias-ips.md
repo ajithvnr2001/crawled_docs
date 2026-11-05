@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/kubernetes-engine/docs/how-to/alias-ips/
 title: Create a VPC-native cluster \u00a0|\u00a0 GKE networking \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T23:38:24.523383+00:00
+fetched_at: 2026-11-04T23:31:26.076005+00:00
 ---
 
 # Create a VPC-native cluster  |  GKE networking  |  Google Cloud Documentation
@@ -491,6 +491,12 @@ Replace the following:
 
 
 
+### Create a single-stack IPv6 cluster (Preview)
+
+You can create a single-stack IPv6 cluster where GKE assigns only IPv6 addresses to Pods, nodes, and Services. Single-stack IPv6 clusters require GKE Dataplane V2, Cloud DNS, and a dedicated internal subnetwork for Private Service Connect.
+
+Single-stack IPv6 clusters allocate node and Pod IPv6 address subranges directly without using IPv4 alias IP address ranges. For more information, see [Create and manage single-stack IPv6 clusters](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/single-stack-ipv6).
+
 ## Update the stack type
 
 You can change the stack type of an existing cluster or a update an existing subnet to a dual-stack subnet.
@@ -513,6 +519,8 @@ Before you change the stack type on an existing cluster, consider the following 
 
 
 To update an existing VPC-native cluster, you can use gcloud CLI or the Google Cloud console:
+
+**Note:** You can't directly update an existing IPv4 (`ipv4`) or dual-stack (`ipv4-ipv6`) cluster to a single-stack IPv6 (`ipv6`) cluster, or vice versa. Instead, you must transition workloads by using a side-by-side blue-green migration. To learn more, see [Migrate to single-stack IPv6 clusters](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/single-stack-ipv6#migrate-to-ipv6).
 
 ### gcloud
 
@@ -689,6 +697,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-04 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 

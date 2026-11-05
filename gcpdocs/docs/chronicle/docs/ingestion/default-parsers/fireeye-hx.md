@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/fireeye-hx/
 title: Collect Trellix Endpoint Security HX (formerly FireEye HX) logs \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T07:51:07.739520+00:00
+fetched_at: 2026-11-04T23:34:32.636590+00:00
 ---
 
 # Collect Trellix Endpoint Security HX (formerly FireEye HX) logs  |  Google Security Operations  |  Google Cloud Documentation

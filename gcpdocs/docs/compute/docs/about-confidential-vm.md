@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/compute/docs/about-confidential-vm/
 title: About Confidential VM \u00a0|\u00a0 Compute Engine \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T23:47:13.414001+00:00
+fetched_at: 2026-11-05T00:19:32.121117+00:00
 ---
 
 # About Confidential VM  |  Compute Engine  |  Google Cloud Documentation
@@ -21,7 +21,7 @@ Send feedback
 
 #  About Confidential VM Stay organized with collections  Save and categorize content based on your preferences. 
 
-A Confidential VM is a Compute Engine VM that uses a [specific machine type](https://docs.cloud.google.com/confidential-computing/confidential-vm/docs/supported-configurations#machine-type-cpu-zone) and keeps your sensitive code and other data encrypted in memory during processing, that is, it performs _encryption-in-use_. Together with [_encryption-at-rest_](https://docs.cloud.google.com/docs/security/encryption/default-encryption) and [_encryption-in-transit_](https://docs.cloud.google.com/docs/security/encryption-in-transit), Confidential VM can help keep your data and applications encrypted at all times.
+A Confidential VM is a Compute Engine VM that uses a [specific machine type](https://docs.cloud.google.com/confidential-computing/confidential-vm/docs/supported-configurations#machine-types) and keeps your sensitive code and other data encrypted in memory during processing, that is, it performs _encryption-in-use_. Together with [_encryption-at-rest_](https://docs.cloud.google.com/docs/security/encryption/default-encryption) and [_encryption-in-transit_](https://docs.cloud.google.com/docs/security/encryption-in-transit), Confidential VM can help keep your data and applications encrypted at all times.
 
 For a more detailed conceptual overview, see [Confidential VM overview](https://docs.cloud.google.com/confidential-computing/confidential-vm/docs/confidential-vm-overview).
 
@@ -48,6 +48,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-03 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 

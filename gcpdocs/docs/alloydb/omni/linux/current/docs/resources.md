@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/omni/linux/current/docs/resources/
 title: Resources \u00a0|\u00a0 AlloyDB Omni using RPM: Current (18.4.0) \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T18:42:13.165299+00:00
+fetched_at: 2026-11-04T23:31:08.364573+00:00
 ---
 
 # Resources  |  AlloyDB Omni using RPM: Current (18.4.0)  |  Google Cloud Documentation
@@ -27,6 +27,7 @@ Send feedback
   * ### [Pricing Understand how your AlloyDB Omni using RPM usage is charged.  ](https://docs.cloud.google.com/alloydb/omni#pricing)
   * ### [Release notes Stay informed about AlloyDB Omni using RPM releases, features, updates, and known issues.  ](https://docs.cloud.google.com/alloydb/omni/linux/current/docs/release-notes)
   * ### [Database version policies Read how AlloyDB Omni using RPM supports PostgreSQL database version releases.  ](https://docs.cloud.google.com/alloydb/omni/linux/current/docs/db-version-policies)
+  * ### [Security bulletin View Common Vulnerabilities and Exposures (CVE) information and security updates for AlloyDB Omni using RPM.  ](https://docs.cloud.google.com/alloydb/omni/linux/current/docs/security-bulletins)
 
 
 

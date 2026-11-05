@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-pro-image/
 title: Gemini 3 Pro Image (Nano Banana Pro) \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-03T09:52:29.827149+00:00
+fetched_at: 2026-11-04T23:12:33.703114+00:00
 ---
 
 # Gemini 3 Pro Image (Nano Banana Pro)  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation
@@ -82,7 +82,7 @@ APIs |
 
   * [GenerateContent API](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/models/inference)   
 Supported
-  * [Interactions API](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/interactions) previewPreview feature  
+  * [Interactions API](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/interactions)   
 Not supported
   * [Gemini Live API](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/live-api)   
 Not supported
@@ -105,12 +105,15 @@ Supported
 Not supported
 
   
-Input size limit |  500 MB   
+Input size limit |  500 MiB compressed   
 Technical specifications |  **Image** photo | 
 
-  * Maximum images per prompt: 14 (up to 10 HTTP or HTTPS URLs)
-  * Maximum file size per file for inline data or direct uploads through the console: 7 MB
-  * Maximum file size per file from Google Cloud Storage: 30 MB
+  * Maximum images per prompt: 14
+  * Maximum inline part size: 256 MB
+  * Maximum file size per file from Cloud Storage: 2 GiB minus 500 KiB
+  * Maximum file size per file from public HTTP or HTTPS URLs: 15 MiB
+  * Maximum file size per file for direct local uploads in the console: 7 MiB inline (up to 50 MiB staged to Cloud Storage)
+  * Maximum file size per file for Google Drive imports in the console: 7 MB (10 MB total)
   * Maximum number of output images per prompt: Limited to 32,768 output tokens
   * Supported aspect ratios: 1:1, 3:2, 2:3, 3:4, 1:4, 4:1, 4:3, 4:5, 5:4, 1:8, 8:1, 9:16, 16:9, 21:9
   * Supported resolutions: 1K, 2K, 4K
@@ -121,7 +124,11 @@ Technical specifications |  **Image** photo |
 
   * Maximum number of files per prompt: As supported by the 65,536 token context window
   * Maximum number of pages per file: As supported by the 65,536 token context window
-  * Maximum file size per file: 50 MB (API and Cloud Storage imports) or 7 MB (direct upload through Google Cloud console)
+  * Maximum inline part size: 256 MB
+  * Maximum file size per file from Cloud Storage: 2 GiB minus 500 KiB
+  * Maximum file size per file from public HTTP or HTTPS URLs: 15 MiB
+  * Maximum file size per file for direct local uploads in the console: 7 MiB inline (up to 50 MiB staged to Cloud Storage)
+  * Maximum file size per file for Google Drive imports in the console: 7 MB (10 MB total)
   * Supported MIME types: `application/pdf`, `text/plain`
 
   
@@ -210,6 +217,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-02 UTC.
+Last updated 2026-11-04 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-02 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 

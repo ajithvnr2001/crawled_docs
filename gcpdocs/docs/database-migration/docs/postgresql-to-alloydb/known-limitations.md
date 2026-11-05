@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/database-migration/docs/postgresql-to-alloydb/known-limitations/
 title: Known limitations \u00a0|\u00a0 Database Migration Service for PostgreSQL to AlloyDB \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-03T09:54:17.421744+00:00
+fetched_at: 2026-11-05T00:17:49.829718+00:00
 ---
 
 # Known limitations  |  Database Migration Service for PostgreSQL to AlloyDB  |  Google Cloud Documentation
@@ -73,6 +73,8 @@ Known limitations for using a PostgreSQL database as a source include:
 
   * The [ Private Service Connect interfaces connectivity method](https://docs.cloud.google.com/database-migration/docs/postgresql-to-alloydb/networking-methods#psc-interfaces) is only supported for migrating to existing destination clusters. If you want to use private IP connectivity and migrate to a new destination cluster in a standard migration, use VPC peering.
 
+  * Identity and Access Management database authentication for destination clusters isn't supported. Database Migration Service connects to the destination database using database user authentication. For more information about IAM, see [ Manage IAM authentication](https://docs.cloud.google.com/alloydb/docs/database-users/manage-iam-auth) in the AlloyDB for PostgreSQL documentation.
+
 
 
 
@@ -108,12 +110,16 @@ If you encounter issues due to extra data in your existing destination cluster, 
 
 
 
-### Data dump and replication parallelism considerations
+### Data dump parallelism considerations
 
-Increasing data dump and replication parallelism can accelerate initial snapshot dumps and ongoing change data capture (CDC) replication, but it also increases connection and resource utilization on both your source database and your destination AlloyDB for PostgreSQL cluster:
+When you [create a migration job](https://docs.cloud.google.com/database-migration/docs/postgresql-to-alloydb/create-migration-job), you can increase the number of parallel subscriptions to accelerate the initial data dump and ongoing change data capture (CDC) replication. Using higher data dump parallelism settings also increases connection and resource utilization on both your source database and your destination AlloyDB for PostgreSQL cluster.
 
-  * Ensure that your source database has sufficient CPU, memory, and I/O headroom before selecting `OPTIMAL` or `MAX` parallelism.
-  * When using adjusted data dump or replication parallelism, you must configure higher values for `max_replication_slots`, `max_wal_senders`, and `max_worker_processes` on your source and destination databases. For detailed parameter calculations, see [Configure your source database](https://docs.cloud.google.com/database-migration/docs/postgresql-to-alloydb/configure-source-database) and [Specify dump and replication parallelism](https://docs.cloud.google.com/database-migration/docs/postgresql-to-alloydb/create-migration-job#specify-dd-parallelism).
+  * Ensure that your source database has sufficient CPU, memory, and I/O headroom before you use **Maximum** parallelism.
+  * When using adjusted data dump parallelism, you must configure higher values for `max_replication_slots`, `max_wal_senders`, and `max_worker_processes` on your source database. For detailed parameter calculations, see [Configure your source database](https://docs.cloud.google.com/database-migration/docs/postgresql-to-alloydb/configure-source-database).
+  * The `pglogical` extension replicates data at the table level during the initial full dump. A single non-partitioned table is assigned to one subscription and isn't split across multiple parallel subscriptions or worker threads.
+  * The `pglogical` extension replicates individual leaf partitions as separate tables and can distribute multiple leaf partitions across parallel subscriptions during the initial full dump. A single large leaf partition can't be split across multiple subscriptions and is copied by a single thread.
+  * Database Migration Service sorts tables by size and distributes them across parallel subscriptions. Database Migration Service creates up to 2 subscriptions per database (and up to 2 total across all databases) for **Optimal** parallelism, and up to 4 subscriptions per database (and up to 4 total across all databases) for **Maximum** parallelism, with at least 1 subscription per migrated database. For example, if a database has one 1 TB table and several small tables, Database Migration Service isolates the 1 TB table in one subscription and distributes the smaller tables across the remaining subscriptions. Even with multiple subscriptions active, the overall initial dump speed is still bounded by the time required to copy the single 1 TB table.
+  * Database Migration Service assigns tables without primary keys to dedicated insert-only replication sets (one per parallel subscription). Multiple tables without primary keys can be distributed across parallel subscriptions, but during the initial full dump each individual table is copied as a single table stream within one subscription and isn't split across multiple parallel threads.
 
 
 
@@ -144,6 +150,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-02 UTC.
+Last updated 2026-11-03 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-02 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 

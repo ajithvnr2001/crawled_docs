@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/transfer-appliance/docs/4.0/procedure-guide/
 title: High-level overview \u00a0|\u00a0 Transfer Appliance \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T05:41:10.680465+00:00
+fetched_at: 2026-11-04T23:41:27.069265+00:00
 ---
 
 # High-level overview  |  Transfer Appliance  |  Google Cloud Documentation
@@ -86,9 +86,15 @@ You will be able to get these required permissions through [custom roles](https:
      2. Find and select the appliance
      3. Click on the `Open Setup Checklist` button
      4. Complete the following steps: 
-        1. `Enable API` will enable the required APIs for the appliance
-        2. `Authorize the service accounts` will create service accounts used for online transfer and authorize service accounts to the output bucket
-        3. (only for online transfer) [Create and Download](https://docs.cloud.google.com/transfer-appliance/docs/4.0/online-transfer#download-appliance-sa-key) the key of the appliance service account that is created during `Authorize the service accounts`
+        1. `Enable API`: enables the APIs required by the appliance in the project that you ordered the appliance from. For online transfer, this enables the Transfer Appliance API, the Pub/Sub API, and the Storage Transfer Service API.
+        2. `Authorize the service accounts`: creates the service accounts used for transfer and grants them access to your project and to the destination bucket. For online transfer, do the following: 
+           1. Click **Create service account** to create the _appliance service account_. The appliance service account has the format `ID@PROJECT_ID.iam.gserviceaccount.com`. The appliance uses this service account, through the key that you upload to the appliance, to create and run Storage Transfer Service jobs and to upload your data to the destination bucket.
+           2. Grant the listed roles to the appliance service account and to the Storage Transfer Service service agent of your project (`project-PROJECT_NUMBER@storage-transfer-service.iam.gserviceaccount.com`).
+        3. (only for online transfer) [Create and Download](https://docs.cloud.google.com/transfer-appliance/docs/4.0/online-transfer#download-appliance-sa-key) a key for the appliance service account that you created in the previous step. The key must belong to the appliance service account. Don't create a key for any of the other service accounts listed in the checklist.
+**Note:** For online transfer, you only need the appliance service account and the Storage Transfer Service service agent of your project. The checklist also lists a session service account (`SESSION_ID@transfer-appliance-zimbru.iam.gserviceaccount.com`) and a Storage Transfer Service service agent that belongs to a Google-managed tenant project. These service accounts are only used for offline transfer. You only need to authorize them if you switch the appliance to offline mode and ship it back to Google.
+
+If you can't use the setup checklist, for example because your organization doesn't allow service account keys to be created in the order project, you can configure the APIs, service accounts, and roles manually, including using a service account that belongs to a different project. For the required APIs and the least-privilege roles, see [Prepare for online transfer](https://docs.cloud.google.com/transfer-appliance/docs/4.0/prepare-online).
+
 
 
 
@@ -178,6 +184,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-04 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 

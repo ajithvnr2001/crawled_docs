@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/firestore/native/docs/app-engine-requirement/
 title: App Engine Requirement \u00a0|\u00a0 Firestore in Native mode \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T08:01:07.219090+00:00
+fetched_at: 2026-11-04T23:45:44.103878+00:00
 ---
 
 # App Engine Requirement  |  Firestore in Native mode  |  Google Cloud Documentation

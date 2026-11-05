@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/knowledge-catalog/docs/import-glossaries-entrylinks-json/
 title: Import business glossaries and entry links using JSON files \u00a0|\u00a0 Knowledge Catalog \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-03T09:53:48.489082+00:00
+fetched_at: 2026-11-04T23:31:59.764038+00:00
 ---
 
 # Import business glossaries and entry links using JSON files  |  Knowledge Catalog  |  Google Cloud Documentation
@@ -55,6 +55,23 @@ To import glossaries and entry links, enable the Dataplex API in your project.
 To enable APIs, you need the `serviceusage.services.enable` permission. If you created the project, then you likely already have this permission through the Owner role (`roles/owner`). Otherwise, you can get this permission through the Service Usage Admin role (`roles/serviceusage.serviceUsageAdmin`). [Learn how to grant roles](https://docs.cloud.google.com/iam/docs/granting-changing-revoking-access). 
 
 [Enable the APIs](https://console.cloud.google.com/apis/enableflow?apiid=dataplex.googleapis.com,cloudresourcemanager.googleapis.com,storage.googleapis.com)
+
+## Glossary terms versus physical entries
+
+The structure of your catalog is based on the following components:
+
+  * **Glossary terms** : business concepts, such as annual revenue, that are organized into glossaries and categories.
+  * **Entries** : physical data assets, such as a BigQuery table or column.
+
+
+
+_Glossary_ import jobs create new glossary categories and terms and overwrite any existing ones. _Entry link_ import jobs create links either between glossary terms (for example, synonyms or related terms) or between glossary terms and physical entries (for example, between a term and a physical data asset). See the [Manage a business glossary](https://docs.cloud.google.com/knowledge-catalog/docs/manage-glossaries) page for more information about structuring your catalog.
+
+### Bulk import behavior
+
+Business glossary and entry link imports are separate processes and have different default quotas. See the [Quotas and limits](https://docs.cloud.google.com/knowledge-catalog/docs/quotas-limits#quotas_for_requests) page for more information.
+
+Glossary bulk import jobs use `"entry_sync_mode": "FULL"` and operate in full overwrite mode. When you run an import job for an existing glossary, Knowledge Catalog deletes any existing categories and terms and recreates them from your uploaded JSON files. Recreating glossary terms assigns them new unique IDs and deletes any existing entry links attached to those terms, such as links to BigQuery columns. To restore these relationships, you must re-import your entry links after the glossary import job finishes. Entry link imports only create entry new entry links, without overwriting or deleting existing ones.
 
 ## Import glossaries using JSON files
 
@@ -236,6 +253,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-04 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 

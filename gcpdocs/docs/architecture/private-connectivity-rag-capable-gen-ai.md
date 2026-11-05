@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/architecture/private-connectivity-rag-capable-gen-ai/
 title: Private connectivity for RAG-capable generative AI applications \u00a0|\u00a0 Cloud Architecture Center \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T05:58:07.770330+00:00
+fetched_at: 2026-11-04T23:30:07.199876+00:00
 ---
 
 # Private connectivity for RAG-capable generative AI applications  |  Cloud Architecture Center  |  Google Cloud Documentation
@@ -19,7 +19,7 @@ Send feedback
 
 #  Private connectivity for RAG-capable generative AI applications Stay organized with collections  Save and categorize content based on your preferences. 
 
-Last reviewed 2025-12-12 UTC
+Last reviewed 2026-11-03 UTC
 
 This document provides a reference architecture that you can use to help secure the network infrastructure for [applications with retrieval-augmented generation (RAG)](https://docs.cloud.google.com/architecture/rag-reference-architectures). A RAG architecture typically contains separate subsystems to handle the data processing and content retrieval flows. This reference architecture demonstrates how to use Shared VPC to do the following:
 
@@ -40,9 +40,10 @@ The following diagram shows the networking architecture that this document prese
 
 The architecture in the preceding diagram shows the following components:
 
-Component | Purpose  
----|---  
-External network, either on-premises or in another cloud | 
+External network, either on-premises or in another cloud
+    
+
+An external network that performs the following functions:
 
   * Provides network connectivity to data engineers who upload raw RAG data.
   * Terminates external network connectivity.
@@ -50,31 +51,53 @@ External network, either on-premises or in another cloud |
   * Provides connectivity to the Private Service Connect endpoint in the Google Cloud routing Virtual Private Cloud (VPC) network.
   * Contains DNS servers that point to the Private Service Connect endpoint.
 
-  
-Routing project | 
+
+Routing project
+    
+
+A Google Cloud project that performs the following functions:
 
   * Hosts the routing VPC network, which connects to the external network through a Cloud Interconnect or Cloud VPN connection.
   * Hosts a Network Connectivity Center (NCC) hub that connects the external network, routing VPC network, and Shared VPC networks together.
-  * Hosts a Private Service Connect endpoint that connects to a regional Cloud Storage endpoint. This endpoint lets data engineers upload RAG data to the Cloud Storage bucket. 
+  * Hosts a Private Service Connect endpoint that connects to a regional Cloud Storage endpoint. This endpoint lets data engineers upload RAG data to the Cloud Storage bucket.
 
-  
-RAG Shared VPC host project | Hosts a Shared VPC network that hosts the frontend service internal Application Load Balancer and any other services that need a VPC network. All service projects have access to that Shared VPC network.  
-Data ingestion service project |  Contains a Cloud Storage bucket for raw data input. Contains the data ingestion subsystem, which includes the following components:
+
+RAG Shared VPC host project
+    
+
+Hosts a Shared VPC network that hosts the frontend service internal Application Load Balancer and any other services that need a VPC network. All service projects have access to that Shared VPC network.
+
+Data ingestion service project
+    
+
+Contains a Cloud Storage bucket for raw data input. Contains the data ingestion subsystem, which includes the following components:
 
   * **Ingestion processing** : Reads raw data and processes it.
   * **Ingestion output** : Writes to the final datastore.
 
-  
-Serving service project |  Contains the serving subsystem, which includes the following components that provide the services and functions for inference and interaction:
+
+Serving service project
+    
+
+Contains the serving subsystem, which includes the following components that provide the services and functions for inference and interaction:
 
   * RAG datastore that contains the output of the data ingestion subsystem.
   * Serving processes that feed the model by combining the inference query with data from the RAG datastore.
   * The model that the serving subsystem uses to create vectors from the uploaded RAG data and to process the end-user request.
 
-  
-Frontend service project |  Contains the serving subsystem, which is an Application Load Balancer in front of a user-interaction service that runs on Cloud Run or Google Kubernetes Engine (GKE). The project also contains Google Cloud Armor, which helps limit how your service is accessed. If you want to provide access from the internet, you can add a regional external Application Load Balancer.  
-VPC Service Controls perimeter | Helps protect against data exfiltration. Data that's stored in Cloud Storage buckets can't be copied to anywhere outside of the perimeter, and control plane operations are protected.  
-  
+
+Frontend service project
+    
+
+Contains the frontend subsystem, which is an Application Load Balancer in front of a user-interaction service that runs on Cloud Run or Google Kubernetes Engine (GKE).
+
+The project also contains Google Cloud Armor, which helps limit how your service is accessed. If you want to provide access from the internet, you can add a regional external Application Load Balancer.
+
+VPC Service Controls perimeter
+    
+
+Helps protect against data exfiltration. Data that's stored in Cloud Storage buckets can't be copied to anywhere outside of the perimeter, and control plane operations are protected.
+
 The following sections describe the connections and the traffic flows that are in the architecture.
 
 ### Connections between components
@@ -157,7 +180,7 @@ This reference architecture uses the following Google Cloud products:
   * [ Shared VPC](https://docs.cloud.google.com/vpc/docs/shared-vpc): A feature of Virtual Private Cloud that lets you connect resources from multiple projects to a common VPC network by using internal IP addresses from that network.
   * [ Private Service Connect](https://docs.cloud.google.com/vpc/docs/private-service-connect): A feature that lets consumers access managed services privately from inside their VPC network.
   * [ Private Google Access](https://docs.cloud.google.com/vpc/docs/private-google-access): A feature that lets VM instances without external IP addresses reach the external IP addresses of Google APIs and services.
-  * [ Cloud Interconnect](https://cloud.google.com/network-connectivity/docs/interconnect/concepts/overview): A service that extends your external network to the Google network through a high-availability, low-latency connection.
+  * [ Cloud Interconnect](https://docs.cloud.google.com/network-connectivity/docs/interconnect/concepts/overview): A service that extends your external network to the Google network through a high-availability, low-latency connection.
   * [ Cloud VPN](https://docs.cloud.google.com/network-connectivity/docs/vpn): A service that securely extends your peer network to Google's network through an IPsec VPN tunnel.
   * [ Cloud Router](https://docs.cloud.google.com/network-connectivity/docs/router/concepts/overview): A distributed and fully managed offering that provides Border Gateway Protocol (BGP) speaker and responder capabilities. Cloud Router works with Cloud Interconnect, Cloud VPN, and Router appliances to create dynamic routes in VPC networks based on BGP-received and custom learned routes.
   * [ Network Connectivity Center](https://cloud.google.com/network-connectivity-center): An orchestration framework that simplifies network connectivity among spoke resources that are connected to a central management resource called a _hub_. 
@@ -189,27 +212,69 @@ In the architecture that's shown in this document, only users in your internal n
 
 ### Use GKE Inference Gateway
 
-If your frontend subsystem runs on GKE, you can use an [Inference Gateway](https://docs.cloud.google.com/kubernetes-engine/docs/concepts/about-gke-inference-gateway) instead of an Application Load Balancer.
+If your frontend subsystem runs on GKE, you can use [GKE Inference Gateway](https://docs.cloud.google.com/kubernetes-engine/docs/concepts/about-gke-inference-gateway) instead of an Application Load Balancer.
 
 ## Design considerations
 
-This section provides additional guidance to help you deploy networking to support private connectivity for a RAG-capable architecture. This guidance can help you meet your specific requirements for security and compliance, reliability, cost, and performance. The guidance in this section isn't exhaustive. For your particular deployment, you might need to consider additional design factors that aren't covered in this section.
+This section provides additional guidance to help you deploy networking to support private connectivity for a RAG-capable architecture. This guidance can help you meet your specific requirements for security, privacy, and compliance, reliability, cost optimization, operational efficiency, and performance optimization. The guidance in this section isn't exhaustive. For your particular deployment, you might need to consider additional design factors that aren't covered in this section.
 
 ### Security, privacy, and compliance
 
-In most cases, you deploy [Model Armor](https://docs.cloud.google.com/security-command-center/docs/model-armor-overview) in front of the AI model to evaluate both inbound prompts and outbound results. Model Armor helps prevent potential risks and helps ensure responsible AI practices.
+To help secure your RAG-capable architecture and meet your privacy and compliance requirements, consider the following recommendations:
 
-In order to reject inappropriate requests before they get to the serving subsystem, you can [attach Model Armor to the Application Load Balancer](https://docs.cloud.google.com/service-extensions/docs/configure-extensions-to-google-services).
+  * **Prompt and response screening** : Deploy [Model Armor](https://docs.cloud.google.com/model-armor/overview) in front of the AI model to evaluate both inbound prompts and outbound results against prompt injection, jailbreak attempts, sensitive data leaks, and responsible AI policy violations. You can [integrate Model Armor directly with Gemini Enterprise Agent Platform](https://docs.cloud.google.com/model-armor/model-armor-vertex-integration) or [attach Model Armor to the Application Load Balancer](https://docs.cloud.google.com/service-extensions/docs/configure-extensions-to-google-services#configure-traffic-ma) by using Service Extensions traffic extensions to reject inappropriate requests before they reach the serving subsystem. To access Model Armor regional endpoints privately from within a VPC network without certificate errors when using Private Google Access or VPC Service Controls, [create a regional Private Service Connect endpoint](https://docs.cloud.google.com/vpc/docs/access-regional-google-apis-endpoints#create-regional-endpoint) for the Model Armor APIs.
+  * **Perimeter and network micro-segmentation** : This architecture uses [VPC Service Controls](https://docs.cloud.google.com/vpc-service-controls/docs/overview) to help prevent unauthorized data exfiltration across your service projects. In addition to service perimeters, use [Cloud Next Generation Firewall](https://docs.cloud.google.com/firewall/docs/about-firewalls) hierarchical and network firewall policies with IAM-governed tags to restrict east-west traffic between the data ingestion, serving, and frontend workloads in the Shared VPC network.
+  * **Identity and zero-trust access** : Enforce zero-trust access control on the frontend internal Application Load Balancer or regional external Application Load Balancer by enabling [Identity-Aware Proxy (IAP)](https://docs.cloud.google.com/iap/docs/concepts-overview) so only authenticated and authorized users can query the RAG application. Combine least-privilege service accounts with [Principal Access Boundary policies](https://docs.cloud.google.com/iam/docs/principal-access-boundary-policies) to restrict which resources each subsystem principal can access. If your serving subsystem orchestrates autonomous agents or Model Context Protocol (MCP) tools across private networks, use [Agent Identity](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/agent-identity-overview) and [Agent Gateway](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/agent-gateway-overview) to authenticate and govern agent-to-tool traffic.
+  * **Data privacy and encryption** : Use [Sensitive Data Protection](https://docs.cloud.google.com/sensitive-data-protection/docs/sensitive-data-protection-overview) in the data ingestion subsystem to inspect, classify, and de-identify personally identifiable information (PII) in raw documents uploaded to the Cloud Storage bucket before generating embeddings and writing to the RAG datastore. If regulatory compliance requires control over encryption keys, configure [customer-managed encryption keys (CMEK) in Cloud Key Management Service (Cloud KMS)](https://docs.cloud.google.com/kms/docs/cmek) for the Cloud Storage bucket, vector datastore, and model endpoints.
 
-This architecture uses [VPC Service Controls](https://docs.cloud.google.com/vpc-service-controls/docs/overview), which helps prevent unauthorized data exfiltration.
+
 
 This design uses established security principles to help secure your RAG workloads. For security principles and recommendations that are specific to AI and ML workloads, see [AI and ML perspective: Security](https://docs.cloud.google.com/architecture/framework/perspectives/ai-ml/security) in the Well-Architected Framework. 
 
+### Reliability
+
+To build and operate reliable networking infrastructure for your RAG-capable application, consider the following recommendations:
+
+  * **Redundant hybrid connectivity** : Configure redundant [Cloud Interconnect VLAN attachments](https://docs.cloud.google.com/network-connectivity/docs/interconnect/tutorials/dedicated-creating-9999-availability) or [HA VPN tunnels](https://docs.cloud.google.com/network-connectivity/docs/vpn/concepts/overview) across multiple edge availability domains and regions, paired with redundant Cloud Routers for dynamic BGP failover between your external network and the routing VPC network.
+  * **Multi-region load balancing and storage** : For high availability across regions, use a [cross-region internal Application Load Balancer](https://docs.cloud.google.com/load-balancing/docs/l7-internal/setting-up-l7-cross-reg-serverless) to distribute inference traffic across frontend and serving backends in multiple regions, and use dual-region or multi-region Cloud Storage buckets with replicated vector datastores.
+  * **Asynchronous ingestion and quota resilience** : Decouple raw data uploads to the Cloud Storage bucket from the ingestion processing pipeline by using [Pub/Sub](https://docs.cloud.google.com/pubsub/docs/overview) with dead-letter topics or [Eventarc retry policies](https://docs.cloud.google.com/eventarc/docs/retry-events) so transient embedding or indexing failures can be retried without data loss. For predictable latency and capacity during high-volume embedding generation and inference, reserve [Provisioned Throughput](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/provisioned-throughput) and implement exponential backoff for HTTP `429` responses.
+
+
+
+For reliability principles and recommendations that are specific to AI and ML workloads, see [AI and ML perspective: Reliability](https://docs.cloud.google.com/architecture/framework/perspectives/ai-ml/reliability) in the Well-Architected Framework. 
+
 ### Cost optimization
+
+To optimize the cost of building and running your RAG-capable architecture, consider the following recommendations:
+
+  * **Network egress and endpoint selection** : Place the routing VPC network, Private Service Connect endpoints, Cloud Storage bucket, RAG datastore, and model endpoints in the same region to avoid inter-region data transfer charges across NCC spokes. Consolidate shared Private Service Connect endpoints in the routing or host VPC network to reduce hourly endpoint and data processing charges.
+  * **Storage lifecycle management** : Configure [Cloud Storage Object Lifecycle Management or Autoclass](https://docs.cloud.google.com/storage/docs/lifecycle) on the raw data ingestion bucket to transition processed source documents to colder storage classes or delete staging files after vectors are written to the RAG datastore.
+  * **Batch embedding and context caching** : For large, non-urgent RAG corpus updates in the data ingestion subsystem, use [batch prediction for embeddings](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/embeddings/batch-prediction-genai-embeddings) or [batch inference](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/batch-inference) at a lower cost than online requests. In the serving subsystem, enable [context caching](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/context-cache/context-cache-overview) for recurring system instructions and frequently retrieved reference documents to reduce input token costs.
+
+
 
 For cost optimization principles and recommendations that are specific to AI and ML workloads, see [AI and ML perspective: Cost optimization](https://docs.cloud.google.com/architecture/framework/perspectives/ai-ml/cost-optimization) in the Well-Architected Framework. 
 
+### Operational efficiency
+
+To efficiently operate and manage your networking and RAG infrastructure, consider the following recommendations:
+
+  * **Infrastructure as Code (IaC)** : Automate the provisioning of the routing project, Shared VPC host and service projects, NCC hub and spokes, Private Service Connect endpoints, and VPC Service Controls perimeters by using Terraform modules from the [Enterprise foundations blueprint](https://docs.cloud.google.com/architecture/blueprints/security-foundations) and [Infrastructure Manager](https://docs.cloud.google.com/infrastructure-manager/docs/overview).
+  * **Centralized private DNS resolution** : Simplify DNS management across your external network and VPC spokes by using [Cloud DNS private zones and inbound or outbound forwarding policies](https://docs.cloud.google.com/dns/docs/zones/zones-overview) in the routing VPC network so on-premises clients and service projects automatically resolve the Private Service Connect endpoint and internal Application Load Balancer IP addresses.
+  * **Network and AI observability** : Monitor hybrid connectivity, NCC spoke traffic, and VPC Service Controls policy denials by using [Network Intelligence Center](https://docs.cloud.google.com/network-intelligence-center/docs/overview) (including Connectivity Tests and Flow Analyzer), [Cloud Logging](https://docs.cloud.google.com/logging/docs/overview), and [Cloud Monitoring](https://docs.cloud.google.com/monitoring/docs/monitoring-overview). Continuously evaluate retrieval relevance and groundedness in the serving subsystem by using the [Gen AI evaluation service](https://docs.cloud.google.com/gemini-enterprise-agent-platform/optimize/evaluation/agent-evaluation).
+
+
+
+For operational excellence principles and recommendations that are specific to AI and ML workloads, see [AI and ML perspective: Operational excellence](https://docs.cloud.google.com/architecture/framework/perspectives/ai-ml/operational-excellence) in the Well-Architected Framework. 
+
 ### Performance optimization
+
+To optimize the performance of your networking and RAG workloads, consider the following recommendations:
+
+  * **Hybrid bandwidth and regional co-location** : Size your Cloud Interconnect VLAN attachments or Cloud VPN tunnels to handle peak raw data upload volumes from your external network without saturating bandwidth shared with interactive inference requests. Colocate the regional Private Service Connect endpoint, Cloud Storage bucket, vector datastore (such as [Vector Search](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/vector-search/overview) or AlloyDB for PostgreSQL), and model endpoints in the region closest to your hybrid interconnect point of presence to minimize network round-trip latency.
+  * **Compute scaling and inference routing** : If your frontend or serving subsystem runs on Cloud Run, configure [minimum instances](https://docs.cloud.google.com/run/docs/configuring/min-instances) and tune concurrency settings to eliminate cold-start latency during traffic spikes. If you serve open models on GKE, use [Inference Gateway](https://docs.cloud.google.com/kubernetes-engine/docs/concepts/about-gke-inference-gateway) to perform KV-cache-aware and load-aware routing across model servers.
+
+
 
 For performance optimization principles and recommendations that are specific to AI and ML workloads, see [AI and ML perspective: Performance optimization](https://docs.cloud.google.com/architecture/framework/perspectives/ai-ml/performance-optimization) in the Well-Architected Framework. 
 
@@ -238,7 +303,7 @@ In general, you want to place connectivity, VPC subnets, and Google Cloud worklo
 
 If your organization has set up [Cross-Cloud Network for distributed applications](https://docs.cloud.google.com/architecture/ccn-distributed-apps-design/connectivity) already, your routing project and routing VPC network should already exist.
 
-Create the [Google Cloud projects](https://developers.google.com/workspace/guides/create-project) and a [VPC network](https://docs.cloud.google.com/vpc/docs/create-modify-vpc-networks) in the following order:
+Create the [Google Cloud projects](https://docs.cloud.google.com/resource-manager/docs/creating-managing-projects) and a [VPC network](https://docs.cloud.google.com/vpc/docs/create-modify-vpc-networks) in the following order:
 
   1. Create the routing project.
   2. Create the routing VPC network with Private Google Access enabled.
@@ -365,6 +430,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2025-12-12 UTC.
+Last updated 2026-11-03 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2025-12-12 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 

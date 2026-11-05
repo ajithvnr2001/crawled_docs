@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/ai-hypercomputer/docs/tutorials/tpu/serve-gemma4-26b-gke-trillium-vllm/
 title: Serve Gemma 4 26B on GKE with multi-host vLLM TorchTPU on Trillium TPUs \u00a0|\u00a0 AI Hypercomputer \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T07:55:50.968020+00:00
+fetched_at: 2026-11-04T23:20:47.138785+00:00
 ---
 
 # Serve Gemma 4 26B on GKE with multi-host vLLM TorchTPU on Trillium TPUs  |  AI Hypercomputer  |  Google Cloud Documentation
@@ -51,15 +51,23 @@ When you finish the tasks that are described in this document, you can avoid con
 
 ## Before you begin
 
-You need a Hugging Face access token to use this tutorial. You can sign up for a free account at [Hugging Face](http://huggingface.co/login). After you have an account, generate an access token:
+  * You need a Hugging Face access token to use this tutorial. You can sign up for a free account at [Hugging Face](http://huggingface.co/login). After you have an account, generate an access token:
 
-  1. On the [Welcome to Hugging Face](https://huggingface.co/welcome) page, click your account avatar and select **Access tokens**.
-  2. On the **Access tokens** page, click **Create new token**.
-  3. Select the **Read** token type and enter a name for your token.
-  4. Your access token is displayed. Save the token in a safe place.
+    1. On the [Welcome to Hugging Face](https://huggingface.co/welcome) page, click your account avatar and select **Access tokens**.
+    2. On the **Access tokens** page, click **Create new token**.
+    3. Select the **Read** token type and enter a name for your token.
+    4. Your access token is displayed. Save the token in a safe place.
 
 
-  * [Install](https://docs.cloud.google.com/sdk/docs/install) and [initialize](https://docs.cloud.google.com/sdk/docs/initialize) the Google Cloud CLI, and install [`kubectl`](https://kubernetes.io/docs/tasks/tools/#kubectl). If you use Cloud Shell, both tools are preinstalled.
+
+  * [Install](https://docs.cloud.google.com/sdk/docs/install) and [initialize](https://docs.cloud.google.com/sdk/docs/initialize) the Google Cloud CLI. If you're using Cloud Shell, then you can skip this step.
+
+  * Install [`kubectl`](https://kubernetes.io/docs/tasks/tools/#kubectl) and the [`gke-gcloud-auth-plugin`](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/cluster-access-for-kubectl#install_plugin) authentication plugin. If you're using Cloud Shell, then these tools are preinstalled.
+
+  * Enable the Kubernetes Engine API in your Google Cloud project:
+
+[Enable the Kubernetes Engine API](https://console.cloud.google.com/apis/enableflow?apiid=container.googleapis.com)
+
 
 
 
@@ -77,30 +85,33 @@ You might also be able to get the required permissions through [custom roles](ht
 
 ## Set up your environment variables
 
-Set up your environment variables:
-    
-    
-    export PROJECT_ID="YOUR_PROJECT_ID"
-    export RESERVATION_NAME="YOUR_RESERVATION_NAME"
-    export REGION="YOUR_REGION"
-    export ZONE="YOUR_ZONE"
-    export CLUSTER_NAME="YOUR_CLUSTER_NAME"
-    export HF_TOKEN="YOUR_HF_TOKEN"
-    export NODE_POOL_NAME="tpuv6e-pool"
-    export VLLM_IMAGE="vllm/vllm-torchtpu:v0.29.0"
-    
-    gcloud config set project "${PROJECT_ID}"
-    gcloud config set billing/quota_project "${PROJECT_ID}"
+  1. Set up your authentication:
+         
+         gcloud auth login
+         gcloud auth application-default login
+
+  2. Set up your environment variables:
+         
+         export PROJECT_ID="YOUR_PROJECT_ID"
+         export RESERVATION_NAME="YOUR_RESERVATION_NAME"
+         export REGION="YOUR_REGION"
+         export ZONE="YOUR_ZONE"
+         export CLUSTER_NAME="YOUR_CLUSTER_NAME"
+         export HF_TOKEN="YOUR_HF_TOKEN"
+         export NODE_POOL_NAME="tpuv6e-pool"
+         export VLLM_IMAGE="vllm/vllm-torchtpu:v0.29.0"
+         
+         gcloud config set project "${PROJECT_ID}"
+         gcloud config set billing/quota_project "${PROJECT_ID}"
 
 Replace the following:
 
-  * `YOUR_PROJECT_ID`: the ID of your Google Cloud project.
-  * `YOUR_RESERVATION_NAME`: the name of your reservation.
-  * `YOUR_REGION`: the region where you want to deploy your GKE cluster.
-  * `YOUR_ZONE`: the zone where you want to deploy your TPU v6e node pool.
-  * `YOUR_CLUSTER_NAME`: the name of your GKE cluster.
-  * `YOUR_HF_TOKEN`: your Hugging Face access token.
-  * `YOUR_VLLM_TPU_IMAGE`: the vLLM TPU image to use. For public images, refer to the [vLLM TorchTPU](https://github.com/vllm-project/vllm-torchtpu) repository.
+     * `YOUR_PROJECT_ID`: the ID of your Google Cloud project.
+     * `YOUR_RESERVATION_NAME`: if you're using a reservation, then this is the name of your TPU v6e reservation.
+     * `YOUR_REGION`: the region where you want to deploy your GKE cluster, such as `europe-west4`.
+     * `YOUR_ZONE`: the zone where you want to deploy your TPU v6e node pool, such as `europe-west4-a`.
+     * `YOUR_CLUSTER_NAME`: the name of your GKE cluster, such as `tpu-v6e-tutorial-cluster`.
+     * `YOUR_HF_TOKEN`: your Hugging Face access token.
 
 
 
@@ -130,7 +141,25 @@ To create the GKE cluster and attach a multi-host TPU v6e node pool, complete th
 Instead of using a specific reservation, you can also create the node pool using Spot capacity or Flex-start VMs by passing the following flags:
 
      * **Spot VMs** : replace the `--reservation-affinity` and `--reservation` flags with `--spot` to use Spot capacity. Instances that use Spot capacity might take time to be created after the node pool is created, and they might be preempted during workload runs. If your Pods take time to be created, or workloads stop in the middle of running, this could be the cause.
-     * **Flex-start VMs** : Pass `--flex-start` to provision the node pool using the [Flex-start](https://docs.cloud.google.com/kubernetes-engine/docs/concepts/dws) consumption option. For more information, see [Run a small batch workload with TPUs and Flex-start VMs](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/dws-flex-start-training-tpu).
+     * **Flex-start VMs** : to provision the node pool using the [Flex-start](https://docs.cloud.google.com/kubernetes-engine/docs/concepts/dws) consumption option, replace the following reservation-specific flags:
+           
+           --reservation-affinity=specific \
+           --reservation=${RESERVATION_NAME} \
+           --num-nodes=2
+           
+
+with the flex start-specific flags:
+           
+           --flex-start \
+           --reservation-affinity=none \
+           --enable-autoscaling \
+           --num-nodes=0 \
+           --min-nodes=0 \
+           --max-nodes=2
+           
+
+For more information, see [Run a small batch workload with TPUs and Flex-start VMs](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/dws-flex-start-training-tpu).
+
   2. Configure `kubectl` credentials to communicate with your cluster:
          
          gcloud container clusters get-credentials "${CLUSTER_NAME}" \
@@ -517,6 +546,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-03 UTC.
+Last updated 2026-11-04 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 

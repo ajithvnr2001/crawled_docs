@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/managed-spark/docs/concepts/accessing/cluster-web-interfaces/
 title: Cluster web interfaces \u00a0|\u00a0 Managed Service for Apache Spark \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T21:56:21.206535+00:00
+fetched_at: 2026-11-05T00:20:19.646587+00:00
 ---
 
 # Cluster web interfaces  |  Managed Service for Apache Spark  |  Google Cloud Documentation
@@ -33,11 +33,9 @@ Create an SSH tunnel to establish a secure connection to your cluster's master i
 
 ****Apache Hadoop YARN provides REST APIs that share the same ports as the YARN web interfaces (default port 8088). By default, users who can reach the YARN web interface can create applications, submit jobs, and may be able to perform Cloud Storage operations.SeeAllowed YARN Resource Manager REST APIs for information on setting allowed YARN Resource Manager REST API methods.
 
-Some of the core open source components included with Managed Service for Apache Spark clusters, such as [Apache Hadoop](https://hadoop.apache.org/) and [Apache Spark](http://spark.apache.org/), provide web interfaces. These interfaces can be used to manage and monitor cluster resources and facilities, such as the YARN resource manager, the Hadoop Distributed File System (HDFS), MapReduce, and Spark. Other components or applications that you install on your cluster may also provide web interfaces (see, for example, [Install and run a Jupyter notebook on a Managed Service for Apache Spark cluster](https://docs.cloud.google.com/managed-spark/docs/tutorials/jupyter-notebook)).
+**Use the Component Gateway to connect to core and optional component web interfaces.** Clusters created with Managed Service for Apache Spark image [version 1.3.29](https://docs.cloud.google.com/managed-spark/docs/concepts/versioning/dataproc-release-1.3) and later can install and enable access to [component](https://docs.cloud.google.com/managed-spark/docs/concepts/components/overview#available_components) web interfaces, including YARN, HDFS, Jupyter, and Zeppelin UIs, without relying on SSH tunnels or [modifying firewall rules](https://docs.cloud.google.com/managed-spark/docs/concepts/configuring-clusters/network) to allow inbound traffic. See [Managed Service for Apache Spark Component Gateway](https://docs.cloud.google.com/managed-spark/docs/concepts/accessing/gateways) for more information. 
 
-**Objective:** The steps and examples shown below show you how to securely connect to web interfaces running on your Managed Service for Apache Spark cluster using an SSH tunnel from your local network or Google Cloud Cloud Shell to your cluster's Compute Engine network.**Use the Component Gateway to connect to core and optional component web interfaces.** Clusters created with Managed Service for Apache Spark image [version 1.3.29](https://docs.cloud.google.com/managed-spark/docs/concepts/versioning/dataproc-release-1.3) and later can install and enable access to [component](https://docs.cloud.google.com/managed-spark/docs/concepts/components/overview#available_components) web interfaces, including YARN, HDFS, Jupyter, and Zeppelin UIs, without relying on SSH tunnels or [modifying firewall rules](https://docs.cloud.google.com/managed-spark/docs/concepts/configuring-clusters/network) to allow inbound traffic. See [Managed Service for Apache Spark Component Gateway](https://docs.cloud.google.com/managed-spark/docs/concepts/accessing/gateways) for more information. 
-
-See **[SSH into a Dataproc cluster](https://docs.cloud.google.com/managed-spark/docs/concepts/accessing/ssh)** to open an SSH session on a Dataproc cluster's master node.
+See **[SSH into a Managed Service for Apache Spark cluster](https://docs.cloud.google.com/managed-spark/docs/concepts/accessing/ssh)** to open an SSH session on a Managed Service for Apache Spark cluster's master node.
 
 ## Available interfaces 
 
@@ -72,7 +70,7 @@ Example:
 
 **Recommendation:** If you set this property to allow non-default HTTP methods, make sure to configure firewall rules and other security settings to restrict access to port 8088.
 
-## Connecting to web interfaces
+## Connect to web interfaces
 
 You can connect to web interfaces running on a Managed Service for Apache Spark cluster using the [Managed Service for Apache Spark Component Gateway](https://docs.cloud.google.com/managed-spark/docs/concepts/accessing/gateways), your project's [Cloud Shell](https://docs.cloud.google.com/shell), or the Google Cloud CLI [gcloud](https://docs.cloud.google.com/sdk/gcloud) command-line tool:
 
@@ -322,6 +320,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-03 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 

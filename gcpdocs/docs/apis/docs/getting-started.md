@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/apis/docs/getting-started/
 title: Getting started \u00a0|\u00a0 Cloud APIs \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T16:19:45.823969+00:00
+fetched_at: 2026-11-04T23:31:37.896076+00:00
 ---
 
 # Getting started  |  Cloud APIs  |  Google Cloud Documentation
@@ -40,7 +40,7 @@ Before using any Google Cloud APIs, you should use the Google Cloud console [API
 
 Some Google Cloud APIs are enabled by default. To use a Google Cloud API that is not enabled by default, you must enable it for your project. Depending on which services and which projects are involved from your application, including the client project and resource projects, you might need to enable an API for multiple projects. When you enable an API that depends on other APIs, those APIs are also enabled at the same time.
 
-Enabling an API requires you to accept the Terms of Service and billing responsibility for the API. You need permission `serviceusage.services.enable` on the project to enable APIs. For more information, see Service Usage [Access Control](https://docs.cloud.google.com/service-usage/docs/access-control).
+Enabling an API requires you to accept the Terms of Service and billing responsibility for the API. You need permission [`serviceusage.services.enable`](https://docs.cloud.google.com/iam/docs/roles-permissions/serviceusage#serviceusage.services.enable) on the project to enable APIs.
 
 In addition, the service to enable must either be public, or else the service owner must grant the user the `servicemanagement.services.bind` permission on the private service. For more information, see [Service Management Access Control](https://docs.cloud.google.com/service-infrastructure/docs/service-management/access-control).
 
@@ -114,6 +114,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-04 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 

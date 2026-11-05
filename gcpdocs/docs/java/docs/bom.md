@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/java/docs/bom/
 title: Use Bill of Materials (BOM) with Cloud Client Libraries for Java \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T08:00:44.457682+00:00
+fetched_at: 2026-11-04T23:45:18.547326+00:00
 ---
 
 # Use Bill of Materials (BOM) with Cloud Client Libraries for Java  |  Google Cloud Documentation

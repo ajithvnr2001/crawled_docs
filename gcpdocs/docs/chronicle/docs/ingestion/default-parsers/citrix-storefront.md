@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/citrix-storefront/
 title: Collect Citrix StoreFront logs \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T07:52:47.766832+00:00
+fetched_at: 2026-11-04T23:35:07.266040+00:00
 ---
 
 # Collect Citrix StoreFront logs  |  Google Security Operations  |  Google Cloud Documentation

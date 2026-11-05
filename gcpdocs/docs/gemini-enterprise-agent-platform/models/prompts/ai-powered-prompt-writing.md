@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/prompts/ai-powered-prompt-writing/
 title: Use AI-powered prompt writing tools \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T05:56:17.065516+00:00
+fetched_at: 2026-11-04T23:12:56.743484+00:00
 ---
 
 # Use AI-powered prompt writing tools  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation
@@ -21,17 +21,17 @@ Send feedback
 
 #  Use AI-powered prompt writing tools Stay organized with collections  Save and categorize content based on your preferences. 
 
-This document describes how to use the AI assistant in Vertex AI Studio to help you refine and generate prompts. AI assistant can speed up your prompt writing process.
+This document describes how to use the AI assistant in Agent Studio to help you refine and generate prompts. AI assistant can speed up your prompt writing process.
 
 ## Refine prompts
 
-The AI assistant in Vertex AI Studio can help you refine your prompts based on your targeted results.
+The AI assistant in Agent Studio can help you refine your prompts based on your targeted results.
 
 To refine prompts, do the following:
 
-  1. Open Vertex AI Studio and click **Create prompt** :
+  1. Open Agent Studio and click **Create prompt** :
 
-[Open Vertex AI Studio](https://console.cloud.google.com/agent-platform/studio/multimodal)
+[Open Agent Studio](https://console.cloud.google.com/agent-platform/studio/multimodal)
 
   2. In the prompt box, add your prompt.
 
@@ -54,13 +54,13 @@ To refine prompts, do the following:
 
 ## Generate prompts
 
-Use the Vertex AI Studio AI prompt assistant to generate your prompts. Generating prompts can help you speed up the prompt-writing process.
+Use the Agent Studio AI prompt assistant to generate your prompts. Generating prompts can help you speed up the prompt-writing process.
 
 To generate prompts, do the following:
 
-  1. Open Vertex AI Studio and click **Create prompt** :
+  1. Open Agent Studio and click **Create prompt** :
 
-[Open Vertex AI Studio](https://console.cloud.google.com/agent-platform/studio/multimodal)
+[Open Agent Studio](https://console.cloud.google.com/agent-platform/studio/multimodal)
 
   2. In the prompt box, click **Help me write**.
 
@@ -88,6 +88,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-30 UTC.
+Last updated 2026-11-04 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 

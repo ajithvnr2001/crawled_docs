@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/cluster-toolkit/docs/deploy/slurm/create-a4x-max-cluster/
 title: Create an A4X Max Slurm cluster \u00a0|\u00a0 Cluster Toolkit \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-01T05:38:54.697202+00:00
+fetched_at: 2026-11-04T23:31:51.690494+00:00
 ---
 
 # Create an A4X Max Slurm cluster  |  Cluster Toolkit  |  Google Cloud Documentation
@@ -53,13 +53,14 @@ Before creating a Slurm cluster, if you haven't already done so, complete the fo
 
   1. **Choose a consumption option** : your choice of consumption option determines how you get and use GPU resources. To learn more, see [Choose a consumption option](https://docs.cloud.google.com/ai-hypercomputer/docs/consumption-models).
   2. **Obtain capacity** : the process to obtain capacity differs for each consumption option. To learn about the process to obtain capacity for your chosen consumption option, see [Capacity overview](https://docs.cloud.google.com/ai-hypercomputer/docs/obtain-capacity). **Note:** When you request A4X Max or A4X capacity, you obtain it in the _all capacity mode_. This mode is the only supported reservation operational mode for A4X Max or A4X machine types. For more information about all capacity mode, see [ Reservation operational mode](https://docs.cloud.google.com/ai-hypercomputer/docs/create/review-configurations#reservation-operational-mode). 
-  3. **Verify that you have enough Filestore capacity quota** : you need to have enough Filestore quota in your target region before deploying. The required minimum capacity depends on the machine types in your cluster: 
-     * **A4X Max** : requires a minimum of 10 TiB (10,240 GiB) of HIGH_SCALE_SSD (zonal) capacity.
+  3. **Verify that you have enough Filestore or Google Cloud Managed Lustre quota** : you need to have enough Filestore or Managed Lustre quota in your target region and zone before you deploy. The required minimum quota depends on the storage service and machine types in your cluster: 
+     * **Managed Lustre** : for A4X Max machine types, you require a minimum of 18,000 GiB of storage capacity quota and 9 GBps of throughput quota.
+     * **Filestore** : for A4X Max machine types, you require a minimum of 10 TiB (10,240 GiB) of HIGH_SCALE_SSD (zonal) capacity quota.
 
 To check quota or request a quota increase, see the following:
 
      * To check quota in your project, see [View API-specific quota](https://docs.cloud.google.com/docs/quotas/view-manage#api_specific_quota).
-     * If you don't have enough quota, then [request a quota increase](https://docs.cloud.google.com/filestore/docs/requesting-quota-increases).
+     * If you don't have enough quota, then [request a Filestore quota increase](https://docs.cloud.google.com/filestore/docs/requesting-quota-increases) or [request additional Managed Lustre quota](https://docs.cloud.google.com/managed-lustre/docs/quotas#request_additional_quota).
   4. **Install Cluster Toolkit** : to provision Slurm clusters, you must use [Cluster Toolkit](https://docs.cloud.google.com/cluster-toolkit/docs/overview) version `v1.62.0` or later. 
 
 To install Cluster Toolkit, see [Set up Cluster Toolkit](https://docs.cloud.google.com/cluster-toolkit/docs/setup/configure-environment).
@@ -113,12 +114,12 @@ Replace the following:
 
 ## Open the Cluster Toolkit directory
 
-To use Slurm with Google Cloud, you must [install Cluster Toolkit](https://docs.cloud.google.com/cluster-toolkit/docs/setup/configure-environment). After you install Cluster Toolkit, verify that you are in the Cluster Toolkit directory by using the `cd` command:
+To use Slurm with Google Cloud, you must [install Cluster Toolkit](https://docs.cloud.google.com/cluster-toolkit/docs/setup/configure-environment). In your terminal, navigate to the Cluster Toolkit directory:
     
     
     cd cluster-toolkit
 
-This cluster deployment requires Cluster Toolkit `v1.62.0` or later. Check your installed Cluster Toolkit version:
+This cluster deployment requires Cluster Toolkit `v1.62.0` or later. Check the installed version:
     
     
     ./gcluster --version
@@ -163,9 +164,11 @@ For optimal network performance, we recommend that you specify a value that is a
 
 ## Provision a Slurm cluster
 
-Cluster Toolkit provisions the cluster based on the deployment file that you created in the previous step and the default cluster blueprint. For more information about the software that is installed by the blueprint, including NVIDIA drivers and CUDA, [learn more about Slurm custom images](https://docs.cloud.google.com/ai-hypercomputer/docs/images#slurm-images).
+Cluster Toolkit provisions the cluster based on the deployment file that you created in the previous step and the default cluster blueprint. For more information about the software that is installed by the blueprint, including NVIDIA drivers and CUDA, see [Slurm custom images](https://docs.cloud.google.com/ai-hypercomputer/docs/images#slurm-images).
 
-To provision the cluster, use the [`./gcluster deploy` command](https://docs.cloud.google.com/cluster-toolkit/docs/reference/gcluster-deploy) from the Cluster Toolkit directory. This process can take about 20 to 30 minutes.
+The A4X Max blueprint integrates Managed Lustre for high-performance home directory storage (`/home`). The blueprint automatically configures private service access (PSA) to peer your VPC network with Managed Lustre. The blueprint also configures Lustre networking (LNet) on the `eth0` primary network interface. For more information, see the [Managed Lustre overview](https://docs.cloud.google.com/managed-lustre/docs/overview).
+
+Deploy the Slurm cluster. This process can take about 20 to 30 minutes: To provision the cluster, use the [`./gcluster deploy` command](https://docs.cloud.google.com/cluster-toolkit/docs/reference/gcluster-deploy) from the Cluster Toolkit directory. This process can take about 20 to 30 minutes.
     
     
     ./gcluster deploy -d a4xmax-bm-slurm-deployment.yaml examples/machine-learning/a4x-maxgpu-4g-metal/a4xmax-bm-slurm-blueprint.yaml
@@ -182,9 +185,9 @@ To access your cluster, you must sign in to the Slurm login node. To sign in, yo
 
 [Go to the VM instances page](https://console.cloud.google.com/compute/instances)
 
-  2. Locate the login node. The node has a name with the pattern `DEPLOYMENT_NAME` +`login-001`.
+  2. Locate the login node. The node has a name with the pattern `DEPLOYMENT_NAME-login-001`.
 
-  3. From the **Connect** column of the login node, click **SSH**.
+  3. In the **Connect** column of the login node, click **SSH**.
 
 
 
@@ -197,7 +200,8 @@ To connect to the login node, complete the following steps:
          
          gcloud compute instances list \
            --zones=ZONE \
-           --filter="name ~ login" --format "value(name)"
+           --filter="name ~ login" \
+           --format="value(name)"
          
 
 If the output lists multiple Slurm clusters, you can identify your login node by the `DEPLOYMENT_NAME` that you specified.
@@ -210,7 +214,7 @@ If the output lists multiple Slurm clusters, you can identify your login node by
 
 Replace the following:
 
-     * `ZONE`: the zone where the compute instances for your cluster are located.
+     * `ZONE`: the zone where the VMs for your cluster are located.
      * `LOGIN_NODE`: the name of the login node, which you identified in the previous step.
 
 
@@ -223,38 +227,41 @@ We recommend that you validate the functionality of provisioned clusters. To do 
 
 If you need to increase the number of compute nodes or add new partitions to your cluster, you might need to update configurations for your Slurm cluster by redeploying. You can speed up a redeployment by using an existing image from a previous deployment. To avoid creating new images during a redeploy, specify the `--only` flag.
 
-To redeploy the cluster using an existing image do the following:
+To redeploy the cluster by using an existing image, do the following:
 
   1. Connect to the cluster. For instructions, see Connect to the Slurm cluster.
 
   2. Use the `./gcluster deploy` command for your required machine type:
          
-         ./gcluster deploy -d a4xmax-bm-slurm-deployment.yaml examples/machine-learning/a4x-maxgpu-4g-metal/a4xmax-bm-slurm-blueprint.yaml --only cluster-env,cluster -w
+         ./gcluster deploy \
+            -d a4xmax-bm-slurm-deployment.yaml \
+            examples/machine-learning/a4x-maxgpu-4g-metal/a4xmax-bm-slurm-blueprint.yaml \
+            --only cluster-env,cluster -w
 
-This command is only for redeployments where an image already exists, it only redeploys the cluster and its infrastructure.
+This command applies only to redeployments when an image already exists; it redeploys only the cluster and its infrastructure.
 
 
 
 
 ## Destroy the Slurm cluster
 
-By default, the A4X Max blueprint turns on deletion protection on the Filestore instance. To delete the Filestore instance when you destroy the Slurm cluster, you must turn off deletion protection before you use the destroy command. For instructions, see [set or remove deletion protection on an existing instance](https://docs.cloud.google.com/filestore/docs/deletion-protection#setting-or-removing).
+When you destroy the Slurm cluster, all provisioned resources are deleted, including the Managed Lustre instance and all data stored on it.
 
-  1. If you are connected to the cluster, then disconnect from it.
+  1. If you are connected to the cluster, disconnect from it.
 
-  2. Before you use the destroy command, go to the root of the Cluster Toolkit directory. By default, DEPLOYMENT_FOLDER is located at the root of the Cluster Toolkit directory.
+  2. In your terminal, navigate to the Cluster Toolkit directory.
 
-  3. To destroy the cluster, use the [`./gcluster destroy` command](https://docs.cloud.google.com/cluster-toolkit/docs/reference/gcluster-destroy):
+  3. To destroy the cluster, use the `./gcluster destroy` command:
          
          ./gcluster destroy DEPLOYMENT_FOLDER
 
 Replace the following:
 
-     * `DEPLOYMENT_FOLDER`: the name of the deployment folder. It's typically the same as DEPLOYMENT_NAME.
+     * `DEPLOYMENT_FOLDER`: the name of the deployment folder, typically the same as `DEPLOYMENT_NAME`.
 
 When the destruction completes, the output is similar to the following:
     
-    Destroy complete! Resources: xx destroyed.
+    Destroy complete! Resources: NUMBER destroyed.
     
 
 
@@ -279,6 +286,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-30 UTC.
+Last updated 2026-11-04 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 

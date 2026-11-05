@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/docs/release-notes/
 title: AlloyDB for PostgreSQL release notes \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-03T09:41:48.771483+00:00
+fetched_at: 2026-11-04T23:20:55.700452+00:00
 ---
 
 # AlloyDB for PostgreSQL release notes  |  Google Cloud Documentation
@@ -28,6 +28,39 @@ This page documents production updates to AlloyDB for PostgreSQL. Check this pag
 You can see the latest product updates for all of Google Cloud on the [ Google Cloud](https://docs.cloud.google.com/release-notes) page, browse and filter all release notes in the [Google Cloud console](https://console.cloud.google.com/release-notes), or programmatically access release notes in [BigQuery](https://console.cloud.google.com/bigquery?p=bigquery-public-data&d=google_cloud_release_notes&t=release_notes&page=table). 
 
 To get the latest product updates delivered to you, add the URL of this page to your [feed reader](https://wikipedia.org/wiki/Comparison_of_feed_aggregators), or add the [feed URL](https://docs.cloud.google.com/feeds/alloydb-release-notes.xml) directly. 
+
+## November 04, 2026
+
+Feature
+
+Direct Iceberg access in AlloyDB for PostgreSQL is available for PostgreSQL 18 and later ([in Preview](https://cloud.google.com/products#product-launch-stages)). This feature lets you query Apache Iceberg tables in Cloud Storage or Lakehouse runtime catalog and accelerate analytical queries using the AlloyDB columnar engine.
+
+For more information, see [Access Iceberg data from AlloyDB](https://docs.cloud.google.com/alloydb/docs/access-iceberg-data-from-alloydb).
+
+Feature
+
+Syncing data from BigQuery into AlloyDB is generally available ([GA](https://cloud.google.com/products#product-launch-stages)). This feature lets you copy or mirror analytical tables from BigQuery into AlloyDB for low-latency operational access using the `alloydb_sync` extension.
+
+For more information, see [Sync BigQuery data to AlloyDB](https://docs.cloud.google.com/alloydb/docs/sync-bigquery-data-to-alloydb).
+
+Feature
+
+AlloyDB Express is available in [Preview](https://cloud.google.com/products#product-launch-stages) for PostgreSQL 18. Optimized for rapid prototyping and for workflows that use AI coding agents, this configuration provides the following features:
+
+  * Fast provisioning
+  * Scale-to-zero compute when idle
+  * A monthly free tier for the first 12 months of usage
+  * One-click upgrades to AlloyDB for PostgreSQL
+
+
+
+For more information, see [AlloyDB Express overview](https://docs.cloud.google.com/alloydb/docs/express-overview).
+
+## November 03, 2026
+
+Change
+
+AlloyDB for PostgreSQL now defaults to [PostgreSQL major version 18](https://docs.cloud.google.com/alloydb/docs/db-version-policies#support-table) for new clusters.
 
 ## November 02, 2026
 
@@ -2302,6 +2335,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-28 UTC.
+Last updated 2026-11-03 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 

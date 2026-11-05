@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/firestore/native/docs/create-database-server-client-library/
 title: Quickstart: Create a Firestore database by using a server client library \u00a0|\u00a0 Firestore in Native mode \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T08:01:06.328371+00:00
+fetched_at: 2026-11-05T00:05:13.588702+00:00
 ---
 
 # Quickstart: Create a Firestore database by using a server client library  |  Firestore in Native mode  |  Google Cloud Documentation
@@ -219,7 +219,7 @@ Initialize an instance of Firestore:
     # project inferred from the environment.
     db = firestore.[Client](https://docs.cloud.google.com/python/docs/reference/firestore/latest/google.cloud.firestore_v1.client.Client.html)(project="my-project-id")
     
-    [snippets.py](https://github.com/GoogleCloudPlatform/python-docs-samples/blob/80b33d83f982bd9061916083be74c7bae71d797b/firestore/cloud-client/snippets.py#L26-L33)
+    [snippets.py](https://github.com/GoogleCloudPlatform/python-docs-samples/blob/f7aa88558cfe5fb9074d69e5541f49c9ea8447e5/firestore/cloud-client/snippets.py#L26-L33)
 
 ##### Python  
 (Async)
@@ -232,7 +232,7 @@ Initialize an instance of Firestore:
     # project inferred from the environment.
     db = firestore.[AsyncClient](https://docs.cloud.google.com/python/docs/reference/firestore/latest/google.cloud.firestore_v1.async_client.AsyncClient.html)(project="my-project-id")
     
-    [snippets.py](https://github.com/GoogleCloudPlatform/python-docs-samples/blob/80b33d83f982bd9061916083be74c7bae71d797b/firestore/cloud-async-client/snippets.py#L22-L27)
+    [snippets.py](https://github.com/GoogleCloudPlatform/python-docs-samples/blob/f7aa88558cfe5fb9074d69e5541f49c9ea8447e5/firestore/cloud-async-client/snippets.py#L22-L27)
 
 ##### Node.js
     
@@ -321,7 +321,7 @@ Initialize an instance of Firestore:
     
     puts "Created Cloud Firestore client with given project ID."
     
-    [quickstart.rb](https://github.com/googleapis/google-cloud-ruby/blob/b9376b539ab90e8d92081d751dc900527b974cd9/google-cloud-firestore/samples/quickstart.rb#L19-L26)
+    [quickstart.rb](https://github.com/googleapis/google-cloud-ruby/blob/34357aec9b86dc22d66add52b305906957d51628/google-cloud-firestore/samples/quickstart.rb#L19-L26)
 
 ## Add data
 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/dataform/docs/access-control/
 title: Control access with IAM \u00a0|\u00a0 Dataform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T22:59:11.001508+00:00
+fetched_at: 2026-11-04T23:32:05.084060+00:00
 ---
 
 # Control access with IAM  |  Dataform  |  Google Cloud Documentation
@@ -395,19 +395,7 @@ Role | Permissions
   * `dataform.workspaces.setIamPolicy`
   * `dataform.workspaces.writeFile`
 
-`developerconnect.connections.constructGitHubAppManifest` `developerconnect.connections.create` `developerconnect.connections.delete` `developerconnect.connections.fetchGitHubInstallations` `developerconnect.connections.fetchLinkableGitRepositories` `developerconnect.connections.generateGitHubStateToken` `developerconnect.connections.get` `developerconnect.connections.list` `developerconnect.connections.processGitHubAppCreationCallback` `developerconnect.connections.processGitHubOAuthCallback` `developerconnect.connections.update` `developerconnect.gitRepositoryLinks.*`
-
-  * `developerconnect.gitRepositoryLinks.create`
-  * `developerconnect.gitRepositoryLinks.delete`
-  * `developerconnect.gitRepositoryLinks.fetchGitRefs`
-  * `developerconnect.gitRepositoryLinks.fetchReadToken`
-  * `developerconnect.gitRepositoryLinks.fetchReadWriteToken`
-  * `developerconnect.gitRepositoryLinks.get`
-  * `developerconnect.gitRepositoryLinks.gitProxyRead`
-  * `developerconnect.gitRepositoryLinks.gitProxyWrite`
-  * `developerconnect.gitRepositoryLinks.list`
-
-`developerconnect.locations.*`
+`developerconnect.connections.constructGitHubAppManifest` `developerconnect.connections.create` `developerconnect.connections.delete` `developerconnect.connections.fetchGitHubInstallations` `developerconnect.connections.fetchLinkableGitRepositories` `developerconnect.connections.generateGitHubStateToken` `developerconnect.connections.get` `developerconnect.connections.list` `developerconnect.connections.processGitHubAppCreationCallback` `developerconnect.connections.processGitHubOAuthCallback` `developerconnect.connections.update` `developerconnect.gitRepositoryLinks.create` `developerconnect.gitRepositoryLinks.delete` `developerconnect.gitRepositoryLinks.fetchGitRefs` `developerconnect.gitRepositoryLinks.fetchReadToken` `developerconnect.gitRepositoryLinks.fetchReadWriteToken` `developerconnect.gitRepositoryLinks.get` `developerconnect.gitRepositoryLinks.gitProxyRead` `developerconnect.gitRepositoryLinks.gitProxyWrite` `developerconnect.gitRepositoryLinks.list` `developerconnect.locations.*`
 
   * `developerconnect.locations.get`
   * `developerconnect.locations.list`
@@ -867,7 +855,7 @@ This installation and potential token exposure can occur in the following scenar
 
   * **Workspace package installation** : triggered manually within a workspace. This requires workspace edit permissions, which can be found in the [Dataform Editor](https://docs.cloud.google.com/dataform/docs/access-control#dataform.editor) (`roles/dataform.editor`) or [Dataform Code Editor](https://docs.cloud.google.com/dataform/docs/access-control#dataform.codeEditor) (`roles/dataform.codeEditor`) roles.
 
-  * **Compiling a Git commitish** : triggered automatically when creating a compilation result for a Git reference (such as a branch or tag) in the repository. This scenario requires the `dataform.compilationResults.create` permission.
+  * **Compiling a Git commitish** : triggered automatically when creating a compilation result for a Git commitish, such as a branch, tag, or commit SHA, in the repository. This scenario requires the `dataform.compilationResults.create` permission.
 
 **Note:** Because the [Code Viewer role](https://docs.cloud.google.com/dataform/docs/access-control#dataform.codeViewer) (`roles/dataform.codeViewer`) role includes the `dataform.compilationResults.create` permission, any user who can commit code to your remote Git repository (even outside of Google Cloud) can trigger a compilation if they hold this role.
 
@@ -1246,6 +1234,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-04 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 

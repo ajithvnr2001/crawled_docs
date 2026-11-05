@@ -1,11 +1,11 @@
 ---
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/rag-engine/use-feature-store-with-rag/
-title: Use Vertex AI Feature Store in RAG Engine \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
+title: Use Agent Platform Feature Store in RAG Engine \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-03T09:53:25.767707+00:00
+fetched_at: 2026-11-04T23:14:23.199505+00:00
 ---
 
-# Use Vertex AI Feature Store in RAG Engine  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation
+# Use Agent Platform Feature Store in RAG Engine  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation
 
 > Source: https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/rag-engine/use-feature-store-with-rag/
 
@@ -19,7 +19,7 @@ fetched_at: 2026-11-03T09:53:25.767707+00:00
 
 Send feedback 
 
-#  Use Vertex AI Feature Store in RAG Engine Stay organized with collections  Save and categorize content based on your preferences. 
+#  Use Agent Platform Feature Store in RAG Engine Stay organized with collections  Save and categorize content based on your preferences. 
 
 The [VPC-SC security controls](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/security-controls) and CMEK are supported by RAG Engine on Gemini Enterprise Agent Platform. Data residency and AXT security controls aren't supported.
 
@@ -27,23 +27,23 @@ The [VPC-SC security controls](https://docs.cloud.google.com/gemini-enterprise-a
 
 Some of the RAG features are Preview offerings, subject to the "Pre-GA Offerings Terms" of the [Google Cloud Service Specific Terms](https://cloud.google.com/terms/service-terms). Pre-GA products and features are available "as-is" and may have limited support, and changes to Pre-GA products and features may not be compatible with other Pre-GA versions. For more information, see the [ launch stage descriptions](https://cloud.google.com/products#product-launch-stages). By using the Gemini API on Gemini Enterprise Agent Platform, you agree to the Generative AI Preview [ terms and conditions ](https://cloud.google.com/trustedtester/aitos)(Preview Terms).
 
-To see an example of using RAG Engine on Gemini Enterprise Agent Platform with Agent Platform Feature Store, run the "RAG Engine with Agent Platform Feature Store" notebook in one of the following environments: 
+To see an example of using RAG Engine on Gemini Enterprise Agent Platform with Feature Store on Gemini Enterprise Agent Platform, run the "RAG Engine with Agent Platform Feature Store" notebook in one of the following environments: 
 
 [![](https://docs.cloud.google.com/static/vertex-ai/images/colab-logo-32px.png)Open in Colab](https://colab.research.google.com/github/GoogleCloudPlatform/generative-ai/blob/main/gemini/rag-engine/rag_engine_feature_store.ipynb) | [![](https://docs.cloud.google.com/static/vertex-ai/images/colab-enterprise-logo-32px.png)Open in Colab Enterprise](https://console.cloud.google.com/agent-platform/colab/import/https%3A%2F%2Fraw.githubusercontent.com%2FGoogleCloudPlatform%2Fgenerative-ai%2Fmain%2Fgemini%2Frag-engine%2Frag_engine_feature_store.ipynb) | [![](https://docs.cloud.google.com/static/vertex-ai/images/vertex-ai-workbench-logo-32px.png)Open in Agent Platform Workbench](https://console.cloud.google.com/agent-platform/workbench/deploy-notebook?download_url=https%3A%2F%2Fraw.githubusercontent.com%2FGoogleCloudPlatform%2Fgenerative-ai%2Fmain%2Fgemini%2Frag-engine%2Frag_engine_feature_store.ipynb) | [![](https://docs.cloud.google.com/static/vertex-ai/images/github-logo-32px.png)View on GitHub](https://github.com/GoogleCloudPlatform/generative-ai/blob/main/gemini/rag-engine/rag_engine_feature_store.ipynb)
 
-This page shows you how to set up [Vertex AI Feature Store](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/featurestore/latest/overview) as the vector database to use with RAG Engine.
+This page shows you how to set up [Feature Store on Gemini Enterprise Agent Platform](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/featurestore/latest/overview) as the vector database to use with RAG Engine.
 
-You can also follow along using the [RAG Engine with Vertex AI Feature Store](https://github.com/GoogleCloudPlatform/generative-ai/blob/main/gemini/rag-engine/rag_engine_feature_store.ipynb) notebook.
+You can also follow along using the [RAG Engine with Agent Platform Feature Store](https://github.com/GoogleCloudPlatform/generative-ai/blob/main/gemini/rag-engine/rag_engine_feature_store.ipynb) notebook.
 
-By integrating Vertex AI Feature Store as an additional vector database, RAG Engine can use Vertex AI Feature Store to handle large data volumes with low latency, which helps to improve the performance and scalability of your RAG applications.
+By integrating Agent Platform Feature Store as an additional vector database, RAG Engine can use Agent Platform Feature Store to handle large data volumes with low latency, which helps to improve the performance and scalability of your RAG applications.
 
-## Set up a Vertex AI Feature Store
+## Set up Agent Platform Feature Store
 
-Vertex AI Feature Store, a managed cloud-native service, is an essential component of Gemini Enterprise Agent Platform. It simplifies machine learning (ML) feature management and online serving by letting you manage feature data within a BigQuery table or view. This enables low-latency online feature serving.
+Agent Platform Feature Store, a managed cloud-native service, is an essential component of Gemini Enterprise Agent Platform. It simplifies machine learning (ML) feature management and online serving by letting you manage feature data within a BigQuery table or view. This enables low-latency online feature serving.
 
 For `FeatureOnlineStore` instances created with optimized online serving, you can take advantage of a vector similarity search to retrieve a list of semantically similar or related entities, which are known as _approximate nearest neighbors_.
 
-The following sections show you how to set up a Vertex AI Feature Store instance for your RAG application.
+The following sections show you how to set up an Agent Platform Feature Store instance for your RAG application.
 
 ### Create a BigQuery table schema
 
@@ -77,7 +77,7 @@ This code sample demonstrates how to define your BigQuery table schema.
 
 ### Provision a `FeatureOnlineStore` instance
 
-To enable online serving of features, use the Vertex AI Feature Store `CreateFeatureOnlineStore` API to set up a `FeatureOnlineStore` instance. If you are provisioning a `FeatureOnlineStore` for the first time, the operation might take approximately five minutes to complete.
+To enable online serving of features, use the Agent Platform Feature Store `CreateFeatureOnlineStore` API to set up a `FeatureOnlineStore` instance. If you are provisioning a `FeatureOnlineStore` for the first time, the operation might take approximately five minutes to complete.
 
 ### REST
 
@@ -256,15 +256,15 @@ The RAG API handles data upload and online serving. To learn more about the RAG 
 
 
 
-## Use Vertex AI Feature Store in RAG Engine
+## Use Agent Platform Feature Store in RAG Engine
 
-After the Vertex AI Feature Store instance is set up, the following sections show you how to set it up as the vector database to use with the RAG application.
+After the Agent Platform Feature Store instance is set up, the following sections show you how to set it up as the vector database to use with the RAG application.
 
-### Use the Vertex AI Feature Store instance as the vector database to create a RAG corpus
+### Use the Agent Platform Feature Store instance as the vector database to create a RAG corpus
 
-To create the RAG corpus, you must use `FEATURE_VIEW_RESOURCE_NAME`. The RAG corpus is created and automatically associated with the Vertex AI Feature Store instance. RAG APIs use the generated `rag_corpus_id` to handle the data upload to the Vertex AI Feature Store instance and to retrieve relevant contexts from the `rag_corpus_id`.
+To create the RAG corpus, you must use `FEATURE_VIEW_RESOURCE_NAME`. The RAG corpus is created and automatically associated with the Agent Platform Feature Store instance. RAG APIs use the generated `rag_corpus_id` to handle the data upload to the Agent Platform Feature Store instance and to retrieve relevant contexts from the `rag_corpus_id`.
 
-This code sample demonstrates how to use the Vertex AI Feature Store instance as the vector database to create a RAG corpus.
+This code sample demonstrates how to use the Agent Platform Feature Store instance as the vector database to create a RAG corpus.
 
 ### REST
     
@@ -342,7 +342,7 @@ To learn how to install or update the Vertex AI SDK for Python, see [Install the
 
 ### Import files into the BigQuery table using the RAG API
 
-Use the `ImportRagFiles` API to import files from Google Cloud Storage or Google Drive into the BigQuery table of the Vertex AI Feature Store instance. The files are embedded and stored in the BigQuery table.
+Use the `ImportRagFiles` API to import files from Google Cloud Storage or Google Drive into the BigQuery table of the Agent Platform Feature Store instance. The files are embedded and stored in the BigQuery table.
 
 This code sample demonstrates how to import files into the BigQuery table using the RAG API.
 
@@ -650,6 +650,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-02 UTC.
+Last updated 2026-11-04 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-02 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 

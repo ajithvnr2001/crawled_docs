@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/duo-user-context/
 title: Collect Duo User context logs \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T07:51:10.895048+00:00
+fetched_at: 2026-11-04T23:34:25.245850+00:00
 ---
 
 # Collect Duo User context logs  |  Google Security Operations  |  Google Cloud Documentation

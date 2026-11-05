@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/mcafee-web-protection/
 title: Collect Skyhigh Secure Web Gateway (On-Premises) logs \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T07:50:57.400374+00:00
+fetched_at: 2026-11-04T23:34:36.594496+00:00
 ---
 
 # Collect Skyhigh Secure Web Gateway (On-Premises) logs  |  Google Security Operations  |  Google Cloud Documentation

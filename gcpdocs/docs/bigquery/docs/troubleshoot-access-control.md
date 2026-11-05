@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/troubleshoot-access-control/
 title: Troubleshoot access control issues \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-30T05:54:24.397347+00:00
+fetched_at: 2026-11-04T23:20:48.864760+00:00
 ---
 
 # Troubleshoot access control issues  |  BigQuery  |  Google Cloud Documentation
@@ -21,7 +21,11 @@ Send feedback  Stay organized with collections  Save and categorize content base
 
 # Troubleshoot access control issues
 
-This document shows you how to troubleshoot security issues with Identity and Access Management (IAM) permissions, column-level access control, and customer-managed encryption keys (CMEK) in BigQuery. IAM permission issues typically result in `Access Denied` errors like the following:
+Use this document to troubleshoot BigQuery security and permission issues, including Identity and Access Management (IAM) permissions, column-level access control, customer-managed encryption keys (CMEK), and policy violations. Access control failures typically produce `Access Denied` or `403 Forbidden` errors when principals run jobs or access resources.
+
+## Common access denied errors
+
+The following are examples of common access denied errors:
 
   * `Access Denied: Project PROJECT_ID: User does not have bigquery.jobs.create permission in project PROJECT_ID.`
   * `Access Denied: Project PROJECT_ID: User does not have bigquery.datasets.get permission on dataset DATASET.`
@@ -399,6 +403,18 @@ Policy tags and taxonomies are homed within a specific Google Cloud organization
 
 Resolving this issue requires manual intervention by Google Cloud Support to re-associate the taxonomy with the new organization. If you migrated a project with policy tags and encounter these issues, [contact Cloud Customer Care](https://docs.cloud.google.com/support).
 
+## Troubleshoot data governance tags
+
+The following sections describe how to troubleshoot common issues when controlling access to columns with [data governance tags](https://docs.cloud.google.com/bigquery/docs/tags#data-governance-tags).
+
+### Incorrectly formatted tag names
+
+When you create tags, you define a short name (for example, `ssn`). However, when you attach tags to columns in your schema or use them in conditions, the tag key must use the namespaced format (`PROJECT_ID/TAG_KEY` or `ORGANIZATION_ID/TAG_KEY`), while the tag value still uses the short name. Supplying only the short name for the tag key produces an `Invalid tagKey` or `Invalid tagValue` error.
+
+### Cross-project policy application
+
+By default, only the data policies of the table's project are evaluated. Policies from other projects don't apply unless a default data policy project is configured at the organization level. For more information about configuring and evaluating cross-project policies, see [Configure a default data policy project](https://docs.cloud.google.com/bigquery/docs/tags#configure-default-data-policy-project).
+
 ## Troubleshoot customer-managed encryption keys
 
 The following list describes common errors and recommended resolutions when you use customer-managed encryption keys (CMEK) with Cloud Key Management Service:
@@ -429,6 +445,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-29 UTC.
+Last updated 2026-11-04 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 

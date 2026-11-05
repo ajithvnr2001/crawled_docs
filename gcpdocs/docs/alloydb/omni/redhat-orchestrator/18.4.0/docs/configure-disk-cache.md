@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/omni/redhat-orchestrator/18.4.0/docs/configure-disk-cache/
 title: Accelerate database performance using disk cache \u00a0|\u00a0 AlloyDB Omni using the RPM orchestrator: 18.4.0 \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T09:46:16.395623+00:00
+fetched_at: 2026-11-04T23:27:31.426775+00:00
 ---
 
 # Accelerate database performance using disk cache  |  AlloyDB Omni using the RPM orchestrator: 18.4.0  |  Google Cloud Documentation

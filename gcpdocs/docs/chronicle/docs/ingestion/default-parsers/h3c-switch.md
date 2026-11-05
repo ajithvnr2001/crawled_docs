@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/h3c-switch/
 title: Collect H3C Comware Platform Switch logs \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T07:51:05.630831+00:00
+fetched_at: 2026-11-04T23:34:07.666294+00:00
 ---
 
 # Collect H3C Comware Platform Switch logs  |  Google Security Operations  |  Google Cloud Documentation

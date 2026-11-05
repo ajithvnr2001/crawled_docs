@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/extrahop/
 title: Collect ExtraHop Reveal(x) logs \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T07:53:50.915302+00:00
+fetched_at: 2026-11-04T23:35:10.120670+00:00
 ---
 
 # Collect ExtraHop Reveal(x) logs  |  Google Security Operations  |  Google Cloud Documentation

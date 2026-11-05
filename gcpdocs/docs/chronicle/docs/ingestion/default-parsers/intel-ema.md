@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/intel-ema/
 title: Collect Intel Endpoint Management Assistant (Intel EMA) logs \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T07:53:41.453710+00:00
+fetched_at: 2026-11-04T23:43:36.953112+00:00
 ---
 
 # Collect Intel Endpoint Management Assistant (Intel EMA) logs  |  Google Security Operations  |  Google Cloud Documentation

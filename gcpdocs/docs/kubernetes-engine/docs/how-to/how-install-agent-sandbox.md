@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/kubernetes-engine/docs/how-to/how-install-agent-sandbox/
 title: Install Agent Sandbox on GKE \u00a0|\u00a0 GKE AI/ML \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-01T05:43:06.267432+00:00
+fetched_at: 2026-11-04T23:12:22.498123+00:00
 ---
 
 # Install Agent Sandbox on GKE  |  GKE AI/ML  |  Google Cloud Documentation
@@ -24,22 +24,9 @@ Send feedback
 
 [ Autopilot ](https://docs.cloud.google.com/kubernetes-engine/docs/concepts/autopilot-overview) [ Standard ](https://docs.cloud.google.com/kubernetes-engine/docs/concepts/choose-cluster-mode)
 
-This document explains how to install the open source [Agent Sandbox](https://github.com/kubernetes-sigs/agent-sandbox) controller on a Google Kubernetes Engine (GKE) cluster to run sandboxed workloads in dedicated Kubernetes Pods. You also learn how to create a sandboxed environment on the cluster to safely execute untrusted code.
+This document explains how to install the open source [Agent Sandbox](https://github.com/kubernetes-sigs/agent-sandbox) controller on a Google Kubernetes Engine (GKE) cluster to run isolated agent workloads in dedicated Kubernetes Pods. You also learn how to create a Sandbox resource that runs untrusted code in the gVisor runtime. For most agent workloads, use [Agent Substrate on GKE](https://docs.cloud.google.com/kubernetes-engine/ai-ml/about-agent-substrate) instead, because it can run more agents on the same nodes. Use Agent Sandbox on GKE when each agent needs a dedicated Pod, GPUs or TPUs, a full Kubernetes PodSpec, or a GKE Autopilot cluster. To compare Agent Sandbox on GKE with Agent Substrate on GKE and choose an architecture for your AI agent workloads, see [Plan an architecture for AI agent workloads on GKE](https://docs.cloud.google.com/kubernetes-engine/docs/concepts/machine-learning/agent-workloads).
 
 For an overview of how Agent Sandbox on GKE isolates untrusted AI-generated code, see [About Agent Sandbox on GKE](https://docs.cloud.google.com/kubernetes-engine/docs/concepts/machine-learning/agent-sandbox).
-
-## Choose between Pod-based and actor-based architectures
-
-Before you install Agent Sandbox on GKE, confirm which GKE architecture fits your AI agent workloads:
-
-  * **Agent Substrate on GKE (actor-based)** : use this architecture for most agentic workloads, especially stateful agents that frequently suspend and resume. Active agents share a pool of warm Pods instead of keeping a dedicated Pod per agent, so you can run more agents on fewer nodes. Agent Substrate on GKE provides automatic suspension and resumption for idle workloads, and restores agents from storage in less than one second. In contrast, Agent Sandbox on GKE requires manual [Pod snapshotting](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/agent-sandbox-pod-snapshots), and you need to build application code to detect inactivity and save the agent's progress. Agent Substrate on GKE requires a GKE Standard cluster. For more information, see [About Agent Substrate on GKE](https://docs.cloud.google.com/kubernetes-engine/ai-ml/about-agent-substrate). To install this option instead, see [Install Agent Substrate on GKE](https://docs.cloud.google.com/kubernetes-engine/ai-ml/install-overview-substrate).
-  * **Agent Sandbox on GKE (Pod-based)** : use this architecture, which you install in this document, when each agent needs a dedicated Kubernetes Pod on a GKE Autopilot or Standard cluster. Choose this option for continuously active agents or workloads that require any of the following: 
-    * Declarative Kubernetes APIs, such as the `Sandbox` and `SandboxClaim` custom resources
-    * The full Kubernetes `PodSpec` schema, including custom sidecar and init containers
-    * Direct access to hardware accelerators, such as GPUs or TPUs
-    * GKE Autopilot clusters
-
-
 
 ## Costs
 
@@ -93,14 +80,14 @@ Here's an explanation of these environment variables:
   * `CLUSTER_NAME`: the name of your GKE cluster—for example, `agent-sandbox-cluster`.
   * `LOCATION`: the Google Cloud region or zone where your GKE cluster is created. If you create an Autopilot cluster, set this to the region (for example, `us-central1`). Autopilot clusters are always regional. If you create a Standard cluster, set this to the zone (for example, `us-central1-a`). To reduce costs, this document creates a zonal cluster, which uses fewer nodes than a regional cluster.
   * `AGENT_SANDBOX_VERSION`: the version of the open source Agent Sandbox controller to install. This document uses version 1.0.6. To see other versions, go to the [Agent Sandbox releases page](https://github.com/kubernetes-sigs/agent-sandbox/releases).
-  * `NODE_POOL_NAME`: the name of the node pool that will run sandboxed workloads—for example, `agent-sandbox-pool`. This variable is only required if you are creating a GKE Standard cluster.
+  * `NODE_POOL_NAME`: the name of the node pool that will run your agent Pods—for example, `agent-sandbox-pool`. This variable is only required if you are creating a GKE Standard cluster.
   * `MACHINE_TYPE`: the machine type of the nodes in your cluster's default node pool and in the gVisor node pool—for example, `e2-standard-2`. For details about different machine series and choosing between different options, see the [Machine families resource and comparison guide](https://docs.cloud.google.com/compute/docs/machine-resource). This variable is only required if you are creating a GKE Standard cluster.
 
 
 
 ## Create a GKE cluster
 
-Agent Sandbox on GKE isolates sandboxed workloads by using [gVisor](https://gvisor.dev/docs/) or [microVMs](https://docs.cloud.google.com/kubernetes-engine/docs/concepts/sandbox-pods#sandbox-technologies). If you don't specify a sandbox runtime, sandboxes run without kernel isolation, which we don't recommend for untrusted code. This document uses gVisor. Autopilot clusters enable gVisor automatically. In Standard clusters, you create a node pool that has gVisor enabled. To use microVMs instead, see [Enable the microVM sandbox type](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/sandbox-pods#enable-microvm). The recommended security policy allows only gVisor, so it rejects sandboxes that use microVMs.
+Agent Sandbox on GKE isolates agent workloads by using [GKE Sandbox](https://docs.cloud.google.com/kubernetes-engine/docs/concepts/sandbox-pods) with [gVisor](https://gvisor.dev/docs/) or [microVMs](https://docs.cloud.google.com/kubernetes-engine/docs/concepts/sandbox-pods#sandbox-technologies). If you don't specify a GKE Sandbox runtime (gVisor or microVMs), your Pods run without kernel isolation, so don't use them to run untrusted code. This document uses gVisor. Autopilot clusters enable gVisor automatically. In Standard clusters, you create a node pool that has gVisor enabled. To use microVMs instead, see [Enable the microVM sandbox type](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/sandbox-pods#enable-microvm). The recommended security policy allows only gVisor, so it rejects Sandbox resources that use microVMs.
 
 **Best practice** : 
 
@@ -163,7 +150,7 @@ To enable the `kubectl` command-line tool to connect to the cluster, get the clu
 
 ## Install Agent Sandbox
 
-To install Agent Sandbox, apply a release manifest from the Agent Sandbox GitHub repository. The `sandbox-with-extensions.yaml` manifest installs the Agent Sandbox controller and the CustomResourceDefinitions for the `Sandbox` resource and for the `SandboxTemplate`, `SandboxClaim`, and `SandboxWarmPool` extension resources.
+To install Agent Sandbox, apply a release manifest from the Agent Sandbox GitHub repository. The `sandbox-with-extensions.yaml` manifest installs the Agent Sandbox controller and the CustomResourceDefinitions for the Sandbox resource and for the SandboxTemplate, SandboxClaim, and SandboxWarmPool extension resources.
 
   1. Apply the release manifest:
          
@@ -211,7 +198,7 @@ When the controller is running, the `READY` column shows `1/1`.
 
 ## Apply the recommended security policy
 
-By default, Agent Sandbox on GKE doesn't restrict the configuration of the Pods that run your sandboxes. To help enforce isolation settings for your sandboxes, apply the recommended `secure-sandbox-policy` [ValidatingAdmissionPolicy](https://kubernetes.io/docs/reference/access-authn-authz/validating-admission-policy/) from the Agent Sandbox GitHub repository. This policy rejects any `Sandbox` resource that doesn't meet the Agent Sandbox on GKE deployment requirements.
+By default, Agent Sandbox on GKE doesn't restrict the configuration of the Pods that run your agents. To help enforce isolation settings for your agent Pods, apply the recommended `secure-sandbox-policy` [ValidatingAdmissionPolicy](https://kubernetes.io/docs/reference/access-authn-authz/validating-admission-policy/) from the Agent Sandbox GitHub repository. This policy rejects any Sandbox resource that doesn't meet the Agent Sandbox on GKE deployment requirements.
 
   1. Apply the policy:
          
@@ -226,7 +213,7 @@ By default, Agent Sandbox on GKE doesn't restrict the configuration of the Pods 
 
 
 
-The policy validates `Sandbox` resources. When you create a `SandboxWarmPool` resource or a `SandboxClaim` resource, the controller creates `Sandbox` resources from a `SandboxTemplate` resource. If the template doesn't meet the requirements, the policy rejects the `Sandbox` resource, and the error appears in the controller logs. To view the logs, run the following command:
+The policy validates Sandbox resources. When you create a SandboxWarmPool resource or a SandboxClaim resource, the controller creates Sandbox resources from a SandboxTemplate resource. If the template doesn't meet the requirements, the policy rejects the Sandbox resource, and the error appears in the controller logs. To view the logs, run the following command:
     
     
     kubectl logs deployment/agent-sandbox-controller \
@@ -237,13 +224,13 @@ You own this policy, and you can modify it to fit your workloads. For more infor
 
 ## Agent Sandbox on GKE deployment requirements
 
-If you apply the recommended security policy, your workload manifests, such as a `Sandbox` or `SandboxTemplate` resource, must include specific security and configuration settings. If a `Sandbox` resource doesn't meet these requirements, the admission controller rejects it. The container requirements apply to all containers in the Pod, including init containers and ephemeral containers.
+If you apply the recommended security policy, your workload manifests, such as a Sandbox or SandboxTemplate resource, must include specific security and configuration settings. If a Sandbox resource doesn't meet these requirements, the admission controller rejects it. The container requirements apply to all containers in the Pod, including init containers and ephemeral containers.
 
 ### Required configuration
 
 Your deployment manifest must include the following settings:
 
-  * `runtimeClassName: gvisor`: ensures the Pod runs in a gVisor sandbox. The policy rejects sandboxes that use any other runtime, including microVMs.
+  * `runtimeClassName: gvisor`: runs the Pod in the gVisor runtime of GKE Sandbox. The policy rejects Sandbox resources that use any other runtime, including microVMs.
   * `automountServiceAccountToken: false`: prevents the Pod from automatically mounting the default service account token.
   * `securityContext.runAsNonRoot: true`: ensures the container does not run as the root user.
   * `securityContext.capabilities.drop: ["ALL"]`: drops all Linux capabilities from the container.
@@ -270,11 +257,11 @@ Your deployment manifest must **not** include any of the following:
 
 ## Deploy the Sandbox Router (optional)
 
-The Sandbox Router is an HTTP proxy that routes requests from clients, such as the [Agent Sandbox Python client](https://pypi.org/project/k8s-agent-sandbox/), to the Pods that run your sandboxes. If you plan to use the Python client, for example as described in [Isolate AI code execution with Agent Sandbox on GKE](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/agent-sandbox), deploy the router.
+The Sandbox Router is an HTTP proxy that routes requests from clients, such as the [Agent Sandbox Python client](https://pypi.org/project/k8s-agent-sandbox/), to the Pods that run your agents. If you plan to use the Python client, for example as described in [Isolate AI code execution with Agent Sandbox on GKE](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/agent-sandbox), deploy the router.
 
-You deploy the router in the `agent-sandbox-system` namespace. By default, the network policy that Agent Sandbox on GKE creates for each `SandboxTemplate` resource allows incoming traffic to sandboxes only from the router Pods in this namespace.
+You deploy the router in the `agent-sandbox-system` namespace. By default, the network policy that Agent Sandbox on GKE creates for each SandboxTemplate resource allows incoming traffic to agent Pods only from the router Pods in this namespace.
 
-  1. Create the router's service account and the RBAC permissions that let the router look up sandbox Pods:
+  1. Create the router's service account and the RBAC permissions that let the router look up agent Pods:
          
          kubectl apply \
              -f https://raw.githubusercontent.com/kubernetes-sigs/agent-sandbox/${AGENT_SANDBOX_VERSION}/sandbox-router/deploy/serviceaccount.yaml \
@@ -307,15 +294,15 @@ This router configuration is for development and testing. For production setting
 
 ## Deploy a sandboxed environment
 
-We recommend deploying a sandboxed environment by defining a `SandboxTemplate` resource and keeping pre-warmed instances ready by using a `SandboxWarmPool` resource. You can then request an instance from this warm pool by using a `SandboxClaim` resource. Alternatively, you can create a `Sandbox` resource directly, but this approach doesn't support warm pools.
+To deploy a sandboxed environment, define a SandboxTemplate resource and keep pre-warmed Sandbox resources ready by using a SandboxWarmPool resource. You can then request a Sandbox resource from this warm pool by using a SandboxClaim resource. Alternatively, you can create a Sandbox resource directly, but this approach doesn't support warm pools.
 
-`SandboxTemplate`, `SandboxWarmPool`, `SandboxClaim`, and `Sandbox` are [Kubernetes custom resources](https://kubernetes.io/docs/concepts/extend-kubernetes/api-extension/custom-resources/).
+SandboxTemplate, SandboxWarmPool, SandboxClaim, and Sandbox are [Kubernetes custom resources](https://kubernetes.io/docs/concepts/extend-kubernetes/api-extension/custom-resources/).
 
-### Recommended: Create `SandboxTemplate` and `SandboxWarmPool` resources
+### Recommended: Create SandboxTemplate and SandboxWarmPool resources
 
-The `SandboxTemplate` resource acts as a reusable blueprint. The `SandboxWarmPool` resource helps ensure that a specified number of pre-warmed sandboxes are always running and ready to be claimed. Use of this custom resource minimizes startup latency.
+The SandboxTemplate resource acts as a reusable blueprint. The SandboxWarmPool resource maintains a specified number of pre-warmed Sandbox resources with running Pods that are ready to be claimed. This warm pool reduces startup latency.
 
-To deploy a sandboxed environment by creating the `SandboxTemplate` and `SandboxWarmPool` resources, complete the following steps:
+To deploy a sandboxed environment by creating SandboxTemplate and SandboxWarmPool resources, complete the following steps:
 
   1. In Cloud Shell, create a file named `sandbox-template.yaml` with the following content:
          
@@ -358,7 +345,7 @@ To deploy a sandboxed environment by creating the `SandboxTemplate` and `Sandbox
                restartPolicy: OnFailure
          
 
-  2. Apply the `SandboxTemplate` manifest:
+  2. Apply the SandboxTemplate manifest:
          
          kubectl apply -f sandbox-template.yaml
          
@@ -379,28 +366,28 @@ To deploy a sandboxed environment by creating the `SandboxTemplate` and `Sandbox
              name: python-runtime-template
          
 
-  4. Apply the `SandboxWarmPool` manifest:
+  4. Apply the SandboxWarmPool manifest:
          
          kubectl apply -f sandbox-warmpool.yaml
          
 
-  5. Wait until the warm pool's sandboxes are ready:
+  5. Wait until the warm pool's Sandbox resources and their Pods are ready:
          
          kubectl wait sandboxwarmpool python-runtime-warmpool \
              --for=jsonpath='{.status.readyReplicas}'=2 \
              --timeout=600s
          
 
-If you create a `SandboxClaim` resource before the pool's sandboxes are ready, the controller might create a new sandbox for the claim instead of assigning one from the pool. In an Autopilot cluster, the sandboxes can take several minutes to become ready because GKE might need to create nodes for them.
+If you create a SandboxClaim resource before the pool's Sandbox resources and their Pods are ready, the controller creates a new Sandbox resource for the claim instead of assigning one from the pool. In an Autopilot cluster, the Pods can take several minutes to become ready because GKE might need to create nodes for them.
 
 
 
 
-### Create a `SandboxClaim` resource
+### Create a SandboxClaim resource
 
-The `SandboxClaim` resource requests a sandbox from the warm pool. Because you created a warm pool, the controller assigns a running sandbox from the pool to the claim instead of creating a new one.
+The SandboxClaim resource requests a Sandbox resource from the warm pool. Because you created a warm pool, the controller assigns a ready Sandbox resource (and its running Pod) from the pool to the claim instead of creating a new one.
 
-To request a sandbox from the warm pool by creating a `SandboxClaim` resource, complete the following steps:
+To request a Sandbox resource from the warm pool by creating a SandboxClaim resource, complete the following steps:
 
   1. Create a file named `sandbox-claim.yaml` with the following content:
          
@@ -415,12 +402,12 @@ To request a sandbox from the warm pool by creating a `SandboxClaim` resource, c
              name: python-runtime-warmpool
          
 
-  2. Apply the `SandboxClaim` manifest:
+  2. Apply the SandboxClaim manifest:
          
          kubectl apply -f sandbox-claim.yaml
          
 
-  3. Verify that the sandbox, claim, and warm pool are ready:
+  3. Verify that the Sandbox resource, claim, and warm pool are ready:
          
          kubectl get sandboxwarmpool,sandboxclaim,sandbox,pod
          
@@ -428,11 +415,11 @@ To request a sandbox from the warm pool by creating a `SandboxClaim` resource, c
 
 
 
-### Alternative: Create a `Sandbox` resource directly
+### Alternative: Create a Sandbox resource directly
 
-If you don't need the fast startup times provided by warm pools, you can deploy a `Sandbox` resource directly without using templates.
+If you don't need the fast startup times provided by warm pools, you can deploy a Sandbox resource directly without using templates.
 
-To deploy a sandboxed environment by creating a `Sandbox` resource directly, complete the following steps:
+To deploy a sandboxed environment by creating a Sandbox resource directly, complete the following steps:
 
   1. Create a file named `sandbox.yaml` with the following content:
          
@@ -473,12 +460,12 @@ To deploy a sandboxed environment by creating a `Sandbox` resource directly, com
                      memory: "128Mi" # Required
          
 
-  2. Apply the `Sandbox` manifest:
+  2. Apply the Sandbox manifest:
          
          kubectl apply -f sandbox.yaml
          
 
-  3. Verify that the sandbox is running:
+  3. Verify that the Sandbox resource is running:
          
          kubectl get sandbox
          
@@ -503,7 +490,7 @@ If you deployed the Sandbox Router or applied the recommended security policy, r
 
 ## Uninstall Agent Sandbox
 
-**Caution:** Uninstalling Agent Sandbox deletes the Agent Sandbox CustomResourceDefinitions, which also deletes all `Sandbox`, `SandboxTemplate`, `SandboxClaim`, and `SandboxWarmPool` resources in all namespaces.
+**Caution:** Uninstalling Agent Sandbox deletes the Agent Sandbox CustomResourceDefinitions, which also deletes all Sandbox, SandboxTemplate, SandboxClaim, and SandboxWarmPool resources in all namespaces.
 
   1. Check for Agent Sandbox resources that are still in use:
          
@@ -547,7 +534,7 @@ If you created an Autopilot cluster, the location is the region (for example, `u
 ## What's next
 
   * Learn how to [save and restore Agent Sandbox on GKE environments with Pod snapshots](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/agent-sandbox-pod-snapshots).
-  * Learn about the underlying technology used by [Agent Sandbox on GKE](https://docs.cloud.google.com/kubernetes-engine/docs/concepts/sandbox-pods).
+  * Learn how [GKE Sandbox](https://docs.cloud.google.com/kubernetes-engine/docs/concepts/sandbox-pods) isolates workloads by using gVisor or microVMs.
   * Learn more about [GKE security](https://docs.cloud.google.com/kubernetes-engine/docs/concepts/security-overview).
   * Explore the [Agent Sandbox open-source project](https://github.com/kubernetes-sigs/agent-sandbox) on GitHub.
   * Learn how to use open source [Kata Containers with Agent Sandbox on GKE](https://github.com/kubernetes-sigs/agent-sandbox/tree/v1.0.6/examples/kata-gke-sandbox). Kata Containers isn't a Google Cloud product. If you install and use this software, then you're responsible for management and troubleshooting. Google's support and SLAs don't apply to Kata Containers.
@@ -558,6 +545,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-30 UTC.
+Last updated 2026-11-04 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 

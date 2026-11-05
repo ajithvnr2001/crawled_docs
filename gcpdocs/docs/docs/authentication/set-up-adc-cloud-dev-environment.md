@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/docs/authentication/set-up-adc-cloud-dev-environment/
 title: Set up ADC for a cloud-based development environment \u00a0|\u00a0 Authentication \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T08:00:37.864963+00:00
+fetched_at: 2026-11-04T23:45:11.248469+00:00
 ---
 
 # Set up ADC for a cloud-based development environment  |  Authentication  |  Google Cloud Documentation

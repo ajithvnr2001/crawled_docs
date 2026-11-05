@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/kubernetes-engine/docs/concepts/gateway-api/
 title: About Gateway API \u00a0|\u00a0 GKE networking \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T22:34:42.828104+00:00
+fetched_at: 2026-11-04T23:31:22.313860+00:00
 ---
 
 # About Gateway API  |  GKE networking  |  Google Cloud Documentation
@@ -36,6 +36,8 @@ Gateway API is an open source standard for service networking. Gateway API evolv
 
   * **Expressive:** Gateway API resources provide built-in capabilities for header-based matching, traffic weighting, CORS, and other capabilities that are only possible in Ingress through custom annotations.
 
+  * **Flexible IP stack support:** you can deploy Gateway resources (`gke-l7-rilb`, `gke-l7-regional-external-managed`, or `gke-l7-global-external-managed`) on single-stack IPv4 clusters, dual-stack clusters, or [single-stack IPv6 clusters](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/single-stack-ipv6) ([Preview](https://cloud.google.com/products#product-launch-stages)). Because Application Load Balancers terminate client connections at the proxy, the frontend and backend can use different IP versions. For example, a Gateway resource with an IPv4 frontend address can route traffic to IPv6-only Pod endpoints, and a Gateway resource with an IPv6 frontend address can route traffic to IPv4-only Pod endpoints.
+
 
 
 
@@ -65,21 +67,21 @@ The different GatewayClasses correspond to different [Google Cloud load balancer
 
 Some GatewayClasses support multi-cluster load balancing.
 
-The following table lists the GatewayClasses available in GKE clusters and their underlying load balancer type. For complete details on the GatewayClasses, see the [GatewayClass capabilities and specifications](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/gatewayclass-capabilities).
+The following table lists the GatewayClasses available in GKE clusters, their underlying load balancer type, and their IP stack support. For complete details on the GatewayClasses, see the [GatewayClass capabilities and specifications](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/gatewayclass-capabilities).
 
-GatewayClass name | Description  
----|---  
-`gke-l7-global-external-managed` | Global external Application Load Balancer(s) built on the [global external Application Load Balancer](https://docs.cloud.google.com/load-balancing/docs/https)  
-`gke-l7-regional-external-managed` | Regional external Application Load Balancer(s) built on the [regional external Application Load Balancer](https://docs.cloud.google.com/load-balancing/docs/https/setting-up-reg-ext-https-lb)  
-`gke-l7-rilb` | Internal Application Load Balancer(s) built on the [internal Application Load Balancer](https://docs.cloud.google.com/load-balancing/docs/l7-internal)  
-`gke-l7-gxlb` | Global external Application Load Balancer(s) built on the [classic Application Load Balancer](https://docs.cloud.google.com/load-balancing/docs/https)  
-`gke-l7-cross-regional-internal-managed-mc` | Multi-cluster Cross-region internal Application Load Balancer(s) built on the [cross-region internal Application Load Balancer](https://docs.cloud.google.com/load-balancing/docs/l7-internal/setting-up-l7-cross-reg-internal)  
-`gke-l7-global-external-managed-mc` | Multi-cluster Global external Application Load Balancer(s) built on the [global external Application Load Balancer](https://docs.cloud.google.com/load-balancing/docs/https)  
-`gke-l7-regional-external-managed-mc` | Multi-cluster Regional external Application Load Balancer(s) built on the [regional external Application Load Balancer](https://docs.cloud.google.com/load-balancing/docs/https/setting-up-reg-ext-https-lb)  
-`gke-l7-rilb-mc` | Multi-cluster Internal Application Load Balancer(s) built on the [internal Application Load Balancer](https://docs.cloud.google.com/load-balancing/docs/l7-internal)  
-`gke-l7-gxlb-mc` | Multi-cluster Global external Application Load Balancer(s) built on the [classic Application Load Balancer](https://docs.cloud.google.com/load-balancing/docs/https)  
-`gke-td` | Multi-cluster [Cloud Service Mesh](https://docs.cloud.google.com/service-mesh/docs/gateway/overview)  
-`asm-l7-gxlb` | Global external Application Load Balancer(s) built on [Cloud Service Mesh](https://docs.cloud.google.com/service-mesh/docs/overview)  
+GatewayClass name | Description | Supported cluster stack types  
+---|---|---  
+`gke-l7-global-external-managed` | Global external Application Load Balancer(s) built on the [global external Application Load Balancer](https://docs.cloud.google.com/load-balancing/docs/https) | IPv4-only, dual-stack, IPv6-only  
+`gke-l7-regional-external-managed` | Regional external Application Load Balancer(s) built on the [regional external Application Load Balancer](https://docs.cloud.google.com/load-balancing/docs/https/setting-up-reg-ext-https-lb) | IPv4-only, dual-stack, IPv6-only  
+`gke-l7-rilb` | Internal Application Load Balancer(s) built on the [internal Application Load Balancer](https://docs.cloud.google.com/load-balancing/docs/l7-internal) | IPv4-only, dual-stack, IPv6-only  
+`gke-l7-gxlb` | Global external Application Load Balancer(s) built on the [classic Application Load Balancer](https://docs.cloud.google.com/load-balancing/docs/https) | IPv4-only, dual-stack  
+`gke-l7-cross-regional-internal-managed-mc` | Multi-cluster Cross-region internal Application Load Balancer(s) built on the [cross-region internal Application Load Balancer](https://docs.cloud.google.com/load-balancing/docs/l7-internal/setting-up-l7-cross-reg-internal) | IPv4-only, dual-stack  
+`gke-l7-global-external-managed-mc` | Multi-cluster Global external Application Load Balancer(s) built on the [global external Application Load Balancer](https://docs.cloud.google.com/load-balancing/docs/https) | IPv4-only, dual-stack  
+`gke-l7-regional-external-managed-mc` | Multi-cluster Regional external Application Load Balancer(s) built on the [regional external Application Load Balancer](https://docs.cloud.google.com/load-balancing/docs/https/setting-up-reg-ext-https-lb) | IPv4-only, dual-stack  
+`gke-l7-rilb-mc` | Multi-cluster Internal Application Load Balancer(s) built on the [internal Application Load Balancer](https://docs.cloud.google.com/load-balancing/docs/l7-internal) | IPv4-only, dual-stack  
+`gke-l7-gxlb-mc` | Multi-cluster Global external Application Load Balancer(s) built on the [classic Application Load Balancer](https://docs.cloud.google.com/load-balancing/docs/https) | IPv4-only, dual-stack  
+`gke-td` | Multi-cluster [Cloud Service Mesh](https://docs.cloud.google.com/service-mesh/docs/gateway/overview) | IPv4-only  
+`asm-l7-gxlb` | Global external Application Load Balancer(s) built on [Cloud Service Mesh](https://docs.cloud.google.com/service-mesh/docs/overview) | IPv4-only  
   
 Each GatewayClass is subject to the limitations of the underlying load balancer.
 
@@ -353,6 +355,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-04 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/looker/docs/ci-sql-validator/
 title: Continuous Integration SQL Validator \u00a0|\u00a0 Looker \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T23:18:05.818257+00:00
+fetched_at: 2026-11-04T23:41:26.068024+00:00
 ---
 
 # Continuous Integration SQL Validator  |  Looker  |  Google Cloud Documentation
@@ -21,7 +21,7 @@ Send feedback
 
 #  Continuous Integration SQL Validator Stay organized with collections  Save and categorize content based on your preferences. 
 
-The Continuous Integration (CI) SQL Validator verifies that the dimensions in your Explores run correctly against your database. To do this, the SQL Validator runs a series of queries on the Explores in your LookML project. 
+The Continuous Integration (CI) SQL Validator verifies that the dimensions in your Explores run correctly against your database. To do this, the SQL Validator runs a series of queries on the Explores in your LookML project.
 
 By default, the SQL Validator performs the following tasks:
 
@@ -47,7 +47,7 @@ In the [run results page](https://docs.cloud.google.com/looker/docs/ci-view-resu
 
 ## Resource consumption
 
-The SQL Validator is designed to consume the fewest resources within Looker and within your data warehouse. All SQL Validator queries include a `LIMIT 0` and `WHERE 1=2` clause. These clauses effectively instruct the query planner in your data warehouse not to process data but to check the validity of the SQL. 
+The SQL Validator is designed to consume the fewest resources within Looker and within your data warehouse. All SQL Validator queries include a `LIMIT 0` and `WHERE 1=2` clause. These clauses effectively instruct the query planner in your data warehouse not to process data but to check the validity of the SQL.
 
 With BigQuery, for example, this type of query is similar to running a [dry run](https://docs.cloud.google.com/bigquery/docs/dry-run-queries) query in BigQuery. For BigQuery, `LIMIT 0` queries don't scan data, so you shouldn't be charged for the queries that the SQL Validator runs.
 
@@ -78,6 +78,17 @@ To exclude a dimension from SQL validation, you can modify the dimension's LookM
 
 
 **Tip:** To maintain backwards compatibility for LookML projects that previously used Spectacles Continuous Integration, Looker Continuous Integration also supports `spectacles: ignore` for tags and SQL comments.
+
+## Continuous Integration and OAuth database connections
+
+If your LookML project uses a database connection that is configured for OAuth, [automated CI service account users](https://docs.cloud.google.com/looker/docs/admin-panel-platform-ci#ci-users) cannot complete the interactive OAuth flow that is required to authenticate to the database. This causes the SQL Validator to fail with an `OAuth log in required` error.
+
+To use the Continuous Integration SQL Validator, implement one of the following workarounds:
+
+  * **Configure the database connection to use a service account** : Change the database connection's **Authentication** setting to use a service account (such as [Application Default Credentials](https://docs.cloud.google.com/looker/docs/looker-core-dialects#adc-with-bigquery)) instead of OAuth.
+  * **Use a non-OAuth model for CI** : Create a new LookML model that uses a non-OAuth database connection and [import](https://docs.cloud.google.com/looker/docs/importing-projects) your other models into it. Ensure that the Looker CI user has access to this new model.
+
+
 
 ## SQL Validator options
 
@@ -138,7 +149,7 @@ Here are some examples:
 
 By default, the SQL Validator will run SQL validation on all models and Explores in your LookML project.
 
-You can use the **Explores to exclude** field to specify the Explores and models that you want to exclude from the SQL validation. 
+You can use the **Explores to exclude** field to specify the Explores and models that you want to exclude from the SQL validation.
 
 You can specify Explores in the following format: `model_name/explore_name`
 
@@ -146,7 +157,7 @@ See the Explores to query section for more information about how to specify Expl
 
 ### Fail fast
 
-By default, the SQL Validator runs one query per Explore with all of the dimensions in the query. If that Explore query fails, the SQL Validator will then do an Explore query for each dimension in the Explore individually. 
+By default, the SQL Validator runs one query per Explore with all of the dimensions in the query. If that Explore query fails, the SQL Validator will then do an Explore query for each dimension in the Explore individually.
 
 For faster validation, you can enable the **Fail fast** option so that the SQL Validator will run only the initial query for an Explore, the query that contains all of the dimensions at once. If that query returns an error, the SQL Validator will display that error in the CI run results, and move on to the next Explore being validated.
 
@@ -162,7 +173,7 @@ Enable the **Ignore hidden** field if you want the SQL Validator to ignore the L
 
 ### Query concurrency
 
-By default, the SQL Validator runs no more than 10 queries at a time to avoid overwhelming your Looker instance. You can use the **Query concurrency** field to specify a different maximum number of queries that the SQL Validator can run concurrently. 
+By default, the SQL Validator runs no more than 10 queries at a time to avoid overwhelming your Looker instance. You can use the **Query concurrency** field to specify a different maximum number of queries that the SQL Validator can run concurrently.
 
 The maximum value for the **Query concurrency** field is limited to the [Max concurrent queries for this connection](https://docs.cloud.google.com/looker/docs/connecting-to-your-db#max-queries) setting on your database connection.
 
@@ -191,6 +202,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-04 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 

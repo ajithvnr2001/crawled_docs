@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/storage/docs/deleting-buckets/
 title: Delete buckets \u00a0|\u00a0 Cloud Storage \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-03T09:42:10.043747+00:00
+fetched_at: 2026-11-04T23:16:58.839167+00:00
 ---
 
 # Delete buckets  |  Cloud Storage  |  Google Cloud Documentation
@@ -28,6 +28,12 @@ If you delete a bucket that has [soft delete](https://docs.cloud.google.com/stor
 **Warning:** After a bucket is deleted, anyone can reuse the bucket's name for a new bucket and potentially receive data or requests that are intended for the original bucket. Also, a soft-deleted bucket can't be restored if its name is reused. To learn how to mitigate these risks, see [Bucket name considerations](https://docs.cloud.google.com/storage/docs/buckets#considerations).
 
 ## Before you begin
+
+  * If hard deletions (permanent deletions) are paused for the bucket, you must [resume hard deletions for the bucket](https://docs.cloud.google.com/storage/docs/pause-hard-deletions#resume-hard-deletions) before you can delete the bucket.
+
+
+
+### Required roles
 
 In order to get the required permissions for deleting a Cloud Storage bucket, ask your administrator to grant you the Storage Admin (`roles/storage.admin`) IAM role on the bucket.
 
@@ -361,6 +367,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-30 UTC.
+Last updated 2026-11-04 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 

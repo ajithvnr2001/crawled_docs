@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/firestore/native/docs/pipeline/stages/transformation/union/
 title: Union (Transformation Stage) \u00a0|\u00a0 Firestore in Native mode \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T08:01:14.914262+00:00
+fetched_at: 2026-11-05T00:05:11.356649+00:00
 ---
 
 # Union (Transformation Stage)  |  Firestore in Native mode  |  Google Cloud Documentation
@@ -158,7 +158,7 @@ Android
     	Sort(firestore.Orders(firestore.Descending(firestore.FieldOf("__name__")))).
     	Execute(ctx)
     
-    [pipeline_snippets_general.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/ed08282a171f47c035cf0984a5caa406b76f5bcd/firestore/pipeline_snippets_general.go#L1152-L1162)
+    [pipeline_snippets_general.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/db12cf239dd4dcddd2c15c703bb21991d4193a8a/firestore/pipeline_snippets_general.go#L1152-L1162)
 
 ## Behavior
 
@@ -270,7 +270,7 @@ Android
     	Sort(firestore.Orders(firestore.Descending(firestore.FieldOf("__name__")))).
     	Execute(ctx)
     
-    [pipeline_snippets_general.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/ed08282a171f47c035cf0984a5caa406b76f5bcd/firestore/pipeline_snippets_general.go#L1176-L1186)
+    [pipeline_snippets_general.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/db12cf239dd4dcddd2c15c703bb21991d4193a8a/firestore/pipeline_snippets_general.go#L1176-L1186)
 
 ### Duplicate Results
 

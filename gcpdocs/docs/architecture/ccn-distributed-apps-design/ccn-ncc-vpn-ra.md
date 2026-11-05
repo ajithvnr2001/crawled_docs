@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/architecture/ccn-distributed-apps-design/ccn-ncc-vpn-ra/
 title: Cross-Cloud Network inter-VPC connectivity using Network Connectivity Center \u00a0|\u00a0 Cloud Architecture Center \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T05:58:01.470511+00:00
+fetched_at: 2026-11-04T23:30:52.750489+00:00
 ---
 
 # Cross-Cloud Network inter-VPC connectivity using Network Connectivity Center  |  Cloud Architecture Center  |  Google Cloud Documentation
@@ -169,7 +169,7 @@ Workload VPC network | Workload VPC network | Traffic that leaves one workload V
 
   * [ Virtual Private Cloud (VPC)](https://cloud.google.com/vpc): A virtual system that provides global, scalable networking functionality for your Google Cloud workloads. VPC includes VPC Network Peering, Private Service Connect, private services access, and Shared VPC.
   * [ Network Connectivity Center](https://cloud.google.com/network-connectivity-center): An orchestration framework that simplifies network connectivity among spoke resources that are connected to a central management resource called a _hub_. 
-  * [ Cloud Interconnect](https://cloud.google.com/network-connectivity/docs/interconnect/concepts/overview): A service that extends your external network to the Google network through a high-availability, low-latency connection.
+  * [ Cloud Interconnect](https://docs.cloud.google.com/network-connectivity/docs/interconnect/concepts/overview): A service that extends your external network to the Google network through a high-availability, low-latency connection.
   * [ Cloud VPN](https://docs.cloud.google.com/network-connectivity/docs/vpn): A service that securely extends your peer network to Google's network through an IPsec VPN tunnel.
   * [ Cloud Router](https://docs.cloud.google.com/network-connectivity/docs/router/concepts/overview): A distributed and fully managed offering that provides Border Gateway Protocol (BGP) speaker and responder capabilities. Cloud Router works with Cloud Interconnect, Cloud VPN, and Router appliances to create dynamic routes in VPC networks based on BGP-received and custom learned routes.
   * [ Cloud Next Generation Firewall](https://docs.cloud.google.com/firewall/docs/about-firewalls): A fully distributed firewall service with advanced protection capabilities, micro-segmentation, and simplified management to help protect your Google Cloud workloads from internal and external attacks. 

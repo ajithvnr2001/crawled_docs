@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/iam/docs/attach-service-accounts/
 title: Attach service accounts to resources \u00a0|\u00a0 Identity and Access Management (IAM) \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T08:00:37.037777+00:00
+fetched_at: 2026-11-04T23:44:43.588270+00:00
 ---
 
 # Attach service accounts to resources  |  Identity and Access Management (IAM)  |  Google Cloud Documentation

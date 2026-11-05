@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/docs/cluster-upgrade/
 title: Upgrade a cluster's major server version \u00a0|\u00a0 AlloyDB for PostgreSQL \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T23:03:00.874659+00:00
+fetched_at: 2026-11-05T00:18:07.944339+00:00
 ---
 
 # Upgrade a cluster's major server version  |  AlloyDB for PostgreSQL  |  Google Cloud Documentation
@@ -27,9 +27,9 @@ For more information about how to create a cluster, see [Create a cluster and it
 
 ## Clusters and PostgreSQL version compatibility
 
-When you create an AlloyDB cluster, you choose the major version of PostgreSQL that's compatible with the instances in the cluster. By default, this is 17.
+When you create an AlloyDB cluster, you choose the major version of PostgreSQL that's compatible with the instances in the cluster. By default, this is 18.
 
-AlloyDB performs automatic minor database version upgrades during periodic maintenance. For example, if you created a cluster with 17 compatibility, then AlloyDB keeps the database servers upgraded to the latest minor version of 17.
+AlloyDB performs automatic minor database version upgrades during periodic maintenance. For example, if you created a cluster with 18 compatibility, then AlloyDB keeps the database servers upgraded to the latest minor version of 18.
 
 However, a major version upgrade of the PostgreSQL version requires you to plan, test, and perform the upgrade yourself.
 
@@ -107,7 +107,7 @@ Limitations
 
 
 Migration fidelity
-    Certain data types, such as [large objects](https://www.postgresql.org/docs/17/largeobjects.html), aren't migrated. For the full list of supported data, see [ Migration fidelity](https://docs.cloud.google.com/database-migration/docs/postgresql-to-alloydb/migration-fidelity) in Database Migration Service documentation. 
+    Certain data types, such as [large objects](https://www.postgresql.org/docs/18/largeobjects.html), aren't migrated. For the full list of supported data, see [ Migration fidelity](https://docs.cloud.google.com/database-migration/docs/postgresql-to-alloydb/migration-fidelity) in Database Migration Service documentation. 
 Source database lockout and downtime
     
 
@@ -179,14 +179,14 @@ To configure your AlloyDB source instances, perform these steps:
 ---|---  
 [ `alloydb.logical_decoding`](https://docs.cloud.google.com/alloydb/docs/reference/alloydb-flags#alloydb.logical_decoding) | Set to `on`.  
 [ `alloydb.enable_pglogical`](https://docs.cloud.google.com/alloydb/docs/reference/alloydb-flags#alloydb.enable_pglogical) | Set to `on`.  
-[ `max_replication_slots`](https://www.postgresql.org/docs/17/runtime-config-replication.html#GUC-MAX-REPLICATION-SLOTS) | This flag defines the maximum number of replication slots the source instance can support. The **minimum value** for this flag is `50`. Calculate the minimum value by using the following formula: ` (the number of databases in your instance) * (the number of simultaneous migration jobs you want to perform) + (slots reserved for table synchronization) + (the number of replication slots that you use for your read replicas)` Consider an example where the following are true:
+[ `max_replication_slots`](https://www.postgresql.org/docs/18/runtime-config-replication.html#GUC-MAX-REPLICATION-SLOTS) | This flag defines the maximum number of replication slots the source instance can support. The **minimum value** for this flag is `50`. Calculate the minimum value by using the following formula: ` (the number of databases in your instance) * (the number of simultaneous migration jobs you want to perform) + (slots reserved for table synchronization) + (the number of replication slots that you use for your read replicas)` Consider an example where the following are true:
      * You don't have read replicas in your source.
      * You have 30 databases on the primary source instance.
      * You want to create 2 migration jobs for the source cluster.
      * You want to use 10 slots for table replication.
 In such a case, the number of `max_replication_slots` must be at least `70`, calculated as `30 * 2 + 10 + 0`.   
-[ `max_wal_senders`](https://www.postgresql.org/docs/17/runtime-config-replication.html#GUC-MAX-WAL-SENDERS) | Set this flag to at least 10 more than the `max_replication_slots` value plus the number of senders already used on your instance. For example, if you set the `max_replication_slots` flag to `70` and you already use 2 senders, then `max_wal_senders` should be at least `82` (calculated as `70 + 10 + 2 = 82`).   
-[ `max_worker_processes`](https://www.postgresql.org/docs/17/runtime-config-resource.html#GUC-MAX-WORKER-PROCESSES) | Set this flag to at least the number of databases in your instance plus the number of `max_worker_processes` you already use. For example, if you have 30 databases on your source instance and don't use any worker processes, set this flag to `30`.  
+[ `max_wal_senders`](https://www.postgresql.org/docs/18/runtime-config-replication.html#GUC-MAX-WAL-SENDERS) | Set this flag to at least 10 more than the `max_replication_slots` value plus the number of senders already used on your instance. For example, if you set the `max_replication_slots` flag to `70` and you already use 2 senders, then `max_wal_senders` should be at least `82` (calculated as `70 + 10 + 2 = 82`).   
+[ `max_worker_processes`](https://www.postgresql.org/docs/18/runtime-config-resource.html#GUC-MAX-WORKER-PROCESSES) | Set this flag to at least the number of databases in your instance plus the number of `max_worker_processes` you already use. For example, if you have 30 databases on your source instance and don't use any worker processes, set this flag to `30`.  
   2. [Disable SSL enforcement mode](https://docs.cloud.google.com/alloydb/docs/instance-ssl) on every instance in your source cluster. 
 
 
@@ -215,7 +215,7 @@ Replace the following:
      * `SCHEMA_NAME`: the name of a schema present in your database
      * `USER_NAME`: the name of the database user you prepared in the Before you begin section
 
-Repeat this step for every schema in your database **except for** the `information` schema, and schemas whose names start with the `pg_` prefix. You can list all database schemas with the [`\dn`](https://www.postgresql.org/docs/17/app-psql.html#APP-PSQL-META-COMMANDS) meta-command.
+Repeat this step for every schema in your database **except for** the `information` schema, and schemas whose names start with the `pg_` prefix. You can list all database schemas with the [`\dn`](https://www.postgresql.org/docs/18/app-psql.html#APP-PSQL-META-COMMANDS) meta-command.
 
   4. Grant the remaining required permissions. Execute the following statements:
          
@@ -228,9 +228,9 @@ Replace `USER_NAME` with the name of the database user you prepared in the Befor
 
   5. Connect to every other database in your instance and repeat steps 2, 3, and 4.
 
-     * You can list all databases in your instance with the [`\list`](https://www.postgresql.org/docs/17/app-psql.html#APP-PSQL-META-COMMANDS) meta-command.
+     * You can list all databases in your instance with the [`\list`](https://www.postgresql.org/docs/18/app-psql.html#APP-PSQL-META-COMMANDS) meta-command.
 
-     * You can switch to another database without resetting your `psql` client connection by using the [`\connect DATABASE_NAME`](https://www.postgresql.org/docs/17/app-psql.html#APP-PSQL-META-COMMAND-C-LC) command.
+     * You can switch to another database without resetting your `psql` client connection by using the [`\connect DATABASE_NAME`](https://www.postgresql.org/docs/18/app-psql.html#APP-PSQL-META-COMMAND-C-LC) command.
 
   6. Repeat this procedure for every instance in your source AlloyDB cluster.
 
@@ -274,6 +274,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-03 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 

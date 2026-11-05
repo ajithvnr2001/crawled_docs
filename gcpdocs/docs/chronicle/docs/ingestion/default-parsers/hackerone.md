@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/hackerone/
 title: Collect HackerOne logs \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T07:53:46.212723+00:00
+fetched_at: 2026-11-04T23:43:40.131581+00:00
 ---
 
 # Collect HackerOne logs  |  Google Security Operations  |  Google Cloud Documentation

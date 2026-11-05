@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chronicle/docs/secops/release-notes/
 title: Google Security Operations release notes \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-03T05:47:30.059653+00:00
+fetched_at: 2026-11-04T23:31:06.091178+00:00
 ---
 
 # Google Security Operations release notes  |  Google Cloud Documentation
@@ -27,6 +27,14 @@ You can see the latest product updates for all of Google Cloud on the [ Google C
 
 To get the latest product updates delivered to you, add the URL of this page to your [feed reader](https://wikipedia.org/wiki/Comparison_of_feed_aggregators), or add the [feed URL](https://docs.cloud.google.com/feeds/chronicle-security-operations-release-notes.xml) directly. 
 
+## November 04, 2026
+
+Announcement
+
+**Consolidated Settings and Navigation**
+
+The **Consolidated Settings and Navigation** feature is now in public preview. It replaces the separate SIEM Settings and SOAR Settings menus with a single Settings menu, grouped into Administration, Access Management, Investigation, Detection and Data Management, and also updates the left navigation menu. Each settings page is shown only to users with the correct permissions. Cloud IAM, Viewer and Editor users can now view certain SOAR settings pages in read-only mode. Note that the Google SecOps documentation has been updated to reflect the new navigational changes. For more information, see [Navigate the Google SecOps platform](https://docs.cloud.google.com/chronicle/docs/secops/navigate-the-secops-platform).
+
 ## November 02, 2026
 
 Deprecated
@@ -46,6 +54,14 @@ This feature is in public preview. The **SIEM Search** page now provides two sea
 For more information, see [Choose the search-execution mode](https://docs.cloud.google.com/chronicle/docs/investigation/udm-search#choose-search-execution-mode) and [Understand the search-execution modes](https://docs.cloud.google.com/chronicle/docs/investigation/udm-search#search-execution-modes).
 
 ## October 28, 2026
+
+Fixed
+
+**Tools power-up: Environment filtering in Get Integration Instances**
+
+There was an issue where the **Get Integration Instances** action in the Tools power-up didn't correctly filter environments with names that contain an ampersand (`&`). This issue has been fixed in version 85.0 of the Tools power-up.
+
+For more information, see [Get Integration Instances](https://docs.cloud.google.com/chronicle/docs/soar/marketplace/power-ups/tools#get-integration-instances).
 
 Announcement
 
@@ -68,6 +84,18 @@ Feature
 
 You can now resize inline images directly in rich-text comments on the Case Wall. To resize an image, switch the comment box to rich-text mode and insert an image either by using the toolbar's image menu or by pasting it into the comment. Click the image to display the resizing overlay, then drag the bottom-right handle to adjust its dimensions.
 
+## October 24, 2026
+
+Breaking
+
+**GitSync power-up: Version 53.0 rolled back**
+
+Version 54.0 of the GitSync power-up reverts the Chronicle API refactoring that was [introduced in version 53.0](https://docs.cloud.google.com/chronicle/docs/soar/marketplace-integrations/release-notes#October_07_2026) and restores the version 52.0 code. All deployments must run on version 52.0 or version 54.0.
+
+If you're using version 53.0, roll back to version 52.0 or update to version 54.0. Then, point the **Branch** parameter back to your previous repository branch.
+
+For more information, see [Version 53.0 rollback](https://docs.cloud.google.com/chronicle/docs/soar/marketplace/power-ups/gitsync#version-54-rollback-guidance).
+
 ## October 22, 2026
 
 Feature
@@ -77,9 +105,11 @@ Feature
 In the enhanced Investigation Management experience, you can select up to 50 cases at a time in the case queue to perform bulk operations:
 
   * **Range selection:** Hold `Shift` while clicking to select a range of cases.
-  * **Select all:** Click the header checkbox to select up to 50 loaded cases; this action automatically scrolls your view back to the top of the list.
+  * **Select all:** Click the header checkbox to select up to 50 loaded cases; this action automatically scrolls your view back to the top of the list. **Consolidated Settings and Navigation**
 
 
+
+The **Consolidated Settings and Navigation** feature is now in public preview. It replaces the separate SIEM Settings and SOAR Settings menus with a single Settings menu, grouped into Administration, Access Management, Investigation, Detection and Data Management, and updates the navigation menu. Each settings page is shown only to users with the correct permissions. Cloud IAM, Viewer and Editor users can now view certain SOAR settings pages in read-only mode. Note that the Google SecOps documentation has been updated to reflect the new navigational changes imposed by the unified Settings menu. For more information, see [Navigate the Google SecOps platform](https://docs.cloud.google.com/chronicle/docs/secops/navigate-the-secops-platform).
 
 ## October 18, 2026
 
@@ -88,6 +118,16 @@ Feature
 **Specify whether to reopen closed cases when the grouping is by Source Grouping Identifier**
 
 You can now specify whether Google SecOps reopens closed cases when grouping SOAR alerts by **Source Grouping Identifier**. When the option is enabled and a new alert is received with a source grouping identifier of a case that was previously closed in Google SecOps, then Google SecOps reopens the case. For more information, see [Configure alert grouping](https://docs.cloud.google.com/chronicle/docs/soar/investigate/working-with-alerts/alert-grouping-mechanism-admin).
+
+## October 14, 2026
+
+Fixed
+
+**Email Utilities power-up: Entity creation in Parse Case Wall Email**
+
+There was an issue where the **Parse Case Wall Email** action in the Email Utilities power-up didn't create entities when the **Create Observed Entities** parameter was configured for specific entity types. This issue has been fixed in version 54.0 of the Email Utilities power-up.
+
+For more information, see [Email Utilities](https://docs.cloud.google.com/chronicle/docs/soar/marketplace/power-ups/email-utilities).
 
 ## October 12, 2026
 
@@ -10332,6 +10372,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-02 UTC.
+Last updated 2026-11-04 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-02 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 

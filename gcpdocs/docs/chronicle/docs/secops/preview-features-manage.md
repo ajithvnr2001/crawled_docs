@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chronicle/docs/secops/preview-features-manage/
 title: Manage preview features \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T10:07:40.676975+00:00
+fetched_at: 2026-11-04T23:34:05.896605+00:00
 ---
 
 # Manage preview features  |  Google Security Operations  |  Google Cloud Documentation
@@ -62,7 +62,7 @@ This section describes how to view and manage access to public preview features.
 
 Use the **Public Preview Features** page to view details about public preview features. All Google SecOps users can view the **Public Preview Features** page, but only administrators can enable and disable individual features.
 
-  * To open the **Public Preview Features** page, select **SIEM Settings** > **Public Preview**. 
+  * To open the **Public Preview Features** page, select **Settings > Administration > Public Preview**. If you haven't opted in to the **Consolidated Settings and Navigation** feature yet, you will find this in **SIEM Settings > Public Preview**.
 
 
 
@@ -81,7 +81,7 @@ The **Public Preview Features** page displays the following:
 
 To enable a public preview feature, do the following:
 
-  1. Select **Settings** > **Public Preview**. 
+  1. Select **Settings > Administration > Public Preview**. 
   2. In the row with the relevant feature, click the **Preview Status** toggle to the on position. 
   3. In the confirmation dialog, click **Enable**.
 
@@ -91,7 +91,7 @@ To enable a public preview feature, do the following:
 
 To disable a public preview feature, do the following:
 
-  1. Select **Settings** > **Public Preview**. 
+  1. Select **Settings > Administration > Public Preview**. 
   2. In the row with the relevant feature, click the **Preview Status** toggle to the off position. 
   3. In the dialog that appears, select or describe the reason for disabling the feature.
   4. Click **Confirm**.
@@ -123,6 +123,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-28 UTC.
+Last updated 2026-11-04 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 

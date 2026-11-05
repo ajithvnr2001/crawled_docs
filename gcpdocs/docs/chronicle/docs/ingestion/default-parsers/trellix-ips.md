@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/trellix-ips/
 title: Collect Trellix IPS logs \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T07:53:15.643329+00:00
+fetched_at: 2026-11-04T23:32:33.331536+00:00
 ---
 
 # Collect Trellix IPS logs  |  Google Security Operations  |  Google Cloud Documentation

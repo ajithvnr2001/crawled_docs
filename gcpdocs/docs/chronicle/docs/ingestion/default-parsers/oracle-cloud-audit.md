@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/oracle-cloud-audit/
 title: Collect Oracle Cloud Infrastructure logs \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T07:52:11.874708+00:00
+fetched_at: 2026-11-04T23:44:16.173083+00:00
 ---
 
 # Collect Oracle Cloud Infrastructure logs  |  Google Security Operations  |  Google Cloud Documentation

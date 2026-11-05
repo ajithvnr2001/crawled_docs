@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/armor/docs/rate-limiting-overview/
 title: Rate limiting overview \u00a0|\u00a0 Google Cloud Armor \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T23:48:32.186946+00:00
+fetched_at: 2026-11-04T23:33:31.320016+00:00
 ---
 
 # Rate limiting overview  |  Google Cloud Armor  |  Google Cloud Documentation
@@ -68,9 +68,9 @@ Cloud Armor identifies individual clients for rate limiting by using the followi
   * **HTTP_PATH** : the URL path of the HTTP request. The key value is truncated to the first 128 bytes.
   * **SNI** : the server name indication in the TLS session of the HTTPS request. The key value is truncated to the first 128 bytes. The key type defaults to ALL on an HTTP session.
   * **REGION_CODE** : the country or region from which the request originates.
-  * **TLS_JA4_FINGERPRINT** : JA4 TLS/SSL fingerprint if the client connects using `HTTPS`, `HTTP/2` or `HTTP/3`. If not available, the key type defaults to ALL. For more information about JA4, see the [rules language reference](https://docs.cloud.google.com/armor/docs/rules-language-reference#attributes).
+  * **TLS_JA4_FINGERPRINT** : JA4 TLS/SSL fingerprint if the client connects using `HTTPS`, `HTTP/2` or `HTTP/3`. If not available, the key type defaults to ALL. For more information about JA4, see the [rules language reference](https://docs.cloud.google.com/armor/docs/create-security-policy-rules#attributes).
   * **TLS_JA3_FINGERPRINT** : JA3 TLS/SSL fingerprint if the client connects using `HTTPS`, `HTTP/2` or `HTTP/3`. If not available, the key type defaults to ALL.
-  * **USER_IP** : The IP address of the originating client, included in the headers configured under `userIpRequestHeaders` and whose value is filled by an upstream proxy. If there is no `userIpRequestHeaders` configuration, or an IP address cannot be resolved from it, the key type defaults to IP. For more information, see the [rules language reference](https://docs.cloud.google.com/armor/docs/rules-language-reference#attributes).
+  * **USER_IP** : The IP address of the originating client, included in the headers configured under `userIpRequestHeaders` and whose value is filled by an upstream proxy. If there is no `userIpRequestHeaders` configuration, or an IP address cannot be resolved from it, the key type defaults to IP. For more information, see the [rules language reference](https://docs.cloud.google.com/armor/docs/create-security-policy-rules#attributes).
   * **ASN** : The Autonomous System Number of the originating client. If the ASN is not available, the key type defaults to ALL.
 
 
@@ -195,6 +195,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-04 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/architecture/framework/perspectives/ai-ml/security/
 title: AI and ML perspective: Security \u00a0|\u00a0 Cloud Architecture Center \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T05:58:22.235598+00:00
+fetched_at: 2026-11-04T23:29:40.454789+00:00
 ---
 
 # AI and ML perspective: Security  |  Cloud Architecture Center  |  Google Cloud Documentation

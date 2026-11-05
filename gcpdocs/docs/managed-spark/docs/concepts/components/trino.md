@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/managed-spark/docs/concepts/components/trino/
 title: Managed Service for Apache Spark optional Trino component \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T21:58:06.959596+00:00
+fetched_at: 2026-11-05T00:20:19.307260+00:00
 ---
 
 # Managed Service for Apache Spark optional Trino component  |  Google Cloud Documentation
@@ -23,18 +23,9 @@ Send feedback
 
 #  Managed Service for Apache Spark optional Trino component Stay organized with collections  Save and categorize content based on your preferences. 
 
-You can install additional components like Trino when you create a Managed Service for Apache Spark cluster using the [Optional components](https://docs.cloud.google.com/managed-spark/docs/concepts/components/overview#available_optional_components) feature. This page describes how you can optionally install the Trino component on a Managed Service for Apache Spark cluster.
+The optional [Trino](https://trino.io/) component lets you run distributed SQL queries across diverse data sources on a Managed Service for Apache Spark cluster. You add this open source query engine during cluster creation by using the [Optional components](https://docs.cloud.google.com/managed-spark/docs/concepts/components/overview#available_optional_components) feature.
 
-[Trino](https://trino.io/) is an open source distributed SQL query engine. The Trino server and Web UI are by default available on port `8060` (or port `7778` if Kerberos is enabled) on the cluster's first master node.
-
-By default, Trino on Managed Service for Apache Spark is configured to work with `Hive`, `BigQuery`, `Memory`, `TPCH` and `TPCDS` [connectors](https://trino.io/docs/current/connector.html).
-
-After creating a cluster with the Trino component, you can run queries:
-
-  * from a local terminal with the [`gcloud dataproc jobs submit trino`](https://docs.cloud.google.com/sdk/gcloud/reference/dataproc/jobs/submit/trino) command
-  * from a terminal window on the cluster's first master node using the `trino` CLI (Command Line Interface)—see [Use Trino with Managed Service for Apache Spark](https://docs.cloud.google.com/managed-spark/docs/tutorials/trino-dataproc).
-
-
+The Trino server and Web UI are by default available on port `8060` (or port `7778` if Kerberos is enabled) on the cluster's first master node.
 
 ## Install the component
 
@@ -91,10 +82,21 @@ The Trino component can be specified through the Dataproc API using [SoftwareCon
 
 Using the [Dataproc `v1` API](https://docs.cloud.google.com/managed-spark/docs/reference/rest), set the [EndpointConfig.enableHttpPortAccess](https://docs.cloud.google.com/managed-spark/docs/reference/rest/v1/ClusterConfig#endpointconfig) property to `true` as part of the clusters.create request to enable connecting to the Trino Web UI using the [Component Gateway](https://docs.cloud.google.com/managed-spark/docs/concepts/accessing/gateways). 
 
+## Run queries
+
+By default, Trino on Managed Service for Apache Spark is configured to work with `Hive`, `BigQuery`, `Memory`, `TPCH` and `TPCDS` [connectors](https://trino.io/docs/current/connector.html).
+
+After creating a cluster with the Trino component, you can run queries:
+
+  * from a local terminal with the [`gcloud dataproc jobs submit trino`](https://docs.cloud.google.com/sdk/gcloud/reference/dataproc/jobs/submit/trino) command
+  * from a terminal window on the cluster's first master node using the `trino` CLI (Command Line Interface) (see [Use Trino with Managed Service for Apache Spark](https://docs.cloud.google.com/managed-spark/docs/tutorials/trino-dataproc)).
+
+
+
 Send feedback 
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-03 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 

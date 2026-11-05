@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/use-transfer-service-mcp/
 title: Use the BigQuery Data Transfer Service remote MCP server \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T07:58:13.056826+00:00
+fetched_at: 2026-11-04T23:44:37.314556+00:00
 ---
 
 # Use the BigQuery Data Transfer Service remote MCP server  |  Google Cloud Documentation

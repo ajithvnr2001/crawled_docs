@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/managed-lustre/docs/increase-capacity/
 title: Increase the capacity of a Managed Lustre instance \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T19:55:21.043050+00:00
+fetched_at: 2026-11-05T00:17:54.606324+00:00
 ---
 
 # Increase the capacity of a Managed Lustre instance  |  Google Cloud Documentation
@@ -223,7 +223,7 @@ Recommended mitigation strategies:
 
   * Monitor capacity and set up alerts: Monitor per-OST capacity utilization and individual inode metrics in addition to aggregate cluster capacity. Run the [`lfs df`](https://doc.lustre.org/lustre_manual.xhtml#file_striping.checking_free_space) command from a mounted client to view per-target capacity usage, use `lfs df -i` for per-target inode usage, or see [Monitor instances and operations](https://docs.cloud.google.com/managed-lustre/docs/monitoring#storage_capacity_metrics) for details on monitoring metrics.
 
-Set up automated alerts to trigger when aggregate capacity or individual OST utilization exceeds 80% (see [Create a storage capacity alert](https://docs.cloud.google.com/managed-lustre/docs/monitoring#example_create_a_storage_capacity_alert)).
+Set up automated alerts to trigger when aggregate capacity or individual OST utilization exceeds 80%. See [Set up alerts](https://docs.cloud.google.com/managed-lustre/docs/monitoring#set_up_alerts)) for details.
 
   * Increase capacity: Once aggregate capacity reaches 80-90%, consider [increasing the capacity of your Managed Lustre instance](https://docs.cloud.google.com/managed-lustre/docs/increase-capacity). You may need to [request additional quota](https://docs.cloud.google.com/managed-lustre/docs/quotas#request_additional_quota) before expansion.
 
@@ -238,6 +238,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-03 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 

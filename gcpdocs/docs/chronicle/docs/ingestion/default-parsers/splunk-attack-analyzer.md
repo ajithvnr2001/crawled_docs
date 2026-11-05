@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/splunk-attack-analyzer/
 title: Collect Splunk Attack Analyzer logs \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T07:49:19.635704+00:00
+fetched_at: 2026-11-04T23:34:37.260264+00:00
 ---
 
 # Collect Splunk Attack Analyzer logs  |  Google Security Operations  |  Google Cloud Documentation

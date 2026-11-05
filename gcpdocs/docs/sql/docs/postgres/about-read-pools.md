@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sql/docs/postgres/about-read-pools/
 title: About read pools \u00a0|\u00a0 Cloud SQL for PostgreSQL \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T09:02:53.768645+00:00
+fetched_at: 2026-11-04T23:31:19.275348+00:00
 ---
 
 # About read pools  |  Cloud SQL for PostgreSQL  |  Google Cloud Documentation
@@ -49,13 +49,18 @@ Each read pool node also has its own IP address. While not recommended as an eff
 
 For more information on how to retrieve the connection information for the read pool or the read pool nodes (either IP addresses or a connection string), see [View read pool information](https://docs.cloud.google.com/sql/docs/postgres/create-read-pool#view-read-pool).
 
-### Read pool autoscaling
+## Read pool autoscaling
 
-To see how to configure your read pool to automatically resize to adapt to your application's changing workload needs, see [Read pool autoscaling](https://docs.cloud.google.com/sql/docs/postgres/read-pool-autoscaling).
+You can configure your read pool to automatically resize to adapt to your application's changing workload needs. For more information, see [Read pool autoscaling](https://docs.cloud.google.com/sql/docs/postgres/read-pool-autoscaling).
 
-### Read pool characteristics
+## Read pool characteristics
 
 The following characteristics apply:
+
+  * Read pools don't have a unique Cloud SQL-supported API. Any operation to create, configure, or view a read pool is done using the Cloud SQL instance API.   
+
+
+For example, when using the `gcloud CLI` to create a read pool, you use the `gcloud sql instances create` command. Similarly, to check the number of read pool nodes configured on a read pool, you use the `gcloud sql instances describe` command.
 
   * A read pool with two or more nodes is covered under the [Service Level Agreement (SLA)](https://cloud.google.com/sql/sla).
   * Read pool nodes of the read pool always reside in the same region, as specified by the user. Google Cloud alternates read pool node residency among all zones in the region.
@@ -111,6 +116,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-04 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 

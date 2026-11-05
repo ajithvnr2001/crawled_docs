@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/dialogflow/cx/docs/concept/integration/dialogflow-messenger/
 title: Dialogflow CX Messenger \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T22:38:02.168429+00:00
+fetched_at: 2026-11-04T23:31:34.359472+00:00
 ---
 
 # Dialogflow CX Messenger  |  Google Cloud Documentation
@@ -77,7 +77,7 @@ To set up authenticated access to your Dialogflow CX Messenger agent:
   16. Set up the OAuth client: 
      1. [Create an OAuth consent screen](https://developers.google.com/workspace/guides/configure-oauth-consent) for your organization. Add `https://www.googleapis.com/auth/cloud-platform` as a required scope.
      2. [Create an OAuth 2.0 Client ID](https://developers.google.com/workspace/guides/create-credentials#oauth-client-id). Under **Authorized JavaScript origins** , specify the HTTP origins that are allowed to host and query your agent. For example, `https://your-company.com`.
-     3. [Provide end-users with permission to query your agent](https://docs.cloud.google.com/dialogflow/cx/docs/concept/access-control). Add each of your end-users or a [group](https://docs.cloud.google.com/iam/docs/groups-in-cloud-console) as a principal with the [**Dialogflow API Client**](https://docs.cloud.google.com/dialogflow/cx/docs/concept/access-control#iam-roles) and [**Service Usage Consumer**](https://docs.cloud.google.com/service-usage/docs/access-control#predefined_roles) roles.
+     3. [Provide end-users with permission to query your agent](https://docs.cloud.google.com/dialogflow/cx/docs/concept/access-control). Add each of your end-users or a [group](https://docs.cloud.google.com/iam/docs/groups-in-cloud-console) as a principal with the [**Dialogflow API Client**](https://docs.cloud.google.com/dialogflow/cx/docs/concept/access-control#iam-roles) and [**Service Usage Consumer**](https://docs.cloud.google.com/iam/docs/roles-permissions/serviceusage#serviceusage.serviceUsageConsumer) roles.
 
 **Note:** The first time an end-user uses the authenticated integration, they are asked to select which scopes to allow. They must allow the Cloud API.
 
@@ -232,6 +232,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-04 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 

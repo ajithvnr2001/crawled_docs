@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/backup-disaster-recovery/docs/release-notes/
 title: Backup and DR release notes \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T07:13:45.689215+00:00
+fetched_at: 2026-11-04T23:31:17.799428+00:00
 ---
 
 # Backup and DR release notes  |  Google Cloud Documentation
@@ -31,7 +31,75 @@ To get the latest product updates delivered to you, add the URL of this page to 
 
 Feature
 
+**Note:** These fixes and updates are available starting with Backup and DR release 11.0.17.508. These fixes aren't rolled out to the 11.0.16 release. To receive these updates, upgrade the backup/recovery appliance to version 11.0.17.
+
+The following feature is available for the Backup and DR agent:
+
+  * Expanded Linux Changed Block Tracking (CBT) support across kernel updates for Red Hat Enterprise Linux (RHEL) 8, RHEL 9, and RHEL 10 distributions. For more information, see [Backup and DR supported operating systems and kernels](https://docs.cloud.google.com/backup-disaster-recovery/docs/reference/backupdr-supported-os-kernels).
+
+
+
+Security
+
+**Note:** These fixes and updates are available starting with Backup and DR release 11.0.17.508. These fixes aren't rolled out to the 11.0.16 release. To receive these updates, upgrade the backup/recovery appliance to version 11.0.17.
+
+The following security updates are available for the backup/recovery appliance:
+
+  * Addressed multiple input sanitization vulnerabilities, including SQL injection and OS command injection, across appliance backend services and management workflows.
+  * Strengthened TLS, certificate truststore, and SSH host key validation across appliance and cluster communications.
+  * Remediated authorization and validation vulnerabilities in policy option management and host lookup workflows.
+  * Addressed memory safety and access control vulnerabilities in appliance storage management services.
+
+
+
+The following security updates are available for the Backup and DR agent:
+
+  * Strengthened local device access controls for Linux Changed Block Tracking (CBT) components to prevent unprivileged local access.
+  * Improved temporary file creation, path verification, and file permission handling across Linux and Windows Backup and DR agents to mitigate symlink race conditions and local privilege escalation vulnerabilities.
+  * Hardened Oracle and IBM Db2 database integration scripts on protected hosts to improve credential and directory permission handling during recovery and migration workflows.
+  * Addressed memory handling vulnerabilities and refined system logging rules in Linux Backup and DR agent components.
+
+
+
+The following library updates are available for the backup/recovery appliance:
+
+  * Upgraded the Java runtime environment and third-party application libraries on the appliance to remediate reported security vulnerabilities.
+  * Updated base operating system and database packages across backup/recovery appliance and management server images to mitigate reported vulnerabilities.
+
+
+
+Feature
+
 You can now edit existing backup plans for Cloud SQL instances to update settings such as backup rules and maximum custom on-demand retention periods. To learn more, see [Back up Cloud SQL instances to a backup vault](https://docs.cloud.google.com/backup-disaster-recovery/docs/cloud-console/sql/csql-backup).
+
+Fixed
+
+**Note:** The following fixes and updates are available starting with Backup and DR release 11.0.17.507. These fixes aren't rolled out to the 11.0.16 release. To receive the following updates, upgrade your backup/recovery appliance to version 11.0.17.
+
+The following issues are resolved for the backup/recovery appliance:
+
+  * Application discovery and management API requests can time out when multiple discovery operations run concurrently.
+  * Hostnames containing special characters prevented active jobs from being accurately detected during Backup and DR agent upgrade pre-checks.
+  * Excessive informational log messages in appliance service logs when replication optimization was turned off.
+  * Appliance image packaging issue by including required system libraries for fresh appliance deployments.
+
+
+
+The following issue is resolved for the Backup and DR agent:
+
+  * Scheduling conflict where concurrent database log backups and full database backups, such as SAP Sybase IQ and SAP MaxDB backups, can interrupt an in-progress backup job.
+
+
+
+Deprecated
+
+**Note:** These fixes and updates are available starting with Backup and DR release 11.0.17.508. These fixes aren't rolled out to the 11.0.16 release. To receive these updates, upgrade the backup/recovery appliance to version 11.0.17.
+
+The following deprecation applies to the Backup and DR agent:
+
+  * Deprecated support for end-of-life and non-Extended Update Support (non-EUS) Red Hat Enterprise Linux (RHEL) and SUSE Linux Enterprise Server (SLES) releases. For more information, see [Backup and DR supported operating systems and kernels](https://docs.cloud.google.com/backup-disaster-recovery/docs/reference/backupdr-supported-os-kernels).
+
+
 
 ## September 30, 2026
 

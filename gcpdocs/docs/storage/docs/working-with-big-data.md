@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/storage/docs/working-with-big-data/
 title: Use Cloud Storage with big data \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T06:00:38.853957+00:00
+fetched_at: 2026-11-04T23:32:27.306787+00:00
 ---
 
 # Use Cloud Storage with big data  |  Google Cloud Documentation
@@ -21,7 +21,7 @@ Send feedback
 
 #  Use Cloud Storage with big data Stay organized with collections  Save and categorize content based on your preferences. 
 
-Cloud Storage is a key part of storing and working with Big Data on Google Cloud. For example, you can use Cloud Storage to [load data](https://docs.cloud.google.com/bigquery/loading-data-into-bigquery) into BigQuery, hold staging files and temporary data for [Dataflow](https://docs.cloud.google.com/dataflow/docs/quickstarts) pipelines, and integrate with [Managed Service for Apache Spark](https://docs.cloud.google.com/dataproc/docs/concepts/connectors/cloud-storage), so you can run Apache Hadoop or Apache Spark jobs directly on your data in Cloud Storage.
+Cloud Storage is a key part of storing and working with big data on Google Cloud. For example, you can use Cloud Storage to [load data](https://docs.cloud.google.com/bigquery/loading-data-into-bigquery) into BigQuery, hold staging files and temporary data for [Dataflow](https://docs.cloud.google.com/dataflow/docs/quickstarts) pipelines, integrate with [Managed Service for Apache Spark](https://docs.cloud.google.com/dataproc/docs/concepts/connectors/cloud-storage) to run Apache Hadoop or Apache Spark jobs directly on your data, or [access Apache Iceberg data from AlloyDB](https://docs.cloud.google.com/alloydb/docs/access-iceberg-data-from-alloydb).
 
 This page describes how to use the [gcloud command-line tool](https://docs.cloud.google.com/sdk/gcloud/reference/storage) to accomplish big data tasks, such as copying large files or copying many files in parallel. For an introduction to gcloud, see the [gcloud quickstart](https://docs.cloud.google.com/storage/docs/discover-object-storage-gcloud).
 
@@ -215,6 +215,7 @@ Both outputs have a CRC32c and MD5 value. There is no MD5 value for composite ob
 ## What's next
 
   * [Find out the total size and number of objects in a bucket](https://docs.cloud.google.com/storage/docs/getting-bucket-size).
+  * [Access Apache Iceberg data from AlloyDB](https://docs.cloud.google.com/alloydb/docs/access-iceberg-data-from-alloydb).
 
 
 
@@ -222,6 +223,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-30 UTC.
+Last updated 2026-11-04 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 

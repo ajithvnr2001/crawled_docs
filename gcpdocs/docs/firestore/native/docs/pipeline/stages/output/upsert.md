@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/firestore/native/docs/pipeline/stages/output/upsert/
 title: Upsert (Output Stage) \u00a0|\u00a0 Firestore in Native mode \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T08:01:18.637023+00:00
+fetched_at: 2026-11-04T23:45:32.253642+00:00
 ---
 
 # Upsert (Output Stage)  |  Firestore in Native mode  |  Google Cloud Documentation

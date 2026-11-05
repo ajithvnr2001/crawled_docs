@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/backup-disaster-recovery/docs/configuration/troubleshoot-conflicts-when-adding-appliances/
 title: Troubleshoot conflicts when adding backup/recovery appliances \u00a0|\u00a0 Backup and DR \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T07:14:47.352305+00:00
+fetched_at: 2026-11-04T23:31:42.634871+00:00
 ---
 
 # Troubleshoot conflicts when adding backup/recovery appliances  |  Backup and DR  |  Google Cloud Documentation
@@ -19,6 +19,8 @@ fetched_at: 2026-11-04T07:14:47.352305+00:00
 Send feedback 
 
 #  Troubleshoot conflicts when adding backup/recovery appliances Stay organized with collections  Save and categorize content based on your preferences. 
+
+When you add or manage Backup and DR backup/recovery appliances, you can identify and resolve configuration conflicts to help prevent disruptions to your backup plans and maintain business continuity for your Google Cloud workloads.
 
 If you encounter a conflict when adding a new backup/recovery appliance, resolve the conflict on the appliance that is experiencing the issue. For example, based on the identified conflict you can do the following:
 
@@ -94,6 +96,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-03 UTC.
+Last updated 2026-11-04 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 

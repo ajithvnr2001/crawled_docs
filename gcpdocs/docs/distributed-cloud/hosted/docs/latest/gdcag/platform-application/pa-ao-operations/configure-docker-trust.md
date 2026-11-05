@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/platform-application/pa-ao-operations/configure-docker-trust/
 title: Configure Docker to trust the Harbor root CA \u00a0|\u00a0 Google Distributed Cloud air-gapped \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-30T08:25:58.620740+00:00
+fetched_at: 2026-11-05T00:20:38.377435+00:00
 ---
 
 # Configure Docker to trust the Harbor root CA  |  Google Distributed Cloud air-gapped  |  Google Cloud Documentation
@@ -23,6 +23,8 @@ Send feedback
 #  Configure Docker to trust the Harbor root CA Stay organized with collections  Save and categorize content based on your preferences. 
 
 Harbor instances use Transport Layer Security (TLS) certificates issued by your organization's trusted root Certificate Authority (CA). This encrypts the connection between your Docker client and Harbor registry to secure images from unauthorized access.
+
+This page describes how to configure the Docker client on your workstation to trust the Harbor root CA. You don't need to configure trust on the nodes of your Kubernetes clusters, because GDC configures cluster nodes to trust your Harbor registry instances automatically. For more information, see [Cluster node trust for Harbor registry instances](https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/platform-application/pa-ao-operations/create-harbor-instances#cluster-trust).
 
 ## Before you begin
 
@@ -79,6 +81,8 @@ If the configuration is unsuccessful, you see the following error message:
 
 Repeat the steps to solve this issue, and escalate to GDC engineering if necessary.
 
+If pods on a Kubernetes cluster show an `x509: certificate signed by unknown authority` error when they pull images from a Harbor registry instance, see [Troubleshoot certificate errors when pulling images](https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/platform-application/pa-ao-operations/create-harbor-instances#troubleshoot-certificate-errors).
+
 ## What's next
 
 After configuring your Docker client to trust the Harbor root CA, finish your connection setup to start using the registry:
@@ -91,6 +95,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-29 UTC.
+Last updated 2026-11-03 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 

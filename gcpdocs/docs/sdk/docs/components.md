@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sdk/docs/components/
 title: Managing gcloud CLI components \u00a0|\u00a0 Google Cloud SDK \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T07:55:51.515668+00:00
+fetched_at: 2026-11-04T23:45:04.233782+00:00
 ---
 
 # Managing gcloud CLI components  |  Google Cloud SDK  |  Google Cloud Documentation

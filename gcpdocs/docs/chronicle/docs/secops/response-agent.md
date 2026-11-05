@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chronicle/docs/secops/response-agent/
 title: Contain threats with the SecOps Response Agent \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-03T08:19:00.920778+00:00
+fetched_at: 2026-11-04T23:31:10.350732+00:00
 ---
 
 # Contain threats with the SecOps Response Agent  |  Google Security Operations  |  Google Cloud Documentation
@@ -62,11 +62,11 @@ When you use the Response Agent, you can reduce manual response overhead and eli
 
 Make sure you have or do the following:
 
-  * **Permissions:** Grant users the required roles and permissions to view, generate, and execute response plans. Configuring agent settings and managing exclusions in **SIEM Settings > Gemini Investigations** requires administrator permissions.
+  * **Permissions:** Grant users the required roles and permissions to view, generate, and execute response plans. Configuring agent settings and managing exclusions in * **Settings > Investigation > Gemini Investigations**.** requires administrator permissions.
   * **Execution pathways:** Verify that your preferred execution pathway is configured:
 
-    * **Triage Agent (TIN) path:** Requires **Auto-Investigate Alerts in Gemini** to be enabled under **SIEM Settings > Gemini Investigations > Triage Agent**. Response plans are generated automatically for alerts evaluated as true positives.
-    * **Playbooks path:** Does not require TIN. You can drag the **Response Agent** step into a playbook to run dynamically alongside deterministic steps when an alert triggers. 
+    * **Triage Agent (TIN) path:** Requires **Auto-Investigate Alerts in Gemini** to be enabled under **Settings > Investigation > Gemini Investigations > Triage Agent**. Response plans are generated automatically for alerts evaluated as true positives.
+    * **Playbooks path:** Requires an existing Triage Agent investigation of the alert. You can drag the **Response Agent** step into a playbook to run dynamically alongside deterministic steps when an alert triggers. The step builds its response plan from the Triage Agent's investigation, so make sure that the Triage Agent has investigated the alert before the step runs. If no investigation exists for the alert, the step fails with an error stating that the investigation report for the alert was not found.
 **Note:** When using the Playbooks path, it is recommended to ensure that relevant enrichment steps (such as GTI or Active Directory lookups) have completed before the Response Agent runs, ensuring it has sufficient context to build a valid plan.
   * **Environment check:** Ensure your response and endpoint tools (such as EDRs, firewalls, or Identity Providers) are installed and active as integrations in your Google SecOps environment under **Available Tools**.
 
@@ -244,7 +244,7 @@ The Response Agent pulls critical risk data directly from Wiz to assist in resol
 
 ## Configure the Response Agent
 
-  1. **Access Settings:** Go to **SIEM Settings > Gemini Investigations > Context & Response**.
+  1. **Access Settings:** Go to **Settings > Investigation > Gemini Investigations > Context & Response**.
   2. **Enable or disable:** In the **Context & Response** section, toggle **Response Agent** to **Enabled** or **Disabled**.
   3. **Set Autonomous Execution Level:** Select the maximum risk level allowed to run automatically (**Manual Approval** , **Low Risk** , **Medium Risk** , or **High Risk**).
   4. **Configure AI Script & Code Generation:** Optional: Toggle **AI Script & Code Generation** to **Enabled** (disabled by default) to allow Gemini to write dynamic code for unhandled actions.
@@ -260,6 +260,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-03 UTC.
+Last updated 2026-11-04 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 

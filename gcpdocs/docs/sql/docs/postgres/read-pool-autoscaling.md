@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sql/docs/postgres/read-pool-autoscaling/
 title: Read pool autoscaling \u00a0|\u00a0 Cloud SQL for PostgreSQL \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T09:13:58.648283+00:00
+fetched_at: 2026-11-04T23:31:21.808705+00:00
 ---
 
 # Read pool autoscaling  |  Cloud SQL for PostgreSQL  |  Google Cloud Documentation
@@ -22,7 +22,7 @@ Send feedback
 
 #  Read pool autoscaling Stay organized with collections  Save and categorize content based on your preferences. 
 
-[MySQL](https://docs.cloud.google.com/sql/docs/mysql/read-pool-autoscaling "View this page for the MySQL database engine") | PostgreSQL | SQL Server
+[MySQL](https://docs.cloud.google.com/sql/docs/mysql/read-pool-autoscaling "View this page for the MySQL database engine") | PostgreSQL | [SQL Server](https://docs.cloud.google.com/sql/docs/sqlserver/read-pool-autoscaling "View this page for the SQL Server database engine")
 
 Read pool autoscaling automatically adds or removes [read pool nodes](https://docs.cloud.google.com/sql/docs/postgres/about-read-pools#what-are-read-pools) in the [read pool](https://docs.cloud.google.com/sql/docs/postgres/about-read-pools#what-are-read-pools) based on your application's workload needs.
 
@@ -53,7 +53,7 @@ The following characteristics apply:
   * Scale out operations add, in parallel, as many nodes as needed.
   * By default, both scale-in and scale-out operations are applied. You can optionally block scale-in operations by manually disabling them (`disableScaleIn`).
   * By default, a cooldown period of 600 seconds is applied between successive read pool autoscaling operations. A minimum cooldown period of 60 seconds is required whether scaling in or out.
-  * When setting a target metric, you must also define the minimum (`minNodeCount`) and maximum (`maxNodeCount`) read pool node count you want to use. If you enable autoscaling on an existing read pool, then the current read pool size must fall within the range you set.
+  * When setting a target metric, you must also define the minimum (`minNodeCount`) and maximum (`maxNodeCount`) read pool node count you want to use. If you enable autoscaling on an existing read pool, then the current read pool size must fall within the range you set. 
 
 
 
@@ -281,7 +281,7 @@ Before using any of the request data, make the following replacements:
   * DATABASE_VERSION: the database version you want to use, such as `POSTGRES_16`.
   * MACHINE_TIER: the machine tier you want to use, such as `db-perf-optimized-N-2`.
   * FULL_NETWORK_NAME: the name of the network you want to use.
-  * MAX_NODE_COUNT: the maximum number of read pool nodes you want the read pool to use, such as `10`.
+  * MAX_NODE_COUNT: the maximum number of read pool nodes you want the read pool instance to use, such as `10`. 
   * MIN_NODE_COUNT: the minimum number of read pool nodes you want the read pool to use, such as `2`.
   * TARGET_METRIC_1: the target metric you want to use, such as `AVERAGE_CPU_UTILIZATION` or `AVERAGE_DB_CONNECTIONS`. You must define at least one of the two available metrics.
   * VALUE_1: the value you want to assign for the target metric you previously indicated. For example, for the `AVERAGE_CPU_UTILIZATION` target metric, you might assign the value `0.50`.
@@ -390,7 +390,7 @@ Before using any of the request data, make the following replacements:
   * DATABASE_VERSION: the database version you want to use, such as `POSTGRES_16`.
   * MACHINE_TIER: the machine tier you want to use, such as `db-perf-optimized-N-2`.
   * FULL_NETWORK_NAME: the name of the network you want to use.
-  * MAX_NODE_COUNT: the maximum number of read pool nodes you want the read pool to use, such as `10`.
+  * MAX_NODE_COUNT: the maximum number of read pool nodes you want the read pool instance to use, such as `10`. 
   * MIN_NODE_COUNT: the minimum number of read pool nodes you want the read pool to use, such as `2`.
   * TARGET_METRIC_1: the target metric you want to use, such as the following: 
     * `AVERAGE_CPU_UTILIZATION`
@@ -512,7 +512,7 @@ To enable read pool with autoscaling on an existing read pool, run the following
 Replace the following:
 
   * INSTANCE_NAME: the instance name associated with the read pool you want to modify.
-  * MAX_NODE_COUNT: the maximum number of read pool nodes you want the read pool to use, such as `10`.
+  * MAX_NODE_COUNT: the maximum number of read pool nodes you want the read pool to use, such as `10`. 
   * MIN_NODE_COUNT: the minimum number of read pool nodes you want the read pool to use, such as `2`.
   * COOLDOWN_SECONDS_SCALE_OUT: Optional: the cooldown or wait time in seconds between read pool node creation or deletion, such as `180`. A minimum cooldown period of 60 seconds is required. The default value is 600 seconds.
   * COOLDOWN_SECONDS_SCALE_IN: Optional: the cooldown or wait time in seconds between read pool node creation or deletion, such as `180`. A minimum cooldown period of 60 seconds is required. The default value is 600 seconds.
@@ -532,7 +532,7 @@ Before using any of the request data, make the following replacements:
 
   * PROJECT_ID: the ID or [project number](https://docs.cloud.google.com/resource-manager/docs/creating-managing-projects#identifying_projects) of the Google Cloud project that contains the instance.
   * INSTANCE_ID: the ID of the instance associated with the read pool.
-  * MAX_NODE_COUNT: the maximum number of read pool nodes you want the read pool to use, such as `10`.
+  * MAX_NODE_COUNT: the maximum number of read pool nodes you want the read pool instance to use, such as `10`. 
   * MIN_NODE_COUNT: the minimum number of read pool nodes you want the read pool to use, such as `2`.
   * COOLDOWN_SECONDS: Optional: the cooldown or wait time in seconds between read pool node creation or deletion, such as `180`.
   * SCALE_IN_DISABLED: Optional: lets you disable [read pool scale in](https://docs.cloud.google.com/sql/docs/postgres/about-read-pools#what_are_read_pools) behavior. To disable read pool scale-in, set the value to `true`.
@@ -629,7 +629,7 @@ Before using any of the request data, make the following replacements:
 
   * PROJECT_ID: the ID or [project number](https://docs.cloud.google.com/resource-manager/docs/creating-managing-projects#identifying_projects) of the Google Cloud project that contains the instance.
   * INSTANCE_ID: the ID of the instance associated with the read pool.
-  * MAX_NODE_COUNT: the maximum number of read pool nodes you want the read pool to use, such as `10`.
+  * MAX_NODE_COUNT: the maximum number of read pool nodes you want the read pool instance to use, such as `10`. 
   * MIN_NODE_COUNT: the minimum number of read pool nodes you want the read pool to use, such as `2`.
   * COOLDOWN_SECONDS: Optional: the cooldown or wait time in seconds between read pool node creation or deletion, such as `180`.
   * SCALE_IN_DISABLED: Optional: lets you disable [read pool scale in](https://docs.cloud.google.com/sql/docs/postgres/about-read-pools#what_are_read_pools) behavior. To disable read pool scale-in, set the value to `true`.
@@ -941,6 +941,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-04 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 

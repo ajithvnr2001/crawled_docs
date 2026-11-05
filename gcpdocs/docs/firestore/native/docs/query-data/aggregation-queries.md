@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/firestore/native/docs/query-data/aggregation-queries/
 title: Summarize data with aggregation queries \u00a0|\u00a0 Firestore in Native mode \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T08:01:13.649176+00:00
+fetched_at: 2026-11-05T00:05:11.820170+00:00
 ---
 
 # Summarize data with aggregation queries  |  Firestore in Native mode  |  Google Cloud Documentation
@@ -190,7 +190,7 @@ Android
     }
     
     
-    [aggregate_query_count.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/ed08282a171f47c035cf0984a5caa406b76f5bcd/firestore/aggregate_query_count.go#L16-L61)
+    [aggregate_query_count.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/db12cf239dd4dcddd2c15c703bb21991d4193a8a/firestore/aggregate_query_count.go#L16-L61)
 
 ##### Java
     
@@ -238,7 +238,7 @@ Android
     
     
     
-    [aggregate_query_count.py](https://github.com/GoogleCloudPlatform/python-docs-samples/blob/80b33d83f982bd9061916083be74c7bae71d797b/firestore/cloud-client/aggregate_query_count.py#L22-L47)
+    [aggregate_query_count.py](https://github.com/GoogleCloudPlatform/python-docs-samples/blob/f7aa88558cfe5fb9074d69e5541f49c9ea8447e5/firestore/cloud-client/aggregate_query_count.py#L22-L47)
 
 The `count()` aggregation takes into account any filters on the query and any `limit` clauses.
 
@@ -391,7 +391,7 @@ Android
     }
     
     
-    [aggregate_query_count.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/ed08282a171f47c035cf0984a5caa406b76f5bcd/firestore/aggregate_query_count.go#L16-L61)
+    [aggregate_query_count.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/db12cf239dd4dcddd2c15c703bb21991d4193a8a/firestore/aggregate_query_count.go#L16-L61)
 
 ##### Java
     
@@ -441,7 +441,7 @@ Android
     
     
     
-    [aggregate_query_count.py](https://github.com/GoogleCloudPlatform/python-docs-samples/blob/80b33d83f982bd9061916083be74c7bae71d797b/firestore/cloud-client/aggregate_query_count.py#L22-L47)
+    [aggregate_query_count.py](https://github.com/GoogleCloudPlatform/python-docs-samples/blob/f7aa88558cfe5fb9074d69e5541f49c9ea8447e5/firestore/cloud-client/aggregate_query_count.py#L22-L47)
 
 ## Use the `sum()` aggregation
 

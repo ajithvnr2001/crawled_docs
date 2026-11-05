@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/cisco-umbrella-audit/
 title: Collect Cisco Umbrella Audit logs \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T07:51:23.020678+00:00
+fetched_at: 2026-11-04T23:43:27.775509+00:00
 ---
 
 # Collect Cisco Umbrella Audit logs  |  Google Security Operations  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-cx/cx-agent-studio/reference/mcp/tools_list/list_evaluations/
 title: MCP Tools Reference: ces.googleapis.com \u00a0|\u00a0 CX Agent Studio \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-13T18:44:23.206108+00:00
+fetched_at: 2026-11-04T23:28:40.074548+00:00
 ---
 
 # MCP Tools Reference: ces.googleapis.com  |  CX Agent Studio  |  Google Cloud Documentation
@@ -265,6 +265,7 @@ JSON representation
     
     {
       "willContinue": boolean,
+      "recordingControl": enum ([RecordingControl](https://docs.cloud.google.com/gemini-enterprise-cx/cx-agent-studio/reference/mcp/tools_list/create_evaluation#Input.Schema.RecordingControl)),
     
       // Union field input_type can be only one of the following:
       "text": string,
@@ -291,6 +292,7 @@ JSON representation
 Fields  
 ---  
 `willContinue` |  `boolean` Optional. A flag to indicate if the current message is a fragment of a larger input in the bidi streaming session.When set to `true`, the agent defers processing until it receives a subsequent message where `will_continue` is `false`, or until the system detects an endpoint in the audio input.NOTE: This field does not apply to audio and DTMF inputs, as they are always processed automatically based on the endpointing signal.  
+`recordingControl` |  `enum (`[RecordingControl](https://docs.cloud.google.com/gemini-enterprise-cx/cx-agent-studio/reference/mcp/tools_list/create_evaluation#Input.Schema.RecordingControl)`)` Optional. Whether the conversation may be recorded and logged from here on.Use this when the app, rather than the agent, decides what may be kept: for example when the end user has to consent to being recorded before anything about the call can be stored.The value stays in effect until the client sends a different one, so it only needs to be sent when the answer changes. Whatever is in effect when a turn completes decides that turn, both whether its audio reaches the recording bucket and whether its transcript reaches conversation history, BigQuery and Cloud Logging. It covers the agent's side of the turn as well as the end user's.Turns that complete before the client first sends this are recorded according to the app's logging settings, as though the field did not exist.If more than one input in the same request sets it, the last one wins.  
 Union field `input_type`. The type of the input. `input_type` can be only one of the following:  
 `text` |  `string` Optional. Text data from the end user.  
 `dtmf` |  `string` Optional. DTMF digits from the end user.  
@@ -333,6 +335,7 @@ JSON representation
       },
       "parentToolCallId": string,
       "agentName": string,
+      "targetApp": string,
     
       // Union field tool_identifier can be only one of the following:
       "tool": string,
@@ -349,6 +352,7 @@ Fields
 `response` |  `object (`[Struct](https://protobuf.dev/reference/protobuf/google.protobuf/#struct)` format)` Required. The tool execution result in JSON object format. Use "output" key to specify tool response and "error" key to specify error details (if any). If "output" and "error" keys are not specified, then whole "response" is treated as tool execution result.  
 `parentToolCallId` |  `string` Output only. The id of the tool call that caused this one, when it was issued by a sub-agent working on behalf of a parent call. Empty for top-level calls. Lets a client group a sub-agent's work under the call that started it instead of rendering every step as a sibling.  
 `agentName` |  `string` Output only. Human-readable name of the agent that issued this call, e.g. "Contract Architect". Empty when the root agent issued it.  
+`targetApp` |  `string` Output only. The app the executed tool targeted; mirrors `ToolCall.target_app`.  
 Union field `tool_identifier`. The identifier of the tool that got executed. It could be either a persisted tool or a tool from a toolset. `tool_identifier` can be only one of the following:  
 `tool` |  `string` Optional. The name of the tool to execute. Format: `projects/{project}/locations/{location}/apps/{app}/tools/{tool}`  
 `toolsetTool` |  `object (`[ToolsetTool](https://docs.cloud.google.com/gemini-enterprise-cx/cx-agent-studio/reference/mcp/tools_list/create_evaluation#Input.Schema.ToolsetTool)`)` Optional. The toolset tool that got executed.  
@@ -590,6 +594,7 @@ JSON representation
       },
       "parentToolCallId": string,
       "agentName": string,
+      "targetApp": string,
     
       // Union field tool_identifier can be only one of the following:
       "tool": string,
@@ -606,6 +611,7 @@ Fields
 `args` |  `object (`[Struct](https://protobuf.dev/reference/protobuf/google.protobuf/#struct)` format)` Optional. The input parameters and values for the tool in JSON object format.  
 `parentToolCallId` |  `string` Output only. The id of the tool call that caused this one, when it was issued by a sub-agent working on behalf of a parent call. Empty for top-level calls. Lets a client group a sub-agent's work under the call that started it instead of rendering every step as a sibling.  
 `agentName` |  `string` Output only. Human-readable name of the agent that issued this call, e.g. "Contract Architect". Empty when the root agent issued it.  
+`targetApp` |  `string` Output only. The app this call targets, derived by the assistant from the call's resource arguments: an app resource name, `PROJECT` for location-scoped tools, or empty for session-local tools. Set only in project-scoped assistant sessions.  
 Union field `tool_identifier`. The identifier of the tool to execute. It could be either a persisted tool or a tool from a toolset. `tool_identifier` can be only one of the following:  
 `tool` |  `string` Optional. The name of the tool to execute. Format: `projects/{project}/locations/{location}/apps/{app}/tools/{tool}`  
 `toolsetTool` |  `object (`[ToolsetTool](https://docs.cloud.google.com/gemini-enterprise-cx/cx-agent-studio/reference/mcp/tools_list/create_evaluation#Input.Schema.ToolsetTool)`)` Optional. The toolset tool to execute.  
@@ -854,6 +860,11 @@ JSON representation
       "evaluationExpectations": [
         string
       ],
+      "milestones": [
+        {
+          object ([Milestone](https://docs.cloud.google.com/gemini-enterprise-cx/cx-agent-studio/reference/mcp/tools_list/create_evaluation#Input.Schema.Milestone))
+        }
+      ],
       "scenarioExecutionMode": enum ([ScenarioExecutionMode](https://docs.cloud.google.com/gemini-enterprise-cx/cx-agent-studio/reference/mcp/tools_list/create_evaluation#Input.Schema.ScenarioExecutionMode))
     }  
   
@@ -869,6 +880,7 @@ Fields
 **(deprecated)**` |  `enum (`[TaskCompletionBehavior](https://docs.cloud.google.com/gemini-enterprise-cx/cx-agent-studio/reference/mcp/tools_list/create_evaluation#Input.Schema.TaskCompletionBehavior)`)` This item is deprecated!Optional. Deprecated. Use user_goal_behavior instead.  
 `userGoalBehavior` |  `enum (`[UserGoalBehavior](https://docs.cloud.google.com/gemini-enterprise-cx/cx-agent-studio/reference/mcp/tools_list/create_evaluation#Input.Schema.UserGoalBehavior)`)` Optional. The expected behavior of the user goal.  
 `evaluationExpectations[]` |  `string` Optional. The evaluation expectations to evaluate the conversation produced by the simulation against. Format: `projects/{project}/locations/{location}/apps/{app}/evaluationExpectations/{evaluationExpectation}`  
+`milestones[]` |  `object (`[Milestone](https://docs.cloud.google.com/gemini-enterprise-cx/cx-agent-studio/reference/mcp/tools_list/create_evaluation#Input.Schema.Milestone)`)` Optional. The milestones for this scenario.  
 `scenarioExecutionMode` |  `enum (`[ScenarioExecutionMode](https://docs.cloud.google.com/gemini-enterprise-cx/cx-agent-studio/reference/mcp/tools_list/create_evaluation#Input.Schema.ScenarioExecutionMode)`)` Optional. The execution mode for scenario evaluations.  
   
 ### UserFact
@@ -930,6 +942,32 @@ Fields
 ---  
 `expectedToolCall` |  `object (`[ToolCall](https://docs.cloud.google.com/gemini-enterprise-cx/cx-agent-studio/reference/mcp/tools_list/create_evaluation#Input.Schema.ToolCall)`)` Required. The expected tool call, with the parameters of interest specified. Any parameters not specified will be hallucinated by the LLM.  
 `mockToolResponse` |  `object (`[ToolResponse](https://docs.cloud.google.com/gemini-enterprise-cx/cx-agent-studio/reference/mcp/tools_list/create_evaluation#Input.Schema.ToolResponse)`)` Required. The tool response to mock, with the parameters of interest specified. Any parameters not specified will be hallucinated by the LLM.  
+  
+### Milestone
+
+JSON representation  
+---  
+      
+    
+    {
+      "goal": string,
+      "maxTurnCount": integer,
+      "successCriteria": string,
+      "protocol": string,
+      "staticUtterance": string,
+      "event": {
+        object ([Event](https://docs.cloud.google.com/gemini-enterprise-cx/cx-agent-studio/reference/mcp/tools_list/create_evaluation#Input.Schema.Event))
+      }
+    }  
+  
+Fields  
+---  
+`goal` |  `string` Required. The goal of the milestone.  
+`maxTurnCount` |  `integer` Optional. The maximum number of turns for this milestone.  
+`successCriteria` |  `string` Optional. The success criteria of the milestone.  
+`protocol` |  `string` Optional. The guidelines the agent should follow during the conversation.  
+`staticUtterance` |  `string` Optional. A static utterance that the simulator will send exactly, instead of dynamically generating user input.  
+`event` |  `object (`[Event](https://docs.cloud.google.com/gemini-enterprise-cx/cx-agent-studio/reference/mcp/tools_list/create_evaluation#Input.Schema.Event)`)` Optional. An event input to send instead of dynamic generation.  
   
 ### AggregatedMetrics
 
@@ -1569,6 +1607,11 @@ JSON representation
           object ([EvaluationExpectationResult](https://docs.cloud.google.com/gemini-enterprise-cx/cx-agent-studio/reference/mcp/tools_list/create_evaluation#Input.Schema.EvaluationExpectationResult))
         }
       ],
+      "milestoneResults": [
+        {
+          object ([MilestoneResult](https://docs.cloud.google.com/gemini-enterprise-cx/cx-agent-studio/reference/mcp/tools_list/create_evaluation#Input.Schema.MilestoneResult))
+        }
+      ],
     
       // Union field _all_expectations_satisfied can be only one of the following:
       "allExpectationsSatisfied": boolean
@@ -1593,6 +1636,7 @@ Fields
 `userGoalSatisfactionResult` |  `object (`[UserGoalSatisfactionResult](https://docs.cloud.google.com/gemini-enterprise-cx/cx-agent-studio/reference/mcp/tools_list/create_evaluation#Input.Schema.UserGoalSatisfactionResult)`)` Output only. The result of the user goal satisfaction check.  
 `spanLatencies[]` |  `object (`[SpanLatency](https://docs.cloud.google.com/gemini-enterprise-cx/cx-agent-studio/reference/mcp/tools_list/create_evaluation#Input.Schema.SpanLatency)`)` Output only. The latency of spans in the conversation.  
 `evaluationExpectationResults[]` |  `object (`[EvaluationExpectationResult](https://docs.cloud.google.com/gemini-enterprise-cx/cx-agent-studio/reference/mcp/tools_list/create_evaluation#Input.Schema.EvaluationExpectationResult)`)` Output only. The results of the evaluation expectations.  
+`milestoneResults[]` |  `object (`[MilestoneResult](https://docs.cloud.google.com/gemini-enterprise-cx/cx-agent-studio/reference/mcp/tools_list/create_evaluation#Input.Schema.MilestoneResult)`)` Output only. The results of each milestone in the scenario.  
 Union field `_all_expectations_satisfied`.`_all_expectations_satisfied` can be only one of the following:  
 `allExpectationsSatisfied` |  `boolean` Output only. Whether all expectations were satisfied for this turn.  
 Union field `_task_completed`.`_task_completed` can be only one of the following:  
@@ -1713,6 +1757,26 @@ Fields
 `explanation` |  `string` Output only. The explanation for the user task satisfaction score.  
 Union field `_score`.`_score` can be only one of the following:  
 `score` |  `integer` Output only. The user task satisfaction score. Can be -1, 0, 1, 2.  
+  
+### MilestoneResult
+
+JSON representation  
+---  
+      
+    
+    {
+      "milestone": {
+        object ([Milestone](https://docs.cloud.google.com/gemini-enterprise-cx/cx-agent-studio/reference/mcp/tools_list/create_evaluation#Input.Schema.Milestone))
+      },
+      "status": enum ([MilestoneStatus](https://docs.cloud.google.com/gemini-enterprise-cx/cx-agent-studio/reference/mcp/tools_list/create_evaluation#Input.Schema.MilestoneStatus)),
+      "justification": string
+    }  
+  
+Fields  
+---  
+`milestone` |  `object (`[Milestone](https://docs.cloud.google.com/gemini-enterprise-cx/cx-agent-studio/reference/mcp/tools_list/create_evaluation#Input.Schema.Milestone)`)` Output only. The milestone being tracked.  
+`status` |  `enum (`[MilestoneStatus](https://docs.cloud.google.com/gemini-enterprise-cx/cx-agent-studio/reference/mcp/tools_list/create_evaluation#Input.Schema.MilestoneStatus)`)` Output only. The current status of the milestone.  
+`justification` |  `string` Output only. The justification for the current status.  
   
 ### EvaluationPersona
 
@@ -2033,6 +2097,18 @@ Enums
 ---  
 `NULL_VALUE` | Null value.  
   
+### RecordingControl
+
+What the app has decided may be recorded and logged.
+
+This enum is extensible; new values may be added in the future.
+
+Enums  
+---  
+`RECORDING_CONTROL_UNSPECIFIED` | The app is not controlling recording. The app's logging settings decide, as they do for every session that never sets this field.  
+`RECORDING_ENABLED` | The conversation may be recorded and logged from here on.  
+`RECORDING_DISABLED` | The conversation may not be recorded or logged from here on.  
+  
 ### ComparisonType
 
 Supported comparison types for checking the agent's response.
@@ -2131,6 +2207,17 @@ Enums
 `USER_CALLBACK` | User callback span.  
 `GUARDRAIL` | Guardrail span.  
 `LLM` | LLM span.  
+  
+### MilestoneStatus
+
+The status of the milestone.
+
+Enums  
+---  
+`MILESTONE_STATUS_UNSPECIFIED` | Unspecified status.  
+`NOT_STARTED` | The milestone has not started yet.  
+`IN_PROGRESS` | The milestone is currently in progress.  
+`COMPLETED` | The milestone has been successfully completed.  
   
 ### BackgroundEnvironment
 
@@ -2236,6 +2323,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-09-28 UTC.
+Last updated 2026-11-04 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-09-28 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 

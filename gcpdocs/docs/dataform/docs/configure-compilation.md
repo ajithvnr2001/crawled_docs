@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/dataform/docs/configure-compilation/
 title: Configure compilations \u00a0|\u00a0 Dataform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T22:57:55.548500+00:00
+fetched_at: 2026-11-04T23:32:06.297427+00:00
 ---
 
 # Configure compilations  |  Dataform  |  Google Cloud Documentation
@@ -140,7 +140,7 @@ You can also manually trigger the execution of a compilation result in a selecte
 
 By passing Dataform API requests in the terminal, you can configure compilation overrides for a single compilation result.
 
-In the [`compilationResults.create`](https://docs.cloud.google.com/dataform/reference/rest/v1/projects.locations.repositories.compilationResults/create) request, you can create a single compilation result of a Dataform workspace or a specified Git commitish.
+In the [`compilationResults.create`](https://docs.cloud.google.com/dataform/reference/rest/v1/projects.locations.repositories.compilationResults/create) request, you can create a single compilation result of a Dataform workspace or a specified Git commitish, which can be a branch, tag, or commit SHA.
 
 In the [`CodeCompilationConfig` object](https://docs.cloud.google.com/dataform/reference/rest/v1/CodeCompilationConfig) of the `compilationResults.create` request, you can configure compilation overrides for the compilation request.
 
@@ -344,7 +344,7 @@ To run your workflow, Dataform compiles your code to SQL to create a [compilatio
 
 By default, Dataform uses the settings in the [workflow settings file](https://docs.cloud.google.com/dataform/docs/manage-repository#configure-workflow-settings) to create the compilation result. To isolate data run at different stages of your development lifecycle, you can override the default settings with compilation overrides.
 
-By passing Dataform API requests in the terminal, you can create and run a single compilation result with compilation overrides. You can create a compilation result of a workspace or of a selected Git commitish.
+By passing Dataform API requests in the terminal, you can create and run a single compilation result with compilation overrides. You can create a compilation result of a workspace or of a selected Git commitish, such as a branch, tag, or commit SHA.
 
 To create a compilation result with compilation overrides, you need to raise the Dataform API [`compilationResults.create`](https://docs.cloud.google.com/dataform/reference/rest/v1/projects.locations.repositories.compilationResults/create) request. In the request, you need to specify a source, which should be a workspace or Git commitish, for Dataform to compile into the compilation result. In the [`CodeCompilationConfig` object](https://docs.cloud.google.com/dataform/reference/rest/v1/CodeCompilationConfig) of the `compilationResults.create` request, you can configure compilation overrides.
 
@@ -558,7 +558,7 @@ In a release configuration, you can configure compilation overrides of [workflow
 A Dataform release configuration contains the following compilation settings:
 
 Release settings
-    The ID of the release, Git commitish for compilation results, and frequency of creating compilation results. Frequency is an optional setting. If set, the minimum frequency is 1 hour.
+    The ID of the release, the Git commitish for compilation results, such as a branch, tag, or commit SHA, and the frequency of creating compilation results. Frequency is an optional setting. If set, the minimum frequency is 1 hour.
 Compilation overrides
     Overrides of the Google Cloud project, table prefix, schema suffix, and [compilation variables](https://docs.cloud.google.com/dataform/docs/manage-repository#create-compilation-variables) defined in [workflow settings](https://docs.cloud.google.com/dataform/docs/manage-repository#configure-workflow-settings).
 
@@ -582,7 +582,7 @@ To create a Dataform release configuration, follow these steps:
 
 IDs can only include numbers, letters, hyphens, and underscores.
 
-     2. In the **Git commitish** field, enter the Git branch or Git commit SHA for the release.
+     2. In the **Git commitish** field, enter a branch, such as `main`, a tag, or a commit SHA for the release.
 
 In a Dataform repository not connected to a remote repository, the value is always `main`.
 
@@ -720,6 +720,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-04 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 

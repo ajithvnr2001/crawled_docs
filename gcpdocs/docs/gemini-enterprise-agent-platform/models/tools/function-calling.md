@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tools/function-calling/
 title: Introduction to function calling \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-03T09:52:26.169752+00:00
+fetched_at: 2026-11-04T23:12:52.005446+00:00
 ---
 
 # Introduction to function calling  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation
@@ -104,25 +104,38 @@ Declare a [`Tool`](https://docs.cloud.google.com/python/docs/reference/aiplatfor
 
 The following examples submit a prompt and function declaration to the Gemini models:
 
-###  REST 
+### REST
+
+#### GenerateContent API
+
+Before using any of the request data, make the following replacements: 
+
+  * LOCATION: The region to process the request, such as `us-central1`.
+  * PROJECT_ID: Your [project ID](https://docs.cloud.google.com/resource-manager/docs/creating-managing-projects#identifiers).
+
+
+
+HTTP method and URL: 
     
     
-    PROJECT_ID=myproject
-    LOCATION=us-central1
-    MODEL_ID=gemini-2.5-flash
+    POST https://LOCATION-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/publishers/google/models/gemini-2.5-flash:generateContent
+
+Request JSON body: 
     
-    curl -X POST \
-      -H "Authorization: Bearer $(gcloud auth print-access-token)" \
-      -H "Content-Type: application/json" \
-      https://${LOCATION}-aiplatform.googleapis.com/v1/projects/${PROJECT_ID}/locations/${LOCATION}/publishers/google/models/${MODEL_ID}:generateContent \
-      -d '{
-        "contents": [{
+    
+    {
+      "contents": [
+        {
           "role": "user",
-          "parts": [{
-            "text": "What is the weather in Boston?"
-          }]
-        }],
-        "tools": [{
+          "parts": [
+            {
+              "text": "What is the weather in Boston?"
+            }
+          ]
+        }
+      ],
+      "tools": [
+        {
           "functionDeclarations": [
             {
               "name": "get_current_weather",
@@ -144,11 +157,130 @@ The following examples submit a prompt and function declaration to the Gemini mo
               }
             }
           ]
-        }]
-      }'
+        }
+      ]
+    }
     
 
-###  Google Gen AI SDK for Python 
+To send your request, choose one of these options:
+
+#### curl
+
+**Note:** The following command assumes that you have logged in to the `gcloud` CLI with your user account by running [`gcloud init`](https://docs.cloud.google.com/sdk/gcloud/reference/init) or [`gcloud auth login`](https://docs.cloud.google.com/sdk/gcloud/reference/auth/login) , or by using [Cloud Shell](https://docs.cloud.google.com/shell/docs), which automatically logs you into the `gcloud` CLI . You can check the currently active account by running [`gcloud auth list`](https://docs.cloud.google.com/sdk/gcloud/reference/auth/list). 
+
+Save the request body in a file named `request.json`, and execute the following command: 
+    
+    
+    curl -X POST \  
+         -H "Authorization: Bearer $(gcloud auth print-access-token)" \  
+         -H "Content-Type: application/json; charset=utf-8" \  
+         -d @request.json \  
+         "https://LOCATION-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/publishers/google/models/gemini-2.5-flash:generateContent"
+
+#### PowerShell
+
+**Note:** The following command assumes that you have logged in to the `gcloud` CLI with your user account by running [`gcloud init`](https://docs.cloud.google.com/sdk/gcloud/reference/init) or [`gcloud auth login`](https://docs.cloud.google.com/sdk/gcloud/reference/auth/login) . You can check the currently active account by running [`gcloud auth list`](https://docs.cloud.google.com/sdk/gcloud/reference/auth/list). 
+
+Save the request body in a file named `request.json`, and execute the following command: 
+    
+    
+    $cred = gcloud auth print-access-token  
+    $headers = @{ "Authorization" = "Bearer $cred" }  
+      
+    Invoke-WebRequest `  
+        -Method POST `  
+        -Headers $headers `  
+        -ContentType: "application/json; charset=utf-8" `  
+        -InFile request.json `  
+        -Uri "https://LOCATION-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/publishers/google/models/gemini-2.5-flash:generateContent" | Select-Object -Expand Content
+
+#### Interactions API
+
+Before using any of the request data, make the following replacements: 
+
+  * PROJECT_ID: Your [project ID](https://docs.cloud.google.com/resource-manager/docs/creating-managing-projects#identifiers).
+
+
+
+HTTP method and URL: 
+    
+    
+    POST https://aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/global/interactions
+
+Request JSON body: 
+    
+    
+    {
+      "model": "gemini-3.8-flash",
+      "input": [
+        {
+          "type": "user_input",
+          "content": [
+            {
+              "type": "text",
+              "text": "What is the weather in Boston?"
+            }
+          ]
+        }
+      ],
+      "tools": [
+        {
+          "type": "function",
+          "name": "get_current_weather",
+          "description": "Get the current weather in a given location",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "location": {
+                "type": "string",
+                "description": "The city name of the location for which to get the weather.",
+                "default": "Boston, MA"
+              }
+            },
+            "required": [
+              "location"
+            ]
+          }
+        }
+      ]
+    }
+    
+
+To send your request, choose one of these options:
+
+#### curl
+
+**Note:** The following command assumes that you have logged in to the `gcloud` CLI with your user account by running [`gcloud init`](https://docs.cloud.google.com/sdk/gcloud/reference/init) or [`gcloud auth login`](https://docs.cloud.google.com/sdk/gcloud/reference/auth/login) , or by using [Cloud Shell](https://docs.cloud.google.com/shell/docs), which automatically logs you into the `gcloud` CLI . You can check the currently active account by running [`gcloud auth list`](https://docs.cloud.google.com/sdk/gcloud/reference/auth/list). 
+
+Save the request body in a file named `request.json`, and execute the following command: 
+    
+    
+    curl -X POST \  
+         -H "Authorization: Bearer $(gcloud auth print-access-token)" \  
+         -H "Content-Type: application/json; charset=utf-8" \  
+         -d @request.json \  
+         "https://aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/global/interactions"
+
+#### PowerShell
+
+**Note:** The following command assumes that you have logged in to the `gcloud` CLI with your user account by running [`gcloud init`](https://docs.cloud.google.com/sdk/gcloud/reference/init) or [`gcloud auth login`](https://docs.cloud.google.com/sdk/gcloud/reference/auth/login) . You can check the currently active account by running [`gcloud auth list`](https://docs.cloud.google.com/sdk/gcloud/reference/auth/list). 
+
+Save the request body in a file named `request.json`, and execute the following command: 
+    
+    
+    $cred = gcloud auth print-access-token  
+    $headers = @{ "Authorization" = "Bearer $cred" }  
+      
+    Invoke-WebRequest `  
+        -Method POST `  
+        -Headers $headers `  
+        -ContentType: "application/json; charset=utf-8" `  
+        -InFile request.json `  
+        -Uri "https://aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/global/interactions" | Select-Object -Expand Content
+
+### Google Gen AI SDK for Python
+
+#### GenerateContent API
     
     
     from google import genai
@@ -171,9 +303,46 @@ The following examples submit a prompt and function declaration to the Gemini mo
         contents="What is the weather in boston?",
         config=GenerateContentConfig(tools=[get_current_weather]),
     )
-    
 
-###  Agent Platform SDK 
+#### Interactions API
+    
+    
+    from google import genai
+    
+    client = genai.Client(
+        enterprise=True,
+        project="PROJECT_ID",
+        location="global",
+    )
+    
+    weather_tool = {
+        "type": "function",
+        "name": "get_current_weather",
+        "description": "Get the current weather in a given location",
+        "parameters": {
+            "type": "object",
+            "properties": {
+                "location": {
+                    "type": "string",
+                    "description": "The city name of the location for which to get the weather.",
+                    "default": "Boston, MA",
+                }
+            },
+            "required": ["location"],
+        },
+    }
+    
+    interaction = client.interactions.create(
+        model="gemini-3.8-flash",
+        input="What is the weather in Boston?",
+        tools=[weather_tool],
+    )
+    
+    for step in interaction.steps:
+        if step.type == "function_call":
+            print(f"Function call: {step.name}({step.arguments})")
+
+### Agent Platform SDK
 
 You can specify the schema either manually using a Python dictionary or automatically with the `from_func` helper function. The following example demonstrates how to declare a function manually:
     
@@ -231,7 +400,6 @@ You can specify the schema either manually using a Python dictionary or automati
           )
         ]
     )
-    
 
 Alternatively, you can declare the function automatically with the `from_func` helper function as shown in the following example:
     
@@ -258,17 +426,14 @@ Alternatively, you can declare the function automatically with the `from_func` h
         }
       }
     get_current_weather_func = FunctionDeclaration.from_func(get_current_weather)
-    
-
-###  Node.js 
-
-This example demonstrates a text scenario with one function and one prompt.
 
 ### Node.js
 
 Before trying this sample, follow the Node.js setup instructions in the [Agent Platform quickstart using client libraries](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/start/client-libraries). 
 
 To authenticate to Agent Platform, set up Application Default Credentials. For more information, see [Set up authentication for a local development environment](https://docs.cloud.google.com/docs/authentication/set-up-adc-local-dev-environment). 
+
+This example demonstrates a text scenario with one function and one prompt.
     
     
     const {GoogleGenAI} = require('@google/genai');
@@ -347,9 +512,7 @@ To authenticate to Agent Platform, set up Application Default Credentials. For m
       console.log(completeResponseText);
     }
 
-###  Go 
-
-This example demonstrates a text scenario with one function and one prompt.
+### Go
 
 Learn how to install or update the [Go](https://docs.cloud.google.com/vertex-ai/generative-ai/docs/sdks/overview). 
 
@@ -475,15 +638,13 @@ Set environment variables to use the Google Gen AI SDK with Vertex AI:
     }
     
 
-###  C# 
-
-This example demonstrates a text scenario with one function and one prompt.
-
 ### C#
 
 Before trying this sample, follow the C# setup instructions in the [Agent Platform quickstart using client libraries](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/start/client-libraries). 
 
 To authenticate to Agent Platform, set up Application Default Credentials. For more information, see [Set up authentication for a local development environment](https://docs.cloud.google.com/docs/authentication/set-up-adc-local-dev-environment). 
+
+This example demonstrates a text scenario with one function and one prompt.
     
     
     using [Google.Cloud.AIPlatform.V1](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.AIPlatform.V1/latest/Google.Cloud.AIPlatform.V1.html);
@@ -636,8 +797,6 @@ To authenticate to Agent Platform, set up Application Default Credentials. For m
 
 ### Java
 
-### Java
-
 Before trying this sample, follow the Java setup instructions in the [Agent Platform quickstart using client libraries](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/start/client-libraries). 
 
 To authenticate to Agent Platform, set up Application Default Credentials. For more information, see [Set up authentication for a local development environment](https://docs.cloud.google.com/docs/authentication/set-up-adc-local-dev-environment). 
@@ -750,57 +909,167 @@ Invoke the external API and pass the API output back to the model.
 
 The following example uses synthetic data to simulate a response payload from an external API and submits the output back to the model:
 
-###  REST 
+### REST
+
+#### GenerateContent API
+
+Before using any of the request data, make the following replacements: 
+
+  * LOCATION: The region to process the request, such as `us-central1`.
+  * PROJECT_ID: Your [project ID](https://docs.cloud.google.com/resource-manager/docs/creating-managing-projects#identifiers).
+
+
+
+HTTP method and URL: 
     
     
-    PROJECT_ID=myproject
-    MODEL_ID=gemini-2.5-flash
-    LOCATION="us-central1"
+    POST https://LOCATION-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/publishers/google/models/gemini-2.5-flash:generateContent
+
+Request JSON body: 
     
-    curl -X POST \
-    -H "Authorization: Bearer $(gcloud auth print-access-token)" \
-    -H "Content-Type: application/json" \
-    https://${LOCATION}-aiplatform.googleapis.com/v1/projects/${PROJECT_ID}/locations/${LOCATION}/publishers/google/models/${MODEL_ID}:generateContent \
-    -d '{
-    "contents": [
+    
     {
-      "role": "user",
-      "parts": {
-        "text": "What is the weather in Boston?"
-      }
-    },
-    {
-      "role": "model",
-      "parts": [
+      "contents": [
         {
-          "functionCall": {
-            "name": "get_current_weather",
-            "args": {
-              "location": "Boston, MA"
-            }
+          "role": "user",
+          "parts": {
+            "text": "What is the weather in Boston?"
           }
+        },
+        {
+          "role": "model",
+          "parts": [
+            {
+              "functionCall": {
+                "name": "get_current_weather",
+                "args": {
+                  "location": "Boston, MA"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "role": "user",
+          "parts": [
+            {
+              "functionResponse": {
+                "name": "get_current_weather",
+                "response": {
+                  "temperature": 20,
+                  "unit": "C"
+                }
+              }
+            }
+          ]
         }
-      ]
-    },
-    {
-      "role": "user",
-      "parts": [
+      ],
+      "tools": [
         {
-          "functionResponse": {
-            "name": "get_current_weather",
-            "response": {
-              "temperature": 20,
-              "unit": "C"
+          "function_declarations": [
+            {
+              "name": "get_current_weather",
+              "description": "Get the current weather in a specific location",
+              "parameters": {
+                "type": "object",
+                "properties": {
+                  "location": {
+                    "type": "string",
+                    "description": "The city name of the location for which to get the weather."
+                  }
+                },
+                "required": [
+                  "location"
+                ]
+              }
             }
-          }
+          ]
         }
       ]
     }
-    ],
-    "tools": [
+    
+
+To send your request, choose one of these options:
+
+#### curl
+
+**Note:** The following command assumes that you have logged in to the `gcloud` CLI with your user account by running [`gcloud init`](https://docs.cloud.google.com/sdk/gcloud/reference/init) or [`gcloud auth login`](https://docs.cloud.google.com/sdk/gcloud/reference/auth/login) , or by using [Cloud Shell](https://docs.cloud.google.com/shell/docs), which automatically logs you into the `gcloud` CLI . You can check the currently active account by running [`gcloud auth list`](https://docs.cloud.google.com/sdk/gcloud/reference/auth/list). 
+
+Save the request body in a file named `request.json`, and execute the following command: 
+    
+    
+    curl -X POST \  
+         -H "Authorization: Bearer $(gcloud auth print-access-token)" \  
+         -H "Content-Type: application/json; charset=utf-8" \  
+         -d @request.json \  
+         "https://LOCATION-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/publishers/google/models/gemini-2.5-flash:generateContent"
+
+#### PowerShell
+
+**Note:** The following command assumes that you have logged in to the `gcloud` CLI with your user account by running [`gcloud init`](https://docs.cloud.google.com/sdk/gcloud/reference/init) or [`gcloud auth login`](https://docs.cloud.google.com/sdk/gcloud/reference/auth/login) . You can check the currently active account by running [`gcloud auth list`](https://docs.cloud.google.com/sdk/gcloud/reference/auth/list). 
+
+Save the request body in a file named `request.json`, and execute the following command: 
+    
+    
+    $cred = gcloud auth print-access-token  
+    $headers = @{ "Authorization" = "Bearer $cred" }  
+      
+    Invoke-WebRequest `  
+        -Method POST `  
+        -Headers $headers `  
+        -ContentType: "application/json; charset=utf-8" `  
+        -InFile request.json `  
+        -Uri "https://LOCATION-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/publishers/google/models/gemini-2.5-flash:generateContent" | Select-Object -Expand Content
+
+#### Interactions API
+
+Before using any of the request data, make the following replacements: 
+
+  * PROJECT_ID: Your [project ID](https://docs.cloud.google.com/resource-manager/docs/creating-managing-projects#identifiers).
+
+
+
+HTTP method and URL: 
+    
+    
+    POST https://aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/global/interactions
+
+Request JSON body: 
+    
+    
     {
-      "function_declarations": [
+      "model": "gemini-3.8-flash",
+      "input": [
         {
+          "type": "user_input",
+          "content": [
+            {
+              "type": "text",
+              "text": "What is the weather in Boston?"
+            }
+          ]
+        },
+        {
+          "type": "function_call",
+          "id": "call_98231",
+          "name": "get_current_weather",
+          "arguments": {
+            "location": "Boston, MA"
+          }
+        },
+        {
+          "type": "function_result",
+          "call_id": "call_98231",
+          "name": "get_current_weather",
+          "result": {
+            "temperature": 20,
+            "unit": "C"
+          }
+        }
+      ],
+      "tools": [
+        {
+          "type": "function",
           "name": "get_current_weather",
           "description": "Get the current weather in a specific location",
           "parameters": {
@@ -818,11 +1087,104 @@ The following example uses synthetic data to simulate a response payload from an
         }
       ]
     }
-    ]
-    }'
     
 
-###  Agent Platform SDK 
+To send your request, choose one of these options:
+
+#### curl
+
+**Note:** The following command assumes that you have logged in to the `gcloud` CLI with your user account by running [`gcloud init`](https://docs.cloud.google.com/sdk/gcloud/reference/init) or [`gcloud auth login`](https://docs.cloud.google.com/sdk/gcloud/reference/auth/login) , or by using [Cloud Shell](https://docs.cloud.google.com/shell/docs), which automatically logs you into the `gcloud` CLI . You can check the currently active account by running [`gcloud auth list`](https://docs.cloud.google.com/sdk/gcloud/reference/auth/list). 
+
+Save the request body in a file named `request.json`, and execute the following command: 
+    
+    
+    curl -X POST \  
+         -H "Authorization: Bearer $(gcloud auth print-access-token)" \  
+         -H "Content-Type: application/json; charset=utf-8" \  
+         -d @request.json \  
+         "https://aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/global/interactions"
+
+#### PowerShell
+
+**Note:** The following command assumes that you have logged in to the `gcloud` CLI with your user account by running [`gcloud init`](https://docs.cloud.google.com/sdk/gcloud/reference/init) or [`gcloud auth login`](https://docs.cloud.google.com/sdk/gcloud/reference/auth/login) . You can check the currently active account by running [`gcloud auth list`](https://docs.cloud.google.com/sdk/gcloud/reference/auth/list). 
+
+Save the request body in a file named `request.json`, and execute the following command: 
+    
+    
+    $cred = gcloud auth print-access-token  
+    $headers = @{ "Authorization" = "Bearer $cred" }  
+      
+    Invoke-WebRequest `  
+        -Method POST `  
+        -Headers $headers `  
+        -ContentType: "application/json; charset=utf-8" `  
+        -InFile request.json `  
+        -Uri "https://aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/global/interactions" | Select-Object -Expand Content
+
+### Google Gen AI SDK for Python
+
+#### GenerateContent API
+    
+    
+    from google.genai import types
+    
+    response = client.models.generate_content(
+        model="gemini-2.5-flash",
+        contents=[
+            types.Content(
+                role="user",
+                parts=[types.Part.from_text(text="What is the weather like in Boston?")],
+            ),
+            response.candidates[0].content,
+            types.Content(
+                role="user",
+                parts=[
+                    types.Part.from_function_response(
+                        name="get_current_weather",
+                        response={
+                            "contents": {
+                                "location": "Boston, MA",
+                                "temperature": 38,
+                                "description": "Partly Cloudy",
+                            }
+                        },
+                    )
+                ],
+            ),
+        ],
+        config=types.GenerateContentConfig(tools=[get_current_weather]),
+    )
+    print(response.text)
+
+#### Interactions API
+    
+    
+    for step in interaction.steps:
+        if step.type == "function_call":
+            print(f"Function call: {step.name}")
+    
+            # Use synthetic data to simulate a response payload from an external API
+            api_response = {
+                "location": "Boston, MA",
+                "temperature": 38,
+                "description": "Partly Cloudy",
+            }
+    
+            next_interaction = client.interactions.create(
+                model="gemini-3.8-flash",
+                previous_interaction_id=interaction.id,
+                input=[
+                    {
+                        "type": "function_result",
+                        "call_id": step.id,
+                        "name": step.name,
+                        "result": api_response,
+                    }
+                ],
+            )
+            print(next_interaction.output_text)
+
+### Agent Platform SDK
     
     
     function_response_contents = []
@@ -867,7 +1229,6 @@ The following example uses synthetic data to simulate a response payload from an
     )
     # Get the model summary response
     print(response.text)
-    
 
 For best practices related to API invocation, see Best practices - API invocation.
 
@@ -890,6 +1251,8 @@ To see an example of how to use thought signatures, run the "Intro to thought si
 When calling functions with [thinking](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/thinking) enabled, you'll need to get the [`thought_signature`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/thinking/thought-signatures) from the model response object and return it when you send the result of the function execution back to the model. For example:
 
 ### Python
+
+#### GenerateContent API
     
     
     # Call the model with function declarations
@@ -906,11 +1269,31 @@ When calling functions with [thinking](https://docs.cloud.google.com/gemini-ente
       if part.thought and part.thought_signature:
         print("Thought signature:")
         print(part.thought_signature)
+
+#### Interactions API
     
+    
+    # Send request with function declarations (using a thinking model)
+    interaction = client.interactions.create(
+        model="gemini-3.8-flash",
+        input="What is the weather in Boston?",
+        tools=[weather_tool],
+        generation_config={"thinking_summaries": "auto"},
+    )
+    
+    # See thought summaries and signatures
+    for step in interaction.steps:
+        if step.type == "thought":
+            if step.summary:
+                print("Thought summary:", step.summary[0].text)
+            if step.signature:
+                print("Thought signature:", step.signature)
 
 Viewing thought signatures isn't required, but you will need to adjust Step 2 to return them along with the result of the function execution so it can incorporate the thoughts into its final response:
 
 ### Python
+
+#### GenerateContent API
     
     
     # Create user friendly response with function result and call the model again
@@ -929,7 +1312,41 @@ Viewing thought signatures isn't required, but you will need to adjust Step 2 to
     )
     
     print(final_response.text)
+
+#### Interactions API
     
+    
+    # Option 1 (Stateful): Pass previous_interaction_id so the server preserves thought steps automatically
+    final_interaction = client.interactions.create(
+        model="gemini-3.8-flash",
+        previous_interaction_id=interaction.id,
+        input=[
+            {
+                "type": "function_result",
+                "call_id": function_call_step.id,
+                "name": function_call_step.name,
+                "result": api_response,
+            }
+        ],
+    )
+    
+    # Option 2 (Stateless): Append all steps from the previous turn (including thought steps and signatures)
+    steps = list(interaction.steps)
+    steps.append(
+        {
+            "type": "function_result",
+            "call_id": function_call_step.id,
+            "name": function_call_step.name,
+            "result": api_response,
+        }
+    )
+    final_interaction = client.interactions.create(
+        model="gemini-3.8-flash",
+        input=steps,
+        tools=[weather_tool],
+    )
+    
+    print(final_interaction.output_text)
 
 When returning thought signatures, follow these guidelines:
 
@@ -956,15 +1373,69 @@ For Gemini 3 and later models, the API also supports matching parallel function 
 
 To learn about parallel function calling with an end-to-end Jupyter notebook tutorial, see [Working with Parallel Function Calls and Multiple Function Responses in Gemini](https://github.com/GoogleCloudPlatform/generative-ai/blob/main/gemini/function-calling/parallel_function_calling.ipynb)
 
-###  REST 
+### REST
 
 This example demonstrates a scenario with one `get_current_weather` function. The user prompt is "Get weather details in Boston and San Francisco?". The model proposes two parallel `get_current_weather` function calls: one with the parameter `Boston` and the other with the parameter `San Francisco`.
     
     
     {
-    "candidates": [
-      {
-        "content": {
+      "candidates": [
+        {
+          "content": {
+            "role": "model",
+            "parts": [
+              {
+                "functionCall": {
+                  "name": "get_current_weather",
+                  "args": {
+                    "location": "Boston"
+                  }
+                }
+              },
+              {
+                "functionCall": {
+                  "name": "get_current_weather",
+                  "args": {
+                    "location": "San Francisco"
+                  }
+                }
+              }
+            ]
+          },
+          ...
+        }
+      ],
+      ...
+    }
+
+The following command demonstrates how you can provide the function output to the model:
+
+#### GenerateContent API
+
+Before using any of the request data, make the following replacements: 
+
+  * LOCATION: The region to process the request, such as `global`, `us`, or `en`.
+  * PROJECT_ID: Your [project ID](https://docs.cloud.google.com/resource-manager/docs/creating-managing-projects#identifiers).
+
+
+
+HTTP method and URL: 
+    
+    
+    POST https://LOCATION-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/publishers/google/models/gemini-4-argon:generateContent
+
+Request JSON body: 
+    
+    
+    {
+      "contents": [
+        {
+          "role": "user",
+          "parts": {
+            "text": "What is difference in temperature in Boston and San Francisco?"
+          }
+        },
+        {
           "role": "model",
           "parts": [
             {
@@ -985,82 +1456,178 @@ This example demonstrates a scenario with one `get_current_weather` function. Th
             }
           ]
         },
+        {
+          "role": "user",
+          "parts": [
+            {
+              "functionResponse": {
+                "name": "get_current_weather",
+                "response": {
+                  "temperature": 30.5,
+                  "unit": "C"
+                }
+              }
+            },
+            {
+              "functionResponse": {
+                "name": "get_current_weather",
+                "response": {
+                  "temperature": 20,
+                  "unit": "C"
+                }
+              }
+            }
+          ]
+        }
+      ],
+      "tools": [
+        {
+          "function_declarations": [
+            {
+              "name": "get_current_weather",
+              "description": "Get the current weather in a specific location",
+              "parameters": {
+                "type": "object",
+                "properties": {
+                  "location": {
+                    "type": "string",
+                    "description": "The city name of the location for which to get the weather."
+                  }
+                },
+                "required": [
+                  "location"
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    }
+    
+
+To send your request, choose one of these options:
+
+#### curl
+
+**Note:** The following command assumes that you have logged in to the `gcloud` CLI with your user account by running [`gcloud init`](https://docs.cloud.google.com/sdk/gcloud/reference/init) or [`gcloud auth login`](https://docs.cloud.google.com/sdk/gcloud/reference/auth/login) , or by using [Cloud Shell](https://docs.cloud.google.com/shell/docs), which automatically logs you into the `gcloud` CLI . You can check the currently active account by running [`gcloud auth list`](https://docs.cloud.google.com/sdk/gcloud/reference/auth/list). 
+
+Save the request body in a file named `request.json`, and execute the following command: 
+    
+    
+    curl -X POST \  
+         -H "Authorization: Bearer $(gcloud auth print-access-token)" \  
+         -H "Content-Type: application/json; charset=utf-8" \  
+         -d @request.json \  
+         "https://LOCATION-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/publishers/google/models/gemini-4-argon:generateContent"
+
+#### PowerShell
+
+**Note:** The following command assumes that you have logged in to the `gcloud` CLI with your user account by running [`gcloud init`](https://docs.cloud.google.com/sdk/gcloud/reference/init) or [`gcloud auth login`](https://docs.cloud.google.com/sdk/gcloud/reference/auth/login) . You can check the currently active account by running [`gcloud auth list`](https://docs.cloud.google.com/sdk/gcloud/reference/auth/list). 
+
+Save the request body in a file named `request.json`, and execute the following command: 
+    
+    
+    $cred = gcloud auth print-access-token  
+    $headers = @{ "Authorization" = "Bearer $cred" }  
+      
+    Invoke-WebRequest `  
+        -Method POST `  
+        -Headers $headers `  
+        -ContentType: "application/json; charset=utf-8" `  
+        -InFile request.json `  
+        -Uri "https://LOCATION-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/publishers/google/models/gemini-4-argon:generateContent" | Select-Object -Expand Content
+
+The natural language response created by the model is similar to the following:
+
+#### Response
+    
+    
+    [
+      {
+        "candidates": [
+          {
+            "content": {
+              "parts": [
+                {
+                  "text": "The temperature in Boston is 30.5C and the temperature in San Francisco is 20C. The difference is 10.5C. \n"
+                }
+              ]
+            },
+            "finishReason": "STOP",
+            ...
+          }
+        ]
         ...
       }
-    ],
-    ...
-    }
+    ]
     
 
-The following command demonstrates how you can provide the function output to the model. Replace my-project with the name of your Google Cloud project.
+#### Interactions API
 
-#### Model request
+Before using any of the request data, make the following replacements: 
+
+  * PROJECT_ID: Your [project ID](https://docs.cloud.google.com/resource-manager/docs/creating-managing-projects#identifiers).
+
+
+
+HTTP method and URL: 
     
     
-    PROJECT_ID=my-project
-    MODEL_ID=gemini-2.5-flash
-    LOCATION="us-central1"
-    curl -X POST \
-    -H "Authorization: Bearer $(gcloud auth print-access-token)" \
-    -H "Content-Type: application/json" \
-    https://${LOCATION}-aiplatform.googleapis.com/v1/projects/${PROJECT_ID}/locations/${LOCATION}/publishers/google/models/${MODEL_ID}:generateContent \
-    -d '{
-    "contents": [
+    POST https://aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/global/interactions
+
+Request JSON body: 
+    
+    
     {
-      "role": "user",
-      "parts": {
-        "text": "What is difference in temperature in Boston and San Francisco?"
-      }
-    },
-    {
-      "role": "model",
-      "parts": [
+      "model": "gemini-3.8-flash",
+      "input": [
         {
-          "functionCall": {
-            "name": "get_current_weather",
-            "args": {
-              "location": "Boston"
+          "type": "user_input",
+          "content": [
+            {
+              "type": "text",
+              "text": "What is difference in temperature in Boston and San Francisco?"
             }
+          ]
+        },
+        {
+          "type": "function_call",
+          "id": "call_98231",
+          "name": "get_current_weather",
+          "arguments": {
+            "location": "Boston"
           }
         },
         {
-          "functionCall": {
-            "name": "get_current_weather",
-            "args": {
-              "location": "San Francisco"
-            }
-          }
-        }
-      ]
-    },
-    {
-      "role": "user",
-      "parts": [
-        {
-          "functionResponse": {
-            "name": "get_current_weather",
-            "response": {
-              "temperature": 30.5,
-              "unit": "C"
-            }
+          "type": "function_call",
+          "id": "call_98232",
+          "name": "get_current_weather",
+          "arguments": {
+            "location": "San Francisco"
           }
         },
         {
-          "functionResponse": {
-            "name": "get_current_weather",
-            "response": {
-              "temperature": 20,
-              "unit": "C"
-            }
+          "type": "function_result",
+          "call_id": "call_98231",
+          "name": "get_current_weather",
+          "result": {
+            "temperature": 30.5,
+            "unit": "C"
+          }
+        },
+        {
+          "type": "function_result",
+          "call_id": "call_98232",
+          "name": "get_current_weather",
+          "result": {
+            "temperature": 20,
+            "unit": "C"
           }
         }
-      ]
-    }
-    ],
-    "tools": [
-    {
-      "function_declarations": [
+      ],
+      "tools": [
         {
+          "type": "function",
           "name": "get_current_weather",
           "description": "Get the current weather in a specific location",
           "parameters": {
@@ -1078,40 +1645,90 @@ The following command demonstrates how you can provide the function output to th
         }
       ]
     }
-    ]
-    }'
+    
+
+To send your request, choose one of these options:
+
+#### curl
+
+**Note:** The following command assumes that you have logged in to the `gcloud` CLI with your user account by running [`gcloud init`](https://docs.cloud.google.com/sdk/gcloud/reference/init) or [`gcloud auth login`](https://docs.cloud.google.com/sdk/gcloud/reference/auth/login) , or by using [Cloud Shell](https://docs.cloud.google.com/shell/docs), which automatically logs you into the `gcloud` CLI . You can check the currently active account by running [`gcloud auth list`](https://docs.cloud.google.com/sdk/gcloud/reference/auth/list). 
+
+Save the request body in a file named `request.json`, and execute the following command: 
+    
+    
+    curl -X POST \  
+         -H "Authorization: Bearer $(gcloud auth print-access-token)" \  
+         -H "Content-Type: application/json; charset=utf-8" \  
+         -d @request.json \  
+         "https://aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/global/interactions"
+
+#### PowerShell
+
+**Note:** The following command assumes that you have logged in to the `gcloud` CLI with your user account by running [`gcloud init`](https://docs.cloud.google.com/sdk/gcloud/reference/init) or [`gcloud auth login`](https://docs.cloud.google.com/sdk/gcloud/reference/auth/login) . You can check the currently active account by running [`gcloud auth list`](https://docs.cloud.google.com/sdk/gcloud/reference/auth/list). 
+
+Save the request body in a file named `request.json`, and execute the following command: 
+    
+    
+    $cred = gcloud auth print-access-token  
+    $headers = @{ "Authorization" = "Bearer $cred" }  
       
+    Invoke-WebRequest `  
+        -Method POST `  
+        -Headers $headers `  
+        -ContentType: "application/json; charset=utf-8" `  
+        -InFile request.json `  
+        -Uri "https://aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/global/interactions" | Select-Object -Expand Content
 
 The natural language response created by the model is similar to the following:
 
-#### Model response
+#### Response
     
     
-    [
     {
-        "candidates": [
+      "id": "INTERACTION_ID",
+      "model": "gemini-3.8-flash",
+      "status": "completed",
+      "steps": [
+        {
+          "type": "model_output",
+          "content": [
             {
-                "content": {
-                    "parts": [
-                        {
-                            "text": "The temperature in Boston is 30.5C and the temperature in San Francisco is 20C. The difference is 10.5C. \n"
-                        }
-                    ]
-                },
-                "finishReason": "STOP",
-                ...
+              "type": "text",
+              "text": "The temperature in Boston is 30.5C and the temperature in San Francisco is 20C. The difference is 10.5C. \n"
             }
+          ]
+        }
+      ],
+      "usage": {
+        "total_tokens": 118,
+        "total_input_tokens": 90,
+        "input_tokens_by_modality": [
+          {
+            "modality": "text",
+            "tokens": 90
+          }
+        ],
+        "total_output_tokens": 28,
+        "output_tokens_by_modality": [
+          {
+            "modality": "text",
+            "tokens": 28
+          }
         ]
-        ...
+      },
+      "object": "interaction",
+      "created": "2026-05-29T02:17:56Z",
+      "updated": "2026-05-29T02:17:56Z"
     }
-    ]
-      
+    
 
-###  Python 
+### Python
 
 This example demonstrates a scenario with one `get_current_weather` function. The user prompt is "What is the weather like in Boston and San Francisco?".
 
-Replace my-project with the name of your Google Cloud project.
+Replace PROJECT_ID with your Google Cloud project ID.
+
+#### GenerateContent API
     
     
     import [vertexai](https://docs.cloud.google.com/python/docs/reference/vertexai/latest)
@@ -1167,9 +1784,8 @@ Replace my-project with the name of your Google Cloud project.
           )
         ]
     )
-    
 
-The following command demonstrates how you can provide the function output to the model.
+The following command demonstrates how you can provide the function output to the model:
     
     
     function_response_contents = []
@@ -1218,9 +1834,83 @@ The following command demonstrates how you can provide the function output to th
     )
     # Get the model summary response
     print(response.text)
-    
 
-###  Go 
+#### Interactions API
+    
+    
+    from google import genai
+    
+    client = genai.Client(
+        enterprise=True,
+        project="PROJECT_ID",
+        location="global",
+    )
+    
+    get_current_weather_tool = {
+        "type": "function",
+        "name": "get_current_weather",
+        "description": "Get the current weather in a given location",
+        "parameters": {
+            "type": "object",
+            "properties": {
+                "location": {
+                    "type": "string",
+                    "description": "The city name of the location for which to get the weather.",
+                    "default": "Boston, MA",
+                }
+            },
+            "required": ["location"],
+        },
+    }
+    
+    interaction = client.interactions.create(
+        model="gemini-3.8-flash",
+        input="What is the weather like in Boston and San Francisco?",
+        tools=[get_current_weather_tool],
+    )
+
+The following example demonstrates how you can provide the function outputs to the model:
+    
+    
+    function_results = []
+    
+    # Collect API responses for each parallel function call step and send them back to the model
+    for step in interaction.steps:
+        if step.type == "function_call":
+            print(f"Function call: {step.name}({step.arguments})")
+    
+            # Use synthetic data to simulate a response payload from an external API
+            api_response = {}
+            if step.arguments.get("location") in ("Boston", "Boston, MA"):
+                api_response = {
+                    "location": "Boston, MA",
+                    "temperature": 38,
+                    "description": "Partly Cloudy",
+                }
+            elif step.arguments.get("location") in ("San Francisco", "San Francisco, CA"):
+                api_response = {
+                    "location": "San Francisco, CA",
+                    "temperature": 58,
+                    "description": "Sunny",
+                }
+    
+            function_results.append(
+                {
+                    "type": "function_result",
+                    "call_id": step.id,
+                    "name": step.name,
+                    "result": api_response,
+                }
+            )
+    
+    final_interaction = client.interactions.create(
+        model="gemini-3.8-flash",
+        previous_interaction_id=interaction.id,
+        input=function_results,
+    )
+    print(final_interaction.output_text)
+
+### Go
     
     
     import (
@@ -1393,7 +2083,9 @@ You can also reference a multimodal part from within the structured `response` f
 
 The following example shows a message containing a `functionResponse` for a function named `get_image` and a nested part containing image data. The `functionResponse`'s `response` field references this image part:
 
-###  Python 
+### Python
+
+#### GenerateContent API
     
     
     from google import genai
@@ -1478,9 +2170,70 @@ The following example shows a message containing a `functionResponse` for a func
     )
     
     print(f"\nFinal model response: {response_2.text}")
-    
 
-###  REST 
+#### Interactions API
+    
+    
+    from google import genai
+    
+    client = genai.Client(
+        enterprise=True,
+        project="PROJECT_ID",
+        location="global",
+    )
+    
+    # 1. Define the function tool
+    get_image_tool = {
+        "type": "function",
+        "name": "get_image",
+        "description": "Retrieves the image file reference for a specific order item.",
+        "parameters": {
+            "type": "object",
+            "properties": {
+                "item_name": {
+                    "type": "string",
+                    "description": "The name or description of the item ordered (e.g., 'green shirt').",
+                }
+            },
+            "required": ["item_name"],
+        },
+    }
+    
+    # 2. Send a message that triggers the tool
+    prompt = "Show me the green shirt I ordered last month."
+    interaction_1 = client.interactions.create(
+        model="gemini-3.8-flash",
+        input=prompt,
+        tools=[get_image_tool],
+    )
+    
+    # 3. Handle the function call and send multimodal content in the function result
+    for step in interaction_1.steps:
+        if step.type == "function_call":
+            requested_item = step.arguments.get("item_name")
+            print(f"Model called: {step.name} for {requested_item}")
+    
+            interaction_2 = client.interactions.create(
+                model="gemini-3.8-flash",
+                previous_interaction_id=interaction_1.id,
+                input=[
+                    {
+                        "type": "function_result",
+                        "call_id": step.id,
+                        "name": step.name,
+                        "result": [
+                            {
+                                "type": "image",
+                                "uri": "gs://cloud-samples-data/generative-ai/image/dress.jpg",
+                                "mime_type": "image/jpeg",
+                            }
+                        ],
+                    }
+                ],
+            )
+            print(f"\nFinal model response: {interaction_2.output_text}")
+
+### REST
     
     
     "contents": [
@@ -1510,7 +2263,6 @@ The following example shows a message containing a `functionResponse` for a func
         ]
       }
     ]
-    
 
 ## Streaming function call arguments
 
@@ -1719,7 +2471,9 @@ The following example shows how arguments for parallel function calls might be s
     }
     
 
-###  Python 
+### Python
+
+#### GenerateContent API
     
     
     from google import genai
@@ -1738,6 +2492,7 @@ The following example shows how arguments for parallel function calls might be s
     )
     get_weather_tool = types.Tool(function_declarations=[get_weather_declaration])
     
+    
     for chunk in client.models.generate_content_stream(
       model="gemini-3.5-flash",
       contents="What's the weather in London and New York?",
@@ -1755,8 +2510,45 @@ The following example shows how arguments for parallel function calls might be s
       if function_call and function_call.name:
           print(f"{function_call.name}")
           print(f"will_continue={function_call.will_continue}")
+
+#### Interactions API
     
     
+    from google import genai
+    
+    client = genai.Client(
+        enterprise=True,
+        project="PROJECT_ID",
+        location="global",
+    )
+    
+    get_weather_tool = {
+        "type": "function",
+        "name": "get_weather",
+        "description": "Gets the current weather temperature for a given location.",
+        "parameters": {
+            "type": "object",
+            "properties": {"location": {"type": "string"}},
+            "required": ["location"],
+        },
+    }
+    
+    stream = client.interactions.create(
+        model="gemini-3.8-flash",
+        input="What's the weather in London and New York?",
+        tools=[get_weather_tool],
+        stream=True,
+    )
+    
+    for event in stream:
+        if event.event_type == "step.start" and event.step:
+            if getattr(event.step, "type", None) == "function_call":
+                print(f"Calling: {event.step.name}")
+        elif event.event_type == "step.delta" and event.delta:
+            if getattr(event.delta, "type", None) in ("arguments_delta", "arguments"):
+                print(f"  args: {event.delta.arguments}")
+            elif getattr(event.delta, "type", None) == "text" and getattr(event.delta, "text", None):
+                print(event.delta.text, end="")
 
 ## Function calling modes
 
@@ -1773,9 +2565,11 @@ Mode | Description
 
 Instead of allowing the model to choose between a natural language response and a function call, you can force it to only predict function calls. This is known as _forced function calling_. You can also choose to provide the model with a full set of function declarations, but restrict its responses to a subset of these functions.
 
-The following example is forced to predict only `get_weather` function calls.
+The following example is forced to predict only `get_weather` function calls:
 
-###  Python 
+### Python
+
+#### GenerateContent API
     
     
     response = model.generate_content(
@@ -1803,7 +2597,26 @@ The following example is forced to predict only `get_weather` function calls.
             )
         )
     )
+
+#### Interactions API
     
+    
+    interaction = client.interactions.create(
+        model="gemini-3.8-flash",
+        input="What is the weather like in Boston?",
+        tools=[get_weather_tool, some_other_tool],
+        generation_config={
+            "tool_choice": {
+                "allowed_tools": {
+                    # "any" mode forces the model to predict only function calls
+                    "mode": "any",
+                    # Allowed function calls to predict when the mode is "any". If empty, any of
+                    # the provided function calls can be predicted.
+                    "tools": ["get_weather"],
+                }
+            },
+        },
+    )
 
 ## Function schema examples
 
@@ -1812,6 +2625,8 @@ Function declarations are compatible with the [OpenAPI schema](https://spec.open
 #### Function with object and array parameters
 
 The following example uses a Python dictionary to declare a function that takes both object and array parameters:
+
+#### GenerateContent API
     
     
     extract_sale_records_func = FunctionDeclaration(
@@ -1840,11 +2655,43 @@ The following example uses a Python dictionary to declare a function that takes 
           "required": ["records"],
       },
     )
-      
+
+#### Interactions API
+    
+    
+    extract_sale_records_tool = {
+        "type": "function",
+        "name": "extract_sale_records",
+        "description": "Extract sale records from a document.",
+        "parameters": {
+            "type": "object",
+            "properties": {
+                "records": {
+                    "type": "array",
+                    "description": "A list of sale records",
+                    "items": {
+                        "description": "Data for a sale record",
+                        "type": "object",
+                        "properties": {
+                            "id": {"type": "integer", "description": "The unique id of the sale."},
+                            "date": {"type": "string", "description": "Date of the sale, in the format of MMDDYY, e.g., 031023"},
+                            "total_amount": {"type": "number", "description": "The total amount of the sale."},
+                            "customer_name": {"type": "string", "description": "The name of the customer, including first name and last name."},
+                            "customer_contact": {"type": "string", "description": "The phone number of the customer, e.g., 650-123-4567."},
+                        },
+                        "required": ["id", "date", "total_amount"],
+                    },
+                },
+            },
+            "required": ["records"],
+        },
+    }
 
 #### Function with enum parameter
 
 The following example uses a Python dictionary to declare a function that takes an integer `enum` parameter:
+
+#### GenerateContent API
     
     
     set_status_func = FunctionDeclaration(
@@ -1861,11 +2708,31 @@ The following example uses a Python dictionary to declare a function that takes 
           },
       },
     )
-      
+
+#### Interactions API
+    
+    
+    set_status_tool = {
+        "type": "function",
+        "name": "set_status",
+        "description": "set a ticket's status field",
+        # Function parameters are specified in JSON schema format
+        "parameters": {
+            "type": "object",
+            "properties": {
+                "status": {
+                    "type": "integer",
+                    "enum": ["10", "20", "30"],  # Provide integer (or any other type) values as strings.
+                }
+            },
+        },
+    }
 
 #### Function with ref and def
 
 The following JSON function declaration uses the `ref` and `defs` attributes:
+
+#### GenerateContent API
     
     
     {
@@ -1891,11 +2758,34 @@ The following JSON function declaration uses the `ref` and `defs` attributes:
         }
       ]
     }
-      
 
-Usage notes:
+#### Interactions API
+    
+    
+    {
+      "input": ...,
+      "tools": [
+        {
+          "type": "function",
+          "name": "get_customer",
+          "description": "Search for a customer by name",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "first_name": { "$ref": "#/$defs/name" },
+              "last_name": { "$ref": "#/$defs/name" }
+            },
+            "$defs": {
+              "name": { "type": "string" }
+            }
+          }
+        }
+      ]
+    }
 
-  * Unlike, the OpenAPI schema, specify `ref` and `defs` without the `$` symbol.
+Consider the following schema usage notes:
+
+  * In the GenerateContent API OpenAPI schema, specify `ref` and `defs` without the `$` symbol. The Interactions API uses standard JSON Schema with `$ref` and `$defs`.
   * `ref` must refer to direct child of `defs`; no external references.
   * The maximum depth of nested schema is 32.
   * Recursion depth in `defs` (self-reference) is limited to two.
@@ -1947,7 +2837,6 @@ The following code sample declares a function that multiplies an array of number
       'property_ordering': ['numbers'],
       'type': 'OBJECT'}}
     """
-      
 
 ## Best practices for function calling
 
@@ -2052,6 +2941,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-02 UTC.
+Last updated 2026-11-04 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-02 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 

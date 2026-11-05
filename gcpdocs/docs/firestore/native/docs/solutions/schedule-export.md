@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/firestore/native/docs/solutions/schedule-export/
 title: Schedule data exports \u00a0|\u00a0 Firestore in Native mode \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T08:01:38.320895+00:00
+fetched_at: 2026-11-04T23:46:11.998076+00:00
 ---
 
 # Schedule data exports  |  Firestore in Native mode  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/database-migration/docs/postgres/known-limitations/
 title: Known limitations \u00a0|\u00a0 Database Migration Service for PostgreSQL \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T16:51:35.245487+00:00
+fetched_at: 2026-11-05T00:17:48.608039+00:00
 ---
 
 # Known limitations  |  Database Migration Service for PostgreSQL  |  Google Cloud Documentation
@@ -86,6 +86,8 @@ Known limitations for using a PostgreSQL database as a source include:
 
   * The [ Private Service Connect interfaces connectivity method](https://docs.cloud.google.com/database-migration/docs/postgres/networking-methods#psc-interfaces) is only supported for migrating to existing destination instances. If you want to use private IP connectivity and migrate to a new destination instance, use VPC peering.
 
+  * Identity and Access Management database authentication for destination instances or clusters isn't supported. Database Migration Service connects to the destination database using database user authentication. For more information about IAM, see [ IAM authentication](https://docs.cloud.google.com/sql/docs/postgres/iam-authentication) in the Cloud SQL documentation.
+
 
 
 
@@ -114,6 +116,19 @@ If you encounter issues due to extra data in your existing destination instance,
 
 
 
+### Data dump parallelism considerations
+
+When you [create a migration job](https://docs.cloud.google.com/database-migration/docs/postgres/create-migration-job), you can increase the number of parallel subscriptions to accelerate the initial data dump and ongoing change data capture (CDC) replication. Using higher data dump parallelism settings also increases connection and resource utilization on both your source database and your destination Cloud SQL instance.
+
+  * Ensure that your source database has sufficient CPU, memory, and I/O headroom before you use **Maximum** parallelism.
+  * When using adjusted data dump parallelism, you must configure higher values for `max_replication_slots`, `max_wal_senders`, and `max_worker_processes` on your source database. For detailed parameter calculations, see [Configure your source database](https://docs.cloud.google.com/database-migration/docs/postgres/configure-source-database).
+  * The `pglogical` extension replicates data at the table level during the initial full dump. A single non-partitioned table is assigned to one subscription and isn't split across multiple parallel subscriptions or worker threads.
+  * The `pglogical` extension replicates individual leaf partitions as separate tables and can distribute multiple leaf partitions across parallel subscriptions during the initial full dump. A single large leaf partition can't be split across multiple subscriptions and is copied by a single thread.
+  * Database Migration Service sorts tables by size and only adds parallel subscriptions when it's possible to reduce the total data volume of the largest subscription. Database Migration Service creates up to 2 subscriptions per database for **Optimal** parallelism and up to 4 subscriptions per database for **Maximum** parallelism, apportioned by database size from a target pool of 10 subscriptions across all databases (with at least 1 subscription per migrated database). If a database has heavily skewed table sizes, Database Migration Service allocates fewer subscriptions than the maximum cap. For example, if a database contains one 1 TB table and several small tables, Database Migration Service isolates the 1 TB table in one subscription and groups the smaller tables into a second subscription. In this scenario, Database Migration Service uses only 2 subscriptions even when parallelism is set to **Maximum**.
+  * Database Migration Service assigns tables without primary keys to dedicated insert-only replication sets (one per parallel subscription). Multiple tables without primary keys can be distributed across parallel subscriptions, but during the initial full dump each individual table is copied as a single table stream within one subscription and isn't split across multiple parallel threads.
+
+
+
 ### PostgreSQL extension version compatibility during major version upgrades
 
 When you migrate to a higher PostgreSQL major version, Database Migration Service uses the `pg_restore` utility, which installs the default extension version of the target PostgreSQL major version. You can't specify an exact extension version for the `pg_restore` utility.
@@ -126,6 +141,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-03 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 

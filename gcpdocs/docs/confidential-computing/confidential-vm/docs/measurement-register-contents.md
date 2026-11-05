@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/confidential-computing/confidential-vm/docs/measurement-register-contents/
 title: Confidential VM measurement register contents \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T23:26:56.963092+00:00
+fetched_at: 2026-11-05T00:17:47.573078+00:00
 ---
 
 # Confidential VM measurement register contents  |  Google Cloud Documentation
@@ -84,7 +84,7 @@ The AMD Secure Processor has a single launch `MEASUREMENT` register. Like other 
 
 The following components are measured and contribute to the final digest:
 
-  * The VM instance's virtual firmware.
+  * The VM instance's virtual firmware binary.
 
   * The structure, but not the contents of the following memory pages:
 
@@ -94,12 +94,12 @@ The following components are measured and contribute to the final digest:
 
     * The CPUID page, which contains the verified CPU features.
 
-  * The Virtual Machine Save Area (VMSA) for each vCPU allocated to the Confidential VM instance. If the VM has multiple vCPUs, each VMSA is hashed individually into the chain in sequential order.
+  * The Virtual Machine Save Area (VMSA), measured for each vCPU allocated to the Confidential VM instance. If the VM has multiple vCPUs, each VMSA is hashed individually into the chain in sequential order.
 
 
 
 
-You can also access the Shielded VM vTPM measurements, although unlike the AMD Secure Processor the measurements are [software-attested instead of hardware](https://docs.cloud.google.com/confidential-computing/confidential-vm/docs/attestation-overview#software-hardware-attestation).
+You can also access Shielded VM vTPM measurements to verify the bootloader, kernel, and userspace components. Unlike the AMD Secure Processor, the measurements are [software-attested](https://docs.cloud.google.com/confidential-computing/confidential-vm/docs/attestation-overview#hardware-software-roots-of-trust).
 
 ## Intel TDX measurement registers
 
@@ -124,12 +124,12 @@ Measurement register | What's measured
 `RTMR[2]` | The kernel, and command line passed to the kernel.  
 `RTMR[3]` (`User-defined`) | Additional event logs measurement passed from the userspace.  
   
-You can also access the Shielded VM vTPM measurements, although unlike the Intel TDX module the measurements are [software-attested instead of hardware](https://docs.cloud.google.com/confidential-computing/confidential-vm/docs/attestation-overview#software-hardware-attestation).
+You can also access the Shielded VM vTPM measurements. Unlike the Intel TDX module, the measurements are [software-attested](https://docs.cloud.google.com/confidential-computing/confidential-vm/docs/attestation-overview#hardware-software-roots-of-trust).
 
 Send feedback 
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-04 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 

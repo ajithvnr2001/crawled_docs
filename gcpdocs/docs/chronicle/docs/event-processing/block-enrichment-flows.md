@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chronicle/docs/event-processing/block-enrichment-flows/
 title: Manage enrichment blocks \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-03T09:36:27.509324+00:00
+fetched_at: 2026-11-04T23:33:49.399955+00:00
 ---
 
 # Manage enrichment blocks  |  Google Security Operations  |  Google Cloud Documentation
@@ -56,7 +56,7 @@ Example: On Tuesday, September 16, at 23:59:59 UTC, you enable an enrichment blo
 
 To create and enable an enrichment block, do the following:
 
-  1. Go to **Settings** > **Enrichment Blocks**.
+  1. Go to **Settings > Detection > Enrichment Blocks**.
   2. Configure the following:
 
      1. From the **Enrichment Type** list, select one of the following options:
@@ -102,7 +102,7 @@ After approximately 5-10 minutes, Google SecOps implements the enrichment block 
 
 To disable an enrichment block, do the following:
 
-  1. Go to **Settings** > **Enrichment Blocks**.
+  1. Go to **Settings > Detection > Enrichment Blocks**.
   2. On the **Enabled Blocks** tab, find the enrichment block, click more_vert **More** in that row, and select **Disable Block**. A confirmation dialog opens.
   3. Review the information and click **Disable Block**. The **Disabled Blocks** table displays a row for the disabled enrichment block, and the corresponding row is removed from the **Enabled Blocks** table. 
 
@@ -115,7 +115,7 @@ After approximately 5-10 minutes, Google SecOps _re-enriches_ all the associated
 
 To re-enable an enrichment block, do the following:
 
-  1. Go to **Settings** > **Enrichment Blocks**.
+  1. Go to **Settings > Detection > Enrichment Blocks**.
   2. On the **Disabled Blocks** tab, find the enrichment block, click more_vert **More** in that row, and select **Enable Block**. A confirmation dialog opens.
   3. Review the information and click **Enable Block**. The **Enabled Blocks** table displays a row for the re-enabled enrichment block, and the corresponding row is removed from the **Disabled Blocks** table. 
 
@@ -149,6 +149,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-03 UTC.
+Last updated 2026-11-04 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 

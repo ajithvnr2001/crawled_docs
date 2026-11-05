@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/kubernetes-engine/docs/how-to/rollout-sequencing-custom-stages/manage-upgrades-with-rollout-sequencing/
 title: Sequence the rollout of cluster upgrades with custom stages \u00a0|\u00a0 Google Kubernetes Engine (GKE) \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-03T09:54:44.202623+00:00
+fetched_at: 2026-11-05T00:20:00.895091+00:00
 ---
 
 # Sequence the rollout of cluster upgrades with custom stages  |  Google Kubernetes Engine (GKE)  |  Google Cloud Documentation
@@ -615,10 +615,10 @@ Replace the following:
 
       * `control-plane-patch`: GKE performs [automatic cluster control plane upgrades](https://docs.cloud.google.com/kubernetes-engine/upgrades#automatic_cp_upgrades) to later patch versions.
       * `control-plane-minor`: GKE performs [automatic cluster control plane upgrades](https://docs.cloud.google.com/kubernetes-engine/upgrades#automatic_cp_upgrades) to later minor versions.
-      * `nodes-patch`: GKE performs [automatic cluster node upgrades](https://docs.cloud.google.com/kubernetes-engine/upgrades#automatic_node_upgrades) to later patch versions.
-      * `nodes-minor`: GKE performs [automatic cluster node upgrades](https://docs.cloud.google.com/kubernetes-engine/upgrades#automatic_node_upgrades) to later minor versions.
+      * `node-patch`: GKE performs [automatic cluster node upgrades](https://docs.cloud.google.com/kubernetes-engine/upgrades#automatic_node_upgrades) to later patch versions.
+      * `node-minor`: GKE performs [automatic cluster node upgrades](https://docs.cloud.google.com/kubernetes-engine/upgrades#automatic_node_upgrades) to later minor versions.
 
-For example, if you want only patch versions to roll out in the rollout sequence, specify the `control-plane-patch,nodes-patch` configuration.
+For example, if you want only patch versions to roll out in the rollout sequence, specify the `control-plane-patch,node-patch` configuration.
 
 
 
@@ -736,24 +736,30 @@ To have GKE ignore a cluster in a rollout sequence, do the following steps:
 Run the following command:
          
          gcloud container fleet rolloutsequences update ROLLOUT_SEQUENCE_NAME \
-             --ignored-clusters-selector="resource.labels.LABEL_TO_IGNORE"
+             --ignored-clusters-selector="IGNORED_CLUSTERS_SELECTOR"
          
 
 Replace the following:
 
      * `ROLLOUT_SEQUENCE_NAME`: the name of the rollout sequence.
-     * `LABEL_TO_IGNORE`: the name of the label for clusters that GKE should ignore for the rollout sequence.
+     * `IGNORED_CLUSTERS_SELECTOR`: a CEL expression that selects the clusters that GKE should ignore for the rollout sequence, for example:
+
+       * `has(resource.labels.status)`: ignore clusters that have the `status` label, with any value.
+       * `resource.labels.status=='quarantine'`: ignore clusters that have the `status` label with the value `quarantine`.
 
 ### Terraform
 
 If you use Terraform to manage your rollout sequence, add the following field to the block that you used to created the rollout sequence. You can add the field anywhere except between the `stages` blocks, which need to be consecutive:
     
     ignored_clusters_selector {
-      label_selector = "resource.labels.LABEL_TO_IGNORE"
+      label_selector = "IGNORED_CLUSTERS_SELECTOR"
     }
     
 
-Replace `LABEL_TO_IGNORE` with the name of the label for clusters that GKE should ignore for the rollout sequence.
+Replace `IGNORED_CLUSTERS_SELECTOR` with a CEL expression that selects the clusters that GKE should ignore for the rollout sequence, for example:
+
+     * `has(resource.labels.status)`: ignore clusters that have the `status` label, with any value.
+     * `resource.labels.status=='quarantine'`: ignore clusters that have the `status` label with the value `quarantine`.
 
 
 
@@ -832,7 +838,7 @@ For example, the following manifest, which is named `rollout-sequence-migrate.ya
            fleet-projects:
            - projects/prod
            soak-duration: 604800s
-           label-selector: canary=true
+           label-selector: resource.labels.canary=='true'
          - stage:
            fleet-projects:
            - projects/prod
@@ -882,6 +888,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-02 UTC.
+Last updated 2026-11-03 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-02 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 

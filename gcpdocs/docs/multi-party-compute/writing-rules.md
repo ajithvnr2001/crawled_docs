@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/multi-party-compute/writing-rules/
 title: Write transaction policy rules \u00a0|\u00a0 Multi-party Compute \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T23:54:40.196974+00:00
+fetched_at: 2026-11-04T23:28:47.110216+00:00
 ---
 
 # Write transaction policy rules  |  Multi-party Compute  |  Google Cloud Documentation
@@ -220,7 +220,7 @@ Each transfer instruction is evaluated separately with its own context. The tran
 
 If the transaction sets a compute unit price without a compute unit limit, the fee uses the Solana default limit of 200,000 compute units for each instruction other than ComputeBudget instructions, up to 1,400,000.
 
-The transaction's signers must match the accounts that each instruction needs to sign, and the source and destination accounts must be writable. v0 messages that use address lookup tables can't be decoded. Pass the unsigned message bytes, not a signed transaction envelope, in `Transaction.payload` and `Transaction.rawMessage`.
+The transaction's signers must match the accounts that each instruction needs to sign, and the source and destination accounts must be writable. v0 messages that use address lookup tables can't be decoded. Pass the unsigned message bytes, not a signed transaction envelope, in `Transaction.payload` and `Transaction.signingMessage`.
 
 The recognized mints are the Solana Mainnet mints. On Devnet or Testnet, a token transfer has no `token_symbol`, so check `contract_address` instead.
 
@@ -464,6 +464,6 @@ Write the KeyList ID in bracket syntax, `context.key_lists["..."]`, rather than 
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-27 UTC.
+Last updated 2026-11-04 UTC.
 
-[[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 
+[[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 

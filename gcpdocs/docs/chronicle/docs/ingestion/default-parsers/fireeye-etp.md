@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/fireeye-etp/
 title: Collect Trellix Email Security Cloud (formerly FireEye ETP) logs \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T07:49:56.375063+00:00
+fetched_at: 2026-11-04T23:43:18.649349+00:00
 ---
 
 # Collect Trellix Email Security Cloud (formerly FireEye ETP) logs  |  Google Security Operations  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/metabase/
 title: Collect Metabase logs \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T07:53:34.498209+00:00
+fetched_at: 2026-11-04T23:43:31.524085+00:00
 ---
 
 # Collect Metabase logs  |  Google Security Operations  |  Google Cloud Documentation

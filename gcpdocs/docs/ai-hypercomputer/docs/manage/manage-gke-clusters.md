@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/ai-hypercomputer/docs/manage/manage-gke-clusters/
 title: Manage AI-optimized GKE clusters \u00a0|\u00a0 AI Hypercomputer \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T18:55:18.774591+00:00
+fetched_at: 2026-11-04T23:32:01.801823+00:00
 ---
 
 # Manage AI-optimized GKE clusters  |  AI Hypercomputer  |  Google Cloud Documentation
@@ -121,11 +121,11 @@ With release channels, you get access to more features, including additional [ma
 
 ## Report faulty hosts through GKE
 
-This section outlines how, through GKE, you can report a faulty host that has compute instances provisioned by using the [reservation-bound provisioning model](https://docs.cloud.google.com/ai-hypercomputer/docs/create/review-configurations#reservation-bound). If you want to report a faulty host for a node that was provisioned by using the flex-start provisioning model ([Preview](https://docs.cloud.google.com/products#product-launch-stages)), then contact your account team instead.
+This section outlines how, through GKE, you can report a faulty host that has compute instances provisioned by using the standard, flex-start, or reservation-bound provisioning model. If you want to report a faulty host for a node that was provisioned by using the spot provisioning model or that uses [General GPUs](https://docs.cloud.google.com/ai-hypercomputer/docs/evaluate-general-gpus), then contact your account team instead.
 
 If you observe GPU memory or Xid errors on a node and want to verify whether manual recovery measures such as triggering a guest OS reboot (`kubectl label nodes <NODE_NAME> cloud.google.com/perform-reboot=true`) can resolve the issue before you report the host as faulty, see [Review Xid messages](https://docs.cloud.google.com/compute/docs/troubleshooting/troubleshooting-gpus#review-xid-messages).
 
-**Caution** : Reporting a faulty host is a disruptive action that stops your VM. Before you report a host, thoroughly investigate your environment to identify the root cause of the issue. Only report the host as faulty if you have no alternatives to resolve your issue. 
+**Caution** : Reporting a faulty host can stop your compute instance and disrupt your workload. Before you report a host as faulty, investigate your environment to identify the root cause of the issue. Only report the host as faulty if you have no alternatives to resolve your issue. 
 
 A [_host_](https://docs.cloud.google.com/ai-hypercomputer/docs/terminology#node) is a single physical server machine in the data center running a compute instance which hosts your GKE node. You can report faulty hosts by applying a `fault-behavior` node label to the affected GKE node. After you apply the node label to a particular GKE node, GKE does the following steps:
 
@@ -187,25 +187,32 @@ Modify the command as follows:
        * **1.35.6-gke.1017000 or later, or 1.36.0-gke.3251000 or later** : keep the annotations block and replace `FAULT_DESCRIPTION` with a text description of the observed fault. This can include the XID error code, symptoms, or timestamps. This description is forwarded to Compute Engine to assist with repair diagnostics and is automatically removed from the node after the operation completes. For example: `GPU XID 48 observed on device nvidia0 at 2026-06-10T10:30:00Z`.
        * **Earlier versions** : remove the entire `annotations` block from the command. The `fault-description` field is not forwarded to Compute Engine in these versions and isn't automatically removed from the node. Instead, contact your account team or [Cloud Customer Care](https://docs.cloud.google.com/support/docs/overview) to provide fault details.
 
-After you report a faulty host for a node, the time when the node restarts varies based on the [](https://docs.cloud.google.com/ai-hypercomputer/docs/create/review-configurations#reservation-operational-mode) reservation operational mode that is specified in the reservation that the node uses. To verify the reservation operational mode for a reservation, [view the `reservationOperationalMode` field in the reservation](https://docs.cloud.google.com/ai-hypercomputer/docs/view-reserved-capacity#view-reservation). The following table summarizes the faulty host process for the two available reservation operational modes: _all capacity mode_ and _managed mode_.  | All capacity mode (`ALL_CAPACITY`) | Managed mode (`HIGHLY_AVAILABLE_CAPACITY`)  
+After you report a faulty host for a node, the time when the node restarts varies based on the [ reservation operational mode](https://docs.cloud.google.com/ai-hypercomputer/docs/create/review-configurations#reservation-operational-mode) that is specified in the reservation that the node uses. To verify the reservation operational mode for a reservation, [view the `reservationOperationalMode` field in the reservation](https://docs.cloud.google.com/ai-hypercomputer/docs/view-reserved-capacity#view-reservation). The following table summarizes the faulty host process for the two available reservation operational modes: _all capacity mode_ and _managed mode_.  | All capacity mode (`ALL_CAPACITY`) | Managed mode (`HIGHLY_AVAILABLE_CAPACITY`)  
 ---|---|---  
-Supported machine types | A4X Max and A4X | A4, A3 Ultra, A3 Mega, and A3 High  
-Faulty host report API rate limiting | No rate limits apply. | Calls to the API may be rate-limited.  
-Faulty host report process |  When you report a faulty host for a node that runs in the all capacity mode, the following occurs:
+Supported machine types | A4X Max and A4X | A4, A3 Ultra, A3 Mega, and A3 High (8 GPUs)  
+Faulty host report API rate limiting | No rate limits apply. | API calls might be rate-limited.  
+Faulty host report process |  When you report a faulty host for a node that runs in all capacity mode, the following occurs:
 
-  1. **Evict Pods** : After the label is applied to the faulty node, GKE taints the node to block scheduling new Pods. GKE also starts to gracefully evict the running Pods on the node. GKE respects the [Pod Disruption Budgets (PDBs)](https://kubernetes.io/docs/tasks/run-application/configure-pdb/) and the `spec.terminationGracePeriodSeconds` field of your Pod manifests. For more details, see [ Configure GKE to terminate your workloads gracefully](https://docs.cloud.google.com/kubernetes-engine/docs/concepts/handle-disruption-gpu-tpu#configure-gke).
-  2. **Report and repair the faulty host** : GKE automatically reports and repairs the faulty host by calling the Compute Engine API, which results in a [sequence of operations](https://docs.cloud.google.com/ai-hypercomputer/docs/manage/report-faulty-host#review-operations) that usually takes 10-12 minutes to report the faulty host and then can take 3-14 days, or even longer at times, to repair the host.
-  3. **Restart the instance** : After the host repair operation _completes_ (usually 3-14 days), one of the following occurs:
-     * If the instance is in the `REPAIRING` state and the resources are available when the repair completes, then Compute Engine automatically restarts the instance on the repaired host.
-     * Otherwise, if the instance is in the `TERMINATED` state or if resources aren't available when the repair completes, then the instance state stays in or changes to `TERMINATED`. You must [manually restart the instance](https://docs.cloud.google.com/compute/docs/instances/stop-start-instance#restart-vm) when you want it to run. However, restarting the instance might fail if resources aren't available when you restart the instance; for example, this can happen if other instances are already using the repaired host.
+  1. **Evict Pods** : after the label is applied to the faulty node, GKE taints the node to block scheduling new Pods. GKE also starts to gracefully evict the running Pods on the node. GKE respects the [Pod Disruption Budgets (PDBs)](https://kubernetes.io/docs/tasks/run-application/configure-pdb/) and the `spec.terminationGracePeriodSeconds` field of your Pod manifests. For more information, see [ Configure GKE to terminate your workloads gracefully](https://docs.cloud.google.com/kubernetes-engine/docs/concepts/handle-disruption-gpu-tpu#configure-gke).
+  2. **Report and repair the faulty host** : GKE calls the Compute Engine API to report and repair the faulty host. This [sequence of operations](https://docs.cloud.google.com/ai-hypercomputer/docs/manage/report-faulty-host#review-operations) usually takes between 10 and 12 minutes to report the faulty host, and from 3 to 14 days, or even longer at times, to repair the host.
+  3. **Restart the node** : after the host repair operation completes, one of the following occurs:
+     * If the node is in the `REPAIRING` state and the resources are available when the repair completes, then Compute Engine automatically restarts the node on the repaired host.
+     * Otherwise, if the node is in the `TERMINATED` state or if resources aren't available when the repair completes, then the node state stays in or changes to `TERMINATED`. You must [manually restart the node](https://docs.cloud.google.com/compute/docs/instances/stop-start-instance#restart-vm) when you want it to run. However, if resources aren't available when you restart the node—for example, if other compute instances are already using the repaired host—then the restart might fail.
 
-|  When you report a faulty host for a node that runs in the managed mode, the following occurs:
+|  When you report a faulty host for a node that runs in managed mode, the following occurs:
 
-  1. **Evict Pods** : After the label is applied to the faulty node, GKE taints the node to block scheduling new Pods. GKE also starts to gracefully evict the running Pods on the node. GKE respects the [Pod Disruption Budgets (PDBs)](https://kubernetes.io/docs/tasks/run-application/configure-pdb/) and the `spec.terminationGracePeriodSeconds` field of your Pod manifests. For more details, see [ Configure GKE to terminate your workloads gracefully](https://docs.cloud.google.com/kubernetes-engine/docs/concepts/handle-disruption-gpu-tpu#configure-gke).
-  2. **Report and start repairing the faulty host** : GKE automatically reports and repairs the faulty host by calling the Compute Engine API, which results in a [sequence of operations](https://docs.cloud.google.com/ai-hypercomputer/docs/manage/report-faulty-host#review-operations) that usually takes 10-12 minutes to report the faulty host and then can take 3-14 days, or even longer at times, to repair the host.
-  3. **Migrate and restart the instance** : After the host repair operation _starts_ (usually 10-12 minutes), Compute Engine attempts to reserve one more host to replace your reported faulty host in your reserved capacity. If Compute Engine finds a healthy host—if it successfully replaces the faulty host or otherwise finds a matching healthy host in your reserved capacity—then Compute Engine migrates the instance to that host. Then, restarting the instance happens through one of the following: 
-     * If the instance is in the `REPAIRING` state and resources are available before or when the repair completes, then Compute Engine automatically restarts the instance on a healthy host.
-     * Otherwise, if the instance is in the `TERMINATED` state or if resources aren't available before or when the repair completes, then the instance state stays in or changes to `TERMINATED`. You must [manually restart the instance](https://docs.cloud.google.com/compute/docs/instances/stop-start-instance#restart-vm) when you want it to run. However, restarting the instance might fail if resources aren't available when you restart the instance; for example, this can happen if other instances are already using the repaired host.
+  1. **Evict Pods** : after the label is applied to the faulty node, GKE taints the node to block scheduling new Pods. GKE also starts to gracefully evict the running Pods on the node. GKE respects the [Pod Disruption Budgets (PDBs)](https://kubernetes.io/docs/tasks/run-application/configure-pdb/) and the `spec.terminationGracePeriodSeconds` field of your Pod manifests. For more information, see [ Configure GKE to terminate your workloads gracefully](https://docs.cloud.google.com/kubernetes-engine/docs/concepts/handle-disruption-gpu-tpu#configure-gke).
+  2. **Report and start repairing the faulty host** : GKE calls the Compute Engine API to report and repair the faulty host. This [sequence of operations](https://docs.cloud.google.com/ai-hypercomputer/docs/manage/report-faulty-host#review-operations) usually takes between 10 and 12 minutes to report the faulty host. The behavior of the node when the host repair operation starts varies by machine series:
+     * **A4 and A3 Ultra** : GKE attempts to live migrate the node to a different host. If you lack sufficient reserved capacity or capacity isn't available in the node's zone, then the node stops.
+     * **A3 Mega and A3 High** : GKE stops the node and restarts it on a healthy host.
+Repairing the original faulty host can take from 3 to 14 days, or even longer at times.
+  3. **Migrate or restart the node** : after the host repair operation starts, Compute Engine attempts to reserve a healthy host to replace your reported faulty host in your reserved capacity. If Compute Engine finds a replacement host, then the following occurs:
+     * **A4 and A3 Ultra** : if the node was live-migrated in the previous step, then it continues to run on the replacement host. If the node was stopped, then it restarts on the replacement host.
+     * **A3 Mega and A3 High** : the node restarts on the replacement host.
+If Compute Engine can't find a replacement host right away, then the node restarts as follows:
+     * If the node is in the `REPAIRING` state and resources are available before or when the repair completes, then Compute Engine automatically restarts the node on a healthy host.
+     * Otherwise, if the node is in the `TERMINATED` state or if resources aren't available before or when the repair completes, then the node state stays in or changes to `TERMINATED`. You must [manually restart the node](https://docs.cloud.google.com/compute/docs/instances/stop-start-instance#restart-vm) when you want it to run.
+Unlike in all capacity mode, you don't need to wait for the original faulty host to be repaired before your workload can resume.
 
   
   
@@ -278,6 +285,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-04 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 

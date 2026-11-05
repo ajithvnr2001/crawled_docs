@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chronicle/docs/soar/investigate/working-with-alerts/define-default-alert-view-admin/
 title: Define the default alert view \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T10:08:54.894046+00:00
+fetched_at: 2026-11-04T23:33:46.780512+00:00
 ---
 
 # Define the default alert view  |  Google Security Operations  |  Google Cloud Documentation
@@ -32,7 +32,7 @@ This document describes how an administrator can define the default alert overvi
 
 
 
-To define a default view, go to **SOAR Settings > Case Data > Views > Default Alert View**. 
+To define a default view, go to **Settings > Investigation > Views > Default Alert View**. 
 
 ## Define widgets in the default alert view
 
@@ -41,7 +41,7 @@ The **Default Alert View** page displays a list of general widgets and a set of 
   * **Custom Fields Form** : Displays custom fields for the analyst to complete with additional information about the alert. Learn how to [create custom fields](https://docs.cloud.google.com/chronicle/docs/soar/investigate/working-with-cases/adding-custom-fields). 
   * **Entities Highlights** : Displays the highlighted fields for each entity involved in the alert. There are two ways to highlight a field: 
     * On the **Explore** page, choose the entity, select a field, and click **Add to highlight**. The entity field displays in the widget. 
-    * Go to **SOAR Settings > Data Configuration > Properties Metadata**, select a field, and mark it as highlighted. If the field is part of the entity, it appears in the widget. 
+    * Go to **Settings > Investigation > Properties Metadata**, select a field, and mark it as highlighted. If the field is part of the entity, it appears in the widget. 
   * **Events Table** : Displays all alert events and their properties. Choose up to six fields to display in the table. Click the brackets next to each row to reorder the rows and customize default placeholders. You can also add multiple placeholders in every row. In the actual display, click any of the table rows to open a side drawer with detailed event information. 
   * **HTML** : Lets you use HTML code to create insights and inject relevant alert information through placeholders.  
 **Note:** You can choose to return safe code without including potentially harmful JavaScript. When using the **Video** or **Layout 6** presets in the HTML widget, some video sites (like YouTube and files.fm) aren't supported. Use Sendspark instead.
@@ -60,7 +60,7 @@ The **Default Alert View** page displays a list of general widgets and a set of 
 
 To add a widget to the default alert view, follow these steps:
 
-  1. Go to **SOAR Settings > Case Data > Views > Default Alert View**
+  1. Go to **Settings > Investigation > Views > Default Alert View**
   2. Drag a widget into the template. 
   3. Rearrange the widgets at any time to achieve the view you want. 
 
@@ -80,6 +80,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-28 UTC.
+Last updated 2026-11-04 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 

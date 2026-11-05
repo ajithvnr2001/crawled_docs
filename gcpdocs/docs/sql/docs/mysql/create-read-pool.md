@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sql/docs/mysql/create-read-pool/
 title: Create and manage read pools \u00a0|\u00a0 Cloud SQL for MySQL \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T09:38:04.625420+00:00
+fetched_at: 2026-11-04T23:31:19.123888+00:00
 ---
 
 # Create and manage read pools  |  Cloud SQL for MySQL  |  Google Cloud Documentation
@@ -217,7 +217,7 @@ Before using any of the request data, make the following replacements:
   * PRIMARY_INSTANCE_NAME: the name of the primary instance.
   * READ_POOL_NAME: the name you want to use for the read pool, such as `my-read-pool`.
   * DATABASE_VERSION: the database version you want to use. For example, `MYSQL_8_0_37`. 
-  * NODE_COUNT: the number of read pool nodes you want in the read pool. Choose any number from `1` to `20`.
+  * NODE_COUNT: the number of read pool nodes you want in the read pool. Choose any number from `1` to `20`. 
   * FULL_NETWORK_NAME: the full network path where you want the read pool to reside, such as `projects/vpc-host-project/global/networks/my-network-name`.
 
 
@@ -312,7 +312,7 @@ Before using any of the request data, make the following replacements:
   * PRIMARY_INSTANCE_NAME: the name of the primary instance.
   * READ_POOL_NAME: the name you want to use for the read pool, such as `my-read-pool`.
   * DATABASE_VERSION: the database version you want to use. For example, `MYSQL_8_0_37`. 
-  * NODE_COUNT: the number of read pool nodes you want in the read pool. Choose any number from `1` to `20`.
+  * NODE_COUNT: the number of read pool nodes you want in the read pool. Choose any number from `1` to `20`. 
   * FULL_NETWORK_NAME: the full network path where you want the read pool to reside, such as `projects/vpc-host-project/global/networks/my-network-name`.
 
 
@@ -437,7 +437,7 @@ Use the [ `patch`](https://docs.cloud.google.com/sql/docs/mysql/admin-api/rest/v
 Before using any of the request data, make the following replacements: 
 
   * READ_REPLICA_NAME: the name of the read replica you wish to convert, such as `my-read-replica`.
-  * NODE_COUNT: the number of read pool nodes you want in the read pool. Choose any number from `1` to `20`.
+  * NODE_COUNT: the number of read pool nodes you want in the read pool. Choose any number from `1` to `20`. 
 
 
 
@@ -513,7 +513,7 @@ Use the [ `patch`](https://docs.cloud.google.com/sql/docs/mysql/admin-api/rest/v
 Before using any of the request data, make the following replacements: 
 
   * READ_REPLICA_NAME: the name of the read replica you wish to convert, such as `my-read-replica`.
-  * NODE_COUNT: the number of read pool nodes you want in the read pool. Choose any number from `1` to `20`.
+  * NODE_COUNT: the number of read pool nodes you want in the read pool. Choose any number from `1` to `20`. 
 
 
 
@@ -581,6 +581,10 @@ You should receive a JSON response similar to the following:
       "targetProject": "PROJECT"
     }
     
+
+## Read pool autoscaling
+
+You can configure your read pool to automatically resize to adapt to your application's changing workload needs. For more information, see [Read pool autoscaling](https://docs.cloud.google.com/sql/docs/mysql/read-pool-autoscaling).
 
 ## Convert a read pool to a read replica
 
@@ -1526,6 +1530,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-04 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 

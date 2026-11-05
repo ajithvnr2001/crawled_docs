@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/service-mesh/legacy/load-balancing-apis/network-edge-services-multi-environment/
 title: Set up network edge services with hybrid connectivity network endpoint groups \u00a0|\u00a0 Cloud Service Mesh \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T05:51:56.172331+00:00
+fetched_at: 2026-11-04T23:33:29.966932+00:00
 ---
 
 # Set up network edge services with hybrid connectivity network endpoint groups  |  Cloud Service Mesh  |  Google Cloud Documentation
@@ -70,7 +70,7 @@ Before setting up your middle proxy, complete the following tasks:
 
   * Ensure that your VPC subnet CIDR ranges don't conflict with your remote CIDR ranges. When IP addresses overlap, subnet routes are prioritized over remote connectivity.
 
-  * For this demonstration, obtain the [necessary permissions](https://docs.cloud.google.com/armor/docs/configure-security-policies#iam-perms) to create and update Cloud Armor security policies. The permissions might vary if you want to use a different service, such as Cloud CDN.
+  * For this demonstration, obtain the [necessary permissions](https://docs.cloud.google.com/armor/docs/create-security-policies#iam-perms) to create and update Cloud Armor security policies. The permissions might vary if you want to use a different service, such as Cloud CDN.
 
 
 
@@ -416,7 +416,7 @@ You see the following output:
 
 Configure Cloud Armor security policies to only allow access to your service from `CLIENT_IP_RANGE`, which should include the external IP address of the client device that you intend to test with—for example, `"192.0.2.0/24"`.
 
-These policies are applied on the backend service of the external load balancer (in this example, `td-hybrid-backend-service` pointing at the middle proxy). For more information about the permissions required to set these rules, see [Configure Cloud Armor security policies](https://docs.cloud.google.com/armor/docs/configure-security-policies).
+These policies are applied on the backend service of the external load balancer (in this example, `td-hybrid-backend-service` pointing at the middle proxy). For more information about the permissions required to set these rules, see [Configure Cloud Armor security policies](https://docs.cloud.google.com/armor/docs/create-security-policies).
 
   1. Create the Cloud Armor security policy:
          
@@ -517,6 +517,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-04 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 

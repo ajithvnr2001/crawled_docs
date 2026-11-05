@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/network-connectivity/docs/network-connectivity-center/how-to/working-with-hubs-spokes/
 title: Work with hubs and spokes \u00a0|\u00a0 Network Connectivity Center \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T21:22:34.913049+00:00
+fetched_at: 2026-11-04T23:28:35.741663+00:00
 ---
 
 # Work with hubs and spokes  |  Network Connectivity Center  |  Google Cloud Documentation
@@ -1442,7 +1442,7 @@ Replace the following values:
 
     * The `ALL_IPV4_RANGES` keyword includes all IPv4 addresses, equivalent to the `0.0.0.0/0` CIDR.
 
-    * The include export ranges support up to 16 unique, nonoverlapping CIDRs. No CIDR in the include export ranges can match or contain another CIDR.
+    * The include export ranges support up to 32 unique, nonoverlapping CIDRs. No CIDR in the include export ranges can match or contain another CIDR.
 
     * If you omit `--include-export-ranges` for a Router appliance spoke, the default include export ranges is the same as if you had specified `ALL_IPV4_RANGES`.
 
@@ -1450,7 +1450,7 @@ Replace the following values:
 
   * `EXCLUDE_EXPORT_RANGES`: a comma-delimited list of IP address ranges that define which dynamic routes are never exported to the hub.
 
-    * The exclude export ranges support up to 16 unique, nonoverlapping CIDRs. No CIDR in the exclude export ranges can match or contain another CIDR.
+    * The exclude export ranges support up to 32 unique, nonoverlapping CIDRs. No CIDR in the exclude export ranges can match or contain another CIDR.
 
     * Every CIDR specified in the exclude export ranges must expand to IP addresses that are fully contained by CIDRs or keywords in the include export ranges (or the default include export ranges, if you don't specify any include export ranges explicitly).
 
@@ -1464,7 +1464,7 @@ Replace the following values:
 
     * The `ALL_IPV4_RANGES` keyword includes all IPv4 addresses, equivalent to the `0.0.0.0/0` CIDR.
 
-    * The include import ranges support up to 16 unique, nonoverlapping CIDRs. No CIDR in the include import ranges can match or contain another CIDR.
+    * The include import ranges support up to 32 unique, nonoverlapping CIDRs. No CIDR in the include import ranges can match or contain another CIDR.
 
     * If you omit `--include-import-ranges` for a Router appliance spoke, NCC uses the following defaults:
 
@@ -1478,7 +1478,7 @@ Replace the following values:
 
   * `EXCLUDE_IMPORT_RANGES`: a comma-delimited list of keywords, IP address ranges, or a combination of keywords and IP address ranges that define which subnet routes or transit dynamic routes are never imported from the hub.
 
-    * The exclude import ranges support up to 16 unique, nonoverlapping CIDRs. No CIDR in the exclude import ranges can match or contain another CIDR.
+    * The exclude import ranges support up to 32 unique, nonoverlapping CIDRs. No CIDR in the exclude import ranges can match or contain another CIDR.
 
     * Every CIDR specified in the exclude import ranges must expand to IP addresses that are fully contained by CIDRs or keywords in the include import ranges (or the default include import ranges, if you don't specify any include import ranges explicitly).
 
@@ -1540,7 +1540,7 @@ Replace the following values:
 
     * The `ALL_IPV4_RANGES` keyword includes all IPv4 addresses, equivalent to the `0.0.0.0/0` CIDR.
 
-    * The include export ranges support up to 16 unique, nonoverlapping CIDRs. No CIDR in the include export ranges can match or contain another CIDR.
+    * The include export ranges support up to 32 unique, nonoverlapping CIDRs. No CIDR in the include export ranges can match or contain another CIDR.
 
     * If you omit `includeExportRanges` for a Router appliance spoke, the default include export ranges is the same as if you had specified `ALL_IPV4_RANGES`.
 
@@ -1548,7 +1548,7 @@ Replace the following values:
 
   * `EXCLUDE_EXPORT_RANGES`: a comma-delimited list of IP address ranges that define which dynamic routes are never exported to the hub.
 
-    * The exclude export ranges support up to 16 unique, nonoverlapping CIDRs. No CIDR in the exclude export ranges can match or contain another CIDR.
+    * The exclude export ranges support up to 32 unique, nonoverlapping CIDRs. No CIDR in the exclude export ranges can match or contain another CIDR.
 
     * Every CIDR specified in the exclude export ranges must expand to IP addresses that are fully contained by CIDRs or keywords in the include export ranges (or the default include export ranges, if you don't specify any include export ranges explicitly).
 
@@ -1562,7 +1562,7 @@ Replace the following values:
 
     * The `ALL_IPV4_RANGES` keyword includes all IPv4 addresses, equivalent to the `0.0.0.0/0` CIDR.
 
-    * The include import ranges support up to 16 unique, nonoverlapping CIDRs. No CIDR in the include import ranges can match or contain another CIDR.
+    * The include import ranges support up to 32 unique, nonoverlapping CIDRs. No CIDR in the include import ranges can match or contain another CIDR.
 
     * If you omit `includeImportRanges` for a Router appliance spoke, NCC uses the following defaults:
 
@@ -1576,7 +1576,7 @@ Replace the following values:
 
   * `EXCLUDE_IMPORT_RANGES`: a comma-delimited list of keywords, IP address ranges, or a combination of keywords and IP address ranges that define which subnet routes or transit dynamic routes are never imported from the hub.
 
-    * The exclude import ranges support up to 16 unique, nonoverlapping CIDRs. No CIDR in the exclude import ranges can match or contain another CIDR.
+    * The exclude import ranges support up to 32 unique, nonoverlapping CIDRs. No CIDR in the exclude import ranges can match or contain another CIDR.
 
     * Every CIDR specified in the exclude import ranges must expand to IP addresses that are fully contained by CIDRs or keywords in the include import ranges (or the default include import ranges, if you don't specify any include import ranges explicitly).
 
@@ -1714,7 +1714,7 @@ Replace the following values:
 
     * The `ALL_IPV6_RANGES` keyword includes all IPv6 addresses, equivalent to the `::/0` CIDR ([Preview](https://cloud.google.com/products#product-launch-stages)).
 
-    * The include export ranges support up to 16 unique, nonoverlapping CIDRs. No CIDR in the include export ranges can match or contain another CIDR.
+    * The include export ranges support up to 32 unique, nonoverlapping CIDRs. No CIDR in the include export ranges can match or contain another CIDR.
 
     * If you omit `--include-export-ranges` for a VLAN attachment spoke, the default include export ranges is the same as if you had specified `ALL_IPV4_RANGES`.
 
@@ -1722,7 +1722,7 @@ Replace the following values:
 
   * `EXCLUDE_EXPORT_RANGES`: a comma-delimited list of IP address ranges that define which dynamic routes are never exported to the hub.
 
-    * The exclude export ranges support up to 16 unique, nonoverlapping CIDRs. No CIDR in the exclude export ranges can match or contain another CIDR.
+    * The exclude export ranges support up to 32 unique, nonoverlapping CIDRs. No CIDR in the exclude export ranges can match or contain another CIDR.
 
     * Every CIDR specified in the exclude export ranges must expand to IP addresses that are fully contained by CIDRs or keywords in the include export ranges (or the default include export ranges, if you don't specify any include export ranges explicitly).
 
@@ -1738,7 +1738,7 @@ Replace the following values:
 
     * The `ALL_IPV6_RANGES` keyword includes all IPv6 addresses, equivalent to the `::/0` CIDR ([Preview](https://cloud.google.com/products#product-launch-stages)).
 
-    * The include import ranges support up to 16 unique, nonoverlapping CIDRs. No CIDR in the include import ranges can match or contain another CIDR.
+    * The include import ranges support up to 32 unique, nonoverlapping CIDRs. No CIDR in the include import ranges can match or contain another CIDR.
 
     * If you omit `--include-import-ranges` for a VLAN attachment spoke, NCC uses the following defaults:
 
@@ -1752,7 +1752,7 @@ Replace the following values:
 
   * `EXCLUDE_IMPORT_RANGES`: a comma-delimited list of keywords, IP address ranges, or a combination of keywords and IP address ranges that define which subnet routes or transit dynamic routes are never imported from the hub.
 
-    * The exclude import ranges support up to 16 unique, nonoverlapping CIDRs. No CIDR in the exclude import ranges can match or contain another CIDR.
+    * The exclude import ranges support up to 32 unique, nonoverlapping CIDRs. No CIDR in the exclude import ranges can match or contain another CIDR.
 
     * Every CIDR specified in the exclude import ranges must expand to IP addresses that are fully contained by CIDRs or keywords in the include import ranges (or the default include import ranges, if you don't specify any include import ranges explicitly).
 
@@ -1805,7 +1805,7 @@ Replace the following values:
 
     * The `ALL_IPV6_RANGES` keyword includes all IPv6 addresses, equivalent to the `::/0` CIDR ([Preview](https://cloud.google.com/products#product-launch-stages)).
 
-    * The include export ranges support up to 16 unique, nonoverlapping CIDRs. No CIDR in the include export ranges can match or contain another CIDR.
+    * The include export ranges support up to 32 unique, nonoverlapping CIDRs. No CIDR in the include export ranges can match or contain another CIDR.
 
     * If you omit `includeExportRanges` for a VLAN attachment spoke, the default include export ranges is the same as if you had specified `ALL_IPV4_RANGES`.
 
@@ -1813,7 +1813,7 @@ Replace the following values:
 
   * `EXCLUDE_EXPORT_RANGES`: a comma-delimited list of IP address ranges that define which dynamic routes are never exported to the hub.
 
-    * The exclude export ranges support up to 16 unique, nonoverlapping CIDRs. No CIDR in the exclude export ranges can match or contain another CIDR.
+    * The exclude export ranges support up to 32 unique, nonoverlapping CIDRs. No CIDR in the exclude export ranges can match or contain another CIDR.
 
     * Every CIDR specified in the exclude export ranges must expand to IP addresses that are fully contained by CIDRs or keywords in the include export ranges (or the default include export ranges, if you don't specify any include export ranges explicitly).
 
@@ -1829,7 +1829,7 @@ Replace the following values:
 
     * The `ALL_IPV6_RANGES` keyword includes all IPv6 addresses, equivalent to the `::/0` CIDR ([Preview](https://cloud.google.com/products#product-launch-stages)).
 
-    * The include import ranges support up to 16 unique, nonoverlapping CIDRs. No CIDR in the include import ranges can match or contain another CIDR.
+    * The include import ranges support up to 32 unique, nonoverlapping CIDRs. No CIDR in the include import ranges can match or contain another CIDR.
 
     * If you omit `includeImportRanges` for a VLAN attachment spoke, NCC uses the following defaults:
 
@@ -1843,7 +1843,7 @@ Replace the following values:
 
   * `EXCLUDE_IMPORT_RANGES`: a comma-delimited list of keywords, IP address ranges, or a combination of keywords and IP address ranges that define which subnet routes or transit dynamic routes are never imported from the hub.
 
-    * The exclude import ranges support up to 16 unique, nonoverlapping CIDRs. No CIDR in the exclude import ranges can match or contain another CIDR.
+    * The exclude import ranges support up to 32 unique, nonoverlapping CIDRs. No CIDR in the exclude import ranges can match or contain another CIDR.
 
     * Every CIDR specified in the exclude import ranges must expand to IP addresses that are fully contained by CIDRs or keywords in the include import ranges (or the default include import ranges, if you don't specify any include import ranges explicitly).
 
@@ -1980,7 +1980,7 @@ Replace the following values:
 
     * The `ALL_IPV6_RANGES` keyword includes all IPv6 addresses, equivalent to the `::/0` CIDR ([Preview](https://cloud.google.com/products#product-launch-stages)).
 
-    * The include export ranges support up to 16 unique, nonoverlapping CIDRs. No CIDR in the include export ranges can match or contain another CIDR.
+    * The include export ranges support up to 32 unique, nonoverlapping CIDRs. No CIDR in the include export ranges can match or contain another CIDR.
 
     * If you omit `--include-export-ranges` for a VPN spoke, the default include export ranges is the same as if you had specified `ALL_IPV4_RANGES`.
 
@@ -1988,7 +1988,7 @@ Replace the following values:
 
   * `EXCLUDE_EXPORT_RANGES`: a comma-delimited list of IP address ranges that define which dynamic routes are never exported to the hub.
 
-    * The exclude export ranges support up to 16 unique, nonoverlapping CIDRs. No CIDR in the exclude export ranges can match or contain another CIDR.
+    * The exclude export ranges support up to 32 unique, nonoverlapping CIDRs. No CIDR in the exclude export ranges can match or contain another CIDR.
 
     * Every CIDR specified in the exclude export ranges must expand to IP addresses that are fully contained by CIDRs or keywords in the include export ranges (or the default include export ranges, if you don't specify any include export ranges explicitly).
 
@@ -2004,7 +2004,7 @@ Replace the following values:
 
     * The `ALL_IPV6_RANGES` keyword includes all IPv6 addresses, equivalent to the `::/0` CIDR ([Preview](https://cloud.google.com/products#product-launch-stages)).
 
-    * The include import ranges support up to 16 unique, nonoverlapping CIDRs. No CIDR in the include import ranges can match or contain another CIDR.
+    * The include import ranges support up to 32 unique, nonoverlapping CIDRs. No CIDR in the include import ranges can match or contain another CIDR.
 
     * If you omit `--include-import-ranges` for a VPN spoke, NCC uses the following defaults:
 
@@ -2018,7 +2018,7 @@ Replace the following values:
 
   * `EXCLUDE_IMPORT_RANGES`: a comma-delimited list of keywords, IP address ranges, or a combination of keywords and IP address ranges that define which subnet routes or transit dynamic routes are never imported from the hub.
 
-    * The exclude import ranges support up to 16 unique, nonoverlapping CIDRs. No CIDR in the exclude import ranges can match or contain another CIDR.
+    * The exclude import ranges support up to 32 unique, nonoverlapping CIDRs. No CIDR in the exclude import ranges can match or contain another CIDR.
 
     * Every CIDR specified in the exclude import ranges must expand to IP addresses that are fully contained by CIDRs or keywords in the include import ranges (or the default include import ranges, if you don't specify any include import ranges explicitly).
 
@@ -2071,7 +2071,7 @@ Replace the following values:
 
     * The `ALL_IPV6_RANGES` keyword includes all IPv6 addresses, equivalent to the `::/0` CIDR ([Preview](https://cloud.google.com/products#product-launch-stages)).
 
-    * The include export ranges support up to 16 unique, nonoverlapping CIDRs. No CIDR in the include export ranges can match or contain another CIDR.
+    * The include export ranges support up to 32 unique, nonoverlapping CIDRs. No CIDR in the include export ranges can match or contain another CIDR.
 
     * If you omit `includeExportRanges` for a VPN spoke, the default include export ranges is the same as if you had specified `ALL_IPV4_RANGES`.
 
@@ -2079,7 +2079,7 @@ Replace the following values:
 
   * `EXCLUDE_EXPORT_RANGES`: a comma-delimited list of IP address ranges that define which dynamic routes are never exported to the hub.
 
-    * The exclude export ranges support up to 16 unique, nonoverlapping CIDRs. No CIDR in the exclude export ranges can match or contain another CIDR.
+    * The exclude export ranges support up to 32 unique, nonoverlapping CIDRs. No CIDR in the exclude export ranges can match or contain another CIDR.
 
     * Every CIDR specified in the exclude export ranges must expand to IP addresses that are fully contained by CIDRs or keywords in the include export ranges (or the default include export ranges, if you don't specify any include export ranges explicitly).
 
@@ -2095,7 +2095,7 @@ Replace the following values:
 
     * The `ALL_IPV6_RANGES` keyword includes all IPv6 addresses, equivalent to the `::/0` CIDR ([Preview](https://cloud.google.com/products#product-launch-stages)).
 
-    * The include import ranges support up to 16 unique, nonoverlapping CIDRs. No CIDR in the include import ranges can match or contain another CIDR.
+    * The include import ranges support up to 32 unique, nonoverlapping CIDRs. No CIDR in the include import ranges can match or contain another CIDR.
 
     * If you omit `includeImportRanges` for a VPN spoke, NCC uses the following defaults:
 
@@ -2109,7 +2109,7 @@ Replace the following values:
 
   * `EXCLUDE_IMPORT_RANGES`: a comma-delimited list of keywords, IP address ranges, or a combination of keywords and IP address ranges that define which subnet routes or transit dynamic routes are never imported from the hub.
 
-    * The exclude import ranges support up to 16 unique, nonoverlapping CIDRs. No CIDR in the exclude import ranges can match or contain another CIDR.
+    * The exclude import ranges support up to 32 unique, nonoverlapping CIDRs. No CIDR in the exclude import ranges can match or contain another CIDR.
 
     * Every CIDR specified in the exclude import ranges must expand to IP addresses that are fully contained by CIDRs or keywords in the include import ranges (or the default include import ranges, if you don't specify any include import ranges explicitly).
 
@@ -2191,6 +2191,19 @@ Replace `LOCATION` with the appropriate region.
 
 Replace `HUB_NAME` with the name of the hub for which you want to list spokes, such as `my-hub`.
 
+  * To get a detailed view of spokes associated with a hub, use the [`gcloud network-connectivity hubs list-spokes` command](https://docs.cloud.google.com/sdk/gcloud/reference/network-connectivity/hubs/list-spokes) with the `--view=detailed` flag.
+
+**Note:** When you use the `--view=detailed` flag, you must specify exactly one location, such as `global` or a specific region (for example, `us-west1`).
+        
+        gcloud network-connectivity hubs list-spokes HUB_NAME \
+          --spoke-locations=LOCATION \
+          --view=detailed
+        
+
+Replace the following:
+
+    * `HUB_NAME`: the name of the hub for which you want to list spokes, such as `my-hub`
+    * `LOCATION`: the location of the spokes, such as `global` or a specific region (for example, `us-west1`). You can run this command multiple times with a different location for which you want details. To get full details of any global spokes, set the location to `global`.
 
 
 
@@ -2252,6 +2265,24 @@ Replace the following values:
 
 Replace `PROJECT_ID` with the project ID of the project that contains the spokes to list.
 
+  * To get a detailed view of spokes associated with a hub, use the [`networkconnectivity.hubs.listSpokes` method](https://docs.cloud.google.com/network-connectivity/docs/reference/networkconnectivity/rest/v1/projects.locations.global.hubs/listSpokes) with the `view=DETAILED` parameter.
+
+**Note:** When you use the `view=DETAILED` parameter, you must specify exactly one location, such as `global` or a specific region (for example, `us-west1`).
+        
+        GET https://networkconnectivity.googleapis.com/v1/projects/PROJECT_ID/locations/global/hubs/HUB_NAME:listSpokes?view=DETAILED&spokeLocations=LOCATION
+        
+
+Replace the following:
+
+    * `PROJECT_ID`: the project ID of the hub
+    * `HUB_NAME`: the name of the hub for which you want to list spokes
+    * `LOCATION`: `global` for VPC spokes, or a specific region, such as `us-west1`, for hybrid spokes
+
+To get full details of spokes associated with a hub, do the following:
+
+    * To identify all unique regions containing spokes for the selected hub, use `ListHubSpokes` with `view=BASIC` (and no `spokeLocations` set).
+    * To get the full details for regional hybrid and NCC Gateway spokes connected to the hub, use `ListHubSpokes` with `view=DETAILED` multiple times, once for each unique region, setting `spokeLocations` to the specific region for each call. You must specify exactly one region per call, such as `us-west1`.
+    * To fetch full details of any global spokes, such as VPC spokes attached to a hub, use `ListHubSpokes` with `view=DETAILED` and `spokeLocations=global`.
 
 
 
@@ -2889,6 +2920,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-04 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 

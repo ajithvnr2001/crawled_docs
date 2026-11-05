@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/quickstart-client-libraries/
 title: Quickstart: Using client libraries \u00a0|\u00a0 Food Ordering AI Agent \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T08:00:48.859529+00:00
+fetched_at: 2026-11-04T23:45:52.925055+00:00
 ---
 
 # Quickstart: Using client libraries  |  Food Ordering AI Agent  |  Google Cloud Documentation

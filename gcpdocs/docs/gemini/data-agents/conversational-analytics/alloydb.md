@@ -1,22 +1,8 @@
 ---
 url: https://docs.cloud.google.com/gemini/data-agents/conversational-analytics/alloydb/
 title: Conversational analytics for AlloyDB for PostgreSQL overview \u00a0|\u00a0 Data Agents \u00a0|\u00a0 Google Cloud Documentation
-method: httpx+scrapegraph (scrapling: scrapling status 429 | crawl4ai: crawl4ai failed: Unexpected error in _crawl_web at line 1299 in create_browser_context (../../../../usr/local/lib/python3.10/dist-packages/crawl4ai/browser_manager.py):
-Error: Browser is not available. It may have been closed, crashed, or not yet started. Ensure the browser is running before creating new contexts.
-
-Code context:
-1294                   raise RuntimeError(
-1295                       "Cannot create new browser contexts when using "
-1296                       "use_persistent_context=True. Persistent context uses a "
-1297                       "single shared context."
-1298                   )
-1299 →             raise RuntimeError(
-1300                   "Browser is not available. It may have been closed, crashed, "
-1301                   "or not yet started. Ensure the browser is running before "
-1302                   "creating new contexts."
-1303               )
-1304           # Base settings)
-fetched_at: 2026-10-27T16:31:51.341559+00:00
+method: scrapling+scrapegraph
+fetched_at: 2026-11-04T23:41:25.258160+00:00
 ---
 
 # Conversational analytics for AlloyDB for PostgreSQL overview  |  Data Agents  |  Google Cloud Documentation
@@ -42,7 +28,7 @@ This feature is subject to the "Pre-GA Offerings Terms" in the General Service T
 Conversational analytics in AlloyDB for PostgreSQL lets you chat with agents about your database data using natural language. To get answers about your data, you:
 
   * Create _data agents_ for a set of knowledge sources, such as tables and views, that you select.
-  * [Optional] Create context and instructions for an agent to configure the data agent to effectively answer questions for specific use cases.
+  * Optional: create context and instructions for an agent to configure the data agent to effectively answer questions for specific use cases.
 
 
 
@@ -96,7 +82,7 @@ Conversations are persisted chats with a data agent or database data source. You
 
 The chat response returned to you provides the following features:
 
-  * The answer to your question as text, code, or charts (where appropriate)
+  * The answer to your question as text, code, or charts (where appropriate).
   * The agent's reasoning behind the results.
   * Metadata about the conversation, such as the agent and database data sources used.
 
@@ -116,7 +102,7 @@ When you use conversational analytics to create an agent, the control plane—wh
 
 ## Pricing
 
-You are charged at [AlloyDB compute pricing](https://cloud.google.com/alloydb/pricing) for queries that run when you create data agents and have conversations with data agents or database data sources. There is no additional charge for creating and using data agents and conversations during the [Preview](https://cloud.google.com/products#product-launch-stages) period.
+You are charged [AlloyDB compute pricing](https://cloud.google.com/alloydb/pricing) for queries that run when you create data agents and have conversations with data agents or database data sources. There is no additional charge for creating and using data agents and conversations during the [Preview](https://cloud.google.com/products#product-launch-stages) period.
 
 ## Dynamic shared quota
 
@@ -136,6 +122,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-04 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 

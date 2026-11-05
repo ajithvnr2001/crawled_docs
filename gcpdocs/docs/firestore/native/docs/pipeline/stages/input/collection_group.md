@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/firestore/native/docs/pipeline/stages/input/collection_group/
 title: Collection Group (Input Stage) \u00a0|\u00a0 Firestore in Native mode \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T08:01:18.938814+00:00
+fetched_at: 2026-11-05T00:05:36.536444+00:00
 ---
 
 # Collection Group (Input Stage)  |  Firestore in Native mode  |  Google Cloud Documentation
@@ -107,7 +107,7 @@ Android
     	Sort(firestore.Orders(firestore.Ascending(firestore.FieldOf("name")))).
     	Execute(ctx)
     
-    [pipeline_snippets_general.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/ed08282a171f47c035cf0984a5caa406b76f5bcd/firestore/pipeline_snippets_general.go#L894-L897)
+    [pipeline_snippets_general.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/db12cf239dd4dcddd2c15c703bb21991d4193a8a/firestore/pipeline_snippets_general.go#L894-L897)
 
 ## Behavior
 

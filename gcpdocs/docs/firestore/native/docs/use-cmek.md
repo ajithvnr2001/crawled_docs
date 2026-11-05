@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/firestore/native/docs/use-cmek/
 title: Use customer-managed encryption keys (CMEK) \u00a0|\u00a0 Firestore in Native mode \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T08:01:24.583158+00:00
+fetched_at: 2026-11-04T23:45:27.174870+00:00
 ---
 
 # Use customer-managed encryption keys (CMEK)  |  Firestore in Native mode  |  Google Cloud Documentation

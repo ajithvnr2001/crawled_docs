@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chronicle/docs/soar/admin-tasks/user-soar-only/create-a-managedmanagedplus-user/
 title: Create a managed user \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T10:04:33.852194+00:00
+fetched_at: 2026-11-04T23:33:39.661377+00:00
 ---
 
 # Create a managed user  |  Google Security Operations  |  Google Cloud Documentation
@@ -61,7 +61,7 @@ To purchase a license for a managed user or managed-plus user, follow these step
 
 To set up a permission group for a managed user or managed-plus user, follow these steps:
 
-  1. Go to **Settings > Organization > Permissions**.
+  1. Go to **Settings > Access Management > Permissions (API keys)**.
   2. In the **License Types** list, select **Managed User** or **Managed-Plus User** , or create a new one.
   3. Select the categories that you want to be accessible. Note that the playbooks module isn't available for the managed User.
   4. Select the type of **Landing Page** from the list.
@@ -73,7 +73,7 @@ To set up a permission group for a managed user or managed-plus user, follow the
 
 To create a managed or managed-plus user, follow these steps:
 
-  1. Go to **Settings > Organization > User Management.**
+  1. Go to **Settings > Access Management > User Managemen.**
   2. In the **User Management** page, click add **Add** ; the **Add User** dialog appears.
   3. In the **License Type** field, select **Managed User** or **Managed-Plus User**.
   4. In the **Permission Group** list, select the **Managed User** or **Managed-Plus User** Group or any new group that you created.
@@ -88,6 +88,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-28 UTC.
+Last updated 2026-11-04 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 

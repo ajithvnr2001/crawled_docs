@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/ai-hypercomputer/docs/create/create-a-slurm-cluster-with-a4/
 title: Create a self-managed Slurm cluster with an A4 VM \u00a0|\u00a0 AI Hypercomputer \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-01T05:38:33.721884+00:00
+fetched_at: 2026-11-04T23:31:48.842999+00:00
 ---
 
 # Create a self-managed Slurm cluster with an A4 VM  |  AI Hypercomputer  |  Google Cloud Documentation
@@ -41,7 +41,7 @@ To follow step-by-step guidance for this task directly in the Google Cloud conso
 
 ## Tutorial overview
 
-This tutorial describes the steps to set up an AI-optimized Slurm cluster using A4 accelerator-optimized machine types. Specifically, you set up a cluster with Compute Engine instances, create a Cloud Storage bucket to store the necessary Terraform modules, and set up a Filestore instance to provision your Slurm cluster. To complete the steps in this tutorial, you follow this process:
+This tutorial describes the steps to set up an AI-optimized Slurm cluster using A4 accelerator-optimized machine types. Specifically, you set up a cluster with Compute Engine virtual machines, create a Cloud Storage bucket to store the necessary Terraform modules, and set up a Filestore instance to provision your Slurm cluster. To complete the steps in this tutorial, you follow this process:
 
   1. Set up your Google Cloud project with the required permissions for this guide and the environment variables for reserving your machine.
   2. Create a Cloud Storage bucket.
@@ -57,17 +57,14 @@ This tutorial describes the steps to set up an AI-optimized Slurm cluster using 
 ## Before you begin
 
   1. [Reserve a capacity block](https://docs.cloud.google.com/ai-hypercomputer/docs/reserve-capacity) or [create a calendar mode reservation](https://docs.cloud.google.com/compute/docs/instances/create-future-reservations-calendar-mode) for one `a4-highgpu-8g` machine.
-  2. Ensure that you have enough Filestore quota to provision the Slurm cluster. You need a minimum of 10,240 GiB of zonal capacity (also known as high scale SSD capacity).
+  2. Verify that you have enough Managed Lustre quota (a minimum of 36,000 GiB of storage capacity quota and 18 GBps of throughput quota) to provision the blueprint resources.
 
-To check your Filestore quota, view [Quotas & System limits](https://console.cloud.google.com/iam-admin/quotas?pageState=\(%22allQuotasTable%22:\(%22f%22:%22%255B%257B_22k_22_3A_22Service_22_2C_22t_22_3A10_2C_22v_22_3A_22_5C_22Cloud%2520Filestore%2520API_5C_22_22_2C_22s_22_3Atrue_2C_22i_22_3A_22serviceTitle_22%257D%255D%22,%22r%22:200\)\)) in the Google Cloud console and filter the table to only show **Filestore** resources.
-
-     * For detailed instructions on checking Filestore quotas, see [View API-specific quota](https://docs.cloud.google.com/docs/quotas/view-manage#api_specific_quota).
-     * If you don't have enough quota, [request a quota increase](https://docs.cloud.google.com/filestore/docs/requesting-quota-increases).
+     * For detailed instructions on checking quotas, see [View API-specific quota](https://docs.cloud.google.com/docs/quotas/view-manage#api_specific_quota).
   3. [Make sure that billing is enabled for your Google Cloud project](https://docs.cloud.google.com/billing/docs/how-to/verify-billing-enabled#confirm_billing_is_enabled_on_a_project).
 
-  4. Enable the Compute Engine, Filestore, Cloud Storage, Service Usage, and Cloud Resource Manager API:
+  4. Enable the Compute Engine, Managed Lustre, Service Networking, Cloud Storage, Service Usage, and Resource Manager APIs:
 
-[Enable the APIs](https://console.cloud.google.com/apis/enableflow?apiid=compute.googleapis.com,file.googleapis.com,storage.googleapis.com,serviceusage.googleapis.com,cloudresourcemanager.googleapis.com)
+[Enable the APIs](https://console.cloud.google.com/apis/enableflow?apiid=compute.googleapis.com,lustre.googleapis.com,servicenetworking.googleapis.com,storage.googleapis.com,serviceusage.googleapis.com,cloudresourcemanager.googleapis.com)
 
 
 
@@ -94,7 +91,7 @@ The cost of running this tutorial varies by each section you complete, such as s
 
   * To estimate the cost for setting up this tutorial, use the following specifications:
 
-    * **Filestore (standard) capacity per region:** 10,240 GiB.
+    * **Managed Lustre capacity:** 36,000 GiB at the 500 MBps per TiB performance tier. Managed Lustre pricing depends on both storage capacity and the configured [performance tier](https://docs.cloud.google.com/managed-lustre/docs/create-instance#performance-tiers).
     * **Standard persistent disk:** 50 GB `pd-standard` for the Slurm login node.
     * **Performance (SSD) persistent disks:** 50 GB `pd-ssd` for the Slurm controller.
     * **Compute Engine instance** : 1 `a4-highgpu-8g`.
@@ -269,7 +266,7 @@ After installing the binary, you are now ready to deploy clusters to run your jo
 
 ## Provision the Slurm cluster
 
-To provision the Slurm cluster, run the following deployment command. This command provisions the Slurm cluster with the [`examples/machine-learning/a4-highgpu-8g/a4high-slurm-blueprint.yaml`](https://github.com/GoogleCloudPlatform/cluster-toolkit/blob/main/examples/machine-learning/a4-highgpu-8g/a4high-slurm-blueprint.yaml) blueprint file. By default, this blueprint deploys compute instances that use prebuilt [Advanced Compute Images](https://docs.cloud.google.com/compute/docs/images/workload/aci-images). To learn more about the preinstalled drivers and configuration tools that you are deploying, see [Overview of Advanced Compute Images](https://docs.cloud.google.com/compute/docs/images/workload/aci-images).
+To provision the Slurm cluster, run the following deployment command. This command provisions the Slurm cluster with the [`examples/machine-learning/a4-highgpu-8g/a4high-slurm-blueprint.yaml`](https://github.com/GoogleCloudPlatform/cluster-toolkit/blob/main/examples/machine-learning/a4-highgpu-8g/a4high-slurm-blueprint.yaml) blueprint file. By default, this blueprint deploys compute instances (`Compute Engine instances`) that use prebuilt [Advanced Compute Images](https://docs.cloud.google.com/compute/docs/images/workload/aci-images). To learn more about the preinstalled drivers and configuration tools that you are deploying, see [Overview of Advanced Compute Images](https://docs.cloud.google.com/compute/docs/images/workload/aci-images).
 
 **Note:** Provisioning the cluster can take up to an hour.   
   
@@ -302,26 +299,7 @@ To avoid incurring charges to your Google Cloud account for the resources used o
 
 ### Destroy the Slurm cluster
 
-We recommend that you clean up your resources when they are no longer needed.
-
-By default, the A4 High blueprints enable deletion protection on the Filestore instance. When destroying the Slurm cluster, you must disable deletion protection before running the destroy command.
-
-#### Disable deletion protection
-
-To disable deletion protection when you update an instance, use a command similar to the following:
-    
-    
-      gcloud filestore instances update INSTANCE_NAME \
-          --no-deletion-protection
-    
-
-Replace `INSTANCE_NAME` with the name of the instance you want to edit. For example, `my-genomics-instance`.
-
-To find the `INSTANCE_NAME`, you can run `gcloud filestore instances list`. This command lists all the Filestore instances in your current Google Cloud project, including their names, locations (zones), tiers, capacity, and status.
-
-After running the command, find the Filestore instance that matches the `a4-highgpu-8g` machine that's running in this tutorial.
-
-#### Destroy the Slurm cluster
+We recommend that you clean up your resources when they are no longer needed. When you destroy the Slurm cluster, all provisioned resources are deleted, including the Managed Lustre instance and all of the data stored on it.
 
   1. Before running the destroy command, navigate to the root of the Cluster Toolkit directory. By default, `DEPLOYMENT_FOLDER` is located at the root of the Cluster Toolkit directory.
 
@@ -383,6 +361,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-30 UTC.
+Last updated 2026-11-04 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini/data-agents/querydata/firestore-mongodb-compatibility/data-agent-overview/
 title: QueryData overview \u00a0|\u00a0 Data Agents \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T18:12:59.579229+00:00
+fetched_at: 2026-11-05T00:05:49.722362+00:00
 ---
 
 # QueryData overview  |  Data Agents  |  Google Cloud Documentation
@@ -47,13 +47,13 @@ The `QueryData` endpoint in the [Conversational Analytics API](https://docs.clou
 
 ### Context sets
 
-A _context set_ is a collection of database-specific knowledge, curated query patterns, and business rules associated with your database instance. Instead of relying solely on general LLM knowledge or raw table schemas, QueryData uses context sets to understand the nuances of your data model and organization-specific terminology.
+A _context set_ is a collection of database-specific knowledge, curated query patterns, and business rules associated with your database instance. Instead of relying solely on general LLM knowledge or raw collection schemas, QueryData uses context sets to understand the nuances of your data model and organization-specific terminology.
 
 A context set contains three primary building blocks:
 
   * **Query blueprints** : Curated pairs of representative natural language questions and their corresponding, pre-validated MQL queries. Blueprints provide canonical examples that define how specific business intents map to MQL statements.
   * **Query facets** : Modular MQL predicates and filter conditions (such as date ranges, threshold calculations, or business flags). Facets allow QueryData to dynamically combine multiple filtering criteria into a query without needing separate blueprints for every combination.
-  * **Value searches** : Semantic and string-matching queries that ground informal phrases to exact values stored in database columns. Value searches help resolve ambiguities (for example, mapping "Bay Area" to `San Francisco`, or "Heathrow" to `London Heathrow Airport`) using exact matches, trigram string similarity, or semantic vector embeddings.
+  * **Value searches** : Semantic and string-matching queries that ground informal phrases to exact values stored in database document fields. Value searches help resolve ambiguities (for example, mapping "Bay Area" to `San Francisco`, or "Heathrow" to `London Heathrow Airport`) using exact matches, trigram string similarity, or semantic vector embeddings.
 
 
 
@@ -80,7 +80,7 @@ To author and manage context sets, do the following:
 
 ## Pricing
 
-You are charged at for queries that run when you create context sets and use QueryData with your data agents or database data sources. There is no additional charge for creating and using context sets and QueryData during the [Preview](https://cloud.google.com/products#product-launch-stages) period. For more information, see [Data Cloud Agent pricing](https://cloud.google.com/products/data-agents/pricing).
+You are charged at [Firestore compute pricing](https://cloud.google.com/firestore/pricing) for queries that run when you create context sets and use QueryData with your data agents or database data sources. There is no additional charge for creating and using context sets and QueryData during the [Preview](https://cloud.google.com/products#product-launch-stages) period. For more information, see [Data Cloud Agent pricing](https://cloud.google.com/products/data-agents/pricing).
 
 ## What's next
 
@@ -94,6 +94,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-04 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 

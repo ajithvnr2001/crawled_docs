@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/generative-ai-app-builder/docs/configure-autocomplete/
 title: Configure autocomplete \u00a0|\u00a0 Agent Search \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T08:00:48.507070+00:00
+fetched_at: 2026-11-04T23:45:47.915481+00:00
 ---
 
 # Configure autocomplete  |  Agent Search  |  Google Cloud Documentation

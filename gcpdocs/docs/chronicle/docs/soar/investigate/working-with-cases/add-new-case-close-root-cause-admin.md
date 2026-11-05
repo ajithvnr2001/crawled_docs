@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chronicle/docs/soar/investigate/working-with-cases/add-new-case-close-root-cause-admin/
 title: Configure the close case dialog \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T10:02:26.075460+00:00
+fetched_at: 2026-11-04T23:33:51.276761+00:00
 ---
 
 # Configure the close case dialog  |  Google Security Operations  |  Google Cloud Documentation
@@ -33,7 +33,7 @@ Learn more about [how to resolve and close cases](https://docs.cloud.google.com/
 
 To customize the **Close Case** dialog with additional parameters, complete the following steps:
 
-  1. Go to **SOAR Settings > Case Data > Close Case**.
+  1. Go to **Settings > Investigation > Close Case**.
   2. Click add **Add Custom Parameters**.
   3. Complete the common fields:
      * **Name:** Enter a name for the new parameter.
@@ -52,7 +52,7 @@ To customize the **Close Case** dialog with additional parameters, complete the 
 
 To add a new root cause to the **Root Cause** menu, follow these steps:
 
-  1. Go to **SOAR Settings > Case Data > Close Case**.
+  1. Go to **Settings > Investigation > Close Case**.
   2. Click add**Add Root Cause**. The **Add Case Close Root Cause** dialog appears.
   3. In the **Reason** list, select a reason, and enter relevant information in the **Root Cause** field.
   4. Click **Add** to save the root cause.
@@ -88,6 +88,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-28 UTC.
+Last updated 2026-11-04 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 

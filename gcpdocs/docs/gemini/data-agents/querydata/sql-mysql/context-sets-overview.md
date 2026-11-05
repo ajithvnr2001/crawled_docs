@@ -1,22 +1,8 @@
 ---
 url: https://docs.cloud.google.com/gemini/data-agents/querydata/sql-mysql/context-sets-overview/
 title: Context sets overview \u00a0|\u00a0 Data Agents \u00a0|\u00a0 Google Cloud Documentation
-method: httpx+scrapegraph (scrapling: scrapling status 429 | crawl4ai: crawl4ai failed: Unexpected error in _crawl_web at line 1299 in create_browser_context (../../../../usr/local/lib/python3.10/dist-packages/crawl4ai/browser_manager.py):
-Error: Browser is not available. It may have been closed, crashed, or not yet started. Ensure the browser is running before creating new contexts.
-
-Code context:
-1294                   raise RuntimeError(
-1295                       "Cannot create new browser contexts when using "
-1296                       "use_persistent_context=True. Persistent context uses a "
-1297                       "single shared context."
-1298                   )
-1299 →             raise RuntimeError(
-1300                   "Browser is not available. It may have been closed, crashed, "
-1301                   "or not yet started. Ensure the browser is running before "
-1302                   "creating new contexts."
-1303               )
-1304           # Base settings)
-fetched_at: 2026-10-27T16:26:32.578998+00:00
+method: scrapling+scrapegraph
+fetched_at: 2026-11-05T00:05:48.111584+00:00
 ---
 
 # Context sets overview  |  Data Agents  |  Google Cloud Documentation
@@ -48,6 +34,7 @@ The following databases are supported:
   * Cloud SQL for PostgreSQL
   * Spanner
   * Firestore with MongoDB compatibility
+  * Bigtable
 
 
 
@@ -55,7 +42,7 @@ The following databases are supported:
 
 To build effective agentic applications, tools such as QueryData must understand your data organization and business logic. You provide this information in the form of a context set.
 
-You define context in files that contain JSON objects for each context type. You can author these context files with the help of the [context engineering agent](https://docs.cloud.google.com/gemini/docs/codeassist/gemini-cli). You then upload the context file to a context set that you create in the Google Cloud console. This process enables tools such as QueryData to learn the specific schema of the database and business logic of the application.
+You define context in files that contain JSON objects for each context type. You can author these context files with the help of the [context engineering agent](https://docs.cloud.google.com/gemini/data-agents/querydata/sql-mysql/build-context-sets%0A). You then upload the context file to a context set that you create in the Google Cloud console. This process enables tools such as QueryData to learn the specific schema of the database and business logic of the application.
 
 The context file looks similar to the following:
 
@@ -95,7 +82,7 @@ A context set file consists of a curated set of templates, facets, and value sea
 
 To maximize accuracy, ensure that the context set is accurate and comprehensive in its coverage of expected application queries.
 
-Context sets can be created in the `us-central1`, `us-east1`, `europe-west4`, and `asia-southeast1` regions.
+Context sets can be created in the `us-central1`, `us-east1`, `europe-west4`, and `asia-southeast1` regions. You must select a region when you create the first context set in a project. Later context sets use the same region.
 
 ### Query templates
 
@@ -167,7 +154,7 @@ The main components of the facet JSON object are as follows:
 
 ### Value search queries
 
-[_Value search queries_](https://docs.cloud.google.com/sql/docs/mysql/build-context-gemini-cli#generate-value-search-queries) are developer-defined queries that use match functions to find values and their context within a database. Value linking uses the results of these queries to identify which tables and columns contain a matching value, understand the value's concept type, and correct misspellings. 
+[_Value search queries_](https://docs.cloud.google.com/sql/docs/mysql/build-context-gemini-cli#targeted-authoring) are developer-defined queries that use match functions to find values and their context within a database. Value linking uses the results of these queries to identify which tables and columns contain a matching value, understand the value's concept type, and correct misspellings. 
 
 The QueryData API uses value linking to more accurately convert natural language into SQL. By using value search queries, the API can correct misspellings and resolve value types based on database values, thus improving conversion accuracy.
 
@@ -227,6 +214,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-04 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 

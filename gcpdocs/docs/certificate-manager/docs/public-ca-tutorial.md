@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/certificate-manager/docs/public-ca-tutorial/
 title: Request a certificate using Public CA and an ACME client \u00a0|\u00a0 Certificate Manager \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T23:39:31.450438+00:00
+fetched_at: 2026-11-04T23:31:21.964597+00:00
 ---
 
 # Request a certificate using Public CA and an ACME client  |  Certificate Manager  |  Google Cloud Documentation
@@ -21,7 +21,7 @@ Send feedback  Stay organized with collections  Save and categorize content base
 
 # Request a certificate using Public CA and an ACME client
 
-This tutorial walks you through requesting a TLS certificate with Public Certificate Authority by using the Google Cloud CLI. For information about the root and intermediate CAs used by Public Certificate Authority, see [Google Trust Services](https://pki.goog/). There is no charge for requesting certificates from Public CA.
+This tutorial walks you through requesting a TLS certificate with Public Certificate Authority by using the Google Cloud CLI. For information about the root and intermediate CAs used by Public Certificate Authority, see [Google Trust Services](https://pki.goog/). There is no charge for requesting certificates from Public CA, though ACME operations are subject to [Public CA request quotas](https://docs.cloud.google.com/certificate-manager/docs/quotas#public-ca-request-quotas).
 
 ## Before you begin
 
@@ -145,6 +145,8 @@ You can only register one ACME account with an EAB secret. After you have regist
 
 After Public CA validates your control of the certificate target and acknowledges that your ACME client works as expected to perform certificate management operations, you can use the regular ACME workflows to request, renew, and revoke certificates. You can perform these operations by using your ACME client. To request and renew a certificate, you must complete an [ACME challenge](https://docs.cloud.google.com/certificate-manager/docs/public-ca#public-ca-challenges), such as the manual DNS challenge.
 
+If you use Certification Authority Authorization (CAA) DNS records to control which CAs can issue certificates for your domain, you must specify `pki.goog` as an authorized issuer—for example, `0 issue "pki.goog"`. Public CA also supports CAA record extensions for account URI and ACME method binding as defined in [RFC 8657](https://datatracker.ietf.org/doc/html/rfc8657), which lets you restrict certificate issuance to a specific ACME account using the `accounturi` parameter and to specific validation methods using the `validationmethods` parameter.
+
 To use the manual DNS challenge to request a certificate, run the following command:
     
     
@@ -205,6 +207,8 @@ Delete a Google Cloud project:
 ## What's next
 
   * [Public Certificate Authority](https://docs.cloud.google.com/certificate-manager/docs/public-ca)
+  * [Public CA request quotas](https://docs.cloud.google.com/certificate-manager/docs/quotas#public-ca-request-quotas)
+  * [ACME best practices](https://developers.google.com/public-key-infrastructure/updates/september2025-acme-best-practices)
 
 
 
@@ -212,6 +216,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-04 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 

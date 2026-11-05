@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/organization-policy/reference/custom-constraint-supported-services/
 title: Services that support custom constraints \u00a0|\u00a0 Organization Policy \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-03T09:51:46.220036+00:00
+fetched_at: 2026-11-04T23:32:28.534053+00:00
 ---
 
 # Services that support custom constraints  |  Organization Policy  |  Google Cloud Documentation
@@ -189,10 +189,12 @@ Cloud Workstations  |  ` [ workstations.googleapis.com/Workstation ](https://doc
 Colab Enterprise  |  ` [ aiplatform.googleapis.com/NotebookExecutionJob ](https://docs.cloud.google.com/colab/docs/custom-constraints) ` |  Preview   
 ` [ aiplatform.googleapis.com/NotebookRuntime ](https://docs.cloud.google.com/colab/docs/custom-constraints) ` |  GA   
 ` [ aiplatform.googleapis.com/NotebookRuntimeTemplate ](https://docs.cloud.google.com/colab/docs/custom-constraints) ` |  GA   
-Compute Engine  |  ` [ compute.googleapis.com/Disk ](https://docs.cloud.google.com/compute/docs/access/custom-constraints) ` |  GA   
+Compute Engine  |  ` [ compute.googleapis.com/CrossSiteNetwork ](https://docs.cloud.google.com/network-connectivity/docs/interconnect/how-to/custom-constraints) ` |  GA   
+` [ compute.googleapis.com/Disk ](https://docs.cloud.google.com/compute/docs/access/custom-constraints) ` |  GA   
 ` [ compute.googleapis.com/Image ](https://docs.cloud.google.com/compute/docs/access/custom-constraints) ` |  GA   
 ` [ compute.googleapis.com/Instance ](https://docs.cloud.google.com/compute/docs/access/custom-constraints) ` |  GA   
 ` [ compute.googleapis.com/PreviewFeature ](https://docs.cloud.google.com/compute/docs/access/custom-constraints) ` |  GA   
+` [ compute.googleapis.com/WireGroup ](https://docs.cloud.google.com/network-connectivity/docs/interconnect/how-to/custom-constraints) ` |  GA   
 Data Lineage API  |  ` [ datalineage.googleapis.com/Process ](https://docs.cloud.google.com/dataplex/docs/lineage-custom-constraints) ` |  GA   
 Database Migration Service  |  ` [ datamigration.googleapis.com/ConnectionProfile ](https://docs.cloud.google.com/database-migration/docs/custom-constraints) ` |  GA   
 ` [ datamigration.googleapis.com/ConversionWorkspace ](https://docs.cloud.google.com/database-migration/docs/custom-constraints) ` |  GA   
@@ -380,6 +382,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-02 UTC.
+Last updated 2026-11-04 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-02 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/transfer-appliance/docs/4.0/return-appliance/
 title: Return the appliance \u00a0|\u00a0 Transfer Appliance \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T05:41:23.639682+00:00
+fetched_at: 2026-11-04T23:17:00.342646+00:00
 ---
 
 # Return the appliance  |  Transfer Appliance  |  Google Cloud Documentation
@@ -84,12 +84,11 @@ Item | Description
 ![A photo depicting a NEMA 5-15P power cable](https://docs.cloud.google.com/static/transfer-appliance/docs/4.0/images/nema-5-15p-to-c13-power-cable.png) | NEMA 5-15p to C13 power cable (1.8 m / 5.91 ft)  
 ![A photo depicting a c14 to c13 power cable](https://docs.cloud.google.com/static/transfer-appliance/docs/4.0/images/c14-to-c13-power-cable.png) | C14 to C13 power cable, for connections to the power distribution unit (PDU) (1.5 m / 4.92 ft)  
 ![A photo depicting a Category 6 network cable](https://docs.cloud.google.com/static/transfer-appliance/docs/4.0/images/cat6-ethernet-cable.png) | Cat 6 network cable (2.1 m / 6.89 ft)  
-![A photo depicting a QSFP28 twinaxial copper network cable](https://docs.cloud.google.com/static/transfer-appliance/docs/4.0/images/qsfp-plus-dac-twinax-cable.png) | **TA300 V2 and TA40 V2:** QSFP28 Twinax copper network cable  
-![A photo depicting a QSFP28 to SFP28 adapter](https://docs.cloud.google.com/static/transfer-appliance/docs/4.0/images/qsfp28-to-sfp28-adapter.png) | **TA300 V2 and TA40 V2:** QSFP28 to SFP28 adapter  
-![A photo depicting a SFP28 to SFP28 network cable](https://docs.cloud.google.com/static/transfer-appliance/docs/4.0/images/sfp28-to-sfp28-cable.png) | **TA300 V2 and TA40 V2:** SFP28 to SFP28 network cable  
+![A photo depicting a QSFP28 twinaxial copper network cable](https://docs.cloud.google.com/static/transfer-appliance/docs/4.0/images/qsfp-plus-dac-twinax-cable.png) | QSFP28 Twinax copper network cable  
+![A photo depicting a QSFP28 to SFP28 adapter](https://docs.cloud.google.com/static/transfer-appliance/docs/4.0/images/qsfp28-to-sfp28-adapter.png) | QSFP28 to SFP28 adapter  
+![A photo depicting a SFP28 to SFP28 network cable](https://docs.cloud.google.com/static/transfer-appliance/docs/4.0/images/sfp28-to-sfp28-cable.png) | SFP28 to SFP28 network cable  
 ![A photo depicting a USB-to-serial adapter cable](https://docs.cloud.google.com/static/transfer-appliance/docs/4.0/images/usb-to-serial-adapter-cable.png) | USB-to-serial adapter cable – use only if instructed by Transfer Appliance Team  
 ![A photo depicting a pin-to-socket serial adapter](https://docs.cloud.google.com/static/transfer-appliance/docs/4.0/images/pin-to-socket-serial-adapter.png) | Pin-to-socket serial adapter  
-![A photo depicting a SFP28 to RJ45 transceiver](https://docs.cloud.google.com/static/transfer-appliance/docs/4.0/images/sfp28-to-rj45-transceiver.jpg) | **TA40 V2:** SFP28 to RJ45 Transceiver  
   3. Place the Transfer Appliance in the shipping case.
 
   4. Close the lid to the shipping case and secure the latches.
@@ -154,6 +153,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-04 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 

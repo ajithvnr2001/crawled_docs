@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/kubernetes-engine/config-sync/docs/downloads/
 title: Config Sync downloads \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T20:46:57.548838+00:00
+fetched_at: 2026-11-05T00:17:50.553856+00:00
 ---
 
 # Config Sync downloads  |  Google Cloud Documentation
@@ -33,7 +33,7 @@ This page contains links to download the Config Sync manifest and `nomos` binari
 
 Use these links to download the newest stable version of all Config Sync components. For a specific version, see the section for that version.
 
-The latest stable product version is **1.25.1**.
+The latest stable product version is **1.25.2**.
 
 ### Config Sync manifest
 
@@ -96,6 +96,48 @@ After downloading the binary, configure it to be executable:
 You can move the command to a location your system searches for binaries, such as `/usr/local/bin`, or you can run the command by using its fully-qualified path.
 
 ## Supported version instructions
+
+### v1.25.2
+
+#### Config Sync manifest
+
+To download Config Sync, run the following command:
+    
+    
+    gcloud storage cp gs://config-management-release/released/1.25.2/config-sync.tar.gz config-sync.tar.gz
+    
+
+After downloading the manifest, install or upgrade your installation by using the instructions in [Install Config Sync](https://docs.cloud.google.com/kubernetes-engine/config-sync/docs/how-to/installing-kubectl).
+
+#### `nomos`
+
+**Note:** When you upgrade Config Sync, also upgrade the `nomos` command on all clients to ensure that it can validate configs that take advantage of new features. 
+
+To download the `nomos` command, use **one** of the following commands:
+
+##### Linux amd64
+    
+    
+    gcloud storage cp gs://config-management-release/released/1.25.2/linux_amd64/nomos nomos
+    
+
+##### Linux arm64
+    
+    
+    gcloud storage cp gs://config-management-release/released/1.25.2/linux_arm64/nomos nomos
+    
+
+##### macOS amd64
+    
+    
+    gcloud storage cp gs://config-management-release/released/1.25.2/darwin_amd64/nomos nomos
+    
+
+##### macOS arm64
+    
+    
+    gcloud storage cp gs://config-management-release/released/1.25.2/darwin_arm64/nomos nomos
+    
 
 ### v1.25.1
 
@@ -530,6 +572,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-03 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 

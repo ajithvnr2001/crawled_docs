@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/build/docs/securing-builds/configure-access-for-cloud-build-service-account/
 title: Configure access for the default Cloud Build service account \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T23:46:44.576940+00:00
+fetched_at: 2026-11-04T23:42:02.536987+00:00
 ---
 
 # Configure access for the default Cloud Build service account  |  Google Cloud Documentation
@@ -101,13 +101,13 @@ You'll see that more rows appear in the permissions table.
 
 ## Grant a role to the Cloud Build service agent
 
-In addition to the Cloud Build default service account, Cloud Build has a _Cloud Build service agent_ that allows other Google Cloud services to access your resources. After you enable the Cloud Build API, the service agent is automatically created in the Google Cloud project. The service agent has the following format, where `PROJECT_NUMBER` is your project number.
+In addition to the Cloud Build default service account, Cloud Build has a _Cloud Build service agent_ that allows other Google Cloud services to access your resources. [In most cases](https://docs.cloud.google.com/service-usage/docs/troubleshooting#service-agent-not-found), the service agent is automatically created in the Google Cloud project the first time it's needed. The service agent has the following format, where `PROJECT_NUMBER` is your project number.
     
     
          service-PROJECT_NUMBER@gcp-sa-cloudbuild.iam.gserviceaccount.com
     
 
-You can view the service agent for a project by going to the [IAM page in the Google Cloud console](https://console.cloud.google.com/iam-admin/iam) page and selecting the **Show google managed service accounts** checkbox.
+You can view the service agent for a project by going to the [IAM page in the Google Cloud console](https://console.cloud.google.com/iam-admin/iam) page and selecting the **Show google managed service accounts** checkbox. If the Cloud Build service agent isn't listed, you can [manually create the service agent](https://docs.cloud.google.com/iam/docs/create-service-agents).
 
 If you've accidentally revoked the Cloud Build service agent's role on your project, you can grant it manually using the following steps:
 
@@ -161,6 +161,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-04 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 

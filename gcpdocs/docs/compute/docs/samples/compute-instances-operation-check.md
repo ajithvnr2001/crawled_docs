@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/compute/docs/samples/compute-instances-operation-check/
 title: Check operation status \u00a0|\u00a0 Compute Engine \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T07:48:28.863928+00:00
+fetched_at: 2026-11-04T23:31:07.614105+00:00
 ---
 
 # Check operation status  |  Compute Engine  |  Google Cloud Documentation
@@ -39,7 +39,7 @@ Before trying this sample, follow the C# setup instructions in the [Compute Engi
 To authenticate to Compute Engine, set up Application Default Credentials. For more information, see [Set up authentication for a local development environment](https://docs.cloud.google.com/docs/authentication/set-up-adc-local-dev-environment). 
     
     
-    using Google.Cloud.Compute.V1;
+    using [Google.Cloud.Compute.V1](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.Compute.V1/latest/Google.Cloud.Compute.V1.html);
     using System.Threading.Tasks;
     
     public class CreateInstanceAsyncSample
@@ -54,7 +54,7 @@ To authenticate to Compute Engine, set up Application Default Credentials. For m
             long diskSizeGb = 10,
             string networkName = "default")
         {
-            Instance instance = new Instance
+            [Instance](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.Compute.V1/latest/Google.Cloud.Compute.V1.Instance.html) instance = new [Instance](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.Compute.V1/latest/Google.Cloud.Compute.V1.Instance.html)
             {
                 Name = machineName,
                 // See https://cloud.google.com/compute/docs/machine-types for more information on machine types.
@@ -62,12 +62,12 @@ To authenticate to Compute Engine, set up Application Default Credentials. For m
                 // Instance creation requires at least one persistent disk.
                 Disks =
                 {
-                    new AttachedDisk
+                    new [AttachedDisk](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.Compute.V1/latest/Google.Cloud.Compute.V1.AttachedDisk.html)
                     {
                         AutoDelete = true,
                         Boot = true,
-                        Type = ComputeEnumConstants.AttachedDisk.Type.Persistent,
-                        InitializeParams = new AttachedDiskInitializeParams 
+                        Type = [ComputeEnumConstants](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.Compute.V1/latest/Google.Cloud.Compute.V1.ComputeEnumConstants.html).[AttachedDisk](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.Compute.V1/latest/Google.Cloud.Compute.V1.ComputeEnumConstants.AttachedDisk.html).[Type](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.Compute.V1/latest/Google.Cloud.Compute.V1.ComputeEnumConstants.AttachedDisk.Type.html).[Persistent](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.Compute.V1/latest/Google.Cloud.Compute.V1.ComputeEnumConstants.AttachedDisk.Type.html#Google_Cloud_Compute_V1_ComputeEnumConstants_AttachedDisk_Type_Persistent),
+                        InitializeParams = new [AttachedDiskInitializeParams](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.Compute.V1/latest/Google.Cloud.Compute.V1.AttachedDiskInitializeParams.html) 
                         {
                             // See https://cloud.google.com/compute/docs/images for more information on available images.
                             SourceImage = diskImage,
@@ -75,15 +75,15 @@ To authenticate to Compute Engine, set up Application Default Credentials. For m
                         }
                     }
                 },
-                NetworkInterfaces = { new NetworkInterface { Name = networkName } }
+                NetworkInterfaces = { new [NetworkInterface](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.Compute.V1/latest/Google.Cloud.Compute.V1.NetworkInterface.html) { Name = networkName } }
             };
     
             // Initialize client that will be used to send requests. This client only needs to be created
             // once, and can be reused for multiple requests.
-            InstancesClient client = await InstancesClient.CreateAsync();
+            [InstancesClient](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.Compute.V1/latest/Google.Cloud.Compute.V1.InstancesClient.html) client = await [InstancesClient](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.Compute.V1/latest/Google.Cloud.Compute.V1.InstancesClient.html).[CreateAsync](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.Compute.V1/latest/Google.Cloud.Compute.V1.InstancesClient.html#Google_Cloud_Compute_V1_InstancesClient_CreateAsync_System_Threading_CancellationToken_)();
     
             // Insert the instance in the specified project and zone.
-            var instanceCreation = await client.InsertAsync(projectId, zone, instance);
+            var instanceCreation = await client.[InsertAsync](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.Compute.V1/latest/Google.Cloud.Compute.V1.InstancesClient.html#Google_Cloud_Compute_V1_InstancesClient_InsertAsync_Google_Cloud_Compute_V1_InsertInstanceRequest_Google_Api_Gax_Grpc_CallSettings_)(projectId, zone, instance);
     
             // Wait for the operation to complete using client-side polling.
             // The server-side operation is not affected by polling,
@@ -133,9 +133,9 @@ Before trying this sample, follow the Java setup instructions in the [Compute En
 To authenticate to Compute Engine, set up Application Default Credentials. For more information, see [Set up authentication for a local development environment](https://docs.cloud.google.com/docs/authentication/set-up-adc-local-dev-environment). 
     
     
-    import com.google.cloud.compute.v1.Operation;
-    import com.google.cloud.compute.v1.Operation.Status;
-    import com.google.cloud.compute.v1.ZoneOperationsClient;
+    import com.google.cloud.compute.v1.[Operation](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.Operation.html);
+    import com.google.cloud.compute.v1.[Operation](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.Operation.html).[Status](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.Status.html);
+    import com.google.cloud.compute.v1.[ZoneOperationsClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.ZoneOperationsClient.html);
     import java.io.IOException;
     
     public class WaitForOperation {
@@ -144,33 +144,33 @@ To authenticate to Compute Engine, set up Application Default Credentials. For m
         // TODO(developer): Replace these variables before running the sample.
         // operation: Specify the operation to wait.
         String project = "your-project-id";
-        Operation operation = Operation.newBuilder().build();
+        [Operation](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.Operation.html) operation = [Operation](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.Operation.html).newBuilder().build();
     
         waitForOperation(project, operation);
       }
     
       // Waits for the specified operation to complete.
-      public static void waitForOperation(String project, Operation operation)
+      public static void waitForOperation(String project, [Operation](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.Operation.html) operation)
           throws IOException {
-        try (ZoneOperationsClient zoneOperationsClient = ZoneOperationsClient.create()) {
+        try ([ZoneOperationsClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.ZoneOperationsClient.html) zoneOperationsClient = [ZoneOperationsClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.ZoneOperationsClient.html).create()) {
     
           // Check if the operation hasn't been completed already.
-          if (operation.getStatus() != Status.DONE) {
-            String zone = operation.getZone();
+          if (operation.[getStatus](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.Operation.html#com_google_cloud_compute_v1_Operation_getStatus__)() != [Status](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.Status.html).DONE) {
+            String zone = operation.[getZone](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.Operation.html#com_google_cloud_compute_v1_Operation_getZone__)();
             zone = zone.substring(zone.lastIndexOf("/") + 1);
     
             // Wait for the operation to complete.
-            Operation response = zoneOperationsClient.wait(project, zone, operation.getName());
+            [Operation](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.Operation.html) response = zoneOperationsClient.wait(project, zone, operation.[getName](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.Operation.html#com_google_cloud_compute_v1_Operation_getName__)());
     
             // Check if the operation has errors.
-            if (response.hasError()) {
-              System.out.println("Error in executing the operation ! ! " + response.getError());
+            if (response.[hasError](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.Operation.html#com_google_cloud_compute_v1_Operation_hasError__)()) {
+              System.out.println("Error in executing the operation ! ! " + response.[getError](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.Operation.html#com_google_cloud_compute_v1_Operation_getError__)());
               return;
             }
-            System.out.println("Operation Status: " + response.getStatus());
+            System.out.println("Operation Status: " + response.[getStatus](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.Operation.html#com_google_cloud_compute_v1_Operation_getStatus__)());
             return;
           }
-          System.out.println("Operation Status: " + operation.getStatus());
+          System.out.println("Operation Status: " + operation.[getStatus](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.Operation.html#com_google_cloud_compute_v1_Operation_getStatus__)());
         }
       }
     }
@@ -188,13 +188,13 @@ To authenticate to Compute Engine, set up Application Default Credentials. For m
     // const projectId = 'YOUR_PROJECT_ID';
     // const operationString = 'YOUR_OPERATION_STRING'
     
-    const compute = require('@google-cloud/compute');
+    const compute = require('[@google-cloud/compute](https://docs.cloud.google.com/nodejs/docs/reference/compute/latest/overview.html)');
     
     // Parse stringified operation to the object instance.
     let operation = JSON.parse(operationString);
     
     async function waitForOperation() {
-      const operationsClient = new compute.ZoneOperationsClient();
+      const operationsClient = new compute.[ZoneOperationsClient](https://docs.cloud.google.com/nodejs/docs/reference/compute/latest/overview.html)();
     
       while (operation.status !== 'DONE') {
         [operation] = await operationsClient.wait({
@@ -234,11 +234,11 @@ To authenticate to Compute Engine, set up Application Default Credentials. For m
     
     import time
     
-    from google.cloud import compute_v1
+    from google.cloud import [compute_v1](https://docs.cloud.google.com/python/docs/reference/compute/latest)
     
     
     def wait_for_operation(
-        operation: compute_v1.Operation, project_id: str
+        operation: [compute_v1](https://docs.cloud.google.com/python/docs/reference/compute/latest).[Operation](https://docs.cloud.google.com/python/docs/reference/compute/latest/google.cloud.compute_v1.types.Operation.html), project_id: str
     ) -> compute_v1.Operation:
         """
         This method waits for an operation to be completed. Calling this function
@@ -254,20 +254,20 @@ To authenticate to Compute Engine, set up Application Default Credentials. For m
         """
         kwargs = {"project": project_id, "operation": operation.name}
         if operation.zone:
-            client = compute_v1.ZoneOperationsClient()
+            client = [compute_v1](https://docs.cloud.google.com/python/docs/reference/compute/latest).[ZoneOperationsClient](https://docs.cloud.google.com/python/docs/reference/compute/latest/google.cloud.compute_v1.services.zone_operations.ZoneOperationsClient.html)()
             # Operation.zone is a full URL address of a zone, so we need to extract just the name
             kwargs["zone"] = operation.zone.rsplit("/", maxsplit=1)[1]
         elif operation.region:
-            client = compute_v1.RegionOperationsClient()
+            client = [compute_v1](https://docs.cloud.google.com/python/docs/reference/compute/latest).[RegionOperationsClient](https://docs.cloud.google.com/python/docs/reference/compute/latest/google.cloud.compute_v1.services.region_operations.RegionOperationsClient.html)()
             # Operation.region is a full URL address of a region, so we need to extract just the name
             kwargs["region"] = operation.region.rsplit("/", maxsplit=1)[1]
         else:
-            client = compute_v1.GlobalOperationsClient()
+            client = [compute_v1](https://docs.cloud.google.com/python/docs/reference/compute/latest).[GlobalOperationsClient](https://docs.cloud.google.com/python/docs/reference/compute/latest/google.cloud.compute_v1.services.global_operations.GlobalOperationsClient.html)()
     
         while True:
-            result = client.get(**kwargs)
+            result = client.[get](https://docs.cloud.google.com/python/docs/reference/compute/latest/google.cloud.compute_v1.services.global_operations.GlobalOperationsClient.html#google_cloud_compute_v1_services_global_operations_GlobalOperationsClient_get)(**kwargs)
     
-            if result.status == compute_v1.Operation.Status.DONE:
+            if result.status == [compute_v1](https://docs.cloud.google.com/python/docs/reference/compute/latest).[Operation](https://docs.cloud.google.com/python/docs/reference/compute/latest/google.cloud.compute_v1.types.Operation.html).Status.DONE:
                 print("Operation finished.")
                 if result.error:
                     print(f"Error during operation: {result.error}")

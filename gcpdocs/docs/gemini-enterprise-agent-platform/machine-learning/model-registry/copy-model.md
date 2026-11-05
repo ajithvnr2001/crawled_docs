@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/model-registry/copy-model/
 title: Copy a model in Gemini Enterprise Agent Platform Model Registry \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T05:57:16.499433+00:00
+fetched_at: 2026-11-04T23:16:37.659616+00:00
 ---
 
 # Copy a model in Gemini Enterprise Agent Platform Model Registry  |  Google Cloud Documentation
@@ -53,7 +53,7 @@ To copy a model across projects, the source model owner needs to first grant the
   2. Navigate to the IAM & Admin page.
   3. On the IAM permissions page, click **Grant access** and a pop up window appears to let you add a new principal to the source project.
   4. Get the per-product, per-project service account (P4SA) `service-{project_number}@gcp-sa-aiplatform.iam.gserviceaccount.com` of the destination project.
-  5. Add the P4SA of the destination project as a new principal to the source project and assign the Gemini Enterprise Agent Platform Service Agent role to it.
+  5. Add the P4SA of the destination project as a new principal to the source project and assign the Vertex AI Service Agent role to it.
   6. After clicking **Save** , the destination project P4SA will have permissions to export models from the source project.
 
 **Note:** Granting the model export permission to the destination project P4SA means that anyone with model upload access on the other project can trigger the model export process.
@@ -64,7 +64,7 @@ To copy a model across projects, the source model owner needs to first grant the
   2. Select your source project from the Google Cloud console.
   3. Navigate to the IAM & Admin page.
   4. On the IAM permissions page, click **Grant access** and a pop up window appears to let you add a new principal to the source project.
-  5. Add the custom service account as a new principal to the source project and assign the `Gemini Enterprise Agent Platform User` role to it or any custom role with the `aiplatform.models.export` permission.
+  5. Add the custom service account as a new principal to the source project and assign the Agent Platform User role to it or any custom role with the `aiplatform.models.export` permission.
   6. After clicking **Save** , the custom service account will have permissions to export models from the source project.
   7. Get the per-product, per-project service account (P4SA) `service-{project_number}@gcp-sa-aiplatform.iam.gserviceaccount.com` of the destination project.
   8. Grant the P4SA of the destination project with the `Service Account Token Creator` role on the custom service account.
@@ -277,6 +277,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-30 UTC.
+Last updated 2026-11-04 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 

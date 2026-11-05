@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/solutions/open-weight-models/ollama/gemma/
 title: Gemma models with Ollama user guide on GDC air-gapped \u00a0|\u00a0 Google Distributed Cloud air-gapped \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T19:30:07.849069+00:00
+fetched_at: 2026-11-04T23:27:39.654124+00:00
 ---
 
 # Gemma models with Ollama user guide on GDC air-gapped  |  Google Distributed Cloud air-gapped  |  Google Cloud Documentation
@@ -52,7 +52,7 @@ This guide assumes that you have the following roles on the standard cluster:
 
   * Optional: Standard Cluster Admin (View clusters from the console)
   * Standard Cluster Admin (`standard-cluster-admin`)
-  * `StandardClusterRoleBinding` to the `StandardClusterRole` `cluster-admin` (created by a Project IAM Admin, see the _Identity and Access Management_ section of the reference implementation)
+  * `StandardClusterRoleBinding` to the `StandardClusterRole` `cluster-admin` (created by an IAM Project Admin, see the _Identity and Access Management_ section of the reference implementation)
 
 
 
@@ -829,7 +829,7 @@ Create the accelerator environment file for your GPU option:
          echo "BACKING_PVC=${BACKING_PVC} ORG=${GDC_ORG}"
          
 
-  6. If `performance-rwo` isn't available on your cluster, ask your Infrastructure Operator to apply the high-performance QoS policy (`system-performance-<ORG>-admin`, 30 IOPS per GiB with a 6,148 IOPS minimum floor) to the volume that backs the `PersistentVolumeClaim`. Provide the `BACKING_PVC` and `ORG` values that the previous step printed. The Infrastructure Operator applies the policy as described in [FILE-R0097](https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/gdcag-io/service-manual/file/runbooks/file-r0097); it takes effect on the live volume, so you can continue with the next steps.
+  6. If `performance-rwo` isn't available on your cluster, ask your Infrastructure Operator to apply the high-performance QoS policy (`system-performance-<ORG>-admin`, 30 IOPS per GiB with a 6,148 IOPS minimum floor) to the volume that backs the `PersistentVolumeClaim`. Provide the `BACKING_PVC` and `ORG` values that the previous step printed. The Infrastructure Operator applies the policy as described in the FILE-R0097 runbook in the Infrastructure Operator documentation; it takes effect on the live volume, so you can continue with the next steps.
 
 **Note:** If high-performance block storage is enabled on your cluster, you can set `storageClassName: performance-rwo` in the `PersistentVolumeClaim` manifest instead of requesting the QoS policy. If `kubectl get storageclass performance-rwo` returns nothing, the Infrastructure Operator has not enabled high-performance block storage.
   7. Create the manifest for the model loader `Pod`:
@@ -1146,6 +1146,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-04 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 

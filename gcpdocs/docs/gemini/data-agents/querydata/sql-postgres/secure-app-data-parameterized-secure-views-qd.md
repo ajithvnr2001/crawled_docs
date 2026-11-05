@@ -1,11 +1,11 @@
 ---
 url: https://docs.cloud.google.com/gemini/data-agents/querydata/sql-postgres/secure-app-data-parameterized-secure-views-qd/
-title: Secure and control access to application data \u00a0|\u00a0 Data Agents \u00a0|\u00a0 Google Cloud Documentation
+title: Secure and control access to application data using parameterized secure views \u00a0|\u00a0 Data Agents \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T18:13:23.839526+00:00
+fetched_at: 2026-11-05T00:04:47.053906+00:00
 ---
 
-# Secure and control access to application data  |  Data Agents  |  Google Cloud Documentation
+# Secure and control access to application data using parameterized secure views  |  Data Agents  |  Google Cloud Documentation
 
 > Source: https://docs.cloud.google.com/gemini/data-agents/querydata/sql-postgres/secure-app-data-parameterized-secure-views-qd/
 
@@ -19,7 +19,7 @@ fetched_at: 2026-10-27T18:13:23.839526+00:00
 
 Send feedback 
 
-#  Secure and control access to application data Stay organized with collections  Save and categorize content based on your preferences. 
+#  Secure and control access to application data using parameterized secure views Stay organized with collections  Save and categorize content based on your preferences. 
 
 **Preview**
 
@@ -80,7 +80,7 @@ Before you create parameterized secure views, complete the following prerequisit
 
   3. Enable the Cloud APIs necessary to create and connect to Cloud SQL.
 
-     1. [Enable the API](https://console.cloud.google.com/apis/enableflow?apiid=sqladmin.googleapis.com,dataplex.googleapis.com)
+     1. [Enable the API](https://console.cloud.google.com/apis/enableflow?apiid=sqladmin.googleapis.com,dataplex.googleapis.com,geminidataanalytics.googleapis.com)
 
      2. In the **Confirm project** step, click **Next** to confirm the name of the project you are going to make changes to.
 
@@ -88,13 +88,41 @@ Before you create parameterized secure views, complete the following prerequisit
 
         * Cloud SQL for PostgreSQL API
         * Knowledge Catalog API
+        * Data Analytics API with Gemini (`geminidataanalytics.googleapis.com`)
 
 
 
 ### Create and connect to a database
 
-  1. [Create an instance](https://docs.cloud.google.com/sql/docs/postgres/create-instance#create-instance).
+  1. [Create an instance](https://docs.cloud.google.com/sql/docs/postgres/create-instance#create-instance-v2).
   2. [Connect to your instance and create a database](https://docs.cloud.google.com/sql/docs/postgres/create-manage-databases).
+  3. Enable the Cloud SQL Data API on your Cloud SQL for PostgreSQL instance so that the `QueryData` API can execute queries against it:
+         
+         gcloud sql instances patch INSTANCE_ID \
+             --project=PROJECT_ID \
+             --data-api-access=ALLOW_DATA_API
+
+Replace the following:
+
+     * `INSTANCE_ID`: the ID of your Cloud SQL for PostgreSQL instance.
+     * `PROJECT_ID`: your Google Cloud project ID.
+
+
+
+### Grant required roles and create an IAM database user
+
+To authenticate with Identity and Access Management (IAM) and run `queryData` requests against parameterized secure views, configure the IAM user or service account:
+
+  1. Grant the following IAM roles to `IAM_USER_EMAIL` on your Google Cloud project:
+
+     * `roles/geminidataanalytics.queryDataUser`
+     * `roles/serviceusage.serviceUsageConsumer`
+     * `roles/cloudsql.instanceUser`
+
+For more information about granting IAM roles, see [Add IAM policy binding for a project](https://docs.cloud.google.com/sdk/gcloud/reference/projects/add-iam-policy-binding).
+
+  2. Enable IAM database authentication on your Cloud SQL instance and add `IAM_USER_EMAIL` as an IAM database user on the instance. You must create this IAM database user before you grant the `psv_user` database role to it. For more information about setting up IAM database users, see [Manage users with IAM database authentication](https://docs.cloud.google.com/sql/docs/postgres/add-manage-iam-users).
+
 
 
 
@@ -184,7 +212,7 @@ To create parameterized secure views and to set up appropriate access privileges
 
   3. In the navigation menu, click **Cloud SQL Studio**. 
 
-  4. Sign in to **Studio** and connect to the `database` as the `postgres`. 
+  4. Sign in to **Studio** and connect to the database named `database` as the `postgres` user. 
 
   5. Click **Authenticate**. The Explorer pane displays a list of the objects in your database. 
 
@@ -216,7 +244,7 @@ To create parameterized secure views and to set up appropriate access privileges
 
 **Note:** The owner of the parameterized view must have `SELECT` privileges on the base tables. In addition, the user of the parameterized view must have `USAGE` on the schema of the view and `SELECT` on the view. For example, the `postgres` user owns the parameterized view, so it has `SELECT` privileges on the base tables while the `psv_user` must have `USAGE` on the `store` schema and `SELECT` on the view.
 
-  11. Sign in as the `postgres` administrator, and grant the `psv_user` role to an IAM-authenticated user:
+  11. Make sure that `IAM_USER_EMAIL` has been added to the instance as an IAM database user, sign in as the `postgres` user, and grant the `psv_user` role to the IAM-authenticated user:
          
          GRANT psv_user TO "IAM_USER_EMAIL";
          
@@ -247,11 +275,12 @@ To verify that the parameterized secure views are restricting access to the desi
          );
          
 
-  4. Query the parameterized secure views using SQL syntax and the `QueryData` request with PSV parameters.
+  4. Sign in to the Google Cloud CLI as `IAM_USER_EMAIL` by running `gcloud auth application-default login` so that `gcloud auth application-default print-access-token` generates a token for the restricted IAM database user, and then query the parameterized secure views using the `queryData` method with PSV parameters:
          
          curl -X POST \
              "https://geminidataanalytics.googleapis.com/v1beta/projects/PROJECT_ID/locations/REGION:queryData" \
-             -H "Authorization: Bearer $(gcloud auth print-access-token)" \
+             -H "Authorization: Bearer $(gcloud auth application-default print-access-token)" \
+             -H "x-goog-user-project: PROJECT_ID" \
              -H "Content-Type: application/json; charset=utf-8" \
              -d '{
                "prompt": "Show me the checked items.",
@@ -263,14 +292,20 @@ To verify that the parameterized secure views are restricting access to the desi
                        "project_id": "PROJECT_ID",
                        "region": "REGION",
                        "instance_id": "INSTANCE_ID",
-                       "database_id": "DATABASE_ID"
+                       "database_id": "DATABASE_ID",
+                       "table_ids": [
+                         "store.secure_checked_items"
+                       ]
                      }
                    }
                  },
                  "parameterized_secure_view_parameters": {
-                   "parameters": {
-                     "app_end_userid": "303"
-                   }
+                   "parameters": [
+                     {
+                       "key": "app_end_userid",
+                       "value": "303"
+                     }
+                   ]
                  }
                },
                "generation_options": {
@@ -280,20 +315,22 @@ To verify that the parameterized secure views are restricting access to the desi
                }
              }'
 
-Replace the following values:
+Use the `table_ids` field in `database_reference` to ensure `QueryData` only generates SQL against the `store.secure_checked_items` parameterized secure view. If you omit `table_ids` and the database role has `SELECT` access on the `store.checked_items` base table, `QueryData` might query the base table directly, bypassing the secure view. Specify the schema-qualified view name because unqualified names in `table_ids` default to the `public` schema.
 
-     * `PROJECT_ID`: Your Google Cloud project ID.
-     * `REGION`: The region where your Cloud SQL for PostgreSQL instance is located.
-     * `INSTANCE_ID`: The ID of your Cloud SQL for PostgreSQL instance.
-     * `DATABASE_ID`: The ID of your Cloud SQL for PostgreSQL database.
+Replace the following:
+
+     * `PROJECT_ID`: your Google Cloud project ID.
+     * `REGION`: the region where your Cloud SQL for PostgreSQL instance is located.
+     * `INSTANCE_ID`: the ID of your Cloud SQL for PostgreSQL instance.
+     * `DATABASE_ID`: the ID of your Cloud SQL for PostgreSQL database, which is `database` in this tutorial.
 
 
 
 ## Clean up
 
-### Delete the cluster
+### Delete the instance
 
-When you delete the cluster that you created in the before you begin section, you also delete all of the objects you created.
+When you delete the instance that you created in the Before you begin section, you also delete all of the objects that you created.
 
   1. In the Google Cloud console, go to the Cloud SQL page.
 
@@ -318,6 +355,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-04 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 

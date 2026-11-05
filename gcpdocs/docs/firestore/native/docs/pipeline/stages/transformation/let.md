@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/firestore/native/docs/pipeline/stages/transformation/let/
 title: Let (Transformation Stage) \u00a0|\u00a0 Firestore in Native mode \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T08:01:17.105682+00:00
+fetched_at: 2026-11-04T23:45:20.852828+00:00
 ---
 
 # Let (Transformation Stage)  |  Firestore in Native mode  |  Google Cloud Documentation

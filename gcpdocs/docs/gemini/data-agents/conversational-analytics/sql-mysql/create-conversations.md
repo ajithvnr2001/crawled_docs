@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini/data-agents/conversational-analytics/sql-mysql/create-conversations/
 title: Analyze data with conversations \u00a0|\u00a0 Data Agents \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T16:26:12.474314+00:00
+fetched_at: 2026-11-04T23:41:23.321941+00:00
 ---
 
 # Analyze data with conversations  |  Data Agents  |  Google Cloud Documentation
@@ -104,17 +104,15 @@ To create a conversation with a data agent in the Google Cloud console, follow t
 
   3. In the navigation menu, click **Conversations**.
 
-  4. From either the **My agents** or **Shared by others in your organization** section, click the agent card of the agent that you want to chat with.
+  4. From either the **My agents** or **Shared by others in your organization** section, click the agent card of the agent that you want to chat with. A new chat panel opens.
 
-  5. Click **Start a Conversation**. A new chat panel opens.
-
-  6. In the **Ask a question** field, enter a question for the data agent. For example, "What were our total sales last quarter?" or "Show me the top 5 users by session time." You can also click one of the Gemini-suggested questions to get started.
+  5. In the **Ask a question** field, enter a question for the data agent. For example, "What were our total sales last quarter?" or "Show me the top 5 users by session time." You can also click one of the Gemini-suggested questions to get started.
 
 The data agent responds by stating the action that it's taking to address your question, and then the data agent returns the results.
 
-To see each step that the data agent takes to provide the answer to your question, click **Show reasoning** to view each message in the agent's reasoning process.
+To see each step that the data agent takes to provide the answer to your question, click **Show thinking** to view each message in the agent's reasoning process.
 
-To see information about how the results were calculated, click keyboard_arrow_down **How was this calculated?** The **Summary** section now includes a generated query followed by the query result. You can copy the code and then click **Studio** to paste the code in the query editor.
+To see information about how the results were calculated, click keyboard_arrow_down **How was this calculated?** The **Summary** section now includes a generated query followed by the query result. You can copy the code and then click **Studio** to paste the code in the query editor. 
 
 When appropriate for the data, the data agent provides charts, tables, and other visualizations. To view your chat history, go to the **Conversation Management** list.
 
@@ -198,6 +196,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-04 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 

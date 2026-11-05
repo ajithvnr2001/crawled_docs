@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/support/bulletins/
 title: Security bulletins \u00a0|\u00a0 Cloud Customer Care \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T05:36:41.013846+00:00
+fetched_at: 2026-11-04T23:20:25.985545+00:00
 ---
 
 # Security bulletins  |  Cloud Customer Care  |  Google Cloud Documentation
@@ -26,6 +26,16 @@ The following security bulletins are related to Google Cloud products.
 
 [ Use this XML feed to subscribe to security bulletins for this page. ![Subscribe](https://docs.cloud.google.com/static/docs/images/feed-icon.png)](https://cloud.google.com/feeds/google-cloud-security-bulletins.xml)
 
+## GCP-2026-078
+
+**Published:** 2026-11-04
+
+### Description
+
+Description | Severity | Notes  
+---|---|---  
+A vulnerability (CVE-2026-98432) was discovered in the Linux kernel IPv4 TCP stack. The flaw can cause a kernel panic or a container escape (root code execution on the node). An unprivileged process in a container can trigger it locally, without special capabilities such as `CAP_NET_RAW`. A network attacker can also trigger it by sending TCP packets with IPv4 options to a listener on the node or on the cluster control plane. The network attack requires access to a TCP listener on your nodes, Pods, or the control plane's IP-based endpoint. Clusters that restrict this access to trusted sources, for example with firewall rules and control plane authorized networks, are not exposed to network attacks. GKE Standard clusters and GKE Autopilot clusters are impacted. For instructions and more details, see the [GKE security bulletin](https://docs.cloud.google.com/kubernetes-engine/security-bulletins#gcp-2026-078). | Medium |  [CVE-2026-98432](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2026-98432)  
+  
 ## GCP-2026-077
 
 **Published:** 2026-11-03

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/docs/using-advanced-query-insights/
 title: Improve query performance using advanced query insights features for AlloyDB \u00a0|\u00a0 AlloyDB for PostgreSQL \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-01T05:45:20.153299+00:00
+fetched_at: 2026-11-04T23:32:05.916665+00:00
 ---
 
 # Improve query performance using advanced query insights features for AlloyDB  |  AlloyDB for PostgreSQL  |  Google Cloud Documentation
@@ -70,7 +70,7 @@ To enable the advanced query insights configuration for an AlloyDB instance, fol
 This entails the following configuration changes by default:
 
      * Turns on the **Wait event analysis** and **Active query analysis** checkboxes.
-     * Increases the query length from 4500B to 100000B.
+     * Increases the maximum query length from 4500 bytes to 100000 bytes (100 KB).
   6. Save your changes. For clusters compatible with PostgreSQL 17 or earlier, saving your changes restarts your AlloyDB for PostgreSQL instance.
 
 **Note:** A restart is not required for clusters compatible with PostgreSQL 18 or later.
@@ -179,11 +179,10 @@ To edit the advanced query insights configuration for an AlloyDB instance, follo
      * **Store client IP addresses** Enable to track client IP addresses and analyze that data.
      * **Store application tags** Enable to learn which APIs and model-view-controller routes are making requests, and group that data to run metrics against it.
      * **Query plan sampling** Query plans visualize the operations used to complete a sample of a query. The sampling rate determines how many query samples can be captured per minute across your databases. Higher rates require more memory.
-
-       * In the **Query lengths** field, you can change the default limit on query lengths, from 256 bytes up to 100 KB. Higher query lengths require more memory. For clusters compatible with PostgreSQL 17 or earlier, changing query length requires an instance restart.
+     * In the **Query lengths** field, you can change the limit on query lengths to a value from 1024 to 100000 bytes (100 KB). Higher query lengths require more memory. For clusters compatible with PostgreSQL 17 or earlier, changing the query length requires an instance restart.
 
 **Note:** A restart is not required for clusters compatible with PostgreSQL 18 or later.
-     * Save your changes.
+  5. Save your changes.
 
 
 
@@ -226,7 +225,7 @@ Replace the following:
   * `CLUSTER`: the ID of the instance's cluster.
   * `PROJECT`: the ID of the cluster's project.
   * `REGION`: the cluster's region—for example, `us-central1`.
-  * `QUERY_LENGTH`: the length of the query that ranges from 1024 to 100000 bytes. The default query length is 10240 bytes. Higher query lengths are more useful for analytical queries, but they also require more memory. For clusters compatible with PostgreSQL 17 or earlier, changing the query length requires you to [restart the instance](https://docs.cloud.google.com/alloydb/docs/instance-restart).
+  * `QUERY_LENGTH`: the maximum query string length in bytes, from 1024 to 100000 bytes (100 KB). The default query length is 10240 bytes. Higher query lengths are more useful for analytical queries, but they also require more memory. For clusters compatible with PostgreSQL 17 or earlier, changing the query length requires you to [restart the instance](https://docs.cloud.google.com/alloydb/docs/instance-restart).
 
 **Note:** A restart is not required for clusters compatible with PostgreSQL 18 or later.
 
@@ -242,7 +241,7 @@ Use the following optional observability flags if needed:
   * `--observability-config-preserve-comments`: keeps comments in query strings recorded by query insights. If you don't want to keep comments, use `--no-observability-config-preserve-comments`.
   * `--observability-config-track-wait-events`: enables tracking of wait events during query execution. If you don't want to track wait events, use `--no-observability-config-track-wait-events`.
   * `--observability-config-query-plans-per-minute=QUERY_PLANS`: the number of query plans to sample per minute. By default, a maximum of 20 executed query plan samples are captured per minute across all databases on the instance. Change this value to a number from 1 to 200. To disable sampling, enter 0. Increasing the sampling rate is likely to give you more data points but might negatively affect performance.
-  * `--observability-config-max-query-string-length=QUERY_LENGTH`: the query string length in bytes to store. The default value is 10240 bytes. Any value from 1024 to 100000 is allowed. For clusters compatible with PostgreSQL 17 or earlier, changing the query length requires you to [restart the instance](https://docs.cloud.google.com/alloydb/docs/instance-restart).
+  * `--observability-config-max-query-string-length=QUERY_LENGTH`: the query string length in bytes to store, from 1024 to 100000 bytes (100 KB). The default value is 10240 bytes. For clusters compatible with PostgreSQL 17 or earlier, changing the query length requires you to [restart the instance](https://docs.cloud.google.com/alloydb/docs/instance-restart).
 
 **Note:** A restart is not required for clusters compatible with PostgreSQL 18 or later.
 
@@ -279,8 +278,8 @@ Replace the following:
   * `ENABLED_VALUE`: observability feature status for an instance. Set to `true` when you edit the settings and specify other flags as needed.
   * `PRESERVE_COMMENTS_VALUE`: preserve comments in the query string. The default value is `false`.
   * `TRACK_WAIT_EVENTS_VALUE`: record wait events during query execution for an instance. The default value is `true`.
-  * `MAX_QUERY_STRING_LENGTH_VALUE`: query string length. The default value is `10240`. Any integer between 1024 and 100000 is valid.
-  * `RECORD_APPLICATION_TAGS_VALUE`: record application tags for an instance. The default value is `true`.
+  * `MAX_QUERY_STRING_LENGTH_VALUE`: the query string length in bytes, from 1024 to 100000 (100 KB). The default value is `10240`.
+  * `RECORD_APPLICATION_TAGS_VALUE`: record application tags for an instance. The default value is `false`.
   * `QUERY_PLANS_PER_MINUTE_VALUE`: the number of query execution plans captured by insights per minute for all queries combined. The default value is `20`. Any integer between 0 and 200 is valid.
   * `TRACK_ACTIVE_QUERIES_VALUE`: track actively running queries. The default value is `false`.
   * `TRACK_CLIENT_ADDRESS_VALUE`: record client IP addresses for an instance. The default value is `false`.
@@ -332,11 +331,11 @@ To also configure the `trackClientAddress` or `assistiveExperiencesEnabled` fiel
 
 ## Detect and diagnose query performance problems
 
-You can use advanced query insights to detect and diagnose performance problems. The query insights dashboard displays the _database load_ , which is a measure of the work (in CPU seconds) that executed queries in your selected database perform over time. Each running query is either using or waiting for resources. The database load is the ratio of the amount of time taken by all the queries that are completed in a given time window, in elapsed real time.
+You can use advanced query insights to detect and diagnose performance problems. The query insights dashboard displays the database load, which measures the CPU seconds of work performed over time by executed queries in your selected database. Each running query is either using or waiting for resources. The database load is the ratio of the amount of time taken by all the queries that are completed in a given time window, in elapsed real time.
 
 ### View the measure of work done by executed queries
 
-The database load graph gives the measure of work done (in CPU seconds) by all executed queries in your database, sliced by the selected dimension. The database load is divided into the distribution data that you select from the chart drop-down.
+The database load graph measures the work done in CPU seconds by all executed queries in your database, sliced by the selected dimension. The database load is divided into the distribution data that you select from the chart drop-down.
 
 You can break down the database load by any of the following dimensions:
 
@@ -579,13 +578,17 @@ To view an in-context trace, follow these steps:
 
 You can also use Cloud Trace to see end-to-end tracing for each step in the query plan. To access Cloud Trace, select **Operations > Trace**.
 
+## Monitor active queries
+
+You can monitor and troubleshoot actively running queries on your database that might affect performance. For more information, see [Monitor active queries](https://docs.cloud.google.com/alloydb/docs/monitor-active-queries).
+
 ## Frequently Asked Questions
 
 This section provides answers to frequently asked questions about advanced query insights features.
 
 ### Why is the query string truncated?
 
-By default, advanced query insights displays 10 KB in query strings. You can increase the display to 100KB.
+By default, advanced query insights displays 10240 bytes (10 KB) in query strings. You can increase this limit to 100000 bytes (100 KB).
 
 ### Why is my CPU load above the max core line in the Database Load chart?
 
@@ -599,7 +602,7 @@ Yes. Standard query insights generate counters that can be accessed through Stac
 
 ### What is the maximum query string length?
 
-For the standard query insights plugin, the maximum query string length is limited to 4.5 KB characters. For advanced query insights, the default string length is 10KB and the maximum length is limited to 100KB.
+For the standard query insights plugin, the maximum query string length is limited to 4500 bytes. For advanced query insights, the default query string length is 10240 bytes (10 KB), and the maximum length is limited to 100000 bytes (100 KB).
 
 ### Can I use advanced query insights features with secondary clusters?
 
@@ -608,6 +611,7 @@ You can enable advanced query insights on primary clusters that have secondary c
 ## What's next
 
   * [Advanced query insights features for AlloyDB overview](https://docs.cloud.google.com/alloydb/docs/advanced-query-insights-overview)
+  * [Monitor active queries](https://docs.cloud.google.com/alloydb/docs/monitor-active-queries)
   * [AlloyDB metrics](https://docs.cloud.google.com/monitoring/api/metrics_gcp_a_b#gcp-alloydb)
   * [How-to blog: Enable query tagging with Sqlcommenter](https://cloud.google.com/blog/topics/developers-practitioners/enable-query-tagging-sqlcommenter-understand-application-impact-database-performance)
 
@@ -617,6 +621,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-30 UTC.
+Last updated 2026-11-04 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 

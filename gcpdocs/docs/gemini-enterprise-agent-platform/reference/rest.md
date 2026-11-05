@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/
 title: Agent Platform API \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T13:01:20.102810+00:00
+fetched_at: 2026-11-05T00:19:58.890267+00:00
 ---
 
 # Agent Platform API  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation
@@ -140,6 +140,17 @@ Methods
 ---  
 `[bidiInvokeReasoningEngine](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/reasoningEngines.ws.v1beta1.projects.locations.reasoningEngines.revisions.runtimeRevisions.api/bidiInvokeReasoningEngine)` |  `POST /reasoningEngines/ws/v1beta1/{name}/api/**`   
 Invokes reasoning engine with arbitrary WebSocket requests for bidi streaming  
+  
+## REST Resource: [v1.interactions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/interactions)
+
+Methods  
+---  
+`[cancel](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/interactions/cancel)` |  `POST /v1/{name}:cancel`   
+Cancels an interaction.  
+`[getPoll](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/interactions/getPoll)` |  `GET /v1/{name}:poll`   
+Fully typed proto, unary version of GetInteraction that returns Interaction proto.  
+`[getStream](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/interactions/getStream)` |  `GET /v1/{name}:stream`   
+Fully typed proto, streaming version of GetInteraction that returns Interaction proto.  
   
 ## REST Resource: [v1.media](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/media)
 
@@ -605,6 +616,27 @@ Updates an Index.
 Remove Datapoints from an Index.  
 `[upsertDatapoints](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.indexes/upsertDatapoints)` |  `POST /v1/{index}:upsertDatapoints`   
 Add/update Datapoints into an Index.  
+  
+## REST Resource: [v1.projects.locations.interactions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.interactions)
+
+Methods  
+---  
+`[createStream](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.interactions/createStream)` |  `POST /v1/projects/*/locations/*/interactions:createStream`   
+Creates an interaction and streams the response.  
+`[delete](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.interactions/delete)   
+**(deprecated)**` |  `DELETE /v1/{name}`   
+Deletes an interaction.  
+  
+## REST Resource: [v1.projects.locations.interactionsHttp](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.interactionsHttp)
+
+Methods  
+---  
+`[cancel](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.interactionsHttp/cancel)` |  `POST /v1/{name}/cancel`   
+Cancels an interaction by id.  
+`[create](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.interactionsHttp/create)` |  `POST /v1/{parent}/interactionsHttp`   
+Creates a new interaction.  
+`[get](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.interactionsHttp/get)` |  `GET /v1/{name}`   
+Retrieves the full details of a single interaction based on its `Interaction.id`.  
   
 ## REST Resource: [v1.projects.locations.metadataStores](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.metadataStores)
 
@@ -2836,6 +2868,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-11-03 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 

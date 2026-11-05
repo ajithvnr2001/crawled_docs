@@ -1,11 +1,11 @@
 ---
 url: https://docs.cloud.google.com/compute/docs/disks/creating-linux-application-consistent-pd-snapshots/
-title: Create Linux application consistent disk snapshots \u00a0|\u00a0 Compute Engine \u00a0|\u00a0 Google Cloud Documentation
+title: Create Linux application-consistent disk snapshots \u00a0|\u00a0 Compute Engine \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T23:09:44.414350+00:00
+fetched_at: 2026-11-05T00:17:54.520169+00:00
 ---
 
-# Create Linux application consistent disk snapshots  |  Compute Engine  |  Google Cloud Documentation
+# Create Linux application-consistent disk snapshots  |  Compute Engine  |  Google Cloud Documentation
 
 > Source: https://docs.cloud.google.com/compute/docs/disks/creating-linux-application-consistent-pd-snapshots/
 
@@ -19,13 +19,13 @@ fetched_at: 2026-10-27T23:09:44.414350+00:00
 
 Send feedback 
 
-#  Create Linux application consistent disk snapshots Stay organized with collections  Save and categorize content based on your preferences. 
+#  Create Linux application-consistent disk snapshots Stay organized with collections  Save and categorize content based on your preferences. 
 
-You can create application consistent snapshots of Persistent Disk volumes attached to Linux virtual machine (VM) instances. In general, the quality of your disk snapshot depends on how well your applications can recover from snapshots that you create during heavy write workloads. **Application consistent** snapshots capture the state of application data at the time of backup with all application transactions completed and all pending writes flushed to the disk.
+You can create application-consistent snapshots of Persistent Disk volumes attached to Linux virtual machine (VM) instances. In general, the quality of your disk snapshot depends on how well your applications can recover from snapshots that you create during heavy write workloads. **Application-consistent** snapshots capture the state of application data at the time of backup with all application transactions completed and all pending writes flushed to the disk.
 
-To create snapshots that are application consistent, pause apps or operating system processes that write data to the disk, flush the disk buffers, and sync the file system before you create the snapshot. Depending on your application, these and other steps might be required to ensure that all application transactions are complete and captured in the backup.
+To create snapshots that are application-consistent, pause apps or operating system processes that write data to the disk, flush the disk buffers, and sync the file system before you create the snapshot. Depending on your application, these and other steps might be required to ensure that all application transactions are complete and captured in the backup.
 
-To create an application consistent snapshot of your disks, use the following process:
+To create an application-consistent snapshot of your disks, use the following process:
 
   1. To prepare the guest environment for application consistency, create custom shell scripts to run before and after the snapshot is captured
   2. Configure snapshot settings on your VM instance.
@@ -71,7 +71,7 @@ For more information, see [Authenticate for using REST](https://docs.cloud.googl
 
 ### Required roles and permissions
 
-To get the permissions that you need to create an application consistent snapshot, ask your administrator to grant you the following IAM roles on the project: 
+To get the permissions that you need to create an application-consistent snapshot, ask your administrator to grant you the following IAM roles on the project: 
 
   * [Compute Instance Admin (v1) ](https://docs.cloud.google.com/iam/docs/roles-permissions/compute#compute.instanceAdmin.v1) (`roles/compute.instanceAdmin.v1`)
   * To connect to a VM that can run as a service account: [Service Account User (v1) ](https://docs.cloud.google.com/iam/docs/roles-permissions/iam#iam.serviceAccountUser) (`roles/iam.serviceAccountUser`) 
@@ -80,11 +80,11 @@ To get the permissions that you need to create an application consistent snapsho
 
 For more information about granting roles, see [Manage access to projects, folders, and organizations](https://docs.cloud.google.com/iam/docs/granting-changing-revoking-access). 
 
-These predefined roles contain the permissions required to create an application consistent snapshot. To see the exact permissions that are required, expand the **Required permissions** section: 
+These predefined roles contain the permissions required to create an application-consistent snapshot. To see the exact permissions that are required, expand the **Required permissions** section: 
 
 #### Required permissions
 
-The following permissions are required to create an application consistent snapshot:
+The following permissions are required to create an application-consistent snapshot:
 
   * `compute.snapshots.create` on the project
   * `compute.disks.createSnapshot` on the disk
@@ -95,13 +95,13 @@ You might also be able to get these permissions with [custom roles](https://docs
 
 ## Supported disk types
 
-You can create application consistent snapshots for Persistent Disk volumes attached to Linux instances.
+You can create application-consistent snapshots for Persistent Disk volumes attached to Linux instances.
 
 Hyperdisk volumes don't support `guest-flush` or the Volume Shadow Copy Service (VSS). To create application consistent snapshots for Hyperdisk volumes, you must manually pause the application before you create the snapshot. For more information, see [Manually create application consistent snapshots](https://docs.cloud.google.com/compute/docs/disks/snapshot-best-practices#manual).
 
 ## Limitations
 
-Creating application consistent snapshots on Linux has the following limitations:
+Creating application-consistent snapshots on Linux has the following limitations:
 
   * Application consistency depends on the behavior of your custom pre- and post-snapshot scripts, not by the snapshot operation itself.
   * When using the `guest-flush` option in your snapshot creation request, the snapshot isn't created if the script returns an error or reaches the timeout limit.
@@ -139,7 +139,7 @@ The following code example shows a post snapshot script. Note the leading `#!` c
 
 You must save your scripts on your VM in the directory `/etc/google/snapshots/`. The full path of your pre script must be `/etc/google/snapshots/pre.sh` and the full path of your post script must be `/etc/google/snapshots/post.sh`.
 
-**Note:** You must copy the scripts to every VM on which you want to enable Linux application consistent snapshots.
+**Note:** You must copy the scripts to every VM on which you want to enable Linux application-consistent snapshots.
 
 ### Referencing specific disks in your scripts
 
@@ -156,7 +156,7 @@ For example, your SCSI-attached boot disk might appear as `1/0` while an additio
 
 ## Edit your guest environment configuration file
 
-Configure your application consistent snapshot settings by updating a specific configuration file on your VM.
+Configure your application-consistent snapshot settings by updating a specific configuration file on your VM.
 
   1. Open or create your guest environment configuration file.
          
@@ -325,9 +325,9 @@ Use the `storageLocations` parameter only when you want to override the predefin
 
 ## Create a snapshot schedule with `guest-flush` enabled
 
-You can enable regular and automatic application consistent backups of your zonal and regional Persistent Disk volumes with snapshot schedules. To enable application consistent snapshots for your scheduled snapshots, use the `--guest-flush` option when you create the snapshot schedule so that the pre- and post-snapshot scripts execute before and after each scheduled snapshot.
+You can enable regular and automatic application-consistent backups of your zonal and regional Persistent Disk volumes with snapshot schedules. To enable application-consistent snapshots for your scheduled snapshots, use the `--guest-flush` option when you create the snapshot schedule so that the pre- and post-snapshot scripts execute before and after each scheduled snapshot.
 
-For example, after configuring your guest environment configuration file and creating custom scripts, the following command creates hourly application consistent snapshots:
+For example, after configuring your guest environment configuration file and creating custom scripts, the following command creates hourly application-consistent snapshots:
     
     
     gcloud compute resource-policies create snapshot-schedule SCHEDULE_NAME \
@@ -386,6 +386,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-03 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/platform/pa-user/billing/manage-billing-accounts/
 title: Create and link billing accounts \u00a0|\u00a0 Google Distributed Cloud air-gapped \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T05:49:03.073721+00:00
+fetched_at: 2026-11-04T23:27:27.291501+00:00
 ---
 
 # Create and link billing accounts  |  Google Distributed Cloud air-gapped  |  Google Cloud Documentation
@@ -32,16 +32,16 @@ This document is for developers in platform administrator or application operato
 
 ### Request IAM roles
 
-Contact your Organization Identity and Access Management (IAM) Admin to request the following roles:
+Contact your IAM Org Admin to request the following roles:
 
-  * Global Organization Billing Account Admin (`organization-billing-account-admin`): create, manage, and bind the `BillingAccount` resource in the `platform` namespace.
+  * Billing Account Org Admin (`organization-billing-account-admin`): create, manage, and bind the `BillingAccount` resource in the `platform` namespace.
 
-  * Global Organization Billing Account User (`organization-billing-account-user`): read, list, and bind the `BillingAccount` resource in the `platform` namespace.
+  * Billing Account Org User (`organization-billing-account-user`): read, list, and bind the `BillingAccount` resource in the `platform` namespace.
 
-  * Global Organization Billing Account Manager (`organization-billing-manager`): read, list, create, and update the `BillingAccountBinding` resource across namespaces (such as the `platform` namespace for organization-level billing or a project namespace for project-level billing).
+  * Billing Org Manager (`organization-billing-manager`): read, list, create, and update the `BillingAccountBinding` resource across namespaces (such as the `platform` namespace for organization-level billing or a project namespace for project-level billing).
 
 
-**Note:** The same IAM role manages billing for all projects. To separate billing administration for different projects, you must use one dedicated role for each project. Contact your Organization IAM Admin to [create additional roles](https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/platform/pa-user/iam/custom-roles) for individual project administration requirements.
+**Note:** The same IAM role manages billing for all projects. To separate billing administration for different projects, you must use one dedicated role for each project. Contact your IAM Org Admin to [create additional roles](https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/platform/pa-user/iam/custom-roles) for individual project administration requirements.
 
 ### Get the kubeconfig file
 
@@ -367,6 +367,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-28 UTC.
+Last updated 2026-11-04 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 

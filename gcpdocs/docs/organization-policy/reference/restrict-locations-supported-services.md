@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/organization-policy/reference/restrict-locations-supported-services/
 title: Services that support restricting resource locations \u00a0|\u00a0 Organization Policy \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T02:30:04.747580+00:00
+fetched_at: 2026-11-04T23:27:51.785555+00:00
 ---
 
 # Services that support restricting resource locations  |  Organization Policy  |  Google Cloud Documentation
@@ -356,6 +356,12 @@ For a list of available locations for the Cloud Deploy service and its resources
 ## Cloud Domains
 
 Cloud Domains registration resources are global resources and are not subject to resource locations constraints.
+
+## Cloud FTP
+
+The organization policy is enforced when you create a `Server` or `User` resource in Cloud FTP. Both `Server` and `User` resources are regional resources. The location of the `Server` resource determines the target region where the managed SFTP server is provisioned.
+
+For a list of available locations, see [Cloud FTP locations](https://docs.cloud.google.com/cloud-ftp/locations).
 
 ## Cloud Healthcare API
 
@@ -1066,6 +1072,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-04 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 

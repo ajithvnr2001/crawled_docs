@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/firestore/native/docs/pipeline/stages/transformation/where/
 title: Where (Transformation Stage) \u00a0|\u00a0 Firestore in Native mode \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T08:01:13.092199+00:00
+fetched_at: 2026-11-05T00:05:09.374591+00:00
 ---
 
 # Where (Transformation Stage)  |  Firestore in Native mode  |  Google Cloud Documentation
@@ -166,7 +166,7 @@ Android
     	return err
     }
     
-    [pipeline_snippets_general.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/ed08282a171f47c035cf0984a5caa406b76f5bcd/firestore/pipeline_snippets_general.go#L1548-L1568)
+    [pipeline_snippets_general.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/db12cf239dd4dcddd2c15c703bb21991d4193a8a/firestore/pipeline_snippets_general.go#L1548-L1568)
 
 ## Behavior
 

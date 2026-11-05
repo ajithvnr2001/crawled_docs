@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/cluster-director/docs/manage/modify-cluster/
 title: Modify a cluster \u00a0|\u00a0 Cluster Director \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T01:46:49.558799+00:00
+fetched_at: 2026-11-04T23:28:59.705513+00:00
 ---
 
 # Modify a cluster  |  Cluster Director  |  Google Cloud Documentation
@@ -35,18 +35,18 @@ When you modify a cluster, the following limitations apply:
 
   * You can't use different types of storage resources in a cluster partition.
 
-  * You can't modify the Slurm version that the controller node in your cluster uses.
+  * You can't modify the Slurm version that the controller node in your cluster uses. Because TPU OS images require Slurm 26.05, you can't add TPU compute resources or nodesets to a cluster whose controller node uses Slurm 25.05.
 
 
 
 
 ## Modifiable cluster properties
 
-You can only modify the following properties in a cluster. If you need to change any other property, then you must first create a replacement cluster with updated properties, and then delete the original cluster if you no longer need it.
+You can only modify the following properties in a cluster. If you need to change any other property, then create a replacement cluster with updated properties first. If you no longer need the original cluster, then delete that cluster.
 
   * **Description** : you can add, modify, or delete the cluster's description.
 
-  * **Labels** : you can add, modify, or delete the labels associated with the cluster.
+  * **Labels** : you can add, modify, or delete the labels that are associated with the cluster.
 
   * **Compute resources** : you can add new compute resource configurations or delete unused ones. You can't modify the properties of existing compute resource configurations.
 
@@ -59,14 +59,14 @@ You can only modify the following properties in a cluster. If you need to change
 
 Based on the properties that you want to modify, modifying your cluster might restart, recreate, or delete nodes. By understanding the impact of each property change in the following sections, you can better plan updates and minimize disruptions:
 
-  * Disruptive cluster property updates
+  * Disruptive updates to cluster properties
 
-  * Non-disruptive cluster property updates
-
-
+  * Non-disruptive updates to cluster properties
 
 
-### Disruptive cluster property updates
+
+
+### Disruptive updates to cluster properties
 
 When you modify a cluster, modifying one or more of the following properties requires stopping and restarting, recreating, or deleting nodes:
 
@@ -76,15 +76,15 @@ When you modify a cluster, modifying one or more of the following properties req
 
     * **Delete compute resources (`computeResources`)**: deleting a compute resource configuration deletes all compute nodes that use that configuration, unless you specify a replacement configuration for the nodes. The replacement configuration can't specify a different consumption option or zone. If you don't specify a replacement configuration, then you must delete any nodesets that use the compute resource configuration that you want to delete. Otherwise, modifying the cluster fails.
 
-    * **Decrease static or dynamic node count (`staticNodeCount` or `maxDynamicNodeCount`)**: deleting compute nodes from a nodeset stops and deletes those nodes. Slurm abruptly stops any running jobs on the deleted nodes.
+    * **Decrease static or dynamic node count (`staticNodeCount` or `maxDynamicNodeCount`)**: deleting compute nodes from a nodeset stops and deletes those nodes. Slurm stops any running jobs on the deleted nodes.
 
   * **Updates to storage resources that can disrupt jobs** : when you update one or more of the following properties, Cluster Director might disrupt the running jobs in your cluster:
 
-    * **Delete or modify storage resources (`storageResources`)**: deleting or modifying Filestore instances, Managed Lustre instances, or Cloud Storage buckets disrupts any running jobs that are reading files from that resource that you're modifying. We recommend that you modify or delete these storage resources when all jobs on the affected compute nodes have finished running.
+    * **Delete or modify storage resources (`storageResources`)**: deleting or modifying Filestore instances, Managed Lustre instances, or Cloud Storage buckets disrupts any running jobs that are reading files from the resource that you're modifying. Google recommends that you modify or delete these storage resources when all jobs on the affected compute nodes have finished running.
 
     * **Delete storage configurations (`storageConfigs`)**: deleting storage resource configurations is likely to disrupt any running jobs that are reading files from any resources that use those configurations. All nodesets in your cluster must use the same storage configuration. Otherwise, modifying your cluster fails.
 
-  * **Updates that restart, recreate, or delete all login nodes** : when you update one or more of the properties within the login nodes configuration (`orchestrator.slurm.loginNodes`), Cluster Director recreates, deletes, or stops and restarts the login nodes. Recreating or restarting login nodes doesn't affect the queued or running jobs.
+  * **Updates that restart, recreate, or delete all login nodes** : when you update one or more of the properties within the configuration for login nodes (`orchestrator.slurm.loginNodes`), Cluster Director recreates, deletes, or stops and restarts the login nodes. Recreating or restarting login nodes doesn't affect the queued or running jobs.
 
     * **Modify boot disks (`bootDisk`)**: if you modify any boot disk property (`type`, `sizeGb`, `image`, or `storagePools`), then Cluster Director recreates all login nodes.
 
@@ -98,12 +98,10 @@ When you modify a cluster, modifying one or more of the following properties req
 
     * **Modify startup script (`startupScript`)**: modifying the startup script for the login nodes stops and restarts all login nodes.
 
-    * **Modify startup script timeout (`startupScriptTimeout`)**: modifying the timeout for the startup script doesn't restart or recreate login nodes. The new timeout is enforced the next time a login node restarts.
 
 
 
-
-### Non-disruptive cluster property updates
+### Non-disruptive updates to cluster properties
 
 When you modify a cluster, modifying one or more of the following properties doesn't restart or recreate existing nodes:
 
@@ -113,27 +111,29 @@ When you modify a cluster, modifying one or more of the following properties doe
 
   * **Add storage resources (`storageResources`)**: adding Filestore instances, Managed Lustre instances, or Cloud Storage buckets doesn't restart or recreate nodes.
 
-  * **Slurm login nodes (`orchestrator.slurm.loginNodes`)**:
+  * **Slurm login nodes (`orchestrator.slurm.loginNodes`)**: you can update the following login node properties without workload disruption or node restarts:
 
     * **Modify labels (`labels`)**: modifying labels for login nodes doesn't disrupt your workloads.
 
     * **Add or delete storage configurations (`storageConfigs`)**: adding or deleting storage resources that are mounted on login nodes doesn't disrupt your workloads.
 
-    * **Modify service account** (`serviceAccount`): modifying the service account doesn't disrupt your workloads.
+    * **Modify service account (`serviceAccount`)**: modifying the service account doesn't disrupt your workloads.
 
-  * **Slurm nodesets (`orchestrator.slurm.nodeSets`)**:
+    * **Modify startup script timeout (`startupScriptTimeout`)**: modifying the timeout for the startup script doesn't restart or recreate login nodes. Cluster Director enforces the new timeout the next time that a login node restarts.
+
+  * **Slurm nodesets (`orchestrator.slurm.nodeSets`)**: you can update the following nodeset properties without job disruption or node restarts:
 
     * **Increase static or dynamic node count (`staticNodeCount` or `maxDynamicNodeCount`)**: increasing the number of static or dynamic nodes in a nodeset doesn't restart or recreate existing nodes.
 
     * **Modify labels (`labels`)**: modifying labels for a nodeset doesn't restart or recreate nodes.
 
-    * **Modify startup script (`computeInstance.startupScript`) or boot disks (`computeInstance.bootDisk`)**: modifying the startup script or boot disk properties for a nodeset doesn't disrupt running jobs. Cluster Director applies the changes to new compute nodes, and to existing compute nodes after they finish running all jobs and their state changes to `idle`.
+    * **Modify startup script (`computeInstance.startupScript`), boot disks (`computeInstance.bootDisk`), or static TPU topology (`resourcePolicyConfig.acceleratorTopology`)**: modifying the startup script, boot disk properties, or static TPU slice topology for a nodeset doesn't disrupt running jobs. Cluster Director applies the changes to new compute nodes, and recreates existing compute nodes after they finish running all jobs and their state changes to `idle`.
 
     * **Add storage configurations (`storageConfigs`)**: adding storage resources in a nodeset doesn't restart or recreate existing compute nodes. All nodesets in a Slurm cluster must use the same storage configuration.
 
-  * **Create or delete Slurm partitions (`orchestrator.slurm.partitions`)**: creating or deleting Slurm partitions doesn't restart, recreate, or delete nodes. However, if you delete a partition that has running jobs, Slurm stops those jobs.
+  * **Create or delete Slurm partitions (`orchestrator.slurm.partitions`)**: creating or deleting Slurm partitions doesn't restart, recreate, or delete nodes. However, if you delete a partition that has running jobs, then Slurm stops those jobs.
 
-  * **Modify Slurm default partition (`orchestrator.slurm.defaultPartition`)**: modifying the default Slurm partition doesn't restart or recreate nodes. If you have scheduled jobs, verify that modifying the default partition isn't disruptive.
+  * **Modify Slurm default partition (`orchestrator.slurm.defaultPartition`)**: modifying the default Slurm partition doesn't restart or recreate nodes. If you have scheduled jobs, then verify that modifying the default partition doesn't disrupt them.
 
   * **Modify Slurm prolog script (`orchestrator.slurm.prologBashScripts`)**: modifying the prolog script runs the script for only new and queued jobs; existing jobs are unaffected.
 
@@ -189,16 +189,20 @@ You might also be able to get this permission with [custom roles](https://docs.c
 
 ## Modify a cluster
 
+**Preview — Modify a cluster with TPU VMs**
+
+This feature is subject to the "Pre-GA Offerings Terms" in the General Service Terms section of the [Service Specific Terms](https://docs.cloud.google.com/terms/service-terms#1). Pre-GA features are available "as is" and might have limited support. For more information, see the [launch stage descriptions](https://cloud.google.com/products/#product-launch-stages). 
+
 Before you modify a cluster, understand how changes can impact your running workloads:
 
-  * **Disruptive updates** : modifying some properties stops or recreates nodes. If you haven't already, then review which updates can disrupt your workload. For a list of these properties, see Disruptive cluster property updates.
+  * **Disruptive updates** : modifying some properties stops or recreates nodes. If you haven't already, then review which updates can disrupt your workload. For a list of these properties, see Disruptive updates to cluster properties.
 
-  * **Planned maintenance** : to minimize disruptions, we recommend that you update cluster properties that restart or recreate nodes during planned maintenance. Unless your nodes use N2 machine types, host maintenance events stop and restart nodes. To start a host maintenance event before its planned time, see [Manually start planned host maintenance events](https://docs.cloud.google.com/cluster-director/docs/monitor/cluster-health#start-maintenance).
-
-
+  * **Planned maintenance** : to minimize disruptions, Google recommends that you update cluster properties that restart or recreate GPU compute nodes during planned maintenance. Unless your nodes use N2 machine types, host maintenance events stop and restart nodes. To start a host maintenance event before its planned time on GPU compute nodes, see [Manually start planned host maintenance events](https://docs.cloud.google.com/cluster-director/docs/monitor/cluster-health#start-maintenance).
 
 
-To modify a cluster, select one of the following options. If you want to edit the cluster description or labels, then use the gcloud CLI or REST API. If you want to edit custom Slurm settings, then use the REST API.
+
+
+To modify a cluster, select one of the following options. If you want to modify a cluster with TPU VMs, then use the Google Cloud console or gcloud CLI. If you want to edit the cluster description or labels, then use the gcloud CLI or REST API. If you want to edit custom Slurm settings, then use the REST API.
 
 ###  Console 
 
@@ -212,7 +216,7 @@ To modify a cluster, select one of the following options. If you want to edit th
 
   4. Click edit **Edit**. A page that lets you edit your cluster opens.
 
-  5. In the **Compute** section, you can modify the compute resource configurations that your cluster uses. To do so, do one of more of the following:
+  5. In the **Compute** section, to modify the compute resource configurations that your cluster uses, do one or more of the following:
 
      * To add or edit a compute resource configuration, do one of the following:
 
@@ -222,7 +226,7 @@ To modify a cluster, select one of the following options. If you want to edit th
 
      * In the **Add resource configuration** pane that appears, you can do one or more of the following:
 
-       * To specify a machine type, click the **General purpose** or **GPUs** tab, and then follow the prompts to specify the machine type.
+       * To specify a machine type, click the **General purpose** , **GPUs** , or **TPUs** tab, and then follow the prompts to specify the machine type.
 
        * In the **Number of instances** field, enter the number of compute instances for the resource configuration.
 
@@ -230,11 +234,11 @@ To modify a cluster, select one of the following options. If you want to edit th
 
   6. Click **Continue**.
 
-  7. To add or delete storage resources in your cluster, in the **Storage** section, do one or more of the following:
+  7. In the **Storage** section, to add or delete storage resources in your cluster, do one or more of the following:
 
      * To add a storage resource, click add **Add storage configuration** , and then follow the prompts to specify the configuration for the storage resource.
 
-     * To delete a storage resource other than the one used for the `/home` directory, locate the storage resource, and then click delete **Delete storage plan**.
+     * To delete a storage resource other than the one that your cluster uses for the `/home` directory, locate the storage resource, and then click delete **Delete storage plan**.
 
   8. Click **Continue**.
 
@@ -244,7 +248,9 @@ To modify a cluster, select one of the following options. If you want to edit th
 
      * In the **Machine type** list, select the machine type to use for the login node.
 
-     * In the **Source image** list, select the OS image.
+     * In the **Image family** list, select the OS image family for the login nodes.
+
+     * In the **Image** list, select the specific OS image version.
 
      * In the **Startup script** field, enter or modify the startup script for your cluster.
 
@@ -252,7 +258,7 @@ To modify a cluster, select one of the following options. If you want to edit th
 
      * In the **Boot disk type** list, select the [type of boot disk](https://docs.cloud.google.com/compute/docs/disks) that you want your login node to use.
 
-     * In the **Boot disk size** field, enter the number of GB for the disk. You must enter a value of `50` or higher. However, to help ensure that your nodes boot up quickly, we recommend that you specify a value of at least `100`.
+     * In the **Boot disk size** field, enter the number of GB for the disk. You must enter a value of `50` or higher. However, to help ensure that your nodes boot up quickly, Google recommends that you specify a value of at least `100`.
 
   10. To modify partitions and nodesets, expand the **Partitions** section, and then add, delete, or edit the partitions and nodesets as needed.
 
@@ -269,7 +275,7 @@ To modify a cluster, use the [`gcloud alpha cluster-director clusters update` co
 
 Based on how you want to specify the cluster configuration, use one of the following methods. To modify storage resources, you must modify the cluster by specifying a configuration file.
 
-  * **Specify a configuration file** : to modify a cluster by specifying the cluster configuration in a JSON file, use the `--config` flag. To run the command, select one of the following options:
+  * **Specify a configuration file** : to modify a cluster by specifying the cluster configuration in a JSON file, use the `--config` flag. To update the cluster from the configuration file, select one of the following options:
 
 ###  Bash 
         
@@ -352,7 +358,7 @@ Replace the following:
 
       * To delete Flex-start VMs: `--remove-dws-flex-instances`
 
-For example, suppose that you want to modify a cluster by modifying the cluster description, adding a new label, modifying the login nodes, adding a new nodeset, partition, and compute resource configuration. To make these changes in your cluster, select one of the following options:
+For example, suppose that you want to modify a cluster by modifying the cluster description, adding a new label, and adding a new nodeset, partition, and compute resource configuration. To make these changes in your cluster, select one of the following options:
 
 ###  Bash 
     
@@ -362,7 +368,7 @@ For example, suppose that you want to modify a cluster by modifying the cluster 
         --add-labels=CLUSTER_LABEL_KEY=CLUSTER_LABEL_VALUE \
         --add-on-demand-instances=id=NEW_COMPUTE_RESOURCE_NAME,zone=NEW_ZONE,machineType=NEW_MACHINE_TYPE \
         --add-slurm-node-sets=id=NODESET_NAME,computeId=COMPUTE_RESOURCE_NAME,staticNodeCount=STATIC_NUMBER_VMS,maxDynamicNodeCount=MAX_DYNAMIC_NUMBER_VMS,startupScript=STARTUP_SCRIPT_NODESET,labels="NODESET_LABEL" \
-        --add-slurm-partitions=id=PARTITION_NAME,nodesetIds=[NODESET_NAME]
+        --add-slurm-partitions=id=PARTITION_NAME,nodeSetIds=[NODESET_NAME]
     
 
 ###  Powershell 
@@ -373,7 +379,7 @@ For example, suppose that you want to modify a cluster by modifying the cluster 
         --add-labels=CLUSTER_LABEL_KEY=CLUSTER_LABEL_VALUE `
         --add-on-demand-instances=id=NEW_COMPUTE_RESOURCE_NAME,zone=NEW_ZONE,machineType=NEW_MACHINE_TYPE `
         --add-slurm-node-sets=id=NODESET_NAME,computeId=COMPUTE_RESOURCE_NAME,staticNodeCount=STATIC_NUMBER_VMS,maxDynamicNodeCount=MAX_DYNAMIC_NUMBER_VMS,startupScript=STARTUP_SCRIPT_NODESET,labels="NODESET_LABEL" `
-        --add-slurm-partitions=id=PARTITION_NAME,nodesetIds=[NODESET_NAME]
+        --add-slurm-partitions=id=PARTITION_NAME,nodeSetIds=[NODESET_NAME]
     
 
 ###  cmd.exe 
@@ -384,7 +390,7 @@ For example, suppose that you want to modify a cluster by modifying the cluster 
         --add-labels=CLUSTER_LABEL_KEY=CLUSTER_LABEL_VALUE ^
         --add-on-demand-instances=id=NEW_COMPUTE_RESOURCE_NAME,zone=NEW_ZONE,machineType=NEW_MACHINE_TYPE ^
         --add-slurm-node-sets=id=NODESET_NAME,computeId=COMPUTE_RESOURCE_NAME,staticNodeCount=STATIC_NUMBER_VMS,maxDynamicNodeCount=MAX_DYNAMIC_NUMBER_VMS,startupScript=STARTUP_SCRIPT_NODESET,labels="NODESET_LABEL" ^
-        --add-slurm-partitions=id=PARTITION_NAME,nodesetIds=[NODESET_NAME]
+        --add-slurm-partitions=id=PARTITION_NAME,nodeSetIds=[NODESET_NAME]
     
 
 Replace the following:
@@ -409,9 +415,14 @@ Replace the following:
 
     * `COMPUTE_RESOURCE_NAME`: the name of the compute resource configuration for the new nodeset to use.
 
-    * `STATIC_NUMBER_VMS`: the minimum number of compute instances that your nodeset must use.
+    * `STATIC_NUMBER_VMS`: the minimum number of compute instances that your nodeset must use. If you configure a static nodeset with TPU instances, then set the `maxDynamicNodeCount` attribute to `0` and include the `resourcePolicyConfig` attribute in the `--add-slurm-node-sets` or `--update-slurm-node-sets` flag as follows:
+          
+          resourcePolicyConfig="{acceleratorTopology=TOPOLOGY}"
+          
 
-    * `MAX_DYNAMIC_NUMBER_VMS`: the maximum number of compute instances that Cluster Director can add to the nodeset.
+Replace `TOPOLOGY` with the 2D (`AxB`) or 3D (`AxBxC`) slice topology (for example, `2x4` or `2x2x2`). The value of the `staticNodeCount` attribute must be a multiple of the number of TPU VMs in the slice topology.
+
+    * `MAX_DYNAMIC_NUMBER_VMS`: the maximum number of compute instances that Cluster Director can add to the nodeset. If you configure a dynamic TPU nodeset, then set the `staticNodeCount` attribute to `0`.
 
     * `STARTUP_SCRIPT_NODESET`: the startup script for the nodeset.
 
@@ -429,7 +440,7 @@ The output is similar to the following:
     Waiting for operation [projects/example-project/locations/us-central1/operations/operation-1759940551889-640a8176bd2a2-0e460b9d-4281a5ca] to complete...working...
     
 
-Based on the properties that you modify in your cluster, modifying the cluster can take some time to complete. When it does complete, the output is similar to the following:
+Based on the properties that you modify in your cluster, the update operation can take some time to complete. When the operation completes, the output is similar to the following:
     
     
     Updated cluster [cluster000].
@@ -460,7 +471,7 @@ Based on the cluster properties that you want to modify, include one or more of 
 
 
 
-For example, suppose that you want to modify a cluster by modifying the cluster description, adding a new label, modifying the login nodes, adding a new nodeset, partition, and compute resource configuration. To make these changes in your cluster, include the following in a JSON file named `request-body.json`:
+For example, suppose that you want to modify a cluster by modifying the cluster description, adding a new label, modifying the login nodes, and adding a new nodeset, partition, and compute resource configuration. To make these changes in your cluster, include the following in a JSON file named `request-body.json`:
     
     
     {
@@ -574,7 +585,7 @@ For this example, the `updateMask` query parameter is as follows:
 
   * `DISK_TYPE`: the type of boot disk for the nodeset. Based on the machine type in the node, specify one of the following values:
 
-    * For A4X instances: `hyperdisk-balanced`
+    * For A4X Max or A4X instances: `hyperdisk-balanced`
 
     * For A4 instances: `hyperdisk-balanced`
 
@@ -586,7 +597,7 @@ For this example, the `updateMask` query parameter is as follows:
 
 For an overview of the different types of boot disks that you can use, see [Choose a disk type](https://docs.cloud.google.com/compute/docs/disks) in the Compute Engine documentation.
 
-  * `DISK_SIZE`: the size of the boot disk in GB. The value must be `50` or higher. However, to help ensure that your nodes boot up quickly, we recommend that you specify a value of at least `100`.
+  * `DISK_SIZE`: the size of the boot disk in GB. The value must be `50` or higher. However, to help ensure that your nodes boot up quickly, Google recommends that you specify a value of at least `100`.
 
   * `PARTITION_NAME`: the name of the new partition.
 
@@ -667,6 +678,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-04 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 

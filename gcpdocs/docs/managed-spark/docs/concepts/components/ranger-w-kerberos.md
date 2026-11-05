@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/managed-spark/docs/concepts/components/ranger-w-kerberos/
 title: Use Ranger with Kerberos \u00a0|\u00a0 Managed Service for Apache Spark \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T21:58:11.926663+00:00
+fetched_at: 2026-11-05T00:20:19.409713+00:00
 ---
 
 # Use Ranger with Kerberos  |  Managed Service for Apache Spark  |  Google Cloud Documentation
@@ -23,15 +23,9 @@ Send feedback
 
 #  Use Ranger with Kerberos Stay organized with collections  Save and categorize content based on your preferences. 
 
-The following examples create and use a [Kerberos enabled](https://docs.cloud.google.com/managed-spark/docs/concepts/configuring-clusters/security) Managed Service for Apache Spark cluster with [Ranger](https://docs.cloud.google.com/managed-spark/docs/concepts/components/ranger) and [Solr](https://docs.cloud.google.com/managed-spark/docs/concepts/components/solr) components to control access by users to Hadoop, YARN, and HIVE resources.
+You can manage centralized access control across Hadoop, YARN, and Hive workloads by integrating [Apache Ranger](https://docs.cloud.google.com/managed-spark/docs/concepts/components/ranger) with [Kerberos](https://docs.cloud.google.com/managed-spark/docs/concepts/configuring-clusters/security) in Managed Service for Apache Spark. In this tutorial, you create a cluster with Ranger and [Apache Solr](https://docs.cloud.google.com/managed-spark/docs/concepts/components/solr) components, configure authorization policies, and verify user permissions.
 
-Notes:
-
-  * The Ranger Web UI can be accessed through the [Component Gateway](https://docs.cloud.google.com/managed-spark/docs/concepts/accessing/gateways).
-
-  * In a Ranger with Kerberos cluster, Managed Service for Apache Spark maps a Kerberos user to the system user by stripping the Kerberos user's realm and instance. For example, Kerberos principal `user1/cluster-m@MY.REALM` is mapped to system `user1`, and Ranger policies are defined to allow or deny permissions for `user1`.
-
-
+When evaluating access policies, Managed Service for Apache Spark maps Kerberos principals to system users by stripping the realm and instance, such as mapping `user1/cluster-m@MY.REALM` to `user1`. You can manage these policies in the Ranger Web UI through the [Component Gateway](https://docs.cloud.google.com/managed-spark/docs/concepts/accessing/gateways).
 
   1. [Set up the Ranger `admin` password](https://docs.cloud.google.com/managed-spark/docs/concepts/components/ranger#installation_steps).
 
@@ -268,6 +262,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-03 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 

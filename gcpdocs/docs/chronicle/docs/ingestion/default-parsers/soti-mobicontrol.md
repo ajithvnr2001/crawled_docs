@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/soti-mobicontrol/
 title: Collect SOTI MobiControl logs \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T07:50:40.646306+00:00
+fetched_at: 2026-11-04T23:44:04.257015+00:00
 ---
 
 # Collect SOTI MobiControl logs  |  Google Security Operations  |  Google Cloud Documentation

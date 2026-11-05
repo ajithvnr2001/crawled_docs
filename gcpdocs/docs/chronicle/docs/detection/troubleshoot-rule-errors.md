@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chronicle/docs/detection/troubleshoot-rule-errors/
 title: Troubleshoot detection rules \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T05:53:43.951335+00:00
+fetched_at: 2026-11-05T00:19:26.010045+00:00
 ---
 
 # Troubleshoot detection rules  |  Google Security Operations  |  Google Cloud Documentation
@@ -29,10 +29,12 @@ Runtime errors can occur during rule execution and prevent a rule from executing
 
   * You can prevent runtime errors by testing your rules before deployment. Click **Run Test** in the rules editor—if an error is detected, follow the error link for details.
 
+  * You can prioritize testing each rule over time ranges that have the largest amount of data before deployment.
+
   * If an error occurs during rule execution, follow the error link on the **Detections** page for details.
 
 
-
+**Note:** Runtime errors are associated with a specific rule version. After you resolve the cause of a runtime error, you must save a new version of the rule for the error to subside. If the rule logic doesn't need to change, make a small edit, such as updating a comment, and save the rule. For more information, see [View rule versions](https://docs.cloud.google.com/chronicle/docs/detection/view-rule-versions).
 
 ## Query syntax and logic errors
 
@@ -40,7 +42,14 @@ These errors occur when the query structure is invalid, too complex, or uses inc
 
 Error message  | Underlying cause  | Resolution  | `Too many `OR` and `AND` operations` | The query contains deeply nested expressions or logic that exceeds stack space limits.  | Simplify the rule's conditions. Break down complex logic into smaller parts.  
 ---|---|---  
-`Query is too long` | The query requires too much stack space to process.  | Split the logic into multiple rules.   
+`Query is too long` | This error occurs when deeply nested expressions or complex query structures exceed call-stack limits. It isn't caused by the character count of the rule. Common causes include long inline chains of `AND` or `OR` comparisons, multi-branch `OR` join conditions across multiple events, and deeply nested `if()` expressions. | 
+
+  * Replace long inline `OR` or `AND` chains, such as hardcoded IP addresses, domains, hashes, CIDR ranges, or regular expressions, with [data tables](https://docs.cloud.google.com/chronicle/docs/investigation/data-tables). Data tables don't increase expression nesting depth.
+  * Simplify cross-event `OR` join conditions in multi-event rules, such as by using `strings.coalesce()` or separating distinct join paths.
+  * Replace deeply nested `if()` chains in the `outcome` section with a data table lookup.
+  * Split unrelated detection logic into separate rules or [composite detection rules](https://docs.cloud.google.com/chronicle/docs/yara-l/composite-detection-rules).
+
+  
 `Accessing a new field that did not exist for this time range` | The rule references a field recently added to the schema, but the rule is running over a time range where that field did not exist.  | Adjust the time range to start after the field was present. Modify the rule to handle cases where the field is null or missing.  
 `Invalid subnet CIDR` | Some functions encountered an unparseable Classless Inter-Domain Routing (CIDR) range  | Check the format of CIDR ranges in the rule.   
 `Invalid IP address` | Some functions encountered a malformed IP address.  | Ensure the field value contains a valid IP address format   
@@ -57,8 +66,8 @@ These errors indicate that the query is too heavy for the system to process.
 Error message  | Underlying cause  | Resolution  | `Request was throttled, please try again later` | The rule requires more memory or processing power than allocated (often due to complex joins, large aggregations, or insufficient filtering).  | Add more specific filters to the events section.   
 ---|---|---  
 `Not enough memory for aggregation` | The `aggregate_memory_limit` was exceeded.  | Optimize aggregations by reducing the number of keys in the `match` section.   
-`Spilled bytes exceed limit` | The query is attempting to process too many events.  | Optimize the query by adding filters, such as by `metadata.log_type`.   
-`Your query resource usage is exceeding its allocation` | The query was cancelled by the resource manager because it used too many resources.  | Optimize the query by adding filters, such as by `metadata.log_type`.   
+`Spilled bytes exceed limit` | The query is attempting to process too many events.  | Optimize the query by adding filters, such as by `metadata.event_type`.   
+`Your query resource usage is exceeding its allocation` | The query was cancelled by the resource manager because it used too many resources.  | Optimize the query by adding filters, such as by `metadata.event_type`.   
   
 ## Data access and system errors
 
@@ -81,6 +90,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-30 UTC.
+Last updated 2026-11-03 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 

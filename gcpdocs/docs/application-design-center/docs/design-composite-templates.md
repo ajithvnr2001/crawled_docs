@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/application-design-center/docs/design-composite-templates/
 title: Design composite templates \u00a0|\u00a0 Application Design Center \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T16:19:46.759368+00:00
+fetched_at: 2026-11-05T00:19:59.937952+00:00
 ---
 
 # Design composite templates  |  Application Design Center  |  Google Cloud Documentation
@@ -25,20 +25,7 @@ Send feedback
 
 This product or feature is subject to the "Pre-GA Offerings Terms" in the General Service Terms section of the [Service Specific Terms](https://docs.cloud.google.com/terms/service-terms#1). Pre-GA products and features are available "as is" and might have limited support. For more information, see the [launch stage descriptions](https://cloud.google.com/products/#product-launch-stages). 
 
-When you want to build complex applications from smaller, reusable building blocks, create composite templates. For example, you might create a composite template that includes several connected application templates.
-
-You can also create composite templates to model and package units of deployment for a SaaS offering that you deploy with App Lifecycle Manager. For more information, see [Model and package units of deployment](https://docs.cloud.google.com/saas-runtime/docs/model-saas-offering).
-
-Design composite templates by adding and connecting standard application templates and individual components. This modular approach lets you do the following:
-
-  * _Accelerate development_ : Assemble complex apps from smaller building blocks. You can reuse each standard application template in multiple composite templates.
-  * _Enable parallel development_ : Enable modular teams to specialize in specific building blocks. For example, a database team can address data storage and analysis with minimal reliance on the application logic team.
-  * _Reduce vulnerability impacts_ : Developers can update or fix a building block without redeploying the entire application.
-  * _Improve security posture_ : Restrict access by creating distinct service accounts to deploy each building block. Ensure that each team only has permissions for the building blocks that they configure.
-
-
-
-This document shows you how to design, verify, and share a composite template.
+Composite templates in Application Design Center let you build complex applications by connecting reusable standard application templates and individual components. A modular design lets teams develop building blocks in parallel and update individual blocks without redeploying the entire application. You can also assign distinct service accounts to restrict deployment permissions for each building block. In addition, composite templates let you [model and package units of deployment](https://docs.cloud.google.com/saas-runtime/docs/model-saas-offering) for a SaaS offering in App Lifecycle Manager.
 
 ## Before you begin
 
@@ -596,6 +583,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-03 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/video-understanding/
 title: Video understanding \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-03T09:52:27.028389+00:00
+fetched_at: 2026-11-04T23:13:56.635841+00:00
 ---
 
 # Video understanding  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation
@@ -88,6 +88,9 @@ Models | Media details | MIME types
   * Maximum number of input video files per prompt: 10 
   * Maximum YouTube URLs per prompt: 1 
   * Maximum video length (without audio): As supported by the 128k token context window (approximately 25 minutes). 
+  * Maximum inline part size: 256 MB 
+  * Maximum file size per file from Cloud Storage: 2 GiB minus 500 KiB 
+  * Maximum file size per file from public HTTP or HTTPS URLs: 15 MiB 
 
 | 
 
@@ -111,16 +114,19 @@ Models | Media details | MIME types
   * [Gemini 3.6 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-6-flash)
   * [Gemini 3.5 Flash-Lite](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-5-flash-lite)
   * [Gemini 3.5 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-5-flash)
+  * [Gemini 3.1 Pro](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-1-pro) preview
   * [Gemini 3.1 Flash-Lite](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-1-flash-lite)
-  * [Gemini 2.5 Pro](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/2-5-pro)
-  * [Gemini 2.5 Flash-Lite](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/2-5-flash-lite)
-  * [Gemini 2.5 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/2-5-flash)
+  * [Gemini 3 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-flash) preview
 
 | 
 
   * Maximum video length (with audio): Approximately 45 minutes 
   * Maximum video length (without audio): Approximately 1 hour 
   * Maximum number of videos per prompt: 10 
+  * Maximum inline part size (GenerateContent API): 256 MB 
+  * Maximum file size per file from Cloud Storage: 2 GiB minus 500 KiB 
+  * Maximum file size per file from public HTTP or HTTPS URLs: 15 MiB 
+  * Default resolution tokens per frame: 70 
 
 | 
 
@@ -157,15 +163,16 @@ Models | Media details | MIME types
 
   
   
-  * [Gemini 3.1 Pro](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-1-pro) preview
-  * [Gemini 3 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-flash) preview
+  * [Gemini 3.1 Flash-Lite Image (Nano Banana 2 Lite)](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-1-flash-lite-image)
 
 | 
 
-  * Maximum video length (with audio): Approximately 45 minutes 
-  * Maximum video length (without audio): Approximately 1 hour 
-  * Maximum number of videos per prompt: 10 
-  * Default resolution tokens per frame: 70 
+  * Maximum number of input video files per prompt: 10 
+  * Maximum YouTube URLs per prompt: 1 
+  * Maximum video length (without audio): As supported by the 65,536 token context window (approximately 12 minutes). 
+  * Maximum inline part size: 256 MB 
+  * Maximum file size per file from Cloud Storage: 2 GiB minus 500 KiB 
+  * Maximum file size per file from public HTTP or HTTPS URLs: 15 MiB 
 
 | 
 
@@ -181,13 +188,18 @@ Models | Media details | MIME types
 
   
   
-  * [Gemini 3.1 Flash-Lite Image (Nano Banana 2 Lite)](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-1-flash-lite-image)
+  * [Gemini 2.5 Pro](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/2-5-pro)
+  * [Gemini 2.5 Flash-Lite](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/2-5-flash-lite)
+  * [Gemini 2.5 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/2-5-flash)
 
 | 
 
-  * Maximum number of input video files per prompt: 10 
-  * Maximum YouTube URLs per prompt: 1 
-  * Maximum video length (without audio): As supported by the 65,536 token context window (approximately 12 minutes). 
+  * Maximum video length (with audio): Approximately 45 minutes 
+  * Maximum video length (without audio): Approximately 1 hour 
+  * Maximum number of videos per prompt: 10 (up to 1 HTTP or HTTPS URL on non-migrated endpoints) 
+  * Maximum inline part size: 256 MB 
+  * Maximum file size per file from Cloud Storage: 2 GiB minus 500 KiB 
+  * Maximum file size per file from public HTTP or HTTPS URLs: 15 MiB 
 
 | 
 
@@ -224,6 +236,16 @@ Models | Media details | MIME types
   
   
 For a list of languages supported by Gemini models, see model information [Google models](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/google-models). To learn more about how to design multimodal prompts, see [Design multimodal prompts](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/design-multimodal-prompts). If you're looking for a way to use Gemini directly from your mobile and web apps, see the [Firebase AI Logic client SDKs](https://firebase.google.com/docs/ai-logic) for Swift, Android, Web, Flutter, and Unity apps.
+
+## API endpoint and context window limits
+
+Standard Gemini 3 and later models accept up to 3,000 images and PDFs combined, 1,000 audio files, or 10 videos per request across both `generateContent` and the [Interactions API](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/interactions) (up to 6,500 combined multimodal files when plain-text files are included). Non-migrated Gemini 2.5 endpoints and `gemini-3.1-pro-preview-customtools` enforce legacy file size, PDF page (1,000), and HTTP or HTTPS URL count limits. Practical request limits also depend on the API endpoint, file source, and context window:
+
+  * **Interactions API URI limit for Cloud Storage files** : [Interactions API requests](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/interactions/developer-guide#access-storage-files) support up to 100 distinct Cloud Storage (`gs://`) URIs per model interaction request, including URIs carried forward from earlier conversation turns through `previous_interaction_id`. `generateContent` requests support `gs://` URIs up to the model item limit.
+  * **File source, inline part, and request payload limits** : Individual files referenced from Cloud Storage can't exceed 2 GiB minus 500 KiB, and files referenced from public HTTP or HTTPS URLs can't exceed 15 MiB. On `generateContent` and `streamGenerateContent`, each inline attachment (`inline_data`) can't exceed 256 MB on standard Gemini 3 and later models, and the total compressed HTTP or gRPC request payload can't exceed 500 MiB (base64 encoding adds approximately 33% size overhead). On the Interactions API, the compressed HTTP request payload can't exceed 256 MiB for synchronous or streaming requests; when `service_tier` is set to `deferred` (which requires both `background` and `store` to be `true`), the uncompressed request can't exceed 9.75 MiB.
+  * **Context window** : The combined token count of all multimodal inputs and text in a request can't exceed the model's input token limit (1,048,576 tokens on standard Gemini 3 and later models).
+
+
 
 ## Add videos to a request
 
@@ -582,12 +604,14 @@ Set environment variables to use the Google Gen AI SDK with Vertex AI:
 
 After you set up your environment, you can use REST to test a text prompt. The following sample sends a request to the publisher model endpoint. 
 
+#### GenerateContent API
+
 Before using any of the request data, make the following replacements: 
 
-  * `PROJECT_ID`: Your [project ID](https://docs.cloud.google.com/resource-manager/docs/creating-managing-projects#identifiers). .
+  * `PROJECT_ID`: Your [project ID](https://docs.cloud.google.com/resource-manager/docs/creating-managing-projects#identifiers).
   * `FILE_URI`: The URI or URL of the file to include in the prompt. Acceptable values include the following: 
     * **Cloud Storage bucket URI:** The object must either be publicly readable or reside in the same Google Cloud project that's sending the request.
-    * **HTTP URL:** The file URL must be publicly readable. You can specify one video file, one audio file, and up to 10 image files per request. Audio files, video files, and documents can't exceed 15 MB.
+    * **HTTP URL:** The file URL must be publicly readable and can't exceed 15 MiB per file. Standard Gemini 3 and later models accept up to 3,000 images and PDFs combined, 1,000 audio files, or 10 videos per request (up to 6,500 total files when including plain-text files). Non-migrated Gemini 2.5 endpoints and `gemini-3.1-pro-preview-customtools` limit HTTP or HTTPS URLs to 10 images, 1 audio file, or 1 video per request.
     * **YouTube video URL:** The YouTube video must be either owned by the account that you used to sign in to the Google Cloud console or be public. Only one YouTube video URL is supported per request.
 
 When specifying a `fileURI`, you must also specify the media type (`mimeType`) of the file. If VPC Service Controls is enabled, specifying a media file URL for `fileURI` is not supported.
@@ -754,6 +778,173 @@ You should receive a JSON response similar to the following.
     }
     
 
+#### Interactions API
+
+Before using any of the request data, make the following replacements: 
+
+  * `PROJECT_ID`: Your [project ID](https://docs.cloud.google.com/resource-manager/docs/creating-managing-projects#identifiers).
+  * `FILE_URI`: The URI or URL of the file to include in the prompt. Acceptable values include the following: 
+    * **Cloud Storage bucket URI:** The object must either be publicly readable or reside in the same Google Cloud project that's sending the request.
+    * **HTTP URL:** The file URL must be publicly readable and can't exceed 15 MiB per file. Standard Gemini 3 and later models accept up to 3,000 images and PDFs combined, 1,000 audio files, or 10 videos per request (up to 6,500 total files when including plain-text files). Non-migrated Gemini 2.5 endpoints and `gemini-3.1-pro-preview-customtools` limit HTTP or HTTPS URLs to 10 images, 1 audio file, or 1 video per request.
+    * **YouTube video URL:** The YouTube video must be either owned by the account that you used to sign in to the Google Cloud console or be public. Only one YouTube video URL is supported per request.
+
+When specifying a `fileURI`, you must also specify the media type (`mimeType`) of the file. If VPC Service Controls is enabled, specifying a media file URL for `fileURI` is not supported.
+
+If you don't have a video file in Cloud Storage, then you can use the following publicly available file: `gs://cloud-samples-data/video/animals.mp4` with a MIME type of `video/mp4`. To view this video, [open the sample MP4](https://storage.googleapis.com/cloud-samples-data/video/animals.mp4) file. 
+
+  * `MIME_TYPE`: The media type of the file specified in the `data` or `fileUri` fields. Acceptable values include the following: 
+
+**Click to expand MIME types**
+
+    * `application/pdf`
+    * `audio/mpeg`
+    * `audio/mp3`
+    * `audio/wav`
+    * `image/png`
+    * `image/jpeg`
+    * `image/webp`
+    * `text/plain`
+    * `video/mov`
+    * `video/mpeg`
+    * `video/mp4`
+    * `video/mpg`
+    * `video/avi`
+    * `video/wmv`
+    * `video/mpegps`
+    * `video/flv`
+  * `TEXT`: The text instructions to include in the prompt. For example, `What is in the video?`
+
+
+
+To send your request, choose one of these options:
+
+#### curl
+
+**Note:** The following command assumes that you have logged in to the `gcloud` CLI with your user account by running [`gcloud init`](https://docs.cloud.google.com/sdk/gcloud/reference/init) or [`gcloud auth login`](https://docs.cloud.google.com/sdk/gcloud/reference/auth/login) , or by using [Cloud Shell](https://docs.cloud.google.com/shell/docs), which automatically logs you into the `gcloud` CLI . You can check the currently active account by running [`gcloud auth list`](https://docs.cloud.google.com/sdk/gcloud/reference/auth/list). 
+
+Save the request body in a file named `request.json`. Run the following command in the terminal to create or overwrite this file in the current directory: 
+    
+    
+    cat > request.json << 'EOF'
+    {
+      "model": "gemini-3.8-flash",
+      "input": [
+        {
+          "type": "user_input",
+          "content": [
+            {
+              "type": "video",
+              "uri": "FILE_URI",
+              "mime_type": "MIME_TYPE"
+            },
+            {
+              "type": "text",
+              "text": "TEXT"
+            }
+          ]
+        }
+      ]
+    }
+    EOF
+
+Then execute the following command to send your REST request: 
+    
+    
+    curl -X POST \  
+         -H "Authorization: Bearer $(gcloud auth print-access-token)" \  
+         -H "Content-Type: application/json; charset=utf-8" \  
+         -d @request.json \  
+         "https://aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/global/interactions"
+
+#### PowerShell
+
+**Note:** The following command assumes that you have logged in to the `gcloud` CLI with your user account by running [`gcloud init`](https://docs.cloud.google.com/sdk/gcloud/reference/init) or [`gcloud auth login`](https://docs.cloud.google.com/sdk/gcloud/reference/auth/login) . You can check the currently active account by running [`gcloud auth list`](https://docs.cloud.google.com/sdk/gcloud/reference/auth/list). 
+
+Save the request body in a file named `request.json`. Run the following command in the terminal to create or overwrite this file in the current directory: 
+    
+    
+    @'
+    {
+      "model": "gemini-3.8-flash",
+      "input": [
+        {
+          "type": "user_input",
+          "content": [
+            {
+              "type": "video",
+              "uri": "FILE_URI",
+              "mime_type": "MIME_TYPE"
+            },
+            {
+              "type": "text",
+              "text": "TEXT"
+            }
+          ]
+        }
+      ]
+    }
+    '@  | Out-File -FilePath request.json -Encoding utf8
+
+Then execute the following command to send your REST request: 
+    
+    
+    $cred = gcloud auth print-access-token  
+    $headers = @{ "Authorization" = "Bearer $cred" }  
+      
+    Invoke-WebRequest `  
+        -Method POST `  
+        -Headers $headers `  
+        -ContentType: "application/json; charset=utf-8" `  
+        -InFile request.json `  
+        -Uri "https://aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/global/interactions" | Select-Object -Expand Content
+
+You should receive a JSON response similar to the following.
+
+#### Response
+    
+    
+    {
+      "id": "INTERACTION_ID",
+      "model": "gemini-3.8-flash",
+      "status": "completed",
+      "steps": [
+        {
+          "type": "model_output",
+          "content": [
+            {
+              "type": "text",
+              "text": "This video is a commercial for Google Photos, featuring animals taking selfies with the Google Photos app. The commercial plays on the popularity of media in which animals act like humans, especially their use of technology. The commercial also highlights the app's ability to automatically back up photos."
+            }
+          ]
+        }
+      ],
+      "usage": {
+        "total_tokens": 28977,
+        "total_input_tokens": 28916,
+        "input_tokens_by_modality": [
+          {
+            "modality": "video",
+            "tokens": 28910
+          },
+          {
+            "modality": "text",
+            "tokens": 6
+          }
+        ],
+        "total_output_tokens": 61,
+        "output_tokens_by_modality": [
+          {
+            "modality": "text",
+            "tokens": 61
+          }
+        ]
+      },
+      "object": "interaction",
+      "created": "2026-05-29T02:17:56Z",
+      "updated": "2026-05-29T02:17:56Z"
+    }
+    
+
 Note the following in the URL for this sample: 
 
   * Use the [`generateContent`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.publishers.models/generateContent) method to request that the response is returned after it's fully generated. To reduce the perception of latency to a human audience, stream the response as it's being generated by using the [`streamGenerateContent`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.publishers.models/streamGenerateContent) method. 
@@ -807,12 +998,14 @@ Set environment variables to use the Google Gen AI SDK with Vertex AI:
 
 After you set up your environment, you can use REST to test a text prompt. The following sample sends a request to the publisher model endpoint. 
 
+#### GenerateContent API
+
 Before using any of the request data, make the following replacements: 
 
-  * `PROJECT_ID`: .
+  * `PROJECT_ID`: Your [project ID](https://docs.cloud.google.com/resource-manager/docs/creating-managing-projects#identifiers). 
   * `FILE_URI`: The URI or URL of the file to include in the prompt. Acceptable values include the following: 
     * **Cloud Storage bucket URI:** The object must either be publicly readable or reside in the same Google Cloud project that's sending the request.
-    * **HTTP URL:** The file URL must be publicly readable. You can specify one video file, one audio file, and up to 10 image files per request. Audio files, video files, and documents can't exceed 15 MB.
+    * **HTTP URL:** The file URL must be publicly readable and can't exceed 15 MiB per file. Standard Gemini 3 and later models accept up to 3,000 images and PDFs combined, 1,000 audio files, or 10 videos per request (up to 6,500 total files when including plain-text files). Non-migrated Gemini 2.5 endpoints and `gemini-3.1-pro-preview-customtools` limit HTTP or HTTPS URLs to 10 images, 1 audio file, or 1 video per request.
     * **YouTube video URL:** The YouTube video must be either owned by the account that you used to sign in to the Google Cloud console or be public. Only one YouTube video URL is supported per request.
 
 When specifying a `fileURI`, you must also specify the media type (`mimeType`) of the file. If VPC Service Controls is enabled, specifying a media file URL for `fileURI` is not supported.
@@ -839,9 +1032,7 @@ If you don't have a video file in Cloud Storage, then you can use the following 
     * `video/wmv`
     * `video/mpegps`
     * `video/flv`
-  * TEXT
-
-The text instructions to include in the prompt. For example, `Provide a description of the video. The description should also contain anything important which people say in the video.`
+  * `TEXT` The text instructions to include in the prompt. For example, `Provide a description of the video. The description should also contain anything important which people say in the video.`
 
 
 
@@ -988,6 +1179,173 @@ You should receive a JSON response similar to the following.
         "candidatesTokenCount": 61,
         "totalTokenCount": 28977
       }
+    }
+    
+
+#### Interactions API
+
+Before using any of the request data, make the following replacements: 
+
+  * `PROJECT_ID`: Your [project ID](https://docs.cloud.google.com/resource-manager/docs/creating-managing-projects#identifiers).
+  * `FILE_URI`: The URI or URL of the file to include in the prompt. Acceptable values include the following: 
+    * **Cloud Storage bucket URI:** The object must either be publicly readable or reside in the same Google Cloud project that's sending the request.
+    * **HTTP URL:** The file URL must be publicly readable and can't exceed 15 MiB per file. Standard Gemini 3 and later models accept up to 3,000 images and PDFs combined, 1,000 audio files, or 10 videos per request (up to 6,500 total files when including plain-text files). Non-migrated Gemini 2.5 endpoints and `gemini-3.1-pro-preview-customtools` limit HTTP or HTTPS URLs to 10 images, 1 audio file, or 1 video per request.
+    * **YouTube video URL:** The YouTube video must be either owned by the account that you used to sign in to the Google Cloud console or be public. Only one YouTube video URL is supported per request.
+
+When specifying a `fileURI`, you must also specify the media type (`mimeType`) of the file. If VPC Service Controls is enabled, specifying a media file URL for `fileURI` is not supported.
+
+If you don't have a video file in Cloud Storage, then you can use the following publicly available file: `gs://cloud-samples-data/generative-ai/video/pixel8.mp4` with a MIME type of `video/mp4`. To view this video, [open the sample MP4](https://storage.googleapis.com/cloud-samples-data/generative-ai/video/pixel8.mp4) file. 
+
+  * `MIME_TYPE`: The media type of the file specified in the `data` or `fileUri` fields. Acceptable values include the following: 
+
+**Click to expand MIME types**
+
+    * `application/pdf`
+    * `audio/mpeg`
+    * `audio/mp3`
+    * `audio/wav`
+    * `image/png`
+    * `image/jpeg`
+    * `image/webp`
+    * `text/plain`
+    * `video/mov`
+    * `video/mpeg`
+    * `video/mp4`
+    * `video/mpg`
+    * `video/avi`
+    * `video/wmv`
+    * `video/mpegps`
+    * `video/flv`
+  * `TEXT` The text instructions to include in the prompt. For example, `Provide a description of the video. The description should also contain anything important which people say in the video.`
+
+
+
+To send your request, choose one of these options:
+
+#### curl
+
+**Note:** The following command assumes that you have logged in to the `gcloud` CLI with your user account by running [`gcloud init`](https://docs.cloud.google.com/sdk/gcloud/reference/init) or [`gcloud auth login`](https://docs.cloud.google.com/sdk/gcloud/reference/auth/login) , or by using [Cloud Shell](https://docs.cloud.google.com/shell/docs), which automatically logs you into the `gcloud` CLI . You can check the currently active account by running [`gcloud auth list`](https://docs.cloud.google.com/sdk/gcloud/reference/auth/list). 
+
+Save the request body in a file named `request.json`. Run the following command in the terminal to create or overwrite this file in the current directory: 
+    
+    
+    cat > request.json << 'EOF'
+    {
+      "model": "gemini-3.8-flash",
+      "input": [
+        {
+          "type": "user_input",
+          "content": [
+            {
+              "type": "video",
+              "uri": "FILE_URI",
+              "mime_type": "MIME_TYPE"
+            },
+            {
+              "type": "text",
+              "text": "TEXT"
+            }
+          ]
+        }
+      ]
+    }
+    EOF
+
+Then execute the following command to send your REST request: 
+    
+    
+    curl -X POST \  
+         -H "Authorization: Bearer $(gcloud auth print-access-token)" \  
+         -H "Content-Type: application/json; charset=utf-8" \  
+         -d @request.json \  
+         "https://aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/global/interactions"
+
+#### PowerShell
+
+**Note:** The following command assumes that you have logged in to the `gcloud` CLI with your user account by running [`gcloud init`](https://docs.cloud.google.com/sdk/gcloud/reference/init) or [`gcloud auth login`](https://docs.cloud.google.com/sdk/gcloud/reference/auth/login) . You can check the currently active account by running [`gcloud auth list`](https://docs.cloud.google.com/sdk/gcloud/reference/auth/list). 
+
+Save the request body in a file named `request.json`. Run the following command in the terminal to create or overwrite this file in the current directory: 
+    
+    
+    @'
+    {
+      "model": "gemini-3.8-flash",
+      "input": [
+        {
+          "type": "user_input",
+          "content": [
+            {
+              "type": "video",
+              "uri": "FILE_URI",
+              "mime_type": "MIME_TYPE"
+            },
+            {
+              "type": "text",
+              "text": "TEXT"
+            }
+          ]
+        }
+      ]
+    }
+    '@  | Out-File -FilePath request.json -Encoding utf8
+
+Then execute the following command to send your REST request: 
+    
+    
+    $cred = gcloud auth print-access-token  
+    $headers = @{ "Authorization" = "Bearer $cred" }  
+      
+    Invoke-WebRequest `  
+        -Method POST `  
+        -Headers $headers `  
+        -ContentType: "application/json; charset=utf-8" `  
+        -InFile request.json `  
+        -Uri "https://aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/global/interactions" | Select-Object -Expand Content
+
+You should receive a JSON response similar to the following.
+
+#### Response
+    
+    
+    {
+      "id": "INTERACTION_ID",
+      "model": "gemini-3.8-flash",
+      "status": "completed",
+      "steps": [
+        {
+          "type": "model_output",
+          "content": [
+            {
+              "type": "text",
+              "text": "The video opens with a shot of a train traveling over a bridge in the night.\n\nThe scene changes to a woman walking in the streets of Tokyo. She says \"My name is Saeko. I am a photographer in Tokyo. Tokyo has many faces. The city at night is totally different from what you see during the day. The new Pixel has a feature called 'Video Boost'. In low light, it activates 'Night Sight' to make the quality even better.\"\n\nShe then uses her phone to take several photos of different parts of the city including a street with a lot of shops, a small alleyway, and a small restaurant. She says \"Sancha is where I used to live when I first moved to Tokyo. I have a lot of great memories here. Oh, I like this.\"\n\nShe smiles and says \"Beautiful\".\n\nThe video ends with the woman standing in a different part of the city. She says \"Next, I came to Shibuya.\" The scene shows the famous Shibuya crossing in the night.\n\nThe video features a woman showcasing the camera features of the Google Pixel phone while walking around the streets of Tokyo. She mentions \"Night Sight\" and \"Video Boost\" features.\n"
+            }
+          ]
+        }
+      ],
+      "usage": {
+        "total_tokens": 28977,
+        "total_input_tokens": 28916,
+        "input_tokens_by_modality": [
+          {
+            "modality": "video",
+            "tokens": 28900
+          },
+          {
+            "modality": "text",
+            "tokens": 16
+          }
+        ],
+        "total_output_tokens": 61,
+        "output_tokens_by_modality": [
+          {
+            "modality": "text",
+            "tokens": 61
+          }
+        ]
+      },
+      "object": "interaction",
+      "created": "2026-05-29T02:17:56Z",
+      "updated": "2026-05-29T02:17:56Z"
     }
     
 
@@ -1138,7 +1496,14 @@ By default, 1 frame per second (FPS) is sampled from the video. You might want t
 
 You can use agentic video understanding and static processing for different videos in the same request. For example, if you have long-form videos (such as an hour-long lecture) and short-form video content (like YouTube Shorts), you can use agentic video understanding on the long-form videos to target contextually relevant information and static processing on the short-form video content for frame-level precision.
 
-Video context must be preserved across turns in a conversation. When using agentic processing with the GenerateContent API, the response may include opaque steps (`step_list`) that encode video context. You must include these steps in the following turn to preserve context. If you omit them, the video context is lost and the model cannot answer follow-up questions about the video without reprocessing it.
+Video context must be preserved across turns in a conversation:
+
+  * **Interactions API** : By default, stateful interactions preserve video context automatically when using `previous_interaction_id`. For stateless requests (when not using `previous_interaction_id`), the response includes `steps` that encode video context; you must pass these steps into the following turn to preserve context.
+  * **GenerateContent API** : You must pass the full conversation history (all preceding `contents` turns) in each subsequent request to preserve context.
+
+
+
+If video context is omitted in a follow-up turn, the model can't answer questions about the video without reprocessing it.
 
 ### Supported models and file types
 
@@ -1185,9 +1550,11 @@ Keep the default static processing (`media_processing = "STATIC"`) when:
 
 ### Use agentic video understanding
 
-You can use agentic video understanding using the GenerateContent API. Use [`media_processing = "AGENTIC"`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/models/inference#parts) in the request:
+You can enable agentic video understanding by setting `"processing": "agentic"` in the Interactions API or [`media_processing = "AGENTIC"`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/models/inference#parts) in the GenerateContent API:
 
-###  Python 
+### Python
+
+#### GenerateContent API
     
     
     from google import genai
@@ -1212,16 +1579,60 @@ You can use agentic video understanding using the GenerateContent API. Use [`med
       ]
     )
     print(response.text)
-    
 
-###  REST 
+#### Interactions API
     
     
-    curl -X POST \
-    -H "Authorization: Bearer $(gcloud auth print-access-token)" \
-    -H "Content-Type: application/json" \
-    https://aiplatform.googleapis.com/v1beta1/projects/YOUR_PROJECT_ID/locations/global/publishers/google/models/gemini-3.7-flash:generateContent \
-    -d '{
+    from google import genai
+    
+    client = genai.Client(
+        enterprise=True,
+        project="PROJECT_ID",
+        location="global",
+    )
+    
+    # Example: Controlling video processing explicitly
+    interaction = client.interactions.create(
+        model="gemini-3.8-flash",
+        input=[
+            {
+                "type": "video",
+                "uri": "gs://my-bucket-name/sports_clip.mp4",
+                "mime_type": "video/mp4",
+                "processing": "agentic",  # Options: "agentic", "static"
+            },
+            {
+                "type": "text",
+                "text": "Analyze the player's footwork right before the shot.",
+            },
+        ],
+        generation_config={
+            "thinking_level": "medium",
+        },
+    )
+    print(interaction.output_text)
+
+### REST
+
+#### GenerateContent API
+
+Before using any of the request data, make the following replacements: 
+
+  * PROJECT_ID: Your [project ID](https://docs.cloud.google.com/resource-manager/docs/creating-managing-projects#identifiers).
+
+
+
+To send your request, choose one of these options:
+
+#### curl
+
+**Note:** The following command assumes that you have logged in to the `gcloud` CLI with your user account by running [`gcloud init`](https://docs.cloud.google.com/sdk/gcloud/reference/init) or [`gcloud auth login`](https://docs.cloud.google.com/sdk/gcloud/reference/auth/login) , or by using [Cloud Shell](https://docs.cloud.google.com/shell/docs), which automatically logs you into the `gcloud` CLI . You can check the currently active account by running [`gcloud auth list`](https://docs.cloud.google.com/sdk/gcloud/reference/auth/list). 
+
+Save the request body in a file named `request.json`. Run the following command in the terminal to create or overwrite this file in the current directory: 
+    
+    
+    cat > request.json << 'EOF'
+    {
       "contents": [
         {
           "role": "USER",
@@ -1242,10 +1653,162 @@ You can use agentic video understanding using the GenerateContent API. Use [`med
       "generationConfig": {
         "thinkingLevel": "MEDIUM"
       }
-    }'
-    
+    }
+    EOF
 
-**Important:** Agentic video understanding is only available in `v1beta1`, not `v1`.
+Then execute the following command to send your REST request: 
+    
+    
+    curl -X POST \  
+         -H "Authorization: Bearer $(gcloud auth print-access-token)" \  
+         -H "Content-Type: application/json; charset=utf-8" \  
+         -d @request.json \  
+         "https://aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/global/publishers/google/models/gemini-3.7-flash:generateContent"
+
+#### PowerShell
+
+**Note:** The following command assumes that you have logged in to the `gcloud` CLI with your user account by running [`gcloud init`](https://docs.cloud.google.com/sdk/gcloud/reference/init) or [`gcloud auth login`](https://docs.cloud.google.com/sdk/gcloud/reference/auth/login) . You can check the currently active account by running [`gcloud auth list`](https://docs.cloud.google.com/sdk/gcloud/reference/auth/list). 
+
+Save the request body in a file named `request.json`. Run the following command in the terminal to create or overwrite this file in the current directory: 
+    
+    
+    @'
+    {
+      "contents": [
+        {
+          "role": "USER",
+          "parts": [
+            {
+              "fileData": {
+                "mimeType": "video/mp4",
+                "fileUri": "gs://my-bucket/lecture.mp4"
+              },
+              "mediaProcessing": "AGENTIC"
+            },
+            {
+              "text": "Summarize the key takeaways."
+            }
+          ]
+        }
+      ],
+      "generationConfig": {
+        "thinkingLevel": "MEDIUM"
+      }
+    }
+    '@  | Out-File -FilePath request.json -Encoding utf8
+
+Then execute the following command to send your REST request: 
+    
+    
+    $cred = gcloud auth print-access-token  
+    $headers = @{ "Authorization" = "Bearer $cred" }  
+      
+    Invoke-WebRequest `  
+        -Method POST `  
+        -Headers $headers `  
+        -ContentType: "application/json; charset=utf-8" `  
+        -InFile request.json `  
+        -Uri "https://aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/global/publishers/google/models/gemini-3.7-flash:generateContent" | Select-Object -Expand Content
+
+#### Interactions API
+
+Before using any of the request data, make the following replacements: 
+
+  * PROJECT_ID: Your [project ID](https://docs.cloud.google.com/resource-manager/docs/creating-managing-projects#identifiers).
+
+
+
+To send your request, choose one of these options:
+
+#### curl
+
+**Note:** The following command assumes that you have logged in to the `gcloud` CLI with your user account by running [`gcloud init`](https://docs.cloud.google.com/sdk/gcloud/reference/init) or [`gcloud auth login`](https://docs.cloud.google.com/sdk/gcloud/reference/auth/login) , or by using [Cloud Shell](https://docs.cloud.google.com/shell/docs), which automatically logs you into the `gcloud` CLI . You can check the currently active account by running [`gcloud auth list`](https://docs.cloud.google.com/sdk/gcloud/reference/auth/list). 
+
+Save the request body in a file named `request.json`. Run the following command in the terminal to create or overwrite this file in the current directory: 
+    
+    
+    cat > request.json << 'EOF'
+    {
+      "model": "gemini-3.8-flash",
+      "input": [
+        {
+          "type": "user_input",
+          "content": [
+            {
+              "type": "video",
+              "mime_type": "video/mp4",
+              "uri": "gs://my-bucket/lecture.mp4",
+              "processing": "agentic"
+            },
+            {
+              "type": "text",
+              "text": "Summarize the key takeaways."
+            }
+          ]
+        }
+      ],
+      "generation_config": {
+        "thinking_level": "medium"
+      }
+    }
+    EOF
+
+Then execute the following command to send your REST request: 
+    
+    
+    curl -X POST \  
+         -H "Authorization: Bearer $(gcloud auth print-access-token)" \  
+         -H "Content-Type: application/json; charset=utf-8" \  
+         -d @request.json \  
+         "https://aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/global/interactions"
+
+#### PowerShell
+
+**Note:** The following command assumes that you have logged in to the `gcloud` CLI with your user account by running [`gcloud init`](https://docs.cloud.google.com/sdk/gcloud/reference/init) or [`gcloud auth login`](https://docs.cloud.google.com/sdk/gcloud/reference/auth/login) . You can check the currently active account by running [`gcloud auth list`](https://docs.cloud.google.com/sdk/gcloud/reference/auth/list). 
+
+Save the request body in a file named `request.json`. Run the following command in the terminal to create or overwrite this file in the current directory: 
+    
+    
+    @'
+    {
+      "model": "gemini-3.8-flash",
+      "input": [
+        {
+          "type": "user_input",
+          "content": [
+            {
+              "type": "video",
+              "mime_type": "video/mp4",
+              "uri": "gs://my-bucket/lecture.mp4",
+              "processing": "agentic"
+            },
+            {
+              "type": "text",
+              "text": "Summarize the key takeaways."
+            }
+          ]
+        }
+      ],
+      "generation_config": {
+        "thinking_level": "medium"
+      }
+    }
+    '@  | Out-File -FilePath request.json -Encoding utf8
+
+Then execute the following command to send your REST request: 
+    
+    
+    $cred = gcloud auth print-access-token  
+    $headers = @{ "Authorization" = "Bearer $cred" }  
+      
+    Invoke-WebRequest `  
+        -Method POST `  
+        -Headers $headers `  
+        -ContentType: "application/json; charset=utf-8" `  
+        -InFile request.json `  
+        -Uri "https://aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/global/interactions" | Select-Object -Expand Content
+
+Agentic video understanding is only available in `v1beta1`, not `v1`.
 
 Agentic video understanding is set to `STATIC` or disabled by default for all supported models.
 
@@ -1279,6 +1842,8 @@ The following resolutions are available for Gemini 3 models:
 For models earlier than Gemini 3, each frame is tokenized at 258 tokens per frame for default resolution, or 66 tokens per frame for low resolution.
 
 This code sample demonstrates how to adjust `media_resolution`:
+
+#### GenerateContent API
     
     
     from google import genai
@@ -1298,7 +1863,7 @@ This code sample demonstrates how to adjust `media_resolution`:
                   level=types.PartMediaResolutionLevel.MEDIA_RESOLUTION_HIGH
               ),
           ),
-          Part(
+          types.Part(
               file_data=types.FileData(
                   file_uri="gs://cloud-samples-data/generative-ai/video/behind_the_scenes_pixel.mp4",
                   mime_type="video/mp4",
@@ -1311,6 +1876,40 @@ This code sample demonstrates how to adjust `media_resolution`:
       ],
     )
     print(response.text)
+
+#### Interactions API
+    
+    
+    from google import genai
+    
+    client = genai.Client(
+        enterprise=True,
+        project="PROJECT_ID",
+        location="global",
+    )
+    
+    interaction = client.interactions.create(
+        model="gemini-3.8-flash",
+        input=[
+            {
+                "type": "image",
+                "uri": "gs://cloud-samples-data/generative-ai/image/a-man-and-a-dog.png",
+                "mime_type": "image/png",
+                "resolution": "high",  # Options: "low", "medium", "high", "ultra_high"
+            },
+            {
+                "type": "video",
+                "uri": "gs://cloud-samples-data/generative-ai/video/behind_the_scenes_pixel.mp4",
+                "mime_type": "video/mp4",
+                "resolution": "low",  # Options: "low", "medium", "high", "ultra_high"
+            },
+            {
+                "type": "text",
+                "text": "When does the image appear in the video? What is the context?",
+            },
+        ],
+    )
+    print(interaction.output_text)
 
 ## Best practices
 
@@ -1374,6 +1973,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-02 UTC.
+Last updated 2026-11-04 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-02 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 

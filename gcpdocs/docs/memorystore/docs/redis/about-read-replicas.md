@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/memorystore/docs/redis/about-read-replicas/
 title: About read replicas \u00a0|\u00a0 Memorystore for Redis \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T21:59:14.166428+00:00
+fetched_at: 2026-11-04T23:28:55.151729+00:00
 ---
 
 # About read replicas  |  Memorystore for Redis  |  Google Cloud Documentation
@@ -58,11 +58,11 @@ Session store, leaderboard, recommendation engine, and other use cases require t
 
 When [enabling read replicas](https://docs.cloud.google.com/memorystore/docs/redis/manage-read-replicas#enable_read_replicas_on_existing_redis_instances), you specify the number of replicas you want in the instance. Memorystore automatically distributes the primary and read replica nodes across available zones in a region.
 
-![](https://docs.cloud.google.com/static/memorystore/img/standard-tier-read-replicas.png)
+![Architecture diagram showing Memorystore for Redis Standard Tier with read replicas](https://docs.cloud.google.com/static/memorystore/img/standard-tier-read-replicas.png)
 
-**Note:** Memorystore does not charge for cross-zone data transfer from Memorystore, but you are charged for cross-zone data transfer from the application VM to Memorystore instances. See [pricing](https://cloud.google.com/memorystore/docs/redis/pricing) for details.
+**Note:** Memorystore does not charge for cross-zone data transfer from Memorystore, but you are charged for cross-zone data transfer from the application VM to Memorystore instances. See [pricing](https://docs.cloud.google.com/memorystore/docs/redis/pricing) for details.
 
-Each instance has a primary endpoint and read endpoint. The primary endpoint always directs traffic to the primary node, while the read endpoint automatically load-balances read queries across available replicas.
+Each instance has a primary endpoint and read endpoint. The primary endpoint always directs traffic to the primary node, while the read endpoint automatically load-balances read queries across available replicas. In the diagram, read and write traffic to the primary endpoint is shown in blue, and read traffic to the read endpoint and replicas is shown in green.
 
 The Memorystore for Redis health monitoring service monitors the instance and is responsible for detecting any failure of the primary node, and elects a replica as the new primary and initiates an automatic failover to the new primary.
 
@@ -209,6 +209,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-04 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 

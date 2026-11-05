@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/spycloud/
 title: Collect SpyCloud logs \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T07:53:23.095793+00:00
+fetched_at: 2026-11-04T23:44:08.622267+00:00
 ---
 
 # Collect SpyCloud logs  |  Google Security Operations  |  Google Cloud Documentation

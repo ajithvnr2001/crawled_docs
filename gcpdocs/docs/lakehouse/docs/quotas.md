@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/lakehouse/docs/quotas/
 title: Quotas and system limits for borderless Lakehouse \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-01T05:44:58.859092+00:00
+fetched_at: 2026-11-04T23:20:49.015935+00:00
 ---
 
 # Quotas and system limits for borderless Lakehouse  |  Google Cloud Documentation
@@ -72,13 +72,15 @@ Replace the following:
 
 To adjust most quotas, use the Google Cloud console. For more information, see [Request a quota adjustment](https://docs.cloud.google.com/docs/quotas/help/request_increase). 
 
+If a quota is not adjustable in the Google Cloud console, email [biglake-help@google.com](mailto:biglake-help@google.com).
+
 ## Quotas
 
 The following quotas apply to Lakehouse:
 
 ### Lakehouse runtime catalog
 
-The following limits apply to Lakehouse runtime catalog:
+The following quotas apply to Lakehouse runtime catalog:
 
 Limit | Default | Notes  
 ---|---|---  
@@ -99,20 +101,19 @@ Maximum number of columns per table | 10,000 columns | Each table, query result,
   
 ### Cross-cloud data access
 
-****
-
-This product or feature is subject to the "Pre-GA Offerings Terms" in the General Service Terms section of the [Service Specific Terms](https://docs.cloud.google.com/terms/service-terms#1). Pre-GA products and features are available "as is" and might have limited support. For more information, see the [launch stage descriptions](https://cloud.google.com/products/#product-launch-stages). 
-
-**Note:** For support during the preview, email [biglake-help@google.com](mailto:biglake-help@google.com).Quota | Value  
+Quota | Value  
 ---|---  
 Maximum total number of namespaces in a federated catalog | 100 namespaces  
 Maximum number of tables per namespace in a federated catalog | 300 tables per namespace  
-Maximum total number of tables in a federated catalog | 10,000 tables  
 Maximum number of namespace filters in a federated catalog | 16 namespace filters  
   
 ## System limits
 
-The following table lists the system limits that apply to _Lakehouse_ and the value for each system limit:
+The following system limits apply to Lakehouse:
+
+### Lakehouse runtime catalog
+
+The following system limits apply to Lakehouse runtime catalog:
 
 System limit | Value  
 ---|---  
@@ -122,6 +123,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-27 UTC.
+Last updated 2026-11-04 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 

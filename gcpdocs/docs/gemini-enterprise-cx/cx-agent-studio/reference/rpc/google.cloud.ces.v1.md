@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-cx/cx-agent-studio/reference/rpc/google.cloud.ces.v1
 title: Package google.cloud.ces.v1 \u00a0|\u00a0 CX Agent Studio \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-14T23:19:12.125279+00:00
+fetched_at: 2026-11-04T23:28:16.949244+00:00
 ---
 
 # Package google.cloud.ces.v1  |  CX Agent Studio  |  Google Cloud Documentation
@@ -51,6 +51,15 @@ Send feedback
   * `[App.VariableDeclaration](https://docs.cloud.google.com/gemini-enterprise-cx/cx-agent-studio/reference/rpc/google.cloud.ces.v1#google.cloud.ces.v1.App.VariableDeclaration)` (message)
   * `[AppSnapshot](https://docs.cloud.google.com/gemini-enterprise-cx/cx-agent-studio/reference/rpc/google.cloud.ces.v1#google.cloud.ces.v1.AppSnapshot)` (message)
   * `[AppVersion](https://docs.cloud.google.com/gemini-enterprise-cx/cx-agent-studio/reference/rpc/google.cloud.ces.v1#google.cloud.ces.v1.AppVersion)` (message)
+  * `[ArtifactChunk](https://docs.cloud.google.com/gemini-enterprise-cx/cx-agent-studio/reference/rpc/google.cloud.ces.v1#google.cloud.ces.v1.ArtifactChunk)` (message)
+  * `[ArtifactChunk.State](https://docs.cloud.google.com/gemini-enterprise-cx/cx-agent-studio/reference/rpc/google.cloud.ces.v1#google.cloud.ces.v1.ArtifactChunk.State)` (enum)
+  * `[AssistantConfirmationRequest](https://docs.cloud.google.com/gemini-enterprise-cx/cx-agent-studio/reference/rpc/google.cloud.ces.v1#google.cloud.ces.v1.AssistantConfirmationRequest)` (message)
+  * `[AssistantConfirmationRequest.Target](https://docs.cloud.google.com/gemini-enterprise-cx/cx-agent-studio/reference/rpc/google.cloud.ces.v1#google.cloud.ces.v1.AssistantConfirmationRequest.Target)` (message)
+  * `[AssistantConfirmationResponse](https://docs.cloud.google.com/gemini-enterprise-cx/cx-agent-studio/reference/rpc/google.cloud.ces.v1#google.cloud.ces.v1.AssistantConfirmationResponse)` (message)
+  * `[AssistantSuggestion](https://docs.cloud.google.com/gemini-enterprise-cx/cx-agent-studio/reference/rpc/google.cloud.ces.v1#google.cloud.ces.v1.AssistantSuggestion)` (message)
+  * `[AssistantSuggestion.Icon](https://docs.cloud.google.com/gemini-enterprise-cx/cx-agent-studio/reference/rpc/google.cloud.ces.v1#google.cloud.ces.v1.AssistantSuggestion.Icon)` (enum)
+  * `[AssistantSuggestion.LoadSession](https://docs.cloud.google.com/gemini-enterprise-cx/cx-agent-studio/reference/rpc/google.cloud.ces.v1#google.cloud.ces.v1.AssistantSuggestion.LoadSession)` (message)
+  * `[AssistantSuggestion.Source](https://docs.cloud.google.com/gemini-enterprise-cx/cx-agent-studio/reference/rpc/google.cloud.ces.v1#google.cloud.ces.v1.AssistantSuggestion.Source)` (enum)
   * `[AudioEncoding](https://docs.cloud.google.com/gemini-enterprise-cx/cx-agent-studio/reference/rpc/google.cloud.ces.v1#google.cloud.ces.v1.AudioEncoding)` (enum)
   * `[AudioProcessingConfig](https://docs.cloud.google.com/gemini-enterprise-cx/cx-agent-studio/reference/rpc/google.cloud.ces.v1#google.cloud.ces.v1.AudioProcessingConfig)` (message)
   * `[AudioRecordingConfig](https://docs.cloud.google.com/gemini-enterprise-cx/cx-agent-studio/reference/rpc/google.cloud.ces.v1#google.cloud.ces.v1.AudioRecordingConfig)` (message)
@@ -63,6 +72,8 @@ Send feedback
   * `[BigQueryExportSettings](https://docs.cloud.google.com/gemini-enterprise-cx/cx-agent-studio/reference/rpc/google.cloud.ces.v1#google.cloud.ces.v1.BigQueryExportSettings)` (message)
   * `[Blob](https://docs.cloud.google.com/gemini-enterprise-cx/cx-agent-studio/reference/rpc/google.cloud.ces.v1#google.cloud.ces.v1.Blob)` (message)
   * `[Callback](https://docs.cloud.google.com/gemini-enterprise-cx/cx-agent-studio/reference/rpc/google.cloud.ces.v1#google.cloud.ces.v1.Callback)` (message)
+  * `[CancelAssistantTurnRequest](https://docs.cloud.google.com/gemini-enterprise-cx/cx-agent-studio/reference/rpc/google.cloud.ces.v1#google.cloud.ces.v1.CancelAssistantTurnRequest)` (message)
+  * `[CancelAssistantTurnResponse](https://docs.cloud.google.com/gemini-enterprise-cx/cx-agent-studio/reference/rpc/google.cloud.ces.v1#google.cloud.ces.v1.CancelAssistantTurnResponse)` (message)
   * `[Changelog](https://docs.cloud.google.com/gemini-enterprise-cx/cx-agent-studio/reference/rpc/google.cloud.ces.v1#google.cloud.ces.v1.Changelog)` (message)
   * `[ChannelProfile](https://docs.cloud.google.com/gemini-enterprise-cx/cx-agent-studio/reference/rpc/google.cloud.ces.v1#google.cloud.ces.v1.ChannelProfile)` (message)
   * `[ChannelProfile.ChannelType](https://docs.cloud.google.com/gemini-enterprise-cx/cx-agent-studio/reference/rpc/google.cloud.ces.v1#google.cloud.ces.v1.ChannelProfile.ChannelType)` (enum)
@@ -174,6 +185,9 @@ Send feedback
   * `[FileSearchTool.CorpusType](https://docs.cloud.google.com/gemini-enterprise-cx/cx-agent-studio/reference/rpc/google.cloud.ces.v1#google.cloud.ces.v1.FileSearchTool.CorpusType)` (enum)
   * `[GenerateChatTokenRequest](https://docs.cloud.google.com/gemini-enterprise-cx/cx-agent-studio/reference/rpc/google.cloud.ces.v1#google.cloud.ces.v1.GenerateChatTokenRequest)` (message)
   * `[GenerateChatTokenResponse](https://docs.cloud.google.com/gemini-enterprise-cx/cx-agent-studio/reference/rpc/google.cloud.ces.v1#google.cloud.ces.v1.GenerateChatTokenResponse)` (message)
+  * `[GenerateOnboardingSuggestionsRequest](https://docs.cloud.google.com/gemini-enterprise-cx/cx-agent-studio/reference/rpc/google.cloud.ces.v1#google.cloud.ces.v1.GenerateOnboardingSuggestionsRequest)` (message)
+  * `[GenerateOnboardingSuggestionsResponse](https://docs.cloud.google.com/gemini-enterprise-cx/cx-agent-studio/reference/rpc/google.cloud.ces.v1#google.cloud.ces.v1.GenerateOnboardingSuggestionsResponse)` (message)
+  * `[GenerateOnboardingSuggestionsResponse.UserProfile](https://docs.cloud.google.com/gemini-enterprise-cx/cx-agent-studio/reference/rpc/google.cloud.ces.v1#google.cloud.ces.v1.GenerateOnboardingSuggestionsResponse.UserProfile)` (enum)
   * `[GetAgentRequest](https://docs.cloud.google.com/gemini-enterprise-cx/cx-agent-studio/reference/rpc/google.cloud.ces.v1#google.cloud.ces.v1.GetAgentRequest)` (message)
   * `[GetAppRequest](https://docs.cloud.google.com/gemini-enterprise-cx/cx-agent-studio/reference/rpc/google.cloud.ces.v1#google.cloud.ces.v1.GetAppRequest)` (message)
   * `[GetAppVersionRequest](https://docs.cloud.google.com/gemini-enterprise-cx/cx-agent-studio/reference/rpc/google.cloud.ces.v1#google.cloud.ces.v1.GetAppVersionRequest)` (message)
@@ -249,7 +263,11 @@ Send feedback
   * `[OAuthConfig.OauthGrantType](https://docs.cloud.google.com/gemini-enterprise-cx/cx-agent-studio/reference/rpc/google.cloud.ces.v1#google.cloud.ces.v1.OAuthConfig.OauthGrantType)` (enum)
   * `[OpenApiTool](https://docs.cloud.google.com/gemini-enterprise-cx/cx-agent-studio/reference/rpc/google.cloud.ces.v1#google.cloud.ces.v1.OpenApiTool)` (message)
   * `[OpenApiToolset](https://docs.cloud.google.com/gemini-enterprise-cx/cx-agent-studio/reference/rpc/google.cloud.ces.v1#google.cloud.ces.v1.OpenApiToolset)` (message)
+  * `[OperationCompletedEvent](https://docs.cloud.google.com/gemini-enterprise-cx/cx-agent-studio/reference/rpc/google.cloud.ces.v1#google.cloud.ces.v1.OperationCompletedEvent)` (message)
   * `[OperationMetadata](https://docs.cloud.google.com/gemini-enterprise-cx/cx-agent-studio/reference/rpc/google.cloud.ces.v1#google.cloud.ces.v1.OperationMetadata)` (message)
+  * `[OptionQuestionsChunk](https://docs.cloud.google.com/gemini-enterprise-cx/cx-agent-studio/reference/rpc/google.cloud.ces.v1#google.cloud.ces.v1.OptionQuestionsChunk)` (message)
+  * `[OptionQuestionsChunk.Option](https://docs.cloud.google.com/gemini-enterprise-cx/cx-agent-studio/reference/rpc/google.cloud.ces.v1#google.cloud.ces.v1.OptionQuestionsChunk.Option)` (message)
+  * `[OptionQuestionsChunk.Question](https://docs.cloud.google.com/gemini-enterprise-cx/cx-agent-studio/reference/rpc/google.cloud.ces.v1#google.cloud.ces.v1.OptionQuestionsChunk.Question)` (message)
   * `[OutputAudioConfig](https://docs.cloud.google.com/gemini-enterprise-cx/cx-agent-studio/reference/rpc/google.cloud.ces.v1#google.cloud.ces.v1.OutputAudioConfig)` (message)
   * `[PythonCodeCondition](https://docs.cloud.google.com/gemini-enterprise-cx/cx-agent-studio/reference/rpc/google.cloud.ces.v1#google.cloud.ces.v1.PythonCodeCondition)` (message)
   * `[PythonFunction](https://docs.cloud.google.com/gemini-enterprise-cx/cx-agent-studio/reference/rpc/google.cloud.ces.v1#google.cloud.ces.v1.PythonFunction)` (message)
@@ -271,12 +289,17 @@ Send feedback
   * `[ServiceAccountAuthConfig](https://docs.cloud.google.com/gemini-enterprise-cx/cx-agent-studio/reference/rpc/google.cloud.ces.v1#google.cloud.ces.v1.ServiceAccountAuthConfig)` (message)
   * `[ServiceAgentIdTokenAuthConfig](https://docs.cloud.google.com/gemini-enterprise-cx/cx-agent-studio/reference/rpc/google.cloud.ces.v1#google.cloud.ces.v1.ServiceAgentIdTokenAuthConfig)` (message)
   * `[ServiceDirectoryConfig](https://docs.cloud.google.com/gemini-enterprise-cx/cx-agent-studio/reference/rpc/google.cloud.ces.v1#google.cloud.ces.v1.ServiceDirectoryConfig)` (message)
+  * `[SessionCheckpoint](https://docs.cloud.google.com/gemini-enterprise-cx/cx-agent-studio/reference/rpc/google.cloud.ces.v1#google.cloud.ces.v1.SessionCheckpoint)` (message)
   * `[SessionConfig](https://docs.cloud.google.com/gemini-enterprise-cx/cx-agent-studio/reference/rpc/google.cloud.ces.v1#google.cloud.ces.v1.SessionConfig)` (message)
   * `[SessionConfig.RemoteDialogflowQueryParameters](https://docs.cloud.google.com/gemini-enterprise-cx/cx-agent-studio/reference/rpc/google.cloud.ces.v1#google.cloud.ces.v1.SessionConfig.RemoteDialogflowQueryParameters)` (message)
   * `[SessionInput](https://docs.cloud.google.com/gemini-enterprise-cx/cx-agent-studio/reference/rpc/google.cloud.ces.v1#google.cloud.ces.v1.SessionInput)` (message)
+  * `[SessionInput.RecordingControl](https://docs.cloud.google.com/gemini-enterprise-cx/cx-agent-studio/reference/rpc/google.cloud.ces.v1#google.cloud.ces.v1.SessionInput.RecordingControl)` (enum)
   * `[SessionOutput](https://docs.cloud.google.com/gemini-enterprise-cx/cx-agent-studio/reference/rpc/google.cloud.ces.v1#google.cloud.ces.v1.SessionOutput)` (message)
   * `[SessionOutput.DiagnosticInfo](https://docs.cloud.google.com/gemini-enterprise-cx/cx-agent-studio/reference/rpc/google.cloud.ces.v1#google.cloud.ces.v1.SessionOutput.DiagnosticInfo)` (message)
   * `[Span](https://docs.cloud.google.com/gemini-enterprise-cx/cx-agent-studio/reference/rpc/google.cloud.ces.v1#google.cloud.ces.v1.Span)` (message)
+  * `[StreamChatAiAssistantRequest](https://docs.cloud.google.com/gemini-enterprise-cx/cx-agent-studio/reference/rpc/google.cloud.ces.v1#google.cloud.ces.v1.StreamChatAiAssistantRequest)` (message)
+  * `[StreamChatAiAssistantRequest.ClientCapability](https://docs.cloud.google.com/gemini-enterprise-cx/cx-agent-studio/reference/rpc/google.cloud.ces.v1#google.cloud.ces.v1.StreamChatAiAssistantRequest.ClientCapability)` (enum)
+  * `[StreamChatAiAssistantResponse](https://docs.cloud.google.com/gemini-enterprise-cx/cx-agent-studio/reference/rpc/google.cloud.ces.v1#google.cloud.ces.v1.StreamChatAiAssistantResponse)` (message)
   * `[SynthesizeSpeechConfig](https://docs.cloud.google.com/gemini-enterprise-cx/cx-agent-studio/reference/rpc/google.cloud.ces.v1#google.cloud.ces.v1.SynthesizeSpeechConfig)` (message)
   * `[SystemTool](https://docs.cloud.google.com/gemini-enterprise-cx/cx-agent-studio/reference/rpc/google.cloud.ces.v1#google.cloud.ces.v1.SystemTool)` (message)
   * `[TimeZoneSettings](https://docs.cloud.google.com/gemini-enterprise-cx/cx-agent-studio/reference/rpc/google.cloud.ces.v1#google.cloud.ces.v1.TimeZoneSettings)` (message)
@@ -299,6 +322,14 @@ Send feedback
   * `[TriggerAction.RespondImmediately](https://docs.cloud.google.com/gemini-enterprise-cx/cx-agent-studio/reference/rpc/google.cloud.ces.v1#google.cloud.ces.v1.TriggerAction.RespondImmediately)` (message)
   * `[TriggerAction.Response](https://docs.cloud.google.com/gemini-enterprise-cx/cx-agent-studio/reference/rpc/google.cloud.ces.v1#google.cloud.ces.v1.TriggerAction.Response)` (message)
   * `[TriggerAction.TransferAgent](https://docs.cloud.google.com/gemini-enterprise-cx/cx-agent-studio/reference/rpc/google.cloud.ces.v1#google.cloud.ces.v1.TriggerAction.TransferAgent)` (message)
+  * `[TurnCompletedEvent](https://docs.cloud.google.com/gemini-enterprise-cx/cx-agent-studio/reference/rpc/google.cloud.ces.v1#google.cloud.ces.v1.TurnCompletedEvent)` (message)
+  * `[TurnCompletedEvent.Reason](https://docs.cloud.google.com/gemini-enterprise-cx/cx-agent-studio/reference/rpc/google.cloud.ces.v1#google.cloud.ces.v1.TurnCompletedEvent.Reason)` (enum)
+  * `[TurnHandoffEvent](https://docs.cloud.google.com/gemini-enterprise-cx/cx-agent-studio/reference/rpc/google.cloud.ces.v1#google.cloud.ces.v1.TurnHandoffEvent)` (message)
+  * `[TurnHandoffEvent.Reason](https://docs.cloud.google.com/gemini-enterprise-cx/cx-agent-studio/reference/rpc/google.cloud.ces.v1#google.cloud.ces.v1.TurnHandoffEvent.Reason)` (enum)
+  * `[TurnMetadata](https://docs.cloud.google.com/gemini-enterprise-cx/cx-agent-studio/reference/rpc/google.cloud.ces.v1#google.cloud.ces.v1.TurnMetadata)` (message)
+  * `[TurnMetadata.ContractStreamingPhase](https://docs.cloud.google.com/gemini-enterprise-cx/cx-agent-studio/reference/rpc/google.cloud.ces.v1#google.cloud.ces.v1.TurnMetadata.ContractStreamingPhase)` (enum)
+  * `[TurnResumeSnapshot](https://docs.cloud.google.com/gemini-enterprise-cx/cx-agent-studio/reference/rpc/google.cloud.ces.v1#google.cloud.ces.v1.TurnResumeSnapshot)` (message)
+  * `[UiEvent](https://docs.cloud.google.com/gemini-enterprise-cx/cx-agent-studio/reference/rpc/google.cloud.ces.v1#google.cloud.ces.v1.UiEvent)` (message)
   * `[UpdateAgentRequest](https://docs.cloud.google.com/gemini-enterprise-cx/cx-agent-studio/reference/rpc/google.cloud.ces.v1#google.cloud.ces.v1.UpdateAgentRequest)` (message)
   * `[UpdateAppRequest](https://docs.cloud.google.com/gemini-enterprise-cx/cx-agent-studio/reference/rpc/google.cloud.ces.v1#google.cloud.ces.v1.UpdateAppRequest)` (message)
   * `[UpdateAppVersionRequest](https://docs.cloud.google.com/gemini-enterprise-cx/cx-agent-studio/reference/rpc/google.cloud.ces.v1#google.cloud.ces.v1.UpdateAppVersionRequest)` (message)
@@ -1237,6 +1268,42 @@ IAM Permissions
   * `ces.sessions.bidiRunSession`
 
 For more information, see the [IAM documentation](https://cloud.google.com/iam/docs).  
+CancelAssistantTurn  
+---  
+` rpc CancelAssistantTurn(`[CancelAssistantTurnRequest](https://docs.cloud.google.com/gemini-enterprise-cx/cx-agent-studio/reference/rpc/google.cloud.ces.v1#google.cloud.ces.v1.CancelAssistantTurnRequest)`) returns (`[CancelAssistantTurnResponse](https://docs.cloud.google.com/gemini-enterprise-cx/cx-agent-studio/reference/rpc/google.cloud.ces.v1#google.cloud.ces.v1.CancelAssistantTurnResponse)`) ` Cancels the assistant session's in-flight turn, if any: the explicit user stop for a turn running detached from any stream. A cancel landing on a task that does not host the turn preempts it through the session turn epoch instead, ending it within one lease renewal.
+
+Authorization scopes
+     Requires one of the following OAuth scopes:
+
+  * `https://www.googleapis.com/auth/cloud-platform`
+  * ` https://www.googleapis.com/auth/ces`
+
+For more information, see the [Authentication Overview](https://docs.cloud.google.com/docs/authentication#authorization-gcp).
+
+IAM Permissions
+     Requires the following [IAM](https://cloud.google.com/iam/docs) permission on the `name` resource:
+
+  * `ces.assistantSessions.get`
+
+For more information, see the [IAM documentation](https://cloud.google.com/iam/docs).  
+GenerateOnboardingSuggestions  
+---  
+` rpc GenerateOnboardingSuggestions(`[GenerateOnboardingSuggestionsRequest](https://docs.cloud.google.com/gemini-enterprise-cx/cx-agent-studio/reference/rpc/google.cloud.ces.v1#google.cloud.ces.v1.GenerateOnboardingSuggestionsRequest)`) returns (`[GenerateOnboardingSuggestionsResponse](https://docs.cloud.google.com/gemini-enterprise-cx/cx-agent-studio/reference/rpc/google.cloud.ces.v1#google.cloud.ces.v1.GenerateOnboardingSuggestionsResponse)`) ` Generates personalized onboarding suggestions for the Arc zero state: classifies the requesting user (new / exploring / returning) from their assistant-session history in the app and returns suggestion chips (resume a session, continue work, or start something new) to render before any message is sent.
+
+Authorization scopes
+     Requires one of the following OAuth scopes:
+
+  * `https://www.googleapis.com/auth/cloud-platform`
+  * ` https://www.googleapis.com/auth/ces`
+
+For more information, see the [Authentication Overview](https://docs.cloud.google.com/docs/authentication#authorization-gcp).
+
+IAM Permissions
+     Requires the following [IAM](https://cloud.google.com/iam/docs) permission on the `name` resource:
+
+  * `ces.assistantSessions.list`
+
+For more information, see the [IAM documentation](https://cloud.google.com/iam/docs).  
 RunSession  
 ---  
 ` rpc RunSession(`[RunSessionRequest](https://docs.cloud.google.com/gemini-enterprise-cx/cx-agent-studio/reference/rpc/google.cloud.ces.v1#google.cloud.ces.v1.RunSessionRequest)`) returns (`[RunSessionResponse](https://docs.cloud.google.com/gemini-enterprise-cx/cx-agent-studio/reference/rpc/google.cloud.ces.v1#google.cloud.ces.v1.RunSessionResponse)`) ` Initiates a single-turn interaction with the CES agent within a session.
@@ -1253,6 +1320,24 @@ IAM Permissions
      Requires the following [IAM](https://cloud.google.com/iam/docs) permission on the `session` resource:
 
   * `ces.sessions.runSession`
+
+For more information, see the [IAM documentation](https://cloud.google.com/iam/docs).  
+StreamChatAiAssistant  
+---  
+` rpc StreamChatAiAssistant(`[StreamChatAiAssistantRequest](https://docs.cloud.google.com/gemini-enterprise-cx/cx-agent-studio/reference/rpc/google.cloud.ces.v1#google.cloud.ces.v1.StreamChatAiAssistantRequest)`) returns (`[StreamChatAiAssistantResponse](https://docs.cloud.google.com/gemini-enterprise-cx/cx-agent-studio/reference/rpc/google.cloud.ces.v1#google.cloud.ces.v1.StreamChatAiAssistantResponse)`) ` Runs Arc, the AI assistant, for the specified assistant session in a streaming fashion.
+
+Authorization scopes
+     Requires one of the following OAuth scopes:
+
+  * `https://www.googleapis.com/auth/cloud-platform`
+  * ` https://www.googleapis.com/auth/ces`
+
+For more information, see the [Authentication Overview](https://docs.cloud.google.com/docs/authentication#authorization-gcp).
+
+IAM Permissions
+     Requires the following [IAM](https://cloud.google.com/iam/docs) permission on the `name` resource:
+
+  * `ces.assistantSessions.get`
 
 For more information, see the [IAM documentation](https://cloud.google.com/iam/docs).  
 StreamRunSession  
@@ -1662,6 +1747,120 @@ Fields
 `snapshot` |  `[AppSnapshot](https://docs.cloud.google.com/gemini-enterprise-cx/cx-agent-studio/reference/rpc/google.cloud.ces.v1#google.cloud.ces.v1.AppSnapshot)` Output only. The snapshot of the app when the version is created.  
 `etag` |  `string` Output only. Etag used to ensure the object hasn't changed during a read-modify-write operation. If the etag is empty, the update will overwrite any concurrent changes.  
   
+## ArtifactChunk
+
+A streamed fragment of a document artifact (e.g. a markdown TDD) that the assistant is generating. Content deltas stream while the document is being written so clients can render a live preview; the FINALIZED chunk carries the Cloud Storage URI once the file has been persisted.
+
+Fields  
+---  
+`artifact_id` |  `string` Identifier of the artifact, stable across all chunks of one artifact within the stream.  
+`display_name` |  `string` The file name shown to the user, e.g. "hotel_booking_tdd.md". Set on STARTED (and repeated on FINALIZED).  
+`mime_type` |  `string` The IANA media type of the artifact content, e.g. "text/markdown".  
+`content_delta` |  `string` Incremental artifact content. Set on DELTA chunks.  
+`gcs_uri` |  `string` The Cloud Storage object the artifact was persisted to. Set on FINALIZED chunks.  
+`state` |  `[ArtifactChunk.State](https://docs.cloud.google.com/gemini-enterprise-cx/cx-agent-studio/reference/rpc/google.cloud.ces.v1#google.cloud.ces.v1.ArtifactChunk.State)` Lifecycle position of this chunk.  
+`target_app` |  `string` Output only. The app this artifact was produced for, when it was produced for one. Format: `projects/{project}/locations/{location}/apps/{app}`  
+  
+## State
+
+Lifecycle position of this chunk within the artifact's stream.
+
+Enums  
+---  
+`STATE_UNSPECIFIED` | Unused default.  
+`STARTED` | The assistant started generating the artifact.  
+`DELTA` | A content increment; content_delta is set.  
+`FINALIZED` | The artifact was persisted; gcs_uri is set.  
+`FAILED` | Generation or persistence failed; the artifact was not saved.  
+`CLOSED` | The document finished streaming: its content was fully delivered via content_delta chunks. Persistence may still follow; a FINALIZED chunk with a gcs_uri is sent if and when the artifact is saved.  
+  
+## AssistantConfirmationRequest
+
+A blocking question or confirmation the assistant needs answered before an agent action can proceed. The requesting agent is paused and resumes only when the answer arrives on a later `[StreamChatAiAssistantRequest.confirmation_response](https://docs.cloud.google.com/gemini-enterprise-cx/cx-agent-studio/reference/rpc/google.cloud.ces.v1#google.cloud.ces.v1.StreamChatAiAssistantRequest.FIELDS.google.cloud.ces.v1.AssistantConfirmationResponse.google.cloud.ces.v1.StreamChatAiAssistantRequest.confirmation_response)`.
+
+Fields  
+---  
+`confirmation_id` |  `string` Identifier correlating this request with its response. Opaque to clients; must be echoed verbatim on the answering request.  
+`context` |  `string` Context describing what is being confirmed (e.g. the action the agent wants to take, or the question it needs answered). Rendered as plain text, not Markdown.  
+`positive_label` |  `string` Label for the approving action of a binary confirmation (e.g. "Publish"). Unset when `questions` is populated.  
+`negative_label` |  `string` Label for the declining action of a binary confirmation (e.g. "Not yet"). Unset when `questions` is populated.  
+`questions[]` |  `[OptionQuestionsChunk.Question](https://docs.cloud.google.com/gemini-enterprise-cx/cx-agent-studio/reference/rpc/google.cloud.ces.v1#google.cloud.ces.v1.OptionQuestionsChunk.Question)` Multi-choice form of the confirmation. When populated, the card renders a selectable option list and the chosen option's submit_text (or free-form user text) is returned as `[AssistantConfirmationResponse.answer_text](https://docs.cloud.google.com/gemini-enterprise-cx/cx-agent-studio/reference/rpc/google.cloud.ces.v1#google.cloud.ces.v1.AssistantConfirmationResponse.FIELDS.string.google.cloud.ces.v1.AssistantConfirmationResponse.answer_text)`.  
+`tool` |  `string` Name of the tool call the agent paused on (e.g. "update_app"), for the card header. Unset for pure questions.  
+`agent_name` |  `string` Display label of the agent that raised the confirmation (e.g. `"Contract Architect"`), for the card header.  
+`expire_time` |  `[Timestamp](https://protobuf.dev/reference/protobuf/google.protobuf/#timestamp)` Time after which this confirmation can no longer be answered. An expired card renders as inactive, and the server declines the confirmation on the next turn so the paused agent does not wait indefinitely.  
+`targets[]` |  `[AssistantConfirmationRequest.Target](https://docs.cloud.google.com/gemini-enterprise-cx/cx-agent-studio/reference/rpc/google.cloud.ces.v1#google.cloud.ces.v1.AssistantConfirmationRequest.Target)` Everything the confirmed action will change, so the console can render "Update 2 apps" and one badge per app. Empty for legacy single-target cards.  
+  
+## Target
+
+One resource the confirmed action will change.
+
+Fields  
+---  
+`resource` |  `string` The resource that will change, as a full resource name.  
+`display_name` |  `string` Display name of the resource or app, for the card.  
+`action` |  `string` The action, e.g. `CREATE`, `UPDATE`, `DELETE`, `COPY`, `LINK`.  
+`target_app` |  `string` The app the resource belongs to, or empty for a location-scoped action such as creating an app. Format: `projects/{project}/locations/{location}/apps/{app}`  
+  
+## AssistantConfirmationResponse
+
+The user's answer to an `[AssistantConfirmationRequest](https://docs.cloud.google.com/gemini-enterprise-cx/cx-agent-studio/reference/rpc/google.cloud.ces.v1#google.cloud.ces.v1.AssistantConfirmationRequest)`, sent on the next `[SessionService.StreamChatAiAssistant](https://docs.cloud.google.com/gemini-enterprise-cx/cx-agent-studio/reference/rpc/google.cloud.ces.v1#google.cloud.ces.v1.SessionService.StreamChatAiAssistant)` call to resume the paused agent.
+
+Fields  
+---  
+`confirmation_id` |  `string` The `[AssistantConfirmationRequest.confirmation_id](https://docs.cloud.google.com/gemini-enterprise-cx/cx-agent-studio/reference/rpc/google.cloud.ces.v1#google.cloud.ces.v1.AssistantConfirmationRequest.FIELDS.string.google.cloud.ces.v1.AssistantConfirmationRequest.confirmation_id)` being answered.  
+Union field `response`. The user's answer. `response` can be only one of the following:  
+`confirmed` |  `bool` Binary answer: true approves the paused action, false declines it.  
+`answer_text` |  `string` The chosen option's submit_text, or free-form user text. The paused action is cancelled and the text is handed to the agent to act on.  
+  
+## AssistantSuggestion
+
+A single personalized onboarding suggestion chip for Arc's zero state.
+
+Fields  
+---  
+`suggestion_id` |  `string` Stable identifier for this suggestion, round-tripped by clients in interaction logging.  
+`label` |  `string` Chip label shown to the user (at most 60 characters).  
+`rationale` |  `string` Optional short explanation of why this suggestion is shown (tooltip / rationale popover).  
+`icon` |  `[AssistantSuggestion.Icon](https://docs.cloud.google.com/gemini-enterprise-cx/cx-agent-studio/reference/rpc/google.cloud.ces.v1#google.cloud.ces.v1.AssistantSuggestion.Icon)` Icon hint for the chip.  
+`source` |  `[AssistantSuggestion.Source](https://docs.cloud.google.com/gemini-enterprise-cx/cx-agent-studio/reference/rpc/google.cloud.ces.v1#google.cloud.ces.v1.AssistantSuggestion.Source)` How this suggestion was produced.  
+`candidate_type` |  `string` Rule-table candidate type in kebab-case (e.g. "resume-pending-review"), for metrics.  
+Union field `action`. What activating the chip does. `action` can be only one of the following:  
+`seed_prompt` |  `string` Prefill the composer with this text; the user reviews and sends.  
+`load_session` |  `[AssistantSuggestion.LoadSession](https://docs.cloud.google.com/gemini-enterprise-cx/cx-agent-studio/reference/rpc/google.cloud.ces.v1#google.cloud.ces.v1.AssistantSuggestion.LoadSession)` Open an existing assistant session.  
+`send_message` |  `string` Prefill the composer with this text and submit immediately. Only used for quick-reply chips inside an active onboarding conversation.  
+  
+## Icon
+
+Icon hint for the chip.
+
+Enums  
+---  
+`ICON_UNSPECIFIED` | Unspecified icon.  
+`RESUME` | Resume a previous session.  
+`BUILD` | Build something new.  
+`EVALUATE` | Evaluation-related suggestion.  
+`DEPLOY` | Deployment-related suggestion.  
+`EXPLORE` | Exploration / discovery suggestion.  
+`FIX` | Fix an error or failing state.  
+  
+## LoadSession
+
+Parameters for the load_session action.
+
+Fields  
+---  
+`assistant_session_id` |  `string` Identifier of the assistant session to open (the final segment of the AssistantSession resource name).  
+  
+## Source
+
+How this suggestion was produced.
+
+Enums  
+---  
+`SOURCE_UNSPECIFIED` | Unspecified source.  
+`RULE` | Deterministic rule-table candidate with template phrasing.  
+`LLM_RANKED` | Rule-table candidate re-ranked and phrased by the LLM phrasing step.  
+  
 ## AudioEncoding
 
 AudioEncoding specifies the encoding format for audio data.
@@ -1784,6 +1983,23 @@ Fields
 `proactive_execution_enabled` |  `bool` Optional. If enabled, the callback will also be executed on intermediate model outputs. This setting only affects after model callback. **ENABLE WITH CAUTION**. Typically after model callback only needs to be executed after receiving all model responses. Enabling proactive execution may have negative implication on the execution cost and latency, and should only be enabled in rare situations.  
 Union field `callback`. The callback to execute. `callback` can be only one of the following:  
 `python_code` |  `string` Required. The python code to execute for the callback.  
+  
+## CancelAssistantTurnRequest
+
+Request to cancel an assistant session's in-flight turn.
+
+Fields  
+---  
+`name` |  `string` Required. The assistant session whose in-flight turn to cancel.  
+`turn_id` |  `string` Optional. The turn to cancel; empty cancels whichever turn is running. A cancel naming a turn that is no longer the running one is a no-op.  
+  
+## CancelAssistantTurnResponse
+
+Response for CancelAssistantTurn.
+
+Fields  
+---  
+`cancelled` |  `bool` Whether an in-flight turn was found and asked to stop (directly on this task, or through an epoch preemption for a turn hosted elsewhere).  
   
 ## Changelog
 
@@ -2111,6 +2327,8 @@ Fields
 `retention_window` |  `[Duration](https://protobuf.dev/reference/protobuf/google.protobuf/#duration)` Optional. Controls the retention window for the conversation. If not set, the conversation will be retained for 365 days.  
   
 ## CreateAgentRequest
+
+Request message for `AgentService.CreateAgent`.
 
 Fields  
 ---  
@@ -2912,7 +3130,7 @@ Fields
 ---  
 `name` |  `string` Required. The resource name of the app to export.  
 `export_format` |  `[ExportAppRequest.ExportFormat](https://docs.cloud.google.com/gemini-enterprise-cx/cx-agent-studio/reference/rpc/google.cloud.ces.v1#google.cloud.ces.v1.ExportAppRequest.ExportFormat)` Required. The format to export the app in.  
-`gcs_uri` |  `string` Optional. The [Google Cloud Storage](https://cloud.google.com/storage/docs/) URI to which to export the app. The format of this URI must be `gs://<bucket-name>/<object-name>`. The exported app archive will be written directly to the specified GCS object.  
+`gcs_uri` |  `string` Optional. The [Google Cloud Storage](https://cloud.google.com/storage/docs/) URI to which to export the app. The format of this URI must be `gs://<bucket-name>/<object-name>`. The exported app archive will be written directly to the specified Cloud Storage object.  
 `app_version` |  `string` Optional. The resource name of the app version to export. Format: `projects/{project}/locations/{location}/apps/{app}/versions/{version}`.  
   
 ## ExportFormat
@@ -2983,6 +3201,36 @@ Fields
 ---  
 `chat_token` |  `string` The session scoped token for chat widget to authenticate with Session APIs.  
 `expire_time` |  `[Timestamp](https://protobuf.dev/reference/protobuf/google.protobuf/#timestamp)` The time at which the chat token expires.  
+  
+## GenerateOnboardingSuggestionsRequest
+
+Request message for `[SessionService.GenerateOnboardingSuggestions](https://docs.cloud.google.com/gemini-enterprise-cx/cx-agent-studio/reference/rpc/google.cloud.ces.v1#google.cloud.ces.v1.SessionService.GenerateOnboardingSuggestions)`.
+
+Fields  
+---  
+`name` |  `string` Required. The app whose zero state is being rendered. Format: `projects/{project}/locations/{location}/apps/{app}`  
+`max_suggestions` |  `int32` Optional. Maximum number of suggestions to return. Defaults to 4 when unset.  
+  
+## GenerateOnboardingSuggestionsResponse
+
+Response message for `[SessionService.GenerateOnboardingSuggestions](https://docs.cloud.google.com/gemini-enterprise-cx/cx-agent-studio/reference/rpc/google.cloud.ces.v1#google.cloud.ces.v1.SessionService.GenerateOnboardingSuggestions)`.
+
+Fields  
+---  
+`user_profile` |  `[GenerateOnboardingSuggestionsResponse.UserProfile](https://docs.cloud.google.com/gemini-enterprise-cx/cx-agent-studio/reference/rpc/google.cloud.ces.v1#google.cloud.ces.v1.GenerateOnboardingSuggestionsResponse.UserProfile)` Classification of the requesting user's history.  
+`suggestions[]` |  `[AssistantSuggestion](https://docs.cloud.google.com/gemini-enterprise-cx/cx-agent-studio/reference/rpc/google.cloud.ces.v1#google.cloud.ces.v1.AssistantSuggestion)` Personalized suggestions, ranked most relevant first.  
+`context_token` |  `string` Opaque token capturing the onboarding snapshot used to generate these suggestions. Clients echo it on the first `[StreamChatAiAssistantRequest](https://docs.cloud.google.com/gemini-enterprise-cx/cx-agent-studio/reference/rpc/google.cloud.ces.v1#google.cloud.ces.v1.StreamChatAiAssistantRequest)` so the server can reuse the snapshot.  
+  
+## UserProfile
+
+Classification of the requesting user's history with the assistant in this app.
+
+Enums  
+---  
+`USER_PROFILE_UNSPECIFIED` | Unspecified profile.  
+`NEW` | No assistant sessions containing messages.  
+`EXPLORING` | One or two assistant sessions containing messages.  
+`RETURNING` | More than two assistant sessions containing messages.  
   
 ## GetAgentRequest
 
@@ -3147,6 +3395,7 @@ Fields
 `banned_contents_in_agent_response[]` |  `string` Optional. List of banned phrases. Applies only to agent responses.  
 `match_type` |  `[Guardrail.ContentFilter.MatchType](https://docs.cloud.google.com/gemini-enterprise-cx/cx-agent-studio/reference/rpc/google.cloud.ces.v1#google.cloud.ces.v1.Guardrail.ContentFilter.MatchType)` Required. Match type for the content filter.  
 `disregard_diacritics` |  `bool` Optional. If true, diacritics are ignored during matching.  
+`sensitive_words_exemptions[]` |  `string` Optional. Entries of the sensitive words list that this guardrail allows. Only valid when match_type is SENSITIVE_WORDS. Each value must equal a list entry (case-insensitive, surrounding whitespace ignored); other values have no effect. Applies to this guardrail only. At most 1000 entries of up to 256 characters each.  
   
 ## MatchType
 
@@ -3158,6 +3407,7 @@ Enums
 `SIMPLE_STRING_MATCH` | Content is matched for substrings character by character.  
 `WORD_BOUNDARY_STRING_MATCH` | Content only matches if the pattern found in the text is surrounded by word delimiters. Banned phrases can also contain word delimiters.  
 `REGEXP_MATCH` | Content is matched using regular expression syntax.  
+`SENSITIVE_WORDS` | Content is matched against a system-managed list of sensitive words and phrases. Attaching a guardrail with this match type to an app or agent replaces the default sensitive words filter for the affected agents; disable the guardrail to opt out of the default filter.  
   
 ## LlmPolicy
 
@@ -3167,7 +3417,7 @@ Fields
 ---  
 `max_conversation_messages` |  `int32` Optional. When checking this policy, consider the last 'n' messages in the conversation. When not set a default value of 10 will be used.  
 `model_settings` |  `[ModelSettings](https://docs.cloud.google.com/gemini-enterprise-cx/cx-agent-studio/reference/rpc/google.cloud.ces.v1#google.cloud.ces.v1.ModelSettings)` Optional. Model settings.  
-`prompt` |  `string` Required. Policy prompt.  
+`prompt` |  `string` Required. Policy prompt. Supports session variable placeholders (`{var}`) as well as `{agent_system_instruction}` to inject the agent's resolved system instructions.  
 `policy_scope` |  `[Guardrail.LlmPolicy.PolicyScope](https://docs.cloud.google.com/gemini-enterprise-cx/cx-agent-studio/reference/rpc/google.cloud.ces.v1#google.cloud.ces.v1.Guardrail.LlmPolicy.PolicyScope)` Required. Defines when to apply the policy check during the conversation. If set to `POLICY_SCOPE_UNSPECIFIED`, the policy will be applied to the user input. When applying the policy to the agent response, additional latency will be introduced before the agent can respond.  
 `fail_open` |  `bool` Optional. If an error occurs during the policy check, fail open and do not trigger the guardrail.  
 `allow_short_utterance` |  `bool` Optional. By default, the LLM policy check is bypassed for short utterances. Enabling this setting applies the policy check to all utterances, including those that would normally be skipped.  
@@ -3372,7 +3622,7 @@ Fields
 ---  
 `default_language_code` |  `string` Optional. The default language code of the app.  
 `supported_language_codes[]` |  `string` Optional. List of languages codes supported by the app, in addition to the `default_language_code`.  
-`enable_multilingual_support` |  `bool` Optional. Enables multilingual support. If true, agents in the app will use pre-built instructions to improve handling of multilingual input.  
+`enable_multilingual_support` |  `bool` Optional. Enables multilingual support. If `true`, agents in the app will use pre-built instructions to improve handling of multilingual input.  
 `fallback_action  
 **(deprecated)**` |  `string` This item is deprecated!Optional. Deprecated: This feature is no longer supported. Use `enable_multilingual_support` instead to improve handling of multilingual input. The action to perform when an agent receives input in an unsupported language.This can be a predefined action or a custom tool call. Valid values are: - A tool's full resource name, which triggers a specific tool execution. - A predefined system action, such as "escalate" or "exit", which triggers an `[EndSession](https://docs.cloud.google.com/gemini-enterprise-cx/cx-agent-studio/reference/rpc/google.cloud.ces.v1#google.cloud.ces.v1.EndSession)` signal with corresponding `[metadata](https://docs.cloud.google.com/gemini-enterprise-cx/cx-agent-studio/reference/rpc/google.cloud.ces.v1#google.cloud.ces.v1.EndSession.FIELDS.google.protobuf.Struct.google.cloud.ces.v1.EndSession.metadata)` to terminate the conversation.  
   
@@ -3602,6 +3852,7 @@ Fields
 `conversation_logging_settings` |  `[ConversationLoggingSettings](https://docs.cloud.google.com/gemini-enterprise-cx/cx-agent-studio/reference/rpc/google.cloud.ces.v1#google.cloud.ces.v1.ConversationLoggingSettings)` Optional. Settings to describe the conversation logging behaviors for the app.  
 `evaluation_audio_recording_config` |  `[AudioRecordingConfig](https://docs.cloud.google.com/gemini-enterprise-cx/cx-agent-studio/reference/rpc/google.cloud.ces.v1#google.cloud.ces.v1.AudioRecordingConfig)` Optional. Configuration for how audio interactions should be recorded for the evaluation. By default, audio recording is not enabled for evaluation sessions.  
 `metric_analysis_settings` |  `[MetricAnalysisSettings](https://docs.cloud.google.com/gemini-enterprise-cx/cx-agent-studio/reference/rpc/google.cloud.ces.v1#google.cloud.ces.v1.MetricAnalysisSettings)` Optional. Settings to describe the conversation data collection behaviors for the LLM analysis pipeline for the app.  
+`required_recording_consent` |  `bool` Optional. Whether the app has to say what may be recorded before anything is kept.When true, a session starts with recording off and stays off until the client sends `[SessionInput.recording_control](https://docs.cloud.google.com/gemini-enterprise-cx/cx-agent-studio/reference/rpc/google.cloud.ces.v1main#google.cloud.ces.v1main.SessionInput.FIELDS.google.cloud.ces.v1main.SessionInput.RecordingControl.google.cloud.ces.v1main.SessionInput.recording_control)`, which then decides every turn from that point on. This covers audio recording as well as conversation history, BigQuery export and Cloud Logging.When `false`, the default, the settings above decide on their own and the client does not have to send anything.  
   
 ## McpTool
 
@@ -3790,6 +4041,20 @@ Fields
 `ignore_unknown_fields` |  `bool` Optional. If true, the agent will ignore unknown fields in the API response for all operations defined in the OpenAPI schema.  
 `url` |  `string` Optional. The server URL of the Open API schema. This field is only set in toolsets in the environment dependencies during the export process if the schema contains a server url. During the import process, if this url is present in the environment dependencies and the schema has the $env_var placeholder, it will replace the placeholder in the schema.  
   
+## OperationCompletedEvent
+
+Event sent by the client or background worker to resume an assistant session after an asynchronous Long-Running Operation (LRO) completes.
+
+Fields  
+---  
+`operation_name` |  `string` The operation resource name (e.g. `operations/{op}`).  
+`target_resource_name` |  `string` The primary resource targeted or produced by the operation (e.g. evaluation run ID, app ID, dataset ID).  
+`operation_type` |  `string` The operation type or tool name (e.g. "run_evaluation", "copy_app", "export_app").  
+`status` |  `string` Status of the operation run (e.g. "SUCCEEDED", "FAILED", "CANCELLED").  
+`deduplication_token` |  `string` Optional deduplication token (e.g. UUID) to prevent duplicate turn execution from concurrent browser tabs.  
+`error` |  `[Status](https://docs.cloud.google.com/gemini-enterprise-cx/cx-agent-studio/reference/rpc/google.rpc#google.rpc.Status)` Optional canonical error status if the operation failed.  
+`metadata` |  `[Struct](https://protobuf.dev/reference/protobuf/google.protobuf/#struct)` Optional structured result metadata (e.g. pass_rate, total_examples, export_uri).  
+  
 ## OperationMetadata
 
 Represents the metadata of the long-running operation.
@@ -3800,6 +4065,33 @@ Fields
 `end_time` |  `[Timestamp](https://protobuf.dev/reference/protobuf/google.protobuf/#timestamp)` Output only. The time the operation finished running.  
 `status_message` |  `string` Output only. Human-readable status of the operation, if any.  
 `requested_cancellation` |  `bool` Output only. Identifies whether the user has requested cancellation of the operation. Operations that have been cancelled successfully have `[google.longrunning.Operation.error](https://docs.cloud.google.com/gemini-enterprise-cx/cx-agent-studio/reference/rpc/google.longrunning#google.longrunning.Operation.FIELDS.google.rpc.Status.google.longrunning.Operation.error)` value with a `[google.rpc.Status.code](https://docs.cloud.google.com/gemini-enterprise-cx/cx-agent-studio/reference/rpc/google.rpc#google.rpc.Status.FIELDS.int32.google.rpc.Status.code)` of `1`, corresponding to `Code.CANCELLED`.  
+  
+## OptionQuestionsChunk
+
+Structured clarification options the assistant asks the user to choose among, transduced server-side out of the model's turn (the option block is stripped from the streamed and persisted text). The console renders a keyboard-navigable option list docked above the composer.
+
+Fields  
+---  
+`questions[]` |  `[OptionQuestionsChunk.Question](https://docs.cloud.google.com/gemini-enterprise-cx/cx-agent-studio/reference/rpc/google.cloud.ces.v1#google.cloud.ces.v1.OptionQuestionsChunk.Question)` The questions asked this turn. More than one entry drives the console's "1 of N" pager.  
+  
+## Option
+
+A single selectable option.
+
+Fields  
+---  
+`title` |  `string` Short plain-text option title (no markdown, no numbering).  
+`details` |  `string` Optional trade-off details shown as secondary text.  
+`submit_text` |  `string` Optional message text to send when the option is chosen; defaults to `title` when empty.  
+  
+## Question
+
+One question with its options.
+
+Fields  
+---  
+`question` |  `string` The question header text.  
+`options[]` |  `[OptionQuestionsChunk.Option](https://docs.cloud.google.com/gemini-enterprise-cx/cx-agent-studio/reference/rpc/google.cloud.ces.v1#google.cloud.ces.v1.OptionQuestionsChunk.Option)` The selectable options, in presentation order.  
   
 ## OutputAudioConfig
 
@@ -3843,7 +4135,7 @@ Configuration to instruct how sensitive data should be handled.
 
 Fields  
 ---  
-`enable_redaction` |  `bool` Optional. If true, redaction will be applied in various logging scenarios, including conversation history, Cloud Logging and audio recording.  
+`enable_redaction` |  `bool` Optional. If `true`, redaction will be applied in various logging scenarios, including conversation history, Cloud Logging and audio recording.  
 `inspect_template` |  `string` Optional. [DLP](https://cloud.google.com/dlp/docs) inspect template name to configure detection of sensitive data types.Format: `projects/{project}/locations/{location}/inspectTemplates/{inspect_template}`  
 `deidentify_template` |  `string` Optional. [DLP](https://cloud.google.com/dlp/docs) deidentify template name to instruct on how to de-identify content.Format: `projects/{project}/locations/{location}/deidentifyTemplates/{deidentify_template}`  
   
@@ -4038,6 +4330,14 @@ Fields
 ---  
 `service` |  `string` Required. The name of [Service Directory](https://cloud.google.com/service-directory) service. Format: `projects/{project}/locations/{location}/namespaces/{namespace}/services/{service}`. Location of the service directory must be the same as the location of the app.  
   
+## SessionCheckpoint
+
+Session checkpoint containing inferred user intent for session title and UI.
+
+Fields  
+---  
+`user_intent` |  `string` Inferred user goal or topic for the session (e.g. "Building E-Commerce Support Agent").  
+  
 ## SessionConfig
 
 The configuration for the session.
@@ -4053,8 +4353,15 @@ Fields
 `time_zone` |  `string` Optional. The time zone of the user. If provided, the agent will use the time zone for date and time related variables. Otherwise, the agent will use the time zone specified in the App.time_zone_settings.The format is the IANA Time Zone Database time zone, e.g. "America/Los_Angeles".  
 `use_tool_fakes` |  `bool` Optional. Whether to use tool fakes for the session. If this field is set, the agent will attempt use tool fakes instead of calling the real tools.  
 `remote_dialogflow_query_parameters` |  `[SessionConfig.RemoteDialogflowQueryParameters](https://docs.cloud.google.com/gemini-enterprise-cx/cx-agent-studio/reference/rpc/google.cloud.ces.v1#google.cloud.ces.v1.SessionConfig.RemoteDialogflowQueryParameters)` Optional. [QueryParameters](https://cloud.google.com/dialogflow/cx/docs/reference/rpc/google.cloud.dialogflow.cx.v3#queryparameters) to send to the remote [Dialogflow](https://cloud.google.com/dialogflow/cx/docs/concept/console-conversational-agents) agent when the session control is transferred to the remote agent.  
-`enable_text_streaming` |  `bool` Optional. Whether to enable streaming text outputs from the model. By default, text outputs from the model are collected before sending to the client. NOTE: This is only supported for text (non-voice) sessions via `[StreamRunSession](https://docs.cloud.google.com/gemini-enterprise-cx/cx-agent-studio/reference/rpc/google.cloud.ces.v1#google.cloud.ces.v1.SessionService.StreamRunSession)` or `[BidiRunSession](https://docs.cloud.google.com/gemini-enterprise-cx/cx-agent-studio/reference/rpc/google.cloud.ces.v1#google.cloud.ces.v1.SessionService.BidiRunSession)`.  
+`enable_text_streaming` |  `bool` Optional. Whether to stream text output from the model to the client incrementally as it is generated. Defaults to `false`.
+
+  * When disabled, the model's text output is buffered, and each text output sent to the client is a complete sentence. Clients can render each text output on a new line.
+  * When enabled, each text output may contain only part of a sentence. Clients should concatenate consecutive text outputs to render the complete response.
+
+NOTE: This is only supported for text (non-voice) sessions using `[StreamRunSession](https://docs.cloud.google.com/gemini-enterprise-cx/cx-agent-studio/reference/rpc/google.cloud.ces.v1#google.cloud.ces.v1.SessionService.StreamRunSession)` or `[BidiRunSession](https://docs.cloud.google.com/gemini-enterprise-cx/cx-agent-studio/reference/rpc/google.cloud.ces.v1#google.cloud.ces.v1.SessionService.BidiRunSession)`.  
+`include_llm_thought_summary` |  `bool` Optional. Whether to include LLM thought summaries in the session outputs.  
 `exclude_diagnostic_info` |  `bool` Optional. Whether to exclude diagnostic info from the session output.  
+`include_progress_update` |  `bool` Optional. Whether to include intermediate processing update to the client. If enabled, the update will be sent back in `[SessionOutput.progress](https://docs.cloud.google.com/gemini-enterprise-cx/cx-agent-studio/reference/rpc/google.cloud.ces.v1#google.cloud.ces.v1.SessionOutput.FIELDS.string.google.cloud.ces.v1.SessionOutput.progress)`.  
   
 ## RemoteDialogflowQueryParameters
 
@@ -4073,6 +4380,7 @@ Input for the session.
 Fields  
 ---  
 `will_continue` |  `bool` Optional. A flag to indicate if the current message is a fragment of a larger input in the bidi streaming session.When set to `true`, the agent defers processing until it receives a subsequent message where `will_continue` is `false`, or until the system detects an endpoint in the audio input.NOTE: This field does not apply to audio and DTMF inputs, as they are always processed automatically based on the endpointing signal.  
+`recording_control` |  `[SessionInput.RecordingControl](https://docs.cloud.google.com/gemini-enterprise-cx/cx-agent-studio/reference/rpc/google.cloud.ces.v1#google.cloud.ces.v1.SessionInput.RecordingControl)` Optional. Whether the conversation may be recorded and logged from here on.Use this when the app, rather than the agent, decides what may be kept: for example when the end user has to consent to being recorded before anything about the call can be stored.The value stays in effect until the client sends a different one, so it only needs to be sent when the answer changes. Whatever is in effect when a turn completes decides that turn, both whether its audio reaches the recording bucket and whether its transcript reaches conversation history, BigQuery and Cloud Logging. It covers the agent's side of the turn as well as the end user's.Turns that complete before the client first sends this are recorded according to the app's logging settings, as though the field did not exist.If more than one input in the same request sets it, the last one wins.  
 Union field `input_type`. The type of the input. `input_type` can be only one of the following:  
 `text` |  `string` Optional. Text data from the end user.  
 `dtmf` |  `string` Optional. DTMF digits from the end user.  
@@ -4082,6 +4390,18 @@ Union field `input_type`. The type of the input. `input_type` can be only one of
 `blob` |  `[Blob](https://docs.cloud.google.com/gemini-enterprise-cx/cx-agent-studio/reference/rpc/google.cloud.ces.v1#google.cloud.ces.v1.Blob)` Optional. Blob data from the end user.  
 `variables` |  `[Struct](https://protobuf.dev/reference/protobuf/google.protobuf/#struct)` Optional. Contextual variables for the session, keyed by name. Only variables declared in the app will be used by the CES agent.Unrecognized variables will still be sent to the [Dialogflow agent][Agent.RemoteDialogflowAgent] as additional session parameters.  
 `event` |  `[Event](https://docs.cloud.google.com/gemini-enterprise-cx/cx-agent-studio/reference/rpc/google.cloud.ces.v1#google.cloud.ces.v1.Event)` Optional. Event input.  
+  
+## RecordingControl
+
+What the app has decided may be recorded and logged.
+
+This enum is extensible; new values may be added in the future.
+
+Enums  
+---  
+`RECORDING_CONTROL_UNSPECIFIED` | The app is not controlling recording. The app's logging settings decide, as they do for every session that never sets this field.  
+`RECORDING_ENABLED` | The conversation may be recorded and logged from here on.  
+`RECORDING_DISABLED` | The conversation may not be recorded or logged from here on.  
   
 ## SessionOutput
 
@@ -4124,6 +4444,59 @@ Fields
 `duration` |  `[Duration](https://protobuf.dev/reference/protobuf/google.protobuf/#duration)` Output only. The duration of the span.  
 `attributes` |  `[Struct](https://protobuf.dev/reference/protobuf/google.protobuf/#struct)` Output only. Key-value attributes associated with the span.  
 `child_spans[]` |  `[Span](https://docs.cloud.google.com/gemini-enterprise-cx/cx-agent-studio/reference/rpc/google.cloud.ces.v1#google.cloud.ces.v1.Span)` Output only. The child spans that are nested under this span.  
+  
+## StreamChatAiAssistantRequest
+
+Request message for `[SessionService.StreamChatAiAssistant](https://docs.cloud.google.com/gemini-enterprise-cx/cx-agent-studio/reference/rpc/google.cloud.ces.v1#google.cloud.ces.v1.SessionService.StreamChatAiAssistant)`.
+
+Fields  
+---  
+`name` |  `string` Required. The assistant session to be used to run the assistant. Format: `projects/{project}/locations/{location}/apps/{app}/assistantSessions/{assistant_session}`  
+`message` |  `string` Optional. The message to send to the assistant agent. May be empty when `confirmation_response` is set (answering a pending confirmation without adding a new message); at least one of the two must be provided.  
+`attached_gcs_uris[]` |  `string` Optional. Cloud Storage URIs for files uploaded by the user during this turn. Example: "gs://cxas-transient-uploads/uuid/prd.pdf"  
+`context_token` |  `string` Optional. Opaque onboarding context token returned by `[SessionService.GenerateOnboardingSuggestions](https://docs.cloud.google.com/gemini-enterprise-cx/cx-agent-studio/reference/rpc/google.cloud.ces.v1#google.cloud.ces.v1.SessionService.GenerateOnboardingSuggestions)`. When set and still fresh, the server reuses the onboarding snapshot computed for the zero state instead of recomputing it for the first conversation turn.  
+`confirmation_response` |  `[AssistantConfirmationResponse](https://docs.cloud.google.com/gemini-enterprise-cx/cx-agent-studio/reference/rpc/google.cloud.ces.v1#google.cloud.ces.v1.AssistantConfirmationResponse)` Optional. The user's answer to a pending `[AssistantConfirmationRequest](https://docs.cloud.google.com/gemini-enterprise-cx/cx-agent-studio/reference/rpc/google.cloud.ces.v1#google.cloud.ces.v1.AssistantConfirmationRequest)`. When set, the server resumes the paused agent with this answer instead of (or in addition to) starting a new prompt turn.  
+`client_capabilities[]` |  `[StreamChatAiAssistantRequest.ClientCapability](https://docs.cloud.google.com/gemini-enterprise-cx/cx-agent-studio/reference/rpc/google.cloud.ces.v1#google.cloud.ces.v1.StreamChatAiAssistantRequest.ClientCapability)` Optional. Response features this client can render. The server only emits events that need a capability (e.g. `confirmation_request`) when the capability is declared, so older clients never receive events they would silently drop.  
+`operation_completed_event` |  `[OperationCompletedEvent](https://docs.cloud.google.com/gemini-enterprise-cx/cx-agent-studio/reference/rpc/google.cloud.ces.v1#google.cloud.ces.v1.OperationCompletedEvent)` Optional. Resumes an assistant session paused waiting for a client-managed long-running operation to complete.  
+`resume_from_sequence_number` |  `int64` Optional. Optional cursor to resume and replay events from an in-flight or completed turn.  
+`attach_only` |  `bool` Optional. Optional flag to attach to an existing in-flight turn without submitting a new message.  
+  
+## ClientCapability
+
+Response features a client can declare.
+
+Enums  
+---  
+`CLIENT_CAPABILITY_UNSPECIFIED` | Unspecified capability; ignored.  
+`CONFIRMATION_CARDS` | The client renders `[AssistantConfirmationRequest](https://docs.cloud.google.com/gemini-enterprise-cx/cx-agent-studio/reference/rpc/google.cloud.ces.v1#google.cloud.ces.v1.AssistantConfirmationRequest)` cards and answers them via `confirmation_response`.  
+`CLIENT_MANAGED_LRO` | The client manages long-running operations out-of-band by polling the operation and sending `operation_completed_event` to resume the turn. If not declared, the server manages LRO polling and completes the turn inline.  
+`PROJECT_SCOPE` | The client renders project-scope events: `typed_payload` cards, `target_app` on tool calls and responses, `targets` on confirmation requests and `touched_apps` on turn completion.  
+  
+## StreamChatAiAssistantResponse
+
+Response message for `[SessionService.StreamChatAiAssistant](https://docs.cloud.google.com/gemini-enterprise-cx/cx-agent-studio/reference/rpc/google.cloud.ces.v1#google.cloud.ces.v1.SessionService.StreamChatAiAssistant)`.
+
+Fields  
+---  
+`event_id` |  `string` Unique identifier for the event.  
+`event_time` |  `[Timestamp](https://protobuf.dev/reference/protobuf/google.protobuf/#timestamp)` Timestamp when the event occurred.  
+`ui_event` |  `[UiEvent](https://docs.cloud.google.com/gemini-enterprise-cx/cx-agent-studio/reference/rpc/google.cloud.ces.v1#google.cloud.ces.v1.UiEvent)` Optional. UI event payload.  
+`turn_metadata` |  `[TurnMetadata](https://docs.cloud.google.com/gemini-enterprise-cx/cx-agent-studio/reference/rpc/google.cloud.ces.v1#google.cloud.ces.v1.TurnMetadata)` Optional. Turn-level metadata and intent categorization.  
+`sequence_number` |  `int64` Optional. Monotonically increasing sequence number for this session turn.  
+`turn_in_progress` |  `bool` Optional. Indicates whether the turn is still actively running in the background.  
+Union field `event`. The event payload. `event` can be only one of the following:  
+`text_chunk` |  `string` Text Token (for streaming Gemini responses word-by-word).  
+`status` |  `[Status](https://docs.cloud.google.com/gemini-enterprise-cx/cx-agent-studio/reference/rpc/google.rpc#google.rpc.Status)` Simple status update.  
+`thought_chunk` |  `string` Thought text chunk (agent's reasoning before generating response).  
+`tool_call` |  `[ToolCall](https://docs.cloud.google.com/gemini-enterprise-cx/cx-agent-studio/reference/rpc/google.cloud.ces.v1#google.cloud.ces.v1.ToolCall)` Tool call execution event.  
+`tool_response` |  `[ToolResponse](https://docs.cloud.google.com/gemini-enterprise-cx/cx-agent-studio/reference/rpc/google.cloud.ces.v1#google.cloud.ces.v1.ToolResponse)` Tool call response event.  
+`artifact_chunk` |  `[ArtifactChunk](https://docs.cloud.google.com/gemini-enterprise-cx/cx-agent-studio/reference/rpc/google.cloud.ces.v1#google.cloud.ces.v1.ArtifactChunk)` Generated-document artifact event (live preview deltas + final Cloud Storage pointer).  
+`option_questions_chunk` |  `[OptionQuestionsChunk](https://docs.cloud.google.com/gemini-enterprise-cx/cx-agent-studio/reference/rpc/google.cloud.ces.v1#google.cloud.ces.v1.OptionQuestionsChunk)` Structured clarification options parsed out of the model turn. The console renders these as a selectable option list instead of raw text.  
+`confirmation_request` |  `[AssistantConfirmationRequest](https://docs.cloud.google.com/gemini-enterprise-cx/cx-agent-studio/reference/rpc/google.cloud.ces.v1#google.cloud.ces.v1.AssistantConfirmationRequest)` A blocking confirmation the agent paused on. The agent resumes when the answer arrives on a later request's `confirmation_response`. Only sent to clients that declared the CONFIRMATION_CARDS capability on the request.  
+`session_checkpoint` |  `[SessionCheckpoint](https://docs.cloud.google.com/gemini-enterprise-cx/cx-agent-studio/reference/rpc/google.cloud.ces.v1#google.cloud.ces.v1.SessionCheckpoint)` Session checkpoint/compaction recap event containing user intent and rolling summary.  
+`resume_snapshot` |  `[TurnResumeSnapshot](https://docs.cloud.google.com/gemini-enterprise-cx/cx-agent-studio/reference/rpc/google.cloud.ces.v1#google.cloud.ces.v1.TurnResumeSnapshot)` A compacted replay of an in-flight turn, sent as the first event of every attach or resume before any live event. The client replaces any locally rendered state for this turn with the snapshot's contents.  
+`handoff` |  `[TurnHandoffEvent](https://docs.cloud.google.com/gemini-enterprise-cx/cx-agent-studio/reference/rpc/google.cloud.ces.v1#google.cloud.ces.v1.TurnHandoffEvent)` Tells the client to silently reconnect with resume_from_sequence_number: the task serving this stream is going away and the turn will continue elsewhere. Not an error; the stream completes normally after this event.  
+`turn_completed` |  `[TurnCompletedEvent](https://docs.cloud.google.com/gemini-enterprise-cx/cx-agent-studio/reference/rpc/google.cloud.ces.v1#google.cloud.ces.v1.TurnCompletedEvent)` The turn has ended. Sent as the last event of every turn, on the original stream and on every attached or resumed stream, so clients can end the turn on an explicit signal instead of inferring it from stream closure.  
   
 ## SynthesizeSpeechConfig
 
@@ -4223,6 +4596,7 @@ Fields
 `args` |  `[Struct](https://protobuf.dev/reference/protobuf/google.protobuf/#struct)` Optional. The input parameters and values for the tool in JSON object format.  
 `parent_tool_call_id` |  `string` Output only. The id of the tool call that caused this one, when it was issued by a sub-agent working on behalf of a parent call. Empty for top-level calls. Lets a client group a sub-agent's work under the call that started it instead of rendering every step as a sibling.  
 `agent_name` |  `string` Output only. Human-readable name of the agent that issued this call, e.g. "Contract Architect". Empty when the root agent issued it.  
+`target_app` |  `string` Output only. The app this call targets, derived by the assistant from the call's resource arguments: an app resource name, `PROJECT` for location-scoped tools, or empty for session-local tools. Set only in project-scoped assistant sessions.  
 Union field `tool_identifier`. The identifier of the tool to execute. It could be either a persisted tool or a tool from a toolset. `tool_identifier` can be only one of the following:  
 `tool` |  `string` Optional. The name of the tool to execute. Format: `projects/{project}/locations/{location}/apps/{app}/tools/{tool}`  
 `toolset_tool` |  `[ToolsetTool](https://docs.cloud.google.com/gemini-enterprise-cx/cx-agent-studio/reference/rpc/google.cloud.ces.v1#google.cloud.ces.v1.ToolsetTool)` Optional. The toolset tool to execute.  
@@ -4256,6 +4630,7 @@ Fields
 `response` |  `[Struct](https://protobuf.dev/reference/protobuf/google.protobuf/#struct)` Required. The tool execution result in JSON object format. Use "output" key to specify tool response and "error" key to specify error details (if any). If "output" and "error" keys are not specified, then whole "response" is treated as tool execution result.  
 `parent_tool_call_id` |  `string` Output only. The id of the tool call that caused this one, when it was issued by a sub-agent working on behalf of a parent call. Empty for top-level calls. Lets a client group a sub-agent's work under the call that started it instead of rendering every step as a sibling.  
 `agent_name` |  `string` Output only. Human-readable name of the agent that issued this call, e.g. "Contract Architect". Empty when the root agent issued it.  
+`target_app` |  `string` Output only. The app the executed tool targeted; mirrors `[ToolCall.target_app](https://docs.cloud.google.com/gemini-enterprise-cx/cx-agent-studio/reference/rpc/google.cloud.ces.v1#google.cloud.ces.v1.ToolCall.FIELDS.string.google.cloud.ces.v1.ToolCall.target_app)`.  
 Union field `tool_identifier`. The identifier of the tool that got executed. It could be either a persisted tool or a tool from a toolset. `tool_identifier` can be only one of the following:  
 `tool` |  `string` Optional. The name of the tool to execute. Format: `projects/{project}/locations/{location}/apps/{app}/tools/{tool}`  
 `toolset_tool` |  `[ToolsetTool](https://docs.cloud.google.com/gemini-enterprise-cx/cx-agent-studio/reference/rpc/google.cloud.ces.v1#google.cloud.ces.v1.ToolsetTool)` Optional. The toolset tool that got executed.  
@@ -4380,6 +4755,87 @@ The agent will transfer the conversation to a different agent.
 Fields  
 ---  
 `agent` |  `string` Required. The name of the agent to transfer the conversation to. The agent must be in the same app as the current agent. Format: `projects/{project}/locations/{location}/apps/{app}/agents/{agent}`  
+  
+## TurnCompletedEvent
+
+Terminal event of a turn (see StreamChatAiAssistantResponse.turn_completed).
+
+Fields  
+---  
+`turn_id` |  `string` Identifier of the turn that ended; matches TurnResumeSnapshot.turn_id and ActiveTurnInfo.turn_id.  
+`reason` |  `[TurnCompletedEvent.Reason](https://docs.cloud.google.com/gemini-enterprise-cx/cx-agent-studio/reference/rpc/google.cloud.ces.v1#google.cloud.ces.v1.TurnCompletedEvent.Reason)` Why the turn ended.  
+`final_sequence_number` |  `int64` Sequence number of the last event the turn produced. A client whose cursor is lower missed content and should reload the session to see it.  
+`touched_apps[]` |  `string` Apps this turn targeted or changed, so the console can refresh exactly those apps' stores. Project-scoped sessions only. Format: `projects/{project}/locations/{location}/apps/{app}`  
+  
+## Reason
+
+Why the turn ended, so a client that attached late can word the outcome instead of guessing from an empty stream.
+
+Enums  
+---  
+`REASON_UNSPECIFIED` | Unspecified.  
+`COMPLETED` | The turn ran to completion; the session holds its committed output.  
+`ABANDONED` | No task was driving the turn any more; it was sealed to a committed partial and cannot be continued.  
+`RESUME_UNAVAILABLE` | This server does not serve attach or resume for the session, so nothing was tailed; the client should reload the session instead.  
+  
+## TurnHandoffEvent
+
+Emitted before this task stops serving the stream mid-turn (e.g. a server restart). The turn's state is persisted; a reconnect carrying resume_from_sequence_number continues it on another task.
+
+Fields  
+---  
+`turn_id` |  `string` Identifies the turn to resume.  
+`reason` |  `[TurnHandoffEvent.Reason](https://docs.cloud.google.com/gemini-enterprise-cx/cx-agent-studio/reference/rpc/google.cloud.ces.v1#google.cloud.ces.v1.TurnHandoffEvent.Reason)` Why the stream is handing off.  
+  
+## Reason
+
+Why the stream is handing off.
+
+Enums  
+---  
+`REASON_UNSPECIFIED` | Unspecified.  
+`SERVER_RESTART` | The serving task is shutting down (release push or rescheduling).  
+  
+## TurnMetadata
+
+Turn-level metadata and intent categorization.
+
+Fields  
+---  
+`contract_related` |  `bool` Indicates whether this assistant turn was contract-related (e.g. contract drafting, alignment, extraction, or revision).  
+`contract_finalized` |  `bool` Set on the final artifact event of a turn whose contract draft was published (a revision was activated). Terminal for the clarification flow of this draft: contract_progress is authoritative and complete.  
+`contract_streaming_phase` |  `[TurnMetadata.ContractStreamingPhase](https://docs.cloud.google.com/gemini-enterprise-cx/cx-agent-studio/reference/rpc/google.cloud.ces.v1#google.cloud.ces.v1.TurnMetadata.ContractStreamingPhase)` Set only on in-flight progress estimates emitted while a contract artifact fence is streaming, and on the revision-turn-start event. Unset on authoritative payloads.  
+`contract_draft_complete` |  `bool` Set on the terminal event of a contract draft whose every placeholder is resolved (contract_progress is 100%), whether or not the draft was published. Clients complete and dismiss the contract progress display on it; publication is reported separately by contract_finalized.  
+  
+## ContractStreamingPhase
+
+Streaming phase of the contract progress payload.
+
+Enums  
+---  
+`CONTRACT_STREAMING_PHASE_UNSPECIFIED` | The payload is authoritative (computed from a complete contract document, a persisted snapshot, or the pre-draft state). Clients must replace any previously received progress with it.  
+`DRAFTING` | An initial contract draft is streaming. contract_progress is an in-flight estimate: non-decreasing within one artifact fence, capped below the authoritative range, with pillar_breakdowns carrying total_item_count == 0 to mark estimated pillar states.  
+`REVISING` | A revision of an existing contract is streaming (for example after an annotation submission). Same estimate semantics as DRAFTING.  
+  
+## TurnResumeSnapshot
+
+A compacted replay of an in-flight turn: everything needed to render the turn's visible output so far, plus the position live events continue from.
+
+Fields  
+---  
+`turn_id` |  `string` Identifies the turn being attached to.  
+`resolved_sequence_number` |  `int64` The position this snapshot represents. Live events follow with sequence_number strictly greater than this. When lower than the resume_from_sequence_number the client requested, flushed progress lags what the client already rendered: the client must discard its rendered content of this turn beyond this position before applying the snapshot.  
+`events[]` |  `[StreamChatAiAssistantResponse](https://docs.cloud.google.com/gemini-enterprise-cx/cx-agent-studio/reference/rpc/google.cloud.ces.v1#google.cloud.ces.v1.StreamChatAiAssistantResponse)` Compacted events reconstructing the turn's visible output, in render order, using the same event shapes as live streaming.  
+`orphan_deadline_time` |  `[Timestamp](https://protobuf.dev/reference/protobuf/google.protobuf/#timestamp)` When the turn will be wound down if no client remains attached.  
+  
+## UiEvent
+
+Represents a UI event payload.
+
+Fields  
+---  
+`mime_type` |  `string` The media type (MIME type) indicating the format of the UI event payload (e.g., "application/json+a2ui").  
+`json_payload` |  `string` The JSON payload representing the A2UI surface.  
   
 ## UpdateAgentRequest
 
@@ -4566,6 +5022,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-09-28 UTC.
+Last updated 2026-11-04 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-09-28 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 

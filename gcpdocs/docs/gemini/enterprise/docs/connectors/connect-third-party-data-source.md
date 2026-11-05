@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini/enterprise/docs/connectors/connect-third-party-data-source/
 title: Connect a third-party data source \u00a0|\u00a0 Gemini Enterprise \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-03T05:46:02.212815+00:00
+fetched_at: 2026-11-05T00:17:52.096513+00:00
 ---
 
 # Connect a third-party data source  |  Gemini Enterprise  |  Google Cloud Documentation
@@ -70,6 +70,7 @@ Data source | Value for `allowedDataSources`
 
 Data source | Value for `allowedDataSources`  
 ---|---  
+[Adobe](https://docs.cloud.google.com/gemini/enterprise/docs/connectors/adobe) | `adobe`  
 [Adobe Workfront](https://docs.cloud.google.com/gemini/enterprise/docs/connectors/adobe-workfront) | `adobe_workfront`  
 [AirOps](https://docs.cloud.google.com/gemini/enterprise/docs/connectors/airops) | `airops`  
 [Airtable](https://docs.cloud.google.com/gemini/enterprise/docs/connectors/airtable) | `airtable`  
@@ -212,6 +213,32 @@ Expand the data store name in the following list to reveal the available actions
 
 **Note:** Not all third-party data stores support actions, such as data stores supporting limited functionality (federated search only or search only).
 
+AdobeLaunch date | Action | Description  
+---|---|---  
+11/2/26 | Asset add file | Open the file picker so user can select an image/video/document to edit or process.  
+Asset create folders | Create one or more folders in Adobe Creative Cloud Files storage for organizing assets.  
+Asset finalize file upload | Completes a block upload after all file chunks have been transferred to Adobe Creative Cloud storage.  
+Asset initialize file upload | Initiates a block upload for a file to Adobe Creative Cloud storage.  
+Asset invite collaborators | Adds one or more collaborators to an Adobe asset or project at a specified role: Viewer, Commenter, Editor, or Consumer.  
+Change background color | Update the background color of an Express design.  
+Fill text | Fill placeholder text fields in an Adobe Express design template with specific content.  
+Image apply adjustments | Adobe Photoshop and Lightroom professional image adjustments.  
+Image apply auto tone | Automatically corrects the tonal balance of the images in one step by adjusting exposure, contrast, highlights, shadows, whites, and blacks.  
+Image apply effects | Applies a single Photoshop filter or style effect to the image or an area.  
+Image apply preset | Applies a named Lightroom preset to the image, transforming its look in one step.  
+Image crop and resize | Smart crop and resize with subject-aware positioning.  
+Image crop to bounds | Crop images to exact geometric bounds using normalized coordinates (0-1).  
+Image fill area | Fills a masked area of the image with a solid color at a specified opacity.  
+Image generate | Generates a brand-new image from a text prompt using generative AI.  
+Image generative expand | Expand images by generating new content around its edges.  
+Image get task status | Waits for an operation that a previous tool call started but did not finish, and returns its result once ready.  
+Image instruct edit | Applies generative edits to an image using plain-language instructions about what to change.  
+Image invert selection | Invert the current selection mask - selects everything that wasn't selected and deselects everything that was.  
+Image remove background | Detects the main subject and creates a cutout.  
+Image remove blemishes | Removes skin blemishes, spots, and surface imperfections from an image using AI healing.  
+Image select by prompt | Select specific objects in the image so you can apply effects or adjustments to those objects only.  
+Image select subject | Selects the main subject(s) in an image and creates a selection mask.  
+Replace image | Replace or change a visual element in the Express Design with a different image or appearance.  
 AsanaLaunch date | Action | Description  
 ---|---|---  
 06/05/26 | Create project | Create a new project with optional sections and tasks in a single operation.  
@@ -500,10 +527,10 @@ List on-call entries | List the on-call entries during a given time range.
 List log entries | Get the full timeline of an incident.  
 RxNorm Drug VocabularyLaunch date | Action | Description  
 ---|---|---  
-11/2/26 | Search drugs by name | Finds RxNorm products for a drug name, grouped as generic drugs, branded drugs, generic packs, and branded packs.  
-Get RxCUI details | Returns the status, name, ingredients, strengths, and dose form of an RxCUI.  
-Get NDC crosswalk | Maps an NDC to its RxCUI, concept name, and NDC status.  
-Get NDCs from RxCUI | Lists the active NDCs of a drug product RxCUI.  
+11/2/26 | Search RxNorm drugs by name | Finds RxNorm products for a drug name, grouped as generic drugs, branded drugs, generic packs, and branded packs.  
+Get RxNorm concept details | Returns the status, name, ingredients, strengths, and dose form of an RxNorm concept unique identifier (RxCUI).  
+Map an NDC to RxNorm | Maps a National Drug Code (NDC) to its RxCUI, concept name, and NDC status.  
+List NDCs for an RxNorm product | Lists the active NDCs of a drug product RxCUI.  
 SalesforceLaunch date | Action | Description  
 ---|---|---  
 10/26/26 | Create Sobject Record | Creates a record of any object type in Salesforce.  

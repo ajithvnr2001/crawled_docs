@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chronicle/docs/soar/respond/integrations-setup/supporting-multiple-instances/
 title: Support multiple instances \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T10:02:04.253562+00:00
+fetched_at: 2026-11-04T23:34:00.301445+00:00
 ---
 
 # Support multiple instances  |  Google Security Operations  |  Google Cloud Documentation
@@ -27,7 +27,7 @@ Google SecOps  [ SOAR ](https://docs.cloud.google.com/chronicle/docs/secops/goog
 
 You can configure multiple instances of the same integration within the same environment. This feature gives you greater flexibility and control when you [create and run playbooks](https://docs.cloud.google.com/chronicle/docs/soar/respond/working-with-playbooks/whats-on-the-playbooks-screen). For example, you can build a playbook for a customer with two sites, each using separate Active Directories, and then select the appropriate integration instance for each playbook step. 
 
-This functionality is configured in **Response > Integrations Setup** and is supported by the **Choose Instance** field in the playbook step, and the multi-select environment option. 
+This functionality is configured in **Automation > Integrations Setup** and is supported by the **Choose Instance** field in the playbook step, and the multi-select environment option. 
 
 ## View integration options
 
@@ -42,7 +42,7 @@ On the **Integrations** page, two predefined options are listed:
 
 The **Shared Instances** section includes predefined Google SecOps integrations that are available by default.
 
-Any environment that you create in **Settings > Organizations > Environments** will appear in the environment list.
+Any environment that you create in **Settings > Access Management > Environments** will appear in the environment list.
 
 You can filter the display of environments or hide empty ones. Enterprise customers typically use the default environment.
 
@@ -120,7 +120,7 @@ This scenario involves an enterprise network divided into two sites: one in the 
 
 ### Configure an Instance
 
-  1. Go to **Response > Integrations Setup**. 
+  1. Go to **Automation > Integrations Setup**. 
   2. In the **Environments** list, select the environment where you want to create an instance. For this example, use **Default Environment**. 
   3. Click  add  **Create a new instance**. 
   4. In the **Add Instance** dialog, select the required integration from the list and click **Save**. In this example, select **Active Directory**. 
@@ -149,7 +149,7 @@ In this scenario, as an MSSP, you support multiple customers, each defined in a 
 
 ### Define environments
 
-  1. Go to **Settings > Organization > Environments**. 
+  1. Go to **Settings > Access Management > Environments**. 
   2. Click  add **Add Environment** and define the required environment with the parameters for the environment. 
   3. Create several new environments, one for each customer. 
 
@@ -164,7 +164,7 @@ In this scenario, as an MSSP, you support multiple customers, each defined in a 
 
 ### Configure instances
 
-  1. Go to **Response > Integrations Setup**, select each customer, and click **Configure**. 
+  1. Go to **Automation > Integrations Setup**, select each customer, and click **Configure**. 
   2. Set up the VirusTotal integration instance according to your requirements. 
 
 
@@ -185,6 +185,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-28 UTC.
+Last updated 2026-11-04 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 

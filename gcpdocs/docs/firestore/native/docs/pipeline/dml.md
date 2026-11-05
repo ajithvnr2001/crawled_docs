@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/firestore/native/docs/pipeline/dml/
 title: Modify data with Pipeline operations \u00a0|\u00a0 Firestore in Native mode \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T08:01:31.346195+00:00
+fetched_at: 2026-11-05T00:05:41.200731+00:00
 ---
 
 # Modify data with Pipeline operations  |  Firestore in Native mode  |  Google Cloud Documentation
@@ -95,7 +95,7 @@ For example, the following operation backfills a data model change to all docume
     	Update().
     	Execute(ctx)
     
-    [pipeline_snippets_dml.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/ed08282a171f47c035cf0984a5caa406b76f5bcd/firestore/pipeline_snippets_dml.go#L28-L36)
+    [pipeline_snippets_dml.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/db12cf239dd4dcddd2c15c703bb21991d4193a8a/firestore/pipeline_snippets_dml.go#L28-L36)
 
 ## Delete documents
 
@@ -157,7 +157,7 @@ For example, the following pipeline deletes all `users` documents with `address.
     	Delete().
     	Execute(ctx)
     
-    [pipeline_snippets_dml.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/ed08282a171f47c035cf0984a5caa406b76f5bcd/firestore/pipeline_snippets_dml.go#L50-L55)
+    [pipeline_snippets_dml.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/db12cf239dd4dcddd2c15c703bb21991d4193a8a/firestore/pipeline_snippets_dml.go#L50-L55)
 
 ## Execution Modes and Consistency
 

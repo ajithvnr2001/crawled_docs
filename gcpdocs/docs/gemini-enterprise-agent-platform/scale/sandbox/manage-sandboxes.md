@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/sandbox/manage-sandboxes/
 title: Manage sandboxes \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T05:55:10.165481+00:00
+fetched_at: 2026-11-04T23:15:19.373542+00:00
 ---
 
 # Manage sandboxes  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation
@@ -79,19 +79,21 @@ Replace the following:
 
 
 
-The output includes details like creation time, state (e.g., `STATE_RUNNING`), and the sandbox specification.
+The output includes details like creation time, state (for example, `STATE_RUNNING`), and the sandbox specification.
 
 ### Pause a sandbox
 
 Pausing a sandbox releases its compute resources while preserving disk state and connection metadata. Paused sandboxes cost significantly less than running ones and can be resumed in seconds. Use pause when a sandbox is idle for an extended period but you want to preserve session state and connection identity for later use.
 
-Paused sandboxes:
+Paused sandboxes have the following characteristics:
 
   * Retain their sandbox ID, connection metadata, and any Private Service Connect endpoint.
   * Retain all in-container file system state at the moment of pause.
   * Transition to `STATE_PAUSED`. Requests to their data-plane endpoint return errors until you resume.
 
 
+
+To pause a running sandbox, run the following code:
     
     
     import agentplatform
@@ -121,6 +123,8 @@ Replace the following:
 ### Resume a sandbox
 
 Resuming a paused sandbox brings its compute back online. The sandbox retains the same ID, connection endpoint (including any Private Service Connect service attachment), and file system state it had at the moment of pause. Data-plane requests can be made to the sandbox again as soon as the resume operation completes.
+
+To resume a paused sandbox, run the following code:
     
     
     sandbox_name = 'projects/PROJECT_ID/locations/LOCATION/reasoningEngines/INSTANCE_ID/sandboxEnvironments/SANDBOX_ID'
@@ -155,10 +159,28 @@ To explicitly delete a sandbox environment and free up resources:
 
 **Note:** Sandboxes are billed while they exist. You can set `config.ttl` when you create the sandbox so that the sandbox is removed automatically when the TTL expires, even if your process crashes before it can call `delete()`.
 
+## Audit logging and monitoring
+
+When you manage and execute commands in sandboxes, Agent Platform records API-level activity in [Cloud Audit Logs](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/audit-logging) under the `aiplatform.googleapis.com` service name and the `audited_resource` monitored resource type:
+
+  * **Admin Activity (`ADMIN_WRITE`) logs**: Recorded automatically for control-plane lifecycle mutations, including `CreateSandboxEnvironment`, `PauseSandboxEnvironment`, `ResumeSandboxEnvironment`, `SnapshotSandboxEnvironment`, and `DeleteSandboxEnvironment` (requiring `aiplatform.sandboxEnvironments.*` IAM permissions).
+  * **Data Access (`ADMIN_READ`) logs**: Recorded when enabled for metadata read operations, including `GetSandboxEnvironment` and `ListSandboxEnvironments`.
+  * **Data Access (`DATA_WRITE`) logs**: Recorded when enabled for data-plane command execution and access authorization calls, including `ExecuteSandboxEnvironment`, `BidiExecuteSandboxEnvironment`, `AuthorizeSandboxEnvironmentAccess`, and `ExecuteCode`. For resources protected by VPC Service Controls, request and response payloads are omitted from audit logs.
+
+
+
+Keep the following observability and threat detection boundaries in mind:
+
+  * **In-container process and stream activity** : Cloud Audit Logs logs the API request that initiates command execution or authorizes a connection, but doesn't log individual child processes spawned inside the container, file system modifications, or subsequent interactive frames sent over an open WebSocket, Chrome DevTools Protocol (CDP), or PTY session.
+  * **Container`stdout` and `stderr` logging**: Automatic [Cloud Logging collection for Agent Runtime](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/logging) (such as `reasoning_engine_stdout` and `reasoning_engine_stderr`) applies only to the parent `ReasoningEngine` instance and doesn't automatically collect logs from sandbox child resources. Command output (`stdout`, `stderr`, and exit codes) is returned in the execution response to your parent agent, where you can inspect and write structured entries to Cloud Logging.
+  * **Threat detection and network inspection** : Sandboxes enforce containment through gVisor kernel isolation and an unprivileged in-sandbox identity with no ambient Google Cloud credentials. To monitor for anomalous behavior or unauthorized network egress, combine `DATA_WRITE` audit logs with [Agent anomaly detection](https://docs.cloud.google.com/gemini-enterprise-agent-platform/audit/agent-anomalies) on the parent agent and route sandbox egress through a [Private Service Connect interface](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/sandbox/configure-vpc-sc#control-egress) with VPC Flow Logs, Cloud Next Generation Firewall (Cloud NGFW) rule logging, and Secure Web Proxy inspection. For details, see [Security, identity, and observability boundaries](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/sandbox#security-boundaries).
+
+
+
 Send feedback 
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-30 UTC.
+Last updated 2026-11-04 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 

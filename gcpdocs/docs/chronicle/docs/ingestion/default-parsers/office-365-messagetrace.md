@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/office-365-messagetrace/
 title: Collect Office 365 Message Trace logs \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T07:53:29.887421+00:00
+fetched_at: 2026-11-04T23:44:01.086433+00:00
 ---
 
 # Collect Office 365 Message Trace logs  |  Google Security Operations  |  Google Cloud Documentation

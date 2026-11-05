@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/kubernetes-engine/docs/how-to/gpus-confidential-nodes/
 title: Encrypt GPU workload data in use with Confidential GKE Nodes \u00a0|\u00a0 GKE AI/ML \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-01T05:43:23.618169+00:00
+fetched_at: 2026-11-05T00:19:31.074505+00:00
 ---
 
 # Encrypt GPU workload data in use with Confidential GKE Nodes  |  GKE AI/ML  |  Google Cloud Documentation
@@ -59,8 +59,8 @@ Before you start, make sure that you have performed the following tasks:
 
 Regardless of the Confidential GKE Nodes configuration method that you choose, you must meet all of the following requirements:
 
-  * The nodes must be in a zone that supports NVIDIA Confidential Computing. For more information, see [View supported zones](https://docs.cloud.google.com/confidential-computing/confidential-vm/docs/supported-configurations#supported-zones).
-  * The nodes must use a supported machine type, Confidential Computing technology, and GPU. For more information, see [Supported configurations](https://docs.cloud.google.com/confidential-computing/confidential-vm/docs/supported-configurations#machine-type-cpu-zone).
+  * The nodes must be in a zone that supports NVIDIA Confidential Computing. For more information, see [Zones](https://docs.cloud.google.com/confidential-computing/confidential-vm/docs/supported-configurations#zones).
+  * The nodes must use a supported machine type, Confidential Computing technology, and GPU. For more information, see [Machine types](https://docs.cloud.google.com/confidential-computing/confidential-vm/docs/supported-configurations#machine-types).
   * You must have preemptible quota for the GPUs that you want to use in your node locations. For example, if you use NVIDIA H100 (80 GB) GPUs, then you must have quota for `compute.googleapis.com/preemptible_nvidia_h100_gpus`. For more information about managing your quota, see [View and manage quotas](https://docs.cloud.google.com/docs/quotas/view-manage).
 
 
@@ -144,7 +144,7 @@ Replace the following:
      * `COMPUTECLASS_NAME`: a name for the ComputeClass.
      * `CONFIDENTIAL_COMPUTE_TECHNOLOGY`: the Confidential Computing technology to use, such as `TDX`. Choose a technology that's supported by the GPU that you want to use.
 
-     * `ZONE1,ZONE2`: a comma-separated list of zones to create nodes in, such as `['us-central1-a','us-central1-b']`. Specify zones that support the Confidential Computing technology and machine type that you want to use. For more information, see [View supported zones](https://docs.cloud.google.com/confidential-computing/confidential-vm/docs/supported-configurations#supported-zones).
+     * `ZONE1,ZONE2`: a comma-separated list of zones to create nodes in, such as `['us-central1-a','us-central1-b']`. Specify zones that support the Confidential Computing technology and machine type that you want to use. For more information, see [Zones](https://docs.cloud.google.com/confidential-computing/confidential-vm/docs/supported-configurations#zones).
 
      * `GPU_TYPE`: the GPU type to use, such as `nvidia-h100-80gb`.
 
@@ -214,8 +214,8 @@ You can run GPU workloads on Confidential GKE Nodes in Standard mode clusters or
 
 You can enable Confidential GKE Nodes for your entire Standard cluster, so that every GPU node pool that you create uses the same Confidential Computing technology. When you create a new Standard mode cluster that uses Confidential GKE Nodes for GPU workloads, ensure that you specify the following cluster settings:
 
-  * **Location** : a region or a zone that supports NVIDIA Confidential Computing. For more information, see [View supported zones](https://docs.cloud.google.com/confidential-computing/confidential-vm/docs/supported-configurations#supported-zones).
-  * **Confidential Computing type** : a Confidential Computing technology that supports GPUs. For more information, see [Supported configurations](https://docs.cloud.google.com/confidential-computing/confidential-vm/docs/supported-configurations#machine-type-cpu-zone).
+  * **Location** : a region or a zone that supports NVIDIA Confidential Computing. For more information, see [Zones](https://docs.cloud.google.com/confidential-computing/confidential-vm/docs/supported-configurations#zones).
+  * **Confidential Computing type** : a Confidential Computing technology that supports GPUs. For more information, see [Machine types](https://docs.cloud.google.com/confidential-computing/confidential-vm/docs/supported-configurations#machine-types).
   * **Cluster version** : one of the following versions, depending on how you want to install your GPU drivers:
 
     * **Manual GPU driver installation** : 1.32.2-gke.1297000 or later.
@@ -295,7 +295,7 @@ Replace the following:
       * `CLUSTER_NAME`: the name of your existing cluster.
       * `CONFIDENTIAL_COMPUTE_TECHNOLOGY`: the Confidential Computing technology to use, such as `TDX`. Choose a technology that's supported by the GPU that you want to use.
       * `LOCATION`: the location for your new node pool. The location must support using GPUs in Confidential GKE Nodes.
-      * `NODE_LOCATION1,NODE_LOCATION2,...`: a comma-separated list of zones to run the nodes in. Specify zones that support the Confidential Computing technology and machine type that you want to use. For more information, see [View supported zones](https://docs.cloud.google.com/confidential-computing/confidential-vm/docs/supported-configurations#supported-zones).
+      * `NODE_LOCATION1,NODE_LOCATION2,...`: a comma-separated list of zones to run the nodes in. Specify zones that support the Confidential Computing technology and machine type that you want to use. For more information, see [Zones](https://docs.cloud.google.com/confidential-computing/confidential-vm/docs/supported-configurations#zones).
       * `GPU_TYPE`: the GPU type to use, such as `nvidia-h100-80gb`.
       * `GPU_COUNT`: the number of GPUs to attach to each node. Specify a value that's supported by Confidential VM for the GPU type. For example, if you choose the `nvidia-h100-80gb` GPU type, then you must specify a value of `1` in this field.
 
@@ -355,6 +355,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-30 UTC.
+Last updated 2026-11-03 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/oracle-fusion/
 title: Collect Oracle Fusion Cloud Applications logs \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T07:52:10.654716+00:00
+fetched_at: 2026-11-04T23:43:47.337904+00:00
 ---
 
 # Collect Oracle Fusion Cloud Applications logs  |  Google Security Operations  |  Google Cloud Documentation

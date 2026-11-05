@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chronicle/docs/soar/respond/ide/using-the-ide/
 title: Use the IDE \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T10:06:41.058527+00:00
+fetched_at: 2026-11-04T23:33:39.195025+00:00
 ---
 
 # Use the IDE  |  Google Security Operations  |  Google Cloud Documentation
@@ -33,7 +33,7 @@ IDE is where you manage, import and export custom integrations.
 
 To open the IDE, follow these steps:
 
-  * To open the IDE, in the main menu, go to **Response > IDE**. The **IDE** page opens.
+  * To open the IDE, in the main menu, go to **Automation > IDE**. The **IDE** page opens.
 
 
 
@@ -101,7 +101,7 @@ To create a job, follow these steps:
   4. Optional: Add parameters for user or script input.
   5. Click **Save** or press `Ctrl + S`.
   6. Click  arrow_right  **Play Item** to run the script.
-  7. Go to **Response > Jobs Scheduler**.
+  7. Go to **Automation > Jobs Scheduler**.
   8. Click  add **Create New Job** and select the job that you just created.
   9. In **Response >Jobs Scheduler**, choose the required time to run the job (script) that you created.
 
@@ -144,6 +144,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-28 UTC.
+Last updated 2026-11-04 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 

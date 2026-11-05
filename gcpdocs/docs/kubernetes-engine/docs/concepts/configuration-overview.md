@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/kubernetes-engine/docs/concepts/configuration-overview/
 title: About cluster configuration choices \u00a0|\u00a0 Google Kubernetes Engine (GKE) \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-01T05:43:03.068011+00:00
+fetched_at: 2026-11-04T23:17:02.102935+00:00
 ---
 
 # About cluster configuration choices  |  Google Kubernetes Engine (GKE)  |  Google Cloud Documentation
@@ -156,6 +156,7 @@ In this document and the GKE documentation, "standard zones" or "zones" refer to
 
 Before you use an AI zone in GKE, consider the following characteristics:
 
+  * To use an AI zone with existing GKE clusters, your control plane must run version 1.36.4-gke.1495002 or later, or 1.37.1-gke.1552000 or later. These versions let the control plane recognize the zone and register nodes. If your control plane runs version 1.35 or earlier, or a version earlier than these minimums, [upgrade the control plane](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/upgrading-a-cluster#upgrade_cp) before creating node pools in the AI zone. If upgrading isn't possible, contact [Cloud Customer Care](https://docs.cloud.google.com/support).
   * AI zones are physically separate from standard zones to provide additional storage space and power. This separation might result in higher latency, which is generally tolerable for AI/ML workloads.
   * AI zones have a suffix with the `ai` notation. For example, an AI zone in the `us-central1` region is named `us-central1-**ai** 1a`.
   * Currently, only TPU VMs are supported.
@@ -230,7 +231,7 @@ Use [Cloud NAT](https://docs.cloud.google.com/nat/docs/overview) to provide GKE 
 
 #### VPC-native and routes-based clusters
 
-In GKE, clusters can be distinguished according to the way they route traffic from one Pod to another Pod. A cluster that uses Alias IP addresses is called a [_VPC-native cluster_](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/alias-ips). A cluster that uses [ Google Cloud routes](https://docs.cloud.google.com/vpc/docs/routes) is called a [_routes-based cluster_](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/routes-based-cluster).
+In GKE, clusters can be distinguished according to the way they route traffic from one Pod to another Pod. A cluster where Pod IP addresses are natively routable within the VPC network without using custom static routes is called a [_VPC-native cluster_](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/alias-ips). In IPv4 and dual-stack clusters, GKE uses alias IP addresses; in single-stack IPv6 clusters, GKE allocates addresses directly from the subnetwork without alias IP address ranges. In contrast, a cluster that uses [Google Cloud routes](https://docs.cloud.google.com/vpc/docs/routes) is called a [_routes-based cluster_](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/routes-based-cluster).
 
 By default, all new GKE clusters use VPC-native routing, which is our recommended option. You can change this setting at cluster creation to create a routes-based cluster in Standard mode only. This setting can't be updated after cluster creation.
 
@@ -329,6 +330,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-30 UTC.
+Last updated 2026-11-04 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 

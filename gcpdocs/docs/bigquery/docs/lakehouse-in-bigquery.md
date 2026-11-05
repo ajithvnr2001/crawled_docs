@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/lakehouse-in-bigquery/
 title: Interact with borderless Lakehouse data in BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-03T09:36:30.848190+00:00
+fetched_at: 2026-11-05T00:19:59.289882+00:00
 ---
 
 # Interact with borderless Lakehouse data in BigQuery  |  Google Cloud Documentation
@@ -100,7 +100,7 @@ Instead of creating a table containing data, you can create an empty Lakehouse t
 
 ## Access cross-cloud data
 
-The [cross-cloud data access capability of Lakehouse](https://docs.cloud.google.com/lakehouse/docs/about-cross-cloud-data-access) lets you query external Iceberg tables across Amazon Web Services (AWS) and Microsoft Azure directly from BigQuery without migrating files or building ETL pipelines. You can route query reads, background catalog metadata synchronization, or both privately over Cross-Cloud Interconnect, while optional local caching in Google Cloud helps reduce recurring egress costs. For query syntax and configuration details, see [Query remote data](https://docs.cloud.google.com/lakehouse/docs/query-remote-data).
+The [cross-cloud data access capability of Lakehouse](https://docs.cloud.google.com/lakehouse/docs/about-cross-cloud-data-access) lets you query external Iceberg tables across Amazon Web Services (AWS) and Microsoft Azure directly from BigQuery without migrating files or building ETL pipelines. You can route query reads, background metadata refresh, or both privately over Cross-Cloud Interconnect, while optional local caching in Google Cloud helps reduce recurring egress costs. For query syntax and configuration details, see [Query remote data](https://docs.cloud.google.com/lakehouse/docs/query-remote-data).
 
 ## Iceberg table capabilities comparison
 

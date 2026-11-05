@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/quickstarts/quickstart-client-libraries/
 title: Query a public dataset with the BigQuery client libraries \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T07:54:56.691490+00:00
+fetched_at: 2026-11-04T23:28:09.486659+00:00
 ---
 
 # Query a public dataset with the BigQuery client libraries  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/migrate/kf/docs/2.11/concepts/role-based-access-control/
 title: Role-based access control overview \u00a0|\u00a0 Kf 2.11 \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T09:47:28.131882+00:00
+fetched_at: 2026-11-05T00:19:02.844168+00:00
 ---
 
 # Role-based access control overview  |  Kf 2.11  |  Google Cloud Documentation
@@ -3335,6 +3335,11 @@ Role | Permissions
   * `dns.gkeClusters.bindDNSResponsePolicy`
   * `dns.gkeClusters.bindPrivateDNSZone`
 
+`dns.locations.*`
+
+  * `dns.locations.get`
+  * `dns.locations.list`
+
 `dns.managedZoneOperations.*`
 
   * `dns.managedZoneOperations.get`
@@ -3347,6 +3352,23 @@ Role | Permissions
   * `dns.networks.bindPrivateDNSZone`
   * `dns.networks.targetWithPeeringZone`
   * `dns.networks.useHealthSignals`
+
+`dns.operations.*`
+
+  * `dns.operations.cancel`
+  * `dns.operations.delete`
+  * `dns.operations.get`
+  * `dns.operations.list`
+
+`dns.outboundEndpoints.*`
+
+  * `dns.outboundEndpoints.bindPrivateDNSPolicy`
+  * `dns.outboundEndpoints.bindPrivateDNSZone`
+  * `dns.outboundEndpoints.create`
+  * `dns.outboundEndpoints.delete`
+  * `dns.outboundEndpoints.get`
+  * `dns.outboundEndpoints.list`
+  * `dns.outboundEndpoints.update`
 
 `dns.policies.*`
 
@@ -3927,6 +3949,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-28 UTC.
+Last updated 2026-11-03 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 

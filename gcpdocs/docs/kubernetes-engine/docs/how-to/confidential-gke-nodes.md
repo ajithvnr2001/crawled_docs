@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/kubernetes-engine/docs/how-to/confidential-gke-nodes/
 title: Encrypt workload data in-use with Confidential GKE Nodes \u00a0|\u00a0 GKE security \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-01T05:43:05.793999+00:00
+fetched_at: 2026-11-05T00:19:30.965572+00:00
 ---
 
 # Encrypt workload data in-use with Confidential GKE Nodes  |  GKE security  |  Google Cloud Documentation
@@ -175,9 +175,9 @@ Confidential GKE Nodes has the following requirements:
       * **Intel TDX** : 1.33.5-gke.1697000 or later and 1.34.1-gke.2909000 or later.
   * To enable Confidential GKE Nodes at the workload level, Autopilot and Standard clusters must run GKE version 1.33.3-gke.1392000 or later.
 
-  * Nodes must use a machine type that supports the Confidential Computing technology that you choose. For more information, see [Machine types, CPUs, and zones](https://docs.cloud.google.com/confidential-computing/confidential-vm/docs/supported-configurations#machine-type-cpu-zone).
+  * Nodes must use a machine type that supports the Confidential Computing technology that you choose. For more information, see [Machine types](https://docs.cloud.google.com/confidential-computing/confidential-vm/docs/supported-configurations#machine-types).
 
-  * Cluster control planes and nodes must be in a location that supports the Confidential Computing technology that you choose. For more information, see [View supported zones](https://docs.cloud.google.com/confidential-computing/confidential-vm/docs/supported-configurations#supported-zones).
+  * Cluster control planes and nodes must be in a location that supports the Confidential Computing technology that you choose. For more information, see [Zones](https://docs.cloud.google.com/confidential-computing/confidential-vm/docs/supported-configurations#zones).
 
 
 
@@ -222,13 +222,13 @@ Replace the following:
        * `SEV` for AMD SEV
        * `SEV_SNP` for AMD SEV-SNP
        * `TDX` for Intel TDX
-     * **`ZONE1,ZONE2,...`** : the zones to create nodes in, such as `['us-central1-a','us-central1-b']`. Specify zones that support the Confidential Computing technology that you specified. For more information, see [View supported zones](https://docs.cloud.google.com/confidential-computing/confidential-vm/docs/supported-configurations#supported-zones). 
+     * **`ZONE1,ZONE2,...`** : the zones to create nodes in, such as `['us-central1-a','us-central1-b']`. Specify zones that support the Confidential Computing technology that you specified. For more information, see [Zones](https://docs.cloud.google.com/confidential-computing/confidential-vm/docs/supported-configurations#zones). 
 
 Optional: If you are provisioning TPU VMs, use an [AI zone](https://docs.cloud.google.com/compute/docs/regions-zones/ai-zones), like `us-central1-ai1a`. AI zones are specialized locations that are optimized for AI/ML workloads within Google Cloud regions.
 
-     * **`MACHINE_SERIES`** : the machine series for the nodes, such as `n2d`. Specify a machine series that supports the Confidential Computing technology that you specified. For more information, see [Machine types, CPUs, and zones](https://docs.cloud.google.com/confidential-computing/confidential-vm/docs/supported-configurations#machine-type-cpu-zone).
+     * **`MACHINE_SERIES`** : the machine series for the nodes, such as `n2d`. Specify a machine series that supports the Confidential Computing technology that you specified. For more information, see [Machine types](https://docs.cloud.google.com/confidential-computing/confidential-vm/docs/supported-configurations#machine-types).
 
-     * **`MACHINE_TYPE`** the machine type for the nodes, such as `n2d-standard-4`. Specify a machine type that supports the Confidential Computing technology that you specified. For more information, see [Machine types, CPUs, and zones](https://docs.cloud.google.com/confidential-computing/confidential-vm/docs/supported-configurations#machine-type-cpu-zone).
+     * **`MACHINE_TYPE`** the machine type for the nodes, such as `n2d-standard-4`. Specify a machine type that supports the Confidential Computing technology that you specified. For more information, see [Machine types](https://docs.cloud.google.com/confidential-computing/confidential-vm/docs/supported-configurations#machine-types).
 
 This manifest includes the `spec.nodePoolAutoCreation` field with a value of `enabled: true`, which lets GKE create new node pools by using node auto-provisioning.
 
@@ -393,7 +393,7 @@ Replace the following:
   * `CLUSTER_NAME`: the name of your cluster.
   * `LOCATION`: the Compute Engine location for the cluster control plane. The location must support the Confidential Computing technology that you specify. For more information, see the Availability section.
   * `MACHINE_TYPE`: a machine type that supports the Confidential Computing technology that you specify. For more information, see Availability section.
-  * `ZONE1,ZONE2,...`: a comma-separated list of zones in the control plane region that support the new Confidential Computing technology. For more information, see [View supported zones](https://docs.cloud.google.com/confidential-computing/confidential-vm/docs/supported-configurations#supported-zones).
+  * `ZONE1,ZONE2,...`: a comma-separated list of zones in the control plane region that support the new Confidential Computing technology. For more information, see [Zones](https://docs.cloud.google.com/confidential-computing/confidential-vm/docs/supported-configurations#zones).
   * `CONFIDENTIAL_COMPUTE_TECHNOLOGY`: the Confidential Computing technology to use. The following values are supported:
 
     * `sev`: AMD SEV
@@ -431,7 +431,7 @@ If the technology that you select requires a specific Compute Engine machine ser
   9. In the **Node pool details** pane, do the following:
 
      1. Select the **Specify node locations** checkbox. A list of zones in the cluster's region appears.
-     2. Select the checkboxes for zones that support the Confidential Computing technology that you selected for the nodes. For more information, see [View supported zones](https://docs.cloud.google.com/confidential-computing/confidential-vm/docs/supported-configurations#supported-zones).
+     2. Select the checkboxes for zones that support the Confidential Computing technology that you selected for the nodes. For more information, see [Zones](https://docs.cloud.google.com/confidential-computing/confidential-vm/docs/supported-configurations#zones).
   10. Click **Create**.
 
 
@@ -489,7 +489,7 @@ Replace the following:
   * `LOCATION`: the location for your new node pool. The location must support the Confidential Computing technology that you specify. For details, see the Availability section.
   * `CLUSTER_NAME`: the name of your cluster.
   * `MACHINE_TYPE`: a machine type that supports the Confidential Computing technology that you specify. For details, see the Availability section.
-  * `ZONE1,ZONE2,...`: a comma-separated list of zones in the cluster region that support the new Confidential Computing technology. For more information, see [View supported zones](https://docs.cloud.google.com/confidential-computing/confidential-vm/docs/supported-configurations#supported-zones).
+  * `ZONE1,ZONE2,...`: a comma-separated list of zones in the cluster region that support the new Confidential Computing technology. For more information, see [Zones](https://docs.cloud.google.com/confidential-computing/confidential-vm/docs/supported-configurations#zones).
   * `CONFIDENTIAL_COMPUTE_TECHNOLOGY`: the Confidential Computing technology to use. The following values are supported:
 
     * `sev`: AMD SEV
@@ -527,7 +527,7 @@ If the technology that you select requires a specific Compute Engine machine ser
   8. In the **Node pool details** pane, do the following:
 
      1. Select the **Specify node locations** checkbox. A list of zones in the cluster's region appears.
-     2. Select the checkboxes for zones that support the Confidential Computing technology that you selected for the nodes. For more information, see [View supported zones](https://docs.cloud.google.com/confidential-computing/confidential-vm/docs/supported-configurations#supported-zones).
+     2. Select the checkboxes for zones that support the Confidential Computing technology that you selected for the nodes. For more information, see [Zones](https://docs.cloud.google.com/confidential-computing/confidential-vm/docs/supported-configurations#zones).
   9. Optional: Configure other settings for your node pool.
 
   10. Click **Create**.
@@ -572,7 +572,7 @@ Replace the following:
      * `CLUSTER_NAME`: the name of the cluster.
      * `CLUSTER_LOCATION`: the location of the cluster.
      * `MACHINE_TYPE`: a machine type that supports the new Confidential Computing technology. For more information, see the Availability section.
-     * `ZONE1,ZONE2,...`: a comma-separated list of zones in the cluster region that support the new Confidential Computing technology. For more information, see [View supported zones](https://docs.cloud.google.com/confidential-computing/confidential-vm/docs/supported-configurations#supported-zones).
+     * `ZONE1,ZONE2,...`: a comma-separated list of zones in the cluster region that support the new Confidential Computing technology. For more information, see [Zones](https://docs.cloud.google.com/confidential-computing/confidential-vm/docs/supported-configurations#zones).
   3. Update the node pool with the Confidential Computing technology to use:
          
          gcloud container node-pools update NODE_POOL_NAME \
@@ -605,7 +605,7 @@ You can update an existing node pool to use Confidential GKE Nodes only if the m
 
   5. On the **Node pool details** page, click edit **Edit**. The **Edit node pool** pane opens.
 
-  6. In the **Zones** section, verify that the selected zones support the Confidential Computing technology. For more information, see [View supported zones](https://docs.cloud.google.com/confidential-computing/confidential-vm/docs/supported-configurations#supported-zones).
+  6. In the **Zones** section, verify that the selected zones support the Confidential Computing technology. For more information, see [Zones](https://docs.cloud.google.com/confidential-computing/confidential-vm/docs/supported-configurations#zones).
 
 If a selected zone doesn't support the technology, do the following:
 
@@ -878,7 +878,7 @@ Confidential mode for Hyperdisk Balanced has the following limitations:
 
 ### Live migration limitations
 
-[_Live migration_](https://docs.cloud.google.com/compute/docs/instances/live-migration-process) is available only for certain Confidential VM machine types. For more information, see the "Live migration support" column in [Machine types, CPUs, and zones](https://docs.cloud.google.com/confidential-computing/confidential-vm/docs/supported-configurations#machine-type-cpu-zone).
+[_Live migration_](https://docs.cloud.google.com/compute/docs/instances/live-migration-process) is available only for certain Confidential VM machine types. For more information, see the "Live migration support" column in [Machine types](https://docs.cloud.google.com/confidential-computing/confidential-vm/docs/supported-configurations#machine-types).
 
 If a [host maintenance event](https://docs.cloud.google.com/compute/docs/instances/host-maintenance-overview) occurs on a node that doesn't support live migration, the node enters a `NotReady` state. Running Pods will experience disruptions until the node becomes ready again. If the maintenance takes more than five minutes, GKE might try to recreate the Pods on other nodes. For more information about how to reduce the impact on your workloads, see [Manage disruption to GKE nodes that don't live migrate](https://docs.cloud.google.com/kubernetes-engine/docs/concepts/handle-disruption-gpu-tpu).
 
@@ -937,6 +937,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-30 UTC.
+Last updated 2026-11-03 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 

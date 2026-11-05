@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/architecture/framework/perspectives/ai-ml/performance-optimization/
 title: AI and ML perspective: Performance optimization \u00a0|\u00a0 Cloud Architecture Center \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T05:57:59.107061+00:00
+fetched_at: 2026-11-04T23:30:13.950703+00:00
 ---
 
 # AI and ML perspective: Performance optimization  |  Cloud Architecture Center  |  Google Cloud Documentation
@@ -589,7 +589,6 @@ Use inference-optimized frameworks, such as the following:
 
   * For generative models, use an open framework like [MaxText](https://github.com/AI-Hypercomputer/maxtext/blob/main/README.md), [MaxDiffusion](https://github.com/AI-Hypercomputer/maxdiffusion/blob/main/README.md#overview), or [vLLM](https://github.com/vllm-project/vllm/blob/main/README.md).
   * Run [prebuilt container images](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/pre-built-containers) on Agent Platform for predictions and explanations. If you choose TensorFlow, then use the [optimized TensorFlow runtime](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/optimized-tensorflow-runtime). This runtime enables more efficient and lower cost inference than prebuilt containers that use open-source TensorFlow.
-  * Run [multi-host inferencing using Pathways](https://docs.cloud.google.com/ai-hypercomputer/docs/workloads/pathways-on-cloud/multihost-inference).
   * Leverage the [NVIDIA Triton inference server](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/using-nvidia-triton) for Agent Platform.
   * Simplify the deployment of inference workloads on GKE by using LLM-optimized configurations. For more information, see [Analyze model serving performance and costs with GKE Inference Quickstart](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/machine-learning/inference/inference-quickstart).
 

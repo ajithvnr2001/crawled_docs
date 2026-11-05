@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/privacy-i/
 title: Collect Privacy-i logs \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T07:53:28.461015+00:00
+fetched_at: 2026-11-04T23:43:11.463556+00:00
 ---
 
 # Collect Privacy-i logs  |  Google Security Operations  |  Google Cloud Documentation

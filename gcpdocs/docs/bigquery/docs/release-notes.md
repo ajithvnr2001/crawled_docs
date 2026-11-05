@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/release-notes/
 title: BigQuery release notes \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-03T09:36:29.900327+00:00
+fetched_at: 2026-11-04T23:28:11.444265+00:00
 ---
 
 # BigQuery release notes  |  Google Cloud Documentation
@@ -31,6 +31,10 @@ To get the latest product updates delivered to you, add the URL of this page to 
 
 ## November 03, 2026
 
+Feature
+
+You can now use persistent and temporary [SQL user-defined functions (UDFs)](https://docs.cloud.google.com/bigquery/docs/user-defined-functions#continuous-queries) in [BigQuery continuous queries](https://docs.cloud.google.com/bigquery/docs/continuous-queries#use-sql-udfs) to encapsulate and reuse custom real-time transformation logic. Only SQL UDFs are supported in continuous queries.
+
 Change
 
 In [BigQuery Studio](https://docs.cloud.google.com/bigquery/docs/bigquery-web-ui#studio-overview), the left pane has been updated with new tab names. The **Classic Explorer** tab has been renamed to the **Data** tab, and the **Repository** tab has been renamed to the **Source control** tab. The **Data** tab now includes the **Add data** button and focuses on data hierarchies. These changes are [generally available](https://cloud.google.com/products#product-launch-stages) (GA).
@@ -54,7 +58,7 @@ _Lakehouse_ supports the following remote catalog providers for cross-cloud data
 
 
 
-This feature lets you configure federated catalog endpoints to synchronize catalog metadata and query Apache Iceberg tables in remote catalogs directly from Google Cloud using BigQuery, Managed Service for Apache Spark, and Apache Spark without migrating data or building complex ETL pipelines. You can route metadata synchronization and queries over the public internet or privately over Cross-Cloud Interconnect, and protect cross-cloud data access with VPC Service Controls service perimeters. For Databricks Unity Catalog, you can also use [user identity federation](https://docs.cloud.google.com/lakehouse/docs/set-up-cross-cloud-connection-databricks#configure-user-identity-federation) to propagate end-user identities on queries for permission enforcement and audit logging.
+This feature lets you configure federated catalog endpoints to synchronize catalog metadata and query Apache Iceberg tables in remote catalogs directly from Google Cloud using BigQuery, Managed Service for Apache Spark, and Apache Spark without migrating data or building complex ETL pipelines. You can route background metadata refresh and queries over the public internet or privately over Cross-Cloud Interconnect, and protect cross-cloud data access with VPC Service Controls service perimeters. For Databricks Unity Catalog, you can also use [user identity federation](https://docs.cloud.google.com/lakehouse/docs/set-up-cross-cloud-connection-databricks#configure-user-identity-federation) to propagate end-user identities on queries for permission enforcement and audit logging.
 
 For more information, see [About cross-cloud data access](https://docs.cloud.google.com/lakehouse/docs/about-cross-cloud-data-access), [Query remote data](https://docs.cloud.google.com/lakehouse/docs/query-remote-data), and [Use VPC Service Controls with federated catalog endpoints](https://docs.cloud.google.com/lakehouse/docs/vpc-sc-federated-catalogs).
 
@@ -95,10 +99,6 @@ Feature
 You can now retrieve query results [directly in the Apache Arrow format](https://docs.cloud.google.com/bigquery/docs/running-queries#arrow-format) for faster retrieval speed and improved serialization efficiency. This feature is in [Preview](https://cloud.google.com/products#product-launch-stages).
 
 ## October 27, 2026
-
-Feature
-
-You can manage and version control SQL scripts and notebooks with [BigQuery Studio Git repositories](https://docs.cloud.google.com/bigquery/docs/git-repositories), which provide a streamlined, folder-based integration with remote Git repositories. This feature is [generally available](https://cloud.google.com/products#product-launch-stages) (GA).
 
 Feature
 
@@ -3415,7 +3415,7 @@ The following GoogleSQL functions are now available in [preview](https://cloud.g
 
 Feature
 
-For [supported Gemini models](https://docs.cloud.google.com/vertex-ai/generative-ai/docs/provisioned-throughput/supported-models), you can now use [Vertex AI Provisioned Throughput](https://docs.cloud.google.com/vertex-ai/generative-ai/docs/provisioned-throughput/overview) with the [`ML.GENERATE_TEXT`](https://docs.cloud.google.com/bigquery/docs/reference/standard-sql/bigqueryml-syntax-generate-text#provisioned-throughput)and [`AI.GENERATE`](https://docs.cloud.google.com/bigquery/docs/reference/standard-sql/bigqueryml-syntax-ai-generate#provisioned-throughput) functions to provide consistent high throughput for requests.
+For [supported Gemini models](https://docs.cloud.google.com/vertex-ai/generative-ai/docs/provisioned-throughput/supported-models), you can now use [Vertex AI Provisioned Throughput](https://docs.cloud.google.com/vertex-ai/generative-ai/docs/provisioned-throughput/overview) with the [`ML.GENERATE_TEXT`](https://docs.cloud.google.com/bigquery/docs/reference/standard-sql/bigqueryml-syntax-generate-text#provisioned-throughput) and [`AI.GENERATE`](https://docs.cloud.google.com/bigquery/docs/reference/standard-sql/bigqueryml-syntax-ai-generate#provisioned-throughput) functions to provide consistent high throughput for requests.
 
 This feature is [generally available](https://cloud.google.com/products#product-launch-stages) (GA).
 

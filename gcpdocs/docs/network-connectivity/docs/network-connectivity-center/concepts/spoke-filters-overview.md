@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/network-connectivity/docs/network-connectivity-center/concepts/spoke-filters-overview/
 title: Spoke filters overview \u00a0|\u00a0 Network Connectivity Center \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T21:03:40.136194+00:00
+fetched_at: 2026-11-05T00:19:10.890096+00:00
 ---
 
 # Spoke filters overview  |  Network Connectivity Center  |  Google Cloud Documentation
@@ -79,7 +79,7 @@ Export filters consist of both _include export ranges_ and _exclude export range
 
   * **Include export ranges** : Use the `--include-export-ranges` flag in the Google Cloud CLI or the `includeExportRanges` field in the API to create an include export range. The following rules apply to the include export ranges:
 
-    * The include export ranges support up to 16 unique, nonoverlapping CIDRs. No CIDR in the include export ranges can match or contain another CIDR. CIDRs can be IPv4 or IPv6 ([Preview](https://cloud.google.com/products#product-launch-stages)), except for Router appliance hybrid spokes, which support only IPv4 CIDRs.
+    * The include export ranges support up to 16 unique, nonoverlapping CIDRs for VPC and producer VPC spokes, and up to 32 unique, nonoverlapping CIDRs for hybrid spokes. No CIDR in the include export ranges can match or contain another CIDR. CIDRs can be IPv4 or IPv6 ([Preview](https://cloud.google.com/products#product-launch-stages)), except for Router appliance hybrid spokes, which support only IPv4 CIDRs.
 
     * In place of a CIDR, the include export ranges support the following keywords:
 
@@ -97,7 +97,7 @@ Export filters consist of both _include export ranges_ and _exclude export range
 
   * **Exclude export ranges** : Use the `--exclude-export-ranges` flag in the Google Cloud CLI or the `excludeExportRanges` field in the API to create an exclude export range. The following rules apply to the exclude export ranges:
 
-    * The exclude export ranges support up to 16 unique, nonoverlapping CIDRs. No CIDR in the exclude export ranges can match or contain another CIDR. CIDRs can be IPv4 or IPv6 ([Preview](https://cloud.google.com/products#product-launch-stages)), except for Router appliance hybrid spokes, which support only IPv4 CIDRs.
+    * The exclude export ranges support up to 16 unique, nonoverlapping CIDRs for VPC and producer VPC spokes, and up to 32 unique, nonoverlapping CIDRs for hybrid spokes. No CIDR in the exclude export ranges can match or contain another CIDR. CIDRs can be IPv4 or IPv6 ([Preview](https://cloud.google.com/products#product-launch-stages)), except for Router appliance hybrid spokes, which support only IPv4 CIDRs.
 
     * Every CIDR specified in the exclude export ranges must expand to IP addresses that are fully contained by CIDRs or keywords in the _include_ export ranges (or the default include export ranges, if you don't specify any include export ranges explicitly).
 
@@ -151,7 +151,7 @@ Import filters consist of both _include import ranges_ and _exclude import range
 
   * **Include import ranges** : Use the `--include-import-ranges` flag in the Google Cloud CLI or the `includeImportRanges` field in the API to create an include import range. The following rules apply to the include import ranges:
 
-    * The include import ranges support up to 16 unique, nonoverlapping CIDRs. No CIDR in the include import ranges can match or contain another CIDR. CIDRs can be IPv4 or IPv6 ([Preview](https://cloud.google.com/products#product-launch-stages)), except for Router appliance hybrid spokes, which support only IPv4 CIDRs.
+    * The include import ranges support up to 32 unique, nonoverlapping CIDRs. No CIDR in the include import ranges can match or contain another CIDR. CIDRs can be IPv4 or IPv6 ([Preview](https://cloud.google.com/products#product-launch-stages)), except for Router appliance hybrid spokes, which support only IPv4 CIDRs.
 
     * In place of a CIDR, the include import ranges support the following keywords:
 
@@ -169,7 +169,7 @@ Import filters consist of both _include import ranges_ and _exclude import range
 
   * **Exclude import ranges** : Use the `--exclude-import-ranges` flag in the Google Cloud CLI or the `excludeImportRanges` field in the API to create an exclude import range. The following rules apply to the exclude import ranges:
 
-    * The exclude import ranges support up to 16 unique, nonoverlapping CIDRs. No CIDR in the exclude import ranges can match or contain another CIDR. CIDRs can be IPv4 or IPv6 ([Preview](https://cloud.google.com/products#product-launch-stages)), except for Router appliance hybrid spokes, which support only IPv4 CIDRs.
+    * The exclude import ranges support up to 32 unique, nonoverlapping CIDRs. No CIDR in the exclude import ranges can match or contain another CIDR. CIDRs can be IPv4 or IPv6 ([Preview](https://cloud.google.com/products#product-launch-stages)), except for Router appliance hybrid spokes, which support only IPv4 CIDRs.
 
     * Every CIDR specified in the exclude import ranges must expand to IP addresses that are fully contained by CIDRs or keywords in the _include_ import ranges.
 
@@ -269,6 +269,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-03 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 

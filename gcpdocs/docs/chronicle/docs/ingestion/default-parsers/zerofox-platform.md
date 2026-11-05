@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/zerofox-platform/
 title: Collect ZeroFox platform logs \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T07:50:27.100660+00:00
+fetched_at: 2026-11-04T23:42:40.528384+00:00
 ---
 
 # Collect ZeroFox platform logs  |  Google Security Operations  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/storage/docs/disable-soft-delete/
 title: Disable soft delete \u00a0|\u00a0 Cloud Storage \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T06:00:35.840160+00:00
+fetched_at: 2026-11-04T23:16:59.305554+00:00
 ---
 
 # Disable soft delete  |  Cloud Storage  |  Google Cloud Documentation
@@ -27,7 +27,22 @@ This page describes how to disable the soft delete feature on new and existing b
 
 Soft delete is enabled on new buckets by default to prevent data loss. If needed, you can disable soft delete for existing buckets by modifying the soft delete policy, and you can disable soft delete by default for new buckets by setting an organization-wide default tag. Note that once you disable soft delete, your deleted data cannot be recovered, including accidental or malicious deletions.
 
-## Required roles
+## Before you begin
+
+Before you disable soft delete, consider the following:
+
+  * If you disable a soft delete policy from a bucket that has soft-deleted objects in it during the time of disablement, the existing soft-deleted objects are retained until the previously applied retention duration expires.
+
+  * After disabling a soft delete policy on your bucket, Cloud Storage doesn't retain newly deleted objects.
+
+  * When you disable a soft delete policy on your bucket, the change isn't instantaneous across Cloud Storage due to metadata caching. Therefore, we recommend waiting at least thirty seconds before starting any other delete operations, such as bulk delete, after you disable a soft delete policy. This ensures that your data is deleted permanently rather than soft-deleted. For more information about consistency in Cloud Storage operations, see [Cloud Storage consistency](https://docs.cloud.google.com/storage/docs/consistency).
+
+  * If hard deletions (permanent deletions) are paused for the bucket, you must [resume hard deletions for the bucket](https://docs.cloud.google.com/storage/docs/pause-hard-deletions) before you can disable soft delete.
+
+
+
+
+### Required roles
 
 To get the permissions that you need to disable soft delete, ask your administrator to grant you the following IAM roles on the organization level: 
 
@@ -47,7 +62,7 @@ The following permissions are required to disable soft delete:
   * `storage.buckets.update`
   * `storage.buckets.list` (this permission is only required if you plan to use the Google Cloud console to perform the instructions on this page)
 
-For required permissions that are included as part of the Tag Admin(`roles/resourcemanager.tagAdmin`) role, see[Required permissions for administering tags](https://docs.cloud.google.com/resource-manager/docs/tags/tags-creating-and-managing#required-permissions-administer). 
+For required permissions that are included as part of the Tag Admin (`roles/resourcemanager.tagAdmin`) role, see [Required permissions to create and manage tags](https://docs.cloud.google.com/resource-manager/docs/tags/tags-creating-and-managing#required-permissions).
 
 
 
@@ -55,17 +70,6 @@ For required permissions that are included as part of the Tag Admin(`roles/resou
 For information about granting roles, see [Set and manage IAM policies on buckets](https://docs.cloud.google.com/storage/docs/access-control/using-iam-permissions) or [Manage access to projects](https://docs.cloud.google.com/iam/docs/granting-changing-revoking-access).
 
 ## Disable soft delete for a specific bucket
-
-Before you begin, consider the following:
-
-  * If you disable a soft delete policy from your bucket that has soft-deleted objects in it during the time of disablement, the existing soft-deleted objects are retained until the previously applied retention duration expires.
-
-  * After disabling a soft delete policy on your bucket, Cloud Storage doesn't retain newly deleted objects.
-
-  * When you disable a soft delete policy on your bucket, the change isn't instantaneous across Cloud Storage due to metadata caching. Therefore, we recommend waiting at least thirty seconds before initiating any other delete operations, such as bulk delete, after you disable a soft delete policy. This ensures that your data is deleted permanently rather than soft-deleted. For more information about consistency in Cloud Storage operations, see [Cloud Storage consistency](https://docs.cloud.google.com/storage/docs/consistency).
-
-
-
 
 Use the following instructions to disable soft delete for a specific bucket:
 
@@ -604,6 +608,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-30 UTC.
+Last updated 2026-11-04 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 

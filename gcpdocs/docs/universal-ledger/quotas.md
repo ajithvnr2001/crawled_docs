@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/universal-ledger/quotas/
 title: Quotas and system limits \u00a0|\u00a0 Universal Ledger \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-13T16:20:38.306722+00:00
+fetched_at: 2026-11-05T00:19:12.043341+00:00
 ---
 
 # Quotas and system limits  |  Universal Ledger  |  Google Cloud Documentation
@@ -13,6 +13,7 @@ fetched_at: 2026-10-13T16:20:38.306722+00:00
   * [ Documentation ](https://docs.cloud.google.com/docs)
   * [ Industry solutions ](https://docs.cloud.google.com/docs/industry)
   * [ Universal Ledger ](https://docs.cloud.google.com/universal-ledger)
+  * [ Resources ](https://docs.cloud.google.com/universal-ledger/resources)
 
 
 
@@ -20,14 +21,16 @@ Send feedback
 
 #  Quotas and system limits Stay organized with collections  Save and categorize content based on your preferences. 
 
-This document lists the quotas and system limits that apply to Universal Ledger.
+Universal Ledger uses quotas and system limits to maintain fair resource allocation, prevent service overloads, and help you manage resource use.
+
+Quotas and system limits are similar but differ in the following ways:
 
   * _Quotas_ have default values, but you can typically request adjustments.
   * _System limits_ are fixed values that can't be changed.
 
 
 
-Google Cloud uses quotas to help ensure fairness and reduce spikes in resource use and availability. A quota restricts how much of a Google Cloud resource your Google Cloud project can use. Quotas apply to a range of resource types, including hardware, software, and network components. For example, quotas can restrict the number of API calls to a service, the number of load balancers used concurrently by your project, or the number of projects that you can create. Quotas protect the community of Google Cloud users by preventing the overloading of services. Quotas also help you to manage your own Google Cloud resources.
+Google Cloud uses quotas to help maintain fairness and reduce spikes in resource use and availability. A quota restricts how much of a Google Cloud resource your Google Cloud project can use. Quotas apply to a range of resource types, including hardware, software, and network components. For example, quotas can restrict the number of API calls to a service, the number of load balancers used concurrently by your project, or the number of projects that you can create. Quotas protect the community of Google Cloud users by preventing the overloading of services. Quotas also help you to manage your own Google Cloud resources.
 
 The Cloud Quotas system does the following:
 
@@ -43,34 +46,14 @@ Quotas generally apply at the Google Cloud project level. Your use of a resource
 
 For more information, see the [Cloud Quotas overview](https://docs.cloud.google.com/docs/quotas/overview). 
 
-## Allocation quotas
-
-The following quotas don't reset over time. The quotas are released when you release the resource:
-
-Quota | Value  
----|---  
-Resource A | 30  
-Resource B | 100  
-  
 ## Rate quotas
 
-The following quotas specify the rate at which you use or create a resource.
+The following quotas specify the rate at which you use or create a resource:
 
 Quota | Value  
 ---|---  
-Requests per second | 10  
-Images per feature per day | 700,000  
-Images per feature per month | 20,000,000  
-  
-## System limits
-
-Universal Ledger enforces the following system limits:
-
-System limit | Value  
----|---  
-Image size | 4 MB  
-Request size | 8 MB  
-Images per request | 16  
+Read API requests (`read-api-requests`) | 3,000 requests per minute per project per region  
+Write API requests (`write-api-requests`) | 1,500 requests per minute per project per region  
   
 ## Get quota and system limit metric names
 
@@ -114,12 +97,12 @@ Replace the following:
 
 ## Request a quota adjustment
 
-To adjust most quotas, use the Google Cloud console. For more information, see [Request a quota adjustment](https://docs.cloud.google.com/docs/quotas/help/request_increase). 
+To request a quota increase, contact [Cloud Customer Care](https://docs.cloud.google.com/support).
 
 Send feedback 
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-08-26 UTC.
+Last updated 2026-10-28 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-08-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 

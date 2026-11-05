@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/managed-lustre/docs/monitoring/
 title: Monitor instances and operations \u00a0|\u00a0 Managed Lustre \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T19:55:19.628187+00:00
+fetched_at: 2026-11-05T00:17:52.920366+00:00
 ---
 
 # Monitor instances and operations  |  Managed Lustre  |  Google Cloud Documentation
@@ -62,7 +62,7 @@ To view a specific instance's metrics:
 
   2. Click the instance for which to view metrics. The **Instance details** page appears.
 
-  3. Click the **Monitoring** tab. The default dashboard is displayed.
+  3. Click the **Observability** tab. The default dashboard is displayed.
 
 
 
@@ -88,13 +88,36 @@ You can configure alerting policies in Cloud Monitoring to notify you when your 
 
 To create alerting policies, you must have the **Monitoring Editor** (`roles/monitoring.editor`) IAM role on the project.
 
-### Create an alerting policy
+### Recommended alerts
 
-To set up an alert, define a condition using a metric or a PromQL query and configure notification channels.
+You can enable recommended alerts in the Google Cloud console without manually defining PromQL queries. Managed Lustre provides a recommended [alerting policy template](https://docs.cloud.google.com/monitoring/alerts#how-alerting-works) that monitors storage capacity across all instances in your project and sends a notification when any instance in your project reaches your defined threshold capacity.
 
-  1. In the Google Cloud console, go to the **Alerting** page in the Google Cloud console.
+To enable recommended alerts:
 
-[Go to Monitoring: Alerting](https://console.cloud.google.com/monitoring/alerting/)
+  1. Go to the **Instances** page in the Google Cloud console.
+
+[Go to Instances](https://console.cloud.google.com/managed-lustre/instances)
+
+  2. Click **Recommended alerts**.
+
+You can also configure the recommended alerting policy from the link on the **Instance details** main page or its **Observability** tab.
+
+  3. In the **Alert policy templates** panel, select the **Instance storage usage approaching capacity** template. To change the **Used capacity threshold (%)** from the default, click **Show options**.
+
+  4. Optionally, configure your notification channels.
+
+  5. Click **Create**.
+
+
+
+
+### Create a custom alerting policy
+
+To set up an alert manually, define a condition using a metric or a PromQL query and configure notification channels.
+
+  1. In the Google Cloud console, go to the **Alerting** page:
+
+[Go to Alerting](https://console.cloud.google.com/monitoring/alerting/)
 
   2. Click **\+ Create policy**.
 
@@ -115,13 +138,19 @@ For more information about creating triggers and other options, see:
 
 
 
-### Example: Create a storage capacity alert
+### View alerts
 
-The following example demonstrates how to create an alert that triggers when your Managed Lustre instance exceeds 80% of its provisioned capacity.
+To view alerts in your project using the Google Cloud console, the Google Cloud CLI, or the Cloud Monitoring API, see [View alerts](https://docs.cloud.google.com/monitoring/alerts/incidents-events#viewing).
 
-  1. In the Google Cloud console, go to the **Alerting** page in the Google Cloud console.
+To configure notification channels, see [Create and manage notification channels](https://docs.cloud.google.com/monitoring/support/notification-options).
 
-[Go to Monitoring: Alerting](https://console.cloud.google.com/monitoring/alerting/)
+### Example: Create an inode usage alert
+
+The following example creates an alerting policy that sends a notification when any Metadata Target or Object Storage Target on a Managed Lustre instance exceeds 80% of its maximum inodes.
+
+  1. In the Google Cloud console, go to the **Alerting** page:
+
+[Go to Alerting](https://console.cloud.google.com/monitoring/alerting/)
 
   2. Click **\+ Create policy**.
 
@@ -130,34 +159,38 @@ The following example demonstrates how to create an alert that triggers when you
   4. In the **Query Editor** , paste the following PromQL query:
          
          (
-           sum by (instance_id, location) (lustre_googleapis_com:instance_capacity_bytes)
+           sum by (instance_id, location, component, target) (lustre_googleapis_com:instance_inodes_maximum{component!="mgt"})
            -
-           sum by (instance_id, location) (lustre_googleapis_com:instance_available_bytes)
+           sum by (instance_id, location, component, target) (lustre_googleapis_com:instance_inodes_free{component!="mgt"})
          )
          /
-         sum by (instance_id, location) (lustre_googleapis_com:instance_capacity_bytes)
+         sum by (instance_id, location, component, target) (lustre_googleapis_com:instance_inodes_maximum{component!="mgt"})
          > 0.8
          
 
-This query calculates the usage ratio across all instances: `(Total - Available) / Total`. The value `0.8` represents the total bytes reaching 80% usage. To alert at 90%, change this value to `0.9`.
+This query calculates the inode usage ratio for each Metadata Target and Object Storage Target across all instances, excluding the Management Target: `(Maximum - Free) / Maximum`. The value `0.8` represents 80% inode usage. To alert at 90%, change this value to `0.9`.
 
-  5. Click **Run Query** to verify the syntax and view a chart of the current usage ratio.
+  5. Click **Run Query** to verify the syntax and view a chart of the current inode usage ratio.
 
   6. Click **Next** and configure the trigger to **Any time series violates**.
 
-  7. Click **Next**. In the **Documentation** section, add recommended actions for resolving the capacity issue. For example:
+  7. Click **Next**. In the **Documentation** section, add recommended actions for resolving the inode usage issue. For example:
          
-         ## Action Required: Lustre Capacity Warning
-         The Managed Lustre instance is exceeding 80% capacity usage.
+         ## Action Required: Lustre Inode Usage Warning
+         A target on the Managed Lustre instance is exceeding 80% inode usage.
          
-         **Metric:** Usage Ratio > 0.8
+         **Metric:** Inode Usage Ratio > 0.8
          **Severity:** Warning
          
          **Recommended Actions:**
-         1. Check the instance details in the Google Cloud console.
-         2. Verify if this is expected data growth or a runaway process.
-         3. If valid, consider expanding the storage capacity of the instance or deleting old data to free up space.
-         4. Failure to address this may result in "No Space Left on Device" errors for client applications.
+         1. Check the instance metrics in the Google Cloud console to identify which
+            Metadata Target or Object Storage Target is approaching its inode limit.
+         2. Verify if a workload is generating an excessive number of small files or
+            temporary checkpoints.
+         3. Delete unneeded files or consolidate small files into archives to free up
+            inodes, or expand the storage capacity of the instance.
+         4. Failure to address this may result in "No space left on device" errors
+            when client applications create new files.
          
 
 
@@ -165,22 +198,22 @@ This query calculates the usage ratio across all instances: `(Total - Available)
 
 ### Create an alerting policy with gcloud
 
-You can create alerting policies using the Google Cloud CLI. Note that you must edit the alert in the Google Cloud console later to enable specific notification channels.
+You can create alerting policies using the Google Cloud CLI. You must edit the alerting policy in the Google Cloud console afterward to enable specific notification channels.
 
-The following example creates an 80% capacity alert using `gcloud`:
+The following example creates an 80% inode usage alerting policy using `gcloud`:
     
     
     gcloud monitoring policies create \
       --policy-from-file=/dev/stdin <<EOF
     {
-      "displayName": "Lustre High Capacity Usage (>80%)",
+      "displayName": "Lustre High Inode Usage (>80%)",
       "severity": "WARNING",
       "combiner": "OR",
       "conditions": [
         {
-          "displayName": "Capacity Usage Ratio > 0.8",
+          "displayName": "Inode Usage Ratio > 0.8",
           "conditionPrometheusQueryLanguage": {
-            "query": "(sum by (instance_id, location) (lustre_googleapis_com:instance_capacity_bytes) - sum by (instance_id, location) (lustre_googleapis_com:instance_available_bytes)) / sum by (instance_id, location) (lustre_googleapis_com:instance_capacity_bytes) > 0.8",
+            "query": "(sum by (instance_id, location, component, target) (lustre_googleapis_com:instance_inodes_maximum{component!=\"mgt\"}) - sum by (instance_id, location, component, target) (lustre_googleapis_com:instance_inodes_free{component!=\"mgt\"})) / sum by (instance_id, location, component, target) (lustre_googleapis_com:instance_inodes_maximum{component!=\"mgt\"}) > 0.8",
             "duration": "300s",
             "evaluationInterval": "60s",
             "alertRule": "AlwaysOn"
@@ -188,7 +221,7 @@ The following example creates an 80% capacity alert using `gcloud`:
         }
       ],
       "documentation": {
-        "content": "Action Required: The Managed Lustre instance is exceeding 80% capacity usage. Please verify if storage expansion is required.",
+        "content": "Action Required: A target on the Managed Lustre instance is exceeding 80% inode usage. Delete unneeded small files or expand instance capacity.",
         "mimeType": "text/markdown"
       }
     }
@@ -539,6 +572,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-03 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 

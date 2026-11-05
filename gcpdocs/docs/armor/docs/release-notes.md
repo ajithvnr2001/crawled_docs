@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/armor/docs/release-notes/
 title: Cloud Armor release notes \u00a0|\u00a0 Google Cloud Armor \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-30T08:58:37.033470+00:00
+fetched_at: 2026-11-04T23:32:36.286700+00:00
 ---
 
 # Cloud Armor release notes  |  Google Cloud Armor  |  Google Cloud Documentation
@@ -31,7 +31,7 @@ To get the latest product updates delivered to you, add the URL of this page to 
 
 Feature
 
-Cloud Armor supports advanced match conditions to include attributes for inspecting request body content and parameters. This lets you write custom CEL rules to filter traffic based on raw body content, structured data (JSON, Form Data, GraphQL), and query parameters. For more information, see [Configure custom rules language attributes](https://docs.cloud.google.com/armor/docs/rules-language-reference). This feature is [generally available (GA)](https://cloud.google.com/products#product-launch-stages).
+Cloud Armor supports advanced match conditions to include attributes for inspecting request body content and parameters. This lets you write custom CEL rules to filter traffic based on raw body content, structured data (JSON, Form Data, GraphQL), and query parameters. For more information, see [Attributes](https://docs.cloud.google.com/armor/docs/create-security-policy-rules#attributes) in "Create and view Cloud Armor security policy rules." This feature is [generally available (GA)](https://cloud.google.com/products#product-launch-stages).
 
 ## October 19, 2026
 
@@ -91,13 +91,13 @@ Cloud Armor managed rulesets protect your backend services and APIs from a wide 
 
 Feature
 
-Cloud Armor supports advanced match conditions to include attributes for inspecting request body content and parameters in Preview. This lets you write custom CEL rules to filter traffic based on raw body content, structured data (JSON, Form Data, GraphQL), and query parameters. For more information, see [Configure custom rules language attributes](https://docs.cloud.google.com/armor/docs/rules-language-reference).
+Cloud Armor supports advanced match conditions to include attributes for inspecting request body content and parameters in [Preview](https://cloud.google.com/products#product-launch-stages). This lets you write custom CEL rules to filter traffic based on raw body content, structured data (JSON, Form Data, GraphQL), and query parameters. For more information, see [Attributes](https://docs.cloud.google.com/armor/docs/create-security-policy-rules#attributes) in "Create and view Cloud Armor security policy rules."
 
 ## August 19, 2026
 
 Feature
 
-[Global Front End](https://docs.cloud.google.com/docs/networking/cross-cloud-network/global-front-end/gfee-overview) is a unified offering that simplifies billing by consolidating pricing across networking products. Cloud Armor is included in the Global Front End Enterprise billing tier. Enabling Global Front End Enterprise in a project enables specific Cloud Armor Enterprise features for your global external Application Load Balancers. For more information, see [Global Front End](https://docs.cloud.google.com/armor/docs/armor-enterprise-overview#global-front-end).This feature is available in Preview.
+[Global Front End](https://docs.cloud.google.com/docs/networking/cross-cloud-network/global-front-end/gfee-overview) is a unified offering that simplifies billing by consolidating pricing across networking products. Cloud Armor is included in the Global Front End Enterprise billing tier. Enabling Global Front End Enterprise in a project enables specific Cloud Armor Enterprise features for your global external Application Load Balancers. For more information, see [Global Front End](https://docs.cloud.google.com/armor/docs/armor-enterprise-overview#global-front-end) in "Cloud Armor Enterprise overview." This feature is available in [Preview](https://cloud.google.com/products#product-launch-stages).
 
 ## July 08, 2026
 
@@ -115,7 +115,7 @@ Cloud Armor preconfigured rules support [ModSecurity Core Rule Set (CRS) 4.22](h
 
 Feature
 
-Cloud Armor supports a visual **Match Condition Builder** that allows you to create complex expressions in Common Expression Language (CEL) without writing raw code. For more information, see [Use the Match Condition Builder](https://docs.cloud.google.com/armor/docs/manage-security-policies#mcb).
+Cloud Armor supports a visual **match condition builder** that lets you create complex expressions in Common Expression Language (CEL) without writing raw code. For more information, see [Use the match condition builder](https://docs.cloud.google.com/armor/docs/create-security-policy-rules#mcb) in "Create and view Cloud Armor security policy rules."
 
 ## March 06, 2026
 
@@ -319,7 +319,7 @@ The following features are now Generally Available:
 
 
 
-For more information about parsing GraphQL content, see [Apply parsing on custom Content-Type header values](https://docs.cloud.google.com/armor/docs/rule-tuning#post-parsing). For more information about User IP request headers and JA3, see [Configure custom rules language attributes](https://docs.cloud.google.com/armor/docs/rules-language-reference#attributes).
+For more information about parsing GraphQL content, see [Apply parsing on custom Content-Type header values](https://docs.cloud.google.com/armor/docs/rule-tuning#post-parsing). For more information about User IP request headers and JA3, see [Configure custom rules language attributes](https://docs.cloud.google.com/armor/docs/create-security-policy-rules#attributes).
 
 ## December 21, 2023
 
@@ -361,11 +361,11 @@ Adaptive Protection suggested rules can now be deployed automatically in General
 
 Feature
 
-Cloud Armor allows you to filter using custom rules or apply Adaptive Protection based on originating client IP addresses in public preview. If you have an upstream proxy, you can use this feature to evaluate Cloud Armor rules against the original clients' IP addresses, rather than your upstream proxy's IP address. For more information, see the [rules language reference](https://docs.cloud.google.com/armor/docs/rules-language-reference#attributes).
+Cloud Armor supports parsing of the GraphQL content-type in public preview. For more information, see [POST body content parsing](https://docs.cloud.google.com/armor/docs/security-policy-overview#post-parsing).
 
 Feature
 
-Cloud Armor supports parsing of the GraphQL content-type in public preview. For more information, see [POST body content parsing](https://docs.cloud.google.com/armor/docs/security-policy-overview#post-parsing).
+Cloud Armor allows you to filter using custom rules or apply Adaptive Protection based on originating client IP addresses in public preview. If you have an upstream proxy, you can use this feature to evaluate Cloud Armor rules against the original clients' IP addresses, rather than your upstream proxy's IP address. For more information, see the [rules language reference](https://docs.cloud.google.com/armor/docs/create-security-policy-rules#attributes).
 
 ## June 20, 2023
 
@@ -472,7 +472,7 @@ Adaptive Protection suggested rules can now be deployed automatically in public 
 
 Feature
 
-The Google Cloud Armor [custom rules language](https://docs.cloud.google.com/armor/docs/rules-language-reference#operations) now supports `URL`, `URL Unicode` and `utf-8` decoding.
+The Google Cloud Armor [custom rules language](https://docs.cloud.google.com/armor/docs/create-security-policy-rules#operations) now supports `URL`, `URL Unicode` and `utf-8` decoding.
 
 ## August 16, 2022
 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/managed-spark/docs/concepts/components/hivewebhcat/
 title: Managed Service for Apache Spark optional Hive WebHCat component \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T21:58:07.766536+00:00
+fetched_at: 2026-11-05T00:20:20.798896+00:00
 ---
 
 # Managed Service for Apache Spark optional Hive WebHCat component  |  Google Cloud Documentation
@@ -23,9 +23,7 @@ Send feedback
 
 #  Managed Service for Apache Spark optional Hive WebHCat component Stay organized with collections  Save and categorize content based on your preferences. 
 
-You can install additional components like Hive WebHCat when you create a Managed Service for Apache Spark cluster using the [Optional components](https://docs.cloud.google.com/managed-spark/docs/concepts/components/overview#available_optional_components) feature. This page describes the Hive WebHCat component.
-
-The [Hive WebHCat](https://cwiki.apache.org/confluence/display/Hive/WebHCat) component provides a REST API for HCatalog. The REST service is available on port `50111` on the cluster's first master node.
+The [Hive WebHCat](https://cwiki.apache.org/confluence/display/Hive/WebHCat) component lets you interact with HCatalog through a REST API. You can install WebHCat when you create a Managed Service for Apache Spark cluster by using the [Optional components](https://docs.cloud.google.com/managed-spark/docs/concepts/components/overview#available_optional_components) feature. The REST service is available on port `50111` on the cluster's first master node.
 
 ## Install the component
 
@@ -61,6 +59,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-03 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 

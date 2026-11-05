@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/iam/docs/samples/iam-list-service-accounts/
 title: List service accounts \u00a0|\u00a0 Identity and Access Management (IAM) \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T07:59:32.951621+00:00
+fetched_at: 2026-11-04T23:45:03.917656+00:00
 ---
 
 # List service accounts  |  Identity and Access Management (IAM)  |  Google Cloud Documentation

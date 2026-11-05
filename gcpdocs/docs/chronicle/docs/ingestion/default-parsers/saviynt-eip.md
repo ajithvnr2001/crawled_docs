@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/saviynt-eip/
 title: Collect Saviynt Enterprise Identity Cloud logs \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T07:50:43.232941+00:00
+fetched_at: 2026-11-04T23:42:36.343445+00:00
 ---
 
 # Collect Saviynt Enterprise Identity Cloud logs  |  Google Security Operations  |  Google Cloud Documentation

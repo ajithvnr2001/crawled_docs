@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/vector-search-2/try-it/
 title: Agent Retrieval interactive demo \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-03T09:52:05.139388+00:00
+fetched_at: 2026-11-04T23:14:21.800436+00:00
 ---
 
 # Agent Retrieval interactive demo  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation
@@ -25,7 +25,7 @@ This interactive demo lets you explore [Agent Retrieval (formerly Vector Search 
 
 ## Agent Retrieval benefits
 
-Vector Search required separate embedding generation, index deployment, and a Vertex AI Feature Store for metadata. Agent Retrieval provides unified storage for data and embeddings, automatic embedding generation, and built-in text search without requiring you to manage infrastructure.
+Vector Search required separate embedding generation, index deployment, and Feature Store on Gemini Enterprise Agent Platform for metadata. Agent Retrieval provides unified storage for data and embeddings, automatic embedding generation, and built-in text search without requiring you to manage infrastructure.
 
 ## Try it!
 
@@ -132,11 +132,11 @@ In Agent Retrieval, the query process depends on the kind of searches being done
 
 ### Semantic and hybrid search
 
-Embedding generation and search happen in a single API call. Agent Retrieval auto-generates the query embedding server-side using the model specified in the `vertex_embedding_config` for the [Collection](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/vector-search-2/collections/collections), performs the search, and returns results with full metadata without needing a separate Vertex AI Feature Store fetch.
+Embedding generation and search happen in a single API call. Agent Retrieval auto-generates the query embedding server-side using the model specified in the `vertex_embedding_config` for the [Collection](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/vector-search-2/collections/collections), performs the search, and returns results with full metadata without needing a separate Agent Platform Feature Store fetch.
 
 ### Word2Vec and multimodal
 
-The client generates the query embedding and sends it to Agent Retrieval for vector search. The results still include full metadata from the Collection and a Vertex AI Feature Store fetch isn't needed.
+The client generates the query embedding and sends it to Agent Retrieval for vector search. The results still include full metadata from the Collection and an Agent Platform Feature Store fetch isn't needed.
 
 ### Text
 
@@ -173,6 +173,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-02 UTC.
+Last updated 2026-11-04 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-02 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 

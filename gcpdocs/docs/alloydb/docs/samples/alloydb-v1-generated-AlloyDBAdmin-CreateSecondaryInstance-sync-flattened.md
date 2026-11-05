@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/docs/samples/alloydb-v1-generated-AlloyDBAdmin-CreateSecondaryInstance-sync-flattened/
 title: Create a secondary instance \u00a0|\u00a0 AlloyDB for PostgreSQL \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T18:27:09.990120+00:00
+fetched_at: 2026-11-04T23:16:54.835901+00:00
 ---
 
 # Create a secondary instance  |  AlloyDB for PostgreSQL  |  Google Cloud Documentation
@@ -46,26 +46,26 @@ To authenticate to AlloyDB, set up Application Default Credentials. For more inf
             // Create client
             [AlloyDBAdminClient](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.AlloyDb.V1/latest/Google.Cloud.AlloyDb.V1.AlloyDBAdminClient.html) alloyDBAdminClient = [AlloyDBAdminClient](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.AlloyDb.V1/latest/Google.Cloud.AlloyDb.V1.AlloyDBAdminClient.html).[Create](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.AlloyDb.V1/latest/Google.Cloud.AlloyDb.V1.AlloyDBAdminClient.html#Google_Cloud_AlloyDb_V1_AlloyDBAdminClient_Create)();
             // Initialize request argument(s)
-            string parent = "projects/[PROJECT]/locations/[LOCATION]/clusters/[CLUSTER]";
-            [Instance](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.AlloyDb.V1/latest/Google.Cloud.AlloyDb.V1.Instance.html) instance = new [Instance](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.AlloyDb.V1/latest/Google.Cloud.AlloyDb.V1.Instance.html)();
+            string parent = "projects/[PROJECT]/locations/[LOCATION]/clusters/[CLUSTER]"[;
+          ](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.AlloyDb.V1/latest/Google.Cloud.AlloyDb.V1.Instance.html)  Instance insta[nce](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.AlloyDb.V1/latest/Google.Cloud.AlloyDb.V1.Instance.html) = new Instance();
             string instanceId = "";
-            // Make the request
-            Operation<Instance, OperationMetadata> response = alloyDBAdminClient.[CreateSecondaryInstance](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.AlloyDb.V1/latest/Google.Cloud.AlloyDb.V1.AlloyDBAdminClient.html#Google_Cloud_AlloyDb_V1_AlloyDBAdminClient_CreateSecondaryInstance_Google_Cloud_AlloyDb_V1_ClusterName_Google_Cloud_AlloyDb_V1_Instance_System_String_Google_Api_Gax_Grpc_CallSettings_)(parent, instance, instanceId);
+            // Make the reque<st
+            OperationInstanc>e, OperationMetadata response =[ alloyDBAdminClient.Cre](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.AlloyDb.V1/latest/Google.Cloud.AlloyDb.V1.AlloyDBAdminClient.html#Google_Cloud_AlloyDb_V1_AlloyDBAdminClient_CreateSecondaryInstance_Google_Cloud_AlloyDb_V1_ClusterName_Google_Cloud_AlloyDb_V1_Instance_System_String_Google_Api_Gax_Grpc_CallSettings_)ateSecondaryInstance(parent, instance, instanceId);
     
-            // Poll until the returned long-running operation is complete
-            Operation<Instance, OperationMetadata> completedResponse = response.PollUntilCompleted();
-            // Retrieve the operation result
-            [Instance](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.AlloyDb.V1/latest/Google.Cloud.AlloyDb.V1.Instance.html) result = completedResponse.Result;
+            // Poll until the returned long-running operation is comple<te
+            OperationInstanc>e, OperationMetadata completedResponse = response.PollUntilCompleted();
+            // Retrieve the opera[tion res](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.AlloyDb.V1/latest/Google.Cloud.AlloyDb.V1.Instance.html)ult
+            Instance result = completedResponse.Result;
     
             // Or get the name of the operation
             string operationName = response.Name;
-            // This name can be stored, then the long-running operation retrieved later by name
-            Operation<Instance, OperationMetadata> retrievedResponse = alloyDBAdminClient.[PollOnceCreateSecondaryInstance](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.AlloyDb.V1/latest/Google.Cloud.AlloyDb.V1.AlloyDBAdminClient.html#Google_Cloud_AlloyDb_V1_AlloyDBAdminClient_PollOnceCreateSecondaryInstance_System_String_Google_Api_Gax_Grpc_CallSettings_)(operationName);
+            // This name can be stored, then the long-running operation retrieved later by na<me
+            OperationInstanc>e, OperationMetadata retrievedResponse =[ alloyDBAdminClient.PollOnceCre](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.AlloyDb.V1/latest/Google.Cloud.AlloyDb.V1.AlloyDBAdminClient.html#Google_Cloud_AlloyDb_V1_AlloyDBAdminClient_PollOnceCreateSecondaryInstance_System_String_Google_Api_Gax_Grpc_CallSettings_)ateSecondaryInstance(operationName);
             // Check if the retrieved long-running operation has completed
             if (retrievedResponse.IsCompleted)
             {
-                // If it has completed, then access the result
-                [Instance](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.AlloyDb.V1/latest/Google.Cloud.AlloyDb.V1.Instance.html) retrievedResult = retrievedResponse.Result;
+                // If it has completed, then access the[ result<](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.AlloyDb.V1/latest/Google.Cloud.AlloyDb.V1.Instance.html)/span>
+                Instance retrievedResult = retrievedResponse.Result;
             }
         }
     }

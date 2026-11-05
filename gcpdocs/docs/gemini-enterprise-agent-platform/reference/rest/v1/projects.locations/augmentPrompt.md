@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations/augmentPrompt/
 title: Method: locations.augmentPrompt \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T12:57:39.943261+00:00
+fetched_at: 2026-11-05T00:19:51.476637+00:00
 ---
 
 # Method: locations.augmentPrompt  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation
@@ -40,7 +40,7 @@ Where `{service-endpoint}` is one of the [supported service endpoints](https://d
 
 The request body contains data with the following structure: | Fields  
   
-`contents[]` `object (`[Content](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/Content)`)` Optional. Input content to augment, only text format is supported for now. | `model` `object (`[Model](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations/augmentPrompt#Model)`)` Optional. metadata of the backend deployed model. | `data_source` `Union type`  
+`contents[]` `object (`Content`)` Optional. Input content to augment, only text format is supported for now. | `model` `object (`[Model](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations/augmentPrompt#Model)`)` Optional. metadata of the backend deployed model. | `data_source` `Union type`  
   
 The data source for retrieving contexts. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
@@ -50,14 +50,14 @@ The data source for retrieving contexts. The following is a list of mutually exc
 
 Response message for locations.augmentPrompt. If successful, the response body contains data with the following structure: | Fields  
   
-`augmentedPrompt[]` `object (`[Content](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/Content)`)` Augmented prompt, only text format is supported for now. | `facts[]` `object (`[Fact](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/Fact)`)` Retrieved facts from RAG data sources. | JSON representation  
+`augmentedPrompt[]` `object (`Content`)` Augmented prompt, only text format is supported for now. | `facts[]` `object (`[Fact](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/Fact)`)` Retrieved facts from RAG data sources. | JSON representation  
 ---  
       
     
     {
       "augmentedPrompt": [
         {
-          object ([Content](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/Content))
+          object (Content)
         }
       ],
       "facts": [
@@ -96,6 +96,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-11-03 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 

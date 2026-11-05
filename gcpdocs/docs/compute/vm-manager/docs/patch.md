@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/compute/vm-manager/docs/patch/
 title: About Patch \u00a0|\u00a0 VM Manager \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-30T08:40:14.295851+00:00
+fetched_at: 2026-11-04T23:32:01.299282+00:00
 ---
 
 # About Patch  |  VM Manager  |  Google Cloud Documentation
@@ -286,11 +286,16 @@ Google Kubernetes Engine (GKE) Autopilot | Not disabled | VM Manager works the s
 
 The Patch feature in VM Manager has the following limitations:
 
-  * You can deploy and run patch jobs only for VMs in a single Google Cloud project. You cannot run patch jobs across Google Cloud projects, even if the VMs are in a Shared VPC. However, you can [view the patch compliance data across projects](https://docs.cloud.google.com/compute/vm-manager/docs/patch#accessing_os_patch_management_data).
-  * By default, VM Manager does not patch any VMs that are part of a managed instance group (MIG). You can override this default behavior when you create the patch job. The following limitations apply when you patch VMs that are part of a MIG: 
-    * When a [MIG repairs a VM](https://docs.cloud.google.com/compute/docs/instance-groups/about-repair), it recreates the VM based on the instance template. This might revert the VM to an unpatched state.
-    * Patching VMs can cause unexpected results in a MIG that has autoscaling enabled. Autoscaler deletes patched VMs when the load goes down and creates new, unpatched VMs using MIG's instance template when the load increases. For example, if the average CPU utilization is less than the target utilization you specified for autoscaling, MIG can remove some of the patched VMs while scaling in.
+  * You can deploy and run patch jobs only for VMs in a single Google Cloud project. You can't run patch jobs across Google Cloud projects, even if the VMs are in a Shared VPC. However, you can [view the patch compliance data across projects](https://docs.cloud.google.com/compute/vm-manager/docs/patch#accessing_os_patch_management_data), or use a [workaround to manage patch deployments across an organization](https://docs.cloud.google.com/compute/vm-manager/docs/troubleshooting/troubleshoot-vm-manager#patch-deployments-organization).
+
+  * By default, VM Manager doesn't patch any VMs that are part of a managed instance group (MIG). You can override this default behavior when you create the patch job. The following limitations apply when you patch VMs that are part of a MIG:
+
+    * When a [MIG repairs a VM](https://docs.cloud.google.com/compute/docs/instance-groups/about-repair), it recreates the VM based on the instance template. This action might revert the VM to an unpatched state.
+
+    * Patching VMs can cause unexpected results in a MIG that has autoscaling enabled. The autoscaler deletes patched VMs when the load goes down and creates new, unpatched VMs using MIG's instance template when the load increases. For example, if the average CPU utilization is less than the target utilization you specified for autoscaling, MIG can remove some of the patched VMs while scaling in.
+
   * VM Manager doesn't run patch jobs or OS policies for certain Google-managed VMs because the OS Config agent isn't enabled on them by design. Examples of these VMs include App Engine flexible environment, Serverless VPC Access connector, and Managed Service for Apache Spark instances. These VMs always appear as **No data** in the Patch dashboard, which is expected and requires no action. For more information, see Patch status for Google-managed VMs.
+
 
 
 
@@ -306,6 +311,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-29 UTC.
+Last updated 2026-11-04 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/managed-lustre/docs/transfer-data/
 title: Transfer data to or from Cloud Storage \u00a0|\u00a0 Managed Lustre \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T19:54:33.112560+00:00
+fetched_at: 2026-11-05T00:19:39.001850+00:00
 ---
 
 # Transfer data to or from Cloud Storage  |  Managed Lustre  |  Google Cloud Documentation
@@ -24,17 +24,38 @@ Google Cloud Managed Lustre can import data from, and export data to, [Cloud Sto
 
 Cloud Storage buckets with [hierarchical namespace](https://docs.cloud.google.com/storage/docs/hns-overview) enabled provide faster transfer speeds to and from Managed Lustre compared to standard buckets.
 
+## Data transfer methods
+
+Managed Lustre provides two options for moving data with Cloud Storage:
+
+  * **On-demand data transfers (this guide):** Batch import or export jobs to copy data between Cloud Storage and Managed Lustre.
+  * **[Cloud Storage mirror](https://docs.cloud.google.com/managed-lustre/docs/storage-mirror):** Automated, event-driven synchronization that continuously mirrors files from a Cloud Storage bucket or object prefix to Managed Lustre.
+
+
+
 ## Performance
 
 Transfers between Managed Lustre and Cloud Storage can reach the following speeds:
 
-  * For files over 32 MB, up to 100 GBps. Transfer speed is limited by an instance's maximum throughput (instance capacity multiplied by [performance tier](https://docs.cloud.google.com/managed-lustre/docs/create-instance#performance-tiers)).
+  * For files over 32 MB, up to 100 GBps. Transfer speed is limited by an instance's maximum throughput, which is the instance capacity multiplied by [performance tier](https://docs.cloud.google.com/managed-lustre/docs/create-instance#performance-tiers).
+
+  * For smaller files, up to 5,000 files per second.
+
 
 
 
 ## Cloud Storage egress bandwidth considerations
 
-Cloud Storage provides a default egress bandwidth of up to 200 Gbps per region per project. If you have multiple Managed Lustre instances in the same project and region, you can request an increase to the egress bandwidth limit. For more information, see the [Cloud Storage bandwidth quotas](https://docs.cloud.google.com/storage/quotas#bandwidth).
+Cloud Storage provides a default egress bandwidth of up to 200 Gbps (25 GBps) per region per project. To obtain higher egress bandwidth, you can request an increase to the egress bandwidth limit. For more information, see the [Cloud Storage bandwidth quotas](https://docs.cloud.google.com/storage/quotas#bandwidth).
+
+## Pricing
+
+Importing and exporting data incurs standard Cloud Storage charges, which are billed to the project that contains the Cloud Storage bucket:
+
+  * Importing data performs Class A list operations and Class B read operations on the bucket, and exporting data performs Class A list and write operations and Class B read operations, which incur Cloud Storage [operation charges](https://docs.cloud.google.com/storage/pricing#operations-pricing).
+  * Transferring data between a Managed Lustre instance and a Cloud Storage bucket in a different region incurs cross-region [data transfer charges](https://docs.cloud.google.com/storage/pricing#network-buckets).
+
+
 
 ## Required permissions
 
@@ -169,9 +190,9 @@ An example `curl` command looks like:
 
 ### File attributes
 
-When you import data from a Cloud Storage bucket to a Managed Lustre instance, the file attributes in the Managed Lustre instance get set in one of two ways:
+When a file is copied from a Cloud Storage bucket to a Managed Lustre instance, the file attributes in the Managed Lustre instance get set in one of two ways:
 
-  * If the Cloud Storage object has custom metadata as described for exporting data, then: 
+  * If the Cloud Storage object has custom metadata as [described for exporting data](https://docs.cloud.google.com/managed-lustre/docs/transfer-data#export-file-attributes), then: 
     * The file's UID, GID, mode, and `mtime` are set based on the object's custom metadata.
     * The file's `atime` is set to the same value as the `mtime`.
   * If the Cloud Storage object does not have the custom metadata, then: 
@@ -357,6 +378,10 @@ The following limitations apply:
         ERROR: (gcloud.lustre.instances.export-data) ABORTED: unable to queue the operation
         
 
+  * Transfer operations cannot run concurrently with [Cloud Storage mirror](https://docs.cloud.google.com/managed-lustre/docs/storage-mirror) creation. Mirror creation isn't complete until the initial sync finishes, so you can't start an import or export operation until all existing objects have been copied to Managed Lustre. You also can't create a mirror while an import or export operation is active. After the initial sync completes, continuous synchronization doesn't block transfer operations.
+
+  * Rapid Storage buckets and buckets with [Requester Pays](https://docs.cloud.google.com/storage/docs/requester-pays) enabled are not supported.
+
 
 
 
@@ -429,6 +454,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-03 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 

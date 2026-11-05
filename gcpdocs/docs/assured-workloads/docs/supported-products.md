@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/assured-workloads/docs/supported-products/
 title: Supported products by control package \u00a0|\u00a0 Assured Workloads \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T01:51:07.695373+00:00
+fetched_at: 2026-11-05T00:20:03.027176+00:00
 ---
 
 # Supported products by control package  |  Assured Workloads  |  Google Cloud Documentation
@@ -47,6 +47,10 @@ Control package | Supported products | API services 1
 [Application Integration](https://docs.cloud.google.com/application-integration/docs/overview) |  `integrations.googleapis.com`  
   
 [Artifact Registry](https://docs.cloud.google.com/artifact-registry/docs/overview) |  `artifactregistry.googleapis.com`  
+  
+[Audit Manager](https://docs.cloud.google.com/audit-manager/docs/overview) |  `auditmanager.googleapis.com`  
+  
+[Backup and DR Service](https://docs.cloud.google.com/backup-disaster-recovery/docs/concepts/backup-dr) |  `backupdr.googleapis.com`  
   
 [Backup for Google Kubernetes Engine (GKE)](https://docs.cloud.google.com/kubernetes-engine/docs/add-on/backup-for-gke) |  `gkebackup.googleapis.com`  
   
@@ -169,8 +173,15 @@ Control package | Supported products | API services 1
 [Google Cloud Armor](https://docs.cloud.google.com/armor/docs/cloud-armor-overview) [4] |  `compute.googleapis.com`  
 `networksecurity.googleapis.com`  
   
+[Google Cloud NetApp Volumes](https://docs.cloud.google.com/netapp/volumes/docs) |  `netapp.googleapis.com`  
+  
 [Google Kubernetes Engine (GKE)](https://docs.cloud.google.com/kubernetes-engine/docs/concepts/kubernetes-engine-overview) |  `container.googleapis.com`  
 `containersecurity.googleapis.com`  
+  
+[Google Security Operations SIEM](https://docs.cloud.google.com/security/products/security-information-event-management) |  `chronicle.googleapis.com`  
+`chronicleservicemanager.googleapis.com`  
+  
+[Google Security Operations SOAR](https://docs.cloud.google.com/chronicle/docs/soar) |  `Not applicable`  
   
 [Google Admin console](https://support.google.com/a/topic/2413312?ref_topic=4388346) |  `Not applicable`  
   
@@ -197,6 +208,8 @@ Control package | Supported products | API services 1
   
 [Memorystore for Redis](https://docs.cloud.google.com/memorystore/docs/redis) |  `redis.googleapis.com`  
   
+[Migrate to Containers](https://docs.cloud.google.com/migrate/containers/docs/getting-started) |  `Not applicable`  
+  
 [Model Armor](https://docs.cloud.google.com/security-command-center/docs/model-armor-overview) |  `modelarmor.googleapis.com`  
   
 [Network Connectivity Center](https://docs.cloud.google.com/network-connectivity/docs/network-connectivity-center/concepts/overview) |  `networkconnectivity.googleapis.com`  
@@ -204,6 +217,8 @@ Control package | Supported products | API services 1
 [Organization Policy Service](https://docs.cloud.google.com/resource-manager/docs/organization-policy/using-constraints) |  `orgpolicy.googleapis.com`  
   
 [Persistent Disk](https://docs.cloud.google.com/compute/docs/disks/persistent-disks) |  `compute.googleapis.com`  
+  
+[Privileged Access Manager](https://docs.cloud.google.com/iam/docs/pam-overview) |  `privilegedaccessmanager.googleapis.com`  
   
 [Pub/Sub](https://docs.cloud.google.com/pubsub/docs/overview) |  `pubsub.googleapis.com`  
   
@@ -1091,20 +1106,27 @@ Control package | Supported products | API services 1
 [Cloud Logging](https://docs.cloud.google.com/logging/docs/overview) |  `logging.googleapis.com`  
   
 [Cloud Monitoring](https://docs.cloud.google.com/monitoring/docs/monitoring-overview) [6] |  `monitoring.googleapis.com`  
+`stackdriver.googleapis.com`  
   
 [Cloud Router](https://docs.cloud.google.com/network-connectivity/docs/router) |  `compute.googleapis.com`  
   
 [Cloud Run](https://docs.cloud.google.com/run/docs/overview/what-is-cloud-run) [5] |  `run.googleapis.com`  
   
-[Cloud Run functions](https://docs.cloud.google.com/functions/docs) |  `run.googleapis.com`  
+[Cloud Run functions](https://docs.cloud.google.com/functions/docs) |  `cloudfunctions.googleapis.com`  
+`run.googleapis.com`  
   
 [Cloud SQL](https://docs.cloud.google.com/sql/docs/introduction) |  `sqladmin.googleapis.com`  
   
-[Cloud Service Mesh](https://docs.cloud.google.com/service-mesh/docs/overview) |  `mesh.googleapis.com`  
+[Cloud Scheduler](https://docs.cloud.google.com/scheduler/docs/overview) |  `cloudscheduler.googleapis.com`  
+  
+[Cloud Service Mesh](https://docs.cloud.google.com/service-mesh/docs/overview) |  `connectgateway.googleapis.com`  
+`mesh.googleapis.com`  
 `meshca.googleapis.com`  
 `meshconfig.googleapis.com`  
-`trafficdirector.googleapis.com`  
 `networkservices.googleapis.com`  
+`opsconfigmonitoring.googleapis.com`  
+`osconfig.googleapis.com`  
+`trafficdirector.googleapis.com`  
   
 [Cloud Storage](https://docs.cloud.google.com/storage/docs/introduction) |  `storage.googleapis.com`  
   
@@ -1113,6 +1135,8 @@ Control package | Supported products | API services 1
 [Cloud VPN](https://docs.cloud.google.com/network-connectivity/docs/vpn/concepts/overview) |  `compute.googleapis.com`  
   
 [Cloud Vision API](https://docs.cloud.google.com/vision/docs/features-list) |  `vision.googleapis.com`  
+  
+[Cloud Workstations](https://docs.cloud.google.com/workstations/docs/overview) |  `workstations.googleapis.com`  
   
 [Compute Engine](https://docs.cloud.google.com/compute/docs/overview) |  `compute.googleapis.com`  
   
@@ -1133,7 +1157,10 @@ Control package | Supported products | API services 1
   
 [Filestore](https://docs.cloud.google.com/filestore/docs/overview) |  `file.googleapis.com`  
   
-[Firestore](https://docs.cloud.google.com/firestore/native/docs/overview) |  `firestore.googleapis.com`  
+[Firestore](https://docs.cloud.google.com/firestore/native/docs/overview) |  `datastore.googleapis.com`  
+`firestore.googleapis.com`  
+  
+[Flow Analyzer](https://docs.cloud.google.com/network-intelligence-center/docs/flow-analyzer/overview) |  `networkmanagement.googleapis.com`  
   
 [Google Kubernetes Engine (GKE) Hub](https://docs.cloud.google.com/kubernetes-engine/docs/fleets-overview) |  `gkehub.googleapis.com`  
   
@@ -1145,10 +1172,17 @@ Control package | Supported products | API services 1
 [Google Kubernetes Engine (GKE)](https://docs.cloud.google.com/kubernetes-engine/docs/concepts/kubernetes-engine-overview) |  `container.googleapis.com`  
 `containersecurity.googleapis.com`  
   
+[Google Security Operations SIEM](https://docs.cloud.google.com/security/products/security-information-event-management) |  `chronicle.googleapis.com`  
+`chronicleservicemanager.googleapis.com`  
+  
+[Google Security Operations SOAR](https://docs.cloud.google.com/chronicle/docs/soar) |  `Not applicable`  
+  
 [Identity and Access Management (IAM)](https://docs.cloud.google.com/iam/docs/overview) |  `iam.googleapis.com`  
 `policytroubleshooter.googleapis.com`  
   
 [Identity-Aware Proxy (IAP)](https://docs.cloud.google.com/iap/docs/concepts-overview) |  `iap.googleapis.com`  
+  
+[Infrastructure Manager](https://docs.cloud.google.com/infrastructure-manager/docs) |  `config.googleapis.com`  
   
 [Internal passthrough Network Load Balancer](https://docs.cloud.google.com/load-balancing/docs/internal) |  `compute.googleapis.com`  
   
@@ -1187,12 +1221,15 @@ Control package | Supported products | API services 1
   
 [Secure Source Manager](https://docs.cloud.google.com/secure-source-manager/docs/overview) |  `securesourcemanager.googleapis.com`  
   
-[Security Command Center Premium](https://docs.cloud.google.com/security-command-center/docs/security-command-center-overview) |  `securitycenter.googleapis.com`  
+[Security Command Center Premium](https://docs.cloud.google.com/security-command-center/docs/security-command-center-overview) |  `containerthreatdetection.googleapis.com`  
+`securitycenter.googleapis.com`  
 `securitycentermanagement.googleapis.com`  
 `securityposture.googleapis.com`  
 `websecurityscanner.googleapis.com`  
   
 [Sensitive Data Protection](https://docs.cloud.google.com/sensitive-data-protection/docs/sensitive-data-protection-overview) |  `dlp.googleapis.com`  
+  
+[Service Directory](https://docs.cloud.google.com/service-directory/docs/overview) |  `servicedirectory.googleapis.com`  
   
 [Spanner](https://docs.cloud.google.com/spanner/docs) |  `spanner.googleapis.com`  
   
@@ -1216,6 +1253,8 @@ Control package | Supported products | API services 1
 [Vertex AI Workbench](https://docs.cloud.google.com/vertex-ai/docs/workbench/notebook-solution) |  `notebooks.googleapis.com`  
   
 [Virtual Private Cloud (VPC)](https://docs.cloud.google.com/vpc/docs/overview) |  `compute.googleapis.com`  
+  
+[Workflows](https://docs.cloud.google.com/workflows/docs/overview) |  `workflows.googleapis.com`  
   
 **[US Data Boundary for Healthcare and Life Sciences with Support](https://docs.cloud.google.com/assured-workloads/docs/control-packages/us-data-boundary-healthcare-life-sciences-support)** |  [Access Approval](https://docs.cloud.google.com/assured-workloads/access-approval/docs/overview) |  `accessapproval.googleapis.com`  
   
@@ -1278,20 +1317,27 @@ Control package | Supported products | API services 1
 [Cloud Logging](https://docs.cloud.google.com/logging/docs/overview) |  `logging.googleapis.com`  
   
 [Cloud Monitoring](https://docs.cloud.google.com/monitoring/docs/monitoring-overview) [6] |  `monitoring.googleapis.com`  
+`stackdriver.googleapis.com`  
   
 [Cloud Router](https://docs.cloud.google.com/network-connectivity/docs/router) |  `compute.googleapis.com`  
   
 [Cloud Run](https://docs.cloud.google.com/run/docs/overview/what-is-cloud-run) [5] |  `run.googleapis.com`  
   
-[Cloud Run functions](https://docs.cloud.google.com/functions/docs) |  `run.googleapis.com`  
+[Cloud Run functions](https://docs.cloud.google.com/functions/docs) |  `cloudfunctions.googleapis.com`  
+`run.googleapis.com`  
   
 [Cloud SQL](https://docs.cloud.google.com/sql/docs/introduction) |  `sqladmin.googleapis.com`  
   
-[Cloud Service Mesh](https://docs.cloud.google.com/service-mesh/docs/overview) |  `mesh.googleapis.com`  
+[Cloud Scheduler](https://docs.cloud.google.com/scheduler/docs/overview) |  `cloudscheduler.googleapis.com`  
+  
+[Cloud Service Mesh](https://docs.cloud.google.com/service-mesh/docs/overview) |  `connectgateway.googleapis.com`  
+`mesh.googleapis.com`  
 `meshca.googleapis.com`  
 `meshconfig.googleapis.com`  
-`trafficdirector.googleapis.com`  
 `networkservices.googleapis.com`  
+`opsconfigmonitoring.googleapis.com`  
+`osconfig.googleapis.com`  
+`trafficdirector.googleapis.com`  
   
 [Cloud Storage](https://docs.cloud.google.com/storage/docs/introduction) |  `storage.googleapis.com`  
   
@@ -1300,6 +1346,8 @@ Control package | Supported products | API services 1
 [Cloud VPN](https://docs.cloud.google.com/network-connectivity/docs/vpn/concepts/overview) |  `compute.googleapis.com`  
   
 [Cloud Vision API](https://docs.cloud.google.com/vision/docs/features-list) |  `vision.googleapis.com`  
+  
+[Cloud Workstations](https://docs.cloud.google.com/workstations/docs/overview) |  `workstations.googleapis.com`  
   
 [Compute Engine](https://docs.cloud.google.com/compute/docs/overview) |  `compute.googleapis.com`  
   
@@ -1320,7 +1368,10 @@ Control package | Supported products | API services 1
   
 [Filestore](https://docs.cloud.google.com/filestore/docs/overview) |  `file.googleapis.com`  
   
-[Firestore](https://docs.cloud.google.com/firestore/native/docs/overview) |  `firestore.googleapis.com`  
+[Firestore](https://docs.cloud.google.com/firestore/native/docs/overview) |  `datastore.googleapis.com`  
+`firestore.googleapis.com`  
+  
+[Flow Analyzer](https://docs.cloud.google.com/network-intelligence-center/docs/flow-analyzer/overview) |  `networkmanagement.googleapis.com`  
   
 [Google Kubernetes Engine (GKE) Hub](https://docs.cloud.google.com/kubernetes-engine/docs/fleets-overview) |  `gkehub.googleapis.com`  
   
@@ -1332,10 +1383,17 @@ Control package | Supported products | API services 1
 [Google Kubernetes Engine (GKE)](https://docs.cloud.google.com/kubernetes-engine/docs/concepts/kubernetes-engine-overview) |  `container.googleapis.com`  
 `containersecurity.googleapis.com`  
   
+[Google Security Operations SIEM](https://docs.cloud.google.com/security/products/security-information-event-management) |  `chronicle.googleapis.com`  
+`chronicleservicemanager.googleapis.com`  
+  
+[Google Security Operations SOAR](https://docs.cloud.google.com/chronicle/docs/soar) |  `Not applicable`  
+  
 [Identity and Access Management (IAM)](https://docs.cloud.google.com/iam/docs/overview) |  `iam.googleapis.com`  
 `policytroubleshooter.googleapis.com`  
   
 [Identity-Aware Proxy (IAP)](https://docs.cloud.google.com/iap/docs/concepts-overview) |  `iap.googleapis.com`  
+  
+[Infrastructure Manager](https://docs.cloud.google.com/infrastructure-manager/docs) |  `config.googleapis.com`  
   
 [Internal passthrough Network Load Balancer](https://docs.cloud.google.com/load-balancing/docs/internal) |  `compute.googleapis.com`  
   
@@ -1374,12 +1432,15 @@ Control package | Supported products | API services 1
   
 [Secure Source Manager](https://docs.cloud.google.com/secure-source-manager/docs/overview) |  `securesourcemanager.googleapis.com`  
   
-[Security Command Center Premium](https://docs.cloud.google.com/security-command-center/docs/security-command-center-overview) |  `securitycenter.googleapis.com`  
+[Security Command Center Premium](https://docs.cloud.google.com/security-command-center/docs/security-command-center-overview) |  `containerthreatdetection.googleapis.com`  
+`securitycenter.googleapis.com`  
 `securitycentermanagement.googleapis.com`  
 `securityposture.googleapis.com`  
 `websecurityscanner.googleapis.com`  
   
 [Sensitive Data Protection](https://docs.cloud.google.com/sensitive-data-protection/docs/sensitive-data-protection-overview) |  `dlp.googleapis.com`  
+  
+[Service Directory](https://docs.cloud.google.com/service-directory/docs/overview) |  `servicedirectory.googleapis.com`  
   
 [Spanner](https://docs.cloud.google.com/spanner/docs) |  `spanner.googleapis.com`  
   
@@ -1403,6 +1464,8 @@ Control package | Supported products | API services 1
 [Vertex AI Workbench](https://docs.cloud.google.com/vertex-ai/docs/workbench/notebook-solution) |  `notebooks.googleapis.com`  
   
 [Virtual Private Cloud (VPC)](https://docs.cloud.google.com/vpc/docs/overview) |  `compute.googleapis.com`  
+  
+[Workflows](https://docs.cloud.google.com/workflows/docs/overview) |  `workflows.googleapis.com`  
   
 **[Data Boundary for Impact Level 2 (IL2)](https://docs.cloud.google.com/assured-workloads/docs/control-packages/il2)** |  [AI Protection](https://docs.cloud.google.com/security-command-center/docs/ai-protection-overview) |  `securitycenter.googleapis.com`  
   
@@ -2163,6 +2226,8 @@ Control package | Supported products | API services 1
   
 [Artifact Registry](https://docs.cloud.google.com/artifact-registry/docs/overview) |  `artifactregistry.googleapis.com`  
   
+[Audit Manager](https://docs.cloud.google.com/audit-manager/docs/overview) |  `auditmanager.googleapis.com`  
+  
 [AutoML Tables](https://docs.cloud.google.com/vertex-ai/docs/beginner/beginners-guide) |  `aiplatform.googleapis.com`  
   
 [Backup and DR Service](https://docs.cloud.google.com/backup-disaster-recovery/docs/concepts/backup-dr) |  `backupdr.googleapis.com`  
@@ -2192,7 +2257,7 @@ Control package | Supported products | API services 1
   
 [Cloud Build](https://docs.cloud.google.com/build/docs/overview) |  `cloudbuild.googleapis.com`  
   
-[Google Cloud console](https://docs.cloud.google.com/cloud-console) |  `Not applicable`  
+[Google Cloud console](https://docs.cloud.google.com/cloud-console) |  `console.cloud.google.com`  
   
 [Cloud DNS](https://docs.cloud.google.com/dns/docs/overview) |  `dns.googleapis.com`  
   
@@ -2217,6 +2282,7 @@ Control package | Supported products | API services 1
 [Cloud Logging](https://docs.cloud.google.com/logging/docs/overview) |  `logging.googleapis.com`  
   
 [Cloud Monitoring](https://docs.cloud.google.com/monitoring/docs/monitoring-overview) [6] |  `monitoring.googleapis.com`  
+`stackdriver.googleapis.com`  
   
 [Cloud NAT](https://docs.cloud.google.com/nat/docs/overview) |  `compute.googleapis.com`  
   
@@ -2233,6 +2299,9 @@ Control package | Supported products | API services 1
 [Cloud Service Mesh](https://docs.cloud.google.com/service-mesh/docs/overview) |  `mesh.googleapis.com`  
 `meshca.googleapis.com`  
 `meshconfig.googleapis.com`  
+`networkservices.googleapis.com`  
+`opsconfigmonitoring.googleapis.com`  
+`trafficdirector.googleapis.com`  
   
 [Cloud Storage](https://docs.cloud.google.com/storage/docs/introduction) |  `storage.googleapis.com`  
   
@@ -2248,7 +2317,8 @@ Control package | Supported products | API services 1
   
 [Compute Engine](https://docs.cloud.google.com/compute/docs/overview) |  `compute.googleapis.com`  
   
-[Google Kubernetes Engine (GKE) Connect](https://docs.cloud.google.com/anthos/multicluster-management/connect) |  `gkeconnect.googleapis.com`  
+[Google Kubernetes Engine (GKE) Connect](https://docs.cloud.google.com/anthos/multicluster-management/connect) |  `connectgateway.googleapis.com`  
+`gkeconnect.googleapis.com`  
   
 [Dialogflow CX](https://docs.cloud.google.com/dialogflow/cx/docs) |  `dialogflow.googleapis.com`  
   
@@ -2275,7 +2345,9 @@ Control package | Supported products | API services 1
   
 [Firebase Authentication](https://firebase.google.com/docs/auth) |  `Not applicable`  
   
-[Firestore](https://docs.cloud.google.com/firestore/native/docs/overview) |  `firestore.googleapis.com`  
+[Firestore](https://docs.cloud.google.com/firestore/native/docs/overview) |  `datastore.googleapis.com`  
+`firebaserules.googleapis.com`  
+`firestore.googleapis.com`  
   
 [Google Kubernetes Engine (GKE) Hub](https://docs.cloud.google.com/kubernetes-engine/docs/fleets-overview) |  `gkehub.googleapis.com`  
   
@@ -2303,6 +2375,7 @@ Control package | Supported products | API services 1
 [Google Security Operations SOAR](https://docs.cloud.google.com/chronicle/docs/soar) |  `Not applicable`  
   
 [Identity and Access Management (IAM)](https://docs.cloud.google.com/iam/docs/overview) |  `iam.googleapis.com`  
+`policytroubleshooter.googleapis.com`  
   
 [Identity-Aware Proxy (IAP)](https://docs.cloud.google.com/iap/docs/concepts-overview) |  `iap.googleapis.com`  
   
@@ -2350,16 +2423,21 @@ Control package | Supported products | API services 1
   
 [Resource Manager](https://docs.cloud.google.com/resource-manager/docs/resource-manager-overview) |  `cloudresourcemanager.googleapis.com`  
   
+[Resource Settings](https://docs.cloud.google.com/resource-manager/docs/deprecations) |  `resourcesettings.googleapis.com`  
+  
 [Secret Manager](https://docs.cloud.google.com/secret-manager/docs/overview) |  `secretmanager.googleapis.com`  
   
 [Secure Source Manager](https://docs.cloud.google.com/secure-source-manager/docs/overview) |  `securesourcemanager.googleapis.com`  
   
-[Security Command Center Premium](https://docs.cloud.google.com/security-command-center/docs/security-command-center-overview) |  `securitycenter.googleapis.com`  
+[Security Command Center Premium](https://docs.cloud.google.com/security-command-center/docs/security-command-center-overview) |  `containerthreatdetection.googleapis.com`  
+`securitycenter.googleapis.com`  
 `securitycentermanagement.googleapis.com`  
 `securityposture.googleapis.com`  
 `websecurityscanner.googleapis.com`  
   
 [Sensitive Data Protection](https://docs.cloud.google.com/sensitive-data-protection/docs/sensitive-data-protection-overview) |  `dlp.googleapis.com`  
+  
+[Service Directory](https://docs.cloud.google.com/service-directory/docs/overview) |  `servicedirectory.googleapis.com`  
   
 [Spanner](https://docs.cloud.google.com/spanner/docs) |  `spanner.googleapis.com`  
   
@@ -2391,8 +2469,11 @@ Control package | Supported products | API services 1
 [Vertex AI Tuning](https://docs.cloud.google.com/vertex-ai/generative-ai/docs/models/tune-models) |  `aiplatform.googleapis.com`  
   
 [Vertex AI Workbench](https://docs.cloud.google.com/vertex-ai/docs/workbench/notebook-solution) |  `aiplatform.googleapis.com`  
+`notebooks.googleapis.com`  
   
 [Virtual Private Cloud (VPC)](https://docs.cloud.google.com/vpc/docs/overview) |  `compute.googleapis.com`  
+`servicenetworking.googleapis.com`  
+`serviceprovisioning.googleapis.com`  
   
 [Web Risk](https://docs.cloud.google.com/web-risk/docs/overview) |  `webrisk.googleapis.com`  
   
@@ -8502,6 +8583,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-03 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 

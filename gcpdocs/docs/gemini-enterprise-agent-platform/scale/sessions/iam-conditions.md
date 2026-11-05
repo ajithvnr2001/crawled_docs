@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/sessions/iam-conditions/
 title: Control access to Sessions with IAM Conditions \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-03T09:53:35.047286+00:00
+fetched_at: 2026-11-04T23:12:25.351749+00:00
 ---
 
 # Control access to Sessions with IAM Conditions  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation
@@ -44,17 +44,17 @@ To set up conditional Identity and Access Management policies for sessions and s
     * Should certain agent identities be able to access certain sessions? 
   * **Grant IAM roles** : Ensure you have the required roles that contain the necessary permissions you need to perform the tasks in this document. 
 
-To get the permissions that you need to apply IAM Conditions to Vertex AI Agent Engine Session resources , ask your administrator to grant you the following IAM roles: 
+To get the permissions that you need to apply IAM Conditions to Agent Platform Sessions resources , ask your administrator to grant you the following IAM roles: 
 
     * For projects: Project IAM Admin (`roles/resourcemanager.projectIamAdmin`) 
 
 For more information about granting roles, see [Manage access to projects, folders, and organizations](https://docs.cloud.google.com/iam/docs/granting-changing-revoking-access). 
 
-These predefined roles contain the permissions required to apply IAM Conditions to Vertex AI Agent Engine Session resources . To see the exact permissions that are required, expand the **Required permissions** section: 
+These predefined roles contain the permissions required to apply IAM Conditions to Agent Platform Sessions resources . To see the exact permissions that are required, expand the **Required permissions** section: 
 
 #### Required permissions
 
-The following permissions are required to apply IAM Conditions to Vertex AI Agent Engine Session resources :
+The following permissions are required to apply IAM Conditions to Agent Platform Sessions resources :
 
     * Set conditional IAM access at the project level: `resourcemanager.projects.setIamPolicy` 
 
@@ -285,6 +285,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-02 UTC.
+Last updated 2026-11-04 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-02 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/iam/docs/manage-access-service-accounts/
 title: Manage access to service accounts \u00a0|\u00a0 Identity and Access Management (IAM) \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T08:00:29.136127+00:00
+fetched_at: 2026-11-04T23:44:38.629527+00:00
 ---
 
 # Manage access to service accounts  |  Identity and Access Management (IAM)  |  Google Cloud Documentation

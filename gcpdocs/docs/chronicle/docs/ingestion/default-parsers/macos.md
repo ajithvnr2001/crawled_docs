@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/macos/
 title: Collect macOS System Logs \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T07:53:36.537367+00:00
+fetched_at: 2026-11-04T23:34:47.708118+00:00
 ---
 
 # Collect macOS System Logs  |  Google Security Operations  |  Google Cloud Documentation

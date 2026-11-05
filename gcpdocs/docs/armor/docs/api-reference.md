@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/armor/docs/api-reference/
 title: APIs and references \u00a0|\u00a0 Google Cloud Armor \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T16:18:28.409296+00:00
+fetched_at: 2026-11-04T23:33:25.528104+00:00
 ---
 
 # APIs and references  |  Google Cloud Armor  |  Google Cloud Documentation
@@ -21,7 +21,7 @@ Send feedback
 #  APIs and references Stay organized with collections  Save and categorize content based on your preferences. 
 
   * ### [Cloud Armor API reference Find individual commands that can be used with Cloud Armor.  ](https://docs.cloud.google.com/armor/docs/apis)
-  * ### [Cloud Armor custom rules language reference Use this reference to write expressions in advanced match conditions for security policy rules.  ](https://docs.cloud.google.com/armor/docs/rules-language-reference)
+  * ### [Cloud Armor custom rules language reference Use this reference to write expressions in advanced match conditions for security policy rules.  ](https://docs.cloud.google.com/armor/docs/create-security-policy-rules)
 
 
 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/ai-hypercomputer/docs/monitor/
 title: Monitor Compute Engine instances and Slurm clusters \u00a0|\u00a0 AI Hypercomputer \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T18:56:09.752815+00:00
+fetched_at: 2026-11-04T23:31:53.318784+00:00
 ---
 
 # Monitor Compute Engine instances and Slurm clusters  |  AI Hypercomputer  |  Google Cloud Documentation
@@ -135,6 +135,8 @@ You might also be able to get these permissions with [custom roles](https://docs
 Depending on your use case, the following metrics are available for monitoring your compute instances and Slurm clusters:
 
   * To monitor the health, performance, and network performance of the GPUs attached to your compute instances, see Infrastructure metrics.
+
+  * To monitor VM terminations and associated root cause attributions, see VM termination monitoring.
 
   * To monitor the efficiency of the GPUs in your ML workloads, see ML workload metrics.
 
@@ -317,6 +319,57 @@ Uncorrectable DRAM row remapping failed | `instance/gpu/dram_row_remapping_faile
 Uncorrectable PCIe errors | `instance/gpu/pcie_fatal_error_count` | A4X Max or A4X | The number of uncorrectable peripheral component interconnect express (PCIe) errors.  
 Uncorrectable cache ECC errors | `instance/gpu/cache_uncorrectable_ecc_error_count` | A4X Max or A4X | The number of uncorrectable ECCs in cache memory.  
   
+### VM termination monitoring
+
+When a compute instance stops unexpectedly, you can use VM interruption reports to understand what caused the interruption.
+
+Compute Engine categorizes the [events that stop a compute instance](https://docs.cloud.google.com/ai-hypercomputer/docs/manage/host-events) as follows:
+
+  * **Planned maintenance** : Routine, periodic maintenance that improves the reliability and performance of the infrastructure. Compute Engine knows about these events and notifies you in advance.
+
+  * **Emergent maintenance** : Repairs for medium-severity issues, such as hardware degradation or critical software fixes, that can't wait until the next planned maintenance but don't require an immediate fix. Compute Engine notifies you with a shorter notification window than for planned maintenance.
+
+  * **Urgent repair** : Unexpected software or hardware issues that require immediate repair, for which you receive little to no advance notice.
+
+  * **Critical failure** : Unexpected software or hardware failures that Compute Engine can't detect in advance.
+
+  * **User-reported fault** : You [reported the host as faulty](https://docs.cloud.google.com/ai-hypercomputer/docs/manage/report-faulty-host), which stopped the compute instance and started a repair.
+
+  * **User-initiated termination** : You restarted, stopped, or deleted the compute instance.
+
+
+
+
+Each time Compute Engine stops a compute instance, it writes an _interruption report_ to Logging. Interruption reports use the `compute.googleapis.com/interruption_report` log name and the `gce_instance` monitored resource type. The first termination interruption report with a pending diagnosis is typically sent within an hour of the termination time. The final termination interruption report is sent within 72 hours of the termination time.
+
+The `jsonPayload.instanceInterruptionReport` field of each log entry includes the following fields:
+
+Field | Description  
+---|---  
+`type` | The category of the event that stopped the compute instance. Event categories are as follows: 
+
+  * `PLANNED_MAINTENANCE`
+  * `EMERGENT_MAINTENANCE`
+  * `CRITICAL_FAILURE`
+  * `URGENT_REPAIR`
+  * `USER_REPORTED_FAULT`
+  * `USER_INITIATED_TERMINATION`
+
+  
+`reason` | The specific cause of the event. The possible values depend on the value of the `type` field. This value might change between termination interruption reports as Compute Engine receives more information about why the interruption occurred. The termination interruption report with a status of `COMPLETE` has the final `reason` value.  
+`status` | The status of the diagnosis. Diagnosis statuses are as follows: 
+
+  * `INITIAL_DIAGNOSIS`: Compute Engine has detected the termination and assigned an initial category and reason, which are being validated.
+  * `PENDING_DIAGNOSIS`: the initial diagnosis has been validated, and Compute Engine is completing the root cause analysis.
+  * `COMPLETE`: the diagnosis is complete, and the `type` and `reason` fields are final.
+
+  
+`interruptionTime` | The time when the compute instance stopped. This value matches the `timestamp` field of the log entry.  
+`diagnosisTime` | The time when Compute Engine produced the current report.  
+`summary` | A human-readable summary of the report and its status.  
+  
+You can use these termination interruption reports in conjunction with the `compute.googleapis.com/instance/interruption_count` metric, which tracks the number of interruptions by type and reason.
+
 ### ML workload metrics
 
 To monitor the productivity—specifically, the [goodput](https://cloud.google.com/blog/products/ai-machine-learning/goodput-metric-as-measure-of-ml-productivity)—of your ML workloads, use the following metrics:
@@ -608,6 +661,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-04 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 

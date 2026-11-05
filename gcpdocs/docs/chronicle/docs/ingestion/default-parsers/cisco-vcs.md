@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/cisco-vcs/
 title: Collect Cisco VCS logs \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T07:50:07.079766+00:00
+fetched_at: 2026-11-04T23:43:23.563546+00:00
 ---
 
 # Collect Cisco VCS logs  |  Google Security Operations  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chronicle/docs/soar/investigate/working-with-alerts/define-alert-overflow-admin/
 title: Configure alert overflow \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T10:08:40.501595+00:00
+fetched_at: 2026-11-04T23:33:38.354162+00:00
 ---
 
 # Configure alert overflow  |  Google Security Operations  |  Google Cloud Documentation
@@ -35,7 +35,7 @@ In these cases, you'll see multiple alerts in one case, and mutual entities mark
 There are two distinct configurations for the overflow mechanism:
 
   * **Initial overflow configuration** : This configuration is hard-coded in the database and defines the trigger conditions. The mechanism activates when more than 50 similar alerts are ingested within a 10-minute timeframe. This is determined by the `Is_Overflow` method, which is configured on the connector side (added to the connector code in the Integrated Development Environment (IDE)). Once triggered, the system adds an overflow case to the case queue. This case contains one alert indicating the environment, product, and rule of the overflowing alert, along with an overflow tag. 
-  * **Second overflow configuration** : This configuration defines the system's behavior _after_ the overflow mechanism is triggered. You can define this in **SOAR Settings > Advanced > Alerts Grouping** in the **Overflow** section.
+  * **Second overflow configuration** : This configuration defines the system's behavior _after_ the overflow mechanism is triggered. You can define this in **Settings > Investigation > Alert Grouping** in the **Overflow** section.
     * **Timeframe for Overflow Case grouping (in hours):** Choose the number of hours in which to group the overflow alerts for the case. This is only applied to rules grouped solely by entities. 
     * **Max. alerts grouped into an Overflow Case:** Define the maximum number of overflow alerts to group together into one case.  
   
@@ -49,6 +49,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-28 UTC.
+Last updated 2026-11-04 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 

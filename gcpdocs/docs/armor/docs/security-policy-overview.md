@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/armor/docs/security-policy-overview/
 title: Security policy overview \u00a0|\u00a0 Google Cloud Armor \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T23:48:04.960634+00:00
+fetched_at: 2026-11-04T23:33:29.028497+00:00
 ---
 
 # Security policy overview  |  Google Cloud Armor  |  Google Cloud Documentation
@@ -74,7 +74,7 @@ These are the requirements for using Cloud Armor security policies:
 
 Cloud Armor security policies are sets of rules that match on attributes from Layer 3 to Layer 7 networks to protect externally facing applications or services. Each rule is evaluated with respect to incoming traffic.
 
-A Cloud Armor security policy _rule_ consists of a match condition and an action to take when that condition is met. For example, a condition can be whether the incoming traffic's client IP address matches a specific IP address or CIDR range (also known as IP address allowlist and denylist rules). Alternatively, by using the [Cloud Armor custom rules language reference](https://docs.cloud.google.com/armor/docs/rules-language-reference), you can create custom conditions that match on various attributes of the incoming traffic, such as the URL path, request method, or request header values.
+A Cloud Armor security policy _rule_ consists of a match condition and an action to take when that condition is met. For example, a condition can be whether the incoming traffic's client IP address matches a specific IP address or CIDR range (also known as IP address allowlist and denylist rules). Alternatively, by using the [Cloud Armor custom rules language reference](https://docs.cloud.google.com/armor/docs/create-security-policy-rules), you can create custom conditions that match on various attributes of the incoming traffic, such as the URL path, request method, or request header values.
 
 When an incoming request matches a condition in a security policy rule, Cloud Armor allows, denies, or redirects the request, based on whether the rule is an allow rule, a deny rule, or a redirect rule. There can be additional action parameters to apply, like inserting request headers; this feature is part of Cloud Armor bot management. For more information about bot management, see the [bot management overview](https://docs.cloud.google.com/armor/docs/bot-management). 
 
@@ -384,7 +384,7 @@ The fingerprint protects you from overriding another user's update. If the finge
 
 The rules language and enforcement engine provide the following:
 
-  * The ability to write custom rule expressions that can match on various Layer 3 through Layer 7 attributes of incoming requests. Cloud Armor provides a [custom rules language attributes](https://docs.cloud.google.com/armor/docs/rules-language-reference) for writing custom match conditions.
+  * The ability to write custom rule expressions that can match on various Layer 3 through Layer 7 attributes of incoming requests. Cloud Armor provides a [custom rules language attributes](https://docs.cloud.google.com/armor/docs/create-security-policy-rules) for writing custom match conditions.
 
   * The ability to combine up to 5 subexpressions in a single rule.
 
@@ -559,7 +559,7 @@ Global external Application Load Balancers have built-in support for the gRPC pr
 
 ## What's next
 
-  * [Create and view Cloud Armor security policies](https://docs.cloud.google.com/armor/docs/configure-security-policies)
+  * [Create and view Cloud Armor security policies](https://docs.cloud.google.com/armor/docs/create-security-policies)
   * [Learn about the features in Google Cloud Armor Enterprise tiers](https://docs.cloud.google.com/armor/docs/armor-enterprise-overview)
   * [Learn about named IP address lists](https://docs.cloud.google.com/armor/docs/threat-intelligence#use-named-ip)
   * [Troubleshoot Cloud Armor issues](https://docs.cloud.google.com/armor/docs/troubleshooting)
@@ -571,6 +571,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-04 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 

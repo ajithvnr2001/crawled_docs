@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chronicle/docs/soar/marketplace-integrations/pubsub/
 title: Integrate Pub/Sub with Google SecOps \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T10:05:30.297542+00:00
+fetched_at: 2026-11-04T23:31:35.928047+00:00
 ---
 
 # Integrate Pub/Sub with Google SecOps  |  Google Security Operations  |  Google Cloud Documentation
@@ -291,7 +291,7 @@ Parameter | Description
 `Service Account JSON File Content` | _Optional_ The content of the service account key JSON file. You can configure this parameter or the `Workload Identity Email` parameter.To configure this parameter, provide the full content of the service account key JSON file that you downloaded when creating a service account.For the **Pub/Sub – Messages Connector** , authenticating with the service account key JSON file has priority over the Workload Identity Federation.  
 `Workload Identity Email` | _Optional_ The client email address of your service account. You can configure this parameter or the `Service Account JSON File Content` parameter.To impersonate service accounts with the Workload Identity Federation, grant the [`Service Account Token Creator`](https://docs.cloud.google.com/iam/docs/service-account-permissions#%0A%20%20%20%20token-creator-role) role to your service account.  
 `Project ID` | _Optional_ The project ID to use in the connector.  
-`Quota Project ID` | _Optional_ The Google Cloud project ID which you use for Google Cloud APIs and billing. This parameter requires you to grant the `Service Usage Consumer` role to your service account. For more information about the IAM roles, see [Access Control with IAM](https://docs.cloud.google.com/service-usage/docs/access-control#roles). The integration attaches this parameter value to all API requests.  
+`Quota Project ID` | _Optional_ The Google Cloud project ID which you use for Google Cloud APIs and billing. This parameter requires you to grant the `Service Usage Consumer` role to your service account. For more information about the IAM roles, see [Access Control with IAM](https://docs.cloud.google.com/iam/docs/roles-permissions/serviceusage). The integration attaches this parameter value to all API requests.  
 `Subscription ID` | _Required_ The Pub/Sub subscription ID.  
 `Case Name Template` | _Optional_ A custom case name.When you configure this parameter, the connector adds a new key called `custom_case_name` to the Google SecOps event. You can provide placeholders in the following format: `[name of the field]`. Example: `Phishing - [event_mailbox]` For placeholders, the connector uses the first Google SecOps event. The connector only handles keys containing the string value. To configure this parameter, specify event fields without prefixes.  
 `Alert Name Template` | _Required_ A custom alert name. You can provide placeholders in the following format: `[name of the field]`. Example: `Phishing - [event_mailbox]`. For placeholders, the connector uses the first Google SecOps event. The connector only handles keys containing the string value. If you don't provide any value or use an invalid template, the connector uses a fallback value in the following format: `CONNECTOR_NAME - Alert`. To configure this parameter, specify event fields without prefixes.  
@@ -423,6 +423,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-28 UTC.
+Last updated 2026-11-04 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/salesforce/
 title: Collect Salesforce logs \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T07:50:46.625809+00:00
+fetched_at: 2026-11-04T23:34:29.936873+00:00
 ---
 
 # Collect Salesforce logs  |  Google Security Operations  |  Google Cloud Documentation

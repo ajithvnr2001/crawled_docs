@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/bare-metal/docs/how-to/application-logging-monitoring/
 title: Enable application logging and monitoring \u00a0|\u00a0 Google Distributed Cloud software only for bare metal \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T20:46:16.173909+00:00
+fetched_at: 2026-11-04T23:29:10.578602+00:00
 ---
 
 # Enable application logging and monitoring  |  Google Distributed Cloud software only for bare metal  |  Google Cloud Documentation
@@ -22,12 +22,9 @@ Send feedback
 
 #  Enable application logging and monitoring Stay organized with collections  Save and categorize content based on your preferences. 
 
-This page shows how to configure a cluster for Google Distributed Cloud so that custom logs and metrics from user applications are sent to Cloud Logging, Cloud Monitoring, and [Google Cloud Managed Service for Prometheus](https://cloud.google.com/managed-prometheus). For the best user application logging and monitoring experience, we strongly recommend that you use the following configuration: 
+You can configure a Google Distributed Cloud cluster to send custom logs and metrics from your applications to Cloud Logging, Cloud Monitoring, and [Google Cloud Managed Service for Prometheus](https://cloud.google.com/managed-prometheus). This telemetry helps you monitor workload health and troubleshoot issues. With Google Cloud Managed Service for Prometheus, you can also monitor and alert on your workloads globally by using [Prometheus](https://prometheus.io/). 
 
-  * Enable Google Cloud Managed Service for Prometheus by setting `enableGMPForApplications` to `true` in the `Stackdriver` object. This configuration lets you monitor and alert on your workloads globally, using [Prometheus](https://prometheus.io/). For instructions and additional information, see Enable Google Cloud Managed Service for Prometheus.
-  * Enable Cloud Logging for user applications by setting `enableCloudLoggingForApplications` to `true` in the `Stackdriver` object. This configuration provides logging for your workloads. For instructions and additional information, see Enable Cloud Logging for user applications on this page.
-
-
+For the best application logging and monitoring experience, we recommend that you collect both metrics and logs. To set up workload metrics and alerts, see Enable Google Cloud Managed Service for Prometheus. To capture application logs, see Enable Cloud Logging for user applications.
 
 ## Enable Google Cloud Managed Service for Prometheus
 
@@ -460,6 +457,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-04 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/armor/docs/adaptive-protection-overview/
 title: Adaptive Protection overview \u00a0|\u00a0 Google Cloud Armor \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T16:20:43.117827+00:00
+fetched_at: 2026-11-04T23:33:28.855572+00:00
 ---
 
 # Adaptive Protection overview  |  Google Cloud Armor  |  Google Cloud Documentation
@@ -190,7 +190,7 @@ The next signature matches traffic with a substring `/api?` in the request URI:
 
 ### Deploy suggested rules
 
-Adaptive Protection alerts also provide a suggested Cloud Armor rule expressed in the [custom rules language](https://docs.cloud.google.com/armor/docs/rules-language-reference). This rule can be used to create a rule in a Cloud Armor security policy to mitigate the attack. In addition to the signature, the alert includes a rate of impacted baseline traffic to help you evaluate the impact of deploying the rule. The rate of impacted baseline traffic is a projected proportion of baseline traffic that matches the attack signature identified by Adaptive Protection. If you are not subscribed to Cloud Armor Enterprise, _basic alerts_ sent by Adaptive Protection do not include a suggested Cloud Armor rule that you can apply.
+Adaptive Protection alerts also provide a suggested Cloud Armor rule expressed in the [custom rules language](https://docs.cloud.google.com/armor/docs/create-security-policy-rules). This rule can be used to create a rule in a Cloud Armor security policy to mitigate the attack. In addition to the signature, the alert includes a rate of impacted baseline traffic to help you evaluate the impact of deploying the rule. The rate of impacted baseline traffic is a projected proportion of baseline traffic that matches the attack signature identified by Adaptive Protection. If you are not subscribed to Cloud Armor Enterprise, _basic alerts_ sent by Adaptive Protection do not include a suggested Cloud Armor rule that you can apply.
 
 You can find some of the alert signature as well as the impacted baseline rate in the log message sent to Cloud Logging. The following example is the JSON payload of a sample alert along with the resource labels on which you can filter the logs.
     
@@ -396,6 +396,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-04 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 

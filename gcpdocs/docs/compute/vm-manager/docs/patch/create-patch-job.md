@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/compute/vm-manager/docs/patch/create-patch-job/
 title: Create patch jobs \u00a0|\u00a0 VM Manager \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T05:39:16.748700+00:00
+fetched_at: 2026-11-04T23:32:01.599538+00:00
 ---
 
 # Create patch jobs  |  VM Manager  |  Google Cloud Documentation
@@ -822,17 +822,22 @@ You can apply updates for Microsoft software such as Microsoft SQL Server, Share
 
 If your patch fails, you can use the following steps to help find and resolve the issues.
 
-  1. Review the [instance details](https://docs.cloud.google.com/compute/vm-manager/docs/patch/manage-patch-jobs#list-instance-details) for the affected patch job. This helps you to identify which instances failed or what state they are stuck in. The instance details list also contains a brief error message for each instance.
+  1. Review the [instance details](https://docs.cloud.google.com/compute/vm-manager/docs/patch/manage-patch-jobs#list-instance-details) for the affected patch job. This status helps you to identify which instances failed or what state they are stuck in. The instance details list also contains a brief error message for each instance.
 
-If a patch fails with a status of `NO_AGENT_DETECTED` or `TIMED_OUT`, this usually means that the service sent a request to the agent to begin patching but never heard back from the agent. Review the following possible causes and fixes:
+If a patch fails with a status of `NO_AGENT_DETECTED` or `TIMED_OUT`, this status usually means that the service sent a request to the agent to begin patching but never heard back from the agent. Review the following possible causes and fixes:
 
-     * The instance is not running. To fix this, [start the VM instance](https://docs.cloud.google.com/compute/docs/instances/stop-start-instance#starting_a_stopped_instance).
-     * Verify the setup by using the [verification checklist](https://docs.cloud.google.com/compute/docs/troubleshooting/vm-manager/verify-setup).
-     * The network settings on the VPC network or the instance didn't allow the OS Config agent to communicate with the OS Config API. To fix this, check the network settings.
+     * The instance isn't running. To fix this issue, [start the VM instance](https://docs.cloud.google.com/compute/docs/instances/stop-start-instance#starting_a_stopped_instance).
+
+     * The setup is incomplete or invalid. To fix this issue, verify the setup by using the [verification checklist](https://docs.cloud.google.com/compute/docs/troubleshooting/vm-manager/verify-setup).
+
+     * The network settings on the VPC network or the instance didn't allow the OS Config agent to communicate with the OS Config API. To fix this issue, check the network settings.
+
   2. If the [instance details](https://docs.cloud.google.com/compute/vm-manager/docs/patch/manage-patch-jobs#list-instance-details) don't provide enough information, review the Cloud Logging logs or [serial port console](https://docs.cloud.google.com/compute/docs/instances/viewing-serial-port-output#viewing_serial_port_output). The OS Config agent writes its log entries to both locations. In Cloud Logging, you can filter using the patch job ID to see all log entries related to that patch job. You can also enable debug logging by setting the `osconfig-log-level=debug` [metadata value](https://docs.cloud.google.com/compute/docs/storing-retrieving-metadata#custom) at the VM or Google Cloud project level.
 
 
 
+
+For more troubleshooting steps, or for a workaround to manage patch deployments across multiple projects in an organization, see [Troubleshooting VM Manager](https://docs.cloud.google.com/compute/vm-manager/docs/troubleshooting/troubleshoot-vm-manager#patch-deployments-organization).
 
 ## What's next?
 
@@ -846,6 +851,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-04 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 

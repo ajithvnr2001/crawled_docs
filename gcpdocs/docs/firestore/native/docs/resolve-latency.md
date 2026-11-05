@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/firestore/native/docs/resolve-latency/
 title: Resolve latency issues \u00a0|\u00a0 Firestore in Native mode \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T08:01:27.136072+00:00
+fetched_at: 2026-11-04T23:45:27.516559+00:00
 ---
 
 # Resolve latency issues  |  Firestore in Native mode  |  Google Cloud Documentation

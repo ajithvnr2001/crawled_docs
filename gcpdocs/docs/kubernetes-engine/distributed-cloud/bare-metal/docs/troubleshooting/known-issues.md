@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/bare-metal/docs/troubleshooting/known-issues/
 title: Google Distributed Cloud for bare metal known issues \u00a0|\u00a0 Google Distributed Cloud software only for bare metal \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-30T05:50:17.492664+00:00
+fetched_at: 2026-11-04T23:30:51.056278+00:00
 ---
 
 # Google Distributed Cloud for bare metal known issues  |  Google Distributed Cloud software only for bare metal  |  Google Cloud Documentation
@@ -2837,7 +2837,7 @@ Upgrades and updates, Logging and monitoring | 1.11 |
 Managed collection components are part of Managed Service for Prometheus. If you manually deployed [managed collection](https://docs.cloud.google.com/stackdriver/docs/managed-prometheus/setup-managed#anthos) components in the `gmp-system` namespace of your version 1.11 clusters, the associated resources aren't preserved when you upgrade to version 1.12. Starting with version 1.12.0 clusters, Managed Service for Prometheus components in the `gmp-system` namespace and related custom resource definitions are managed by `stackdriver-operator` with the `enableGMPForApplications` field. The `enableGMPForApplications` field defaults to `true`, so if you manually deploy Managed Service for Prometheus components in the namespace before upgrading to version 1.12, the resources are deleted by `stackdriver-operator`. **Workaround** To preserve manually managed collection resources:
 
   1. Backup all existing PodMonitoring custom resources. 
-  2. Upgrade the cluster to version 1.12 and [ enable Managed Service for Prometheus](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/bare-metal/docs/how-to/application-logging-monitoring#enable_managed_service_for_prometheus).
+  2. Upgrade the cluster to version 1.12 and [ enable Managed Service for Prometheus](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/bare-metal/docs/how-to/application-logging-monitoring#enable_managed_prometheus).
   3. Redeploy the PodMonitoring custom resources on your upgraded cluster.
 
   
@@ -3245,11 +3245,11 @@ Logging and monitoring | 1.10, 1.11, 1.12, 1.13, 1.14, 1.15 |
 For cluster versions 1.10 to 1.15, some customers have found unexpectedly high billing for `Metrics volume` on the **Billing** page. This issue affects you only when all of the following circumstances apply:
 
   * Application monitoring is enabled (`enableStackdriverForApplications=true`) 
-  * [Managed Service for Prometheus](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/bare-metal/docs/how-to/application-logging-monitoring#enable_managed_service_for_prometheus) isn't enabled (`enableGMPForApplications`) 
+  * [Managed Service for Prometheus](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/bare-metal/docs/how-to/application-logging-monitoring#enable_managed_prometheus) isn't enabled (`enableGMPForApplications`) 
   * Application Pods have the `prometheus.io/scrap=true` annotation
 
 To confirm whether you are affected by this issue, [list your user-defined metrics](https://docs.cloud.google.com/monitoring/docs/metrics-management#view-metrics). If you see billing for unwanted metrics, then this issue applies to you.   
-**Workaround** If you are affected by this issue, we recommend that you upgrade your clusters to version 1.12 and switch to new application monitoring solution [managed-service-for-prometheus](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/bare-metal/docs/how-to/application-logging-monitoring#enable_managed_service_for_prometheus) that address this issue:
+**Workaround** If you are affected by this issue, we recommend that you upgrade your clusters to version 1.12 and switch to new application monitoring solution [managed-service-for-prometheus](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/bare-metal/docs/how-to/application-logging-monitoring#enable_managed_prometheus) that address this issue:
 * Separate flags to control the collection of application logs versus application metrics 
 * Bundled Google Cloud Managed Service for Prometheus
 If you can't upgrade to version 1.12, use the following steps:
@@ -3726,6 +3726,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-29 UTC.
+Last updated 2026-11-04 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 

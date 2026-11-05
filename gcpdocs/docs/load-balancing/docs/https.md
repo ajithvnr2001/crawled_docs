@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/load-balancing/docs/https/
 title: External Application Load Balancer overview \u00a0|\u00a0 Cloud Load Balancing \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T22:33:58.502698+00:00
+fetched_at: 2026-11-04T23:31:22.648028+00:00
 ---
 
 # External Application Load Balancer overview  |  Cloud Load Balancing  |  Google Cloud Documentation
@@ -195,7 +195,7 @@ Regional external Application Load Balancer | The forwarding rule's VPC network 
   * Regional external IPv6 address ranges always exist inside a VPC network. When you create the forwarding rule, you're required to specify the subnet from which the IP address range is taken. This subnet must be in the same region and VPC network where a proxy-only subnet has been created. Thus, there is an implied network association. **Network and subnet requirements.** For IPv6 traffic, your network and subnets must meet the following configuration requirements: 
     * VPC network: you must use a custom mode VPC network configured with the `--enable-ula-internal-ipv6` flag.
     * Forwarding rule subnet: this subnet must be a dual-stack (`IPv4_IPv6`) or `IPV6_ONLY` subnet with the `ipv6-access-type` set to `EXTERNAL`.
-**IPv6 address allocation options.** The forwarding rule must reference a `/96` range of IPv6 addresses from the subnet's `/64` external IPv6 address range. **Limitations.** To specify a custom ephemeral IPv6 address, you must use the Google Cloud CLI or the API. The Google Cloud console doesn't support specifying custom ephemeral IPv6 addresses for forwarding rules. 
+**IPv6 address allocation options.** The forwarding rule must reference a `/96` range of IPv6 addresses from the subnet's `/64` external IPv6 address range. **Limitations.** To specify a custom ephemeral IPv6 address, you must use the Google Cloud CLI or the API. The Google Cloud console doesn't support specifying custom ephemeral IPv6 addresses for forwarding rules. To deploy a regional external Application Load Balancer with an IPv6 address on GKE, see [Deploy a regional external Gateway](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/deploying-gateways#deploy_a_regional_external_gateway) in the GKE documentation.
 
   
   
@@ -1239,6 +1239,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-04 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/pipelines/build-pipeline/
 title: Build a pipeline \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T05:55:24.983800+00:00
+fetched_at: 2026-11-04T23:16:36.104497+00:00
 ---
 
 # Build a pipeline  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation
@@ -94,7 +94,7 @@ To set up authentication, you must create a service account key, and set an envi
      2. In the **Service account name** field, enter a name.
      3. Optional: In the **Service account description** field, enter a description.
      4. Click **Create**.
-     5. Click the **Select a role** field. Under **All roles** , select **Gemini Enterprise Agent Platform** > **Agent Platform User**.
+     5. Click the **Select a role** field. Under **All roles** , select **Agent Platform User**.
 **Note** : The roles you select allow your service account to access resources. You can view and change these roles later by using the [Google Cloud console](https://console.cloud.google.com/). For more information, see [access control for Agent Platform](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/access-control#predefined_roles). 
   2. Click **Done** to create the service account. 
 
@@ -429,6 +429,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-30 UTC.
+Last updated 2026-11-04 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 

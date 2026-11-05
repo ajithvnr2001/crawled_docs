@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/jenkins/
 title: Collect Jenkins logs \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T07:53:38.367797+00:00
+fetched_at: 2026-11-04T23:35:16.163325+00:00
 ---
 
 # Collect Jenkins logs  |  Google Security Operations  |  Google Cloud Documentation

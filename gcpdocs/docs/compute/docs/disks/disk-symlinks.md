@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/compute/docs/disks/disk-symlinks/
 title: Use symbolic links to access disks attached to a Linux compute instance \u00a0|\u00a0 Compute Engine \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T23:08:43.720011+00:00
+fetched_at: 2026-11-05T00:19:33.145553+00:00
 ---
 
 # Use symbolic links to access disks attached to a Linux compute instance  |  Compute Engine  |  Google Cloud Documentation
@@ -121,7 +121,7 @@ The following symlinks are created for that compute instance:
     google-local-nvme-ssd-1 -> ../../nvme0n2
     
 
-In this example, the Persistent Disk boot disk symlink is `google-instance-2`, which is based on the instance name. The boot disk is formatted and has the OS image installed on it. The boot disk has 3 partitions: part1, part14, and part 15. The first Local SSD disk is also partitioned, with a single partition, so there is an additional symlink created for that disk partition. The additional Persistent Disk added to the compute instance has the symlink `google-extra-scsi-disk`, which is based the disk name. The extra Persistent Disk and second Local SSD disk are not formatted, so only a single symlink is listed for those disks.
+In this example, the Persistent Disk boot disk symlink is `google-instance-2`, which is based on the instance name. The boot disk is formatted and has the OS image installed on it. The boot disk has 3 partitions: part1, part14, and part 15. The first Local SSD disk is also partitioned, with a single partition, so there is an additional symlink created for that disk partition. The additional Persistent Disk added to the compute instance has the symlink `google-extra-scsi-disk`, which is based on the disk name. The extra Persistent Disk and second Local SSD disk are not formatted, so only a single symlink is listed for those disks.
 
 ## What's next
 
@@ -139,6 +139,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-03 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 

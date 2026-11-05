@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/omni/containers/current/docs/resources/
 title: Resources \u00a0|\u00a0 AlloyDB Omni using containers: Current (18.4.0) \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T19:18:29.876163+00:00
+fetched_at: 2026-11-04T23:31:18.045798+00:00
 ---
 
 # Resources  |  AlloyDB Omni using containers: Current (18.4.0)  |  Google Cloud Documentation
@@ -27,6 +27,7 @@ Send feedback
   * ### [Pricing Understand how your AlloyDB Omni usage will be charged.  ](https://docs.cloud.google.com/alloydb/omni#pricing)
   * ### [Release notes Stay informed about AlloyDB Omni releases, features, updates, and known issues.  ](https://docs.cloud.google.com/alloydb/omni/containers/current/docs/release-notes)
   * ### [Database version policies Read how AlloyDB Omni supports PostgreSQL database version releases.  ](https://docs.cloud.google.com/alloydb/omni/containers/current/docs/db-version-policies)
+  * ### [Security bulletin View Common Vulnerabilities and Exposures (CVE) information and security updates for AlloyDB Omni.  ](https://docs.cloud.google.com/alloydb/omni/containers/current/docs/security-bulletins)
 
 
 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/run/docs/ai/cloud-run-for-ai-assisted-developers/
 title: Introduction to Cloud Run for AI-assisted developers and vibe coders \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T05:49:43.489904+00:00
+fetched_at: 2026-11-04T23:20:46.597089+00:00
 ---
 
 # Introduction to Cloud Run for AI-assisted developers and vibe coders  |  Google Cloud Documentation
@@ -21,7 +21,7 @@ Send feedback
 
 #  Introduction to Cloud Run for AI-assisted developers and vibe coders Stay organized with collections  Save and categorize content based on your preferences. 
 
-After creating an app with an AI-assisted tool like [Google AI Studio](https://ai.google.dev/gemma/docs/core/deploy_to_cloud_run_from_ai_studio) and [Vertex AI Studio](https://docs.cloud.google.com/vertex-ai/generative-ai/docs/start/quickstarts/deploy-vais-prompt), you can use [Cloud Run](https://docs.cloud.google.com/run/docs/overview/what-is-cloud-run) to deploy the app and make it available to users.
+After creating an app with an AI-assisted tool like [Google AI Studio](https://aistudio.google.com/docs/aistudio-deploying) or [Agent Studio](https://docs.cloud.google.com/gemini-enterprise-agent-platform/agent-studio/deploy-vais-prompt), you can use [Cloud Run](https://docs.cloud.google.com/run/docs/overview/what-is-cloud-run) to deploy the app and make it available to users.
 
 This guide describes the concepts of Cloud Run and some modifications you can make after you use an AI-assisted tool or [vibe coding](https://cloud.google.com/discover/what-is-vibe-coding) tool to create and deploy an app. Understanding these concepts helps you transition your application from a development environment to a scalable platform.
 
@@ -46,6 +46,8 @@ When your Cloud Run service interacts with Google Cloud APIs or other Cloud Run 
 ## Update your service
 
 After you've deployed your Cloud Run app using an AI-assisted tool or vibe coding tool, you can update the default settings to optimize for performance, cost, and security.
+
+Note: If you deployed your app to a no-cost [Starter Tier](https://docs.cloud.google.com/docs/starter-tier) project from Google AI Studio, you must [upgrade your Starter Tier project](https://docs.cloud.google.com/docs/starter-tier#upgrade) to a user-managed Google Cloud project before you can modify service settings in the Google Cloud console. 
 
 To modify your service:
 
@@ -101,7 +103,8 @@ Cloud Run and the Google Cloud services that your app uses is a billable service
   * To get started, follow the quickstart to [deploy a container image](https://docs.cloud.google.com/run/docs/quickstarts/deploy-container).
   * To learn about the different types of resources and deployment options, see [Resource model](https://docs.cloud.google.com/run/docs/resource-model).
   * For information on preparing your code for deployment, see the [Container runtime contract](https://docs.cloud.google.com/run/docs/container-contract).
-  * To learn more about the benefits of using Cloud Run, See [Cloud Run AI use cases](https://docs.cloud.google.com/run/docs/ai/use-cases).
+  * To learn more about the benefits of using Cloud Run, See [Cloud Run AI use cases](https://docs.cloud.google.com/run/docs/ai/use-cases). 
+  * To learn about deploying full-stack web apps to a no-cost Starter Tier project, see [Starter Tier overview](https://docs.cloud.google.com/docs/starter-tier). 
 
 
 
@@ -109,6 +112,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-30 UTC.
+Last updated 2026-11-04 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 

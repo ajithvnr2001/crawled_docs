@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/kubernetes-engine/docs/best-practices/networking/
 title: Best practices for GKE networking \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T22:55:45.449504+00:00
+fetched_at: 2026-11-04T23:31:29.417217+00:00
 ---
 
 # Best practices for GKE networking  |  Google Cloud Documentation
@@ -56,7 +56,7 @@ Use Shared VPC networks.
 
 ### Use VPC-native clusters
 
-We recommend using [VPC-native clusters](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/alias-ips). VPC-native clusters use [alias IP address ranges](https://docs.cloud.google.com/vpc/docs/alias-ip) on GKE nodes and are required for clusters based on VPC Network Peering, for clusters on [Shared VPCs](https://docs.cloud.google.com/vpc/docs/shared-vpc), and have many [other benefits](https://docs.cloud.google.com/kubernetes-engine/docs/concepts/alias-ips#benefits). For clusters created in the [Autopilot](https://docs.cloud.google.com/kubernetes-engine/docs/concepts/autopilot-overview) mode, VPC-native mode is always on and can't be turned off.
+We recommend using [VPC-native clusters](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/alias-ips). In IPv4 and dual-stack clusters, VPC-native clusters use [alias IP address ranges](https://docs.cloud.google.com/vpc/docs/alias-ip) on GKE nodes; single-stack IPv6 clusters allocate node and Pod subranges directly from the subnetwork without alias IP address ranges. VPC-native clusters are required for clusters based on VPC Network Peering, for clusters on [Shared VPCs](https://docs.cloud.google.com/vpc/docs/shared-vpc), and have many [other benefits](https://docs.cloud.google.com/kubernetes-engine/docs/concepts/alias-ips#benefits). For clusters created in the [Autopilot](https://docs.cloud.google.com/kubernetes-engine/docs/concepts/autopilot-overview) mode, VPC-native mode is always on and can't be turned off.
 
 VPC-native clusters scale more easily than routes-based clusters without consuming Google Cloud routes, so they are less susceptible to hitting routing limits.
 
@@ -639,6 +639,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-04 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 

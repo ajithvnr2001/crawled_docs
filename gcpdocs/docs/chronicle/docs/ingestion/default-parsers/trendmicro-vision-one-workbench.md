@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/trendmicro-vision-one-workbench/
 title: Collect Trend Micro Vision One Workbench logs \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T07:53:14.454768+00:00
+fetched_at: 2026-11-04T23:42:09.851025+00:00
 ---
 
 # Collect Trend Micro Vision One Workbench logs  |  Google Security Operations  |  Google Cloud Documentation

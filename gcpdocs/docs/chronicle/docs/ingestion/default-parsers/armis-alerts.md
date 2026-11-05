@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/armis-alerts/
 title: Collect Armis Alerts logs \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T07:51:39.285275+00:00
+fetched_at: 2026-11-04T23:34:38.181591+00:00
 ---
 
 # Collect Armis Alerts logs  |  Google Security Operations  |  Google Cloud Documentation

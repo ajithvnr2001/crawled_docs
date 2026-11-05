@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/docs/access-real-time-data-overview/
 title: AlloyDB access to real-time data in BigQuery overview \u00a0|\u00a0 AlloyDB for PostgreSQL \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T09:51:32.115403+00:00
+fetched_at: 2026-11-04T23:32:19.329238+00:00
 ---
 
 # AlloyDB access to real-time data in BigQuery overview  |  AlloyDB for PostgreSQL  |  Google Cloud Documentation
@@ -22,6 +22,8 @@ Send feedback
 #  AlloyDB access to real-time data in BigQuery overview Stay organized with collections  Save and categorize content based on your preferences. 
 
 To run real-time queries of analytical data alongside your operational data without building complex pipelines, you can use lakehouse federation in AlloyDB for PostgreSQL. Powered by the `bigquery_fdw` extension, AlloyDB routes your queries to BigQuery to access live data and open formats like Apache Iceberg through BigLake external tables, eliminating the need for complex ETL (extract, transform, load) migrations.
+
+Alternatively, to query Apache Iceberg tables stored in Cloud Storage or registered in [Lakehouse runtime catalog](https://docs.cloud.google.com/lakehouse/docs/about-lakehouse-catalogs) without routing query execution through BigQuery, you can use the AlloyDB columnar engine. For more information, see [Access Iceberg data from AlloyDB](https://docs.cloud.google.com/alloydb/docs/access-iceberg-data-from-alloydb).
 
 ## Benefits of lakehouse federation
 
@@ -162,6 +164,7 @@ For any part of a query executed remotely on BigQuery, the collation follows Big
 ### What's next
 
   * [Choose how to access BigQuery data](https://docs.cloud.google.com/alloydb/docs/choose-access-bigquery-data-from-alloydb).
+  * [Access Apache Iceberg data from AlloyDB](https://docs.cloud.google.com/alloydb/docs/access-iceberg-data-from-alloydb).
   * [Configure access to real-time data](https://docs.cloud.google.com/alloydb/docs/configure-access-real-time-data).
 
 
@@ -170,6 +173,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-28 UTC.
+Last updated 2026-11-04 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 

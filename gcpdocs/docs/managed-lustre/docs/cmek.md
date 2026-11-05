@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/managed-lustre/docs/cmek/
 title: Customer-managed encryption keys for Managed Lustre \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T19:55:21.699693+00:00
+fetched_at: 2026-11-05T00:18:37.244684+00:00
 ---
 
 # Customer-managed encryption keys for Managed Lustre  |  Google Cloud Documentation
@@ -38,8 +38,6 @@ When you use CMEK in Managed Lustre, your projects can consume Cloud KMS cryptog
 The following limitations apply:
 
   * Dynamic provisioning of CMEK-protected Managed Lustre instances is not supported in Google Kubernetes Engine, but static provisioning is supported.
-
-  * Cluster Toolkit does not support CMEK-protected Managed Lustre instances. 
 
   * When creating a CMEK-protected Managed Lustre instance within a VPC Service Controls perimeter, your Cloud KMS key must be either:
 
@@ -108,7 +106,7 @@ Replace the following variables:
 
 ## Create a CMEK-enabled Managed Lustre instance
 
-To create a Managed Lustre instance protected by CMEK:
+To create a Managed Lustre instance protected by CMEK, use one of the following interfaces. To configure CMEK in a Cluster Toolkit blueprint, see [Use Customer-Managed Encryption Keys (CMEK)](https://docs.cloud.google.com/cluster-toolkit/docs/modules/managed-lustre-instance#cmek) in the Cluster Toolkit documentation.
 
 ###  gcloud 
 
@@ -277,6 +275,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-03 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 

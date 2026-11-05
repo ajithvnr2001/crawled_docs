@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/universal-ledger/how-to/request-account/
 title: Request a new account \u00a0|\u00a0 Universal Ledger \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-14T10:36:07.908855+00:00
+fetched_at: 2026-11-05T00:19:13.688847+00:00
 ---
 
 # Request a new account  |  Universal Ledger  |  Google Cloud Documentation
@@ -20,12 +20,6 @@ fetched_at: 2026-10-14T10:36:07.908855+00:00
 Send feedback 
 
 #  Request a new account Stay organized with collections  Save and categorize content based on your preferences. 
-
-**Preview**
-
-This product is subject to the "Pre-GA Offerings Terms" in the General Service Terms section of the [Service Specific Terms](https://docs.cloud.google.com/terms/service-terms#1). Pre-GA products are available "as is" and might have limited support. For more information, see the [launch stage descriptions](https://cloud.google.com/products/#product-launch-stages). 
-
-For information about access to this release, see the [ access request page](https://cloud.google.com/application/web3/universal-ledger). 
 
 New accounts in a Universal Ledger network must be created by a privileged administrator account already present on the ledger. This privileged account must sign and submit a transaction to create the new account.
 
@@ -54,8 +48,12 @@ During testing, this project can be the same as the one with Universal Ledger AP
 
 In production, we recommend you:
 
+    * Read about different [Protection levels](https://docs.cloud.google.com/kms/docs/protection-levels) supported by Cloud KMS and choose the one that best fits your security needs.
     * Use a dedicated project for your Cloud KMS resources, separate from other Google Cloud resources.
     * Create a separate Google Cloud project to manage the Cloud KMS keys for each Universal Ledger network you use.
+
+For more information, refer to [Google Cloud security best practices](https://cloud.google.com/security/best-practices) and the [Cloud KMS encryption and key management deep dive](https://cloud.google.com/security/key-management-deep-dive).
+
   * The Cloud KMS Admin (`roles/cloudkms.admin`) IAM role on the project with Cloud KMS enabled, or on a parent resource.
 
 
@@ -147,14 +145,14 @@ User Account | Account Manager | [CreateAccount](https://docs.cloud.google.com/u
   
 Once identified, you'll need to coordinate and share the following details with the owner of the privileged account who can create your account:
 
-  * The name of the network where you want the account created. For a list of supported regions, see [Available networks and regions](https://docs.cloud.google.com/universal-ledger/preview-onboarding#available_networks_and_regions).
+  * The name of the network where you want the account created. For a list of supported regions, see [Universal Ledger networks and locations](https://docs.cloud.google.com/universal-ledger/locations).
   * The public portion of your asymmetric signing key and its corresponding [`KeyFormat`](https://docs.cloud.google.com/universal-ledger/reference/rpc/google.cloud.universalledger.v1#keyformat). If you followed the `gcloud` commands in this guide, the format is `KEY_FORMAT_PEM_EC_P256_SHA256`.
   * An account comment string with any relevant information to record on the ledger associated with your new account. This is an opaque value that is stored on ledger but not interpreted otherwise by the Universal Ledger. Once created, this field is immutable and readable by anyone with access to the network.
   * Any additional details required to populate the transaction to be submitted when creating the account. For example, to create a Currency Operator you also need to specify the `currency` that will be managed by the new operator to be created.
 
 
 
-During Preview, reach out to your contact at Google if you are unsure about who is the owner of the relevant privileged account for your use case.
+Reach out to [gcul-help@google.com](mailto:gcul-help@google.com) if you are unsure about who is the owner of the relevant privileged account for your use case.
 
 ## Confirm your account is created
 
@@ -221,6 +219,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-09-02 UTC.
+Last updated 2026-10-26 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-09-02 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 

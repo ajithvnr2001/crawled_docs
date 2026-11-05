@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/iam/docs/cloud-oauth-exchange-tokens/
 title: Exchange tokens with the Cloud OAuth API \u00a0|\u00a0 Identity and Access Management (IAM) \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T08:00:35.130646+00:00
+fetched_at: 2026-11-04T23:44:39.014075+00:00
 ---
 
 # Exchange tokens with the Cloud OAuth API  |  Identity and Access Management (IAM)  |  Google Cloud Documentation

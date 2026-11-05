@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chronicle/docs/libraries/
 title: Client libraries and SDK \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T07:54:54.632173+00:00
+fetched_at: 2026-11-04T23:16:50.165276+00:00
 ---
 
 # Client libraries and SDK  |  Google Security Operations  |  Google Cloud Documentation
@@ -78,7 +78,7 @@ If you are using [Gradle](https://gradle.org/), add the following to your depend
 If you are using [sbt](https://www.scala-sbt.org/), add the following to your dependencies:
     
     
-    libraryDependencies += "com.google.cloud" % "google-cloud-chronicle" % "0.38.0"
+    libraryDependencies += "com.google.cloud" % "google-cloud-chronicle" % "0.39.0"
 
 For more information, see [Setting Up a Java Development Environment](https://docs.cloud.google.com/java/docs/setup).
 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/broadcom-ssl-va/
 title: Collect Broadcom SSL Visibility Appliance logs \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T07:54:10.590428+00:00
+fetched_at: 2026-11-04T23:32:34.773668+00:00
 ---
 
 # Collect Broadcom SSL Visibility Appliance logs  |  Google Security Operations  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/docs/tune-sql-queries-ai/
 title: Tune SQL queries using AI \u00a0|\u00a0 AlloyDB for PostgreSQL \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-03T05:44:41.425053+00:00
+fetched_at: 2026-11-05T00:18:17.774471+00:00
 ---
 
 # Tune SQL queries using AI  |  AlloyDB for PostgreSQL  |  Google Cloud Documentation
@@ -34,7 +34,7 @@ When you invoke the `ai.tune_sql` function, it analyzes your query and provides 
   * **Query summary** : analyzes query performance bottlenecks.
   * **Query rewrite** : suggests optimization techniques to rewrite the original query into an equivalent, more efficient query.
   * **Index recommendations** : recommends index types such as indexes on expressions, Generalized Inverted Index (GIN) indexes, and Scalable Nearest Neighbors (ScaNN) indexes.
-  * **Statistics collection recommendations** : recommends table [`ANALYZE`](https://www.postgresql.org/docs/17/sql-analyze.html) and statistics collection on multiple columns based on the query execution plan.
+  * **Statistics collection recommendations** : recommends table [`ANALYZE`](https://www.postgresql.org/docs/18/sql-analyze.html) and statistics collection on multiple columns based on the query execution plan.
   * **Grand Unified Configuration (GUC) flags tuning** : recommends new GUC values by analyzing the execution plan and system information such as memory and buffer usage and size.
   * **Analyze and vacuum** : recommends running `ANALYZE` and `VACUUM` on tables based on the analyze and vacuum history and the live and dead tuple counts.
 

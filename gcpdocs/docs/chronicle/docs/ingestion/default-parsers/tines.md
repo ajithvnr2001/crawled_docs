@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/tines/
 title: Collect Tines audit Logs \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T07:51:55.814058+00:00
+fetched_at: 2026-11-04T23:42:52.979643+00:00
 ---
 
 # Collect Tines audit Logs  |  Google Security Operations  |  Google Cloud Documentation

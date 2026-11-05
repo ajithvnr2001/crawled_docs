@@ -1,22 +1,8 @@
 ---
 url: https://docs.cloud.google.com/armor/docs/best-practices/
 title: Best practices for Cloud Armor \u00a0|\u00a0 Google Cloud Armor \u00a0|\u00a0 Google Cloud Documentation
-method: httpx+scrapegraph (scrapling: scrapling status 429 | crawl4ai: crawl4ai failed: Unexpected error in _crawl_web at line 1299 in create_browser_context (../../../../usr/local/lib/python3.10/dist-packages/crawl4ai/browser_manager.py):
-Error: Browser is not available. It may have been closed, crashed, or not yet started. Ensure the browser is running before creating new contexts.
-
-Code context:
-1294                   raise RuntimeError(
-1295                       "Cannot create new browser contexts when using "
-1296                       "use_persistent_context=True. Persistent context uses a "
-1297                       "single shared context."
-1298                   )
-1299 →             raise RuntimeError(
-1300                   "Browser is not available. It may have been closed, crashed, "
-1301                   "or not yet started. Ensure the browser is running before "
-1302                   "creating new contexts."
-1303               )
-1304           # Base settings)
-fetched_at: 2026-10-27T16:18:31.823806+00:00
+method: scrapling+scrapegraph
+fetched_at: 2026-11-04T23:33:32.236449+00:00
 ---
 
 # Best practices for Cloud Armor  |  Google Cloud Armor  |  Google Cloud Documentation
@@ -192,12 +178,12 @@ To ensure that configurations can be rolled back, as well as reproduced across p
 
 If you are using Google Kubernetes Engine (GKE), you must configure Cloud Armor and other ingress features through `BackendConfig` parameters. We recommend that you avoid manually configuring a global external Application Load Balancer or a classic Application Load Balancer to serve as an ingress point. For more information about configuring Cloud Armor with GKE, see [Configuring ingress features](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/ingress-features#cloud_armor).
 
-After you configure a Cloud Armor security policy, you can also use [Kubernetes Gateway](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/configure-gateway-resources#configure_cloud_armor) to enable it with GKE. Make sure that you [create a Cloud Armor backend security policy](https://docs.cloud.google.com/armor/docs/configure-security-policies) prior to referencing the policy in your `GCPBackendPolicy` policy resource. If you are enabling a regional Gateway, then you must create a _regional_ Cloud Armor backend security policy.
+After you configure a Cloud Armor security policy, you can also use [Kubernetes Gateway](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/configure-gateway-resources#configure_cloud_armor) to enable it with GKE. Make sure that you [create a Cloud Armor backend security policy](https://docs.cloud.google.com/armor/docs/create-security-policies) prior to referencing the policy in your `GCPBackendPolicy` policy resource. If you are enabling a regional Gateway, then you must create a _regional_ Cloud Armor backend security policy.
 
 Send feedback 
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-04 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 

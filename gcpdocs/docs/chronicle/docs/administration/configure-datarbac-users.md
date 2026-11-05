@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chronicle/docs/administration/configure-datarbac-users/
 title: Configure data RBAC \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T10:02:30.775570+00:00
+fetched_at: 2026-11-04T23:34:16.524076+00:00
 ---
 
 # Configure data RBAC  |  Google Security Operations  |  Google Cloud Documentation
@@ -104,7 +104,7 @@ To create a custom label, do the following:
 
   1. [Log in to Google SecOps](https://docs.cloud.google.com/chronicle/docs/log-in-to-ui).
 
-  2. Click **Settings** > **SIEM Settings** > **Data Access**.
+  2. Click **Settings > Access Management > Data Access**.
 
   3. On the **Custom labels** tab, click **Create custom label**.
 
@@ -131,7 +131,7 @@ To modify a label, do the following:
 
   1. [Log in to Google SecOps](https://docs.cloud.google.com/chronicle/docs/log-in-to-ui).
 
-  2. Click **Settings** > **SIEM Settings** > **Data Access**.
+  2. Click **Settings > Access Management > Data Access**.
 
   3. On the **Custom labels** tab, click more_vert **Menu** against the label that you want to edit and select **Edit**.
 
@@ -150,7 +150,7 @@ The custom label is modified.
 
 Deleting a label prevents new data from being associated with it. Data that is already associated with the label remains associated with the label. After deletion, you can't recover the custom label or reuse the label name to create new labels.
 
-  1. Click **Settings** > **SIEM Settings** > **Data Access**.
+  1. Click **Settings > Access Management > Data Access**.
 
   2. In the **Custom labels** tab, click the more_vert **Menu** for the label that you want to delete and select **Delete**.
 
@@ -167,7 +167,7 @@ The custom label is deleted.
 
 To view a custom label details, do the following:
 
-  1. Click **Settings** > **SIEM Settings** > **Data Access**.
+  1. Click **Settings > Access Management > Data Access**.
 
   2. In the **Custom labels** tab, click more_vert **Menu** against the label that you want to edit and select **View**.
 
@@ -186,7 +186,7 @@ To create a scope, do the following:
 
   1. [Log in to Google SecOps](https://docs.cloud.google.com/chronicle/docs/log-in-to-ui).
 
-  2. Click **Settings** > **SIEM Settings** > **Data Access**.
+  2. Click **Settings > Access Management > Data Access**.
 
   3. On the **Scopes** tab, click **Create scope**.
 
@@ -229,7 +229,7 @@ To modify a scope, do the following:
 
   1. [Log in to Google SecOps](https://docs.cloud.google.com/chronicle/docs/log-in-to-ui).
 
-  2. Click **Settings** > **SIEM Settings** > **Data Access**.
+  2. Click **Settings > Access Management > Data Access**.
 
   3. On the **Scopes** tab, click more_vert **Menu** corresponding to the scope that you want to edit and select **Edit**.
 
@@ -258,7 +258,7 @@ To delete a scope, do the following:
 
   1. [Log in to Google SecOps](https://docs.cloud.google.com/chronicle/docs/log-in-to-ui).
 
-  2. Click **Settings** > **SIEM Settings** > **Data Access**.
+  2. Click **Settings > Access Management > Data Access**.
 
   3. On the **Scopes** tab, click more_vert **Menu** against the scope that you want to delete.
 
@@ -278,7 +278,7 @@ To view scope details, do the following:
 
   1. [Log in to Google SecOps](https://docs.cloud.google.com/chronicle/docs/log-in-to-ui).
 
-  2. Click **Settings** > **Data Access**.
+  2. Click **Settings > Access Management > Data Access**.
 
   3. In the **Scopes** tab, click more_vert **Menu** against the scope that you want to view and select **View**.
 
@@ -383,7 +383,7 @@ Enabling data RBAC applies all assigned scopes to rules and reference lists, mak
 
   1. [Log in to Google SecOps](https://docs.cloud.google.com/chronicle/docs/log-in-to-ui).
 
-  2. Click **Settings** > **SIEM Settings** > **Data Access**.
+  2. Click **Settings > Access Management > Data Access**.
 
   3. Navigate to the **Assignments** tab and review the scope assignments of the rules and reference lists. To find specific items, use the filter or search functionalities.
 
@@ -400,6 +400,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-28 UTC.
+Last updated 2026-11-04 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/tenable-cspm/
 title: Collect Tenable CSPM logs \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T07:51:56.537441+00:00
+fetched_at: 2026-11-04T23:34:53.673733+00:00
 ---
 
 # Collect Tenable CSPM logs  |  Google Security Operations  |  Google Cloud Documentation

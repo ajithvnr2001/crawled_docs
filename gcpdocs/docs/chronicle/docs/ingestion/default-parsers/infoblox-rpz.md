@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/infoblox-rpz/
 title: Collect Infoblox RPZ logs \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T07:53:42.096419+00:00
+fetched_at: 2026-11-04T23:31:41.772562+00:00
 ---
 
 # Collect Infoblox RPZ logs  |  Google Security Operations  |  Google Cloud Documentation

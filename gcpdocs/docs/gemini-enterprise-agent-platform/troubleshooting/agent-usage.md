@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/troubleshooting/agent-usage/
 title: Troubleshoot using an agent with Agent Runtime \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T05:55:59.558352+00:00
+fetched_at: 2026-11-04T23:14:25.289197+00:00
 ---
 
 # Troubleshoot using an agent with Agent Runtime  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation
@@ -64,7 +64,7 @@ If you're in a notebook instance (for example, Jupyter or Colab or Workbench), y
 
 Your query might fail if you don't have the required permissions.
 
-### Vertex AI extensions permissions
+### Agent Platform extensions permissions
 
 **Issue**
 
@@ -86,7 +86,7 @@ You might receive a `PermissionDenied` error that's similar to the following:
     ]
     
 
-Your agent doesn't have the Vertex AI extensions permissions. To use Vertex AI extensions with Agent Runtime, grant the Vertex AI User (`roles/aiplatform.user`) role to your agent identity service account. For more information, see [Set up the identity and permissions for your agent](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/runtime/setup#identity-and-permissions).
+Your agent doesn't have the Agent Platform extensions permissions. To use Agent Platform extensions with Agent Runtime, grant the Agent Platform User (`roles/aiplatform.user`) role to your agent identity service account. For more information, see [Set up the identity and permissions for your agent](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/runtime/setup#identity-and-permissions).
 
 ### LLM permissions
 
@@ -189,6 +189,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-30 UTC.
+Last updated 2026-11-04 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 

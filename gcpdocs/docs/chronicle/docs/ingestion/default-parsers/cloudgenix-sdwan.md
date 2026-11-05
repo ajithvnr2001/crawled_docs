@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/cloudgenix-sdwan/
 title: Collect Palo Alto Prisma SD-WAN logs \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T07:54:02.349291+00:00
+fetched_at: 2026-11-04T23:43:02.352986+00:00
 ---
 
 # Collect Palo Alto Prisma SD-WAN logs  |  Google Security Operations  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/kubernetes-engine/docs/how-to/internal-load-balancing/
 title: Create an internal load balancer \u00a0|\u00a0 GKE networking \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T23:38:59.433953+00:00
+fetched_at: 2026-11-04T23:28:56.292575+00:00
 ---
 
 # Create an internal load balancer  |  GKE networking  |  Google Cloud Documentation
@@ -222,7 +222,7 @@ Your manifest must contain the following:
 
 Your manifest can contain the following:
 
-        * `spec.ipFamilyPolicy` and `ipFamilies` to define how GKE allocates IP addresses to the Service. GKE supports either single-stack (IPv4 only or IPv6 only), or dual-stack IP LoadBalancer Services. A dual-stack LoadBalancer Service is implemented with two separate internal passthrough Network Load Balancer forwarding rules: one for IPv4 traffic and one for IPv6 traffic. The GKE dual-stack LoadBalancer Service is available in version 1.29 or later. To learn more, see [IPv4/IPv6 dual-stack Services](https://docs.cloud.google.com/kubernetes-engine/docs/concepts/service-load-balancer-parameters#service_parameters).
+        * `spec.ipFamilyPolicy` and `ipFamilies` to define how GKE allocates IP addresses to the Service. GKE supports either single-stack (IPv4 only or IPv6 only), or dual-stack IP LoadBalancer Services. A dual-stack LoadBalancer Service is implemented with two separate internal passthrough Network Load Balancer forwarding rules: one for IPv4 traffic and one for IPv6 traffic. The GKE dual-stack LoadBalancer Service is available in version 1.29 or later. To create a single-stack IPv6 Service in a dual-stack cluster, set the value of the `spec.ipFamilyPolicy` field to `SingleStack` and set the value of the `spec.ipFamilies` field to `IPv6`. In a single-stack IPv6 cluster, these are the default values and you can omit them. For more information, see [IPv4/IPv6 dual-stack Services](https://docs.cloud.google.com/kubernetes-engine/docs/concepts/service-load-balancer-parameters#ipv4ipv6_dual-stack_loadbalancer_service).
         * `spec.trafficDistribution` to define how GKE routes incoming traffic. To enable zonal affinity, set the value of this field to `PreferSameZone`. Zonal affinity means that GKE prioritizes routing traffic that originates from a zone to nodes and Pods within that same zone. If no healthy Pods are available in that zone, traffic is routed to another zone. For cluster versions earlier than 1.35.0-gke.1811000, use `PreferClose` as the value instead. Zonal affinity requires GKE subsetting to be enabled.
 
 **Note:** You can also enable or disable zonal affinity on an existing internal LoadBalancer Service by using the `kubectl edit svc service-name` command. The `kubectl edit` command opens the existing load balancer's Service manifest in your configured text editor, where you can add or remove the `spec.trafficDistribution` parameter and save changes. Traffic might be briefly interrupted when you modify this parameter.
@@ -315,6 +315,166 @@ The response indicates that GKE has created a network endpoint group named `k8s2
 
 
 
+
+### Create an internal LoadBalancer Service on a single-stack IPv6 cluster
+
+**Preview**
+
+This product or feature is subject to the "Pre-GA Offerings Terms" in the General Service Terms section of the [Service Specific Terms](https://docs.cloud.google.com/terms/service-terms#1). Pre-GA products and features are available "as is" and might have limited support. For more information, see the [launch stage descriptions](https://cloud.google.com/products/#product-launch-stages). 
+
+When you deploy a single-stack IPv6 internal LoadBalancer Service on a [single-stack IPv6 cluster](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/single-stack-ipv6) or a [dual-stack cluster](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/alias-ips#create_dual_stack_cluster), the subnetwork used by the load balancer depends on whether your cluster's node subnetwork uses an `INTERNAL` or `EXTERNAL` IPv6 access type. On a dual-stack cluster, you must set the value of the `spec.ipFamilyPolicy` field to `SingleStack` and set the value of the `spec.ipFamilies` field to `IPv6` (on a single-stack IPv6 cluster, these are the default values and you can omit them). To create a dual-stack Service instead, set the value of the `spec.ipFamilyPolicy` field to `RequireDualStack` and list both address families in the `spec.ipFamilies` field:
+
+  * **Clusters with internal nodes (`INTERNAL` ULA access type):** if your cluster nodes run on an internal subnetwork with Unique Local Unicast Addresses (ULA), the internal load balancer automatically uses the existing node subnetwork. Create your Service without any custom subnetwork annotations:
+        
+        apiVersion: v1
+        kind: Service
+        metadata:
+          name: ilb-ipv6-svc
+        spec:
+          type: LoadBalancer
+          loadBalancerClass: networking.gke.io/l4-regional-internal
+          ipFamilyPolicy: SingleStack
+          ipFamilies:
+          - IPv6
+          selector:
+            app: my-app
+          ports:
+            - name: tcp-port
+              protocol: TCP
+              port: 80
+              targetPort: 8080
+        
+
+  * **Clusters with external nodes (`EXTERNAL` GUA access type):** if your cluster nodes run on an external subnetwork with Global Unicast Addresses (GUA), an internal load balancer cannot use that subnetwork directly. You must provision a dedicated internal (`INTERNAL`) IPv6 subnetwork and reference the subnet by using the `networking.gke.io/load-balancer-subnet` annotation on your Service:
+
+    1. Create a dedicated internal IPv6 subnetwork:
+           
+           gcloud compute networks subnets create SUBNET_NAME \
+               --stack-type=ipv6_only \
+               --ipv6-access-type=INTERNAL \
+               --network=NETWORK_NAME \
+               --region=COMPUTE_REGION
+           
+
+Replace the following:
+
+       * `SUBNET_NAME`: the name of the subnet to create.
+       * `NETWORK_NAME`: the name of the VPC network in which you create this subnet.
+       * `COMPUTE_REGION`: the [Compute Engine region](https://docs.cloud.google.com/compute/docs/regions-zones#available) for the subnet.
+    2. Create the Service and reference the subnetwork name from the preceding step in the `networking.gke.io/load-balancer-subnet` annotation:
+           
+           apiVersion: v1
+           kind: Service
+           metadata:
+             name: ilb-ipv6-svc
+             annotations:
+               networking.gke.io/load-balancer-subnet: SUBNET_NAME
+           spec:
+             type: LoadBalancer
+             loadBalancerClass: networking.gke.io/l4-regional-internal
+             ipFamilyPolicy: SingleStack
+             ipFamilies:
+             - IPv6
+             selector:
+               app: my-app
+             ports:
+               - name: tcp-port
+                 protocol: TCP
+                 port: 80
+                 targetPort: 8080
+           
+
+
+
+  1. Verify the assigned Service IP address:
+         
+         kubectl get svc ilb-ipv6-svc
+         
+
+The output confirms that the `CLUSTER-IP` and `EXTERNAL-IP` columns (an internal ULA address) are populated:
+         
+         NAME           TYPE           CLUSTER-IP                          EXTERNAL-IP               PORT(S)        AGE
+         ilb-ipv6-svc   LoadBalancer   2600:2d00:0:4:1a1e:d3b3:de4d:c549   fd20:f5d:a91f:3:0:9:0:0   80:30234/TCP   3m
+         
+
+
+
+
+For more information, see [IPv6 LoadBalancer Services](https://docs.cloud.google.com/kubernetes-engine/docs/concepts/service-load-balancer-parameters#ipv6-lb-svc).
+
+#### Use bring your own IPv6 addresses (BYOIPv6)
+
+To configure an IPv6 internal LoadBalancer Service with [bring your own IPv6 addresses (BYOIPv6)](https://docs.cloud.google.com/vpc/docs/bring-your-own-ip), create a subnet with an internal BYOIPv6 address range and reference the subnet on your Service. The subnet's IPv6 address range must come from a regional IPv6 sub-prefix of a public delegated prefix (PDP) in `INTERNAL_IPV6_SUBNETWORK_CREATION` mode.
+
+**Caution:** GKE doesn't support the `networking.gke.io/ip-collection-v6` annotation for internal LoadBalancer Services. If you use this annotation, GKE ignores it and emits an `IPCollectionV6Error` warning event. For more information, see Known issues.
+
+Before you create the Service, verify that you have a regional IPv6 sub-prefix in `INTERNAL_IPV6_SUBNETWORK_CREATION` mode in the same region as your cluster. For more information, see [Create IPv6 sub-prefixes](https://docs.cloud.google.com/vpc/docs/create-ipv6-sub-prefixes#create-subprefix) and [Create subnets with IPv6 BYOIP ranges](https://docs.cloud.google.com/vpc/docs/create-ipv6-sub-prefixes#instance-only-subnet).
+
+  1. In the same region and VPC network as your cluster, create a subnet with an internal BYOIPv6 range from your sub-prefix:
+         
+         gcloud compute networks subnets create BYOIP_SUBNET_NAME \
+             --network=NETWORK_NAME \
+             --region=REGION \
+             --stack-type=IPV6_ONLY \
+             --ipv6-access-type=INTERNAL \
+             --ip-collection=projects/PROJECT_ID/regions/REGION/publicDelegatedPrefixes/SUB_PREFIX_NAME
+         
+
+Replace the following:
+
+     * `BYOIP_SUBNET_NAME`: the name of the new subnet.
+     * `NETWORK_NAME`: the name of your cluster's VPC network.
+     * `REGION`: the region of your cluster.
+     * `PROJECT_ID`: the ID of the project that contains the sub-prefix.
+     * `SUB_PREFIX_NAME`: the name of the regional sub-prefix in `INTERNAL_IPV6_SUBNETWORK_CREATION` mode.
+  2. Optional: Reserve a static internal `/96` IPv6 address range from the BYOIPv6 subnet. If you skip this step, GKE automatically allocates an ephemeral internal BYOIPv6 address range from the subnet that you specify in the `networking.gke.io/load-balancer-subnet` annotation:
+         
+         gcloud compute addresses create STATIC_IPV6_NAME \
+             --region=REGION \
+             --subnet=BYOIP_SUBNET_NAME \
+             --ip-version=IPV6
+         
+
+Replace `STATIC_IPV6_NAME` with a name for the static IPv6 address resource.
+
+  3. Save the following manifest as `ilb-byoipv6-svc.yaml`:
+         
+         apiVersion: v1
+         kind: Service
+         metadata:
+           name: ilb-byoipv6-svc
+           annotations:
+             networking.gke.io/load-balancer-subnet: BYOIP_SUBNET_NAME
+             # Optional: To use a static address, uncomment the following line
+             # networking.gke.io/load-balancer-ip-addresses: STATIC_IPV6_NAME
+         spec:
+           type: LoadBalancer
+           loadBalancerClass: networking.gke.io/l4-regional-internal
+           ipFamilyPolicy: SingleStack
+           ipFamilies:
+           - IPv6
+           selector:
+             app: ilb-deployment
+           ports:
+           - name: tcp-port
+             protocol: TCP
+             port: 80
+             targetPort: 8080
+         
+
+Replace `BYOIP_SUBNET_NAME` with the name of the BYOIPv6 subnet that you created. By default, GKE allocates an ephemeral internal BYOIPv6 address range from this subnet.
+
+Optional: If you reserved a static internal BYOIPv6 address in the preceding step, uncomment the `networking.gke.io/load-balancer-ip-addresses` annotation and replace `STATIC_IPV6_NAME` with the name of the static IPv6 address resource.
+
+  4. Apply the manifest to your cluster:
+         
+         kubectl apply -f ilb-byoipv6-svc.yaml
+         
+
+
+
+
+For more information, see [Bring your own IPv6 addresses (BYOIPv6)](https://docs.cloud.google.com/kubernetes-engine/docs/concepts/service-load-balancer-parameters#byoipv6).
 
 ### Enable logging for backend services
 
@@ -718,6 +878,7 @@ A shared IP for multiple load balancers has the following limitations and capabi
   * A maximum of ten Services (forwarding rules) can share an IP address. This results in a maximum of 50 ports per shared IP.
   * Each forwarding rule that shares the same IP address must use a unique combination of protocols and ports. Therefore, every internal LoadBalancer Service must use a unique set of protocols and ports.
   * A combination of TCP-only and UDP-only Services is supported on the same shared IP, however you cannot expose both TCP and UDP ports in the same Service.
+  * Shared IP is supported only for internal IPv4 addresses. You can't share a static internal IPv6 address range across multiple internal LoadBalancer Services.
 
 
 
@@ -865,6 +1026,16 @@ This issue is resolved in GKE versions 1.23.3-gke.900 and later when [GKE subset
 
 The GKE controller creates internal passthrough Network Load Balancers in the Premium network tier even if the project default network tier is set to Standard.
 
+### Error using the `networking.gke.io/ip-collection-v6` annotation on an internal LoadBalancer Service
+
+When you add the `networking.gke.io/ip-collection-v6` annotation to an internal LoadBalancer Service, GKE emits an `IPCollectionV6Error` warning event with the following message:
+    
+    
+    networking.gke.io/ip-collection-v6 is not supported for Internal LoadBalancers. To use BYOIPv6 with ILB, specify a BYOIP subnet using the "networking.gke.io/load-balancer-subnet" annotation
+    
+
+The `networking.gke.io/ip-collection-v6` annotation applies only to single-stack IPv6 external LoadBalancer Services. To use BYOIPv6 addresses with an internal LoadBalancer Service, create a subnet with an internal IPv6 address range from a public delegated prefix in `INTERNAL_IPV6_SUBNETWORK_CREATION` mode. Specify that subnet by using the `networking.gke.io/load-balancer-subnet` annotation. For more information, see Use bring your own IPv6 addresses (BYOIPv6).
+
 ## What's next
 
   * [Read the GKE network overview](https://docs.cloud.google.com/kubernetes-engine/docs/concepts/network-overview).
@@ -880,6 +1051,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-04 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 

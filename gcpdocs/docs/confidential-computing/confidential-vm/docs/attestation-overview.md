@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/confidential-computing/confidential-vm/docs/attestation-overview/
 title: Remote attestation overview \u00a0|\u00a0 Confidential VM \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T23:26:21.181085+00:00
+fetched_at: 2026-11-05T00:17:48.187350+00:00
 ---
 
 # Remote attestation overview  |  Confidential VM  |  Google Cloud Documentation
@@ -170,23 +170,30 @@ The roots of trust are as follows:
 
 To learn what measurements are recorded where in the TDX measurement registers, see [Intel TDX measurement registers](https://docs.cloud.google.com/confidential-computing/confidential-vm/docs/measurement-register-contents#tdx).
 
-#### Software and hardware attestation
+#### Hardware and software roots of trust
 
-Confidential Computing technologies in Google Cloud can be thought of as either software or hardware attested, depending on their roots of trust.
+Your level of isolation from the host hypervisor depends on whether the attestation chain is anchored in a _software root of trust_ or a _hardware root of trust_ :
 
-_Software attested_ means that the roots of trust are based on software: the virtual firmware is the root of trust for measurement, and the root of trust for storage is the Shielded VM vTPM. The vTPM is managed by the host's hypervisor, while the firmware is managed by the guest VM. On Google Cloud, both of these components are controlled by Google.
+  * **Software root of trust (hypervisor dependent)** : The chain of trust begins in software managed by the cloud provider. The guest's virtual firmware acts as the root of trust for measurement, and the host hypervisor's Shielded VM vTPM acts as the root of trust for storage and reporting. On Google Cloud, both components are controlled by Google.
 
-_Hardware attested_ means that measurements are managed and protected by dedicated hardware outside of your service provider's control. On Google Cloud, this hardware includes the AMD Secure Processor for AMD SEV-SNP (for launch measurements only), and the Intel TDX Module for Intel TDX.
+  * **Hardware root of trust (hypervisor isolated)** : The chain of trust begins in dedicated CPU security subsystems outside of your cloud provider's control: the AMD Secure Processor or the Intel TDX module. This hardware measures the initial state and signs attestation reports or quotes using keys fused into or derived within the processor. On the CPU, subsequent software components in the boot chain (including the virtual firmware and bootloader) run inside memory protected by hardware encryption and access controls. This removes the host hypervisor from the root of trust: even if a malicious actor compromises the hypervisor, they can't modify the hardware-protected measurements or forge an attestation report.
 
-Hardware attestation removes the service provider's hypervisor from the root of trust for measurement and storage, and isolates measurements in dedicated hardware. Even if a malicious actor gains control over the host's hypervisor, they can't forge an attestation report or quote as they don't have access to modify the dedicated hardware's registers.
 
-The Confidential Computing technologies provided by Google Cloud are categorized as follows:
 
-  * **AMD SEV** : Software attested. The virtual firmware measures itself, and the measurements are stored in the Shielded VM vTPM.
 
-  * **AMD SEV-SNP** : Hybrid hardware and software attested. Launch measurements, including measurements of the virtual firmware, are recorded by and stored in the AMD Secure Processor, which makes them hardware attested. Bootloader, kernel, and userspace measurements are stored in the Shielded VM vTPM, making them software attested. You can choose to only use the hardware attested measurements, the software attested measurements, or both.
+Depending on your Confidential VM instance configuration, one or more of the following mechanisms can be used to measure and attest to its boot state:
 
-  * **Intel TDX** : Hardware attested. The TDX module measures the virtual firmware, and all measurements are stored in the Intel TDX module. The Shielded VM vTPM is still part of the system, however it's not part of the TCB unless you run software that needs a TPM interface.
+  * **Shielded VM vTPM (software root of trust)** : The Shielded VM vTPM is required for attestation with AMD SEV. AMD SEV-SNP and Intel TDX Confidential VM instances still feature the Shielded VM vTPM, but using it as part of your chain of trust is optional.
+
+The Shielded VM vTPM records bootloader, kernel, and userspace measurements into PCRs. Because it's managed by the host hypervisor, it maintains state across reboots for features such as key sealing.
+
+  * **AMD Secure Processor (hardware root of trust)** : Available on AMD SEV-SNP Confidential VM instances. Before the guest boots, the AMD Secure Processor measures the initial launch state (including the virtual firmware) into its `MEASUREMENT` register and signs an `ATTESTATION_REPORT` with its VCEK.
+
+You can verify the AMD Secure Processor attestation report on its own, or combine it with a Shielded VM vTPM quote to verify the rest of the boot chain.
+
+  * **Intel TDX measurement registers (hardware root of trust)** : Available on Intel TDX Confidential VM instances. The Intel TDX module records build-time virtual firmware measurements in the Measurement of the Trust Domain (MRTD) and extends bootloader, kernel, and userspace measurements into Run-Time Measurement Registers (RTMR) inside the isolated trust domain, without needing a vTPM.
+
+You can verify the Intel TDX module quote on its own to cover the entire boot chain. A Shielded VM vTPM is present in Intel TDX Confidential VM instances to use for TPM features such as key sealing.
 
 
 
@@ -590,6 +597,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-04 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 

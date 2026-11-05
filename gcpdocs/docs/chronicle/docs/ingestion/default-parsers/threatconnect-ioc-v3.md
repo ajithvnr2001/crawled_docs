@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/threatconnect-ioc-v3/
 title: Collect ThreatConnect IOC logs using the v3 API \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T07:49:14.320264+00:00
+fetched_at: 2026-11-04T23:42:38.518969+00:00
 ---
 
 # Collect ThreatConnect IOC logs using the v3 API  |  Google Security Operations  |  Google Cloud Documentation

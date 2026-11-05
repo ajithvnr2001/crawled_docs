@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chronicle/docs/detection/rule-errors/
 title: View and troubleshoot rules \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T10:08:52.181812+00:00
+fetched_at: 2026-11-05T00:19:25.399288+00:00
 ---
 
 # View and troubleshoot rules  |  Google Security Operations  |  Google Cloud Documentation
@@ -48,7 +48,7 @@ Runtime errors don't display during compile time. Some runtime errors prevent a 
 
 If a runtime error occurs, a link is displayed in the **Test rule results** bar that gives more information about the error that occurred.
 
-It's possible to get unknown runtime errors that don't have a useful description. This indicates that the system is encountering this particular error for the first time and it doesn't have a user message associated with the error. If this happens, contact your Google SecOps representative for assistance.
+It's possible to get unknown runtime errors that don't have a useful description. This indicates that the system is encountering this particular error for the first time and it doesn't have a user message associated with the error.
 
 If a runtime error occurs during live rule or retrohunt execution, a link is displayed on the **Detections** page that gives more information about the error that occurred.
 
@@ -56,12 +56,14 @@ Similarly to test the rule, runtime errors that occur during live rule or retroh
 
 **Note:** It's possible for runtime errors to go away. This usually occurs because the error was caused by a bug in our system and we reprocessed the failing rules after the bug was fixed.
 
+For more information about resolving runtime errors, see [Troubleshoot detection rules](https://docs.cloud.google.com/chronicle/docs/detection/troubleshoot-rule-errors).
+
 **Need more help?** [Get answers from Community members and Google SecOps professionals.](https://security.googlecloudcommunity.com/)
 
 Send feedback 
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-28 UTC.
+Last updated 2026-11-03 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 

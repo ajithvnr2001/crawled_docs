@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/universal-ledger/reference/rest/v1/TransactionAttempt/
 title: TransactionAttempt \u00a0|\u00a0 Universal Ledger \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-14T07:53:06.548110+00:00
+fetched_at: 2026-11-05T00:19:13.136132+00:00
 ---
 
 # TransactionAttempt  |  Universal Ledger  |  Google Cloud Documentation
@@ -277,15 +277,12 @@ JSON representation
       
     
     {
-      "rootHashHex": string,
       "rootDigestHex": string,
       "numTransactions": string
     }  
   
 Fields  
 ---  
-`rootHashHex  
-**(deprecated)**` |  `string` This item is deprecated!Output only. The cryptographic digest of the root node. Deprecated: Use `[rootDigestHex](https://docs.cloud.google.com/universal-ledger/reference/rest/v1/TransactionAttempt#MerkleTree.FIELDS.root_digest_hex)` instead.  
 `rootDigestHex` |  `string` Output only. The hexadecimal representation of the digest of the root node. Format: A 64-character hexadecimal string.  
 `numTransactions` |  `string ([int64](https://developers.google.com/discovery/v1/type-format) format)` Output only. The number of transactions in the tree.  
   
@@ -298,18 +295,12 @@ JSON representation
       
     
     {
-      "leftChildHashHex": string,
-      "rightChildHashHex": string,
       "leftChildDigestHex": string,
       "rightChildDigestHex": string
     }  
   
 Fields  
 ---  
-`leftChildHashHex  
-**(deprecated)**` |  `string` This item is deprecated!Output only. The hexadecimal representation of the digest of the left child of a node. Deprecated: Use `[leftChildDigestHex](https://docs.cloud.google.com/universal-ledger/reference/rest/v1/TransactionAttempt#MerkleTreeNode.FIELDS.left_child_digest_hex)` instead.  
-`rightChildHashHex  
-**(deprecated)**` |  `string` This item is deprecated!Output only. The hexadecimal representation of the digest of the right child of a node. Deprecated: Use `[rightChildDigestHex](https://docs.cloud.google.com/universal-ledger/reference/rest/v1/TransactionAttempt#MerkleTreeNode.FIELDS.right_child_digest_hex)` instead.  
 `leftChildDigestHex` |  `string` Output only. The hexadecimal representation of the digest of the left child of a node. Format: A 64-character hexadecimal string.  
 `rightChildDigestHex` |  `string` Output only. The hexadecimal representation of the digest of the right child of a node. Format: A 64-character hexadecimal string.  
   
@@ -395,6 +386,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-08-27 UTC.
+Last updated 2026-09-03 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-08-27 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-09-03 UTC."],[],[]] 

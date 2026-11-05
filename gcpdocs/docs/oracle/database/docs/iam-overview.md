@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/oracle/database/docs/iam-overview/
 title: IAM overview \u00a0|\u00a0 Oracle Database at Google Cloud \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-03T08:19:12.183465+00:00
+fetched_at: 2026-11-05T00:18:52.583603+00:00
 ---
 
 # IAM overview  |  Oracle Database at Google Cloud  |  Google Cloud Documentation
@@ -48,42 +48,7 @@ Role | Permissions
   * `oracledatabase.autonomousDatabaseBackups.get`
   * `oracledatabase.autonomousDatabaseBackups.list`
 
-`oracledatabase.autonomousDatabaseCharacterSets.list` `oracledatabase.autonomousDatabases.*`
-
-  * `oracledatabase.autonomousDatabases.clone`
-  * `oracledatabase.autonomousDatabases.create`
-  * `oracledatabase.autonomousDatabases.delete`
-  * `oracledatabase.autonomousDatabases.failover`
-  * `oracledatabase.autonomousDatabases.generateWallet`
-  * `oracledatabase.autonomousDatabases.get`
-  * `oracledatabase.autonomousDatabases.list`
-  * `oracledatabase.autonomousDatabases.listRefreshableClones`
-  * `oracledatabase.autonomousDatabases.refresh`
-  * `oracledatabase.autonomousDatabases.restart`
-  * `oracledatabase.autonomousDatabases.restore`
-  * `oracledatabase.autonomousDatabases.start`
-  * `oracledatabase.autonomousDatabases.stop`
-  * `oracledatabase.autonomousDatabases.switchover`
-  * `oracledatabase.autonomousDatabases.update`
-
-`oracledatabase.autonomousDbVersions.list` `oracledatabase.cloudExadataInfrastructures.*`
-
-  * `oracledatabase.cloudExadataInfrastructures.create`
-  * `oracledatabase.cloudExadataInfrastructures.delete`
-  * `oracledatabase.cloudExadataInfrastructures.get`
-  * `oracledatabase.cloudExadataInfrastructures.list`
-  * `oracledatabase.cloudExadataInfrastructures.update`
-  * `oracledatabase.cloudExadataInfrastructures.use`
-
-`oracledatabase.cloudVmClusters.*`
-
-  * `oracledatabase.cloudVmClusters.create`
-  * `oracledatabase.cloudVmClusters.delete`
-  * `oracledatabase.cloudVmClusters.get`
-  * `oracledatabase.cloudVmClusters.list`
-  * `oracledatabase.cloudVmClusters.update`
-
-`oracledatabase.databaseCharacterSets.list` `oracledatabase.databaseConnections.*`
+`oracledatabase.autonomousDatabaseCharacterSets.list` `oracledatabase.autonomousDatabases.changeDisasterRecoveryConfig` `oracledatabase.autonomousDatabases.clone` `oracledatabase.autonomousDatabases.create` `oracledatabase.autonomousDatabases.createTagBinding` `oracledatabase.autonomousDatabases.delete` `oracledatabase.autonomousDatabases.deleteTagBinding` `oracledatabase.autonomousDatabases.failover` `oracledatabase.autonomousDatabases.generateWallet` `oracledatabase.autonomousDatabases.get` `oracledatabase.autonomousDatabases.list` `oracledatabase.autonomousDatabases.listRefreshableClones` `oracledatabase.autonomousDatabases.refresh` `oracledatabase.autonomousDatabases.restart` `oracledatabase.autonomousDatabases.restore` `oracledatabase.autonomousDatabases.start` `oracledatabase.autonomousDatabases.stop` `oracledatabase.autonomousDatabases.switchover` `oracledatabase.autonomousDatabases.update` `oracledatabase.autonomousDbVersions.list` `oracledatabase.cloudExadataInfrastructures.create` `oracledatabase.cloudExadataInfrastructures.createTagBinding` `oracledatabase.cloudExadataInfrastructures.delete` `oracledatabase.cloudExadataInfrastructures.deleteTagBinding` `oracledatabase.cloudExadataInfrastructures.get` `oracledatabase.cloudExadataInfrastructures.list` `oracledatabase.cloudExadataInfrastructures.update` `oracledatabase.cloudExadataInfrastructures.use` `oracledatabase.cloudVmClusters.create` `oracledatabase.cloudVmClusters.createTagBinding` `oracledatabase.cloudVmClusters.delete` `oracledatabase.cloudVmClusters.deleteTagBinding` `oracledatabase.cloudVmClusters.disableIdentityConnector` `oracledatabase.cloudVmClusters.enableIdentityConnector` `oracledatabase.cloudVmClusters.get` `oracledatabase.cloudVmClusters.list` `oracledatabase.cloudVmClusters.update` `oracledatabase.databaseCharacterSets.list` `oracledatabase.databaseConnections.*`
 
   * `oracledatabase.databaseConnections.create`
   * `oracledatabase.databaseConnections.delete`
@@ -99,18 +64,12 @@ Role | Permissions
   * `oracledatabase.databases.get`
   * `oracledatabase.databases.list`
 
-`oracledatabase.dbNodes.list` `oracledatabase.dbServers.list` `oracledatabase.dbSystemComputePerformances.list` `oracledatabase.dbSystemInitialStorageSizes.list` `oracledatabase.dbSystemShapes.list` `oracledatabase.dbSystems.*`
-
-  * `oracledatabase.dbSystems.create`
-  * `oracledatabase.dbSystems.delete`
-  * `oracledatabase.dbSystems.get`
-  * `oracledatabase.dbSystems.list`
-  * `oracledatabase.dbSystems.update`
-
-`oracledatabase.dbVersions.list` `oracledatabase.entitlements.list` `oracledatabase.exadbVmClusters.*`
+`oracledatabase.dbNodes.list` `oracledatabase.dbServers.list` `oracledatabase.dbSystemComputePerformances.list` `oracledatabase.dbSystemInitialStorageSizes.list` `oracledatabase.dbSystemShapes.list` `oracledatabase.dbSystems.create` `oracledatabase.dbSystems.createTagBinding` `oracledatabase.dbSystems.delete` `oracledatabase.dbSystems.deleteTagBinding` `oracledatabase.dbSystems.get` `oracledatabase.dbSystems.list` `oracledatabase.dbSystems.update` `oracledatabase.dbVersions.list` `oracledatabase.entitlements.createTagBinding` `oracledatabase.entitlements.deleteTagBinding` `oracledatabase.entitlements.list` `oracledatabase.exadbVmClusters.*`
 
   * `oracledatabase.exadbVmClusters.create`
   * `oracledatabase.exadbVmClusters.delete`
+  * `oracledatabase.exadbVmClusters.disableIdentityConnector`
+  * `oracledatabase.exadbVmClusters.enableIdentityConnector`
   * `oracledatabase.exadbVmClusters.get`
   * `oracledatabase.exadbVmClusters.list`
   * `oracledatabase.exadbVmClusters.update`
@@ -201,12 +160,12 @@ Role | Permissions
   
 #### Oracle Database@Google Cloud viewer 
 
-(`roles/oracledatabase.viewer`) Grants view access to all Oracle Database resources.  |  `oracledatabase.autonomousDatabaseBackups.get` `oracledatabase.autonomousDatabaseBackups.list` `oracledatabase.autonomousDatabaseCharacterSets.list` `oracledatabase.autonomousDatabases.get` `oracledatabase.autonomousDatabases.list` `oracledatabase.autonomousDatabases.listRefreshableClones` `oracledatabase.autonomousDbVersions.list` `oracledatabase.cloudExadataInfrastructures.get` `oracledatabase.cloudExadataInfrastructures.list` `oracledatabase.cloudVmClusters.get` `oracledatabase.cloudVmClusters.list` `oracledatabase.databaseCharacterSets.list` `oracledatabase.databaseConnections.get` `oracledatabase.databaseConnections.list` `oracledatabase.databases.*`
+(`roles/oracledatabase.viewer`) Grants view access to all Oracle Database resources.  |  `oracledatabase.autonomousDatabaseBackups.get` `oracledatabase.autonomousDatabaseBackups.list` `oracledatabase.autonomousDatabaseCharacterSets.list` `oracledatabase.autonomousDatabases.get` `oracledatabase.autonomousDatabases.list` `oracledatabase.autonomousDatabases.listEffectiveTags` `oracledatabase.autonomousDatabases.listRefreshableClones` `oracledatabase.autonomousDatabases.listTagBindings` `oracledatabase.autonomousDbVersions.list` `oracledatabase.cloudExadataInfrastructures.get` `oracledatabase.cloudExadataInfrastructures.list` `oracledatabase.cloudExadataInfrastructures.listEffectiveTags` `oracledatabase.cloudExadataInfrastructures.listTagBindings` `oracledatabase.cloudVmClusters.get` `oracledatabase.cloudVmClusters.list` `oracledatabase.cloudVmClusters.listEffectiveTags` `oracledatabase.cloudVmClusters.listTagBindings` `oracledatabase.databaseCharacterSets.list` `oracledatabase.databaseConnections.get` `oracledatabase.databaseConnections.list` `oracledatabase.databases.*`
 
   * `oracledatabase.databases.get`
   * `oracledatabase.databases.list`
 
-`oracledatabase.dbNodes.list` `oracledatabase.dbServers.list` `oracledatabase.dbSystemComputePerformances.list` `oracledatabase.dbSystemInitialStorageSizes.list` `oracledatabase.dbSystemShapes.list` `oracledatabase.dbSystems.get` `oracledatabase.dbSystems.list` `oracledatabase.dbVersions.list` `oracledatabase.entitlements.list` `oracledatabase.exadbVmClusters.get` `oracledatabase.exadbVmClusters.list` `oracledatabase.exascaleDbStorageVaults.get` `oracledatabase.exascaleDbStorageVaults.list` `oracledatabase.flexComponents.list` `oracledatabase.giVersions.list` `oracledatabase.goldenGateConnectionAssignments.get` `oracledatabase.goldenGateConnectionAssignments.list` `oracledatabase.goldenGateConnections.get` `oracledatabase.goldenGateConnections.list` `oracledatabase.goldenGateDeployments.get` `oracledatabase.goldenGateDeployments.list` `oracledatabase.locations.*`
+`oracledatabase.dbNodes.list` `oracledatabase.dbServers.list` `oracledatabase.dbSystemComputePerformances.list` `oracledatabase.dbSystemInitialStorageSizes.list` `oracledatabase.dbSystemShapes.list` `oracledatabase.dbSystems.get` `oracledatabase.dbSystems.list` `oracledatabase.dbSystems.listEffectiveTags` `oracledatabase.dbSystems.listTagBindings` `oracledatabase.dbVersions.list` `oracledatabase.entitlements.list` `oracledatabase.entitlements.listEffectiveTags` `oracledatabase.entitlements.listTagBindings` `oracledatabase.exadbVmClusters.get` `oracledatabase.exadbVmClusters.list` `oracledatabase.exascaleDbStorageVaults.get` `oracledatabase.exascaleDbStorageVaults.list` `oracledatabase.flexComponents.list` `oracledatabase.giVersions.list` `oracledatabase.goldenGateConnectionAssignments.get` `oracledatabase.goldenGateConnectionAssignments.list` `oracledatabase.goldenGateConnections.get` `oracledatabase.goldenGateConnections.list` `oracledatabase.goldenGateDeployments.get` `oracledatabase.goldenGateDeployments.list` `oracledatabase.locations.*`
 
   * `oracledatabase.locations.get`
   * `oracledatabase.locations.list`
@@ -228,25 +187,7 @@ Role | Permissions
   * `oracledatabase.autonomousDatabaseBackups.get`
   * `oracledatabase.autonomousDatabaseBackups.list`
 
-`oracledatabase.autonomousDatabaseCharacterSets.list` `oracledatabase.autonomousDatabases.*`
-
-  * `oracledatabase.autonomousDatabases.clone`
-  * `oracledatabase.autonomousDatabases.create`
-  * `oracledatabase.autonomousDatabases.delete`
-  * `oracledatabase.autonomousDatabases.failover`
-  * `oracledatabase.autonomousDatabases.generateWallet`
-  * `oracledatabase.autonomousDatabases.get`
-  * `oracledatabase.autonomousDatabases.list`
-  * `oracledatabase.autonomousDatabases.listRefreshableClones`
-  * `oracledatabase.autonomousDatabases.refresh`
-  * `oracledatabase.autonomousDatabases.restart`
-  * `oracledatabase.autonomousDatabases.restore`
-  * `oracledatabase.autonomousDatabases.start`
-  * `oracledatabase.autonomousDatabases.stop`
-  * `oracledatabase.autonomousDatabases.switchover`
-  * `oracledatabase.autonomousDatabases.update`
-
-`oracledatabase.autonomousDbVersions.list` `oracledatabase.entitlements.list` `oracledatabase.locations.*`
+`oracledatabase.autonomousDatabaseCharacterSets.list` `oracledatabase.autonomousDatabases.changeDisasterRecoveryConfig` `oracledatabase.autonomousDatabases.clone` `oracledatabase.autonomousDatabases.create` `oracledatabase.autonomousDatabases.delete` `oracledatabase.autonomousDatabases.failover` `oracledatabase.autonomousDatabases.generateWallet` `oracledatabase.autonomousDatabases.get` `oracledatabase.autonomousDatabases.list` `oracledatabase.autonomousDatabases.listRefreshableClones` `oracledatabase.autonomousDatabases.refresh` `oracledatabase.autonomousDatabases.restart` `oracledatabase.autonomousDatabases.restore` `oracledatabase.autonomousDatabases.start` `oracledatabase.autonomousDatabases.stop` `oracledatabase.autonomousDatabases.switchover` `oracledatabase.autonomousDatabases.update` `oracledatabase.autonomousDbVersions.list` `oracledatabase.entitlements.list` `oracledatabase.locations.*`
 
   * `oracledatabase.locations.get`
   * `oracledatabase.locations.list`
@@ -305,15 +246,7 @@ Role | Permissions
   
 #### Oracle Database@Google Cloud VM Cluster Admin 
 
-(`roles/oracledatabase.cloudVmClusterAdmin`) Grants full access to manage all VM Cluster resources.  |  `oracledatabase.cloudExadataInfrastructures.list` `oracledatabase.cloudExadataInfrastructures.use` `oracledatabase.cloudVmClusters.*`
-
-  * `oracledatabase.cloudVmClusters.create`
-  * `oracledatabase.cloudVmClusters.delete`
-  * `oracledatabase.cloudVmClusters.get`
-  * `oracledatabase.cloudVmClusters.list`
-  * `oracledatabase.cloudVmClusters.update`
-
-`oracledatabase.dbNodes.list` `oracledatabase.dbServers.list` `oracledatabase.dbSystemShapes.list` `oracledatabase.entitlements.list` `oracledatabase.exascaleDbStorageVaults.get` `oracledatabase.exascaleDbStorageVaults.list` `oracledatabase.exascaleDbStorageVaults.use` `oracledatabase.giVersions.list` `oracledatabase.locations.*`
+(`roles/oracledatabase.cloudVmClusterAdmin`) Grants full access to manage all VM Cluster resources.  |  `oracledatabase.cloudExadataInfrastructures.list` `oracledatabase.cloudExadataInfrastructures.use` `oracledatabase.cloudVmClusters.create` `oracledatabase.cloudVmClusters.delete` `oracledatabase.cloudVmClusters.disableIdentityConnector` `oracledatabase.cloudVmClusters.enableIdentityConnector` `oracledatabase.cloudVmClusters.get` `oracledatabase.cloudVmClusters.list` `oracledatabase.cloudVmClusters.update` `oracledatabase.dbNodes.list` `oracledatabase.dbServers.list` `oracledatabase.dbSystemShapes.list` `oracledatabase.entitlements.list` `oracledatabase.exascaleDbStorageVaults.get` `oracledatabase.exascaleDbStorageVaults.list` `oracledatabase.exascaleDbStorageVaults.use` `oracledatabase.giVersions.list` `oracledatabase.locations.*`
 
   * `oracledatabase.locations.get`
   * `oracledatabase.locations.list`
@@ -362,15 +295,7 @@ Role | Permissions
   * `oracledatabase.databases.get`
   * `oracledatabase.databases.list`
 
-`oracledatabase.dbSystemComputePerformances.list` `oracledatabase.dbSystemInitialStorageSizes.list` `oracledatabase.dbSystemShapes.list` `oracledatabase.dbSystems.*`
-
-  * `oracledatabase.dbSystems.create`
-  * `oracledatabase.dbSystems.delete`
-  * `oracledatabase.dbSystems.get`
-  * `oracledatabase.dbSystems.list`
-  * `oracledatabase.dbSystems.update`
-
-`oracledatabase.dbVersions.list` `oracledatabase.entitlements.list` `oracledatabase.locations.*`
+`oracledatabase.dbSystemComputePerformances.list` `oracledatabase.dbSystemInitialStorageSizes.list` `oracledatabase.dbSystemShapes.list` `oracledatabase.dbSystems.create` `oracledatabase.dbSystems.delete` `oracledatabase.dbSystems.get` `oracledatabase.dbSystems.list` `oracledatabase.dbSystems.update` `oracledatabase.dbVersions.list` `oracledatabase.entitlements.list` `oracledatabase.locations.*`
 
   * `oracledatabase.locations.get`
   * `oracledatabase.locations.list`
@@ -404,6 +329,8 @@ Role | Permissions
 
   * `oracledatabase.exadbVmClusters.create`
   * `oracledatabase.exadbVmClusters.delete`
+  * `oracledatabase.exadbVmClusters.disableIdentityConnector`
+  * `oracledatabase.exadbVmClusters.enableIdentityConnector`
   * `oracledatabase.exadbVmClusters.get`
   * `oracledatabase.exadbVmClusters.list`
   * `oracledatabase.exadbVmClusters.update`

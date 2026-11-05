@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/armor/docs/armor-enterprise-overview/
 title: Cloud Armor Enterprise overview \u00a0|\u00a0 Google Cloud Armor \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T16:18:22.585360+00:00
+fetched_at: 2026-11-04T23:33:25.490180+00:00
 ---
 
 # Cloud Armor Enterprise overview  |  Google Cloud Armor  |  Google Cloud Documentation
@@ -271,8 +271,8 @@ When you [remove a project from Cloud Armor Enterprise](https://docs.cloud.googl
   * Cloud Armor continues to evaluate traffic against rules in the policy, including any advanced rules.
   * You cannot attach the security policy to new targets.
   * You can only perform the following operations on the security policy: 
-    * You can [delete security policy rules](https://docs.cloud.google.com/armor/docs/manage-security-policies#delete-rules).
-    * If you don't change the rule priority, you can update advanced rules so that they no longer use Cloud Armor Enterprise-exclusive features. If you modify all advanced rules in this way, your policy is no longer frozen. For more information about updating security policy rules, see [Update a single rule in a security policy](https://docs.cloud.google.com/armor/docs/manage-security-policies#update-rules).
+    * You can [delete security policy rules](https://docs.cloud.google.com/armor/docs/manage-security-policy-rules#delete-rules).
+    * If you don't change the rule priority, you can update advanced rules so that they no longer use Cloud Armor Enterprise-exclusive features. If you modify all advanced rules in this way, your policy is no longer frozen. For more information about updating security policy rules, see [Update a single rule in a security policy](https://docs.cloud.google.com/armor/docs/manage-security-policy-rules#update-rules).
 
 
 
@@ -314,7 +314,7 @@ Cloud Armor Enterprise has the following terms and limitations:
 
   * [Subscribe and enroll projects in Cloud Armor Enterprise](https://docs.cloud.google.com/armor/docs/armor-enterprise-using)
   * [Troubleshoot issues](https://docs.cloud.google.com/armor/docs/troubleshooting)
-  * [Use the custom rules language reference](https://docs.cloud.google.com/armor/docs/rules-language-reference)
+  * [Create and view security policy rules](https://docs.cloud.google.com/armor/docs/create-security-policy-rules)
 
 
 
@@ -322,6 +322,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-04 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 

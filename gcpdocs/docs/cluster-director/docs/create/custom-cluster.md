@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/cluster-director/docs/create/custom-cluster/
 title: Create a custom cluster \u00a0|\u00a0 Cluster Director \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-03T09:54:27.960598+00:00
+fetched_at: 2026-11-04T23:29:00.218956+00:00
 ---
 
 # Create a custom cluster  |  Cluster Director  |  Google Cloud Documentation
@@ -282,7 +282,11 @@ To create a custom cluster, select one of the following options. If you want to 
 
      2. In the **Machine type** field, specify a machine type for the login node. If you use A4X Max or A4X instances in your cluster, then specify a C4A or N2 machine type. Otherwise, specify an N2 machine type.
 
-     3. Optional: In the **Source image** field, to replace the default login node OS image, select one of the [supported OS images for Cluster Director](https://docs.cloud.google.com/cluster-director/docs/os-images).
+     3. Optional: To replace the default OS image for the login nodes, do the following:
+
+        1. In the **Image family** list, select an OS image family. For more information about supported images, see [Supported OS images for Cluster Director](https://docs.cloud.google.com/cluster-director/docs/os-images).
+
+        2. In the **Image** list, select a specific OS image version. By default, the **Image** list selects the latest OS image version for the machine series specified in the login nodes.
 
      4. Optional: To add a startup script, click add **Add startup script**. Then, in the **Add startup script** pane that appears, enter your script. For more information about using startup scripts, see [About startup scripts](https://docs.cloud.google.com/compute/docs/instances/startup-scripts).
 
@@ -302,17 +306,19 @@ To create a custom cluster, select one of the following options. If you want to 
 
        4. In the **Resource configuration** field, select a compute resource configuration that you created in the previous steps.
 
-       5. In the **Source image** field, select an OS image to use for the compute nodes in the nodeset.
+       5. In the **Image family** list, select an OS image family to use for the compute nodes in the nodeset.
 
-       6. In the **Boot disk type** and **Boot disk size** fields, select a boot disk type and size for the compute nodes in the nodeset.
+       6. Optional: In the **Image** list, select a specific OS image version. By default, the **Image** list selects the latest OS image version for the machine series specified in the nodeset.
 
-       7. Optional: To share disk capacity and performance across nodes in a nodeset, specify an existing Hyperdisk pool or Hyperdisk Exapool as follows:
+       7. In the **Boot disk type** and **Boot disk size** fields, select a boot disk type and size for the compute nodes in the nodeset.
+
+       8. Optional: To share disk capacity and performance across nodes in a nodeset, specify an existing Hyperdisk pool or Hyperdisk Exapool as follows:
 
           1. Select the **Enable storage pool** checkbox.
 
           2. In the **Select a storage pool** list, select a storage pool that uses Hyperdisk Balanced volumes.
 
-       8. Configure the node counts for the nodeset:
+       9. Configure the node counts for the nodeset:
 
           * For GPU or CPU nodesets, in the **Static node count** field, enter the minimum number of compute nodes that must run at all times. In the **Dynamic node count** field, enter the maximum number of additional compute nodes that Cluster Director can create when demand increases.
 
@@ -323,11 +329,11 @@ To create a custom cluster, select one of the following options. If you want to 
             * To keep persistent TPU slices active between jobs, select **Use static nodes**. Then, in the **TPU topology** section that appears, select a slice topology and the number of slices.
 
 **Caution:** If you use a reservation for the nodeset, especially a shared reservation, then verify that the reservation has enough resources for your maximum number of compute instances. Other projects or workloads might consume the reservation, which prevents Cluster Director from adding compute instances to your nodeset.
-       9. Optional: To specify more advanced configurations for the compute node, expand **Advanced nodeset settings**. Then, follow the prompts to add or remove startup scripts, or add or remove labels.
+       10. Optional: To specify more advanced configurations for the compute node, expand **Advanced nodeset settings**. Then, follow the prompts to add or remove startup scripts, or add or remove labels.
 
-       10. Optional: To add a nodeset to the partition, click add **Add nodeset**. Then, follow the prompts to configure the nodeset.
+       11. Optional: To add a nodeset to the partition, click add **Add nodeset**. Then, follow the prompts to configure the nodeset.
 
-       11. Click **Done**.
+       12. Click **Done**.
 
      * To add a partition, click add **Add partition** , and then follow the prompts to specify the compute resources for the partition.
 
@@ -1034,6 +1040,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-03 UTC.
+Last updated 2026-11-04 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 

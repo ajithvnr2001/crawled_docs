@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/developer-connect/docs/access-control/
 title: IAM roles and permissions \u00a0|\u00a0 Developer Connect \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T22:05:31.300743+00:00
+fetched_at: 2026-11-05T00:19:06.507736+00:00
 ---
 
 # IAM roles and permissions  |  Developer Connect  |  Google Cloud Documentation
@@ -36,7 +36,7 @@ Role | Permissions
   
 #### Developer Connect Admin 
 
-(`roles/developerconnect.admin`) Full access to Developer Connect resources.  |  `developerconnect.connections.constructGitHubAppManifest` `developerconnect.connections.create` `developerconnect.connections.delete` `developerconnect.connections.fetchGitHubInstallations` `developerconnect.connections.fetchLinkableGitRepositories` `developerconnect.connections.generateGitHubStateToken` `developerconnect.connections.get` `developerconnect.connections.list` `developerconnect.connections.processGitHubAppCreationCallback` `developerconnect.connections.processGitHubOAuthCallback` `developerconnect.connections.update` `developerconnect.gitRepositoryLinks.create` `developerconnect.gitRepositoryLinks.delete` `developerconnect.gitRepositoryLinks.fetchGitRefs` `developerconnect.gitRepositoryLinks.get` `developerconnect.gitRepositoryLinks.gitProxyRead` `developerconnect.gitRepositoryLinks.gitProxyWrite` `developerconnect.gitRepositoryLinks.list` `developerconnect.locations.*`
+(`roles/developerconnect.admin`) Full access to Developer Connect resources.  |  `developerconnect.connections.constructGitHubAppManifest` `developerconnect.connections.create` `developerconnect.connections.createTagBinding` `developerconnect.connections.delete` `developerconnect.connections.deleteTagBinding` `developerconnect.connections.fetchGitHubInstallations` `developerconnect.connections.fetchLinkableGitRepositories` `developerconnect.connections.generateGitHubStateToken` `developerconnect.connections.get` `developerconnect.connections.list` `developerconnect.connections.listEffectiveTags` `developerconnect.connections.listTagBindings` `developerconnect.connections.processGitHubAppCreationCallback` `developerconnect.connections.processGitHubOAuthCallback` `developerconnect.connections.update` `developerconnect.gitRepositoryLinks.addPullRequestComment` `developerconnect.gitRepositoryLinks.addPullRequestReviewComment` `developerconnect.gitRepositoryLinks.create` `developerconnect.gitRepositoryLinks.delete` `developerconnect.gitRepositoryLinks.diffCommit` `developerconnect.gitRepositoryLinks.fetchCommit` `developerconnect.gitRepositoryLinks.fetchCommitList` `developerconnect.gitRepositoryLinks.fetchFileBlame` `developerconnect.gitRepositoryLinks.fetchGitRefs` `developerconnect.gitRepositoryLinks.fetchPullRequest` `developerconnect.gitRepositoryLinks.fetchPullRequestList` `developerconnect.gitRepositoryLinks.get` `developerconnect.gitRepositoryLinks.gitProxyRead` `developerconnect.gitRepositoryLinks.gitProxyWrite` `developerconnect.gitRepositoryLinks.list` `developerconnect.gitRepositoryLinks.modifyPullRequest` `developerconnect.gitRepositoryLinks.openPullRequest` `developerconnect.locations.*`
 
   * `developerconnect.locations.get`
   * `developerconnect.locations.list`
@@ -52,7 +52,7 @@ Role | Permissions
   
 #### Developer Connect Viewer 
 
-(`roles/developerconnect.viewer`) Read-only access to Developer Connect resources.  |  `developerconnect.connections.get` `developerconnect.connections.list` `developerconnect.gitRepositoryLinks.get` `developerconnect.gitRepositoryLinks.list` `developerconnect.locations.*`
+(`roles/developerconnect.viewer`) Read-only access to Developer Connect resources.  |  `developerconnect.connections.get` `developerconnect.connections.list` `developerconnect.connections.listEffectiveTags` `developerconnect.connections.listTagBindings` `developerconnect.gitRepositoryLinks.get` `developerconnect.gitRepositoryLinks.list` `developerconnect.locations.*`
 
   * `developerconnect.locations.get`
   * `developerconnect.locations.list`
@@ -162,7 +162,7 @@ Role | Permissions
   
 #### Developer Connect User 
 
-(`roles/developerconnect.user`) Grants access to view the connection and to the features that interact with the actual repository such as reading content from the repository  |  `developerconnect.connections.fetchGitHubInstallations` `developerconnect.connections.fetchLinkableGitRepositories` `developerconnect.connections.get` `developerconnect.connections.list` `developerconnect.gitRepositoryLinks.fetchGitRefs` `developerconnect.gitRepositoryLinks.get` `developerconnect.gitRepositoryLinks.list` `developerconnect.locations.*`
+(`roles/developerconnect.user`) Grants access to view the connection and to the features that interact with the actual repository such as reading content from the repository  |  `developerconnect.connections.fetchGitHubInstallations` `developerconnect.connections.fetchLinkableGitRepositories` `developerconnect.connections.get` `developerconnect.connections.list` `developerconnect.connections.listEffectiveTags` `developerconnect.connections.listTagBindings` `developerconnect.gitRepositoryLinks.addPullRequestComment` `developerconnect.gitRepositoryLinks.addPullRequestReviewComment` `developerconnect.gitRepositoryLinks.diffCommit` `developerconnect.gitRepositoryLinks.fetchCommit` `developerconnect.gitRepositoryLinks.fetchCommitList` `developerconnect.gitRepositoryLinks.fetchFileBlame` `developerconnect.gitRepositoryLinks.fetchGitRefs` `developerconnect.gitRepositoryLinks.fetchPullRequest` `developerconnect.gitRepositoryLinks.fetchPullRequestList` `developerconnect.gitRepositoryLinks.get` `developerconnect.gitRepositoryLinks.list` `developerconnect.gitRepositoryLinks.modifyPullRequest` `developerconnect.gitRepositoryLinks.openPullRequest` `developerconnect.locations.*`
 
   * `developerconnect.locations.get`
   * `developerconnect.locations.list`
@@ -207,6 +207,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-03 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/covid-ctc-ioc/
 title: Collect COVID-19 Cyber Threat Coalition IOC logs \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T07:54:01.132349+00:00
+fetched_at: 2026-11-04T23:43:59.914084+00:00
 ---
 
 # Collect COVID-19 Cyber Threat Coalition IOC logs  |  Google Security Operations  |  Google Cloud Documentation

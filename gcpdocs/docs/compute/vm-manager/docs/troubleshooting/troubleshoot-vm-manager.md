@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/compute/vm-manager/docs/troubleshooting/troubleshoot-vm-manager/
 title: Troubleshooting VM Manager \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T05:39:22.003259+00:00
+fetched_at: 2026-11-04T23:32:01.699981+00:00
 ---
 
 # Troubleshooting VM Manager  |  Google Cloud Documentation
@@ -66,12 +66,14 @@ To troubleshoot issues, first verify that VM Manager [is set up properly](https:
 
 You can collect the following information from logs:
 
-  * Any error message or warning logged by the VM. This is ideal for identifying VM-level errors, or errors from other services running on your VM. To review these logs, see Inspect Cloud Logging.
-  * Verbose debug information logged by the OS Config agent. This is useful for identifying issues with any of the operations run by VM Manager. To inspect debug logs for the OS Config agent, see Inspect debug logs.
+  * Any error message or warning logged by the VM. These logs help you identify VM-level errors, or errors from other services running on your VM. To review these logs, see Inspect Cloud Logging.
+
+  * Verbose debug information logged by the OS Config agent. These logs help you identify issues with any of the operations run by VM Manager. To inspect debug logs for the OS Config agent, see Inspect debug logs.
 
 
 
-After identifying the issues or errors, you can also review the common errors section to see potential fixes.
+
+After you identify the issues or errors, you can also review the common errors section to see potential fixes, or see the workaround for managing patch deployments across an organization.
 
 ## Inspect Cloud Logging
 
@@ -278,6 +280,176 @@ In the following example, OS patch management excludes `yum` packages with prefi
             --yum-excludes=/google-.*/
         
 
+## Workaround for managing patch deployments across an organization
+
+[Patch deployments](https://docs.cloud.google.com/compute/vm-manager/docs/patch/schedule-patch-jobs) and [patch jobs](https://docs.cloud.google.com/compute/vm-manager/docs/patch/create-patch-job) are scoped to individual Google Cloud projects, unlike [OS policies](https://docs.cloud.google.com/compute/vm-manager/docs/os-policies/about-policy-orchestrator), which you can orchestrate across an organization or folder by using policy orchestrators.
+
+As a workaround to manage patch deployments at scale, you can use Cloud Asset Inventory and the Google Cloud CLI in a Bash script to iterate through all projects in your organization. This script lets you complete the following tasks:
+
+  1. Enable VM Manager across projects
+
+  2. Create a patch deployment across projects
+
+  3. Export patch job results across projects to CSV
+
+
+
+
+### Required permissions and organization ID
+
+Before you run the scripts in this section, ensure that you have the required Identity and Access Management (IAM) permissions and your organization ID:
+
+  * **Organization level** : to list all projects in your organization by using Cloud Asset Inventory, your user account or service account must have the `cloudasset.assets.searchAllResources` permission (included in the Cloud Asset Viewer role, `roles/cloudasset.viewer`) on the organization.
+
+  * **Target project level** : depending on the tasks that you run across your organization, your user account or service account must have the following permissions on each target project (for example, inherited from an organization-level role binding):
+
+    * To enable the OS Config API and set project metadata: `serviceusage.services.enable` (Service Usage Admin, `roles/serviceusage.serviceUsageAdmin`) and `compute.projects.setCommonInstanceMetadata` (Compute Instance Admin (v1), `roles/compute.instanceAdmin.v1`).
+
+    * To create patch deployments: `osconfig.patchDeployments.create` (OS Config Patch Deployment Admin, `roles/osconfig.patchDeploymentAdmin`).
+
+    * To list patch jobs and view VM instance details: `osconfig.patchJobs.list` and `osconfig.patchJobs.get` (OS Config Patch Job Viewer, `roles/osconfig.patchJobViewer`).
+
+
+
+
+To find your organization ID, run the [`gcloud projects get-ancestors` command](https://docs.cloud.google.com/sdk/gcloud/reference/projects/get-ancestors) for any project in your organization:
+    
+    
+    gcloud projects get-ancestors PROJECT_ID
+    
+
+Replace `PROJECT_ID` with the ID of a project in your organization. The output lists the project's parent folders and the `organization` ID.
+
+### Enable VM Manager across projects
+
+To enable VM Manager across all existing and future projects in an organization or folder, Google recommends using [hierarchical service activation and organization policies](https://docs.cloud.google.com/compute/vm-manager/docs/setup#enable-api-hierarchical) or [Terraform](https://docs.cloud.google.com/compute/vm-manager/docs/vm-manager-org-terraform).
+
+Alternatively, to enable the OS Config API (`osconfig.googleapis.com`) and set the `enable-osconfig=TRUE` project metadata across all existing projects in your organization by using a Bash script, run the following command:
+    
+    
+    for project in $(gcloud asset search-all-resources \
+        --scope=organizations/ORGANIZATION_ID \
+        --asset-types=cloudresourcemanager.googleapis.com/Project \
+        --format="csv(additionalAttributes.projectId)" | sed 1d | sort); do
+      gcloud services enable osconfig.googleapis.com --project="$project"
+      gcloud compute project-info add-metadata --project="$project" \
+          --metadata=enable-osconfig=TRUE
+    done
+    
+
+Replace `ORGANIZATION_ID` with your organization ID.
+
+### Create a patch deployment across projects
+
+To apply a standardized patch deployment schedule across all projects in your organization, create a patch deployment configuration file and apply it to each project:
+
+  1. Create a JSON or YAML template file named `patch_deployment_template.json` that defines your target instance filter, patch configuration, and schedule. For more information about the supported configuration fields, see [Creating a patch deployment](https://docs.cloud.google.com/compute/vm-manager/docs/patch/schedule-patch-jobs#create-patch-deployment) and the [`PatchDeployment` resource reference](https://docs.cloud.google.com/compute/docs/osconfig/rest/v1/projects.patchDeployments#PatchDeployment).
+
+For example, the following `patch_deployment_template.json` file schedules a recurring weekly patch job every Tuesday at 7:30 PM in the `America/Los_Angeles` time zone for all VM instances in a project:
+         
+         {
+           "instanceFilter": {
+             "all": true
+           },
+           "patchConfig": {
+             "rebootConfig": "DEFAULT"
+           },
+           "recurringSchedule": {
+             "frequency": "WEEKLY",
+             "weekly": {
+               "dayOfWeek": "TUESDAY"
+             },
+             "timeOfDay": {
+               "hours": 19,
+               "minutes": 30
+             },
+             "timeZone": {
+               "id": "America/Los_Angeles"
+             }
+           }
+         }
+         
+
+  2. Run the following loop to create the patch deployment in each project across your organization by using the [`gcloud compute os-config patch-deployments create` command](https://docs.cloud.google.com/sdk/gcloud/reference/compute/os-config/patch-deployments/create):
+         
+         for project in $(gcloud asset search-all-resources \
+             --scope=organizations/ORGANIZATION_ID \
+             --asset-types=cloudresourcemanager.googleapis.com/Project \
+             --format="csv(additionalAttributes.projectId)" | sed 1d | sort); do
+           gcloud compute os-config patch-deployments create patch-"$project" \
+               --project="$project" \
+               --file=patch_deployment_template.json
+         done
+         
+
+Replace `ORGANIZATION_ID` with your organization ID.
+
+
+
+
+### Export patch job results across projects to CSV
+
+To audit patch job results, you can use the [`gcloud compute os-config patch-jobs list-instance-details` command](https://docs.cloud.google.com/sdk/gcloud/reference/compute/os-config/patch-jobs/list-instance-details) to export VM instance details for failed or succeeded patch jobs to a CSV file.
+
+  * **Single patch job** : to export the VM instances that failed or succeeded in a specific patch job, run the following commands:
+
+    * Export failed VM instances:
+          
+          gcloud compute os-config patch-jobs list-instance-details PATCH_JOB_ID \
+              --project=PROJECT_ID \
+              --filter="state:(FAILED OR TIMED_OUT OR NO_AGENT_DETECTED)" \
+              --format="csv(name.basename():label=INSTANCE_NAME,zone:label=ZONE,state:label=STATE,failureReason:label=FAILURE_REASON)" > failed_patches.csv
+          
+
+    * Export succeeded VM instances:
+          
+          gcloud compute os-config patch-jobs list-instance-details PATCH_JOB_ID \
+              --project=PROJECT_ID \
+              --filter="state=SUCCEEDED" \
+              --format="csv(name.basename():label=INSTANCE_NAME,zone:label=ZONE,state:label=STATE,attemptCount:label=ATTEMPT_COUNT)" > succeeded_patches.csv
+          
+
+Replace the following:
+
+    * `PATCH_JOB_ID`: the ID of the patch job
+
+    * `PROJECT_ID`: the project ID
+
+  * **All projects in an organization** : to iterate through all projects in your organization and export failed and succeeded VM instances across patch jobs into CSV files, run the following script:
+        
+        echo "PROJECT_ID,PATCH_JOB_ID,INSTANCE_NAME,ZONE,STATE,FAILURE_REASON" > failed_patches.csv
+        echo "PROJECT_ID,PATCH_JOB_ID,INSTANCE_NAME,ZONE,STATE,ATTEMPT_COUNT" > succeeded_patches.csv
+        
+        for project in $(gcloud asset search-all-resources \
+            --scope=organizations/ORGANIZATION_ID \
+            --asset-types=cloudresourcemanager.googleapis.com/Project \
+            --format="csv(additionalAttributes.projectId)" | sed 1d | sort); do
+          for job in $(gcloud compute os-config patch-jobs list \
+              --project="$project" \
+              --format="value(name.basename())"); do
+            gcloud compute os-config patch-jobs list-instance-details "$job" \
+                --project="$project" \
+                --filter="state:(FAILED OR TIMED_OUT OR NO_AGENT_DETECTED)" \
+                --format="csv[no-heading](name.basename(),zone,state,failureReason)" | \
+                sed "s/^/${project},${job},/" >> failed_patches.csv
+            gcloud compute os-config patch-jobs list-instance-details "$job" \
+                --project="$project" \
+                --filter="state=SUCCEEDED" \
+                --format="csv[no-heading](name.basename(),zone,state,attemptCount)" | \
+                sed "s/^/${project},${job},/" >> succeeded_patches.csv
+          done
+        done
+        
+
+Replace `ORGANIZATION_ID` with your organization ID.
+
+By default, the `gcloud compute os-config patch-jobs list` command returns up to 10 patch jobs per project. To export results from only the most recent patch job in each project, add `--sort-by="~update_time" --limit=1` to the `gcloud compute os-config patch-jobs list` command.
+
+
+
+
+For organization-wide patch compliance and vulnerability reporting in the Google Cloud console or BigQuery, see [View patch summary for VMs in an organization or folder](https://docs.cloud.google.com/compute/vm-manager/docs/patch/view-patch-summary#patch-summary) and [View vulnerability reports for your organization](https://docs.cloud.google.com/compute/vm-manager/docs/patch/view-org-vulnerability-reports).
+
 ## What's next?
 
   * [Manage your patch jobs](https://docs.cloud.google.com/compute/vm-manager/docs/patch/manage-patch-jobs).
@@ -289,6 +461,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-04 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 

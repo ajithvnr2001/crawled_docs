@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/armor/docs/rule-tuning/
 title: Tune preconfigured WAF rules \u00a0|\u00a0 Google Cloud Armor \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T23:48:28.514972+00:00
+fetched_at: 2026-11-04T23:33:31.411513+00:00
 ---
 
 # Tune preconfigured WAF rules  |  Google Cloud Armor  |  Google Cloud Documentation
@@ -60,7 +60,7 @@ The following example excludes two CRS rule IDs from the preconfigured `sqli-v42
 
 When you opt out signature IDs from preconfigured CRS rule sets, you must match the signature ID version with the rule set version (CRS 3.0 or 3.3) to avoid configuration errors.
 
-For more information about preconfigured WAF rule expressions, see the [custom rules language reference](https://docs.cloud.google.com/armor/docs/rules-language-reference#preconfigured-operator).
+For more information about preconfigured WAF rule expressions, see the [custom rules language reference](https://docs.cloud.google.com/armor/docs/create-security-policy-rules#preconfigured-operator).
 
 ## Opt in rule signatures
 
@@ -330,9 +330,9 @@ For more information, see [Request body content parsing](https://docs.cloud.goog
 ## What's next
 
   * Learn more about [tuning rules](https://docs.cloud.google.com/armor/docs/security-policy-rule-tuning).
-  * Learn more about [creating and viewing security policies](https://docs.cloud.google.com/armor/docs/configure-security-policies).
+  * Learn more about [creating and viewing security policies](https://docs.cloud.google.com/armor/docs/create-security-policies).
   * Learn more about what rule signatures are available for [preconfigured WAF rules](https://docs.cloud.google.com/armor/docs/waf-rules).
-  * Learn more about preconfigured WAF rules by using the [custom rules language reference](https://docs.cloud.google.com/armor/docs/rules-language-reference).
+  * Learn more about preconfigured WAF rules by using the [custom rules language reference](https://docs.cloud.google.com/armor/docs/create-security-policy-rules).
 
 
 
@@ -340,6 +340,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-04 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 

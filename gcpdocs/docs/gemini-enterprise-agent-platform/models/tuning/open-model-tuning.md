@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/open-model-tuning/
 title: Supervised and distillation fine-tuning for open models \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-01T05:37:35.977982+00:00
+fetched_at: 2026-11-04T23:14:35.357332+00:00
 ---
 
 # Supervised and distillation fine-tuning for open models  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation
@@ -61,6 +61,7 @@ Distillation provides smaller gains on tasks where the student model already per
   * Gemma 3 12B IT (`google/gemma3@gemma-3-12b-it`)
   * Gemma 3 27B IT (`google/gemma3@gemma-3-27b-it`)
   * Medgemma 1.5 4B IT (`google/medgemma@medgemma-1.5-4b-it`)
+  * Qwen 3.8 27B (`qwen/qwen3.8@qwen3.8-27b`)
   * Qwen 3.6 27B (`qwen/qwen3-6@qwen3.6-27b`)
   * Qwen 3.6 35B A3B (`qwen/qwen3-6@qwen3.6-35b-a3b`)
   * Qwen 3.5 9B (`qwen/qwen3-5@qwen3.5-9b`)
@@ -154,6 +155,9 @@ Maximum sequence length | 8192
 Modalities | Text  
 Medgemma 1.5 4B IT | Tuning modes | Full fine-tuning  
 Maximum sequence length | 8192  
+Modalities | Text  
+Qwen 3.8 27B | Tuning modes | Parameter-efficient fine-tuning  
+Maximum sequence length | 12288  
 Modalities | Text  
 Qwen 3.6 27B | Tuning modes | Parameter-efficient fine-tuning  
 Maximum sequence length | 12288  
@@ -596,6 +600,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-30 UTC.
+Last updated 2026-11-04 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 

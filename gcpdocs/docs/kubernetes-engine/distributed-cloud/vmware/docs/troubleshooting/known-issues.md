@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/vmware/docs/troubleshooting/known-issues/
 title: Google Distributed Cloud (software only) for VMware known issues \u00a0|\u00a0 Google Distributed Cloud software only for VMware \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T20:00:16.113320+00:00
+fetched_at: 2026-11-04T23:30:38.510173+00:00
 ---
 
 # Google Distributed Cloud (software only) for VMware known issues  |  Google Distributed Cloud software only for VMware  |  Google Cloud Documentation
@@ -35,6 +35,59 @@ Or, search for you issue:
 
 Category | Identified version(s) | Issue and workaround  
 ---|---|---  
+Advanced cluster, Logging and monitoring | 1.33 | 
+
+### Kubernetes API server metrics are missing in Metrics Explorer on advanced clusters
+
+On VMware advanced clusters running version 1.33, or after you update or upgrade a cluster to an advanced cluster running version 1.33, Kubernetes API server metrics are missing in Metrics Explorer. The `gke-metrics-agent` Pods in the `kube-system` namespace continuously log errors similar to the following when attempting to scrape the `apiserver` and `apiserver-slis` jobs:
+    
+    
+    Failed to scrape Prometheus endpoint    {"kind": "receiver", "name": "prometheus/gmp", "data_type": "metrics", "target_labels": "{__name__=\"up\", instance=\"CONTROL_PLANE_IP:6444\", job=\"apiserver-slis\"}"}
+    
+
+The `stackdriver-operator` applies a relabeling rule in the `gke-metrics-agent-conf` ConfigMap that targets port `6444`. However, the Kubernetes API server on VMware advanced clusters listens on port `6443`. Because the scrape port doesn't match, `gke-metrics-agent` can't connect to the API server to collect metrics. **Diagnosis:**
+
+  1. In the Google Cloud console, go to the **Metrics Explorer** page and check if Kubernetes API server metrics (such as `apiserver_request_total`) are missing.
+  2. Inspect the logs of the `gke-metrics-agent` Pods in the `kube-system` namespace: 
+         
+         kubectl --kubeconfig CLUSTER_KUBECONFIG -n kube-system logs -l k8s-app=gke-metrics-agent --tail=100
+             
+
+Verify that the logs contain `Failed to scrape Prometheus endpoint` errors targeting port `6444`.
+
+**Workaround:**
+
+  1. To prevent `stackdriver-operator` from reverting configuration changes, scale down the deployment to `0` replicas: 
+         
+         kubectl --kubeconfig CLUSTER_KUBECONFIG \
+             -n kube-system scale deployment stackdriver-operator --replicas=0
+                 
+
+  2. Open the `gke-metrics-agent-conf` ConfigMap for editing: 
+         
+         kubectl --kubeconfig CLUSTER_KUBECONFIG -n kube-system edit configmap gke-metrics-agent-conf
+             
+
+  3. In the `kube-apiserver` component relabel configuration, change the port in `replacement` from `6444` to `6443`: 
+         
+         params:
+           component:
+           - kube-apiserver
+         relabel_configs:
+         - action: replace
+           regex: ([^:]+)(?::\d+)?
+           replacement: $1:6443
+             
+
+Save and close the editing session.
+  4. To load the updated configuration, restart the `gke-metrics-agent` DaemonSet: 
+         
+         kubectl --kubeconfig CLUSTER_KUBECONFIG \
+             -n kube-system rollout restart daemonset gke-metrics-agent
+                 
+
+
+**Note:** Keep `stackdriver-operator` scaled down until this issue is resolved in a future release. If you scale `stackdriver-operator` back up, it reconciles the ConfigMap and reverts the port to `6444`. Replace `CLUSTER_KUBECONFIG` with the path to the cluster `kubeconfig` file.  
 Installation, Networking | All versions | 
 
 ### Admin workstation creation with `gkeadm` fails when port 22 is blocked from the jump server
@@ -5050,7 +5103,7 @@ For Google Distributed Cloud versions 1.10 to 1.15, some customers have found un
   * Application Pods have the `prometheus.io/scrap=true` annotation. (Installing Cloud Service Mesh can also add this annotation.)
 
 To confirm whether you are affected by this issue, [list your user-defined metrics](https://docs.cloud.google.com/monitoring/docs/metrics-management#view-metrics). If you see billing for unwanted metrics with `external.googleapis.com/prometheus` name prefix and also see `enableStackdriverForApplications` set to true in the response of `kubectl -n kube-system get stackdriver stackdriver -o yaml`, then this issue applies to you.   
-**Workaround** If you are affected by this issue, we recommend that you upgrade your clusters to version 1.12 or above, stop using the `enableStackdriverForApplications` flag, and switch to new application monitoring solution [managed-service-for-prometheus](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/vmware/docs/how-to/application-logging-monitoring#enabling_managed_service_for_prometheus_for_user_applications) that no longer relies on the `prometheus.io/scrap=true` annotation. With the new solution, you can also control logs and metrics collection separately for your applications, with the `enableCloudLoggingForApplications` and `enableGMPForApplications` flag, respectively. To stop using the `enableStackdriverForApplications` flag, open the `stackdriver` object for editing:
+**Workaround** If you are affected by this issue, we recommend that you upgrade your clusters to version 1.12 or above, stop using the `enableStackdriverForApplications` flag, and switch to new application monitoring solution [managed-service-for-prometheus](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/vmware/docs/how-to/application-logging-monitoring#enable_managed_prometheus) that no longer relies on the `prometheus.io/scrap=true` annotation. With the new solution, you can also control logs and metrics collection separately for your applications, with the `enableCloudLoggingForApplications` and `enableGMPForApplications` flag, respectively. To stop using the `enableStackdriverForApplications` flag, open the `stackdriver` object for editing:
     
     
     kubectl --kubeconfig=USER_CLUSTER_KUBECONFIG --namespace kube-system edit stackdriver stackdriver
@@ -6154,6 +6207,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-04 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 

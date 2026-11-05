@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/runtime/setup/
 title: Set up the environment \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-03T09:53:05.595020+00:00
+fetched_at: 2026-11-04T23:16:48.033563+00:00
 ---
 
 # Set up the environment  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation
@@ -87,13 +87,13 @@ You might also be able to get the required permissions through [custom roles](ht
 
 You have the following options when setting up identity and permissions:
 
-  * [Agent identity (Recommended)](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/agent-identity) Use Identity Access Management (IAM) agent identity to provide security and access management features when using agents on Agent Runtime. Agent identity is tied to each individual agent. By default, agents have the _Agent Platform Agent Default Access_ role (`roles/aiplatform.agentDefaultAccess`), which only includes basic project-wide logging and model calling permissions, and the _Agent Platform Agent Context Editor_ role (`roles/aiplatform.agentContextEditor`), which limits an agent to accessing only their own sessions, memories, and sandboxes.
+  * [Agent identity (Recommended)](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/agent-identity) Use Identity Access Management (IAM) agent identity to provide security and access management features when using agents on Agent Runtime. Agent identity is tied to each individual agent. By default, agents have the _Vertex AI Agent Engine - Agent Default Access Role_ (`roles/aiplatform.agentDefaultAccess`), which only includes basic project-wide logging and model calling permissions, and the _Vertex AI Agent Engine - Agent Context Editor Role_ (`roles/aiplatform.agentContextEditor`), which limits an agent to accessing only their own sessions, memories, and sandboxes.
 
 Note: Some features accessible by this role may be in [Preview](https://cloud.google.com/products/#product-launch-stages)
 
   * [Service accounts](https://docs.cloud.google.com/iam/docs/service-account-overview): Service accounts are shared across agents you deploy to Agent Runtime. You have two options for the service account:
 
-    * **Default Service Agent:** By default, agents use the _AI Platform Reasoning Engine Service Agent_. This Google-managed service account has the _Gemini Enterprise Agent Platform Reasoning Engine Service Agent_ role (`roles/aiplatform.reasoningEngineServiceAgent`), which includes the default permissions required for deployed agents.
+    * **Default Service Agent:** By default, agents use the _AI Platform Reasoning Engine Service Agent_. This Google-managed service account has the _Vertex AI Reasoning Engine Service Agent_ role (`roles/aiplatform.reasoningEngineServiceAgent`), which includes the default permissions required for deployed agents.
     * **Custom Service Account:** You can specify your own service account for the agents to use. This gives you more granular control over the permissions granted to the agents.
 
 
@@ -419,6 +419,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-02 UTC.
+Last updated 2026-11-04 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-02 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 

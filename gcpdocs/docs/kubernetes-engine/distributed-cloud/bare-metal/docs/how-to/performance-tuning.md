@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/bare-metal/docs/how-to/performance-tuning/
 title: Tune node performance \u00a0|\u00a0 Google Distributed Cloud software only for bare metal \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T20:47:09.374705+00:00
+fetched_at: 2026-11-04T23:29:15.258138+00:00
 ---
 
 # Tune node performance  |  Google Distributed Cloud software only for bare metal  |  Google Cloud Documentation
@@ -26,25 +26,11 @@ Send feedback
 
 This product or feature is subject to the "Pre-GA Offerings Terms" in the General Service Terms section of the [Service Specific Terms](https://docs.cloud.google.com/terms/service-terms#1). Pre-GA products and features are available "as is" and might have limited support. For more information, see the [launch stage descriptions](https://cloud.google.com/products/#product-launch-stages). 
 
-One way to improve performance for container-based applications is to increase cluster resources by adding nodes or adding resources, like CPUs or memory, to your nodes. This approach, however, can become expensive. _Tuning_ your cluster Nodes for better performance helps you optimize resource utilization for your workloads in a cost-effective way. This document describes how to use Performance Tuning Operator to tune worker nodes to optimize workload performance for Google Distributed Cloud.
+Performance Tuning Operator lets you tune worker nodes to optimize workload performance and resource utilization in Google Distributed Cloud. By adjusting node-level settings such as isolated and reserved CPUs, memory hugepages, and NUMA placement, you can improve efficiency for performance-sensitive applications without the cost of adding nodes, CPUs, or memory.
 
-To get the most from underlying hardware and software, different types of applications, especially high-performance applications, benefit from tuning node settings like the following:
+You manage these settings by using `PerformanceTuningProfile` custom resources that target worker nodes with node selectors, so you don't need to configure each node individually. Your settings persist across major cluster operations, such as upgrades.
 
-  * Dedicated CPUs for performance-sensitive workloads
-  * Reserved CPUs for standard Kubernetes Daemons and Services
-  * Increased memory page sizes with 1 GiB (gibibyte) or 2 MiB (mebibyte) hugepages
-  * Workload distribution based on the system architecture, such as multi-core processors and NUMA
-
-
-
-With Performance Tuning Operator, you configure node-level performance settings by creating Kubernetes custom resources that apply performance configurations. Here are the benefits:
-
-  * **Single, unified configuration interface:** With Performance Tuning Operator, you update one or more `PerformanceTuningProfile` manifests that can be applied to worker nodes with node selectors. You don't need to configure each node individually with multiple configuration and policy settings. This approach lets you manage node-level and container-level configurations in a single, unified way.
-
-  * **Persistence and reliability:** You also get all the reliability that Kubernetes provides with its high-availability architecture. `PerformanceTuningProfile` custom resources can be updated whenever you like and their settings persist across major cluster operations, such as upgrades.
-
-
-
+## How Performance Tuning Operator works
 
 Performance Tuning Operator works by orchestrating the following performance-related Kubernetes and operating system (OS) features and tools:
 
@@ -382,6 +368,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-04 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 

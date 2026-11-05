@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chronicle/docs/administration/migrate-from-legacy-rbac-to-feature-rbac/
 title: Migrate from legacy RBAC to feature RBAC \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T10:01:37.529387+00:00
+fetched_at: 2026-11-04T23:34:25.614893+00:00
 ---
 
 # Migrate from legacy RBAC to feature RBAC  |  Google Security Operations  |  Google Cloud Documentation
@@ -40,7 +40,7 @@ Make sure you have the following prerequisites:
 
 ## Overview
 
-You can use auto-generated commands to migrate legacy RBAC roles and permissions to Google Cloud IAM. Google SecOps creates these commands using your pre-migration _feature RBAC_ access control configuration. When run, they create new IAM policies equivalent to your existing configuration, as defined in Google SecOps on the **SIEM Settings** > **Users and Groups** page.
+You can use auto-generated commands to migrate legacy RBAC roles and permissions to Google Cloud IAM. Google SecOps creates these commands using your pre-migration _feature RBAC_ access control configuration. When run, they create new IAM policies equivalent to your existing configuration, as defined in Google SecOps on the **Settings > Access Management > Users and Groups** page.
 
 After you run these commands, you can't revert to the previous _feature RBAC_ access control feature. If you encounter an issue, contact [Google SecOps Technical Support](https://docs.cloud.google.com/chronicle/docs/getting-support).
 
@@ -53,7 +53,7 @@ After you run these commands, you can't revert to the previous _feature RBAC_ ac
   7. To complete the migration, return to the **Security** > **Google SecOps** > **Access management** tab, and then click **Enable IAM**.
   8. Verify that you can access Google SecOps as a user with the Chronicle API Admin role: 
      1. Sign in to Google SecOps as a user with the Chronicle API Admin predefined role. For more information, see [Sign in to Google SecOps](https://docs.cloud.google.com/chronicle/docs/log-in-to-ui).
-     2. Open the **SIEM Settings > Users and Groups** page. You should see the following message: _To manage users and groups, go to**Identity Access Management (IAM)** in the Google Cloud console. Learn more about managing users and groups._
+     2. Open the **Settings > Access Management > Users and Groups** page. You should see the following message: _To manage users and groups, go to**Identity Access Management (IAM)** in the Google Cloud console. Learn more about managing users and groups._
   9. Sign in to Google SecOps as a user with a different role. For more information, see [Sign in to Google SecOps](https://docs.cloud.google.com/chronicle/docs/log-in-to-ui).
   10. Verify that the available features in the application match the permissions defined in IAM.
 
@@ -65,6 +65,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-28 UTC.
+Last updated 2026-11-04 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 

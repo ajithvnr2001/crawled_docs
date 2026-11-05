@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chronicle/docs/administration/datarbac-impact-cases/
 title: Control access to 1P cases and alerts \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T10:01:26.051815+00:00
+fetched_at: 2026-11-04T23:33:58.211004+00:00
 ---
 
 # Control access to 1P cases and alerts  |  Google Security Operations  |  Google Cloud Documentation
@@ -60,9 +60,9 @@ Google SecOps administrators (Chronicle API Admin role within Google Cloud IAM) 
 If Data Access controls are already active in the SIEM component, follow these steps to extend enforcement to 1P alerts and cases in the SOAR component:
 
   1. [Sign in](https://docs.cloud.google.com/chronicle/docs/log-in-to-ui) to Google SecOps.
-  2. Verify that your scopes are correctly configured in **SIEM Settings > Data Access**.
+  2. Verify that your scopes are correctly configured in **Settings > Access Management > Data Access**.
   3. [Assign data scopes to users](https://docs.cloud.google.com/chronicle/docs/administration/configure-datarbac-users#assign-scope-to-users) in the Google Cloud console using Google Cloud IAM.
-  4. In Google SecOps, go to **SIEM Settings > Data Access** and click **Enable Data Access in SOAR**.
+  4. In Google SecOps, go to **Settings > Access Management > Data Access** and click **Enable Data Access in SOAR**.
   5. Map your SIEM scopes to SOAR environments as described in Map scopes to environments.
 
 
@@ -74,9 +74,9 @@ Data Access is now enforced for 1P alerts and cases in the SOAR component. This 
 If you have not yet enabled Data Access controls in SIEM, enforcement will be enabled for SIEM and SOAR simultaneously.
 
   1. [Sign in](https://docs.cloud.google.com/chronicle/docs/log-in-to-ui) to Google SecOps.
-  2. Verify that your scopes are correctly configured in **SIEM Settings > Data Access**.
+  2. Verify that your scopes are correctly configured in **Settings > Access Management > Data Access**.
   3. [Assign data scopes to users](https://docs.cloud.google.com/chronicle/docs/administration/configure-datarbac-users#assign-scope-to-users) in the Google Cloud console using Google Cloud IAM.
-  4. In Google SecOps, go to **SIEM Settings > Data Access** and click **Enforce Data Access**.
+  4. In Google SecOps, go to **Settings > Access Management > Data Access** and click **Enforce Data Access**.
   5. Map your SIEM scopes to SOAR environments as described in Map scopes to environments.
 
 
@@ -87,7 +87,7 @@ Data Access is now enforced in the SIEM component and for new 1P alerts and case
 
 To link SIEM data scopes with SOAR, map your SIEM Data Access scopes to SOAR environments.
 
-  1. Go to **SOAR Settings > Environments** to access the environment configuration page.
+  1. Go to **Settings > Access Management > Environments** to access the environment configuration page.
   2. Select an existing environment to modify or click **Add Environment**.
   3. Associate scopes by linking SIEM scope(s) to this environment. 
      * Locate the **Data access scopes** field and select the required SIEM scope(s).
@@ -205,7 +205,7 @@ You can also view the scopes directly from your List cases table:
 
 This section explains what happens to existing cases and alerts when a data access scope is deleted in the SIEM side of the platform.
 
-If an administrator deletes a data access scope in **SIEM Settings > Data Access**:
+If an administrator deletes a data access scope in **Settings > Access Management > Data Access**:
 
   1. The scope is automatically unmapped from any SOAR environment.
   2. Access Enforcement: Since the scope is deleted from the SIEM component and Cloud IAM, only global users (or users who still hold the cached token claim) will be able to access these historical cases and alerts.
@@ -230,6 +230,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-28 UTC.
+Last updated 2026-11-04 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/bmc-client-management/
 title: Collect BMC Client Management logs \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T07:50:12.744073+00:00
+fetched_at: 2026-11-04T23:35:00.947754+00:00
 ---
 
 # Collect BMC Client Management logs  |  Google Security Operations  |  Google Cloud Documentation

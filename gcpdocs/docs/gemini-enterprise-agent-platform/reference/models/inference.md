@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/models/inference/
 title: Generate content with the Gemini API \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-03T09:53:36.021027+00:00
+fetched_at: 2026-11-04T23:13:38.525543+00:00
 ---
 
 # Generate content with the Gemini API  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation
@@ -225,7 +225,7 @@ Parameters
   * `video/flv`
 
 For more information, see Gemini [ audio](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/audio-understanding#audio-requirements) and [ video](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/video-understanding#video-requirements) requirements.  Text files must be UTF-8 encoded. The contents of the text file count toward the token limit.  There is no limit on image resolution.  
-`data` |  `bytes` The [base64 encoding](https://docs.cloud.google.com/gemini-enterprise-agent-platform/tutorials/base64-encode) of the image, PDF, or video to include inline in the prompt. When including media inline, you must also specify the media type (`mimeType`) of the data.  Size limit: 7 MB for images  
+`data` |  `bytes` The [base64 encoding](https://docs.cloud.google.com/gemini-enterprise-agent-platform/tutorials/base64-encode) of the image, PDF, or video to include inline in the prompt. When including media inline, you must also specify the media type (`mimeType`) of the data.  Size limit: Up to 256 MB per inline part across all modalities on standard Gemini 3 and later models (30 MiB for images, 50 MiB for PDFs, or 7 MiB for plain text on non-migrated Gemini 2.5 endpoints and `gemini-3.1-pro-preview-customtools`). The total compressed HTTP or gRPC request payload can't exceed 500 MiB (base64 encoding adds approximately 33% size overhead).  
   
 #### FileData
 
@@ -237,7 +237,7 @@ Parameters
 `fileUri` | `string` The URI or URL of the file to include in the prompt. Acceptable values include the following: 
 
   * **Cloud Storage bucket URI:** The object must either be publicly readable or reside in the same Google Cloud project that's sending the request.
-  * **HTTP URL:** The file URL must be publicly readable. You can specify one video file, one audio file, and up to 10 image files per request. Audio files, video files, and documents can't exceed 15 MB.
+  * **HTTP URL:** The file URL must be publicly readable and can't exceed 15 MiB per file. Standard Gemini 3 and later models accept up to 3,000 images and PDFs combined, 1,000 audio files, or 10 videos per request (up to 6,500 total files when including plain-text files). Non-migrated Gemini 2.5 endpoints and `gemini-3.1-pro-preview-customtools` limit HTTP or HTTPS URLs to 10 images, 1 audio file, or 1 video per request.
   * **YouTube video URL:** The YouTube video must be either owned by the account that you used to sign in to the Google Cloud console or be public. Only one YouTube video URL is supported per request.
 
 When specifying a `fileURI`, you must also specify the media type (`mimeType`) of the file. If VPC Service Controls is enabled, specifying a media file URL for `fileURI` is not supported.  
@@ -826,6 +826,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-02 UTC.
+Last updated 2026-11-04 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-02 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 

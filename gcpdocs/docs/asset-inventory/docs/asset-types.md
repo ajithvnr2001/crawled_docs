@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/asset-inventory/docs/asset-types/
 title: Asset types \u00a0|\u00a0 Cloud Asset Inventory \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-03T09:42:39.077912+00:00
+fetched_at: 2026-11-04T23:20:23.428467+00:00
 ---
 
 # Asset types  |  Cloud Asset Inventory  |  Google Cloud Documentation
@@ -466,6 +466,11 @@ Service | Asset type
 **Cloud Run functions (1st gen)** This only includes [1st gen](https://docs.cloud.google.com/functions/docs/concepts/version-comparison) Cloud Run functions. The asset change history might be incomplete. Data freshness is synchronized every 7 hours. If a sync fails, freshness is delayed until the next successful sync. |  [API reference](https://cloudfunctions.googleapis.com/$discovery/rest)
 
   * [ ` cloudfunctions.googleapis.com/CloudFunction ` ](https://docs.cloud.google.com/functions/docs/reference/rest/v1/projects.locations.functions)
+
+  
+**Cloud Scheduler** |  [API reference](https://cloudscheduler.googleapis.com/$discovery/rest?version=v1)
+
+  * [ ` cloudscheduler.googleapis.com/Job ` ](https://docs.cloud.google.com/scheduler/docs/reference/rest/v1/projects.locations.jobs) Effective tags aren't supported. Not available in the analysis APIs. 
 
   
 **Cloud Service Mesh** |  [API reference](https://networksecurity.googleapis.com/$discovery/rest?version=v1)
@@ -1400,6 +1405,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-02 UTC.
+Last updated 2026-11-04 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-02 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 

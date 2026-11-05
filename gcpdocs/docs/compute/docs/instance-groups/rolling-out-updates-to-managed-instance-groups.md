@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/compute/docs/instance-groups/rolling-out-updates-to-managed-instance-groups/
 title: Automatically apply VM configuration updates in a MIG \u00a0|\u00a0 Compute Engine \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T10:18:20.824066+00:00
+fetched_at: 2026-11-04T23:32:36.158758+00:00
 ---
 
 # Automatically apply VM configuration updates in a MIG  |  Compute Engine  |  Google Cloud Documentation
@@ -265,7 +265,7 @@ By default, when you proactively update a MIG, the group deletes your VM instanc
 
 Preserving existing instance names might be useful if you have applications or systems that rely on using specific instance names. For example, some applications, like Memcached, rely on instance names because they don't have a discovery service; as a result, whenever an instance name changes, the application loses connection to that specific VM.
 
-To preserve instance names, set the replacement method to `RECREATE` instead of `SUBSTITUTE` if you update the MIG with the gcloud CLI or the Compute Engine API. Alternatively, if you update the MIG from the Google Cloud console, select the checkbox **Keep names when replacing VMs**.
+To preserve instance names, set the replacement method to `RECREATE` instead of `SUBSTITUTE` if you update the MIG with the gcloud CLI or the Compute Engine API. Alternatively, if you update the MIG from the Google Cloud console, expand the **Update policy** section and select the checkbox **When replacing, keep VM names the same**.
 
 ![Managed instance replacement methods.](https://docs.cloud.google.com/static/compute/images/mig-instance-replacement-methods.svg)
 
@@ -1065,6 +1065,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-28 UTC.
+Last updated 2026-11-04 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 

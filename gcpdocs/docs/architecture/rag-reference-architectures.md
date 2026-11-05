@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/architecture/rag-reference-architectures/
 title: Generative AI with RAG \u00a0|\u00a0 Cloud Architecture Center \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T05:57:52.384819+00:00
+fetched_at: 2026-11-04T23:30:19.738087+00:00
 ---
 
 # Generative AI with RAG  |  Cloud Architecture Center  |  Google Cloud Documentation
@@ -25,6 +25,7 @@ Use the following architecture guides to design and deploy generative AI applica
 
 Architecture guide | Description  
 ---|---  
+[Private connectivity for RAG-capable generative AI applications](https://docs.cloud.google.com/architecture/private-connectivity-rag-capable-gen-ai) | An architecture that uses Shared VPC and private IP addresses to help secure the network infrastructure for RAG-capable generative AI applications.  
 [RAG infrastructure for generative AI using Gemini Enterprise and Agent Platform](https://docs.cloud.google.com/architecture/rag-genai-gemini-enterprise-vertexai) | An agent-driven architecture that uses Gemini Enterprise as a unified platform to orchestrate an end-to-end RAG dataflow for enterprise applications that require real-time data availability and enriched contextual search.  
 [RAG infrastructure for generative AI using Agent Platform and Vector Search](https://docs.cloud.google.com/architecture/gen-ai-rag-vertex-ai-vector-search) | A fully managed, serverless architecture that provides optimized, high-performance vector search for large-scale applications.  
 [RAG infrastructure for generative AI using Agent Platform and AlloyDB for PostgreSQL](https://docs.cloud.google.com/architecture/rag-capable-gen-ai-app-using-vertex-ai) | An architecture that stores vector embeddings alongside your operational data in a fully managed database like AlloyDB for PostgreSQL.   

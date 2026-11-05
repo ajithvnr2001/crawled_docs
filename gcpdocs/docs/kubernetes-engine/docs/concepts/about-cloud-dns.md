@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/kubernetes-engine/docs/concepts/about-cloud-dns/
 title: About Cloud DNS for GKE \u00a0|\u00a0 GKE networking \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T20:03:39.443863+00:00
+fetched_at: 2026-11-04T23:31:26.545661+00:00
 ---
 
 # About Cloud DNS for GKE  |  GKE networking  |  Google Cloud Documentation
@@ -189,7 +189,7 @@ See [Single and dual stack services](https://docs.cloud.google.com/kubernetes-en
 Cloud DNS might create additional DNS records beyond the minimum number of record sets. These records serve various purposes, including the following:
 
   * **SRV records** : for service discovery, Cloud DNS often creates SRV records. These records provide information about the service's port and protocol.
-  * **AAAA records (for dual stack)** : in dual-stack configurations that use both IPv4 and IPv6, Cloud DNS creates both A records (for IPv4) and AAAA records (for IPv6) for each endpoint.
+  * **AAAA records (for IPv6 and dual-stack clusters)** : in single-stack IPv6 clusters, Cloud DNS creates AAAA records for each endpoint. In dual-stack configurations that use both IPv4 and IPv6 addresses, Cloud DNS creates both A records (for IPv4 addresses) and AAAA records (for IPv6 addresses) for each endpoint.
   * **Internal records** : Cloud DNS might create internal records for its own management and optimization. These records are typically not directly relevant to users.
   * **LoadBalancer Services** : for services of type `LoadBalancer`, Cloud DNS creates records that are associated with the external load balancer IP address.
   * **Headless Services** : headless services have a distinct DNS configuration. Each Pod gets its own DNS record, which lets clients connect directly to the Pods. This approach is why the port number is not multiplied in the headless Service record calculation.
@@ -307,6 +307,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-04 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 

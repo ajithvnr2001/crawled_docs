@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/docs/using-query-insights/
 title: Improve query performance using query insights \u00a0|\u00a0 AlloyDB for PostgreSQL \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T18:45:26.233452+00:00
+fetched_at: 2026-11-05T00:18:02.924737+00:00
 ---
 
 # Improve query performance using query insights  |  AlloyDB for PostgreSQL  |  Google Cloud Documentation
@@ -166,7 +166,7 @@ Here's an example:
         query_string_length = QUERY_STRING_LENGTH_VALUE
         record_application_tags = RECORD_APPLICATION_TAG_VALUE
         record_client_address = RECORD_CLIENT_ADDRESS_VALUE
-        query_plans_per_minute = QUERY_PLANS_PER_MINUTE_VALUE5
+        query_plans_per_minute = QUERY_PLANS_PER_MINUTE_VALUE
       }
       
 
@@ -207,33 +207,35 @@ The sample instance configuration with the added query insights configuration sh
 
 ###  REST v1 
 
-This example configures observability settings on your AlloyDB instance. For a complete list of parameters for this call, see [Method: projects.locations.clusters.instances.patch](https://docs.cloud.google.com/alloydb/docs/reference/rest/v1/projects.locations.clusters.instances/patch).
+This example configures query insights settings on your AlloyDB instance. For a complete list of parameters for this call, see [Method: projects.locations.clusters.instances.patch](https://docs.cloud.google.com/alloydb/docs/reference/rest/v1/projects.locations.clusters.instances/patch).
 
 To configure query insights settings, modify optional fields as needed. For a complete list of fields for this call, see [QueryInsightsInstanceConfig](https://docs.cloud.google.com/alloydb/docs/reference/rest/v1/projects.locations.clusters.instances#QueryInsightsInstanceConfig).
 
 Before you use any of the request data, make the following replacements:
 
-  * `CLUSTER_ID`: the ID of the cluster that you create. It must begin with a lowercase letter and can contain lowercase letters, numbers, and hyphens.
-  * `PROJECT_ID`: the ID of the project where you want the cluster placed.
-  * `LOCATION_ID`: the ID of the cluster's region.
-  * `INSTANCE_ID`: the name of the primary instance that you want to create.
+  * `PROJECT_ID`: the ID of the cluster's project.
+  * `LOCATION_ID`: the ID of the cluster's region—for example, `us-central1`.
+  * `CLUSTER_ID`: the ID of the instance's cluster.
+  * `INSTANCE_ID`: the ID of the instance that you are updating.
 
 
 
 To modify your instance configuration, use the following [`PATCH`](https://docs.cloud.google.com/alloydb/docs/reference/rest/v1/projects.locations.clusters.instances/patch) request:
     
     
-    PATCH https://alloydb.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION_ID/clusters/CLUSTER_ID/instances/INSTANCE_ID?updateMask=observabilityConfig.enabled
+    PATCH https://alloydb.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION_ID/clusters/CLUSTER_ID/instances/INSTANCE_ID?updateMask=queryInsightsConfig
     
 
-The request JSON body that configures all observability fields looks as follows:
+The request JSON body that configures all query insights fields looks as follows:
     
     
     {
-      "queryStringLength": integer,
-      "recordApplicationTags": boolean,
-      "recordClientAddress": boolean,
-      "queryPlansPerMinute": integer
+      "queryInsightsConfig": {
+        "queryStringLength": 1024,
+        "recordApplicationTags": true,
+        "recordClientAddress": true,
+        "queryPlansPerMinute": 5
+      }
     }
     
 
@@ -552,6 +554,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-03 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 

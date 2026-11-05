@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/managed-disaster-recovery/
 title: Managed disaster recovery \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T05:42:53.767973+00:00
+fetched_at: 2026-11-05T00:19:37.945344+00:00
 ---
 
 # Managed disaster recovery  |  BigQuery  |  Google Cloud Documentation
@@ -535,51 +535,36 @@ To determine the state of your replicas, query the [`INFORMATION_SCHEMA.SCHEMATA
     WHERE
       schema_name="my_dataset"
 
-The following query returns the jobs from the last seven days that would fail if their datasets were failover datasets:
+The following query returns the jobs from the last seven days that would fail if their datasets were failover datasets. To query jobs across an organization, replace `INFORMATION_SCHEMA.JOBS` with [`INFORMATION_SCHEMA.JOBS_BY_ORGANIZATION`](https://docs.cloud.google.com/bigquery/docs/information-schema-jobs-by-organization) and omit `jobs.query` because the `INFORMATION_SCHEMA.JOBS_BY_ORGANIZATION` view doesn't include query text:
     
     
-    WITH
-      non_epe_reservations AS (
-        SELECT project_id, reservation_name
-        FROM `PROJECT_ID.region-LOCATION`.INFORMATION_SCHEMA.RESERVATIONS
-        WHERE edition != 'ENTERPRISE_PLUS'
-      )
-    SELECT *
+    SELECT
+      jobs.project_id AS job_project_id,
+      jobs.job_id,
+      jobs.job_type,
+      jobs.statement_type,
+      jobs.reservation_id,
+      jobs.edition,
+      jobs.destination_table.project_id AS dataset_project_id,
+      jobs.destination_table.dataset_id,
+      jobs.destination_table.table_id,
+      jobs.query
     FROM
-      (
-        SELECT job_id
-        FROM
-          (
-            SELECT
-              job_id,
-              reservation_id,
-              ARRAY_CONCAT(referenced_tables, [destination_table]) AS all_referenced_tables,
-              query
-            FROM
-              `PROJECT_ID.region-LOCATION`.INFORMATION_SCHEMA.JOBS
-            WHERE
-              creation_time
-              BETWEEN TIMESTAMP_SUB(CURRENT_TIMESTAMP(), INTERVAL 7 DAY)
-              AND CURRENT_TIMESTAMP()
-          ) A,
-          UNNEST(all_referenced_tables) AS referenced_table
-      ) jobs
-    LEFT OUTER JOIN non_epe_reservations
-      ON (
-        jobs.reservation_id = CONCAT(
-          non_epe_reservations.project_id, ':', 'LOCATION', '.', non_epe_reservations.reservation_name))
+      `PROJECT_ID.region-LOCATION`.INFORMATION_SCHEMA.JOBS AS jobs
     WHERE
-      CONCAT(jobs.project_id, ':', jobs.dataset_id)
-      IN UNNEST(
-        [
-          'PROJECT_ID:DATASET_ID',
-          'PROJECT_ID:DATASET_ID']);
+      jobs.creation_time
+        BETWEEN TIMESTAMP_SUB(CURRENT_TIMESTAMP(), INTERVAL 7 DAY)
+        AND CURRENT_TIMESTAMP()
+      AND jobs.destination_table.project_id = 'DATASET_PROJECT_ID'
+      AND jobs.destination_table.dataset_id = 'DATASET_ID'
+      AND (jobs.edition IS NULL OR jobs.edition != 'ENTERPRISE_PLUS');
 
 Replace the following:
 
-  * `PROJECT_ID`: the project ID.
-  * `DATASET_ID`: the dataset ID.
+  * `PROJECT_ID`: the project ID where the jobs were executed.
   * `LOCATION`: the [location](https://docs.cloud.google.com/bigquery/docs/locations).
+  * `DATASET_PROJECT_ID`: the project ID where the destination dataset resides.
+  * `DATASET_ID`: the dataset ID that you plan to attach to a failover reservation.
 
 
 
@@ -598,6 +583,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-27 UTC.
+Last updated 2026-11-03 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 

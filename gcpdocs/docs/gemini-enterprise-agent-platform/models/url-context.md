@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/url-context/
 title: URL context \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-03T09:52:17.842652+00:00
+fetched_at: 2026-11-04T23:12:47.385264+00:00
 ---
 
 # URL context  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation
@@ -79,6 +79,8 @@ You can provide specific URLs that you want the model to analyze directly in you
     
 
 ### Python
+
+#### GenerateContent API
     
     
     from google import genai
@@ -104,10 +106,35 @@ You can provide specific URLs that you want the model to analyze directly in you
         print(each.text)
     # get URLs retrieved for context
     print(response.candidates[0].url_context_metadata)
-    
-    
 
-### Javascript
+#### Interactions API
+    
+    
+    from google import genai
+    
+    client = genai.Client(
+        enterprise=True,
+        project="GOOGLE_CLOUD_PROJECT",
+        location="global",
+    )
+    
+    interaction = client.interactions.create(
+        model="gemini-3.8-flash",
+        input="Compare recipes from YOUR_URL1 and YOUR_URL2",
+        tools=[{"type": "url_context"}],
+    )
+    
+    print(interaction.output_text)
+    
+    # Get URLs retrieved for context
+    for step in interaction.steps:
+        if step.type == "url_context_result":
+            for res in step.result:
+                print(f"URL: {res.url} (Status: {res.status})")
+
+### JavaScript
+
+#### GenerateContent API
     
     
     # Replace the `GOOGLE_CLOUD_PROJECT` and `GOOGLE_CLOUD_LOCATION` values
@@ -115,7 +142,6 @@ You can provide specific URLs that you want the model to analyze directly in you
     export GOOGLE_CLOUD_PROJECT=GOOGLE_CLOUD_PROJECT
     export GOOGLE_CLOUD_LOCATION=global
     export GOOGLE_GENAI_USE_ENTERPRISE=True
-    
     
     
     import { GoogleGenAI } from "@google/genai";
@@ -143,33 +169,184 @@ You can provide specific URLs that you want the model to analyze directly in you
     }
     
     await main();
+
+#### Interactions API
     
+    
+    # Replace the `GOOGLE_CLOUD_PROJECT` and `GOOGLE_CLOUD_LOCATION` values
+    # with appropriate values for your project.
+    export GOOGLE_CLOUD_PROJECT=GOOGLE_CLOUD_PROJECT
+    export GOOGLE_CLOUD_LOCATION=global
+    export GOOGLE_GENAI_USE_ENTERPRISE=True
+    
+    
+    import { GoogleGenAI } from "@google/genai";
+    
+    const ai = new GoogleGenAI({
+      enterprise: true,
+      project: process.env.GOOGLE_CLOUD_PROJECT,
+      location: process.env.GOOGLE_CLOUD_LOCATION,
+    });
+    
+    async function main() {
+      const interaction = await ai.interactions.create({
+        model: "gemini-3.8-flash",
+        input: "Compare recipes from YOUR_URL1 and YOUR_URL2",
+        tools: [{ type: "url_context" }],
+      });
+    
+      console.log(interaction.output_text);
+    
+      for (const step of interaction.steps) {
+        if (step.type === "url_context_result") {
+          console.log(step.result);
+        }
+      }
+    }
+    
+    await main();
 
 ### REST
+
+#### GenerateContent API
+
+Before using any of the request data, make the following replacements: 
+
+  * GOOGLE_CLOUD_PROJECT: Your [project ID](https://docs.cloud.google.com/resource-manager/docs/creating-managing-projects#identifiers).
+  * YOUR_URL1: The first URL to retrieve context from.
+  * YOUR_URL2: The second URL to retrieve context from.
+
+
+
+HTTP method and URL: 
     
     
-    curl -X POST \
-      -H "Authorization: Bearer $(gcloud auth print-access-token)" \
-      -H "Content-Type: application/json" \
-      https://aiplatform.googleapis.com/v1beta1/projects/GOOGLE_CLOUD_PROJECT/locations/global/publishers/google/models/gemini-3.5-flash:generateContent \
-      -d '{
-          "contents": [
-              {
-                  "role": "user",
-                  "parts": [
-                      {"text": "Compare recipes from YOUR_URL1 and YOUR_URL2"}
-                  ]
-              }
-          ],
-          "tools": [
-              {
-                  "url_context": {}
-              }
+    POST https://aiplatform.googleapis.com/v1beta1/projects/GOOGLE_CLOUD_PROJECT/locations/global/publishers/google/models/gemini-3.5-flash:generateContent
+
+Request JSON body: 
+    
+    
+    {
+      "contents": [
+        {
+          "role": "user",
+          "parts": [
+            {
+              "text": "Compare recipes from YOUR_URL1 and YOUR_URL2"
+            }
           ]
-      }' > result.json
+        }
+      ],
+      "tools": [
+        {
+          "url_context": {}
+        }
+      ]
+    }
     
-    cat result.json
+
+To send your request, choose one of these options:
+
+#### curl
+
+**Note:** The following command assumes that you have logged in to the `gcloud` CLI with your user account by running [`gcloud init`](https://docs.cloud.google.com/sdk/gcloud/reference/init) or [`gcloud auth login`](https://docs.cloud.google.com/sdk/gcloud/reference/auth/login) , or by using [Cloud Shell](https://docs.cloud.google.com/shell/docs), which automatically logs you into the `gcloud` CLI . You can check the currently active account by running [`gcloud auth list`](https://docs.cloud.google.com/sdk/gcloud/reference/auth/list). 
+
+Save the request body in a file named `request.json`, and execute the following command: 
     
+    
+    curl -X POST \  
+         -H "Authorization: Bearer $(gcloud auth print-access-token)" \  
+         -H "Content-Type: application/json; charset=utf-8" \  
+         -d @request.json \  
+         "https://aiplatform.googleapis.com/v1beta1/projects/GOOGLE_CLOUD_PROJECT/locations/global/publishers/google/models/gemini-3.5-flash:generateContent"
+
+#### PowerShell
+
+**Note:** The following command assumes that you have logged in to the `gcloud` CLI with your user account by running [`gcloud init`](https://docs.cloud.google.com/sdk/gcloud/reference/init) or [`gcloud auth login`](https://docs.cloud.google.com/sdk/gcloud/reference/auth/login) . You can check the currently active account by running [`gcloud auth list`](https://docs.cloud.google.com/sdk/gcloud/reference/auth/list). 
+
+Save the request body in a file named `request.json`, and execute the following command: 
+    
+    
+    $cred = gcloud auth print-access-token  
+    $headers = @{ "Authorization" = "Bearer $cred" }  
+      
+    Invoke-WebRequest `  
+        -Method POST `  
+        -Headers $headers `  
+        -ContentType: "application/json; charset=utf-8" `  
+        -InFile request.json `  
+        -Uri "https://aiplatform.googleapis.com/v1beta1/projects/GOOGLE_CLOUD_PROJECT/locations/global/publishers/google/models/gemini-3.5-flash:generateContent" | Select-Object -Expand Content
+
+#### Interactions API
+
+Before using any of the request data, make the following replacements: 
+
+  * GOOGLE_CLOUD_PROJECT: Your [project ID](https://docs.cloud.google.com/resource-manager/docs/creating-managing-projects#identifiers).
+  * YOUR_URL1: The first URL to retrieve context from.
+  * YOUR_URL2: The second URL to retrieve context from.
+
+
+
+HTTP method and URL: 
+    
+    
+    POST https://aiplatform.googleapis.com/v1beta1/projects/GOOGLE_CLOUD_PROJECT/locations/global/interactions
+
+Request JSON body: 
+    
+    
+    {
+      "model": "gemini-3.8-flash",
+      "input": [
+        {
+          "type": "user_input",
+          "content": [
+            {
+              "type": "text",
+              "text": "Compare recipes from YOUR_URL1 and YOUR_URL2"
+            }
+          ]
+        }
+      ],
+      "tools": [
+        {
+          "type": "url_context"
+        }
+      ]
+    }
+    
+
+To send your request, choose one of these options:
+
+#### curl
+
+**Note:** The following command assumes that you have logged in to the `gcloud` CLI with your user account by running [`gcloud init`](https://docs.cloud.google.com/sdk/gcloud/reference/init) or [`gcloud auth login`](https://docs.cloud.google.com/sdk/gcloud/reference/auth/login) , or by using [Cloud Shell](https://docs.cloud.google.com/shell/docs), which automatically logs you into the `gcloud` CLI . You can check the currently active account by running [`gcloud auth list`](https://docs.cloud.google.com/sdk/gcloud/reference/auth/list). 
+
+Save the request body in a file named `request.json`, and execute the following command: 
+    
+    
+    curl -X POST \  
+         -H "Authorization: Bearer $(gcloud auth print-access-token)" \  
+         -H "Content-Type: application/json; charset=utf-8" \  
+         -d @request.json \  
+         "https://aiplatform.googleapis.com/v1beta1/projects/GOOGLE_CLOUD_PROJECT/locations/global/interactions"
+
+#### PowerShell
+
+**Note:** The following command assumes that you have logged in to the `gcloud` CLI with your user account by running [`gcloud init`](https://docs.cloud.google.com/sdk/gcloud/reference/init) or [`gcloud auth login`](https://docs.cloud.google.com/sdk/gcloud/reference/auth/login) . You can check the currently active account by running [`gcloud auth list`](https://docs.cloud.google.com/sdk/gcloud/reference/auth/list). 
+
+Save the request body in a file named `request.json`, and execute the following command: 
+    
+    
+    $cred = gcloud auth print-access-token  
+    $headers = @{ "Authorization" = "Bearer $cred" }  
+      
+    Invoke-WebRequest `  
+        -Method POST `  
+        -Headers $headers `  
+        -ContentType: "application/json; charset=utf-8" `  
+        -InFile request.json `  
+        -Uri "https://aiplatform.googleapis.com/v1beta1/projects/GOOGLE_CLOUD_PROJECT/locations/global/interactions" | Select-Object -Expand Content
 
 ### Grounding with Google Search with URL context
 
@@ -186,6 +363,8 @@ Example prompts:
     
 
 ### Python
+
+#### GenerateContent API
     
     
     from google import genai
@@ -211,10 +390,38 @@ Example prompts:
         print(each.text)
     # get URLs retrieved for context
     print(response.candidates[0].url_context_metadata)
-    
-    
 
-### Javascript
+#### Interactions API
+    
+    
+    from google import genai
+    
+    client = genai.Client(
+        enterprise=True,
+        project="GOOGLE_CLOUD_PROJECT",
+        location="global",
+    )
+    
+    interaction = client.interactions.create(
+        model="gemini-3.8-flash",
+        input="Give me a three day event schedule based on YOUR_URL. Also let me know what needs to be taken care of considering weather and commute.",
+        tools=[
+            {"type": "url_context"},
+            {"type": "google_search"},
+        ],
+    )
+    
+    print(interaction.output_text)
+    
+    # Get URLs retrieved for context
+    for step in interaction.steps:
+        if step.type == "url_context_result":
+            for res in step.result:
+                print(f"URL: {res.url} (Status: {res.status})")
+
+### JavaScript
+
+#### GenerateContent API
     
     
     # Replace the `GOOGLE_CLOUD_PROJECT` and `GOOGLE_CLOUD_LOCATION` values
@@ -222,7 +429,6 @@ Example prompts:
     export GOOGLE_CLOUD_PROJECT=GOOGLE_CLOUD_PROJECT
     export GOOGLE_CLOUD_LOCATION=global
     export GOOGLE_GENAI_USE_ENTERPRISE=True
-    
     
     
     import { GoogleGenAI } from "@google/genai";
@@ -250,36 +456,191 @@ Example prompts:
     }
     
     await main();
+
+#### Interactions API
     
+    
+    # Replace the `GOOGLE_CLOUD_PROJECT` and `GOOGLE_CLOUD_LOCATION` values
+    # with appropriate values for your project.
+    export GOOGLE_CLOUD_PROJECT=GOOGLE_CLOUD_PROJECT
+    export GOOGLE_CLOUD_LOCATION=global
+    export GOOGLE_GENAI_USE_ENTERPRISE=True
+    
+    
+    import { GoogleGenAI } from "@google/genai";
+    
+    const ai = new GoogleGenAI({
+      enterprise: true,
+      project: process.env.GOOGLE_CLOUD_PROJECT,
+      location: process.env.GOOGLE_CLOUD_LOCATION,
+    });
+    
+    async function main() {
+      const interaction = await ai.interactions.create({
+        model: "gemini-3.8-flash",
+        input: "Give me a three day event schedule based on YOUR_URL. Also let me know what needs to be taken care of considering weather and commute.",
+        tools: [
+          { type: "url_context" },
+          { type: "google_search" },
+        ],
+      });
+    
+      console.log(interaction.output_text);
+    
+      for (const step of interaction.steps) {
+        if (step.type === "url_context_result") {
+          console.log(step.result);
+        }
+      }
+    }
+    
+    await main();
 
 ### REST
+
+#### GenerateContent API
+
+Before using any of the request data, make the following replacements: 
+
+  * GOOGLE_CLOUD_PROJECT: Your [project ID](https://docs.cloud.google.com/resource-manager/docs/creating-managing-projects#identifiers).
+  * YOUR_URL: The URL to retrieve context from.
+
+
+
+HTTP method and URL: 
     
     
-    curl -X POST \
-      -H "Authorization: Bearer $(gcloud auth print-access-token)" \
-      -H "Content-Type: application/json" \
-      https://aiplatform.googleapis.com/v1beta1/projects/GOOGLE_CLOUD_PROJECT/locations/global/publishers/google/models/gemini-3.5-flash:generateContent \
-      -d '{
-          "contents": [
-              {
-                  "role": "user",
-                  "parts": [
-                      {"text": "Give me a three day event schedule based on YOUR_URL. Also let me know what needs to taken care of considering weather and commute."}
-                  ]
-              }
-          ],
-          "tools": [
-              {
-                  "url_context": {}
-              },
-              {
-                  "google_search": {}
-              }
+    POST https://aiplatform.googleapis.com/v1beta1/projects/GOOGLE_CLOUD_PROJECT/locations/global/publishers/google/models/gemini-3.5-flash:generateContent
+
+Request JSON body: 
+    
+    
+    {
+      "contents": [
+        {
+          "role": "user",
+          "parts": [
+            {
+              "text": "Give me a three day event schedule based on YOUR_URL. Also let me know what needs to taken care of considering weather and commute."
+            }
           ]
-      }' > result.json
+        }
+      ],
+      "tools": [
+        {
+          "url_context": {}
+        },
+        {
+          "google_search": {}
+        }
+      ]
+    }
     
-    cat result.json
+
+To send your request, choose one of these options:
+
+#### curl
+
+**Note:** The following command assumes that you have logged in to the `gcloud` CLI with your user account by running [`gcloud init`](https://docs.cloud.google.com/sdk/gcloud/reference/init) or [`gcloud auth login`](https://docs.cloud.google.com/sdk/gcloud/reference/auth/login) , or by using [Cloud Shell](https://docs.cloud.google.com/shell/docs), which automatically logs you into the `gcloud` CLI . You can check the currently active account by running [`gcloud auth list`](https://docs.cloud.google.com/sdk/gcloud/reference/auth/list). 
+
+Save the request body in a file named `request.json`, and execute the following command: 
     
+    
+    curl -X POST \  
+         -H "Authorization: Bearer $(gcloud auth print-access-token)" \  
+         -H "Content-Type: application/json; charset=utf-8" \  
+         -d @request.json \  
+         "https://aiplatform.googleapis.com/v1beta1/projects/GOOGLE_CLOUD_PROJECT/locations/global/publishers/google/models/gemini-3.5-flash:generateContent"
+
+#### PowerShell
+
+**Note:** The following command assumes that you have logged in to the `gcloud` CLI with your user account by running [`gcloud init`](https://docs.cloud.google.com/sdk/gcloud/reference/init) or [`gcloud auth login`](https://docs.cloud.google.com/sdk/gcloud/reference/auth/login) . You can check the currently active account by running [`gcloud auth list`](https://docs.cloud.google.com/sdk/gcloud/reference/auth/list). 
+
+Save the request body in a file named `request.json`, and execute the following command: 
+    
+    
+    $cred = gcloud auth print-access-token  
+    $headers = @{ "Authorization" = "Bearer $cred" }  
+      
+    Invoke-WebRequest `  
+        -Method POST `  
+        -Headers $headers `  
+        -ContentType: "application/json; charset=utf-8" `  
+        -InFile request.json `  
+        -Uri "https://aiplatform.googleapis.com/v1beta1/projects/GOOGLE_CLOUD_PROJECT/locations/global/publishers/google/models/gemini-3.5-flash:generateContent" | Select-Object -Expand Content
+
+#### Interactions API
+
+Before using any of the request data, make the following replacements: 
+
+  * GOOGLE_CLOUD_PROJECT: Your [project ID](https://docs.cloud.google.com/resource-manager/docs/creating-managing-projects#identifiers).
+  * YOUR_URL: The URL to retrieve context from.
+
+
+
+HTTP method and URL: 
+    
+    
+    POST https://aiplatform.googleapis.com/v1beta1/projects/GOOGLE_CLOUD_PROJECT/locations/global/interactions
+
+Request JSON body: 
+    
+    
+    {
+      "model": "gemini-3.8-flash",
+      "input": [
+        {
+          "type": "user_input",
+          "content": [
+            {
+              "type": "text",
+              "text": "Give me a three day event schedule based on YOUR_URL. Also let me know what needs to taken care of considering weather and commute."
+            }
+          ]
+        }
+      ],
+      "tools": [
+        {
+          "type": "url_context"
+        },
+        {
+          "type": "google_search"
+        }
+      ]
+    }
+    
+
+To send your request, choose one of these options:
+
+#### curl
+
+**Note:** The following command assumes that you have logged in to the `gcloud` CLI with your user account by running [`gcloud init`](https://docs.cloud.google.com/sdk/gcloud/reference/init) or [`gcloud auth login`](https://docs.cloud.google.com/sdk/gcloud/reference/auth/login) , or by using [Cloud Shell](https://docs.cloud.google.com/shell/docs), which automatically logs you into the `gcloud` CLI . You can check the currently active account by running [`gcloud auth list`](https://docs.cloud.google.com/sdk/gcloud/reference/auth/list). 
+
+Save the request body in a file named `request.json`, and execute the following command: 
+    
+    
+    curl -X POST \  
+         -H "Authorization: Bearer $(gcloud auth print-access-token)" \  
+         -H "Content-Type: application/json; charset=utf-8" \  
+         -d @request.json \  
+         "https://aiplatform.googleapis.com/v1beta1/projects/GOOGLE_CLOUD_PROJECT/locations/global/interactions"
+
+#### PowerShell
+
+**Note:** The following command assumes that you have logged in to the `gcloud` CLI with your user account by running [`gcloud init`](https://docs.cloud.google.com/sdk/gcloud/reference/init) or [`gcloud auth login`](https://docs.cloud.google.com/sdk/gcloud/reference/auth/login) . You can check the currently active account by running [`gcloud auth list`](https://docs.cloud.google.com/sdk/gcloud/reference/auth/list). 
+
+Save the request body in a file named `request.json`, and execute the following command: 
+    
+    
+    $cred = gcloud auth print-access-token  
+    $headers = @{ "Authorization" = "Bearer $cred" }  
+      
+    Invoke-WebRequest `  
+        -Method POST `  
+        -Headers $headers `  
+        -ContentType: "application/json; charset=utf-8" `  
+        -InFile request.json `  
+        -Uri "https://aiplatform.googleapis.com/v1beta1/projects/GOOGLE_CLOUD_PROJECT/locations/global/interactions" | Select-Object -Expand Content
 
 For more details about Grounding with Google Search, see the [overview](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/grounding/overview) page.
 
@@ -406,6 +767,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-02 UTC.
+Last updated 2026-11-04 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-02 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 

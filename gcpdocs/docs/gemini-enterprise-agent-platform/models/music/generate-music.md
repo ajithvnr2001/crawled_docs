@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/music/generate-music/
 title: Generate music with Lyria \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T05:56:42.570030+00:00
+fetched_at: 2026-11-04T23:15:30.765328+00:00
 ---
 
 # Generate music with Lyria  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation
@@ -87,7 +87,7 @@ For more information, see [Authenticate for using REST](https://docs.cloud.googl
 
 ###  Console 
 
-  1. In the Google Cloud console, go to the **Vertex AI Studio > Generate Media** > **Generate media** page.
+  1. In the Google Cloud console, go to the **Agent Studio > Generate Media** > **Generate media** page.
 
 [ Generate studio](https://console.cloud.google.com/vertex-ai/studio/media/music)
 
@@ -112,21 +112,21 @@ Generated audio clips are available for preview and downloadable as WAV files.
 
 Before using any of the request data, make the following replacements: 
 
-  * `PROJECT_ID`: A string representing your Google Cloud project ID. 
+  * `PROJECT_ID`: Your [project ID](https://docs.cloud.google.com/resource-manager/docs/creating-managing-projects#identifiers). 
   * `MODEL_ID`: A string representing the model ID to use. The following are accepted values: 
 
     * `lyria-3-clip-preview`
     * `lyria-3-pro-preview`
   * `TEXT_PROMPT`: The text prompt used to guide music generation. 
-  * `IMAGE_URI`: optional: the Cloud Storage uri where your input image is located. 
-  * `IMAGE_DATABYTES`: Optional: A Base64-encoded input image. 
+  * `IMAGE_URI`: Optional: The Cloud Storage URI where your input image is located. 
+  * `IMAGE_DATABYTES`: Optional: A base64-encoded input image. 
 
 
 
 HTTP method and URL: 
     
     
-    POST https://aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/global/interactions
+    POST https://aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/global/interactions
 
 Request JSON body: 
     
@@ -135,22 +135,26 @@ Request JSON body:
       "model": "MODEL_ID",
       "input": [
         {
-          "type": "text",
-          "text": "TEXT_PROMPT"
-        },
-        {
-          "type": "image",
-          "mime_type": "image/jpeg",
-          "uri": "IMAGE_URI"
-        },
-        {
-          "type": "image",
-          "mime_type": "image/png",
-          "data": "IMAGE_DATABYTES"
-        },
+          "type": "user_input",
+          "content": [
+            {
+              "type": "text",
+              "text": "TEXT_PROMPT"
+            },
+            {
+              "type": "image",
+              "mime_type": "image/jpeg",
+              "uri": "IMAGE_URI"
+            },
+            {
+              "type": "image",
+              "mime_type": "image/png",
+              "data": "IMAGE_DATABYTES"
+            }
+          ]
+        }
       ]
     }
-    
     
 
 To send your request, choose one of these options:
@@ -166,7 +170,7 @@ Save the request body in a file named `request.json`, and execute the following 
          -H "Authorization: Bearer $(gcloud auth print-access-token)" \  
          -H "Content-Type: application/json; charset=utf-8" \  
          -d @request.json \  
-         "https://aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/global/interactions"
+         "https://aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/global/interactions"
 
 #### PowerShell
 
@@ -183,36 +187,49 @@ Save the request body in a file named `request.json`, and execute the following 
         -Headers $headers `  
         -ContentType: "application/json; charset=utf-8" `  
         -InFile request.json `  
-        -Uri "https://aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/global/interactions" | Select-Object -Expand Content
+        -Uri "https://aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/global/interactions" | Select-Object -Expand Content
 
-The request returns the operation name, status, and result. 
+The request returns the interaction ID, status, and generated steps. 
     
     
     {
+      "id": "INTERACTION_ID",
       "status": "completed",
-      "outputs": [
-        {
-          "text": "LYRICS",
-          "type": "text"
-        },
-        {
-          "text": "DESCRIPTION",
-          "type": "text"
-        },
-        {
-          "mime_type": "audio/mpeg",
-          "data": "GENERATED_SONG_DATABYTES",
-          "type": "audio"
-        },
-        {}
-      ],
-      "role": "model",
       "created": "CREATED_TIME",
       "updated": "UPDATE_TIME",
+      "steps": [
+        {
+          "type": "model_output",
+          "content": [
+            {
+              "type": "text",
+              "text": "LYRICS"
+            }
+          ]
+        },
+        {
+          "type": "model_output",
+          "content": [
+            {
+              "type": "text",
+              "text": "DESCRIPTION"
+            }
+          ]
+        },
+        {
+          "type": "model_output",
+          "content": [
+            {
+              "type": "audio",
+              "mime_type": "audio/mpeg",
+              "data": "GENERATED_SONG_DATABYTES"
+            }
+          ]
+        }
+      ],
       "object": "interaction",
       "model": "lyria-3-pro-preview"
     }
-    
     
 
 ###  Lyria 2 REST 
@@ -283,6 +300,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-30 UTC.
+Last updated 2026-11-04 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 

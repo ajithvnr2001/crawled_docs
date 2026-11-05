@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/crushftp/
 title: Collect CrushFTP logs \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T07:51:17.420046+00:00
+fetched_at: 2026-11-04T23:43:29.022611+00:00
 ---
 
 # Collect CrushFTP logs  |  Google Security Operations  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chronicle/docs/investigation/context-agent-investigation/
 title: Investigate alerts with the 3P Context Agent \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T10:08:26.112142+00:00
+fetched_at: 2026-11-04T23:34:30.008403+00:00
 ---
 
 # Investigate alerts with the 3P Context Agent  |  Google Security Operations  |  Google Cloud Documentation
@@ -60,7 +60,7 @@ When you use the 3P Context Agent, you can reduce manual data gathering and acce
 
 Make sure you have or do the following:
 
-  * **Permissions:** Access to configure the 3P Context Agent is managed using SIEM settings. Go to **SIEM Settings > Gemini Investigations > 3P Context Agent**. Specific Identity and Access Management (IAM) roles may be required to modify these settings.
+  * **Permissions:** Access to configure the 3P Context Agent is managed using SIEM settings. Go to **Settings > Investigation > Gemini Investigations > 3P Context Agent**. Specific Identity and Access Management (IAM) roles may be required to modify these settings.
   * **Environment check:** Make sure the relevant third-party integrations, such as EDR, IAM, and Threat Intelligence tools, are installed and active in your Google SecOps environment. The 3P Context Agent can only utilize integrations that are already deployed and configured.
 
 
@@ -99,7 +99,7 @@ The 3P Context Agent is primarily triggered as a sub-agent when the TIN runs. Th
 
 ## Configure the 3P Context Agent
 
-  1. **Access Settings:** Go to **SIEM settings > Gemini Investigations > 3P Context Agent**.
+  1. **Access Settings:** Go to **Settings > Investigation > Gemini Investigations > 3P Context Agent**.
   2. **Enable or disable:** Enable or disable the 3P Context Agent by changing the toggle.
   3. **Manage tools:**
      * By default, all newly installed integrations are automatically included. You can select which, if any, tools you want to exclude.
@@ -118,6 +118,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-28 UTC.
+Last updated 2026-11-04 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 

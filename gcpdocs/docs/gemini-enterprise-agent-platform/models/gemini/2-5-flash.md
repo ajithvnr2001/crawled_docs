@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/2-5-flash/
 title: Gemini 2.5 Flash \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-03T09:52:13.510163+00:00
+fetched_at: 2026-11-04T23:13:55.467000+00:00
 ---
 
 # Gemini 2.5 Flash  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation
@@ -77,7 +77,7 @@ APIs |
 
   * [GenerateContent API](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/models/inference)   
 Supported
-  * [Interactions API](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/interactions) previewPreview feature  
+  * [Interactions API](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/interactions)   
 Not supported
   * [Gemini Live API](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/live-api)   
 Not supported
@@ -100,21 +100,27 @@ Supported
 Not supported
 
   
-Input size limit |  500 MB   
+Input size limit |  500 MiB compressed   
 Technical specifications |  **Image** photo | 
 
-  * Maximum images per prompt: 3,000
-  * Maximum file size per file for inline data or direct uploads through the console: 7 MB
-  * Maximum file size per file from Google Cloud Storage: 30 MB
+  * Maximum images per prompt: 3,000 (images and PDFs combined; up to 10 HTTP or HTTPS URLs on non-migrated regional, tuned, or Model Armor endpoints)
+  * Maximum inline part size: 256 MB (30 MiB on non-migrated endpoints)
+  * Maximum file size per file from Cloud Storage: 2 GiB minus 500 KiB (30 MiB on non-migrated endpoints)
+  * Maximum file size per file from public HTTP or HTTPS URLs: 15 MiB
+  * Maximum file size per file for direct local uploads in the console: 7 MiB inline (up to 50 MiB staged to Cloud Storage)
+  * Maximum file size per file for Google Drive imports in the console: 7 MB (10 MB total)
   * Supported MIME types: `image/png`, `image/jpeg`, `image/webp`, `image/heic`, `image/heif`
 
   
 **Text** description | 
 
-  * Maximum number of files per prompt: 3,000
-  * Maximum number of pages per file: 3,000
-  * Maximum file size per file for the API or Cloud Storage imports: 50 MB(application/pdf) or 7 MB(text/plain)
-  * Maximum file size per file for direct uploads through the console: 7 MB
+  * Maximum number of files per prompt: 3,000 PDFs (shared with images; up to 6,500 total files when including plain text)
+  * Maximum number of pages per file: 3,000 (1,000 on non-migrated endpoints)
+  * Maximum inline part size: 256 MB (50 MiB for PDF or 7 MiB for plain text on non-migrated endpoints)
+  * Maximum file size per file from Cloud Storage: 2 GiB minus 500 KiB (50 MiB for PDF or 7 MiB for plain text on non-migrated endpoints)
+  * Maximum file size per file from public HTTP or HTTPS URLs: 15 MiB (7 MiB for plain text on non-migrated endpoints)
+  * Maximum file size per file for direct local uploads in the console: 7 MiB inline (up to 50 MiB staged to Cloud Storage)
+  * Maximum file size per file for Google Drive imports in the console: 7 MB (10 MB total)
   * Supported MIME types: `application/pdf`, `text/plain`
 
   
@@ -122,14 +128,20 @@ Technical specifications |  **Image** photo |
 
   * Maximum video length (with audio): Approximately 45 minutes
   * Maximum video length (without audio): Approximately 1 hour
-  * Maximum number of videos per prompt: 10
+  * Maximum number of videos per prompt: 10 (up to 1 HTTP or HTTPS URL on non-migrated endpoints)
+  * Maximum inline part size: 256 MB
+  * Maximum file size per file from Cloud Storage: 2 GiB minus 500 KiB
+  * Maximum file size per file from public HTTP or HTTPS URLs: 15 MiB
   * Supported MIME types: `video/x-flv`, `video/quicktime`, `video/mpeg`, `video/mpegs`, `video/mpg`, `video/mp4`, `video/webm`, `video/wmv`, `video/3gpp`
 
   
 **Audio** mic | 
 
   * Maximum audio length per prompt: Approximately 8.4 hours, or up to 1 million tokens
-  * Maximum number of audio files per prompt: 1
+  * Maximum number of audio files per prompt: 1,000 (up to 1 HTTP or HTTPS URL on non-migrated endpoints)
+  * Maximum inline part size: 256 MB
+  * Maximum file size per file from Cloud Storage: 2 GiB minus 500 KiB
+  * Maximum file size per file from public HTTP or HTTPS URLs: 15 MiB
   * Speech understanding for: Audio summarization, transcription, and translation
   * Supported MIME types: `audio/x-aac`, `audio/flac`, `audio/mp3`, `audio/m4a`, `audio/mpeg`, `audio/mpga`, `audio/mp4`, `audio/ogg`, `audio/pcm`, `audio/wav`, `audio/webm`
 
@@ -226,6 +238,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-02 UTC.
+Last updated 2026-11-04 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-02 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/application/ao-user/vertex-ai-glossary/
 title: Create and use a glossary \u00a0|\u00a0 Google Distributed Cloud air-gapped \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T22:51:21.274502+00:00
+fetched_at: 2026-11-05T00:20:32.251631+00:00
 ---
 
 # Create and use a glossary  |  Google Distributed Cloud air-gapped  |  Google Cloud Documentation
@@ -22,19 +22,13 @@ Send feedback
 
 #  Create and use a glossary Stay organized with collections  Save and categorize content based on your preferences. 
 
-You can use a glossary to define terminology specific to your domain. With a glossary, you can add term pairs, including a source and target language term. The term pairs ensure that the Vertex AI Translation service consistently translates your terminology.
+Glossaries in Vertex AI Translation on Google Distributed Cloud (GDC) air-gapped let you define domain-specific terminology for consistent translation across language pairs. By configuring source and target term pairs, you control how the service translates specialized vocabulary such as product names, ambiguous words, and borrowed terms.
 
-The following are examples of cases where you can define glossary entries:
+Glossary entries can consist of single words (also referred to as _tokens_) or short phrases, typically shorter than five words. Vertex AI Translation applies matching entries during translation but ignores entries that match [stopwords](https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/application/ao-user/stopwords).
 
-  * **Product names** : Identify product names to keep them in the translation. For example, _Google Home_ must translate to _Google Home_.
-  * **Ambiguous words** : Specify the meaning of vague words and homonyms. For example, _bat_ can mean a piece of sports equipment or an animal.
-  * **Borrowed words** : Clarify the meaning of words adopted from a different language. For example, _bouillabaisse_ in French translates to _bouillabaisse_ in English, a fish stew dish.
+## Glossary methods
 
-
-
-The terms in a glossary can be single words (also referred to as _tokens_) or short phrases, usually shorter than five words. Vertex AI Translation ignores matching glossary entries if the words are [stopwords](https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/application/ao-user/stopwords).
-
-Vertex AI Translation offers the following glossary methods available in Google Distributed Cloud (GDC) air-gapped:
+Vertex AI Translation offers the following glossary methods in GDC:
 
 Method | Description  
 ---|---  
@@ -619,6 +613,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-03 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 

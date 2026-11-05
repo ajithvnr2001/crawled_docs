@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/computer-use/
 title: Computer use \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-03T09:52:20.625951+00:00
+fetched_at: 2026-11-04T23:14:52.244051+00:00
 ---
 
 # Computer use  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation
@@ -703,9 +703,11 @@ The following examples demonstrate how to configure the execution environment fo
 
 ###  REST API 
 
+#### GenerateContent API
+
 Before using any of the request data, make the following replacements: 
 
-  * PROJECT_ID: Your project ID. 
+  * PROJECT_ID: Your [project ID](https://docs.cloud.google.com/resource-manager/docs/creating-managing-projects#identifiers). 
 
 
 
@@ -765,6 +767,73 @@ Save the request body in a file named `request.json`, and execute the following 
         -ContentType: "application/json; charset=utf-8" `  
         -InFile request.json `  
         -Uri "https://aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/global/publishers/google/models/gemini-3.5-flash:generateContent" | Select-Object -Expand Content
+
+You should receive a successful status code (2xx) and an empty response.
+
+#### Interactions API
+
+Before using any of the request data, make the following replacements: 
+
+  * PROJECT_ID: Your [project ID](https://docs.cloud.google.com/resource-manager/docs/creating-managing-projects#identifiers). 
+
+
+
+HTTP method and URL: 
+    
+    
+    POST https://aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/global/interactions
+
+Request JSON body: 
+    
+    
+    {
+      "model": "gemini-3.8-flash",
+      "input": [
+        {
+          "type": "user_input",
+          "content": [
+            {
+              "type": "text",
+              "text": "find me a flight from SF to Hawaii on Jun 30th, coming back on Jul 6th. start by navigating directly to flights.google.com"
+            }
+          ]
+        }
+      ],
+      "tools": [
+        {
+          "type": "computer_use",
+          "environment": "browser"
+        }
+      ]
+    }
+    
+
+To send your request, expand one of these options:
+
+#### curl (Linux, macOS, or Cloud Shell)
+
+Save the request body in a file named `request.json`, and execute the following command: 
+    
+    
+    curl -X POST \  
+         -H "Authorization: Bearer TOKEN" \  
+         -H "Content-Type: application/json; charset=utf-8" \  
+         -d @request.json \  
+         "https://aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/global/interactions"
+
+#### PowerShell (Windows)
+
+Save the request body in a file named `request.json`, and execute the following command: 
+    
+    
+    $headers = @{ "Authorization" = "Bearer TOKEN" }  
+      
+    Invoke-WebRequest `  
+        -Method POST `  
+        -Headers $headers `  
+        -ContentType: "application/json; charset=utf-8" `  
+        -InFile request.json `  
+        -Uri "https://aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/global/interactions" | Select-Object -Expand Content
 
 You should receive a successful status code (2xx) and an empty response.
 
@@ -1135,9 +1204,11 @@ The following examples demonstrate enabling the computer use configuration to en
 
 ###  REST API 
 
+#### GenerateContent API
+
 Before using any of the request data, make the following replacements: 
 
-  * PROJECT_ID: Your project ID. 
+  * PROJECT_ID: Your [project ID](https://docs.cloud.google.com/resource-manager/docs/creating-managing-projects#identifiers). 
 
 
 
@@ -1198,6 +1269,74 @@ Save the request body in a file named `request.json`, and execute the following 
         -ContentType: "application/json; charset=utf-8" `  
         -InFile request.json `  
         -Uri "https://aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/global/publishers/google/models/gemini-3.5-flash:generateContent" | Select-Object -Expand Content
+
+You should receive a successful status code (2xx) and an empty response.
+
+#### Interactions API
+
+Before using any of the request data, make the following replacements: 
+
+  * PROJECT_ID: Your [project ID](https://docs.cloud.google.com/resource-manager/docs/creating-managing-projects#identifiers). 
+
+
+
+HTTP method and URL: 
+    
+    
+    POST https://aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/global/interactions
+
+Request JSON body: 
+    
+    
+    {
+      "model": "gemini-3.8-flash",
+      "input": [
+        {
+          "type": "user_input",
+          "content": [
+            {
+              "type": "text",
+              "text": "find me a flight from SF to Hawaii on Jun 30th, coming back on Jul 6th. start by navigating directly to flights.google.com"
+            }
+          ]
+        }
+      ],
+      "tools": [
+        {
+          "type": "computer_use",
+          "environment": "browser",
+          "enable_prompt_injection_detection": true
+        }
+      ]
+    }
+    
+
+To send your request, expand one of these options:
+
+#### curl (Linux, macOS, or Cloud Shell)
+
+Save the request body in a file named `request.json`, and execute the following command: 
+    
+    
+    curl -X POST \  
+         -H "Authorization: Bearer TOKEN" \  
+         -H "Content-Type: application/json; charset=utf-8" \  
+         -d @request.json \  
+         "https://aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/global/interactions"
+
+#### PowerShell (Windows)
+
+Save the request body in a file named `request.json`, and execute the following command: 
+    
+    
+    $headers = @{ "Authorization" = "Bearer TOKEN" }  
+      
+    Invoke-WebRequest `  
+        -Method POST `  
+        -Headers $headers `  
+        -ContentType: "application/json; charset=utf-8" `  
+        -InFile request.json `  
+        -Uri "https://aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/global/interactions" | Select-Object -Expand Content
 
 You should receive a successful status code (2xx) and an empty response.
 
@@ -1443,6 +1582,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-02 UTC.
+Last updated 2026-11-04 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-02 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 

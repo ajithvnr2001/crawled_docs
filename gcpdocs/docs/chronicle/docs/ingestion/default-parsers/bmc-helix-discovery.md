@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/bmc-helix-discovery/
 title: Collect BMC Helix Discovery logs \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T07:50:11.269894+00:00
+fetched_at: 2026-11-04T23:43:22.073469+00:00
 ---
 
 # Collect BMC Helix Discovery logs  |  Google Security Operations  |  Google Cloud Documentation

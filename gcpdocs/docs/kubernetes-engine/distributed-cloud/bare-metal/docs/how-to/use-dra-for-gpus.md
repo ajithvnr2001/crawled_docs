@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/bare-metal/docs/how-to/use-dra-for-gpus/
 title: Manage GPU devices with dynamic resource allocation \u00a0|\u00a0 Google Distributed Cloud software only for bare metal \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T20:46:56.092191+00:00
+fetched_at: 2026-11-04T23:29:52.747111+00:00
 ---
 
 # Manage GPU devices with dynamic resource allocation  |  Google Distributed Cloud software only for bare metal  |  Google Cloud Documentation
@@ -26,13 +26,7 @@ Send feedback
 
 This product or feature is subject to the "Pre-GA Offerings Terms" in the General Service Terms section of the [Service Specific Terms](https://docs.cloud.google.com/terms/service-terms#1). Pre-GA products and features are available "as is" and might have limited support. For more information, see the [launch stage descriptions](https://cloud.google.com/products/#product-launch-stages). 
 
-This page describes how to configure your GPU workloads to use dynamic resource allocation in your Google Distributed Cloud bare metal clusters. Dynamic resource allocation is a Kubernetes API that lets you request and share generic resources, such as GPUs, among Pods and containers. Third-party drivers manage these resources. 
-
-With dynamic resource allocation, Kubernetes schedules Pods based on the referenced device configuration. App operators don't need to select specific nodes in their workloads and don't need to ensure that each Pod requests exactly the number of devices that are attached to those nodes. This process is similar to allocating volumes for storage.
-
-This capability helps you run AI workloads by dynamically and precisely allocating the GPU resources within your bare metal clusters, improving resource utilization and performance for demanding workloads.
-
-This page is for Admins and architects and Operators who manage the lifecycle of the underlying tech infrastructure. To learn more about common roles and example tasks that we reference in Google Cloud content, see [Common GKE user roles and tasks](https://docs.cloud.google.com/kubernetes-engine/enterprise/docs/concepts/roles-tasks).
+Dynamic resource allocation is a Kubernetes API that lets you request and share resources, like GPUs, across Pods and containers in your Google Distributed Cloud bare metal clusters. Third-party drivers manage these devices, and Kubernetes allocates them dynamically, much like storage volumes. Your AI workloads don't need to target specific nodes or request the exact number of attached devices. This document shows you how to configure your GPU workloads to use dynamic resource allocation.
 
 ## Before you begin
 
@@ -170,6 +164,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-04 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 

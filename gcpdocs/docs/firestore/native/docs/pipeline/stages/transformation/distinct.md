@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/firestore/native/docs/pipeline/stages/transformation/distinct/
 title: Distinct (Transformation Stage) \u00a0|\u00a0 Firestore in Native mode \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T08:01:17.610209+00:00
+fetched_at: 2026-11-05T00:05:36.117407+00:00
 ---
 
 # Distinct (Transformation Stage)  |  Firestore in Native mode  |  Google Cloud Documentation
@@ -164,7 +164,7 @@ Android
     	return err
     }
     
-    [pipeline_snippets_general.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/ed08282a171f47c035cf0984a5caa406b76f5bcd/firestore/pipeline_snippets_general.go#L383-L398)
+    [pipeline_snippets_general.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/db12cf239dd4dcddd2c15c703bb21991d4193a8a/firestore/pipeline_snippets_general.go#L383-L398)
 
 ## Behavior
 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/exporting-data/
 title: Export table data to Cloud Storage \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T07:48:09.920053+00:00
+fetched_at: 2026-11-04T23:44:11.432247+00:00
 ---
 
 # Export table data to Cloud Storage  |  BigQuery  |  Google Cloud Documentation

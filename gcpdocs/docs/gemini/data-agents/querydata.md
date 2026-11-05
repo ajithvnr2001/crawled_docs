@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini/data-agents/querydata/
 title: Introduction to QueryData \u00a0|\u00a0 Data Agents \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T19:53:51.236967+00:00
+fetched_at: 2026-11-04T23:20:24.283545+00:00
 ---
 
 # Introduction to QueryData  |  Data Agents  |  Google Cloud Documentation
@@ -25,7 +25,7 @@ Send feedback
 
 This feature is subject to the "Pre-GA Offerings Terms" in the General Service Terms section of the [Service Specific Terms](https://docs.cloud.google.com/terms/service-terms#1), and the [Additional Terms for Generative AI Preview Products](https://cloud.google.com/trustedtester/aitos). Pre-GA features are available "as is" and might have limited support. For more information, see the [launch stage descriptions](https://cloud.google.com/products/#product-launch-stages). 
 
-QueryData is a natural language to SQL (NL2SQL) tool in the [Conversational Analytics API](https://docs.cloud.google.com/gemini/data-agents/conversational-analytics-api/overview) that lets your AI agents and applications query operational databases using natural language. When an application or agent sends a question using natural language, QueryData translates the question into a dialect-specific SQL query, runs the query against your database, and returns the query results along with the generated SQL and an explanation of how QueryData interpreted the question.
+QueryData is a natural language query tool in the [Conversational Analytics API](https://docs.cloud.google.com/gemini/data-agents/conversational-analytics-api/overview) that lets your AI agents and applications query operational databases using natural language. When an application or agent sends a question using natural language, QueryData translates the question into a dialect-specific database query (such as SQL, MongoDB-compatible Query Language (MQL), or Graph Query Language (GQL)), runs the query against your database, and returns the query results along with the generated query and an explanation of how QueryData interpreted the question.
 
 For more information about using QueryData with your database, see the documentation for the supported databases:
 
@@ -42,8 +42,8 @@ For more information about using QueryData with your database, see the documenta
 QueryData provides the following capabilities for agentic database applications:
 
   * High accuracy: reach near-100% accuracy on business-critical queries by combining database schema metadata with context sets that you curate.
-  * Business relevance: ground SQL generation in your organization's domain terminology, metric definitions, and business logic rather than relying only on raw table and column names.
-  * Explainability: generate human-readable intent explanations alongside the synthesized SQL query and natural language answer so that you and your users can verify how QueryData translated a request.
+  * Business relevance: ground query generation in your organization's domain terminology, metric definitions, and business logic rather than relying only on raw table, collection, and column names.
+  * Explainability: generate human-readable intent explanations alongside the synthesized query and natural language answer so that you and your users can verify how QueryData translated a request.
   * Data security: enforce row-level access control and protect user data against prompt injection by using parameterized secure views in AlloyDB, Cloud SQL for MySQL, and Cloud SQL for PostgreSQL.
 
 
@@ -65,18 +65,18 @@ Generic large language models (LLMs) don't have information about your organizat
 
   * Schema ontologies: enriched table and column descriptions in your database catalog or Knowledge Catalog that explain the business meaning of tables, columns, status codes, and join relationships.
   * Context sets: curated collections associated with your database instance that define the following three building blocks: 
-    * Query templates: representative natural language questions paired with validated, parameterized SQL statements and intent explanations.
-    * Query facets: modular SQL predicates and filter fragments that QueryData dynamically combines with query templates to support faceted search without requiring a separate template for every filter combination.
-    * Value searches: exact, fuzzy trigram, or semantic vector search queries that link informal user phrases, synonyms, or misspelled terms to actual values and columns in your database.
+    * Query templates: representative natural language questions paired with validated, parameterized query statements and intent explanations.
+    * Query facets: modular query predicates and filter fragments that QueryData dynamically combines with query templates to support faceted search without requiring a separate template for every filter combination.
+    * Value searches: exact, fuzzy trigram, or semantic vector search queries that link informal user phrases, synonyms, or misspelled terms to actual values, columns, or fields in your database.
 
-
+**Note:** Both QueryData database context sets and Knowledge Catalog context sets are stored as Knowledge Catalog entry groups (`type="context-set"`), but they serve different workloads. QueryData database context sets package query templates, facets, and value searches for operational databases (`projects.locations.queryData`), whereas Knowledge Catalog context sets package broader domain concepts, documentation, and asset metadata for analytical workloads and Conversational Analytics (`entries.lookupContext`). For a detailed comparison, see [Knowledge Catalog context sets compared to database context sets](https://docs.cloud.google.com/knowledge-catalog/docs/context-sets#compare-context-sets-2).
 
 When your application calls the [`projects.locations.queryData`](https://docs.cloud.google.com/gemini/data-agents/reference/rest/v1beta/projects.locations/queryData) method in the Conversational Analytics API, QueryData performs the following steps:
 
-  1. Value resolution: runs value search queries against your database to map entity phrases in the prompt (such as city names, product categories, or codes) to exact database column values.
+  1. Value resolution: runs value search queries against your database to map entity phrases in the prompt (such as city names, product categories, or codes) to exact database column or field values.
   2. Intent matching and disambiguation: matches the user's question against the query templates and facets in your context set, as well as against your schema ontology. If a question is ambiguous or missing required parameters, QueryData can return disambiguation questions to clarify the user's intent.
-  3. Query synthesis: synthesizes a dialect-specific SQL query by combining the matched template structure, applicable facets, and resolved literal values, or by generating SQL from your schema ontology when no template matches.
-  4. Query execution and response: executes the generated SQL against the target database and returns the tabular result set, the generated SQL query, an intent explanation, and an optional natural language summary.
+  3. Query synthesis: synthesizes a dialect-specific database query (such as SQL, MQL, or GQL) by combining the matched template structure, applicable facets, and resolved literal values, or by generating a query from your schema ontology when no template matches.
+  4. Query execution and response: executes the generated query against the target database and returns the result set, the generated query, an intent explanation, and an optional natural language summary.
 
 
 
@@ -117,6 +117,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-27 UTC.
+Last updated 2026-11-04 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 

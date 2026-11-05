@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/apis/service/artifactregistry/v1/artifactregistry-v1/
 title: KRM API artifactregistry.gdc.goog/v1 \u00a0|\u00a0 Google Distributed Cloud air-gapped \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T19:01:09.954814+00:00
+fetched_at: 2026-11-05T00:20:31.490230+00:00
 ---
 
 # KRM API artifactregistry.gdc.goog/v1  |  Google Distributed Cloud air-gapped  |  Google Cloud Documentation
@@ -307,7 +307,7 @@ Field | Description
 ---|---  
 `projectName` _string_ | The name of the harbor project. Has to match harbor's naming rules.  
 `harborInstanceRef` _[LocalObjectReference](https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.25/#localobjectreference-v1-core)_ | The harbor instance that the harbor project belongs to.  
-`creatorSubject` _[Subject](https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.25/#subject-v1-rbac)_ | The user or group that creates the harbor project, and the subject will be granted as the first harbor Project Admin to manage the harbor project, and grant more users access, at harbor UI. It only represents individual users for now.  
+`creatorSubject` _[Subject](https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.25/#subject-v1-rbac)_ | The subject that is granted the Project Admin role on the Harbor project when the project is created. The Project Admin manages the Harbor project and grants other users access to it in the Harbor UI. Groups aren't supported. Set `name` to the Harbor username of a user who has signed in to the Harbor UI at least once. The Harbor service uses only `name`. The schema also requires `kind`; set it to a value such as `User`. Although this field is optional in the schema, you must set it. If you omit it, the Harbor project has no Project Admin, and the Harbor service stops reconciling Harbor resources in the organization. You can't change this field after you set it. Don't remove it after you set it.  
 `autoScan` _boolean_ | Whether a project will scan images automatically on push. Defaults to false if not specified.  
   
 ### HarborInstanceProjectStatus
@@ -438,6 +438,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-03 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 

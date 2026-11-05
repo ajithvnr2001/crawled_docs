@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/iam/docs/principals-overview/
 title: IAM principals \u00a0|\u00a0 Identity and Access Management (IAM) \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T07:59:15.629844+00:00
+fetched_at: 2026-11-04T23:44:40.525789+00:00
 ---
 
 # IAM principals  |  Identity and Access Management (IAM)  |  Google Cloud Documentation

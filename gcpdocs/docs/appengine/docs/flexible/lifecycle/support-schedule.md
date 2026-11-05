@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/appengine/docs/flexible/lifecycle/support-schedule/
 title: Runtime support schedule \u00a0|\u00a0 App Engine flexible environment \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T05:37:49.149625+00:00
+fetched_at: 2026-11-04T23:46:23.785075+00:00
 ---
 
 # Runtime support schedule  |  App Engine flexible environment  |  Google Cloud Documentation

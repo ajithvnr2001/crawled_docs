@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sensitive-data-protection/docs/access-control/service-accounts/
 title: Sensitive Data Protection service agents \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T07:58:13.276269+00:00
+fetched_at: 2026-11-04T23:44:49.255892+00:00
 ---
 
 # Sensitive Data Protection service agents  |  Google Cloud Documentation

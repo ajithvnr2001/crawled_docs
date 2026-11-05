@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/eventarc/docs/samples/eventarc-pubsub-handler/
 title: Create an event handler that receives and processes a Pub/Sub message event \u00a0|\u00a0 Eventarc \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T08:01:36.204007+00:00
+fetched_at: 2026-11-04T23:46:16.940092+00:00
 ---
 
 # Create an event handler that receives and processes a Pub/Sub message event  |  Eventarc  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sql/docs/sqlserver/replication/create-replica/
 title: Create read replicas \u00a0|\u00a0 Cloud SQL for SQL Server \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T09:40:09.459676+00:00
+fetched_at: 2026-11-04T23:31:20.181195+00:00
 ---
 
 # Create read replicas  |  Cloud SQL for SQL Server  |  Google Cloud Documentation
@@ -46,8 +46,13 @@ If you are creating the first replica for this instance, ensure that the instanc
 
 When creating a read replica, keep the following considerations in mind:
 
-  * You can create a maximum of seven read replicas per primary instance. 
-    * This value can include any combined number of read replicas and [read pool node count under a read pool instance](https://docs.cloud.google.com/sql/docs/sqlserver/about-read-pools). For example, a primary instance might have two read replicas, and a separate read pool of five read replicas (read pool nodes).
+  * You can assign a maximum of 7 read replicas per primary instance.   
+
+
+Unique behaviors apply when using read pools or read pool autoscaling.
+
+For more information, see [About read pools](https://docs.cloud.google.com/sql/docs/sqlserver/about-read-pools#maximum-node-count).
+
   * If an edition isn't specified, then Cloud SQL Enterprise edition is the default.
   * If, when creating a read replica or cascading replica, the primary is an Cloud SQL Enterprise Plus edition instance, then you must indicate the edition and tier you want to use.
 
@@ -695,6 +700,7 @@ Replica creation fails with timeout. | Long-running uncommitted transactions on 
 
   * Learn how to [manage replicas](https://docs.cloud.google.com/sql/docs/sqlserver/replication/manage-replicas).
   * Learn about [cross-region replicas](https://docs.cloud.google.com/sql/docs/sqlserver/replication/cross-region-replicas).
+  * Learn about [Read pools](https://docs.cloud.google.com/sql/docs/sqlserver/about-read-pools).
   * Learn about [Advanced disaster recovery (DR)](https://docs.cloud.google.com/sql/docs/sqlserver/use-advanced-disaster-recovery)
 
 
@@ -703,6 +709,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-04 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 

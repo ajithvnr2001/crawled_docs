@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/workload-manager/docs/access-control/service-accounts/
 title: Workload Manager service agents \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T07:56:28.097388+00:00
+fetched_at: 2026-11-04T23:45:05.955703+00:00
 ---
 
 # Workload Manager service agents  |  Google Cloud Documentation

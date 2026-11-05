@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/ansible-awx/
 title: Collect Ansible AWX logs \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T07:50:23.564703+00:00
+fetched_at: 2026-11-04T23:31:30.549394+00:00
 ---
 
 # Collect Ansible AWX logs  |  Google Security Operations  |  Google Cloud Documentation

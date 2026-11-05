@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/media-cdn/docs/security-policies/
 title: Configure security policies \u00a0|\u00a0 Media CDN \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T21:42:14.761310+00:00
+fetched_at: 2026-11-04T23:33:29.173820+00:00
 ---
 
 # Configure security policies  |  Media CDN  |  Google Cloud Documentation
@@ -191,7 +191,7 @@ If you inspect the policy, you see the two rules: the first rule blocks requests
 
 Cloud Armor security policies are sets of rules that match on Layer 7 attributes to help protect externally facing applications or services. Each rule is evaluated with respect to incoming traffic.
 
-These attributes can be used for HTTP requests in security policies: `request.headers`, `request.method`, `request.path`, `request.scheme`, and `request.query`. For more information about writing expressions for security policy rules, see the [Cloud Armor custom rules language reference](https://docs.cloud.google.com/armor/docs/rules-language-reference).
+These attributes can be used for HTTP requests in security policies: `request.headers`, `request.method`, `request.path`, `request.scheme`, and `request.query`. For more information about writing expressions for security policy rules, see the [Cloud Armor custom rules language reference](https://docs.cloud.google.com/armor/docs/create-security-policy-rules).
 
 A Cloud Armor security policy _rule_ consists of a match condition and an action to take when that condition is met.
 
@@ -223,7 +223,7 @@ To attach an existing Cloud Armor policy to a Media CDN service, use the [`gclou
 
 ### Update a rule in a security policy
 
-Use these instructions to update a single rule in a Cloud Armor security policy. Alternatively, you can [atomically update multiple rules in a security policy](https://docs.cloud.google.com/armor/docs/manage-security-policies#atomic-update).
+Use these instructions to update a single rule in a Cloud Armor security policy. Alternatively, you can [atomically update multiple rules in a security policy](https://docs.cloud.google.com/armor/docs/manage-security-policy-rules#atomic-update).
 
 ###  gcloud 
 
@@ -330,7 +330,7 @@ A common case in media serving is denying connections from clients that are outs
 
 For example, you might want to only allow clients located in India, as well as any IP addresses that are in the allowlist, including those of content partners and your own employees, within the range `192.0.2.0/24`, and reject all others.
 
-Using the [Cloud Armor custom rules language](https://docs.cloud.google.com/armor/docs/rules-language-reference#deny_traffic_from_a_specific_region), the following expression achieves this:
+Using the [Cloud Armor custom rules language](https://docs.cloud.google.com/armor/docs/create-security-policy-rules#deny_traffic_from_a_specific_region), the following expression achieves this:
     
     
     origin.region_code == "IN" || inIpRange(origin.ip, '192.0.2.0/24')
@@ -342,7 +342,7 @@ In the security policy output, note the following:
 
   * The highest priority (`priority: 0`) rule allows traffic from India _OR_ from the defined list of IP addresses.
   * The lowest priority rule represents a `default deny`. The rules engine denies all clients that higher priority rules don't evaluate to true.
-  * You can combine multiple rules by using [boolean operators](https://docs.cloud.google.com/armor/docs/rules-language-reference#operations).
+  * You can combine multiple rules by using [boolean operators](https://docs.cloud.google.com/armor/docs/create-security-policy-rules#operations).
 
 
 
@@ -379,7 +379,7 @@ You can also set a [custom response header](https://docs.cloud.google.com/media-
 
 ### Example: Block traffic from known malicious IPs
 
-The following [Cloud Armor custom rules language](https://docs.cloud.google.com/armor/docs/rules-language-reference#deny_traffic_from_a_specific_region) expression blocks traffic from IP addresses that are identified as malicious:
+The following [Cloud Armor custom rules language](https://docs.cloud.google.com/armor/docs/create-security-policy-rules#deny_traffic_from_a_specific_region) expression blocks traffic from IP addresses that are identified as malicious:
     
     
     evaluateThreatIntelligence('iplist-known-malicious-ips')
@@ -406,7 +406,7 @@ The following Google Cloud CLI commands show how to add a new Google Threat Inte
 
 ### Example: Block malicious clients by IP address and IP ranges
 
-Using the [Cloud Armor custom rules language](https://docs.cloud.google.com/armor/docs/rules-language-reference#deny_traffic_from_a_specific_region), the following expression achieves this:
+Using the [Cloud Armor custom rules language](https://docs.cloud.google.com/armor/docs/create-security-policy-rules#deny_traffic_from_a_specific_region), the following expression achieves this:
     
     
     inIpRange(origin.ip, '192.0.2.2/32') || inIpRange(origin.ip, '192.0.2.170/32')
@@ -426,7 +426,7 @@ If you have a list of country codes, you can use the boolean OR operator `||` to
 
 **Warning:** Don't use the logical AND operator `&&` to combine `origin.region_code` conditions. A client cannot be geo-located to two regions at once, and thus no client matches the condition. This results in _all_ clients being blocked.
 
-Using the [Cloud Armor custom rules language](https://docs.cloud.google.com/armor/docs/rules-language-reference#deny_traffic_from_a_specific_region), the following expression allows users identified as coming from Australia or New Zealand:
+Using the [Cloud Armor custom rules language](https://docs.cloud.google.com/armor/docs/create-security-policy-rules#deny_traffic_from_a_specific_region), the following expression allows users identified as coming from Australia or New Zealand:
     
     
     origin.region_code == "AU" || origin.region_code == "NZ"
@@ -532,7 +532,7 @@ Additionally, Media CDN request logs include the `clientRegion` and other client
 ## What's next
 
   * Learn how to use [signed requests](https://docs.cloud.google.com/media-cdn/docs/signed-requests) to authorize content on a per-user basis.
-  * Review the [Cloud Armor rules reference](https://docs.cloud.google.com/armor/docs/rules-language-reference) to understand how IP and geographic matching rules can be expressed and combined together.
+  * Review the [Cloud Armor rules reference](https://docs.cloud.google.com/armor/docs/create-security-policy-rules) to understand how IP and geographic matching rules can be expressed and combined together.
   * Visit the [logging documentation](https://docs.cloud.google.com/media-cdn/docs/logging) to understand how to query request logs and check which requests have been blocked.
 
 
@@ -541,6 +541,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-04 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 

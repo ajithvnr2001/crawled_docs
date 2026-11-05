@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chronicle/docs/administration/feed-management/
 title: Work with the feeds UI \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-03T09:54:55.491682+00:00
+fetched_at: 2026-11-04T23:34:01.130439+00:00
 ---
 
 # Work with the feeds UI  |  Google Security Operations  |  Google Cloud Documentation
@@ -29,7 +29,7 @@ This document explains how to create, troubleshoot, and manage feeds within the 
 
 ## Before you begin
 
-Each data feed requires specific prerequisites before setup in Google Security Operations. To find the requirements for your feed, see [Configuration by source type](https://docs.cloud.google.com/chronicle/docs/reference/feed-management-api#source-types) and search for your specific data source.
+Each data feed requires specific prerequisites before setup in Google Security Operations. To find the requirements for your feed, see [Configuration by source type](https://docs.cloud.google.com/chronicle/docs/reference/feed-management-api#source-types) and search for your specific data source. There is no limit on the number of feeds you can create.
 
 ### Supported compression formats and file sizes
 
@@ -97,7 +97,7 @@ To ensure continuous data ingestion, you must manually re-create your feeds in t
 
 There are two ways for Google SecOps customers to set up a feed in the platform. Use the method that works best for your environment:
 
-  * **SIEM Settings > Feeds** (standard)
+  * **Settings > Data Management > Feeds** (standard)
   * **Content Hub > Content Packs** (premium)
 
 **Note:** If you're using the SIEM standalone platform, you won't have access to the Content Hub. Contact your Google SecOps representative to upgrade.
@@ -132,7 +132,7 @@ This section describes how to _generally_ configure your feeds, starting with th
 
 To add a feed to your Google SecOps account, complete the following steps:
 
-  1. In the Google SecOps menu, select **SIEM Settings** > **Feeds**.
+  1. In the Google SecOps menu, select **Settings > Data Management > Feeds**. If you are on a SIEM-only platform, go to **Settings > Feeds**.
 
   2. Click **Add New Feed**.
 
@@ -200,9 +200,10 @@ To simplify the setup, the platform provides specific setup instructions and pre
 
 Follow these steps to configure a log feed for CrowdStrike EDR. 
 
-  1. From **Settings > Feeds**, click **Add New Feed**
-     1. Click the **CrowdStrike Falcon** product:.
-     2. Select **CrowdStrike EDR** log type.
+  1. **Settings > Data Management > Feeds**. If you are on a SIEM-only platform, go to **Settings > Feeds**. 
+     1. Click **Add New Feed**.
+     2. Click the **CrowdStrike Falcon** product:.
+     3. Select **CrowdStrike EDR** log type.
   2. Alternatively, from **Content Hub > Content Packs**, click the **CrowdStrike Falcon** product: 
      1. Click **Get Started**.
      2. Select **CrowdStrike EDR** log type. 
@@ -293,9 +294,9 @@ Different source types require specific authentication and networking configurat
 
 **Note:** If you use the [Domain Restricted Sharing](https://docs.cloud.google.com/resource-manager/docs/organization-policy/restricting-domains) organization policy in Google Cloud, make sure you add the Google SecOps customer ID `C02h8e9nw` to the allowlist.
 
-  1. From the Google SecOps menu, select **Settings** , and then click **Feeds**.
+  1. From the Google SecOps menu, select **Settings > Data Management > Feeds**. If you are on a SIEM-only platform, go to **Settings > Feeds**.
   2. Click **Add New Feed**.
-  3. On the next page, click **Configure a single feed**. This step doesn't apply if you are using the Google SecOps SIEM standalone platform.
+  3. On the next page, click **Configure a single feed**. This step doesn't apply if you are using the SIEM-only platform.
   4. Select **Cloud Storage v2** for **Source Type**.
   5. Select the **Log type**. For example, to create a feed for Google Kubernetes Engine audit logs, select **Google Kubernetes Engine audit logs** as the **Log Type**.
   6. Click **Get service account**. Google SecOps provides a unique service account that Google SecOps uses to ingest data. Alternatively, you can get this service account programmatically using the API. See [Fetch service account](https://docs.cloud.google.com/chronicle/docs/reference/feed-management-api#fetch-sa).
@@ -416,7 +417,7 @@ To set up a Pub/Sub push feed, do the following:
 
 #### Create a Pub/Sub push feed
 
-  1. In the Google SecOps menu, select **Settings** , and then click **Feeds**.
+  1. In the Google SecOps menu, select **Settings > Data Management > Feeds**. If you are on a SIEM-only platform, go to **Settings > Feeds**.
   2. Click **Add new**.
   3. In the **Feed name** field, enter a name for the feed.
   4. In the **Source type** list, select **Google Cloud Pub/Sub Push**.
@@ -457,7 +458,7 @@ To set up an Amazon Data Firehose feed, do the following:
 
 #### Create an Amazon Data Firehose feed
 
-  1. In the Google SecOps menu, select **Settings** , and then click **Feeds**.
+  1. In the Google SecOps menu, select **Settings > Data Management > Feeds**. If you are on a SIEM-only platform, go to **Settings > Feeds**.
   2. Click **Add new**.
   3. In the **Feed name** field, enter a name for the feed.
   4. In the **Source type** list, select **Amazon Data Firehose**.
@@ -538,7 +539,7 @@ The following code sample shows how to format a single request body with multipl
 
 #### Create an HTTPS webhook feed
 
-  1. In the Google SecOps menu, select **Settings** , and then click **Feeds**.
+  1. In the Google SecOps menu, select **Settings > Data Management > Feeds**. If you are on a SIEM-only platform, go to **Settings > Feeds**.
   2. Click **Add new**.
   3. In the **Feed name** field, enter a name for the feed.
   4. In the **Source type** list, select **Webhook**.
@@ -630,7 +631,7 @@ Verify the following prerequisites before creating a Custom API feed:
 
 To configure a Custom API feed, do the following:
 
-  1. Go to **SIEM Settings** > **Feeds**.
+  1. Go to **Settings > Data Management > Feeds**. If you are on a SIEM-only platform, go to **Settings > Feeds**.
   2. Click **Add new feed**.
   3. Click **Configure a single feed**.
   4. In the **Feed name** field, enter a unique descriptive name (for example, `1Password-Audit-Events`).
@@ -947,7 +948,7 @@ The **Feeds** page provides several tools to help you navigate and organize your
 
 The **Feeds** page shows all the feeds you've configured.
 
-  1. Go to **SIEM Settings > Feeds**. The main page displays all your configured feeds.
+  1. Go to **Settings > Data Management > Feeds**. If you are on a SIEM-only platform, go to **Settings > Feeds**. The main page displays all your configured feeds.
   2. Hold the pointer over each row to display the  more_vert  **More** menu.
   3. In the menu, you can view feed details, edit, disable, or delete the feed.
 
@@ -1104,6 +1105,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-02 UTC.
+Last updated 2026-11-04 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-02 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 

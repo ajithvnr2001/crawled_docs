@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/compute/docs/disks/migrate-to-hyperdisk/
 title: Change the disk type \u00a0|\u00a0 Compute Engine \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T23:09:49.040643+00:00
+fetched_at: 2026-11-05T00:19:28.509130+00:00
 ---
 
 # Change the disk type  |  Compute Engine  |  Google Cloud Documentation
@@ -138,7 +138,7 @@ For more information, see the table in [Manually creating application consistent
   2. [Create a snapshot](https://docs.cloud.google.com/compute/docs/disks/create-snapshots) of your existing disk.
 
 **Note:** When creating a snapshot, Google recommends using the [`snapshots.insert` method](https://docs.cloud.google.com/compute/docs/reference/rest/v1/snapshots/insert) instead of the [`disks.createSnapshot` method](https://docs.cloud.google.com/compute/docs/reference/rest/v1/disks/createSnapshot) because it supports more features, such as creating snapshots in a project different from the source disk project.
-  3. Optional: To create a new Hyperdisks in a pool, you must [create a storage pool](https://docs.cloud.google.com/compute/docs/disks/create-storage-pools), if one doesn't exist.
+  3. Optional: To create a new Hyperdisk in a pool, you must [create a storage pool](https://docs.cloud.google.com/compute/docs/disks/create-storage-pools), if one doesn't exist.
   4. Go to the **Disks** page.
 
 [Go to Disks](https://console.cloud.google.com/compute/disks)
@@ -412,7 +412,7 @@ Replace the following:
 
 After you create the disk, you must [attach the disk](https://docs.cloud.google.com/compute/docs/disks/attach-disks) or [attach the regional disk](https://docs.cloud.google.com/compute/docs/disks/regional-persistent-disk#repd_add_disk) to your compute instance before you can use it.
 
-Because the new disk you created isn't a blank disk, after attaching the disk to an instance, you only need to mount the disk to make it available the operating system.
+Because the new disk you created isn't a blank disk, after attaching the disk to an instance, you only need to mount the disk to make it available to the operating system.
 
 **Caution:** Don't format the disk before mounting it, because this will remove all the copied data from the disk.
 
@@ -445,6 +445,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-03 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 

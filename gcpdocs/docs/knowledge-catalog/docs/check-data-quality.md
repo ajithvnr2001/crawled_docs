@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/knowledge-catalog/docs/check-data-quality/
 title: Use data quality tasks \u00a0|\u00a0 Knowledge Catalog \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T21:05:32.691662+00:00
+fetched_at: 2026-11-04T23:31:34.219110+00:00
 ---
 
 # Use data quality tasks  |  Knowledge Catalog  |  Google Cloud Documentation
@@ -109,7 +109,7 @@ Knowledge Catalog uses this dataset, and it creates or reuses a table of your ch
   * Write access to the BigQuery dataset to create a table (if necessary) and write the results to that table. You can use the [**BigQuery Data Editor**](https://docs.cloud.google.com/bigquery/docs/access-control#bigquery) (`roles/bigquery.dataEditor`) role at the dataset level.
   * The [**BigQuery Job User**](https://docs.cloud.google.com/bigquery/docs/access-control#bigquery) (`roles/bigquery.jobUser`) role at the project level in order to create BigQuery jobs in a project.
   * The **Dataplex Metadata Reader** (`roles/dataplex.metadataReader`) role at the project or lake level.
-  * The [**Service Usage Consumer**](https://docs.cloud.google.com/service-usage/docs/access-control#predefined_roles) (`roles/serviceusage.serviceUsageConsumer`) role at the project level.
+  * The [**Service Usage Consumer**](https://docs.cloud.google.com/iam/docs/roles-permissions/serviceusage#serviceusage.serviceUsageConsumer) (`roles/serviceusage.serviceUsageConsumer`) role at the project level.
   * The [**Dataproc Worker**](https://docs.cloud.google.com/dataproc/docs/concepts/iam/iam#roles) (`roles/dataproc.worker`) role.
   * The [`iam.serviceAccounts.actAs` permission](https://docs.cloud.google.com/iam/docs/service-account-permissions#user-role) given to the user submitting the job.
   * The [**Service Account User**](https://docs.cloud.google.com/iam/docs/service-account-permissions#user-role) (`roles/iam.serviceAccountUser`) role granted to the Knowledge Catalog lake service account. You can [view the Knowledge Catalog lake service account in the Google Cloud console](https://docs.cloud.google.com/knowledge-catalog/docs/manage-lake#viewing-a-lake).
@@ -850,6 +850,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-04 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 

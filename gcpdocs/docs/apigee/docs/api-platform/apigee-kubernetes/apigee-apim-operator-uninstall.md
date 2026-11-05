@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/apigee/docs/api-platform/apigee-kubernetes/apigee-apim-operator-uninstall/
 title: Uninstall the Apigee Operator for Kubernetes \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T18:02:33.004008+00:00
+fetched_at: 2026-11-04T23:31:06.842737+00:00
 ---
 
 # Uninstall the Apigee Operator for Kubernetes  |  Google Cloud Documentation
@@ -62,13 +62,12 @@ where FILENAME is the name of the file corresponding to the resource you want to
 
 ## Uninstall the Apigee Operator for Kubernetes
 
-To uninstall the Apigee Operator for Kubernetes use the following commands:
+To uninstall the Apigee Operator for Kubernetes, use the following command:
     
     
     helm uninstall apigee-apim-operator -n apim
-    helm repo remove apigee-apim-operator
 
-These commands remove the Apigee Operator for Kubernetes and the Apigee CRD Helm charts from your cluster.
+This command removes the Apigee Operator for Kubernetes Helm chart from your cluster.
 
 ## Uninstall the CRDs
 
@@ -85,6 +84,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-04 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 

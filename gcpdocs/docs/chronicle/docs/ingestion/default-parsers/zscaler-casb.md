@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/zscaler-casb/
 title: Collect Zscaler CASB logs \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T07:50:27.897381+00:00
+fetched_at: 2026-11-04T23:34:42.909206+00:00
 ---
 
 # Collect Zscaler CASB logs  |  Google Security Operations  |  Google Cloud Documentation

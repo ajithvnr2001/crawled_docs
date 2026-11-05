@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/jumpcloud-directory-insights/
 title: Collect JumpCloud Directory Insights logs \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T07:53:36.771516+00:00
+fetched_at: 2026-11-04T23:43:12.909561+00:00
 ---
 
 # Collect JumpCloud Directory Insights logs  |  Google Security Operations  |  Google Cloud Documentation

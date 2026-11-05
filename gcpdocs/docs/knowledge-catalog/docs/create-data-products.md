@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/knowledge-catalog/docs/create-data-products/
 title: Create data products \u00a0|\u00a0 Knowledge Catalog \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T20:46:36.339017+00:00
+fetched_at: 2026-11-04T23:32:37.024707+00:00
 ---
 
 # Create data products  |  Knowledge Catalog  |  Google Cloud Documentation
@@ -50,13 +50,13 @@ For more information about enabling Gemini in BigQuery, see [Set up Gemini in Bi
 
 ### Enable APIs
 
-Enable the Dataplex, BigQuery APIs, if any are not already enabled. 
+Enable the Dataplex, BigQuery, Gemini for Google Cloud API APIs, if any are not already enabled. 
 
 **Roles required to enable APIs**
 
 To enable APIs, you need the `serviceusage.services.enable` permission. If you created the project, then you likely already have this permission through the Owner role (`roles/owner`). Otherwise, you can get this permission through the Service Usage Admin role (`roles/serviceusage.serviceUsageAdmin`). [Learn how to grant roles](https://docs.cloud.google.com/iam/docs/granting-changing-revoking-access). 
 
-[Enable the APIs](https://console.cloud.google.com/apis/enableflow?apiid=dataplex.googleapis.com,bigquery.googleapis.com)
+[Enable the APIs](https://console.cloud.google.com/apis/enableflow?apiid=dataplex.googleapis.com,bigquery.googleapis.com,cloudaicompanion.googleapis.com)
 
 ### Create data assets
 
@@ -1938,6 +1938,10 @@ Wait for a few minutes for the insight generation process to complete.
 
 
 
+## Pricing
+
+Generating insights in data products uses Knowledge Catalog data insights. For details about pricing for data insights, see [Data insights pricing](https://docs.cloud.google.com/knowledge-catalog/docs/data-insights-structured-data#pricing).
+
 ## What's next
 
   * Learn more about [managing data products](https://docs.cloud.google.com/knowledge-catalog/docs/manage-data-products).
@@ -1950,6 +1954,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-04 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/docs/db-version-policies/
 title: Database version policies \u00a0|\u00a0 AlloyDB for PostgreSQL \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-01T05:45:30.063950+00:00
+fetched_at: 2026-11-05T00:18:34.201038+00:00
 ---
 
 # Database version policies  |  AlloyDB for PostgreSQL  |  Google Cloud Documentation
@@ -75,7 +75,7 @@ The following table shows the dates when AlloyDB support for compatible versions
 
 PostgreSQL compatible major version | AlloyDB regular support start date | AlloyDB Omni version support GA date | AlloyDB extended support start date | AlloyDB deprecation date  
 ---|---|---|---|---  
-PostgreSQL 18 | March 18, 2026 | April 9, 2026 | - | -  
+PostgreSQL 18 (default) | March 18, 2026 | April 9, 2026 | - | -  
 PostgreSQL 17 | September 22, 2025 | December 15, 2025 | February 1, 2030 | February 1, 2033  
 PostgreSQL 16 | October 23, 2024 | April 8, 2025 | February 1, 2029 | February 1, 2032  
 PostgreSQL 15 | January 19, 2024 | October 11, 2023 | February 1, 2028 | February 1, 2031  
@@ -101,8 +101,8 @@ AlloyDB supports compatibility with the following PostgreSQL database versions:
 
 PostgreSQL-compatible version | AlloyDB  
 ---|---  
-PostgreSQL 18 | 18.4  
-PostgreSQL 17 (default) | 17.10  
+PostgreSQL 18 (default) | 18.4  
+PostgreSQL 17 | 17.10  
 PostgreSQL 16 | 16.14  
 PostgreSQL 15 |  15.18  
 PostgreSQL 14 |  14.23  
@@ -149,6 +149,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-30 UTC.
+Last updated 2026-11-03 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/cisco-meraki/
 title: Collect Cisco Meraki logs \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T07:54:04.619551+00:00
+fetched_at: 2026-11-04T23:42:41.169281+00:00
 ---
 
 # Collect Cisco Meraki logs  |  Google Security Operations  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/quotas/
 title: Quotas and limits \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T07:48:44.074006+00:00
+fetched_at: 2026-11-04T23:35:16.775652+00:00
 ---
 
 # Quotas and limits  |  BigQuery  |  Google Cloud Documentation

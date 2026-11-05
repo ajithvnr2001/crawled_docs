@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/instances/release-notes-image/workbench-instances/
 title: Image release notes: workbench-instances \u00a0|\u00a0 Gemini Enterprise Agent Platform Workbench \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T08:00:56.064062+00:00
+fetched_at: 2026-11-05T00:05:00.029911+00:00
 ---
 
 # Image release notes: workbench-instances  |  Gemini Enterprise Agent Platform Workbench  |  Google Cloud Documentation
@@ -41,6 +41,14 @@ Installed latest packages from upstream dependencies.
 Security
 
 Updated the CA certificate configuration.
+
+Fixed
+
+Changes to the idle shutdown timeout now take effect on running instances without a restart. Previously, an instance could still be stopped after the old timeout until it was restarted.
+
+Fixed
+
+Fixed an issue where temporary metadata server errors could delay idle shutdown or stop it from working until the instance was restarted.
 
 ## October 20, 2026
 

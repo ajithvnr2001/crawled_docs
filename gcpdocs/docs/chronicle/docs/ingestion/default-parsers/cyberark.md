@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/cyberark/
 title: Collect CyberArk logs \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T07:53:57.861253+00:00
+fetched_at: 2026-11-04T23:42:45.555479+00:00
 ---
 
 # Collect CyberArk logs  |  Google Security Operations  |  Google Cloud Documentation

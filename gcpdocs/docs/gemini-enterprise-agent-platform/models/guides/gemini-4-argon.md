@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/guides/gemini-4-argon/
 title: Developer's guide to Gemini 4 Argon \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-03T09:53:09.804133+00:00
+fetched_at: 2026-11-04T23:16:20.043555+00:00
 ---
 
 # Developer's guide to Gemini 4 Argon  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation
@@ -30,7 +30,7 @@ This document covers what's new with 4 Argon, the API conventions it enforces, h
   * **Unified input and output token limit** : 4 Argon has a unified 1,048,576-token limit that includes both input and output tokens (where output includes thinking, function calls, and the final response).
   * **Long decodes up to 1,048,576 tokens** : Extends generation beyond the single-request output limit (65,536 tokens, or 32,768 tokens for non-streaming direct HTTP requests) up to 1,048,576 tokens (minus your input tokens) on `GenerateContent`. The Google Gen AI SDK handles `continuation_token` automatically across requests, or you can manage `continuation_token` in your own continuation loop.
   * **Thinking levels** : `LOW`, `MEDIUM` (default on `gemini-4-argon`), and `HIGH` (default on `gemini-4-argon-cyber-permissive`).
-  * **Implicit caching with durable caching** : Implicit caching applies automatically to shared prompt prefixes of 6,144 tokens or more, with durable caching enabled by default. Explicit context caching isn't supported.
+  * **Implicit caching with durable caching** : Implicit caching applies automatically to shared prompt prefixes of 4,096 tokens or more, with durable caching enabled by default. Explicit context caching isn't supported.
   * **Agentic video understanding** : Generally available, and off by default.
 
 
@@ -282,13 +282,13 @@ Best for | Most applications | REST callers and custom harnesses that stream | S
       * **Token counting, compaction, and 95% implicit cache discount** : 
         * In the Python Google Gen AI SDK (`generate_content` and `generate_content_stream`), the final response or chunk's `usage_metadata` accumulates total billed tokens across continuation requests. Because each continuation request re-prefills prior partial completions as input tokens, `prompt_token_count` increases cumulatively across continuation requests—don't use `prompt_token_count` to trigger context compaction in agent harnesses. Instead, read `initial_prompt_token_count` (on `GenerateContentResponse` or `usage_metadata`), and wait until `GenerateContent` completes (no `continuation_token` present) before compacting.
         * In custom REST loops, `usage_metadata` is cumulative within each request; sum the final `prompt_token_count`, `cached_content_token_count`, `candidates_token_count`, and `thoughts_token_count` across requests.
-        * Each continuation request re-prefills the prompt plus prior decoded tokens and automatically receives the 95% implicit context caching discount (6,144-token minimum) when requests run back-to-back within the 15–20 minute cache TTL.
+        * Each continuation request re-prefills the prompt plus prior decoded tokens and automatically receives the 95% implicit context caching discount (4,096-token minimum) when requests run back-to-back within the 15–20 minute cache TTL.
         * `streamGenerateContent` and `generateContent` return `usage_metadata` at the end of each request (65,536 streaming / 32,768 unary), and billing occurs at the end of the request.
   * **Ignored sampling parameters (`temperature`, `top_k`, `top_p`)**: The backend ignores custom values. Control reasoning depth with `thinking_level`, and output format with `response_schema`.
 
   * **Unsupported parameters (`frequency_penalty`, `presence_penalty`, `candidate_count`)**: These return an HTTP `400` error. Remove them from your requests.
 
-  * **Context caching** : Explicit context caching isn't supported. Implicit caching (with durable caching enabled by default) applies automatically to shared prompt prefixes of 6,144 tokens or more, so put static content at the start of your prompt.
+  * **Context caching** : Explicit context caching isn't supported. Implicit caching (with durable caching enabled by default) applies automatically to shared prompt prefixes of 4,096 tokens or more, so put static content at the start of your prompt.
 
   * **Agentic video** : Uploaded videos default to `media_processing="static"`. Set `media_processing="agentic"` to enable [agentic video processing](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/video-understanding#agentic-video-processing).
 
@@ -363,7 +363,7 @@ To migrate from `gemini-3.1-pro-preview`, do the following:
   1. **Update the model ID** to `gemini-4-argon` (or `gemini-4-argon-cyber-permissive` for Fairwind-approved cybersecurity workloads).
   2. **Upgrade to the latest Google Gen AI SDK and account for the unified input and output token limit** : Upgrade to `google-genai >= 2.30.1` (Python), `@google/genai >= 2.29.1` (JavaScript), or the equivalent latest Google Gen AI SDK. Input and output tokens (including thinking and function calls) share the unified 1,048,576-token limit. For outputs exceeding 65,536 tokens (up to 1,048,576 tokens) on `GenerateContent`, set `max_output_tokens` greater than 65,536 so the Google Gen AI SDK continues automatically across requests (or handle `continuation_token` in your own REST loop).
   3. **Replace the reasoning budget parameter** : Replace `thinking_budget` and `MINIMAL` with `thinking_level` set to `LOW`, `MEDIUM` (default on `gemini-4-argon`), or `HIGH` (default on `gemini-4-argon-cyber-permissive`).
-  4. **Remove explicit caching** and front-load static prompt content (6,144 tokens or more) for automatic implicit caching.
+  4. **Remove explicit caching** and front-load static prompt content (4,096 tokens or more) for automatic implicit caching.
   5. **Remove parameters that have no effect or aren't supported** : 
      * Remove `temperature`, `top_p`, and `top_k`, which are ignored.
      * Remove `candidate_count`, `frequency_penalty`, and `presence_penalty`.
@@ -385,7 +385,7 @@ Remove the following parameters: `frequency_penalty`, `presence_penalty`, `candi
 
 Remove any prefilled model turns from multi-turn chat request histories. 
 
-Remove explicit caching calls, and put static prompt content (6,144 tokens or more) first for implicit caching. 
+Remove explicit caching calls, and put static prompt content (4,096 tokens or more) first for implicit caching. 
 
 ## Known issues
 
@@ -406,6 +406,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-02 UTC.
+Last updated 2026-11-04 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-02 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 

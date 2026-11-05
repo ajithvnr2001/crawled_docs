@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/error-reporting/docs/setup/nodejs/
 title: Instrument Node.js apps for Error Reporting \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T08:00:40.220686+00:00
+fetched_at: 2026-11-04T23:45:17.435014+00:00
 ---
 
 # Instrument Node.js apps for Error Reporting  |  Google Cloud Documentation

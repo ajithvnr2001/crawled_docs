@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/storage/docs/google-integration/
 title: Integration with Google Cloud services and tools \u00a0|\u00a0 Cloud Storage \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T06:00:44.676645+00:00
+fetched_at: 2026-11-04T23:32:19.240466+00:00
 ---
 
 # Integration with Google Cloud services and tools  |  Cloud Storage  |  Google Cloud Documentation
@@ -28,6 +28,13 @@ For a list of Google Cloud products that are integrated specifically with Cloud 
 Product | Links  
 ---|---  
 [AI Hypercomputer](https://docs.cloud.google.com/ai-hypercomputer/docs/overview) | Use Cloud Storage to store large scale training data for GPU and TPU clusters, and use Cloud Storage FUSE for most artificial intelligence (AI) and machine learning (ML) use cases. For more information, see [Storage services](https://docs.cloud.google.com/ai-hypercomputer/docs/storage).  
+[AlloyDB for PostgreSQL](https://docs.cloud.google.com/alloydb/docs/overview) | Query data stored in Cloud Storage and manage database import and export tasks: 
+
+  * [ Access Apache Iceberg data from AlloyDB](https://docs.cloud.google.com/alloydb/docs/access-iceberg-data-from-alloydb)
+  * [ Import SQL data from Cloud Storage into AlloyDB](https://docs.cloud.google.com/alloydb/docs/import-sql-file)
+  * [ Export SQL data from AlloyDB to Cloud Storage](https://docs.cloud.google.com/alloydb/docs/export-sql-file)
+
+  
 [App Engine](https://docs.cloud.google.com/appengine/docs/an-overview-of-app-engine) | Use Cloud Storage to [store your static assets](https://docs.cloud.google.com/appengine/docs/standard/using-cloud-storage) when using App Engine.  
 [BigQuery](https://docs.cloud.google.com/bigquery/docs/introduction) | Use Cloud Storage when querying, importing, or exporting data: 
 
@@ -101,7 +108,7 @@ Product | Links
   * [ Learn about the Cloud Storage connector](https://docs.cloud.google.com/dataproc/docs/concepts/connectors/cloud-storage)
 
   
-[ Development Tools](https://docs.cloud.google.com/products/tools) | Add extensions to your development tools for fast access to your Cloud Storage buckets and objects: 
+[ Development Tools](https://cloud.google.com/products/tools) | Add extensions to your development tools for fast access to your Cloud Storage buckets and objects: 
 
   * [ Browse resources in Cloud Storage with Cloud Code for IntelliJ](https://docs.cloud.google.com/code/docs/intellij/gcs)
 
@@ -166,6 +173,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-30 UTC.
+Last updated 2026-11-04 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/tableau/
 title: Collect Tableau logs \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T07:49:15.875750+00:00
+fetched_at: 2026-11-04T23:34:59.396396+00:00
 ---
 
 # Collect Tableau logs  |  Google Security Operations  |  Google Cloud Documentation

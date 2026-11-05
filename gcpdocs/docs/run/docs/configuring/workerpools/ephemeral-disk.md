@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/run/docs/configuring/workerpools/ephemeral-disk/
 title: Configure an ephemeral disk for Cloud Run worker pools \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T05:50:04.546879+00:00
+fetched_at: 2026-11-04T23:41:25.524253+00:00
 ---
 
 # Configure an ephemeral disk for Cloud Run worker pools  |  Google Cloud Documentation
@@ -20,10 +20,6 @@ fetched_at: 2026-10-31T05:50:04.546879+00:00
 Send feedback 
 
 #  Configure an ephemeral disk for Cloud Run worker pools Stay organized with collections  Save and categorize content based on your preferences. 
-
-**Preview — Use Cloud Run volume mounts to mount an ephemeral disk**
-
-This feature is subject to the "Pre-GA Offerings Terms" in the General Service Terms section of the [Service Specific Terms](https://docs.cloud.google.com/terms/service-terms#1). Pre-GA features are available "as is" and might have limited support. For more information, see the [launch stage descriptions](https://cloud.google.com/products/#product-launch-stages). 
 
 Cloud Run provides an ephemeral disk volume that persists only for the duration of your instance. This feature lets you specify the amount of disk you need and the location for mounting it. Cloud Run will then allocate that amount of disk to your resource.
 
@@ -162,7 +158,7 @@ You can create and mount an ephemeral disk using the Google Cloud console, Googl
 To add a volume and mount it:
     
     
-    gcloud beta run worker-pools update WORKERPOOL \
+    gcloud run worker-pools update WORKERPOOL \
         --add-volume=name=VOLUME_NAME,type=ephemeral-disk,size=SIZE \
         --add-volume-mount=volume=VOLUME_NAME,mount-path=MOUNT_PATH
     
@@ -190,8 +186,6 @@ Replace the following:
            name: WORKER_POOL
            labels:
              cloud.googleapis.com/location: REGION
-           annotations:
-             run.googleapis.com/launch-stage: BETA
          spec:
            template:
              spec:
@@ -235,7 +229,6 @@ To learn how to apply or remove a Terraform configuration, see [Basic Terraform 
         name     = "WORKER_POOL"
         location = "REGION"
         deletion_protection = "true"
-        launch_stage = "BETA"
         template {
           containers {
             image = "IMAGE_URL"
@@ -392,6 +385,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-30 UTC.
+Last updated 2026-11-04 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 

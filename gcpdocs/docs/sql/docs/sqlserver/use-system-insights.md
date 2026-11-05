@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sql/docs/sqlserver/use-system-insights/
 title: Use system insights to improve system performance \u00a0|\u00a0 Cloud SQL for SQL Server \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T09:39:36.016439+00:00
+fetched_at: 2026-11-04T23:31:12.251416+00:00
 ---
 
 # Use system insights to improve system performance  |  Cloud SQL for SQL Server  |  Google Cloud Documentation
@@ -121,9 +121,26 @@ To save this customized view as a metric chart, click **Save to dashboard**.
 
 The following table describes the Cloud SQL metrics that appear by default on the Cloud SQL System insights dashboard.
 
-The metric type strings follow this prefix: `cloudsql.googleapis.com/database/`.
+The metric type strings follow one of the following prefixes:
 
-**Note:** Cloud SQL for SQL Server instances with more than 500 databases report a single aggregated value for database metrics.Metric name and type| Description  
+  * `cloudsql.googleapis.com/database/`
+  * `cloudsql.googleapis.com/per_database/`
+
+**Note:** Cloud SQL for SQL Server instances with more than 500 databases report a single aggregated value for database metrics.
+
+Metrics are grouped by category:
+
+  * Resource utilization
+  * Memory
+  * Performance
+  * Replication
+  * Other
+
+
+
+### Resource utilization
+
+Metric name and type| Description  
 ---|---  
 CPU utilization  
 `database/cpu/utilization` | The current CPU utilization represented as a percentage of the reserved CPU that's currently in use.   
@@ -138,13 +155,18 @@ Disk quota
 Disk storage by type  
 `database/disk/bytes_used_by_data_type` | The breakdown of instance disk usage by data types, including `Data`, `pitr_transaction_log_backups`, `Logs`, `error_logs`, `memory_dumps`, and `Other`. This metric helps you understand your storage costs. For more information about storage usage charges, see [Storage and networking pricing](https://cloud.google.com/sql/pricing#storage-networking-prices). Cloud SQL uses transaction log backups for [point-in-time recovery (PITR)](https://docs.cloud.google.com/sql/docs/sqlserver/backup-recovery/restore#tips-pitr). When transaction logs for PITR are stored on disk, these logs use storage space (reported under `pitr_transaction_log_backups`) and are deleted automatically with their associated automatic backups after the retention period set for [`transactionLogRetentionDays`](https://docs.cloud.google.com/sql/docs/sqlserver/admin-api/rest/v1/instances#BackupConfiguration.FIELDS.transaction_log_retention_days) is met. `transactionLogRetentionDays` is the number of days for which Cloud SQL retains transaction logs for PITR, from `1` to `35` for Cloud SQL Enterprise Plus edition and `1` to `7` for Cloud SQL Enterprise edition. For instances that store transaction logs in Cloud Storage, the logs are stored in the same region as the primary instance and don't consume instance disk space. To avoid unexpected storage issues while using PITR when logs are stored on disk, we recommend that you enable [automatic storage increases](https://docs.cloud.google.com/sql/docs/sqlserver/instance-settings#automatic-storage-increase-2ndgen).  
 Disk read I/O  
-`database/disk/read_ops_count` | The change in count of data disk read I/O operations since the preview reported metric. Sampled every 60 seconds.   
+`database/disk/read_ops_count` | The change in count of data disk read I/O operations since the previous reported metric. Sampled every 60 seconds.   
 Disk write I/O  
-`database/disk/write_ops_count` | The change in count of data disk write I/O operations since the preview reported metric. Sampled every 60 seconds.   
+`database/disk/write_ops_count` | The change in count of data disk write I/O operations since the previous reported metric. Sampled every 60 seconds.   
 Received bytes  
-`database/network/received_bytes_count` | The change in count of bytes received through the network since the preview reported metric. Sampled every 60 seconds.   
+`database/network/received_bytes_count` | The change in count of bytes received through the network since the previous reported metric. Sampled every 60 seconds.   
 Sent bytes  
-`database/network/sent_bytes_count` | The change in count of bytes sent through the network since the preview reported metric. Sampled every 60 seconds.   
+`database/network/sent_bytes_count` | The change in count of bytes sent through the network since the previous reported metric. Sampled every 60 seconds.   
+  
+### Memory
+
+Metric name and type| Description  
+---|---  
 Buffer cache hit ratio  
 `database/sqlserver/memory/buffer_cache_hit_ratio` | The current percentage of pages found in the buffer cache without having to read from disk. The ratio is the total number of cache hits divided by the total number of cache lookups.   
 Memory grants pending  
@@ -165,6 +187,15 @@ Page operations
 `database/sqlserver/memory/page_operation_count` | The total number of physical database page reads or writes. This statistic counts physical page reads or writes across all databases.   
 Page splits  
 `database/sqlserver/transaction/page_split_count` | The total number of page splits that occur as the result of overflowing index pages.   
+Engine memory  
+`database/sqlserver/memory/committed_kb`  
+  
+`database/sqlserver/memory/committed_target_kb` | The memory committed in the SQL Server memory manager, in kilobytes (KB). **Committed** (`committed_kb`) is the amount of memory committed by the memory manager, excluding reserved memory. **Committed Target** (`committed_target_kb`) is the amount of memory that the memory manager can consume. If **Committed Target** is larger than **Committed** , then the memory manager tries to obtain more memory. If **Committed Target** is smaller than **Committed** , then the memory manager tries to shrink the amount of committed memory.  
+  
+### Performance
+
+Metric name and type| Description  
+---|---  
 Deadlocks  
 `database/sqlserver/transaction/deadlock_count` | The total number of lock requests that resulted in a deadlock.   
 Transactions started  
@@ -181,8 +212,46 @@ Lock wait time
 `database/sqlserver/transactions/lock_wait_time` | The total time lock requests were waiting for locks.   
 Lock waits  
 `database/sqlserver/transactions/lock_wait_count` | The total number of lock requests that required the caller to wait.   
+Wait time  
+`database/sqlserver/wait_time` | The amount of time spent waiting, per second. By default, the dashboard groups this metric by wait category. You can also group it by wait type.   
+Wait count  
+`database/sqlserver/wait_count` | The number of waits per second. By default, the dashboard groups this metric by wait category. You can also group it by wait type.   
+Average batch execution time  
+`database/sqlserver/transactions/batch_requests_elapsed_time`  
+  
+`database/sqlserver/transactions/batch_requests_elapsed_time_count` | The average time, in milliseconds, to run Transact-SQL command batches. This value is calculated by dividing the total elapsed time of completed batch requests by the number of completed batch requests.   
+Average batch execution CPU time  
+`database/sqlserver/transactions/batch_requests_cpu_time`  
+  
+`database/sqlserver/transactions/batch_requests_cpu_time_count` | The average CPU time, in milliseconds, to run Transact-SQL command batches. This value is calculated by dividing the total CPU time of completed batch requests by the number of completed batch requests.   
+  
+### Replication
+
+Metric name and type| Description  
+---|---  
+Replication visibility delay  
+`per_database/sqlserver/replication/delay` | The time difference, in seconds, between the most recent transaction committed on the primary instance and the commit time of the most recent transaction redone on the read replica.  
+  
+_Note: This metric appears on the dashboard only if the instance is a primary instance with read replicas or read pools, or if the instance is a read replica or in a read pool._  
+Estimated data loss window  
+`per_database/sqlserver/replication/seconds_behind_master` | The number of seconds since the [hardening](https://learn.microsoft.com/en-us/azure/well-architected/security/harden-resources) of the earliest hardened [log sequence number (LSN)](https://learn.microsoft.com/en-us/sql/relational-databases/sql-server-transaction-log-architecture-and-management-guide?view=sql-server-ver17) on the primary instance that is yet to be hardened on the read replica. When performing a failover or promoting a replica, choose the replica with the lowest value for this metric to minimize data loss.  
+  
+_Note: This metric appears on the dashboard only if the instance is a primary instance with read replicas or read pools, or if the instance is a read replica or in a read pool._  
+Redo queue size  
+`per_database/sqlserver/replication/redo_queue_size` | The number of log records in the log files of the read replica that aren't yet redone.  
+  
+_Note: This metric appears on the dashboard only if the instance is a primary instance with read replicas or read pools, or if the instance is a read replica or in a read pool._  
+Logsend queue size  
+`per_database/sqlserver/replication/logsend_queue_size` | Total size of log records in the log files of the primary database that haven't been sent to the read replica.  
+  
+_Note: This metric appears on the dashboard only if the instance is a primary instance with read replicas or read pools, or if the instance is a read replica or in a read pool._  
+  
+### Other
+
+Metric name and type| Description  
+---|---  
 Cloud SQL connections  
-`database/network/connections` | The number of connections to databases on the Cloud SQL instance.   
+`database/network/connections` | The number of connections to databases on the Cloud SQL instance.  
 Login attempts  
 `database/sqlserver/connections/login_attempt_count` | The total number of login attempts since the last restart of SQL Server service. This does not include pooled connections.   
 Logouts  
@@ -223,6 +292,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-04 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 

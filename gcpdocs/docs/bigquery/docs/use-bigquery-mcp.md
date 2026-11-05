@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/use-bigquery-mcp/
 title: Use the BigQuery MCP server \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T07:58:12.064925+00:00
+fetched_at: 2026-11-04T23:44:59.437165+00:00
 ---
 
 # Use the BigQuery MCP server  |  Google Cloud Documentation

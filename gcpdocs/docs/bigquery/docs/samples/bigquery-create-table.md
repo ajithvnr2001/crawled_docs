@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/samples/bigquery-create-table/
 title: Create table with schema \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T07:48:24.064137+00:00
+fetched_at: 2026-11-04T23:43:41.632824+00:00
 ---
 
 # Create table with schema  |  BigQuery  |  Google Cloud Documentation

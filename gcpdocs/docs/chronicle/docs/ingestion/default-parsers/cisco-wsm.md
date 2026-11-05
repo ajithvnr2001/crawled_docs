@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/cisco-wsm/
 title: Collect Cisco WSM logs \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T07:54:03.293971+00:00
+fetched_at: 2026-11-04T23:35:03.313520+00:00
 ---
 
 # Collect Cisco WSM logs  |  Google Security Operations  |  Google Cloud Documentation

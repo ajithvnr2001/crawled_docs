@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/airwatch/
 title: Collect Omnissa Workspace ONE UEM (formerly VMware AirWatch) logs \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T07:53:06.082738+00:00
+fetched_at: 2026-11-04T23:42:27.461849+00:00
 ---
 
 # Collect Omnissa Workspace ONE UEM (formerly VMware AirWatch) logs  |  Google Security Operations  |  Google Cloud Documentation

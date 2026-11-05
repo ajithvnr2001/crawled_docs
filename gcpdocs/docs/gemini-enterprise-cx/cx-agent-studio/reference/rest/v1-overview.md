@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-cx/cx-agent-studio/reference/rest/v1-overview/
 title: Gemini Enterprise for Customer Experience API \u00a0|\u00a0 CX Agent Studio \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-13T22:22:27.751408+00:00
+fetched_at: 2026-11-04T23:28:28.001837+00:00
 ---
 
 # Gemini Enterprise for Customer Experience API  |  CX Agent Studio  |  Google Cloud Documentation
@@ -26,6 +26,7 @@ Send feedback
   * REST Resource: v1.projects.locations
   * REST Resource: v1.projects.locations.apps
   * REST Resource: v1.projects.locations.apps.agents
+  * REST Resource: v1.projects.locations.apps.assistantSessions
   * REST Resource: v1.projects.locations.apps.changelogs
   * REST Resource: v1.projects.locations.apps.conversations
   * REST Resource: v1.projects.locations.apps.deployments
@@ -109,6 +110,8 @@ Deletes the specified app.
 Executes the given tool with the given arguments.  
 `[exportApp](https://docs.cloud.google.com/gemini-enterprise-cx/cx-agent-studio/reference/rest/v1/projects.locations.apps/exportApp)` |  `POST /v1/{name=projects/*/locations/*/apps/*}:exportApp`   
 Exports the specified app.  
+`[generateOnboardingSuggestions](https://docs.cloud.google.com/gemini-enterprise-cx/cx-agent-studio/reference/rest/v1/projects.locations.apps/generateOnboardingSuggestions)` |  `POST /v1/{name=projects/*/locations/*/apps/*}:generateOnboardingSuggestions`   
+Generates personalized onboarding suggestions for the Arc zero state: classifies the requesting user (new / exploring / returning) from their assistant-session history in the app and returns suggestion chips (resume a session, continue work, or start something new) to render before any message is sent.  
 `[get](https://docs.cloud.google.com/gemini-enterprise-cx/cx-agent-studio/reference/rest/v1/projects.locations.apps/get)` |  `GET /v1/{name=projects/*/locations/*/apps/*}`   
 Gets details of the specified app.  
 `[getExtendedAgentCard](https://docs.cloud.google.com/gemini-enterprise-cx/cx-agent-studio/reference/rest/v1/projects.locations.apps/getExtendedAgentCard)` |  `GET /v1/{tenant=projects/*/locations/*/apps/*}/extendedAgentCard`   
@@ -136,6 +139,15 @@ Gets details of the specified agent.
 Lists agents in the given app.  
 `[patch](https://docs.cloud.google.com/gemini-enterprise-cx/cx-agent-studio/reference/rest/v1/projects.locations.apps.agents/patch)` |  `PATCH /v1/{agent.name=projects/*/locations/*/apps/*/agents/*}`   
 Updates the specified agent.  
+  
+## REST Resource: [v1.projects.locations.apps.assistantSessions](https://docs.cloud.google.com/gemini-enterprise-cx/cx-agent-studio/reference/rest/v1/projects.locations.apps.assistantSessions)
+
+Methods  
+---  
+`[cancelAssistantTurn](https://docs.cloud.google.com/gemini-enterprise-cx/cx-agent-studio/reference/rest/v1/projects.locations.apps.assistantSessions/cancelAssistantTurn)` |  `POST /v1/{name=projects/*/locations/*/apps/*/assistantSessions/*}:cancelAssistantTurn`   
+Cancels the assistant session's in-flight turn, if any: the explicit user stop for a turn running detached from any stream.  
+`[streamChatAiAssistant](https://docs.cloud.google.com/gemini-enterprise-cx/cx-agent-studio/reference/rest/v1/projects.locations.apps.assistantSessions/streamChatAiAssistant)` |  `POST /v1/{name=projects/*/locations/*/apps/*/assistantSessions/*}:streamChatAiAssistant`   
+Runs Arc, the AI assistant, for the specified assistant session in a streaming fashion.  
   
 ## REST Resource: [v1.projects.locations.apps.changelogs](https://docs.cloud.google.com/gemini-enterprise-cx/cx-agent-studio/reference/rest/v1/projects.locations.apps.changelogs)
 
@@ -312,6 +324,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-09-28 UTC.
+Last updated 2026-11-04 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-09-28 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 

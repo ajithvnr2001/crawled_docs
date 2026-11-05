@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/docs/knowledge-catalog-integration/
 title: Manage your AlloyDB resources using Knowledge Catalog \u00a0|\u00a0 AlloyDB for PostgreSQL \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T01:52:23.178099+00:00
+fetched_at: 2026-11-04T23:33:26.208066+00:00
 ---
 
 # Manage your AlloyDB resources using Knowledge Catalog  |  AlloyDB for PostgreSQL  |  Google Cloud Documentation
@@ -327,16 +327,16 @@ You receive a JSON response similar to the following:
     
     
     {
-      "kind": "alloydb#operation",
-      "targetLink": "https://alloydb.googleapis.com/v1/projects/PROJECT_ID/clusters/CLUSTER_ID",
-      "status": "PENDING",
-      "user": "user@example.com",
-      "insertTime": "2024-09-25T22:19:33.735Z",
-      "operationType": "CREATE",
-      "name": "OPERATION_ID",
-      "targetId": "CLUSTER_ID",
-      "selfLink": "https://alloydb.googleapis.com/v1/projects/PROJECT_ID/operations/OPERATION_ID",
-      "targetProject": "PROJECT_ID"
+      "name": "projects/PROJECT_ID/locations/LOCATION_ID/operations/OPERATION_ID",
+      "metadata": {
+        "@type": "type.googleapis.com/google.cloud.alloydb.v1.OperationMetadata",
+        "createTime": "2024-09-25T22:19:33.735Z",
+        "target": "projects/PROJECT_ID/locations/LOCATION_ID/clusters/CLUSTER_ID",
+        "verb": "create",
+        "requestedCancellation": false,
+        "apiVersion": "v1"
+      },
+      "done": false
     }
 
 ## Enable the Knowledge Catalog integration for your AlloyDB cluster
@@ -426,16 +426,16 @@ You receive a JSON response similar to the following:
     
     
     {
-      "kind": "alloydb#operation",
-      "targetLink": "https://alloydb.googleapis.com/v1/projects/PROJECT_ID/clusters/CLUSTER_ID",
-      "status": "PENDING",
-      "user": "user@example.com",
-      "insertTime": "2024-09-25T22:19:33.735Z",
-      "operationType": "UPDATE",
-      "name": "OPERATION_ID",
-      "targetId": "CLUSTER_ID",
-      "selfLink": "https://alloydb.googleapis.com/v1/projects/PROJECT_ID/operations/OPERATION_ID",
-      "targetProject": "PROJECT_ID"
+      "name": "projects/PROJECT_ID/locations/LOCATION_ID/operations/OPERATION_ID",
+      "metadata": {
+        "@type": "type.googleapis.com/google.cloud.alloydb.v1.OperationMetadata",
+        "createTime": "2024-09-25T22:19:33.735Z",
+        "target": "projects/PROJECT_ID/locations/LOCATION_ID/clusters/CLUSTER_ID",
+        "verb": "update",
+        "requestedCancellation": false,
+        "apiVersion": "v1"
+      },
+      "done": false
     }
 
 ## Verify Knowledge Catalog integration on your AlloyDB cluster
@@ -518,6 +518,8 @@ You receive a JSON response for the entire Cluster proto, which includes the `da
         "enabled": true
       }
     }
+
+**Note:** If Knowledge Catalog integration is disabled on the cluster, the API returns `"dataplexConfig": {}` because proto3 omits fields with default values. 
 
 ## Deactivate the integration of Knowledge Catalog on your AlloyDB cluster
 
@@ -606,16 +608,16 @@ You receive a JSON response similar to the following:
     
     
     {
-      "kind": "alloydb#operation",
-      "targetLink": "https://alloydb.googleapis.com/v1/projects/PROJECT_ID/clusters/CLUSTER_ID",
-      "status": "PENDING",
-      "user": "user@example.com",
-      "insertTime": "2024-01-16T02:32:12.281Z",
-      "operationType": "UPDATE",
-      "name": "OPERATION_ID",
-      "targetId": "CLUSTER_ID",
-      "selfLink": "https://alloydb.googleapis.com/v1/projects/PROJECT_ID/operations/OPERATION_ID",
-      "targetProject": "PROJECT_ID"
+      "name": "projects/PROJECT_ID/locations/LOCATION_ID/operations/OPERATION_ID",
+      "metadata": {
+        "@type": "type.googleapis.com/google.cloud.alloydb.v1.OperationMetadata",
+        "createTime": "2024-01-16T02:32:12.281Z",
+        "target": "projects/PROJECT_ID/locations/LOCATION_ID/clusters/CLUSTER_ID",
+        "verb": "update",
+        "requestedCancellation": false,
+        "apiVersion": "v1"
+      },
+      "done": false
     }
 
 ## Enrich AlloyDB assets with aspects
@@ -699,7 +701,7 @@ Replace the following:
 An example query might look like the following:
     
     
-    type="projects/1234567890/locations/global/entryTypes/alloydb-cluster"
+    type="projects/dataplex-types/locations/global/entryTypes/alloydb-cluster"
     
 
 ## Search by aspect type
@@ -795,6 +797,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-04 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 

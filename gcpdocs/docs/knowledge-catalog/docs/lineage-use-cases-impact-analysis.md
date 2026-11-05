@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/knowledge-catalog/docs/lineage-use-cases-impact-analysis/
 title: Analyze the impact of data changes on workflows \u00a0|\u00a0 Knowledge Catalog \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T20:27:44.722372+00:00
+fetched_at: 2026-11-04T23:16:59.748598+00:00
 ---
 
 # Analyze the impact of data changes on workflows  |  Knowledge Catalog  |  Google Cloud Documentation
@@ -23,9 +23,9 @@ Send feedback
 
 #  Analyze the impact of data changes on workflows Stay organized with collections  Save and categorize content based on your preferences. 
 
-In this scenario, you maintain a database that stores records about how various services provided by a healthcare provider are used. To make the data easier to use, you browse the tables to identify potential changes. Before you implement the changes, you identify if any improvements affect existing workflows and if additional adjustments are necessary.
+Data lineage in Knowledge Catalog (formerly Dataplex Universal Catalog) lets you track how data transformations affect downstream resources and the workflows that depend on them. Tracing column-level dependencies before you modify tables helps you verify data integrity and determine whether existing pipelines require adjustments.
 
-In this tutorial, use data lineage to identify how data transformations affect downstream resources and the workflows the resources are part of.
+In this tutorial, you maintain a database that stores records about how various services provided by a healthcare provider are used. To make the data easier to use, you browse the tables to identify potential changes. Before you implement the changes, you use BigQuery **Lineage Explorer** to examine columns, inspect data type changes, and identify if any improvements affect existing workflows or require additional adjustments.
 
 ## Get started
 
@@ -82,6 +82,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-04 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 

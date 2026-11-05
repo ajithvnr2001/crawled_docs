@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chronicle/docs/secops/understand-the-secops-platform/
 title: Understand the Google SecOps platform \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T10:10:46.138834+00:00
+fetched_at: 2026-11-04T23:34:06.495130+00:00
 ---
 
 # Understand the Google SecOps platform  |  Google Security Operations  |  Google Cloud Documentation
@@ -54,14 +54,6 @@ The legacy SOAR dashboards display information on cases, playbooks, and SOC anal
 
 For general information about dashboards, see [Dashboards overview](https://docs.cloud.google.com/chronicle/docs/reports/native-dashboards2). 
 
-## SIEM Settings and SOAR Settings
-
-The majority of the SOAR administration and configuration is located within the SOAR Settings, and the majority of the SIEM administration and configuration is located within the SIEM Settings. The permissions are set separately for each side of the platform and there is no dependency between them. For example, you could choose to limit permissions to Playbooks in the SOAR Settings for certain user groups while giving full permissions to all modules in the SIEM Settings. 
-
-For details about data retention, see [Configure SIEM data retention](https://docs.cloud.google.com/chronicle/docs/about/data-retention). 
-
-For information about SOAR data-retention settings, refer to [Configure SOAR data retention](https://docs.cloud.google.com/chronicle/docs/soar/admin-tasks/advanced/define-system-data-retention). 
-
 ## Ingesting data using Google SecOps SIEM and third-party SIEM systems
 
 The Google SecOps platform lets you not only ingest alerts using the inbuilt SIEM platform (which ingests raw logs using connectors and data feeds) but also accepts alerts from third-party SIEM systems and tools (using SOAR > Connectors and Webhooks). 
@@ -75,6 +67,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-28 UTC.
+Last updated 2026-11-04 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 

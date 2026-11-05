@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/storage/docs/json_api/v1/folders/rename/
 title: Folder: rename \u00a0|\u00a0 Cloud Storage \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T06:02:04.280909+00:00
+fetched_at: 2026-11-05T00:19:31.588415+00:00
 ---
 
 # Folder: rename  |  Cloud Storage  |  Google Cloud Documentation
@@ -108,7 +108,7 @@ Where:
 
   
 `done` | `boolean` | If `false`, indicates that the operation is still in progress, and neither `error` nor `response` is set. If `true`, it indicates that the operation is completed and either `error` or `response` is set.  
-`error` | `object` | If the operation fails, this field is returned in the response body and contains the error details. The rename operation fails if any of the child folders exceed either the maximum folder name length limit or maximum folder depth limit. For information about folder name length and folder depth limits, see [Considerations](https://docs.cloud.google.com/storage/docs/folders-overview#considerations).  
+`error` | `object` | If the operation fails, this field is returned in the response body and contains the error details. The rename operation fails if any of the child folders exceed either the maximum folder name length limit or maximum folder depth limit. For information about folder name length and folder depth limits, see [Folder naming guidelines](https://docs.cloud.google.com/storage/docs/folders-overview#naming).  
 If a failure occurs, the folders are reverted to their original state prior to the rename attempt. For information about status and error codes returned by this API, see the [reference page](https://docs.cloud.google.com/storage/docs/json_api/v1/status-codes).  
 `response` | `object` | If the operation succeeds, an object of type `google.storage.control.v2.Folder` is returned. 
     
@@ -137,6 +137,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-30 UTC.
+Last updated 2026-11-03 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/compute/docs/samples/compute-template-create-with-subnet/
 title: Create an instance template with a subnet \u00a0|\u00a0 Compute Engine \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T07:48:37.832244+00:00
+fetched_at: 2026-11-04T23:31:10.274672+00:00
 ---
 
 # Create an instance template with a subnet  |  Compute Engine  |  Google Cloud Documentation
@@ -56,7 +56,7 @@ To authenticate to Compute Engine, set up Application Default Credentials. For m
     	// templateName := "your_template_name"
     
     	ctx := context.Background()
-    	instanceTemplatesClient, err := compute.NewInstanceTemplatesRESTClient(ctx)
+    	instanceTemplatesClient, err := compute.[NewInstanceTemplatesRESTClient](https://docs.cloud.google.com/go/docs/reference/cloud.google.com/go/compute/latest/apiv1.html#cloud_google_com_go_compute_apiv1_InstanceTemplatesClient_NewInstanceTemplatesRESTClient)(ctx)
     	if err != nil {
     		return fmt.Errorf("NewInstanceTemplatesRESTClient: %w", err)
     	}
@@ -113,15 +113,15 @@ Before trying this sample, follow the Java setup instructions in the [Compute En
 To authenticate to Compute Engine, set up Application Default Credentials. For more information, see [Set up authentication for a local development environment](https://docs.cloud.google.com/docs/authentication/set-up-adc-local-dev-environment). 
     
     
-    import com.google.cloud.compute.v1.AttachedDisk;
-    import com.google.cloud.compute.v1.AttachedDiskInitializeParams;
-    import com.google.cloud.compute.v1.GlobalOperationsClient;
-    import com.google.cloud.compute.v1.InsertInstanceTemplateRequest;
-    import com.google.cloud.compute.v1.InstanceProperties;
-    import com.google.cloud.compute.v1.InstanceTemplate;
-    import com.google.cloud.compute.v1.InstanceTemplatesClient;
-    import com.google.cloud.compute.v1.NetworkInterface;
-    import com.google.cloud.compute.v1.Operation;
+    import com.google.cloud.compute.v1.[AttachedDisk](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.AttachedDisk.html);
+    import com.google.cloud.compute.v1.[AttachedDiskInitializeParams](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.AttachedDiskInitializeParams.html);
+    import com.google.cloud.compute.v1.[GlobalOperationsClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.GlobalOperationsClient.html);
+    import com.google.cloud.compute.v1.[InsertInstanceTemplateRequest](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.InsertInstanceTemplateRequest.html);
+    import com.google.cloud.compute.v1.[InstanceProperties](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.InstanceProperties.html);
+    import com.google.cloud.compute.v1.[InstanceTemplate](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.InstanceTemplate.html);
+    import com.google.cloud.compute.v1.[InstanceTemplatesClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.InstanceTemplatesClient.html);
+    import com.google.cloud.compute.v1.[NetworkInterface](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.NetworkInterface.html);
+    import com.google.cloud.compute.v1.[Operation](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.Operation.html);
     import java.io.IOException;
     import java.util.concurrent.ExecutionException;
     import java.util.concurrent.TimeUnit;
@@ -152,11 +152,11 @@ To authenticate to Compute Engine, set up Application Default Credentials. For m
       public static void createTemplateWithSubnet(String projectId, String network, String subnetwork,
           String templateName)
           throws IOException, ExecutionException, InterruptedException, TimeoutException {
-        try (InstanceTemplatesClient instanceTemplatesClient = InstanceTemplatesClient.create();
-            GlobalOperationsClient globalOperationsClient = GlobalOperationsClient.create()) {
+        try ([InstanceTemplatesClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.InstanceTemplatesClient.html) instanceTemplatesClient = [InstanceTemplatesClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.InstanceTemplatesClient.html).create();
+            [GlobalOperationsClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.GlobalOperationsClient.html) globalOperationsClient = [GlobalOperationsClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.GlobalOperationsClient.html).create()) {
     
-          AttachedDisk disk = AttachedDisk.newBuilder()
-              .setInitializeParams(AttachedDiskInitializeParams.newBuilder()
+          [AttachedDisk](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.AttachedDisk.html) disk = [AttachedDisk](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.AttachedDisk.html).newBuilder()
+              .[setInitializeParams](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.AttachedDisk.Builder.html#com_google_cloud_compute_v1_AttachedDisk_Builder_setInitializeParams_com_google_cloud_compute_v1_AttachedDiskInitializeParams_)([AttachedDiskInitializeParams](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.AttachedDiskInitializeParams.html).newBuilder()
                   .setSourceImage(
                       String.format("projects/%s/global/images/family/%s", "debian-cloud", "debian-13"))
                   .setDiskSizeGb(250).build())
@@ -164,36 +164,36 @@ To authenticate to Compute Engine, set up Application Default Credentials. For m
               .setBoot(true)
               .build();
     
-          InstanceProperties instanceProperties = InstanceProperties.newBuilder()
+          [InstanceProperties](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.InstanceProperties.html) instanceProperties = [InstanceProperties](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.InstanceProperties.html).newBuilder()
               .addDisks(disk)
               .setMachineType("e2-standard-4")
-              .addNetworkInterfaces(NetworkInterface.newBuilder()
+              .addNetworkInterfaces([NetworkInterface](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.NetworkInterface.html).newBuilder()
                   .setNetwork(network)
                   .setSubnetwork(subnetwork).build())
               .build();
     
-          InstanceTemplate instanceTemplate = InstanceTemplate.newBuilder()
+          [InstanceTemplate](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.InstanceTemplate.html) instanceTemplate = [InstanceTemplate](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.InstanceTemplate.html).newBuilder()
               .setName(templateName)
               .setProperties(instanceProperties)
               .build();
     
-          InsertInstanceTemplateRequest insertInstanceTemplateRequest = InsertInstanceTemplateRequest
+          [InsertInstanceTemplateRequest](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.InsertInstanceTemplateRequest.html) insertInstanceTemplateRequest = [InsertInstanceTemplateRequest](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.InsertInstanceTemplateRequest.html)
               .newBuilder()
               .setProject(projectId)
               .setInstanceTemplateResource(instanceTemplate)
               .build();
     
-          Operation operation = instanceTemplatesClient.insertCallable()
+          [Operation](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.Operation.html) operation = instanceTemplatesClient.insertCallable()
               .futureCall(insertInstanceTemplateRequest).get(3, TimeUnit.MINUTES);
     
-          Operation response = globalOperationsClient.wait(projectId, operation.getName());
+          [Operation](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.Operation.html) response = globalOperationsClient.wait(projectId, operation.[getName](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.Operation.html#com_google_cloud_compute_v1_Operation_getName__)());
     
-          if (response.hasError()) {
+          if (response.[hasError](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.Operation.html#com_google_cloud_compute_v1_Operation_hasError__)()) {
             System.out.println("Template creation from subnet failed ! ! " + response);
             return;
           }
           System.out.printf("Template creation from subnet operation status %s: %s", templateName,
-              response.getStatus());
+              response.[getStatus](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.Operation.html#com_google_cloud_compute_v1_Operation_getStatus__)());
         }
       }
     }
@@ -213,11 +213,11 @@ To authenticate to Compute Engine, set up Application Default Credentials. For m
     // const subnetwork = 'projects/project/regions/region/subnetworks/subnetwork';
     // const templateName = 'your_template_name';
     
-    const compute = require('@google-cloud/compute');
+    const compute = require('[@google-cloud/compute](https://docs.cloud.google.com/nodejs/docs/reference/compute/latest/overview.html)');
     
     // Create an instance template that uses a provided subnet.
     async function createTemplateWithSubnet() {
-      const instanceTemplatesClient = new compute.InstanceTemplatesClient();
+      const instanceTemplatesClient = new compute.[InstanceTemplatesClient](https://docs.cloud.google.com/nodejs/docs/reference/compute/latest/overview.html)();
     
       const [response] = await instanceTemplatesClient.insert({
         project: projectId,
@@ -251,7 +251,7 @@ To authenticate to Compute Engine, set up Application Default Credentials. For m
         },
       });
       let operation = response.latestResponse;
-      const operationsClient = new compute.GlobalOperationsClient();
+      const operationsClient = new compute.[GlobalOperationsClient](https://docs.cloud.google.com/nodejs/docs/reference/compute/latest/overview.html)();
     
       // Wait for the create operation to complete.
       while (operation.status !== 'DONE') {
@@ -279,7 +279,7 @@ To authenticate to Compute Engine, set up Application Default Credentials. For m
     from typing import Any
     
     from google.api_core.extended_operation import ExtendedOperation
-    from google.cloud import compute_v1
+    from google.cloud import [compute_v1](https://docs.cloud.google.com/python/docs/reference/compute/latest)
     
     
     def wait_for_extended_operation(
@@ -349,8 +349,8 @@ To authenticate to Compute Engine, set up Application Default Credentials. For m
         """
         # The template describes the size and source image of the book disk to
         # attach to the instance.
-        disk = compute_v1.AttachedDisk()
-        initialize_params = compute_v1.AttachedDiskInitializeParams()
+        disk = [compute_v1](https://docs.cloud.google.com/python/docs/reference/compute/latest).[AttachedDisk](https://docs.cloud.google.com/python/docs/reference/compute/latest/google.cloud.compute_v1.types.AttachedDisk.html)()
+        initialize_params = [compute_v1](https://docs.cloud.google.com/python/docs/reference/compute/latest).[AttachedDiskInitializeParams](https://docs.cloud.google.com/python/docs/reference/compute/latest/google.cloud.compute_v1.types.AttachedDiskInitializeParams.html)()
         initialize_params.source_image = (
             "projects/debian-cloud/global/images/family/debian-13"
         )
@@ -359,25 +359,25 @@ To authenticate to Compute Engine, set up Application Default Credentials. For m
         disk.auto_delete = True
         disk.boot = True
     
-        template = compute_v1.InstanceTemplate()
+        template = [compute_v1](https://docs.cloud.google.com/python/docs/reference/compute/latest).[InstanceTemplate](https://docs.cloud.google.com/python/docs/reference/compute/latest/google.cloud.compute_v1.types.InstanceTemplate.html)()
         template.name = template_name
-        template.properties = compute_v1.InstanceProperties()
-        template.properties.disks = [disk]
+        template.properties = [compute_v1](https://docs.cloud.google.com/python/docs/reference/compute/latest).[InstanceProperties](https://docs.cloud.google.com/python/docs/reference/compute/latest/google.cloud.compute_v1.types.InstanceProperties.html)()
+        template.properties.[disks](https://docs.cloud.google.com/python/docs/reference/compute/latest/google.cloud.compute_v1.services.disks.html) = [disk]
         template.properties.machine_type = "e2-standard-4"
     
         # The template connects the instance to the specified network and subnetwork.
-        network_interface = compute_v1.NetworkInterface()
+        network_interface = [compute_v1](https://docs.cloud.google.com/python/docs/reference/compute/latest).[NetworkInterface](https://docs.cloud.google.com/python/docs/reference/compute/latest/google.cloud.compute_v1.types.NetworkInterface.html)()
         network_interface.network = network
         network_interface.subnetwork = subnetwork
         template.properties.network_interfaces = [network_interface]
     
-        template_client = compute_v1.InstanceTemplatesClient()
-        operation = template_client.insert(
+        template_client = [compute_v1](https://docs.cloud.google.com/python/docs/reference/compute/latest).[InstanceTemplatesClient](https://docs.cloud.google.com/python/docs/reference/compute/latest/google.cloud.compute_v1.services.instance_templates.InstanceTemplatesClient.html)()
+        operation = template_client.[insert](https://docs.cloud.google.com/python/docs/reference/compute/latest/google.cloud.compute_v1.services.instance_templates.InstanceTemplatesClient.html#google_cloud_compute_v1_services_instance_templates_InstanceTemplatesClient_insert)(
             project=project_id, instance_template_resource=template
         )
         wait_for_extended_operation(operation, "instance template creation")
     
-        return template_client.get(project=project_id, instance_template=template_name)
+        return template_client.[get](https://docs.cloud.google.com/python/docs/reference/compute/latest/google.cloud.compute_v1.services.instance_templates.InstanceTemplatesClient.html#google_cloud_compute_v1_services_instance_templates_InstanceTemplatesClient_get)(project=project_id, instance_template=template_name)
     
     
 

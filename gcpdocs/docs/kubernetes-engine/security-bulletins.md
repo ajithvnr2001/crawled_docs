@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/kubernetes-engine/security-bulletins/
 title: Security bulletins \u00a0|\u00a0 Google Kubernetes Engine (GKE) \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-01T05:44:43.279456+00:00
+fetched_at: 2026-11-04T23:20:42.538893+00:00
 ---
 
 # Security bulletins  |  Google Kubernetes Engine (GKE)  |  Google Cloud Documentation
@@ -45,6 +45,28 @@ For more information on how Google manages security vulnerabilities and patches 
 
 [ Use this XML feed to subscribe to security bulletins for this page. rss_feed](https://cloud.google.com/feeds/gke-security-bulletins.xml)
 
+## GCP-2026-078
+
+**Published:** 2026-11-04
+
+**Reference:**[CVE-2026-98432](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2026-98432)
+
+Description | Severity  
+---|---  
+A vulnerability (CVE-2026-98432) was discovered in the Linux kernel IPv4 TCP stack. The flaw can cause a kernel panic or a container escape (root code execution on the node). An unprivileged process in a container can trigger it locally, without special capabilities such as `CAP_NET_RAW`. A network attacker can also trigger it by sending TCP packets with IPv4 options to a listener on the node or on the cluster control plane. The network attack requires access to a TCP listener on your nodes, Pods, or the control plane's IP-based endpoint. Clusters that restrict this access to trusted sources, for example with firewall rules and control plane authorized networks, are not exposed to network attacks. GKE Standard clusters and GKE Autopilot clusters are impacted.
+
+#### What should I do?
+
+All GKE versions running Container-Optimized OS prior to the following versions are affected. Upgrade your cluster control plane and nodes to one of the following patch versions or later:
+
+  * 1.36.5-gke.1982000 or later
+  * 1.35.9-gke.1505000 or later
+  * 1.34.12-gke.1539000 or later
+  * 1.33.13-gke.2207000 or later
+  * 1.32.13-gke.2906000 or later
+
+**Note:** Patches for GKE 1.37 and Ubuntu node images are in progress.You can apply patch versions from newer release channels if your cluster runs the same minor version in its own release channel. This feature lets you secure your nodes until the patch version becomes the default in your release channel. For details, see [Run patch versions from a newer channel](https://docs.cloud.google.com/kubernetes-engine/docs/concepts/release-channels#newer-patch-versions). | Medium  
+  
 ## GCP-2026-071
 
 **Published:** 2026-10-23  
@@ -16734,6 +16756,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-30 UTC.
+Last updated 2026-11-04 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 

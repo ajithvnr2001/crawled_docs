@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chronicle/docs/install/forwarder-management-configurations/
 title: Configure forwarders in the Google SecOps platform \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T10:08:16.278570+00:00
+fetched_at: 2026-11-04T23:34:21.969463+00:00
 ---
 
 # Configure forwarders in the Google SecOps platform  |  Google Security Operations  |  Google Cloud Documentation
@@ -46,13 +46,11 @@ Instead of _adding_ a new forwarder, you can _clone_ one or more existing forwar
 
 To add a new forwarder, follow these steps:
 
-  1. In the navigation bar, click **Settings**.
-  2. Under **Settings** , click **Forwarders**.
-  3. Click **Add new forwarder**.
-  4. In the **Forwarder name** field, type a name.
-  5. Optional: Expand the **Configuration values** section and specify the values. For information about the configuration settings, see [Determine the configuration](https://docs.cloud.google.com/chronicle/docs/install/install-forwarder#determinedata).
-
-  6. Click **Submit**.
+  1. In the navigation bar, go to **Settings > Data Management > Forwarders**.
+  2. Click **Add new forwarder**.
+  3. In the **Forwarder name** field, type a name.
+  4. Optional: Expand the **Configuration values** section and specify the values. For information about the configuration settings, see [Determine the configuration](https://docs.cloud.google.com/chronicle/docs/install/install-forwarder#determinedata).
+  5. Click **Submit**.
 
 The forwarder is added and **Add collector configuration** window appears.
 
@@ -63,34 +61,33 @@ The forwarder is added and **Add collector configuration** window appears.
 
 You can add one or more collectors to an existing forwarder. To add a new collector to a forwarder, follow these steps:
 
-  1. In the navigation bar, click **Settings**.
-  2. Under Settings, click **Forwarders**.
-  3. On the **Forwarders** page, find the forwarder you want. If the list of forwarders is long, use the **Search** field.
-  4. Hold the pointer over the forwarder for which you want to add a collector. The more_vert **expand menu icon** displays.
-  5. Click the more_vert **expand menu icon**.
-  6. Select **Add new collector**.
-  7. In the **Collector name** field, type a name.
-  8. Click the **Log type** field to view a list of log types, and do one of the following:
+  1. In the navigation bar, go to **Settings > Data Management > Forwarders**.
+  2. On the **Forwarders** page, find the forwarder you want. If the list of forwarders is long, use the **Search** field.
+  3. Hold the pointer over the forwarder for which you want to add a collector. The more_vert **expand menu icon** displays.
+  4. Click the more_vert **expand menu icon**.
+  5. Select **Add new collector**.
+  6. In the **Collector name** field, type a name.
+  7. Click the **Log type** field to view a list of log types, and do one of the following:
 
      * If you don't see the log type you want, start typing its name in the box to view more suggestions. For a complete list of supported log types, see [Supported data sets](https://docs.cloud.google.com/chronicle/docs/supported-datasets).
      * Select a log type from the list.
-  9. Optional: Expand the **Configuration values** section and specify the values. For information about the configuration settings, see [Determine the configuration](https://docs.cloud.google.com/chronicle/docs/install/install-forwarder#determinedata).
+  8. Optional: Expand the **Configuration values** section and specify the values. For information about the configuration settings, see [Determine the configuration](https://docs.cloud.google.com/chronicle/docs/install/install-forwarder#determinedata).
 
-  10. Optional: Expand the **Advanced settings** section and specify any of the following:
+  9. Optional: Expand the **Advanced settings** section and specify any of the following:
 
      * **Max seconds per batch:** The number of seconds between batches. The default is `10`.
      * **Max bytes per batch:** The number of bytes queued before the forwarder batch upload. The minimum is `204800 bytes`, which is `200 KB`. The maximum is `1048576 bytes`, which is `1MB`. The default is `1,048,576 bytes`, which is `1MB`.
-  11. Recommended: **Disk buffer:** Click the toggle to the on position to enable disk buffering for the collector. For details about disk buffering, see [Disk buffering](https://docs.cloud.google.com/chronicle/docs/install/install-forwarder#diskbuffering). When enabled, you can specify the following settings:
+  10. Recommended: **Disk buffer:** Click the toggle to the on position to enable disk buffering for the collector. For details about disk buffering, see [Disk buffering](https://docs.cloud.google.com/chronicle/docs/install/install-forwarder#diskbuffering). When enabled, you can specify the following settings:
 
      * **Directory path:** The directory path for files written.
      * **Maximum Buffered File Size (in bytes):** The maximum disk size used by the collector before backlogged messages are buffered to disk. The default is `1,073,741,824`. The maximum is `4,294,967,296`.
-  12. Optional: **Override timezone** : Click the toggle to the on position to override the default time zone for your logs by selecting a custom one from the **Timezone** list. only if your raw logs don't include the correct time zone at the source. Ensure that the logs have consistent timestamps before enabling it.
+  11. Optional: **Override timezone** : Click the toggle to the on position to override the default time zone for your logs by selecting a custom one from the **Timezone** list. only if your raw logs don't include the correct time zone at the source. Ensure that the logs have consistent timestamps before enabling it.
 
 The selected time zone is applied on the server side in Google SecOps. The forwarder ignores this setting, even if the generated configuration file contains it.
 
-  13. Click the **Collector type** field and select a collector type. Each collector type has its own settings that you can configure. For details about the collector types and their settings, see [Determine the configuration](https://docs.cloud.google.com/chronicle/docs/install/install-forwarder#determinedata).
+  12. Click the **Collector type** field and select a collector type. Each collector type has its own settings that you can configure. For details about the collector types and their settings, see [Determine the configuration](https://docs.cloud.google.com/chronicle/docs/install/install-forwarder#determinedata).
 
-  14. Click **Submit**.
+  13. Click **Submit**.
 
 
 
@@ -103,17 +100,12 @@ You can download the forwarder configuration (`.conf`) file, authentication (`_a
 
 To download forwarder configuration files:
 
-  1. In the navigation bar, click **Settings**.
-  2. Under Settings, click **Forwarders**. The page displays the list of forwarders.
-  3. On the **Forwarders** page, find the forwarder you want. If the list of forwarders is long, use the **Search** field.
-
-  4. Hold the pointer over the forwarder for which you want to download configuration files. The more_vert **expand menu icon** displays.
-
-  5. Click the more_vert **expand menu icon**.
-
-  6. Select **Download**.
-
-  7. In the **Download forwarder configuration** dialog, do one of the following:
+  1. In the navigation bar, go to **Settings > Data Management > Forwarders**.
+  2. On the **Forwarders** page, find the forwarder you want. If the list of forwarders is long, use the **Search** field.
+  3. Hold the pointer over the forwarder for which you want to download configuration files. The more_vert **expand menu icon** displays.
+  4. Click the more_vert **expand menu icon**.
+  5. Select **Download**.
+  6. In the **Download forwarder configuration** dialog, do one of the following:
 
      * To download the forwarder configuration file, click the **download icon** next to the **`.conf`** file type.
      * To download the forwarder authentication file, click the **download icon** next to the **`_auth.conf`** file type.
@@ -127,9 +119,8 @@ This section describes how to view and manage forwarders.
 
 ### List the forwarders in a Google SecOps instance
 
-  1. In the navigation bar, click **Settings**.
-  2. Under Settings, click **Forwarders**. The page displays the list of forwarders.
-  3. Optional: Sort the list by clicking the **Name** or **Last updated** column.
+  1. In the navigation bar, go to **Settings > Data Management > Forwarders**.
+  2. Optional: Sort the list by clicking the **Name** or **Last updated** column.
 
 
 
@@ -142,45 +133,30 @@ Cloning lets you create a copy of one or more forwarder configurations.
 To clone a forwarder configuration, follow these steps:
 
   1. On the Forwarders page, select the checkbox for each forwarder that you want to clone.
-
   2. Click the more_vert **expand menu icon**.
-
   3. Select **Clone**.
-
   4. Click **Clone**. A copy of each forwarder configuration is added.
-
 
 
 
 ### Edit a forwarder configuration
 
-  1. In the navigation bar, click **Settings**.
-  2. Under Settings, click **Forwarders**. The page displays the list of forwarders.
-  3. Hold the pointer over the forwarder for which you want to edit the configuration. The more_vert **expand menu icon** displays.
-
-  4. Click the more_vert **expand menu icon**.
-
-  5. Select **Edit forwarder configuration**.
-
-  6. Make your changes to the configuration. For more information, see the configuration steps in the procedure for adding forwarders.
-
-  7. Click **Update**
-
-  8. Restart the forwarder for your changes to take effect.
-
+  1. In the navigation bar, go to **Settings > Data Management > Forwarders**.
+  2. Hold the pointer over the forwarder for which you want to edit the configuration. The more_vert **expand menu icon** displays.
+  3. Click the more_vert **expand menu icon**.
+  4. Select **Edit forwarder configuration**.
+  5. Make your changes to the configuration. For more information, see the configuration steps in the procedure for adding forwarders.
+  6. Click **Update**.
+  7. Restart the forwarder for your changes to take effect.
 
 
 
 ### Delete forwarders
 
   1. On the Forwarders page, select the checkbox for each forwarder that you want to delete.
-
   2. Click the more_vert **expand menu icon**.
-
   3. Select **Delete**.
-
   4. In the Delete Forwarder dialog, click **Delete**.
-
 
 
 
@@ -190,45 +166,36 @@ This section describes how to view and manage collectors.
 
 ### List the collectors in a Google SecOps instance
 
-  1. In the navigation bar, click **Settings**.
-  2. Under Settings, click **Forwarders**. The page displays the list of forwarders.
-  3. Click the expander arrow next to the **Name** column heading. This expands all of the forwarders, displaying up to five collectors for each forwarder.
-  4. If a forwarder has more than five collectors, click the **See all collectors** link.
+  1. In the navigation bar, go to **Settings > Data Management > Forwarders**.
+  2. Click the expander arrow next to the **Name** column heading. This expands all of the forwarders, displaying up to five collectors for each forwarder.
+  3. If a forwarder has more than five collectors, click the **See all collectors** link.
 
 
 
 ### Edit a collector configuration
 
-  1. In the navigation bar, click **Settings**.
-  2. Under Settings, click **Forwarders**. The page displays the list of forwarders.
-  3. Click the arrow_right expander arrow of the forwarder for which you want to edit a collector.
-
-  4. If there are more than five collectors, click the **See all collectors** link.
-
-  5. Hold the pointer over the collector for which you want to edit the configuration. The **Edit** option displays.
-
-  6. Click **Edit**.
-
-  7. Make your changes to the configuration. For more information, see the configuration steps in the procedure for adding collectors.
-
-  8. Click **Update**.
-
+  1. In the navigation bar, go to **Settings > Data Management > Forwarders**.
+  2. Click the arrow_right expander arrow of the forwarder for which you want to edit a collector.
+  3. If there are more than five collectors, click the **See all collectors** link.
+  4. Hold the pointer over the collector for which you want to edit the configuration. The **Edit** option displays.
+  5. Click **Edit**.
+  6. Make your changes to the configuration. For more information, see the configuration steps in the procedure for adding collectors.
+  7. Click **Update**.
 
 
 
 ### Delete a collector
 
-  1. In the navigation bar, click **Settings**.
-  2. Under Settings, click **Forwarders**. The page displays the list of forwarders.
-  3. Click the arrow_right**expander arrow** of the forwarder for which you want to delete a collector.
+  1. In the navigation bar, go to **Settings > Data Management > Forwarders**. The page displays the list of forwarders.
+  2. Click the arrow_right**expander arrow** of the forwarder for which you want to delete a collector.
 
-  4. If there are more than five collectors, click the **See all collectors** link.
+  3. If there are more than five collectors, click the **See all collectors** link.
 
-  5. Hold the pointer over the collector for which you want to edit the configuration. The **Delete** option displays.
+  4. Hold the pointer over the collector for which you want to edit the configuration. The **Delete** option displays.
 
-  6. Click **Delete**.
+  5. Click **Delete**.
 
-  7. To confirm, click **Delete** in the Delete collector dialog.
+  6. To confirm, click **Delete** in the Delete collector dialog.
 
 
 
@@ -239,6 +206,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-28 UTC.
+Last updated 2026-11-04 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/compute/docs/access/iam/
 title: Compute Engine IAM roles and permissions \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T09:51:09.673946+00:00
+fetched_at: 2026-11-05T00:19:10.568642+00:00
 ---
 
 # Compute Engine IAM roles and permissions  |  Google Cloud Documentation
@@ -147,6 +147,12 @@ Role | Permissions
 
 `cloudkms.operations.get` `cloudkms.projects.showEffectiveAutokeyConfig` `compute.*`
 
+  * `compute.acceleratorInterconnectMemberInstances.list`
+  * `compute.acceleratorInterconnects.create`
+  * `compute.acceleratorInterconnects.delete`
+  * `compute.acceleratorInterconnects.get`
+  * `compute.acceleratorInterconnects.list`
+  * `compute.acceleratorInterconnects.queryFormability`
   * `compute.acceleratorTypes.get`
   * `compute.acceleratorTypes.list`
   * `compute.addresses.create`
@@ -1259,7 +1265,15 @@ Role | Permissions
   
 #### Compute Editor 
 
-(`roles/compute.editor`) Editor role for compute  |  `compute.acceleratorTypes.*`
+(`roles/compute.editor`) Editor role for compute  |  `compute.acceleratorInterconnectMemberInstances.list` `compute.acceleratorInterconnects.*`
+
+  * `compute.acceleratorInterconnects.create`
+  * `compute.acceleratorInterconnects.delete`
+  * `compute.acceleratorInterconnects.get`
+  * `compute.acceleratorInterconnects.list`
+  * `compute.acceleratorInterconnects.queryFormability`
+
+`compute.acceleratorTypes.*`
 
   * `compute.acceleratorTypes.get`
   * `compute.acceleratorTypes.list`
@@ -4423,7 +4437,7 @@ Role | Permissions
   * Node template 
   * Snapshot 
 
-|  `compute.acceleratorTypes.*`
+|  `compute.acceleratorInterconnectMemberInstances.list` `compute.acceleratorInterconnects.get` `compute.acceleratorInterconnects.list` `compute.acceleratorInterconnects.queryFormability` `compute.acceleratorTypes.*`
 
   * `compute.acceleratorTypes.get`
   * `compute.acceleratorTypes.list`
@@ -5014,6 +5028,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-28 UTC.
+Last updated 2026-11-03 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 

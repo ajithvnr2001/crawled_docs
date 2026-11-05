@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chronicle/docs/soar/admin-tasks/user-secops/map-users-in-the-secops-platform-first-party/
 title: Map users with Cloud Identity \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T10:00:27.195880+00:00
+fetched_at: 2026-11-04T23:34:28.138948+00:00
 ---
 
 # Map users with Cloud Identity  |  Google Security Operations  |  Google Cloud Documentation
@@ -54,12 +54,12 @@ By default, Google SecOps includes a group of default administrators.
 
 To map email groups, follow these steps:
 
-  1. Go to **Settings > SOAR Settings > Advanced > Group Mapping.**
+  1. Go to **Settings > Access Management > Group Mapping.**
   2. Make sure you have the following available: 
      * **Group Names** : The name you assign to an email group, such as `T1 analysts`.
      * **Group Members** : The collection of user emails or Workforce Identity Federation subject attributes that make up that group.
   3. Click  **Add** **Add** and map the emails or Workforce Identity Federation subject attributes for each group. Press **Add** after you add each item.
-  4. Once you've finished, click **Add**. Each time a user signs in to the platform, they're automatically added to the **User Management** page, found under **Settings > Organization**.
+  4. Once you've finished, click **Add**. Each time a user signs in to the platform, they're automatically added to the **SOAR User Management** page, found under **Settings > Access Management > User Managemen**.
 
 
 
@@ -73,7 +73,7 @@ This section describes how to map different email groups to one or more access c
 
 ### Delete a user
 
-If you delete groups from here, make sure to delete the individual users from the **User Management** screen. For more information, see [Disable or delete a user account](https://docs.cloud.google.com/chronicle/docs/soar/admin-tasks/user-soar-only/how-can-i-disabledelete-a-user-account-in-chronicle-soar). 
+If you delete groups from here, make sure to delete the individual users from the **SOAR User Management** page. For more information, see [Disable or delete a user account](https://docs.cloud.google.com/chronicle/docs/soar/admin-tasks/user-soar-only/how-can-i-disabledelete-a-user-account-in-chronicle-soar). 
 
 ### Use case: Assign unique permission fields to each email group
 
@@ -105,7 +105,7 @@ To set up email groups in Google SecOps, do the following:
      * Security analysts (containing Sasha and Tal)
      * SOC engineers (containing Quinn and Noam) 
      * NOC engineers (containing Kim and Kai)
-  2. Go to **Settings > SOAR Settings > Advanced > Group Mapping**.
+  2. Go to **Settings > Access Management > Group Mapping**.
   3. Click **Add Group**.
   4. Enter the following details in the dialog:
      * Group: `Security analysts`
@@ -146,7 +146,7 @@ For customers who use the Case Federation feature, see [ Set up federated case a
 
 To grant a _service account access_ or _workload identity federation access_ to Google SecOps, you must map the identity to the platform's access control parameters. This mapping is a mandatory step to provide the identity with the necessary access to **SOC Roles** , and **Environments** required to perform automated tasks or API operations.
 
-  1. Go to **SOAR Settings > Advanced > Group Mapping**.
+  1. Go to **Settings > Access Management > Group Mapping**.
   2. Click add **Add**.
   3. Complete the fields in the **Add Mapping** dialog to map the identity to the platform's access control parameters.
 
@@ -171,9 +171,9 @@ Field | Description
 
 **Infinite login redirect loop**
 
-In Google SecOps, logging in can result in an infinite loading or redirect loop even when IdP group mappings, JWT assertions, and IAM permissions are correctly configured. 
+In Google SecOps, logging in can result in an infinite loading or redirect loop even when IdP group mappings, JWT assertions, and IAM permissions are correctly configured.
 
-If a user encounters an infinite loading loop, check if their assigned permission group has all its default landing modules disabled. Examples include **Homepage** , **Dashboards** , or **Cases**. Go to **SOAR Settings > Permissions** and enable at least one default landing module to restore access.
+If a user encounters an infinite loading loop, cSettings > Access Management > Permissions (API keys)ing modules disabled. Examples include **Homepage** , **Dashboards** , or **Cases**. Go to **Settings > Access Management > Permissions** and enable at least one default landing module to restore access.
 
 **Need more help?** [Get answers from Community members and Google SecOps professionals.](https://security.googlecloudcommunity.com/)
 
@@ -181,6 +181,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-28 UTC.
+Last updated 2026-11-04 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 

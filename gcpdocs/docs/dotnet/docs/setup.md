@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/dotnet/docs/setup/
 title: Setting up a .NET development environment \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T18:48:02.257898+00:00
+fetched_at: 2026-11-05T00:20:00.973946+00:00
 ---
 
 # Setting up a .NET development environment  |  Google Cloud Documentation
@@ -51,6 +51,10 @@ For more information, see [Authenticate for using client libraries](https://docs
 
 Even though you can create and manage Google Cloud resources using your web browser using the [Google Cloud console](http://console.cloud.google.com), if you'd prefer to manage your Google Cloud resources from the command-line, you can consider installing the [Google Cloud CLI](https://docs.cloud.google.com/sdk). The gcloud CLI is a command-line interface for Google Cloud products and services.
 
+## Observability (optional)
+
+[Google Cloud Observability](https://docs.cloud.google.com/stackdriver) include observability services that help you understand the behavior, health, and performance of your .NET applications. For more information, see [Google Cloud Observability for .NET](https://docs.cloud.google.com/dotnet/docs/stackdriver).
+
 ## What's next
 
   * [Transcribe audio to text with Speech-to-Text API](https://docs.cloud.google.com/speech-to-text/docs/transcribe-client-libraries)
@@ -66,6 +70,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-03 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 

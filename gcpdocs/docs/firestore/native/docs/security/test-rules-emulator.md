@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/firestore/native/docs/security/test-rules-emulator/
 title: Test security rules \u00a0|\u00a0 Firestore in Native mode \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T08:01:39.050714+00:00
+fetched_at: 2026-11-04T23:46:06.210783+00:00
 ---
 
 # Test security rules  |  Firestore in Native mode  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/zywall/
 title: Collect ZyXEL ZyWALL logs \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T07:51:40.152045+00:00
+fetched_at: 2026-11-04T23:43:07.620116+00:00
 ---
 
 # Collect ZyXEL ZyWALL logs  |  Google Security Operations  |  Google Cloud Documentation

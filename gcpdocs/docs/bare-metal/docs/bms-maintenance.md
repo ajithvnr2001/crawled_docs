@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bare-metal/docs/bms-maintenance/
 title: Maintain the Bare Metal Solution environment \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T23:32:18.641486+00:00
+fetched_at: 2026-11-04T23:31:38.428720+00:00
 ---
 
 # Maintain the Bare Metal Solution environment  |  Google Cloud Documentation
@@ -35,7 +35,7 @@ The Bare Metal Solution API provides many tools that let you monitor and maintai
 
   2. Enable and activate the Bare Metal Solution API in your Google Cloud project where the Bare Metal Solution resources are configured, including the networking projects where the Interconnect Attachments are created.
 
-**Note:** To enable an API service, you must have an IAM role that gives you permission to activate services, such as **Owner** or **Service Usage Admin**. For more information, see [Access Control](https://cloud.google.com/service-usage/docs/access-control).
+**Note:** To enable an API service, you must have an IAM role that gives you permission to activate services, such as **Owner** or **Service Usage Admin**. For more information, see [Access Control](https://docs.cloud.google.com/iam/docs/roles-permissions/serviceusage).
 
 ###  Console 
 
@@ -2853,6 +2853,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-04 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 

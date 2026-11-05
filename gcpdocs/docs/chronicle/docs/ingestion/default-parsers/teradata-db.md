@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/teradata-db/
 title: Collect Teradata Database logs \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T07:51:56.950664+00:00
+fetched_at: 2026-11-04T23:35:07.963154+00:00
 ---
 
 # Collect Teradata Database logs  |  Google Security Operations  |  Google Cloud Documentation

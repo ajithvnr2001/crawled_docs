@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/memorystore/docs/redis/high-availability-for-memorystore-for-redis/
 title: High availability for Memorystore for Redis \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T21:58:46.639556+00:00
+fetched_at: 2026-11-04T23:28:55.378956+00:00
 ---
 
 # High availability for Memorystore for Redis  |  Google Cloud Documentation
