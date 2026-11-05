@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/es/development/comfy-router/models/krea/krea-3/code/
 title: Usa Krea 3 con Comfy Router - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-26T14:03:09.711944+00:00
+fetched_at: 2026-11-05T15:16:38.575804+00:00
 ---
 
 # Usa Krea 3 con Comfy Router - ComfyUI
@@ -199,7 +199,7 @@ image_urls
 
 string[]
 
-URLs de las imágenes de entrada, hasta 8. Cada una debe ser la image_url que devuelve subir la imagen a POST /proxy/krea/assets (campo de formulario multipart `file`); cualquier enlace que no sea una URL https en el host app-uploads.krea.ai, incluidas tus propias URLs https, se rechaza con un 400, y un enlace de app-uploads.krea.ai que no sea una carga activa falla con un error 5xx. Omítelo para texto a imagen.
+URL de imágenes de entrada, hasta 8. El image_url que devuelve subir la imagen a POST /proxy/krea/assets (campo de formulario multipart `file`) siempre se acepta. Que se acepten otras URL https públicas depende del entorno: donde no se aceptan, cualquier enlace que no sea una URL https en el host app-uploads.krea.ai se rechaza con 400; donde sí, se acepta cualquier URL de imagen https pública, y una URL mal formada o que no sea https se rechaza con 400 (una URL cuyo puerto sea numérico pero esté fuera de rango no la detecta esta comprobación y puede fallar con un 502 en su lugar). Para una URL https bien formada en ese caso, una referencia que quien llama puede corregir se rechaza con 400 indicando su host: su host no resuelve o no es accesible públicamente cuando se comprueba antes de la descarga, redirige más veces de las permitidas, a una URL que no es https o a un host que no es accesible públicamente, devuelve un 4xx distinto de 408 o 429, no es una imagen, es una imagen en un formato que no se puede leer, su cabecera de tamaño de imagen no está dentro de los primeros 2 MiB, o una respuesta sin longitud declarada o con codificación por trozos termina antes de su cabecera de tamaño de imagen. Cualquier otro fallo al descargarla falla con un error 502 en POST /proxy/krea (Comfy Router lo responde con 500 internal_error): un fallo transitorio de DNS, TLS o de conexión, un tiempo de espera agotado, un 408, 429, 5xx u otro estado distinto de 200 en el origen, o un host que pasó esa comprobación pero no resuelve o no es accesible públicamente cuando la descarga se conecta. Donde no se aceptan otras URL, un enlace de app-uploads.krea.ai que no sea una subida viva falla con un error 5xx; donde sí se aceptan, se rechaza con 400 como cualquier otra referencia inaccesible. Mientras un servidor aún no ha aprendido cuál de los dos casos aplica, cualquier URL https cuyo host no sea un enlace de app-uploads.krea.ai, pública o no, falla con un error 503 que es seguro reintentar. Omítelo para texto a imagen.
 
 ​
 

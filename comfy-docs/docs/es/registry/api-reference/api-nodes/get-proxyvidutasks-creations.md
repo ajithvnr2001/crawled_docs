@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/es/registry/api-reference/api-nodes/get-proxyvidutasks-creations/
 title: Get proxyvidutasks creations - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T15:15:44.514494+00:00
+fetched_at: 2026-11-05T15:16:31.952464+00:00
 ---
 
 # Get proxyvidutasks creations - ComfyUI

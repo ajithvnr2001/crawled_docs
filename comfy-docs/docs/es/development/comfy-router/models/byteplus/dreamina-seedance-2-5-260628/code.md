@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/es/development/comfy-router/models/byteplus/dreamina-seedance-2-5-260628/code/
 title: Usa Dreamina Seedance 2.5 260628 con Comfy Router - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-26T14:03:00.588576+00:00
+fetched_at: 2026-11-05T15:16:36.489986+00:00
 ---
 
 # Usa Dreamina Seedance 2.5 260628 con Comfy Router - ComfyUI
@@ -236,7 +236,7 @@ callback_url
 
 string (uri)
 
-Dirección de notificación de callback para el resultado de esta tarea de generaciónFormato: `uri`
+Ignorado. Se acepta por compatibilidad con la forma de solicitud de BytePlus, pero se elimina antes de enviar la tarea, así que nunca se envía ningún callback; consulta la ruta de estado de la tarea para obtener el resultado.Formato: `uri`
 
 ​
 
@@ -368,9 +368,9 @@ Solo Seedance 2.5. Genera un video Draft en 480p; la resolución debe ser 480p. 
 
 duration
 
-`-1` | object
+integer
 
-Duración del video en segundos. Seedance 2.5: [4,30] o -1 (automático; las tareas de edición de video solo admiten -1). Seedance 2.0, 2.0 fast y 2.0 mini: [4,15] o -1 (automático). Seedance 1.5 pro: [4,12] o -1. Seedance 1.0: [2,12].Rango: `2` a `30`
+Duración del video en segundos. Seedance 2.5: [4,30] o -1 (automático).Valores posibles: `-1`, `4`, `5`, `6`, `7`, `8`, `9`, `10`, `11`, `12`, `13`, `14`, `15`, `16`, `17`, `18`, `19`, `20`, `21`, `22`, `23`, `24`, `25`, `26`, `27`, `28`, `29`, `30`
 
 ​
 
@@ -406,7 +406,7 @@ string
 
 predeterminado:"\"mp4\""
 
-Solo Seedance 2.5. Formato de contenedor del video de salida. mp4: Contenedor de uso general (H.264/AAC, yuv420p) con amplia compatibilidad y menor tamaño de archivo. mov: Contenedor profesional (H.264 High 4:4:4 Predictive/PCM, yuv444p) con alta precisión de color, adecuado para posproducción; mayor tamaño de archivo.Posibles valores: `mp4`, `mov`
+Solo Seedance 2.5. Formato de contenedor del video de salida. mp4: Contenedor de uso general (H.264/AAC, yuv420p) con amplia compatibilidad y menor tamaño de archivo. mov: Contenedor profesional (H.264 High 4:4:4 Predictive/PCM, yuv444p) con alta precisión de color, adecuado para posproducción; mayor tamaño de archivo.Valores posibles: `mp4`, `mov`
 
 ​
 
@@ -414,7 +414,7 @@ ratio
 
 string
 
-Relación de aspecto del video generado. Seedance 2.0, 2.0 fast y 2.0 mini, 1.5 pro por defecto: adaptive. Generación de primer fotograma / primer y último fotograma de Seedance 2.5: la salida sigue la relación de aspecto del primer fotograma, así que solo se acepta `adaptive` (u omitir el campo); una relación concreta se rechaza con un 400 antes del despacho. Seedance 2.0 acepta una relación concreta en esos modos.Posibles valores: `16:9`, `4:3`, `1:1`, `3:4`, `9:16`, `21:9`, `9:21`, `adaptive`
+Relación de aspecto del video generado. Seedance 2.0, 2.0 fast y 2.0 mini, 1.5 pro por defecto: adaptive. Generación de primer fotograma / primer y último fotograma de Seedance 2.5: la salida sigue la relación de aspecto del primer fotograma, así que solo se acepta `adaptive` (u omitir el campo); una relación concreta se rechaza con un 400 antes del despacho. Seedance 2.0 acepta una relación concreta en esos modos.Valores posibles: `16:9`, `4:3`, `1:1`, `3:4`, `9:16`, `21:9`, `9:21`, `adaptive`
 
 ​
 
@@ -422,7 +422,7 @@ resolution
 
 string
 
-Resolución del video. Seedance 2.5, 2.0, 2.0 fast y 2.0 mini, 1.5 pro, 1.0 lite por defecto: 720p. Seedance 1.0 pro y pro-fast por defecto: 1080p. Nota: Seedance 2.0, 2.0 fast y 2.0 mini no admiten 1080p. Seedance 2.5 admite 480p, 720p y 1080p.Posibles valores: `480p`, `720p`, `1080p`, `4k`
+Resolución del video. Seedance 2.5, 2.0, 2.0 fast y 2.0 mini, 1.5 pro, 1.0 lite por defecto: 720p. Seedance 1.0 pro y pro-fast por defecto: 1080p. Nota: Seedance 2.0, 2.0 fast y 2.0 mini no admiten 1080p. Seedance 2.5 admite 480p, 720p y 1080p.Valores posibles: `480p`, `720p`, `1080p`, `4k`
 
 ​
 
@@ -448,7 +448,7 @@ service_tier
 
 string
 
-Nivel de servicio para el procesamiento. Seedance 2.5, 2.0 y 2.0 fast no admiten flex (inferencia sin conexión).Posibles valores: `default`, `flex`
+Nivel de servicio para el procesamiento. Seedance 2.5, 2.0 y 2.0 fast no admiten flex (inferencia sin conexión).Valores posibles: `default`, `flex`
 
 ​
 
@@ -491,6 +491,30 @@ content.output_format
 string
 
 Formato de contenedor del video generado (mp4 o mov), cuando BytePlus lo anida dentro de `content`. Los modelos Seedance suelen devolverlo más comúnmente como un hermano de NIVEL SUPERIOR de `content` (consulta el campo `output_format` de nivel superior), y Router lee el que de los dos esté presente.
+
+​
+
+content.upstream_expires_at
+
+string (date-time)
+
+Hora RFC 3339 en la que las URL del proveedor dejan de funcionar: el momento de firma más temprano más la validez que las propias URL llevan, nunca posterior a `updated_at` de la tarea más 24 horas (la vida documentada de las URL de BytePlus) cuando `updated_at` está presente; en caso contrario, `updated_at` de la tarea más 24 horas. Solo está presente cuando lo está `upstream_video_url` o `upstream_last_frame_url`, y se omite cuando ninguna de las dos fuentes da una hora. No tiene relación con la vida útil de `video_url` / `last_frame_url` rehospedadas.Formato: `date-time`
+
+​
+
+content.upstream_last_frame_url
+
+string
+
+La URL de descarga del último fotograma del propio BytePlus, devuelta byte a byte junto a `last_frame_url` rehospedada y en los mismos términos que `upstream_video_url`: solo espacios de trabajo con la opción activada, solo Seedance 2.x, ausente una vez que BytePlus la elimina, y una credencial de portador hasta `upstream_expires_at`.
+
+​
+
+content.upstream_video_url
+
+string
+
+La URL de descarga del video de salida del propio BytePlus, devuelta byte a byte junto a `video_url` rehospedada. Presente SOLO para tareas de Seedance 2.x consultadas por un espacio de trabajo que Comfy ha habilitado en el servidor (no hay parámetro de solicitud); ausente para todos los demás, incluida una credencial que no resuelve a ningún espacio de trabajo (como una clave de API antigua no vinculada a uno), y ausente una vez que BytePlus elimina sus URL 24 horas después de la generación. Es una URL de almacenamiento de objetos prefirmada y por tanto una credencial de portador: cualquiera que la tenga puede descargar el video hasta que caduque, así que trátala como un secreto. Caduca en `upstream_expires_at`, y en Seedance 2.5 BytePlus la limita a 100 descargas, una de las cuales consume la rehospedación del propio Router.
 
 ​
 

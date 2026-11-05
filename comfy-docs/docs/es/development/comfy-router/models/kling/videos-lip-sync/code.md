@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/es/development/comfy-router/models/kling/videos-lip-sync/code/
 title: Usa Videos Lip Sync con Comfy Router - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-26T14:03:09.225156+00:00
+fetched_at: 2026-11-05T15:16:38.681272+00:00
 ---
 
 # Usa Videos Lip Sync con Comfy Router - ComfyUI
@@ -215,7 +215,7 @@ callback_url
 
 string (uri)
 
-La dirección de notificación de callback. El servidor enviará una notificación cuando cambie el estado de la tarea.Formato: `uri`
+La dirección de notificación de callback. El servidor notificará cuando cambie el estado de la tarea. Ignorado: comfy-api descarta este campo antes de reenviarlo; Comfy Router consulta el estado en tu nombre.Formato: `uri`
 
 ​
 

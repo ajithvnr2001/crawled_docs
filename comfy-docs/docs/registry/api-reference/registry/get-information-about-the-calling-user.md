@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/registry/api-reference/registry/get-information-about-the-calling-user/
 title: Get information about the calling user. - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T15:15:48.112366+00:00
+fetched_at: 2026-11-05T15:16:34.834232+00:00
 ---
 
 # Get information about the calling user. - ComfyUI

@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/es/development/comfy-router/models/openai/gpt-4-1/code/
 title: Usa GPT 4.1 con Comfy Router - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-26T14:03:12.552763+00:00
+fetched_at: 2026-11-05T15:16:39.302902+00:00
 ---
 
 # Usa GPT 4.1 con Comfy Router - ComfyUI
@@ -833,6 +833,30 @@ La cantidad de tokens de entrada que se escribieron en la caché.
 
 ​
 
+usage.input_tokens_details.cache_write_tokens_details
+
+object
+
+Las escrituras en caché desglosadas por vida útil de la caché. Los dos recuentos suman `cache_write_tokens`.
+
+​
+
+usage.input_tokens_details.cache_write_tokens_details.ttl_12h_tokens
+
+integer
+
+El número de tokens de entrada escritos en la caché con la vida útil de 12 horas.
+
+​
+
+usage.input_tokens_details.cache_write_tokens_details.ttl_30m_tokens
+
+integer
+
+El número de tokens de entrada escritos en la caché con la vida útil de 30 minutos.
+
+​
+
 usage.input_tokens_details.cached_tokens
 
 integer
@@ -977,4 +1001,4 @@ SíNo
 
 [Sugerir cambios](https://github.com/comfy-org/docs/edit/main/es/development/comfy-router/models/openai/gpt-4-1/code.mdx)[Reportar problema](https://github.com/comfy-org/docs/issues/new?title=Issue%20on%20docs&body=Path:%20/es/development/comfy-router/models/openai/gpt-4-1/code)
 
-[GPT 4.1 Nano](https://docs.comfy.org/es/development/comfy-router/models/openai/gpt-4-1-nano/code)[GPT 4o](https://docs.comfy.org/es/development/comfy-router/models/openai/gpt-4o/code)
+[GPT 4.1 Mini](https://docs.comfy.org/es/development/comfy-router/models/openai/gpt-4-1-mini/code)[GPT 4o](https://docs.comfy.org/es/development/comfy-router/models/openai/gpt-4o/code)

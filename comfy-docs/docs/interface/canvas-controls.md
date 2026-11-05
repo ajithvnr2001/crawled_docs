@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/interface/canvas-controls/
 title: Canvas Controls - Minimap, Zoom, and Focus Mode - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-17T10:51:00.925078+00:00
+fetched_at: 2026-11-05T15:16:28.834005+00:00
 ---
 
 # Canvas Controls - Minimap, Zoom, and Focus Mode - ComfyUI
@@ -11,11 +11,15 @@ fetched_at: 2026-10-17T10:51:00.925078+00:00
 
 ## On this page
 
+Back to top
+
   * Canvas toolbar
   * View menu
   * Focus Mode
   * Minimap options
   * Links and canvas globals
+    * Selecting links
+    * Clicking a node input or output to act on its links
   * Related pages
 
 
@@ -98,6 +102,31 @@ Links and canvas globals
 
 Link shape and whether connected links are shown are also available as quick toggles in the [Right Side Panel](https://docs.comfy.org/interface/right-side-panel) **Global Settings** when nothing is selected, and in full under Lite Graph settings (`Comfy.LinkRenderMode` and related options). Grid spacing and snap-to-grid live in the same Global Settings / Lite Graph areas.
 
+### 
+
+​
+
+Selecting links
+
+Requires ComfyUI frontend 1.58.0 or later. Selecting links with a frame is default canvas behavior in Select mode (not a settings toggle). Drag a frame across the connection wires you want to act on. A frame that captures no nodes, groups, or reroutes selects every visible link it crosses, and the selection toolbox replaces its node buttons with two link actions: **Hide** , which keeps the connection and hides the wire, and **Delete** , which removes the link from the graph. Each action is one undo step, and `Delete` or `Backspace` also removes a link selection. `Shift` and `Alt` frames select nodes and groups only, and the Hand canvas mode never selects links.
+
+### 
+
+​
+
+Clicking a node input or output to act on its links
+
+Requires ComfyUI frontend 1.60.0 or later. Click a node’s input or output point instead of dragging from it. The canvas selects every link attached to that point, which is one link on an input and every link on an output, and the selection toolbox offers **Hide** and **Delete** , the same actions a frame selection uses.
+
+  * If every selected link is already hidden, the toolbox shows **Show** instead of **Hide**.
+  * **Hide** acts on visible links only and **Show** on hidden links only, so neither adds an empty undo step.
+  * **Delete** removes every link on that point, hidden ones included.
+  * Hold `Shift`, `Ctrl`, `Cmd`, or `Alt` while clicking to keep the current selection.
+  * `Ctrl` \+ `Alt` click breaks the link instead, as it does elsewhere on the canvas.
+  * A point with no links ignores the click, and so does a canvas with link visibility off, because every wire is hidden there. Dragging from a point still starts a new link.
+
+
+
 ## 
 
 ​
@@ -118,26 +147,4 @@ YesNo
 
 [Suggest edits](https://github.com/comfy-org/docs/edit/main/interface/canvas-controls.mdx)[Raise issue](https://github.com/comfy-org/docs/issues/new?title=Issue%20on%20docs&body=Path:%20/interface/canvas-controls)
 
-[Right Side Panel: Node Properties and ErrorsPrevious](https://docs.comfy.org/interface/right-side-panel)[ComfyUI Nodes 2.0Next](https://docs.comfy.org/interface/nodes-2)
-
-⌘I
-
-[ComfyUI home page![light logo](https://mintcdn.com/dripart/WCFdTagRdhtvk9-o/logo/light.svg?fit=max&auto=format&n=WCFdTagRdhtvk9-o&q=85&s=ec112de87239058f5a931a7e4b594965)![dark logo](https://mintcdn.com/dripart/QzWbjSCBG7w61rR3/logo/dark.svg?fit=max&auto=format&n=QzWbjSCBG7w61rR3&q=85&s=62b4d879fb3aadbd7a468d1539032d6f)](https://docs.comfy.org/)
-
-[github](https://github.com/Comfy-Org/ComfyUI)[x](https://x.com/ComfyUI)[discord](https://discord.com/invite/comfyorg)[youtube](https://www.youtube.com/@comfyorg)
-
-Resources
-
-[installation](https://docs.comfy.org/installation/system_requirements)[Tutorials](https://docs.comfy.org/tutorials/basic/text-to-image)[Development](https://docs.comfy.org/development/overview)
-
-Products
-
-[Features](https://www.comfy.org/?utm_source=docs)[Gallery](https://www.comfy.org/gallery?utm_source=docs)[Download](https://www.comfy.org/download?utm_source=docs)
-
-Company
-
-[About](https://www.comfy.org/about?utm_source=docs)[Careers](https://www.comfy.org/careers?utm_source=docs)[Terms of Service](https://www.comfy.org/terms-of-service?utm_source=docs)[Privacy Policy](https://www.comfy.org/privacy-policy?utm_source=docs)
-
-[github](https://github.com/Comfy-Org/ComfyUI)[x](https://x.com/ComfyUI)[discord](https://discord.com/invite/comfyorg)[youtube](https://www.youtube.com/@comfyorg)
-
-[Powered byThis documentation is built and hosted on Mintlify, a developer documentation platform](https://www.mintlify.com?utm_campaign=poweredBy&utm_medium=referral&utm_source=dripart)
+[Right Side Panel](https://docs.comfy.org/interface/right-side-panel)[Nodes 2.0](https://docs.comfy.org/interface/nodes-2)

@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/es/interface/shortcuts/
 title: Atajos de teclado y rat\u00f3n - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-26T14:03:30.518549+00:00
+fetched_at: 2026-11-05T15:16:35.317953+00:00
 ---
 
 # Atajos de teclado y ratón - ComfyUI
@@ -89,6 +89,7 @@ Alt + =| Acercar (lienzo)
 Alt + -| Alejar (lienzo)  
 .| Ajustar vista a los nodos seleccionados  
 P| Anclar/Desanclar elementos seleccionados  
+L| Ocultar o mostrar los enlaces de los nodos seleccionados  
 Q| Alternar barra lateral de la cola  
 W| Alternar barra lateral del flujo de trabajo  
 N| Alternar barra lateral de biblioteca de nodos  
@@ -125,6 +126,7 @@ Opt ⌥ + =| Acercar (lienzo)
 Opt ⌥ + -| Alejar (lienzo)  
 .| Ajustar vista a los nodos seleccionados  
 P| Anclar/Desanclar elementos seleccionados  
+L| Ocultar o mostrar los enlaces de los nodos seleccionados  
 Q| Alternar barra lateral de la cola  
 W| Alternar barra lateral del flujo de trabajo  
 N| Alternar barra lateral de biblioteca de nodos  

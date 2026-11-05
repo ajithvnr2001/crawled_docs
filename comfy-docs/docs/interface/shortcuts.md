@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/interface/shortcuts/
 title: Keyboard and Mouse Shortcuts - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T16:38:43.861752+00:00
+fetched_at: 2026-11-05T15:16:34.889064+00:00
 ---
 
 # Keyboard and Mouse Shortcuts - ComfyUI
@@ -10,6 +10,8 @@ fetched_at: 2026-10-23T16:38:43.861752+00:00
 > Source: https://docs.comfy.org/interface/shortcuts/
 
 ## On this page
+
+Back to top
 
   * Find and edit a shortcut
   * Keybinding presets
@@ -87,6 +89,7 @@ Alt + =| Zoom in (canvas)
 Alt + -| Zoom out (canvas)  
 .| Fit view to selected nodes  
 P| Pin/unpin selected items  
+L| Hide or show the links on the selected nodes  
 Q| Toggle queue sidebar  
 W| Toggle workflow sidebar  
 N| Toggle node library sidebar  
@@ -123,6 +126,7 @@ Opt ⌥ + =| Zoom in (canvas)
 Opt ⌥ + -| Zoom out (canvas)  
 .| Fit view to selected nodes  
 P| Pin/unpin selected items  
+L| Hide or show the links on the selected nodes  
 Q| Toggle queue sidebar  
 W| Toggle workflow sidebar  
 N| Toggle node library sidebar  

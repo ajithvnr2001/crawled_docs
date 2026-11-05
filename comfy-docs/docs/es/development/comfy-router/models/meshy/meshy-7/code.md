@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/es/development/comfy-router/models/meshy/meshy-7/code/
 title: Usa Meshy 7 con Comfy Router - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-26T14:03:11.892494+00:00
+fetched_at: 2026-11-05T15:16:38.796586+00:00
 ---
 
 # Usa Meshy 7 con Comfy Router - ComfyUI
@@ -203,7 +203,7 @@ ai_model
 
 string
 
-El modelo de Meshy que se ejecutará. En la ruta de Comfy Router, este valor lo proporciona la ruta (`/v2/models/meshy/{model}`) y puedes omitirlo o enviarlo como null; después de la validación, Router escribe aquí el modelo de la ruta. En la ruta v1 /proxy consulta MeshyTextTo3DPreviewRequest, que lo restringe a MeshyAiModel.
+El modelo de Meshy a ejecutar. En la ruta de Comfy Router lo aporta la ruta (`/v2/models/meshy/{model}`) y se puede omitir o enviar como null; Router escribe aquí el modelo de la ruta tras la validación. En la ruta v1 /proxy consulta MeshyTextTo3DPreviewRequest, que lo limita a MeshyAiModel.
 
 ​
 
@@ -355,7 +355,7 @@ string
 
 requerido
 
-Este campo debe establecerse en “refine” al crear una tarea de refine.Valores posibles: `refine`
+Este campo debe establecerse en “refine” al crear una tarea de refinado.Valores posibles: `refine`
 
 ​
 

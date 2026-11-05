@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/es/development/comfy-router/models/openai/gpt-5-5-pro/code/
 title: Usa GPT 5.5 Pro con Comfy Router - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-26T14:03:13.084241+00:00
+fetched_at: 2026-11-05T15:16:39.037366+00:00
 ---
 
 # Usa GPT 5.5 Pro con Comfy Router - ComfyUI
@@ -830,6 +830,30 @@ usage.input_tokens_details.cache_write_tokens
 integer
 
 El número de tokens de entrada que se escribieron en la caché.
+
+​
+
+usage.input_tokens_details.cache_write_tokens_details
+
+object
+
+Las escrituras en caché desglosadas por vida útil de la caché. Los dos recuentos suman `cache_write_tokens`.
+
+​
+
+usage.input_tokens_details.cache_write_tokens_details.ttl_12h_tokens
+
+integer
+
+El número de tokens de entrada escritos en la caché con la vida útil de 12 horas.
+
+​
+
+usage.input_tokens_details.cache_write_tokens_details.ttl_30m_tokens
+
+integer
+
+El número de tokens de entrada escritos en la caché con la vida útil de 30 minutos.
 
 ​
 

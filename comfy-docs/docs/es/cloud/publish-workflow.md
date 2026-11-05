@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/es/cloud/publish-workflow/
 title: Publica flujos de trabajo en Comfy Workflows - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-26T14:02:49.010604+00:00
+fetched_at: 2026-11-05T15:16:35.144214+00:00
 ---
 
 # Publica flujos de trabajo en Comfy Workflows - ComfyUI
@@ -40,7 +40,7 @@ Esta es una función de **Comfy Cloud** y solo está disponible en la Versión d
 
 Descripción general
 
-[Comfy Workflows](https://comfy.org/models?type=workflows) es el centro oficial de la comunidad de ComfyUI. Publicar un flujo de trabajo le da una página pública en el centro, para que otros usuarios puedan encontrar tu gráfico, leer tu descripción y ver las salidas de muestra que adjuntes. La publicación se realiza dentro de ComfyUI, a través de la pestaña **Publicar** del diálogo para compartir el flujo de trabajo. Un flujo de trabajo se puede publicar de nuevo más tarde para enviar una versión actualizada, y la página publicada conserva el mismo enlace.
+[Comfy Workflows](https://comfy.org/hub/workflows) es el centro oficial de la comunidad de ComfyUI. Publicar un flujo de trabajo le da una página pública en el centro, para que otros usuarios puedan encontrar tu gráfico, leer tu descripción y ver las salidas de muestra que adjuntes. La publicación se realiza dentro de ComfyUI, a través de la pestaña **Publicar** del diálogo para compartir el flujo de trabajo. Un flujo de trabajo se puede publicar de nuevo más tarde para enviar una versión actualizada, y la página publicada conserva el mismo enlace.
 
 ## 
 

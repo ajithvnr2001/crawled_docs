@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/es/development/comfy-router/models/kling/kling-v3-omni/code/
 title: Usa Kling V3 Omni con Comfy Router - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-26T14:03:08.300861+00:00
+fetched_at: 2026-11-05T15:16:38.380155+00:00
 ---
 
 # Usa Kling V3 Omni con Comfy Router - ComfyUI
@@ -207,7 +207,7 @@ callback_url
 
 string (uri)
 
-La dirección de notificación de callback para el resultado de esta tarea. Si se configura, el servidor notificará activamente cuando cambie el estado de la tarea.Formato: `uri`
+La dirección de notificación de callback para el resultado de esta tarea. Si se configura, el servidor notifica activamente cuando cambia el estado de la tarea. Ignorado: comfy-api descarta este campo antes de reenviarlo; Comfy Router consulta el estado en tu nombre.Formato: `uri`
 
 ​
 
@@ -243,7 +243,7 @@ external_task_id
 
 string
 
-ID de tarea personalizado. Debe ser único dentro de una misma cuenta de usuario.
+ID de tarea personalizado. Debe ser único dentro de una misma cuenta de usuario. Ignorado: comfy-api descarta este campo antes de reenviarlo; Comfy Router consulta el estado en tu nombre.
 
 ​
 

@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/es/interface/canvas-controls/
 title: Controles del lienzo - Minimapa, zoom y modo de enfoque - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-26T14:03:28.609540+00:00
+fetched_at: 2026-11-05T15:16:29.633728+00:00
 ---
 
 # Controles del lienzo - Minimapa, zoom y modo de enfoque - ComfyUI
@@ -19,6 +19,7 @@ Volver arriba
   * Opciones del minimapa
   * Enlaces y globales del lienzo
     * Seleccionar enlaces
+    * Hacer clic en una entrada o salida para actuar sobre sus enlaces
   * Páginas relacionadas
 
 
@@ -108,6 +109,23 @@ La forma del enlace y si se muestran los enlaces conectados también están disp
 Seleccionar enlaces
 
 Requiere ComfyUI frontend 1.58.0 o posterior. Seleccionar enlaces con un marco es el comportamiento predeterminado del lienzo en el Modo de selección (no es una opción de configuración). Arrastra un marco sobre los cables de conexión en los que quieras actuar. Un marco que no capture nodos, grupos ni redireccionamientos selecciona todos los enlaces visibles que cruza, y la caja de herramientas de selección reemplaza sus botones de nodo por dos acciones de enlace: **Ocultar** , que mantiene la conexión y oculta el cable, y **Eliminar** , que quita el enlace del gráfico. Cada acción es un paso de deshacer, y `Delete` o `Backspace` también eliminan una selección de enlaces. Los marcos con `Shift` y `Alt` seleccionan solo nodos y grupos, y el Modo lienzo Mano nunca selecciona enlaces.
+
+### 
+
+​
+
+Hacer clic en una entrada o salida para actuar sobre sus enlaces
+
+Requiere ComfyUI frontend 1.60.0 o posterior. Haz clic en una entrada o salida del nodo en lugar de arrastrar desde ella. El lienzo selecciona todos los enlaces unidos a ese punto, que es un enlace en una entrada y todos sus enlaces en una salida, y la caja de herramientas de selección ofrece **Ocultar** y **Eliminar** , las mismas acciones que usa una selección con marco.
+
+  * Si todos los enlaces seleccionados ya están ocultos, la caja de herramientas muestra **Mostrar** en lugar de **Ocultar**.
+  * **Ocultar** actúa solo sobre los enlaces visibles y **Mostrar** solo sobre los ocultos, así que ninguno añade un paso de deshacer vacío.
+  * **Eliminar** quita todos los enlaces de ese punto, incluidos los ocultos.
+  * Mantén `Shift`, `Ctrl`, `Cmd` o `Alt` mientras haces clic para conservar la selección actual.
+  * `Ctrl` \+ `Alt` con clic rompe el enlace, igual que en el resto del lienzo.
+  * Un punto sin enlaces ignora el clic, y también lo ignora un lienzo con la visibilidad de enlaces desactivada, porque allí todos los cables están ocultos. Arrastrar desde un punto sigue creando un enlace nuevo.
+
+
 
 ## 
 

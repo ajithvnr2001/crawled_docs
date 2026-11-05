@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/es/development/comfy-router/models/kling/kling-image-o1/code/
 title: Usa Kling Image O1 con Comfy Router - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-11-03T14:55:26.236105+00:00
+fetched_at: 2026-11-05T15:16:37.699234+00:00
 ---
 
 # Usa Kling Image O1 con Comfy Router - ComfyUI
@@ -301,7 +301,7 @@ string
 
 predeterminado:"\"single\""
 
-Controla si se genera una sola imagen o una serie de imágenes.Valores posibles: `single`, `series`
+Controla si se genera una sola imagen o una serie de imágenes. series no es compatible con kling-image-o1 (también es lo que usa el proxy v1 cuando se omite model_name); esa solicitud se rechaza con HTTP 400.Valores posibles: `single`, `series`
 
 ​
 

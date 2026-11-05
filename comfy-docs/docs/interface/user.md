@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/interface/user/
 title: Account Management - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T16:38:42.404905+00:00
+fetched_at: 2026-11-05T15:16:35.257107+00:00
 ---
 
 # Account Management - ComfyUI
@@ -10,6 +10,8 @@ fetched_at: 2026-10-23T16:38:42.404905+00:00
 > Source: https://docs.comfy.org/interface/user/
 
 ## On this page
+
+Back to top
 
   * ComfyUI Version Requirements
   * Network Requirements
@@ -100,6 +102,16 @@ After logging in, the top menu shows your account control. From there you can re
 ​
 
 Frequently Asked Questions
+
+How do I change my display name or email?
+
+The **Name** , **Email** , and **Provider** rows in **Settings → User** are read-only. They display what your signed-in account returns, and the panel has no field to edit them.
+
+  * **Google or GitHub sign-in** : the name and email come from that provider’s profile. Update them there, then sign out and sign in again so the panel shows the new values.
+  * **Email sign-up** : the account has no name on file, so **Name** shows **Not set**. The panel does not offer a way to add or change it yet.
+  * **Email address** : it stays the address you signed up with, or the one the provider returns. It cannot be changed inside the app.
+
+
 
 Are there any login device restrictions?
 

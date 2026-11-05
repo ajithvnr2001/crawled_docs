@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/es/development/comfy-router/models/kling/kling-3-0-turbo/code/
 title: Usa Kling 3.0 Turbo con Comfy Router - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-11-03T14:55:26.128031+00:00
+fetched_at: 2026-11-05T15:16:37.582735+00:00
 ---
 
 # Usa Kling 3.0 Turbo con Comfy Router - ComfyUI
@@ -249,7 +249,7 @@ options.callback_url
 
 string
 
-URL de notificación de callback para los resultados de la tarea. El servidor notifica cuando cambia el estado de la tarea.
+URL de notificación de callback para los resultados de la tarea. El servidor notifica cuando cambia el estado de la tarea. Ignorado: comfy-api descarta este campo antes de reenviarlo; Comfy Router consulta el estado en tu nombre.
 
 ​
 
@@ -257,7 +257,7 @@ options.external_task_id
 
 string
 
-ID de tarea personalizado. No sobrescribe el ID de tarea generado por el sistema, pero puedes usarlo para consultas. Debe ser único dentro de una misma cuenta de usuario.
+ID de tarea personalizado. No sobrescribe el ID de tarea generado por el sistema, pero puedes usarlo para consultas. Debe ser único dentro de una misma cuenta de usuario. Ignorado: comfy-api descarta este campo antes de reenviarlo; Comfy Router consulta el estado en tu nombre.
 
 ​
 
@@ -363,7 +363,7 @@ data[].billing[].cash_type
 
 string
 
-Cuenta de efectivo de la que se cobró (solo presente cuando charge_type es “cash”), por ejemplo “balance”. Algunas tareas lo devuelven; otras pueden omitirlo.
+Cuenta de efectivo de la que se cobró el cargo (solo presente cuando charge_type es “cash”), por ejemplo “balance”. Algunas tareas la devuelven; otras pueden omitirla.
 
 ​
 
@@ -379,7 +379,7 @@ data[].billing[].currency
 
 string
 
-Código de moneda ISO 4217 de `amount` y `list_price`, por ejemplo “USD”. Algunas tareas lo devuelven; otras pueden omitirlo.
+Código de moneda ISO 4217 de `amount` y `list_price`, por ejemplo “USD”. Algunas tareas la devuelven; otras pueden omitirla.
 
 ​
 
@@ -615,7 +615,7 @@ Salida
               "duration": "5",
               "id": "kling-v2-output-2b1a0f9e8d7c",
               "type": "video",
-              "url": "https://example.invalid/kling/kling-3.0-turbo/generated.mp4"
+              "url": "https://example.invalid/kling/v2/generated.mp4"
             }
           ],
           "status": "succeeded",

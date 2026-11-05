@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/es/development/comfy-router/models/kling/kling-v2-6/code/
 title: Usa Kling V2.6 con Comfy Router - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-26T14:03:08.121996+00:00
+fetched_at: 2026-11-05T15:16:37.911189+00:00
 ---
 
 # Usa Kling V2.6 con Comfy Router - ComfyUI
@@ -209,7 +209,7 @@ callback_url
 
 string (uri)
 
-La dirección de notificación de callbackFormato: `uri`
+La dirección de notificación de callback. Ignorado: comfy-api descarta este campo antes de reenviarlo; Comfy Router consulta el estado en tu nombre.Formato: `uri`
 
 ​
 
@@ -305,7 +305,7 @@ external_task_id
 
 string
 
-ID de tarea personalizado
+ID de tarea personalizado. Ignorado: comfy-api descarta este campo antes de reenviarlo; Comfy Router consulta el estado en tu nombre.
 
 ​
 

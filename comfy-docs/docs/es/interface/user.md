@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/es/interface/user/
 title: Gesti\u00f3n de cuenta - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-26T14:03:30.594964+00:00
+fetched_at: 2026-11-05T15:16:35.396652+00:00
 ---
 
 # Gestión de cuenta - ComfyUI
@@ -102,6 +102,16 @@ Después de iniciar sesión, el menú superior muestra el control de tu cuenta. 
 ​
 
 Preguntas frecuentes
+
+¿Cómo cambio mi nombre visible o mi correo electrónico?
+
+Las filas **Nombre** , **Correo electrónico** y **Método de inicio de sesión** en **Configuraciones → Usuario** son de solo lectura. Muestran lo que devuelve la cuenta con la que iniciaste sesión, y el panel no tiene ningún campo para editarlas.
+
+  * **Inicio de sesión con Google o GitHub** : el nombre y el correo provienen del perfil de ese proveedor. Cámbialos allí y luego cierra sesión y vuelve a iniciarla aquí para que el panel muestre los nuevos valores.
+  * **Registro con correo electrónico** : la cuenta no tiene ningún nombre guardado, así que **Nombre** muestra **No establecido**. El panel todavía no ofrece una forma de añadirlo ni cambiarlo.
+  * **Correo electrónico** : se mantiene el que usaste al registrarte o el que devuelve el proveedor, y no se puede cambiar dentro de la aplicación.
+
+
 
 ¿Existe alguna restricción de dispositivos para iniciar sesión?
 

@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/es/api-reference/v2/overview/
 title: Descripci\u00f3n general de Comfy API v2 - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-26T14:01:28.887011+00:00
+fetched_at: 2026-11-05T15:16:37.042037+00:00
 ---
 
 # Descripción general de Comfy API v2 - ComfyUI
@@ -153,7 +153,7 @@ Lo que no funciona es persistir una URL firmada. Sirve durante horas, no días, 
 
 Comfy Router
 
-Comfy API v2 ejecuta flujos de trabajo como tareas duraderas que envías y consultas periódicamente. Para llamadas directas a modelos (un modelo socio, una solicitud, la entrada y la salida nativas del modelo), consulta [Comfy Router](https://docs.comfy.org/es/development/comfy-router/quickstart). Revisa primero las [limitaciones de Router](https://docs.comfy.org/es/development/comfy-router/limitations). Router aún no está disponible de forma general.
+Comfy API v2 ejecuta flujos de trabajo como tareas duraderas que envías y consultas periódicamente. Para llamadas directas a modelos (un modelo socio, una solicitud, la entrada y la salida nativas del modelo), consulta [Comfy Router](https://docs.comfy.org/es/development/comfy-router/quickstart). Revisa primero las [limitaciones de Router](https://docs.comfy.org/es/development/comfy-router/limitations).
 
 ¿Esta página le ayudó?
 

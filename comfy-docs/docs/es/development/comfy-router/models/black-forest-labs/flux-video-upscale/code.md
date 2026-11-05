@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/es/development/comfy-router/models/black-forest-labs/flux-video-upscale/code/
 title: Usa FLUX Video Upscale con Comfy Router - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-26T14:02:57.179418+00:00
+fetched_at: 2026-11-05T15:16:37.133235+00:00
 ---
 
 # Usa FLUX Video Upscale con Comfy Router - ComfyUI
@@ -215,7 +215,7 @@ string
 
 requerido
 
-Video a escalar, ya sea una URL HTTP(S) o un MP4 codificado en base64. Como máximo 20 segundos de material de origen y 50MB.
+Video a escalar, ya sea una URL HTTP(S) o un MP4 codificado en base64. Como máximo 20 segundos de metraje de origen, 50 MB y 2560x1440 (3.7 megapíxeles) por fotograma; reduce la resolución de un origen mayor antes de enviarlo.
 
 ​
 
@@ -243,7 +243,7 @@ number
 
 predeterminado:"2"
 
-Escalado de salida en relación con la resolución de origen. La salida conserva la relación de aspecto de la fuente y está limitada a unos 14.4 megapíxeles por fotograma, así que las fuentes muy grandes se escalan por menos del factor solicitado.Rango: `1.5` a `3`Formato: `float`
+Escalado de salida relativo a la resolución de origen. La salida conserva la relación de aspecto del origen y está limitada a unos 14.4 megapíxeles por fotograma, así que los orígenes muy grandes se escalan menos que el factor solicitado. No hay opción de resolución; para apuntar a 2K (2560x1440) o 4K (3840x2160), divide la altura objetivo entre la altura de origen. Un origen 720p llega a 2K con 2 y a 4K con 3; un origen 1080p llega a 4K con 2 pero no puede llegar a 2K, que necesita 1.33.Rango: `1.5` a `3`Formato: `float`
 
 ​
 

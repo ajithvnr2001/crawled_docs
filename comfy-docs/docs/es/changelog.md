@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/es/changelog/
 title: Registro de cambios - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T15:15:49.710254+00:00
+fetched_at: 2026-11-05T15:16:36.089046+00:00
 ---
 
 # Registro de cambios - ComfyUI
@@ -191,7 +191,7 @@ v0.44.0
   * [**P-H3-Image**](https://github.com/Comfy-Org/ComfyUI/pull/17506): el modelo de imagen de pocos pasos de Pruna AI, basado en MiniMax H3, con plantillas de texto a imagen y de edición de imagen
   * [**Ampliador latente de MiniMax H3**](https://github.com/Comfy-Org/ComfyUI/pull/17412): Amplía los latentes de H3 con el modelo de ampliación dedicado
   * [**MiniMax Sol-H3-VAE**](https://github.com/Comfy-Org/ComfyUI/pull/17411): Carga el Sol-H3-VAE junto con los VAE H3 estándar
-  * [**Ventanas de contexto de MiniMax H3**](https://github.com/Comfy-Org/ComfyUI/pull/17425): Genera video H3 más largo ejecutando el modelo sobre ventanas de contexto superpuestas
+  * [**Ventanas de contexto de MiniMax H3**](https://github.com/Comfy-Org/ComfyUI/pull/17425): Compatibilidad con ventanas de contexto para MiniMax H3
 
 **Nodos nuevos**
 

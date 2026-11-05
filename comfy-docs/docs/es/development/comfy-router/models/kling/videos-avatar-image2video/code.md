@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/es/development/comfy-router/models/kling/videos-avatar-image2video/code/
 title: Usa Videos Avatar Image 2video con Comfy Router - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-26T14:03:09.106631+00:00
+fetched_at: 2026-11-05T15:16:38.274650+00:00
 ---
 
 # Usa Videos Avatar Image 2video con Comfy Router - ComfyUI
@@ -207,7 +207,7 @@ callback_url
 
 string (uri)
 
-La dirección de notificación de callback para el resultado de esta tarea.Formato: `uri`
+La dirección de notificación de callback para el resultado de esta tarea. Ignorado: comfy-api descarta este campo antes de reenviarlo; Comfy Router consulta el estado en tu nombre.Formato: `uri`
 
 ​
 
@@ -215,7 +215,7 @@ external_task_id
 
 string
 
-ID de tarea personalizado. Debe ser único dentro de una misma cuenta de usuario.
+ID de tarea personalizado. Debe ser único dentro de una misma cuenta de usuario. Ignorado: comfy-api descarta este campo antes de reenviarlo; Comfy Router consulta el estado en tu nombre.
 
 ​
 

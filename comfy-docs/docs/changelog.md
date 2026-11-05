@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/changelog/
 title: Changelog - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T15:15:49.327352+00:00
+fetched_at: 2026-11-05T15:16:35.713333+00:00
 ---
 
 # Changelog - ComfyUI
@@ -191,7 +191,7 @@ November 4, 2026
   * [**P-H3-Image**](https://github.com/Comfy-Org/ComfyUI/pull/17506): Pruna AI’s few-step image model built on MiniMax H3, with text to image and image edit templates
   * [**MiniMax H3 latent upscaler**](https://github.com/Comfy-Org/ComfyUI/pull/17412): Upscale H3 latents with the dedicated upscaler model
   * [**MiniMax Sol-H3-VAE**](https://github.com/Comfy-Org/ComfyUI/pull/17411): Load the Sol-H3-VAE alongside the standard H3 VAEs
-  * [**MiniMax H3 context windows**](https://github.com/Comfy-Org/ComfyUI/pull/17425): Generate longer H3 video by running the model over overlapping context windows
+  * [**MiniMax H3 context windows**](https://github.com/Comfy-Org/ComfyUI/pull/17425): Context window support for MiniMax H3
 
 **New Nodes**
 
