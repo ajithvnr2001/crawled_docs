@@ -2,7 +2,7 @@
 url: https://docs.fish.audio/developer-guide/core-features/fine-grained-control/english/
 title: English Phoneme Control - Fish Audio
 method: scrapling+scrapegraph
-fetched_at: 2026-10-17T10:47:29.710296+00:00
+fetched_at: 2026-11-05T15:40:34.057663+00:00
 ---
 
 # English Phoneme Control - Fish Audio
@@ -10,6 +10,8 @@ fetched_at: 2026-10-17T10:47:29.710296+00:00
 > Source: https://docs.fish.audio/developer-guide/core-features/fine-grained-control/english/
 
 ## On this page
+
+Back to top
 
   * Overview
   * CMU Arpabet
@@ -41,7 +43,7 @@ English phoneme control uses CMU Arpabet, the pronunciation format used by CMUdi
     I am an <|phoneme_start|>EH1 N JH AH0 N IH1 R<|phoneme_end|>.
     
 
-IPA is not supported for English phoneme tags. Convert IPA pronunciations to CMU Arpabet before using phoneme control.
+drama-3 models also accept IPA inside phoneme tags, for example `<|phoneme_start|>ˈɛndʒəˈnɪr<|phoneme_end|>`. Other models do not support IPA; convert IPA pronunciations to CMU Arpabet before using phoneme control with them.
 
 ## 
 

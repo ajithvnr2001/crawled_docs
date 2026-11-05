@@ -2,7 +2,7 @@
 url: https://docs.fish.audio/agents/monitor/conversation-history/
 title: Conversation History - Fish Audio
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T15:37:54.166788+00:00
+fetched_at: 2026-11-05T15:40:34.771966+00:00
 ---
 
 # Conversation History - Fish Audio
@@ -49,7 +49,7 @@ Every production session your agents handle (from the API, the console, [public 
 
 What gets stored
 
-The session record (status, timing, caller attribution, name, `end_user_id`, and `metadata`) and the conversation transcript are always kept for production sessions. Audio recording is a per-agent choice, on by default: set `conversation.record_audio` in the console under your agent’s **Settings** or in the `conversation` section of the [config API](https://docs.fish.audio/agents/build/configuration#configure-through-the-api), with a per-session override on the [session request](https://docs.fish.audio/agents/deploy/authenticated-sessions). Recording off means there is no audio to download. The setting doesn’t affect the live call: transcript events still stream to connected clients in real time.
+Each production session stores a session record (status, timing, caller attribution, name, `end_user_id`, and `metadata`) and the conversation transcript. Audio recording is a per-agent choice, on by default: set `conversation.record_audio` in the console under your agent’s **Settings** or in the `conversation` section of the [config API](https://docs.fish.audio/agents/build/configuration#configure-through-the-api), with a per-session override on the [session request](https://docs.fish.audio/agents/deploy/authenticated-sessions). Recording off means there is no audio to download. The setting doesn’t affect the live call: transcript events still stream to connected clients in real time.
 
 Recording defaults to on. Call-recording laws vary by jurisdiction. Make sure callers are informed and consent where required before going live.
 
