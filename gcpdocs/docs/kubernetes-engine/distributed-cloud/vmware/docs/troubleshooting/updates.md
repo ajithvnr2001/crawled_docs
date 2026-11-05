@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/vmware/docs/troubleshooting/updates/
 title: Troubleshoot Google Distributed Cloud update issues \u00a0|\u00a0 Google Distributed Cloud software only for VMware \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T23:30:11.494941+00:00
+fetched_at: 2026-11-05T05:39:30.606793+00:00
 ---
 
 # Troubleshoot Google Distributed Cloud update issues  |  Google Distributed Cloud software only for VMware  |  Google Cloud Documentation
@@ -157,6 +157,18 @@ This failure indicates that the datastore doesn't have enough free space for the
 
 
 
+## User cluster update fails after you add IP addresses to a MetalLB IP address pool
+
+On an [advanced cluster](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/vmware/docs/concepts/advanced-clusters), you can't change the IP addresses of an existing address pool in `loadBalancer.metalLB.addressPools`. In version 1.33 and higher, all new clusters are advanced clusters. If you add IP addresses to an existing address pool and run `gkectl update cluster`, the new configuration is accepted and saved, but the update fails later, and the user cluster stays in the `UPDATING` state. The update fails with an error similar to the following:
+    
+    
+    admission webhook "vcluster.kb.io" denied the request: Cluster.baremetal.cluster.gke.io "CLUSTER_NAME" is invalid: spec.loadBalancer.addressPools: Forbidden: Fields should be immutable. ... If you want to add new addresses for load balancer, please add a new address pool with new addresses instead of updating an existing address pool.
+    
+
+To add IP addresses, add a new address pool that contains the new IP addresses, and keep the existing address pools unchanged. For more information, see [Update MetalLB](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/vmware/docs/how-to/bundled-load-balance-metallb#update-metallb).
+
+If your user cluster is already stuck in the `UPDATING` state, don't remove the added IP addresses from your user cluster configuration file, because removing IP addresses from an existing address pool is also rejected. Instead, contact [Cloud Customer Care](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/vmware/docs/getting-support) for help with recovering the cluster.
+
 ## What's next
 
 If you need additional assistance, reach out to [Cloud Customer Care](https://cloud.google.com/support-hub). 
@@ -173,6 +185,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-04 UTC.
+Last updated 2026-11-05 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-05 UTC."],[],[]] 

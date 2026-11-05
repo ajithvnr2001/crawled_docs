@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/vmware/docs/how-to/user-cluster-configuration-file-latest/
 title: User cluster configuration file 1.30 and later \u00a0|\u00a0 Google Distributed Cloud software only for VMware \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T23:29:02.951813+00:00
+fetched_at: 2026-11-05T05:39:31.257516+00:00
 ---
 
 # User cluster configuration file 1.30 and later  |  Google Distributed Cloud software only for VMware  |  Google Cloud Documentation
@@ -2154,26 +2154,37 @@ Required if `loadBalancer.kind` = `MetalLB`
 Mutable (see exception)  
 
 
-Array of strings, each of which is a range of addresses. Each range must be in CIDR format or hyphenated range format.
+Array of strings, each of which is a range of IP addresses. Each range must be in CIDR format or hyphenated range format.
 
-### 1.32 and higher
+### 1.33 and higher
 
-The behavior of this field is the same as when `enableAdvancedCluster` is set to `true` (advanced cluster enabled) or `false` (advanced cluster isn't enabled). In both cases, you can add addresses to an existing address pool, but removing addresses isn't supported.
+All new clusters are advanced clusters. On advanced clusters, you can't change the IP addresses of an existing address pool after the cluster is created. Adding, removing, and reordering IP addresses isn't supported. To add IP addresses, add a new address pool.
+
+### 1.32
+
+The behavior of this field depends on whether `enableAdvancedCluster` is set to `true` (advanced clusters enabled) or `false` (advanced clusters aren't enabled):
+
+  * If advanced clusters are enabled: you can't change the IP addresses of an existing address pool. Adding, removing, and reordering IP addresses isn't supported. To add IP addresses, add a new address pool.
+
+  * If advanced clusters aren't enabled: you can add IP addresses to an existing address pool, but removing IP addresses isn't supported.
+
+
+
 
 ### 1.31
 
-The behavior of this field depends on whether `enableAdvancedCluster` is set to `true` (advanced cluster enabled) or `false` (advanced cluster isn't enabled):
+The behavior of this field depends on whether `enableAdvancedCluster` is set to `true` (advanced clusters enabled) or `false` (advanced clusters aren't enabled):
 
-  * If advanced cluster is enabled: you can add addresses to an existing address pool, but removing addresses isn't supported.
+  * If advanced clusters are enabled: you can't change the IP addresses of an existing address pool. Adding, removing, and reordering IP addresses isn't supported. To add IP addresses, add a new address pool.
 
-  * If advanced cluster isn't enabled: you can add and remove addresses from an existing address pool.
+  * If advanced clusters aren't enabled: you can add and remove IP addresses from an existing address pool.
 
 
 
 
 ### 1.30 and earlier
 
-You can add and remove addresses from an existing address pool.
+You can add and remove IP addresses from an existing address pool.
 
 Example:
     
@@ -3721,6 +3732,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-04 UTC.
+Last updated 2026-11-05 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-05 UTC."],[],[]] 

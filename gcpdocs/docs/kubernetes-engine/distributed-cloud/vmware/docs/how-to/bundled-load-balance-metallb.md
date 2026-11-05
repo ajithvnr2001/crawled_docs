@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/vmware/docs/how-to/bundled-load-balance-metallb/
 title: Bundled load balancing with MetalLB \u00a0|\u00a0 Google Distributed Cloud software only for VMware \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T23:29:13.855323+00:00
+fetched_at: 2026-11-05T05:39:30.707712+00:00
 ---
 
 # Bundled load balancing with MetalLB  |  Google Distributed Cloud software only for VMware  |  Google Cloud Documentation
@@ -218,7 +218,7 @@ Don't include the following IP addresses in any address pool:
 
 
 
-If you need to adjust the addresses in a pool after the cluster is created, you can use `gkectl update cluster`. For more information, see Update MetalLB.
+After the cluster is created, you can use `gkectl update cluster` to add IP address pools. Whether you can change the IP addresses in an existing address pool depends on the cluster version and whether advanced clusters are enabled. For more information, see Update MetalLB.
 
 ### Enable MetalLB for a new user cluster
 
@@ -230,7 +230,7 @@ In your [user cluster configuration file](https://docs.cloud.google.com/kubernet
 
 **Warning:** If the IP address for a Service has a high network address translation (NAT) ingress volume, don't use that node pool for MetalLB. Instead, use another pool or create a dedicated node pool for MetalLB to use. Otherwise, using the same node pool as the Service with the high NAT ingress volume might pose a risk to your workloads running out of memory.
 
-Note the following differences in the behavior of the `enableLoadBalancer` field when [`enableAdvancedCluster`](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/vmware/docs/how-to/user-cluster-configuration-file-latest#enable-advanced-cluster-field) set to `true` (advanced cluster enabled): In version 1.31 when advanced cluster is enabled, this field has no effect because the MetalLB speaker always runs on the user cluster's control-plane nodes. In version 1.32 when advanced cluster is enabled, this limitation has been removed, and you must specify at least one node pool on which the MetalLB speaker runs.
+Note the following differences in the behavior of the `enableLoadBalancer` field when [`enableAdvancedCluster`](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/vmware/docs/how-to/user-cluster-configuration-file-latest#enable-advanced-cluster-field) is set to `true` (advanced clusters enabled): In version 1.31 when advanced clusters are enabled, this field has no effect because the MetalLB speaker always runs on the user cluster's control-plane nodes. In version 1.32 when advanced clusters are enabled, this limitation has been removed, and you must specify at least one node pool on which the MetalLB speaker runs.
 
 
 
@@ -356,6 +356,27 @@ After you create your cluster, you can update the MetalLB address pools and the 
     gkectl update cluster --kubeconfig ADMIN_CLUSTER_KUBECONFIG --config USER_CLUSTER_CONFIG
     
 
+If [advanced clusters](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/vmware/docs/concepts/advanced-clusters) are enabled, you can't change the IP addresses of an existing address pool. Adding, removing, and reordering IP addresses isn't supported. In version 1.33 and higher, all new clusters are advanced clusters. To add IP addresses, add a new address pool that contains the new IP addresses, and keep the existing address pools unchanged. For example, the following configuration adds `address-pool-2` and leaves `address-pool-1` unchanged:
+    
+    
+    loadBalancer:
+      kind: MetalLB
+      metalLB:
+        addressPools:
+        - name: "address-pool-1"
+          addresses:
+          - "172.16.40.101-172.16.40.112"
+          avoidBuggyIPs: true
+        - name: "address-pool-2"
+          addresses:
+          - "172.16.40.121-172.16.40.130"
+          avoidBuggyIPs: true
+    
+
+The MetalLB controller can assign IP addresses from any address pool that doesn't have `manualAssign` set to `true`, so a new address pool adds capacity. To keep the same behavior for the new IP addresses, set `manualAssign` and `avoidBuggyIPs` on the new address pool to the same values as the existing address pool.
+
+For details about which changes are supported in each version, see the [`addresses` field](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/vmware/docs/how-to/user-cluster-configuration-file-latest#loadbalancer-metallb-addresspool-addresses-field) in the user cluster configuration file reference.
+
 ## MetalLB Pods and ConfigMap
 
 The MetalLB controller runs as a Deployment, and the MetalLB speaker runs as a DaemonSet on nodes in pools that have `enableLoadBalancer` set to `true`. The MetalLB controller manages the IP addresses assigned to Services. The MetalLB speaker does leader election and announces Service VIPs.
@@ -405,6 +426,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-04 UTC.
+Last updated 2026-11-05 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-05 UTC."],[],[]] 

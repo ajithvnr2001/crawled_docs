@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/vertex-ai/docs/release-notes/
 title: Vertex AI release notes \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T23:16:56.675917+00:00
+fetched_at: 2026-11-05T05:39:33.767633+00:00
 ---
 
 # Vertex AI release notes  |  Google Cloud Documentation
@@ -127,6 +127,14 @@ Security
 
 Updated the CA certificate configuration.
 
+Fixed
+
+Changes to the idle shutdown timeout now take effect on running instances without a restart. Previously, an instance could still be stopped after the old timeout until it was restarted.
+
+Fixed
+
+Fixed an issue where temporary metadata server errors could delay idle shutdown or stop it from working until the instance was restarted.
+
 Change
 
 ### M155 Release
@@ -138,6 +146,14 @@ Installed latest packages from upstream dependencies.
 Security
 
 Updated the CA certificate configuration.
+
+Fixed
+
+Changes to the idle shutdown timeout now take effect on running instances without a restart. Previously, an instance could still be stopped after the old timeout until it was restarted.
+
+Fixed
+
+Fixed an issue where temporary metadata server errors could delay idle shutdown or stop it from working until the instance was restarted.
 
 ## October 26, 2026
 
@@ -10109,6 +10125,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-04 UTC.
+Last updated 2026-11-05 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-05 UTC."],[],[]] 
