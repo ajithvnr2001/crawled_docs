@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/teams/strands-typescript/interactive/
 title: Microsoft Teams + AWS Strands (TypeScript): Interactive messages and approvals
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T09:46:38.737359+00:00
+fetched_at: 2026-11-06T10:41:43.786447+00:00
 ---
 
 # Microsoft Teams + AWS Strands (TypeScript): Interactive messages and approvals

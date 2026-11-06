@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/teams/pydantic-ai/interactive/
 title: Microsoft Teams + PydanticAI: Interactive messages and approvals
 method: scrapling+scrapegraph
-fetched_at: 2026-10-30T09:52:03.426290+00:00
+fetched_at: 2026-11-06T10:41:48.173626+00:00
 ---
 
 # Microsoft Teams + PydanticAI: Interactive messages and approvals

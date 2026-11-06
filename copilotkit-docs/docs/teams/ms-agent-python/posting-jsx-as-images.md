@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/teams/ms-agent-python/posting-jsx-as-images/
 title: Microsoft Teams + MS Agent Framework (Python): Posting JSX as images
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T09:46:17.827207+00:00
+fetched_at: 2026-11-06T10:41:51.918571+00:00
 ---
 
 # Microsoft Teams + MS Agent Framework (Python): Posting JSX as images

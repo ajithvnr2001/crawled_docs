@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/teams/strands-typescript/
 title: Microsoft Teams: Channels
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T09:46:39.325298+00:00
+fetched_at: 2026-11-06T10:41:45.785878+00:00
 ---
 
 # Microsoft Teams: Channels

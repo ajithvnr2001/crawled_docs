@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/teams/ms-agent-harness-dotnet/tools/
 title: Microsoft Teams + MS Agent Harness (.NET): Tools and context
 method: scrapling+scrapegraph
-fetched_at: 2026-10-30T09:52:08.071047+00:00
+fetched_at: 2026-11-06T10:41:53.769974+00:00
 ---
 
 # Microsoft Teams + MS Agent Harness (.NET): Tools and context

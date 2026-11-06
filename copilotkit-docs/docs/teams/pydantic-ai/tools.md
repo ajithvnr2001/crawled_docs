@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/teams/pydantic-ai/tools/
 title: Microsoft Teams + PydanticAI: Tools and context
 method: scrapling+scrapegraph
-fetched_at: 2026-10-30T09:52:02.007861+00:00
+fetched_at: 2026-11-06T10:41:46.176977+00:00
 ---
 
 # Microsoft Teams + PydanticAI: Tools and context

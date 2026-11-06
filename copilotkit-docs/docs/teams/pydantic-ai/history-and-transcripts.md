@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/teams/pydantic-ai/history-and-transcripts/
 title: Microsoft Teams + PydanticAI: History and transcripts
 method: scrapling+scrapegraph
-fetched_at: 2026-10-30T09:52:03.170526+00:00
+fetched_at: 2026-11-06T10:41:47.995969+00:00
 ---
 
 # Microsoft Teams + PydanticAI: History and transcripts

@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/teams/ms-agent-python/files-and-multimodality/
 title: Microsoft Teams + MS Agent Framework (Python): Files and multimodal input
 method: scrapling+scrapegraph
-fetched_at: 2026-10-30T09:52:06.328218+00:00
+fetched_at: 2026-11-06T10:41:51.569307+00:00
 ---
 
 # Microsoft Teams + MS Agent Framework (Python): Files and multimodal input

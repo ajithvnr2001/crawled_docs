@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/teams/ms-agent-python/history-and-transcripts/
 title: Microsoft Teams + MS Agent Framework (Python): History and transcripts
 method: scrapling+scrapegraph
-fetched_at: 2026-10-30T09:52:05.355172+00:00
+fetched_at: 2026-11-06T10:41:51.748500+00:00
 ---
 
 # Microsoft Teams + MS Agent Framework (Python): History and transcripts

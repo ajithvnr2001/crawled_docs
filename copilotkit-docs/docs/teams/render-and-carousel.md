@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/teams/render-and-carousel/
 title: Microsoft Teams: Render and carousel
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T09:46:17.478117+00:00
+fetched_at: 2026-11-06T10:41:45.837442+00:00
 ---
 
 # Microsoft Teams: Render and carousel

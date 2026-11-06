@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/teams/ms-agent-python/commands-and-reactions/
 title: Microsoft Teams + MS Agent Framework (Python): Commands and reactions
 method: scrapling+scrapegraph
-fetched_at: 2026-10-30T09:52:08.129651+00:00
+fetched_at: 2026-11-06T10:41:53.709382+00:00
 ---
 
 # Microsoft Teams + MS Agent Framework (Python): Commands and reactions
