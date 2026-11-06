@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sql/docs/sqlserver/admin-api/rest/v1/operations/
 title: REST Resource: operations \u00a0|\u00a0 Cloud SQL for SQL Server \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-14T01:57:41.525406+00:00
+fetched_at: 2026-11-06T10:28:41.446076+00:00
 ---
 
 # REST Resource: operations  |  Cloud SQL for SQL Server  |  Google Cloud Documentation
@@ -240,6 +240,7 @@ Enums
 `CREATE_READ_POOL` | Creates a Cloud SQL read pool instance.  
 `PRE_CHECK_MAJOR_VERSION_UPGRADE` | Pre-checks the major version upgrade operation.  
 `SETUP_MIGRATION` | This operation type represents individual steps in a multi-step setup migration workflow: including configuration, replication, switchover/back, and data reseeding, as defined by operation's intent.  
+`RECONCILE_NETWORKING` | Reconciles network infrastructure (e.g. Private Service Connect, Automated DNS Records).  
   
 ## ImportContext
 
@@ -414,7 +415,7 @@ Fields
 `sqlExportOptions.threads` |  `integer` Optional. The number of threads to use for parallel export.  
 `sqlExportOptions.parallel` |  `boolean` Optional. Whether or not the export should be parallel.  
 `sqlExportOptions.postgresExportOptions` |  `object` Optional. Options for exporting from a Cloud SQL for PostgreSQL instance.  
-`sqlExportOptions.postgresExportOptions.clean` |  `boolean` Optional. Use this option to include DROP  `<object>` SQL statements. Use these statements to delete database objects before running the import operation.  
+`sqlExportOptions.postgresExportOptions.clean` |  `boolean` Optional. Use this option to include DROP `<object>` SQL statements. Use these statements to delete database objects before running the import operation.  
 `sqlExportOptions.postgresExportOptions.ifExists` |  `boolean` Optional. Option to include an IF EXISTS SQL statement with each DROP statement produced by clean.  
 `csvExportOptions` |  `object` Options for exporting data as CSV. `MySQL` and `PostgreSQL` instances only.  
 `csvExportOptions.selectQuery` |  `string` The select query used to extract the data.  
@@ -491,15 +492,17 @@ JSON representation
     
     {
     
-      // Union field sub_operation_details can be only one of the following:
+      // The following is a list of mutually exclusive fields. At most one of the
+      // fields will be set in a response:
       "maintenanceType": enum ([SqlMaintenanceType](https://docs.cloud.google.com/sql/docs/sqlserver/admin-api/rest/v1/operations#SqlMaintenanceType))
-      // End of list of possible types for union field sub_operation_details.
+      // End of mutually exclusive fields.
     }  
   
 Fields  
 ---  
-Union field `sub_operation_details`. Sub operation details corresponding to the operation type. `sub_operation_details` can be only one of the following:  
+Sub operation details corresponding to the operation type. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:  
 `maintenanceType` |  `enum (`[SqlMaintenanceType](https://docs.cloud.google.com/sql/docs/sqlserver/admin-api/rest/v1/operations#SqlMaintenanceType)`)` The type of maintenance to be performed on the instance.  
+End of mutually exclusive fields.  
   
 ## SqlMaintenanceType
 
@@ -533,6 +536,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-05-19 UTC.
+Last updated 2026-11-05 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-05-19 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-05 UTC."],[],[]] 

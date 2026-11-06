@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/storage-transfer/docs/delegate-service-agent-permissions/
 title: Delegate service agent permissions to a user-managed service account \u00a0|\u00a0 Storage Transfer Service \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T09:40:57.822629+00:00
+fetched_at: 2026-11-06T10:53:06.526092+00:00
 ---
 
 # Delegate service agent permissions to a user-managed service account  |  Storage Transfer Service  |  Google Cloud Documentation
@@ -20,11 +20,13 @@ Send feedback
 
 #  Delegate service agent permissions to a user-managed service account Stay organized with collections  Save and categorize content based on your preferences. 
 
+Delegating service agent permissions to a user-managed service account is an optional configuration for organizations that require per-user bucket access control.
+
 For agentless transfers, Storage Transfer Service by default uses a [service agent](https://docs.cloud.google.com/iam/docs/service-account-types#service-agents) to transfer your data between the source and the destination. You grant permissions to the service agent to access your Cloud Storage buckets.
 
-Because the same Storage Transfer Service service agent is used by all transfers within a project, it necessarily has permissions on _all_ of the buckets involved in every transfer.
+Because the same Storage Transfer Service service agent is used by all transfers within a project, it necessarily has permissions on _all_ of the buckets involved in every transfer within that project.
 
-As an alternative, you can assign bucket permissions to multiple user-managed service accounts instead. These user-managed service accounts are granted permissions on specific source and destination buckets, and are also restricted to specific user accounts (the accounts creating or triggering the transfer job).
+As an optional alternative, you can assign bucket permissions to multiple user-managed service accounts instead. These user-managed service accounts are granted permissions on specific source and destination buckets, and are also restricted to specific user accounts (the accounts creating or triggering the transfer job).
 
 ## Example scenarios
 
@@ -112,6 +114,7 @@ Follow the instructions to delegate service agent access to a user-managed servi
 
 ### Requirements
 
+  * To create or manage transfer jobs, your user account requires Storage Transfer Service project permissions. See [Required user permissions](https://docs.cloud.google.com/storage-transfer/docs/iam-user).
   * To create a new user-managed service account, you require the Create Service Accounts (`roles/iam.serviceAccountCreator`) role on the project.
   * To grant access for the user and the service agent to the user-managed service account, you need the Service Account Admin (`roles/iam.serviceAccountAdmin`) role on the user-managed service account, or on the project.
 
@@ -126,6 +129,8 @@ You can create a new user-managed service account, or use an existing one.
   * To use an existing user-managed service account, you need its email address, which uses the following format:
 
 `SERVICE_ACCOUNT_NAME@PROJECT_ID.iam.gserviceaccount.com`
+
+  * If you need the service account's unique ID (`uniqueId`), run `gcloud iam service-accounts describe SERVICE_ACCOUNT_EMAIL --format="value(uniqueId)"` or view the **Unique ID** column on the **Service Accounts** page in the Google Cloud console.
 
 
 
@@ -235,7 +240,7 @@ Replace the following variables:
 
 ### Grant bucket permissions to the user-managed service account
 
-Grant the permissions listed in [Service agent permissions](https://docs.cloud.google.com/storage-transfer/docs/iam-cloud#manually_assigning_roles) to the user-managed service account, instead of to the service agent.
+Grant the permissions listed in [Configure access to a source: Cloud Storage](https://docs.cloud.google.com/storage-transfer/docs/source-cloud-storage) and [Configure access to a sink: Cloud Storage](https://docs.cloud.google.com/storage-transfer/docs/sink-cloud-storage) to the user-managed service account, instead of to the service agent.
 
 ## Create a transfer job using a user-managed service account
 
@@ -305,6 +310,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-05 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-05 UTC."],[],[]] 

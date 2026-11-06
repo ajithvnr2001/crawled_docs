@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/marketplace/docs/partners/offers/set-up-pricing-model/
 title: Set up your offer's pricing \u00a0|\u00a0 Google Cloud Marketplace Partners \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T21:59:02.411309+00:00
+fetched_at: 2026-11-06T10:22:03.158501+00:00
 ---
 
 # Set up your offer's pricing  |  Google Cloud Marketplace Partners  |  Google Cloud Documentation
@@ -39,7 +39,7 @@ Before you set up pricing for your offer, you must complete the following steps 
 
 Under **Billing account** , add the Cloud Billing account for the offer.
 
-If the Cloud Billing account matches a resold customer subaccount that you've configured a reseller discount for, you see a notice that informs you of the discount. To view the details of the discount, click **View discount**.
+If the Cloud Billing account is a resold customer subaccount, you must set up a [private offer plan](https://docs.cloud.google.com/marketplace/docs/partners/resell/reseller-private-offer-plans) to transact with this customer. The plan can include a reseller discount.
 
 ## Enter product and pricing details
 
@@ -64,7 +64,12 @@ On the date that you select, the offer expires at 11:45 PM US and Canadian Pacif
 
   2. Under **Frequency** , use the **Billing frequency** menu to select a payment schedule. For more information about billing frequencies, see [Billing frequencies for private offers](https://docs.cloud.google.com/marketplace/docs/partners/offers/select-payment-schedule).
 
-  3. For pricing models that support proration, under **Proration** , specify whether to turn proration on or off. When proration is turned on, Cloud Marketplace automatically prorates the charges for the first installment. When you turn on proration, you choose whether Cloud Marketplace prorates based on the anniversary date of the offer or the first day of the month.
+  3. If you selected **Monthly** for **Billing frequency** , use the **Proration** menu to select **Proration On** or **Proration Off** :
+
+     * **Proration On** : Cloud Marketplace prorates the charges for the first installment and starts subsequent installments on the first day of each month.
+     * **Proration Off** : Cloud Marketplace doesn't prorate charges and starts installments on the monthly anniversary date of the offer.
+
+Proration isn't available for quarterly, annual, or custom billing frequencies, or for **Usage only** offers.
 
   4. Specify additional pricing details based on your selected pricing model and billing frequency.
 
@@ -113,6 +118,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-27 UTC.
+Last updated 2026-11-05 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-05 UTC."],[],[]] 

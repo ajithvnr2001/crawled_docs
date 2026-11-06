@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/run/docs/configuring/shared-vpc-direct-vpc/
 title: Direct VPC egress with a Shared VPC network \u00a0|\u00a0 Cloud Run \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T05:49:50.607171+00:00
+fetched_at: 2026-11-06T10:22:21.043808+00:00
 ---
 
 # Direct VPC egress with a Shared VPC network  |  Cloud Run  |  Google Cloud Documentation
@@ -21,9 +21,7 @@ Send feedback
 
 #  Direct VPC egress with a Shared VPC network Stay organized with collections  Save and categorize content based on your preferences. 
 
-You can enable your Cloud Run service or job to send traffic to a [Shared VPC network](https://docs.cloud.google.com/vpc/docs/shared-vpc#shared_vpc_networks) by using Direct VPC egress with no Serverless VPC Access connector required.
-
-This page describes how to configure Cloud Run's IAM permissions to use the subnet of the Shared VPC network, and then place your service or job on the shared subnet.
+Direct VPC egress lets your Cloud Run service or job send traffic to a [Shared VPC network](https://docs.cloud.google.com/vpc/docs/shared-vpc#shared_vpc_networks) without a Serverless VPC Access connector. To connect your workload, you grant Identity and Access Management (IAM) permissions on the shared subnet and attach your Cloud Run service or job to that subnet.
 
 ## Before you begin
 
@@ -711,6 +709,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-30 UTC.
+Last updated 2026-11-05 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-05 UTC."],[],[]] 

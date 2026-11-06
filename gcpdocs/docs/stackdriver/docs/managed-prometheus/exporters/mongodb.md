@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/stackdriver/docs/managed-prometheus/exporters/mongodb/
 title: MongoDB \u00a0|\u00a0 Google Cloud Observability \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-03T09:43:03.484107+00:00
+fetched_at: 2026-11-06T10:29:05.998745+00:00
 ---
 
 # MongoDB  |  Google Cloud Observability  |  Google Cloud Documentation
@@ -189,10 +189,10 @@ You can use the following `Rules` configuration to define alerts on your MongoDB
           annotations:
             description: |-
               MongoDB connection utilization near max
-    {{ $value }            VALUE = }
-    {{ $labels }            LABELS: }
-            summary: MongoDB connection utilization{{ $labels.instance } near max (instance })
-          expr: mongodb_sys_ne>tstat_Tcp_CurrEstab = 50000
+                VALUE = {{ $value }}
+                LABELS: {{ $labels }}
+            summary: MongoDB connection utilization near max (instance {{ $labels.instance }})
+          expr: mongodb_sys_netstat_Tcp_CurrEstab >= 50000
           for: 5m
           labels:
             severity: warning
@@ -200,10 +200,10 @@ You can use the following `Rules` configuration to define alerts on your MongoDB
           annotations:
             description: |-
               MongoDB is down
-    {{ $value }            VALUE = }
-    {{ $labels }            LABELS: }
-            summary: MongoD{{ $labels.instance }B is down (instance })
-       <   expr: mongodb_up  1
+                VALUE = {{ $value }}
+                LABELS: {{ $labels }}
+            summary: MongoDB is down (instance {{ $labels.instance }})
+          expr: mongodb_up < 1
           for: 5m
           labels:
             severity: critical

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/docs/instance-read-pool-scale/
 title: Scale an instance \u00a0|\u00a0 AlloyDB for PostgreSQL \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-05T00:18:47.891048+00:00
+fetched_at: 2026-11-06T09:07:30.069113+00:00
 ---
 
 # Scale an instance  |  AlloyDB for PostgreSQL  |  Google Cloud Documentation
@@ -53,7 +53,7 @@ This section describes manual methods for scaling your AlloyDB instances. For ex
 
 You can vertically scale a primary or read pool instance by changing the instance's machine type, which modifies its vCPU count and memory. Changing the machine type lets you resize the instance to a different vCPU count within the same machine series or switch it to a different machine series. Primary instances and read pool instances in the same cluster can use different machine series. All nodes within a single read pool instance use the same machine series and machine type. For more information, see [Machine series configuration](https://docs.cloud.google.com/alloydb/docs/choose-machine-type#machine-series-configuration).
 
-When you change the machine type of a read pool instance, AlloyDB creates replacement VMs with the target machine type. After the replacement VMs are ready, AlloyDB replaces the existing VMs while keeping the read pool instance's IP address unchanged. If creating the replacement VMs fails because of resource unavailability, such as a stockout, AlloyDB cancels the operation with an error and leaves the existing read pool VMs running without disruption.
+When you change the machine type of a read pool instance, AlloyDB creates replacement VMs with the target machine type. After the replacement VMs are ready, AlloyDB replaces the existing VMs while keeping the read pool instance's IP address unchanged. If creating the replacement VMs fails because of resource unavailability, such as a stockout, AlloyDB cancels the operation with an error and leaves the existing read pool VMs running without disruption. For strategies to handle temporary resource constraints during scaling, see Best practices for scaling and resource availability.
 
 ### Console
 
@@ -576,10 +576,31 @@ Replace the following:
 
 
 
+## Best practices for scaling and resource availability
+
+When you scale a primary instance vertically or scale a read pool instance vertically or horizontally, AlloyDB provisions replacement or additional Compute Engine VMs in your cluster's region. If the region or zone temporarily lacks sufficient hardware capacity for the requested machine shape, the scaling operation fails and your existing instance configuration remains active.
+
+To improve scaling reliability and handle temporary resource constraints, follow these best practices:
+
+  * **Retry failed scaling operations** : Cloud resource availability changes dynamically as other workloads release capacity across a region. If a scaling request fails because of temporary resource unavailability, wait and retry the operation. In automated scaling workflows, use exponential backoff between retry attempts.
+
+  * **Scale during off-peak hours** : Schedule manual vertical scaling or node count increases during periods of lower workload traffic and lower regional demand.
+
+  * **Switch read pools to an available machine series** : Because AlloyDB supports [cross-machine-series configurations](https://docs.cloud.google.com/alloydb/docs/choose-machine-type#cross-machine-series-configurations), a read pool instance doesn't need to use the same machine series as the primary instance. If scaling a read pool instance fails because of capacity constraints on its existing machine series (for example, `N2`), you can change the read pool's machine type to a comparable vCPU size in another supported machine series (such as `C4A`, `C4`, or `Z3`) without modifying or restarting the primary instance.
+
+  * **Try an alternative vCPU size or multiple read pools** : Different machine types draw from separate capacity pools. If a single large machine type is unavailable, consider scaling to a different vCPU size that meets your workload requirements, or distribute read traffic across additional read pool nodes or separate read pool instances.
+
+  * **Use schedule-based read pool autoscaling** : Configure read pool autoscaling with a schedule-based policy to provision read nodes ahead of predictable peak traffic windows. Scaling ahead of peak demand gives you time to implement alternative strategies, such as changing the read pool's machine series, if the scaling operation fails because of temporary resource constraints.
+
+
+
+
+For additional guidance on designing clusters for regional and hardware flexibility, see [Best practices for capacity planning and resource availability](https://docs.cloud.google.com/alloydb/docs/choose-machine-type#capacity-planning-best-practices).
+
 Send feedback 
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-03 UTC.
+Last updated 2026-11-06 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-06 UTC."],[],[]] 

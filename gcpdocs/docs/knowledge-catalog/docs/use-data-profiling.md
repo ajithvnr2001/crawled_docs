@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/knowledge-catalog/docs/use-data-profiling/
 title: Create and use data profile scans \u00a0|\u00a0 Knowledge Catalog \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-05T10:52:55.895713+00:00
+fetched_at: 2026-11-06T10:24:43.464402+00:00
 ---
 
 # Create and use data profile scans  |  Knowledge Catalog  |  Google Cloud Documentation
@@ -375,7 +375,7 @@ If the source data isn't organized in a Knowledge Catalog lake, include the `--d
 
 Replace the following variables:
 
-  * `DATASCAN`: The name of the data profile scan.
+  * `DATASCAN`: The ID of the data profile scan.
   * `LOCATION`: The Google Cloud region in which to create the data profile scan.
   * `DATA_SOURCE_ENTITY`: The Knowledge Catalog entity that contains the data for the data profile scan. For example, `projects/test-project/locations/test-location/lakes/test-lake/zones/test-zone/entities/test-entity`.
   * `DATA_SOURCE_RESOURCE`: The name of the resource that contains the data for the data profile scan. For example, `//bigquery.googleapis.com/projects/test-project/datasets/test-dataset/tables/test-table`.
@@ -819,7 +819,7 @@ To run a data profile scan, use the [`gcloud dataplex datascans run` command](ht
 
 Replace the following variables:
 
-  * `DATASCAN`: The name of the data profile scan.
+  * `DATASCAN`: The ID of the data profile scan.
   * `LOCATION`: The Google Cloud region in which the data profile scan was created.
 
 
@@ -1130,7 +1130,7 @@ Replace the following variables:
 
   * `JOB`: The job ID of the data profile scan job.
   * `LOCATION`: The Google Cloud region in which the data profile scan was created.
-  * `DATASCAN`: The name of the data profile scan the job belongs to.
+  * `DATASCAN`: The ID of the data profile scan that the job belongs to.
   * `--view=FULL`: To see the scan job result, specify `FULL`.
 
 
@@ -1377,7 +1377,7 @@ To view the most recent successful data profile scan, use the [`gcloud dataplex 
 
 Replace the following variables:
 
-  * `DATASCAN`: The name of the data profile scan to view the most recent job for.
+  * `DATASCAN`: The ID of the data profile scan to view the most recent job for.
   * `LOCATION`: The Google Cloud region in which the data profile scan was created.
   * `--view=FULL`: To see the scan job result, specify `FULL`.
 
@@ -1421,7 +1421,7 @@ To view historical data profile scan jobs, use the [`gcloud dataplex datascans j
 Replace the following variables:
 
   * `LOCATION`: The Google Cloud region in which the data profile scan was created.
-  * `DATASCAN`: The name of the data profile scan to view jobs for.
+  * `DATASCAN`: The ID of the data profile scan to view jobs for.
 
 
 
@@ -1800,7 +1800,7 @@ To update a data profile scan, use the [`gcloud dataplex datascans update data-p
 
 Replace the following variables:
 
-  * `DATASCAN`: The name of the data profile scan to update.
+  * `DATASCAN`: The ID of the data profile scan to update.
   * `LOCATION`: The Google Cloud region in which the data profile scan was created.
   * `DESCRIPTION`: The new description for the data profile scan.
 
@@ -2069,7 +2069,7 @@ To delete a data profile scan, use the [`gcloud dataplex datascans delete` comma
 
 Replace the following variables:
 
-  * `DATASCAN`: The name of the data profile scan to delete.
+  * `DATASCAN`: The ID of the data profile scan to delete.
   * `LOCATION`: The Google Cloud region in which the data profile scan was created.
 
 
@@ -2093,6 +2093,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-05 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-05 UTC."],[],[]] 

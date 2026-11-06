@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/monitoring/api/metrics_kubernetes/
 title: GKE system metrics \u00a0|\u00a0 Cloud Monitoring \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-05T10:54:07.649707+00:00
+fetched_at: 2026-11-06T10:19:17.451457+00:00
 ---
 
 # GKE system metrics  |  Cloud Monitoring  |  Google Cloud Documentation
@@ -50,7 +50,7 @@ To chart or monitor metric types with values of type `STRING`, you must use Moni
 
 Metrics from [Google Kubernetes Engine](https://cloud.google.com/kubernetes-engine).
 
-The following list was last generated at 2026-10-29 23:33:54 UTC. For more information about this process, see [ About the lists](https://docs.cloud.google.com/monitoring/api/metrics#generated).
+The following list was last generated at 2026-11-05 18:04:57 UTC. For more information about this process, see [ About the lists](https://docs.cloud.google.com/monitoring/api/metrics#generated).
 
 ### kubernetes
 
@@ -156,6 +156,14 @@ KCP Healthchecks
 `DELTA`, `INT64`, `1`   
 **[k8s_cluster](https://docs.cloud.google.com/monitoring/api/resources#tag_k8s_cluster)** |  _Count of Kubernetes Control Plane healthchecks since the last sample, categorized by success or failure. Sampled every 60 seconds. After sampling, data is not visible for up to 60 seconds._   
 `success`: (BOOL) Indicates whether the KCP healthcheck was successful. False when KCP reported unhealthy or did not respond.   
+`cluster/storage/limit_bytes` BETA ** _(project)_**   
+Control Plane Storage Limit   
+`GAUGE`, `INT64`, `By`   
+**[k8s_cluster](https://docs.cloud.google.com/monitoring/api/resources#tag_k8s_cluster)** |  _Space limit for the cluster's control plane datastore. This metric interpolates past values up to 10 minutes if intermediate samples are unavailable. Sampled every 60 seconds. After sampling, data is not visible for up to 180 seconds._  
+`cluster/storage/used_bytes` BETA ** _(project)_**   
+Control Plane Storage Used   
+`GAUGE`, `INT64`, `By`   
+**[k8s_cluster](https://docs.cloud.google.com/monitoring/api/resources#tag_k8s_cluster)** |  _Space used by the cluster's control plane datastore. This metric interpolates past values up to 10 minutes if intermediate samples are unavailable. Sampled every 60 seconds. After sampling, data is not visible for up to 180 seconds._  
 `cluster/version` BETA ** _(project)_**   
 GKE Cluster Version   
 `GAUGE`, `BOOL`, `1`   
@@ -1002,12 +1010,12 @@ Nginx up
 `GAUGE`, `INT64`, `1`   
 **[k8s_container](https://docs.cloud.google.com/monitoring/api/resources#tag_k8s_container)** |  _Status of the last metric scrape. Indicates if the server is up or not. Sampled every 60 seconds._  
   
-Generated at 2026-10-29 23:33:54 UTC.
+Generated at 2026-11-05 18:04:57 UTC.
 
 Send feedback 
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-02 UTC.
+Last updated 2026-11-05 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-02 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-05 UTC."],[],[]] 

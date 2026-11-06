@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/monitoring/promql/create-promql-alerts-console/
 title: Create PromQL-based alerting policies (Console) \u00a0|\u00a0 Cloud Monitoring \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-05T10:53:31.912013+00:00
+fetched_at: 2026-11-06T10:24:13.530775+00:00
 ---
 
 # Create PromQL-based alerting policies (Console)  |  Cloud Monitoring  |  Google Cloud Documentation
@@ -60,10 +60,12 @@ If you use the search bar to find this page, then select the result whose subhea
 
   5. Enter the PromQL query that selects the data you want to monitor. If **Auto-run** isn't enabled, then click **Run Query**.
 
-For example, the following query summarizes the rate of billing logging data ingested over a 60-second interval and determines whether the summarized rate is over 300 bytes:
+For example, the following query summarizes the rate of billing logging data ingested over a 2-hour interval and determines whether the summarized rate is over 200,000 bytes:
          
-         sum(rate(logging_googleapis_com:billing_bytes_ingested{monitored_resource="global"}[60s]))>300
+         sum(rate(logging_googleapis_com:billing_bytes_ingested{monitored_resource="global"}[2h]))>200000
          
+
+**Note:** Because Logging reports billing usage in hourly batches, use a lookback window longer than one hour when you alert on `logging_googleapis_com:billing_bytes_ingested`.
 
 After you run your query, you see a chart. For one project, this query produced the following result:
 
@@ -101,6 +103,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-02 UTC.
+Last updated 2026-11-05 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-02 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-05 UTC."],[],[]] 

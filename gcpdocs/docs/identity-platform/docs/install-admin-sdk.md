@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/identity-platform/docs/install-admin-sdk/
 title: Installing the Admin SDK \u00a0|\u00a0 Identity Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-05T11:08:38.718349+00:00
+fetched_at: 2026-11-06T08:21:12.770559+00:00
 ---
 
 # Installing the Admin SDK  |  Identity Platform  |  Google Cloud Documentation
@@ -234,7 +234,7 @@ Add the following code to your server app to initialize the Admin SDK using the 
     
     default_app = firebase_admin.initialize_app()
     
-    [index.py](https://github.com/firebase/firebase-admin-python/blob/ae0a284127609272957c594af7c8a6179d87d1d4/snippets/auth/index.py#L45-L45)
+    [index.py](https://github.com/firebase/firebase-admin-python/blob/00e0754146a2051d98952f5928c7e2f2c2ed695a/snippets/auth/index.py#L45-L45)
 
 ### Go
     
@@ -292,7 +292,7 @@ You can also manually specify a service account key file:
     cred = credentials.Certificate('path/to/serviceAccountKey.json')
     default_app = firebase_admin.initialize_app(cred)
     
-    [index.py](https://github.com/firebase/firebase-admin-python/blob/ae0a284127609272957c594af7c8a6179d87d1d4/snippets/auth/index.py#L34-L39)
+    [index.py](https://github.com/firebase/firebase-admin-python/blob/00e0754146a2051d98952f5928c7e2f2c2ed695a/snippets/auth/index.py#L34-L39)
 
 ### Go
     
@@ -376,7 +376,7 @@ Typically, you'll only want to initialize a single, default app. However, you ca
     # Use the `app` argument to retrieve the other app's services
     # auth.create_custom_token(..., app=other_app)
     
-    [index.py](https://github.com/firebase/firebase-admin-python/blob/ae0a284127609272957c594af7c8a6179d87d1d4/snippets/auth/index.py#L85-L98)
+    [index.py](https://github.com/firebase/firebase-admin-python/blob/00e0754146a2051d98952f5928c7e2f2c2ed695a/snippets/auth/index.py#L85-L98)
 
 ### Go
     

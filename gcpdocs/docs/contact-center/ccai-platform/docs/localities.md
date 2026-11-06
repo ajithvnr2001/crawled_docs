@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/contact-center/ccai-platform/docs/localities/
 title: Locations \u00a0|\u00a0 Google Cloud Contact Center as a Service \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T02:29:53.182487+00:00
+fetched_at: 2026-11-06T13:12:14.491188+00:00
 ---
 
 # Locations  |  Google Cloud Contact Center as a Service  |  Google Cloud Documentation
@@ -67,29 +67,31 @@ United States | ✔ | ✔
 
 ## Google Cloud regions
 
-CCAI Platform can be deployed in the following Google Cloud regions. For more information about regions, see [Geography and regions](https://docs.cloud.google.com/docs/geography-and-regions).
+[Advanced reporting](https://docs.cloud.google.com/contact-center/ccai-platform/docs/dashboards-overview) is available in all CCAI Platform regions. For more information about regions, see [Geography and regions](https://docs.cloud.google.com/docs/geography-and-regions).
 
-Cloud region | Location | CCaaS | Advanced reporting  
----|---|---|---  
-Americas | northamerica-northeast1 (Montréal) | ✔ | ✔  
-Americas | northamerica-northeast2 (Toronto) | ✔ |   
-Americas | us-central1 (Iowa) | ✔ | ✔  
-Americas | us-east1 (South Carolina) | ✔ | ✔  
-Americas | us-east4 (Virginia) | ✔ |   
-Americas | us-west1 (Oregon) | ✔ | ✔  
-Americas | southamerica-east1 (Sao Paulo) | ✔ | ✔  
-Europe | europe-west1 (Belgium) | ✔ |   
-Europe | europe-west2 (London) | ✔ | ✔  
-Europe | europe-west3 (Frankfurt) | ✔ | ✔  
-Europe | europe-west4 (Eemshaven) | ✔ |   
-Europe | europe-west6 (Zurich) | ✔ |   
-Middle East | me-west1 (Tel Aviv) | ✔ |   
-Asia Pacific | asia-northeast1 (Tokyo) | ✔ | ✔  
-Asia Pacific | asia-northeast3 (Seoul) | ✔ |   
-Asia Pacific | asia-south1 (Mumbai) | ✔ |   
-Asia Pacific | asia-southeast1 (Singapore) | ✔ |   
-Asia Pacific | asia-southeast2 (Jakarta) | ✔ |   
-Asia Pacific | australia-southeast1 (Sydney) | ✔ | ✔  
+CCAI Platform can be deployed in the following Google Cloud regions:
+
+Cloud region | Location  
+---|---  
+Americas | northamerica-northeast1 (Montréal)  
+Americas | northamerica-northeast2 (Toronto)  
+Americas | us-central1 (Iowa)  
+Americas | us-east1 (South Carolina)  
+Americas | us-east4 (Virginia)  
+Americas | us-west1 (Oregon)  
+Americas | southamerica-east1 (Sao Paulo)  
+Europe | europe-west1 (Belgium)  
+Europe | europe-west2 (London)  
+Europe | europe-west3 (Frankfurt)  
+Europe | europe-west4 (Eemshaven)  
+Europe | europe-west6 (Zurich)  
+Middle East | me-west1 (Tel Aviv)  
+Asia Pacific | asia-northeast1 (Tokyo)  
+Asia Pacific | asia-northeast3 (Seoul)  
+Asia Pacific | asia-south1 (Mumbai)  
+Asia Pacific | asia-southeast1 (Singapore)  
+Asia Pacific | asia-southeast2 (Jakarta)  
+Asia Pacific | australia-southeast1 (Sydney)  
   
 For more information about regions and multi-regions, see [Geography and regions](https://docs.cloud.google.com/docs/geography-and-regions).
 
@@ -97,6 +99,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-05 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-05 UTC."],[],[]] 

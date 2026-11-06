@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sensitive-data-protection/docs/samples/dlp-deidentify-table-condition-infotypes/
 title: De-identify table data using conditional logic and replace with infoTypes \u00a0|\u00a0 Sensitive Data Protection \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T09:38:16.171756+00:00
+fetched_at: 2026-11-06T10:25:41.611250+00:00
 ---
 
 # De-identify table data using conditional logic and replace with infoTypes  |  Sensitive Data Protection  |  Google Cloud Documentation

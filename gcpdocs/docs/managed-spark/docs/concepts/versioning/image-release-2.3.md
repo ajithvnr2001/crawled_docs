@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/managed-spark/docs/concepts/versioning/image-release-2.3
 title: 2.3.x release image versions \u00a0|\u00a0 Managed Service for Apache Spark \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T21:59:13.046118+00:00
+fetched_at: 2026-11-06T11:11:28.413450+00:00
 ---
 
 # 2.3.x release image versions  |  Managed Service for Apache Spark  |  Google Cloud Documentation
@@ -23,7 +23,12 @@ Send feedback
 
 #  2.3.x release image versions Stay organized with collections  Save and categorize content based on your preferences. 
 
-Component | [2.3.37-debian12/  
+Component | [2.3.38-debian12/  
+-ubuntu22/  
+-ubuntu22-arm/  
+-ml-ubuntu22/  
+-rocky9  
+2026/11/02](https://docs.cloud.google.com/managed-spark/docs/release-notes#November_02_2026) | [2.3.37-debian12/  
 -ubuntu22/  
 -ubuntu22-arm/  
 -ml-ubuntu22/  
@@ -43,12 +48,7 @@ Component | [2.3.37-debian12/
 -ubuntu22-arm/  
 -ml-ubuntu22/  
 -rocky9  
-2026/07/15](https://docs.cloud.google.com/managed-spark/docs/release-notes#July_15_2026) | [2.3.33-debian12/  
--ubuntu22/  
--ubuntu22-arm/  
--ml-ubuntu22/  
--rocky9  
-2026/06/30](https://docs.cloud.google.com/managed-spark/docs/release-notes#June_30_2026)  
+2026/07/15](https://docs.cloud.google.com/managed-spark/docs/release-notes#July_15_2026)  
 ---|---|---|---|---|---  
 [**Apache Atlas**  
 initialization action](https://github.com/GoogleCloudDataproc/initialization-actions/tree/master/atlas) | [2.2.0](https://atlas.apache.org/2.2.0/index.html) | [2.2.0](https://atlas.apache.org/2.2.0/index.html) | [2.2.0](https://atlas.apache.org/2.2.0/index.html) | [2.2.0](https://atlas.apache.org/2.2.0/index.html) | [2.2.0](https://atlas.apache.org/2.2.0/index.html)  
@@ -327,6 +327,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-06 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-06 UTC."],[],[]] 

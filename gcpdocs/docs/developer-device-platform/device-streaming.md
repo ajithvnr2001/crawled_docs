@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/developer-device-platform/device-streaming/
 title: Device Streaming API in Developer Device Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T22:37:43.763898+00:00
+fetched_at: 2026-11-06T10:27:33.125214+00:00
 ---
 
 # Device Streaming API in Developer Device Platform  |  Google Cloud Documentation
@@ -29,10 +29,12 @@ The Device Streaming API lets you securely connect to remote physical Android de
 
 To get started, [use the Device Streaming API in Android Studio](https://developer.android.com/studio/run/android-device-streaming) and the coding agent of your choice with the [DDP Agent Skill](https://docs.cloud.google.com/developer-device-platform/agent-skill).
 
+To instead use the API directly, see the [Device Streaming API](https://docs.cloud.google.com/developer-device-platform/reference/device-streaming/rest) reference documentation.
+
 Send feedback 
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-05 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-05 UTC."],[],[]] 

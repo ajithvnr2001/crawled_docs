@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/vision/docs/samples/vision-face-detection-tutorial-client/
 title: Detect faces in an image \u00a0|\u00a0 Cloud Vision API \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T05:47:24.767826+00:00
+fetched_at: 2026-11-06T10:38:12.908472+00:00
 ---
 
 # Detect faces in an image  |  Cloud Vision API  |  Google Cloud Documentation
@@ -38,18 +38,7 @@ Before trying this sample, follow the Java setup instructions in the [Vision qui
 To authenticate to Vision, set up Application Default Credentials. For more information, see [Set up authentication for a local development environment](https://docs.cloud.google.com/docs/authentication/set-up-adc-local-dev-environment). 
     
     
-    /** Connects to the Vision API using Application Default Credentials. */
-    public static Vision getVisionService() throws IOException, GeneralSecurityException {
-      GoogleCredentials credential =
-          GoogleCredentials.getApplicationDefault().createScoped(VisionScopes.all());
-      JsonFactory jsonFactory = GsonFactory.getDefaultInstance();
-      return new Vision.Builder(
-              GoogleNetHttpTransport.newTrustedTransport(),
-              jsonFactory,
-              new HttpCredentialsAdapter(credential))
-          .setApplicationName(APPLICATION_NAME)
-          .build();
-    }
+    try (ImageAnnotatorClient client = ImageAnnotatorClient.create()) {
 
 ### Node.js
 

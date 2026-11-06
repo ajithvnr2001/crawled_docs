@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sql/docs/mysql/replication/cross-region-replicas/
 title: Promote replicas for regional migration or disaster recovery \u00a0|\u00a0 Cloud SQL for MySQL \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T05:52:45.920623+00:00
+fetched_at: 2026-11-06T10:53:00.501629+00:00
 ---
 
 # Promote replicas for regional migration or disaster recovery  |  Cloud SQL for MySQL  |  Google Cloud Documentation
@@ -63,6 +63,13 @@ For more information, see [Advanced disaster recovery (DR)](https://docs.cloud.g
 
 Because replication is asynchronous, when a region outage occurs and a failover is attempted, some recent transactions that were committed to the primary may be lost (not replicated to the replica). Whenever a primary instance becomes unavailable, the following steps show (1) how to determine the amount of data, if any, that may have been lost in the cross-region failover and (2) how to ensure that the promoted replica reflects as many recent writes as possible.
 
+Before checking replication lag or promoting a replica, verify the replica's replication status by checking the **Replication state** metric (`cloudsql.googleapis.com/database/replication/state`) on the replica instance **Overview** page in the Google Cloud console:
+
+  * **During a primary outage:** The metric might report `Error` or `Stopped`. This indicates that replication has halted due to the outage. Any transactions committed on the primary instance after replication stopped are lost when you promote the replica.
+  * **During normal operations (planned failover or migration):** Verify that the metric reports `Running`. If the state is `Error` or `Stopped`, the replica is not receiving updates from the primary instance. Promoting a replica in this state causes data loss.
+
+
+
 First, check the `Replication Lag` value for the replica instance in the [monitoring dashboard](https://console.cloud.google.com/monitoring/dashboards/resourceList/cloudsql_database), which indicates how far, in seconds, the replica is behind its primary. The value of this metric at the time just before the primary became unavailable indicates the window of time during which transactions committed to the primary may have been lost. For example, if the `Replication Lag` showed 5 seconds, then the replica may be missing writes to the primary from the 5 seconds before the primary became unavailable. (The true amount of data lost may be less than this because `Replication Lag` also includes transactions that were successfully received by the replica but simply have not yet been applied.)
 
 Then, connect to the replica instance with a MySQL client by following the instructions in the [replication status](https://docs.cloud.google.com/sql/docs/mysql/replication/manage-replicas#replication-status) page (see the **mysql Client** tab). See the instructions pertaining to the `Master_Log_File`, `Read_Master_Log_Pos`, `Relay_Master_Log_File`, and `Exec_Master_Log_Pos` metrics. Verify that the replica has processed all the transactions it has received from the primary. This ensures that when promoted, the replica reflects all transactions that were received before the primary became unavailable.
@@ -117,6 +124,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-05 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-05 UTC."],[],[]] 

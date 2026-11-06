@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/run/docs/managing/job-executions/
 title: Manage job executions \u00a0|\u00a0 Cloud Run \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T05:49:49.087351+00:00
+fetched_at: 2026-11-06T13:50:49.789809+00:00
 ---
 
 # Manage job executions  |  Cloud Run  |  Google Cloud Documentation
@@ -21,7 +21,7 @@ Send feedback
 
 #  Manage job executions Stay organized with collections  Save and categorize content based on your preferences. 
 
-This page describes how to view and delete job executions. To execute, cancel, or override a job configuration, see [Execute jobs](https://docs.cloud.google.com/run/docs/execute/jobs).
+You can view status details for your Cloud Run job executions or delete unneeded executions. To execute, cancel, or override a job configuration, see [Execute jobs](https://docs.cloud.google.com/run/docs/execute/jobs).
 
 ## Required roles
 
@@ -273,6 +273,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-30 UTC.
+Last updated 2026-11-05 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-05 UTC."],[],[]] 

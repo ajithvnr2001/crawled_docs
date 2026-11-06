@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/resources/release-notes-1162/
 title: Google Distributed Cloud air-gapped 1.16.2 release notes \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-06T05:55:03.810536+00:00
+fetched_at: 2026-11-06T11:43:32.613054+00:00
 ---
 
 # Google Distributed Cloud air-gapped 1.16.2 release notes  |  Google Cloud Documentation
@@ -118,6 +118,8 @@ The following issues are identified:
   * In Operations Infrastructure Rack v2 (OIRv2) universes, the management switch doesn't advertise the out-of-band management CIDR block to upstream Layer 3 switches over Border Gateway Protocol (BGP). 
 
   * Custom BFD timer parameters configured on `InterconnectAttachment` custom resources are not propagated to border leaf switch interfaces. 
+
+  * Hairpin BGP sessions with unassigned VLAN IDs cause physical network upgrade checks and switch reconciliation to fail during upgrades. 
 
   * The `hnet_network_interface_down` alert might trigger false-positive warnings for physical `eth*` interfaces that are operationally down but unused by Host Networking. 
 

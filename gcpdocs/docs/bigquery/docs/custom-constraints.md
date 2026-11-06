@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/custom-constraints/
 title: Use organization policies to apply custom constraints to BigQuery resources \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T23:32:20.731210+00:00
+fetched_at: 2026-11-06T10:46:04.068125+00:00
 ---
 
 # Use organization policies to apply custom constraints to BigQuery resources  |  Google Cloud Documentation
@@ -25,19 +25,7 @@ Send feedback  Stay organized with collections  Save and categorize content base
 
 This feature is subject to the "Pre-GA Offerings Terms" in the General Service Terms section of the [Service Specific Terms](https://docs.cloud.google.com/terms/service-terms#1). Pre-GA features are available "as is" and might have limited support. For more information, see the [launch stage descriptions](https://cloud.google.com/products/#product-launch-stages). 
 
-This page shows you how to use Organization Policy Service custom constraints to restrict specific operations on the following Google Cloud resources:
-
-  * `bigquery.googleapis.com/Dataset`
-  * `bigquery.googleapis.com/Routine`
-  * `bigquery.googleapis.com/Table`
-  * `bigquery.googleapis.com/RowAccessPolicy`
-  * `bigquerydatapolicy.googleapis.com/DataPolicy`
-  * `bigqueryreservation.googleapis.com/Reservation`
-  * `bigqueryreservation.googleapis.com/BiReservation`
-  * `bigqueryreservation.googleapis.com/CapacityCommitment`
-  * `bigqueryreservation.googleapis.com/ReservationAssignment`
-
-
+To enforce governance and restrict specific operations on BigQuery resources, you can use Organization Policy Service custom constraints. This document shows you how to create and apply constraints across resources such as datasets, tables, and reservations. Restrictions on resources are fine-grained. They can be applied at the project, folder, or organization level.
 
 To learn more about Organization Policy, see [Custom organization policies](https://docs.cloud.google.com/organization-policy/overview#custom-organization-policies).
 
@@ -50,10 +38,6 @@ Organization Policy provides built-in [managed constraints](https://docs.cloud.g
 ### Policy inheritance
 
 By default, organization policies are inherited by the descendants of the resources on which you enforce the policy. For example, if you enforce a policy on a folder, Google Cloud enforces the policy on all projects in the folder. To learn more about this behavior and how to change it, refer to [Hierarchy evaluation rules](https://docs.cloud.google.com/organization-policy/hierarchy-evaluation#disallow_inheritance).
-
-### Benefits
-
-You can use a custom organization policy to allow or deny specific operations on BigQuery resources such as datasets, tables, data access policies, row access policies, routines, and workload management resources—reservations, assignments, capacity commitments, and BI reservations. This lets you control costs and manage access to your Google Cloud resources to help you meet your organization's compliance and security requirements. Restrictions on resources are fine-grained. They can be applied at the project, folder, or organization level.
 
 ## Limitations
 
@@ -573,6 +557,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-04 UTC.
+Last updated 2026-11-05 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-05 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/spanner/docs/metrics/
 title: Metrics \u00a0|\u00a0 Spanner \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-30T05:42:01.471337+00:00
+fetched_at: 2026-11-06T10:19:07.223844+00:00
 ---
 
 # Metrics  |  Spanner  |  Google Cloud Documentation
@@ -586,7 +586,7 @@ Bytes returned count
 `query_stat/total/cpu_time` GA ** _(project)_**   
 Query cpu time   
 `DELTA`, `DOUBLE`, `s`   
-**[spanner_instance](https://docs.cloud.google.com/monitoring/api/resources#tag_spanner_instance)** |  _Number of seconds of CPU time Cloud Spanner spent on operations to execute the queries. Sampled every 60 seconds. After sampling, data is not visible for up to 150 seconds._   
+**[spanner_instance](https://docs.cloud.google.com/monitoring/api/resources#tag_spanner_instance)** |  _Number of seconds of CPU time Cloud Spanner spent on operations to execute the queries. Sampled every 60 seconds. After sampling, data is not visible for up to 210 seconds._   
 `database`: Target database.   
 `query_stat/total/execution_count` GA ** _(project)_**   
 Query execution count   
@@ -649,19 +649,19 @@ Rows scanned count
 `DELTA`, `INT64`, `1`   
 **[spanner_instance](https://docs.cloud.google.com/monitoring/api/resources#tag_spanner_instance)** |  _Number of rows that the queries scanned excluding deleted values. Sampled every 60 seconds. After sampling, data is not visible for up to 150 seconds._   
 `database`: Target database.   
-`queue/active_receive_tvf_queries` BETA ** _(project)_**   
+`queue/active_receive_tvf_queries` GA ** _(project)_**   
 Active receive Table-Valued Function (TVF) queries   
 `GAUGE`, `INT64`, `1`   
 **[spanner_instance](https://docs.cloud.google.com/monitoring/api/resources#tag_spanner_instance)** |  _Count of active receive table-valued function (TVF) queries in the queue. Sampled every 60 seconds. After sampling, data is not visible for up to 240 seconds._   
 `database`: Target database.   
 `queue`: Target queue.   
-`queue/buffered_in_flight_messages` BETA ** _(project)_**   
+`queue/buffered_in_flight_messages` GA ** _(project)_**   
 Buffered in-flight messages   
 `GAUGE`, `INT64`, `1`   
 **[spanner_instance](https://docs.cloud.google.com/monitoring/api/resources#tag_spanner_instance)** |  _Count of in-flight messages in the queue that are currently leased and buffered in memory. Sampled every 60 seconds. After sampling, data is not visible for up to 240 seconds._   
 `database`: Target database.   
 `queue`: Target queue.   
-`queue/buffered_ready_messages` BETA ** _(project)_**   
+`queue/buffered_ready_messages` GA ** _(project)_**   
 Buffered ready messages   
 `GAUGE`, `INT64`, `1`   
 **[spanner_instance](https://docs.cloud.google.com/monitoring/api/resources#tag_spanner_instance)** |  _Count of ready messages in the queue that are buffered in memory and available for delivery. Sampled every 60 seconds. After sampling, data is not visible for up to 240 seconds._   
@@ -679,7 +679,7 @@ Messages acknowledged
 **[spanner_instance](https://docs.cloud.google.com/monitoring/api/resources#tag_spanner_instance)** |  _Count of messages acknowledged. Sampled every 60 seconds. After sampling, data is not visible for up to 240 seconds._   
 `database`: Target database.   
 `queue`: Target queue.   
-`queue/message_payload_sizes` BETA ** _(project)_**   
+`queue/message_payload_sizes` GA ** _(project)_**   
 Message payload sizes   
 `DELTA`, `DISTRIBUTION`, `By`   
 **[spanner_instance](https://docs.cloud.google.com/monitoring/api/resources#tag_spanner_instance)** |  _Distribution of message payload sizes in bytes. Sampled every 60 seconds. After sampling, data is not visible for up to 240 seconds._   
@@ -746,7 +746,7 @@ Read cpu time
 `read_stat/total/execution_count` GA ** _(project)_**   
 Read execution count   
 `DELTA`, `INT64`, `1`   
-**[spanner_instance](https://docs.cloud.google.com/monitoring/api/resources#tag_spanner_instance)** |  _Number of times Cloud Spanner executed the read shapesduring the interval. Sampled every 60 seconds. After sampling, data is not visible for up to 150 seconds._   
+**[spanner_instance](https://docs.cloud.google.com/monitoring/api/resources#tag_spanner_instance)** |  _Number of times Cloud Spanner executed the read shapesduring the interval. Sampled every 60 seconds. After sampling, data is not visible for up to 210 seconds._   
 `database`: Target database.   
 `read_stat/total/leader_refresh_delay` GA ** _(project)_**   
 Leader refresh delay   
@@ -805,7 +805,7 @@ Transaction latencies
 **[spanner_instance](https://docs.cloud.google.com/monitoring/api/resources#tag_spanner_instance)** |  _Distribution of total seconds takenfrom the first operation of the transaction to commit or abort. Sampled every 60 seconds. After sampling, data is not visible for up to 150 seconds._   
 `database`: Target database.   
   
-Table generated at 2026-10-29 23:33:54 UTC.
+Table generated at 2026-11-05 18:04:57 UTC.
 
 ## What's next
 
@@ -817,6 +817,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-30 UTC.
+Last updated 2026-11-05 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-05 UTC."],[],[]] 

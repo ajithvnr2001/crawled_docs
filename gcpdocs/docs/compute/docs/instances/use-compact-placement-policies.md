@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/compute/docs/instances/use-compact-placement-policies/
 title: Reduce latency by using compact placement policies \u00a0|\u00a0 Compute Engine \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T23:04:59.339330+00:00
+fetched_at: 2026-11-06T10:23:18.263539+00:00
 ---
 
 # Reduce latency by using compact placement policies  |  Compute Engine  |  Google Cloud Documentation
@@ -114,7 +114,7 @@ Before you create a compact placement policy, consider the following:
 
     * For standalone [A4X Max or A4X instances](https://docs.cloud.google.com/compute/docs/accelerator-optimized-machines#a4x-vms), you must specify to create compute instances in the same [_sub-block_](https://docs.cloud.google.com/compute/docs/instances/view-instance-topology#overview) to use an NVLink domain, as described in this section.
 
-    * For other compute instances that support compact placement policies, specify a [maximum distance value](https://docs.cloud.google.com/compute/docs/instances/placement-policies-overview#about-compact-policies).
+    * For other compute instances that support compact placement policies, you can optionally specify a [maximum distance value](https://docs.cloud.google.com/compute/docs/instances/placement-policies-overview#about-compact-policies).
 
   * If you want to apply a compact placement policy to an A3 Mega, A3 High, or A3 Edge instance that was created before October 1, 2025, then contact your account team.
 
@@ -125,7 +125,7 @@ To create a compact placement policy, select one of the following options:
 
 ###  gcloud 
 
-  * To apply the compact placement policy to M3, M2, M1, N2D, or N2 instances, create the policy by using the [`gcloud compute resource-policies create group-placement` command](https://docs.cloud.google.com/sdk/gcloud/reference/compute/resource-policies/create/group-placement) with the `--collocation=collocated` flag.
+  * To apply the compact placement policy to M3, M2, M1, N2D, or N2 instances, or to create a policy without specifying a maximum distance value, use the [`gcloud compute resource-policies create group-placement` command](https://docs.cloud.google.com/sdk/gcloud/reference/compute/resource-policies/create/group-placement) with the `--collocation=collocated` flag.
         
         gcloud compute resource-policies create group-placement POLICY_NAME \
             --collocation=collocated \
@@ -138,7 +138,7 @@ Replace the following:
 
     * `REGION`: the region in which to create the placement policy.
 
-  * To apply the compact placement policy to standalone A4X Max or A4X instances, create the policy by using the [`gcloud compute resource-policies create group-placement` command](https://docs.cloud.google.com/sdk/gcloud/reference/compute/resource-policies/create/group-placement) with the `--collocation=collocated` and `--gpu-topology=1x72` flags.
+  * To apply the compact placement policy to standalone A4X Max or A4X instances, use the [`gcloud compute resource-policies create group-placement` command](https://docs.cloud.google.com/sdk/gcloud/reference/compute/resource-policies/create/group-placement) with the `--collocation=collocated` and `--gpu-topology=1x72` flags.
         
         gcloud compute resource-policies create group-placement POLICY_NAME \
             --collocation=collocated \
@@ -146,7 +146,7 @@ Replace the following:
             --region=REGION
         
 
-  * To apply the compact placement policy to any other supported compute instances, create the policy by using the [`gcloud beta compute resource-policies create group-placement` command](https://docs.cloud.google.com/sdk/gcloud/reference/beta/compute/resource-policies/create/group-placement) with the `--collocation=collocated` and `--max-distance` flags.
+  * To apply a compact placement policy with a maximum distance value to a supported machine series, use the [`gcloud beta compute resource-policies create group-placement` command](https://docs.cloud.google.com/sdk/gcloud/reference/beta/compute/resource-policies/create/group-placement) with the `--collocation=collocated` and `--max-distance` flags.
 
 **Preview — The`--max-distance` flag **
 
@@ -174,7 +174,7 @@ Replace the following:
 
 ###  REST 
 
-  * To apply the compact placement policy to M3, M2, M1, N2D, or N2 instances, create the policy by making a `POST` request to the [`resourcePolicies.insert` method](https://docs.cloud.google.com/compute/docs/reference/rest/v1/resourcePolicies/insert). In the request body, include the `collocation` field and set it to `COLLOCATED`.
+  * To apply the compact placement policy to M3, M2, M1, N2D, or N2 instances, or to create a policy without specifying a maximum distance value, make a `POST` request to the [`resourcePolicies.insert` method](https://docs.cloud.google.com/compute/docs/reference/rest/v1/resourcePolicies/insert). In the request body, include the `collocation` field and set it to `COLLOCATED`.
         
         POST https://compute.googleapis.com/compute/v1/projects/PROJECT_ID/regions/REGION/resourcePolicies
         
@@ -186,7 +186,7 @@ Replace the following:
         }
         
 
-  * To apply the compact placement policy to standalone A4X Max or A4X instances, create the policy by making a `POST` request to the [`resourcePolicies.insert` method](https://docs.cloud.google.com/compute/docs/reference/rest/v1/resourcePolicies/insert). In the request body, include the `collocation` field set to `COLLOCATED`, and the `gpuTopology` field set to `1x72`.
+  * To apply the compact placement policy to standalone A4X Max or A4X instances, make a `POST` request to the [`resourcePolicies.insert` method](https://docs.cloud.google.com/compute/docs/reference/rest/v1/resourcePolicies/insert). In the request body, include the `collocation` field set to `COLLOCATED`, and the `gpuTopology` field set to `1x72`.
         
         POST https://compute.googleapis.com/compute/v1/projects/PROJECT_ID/regions/REGION/resourcePolicies
         
@@ -199,7 +199,7 @@ Replace the following:
         }
         
 
-  * To apply the compact placement policy to any other supported compute instances, create the policy by making a `POST` request to the [`beta.resourcePolicies.insert` method](https://docs.cloud.google.com/compute/docs/reference/rest/beta/resourcePolicies/insert). In the request body, include the following:
+  * To apply a compact placement policy with a maximum distance value to a supported machine series, make a `POST` request to the [`beta.resourcePolicies.insert` method](https://docs.cloud.google.com/compute/docs/reference/rest/beta/resourcePolicies/insert). In the request body, include the following:
 
     * The `collocation` field set to `COLLOCATED`.
 
@@ -570,7 +570,7 @@ To create a single-project reservation with a compact placement policy by specif
 
   7. In the **Group placement policy** section, click the **Select or create a group placement policy** list, and then do one of the following:
 
-     * To create a compact placement policy, complete the following steps:
+     * To create a compact placement policy, do the following:
 
 **Important:** This method creates a compact placement policy without specifying a maximum distance value. If you need to specify a maximum distance value of `3` or `2`, then first create a compact placement policy separately, and then select the newly created policy.
        1. Click **Create group placement policy**. The **Create a group placement policy** pane appears.
@@ -972,6 +972,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-05 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-05 UTC."],[],[]] 

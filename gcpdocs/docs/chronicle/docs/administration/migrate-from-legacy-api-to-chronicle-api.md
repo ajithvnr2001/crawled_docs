@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chronicle/docs/administration/migrate-from-legacy-api-to-chronicle-api/
 title: Migrate from legacy SIEM API to Chronicle API \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T09:58:52.152715+00:00
+fetched_at: 2026-11-06T10:23:36.313998+00:00
 ---
 
 # Migrate from legacy SIEM API to Chronicle API  |  Google Security Operations  |  Google Cloud Documentation
@@ -66,6 +66,8 @@ Legacy Backstory API | `/v1/partner/customer/*` endpoints | All of the partner's
 Chronicle API: `TenantService` | `CreateTenant`, `ListTenants`, and `UpdateTenant` | Partner's instance: `projects/{partner_project}/locations/{location}/instances/{partner_instance}/tenants/*` | Partners call these methods directly with their own service accounts or credentials that have `chronicle.googleapis.com/tenants.*` permissions in the partner project.  
 Chronicle API: other services, such as `InstanceService` and `ForwarderService` | `GetInstance`, `UpdateInstance`, `GenerateForwarderFiles`, and other tenant-scoped methods | Tenant's instance: `projects/{tenant_project}/locations/{location}/instances/{tenant_instance}/...` | Partner credentials alone can't access or modify tenant data. The tenant administrator must grant IAM roles, such as `roles/chronicle.admin`, `roles/chronicle.viewer`, or a custom role, to the partner's service account or Workload Identity Federation principal in the tenant's Google Cloud project.  
   
+For a method-by-method replacement table and detailed request and response parity guides for legacy [Customer Management API](https://docs.cloud.google.com/chronicle/docs/reference/customer-management-api) endpoints (such as `CreateCustomer` to `CreateTenant` and `GetCustomer` to `GetInstance`), see the `Partner (Customer Management)` rows in [SIEM API endpoint mapping](https://docs.cloud.google.com/chronicle/docs/administration/siem-endpoint-mapping-table).
+
 ## Deprecation schedule
 
 The legacy SIEM API is scheduled to be shut down on July 20, 2027. We recommend completing your migration before this date to avoid any service interruptions:
@@ -142,7 +144,7 @@ Familiarize yourself with the comprehensive documentation for the [Chronicle API
 
 #### Map endpoints to the Chronicle API
 
-Identify the corresponding modern endpoints for each of the legacy API calls your application makes. Similarly, map your existing data models to the modern structures, accounting for any schema changes or additional fields. For details across all SIEM endpoints, see [SIEM API endpoint mapping](https://docs.cloud.google.com/chronicle/docs/administration/siem-endpoint-mapping-table). If your workflow also interacts with SOAR endpoints, see the [SOAR API endpoint mapping table](https://docs.cloud.google.com/chronicle/docs/soar/admin-tasks/advanced/endpoint-mapping-table).
+Identify the corresponding modern endpoints for each of the legacy API calls your application makes. Similarly, map your existing data models to the modern structures, accounting for any schema changes or additional fields. For side-by-side method mappings and detailed request and response parity guides across all SIEM endpoints—including the [Backstory API](https://docs.cloud.google.com/chronicle/docs/reference/google-secops-api-libraries-overview#backstory_api), [Customer Management API](https://docs.cloud.google.com/chronicle/docs/reference/customer-management-api), and [Ingestion API](https://docs.cloud.google.com/chronicle/docs/reference/google-secops-api-libraries-overview#ingestion_api)—see [SIEM API endpoint mapping](https://docs.cloud.google.com/chronicle/docs/administration/siem-endpoint-mapping-table). If your workflow also interacts with SOAR endpoints, see the [SOAR API endpoint mapping table](https://docs.cloud.google.com/chronicle/docs/soar/admin-tasks/advanced/endpoint-mapping-table).
 
 #### Update the service endpoint
 
@@ -287,6 +289,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-28 UTC.
+Last updated 2026-11-05 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-05 UTC."],[],[]] 

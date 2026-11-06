@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sql/docs/sqlserver/samples/cloud-sql-sqlserver-dotnet-ado-limit/
 title: Set connection pool and overflow limits when using ADO.NET \u00a0|\u00a0 Cloud SQL for SQL Server \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T09:40:07.629391+00:00
+fetched_at: 2026-11-06T10:29:59.958062+00:00
 ---
 
 # Set connection pool and overflow limits when using ADO.NET  |  Cloud SQL for SQL Server  |  Google Cloud Documentation

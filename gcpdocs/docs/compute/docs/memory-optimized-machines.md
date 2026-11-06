@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/compute/docs/memory-optimized-machines/
 title: Memory-optimized machine family for Compute Engine \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-05T11:08:41.225557+00:00
+fetched_at: 2026-11-06T10:23:22.199260+00:00
 ---
 
 # Memory-optimized machine family for Compute Engine  |  Google Cloud Documentation
@@ -186,7 +186,7 @@ per VM | Hyperdisk Balanced | Hyperdisk Balanced High Availability | Hyperdisk T
   
 ### Network support for X5 instances
 
-X5 bare metal instances require the [Intel IDPF LAN PF device driver](https://docs.cloud.google.com/compute/docs/networking/using-idpf). X5 supports up to 200 Gbps network bandwidth for standard networking. The gVNIC network interface isn't supported with bare metal.
+X5 bare metal instances require the [Intel IDPF LAN PF device driver](https://docs.cloud.google.com/compute/docs/networking/using-idpf). X5 supports up to 200 Gbps network bandwidth for standard networking. The gVNIC network interface isn't supported with bare metal instances.
 
 Before migrating to X5 or creating X5 instances, make sure that the [operating system image](https://docs.cloud.google.com/compute/docs/images/os-details#networking) that you use supports the IDPF network driver. If you create an X5 instance with an operating system that doesn't support the IDPF driver, then you might not be able to connect to the instance.
 
@@ -303,7 +303,7 @@ per VM | Hyperdisk Balanced | Hyperdisk Throughput | Hyperdisk Extreme
   
 ### Network support for X4 instances
 
-X4 bare metal instances require the [Intel IDPF LAN PF device driver](https://docs.cloud.google.com/compute/docs/networking/using-idpf). X4 supports up to 100 Gbps network bandwidth for standard networking. The gVNIC network interface isn't supported with bare metal.
+X4 bare metal instances require the [Intel IDPF LAN PF device driver](https://docs.cloud.google.com/compute/docs/networking/using-idpf). X4 supports up to 100 Gbps network bandwidth for standard networking. The gVNIC network interface isn't supported with bare metal instances.
 
 Before migrating to X4 or creating X4 instances, make sure that the [operating system image](https://docs.cloud.google.com/compute/docs/images/os-details#networking) that you use supports the IDPF network driver. If you create an X4 instance with an operating system that doesn't support the IDPF driver, then you might not be able to connect to the instance.
 
@@ -334,9 +334,9 @@ For information about how to manually start host maintenance events for X4 insta
 
 ## M4N machine series
 
-M4N is engineered to deliver leading block storage performance with Hyperdisk Extreme, scaling up to 25 GiB/s of Hyperdisk bandwidth and up to 1,000,000 IOPS on the largest machine types. M4N also provides up to 400 Gbps network bandwidth on the largest machine types. This new level of performance opens up new possibilities for I/O-intensive workloads that require extreme bandwidth for data access and processing.
+M4N is engineered to deliver leading block storage performance with Hyperdisk Extreme, scaling up to 25,000 MiB/s of Hyperdisk bandwidth and up to 1,000,000 IOPS on the largest machine types. M4N also provides up to 400 Gbps network bandwidth on the largest machine types. This new level of performance opens up new possibilities for I/O-intensive workloads that require extreme bandwidth for data access and processing.
 
-M4N instances are powered by the Intel Emerald Rapids processors and [Titanium](https://cloud.google.com/titanium) offload processors. The largest M4N machine types provide twice as much disk I/O performance as M4 instances due to having two Titanium Smart NICs for each instance.
+M4N instances are powered by the Intel Emerald Rapids processors and [Titanium](https://cloud.google.com/titanium) offload processors. The largest M4N machine types provide four times as much network bandwidth as M4 instances due to having two Titanium Smart NICs for each instance. Disk performance is also improved when multiple physical NICs are available to an instance.
 
 This machine series is well-suited for large in-memory databases such as SAP HANA, as well as online analytical processing (OLAP) and in-memory data analytics workloads. The M4N machine series with Hyperdisk Extreme offers a lower cost per transaction for Oracle Database workloads and the best TCO when compared to any other Google Cloud memory-optimized instance for databases that require licensing per core.
 
@@ -365,19 +365,20 @@ Machine types | vCPUs1 | Memory (GB) | Titanium SSD | Physical NIC count | NUMA 
 (Gbps)2 | Maximum external network bandwidth  
 (Gbps)2  
 ---|---|---|---|---|---|---|---  
-`m4n-hypermem-2` | 2 | 31 | Not available | 1 | 1 shared | ? | ?  
-`m4n-hypermem-4` | 4 | 62 | Not available | 1 | 1 shared | ? | ?  
-`m4n-hypermem-8` | 8 | 124 | Not available | 1 | 1 shared | 32 | 7  
-`m4n-hypermem-16` | 16 | 248 | Not available | 1 | 1 shared | 50 | 7  
-`m4n-hypermem-32` | 32 | 496 | Not available | 1 | 1 shared | 57 | 7  
-`m4n-hypermem-64` | 64 | 992 | Not available | 1 | 2 shared | 114 | 7  
-`m4n-megamem-28` | 28 | 372 | Not available | 1 | 1 shared | 50 | 7  
-`m4n-megamem-56` | 56 | 744 | Not available | 1 | 1 isolated | 100 | 7  
-`m4n-megamem-112` | 112 | 1,488 | Not available | 1 | 2 isolated | 100 | 7  
-`m4n-megamem-224` | 224 | 2,976 | Not available | 2 | 4 (full server) | 200 | 7  
-`m4n-ultramem-56` | 56 | 1,488 | Not available | 1 | 2 shared | 100 | 7  
-`m4n-ultramem-112` | 112 | 2,976 | Not available | 1 | 4 shared | 100 | 7  
-`m4n-ultramem-224` | 224 | 5,952 | Not available | 2 | 4 (full server) | 200 | 7  
+`m4n-hypermem-2` | 2 | 31 | Not available | 1 | 1 shared | Up to 25 | Up to 7  
+`m4n-hypermem-4` | 4 | 62 | Not available | 1 | 1 shared | Up to 30 | Up to 7  
+`m4n-hypermem-8` | 8 | 124 | Not available | 1 | 1 shared | Up to 40 | Up to 15  
+`m4n-hypermem-16` | 16 | 248 | Not available | 1 | 1 shared | Up to 50 | Up to 25  
+`m4n-hypermem-32` | 32 | 496 | Not available | 1 | 1 shared | 57 | 28  
+`m4n-hypermem-64` | 64 | 992 | Not available | 1 | 2 shared | 114 | 57  
+`m4n-megamem-28` | 28 | 372 | Not available | 1 | 1 shared | 50 | 25  
+`m4n-megamem-56` | 56 | 744 | Not available | 1 | 1 isolated | 100 | 50  
+`m4n-megamem-112` | 112 | 1,488 | Not available | 1 | 2 isolated | 200 | 100  
+`m4n-megamem-224` | 224 | 2,976 | Not available | 2 | 4 (full server) | 400 | 200  
+`m4n-ultramem-28` | 28 | 744 | Not available | 1 | 1 shared | 50 | 25  
+`m4n-ultramem-56` | 56 | 1,488 | Not available | 1 | 2 shared | 100 | 50  
+`m4n-ultramem-112` | 112 | 2,976 | Not available | 1 | 4 shared | 200 | 100  
+`m4n-ultramem-224` | 224 | 5,952 | Not available | 2 | 4 (full server) | 400 | 200  
   
 1 Each virtual CPU (vCPU) is implemented as a single hardware multithread, and two vCPUs share each physical CPU core by default.  
 2 Maximum egress bandwidth cannot exceed the number given. Actual egress bandwidth depends on the destination IP address and other factors. See [Network bandwidth](https://docs.cloud.google.com/compute/docs/network-bandwidth).  
@@ -422,6 +423,7 @@ per VM | Hyperdisk Balanced1 | Hyperdisk Throughput | Hyperdisk Extreme | Hyperd
 `m4n-megamem-56` | 32 | 32 | 32 | 8 | 32  
 `m4n-megamem-112` | 64 | 64 | 64 | 8 | 64  
 `m4n-megamem-224` | 128 | 128 | 128 | 8 | 128  
+`m4n-ultramem-28` | 32 | 32 | 32 | 8 | 32  
 `m4n-ultramem-56` | 32 | 32 | 32 | 8 | 32  
 `m4n-ultramem-112` | 64 | 64 | 64 | 8 | 64  
 `m4n-ultramem-224` | 128 | 128 | 128 | 8 | 128  
@@ -887,6 +889,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-04 UTC.
+Last updated 2026-11-05 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-05 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/docs/ai/what-is-alloydb-ai/
 title: What is AlloyDB AI \u00a0|\u00a0 AlloyDB for PostgreSQL \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-05T00:18:13.588366+00:00
+fetched_at: 2026-11-06T10:06:32.991384+00:00
 ---
 
 # What is AlloyDB AI  |  AlloyDB for PostgreSQL  |  Google Cloud Documentation
@@ -41,7 +41,7 @@ Run in-database model inference and embedding generation directly in SQL. Use sm
 
 ###  [ AI tooling → ](https://docs.cloud.google.com/alloydb/docs/ai/use-alloydb-mcp)
 
-Ground AI agents in real-time records. Build with MCP, manage memory, and use LangChain or LlamaIndex. Enable conversational analytics and natural language queries using the QueryData API. 
+Ground AI agents in real-time records. Build with MCP, manage memory, and use LangChain or LlamaIndex. Enable stateful conversational analytics with data agents and single-turn natural language queries with QueryData. 
 
 ## Generative AI capabilities in AlloyDB
 
@@ -76,7 +76,8 @@ AlloyDB AI grounds your AI agents in real-time database records through built-in
   * Remote MCP server: Connect autonomous AI agents to your database using a fully managed [Model Context Protocol (MCP) server](https://docs.cloud.google.com/alloydb/docs/ai/use-alloydb-mcp) integrated with Identity and Access Management (IAM) authentication, Agent Registry, and Model Armor.
   * Agent memory: Store your agent's conversation history, knowledge context, and state using [hybrid search](https://docs.cloud.google.com/alloydb/docs/ai/run-hybrid-vector-similarity-search) for low-latency retrieval.
   * Open framework ecosystem: Ground your agentic workflows using official AlloyDB integrations for [LangChain](https://docs.cloud.google.com/alloydb/docs/ai/langchain), [LlamaIndex](https://docs.cloud.google.com/alloydb/docs/ai/build-llm-powered-applications-using-llamaindex), and the [MCP Toolbox for Databases](https://docs.cloud.google.com/alloydb/docs/connect-ide-using-mcp-toolbox).
-  * [QueryData](https://docs.cloud.google.com/alloydb/docs/ai/querydata): Allow business users and analysts to query database schemas using everyday language. The [QueryData API](https://docs.cloud.google.com/alloydb/docs/ai/querydata) powers conversational analytics. It uses context sets, which include templates, facets, and value search queries, to translate natural language into secure SQL queries.
+  * [QueryData](https://docs.cloud.google.com/gemini/data-agents/querydata/alloydb/data-agent-overview): Translate natural language questions into secure SQL queries from your AI agents and applications. [QueryData](https://docs.cloud.google.com/alloydb/docs/ai/querydata) provides stateless, single-turn natural-language-to-SQL generation powered by context sets, which include templates, facets, and value search queries.
+  * [Conversational analytics](https://docs.cloud.google.com/alloydb/docs/ai/conversational-analytics): Lets business users and analysts explore database schemas and data through stateful, multi-turn natural language conversations with [data agents](https://docs.cloud.google.com/gemini/data-agents/conversational-analytics/alloydb) in AlloyDB Studio and the Conversational Analytics API.
 
 
 
@@ -141,6 +142,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-03 UTC.
+Last updated 2026-11-06 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-06 UTC."],[],[]] 

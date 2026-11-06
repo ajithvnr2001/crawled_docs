@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/guides/gemini-3-8-live/
 title: Developer's guide to Gemini 3.8 Live \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T23:14:46.685246+00:00
+fetched_at: 2026-11-06T08:23:02.513269+00:00
 ---
 
 # Developer's guide to Gemini 3.8 Live  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation
@@ -112,7 +112,7 @@ Install or update the Google Gen AI SDK and audio dependencies:
 
 ### Start a bidirectional session with asynchronous tool calling
 
-The following example establishes a real-time session with `gemini-3.8-live`, configures custom vocabulary biasing, and runs non-blocking asynchronous function calls:
+The following example establishes a real-time session with `gemini-3.8-live`, selects a [prebuilt voice](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/live-api/configure-language-voice#voices-supported) (`Aoede`), configures custom vocabulary biasing, and runs non-blocking asynchronous function calls:
     
     
     import asyncio
@@ -275,6 +275,7 @@ Add domain-specific keywords and SKUs using `custom_vocabulary` in `AudioTranscr
 For more information, see the following resources:
 
   * [Gemini 3.8 Live model page](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-8-live)
+  * [Configure language and voice](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/live-api/configure-language-voice)
   * [Configure live avatars](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/live-api/configure-live-avatars)
   * [Best practices with Gemini Live API](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/live-api/best-practices)
   * [Migrate from Gemini 2.5 Flash Live API Native Audio to Gemini 3.8 Live](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/live-api/migrate-from-gemini-2-5-to-gemini-3-8-live)
@@ -288,6 +289,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-04 UTC.
+Last updated 2026-11-05 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-05 UTC."],[],[]] 

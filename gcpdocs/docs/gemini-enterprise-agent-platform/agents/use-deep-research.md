@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/agents/use-deep-research/
 title: Use the Gemini Deep Research Agent \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T23:14:25.500411+00:00
+fetched_at: 2026-11-06T10:06:08.281660+00:00
 ---
 
 # Use the Gemini Deep Research Agent  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation
@@ -45,7 +45,7 @@ Consider the following strengths of Deep Research as you plan your project:
 
   * **Advanced workloads** : Deep Research is specifically designed to handle complex tasks such as due diligence, market analysis, and competitive landscaping.
 
-  * **Extensive data grounding** : The Gemini Deep Research Agent can reason across various data sources simultaneously. This includes remote MCP servers, internal institutional knowledge, and direct context from uploaded files or folders.
+  * **Extensive data grounding** : The Gemini Deep Research Agent can query and synthesize information across various data sources simultaneously. This includes remote MCP servers, internal institutional knowledge, and direct context from uploaded files or folders.
 
   * **Polished reporting** : It produces comprehensive, cited reports that can feature presentation-ready visuals. These include financial graphs, inline infographics, and market positioning matrices, which are generated using HTML and an image model.
 
@@ -179,7 +179,7 @@ To enable APIs, you need the `serviceusage.services.enable` permission. If you c
 
 ## Start a Deep Research task
 
-Research tasks involve iterative searching and reading, and can take several minutes to complete. You must run Gemini Deep Research Agent asynchronously by setting `background` to `True`.
+Research tasks involve iterative search, retrieval, and analysis, and can take several minutes to complete. You must run Gemini Deep Research Agent asynchronously by setting `background` to `True`.
 
 You can use Gemini Deep Research Agent with or without streaming:
 
@@ -434,7 +434,7 @@ See the following example:
       time.sleep(10)
     
 
-## Document understanding
+## Document processing
 
 You can pass documents directly as multimodal input. The agent analyzes the provided documents and conducts research grounded in their content.
 
@@ -645,6 +645,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-04 UTC.
+Last updated 2026-11-06 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-06 UTC."],[],[]] 

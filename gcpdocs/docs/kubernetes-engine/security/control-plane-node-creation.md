@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/kubernetes-engine/security/control-plane-node-creation/
 title: Prevent node self-registration in GKE clusters \u00a0|\u00a0 GKE security \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-01T05:44:14.298546+00:00
+fetched_at: 2026-11-06T12:56:45.303971+00:00
 ---
 
 # Prevent node self-registration in GKE clusters  |  GKE security  |  Google Cloud Documentation
@@ -23,11 +23,16 @@ Send feedback
 
 [ Autopilot ](https://docs.cloud.google.com/kubernetes-engine/docs/concepts/autopilot-overview) [ Standard ](https://docs.cloud.google.com/kubernetes-engine/docs/concepts/choose-cluster-mode)
 
-**Preview**
+Google Kubernetes Engine (GKE) nodes register with the Kubernetes API server by creating `Node` objects.
 
-This feature is subject to the "Pre-GA Offerings Terms" in the General Service Terms section of the [Service Specific Terms](https://docs.cloud.google.com/terms/service-terms#1). Pre-GA features are available "as is" and might have limited support. For more information, see the [launch stage descriptions](https://cloud.google.com/products/#product-launch-stages). 
+The system component that creates the Node object in the Kubernetes API is one of the following:
 
-By default, Google Kubernetes Engine (GKE) nodes use the `kubelet` process on each node to register Node objects with the Kubernetes API server. This document shows you how to prevent this [self-registration](https://kubernetes.io/docs/concepts/architecture/nodes/#self-registration-of-nodes) for Shielded GKE Nodes, and instead require a trusted GKE control plane component to perform registration operations. Security engineers and platform administrators can use control plane node creation to limit the privileges of nodes.
+  * The `kubelet` process.
+  * A trusted control plane component.
+
+
+
+This document describes the node creation modes in GKE and shows you how to configure the mode for clusters that use Shielded GKE Nodes. Security engineers and platform administrators can use control plane node creation to limit the privileges of nodes.
 
 You should already be familiar with the following concepts:
 
@@ -42,22 +47,34 @@ You should already be familiar with the following concepts:
 
 Shielded GKE Nodes, which is enabled in all GKE clusters, enforce cryptographic verification of node identities during the node registration process. This verification helps to ensure that only legitimate nodes can register with the Kubernetes API server and run workloads.
 
-The default registration workflow for GKE clusters, in which the `kubelet` on each node creates and modifies its `Node` object in the API server, creates a risk if a node is compromised. For example, in [CVE-2025-5187](https://nvd.nist.gov/vuln/detail/CVE-2025-5187), a vulnerability allowed node users to delete the corresponding `Node` objects and register compromised nodes.
+The node self-registration workflow, in which the `kubelet` on each node creates and modifies its `Node` object in the API server, creates a risk if a node is compromised. For example, in [CVE-2025-5187](https://nvd.nist.gov/vuln/detail/CVE-2025-5187), a vulnerability allowed node users to delete the corresponding `Node` objects and register compromised nodes.
+
+GKE supports the following node creation modes:
+
+  * **Control plane node creation** : a trusted GKE control plane component creates `Node` objects. This mode is the default for new clusters that run GKE version 1.37.1-gke.3020000 and later.
+  * **`kubelet` node creation**: the `kubelet` on each node self-registers the node. This mode is the default for clusters that were created in GKE versions earlier than 1.37.1-gke.3020000.
+
+
 
 ### Control plane node creation
 
-In GKE version 1.35.3-gke.1189000 and later, you can optionally require a trusted GKE control plane component named the `gcp-controller-manager` to create `Node` objects instead of allowing the `kubelet` to self-register the nodes. After the `kubelet` sets up a TLS connection with the API server by using the cryptographically verified node identity, the `gcp-controller-manager` component creates the `Node` object. An admission controller rejects any requests from the `kubelet` to create the `Node` object. By using the control plane component to create `Node` objects, you can reduce the risk of a potentially compromised node creating arbitrary `Node` objects or manipulating its `Node` specification.
+In GKE version 1.35.3-gke.1189000 and later, you can configure a trusted GKE control plane component to create `Node` objects instead of allowing the `kubelet` to self-register the nodes. After the `kubelet` sets up a TLS connection with the API server by using the cryptographically verified node identity, the control plane creates the `Node` object. An admission controller rejects any requests from the `kubelet` to create the `Node` object. By using the control plane component to create `Node` objects, you can reduce the risk of a potentially compromised node creating arbitrary `Node` objects or manipulating its `Node` specification. To explicitly set the node creation mode when you create a Standard or Autopilot cluster, do one of the following:
 
-To change the default node creation and registration behavior, you do one of the following when you create a Standard or Autopilot cluster:
+  * Google Cloud CLI: specify a value of `CONTROL_PLANE` or `KUBELET` in the `--node-creation-mode` flag.
+  * Kubernetes Engine API: specify a value of `VIA_CONTROL_PLANE` or `VIA_KUBELET` in the `nodeCreationMode` field of the `NodeCreationConfig` object.
 
-  * Google Cloud CLI: specify a value of `CONTROL_PLANE` in the `--node-creation-mode` flag.
-  * Kubernetes Engine API: specify a value of `VIA_CONTROL_PLANE` in the `node-creation-mode` field in the `NodeCreationConfig` method.
+
+
+To manually enable control plane node creation, your cluster must meet all of the following requirements:
+
+  * The cluster must run GKE version 1.35.3-gke.1189000 or later.
+  * The cluster must have Shielded GKE Nodes enabled. If you disable Shielded GKE Nodes, you can't use control plane node creation.
 
 
 
 ## Limitations
 
-There's a brief delay between when the `gcp-controller-manager` creates a `Node` object in the Kubernetes API and when the `kubelet` updates that `Node` object with the full set of node labels and annotations. Any workloads or controllers that depend on a full set of labels or annotations immediately upon node creation, might show unexpected behavior. Certain labels and annotations may be reconciled at a different time than `kubelet` registration. Verify that your workloads and DaemonSets use label and annotation presence checks before acting.
+There's a brief delay between when the control plane creates a `Node` object in the Kubernetes API and when the `kubelet` updates that `Node` object with the full set of node labels and annotations. Any workloads or controllers that depend on a full set of labels or annotations immediately upon node creation, might show unexpected behavior. Certain labels and annotations may be reconciled at a different time than `kubelet` registration. Verify that your workloads and DaemonSets use label and annotation presence checks before acting.
 
   * Avoid deploying DaemonSets and workloads that have tolerations for all node taints, which might cause Pods to run on nodes that aren't ready.
   * Use an `initContainer` to check for node labels before letting main containers run.
@@ -76,7 +93,7 @@ Before you start, make sure that you have performed the following tasks:
 
 ## Enable control plane node creation
 
-You can enable node creation by using the `gcp-controller-manager` component when you create a cluster or update an existing cluster. For existing clusters, the update affects only new nodes in the cluster. Existing nodes aren't affected by the change.
+New clusters that run version 1.37.1-gke.3020000 and later use control plane node creation by default. For clusters that were created in earlier versions, or for clusters where you previously opted out, you can enable node creation by updating node creation mode for an existing cluster. For existing clusters, the update affects only new nodes in the cluster. Existing nodes aren't affected by the change.
 
 The following command enables the control plane node creation mode for an existing cluster:
     
@@ -97,7 +114,7 @@ You can also specify the `--node-creation-mode` flag in the [clusters create com
 
 ## Disable control plane node creation
 
-You can revert to the default GKE behavior in which the `kubelet` creates nodes at any time by specifying a value of `KUBELET` in the `--node-creation-mode` Google Cloud CLI flag or `VIA_KUBELET` in the `NodeCreationConfig` GKE API method. For existing clusters, this change affects only new nodes in that cluster.
+You can let the `kubelet` process register nodes at any time by specifying a value of `KUBELET` in the `--node-creation-mode` Google Cloud CLI flag or `VIA_KUBELET` in the `nodeCreationMode` field of the `NodeCreationConfig` object in the Kubernetes Engine API. For existing clusters, this change affects only new nodes in that cluster.
 
 The following command updates a cluster to disable control plane node creation:
     
@@ -126,6 +143,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-30 UTC.
+Last updated 2026-11-05 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-05 UTC."],[],[]] 

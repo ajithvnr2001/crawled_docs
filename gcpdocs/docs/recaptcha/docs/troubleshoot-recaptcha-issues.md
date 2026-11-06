@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/recaptcha/docs/troubleshoot-recaptcha-issues/
 title: Troubleshoot reCAPTCHA integration issues \u00a0|\u00a0 Google Cloud Fraud Defense \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-30T08:40:22.151427+00:00
+fetched_at: 2026-11-06T11:31:36.637939+00:00
 ---
 
 # Troubleshoot reCAPTCHA integration issues  |  Google Cloud Fraud Defense  |  Google Cloud Documentation

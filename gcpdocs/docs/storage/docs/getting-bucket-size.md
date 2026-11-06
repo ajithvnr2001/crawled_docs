@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/storage/docs/getting-bucket-size/
 title: Get bucket size \u00a0|\u00a0 Cloud Storage \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-03T09:42:00.277925+00:00
+fetched_at: 2026-11-06T10:24:27.941226+00:00
 ---
 
 # Get bucket size  |  Cloud Storage  |  Google Cloud Documentation

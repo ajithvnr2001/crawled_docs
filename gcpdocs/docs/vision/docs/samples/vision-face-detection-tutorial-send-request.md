@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/vision/docs/samples/vision-face-detection-tutorial-send-request/
 title: Send a request for face detection \u00a0|\u00a0 Cloud Vision API \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T05:47:42.775666+00:00
+fetched_at: 2026-11-06T10:38:12.711167+00:00
 ---
 
 # Send a request for face detection  |  Cloud Vision API  |  Google Cloud Documentation
@@ -40,31 +40,34 @@ To authenticate to Vision, set up Application Default Credentials. For more info
     
     /** Gets up to {@code maxResults} faces for an image stored at {@code path}. */
     public List<FaceAnnotation> detectFaces(Path path, int maxResults) throws IOException {
-      byte[] data = Files.readAllBytes(path);
-    
-      AnnotateImageRequest request =
-          new AnnotateImageRequest()
-              .setImage(new Image().encodeContent(data))
-              .setFeatures(
-                  ImmutableList.of(
-                      new Feature().setType("FACE_DETECTION").setMaxResults(maxResults)));
-      Vision.Images.Annotate annotate =
-          vision
-              .images()
-              .annotate(new BatchAnnotateImagesRequest().setRequests(ImmutableList.of(request)));
-      // Due to a bug: requests to Vision API containing large images fail when GZipped.
-      annotate.setDisableGZipContent(true);
-    
-      BatchAnnotateImagesResponse batchResponse = annotate.execute();
-      assert batchResponse.getResponses().size() == 1;
-      AnnotateImageResponse response = batchResponse.getResponses().get(0);
-      if (response.getFaceAnnotations() == null) {
-        throw new IOException(
-            response.getError() != null
-                ? response.getError().getMessage()
-                : "Unknown error getting image annotations");
+      ByteString imgBytes;
+      try (FileInputStream in = new FileInputStream(path.toFile())) {
+        imgBytes = ByteString.readFrom(in);
       }
-      return response.getFaceAnnotations();
+    
+      Image img = Image.newBuilder().setContent(imgBytes).build();
+      Feature feat = Feature.newBuilder()
+          .setType(Feature.Type.FACE_DETECTION)
+          .setMaxResults(maxResults)
+          .build();
+      AnnotateImageRequest request = AnnotateImageRequest.newBuilder()
+          .setImage(img)
+          .addFeatures(feat)
+          .build();
+    
+      BatchAnnotateImagesResponse response = vision.batchAnnotateImages(ImmutableList.of(request));
+      List<AnnotateImageResponse> responses = response.getResponsesList();
+    
+      if (responses.isEmpty()) {
+        throw new IOException("No response received from the Vision API.");
+      }
+    
+      AnnotateImageResponse imageResponse = responses.get(0);
+      if (imageResponse.hasError()) {
+        throw new IOException(
+            "Error getting image annotations: " + imageResponse.getError().getMessage());
+      }
+      return imageResponse.getFaceAnnotationsList();
     }
 
 ### Node.js

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sql/docs/sqlserver/samples/cloud-sql-sqlserver-mssql-connection/
 title: Create an mssql connection using Node.js \u00a0|\u00a0 Cloud SQL for SQL Server \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T09:39:54.435093+00:00
+fetched_at: 2026-11-06T10:30:06.831008+00:00
 ---
 
 # Create an mssql connection using Node.js  |  Cloud SQL for SQL Server  |  Google Cloud Documentation

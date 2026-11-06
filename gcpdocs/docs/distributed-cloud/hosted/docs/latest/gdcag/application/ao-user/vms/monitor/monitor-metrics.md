@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/application/ao-user/vms/monitor/monitor-metrics/
 title: Monitor VM metrics \u00a0|\u00a0 Google Distributed Cloud air-gapped \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T21:59:38.745899+00:00
+fetched_at: 2026-11-06T10:46:05.364444+00:00
 ---
 
 # Monitor VM metrics  |  Google Distributed Cloud air-gapped  |  Google Cloud Documentation
@@ -22,23 +22,9 @@ Send feedback
 
 #  Monitor VM metrics Stay organized with collections  Save and categorize content based on your preferences. 
 
-This document provides an overview of the Google Distributed Cloud (GDC) air-gapped VM dashboard and the type of information made available by the different graphs. To learn more about monitoring, visualization, and how to configure alerts, see the following supplemental pages:
+Google Distributed Cloud (GDC) air-gapped lets you track virtual machine (VM) performance and resource utilization by using the VM metrics dashboard. You can view project-specific metric graphs to inspect workload health and diagnose infrastructure issues across your environment.
 
-  * [Observability monitoring and visualizing](https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/application/ao-user/observability-monitoring-and-visualizing) for detailed information about collecting metrics, viewing metrics, and managing your dashboards.
-  * [Alerting](https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/application/ao-user/observability-alerting) for information about, for example, alerts and creating alert rules.
-
-
-
-The VM-level metrics dashboard provides you with graphs for viewing VM-specific metrics for your projects. Access the dashboard from this address:
-
-`https://GDC_HOST/PROJECT/grafana/d/vm-metrics/workload-vms`
-
-  * Replace GDC_HOST with your hostname.
-  * Replace PROJECT with the name of your project.
-
-**Note:** GDC doesn't support guest environment metrics on Windows VMs.
-
-This document is for developers in platform administrator or application operator groups that monitor VM metrics using dashboards in a Distributed Cloud environment. For more information, see [Audiences for GDC air-gapped documentation](https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/resources/audiences).
+This document is for developers in the platform administrator or application operator groups who monitor VM metrics by using dashboards in a GDC environment. For more information, see [Audiences for GDC air-gapped documentation](https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/resources/audiences). To learn more about collecting metrics, managing dashboards, or configuring alert rules, see [Observability monitoring and visualizing](https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/application/ao-user/observability-monitoring-and-visualizing) and [Alerting](https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/application/ao-user/observability-alerting).
 
 ## Before you begin
 
@@ -49,6 +35,15 @@ To monitor VM metrics with dashboards, contact your IAM Project Admin to request
 All roles must bind to the namespace of the project where the VM resides.
 
 ## VM dashboard
+
+Access the VM-level metrics dashboard from the following address:
+
+`https://GDC_HOST/PROJECT/grafana/d/vm-metrics/workload-vms`
+
+  * Replace `GDC_HOST` with your hostname.
+  * Replace `PROJECT` with the name of your project.
+
+**Note:** GDC doesn't support guest environment metrics on Windows VMs.
 
 The VM dashboard presents graphs that contain information regarding the following for each VM in each of your project namespaces:
 
@@ -114,6 +109,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-05 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-05 UTC."],[],[]] 

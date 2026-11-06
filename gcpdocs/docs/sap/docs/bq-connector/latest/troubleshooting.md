@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sap/docs/bq-connector/latest/troubleshooting/
 title: BigQuery Connector for SAP troubleshooting guide \u00a0|\u00a0 SAP on Google Cloud \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-30T08:53:12.696997+00:00
+fetched_at: 2026-11-06T10:41:44.652438+00:00
 ---
 
 # BigQuery Connector for SAP troubleshooting guide  |  SAP on Google Cloud  |  Google Cloud Documentation

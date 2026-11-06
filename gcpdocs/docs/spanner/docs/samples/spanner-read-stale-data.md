@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/spanner/docs/samples/spanner-read-stale-data/
 title: Read stale data \u00a0|\u00a0 Spanner \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-03T09:42:54.419727+00:00
+fetched_at: 2026-11-06T10:38:41.340996+00:00
 ---
 
 # Read stale data  |  Spanner  |  Google Cloud Documentation
@@ -327,7 +327,7 @@ To authenticate to Spanner, set up Application Default Credentials. For more inf
     # database_id = "Your Spanner database ID"
     require "google/cloud/spanner"
     
-    spanner = Google::Cloud::[Spanner](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-spanner-admin-instance-v1/latest/Google-Cloud-Spanner.html).new project: project_id
+    spanner = Google::Cloud::[Spanner](https://docs.cloud.google.com/ruby/docs/reference/activerecord-spanner-adapter/latest/Google-Cloud-Spanner.html).new project: project_id
     client  = spanner.[client](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-spanner/latest/Google-Cloud-Spanner-Project.html) instance_id, database_id
     
     # Perform a read with a data staleness of 15 seconds

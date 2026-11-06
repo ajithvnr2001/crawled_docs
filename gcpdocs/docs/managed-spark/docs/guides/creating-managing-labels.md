@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/managed-spark/docs/guides/creating-managing-labels/
 title: Create and manage Labels \u00a0|\u00a0 Managed Service for Apache Spark \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-06T05:53:32.122006+00:00
+fetched_at: 2026-11-06T11:11:09.636888+00:00
 ---
 
 # Create and manage Labels  |  Managed Service for Apache Spark  |  Google Cloud Documentation

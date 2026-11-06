@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/vertex-ai/docs/samples/aiplatform-get-custom-job-sample/
 title: Get a custom job \u00a0|\u00a0 Vertex AI \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-03T09:42:50.321395+00:00
+fetched_at: 2026-11-06T10:31:43.124199+00:00
 ---
 
 # Get a custom job  |  Vertex AI  |  Google Cloud Documentation
@@ -43,7 +43,7 @@ To authenticate to Vertex AI, set up Application Default Credentials. For more i
     // const location = 'YOUR_PROJECT_LOCATION';
     
     // Imports the Google Cloud Job Service Client library
-    const {JobServiceClient} = require('@google-cloud/aiplatform');
+    const {JobServiceClient} = require('[@google-cloud/aiplatform](https://docs.cloud.google.com/nodejs/docs/reference/aiplatform/latest/overview.html)');
     
     // Specifies the location of the api endpoint
     const clientOptions = {
@@ -51,7 +51,7 @@ To authenticate to Vertex AI, set up Application Default Credentials. For more i
     };
     
     // Instantiates a client
-    const jobServiceClient = new JobServiceClient(clientOptions);
+    const jobServiceClient = new [JobServiceClient](https://docs.cloud.google.com/nodejs/docs/reference/aiplatform/latest/overview.html)(clientOptions);
     
     async function getCustomJob() {
       // Configure the name resource
@@ -88,11 +88,11 @@ To authenticate to Vertex AI, set up Application Default Credentials. For more i
         client_options = {"api_endpoint": api_endpoint}
         # Initialize client that will be used to create and send requests.
         # This client only needs to be created once, and can be reused for multiple requests.
-        client = aiplatform.gapic.JobServiceClient(client_options=client_options)
-        name = client.custom_job_path(
+        client = aiplatform.gapic.[JobServiceClient](https://docs.cloud.google.com/python/docs/reference/aiplatform/latest/google.cloud.aiplatform_v1.services.job_service.JobServiceClient.html)(client_options=client_options)
+        name = client.[custom_job_path](https://docs.cloud.google.com/python/docs/reference/aiplatform/latest/google.cloud.aiplatform_v1.services.job_service.JobServiceClient.html#google_cloud_aiplatform_v1_services_job_service_JobServiceClient_custom_job_path)(
             project=project, location=location, custom_job=custom_job_id
         )
-        response = client.get_custom_job(name=name)
+        response = client.[get_custom_job](https://docs.cloud.google.com/python/docs/reference/aiplatform/latest/google.cloud.aiplatform_v1.services.job_service.JobServiceClient.html#google_cloud_aiplatform_v1_services_job_service_JobServiceClient_get_custom_job)(name=name)
         print("response:", response)
     
     

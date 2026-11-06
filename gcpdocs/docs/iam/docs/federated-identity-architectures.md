@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/iam/docs/federated-identity-architectures/
 title: Architecture patterns for identity federation \u00a0|\u00a0 Identity and Access Management (IAM) \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T23:44:43.119983+00:00
+fetched_at: 2026-11-06T08:23:58.604573+00:00
 ---
 
 # Architecture patterns for identity federation  |  Identity and Access Management (IAM)  |  Google Cloud Documentation
@@ -22,16 +22,7 @@ Send feedback
 
 #  Architecture patterns for identity federation Stay organized with collections  Save and categorize content based on your preferences. 
 
-This document compares four architectural patterns to federate Google Cloud with an external identity provider (IdP). It also provides guidance to help you choose a suitable architecture for your use case.
-
-The four architectural patterns are as follows:
-
-  * Cloud Identity or Google Workspace federation
-  * Workforce Identity Federation, sync-less
-  * Workforce Identity Federation with SCIM
-  * Hybrid Cloud Identity and Workforce Identity Federation
-
-
+Identity federation lets you connect Google Cloud to an external identity provider (IdP) so your workforce can access Google Cloud resources and other Google services by using their existing credentials. Depending on your service portfolio, data residency requirements, and Gemini Enterprise integrations, you can choose from four architectures: Cloud Identity or Google Workspace federation, sync-less Workforce Identity Federation, Workforce Identity Federation with SCIM, or hybrid Cloud Identity and Workforce Identity Federation.
 
 ## Decision factors
 
@@ -310,6 +301,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-04 UTC.
+Last updated 2026-11-06 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-06 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/storage-transfer/docs/create-transfers/agentless/customer-managed-private-network/
 title: Transfer from AWS or Azure over a customer-managed private network \u00a0|\u00a0 Storage Transfer Service \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T05:48:59.507799+00:00
+fetched_at: 2026-11-06T10:53:08.845951+00:00
 ---
 
 # Transfer from AWS or Azure over a customer-managed private network  |  Storage Transfer Service  |  Google Cloud Documentation
@@ -137,13 +137,13 @@ Once created, note the self-link of the service. It uses the format `projects/{p
 
 ## Create a transfer
 
-Grant the following permissions to the [service agent](https://docs.cloud.google.com/iam/docs/service-account-types#service-agents). For instructions on retrieving the service agent, and granting permissions to the service agent, see [Service agent permissions](https://docs.cloud.google.com/storage-transfer/docs/iam-cloud#service_agent_permissions).
+Grant the following permissions to the [service agent](https://docs.cloud.google.com/iam/docs/service-account-types#service-agents). For instructions on retrieving the service agent, and granting permissions to the service agent, see [Configure access to a sink: Cloud Storage](https://docs.cloud.google.com/storage-transfer/docs/sink-cloud-storage#find-service-agent).
 
   * Service Directory Viewer ([roles/servicedirectory.viewer](https://docs.cloud.google.com/service-directory/docs/access-control#servicedirectory.viewer)) at the project level, on the project containing the Service Directory Resources.
   * Private Service Connect Authorized Service ([roles/servicedirectory.pscAuthorizedService](https://docs.cloud.google.com/service-directory/docs/access-control#servicedirectory.pscAuthorizedService)) at the project level, on the project containing the VPC.
-  * Storage Legacy Bucket Writer ([roles/storage.legacyBucketWriter](https://docs.cloud.google.com/storage/docs/access-control/iam-roles#storage.legacyBucketWiter)) on the destination bucket.
+  * Storage Object User ([roles/storage.objectUser](https://docs.cloud.google.com/storage/docs/access-control/iam-roles#storage.objectUser)) and Storage Legacy Bucket Reader ([roles/storage.legacyBucketReader](https://docs.cloud.google.com/storage/docs/access-control/iam-roles#storage.legacyBucketReader)) on the destination bucket.
 
-**Note:** If you're [delegating service agent permissions to a user-managed service account](https://docs.cloud.google.com/storage-transfer/docs/delegate-service-agent-permissions#gcloud_1), grant these permissions to the user-managed service account.
+**Note:** If you're [delegating service agent permissions to a user-managed service account](https://docs.cloud.google.com/storage-transfer/docs/delegate-service-agent-permissions), grant these permissions to the user-managed service account.
 
 To create a transfer job that uses a Cross-Cloud Interconnect, you must use the Storage Transfer Service REST API. Send a request as follows. Note the `privateNetworkService` field, which is where you'll specify your Service Directory service's selfLink.
 
@@ -219,6 +219,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-05 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-05 UTC."],[],[]] 

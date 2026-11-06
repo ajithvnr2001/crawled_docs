@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/identity/docs/how-to/set-up-cloud-identity-admin/
 title: Quickstart: Set up Cloud Identity as a Google Cloud administrator \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T16:55:24.069584+00:00
+fetched_at: 2026-11-06T08:21:18.448885+00:00
 ---
 
 # Quickstart: Set up Cloud Identity as a Google Cloud administrator  |  Google Cloud Documentation

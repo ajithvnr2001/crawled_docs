@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/ai-hypercomputer/docs/tutorials/gpu/serve-deepseek-r1-671b-a4-gke-multi-host-vllm/
 title: Serve DeepSeek-R1 671B on GKE with multi-host vLLM on A4 VMs \u00a0|\u00a0 AI Hypercomputer \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T23:28:15.405014+00:00
+fetched_at: 2026-11-06T10:19:43.474469+00:00
 ---
 
 # Serve DeepSeek-R1 671B on GKE with multi-host vLLM on A4 VMs  |  AI Hypercomputer  |  Google Cloud Documentation
@@ -54,9 +54,10 @@ To generate a cost estimate based on your projected usage, use the [pricing calc
 
 Set up your environment for the tutorial:
 
-  1. [Install](https://docs.cloud.google.com/sdk/docs/install) and [initialize](https://docs.cloud.google.com/sdk/docs/initialize) the Google Cloud CLI, and install [`kubectl`](https://kubernetes.io/docs/tasks/tools/#kubectl). If you use Cloud Shell, both tools are preinstalled.
-  2. If you're running this tutorial from a Linux or macOS workstation rather than Cloud Shell, install the required [Cluster Toolkit dependencies](https://docs.cloud.google.com/cluster-toolkit/docs/setup/install-dependencies) (such as Terraform and Git).
-  3. Enable the Kubernetes Engine API, Compute Engine API, Cloud Storage API, Artifact Registry API, and Service Usage API in your Google Cloud project:
+  1. [Install](https://docs.cloud.google.com/sdk/docs/install) and [initialize](https://docs.cloud.google.com/sdk/docs/initialize) the Google Cloud CLI. If you're using Cloud Shell, then skip this step.
+  2. Install [`kubectl`](https://kubernetes.io/docs/tasks/tools/#kubectl) and the [`gke-gcloud-auth-plugin`](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/cluster-access-for-kubectl#install_plugin). If you're using Cloud Shell, these tools are preinstalled.
+  3. If you're running this tutorial from a Linux or macOS workstation rather than Cloud Shell, install the required [Cluster Toolkit dependencies](https://docs.cloud.google.com/cluster-toolkit/docs/setup/install-dependencies) (such as Terraform and Git) and the `envsubst` utility (included in the `gettext` or `gettext-base` package).
+  4. Enable the Kubernetes Engine API, Compute Engine API, Cloud Storage API, Artifact Registry API, and Service Usage API in your Google Cloud project:
 
 [Enable APIs](https://console.cloud.google.com/apis/enableflow?apiid=container.googleapis.com,compute.googleapis.com,storage.googleapis.com,artifactregistry.googleapis.com,serviceusage.googleapis.com)
 
@@ -103,13 +104,13 @@ Set up your authentication and environment variables for the tutorial:
 
   2. Export the environment variables that you use throughout this tutorial:
          
-         export PROJECT_ID="YOUR_PROJECT_ID"
-         export REGION="YOUR_REGION"
-         export ZONE="YOUR_ZONE"
-         export CLUSTER_NAME="YOUR_CLUSTER_NAME"
-         export RESERVATION_NAME="YOUR_RESERVATION_NAME"
-         export HF_TOKEN="YOUR_HF_TOKEN"
-         export MODEL_BUCKET="YOUR_GCS_BUCKET"
+         export PROJECT_ID="YOUR_PROJECT_ID" # Your Google Cloud project ID
+         export REGION="YOUR_REGION" # for example, us-central1
+         export ZONE="YOUR_ZONE" # for example, us-central1-b
+         export CLUSTER_NAME="YOUR_CLUSTER_NAME" # <= 20 chars; start with a-z; only a-z, 0-9, -
+         export RESERVATION_NAME="YOUR_RESERVATION_NAME" # A4 reservation name or RESERVATION_NAME/reservationBlocks/BLOCK_NAME
+         export HF_TOKEN="YOUR_HF_TOKEN" # Hugging Face access token
+         export MODEL_BUCKET="YOUR_GCS_BUCKET" # Globally unique Cloud Storage bucket name
          export TERRAFORM_BUCKET="${MODEL_BUCKET}-tf-state"
          export CLUSTER_TOOLKIT_VERSION="v1.104.0"
          
@@ -121,7 +122,7 @@ Replace the following:
      * `YOUR_PROJECT_ID`: the ID of your Google Cloud project.
      * `YOUR_REGION`: the compute region where your A4 capacity is located and where you want to deploy your cluster, such as `us-central1`.
      * `YOUR_ZONE`: the compute zone where your A4 capacity is located, such as `us-central1-b`.
-     * `YOUR_CLUSTER_NAME`: the name for your GKE cluster and Cluster Toolkit deployment. Use a name of 20 characters or fewer so that the generated node pool service account ID (`YOUR_CLUSTER_NAME-gke-np-sa`) stays within the 30-character Identity and Access Management (IAM) limit.
+     * `YOUR_CLUSTER_NAME`: the name for your GKE cluster and Cluster Toolkit deployment. The name must start with a lowercase letter, contain only lowercase letters, numbers, and hyphens (`-`), and be 20 characters or fewer, so that the generated node pool service account ID (`YOUR_CLUSTER_NAME-gke-np-sa`) stays within the 30-character Identity and Access Management (IAM) limit.
      * `YOUR_RESERVATION_NAME`: the name of your A4 reservation, or the extended reservation block path in the format `RESERVATION_NAME/reservationBlocks/RESERVATION_BLOCK_NAME`.
      * `YOUR_HF_TOKEN`: your Hugging Face access token.
      * `YOUR_GCS_BUCKET`: a globally unique name for the Cloud Storage bucket where you stage the model weights. The script also sets `TERRAFORM_BUCKET` to `YOUR_GCS_BUCKET-tf-state` to store the Terraform state for Cluster Toolkit.
@@ -162,7 +163,7 @@ Download Cluster Toolkit and provision a GKE cluster in Standard mode with two `
              --location="${REGION}" \
              --uniform-bucket-level-access
 
-  4. Create the `examples/gke-a4/gke-a4-deployment.yaml` deployment configuration file for two `a4-highgpu-8g` nodes:
+  4. Populate the `examples/gke-a4/gke-a4-deployment.yaml` deployment configuration file for two `a4-highgpu-8g` nodes:
          
          cat <<EOF > examples/gke-a4/gke-a4-deployment.yaml
          terraform_backend_defaults:
@@ -204,22 +205,24 @@ Download Cluster Toolkit and provision a GKE cluster in Standard mode with two `
 
 **Note:** Cluster Toolkit version `v1.104.0` and later include built-in capacity consumption options for `examples/gke-a4/gke-a4-deployment.yaml` (see [GKE consumption options](https://docs.cloud.google.com/cluster-toolkit/docs/deploy/gke/gke-consumption-options)). In versions earlier than `v1.104.0`, you must add these capacity options manually.
 
-By default, the `examples/gke-a4/gke-a4.yaml` blueprint is configured to use a specific reservation. If you don't have a specific reservation, you can edit `examples/gke-a4/gke-a4.yaml` before you deploy the cluster to use one of the following consumption options:
+By default, the `examples/gke-a4/gke-a4-deployment.yaml` deployment file is configured to use a specific reservation. If you don't have a specific reservation, you can edit `examples/gke-a4/gke-a4-deployment.yaml` before you deploy the cluster to use one of the following consumption options:
 
-     * **Spot capacity** : ensure that your project has sufficient [preemptible quota](https://docs.cloud.google.com/compute/docs/instances/spot#quotas) for your GPUs, disks, and CPUs. At the bottom of `examples/gke-a4/gke-a4.yaml`, comment out the `--- Option 1: Specific Reservation ---` section and uncomment the `--- Option 4: Spot ---` section.
-     * **Flex-start VMs** : ensure that your project has sufficient [preemptible quota](https://docs.cloud.google.com/compute/docs/instances/about-flex-start-vms#quota) for your GPUs, disks, and CPUs. At the bottom of `examples/gke-a4/gke-a4.yaml`, comment out the `--- Option 1: Specific Reservation ---` section and uncomment the `--- Option 2: DWS Flex Start ---` section.
+     * **Spot capacity** : ensure that your project has sufficient [preemptible quota](https://docs.cloud.google.com/compute/docs/instances/spot#quotas) for your GPUs, disks, and CPUs. At the bottom of `examples/gke-a4/gke-a4-deployment.yaml`, comment out the `--- Option 1: Specific Reservation ---` section and uncomment the `--- Option 4: Spot ---` section.
+     * **Flex-start VMs** : ensure that your project has sufficient [preemptible quota](https://docs.cloud.google.com/compute/docs/instances/about-flex-start-vms#quota) for your GPUs, disks, and CPUs. At the bottom of `examples/gke-a4/gke-a4-deployment.yaml`, comment out the `--- Option 1: Specific Reservation ---` section and uncomment the `--- Option 2: DWS Flex Start ---` section.
   5. Deploy the GKE cluster by using the [`gcluster deploy` command](https://docs.cloud.google.com/cluster-toolkit/docs/reference/gcluster-deploy):
          
          ./gcluster deploy -d examples/gke-a4/gke-a4-deployment.yaml examples/gke-a4/gke-a4.yaml \
              --download-dependencies \
              --auto-approve -w
 
-Cluster creation takes approximately 30 to 45 minutes. If you run `./gcluster deploy` without the `--auto-approve` flag, then to apply the proposed changes, enter `a` when you're prompted to. When deployment finishes, the output ends with a message similar to the following:
+Cluster creation takes approximately 30 to 45 minutes. If you run `./gcluster deploy` without the `--auto-approve` flag, then to apply the proposed changes, enter `a` when you're prompted to.
+
+  6. Wait for the command to finish execution. If the deployment is successful, look for `"Apply complete!"` in the output logs, similar to the following:
          
          Apply complete! Resources: 80 added, 0 changed, 0 destroyed.
          
 
-  6. Configure `kubectl` credentials to communicate with your cluster:
+  7. Configure `kubectl` credentials to communicate with your cluster, and wait for the JobSet controller and RDMA installer to be ready:
          
          gcloud container clusters get-credentials "${CLUSTER_NAME}" \
              --project="${PROJECT_ID}" \
@@ -654,7 +657,7 @@ To scale this deployment to more hosts, update the parameters in `deepseek_r1_se
          
          envsubst '$MODEL_BUCKET' < deepseek_r1_server.yaml | kubectl apply -f -
 
-  3. Monitor the leader and worker Pod logs until server startup has completed:
+  3. Wait for the server Pods to start, and then monitor the leader and worker Pod logs until server startup has completed:
          
          kubectl wait --for=condition=Ready pod -l jobset.sigs.k8s.io/jobset-name=vllm-r1 --timeout=600s
          # monitor leader
@@ -829,6 +832,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-03 UTC.
+Last updated 2026-11-05 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-05 UTC."],[],[]] 

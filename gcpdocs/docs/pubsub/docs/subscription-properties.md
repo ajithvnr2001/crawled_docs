@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/pubsub/docs/subscription-properties/
 title: Subscription properties \u00a0|\u00a0 Pub/Sub \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-01T05:41:54.089330+00:00
+fetched_at: 2026-11-06T13:51:13.128067+00:00
 ---
 
 # Subscription properties  |  Pub/Sub  |  Google Cloud Documentation

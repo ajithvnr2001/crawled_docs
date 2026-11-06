@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/contact-center/ccai-platform/docs/hubspot/
 title: HubSpot \u00a0|\u00a0 Google Cloud Contact Center as a Service \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T23:27:44.592005+00:00
+fetched_at: 2026-11-06T10:23:44.780972+00:00
 ---
 
 # HubSpot  |  Google Cloud Contact Center as a Service  |  Google Cloud Documentation
@@ -21,7 +21,7 @@ Send feedback
 
 #  HubSpot Stay organized with collections  Save and categorize content based on your preferences. 
 
-The steps below will establish the initial connection between Contact Center AI Platform (CCAI Platform) and HubSpot by locating and providing the relevant domain information to the CCAI Platform portal.
+These steps will establish the initial connection between Contact Center AI Platform (CCAI Platform) and HubSpot by locating and providing the relevant domain information to the CCAI Platform portal.
 
 ## Prerequisites
 
@@ -36,7 +36,7 @@ The Admin must locate the following two parameters in order to set up Hubspot in
 
 ## Supported features
 
-**Note:** The HubSpot integration does not currently support the storage of media files, such as content sent via blended SMS or MMS messages.
+**Note:** The HubSpot integration doesn't support the storage of media files, such as content sent using blended SMS or MMS messages.
 
   * SmartActions
 
@@ -57,7 +57,7 @@ The Admin must locate the following two parameters in order to set up Hubspot in
 
 ## Configure HubSpot
 
-  1. Log in to HubSpot using an account with Administrator credentials.
+  1. Sign in to HubSpot using an account with Administrator credentials.
 
   2. In the URL address locate the customer's Hubspot URL and write down the **Domain ID** number.
 
@@ -110,9 +110,9 @@ International: +1 222 333 4444
 
   16. Select the **Attach session metadata files to CRM records** option to include the session metadata file as part of the record in HubSpot.
 
-The session metadata file includes detailed information about a session and is sent approximately 15 minutes after the session is ended as a JSON file. For more information, please see the Session Metadata File
+The session metadata file includes detailed information about a session and is sent approximately 15 minutes after the session is ended as a JSON file.
 
-  17. Use the **Custom** fields for records section to automatically create custom fields for CRM records via API and push session data to those fields.
+  17. Use the **Custom** fields for records section to automatically create custom fields for CRM records using the API and push session data to those fields.
 
 **Important:** Creating fields in the CRM is a one-way process and cannot be undone from the CCAI Platform portal.
   18. Click **Save**.
@@ -122,7 +122,7 @@ The session metadata file includes detailed information about a session and is s
 
 ## Data passed to the CRM
 
-**Note:** This integration currently does not save SMS media files in the CRM.
+**Note:** This integration does not save SMS media files in the CRM.
 
 Once HubSpot has been integrated, the Admin Portal can pass **call data** to the CRM automatically.
 
@@ -137,7 +137,7 @@ This data is attached to the Call object in HubSpot _by default_ and includes:
 
 The Call object also includes a description of the call at the top of the screen to describe what has been done, such as _IVR call Completed_.
 
-You can select the outcome of the call such as _Connected_ , _No answer_ , or _Left voicemail_ , using the **Select an outcome** dropdown at the top of the window.
+You can select the outcome of the call such as _Connected_ , _No answer_ , or _Left voicemail_ , using the **Select an outcome** drop-down at the top of the window.
 
 The Call information is associated with the Contact record in HubSpot as well as either the **Ticket** or **Deal** object, depending on the configuration in the Admin Portal.
 
@@ -147,6 +147,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-05 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-05 UTC."],[],[]] 

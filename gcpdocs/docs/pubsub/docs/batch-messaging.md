@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/pubsub/docs/batch-messaging/
 title: Batch messaging \u00a0|\u00a0 Pub/Sub \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T23:31:56.441048+00:00
+fetched_at: 2026-11-06T13:51:11.010808+00:00
 ---
 
 # Batch messaging  |  Pub/Sub  |  Google Cloud Documentation
@@ -484,7 +484,7 @@ Before trying this sample, follow the Ruby setup instructions in [Quickstart: Us
     
     # topic_id = "your-topic-id"
     
-    pubsub = Google::Cloud::[PubSub](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-pubsub/latest/Google-Cloud-PubSub.html).[new](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-pubsub/latest/Google-Cloud-PubSub.html)
+    pubsub = Google::Cloud::[PubSub](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-pubsub-v1/latest/Google-Cloud-PubSub.html).[new](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-pubsub/latest/Google-Cloud-PubSub.html)
     # Start sending messages in one request once the size of all queued messages
     # reaches 1 MB or the number of queued messages reaches 20
     publisher = pubsub.[publisher](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-pubsub/latest/Google-Cloud-PubSub-Project.html) topic_id, async: {

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sap/docs/checklist-sap-overview/
 title: Overview of the SAP on Google Cloud checklists \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-03T09:44:17.884509+00:00
+fetched_at: 2026-11-06T10:41:40.526177+00:00
 ---
 
 # Overview of the SAP on Google Cloud checklists  |  Google Cloud Documentation

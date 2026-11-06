@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/artifact-registry/docs/os-packages/rpm/configure/
 title: Configure VMs to install RPM packages \u00a0|\u00a0 Artifact Registry \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-03T09:52:35.016288+00:00
+fetched_at: 2026-11-06T10:22:06.158455+00:00
 ---
 
 # Configure VMs to install RPM packages  |  Artifact Registry  |  Google Cloud Documentation
@@ -82,7 +82,7 @@ Replace the following:
         * `FORMAT` with one of the following: 
           * `yum`, if your operating system is Enterprise Linux 7 or earlier
           * `dnf`, if your operating system is Enterprise Linux 8 or later
-        * `DISTRO` with the Red Hat Enterprise Linux major release in the format `elX` where `X` is the release version. Examples of valid `DISTRO` values are `el7` and `el8`.
+        * `DISTRO` with the Red Hat Enterprise Linux major release in the format `elX` where `X` is the release version. Examples of valid `DISTRO` values are `el7`, `el8`, `el9`, and `el10`.
      3. Update Yum using the following command:
             
             sudo yum makecache
@@ -278,6 +278,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-02 UTC.
+Last updated 2026-11-05 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-02 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-05 UTC."],[],[]] 

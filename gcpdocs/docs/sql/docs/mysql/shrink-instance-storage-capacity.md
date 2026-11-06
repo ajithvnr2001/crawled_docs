@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sql/docs/mysql/shrink-instance-storage-capacity/
 title: Shrink instance storage capacity \u00a0|\u00a0 Cloud SQL for MySQL \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-05T11:11:04.872988+00:00
+fetched_at: 2026-11-06T10:25:49.372611+00:00
 ---
 
 # Shrink instance storage capacity  |  Cloud SQL for MySQL  |  Google Cloud Documentation

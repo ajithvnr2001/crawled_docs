@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/storage-transfer/docs/create-transfers/agent-based/file-system-to-cloud-storage/
 title: Transfer from a file system to Cloud Storage \u00a0|\u00a0 Storage Transfer Service \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T05:48:57.669583+00:00
+fetched_at: 2026-11-06T10:53:08.764676+00:00
 ---
 
 # Transfer from a file system to Cloud Storage  |  Storage Transfer Service  |  Google Cloud Documentation
@@ -24,16 +24,16 @@ This page shows you how to create transfer jobs between a file system (either on
 
 Transfers from file systems to Cloud Storage are agent-based transfers, meaning you will install software agents on a machine with access to your file system to orchestrate the transfer.
 
-## Configure permissions
+## Prerequisites
 
-Before creating a transfer, you must configure permissions for the following entities:
+Before configuring your transfer, ensure you have set up the following:
 
-![](https://fonts.gstatic.com/s/i/short-term/release/googlesymbols/account_circle/wght600fill1/48px.svg) | The **user account** being used to create the transfer. This is the account that is signed in to the Google Cloud console, or the account that is specified when authenticating to the `gcloud` CLI. The user account can be a regular user account, or a user-managed service account.  
----|---  
-![](https://fonts.gstatic.com/s/i/short-term/release/googlesymbols/cloud_circle/wght600fill1/48px.svg) | The **[service agent](https://docs.cloud.google.com/iam/docs/service-account-types#service-agents)** used by Storage Transfer Service. This account is generally identified by its email address, which uses the format `project-PROJECT_NUMBER@storage-transfer-service.iam.gserviceaccount.com`.   
-![](https://docs.cloud.google.com/static/storage-transfer/docs/create-transfers/images/forklift-circle.png) | The **transfer agent account** that provides Google Cloud permissions for transfer agents. Transfer agent accounts use the credentials of the user installing them, or the credentials of a user-managed service account, to authenticate.  
-  
-See [Agent-based transfer permissions](https://docs.cloud.google.com/storage-transfer/docs/file-system-permissions) for instructions.
+  * **User permissions:** Ensure your user account or user-managed service account has permission to configure transfer jobs and agent pools. See [Required user permissions](https://docs.cloud.google.com/storage-transfer/docs/iam-user).
+  * **Agent-based project-level permissions:** Ensure you have configured the required project-level roles for your service agent and transfer agent account. See [Agent-based project-level permissions](https://docs.cloud.google.com/storage-transfer/docs/iam-agent-based).
+  * **Source file system permissions:** Ensure the operating system user running the agent container has read permissions on your source files. See [Configure access to a source: file system](https://docs.cloud.google.com/storage-transfer/docs/source-filesystem).
+  * **Destination bucket permissions:** Grant the required permissions on your destination Cloud Storage bucket. See [Configure access to a sink: Cloud Storage](https://docs.cloud.google.com/storage-transfer/docs/sink-cloud-storage).
+
+
 
 ## Install agents into an agent pool
 
@@ -41,8 +41,8 @@ Agent-based transfers use software agents to orchestrate transfers. These agents
 
 Don't include sensitive information such as personally identifiable information (PII) or security data in your agent pool name or agent ID prefix. Resource names may be propagated to the names of other Google Cloud resources and may be exposed to Google-internal systems outside of your project. 
 
-  1. Create an [agent pool](https://docs.cloud.google.com/storage-transfer/docs/on-prem-agent-pools). Use your **user account** ![User account symbol](https://fonts.gstatic.com/s/i/short-term/release/googlesymbols/account_circle/wght600fill1/24px.svg) for this action.
-  2. [Install agents](https://docs.cloud.google.com/storage-transfer/docs/managing-on-prem-agents#install-agent) into the agent pool. Use your **transfer agent account** ![](https://docs.cloud.google.com/static/storage-transfer/docs/create-transfers/images/forklift-circle.png) for this action.
+  1. Create an [agent pool](https://docs.cloud.google.com/storage-transfer/docs/on-prem-agent-pools).
+  2. [Install agents](https://docs.cloud.google.com/storage-transfer/docs/managing-on-prem-agents#install-agent) into the agent pool.
 
 
 
@@ -73,7 +73,7 @@ Manage network bandwidth
 
 See [Manage network bandwidth](https://docs.cloud.google.com/storage-transfer/docs/obtaining-bandwidth-on-prem) to learn more.
 
-![](https://fonts.gstatic.com/s/i/short-term/release/googlesymbols/account_circle/wght600fill1/24px.svg) Your user account requires the **Storage Transfer Admin** (`roles/storagetransfer.admin`) role to set or change bandwidth limits.
+Your user account requires the **Storage Transfer Admin** (`roles/storagetransfer.admin`) role to set or change bandwidth limits.
 
 Logging
     Storage Transfer Service supports [ Cloud Logging for Storage Transfer Service](https://docs.cloud.google.com/storage-transfer/docs/transfer-logs) (recommended) as well as [agent-based transfer logs](https://docs.cloud.google.com/storage-transfer/docs/on-prem-transfer-log-format). 
@@ -194,7 +194,7 @@ To move files from a POSIX file system to a Cloud Storage bucket, use [transferJ
     
     POST https://storagetransfer.googleapis.com/v1/transferJobs
     {
-     "name":"transferJobs/sample_transfer",
+     "name": "transferJobs/sample_transfer",
      "description": "My First Transfer",
      "status": "ENABLED",
      "projectId": "my_transfer_project_id",
@@ -209,25 +209,23 @@ To move files from a POSIX file system to a Cloud Storage bucket, use [transferJ
              "minutes": 30,
              "seconds": 0,
              "nanos": 0
-         }
+         },
          "scheduleEndDate": {
              "year": 2022,
              "month": 12,
              "day": 31
          },
-         "repeatInterval": {
-             "259200s"
-         },
+         "repeatInterval": "259200s"
      },
      "transferSpec": {
          "posixDataSource": {
-              "rootDirectory": "/bar/",
+              "rootDirectory": "/bar/"
          },
          "sourceAgentPoolName": "my_example_pool",
          "gcsDataSink": {
-              "bucketName": "destination_bucket"
+              "bucketName": "destination_bucket",
               "path": "foo/bar/"
-         },
+         }
       }
     }
 
@@ -503,6 +501,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-05 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-05 UTC."],[],[]] 

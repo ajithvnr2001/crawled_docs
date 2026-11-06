@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/ai-hypercomputer/docs/tutorials/gpu/serve-qwen3-8-2-4t-a4-gke-multi-host-sglang/
 title: Serve Qwen3.8-2.4T on GKE with multi-host PD disaggregation using Dynamo and SGLang on A4 VMs \u00a0|\u00a0 AI Hypercomputer \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-05T00:19:37.587121+00:00
+fetched_at: 2026-11-06T10:06:12.802559+00:00
 ---
 
 # Serve Qwen3.8-2.4T on GKE with multi-host PD disaggregation using Dynamo and SGLang on A4 VMs  |  AI Hypercomputer  |  Google Cloud Documentation
@@ -55,9 +55,10 @@ To generate a cost estimate based on your projected usage, use the [pricing calc
 
 Set up your environment for the tutorial:
 
-  1. [Install](https://docs.cloud.google.com/sdk/docs/install) and [initialize](https://docs.cloud.google.com/sdk/docs/initialize) the Google Cloud CLI, and install [`kubectl`](https://kubernetes.io/docs/tasks/tools/#kubectl) and [Helm](https://helm.sh/docs/intro/install/) (version 3.10 or later). If you use Cloud Shell, these tools are preinstalled.
-  2. If you're running this tutorial from a Linux or macOS workstation rather than Cloud Shell, install the required [Cluster Toolkit dependencies](https://docs.cloud.google.com/cluster-toolkit/docs/setup/install-dependencies), such as Terraform and Git.
-  3. Enable the Kubernetes Engine API, Compute Engine API, Cloud Storage API, Identity and Access Management API, Cloud Resource Manager API, and Service Usage API in your Google Cloud project:
+  1. [Install](https://docs.cloud.google.com/sdk/docs/install) and [initialize](https://docs.cloud.google.com/sdk/docs/initialize) the Google Cloud CLI. If you're using Cloud Shell, the Google Cloud CLI is preinstalled.
+  2. Install [`kubectl`](https://kubernetes.io/docs/tasks/tools/#kubectl), `gke-gcloud-auth-plugin`, `jq`, and [Helm](https://helm.sh/docs/intro/install/) (version 3.10 or later). If you're using Cloud Shell, these tools are preinstalled.
+  3. If you're running this tutorial from a Linux or macOS workstation rather than Cloud Shell, install the required [Cluster Toolkit dependencies](https://docs.cloud.google.com/cluster-toolkit/docs/setup/install-dependencies), such as Terraform and Git.
+  4. Enable the Kubernetes Engine API, Compute Engine API, Cloud Storage API, Identity and Access Management API, Cloud Resource Manager API, and Service Usage API in your Google Cloud project:
 
 [Enable APIs](https://console.cloud.google.com/apis/enableflow?apiid=container.googleapis.com,compute.googleapis.com,storage.googleapis.com,iam.googleapis.com,cloudresourcemanager.googleapis.com,serviceusage.googleapis.com)
 
@@ -116,7 +117,7 @@ Replace the following:
   * `YOUR_PROJECT_ID`: the ID of your Google Cloud project.
   * `YOUR_REGION`: the region where your A4 capacity is located and where you want to deploy your cluster, such as `us-central1`.
   * `YOUR_ZONE`: the zone where your A4 capacity is located, such as `us-central1-b`.
-  * `YOUR_CLUSTER_NAME`: the name for your GKE cluster and Cluster Toolkit deployment. Use a name of 20 characters or fewer so that the generated node pool service account ID (`YOUR_CLUSTER_NAME-gke-np-sa`) stays within the 30-character Identity and Access Management (IAM) limit.
+  * `YOUR_CLUSTER_NAME`: the name for your GKE cluster and Cluster Toolkit deployment. Use a name of 20 characters or fewer so that the generated node pool service account ID (`YOUR_CLUSTER_NAME-gke-np-sa`) stays within the 30-character Identity and Access Management (IAM) limit. Additionally, the name must start with a lowercase letter, and contain only lowercase letters, numbers, and hyphens.
   * `YOUR_RESERVATION_NAME`: the name of your A4 reservation, or the extended reservation block path in the format `RESERVATION_NAME/reservationBlocks/RESERVATION_BLOCK_NAME`.
   * `YOUR_BUCKET_NAME`: a globally unique name for the Cloud Storage bucket that stores the Terraform state for Cluster Toolkit and the staged Qwen3.8-2.4T model weights.
   * `YOUR_HF_TOKEN`: your Hugging Face access token.
@@ -150,9 +151,9 @@ If you run this command on macOS or on an `arm64` workstation, set `OS="mac"` or
              --uniform-bucket-level-access
          gcloud storage buckets update "gs://${GCS_BUCKET}" --versioning
 
-  4. Create the `cluster-toolkit/examples/gke-a4/gke-a4-deployment.yaml` deployment configuration file for four `a4-highgpu-8g` nodes:
+  4. Create the `cluster-toolkit/gke-a4-deployment.yaml` deployment configuration file for four `a4-highgpu-8g` nodes:
          
-         cat <<EOF > cluster-toolkit/examples/gke-a4/gke-a4-deployment.yaml
+         cat <<EOF > cluster-toolkit/gke-a4-deployment.yaml
          terraform_backend_defaults:
            type: gcs
            configuration:
@@ -171,13 +172,13 @@ If you run this command on macOS or on an `arm64` workstation, set `OS="mac"` or
              - name: ${RESERVATION_NAME}
          EOF
 
-By default, the deployment file is configured to consume a [specific reservation](https://docs.cloud.google.com/cluster-toolkit/docs/deploy/gke/gke-consumption-options#reservations). If you don't have a specific reservation, then before you deploy the cluster, you can update `cluster-toolkit/examples/gke-a4/gke-a4-deployment.yaml` to use an alternative consumption option, such as [Spot VMs](https://docs.cloud.google.com/cluster-toolkit/docs/deploy/gke/gke-consumption-options#spot-vms) or [Flex-start VMs](https://docs.cloud.google.com/cluster-toolkit/docs/deploy/gke/gke-consumption-options#dws-flex-start). For configuration instructions, see [GKE consumption options](https://docs.cloud.google.com/cluster-toolkit/docs/deploy/gke/gke-consumption-options).
+By default, the deployment file is configured to consume a [specific reservation](https://docs.cloud.google.com/cluster-toolkit/docs/deploy/gke/gke-consumption-options#reservations). If you don't have a specific reservation, then before you deploy the cluster, you can follow the example in `cluster-toolkit/examples/gke-a4/gke-a4-deployment.yaml` to use an alternative consumption option, such as [Spot VMs](https://docs.cloud.google.com/cluster-toolkit/docs/deploy/gke/gke-consumption-options#spot-vms) or [Flex-start VMs](https://docs.cloud.google.com/cluster-toolkit/docs/deploy/gke/gke-consumption-options#dws-flex-start). For configuration instructions, see [GKE consumption options](https://docs.cloud.google.com/cluster-toolkit/docs/deploy/gke/gke-consumption-options).
 
   5. Change to the `cluster-toolkit` directory, deploy the GKE cluster by using the [`gcluster deploy` command](https://docs.cloud.google.com/cluster-toolkit/docs/reference/gcluster-deploy), and then return to your working directory:
          
          cd cluster-toolkit
          ./gcluster deploy \
-             -d examples/gke-a4/gke-a4-deployment.yaml \
+             -d gke-a4-deployment.yaml \
              examples/gke-a4/gke-a4.yaml \
              --auto-approve -w
          cd ..
@@ -362,22 +363,27 @@ Alternatively, create a file named `qwen3.8-2.4t-nvfp4-stage-weights-job.yaml` w
                  - name: ssd
                    emptyDir: {}
 
-  3. Substitute your Cloud Storage bucket name into `qwen3.8-2.4t-nvfp4-stage-weights-job.yaml`, start the staging Job, wait for all four Pods to finish uploading the weights, and then delete the completed Job:
+  3. Substitute your Cloud Storage bucket name into `qwen3.8-2.4t-nvfp4-stage-weights-job.yaml`, start the staging Job, and wait for all four Pods to finish uploading the weights:
          
          envsubst '${GCS_BUCKET}' < qwen3.8-2.4t-nvfp4-stage-weights-job.yaml | kubectl apply -f -
          
          kubectl wait --for=condition=complete job/qwen3-8-2-4t-stage-weights --timeout=2h
-         
-         kubectl delete job qwen3-8-2-4t-stage-weights
 
 Downloading the model weights to Local NVMe SSD and uploading them to Cloud Storage takes approximately 25 minutes.
 
-  4. Optional: While the staging Job is running, stream the logs of a staging Pod in a second terminal session to monitor the download progress:
+  4. Optional: While the staging Job is running, stream the logs of the Job in a second terminal session to monitor the download progress:
          
-         POD_NAME="YOUR_POD_NAME"
-         kubectl logs -f "${POD_NAME}"
+         kubectl logs -f -l job-name=qwen3-8-2-4t-stage-weights -c download --prefix --max-log-requests=4
+         sleep 5
+         kubectl logs -f -l job-name=qwen3-8-2-4t-stage-weights -c upload --prefix --max-log-requests=4
 
-Replace `YOUR_POD_NAME` with the name of one of the `qwen3-8-2-4t-stage-weights` Pods from `kubectl get pods`.
+  5. After the Job has completed, verify that all 200 `.safetensors` shards are present in your Cloud Storage bucket:
+         
+         gcloud storage ls "gs://${GCS_BUCKET}/hf_models/models--nvidia--qwen3_8-2_4t-a95b-nvfp4/*.safetensors" | wc -l
+
+  6. Delete the completed staging Job:
+         
+         kubectl delete job qwen3-8-2-4t-stage-weights
 
 
 
@@ -749,15 +755,26 @@ Deploy and monitor the disaggregated inference server:
          
          envsubst '${GCS_BUCKET}' < qwen3.8-2.4t-nvfp4-multihost-a4-gcsfuse.yaml | kubectl apply -f -
 
-  3. To monitor weight loading and server initialization, list the Pods in your cluster, and stream the logs of the prefill leader Pod and decode leader Pod:
+  3. Before you send any inference requests, poll the frontend, prefill, and decode Pods to determine when the server is ready:
          
-         kubectl get pods
-         POD_NAME="YOUR_POD_NAME"
-         kubectl logs -f "${POD_NAME}"
+         frontend_pod=$(kubectl get pods --no-headers -o custom-columns=":metadata.name" | grep "^qwen3-8-2-4t-a4-disagg.*frontend" | head -n 1)
+         prefill_ldr_pod=$(kubectl get pods --no-headers -o custom-columns=":metadata.name" | grep "^qwen3-8-2-4t-a4-disagg.*prefill-ldr" | head -n 1)
+         decode_ldr_pod=$(kubectl get pods --no-headers -o custom-columns=":metadata.name" | grep "^qwen3-8-2-4t-a4-disagg.*decode-ldr" | head -n 1)
+         echo "Created frontend/prefill/decode leader pods:"
+         echo "  Frontend:    ${frontend_pod}"
+         echo "  Prefill Ldr: ${prefill_ldr_pod}"
+         echo "  Decode Ldr:  ${decode_ldr_pod}"
+         echo ""
+         echo "Waiting for pods to be ready..."
+         for pod in "${frontend_pod}" "${prefill_ldr_pod}" "${decode_ldr_pod}"; do
+           if ! kubectl wait --for=condition=Ready "pod/${pod}" --timeout=3600s; then
+             echo "Pod ${pod} failed to become Ready within 60 minutes!" >&2
+             kubectl describe "pod/${pod}" >&2
+             kubectl logs "${pod}" --tail=200 >&2 || true
+           fi
+         done
 
-Replace `YOUR_POD_NAME` with the name of the prefill leader Pod or decode leader Pod from the `kubectl get pods` output.
-
-On a cold start, it takes approximately 4 to 5 minutes to stream the 2,400,000,000,000 NVFP4 model weights (~1.44 TB across 200 shards) from Cloud Storage through Cloud Storage FUSE and initialize the multi-host SGLang servers. Before you send any requests, wait until the frontend Pods show `1/1` and the prefill and decode Pods show `2/2` in the `READY` column of `kubectl get pods`:
+On a cold start, it might take up to 15 minutes to stream the 2,400,000,000,000 NVFP4 model weights (~1.44 TB across 200 shards) from Cloud Storage through Cloud Storage FUSE and initialize the multi-host SGLang servers. Before you send any requests, wait until the frontend Pods show `1/1` and the prefill and decode Pods show `2/2` in the `READY` column of `kubectl get pods`:
          
          NAME                                                     READY   STATUS    RESTARTS   AGE
          qwen3-8-2-4t-a4-disagg-0-decode-0-decode-ldr-wz92h       2/2     Running   0          5m
@@ -766,6 +783,18 @@ On a cold start, it takes approximately 4 to 5 minutes to stream the 2,400,000,0
          qwen3-8-2-4t-a4-disagg-0-prefill-0-prefill-ldr-7nz25     2/2     Running   0          5m
          qwen3-8-2-4t-a4-disagg-0-prefill-0-prefill-wkr-7d5cw     2/2     Running   0          5m
          
+
+  4. Optional: To monitor weight loading and server initialization, in a second terminal session, stream the logs of the prefill and decode leader Pods:
+         
+         # monitor prefill leader pod
+         kubectl logs -f -c main --tail=-1 \
+         $(kubectl get pods --no-headers -o custom-columns=":metadata.name" | grep "^qwen3-8-2-4t-a4-disagg.*prefill-ldr" | head -n 1)
+         
+         # monitor decode leader pod
+         kubectl logs -f -c main --tail=-1 \
+         $(kubectl get pods --no-headers -o custom-columns=":metadata.name" | grep "^qwen3-8-2-4t-a4-disagg.*decode-ldr" | head -n 1)
+
+To stop streaming logs at any time, press `Control+C`.
 
 
 
@@ -864,6 +893,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-03 UTC.
+Last updated 2026-11-06 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-06 UTC."],[],[]] 

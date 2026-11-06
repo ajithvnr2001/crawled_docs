@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/storage-transfer/docs/file-to-file/
 title: Transfer data between file systems \u00a0|\u00a0 Storage Transfer Service \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T09:47:50.020425+00:00
+fetched_at: 2026-11-06T10:53:07.896063+00:00
 ---
 
 # Transfer data between file systems  |  Storage Transfer Service  |  Google Cloud Documentation
@@ -44,7 +44,14 @@ For better performance when transferring a large number of small files, we recom
 
 ## Before you begin
 
-Before you can perform the tasks described on this page, complete the [prerequisite steps](https://docs.cloud.google.com/storage-transfer/docs/on-prem-set-up).
+Before you can perform the tasks described on this page, complete the [prerequisite steps](https://docs.cloud.google.com/storage-transfer/docs/on-prem-set-up) and configure the required permissions:
+
+  * [Required user permissions](https://docs.cloud.google.com/storage-transfer/docs/iam-user)
+  * [Agent-based project-level permissions](https://docs.cloud.google.com/storage-transfer/docs/iam-agent-based)
+  * [Configure access to a source: file system](https://docs.cloud.google.com/storage-transfer/docs/source-filesystem)
+  * [Configure access to a sink: file system](https://docs.cloud.google.com/storage-transfer/docs/sink-filesystem#intermediate-bucket-permissions)
+
+
 
 ## Create agent pools and install agents
 
@@ -133,13 +140,7 @@ File system to file system transfers require a Cloud Storage bucket as an interm
 
      * **Encryption** : You can specify a [customer-managed encryption key](https://docs.cloud.google.com/kms/docs/cmek) (CMEK). Otherwise, a Google-owned and Google-managed encryption key is used.
      * **Object Versioning** , **Bucket Lock** , and **default object holds** : Keep these features disabled.
-  2. Grant permissions and roles using one of the following methods:
-
-     * [Grant](https://docs.cloud.google.com/storage-transfer/docs/configure-access#cloud-storage) the Storage Transfer Service service account the Storage Admin role (`roles/storage.admin`) for the bucket.
-     * Use `gcloud transfer authorize` to authorize your account for all Storage Transfer Service features. This command grants project-wide Storage Admin permissions:
-           
-           gcloud transfer authorize --add-missing
-           
+  2. Grant the required roles on the intermediate bucket to both the Storage Transfer Service service agent and your source and destination transfer agent accounts. Follow the instructions in [Intermediate bucket permissions](https://docs.cloud.google.com/storage-transfer/docs/sink-filesystem#intermediate-bucket-permissions).
 
 
 
@@ -151,10 +152,10 @@ File system to file system transfers require a Cloud Storage bucket as an interm
 To create a transfer from the source file system to the destination file system, run
     
     
-    gcloud transfer jobs create SOURCE_DIRECTORY DESTINATION_DIRECTORY \
+    gcloud transfer jobs create posix://SOURCE_DIRECTORY posix://DESTINATION_DIRECTORY \
         --source-agent-pool=SOURCE_AGENT_POOL \
         --destination-agent-pool=DESTINATION_AGENT_POOL \
-        --intermediate-storage-path= gs://STORAGE_BUCKET/FOLDER/
+        --intermediate-storage-path=gs://STORAGE_BUCKET/FOLDER/
     
 
 Replace the following variables:
@@ -567,10 +568,7 @@ In this example, we transfer data from the `/tmp/datasource` directory on VM1 to
             gcloud storage buckets create gs://my-intermediary-bucket
             
 
-     2. Authorize your account for all Storage Transfer Service features by running:
-            
-            gcloud transfer authorize --add-missing
-            
+     2. Grant the required roles on `gs://my-intermediary-bucket` to the service agent and transfer agent accounts as described in [Intermediate bucket permissions](https://docs.cloud.google.com/storage-transfer/docs/sink-filesystem#intermediate-bucket-permissions).
 
   4. Create a transfer job by running:
          
@@ -585,7 +583,7 @@ In this example, we transfer data from the `/tmp/datasource` directory on VM1 to
 
 ## What's next
 
-  * Learn more about [managing jobs](https://docs.cloud.google.com/storage-transfer/docs/managing-on-prem-jobs).
+  * Learn more about [managing jobs](https://docs.cloud.google.com/storage-transfer/docs/manage-transfers).
 
 
 
@@ -593,6 +591,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-05 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-05 UTC."],[],[]] 

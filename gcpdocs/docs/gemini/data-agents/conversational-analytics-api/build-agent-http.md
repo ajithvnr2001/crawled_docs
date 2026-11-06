@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini/data-agents/conversational-analytics-api/build-agent-http/
 title: Build a data agent using HTTP and Python \u00a0|\u00a0 Conversational Analytics API \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T16:25:33.635730+00:00
+fetched_at: 2026-11-06T08:23:44.518623+00:00
 ---
 
 # Build a data agent using HTTP and Python  |  Conversational Analytics API  |  Google Cloud Documentation
@@ -555,6 +555,7 @@ To use Spanner data instead, replace `bigquery_data_sources` with `spanner_data_
     kms_project_id = ""  # KMS_PROJECT_ID (Defaults to billing_project if empty)
     key_ring_name = ""   # KEY_RING_NAME
     key_name = ""        # KEY_NAME
+    key_location = ""    # KEY_LOCATION (Defaults to location if empty; except eu)
     
     data_agent_payload = {
           "name": f"projects/{billing_project}/locations/{location}/dataAgents/{data_agent_id}", # Optional
@@ -583,7 +584,9 @@ To use Spanner data instead, replace `bigquery_data_sources` with `spanner_data_
     if key_ring_name and key_name:
       if not kms_project_id:
         kms_project_id = billing_project
-      data_agent_payload["kms_key"] = f"projects/{kms_project_id}/locations/{location}/keyRings/{key_ring_name}/cryptoKeys/{key_name}"
+      if not key_location:
+        key_location = location
+      data_agent_payload["kms_key"] = f"projects/{kms_project_id}/locations/{key_location}/keyRings/{key_ring_name}/cryptoKeys/{key_name}"
     
     params = {"data_agent_id": data_agent_id} # Optional
     
@@ -610,6 +613,7 @@ To use Spanner data instead, replace `bigquery_data_sources` with `spanner_data_
     kms_project_id = ""  # KMS_PROJECT_ID (Defaults to billing_project if empty)
     key_ring_name = ""   # KEY_RING_NAME
     key_name = ""        # KEY_NAME
+    key_location = ""    # KEY_LOCATION (Defaults to location if empty; except eu)
     
     data_agent_payload = {
           "name": f"projects/{billing_project}/locations/{location}/dataAgents/{data_agent_id}", # Optional
@@ -638,7 +642,9 @@ To use Spanner data instead, replace `bigquery_data_sources` with `spanner_data_
     if key_ring_name and key_name:
       if not kms_project_id:
         kms_project_id = billing_project
-      data_agent_payload["kms_key"] = f"projects/{kms_project_id}/locations/{location}/keyRings/{key_ring_name}/cryptoKeys/{key_name}"
+      if not key_location:
+        key_location = location
+      data_agent_payload["kms_key"] = f"projects/{kms_project_id}/locations/{key_location}/keyRings/{key_ring_name}/cryptoKeys/{key_name}"
     
     params = {"data_agent_id": data_agent_id} # Optional
     
@@ -660,6 +666,7 @@ Replace the sample values as follows:
   * KMS_PROJECT_ID: If using CMEK, the project ID where the key is hosted. If not provided, this defaults to your billing project.
   * KEY_RING_NAME: If using CMEK, the name of your Cloud KMS key ring.
   * KEY_NAME: If using CMEK, the name of your Cloud KMS key.
+  * KEY_LOCATION: If using CMEK, the location of your key ring. For the `eu` multi-region, use `europe`. For all other locations, use the same location as the data agent. If not provided, this defaults to the data agent's location, which works for all locations except the `eu` multi-region. For more information, see [Key location requirements](https://docs.cloud.google.com/gemini/data-agents/conversational-analytics-api/cmek#key-locations).
   * This is the description of the data agent.: A description for the data agent.
 
 
@@ -680,6 +687,7 @@ You can optionally protect the conversation with CMEK by including the `kms_key`
     kms_project_id = ""  # KMS_PROJECT_ID (Defaults to billing_project if empty)
     key_ring_name = ""   # KEY_RING_NAME
     key_name = ""        # KEY_NAME
+    key_location = ""    # KEY_LOCATION (Defaults to location if empty; single regions only)
     
     conversation_payload = {
         "agents": [
@@ -692,7 +700,9 @@ You can optionally protect the conversation with CMEK by including the `kms_key`
     if key_ring_name and key_name:
       if not kms_project_id:
         kms_project_id = billing_project
-      conversation_payload["kms_key"] = f"projects/{kms_project_id}/locations/{location}/keyRings/{key_ring_name}/cryptoKeys/{key_name}"
+      if not key_location:
+        key_location = location
+      conversation_payload["kms_key"] = f"projects/{kms_project_id}/locations/{key_location}/keyRings/{key_ring_name}/cryptoKeys/{key_name}"
     
     params = {
         "conversation_id": conversation_id
@@ -715,6 +725,7 @@ Replace the sample values as follows:
   * KMS_PROJECT_ID: If using CMEK, the project ID where the key is hosted. If not provided, this defaults to your billing project.
   * KEY_RING_NAME: If using CMEK, the name of your Cloud KMS key ring.
   * KEY_NAME: If using CMEK, the name of your Cloud KMS key.
+  * KEY_LOCATION: If using CMEK, the location of your key ring. For the `us` multi-region, use `us-central1`. For the `eu` multi-region, use `europe-west1`. For a single region, use the same region as the conversation. If not provided, this defaults to the conversation's location, which works only for single regions. For more information, see [Key location requirements](https://docs.cloud.google.com/gemini/data-agents/conversational-analytics-api/cmek#key-locations).
 
 
 
@@ -1598,6 +1609,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-06 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-06 UTC."],[],[]] 

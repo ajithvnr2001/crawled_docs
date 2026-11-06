@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sql/docs/sqlserver/set-maintenance-window/
 title: View and set maintenance windows \u00a0|\u00a0 Cloud SQL for SQL Server \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-05T00:20:38.560340+00:00
+fetched_at: 2026-11-06T10:30:25.258284+00:00
 ---
 
 # View and set maintenance windows  |  Cloud SQL for SQL Server  |  Google Cloud Documentation

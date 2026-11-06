@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/storage/docs/storage-intelligence/view-advisor/
 title: View Storage Intelligence advisor \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-03T09:42:03.584740+00:00
+fetched_at: 2026-11-06T10:39:04.902000+00:00
 ---
 
 # View Storage Intelligence advisor  |  Google Cloud Documentation

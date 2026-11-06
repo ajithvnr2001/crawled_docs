@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/recaptcha/docs/faq/
 title: Frequently Asked Questions \u00a0|\u00a0 Google Cloud Fraud Defense \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-30T08:40:22.090698+00:00
+fetched_at: 2026-11-06T11:31:37.075216+00:00
 ---
 
 # Frequently Asked Questions  |  Google Cloud Fraud Defense  |  Google Cloud Documentation

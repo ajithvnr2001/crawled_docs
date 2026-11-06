@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/datastream/docs/manage-tags/
 title: Manage tags \u00a0|\u00a0 Datastream \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T08:23:36.814781+00:00
+fetched_at: 2026-11-06T12:32:59.241181+00:00
 ---
 
 # Manage tags  |  Datastream  |  Google Cloud Documentation
@@ -107,7 +107,7 @@ To attach a tag to a stream, connection profile, or private connection, you must
 Replace the following:
 
   * `TAGVALUE_NAME`: the permanent ID or namespaced name of the tag value that you attach to a resource—for example, `tagValues/567890123456`.
-  * `RESOURCE_ID` is the full ID of the resource, including the API domain name to identify the type of resource (`//datastream.googleapis.com/`). For example, to attach a tag to `projects/PROJECT_NAME/streams/STREAM_NAME`, the full ID is: `//datastream.googleapis.com/projects/PROJECT_NAME/streams/STREAM_NAME`. 
+  * `RESOURCE_ID` is the full ID of the resource, including the API domain name to identify the type of resource (`//datastream.googleapis.com/`). For example, to attach a tag to `projects/PROJECT_NAME/locations/LOCATION/streams/STREAM_NAME`, the full ID is: `//datastream.googleapis.com/projects/PROJECT_NAME/locations/LOCATION/streams/STREAM_NAME`. 
   * `LOCATION`: the location of your resource. If you're attaching a tag to a global resource, such as a folder or a project, omit this flag. If you're attaching a tag to a regional or a zonal resource, you must specify the location—for example, `us-central1` (region) or `us-central1-a` (zone).
 
 
@@ -141,7 +141,7 @@ To get a list of tag bindings attached to a resource, use the `gcloud resource-m
 
 Replace the following:
 
-  * `RESOURCE_ID` is the full ID of the resource, including the API domain name to identify the type of resource (`//datastream.googleapis.com/`). For example, to attach a tag to `projects/PROJECT_NAME/streams/STREAM_NAME`, the full ID is: `//datastream.googleapis.com/projects/PROJECT_NAME/streams/STREAM_NAME`. 
+  * `RESOURCE_ID` is the full ID of the resource, including the API domain name to identify the type of resource (`//datastream.googleapis.com/`). For example, to attach a tag to `projects/PROJECT_NAME/locations/LOCATION/streams/STREAM_NAME`, the full ID is: `//datastream.googleapis.com/projects/PROJECT_NAME/locations/LOCATION/streams/STREAM_NAME`. 
   * `LOCATION`: the location of your resource. If you're viewing a tag attached to a global resource, such as a folder or a project, omit this flag. If you're viewing a tag attached to a regional or a zonal resource, you must specify the location—for example, `us-central1` (region) or `us-central1-a` (zone).
 
 
@@ -151,7 +151,7 @@ You should get a response similar to the following:
     
     name: tagBindings/%2F%2Fcloudresourcemanager.googleapis.com%2Fprojects%2F7890123456/tagValues/567890123456
               tagValue: tagValues/567890123456
-              resource: //datastream.googleapis.com/projects/project-abc/streams/stream-xyz<
+              resource: //datastream.googleapis.com/projects/project-abc/locations/us-central1/streams/stream-xyz
           
 
 ## Detach tags from resources
@@ -188,7 +188,7 @@ To delete a tag binding, use the `gcloud resource-manager tags bindings delete` 
 Replace the following:
 
   * `TAGVALUE_NAME`: the permanent ID or namespaced name of the tag value that is attached—for example, `tagValues/567890123456`.
-  * `RESOURCE_ID` is the full ID of the resource, including the API domain name to identify the type of resource (`//datastream.googleapis.com/`). For example, to attach a tag to `projects/PROJECT_NAME/streams/STREAM_NAME`, the full ID is: `//datastream.googleapis.com/projects/PROJECT_NAME/streams/STREAM_NAME`. 
+  * `RESOURCE_ID` is the full ID of the resource, including the API domain name to identify the type of resource (`//datastream.googleapis.com/`). For example, to attach a tag to `projects/PROJECT_NAME/locations/LOCATION/streams/STREAM_NAME`, the full ID is: `//datastream.googleapis.com/projects/PROJECT_NAME/locations/LOCATION/streams/STREAM_NAME`. 
   * `LOCATION`: the location of your resource. If you're attaching a tag to a global resource, such as a folder or a project, omit this flag. If you're attaching a tag to a regional or a zonal resource, you must specify the location—for example, `us-central1` (region) or `us-central1-a` (zone).
 
 
@@ -212,6 +212,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-05 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-05 UTC."],[],[]] 

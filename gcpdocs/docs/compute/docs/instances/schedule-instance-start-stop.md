@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/compute/docs/instances/schedule-instance-start-stop/
 title: Scheduling a VM instance to start and stop \u00a0|\u00a0 Compute Engine \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T23:03:23.173660+00:00
+fetched_at: 2026-11-06T09:07:31.792266+00:00
 ---
 
 # Scheduling a VM instance to start and stop  |  Compute Engine  |  Google Cloud Documentation
@@ -132,7 +132,10 @@ Your administrator might also be able to give you or your service account these 
   * You can only attach an instance schedule to VM instances that are located in the same region as the instance schedule.
   * You can't use instance schedules to stop an instance that has Local SSD disks.
   * Each VM instance can only follow one instance schedule, but you can attach each instance schedule to up to 1,000 VM instances.
-  * Instance schedules don't provide capacity guarantees, so if the resources required for a scheduled VM instance are not available at the scheduled time, your VM instance might not start when scheduled. Although you can [reserve VM instances](https://docs.cloud.google.com/compute/docs/instances/choose-reservation-type) before starting them to obtain a high level of assurance that your capacity is available when needed, reservations can't be automatically scheduled.
+  * Instance schedules don't guarantee capacity. If the resources required for a VM instance to start are unavailable at the scheduled start time, then the VM instance won't start. To prevent this issue, consider the following options before you create an instance schedule: 
+    * [Create a reservation](https://docs.cloud.google.com/compute/docs/instances/choose-reservation-type).
+    * Adjust the schedule to start the VM instance during off-peak hours.
+    * Migrate your workload to a regional MIG and use [scaling schedules](https://docs.cloud.google.com/compute/docs/autoscaler/scaling-schedules) to automatically find available resources across multiple zones.
   * Instance schedules only start and stop VM instances at the specified times, but you can manually start and stop VM instances at any time. For example, suppose you have a schedule that starts daily at 8 AM and stops daily at 5 PM. If you attach that schedule to a stopped VM instance at 4 PM, that VM instance does not start until 8 AM the next day unless you manually start the VM instance before then.
   * Scheduled VM instances might take up to 15 minutes past the scheduled time to begin a start or stop operation. If you need VM instances to start or stop at a specific time, schedule the operation 15 minutes earlier than needed, and schedule each operation at least 15 minutes apart.
   * The scheduler might fail if there is a gap of less than 15 minutes between the start and stop operations. This is because the stop operation might occur before the start operation, preventing the start operation from happening.
@@ -735,6 +738,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-06 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-06 UTC."],[],[]] 

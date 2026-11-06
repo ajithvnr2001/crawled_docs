@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/knowledge-catalog/docs/manage-glossaries/
 title: Manage a business glossary \u00a0|\u00a0 Knowledge Catalog \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-05T10:52:58.827679+00:00
+fetched_at: 2026-11-06T10:19:12.601338+00:00
 ---
 
 # Manage a business glossary  |  Knowledge Catalog  |  Google Cloud Documentation
@@ -1447,7 +1447,7 @@ A business glossary can have a maximum of 5,000 terms.
 
   1. In the Google Cloud console, go to the Knowledge Catalog **Glossaries** page.
 
-[Go to Glossaries](https://console.cloud.google.com/bigquery/governance/metadata-curation/business-glossary)
+[Go to Glossaries](https://console.cloud.google.com/dataplex/dp-glossaries)
 
   2. To create a term at the glossary level, select the glossary where you want to create a term, and then click **Create term**.
 
@@ -1562,7 +1562,7 @@ Replace `OVERVIEW` with plaintext or HTML to describe your glossary category or 
 
   1. In the Google Cloud console, go to the Knowledge Catalog **Glossaries** page.
 
-[Go to Glossaries](https://console.cloud.google.com/bigquery/governance/metadata-curation/business-glossary)
+[Go to Glossaries](https://console.cloud.google.com/dataplex/dp-glossaries)
 
   2. To create a term in a category, select the category where you want to create a term, and then click **Add term**.
 
@@ -2458,6 +2458,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-28 UTC.
+Last updated 2026-11-05 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-05 UTC."],[],[]] 

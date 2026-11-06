@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/spanner/docs/concurrency-control/
 title: Concurrency control \u00a0|\u00a0 Spanner \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-03T09:43:49.329991+00:00
+fetched_at: 2026-11-06T10:39:25.242130+00:00
 ---
 
 # Concurrency control  |  Spanner  |  Google Cloud Documentation
@@ -539,7 +539,7 @@ You can use the Spanner client libraries, REST, and RPC API to specify the concu
     
     def spanner_read_lock_mode project_id:, instance_id:, database_id:
       # Instantiates a client with read_lock_mode: :OPTIMISTIC
-      spanner = Google::Cloud::[Spanner](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-spanner-admin-instance-v1/latest/Google-Cloud-Spanner.html).new project: project_id
+      spanner = Google::Cloud::[Spanner](https://docs.cloud.google.com/ruby/docs/reference/activerecord-spanner-adapter/latest/Google-Cloud-Spanner.html).new project: project_id
       client = spanner.[client](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-spanner/latest/Google-Cloud-Spanner-Project.html) instance_id, database_id, read_lock_mode: :OPTIMISTIC
     
       # Overrides read_lock_mode to :PESSIMISTIC at transaction level

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/monitoring/api/metrics_gcp_i_o/
 title: Google Cloud metrics: I through O \u00a0|\u00a0 Cloud Monitoring \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-05T10:54:17.444009+00:00
+fetched_at: 2026-11-06T10:19:25.263683+00:00
 ---
 
 # Google Cloud metrics: I through O  |  Cloud Monitoring  |  Google Cloud Documentation
@@ -54,7 +54,7 @@ To chart or monitor metric types with values of type `STRING`, you must use Moni
 
 Metrics from [Google Cloud](https://docs.cloud.google.com/docs).
 
-The following list was last generated at 2026-10-29 23:33:54 UTC. For more information about this process, see [ About the lists](https://docs.cloud.google.com/monitoring/api/metrics#generated).
+The following list was last generated at 2026-11-05 18:04:57 UTC. For more information about this process, see [ About the lists](https://docs.cloud.google.com/monitoring/api/metrics#generated).
 
 ### iam
 
@@ -511,12 +511,12 @@ Operational Status
 `network/wire_endpoint/out_of_band_probe_count` GA ** _(project)_**   
 Out of Band Probes   
 `DELTA`, `INT64`, `{packets}`   
-**[wire_endpoint](https://docs.cloud.google.com/monitoring/api/resources#tag_wire_endpoint)** |  _The number of probes with a given status in the last minute. Probes traverse a pseudowire between the router of this Interconnect and the router of the remote_interface. Although the routers are the same, the probe pseudowire is distinct from your pseudowire, so the probes are out of band. Sampled every 60 seconds. After sampling, data is not visible for up to 180 seconds._   
+**[wire_endpoint](https://docs.cloud.google.com/monitoring/api/resources#tag_wire_endpoint)** |  _The number of probes with a given status in the last minute. Probes traverse a pseudowire between the router of this Interconnect and the router of the remote_interface. Although the routers are the same, the probe pseudowire is distinct from your pseudowire, so the probes are out of band. Sampled every 60 seconds. After sampling, data is not visible for up to 300 seconds._   
 `status`: SUCCESS or FAILURE.   
 `network/wire_endpoint/out_of_band_probe_latency` GA ** _(project)_**   
 Out of Band Probe RTT Latency   
 `GAUGE`, `INT64`, `ms`   
-**[wire_endpoint](https://docs.cloud.google.com/monitoring/api/resources#tag_wire_endpoint)** |  _Pseudowire out of band probe RTT latency in milliseconds. Sampled every 60 seconds. After sampling, data is not visible for up to 180 seconds._  
+**[wire_endpoint](https://docs.cloud.google.com/monitoring/api/resources#tag_wire_endpoint)** |  _Pseudowire out of band probe RTT latency in milliseconds. Sampled every 60 seconds. After sampling, data is not visible for up to 300 seconds._  
 `network/wire_endpoint/src_to_dst_received_bytes_count` GA ** _(project)_**   
 Egress Bytes, measured at the destination Interconnect.   
 `DELTA`, `INT64`, `By`   
@@ -1196,7 +1196,7 @@ Logs-based metric active time series (cardinality) count
   
 ### lustre
 
-Metrics for [Google Cloud Managed Lustre](https://docs.cloud.google.com/managed-lustre/docs). Launch stages of these metrics: ALPHA BETA
+Metrics for [Google Cloud Managed Lustre](https://docs.cloud.google.com/managed-lustre/docs). Launch stages of these metrics: BETA
 
 The "metric type" strings in this table must be prefixed with `lustre.googleapis.com/`. That prefix has been omitted from the entries in the table. When querying a label, use the `metric.labels.` prefix; for example, `metric.labels.LABEL="VALUE"`. 
 
@@ -1386,78 +1386,6 @@ Dynamic tier storage capacity (GiB) quota limit
 Dynamic tier storage capacity (GiB) quota usage   
 `GAUGE`, `INT64`, `GiBy`   
 **[lustre.googleapis.com/Location](https://docs.cloud.google.com/monitoring/api/resources#tag_lustre.googleapis.com/Location)** |  _Current usage on quota metric lustre.googleapis.com/dynamic_tier_capacity. After sampling, data is not visible for up to 150 seconds._   
-`limit_name`: The limit name.   
-`network_name`: The Managed Lustre network name in format of projects/{project}/global/networks/{network}.   
-`quota/storage_for_1000MBps_throughput_per_TiB/exceeded` ALPHA ** _(project)_**   
-Storage capacity (GiB) for a throughput of 1000 MB/s/TiB. quota exceeded error   
-`DELTA`, `INT64`, `1`   
-**[lustre.googleapis.com/Location](https://docs.cloud.google.com/monitoring/api/resources#tag_lustre.googleapis.com/Location)** |  _Number of attempts to exceed the limit on quota metric lustre.googleapis.com/storage_for_1000MBps_throughput_per_TiB. After sampling, data is not visible for up to 150 seconds._   
-`limit_name`: The limit name.   
-`network_name`: The Managed Lustre network name in format of projects/{project}/global/networks/{network}.   
-`quota/storage_for_1000MBps_throughput_per_TiB/limit` ALPHA ** _(project)_**   
-Storage capacity (GiB) for a throughput of 1000 MB/s/TiB. quota limit   
-`GAUGE`, `INT64`, `GiBy`   
-**[lustre.googleapis.com/Location](https://docs.cloud.google.com/monitoring/api/resources#tag_lustre.googleapis.com/Location)** |  _Current limit on quota metric lustre.googleapis.com/storage_for_1000MBps_throughput_per_TiB. Sampled every 60 seconds. After sampling, data is not visible for up to 150 seconds._   
-`limit_name`: The limit name.   
-`network_name`: The Managed Lustre network name in format of projects/{project}/global/networks/{network}.   
-`quota/storage_for_1000MBps_throughput_per_TiB/usage` ALPHA ** _(project)_**   
-Storage capacity (GiB) for a throughput of 1000 MB/s/TiB. quota usage   
-`GAUGE`, `INT64`, `GiBy`   
-**[lustre.googleapis.com/Location](https://docs.cloud.google.com/monitoring/api/resources#tag_lustre.googleapis.com/Location)** |  _Current usage on quota metric lustre.googleapis.com/storage_for_1000MBps_throughput_per_TiB. After sampling, data is not visible for up to 150 seconds._   
-`limit_name`: The limit name.   
-`network_name`: The Managed Lustre network name in format of projects/{project}/global/networks/{network}.   
-`quota/storage_for_125MBps_throughput_per_TiB/exceeded` ALPHA ** _(project)_**   
-Storage capacity (GiB) for a throughput of 125 MB/s/TiB. quota exceeded error   
-`DELTA`, `INT64`, `1`   
-**[lustre.googleapis.com/Location](https://docs.cloud.google.com/monitoring/api/resources#tag_lustre.googleapis.com/Location)** |  _Number of attempts to exceed the limit on quota metric lustre.googleapis.com/storage_for_125MBps_throughput_per_TiB. After sampling, data is not visible for up to 150 seconds._   
-`limit_name`: The limit name.   
-`network_name`: The Managed Lustre network name in format of projects/{project}/global/networks/{network}.   
-`quota/storage_for_125MBps_throughput_per_TiB/limit` ALPHA ** _(project)_**   
-Storage capacity (GiB) for a throughput of 125 MB/s/TiB. quota limit   
-`GAUGE`, `INT64`, `GiBy`   
-**[lustre.googleapis.com/Location](https://docs.cloud.google.com/monitoring/api/resources#tag_lustre.googleapis.com/Location)** |  _Current limit on quota metric lustre.googleapis.com/storage_for_125MBps_throughput_per_TiB. Sampled every 60 seconds. After sampling, data is not visible for up to 150 seconds._   
-`limit_name`: The limit name.   
-`network_name`: The Managed Lustre network name in format of projects/{project}/global/networks/{network}.   
-`quota/storage_for_125MBps_throughput_per_TiB/usage` ALPHA ** _(project)_**   
-Storage capacity (GiB) for a throughput of 125 MB/s/TiB. quota usage   
-`GAUGE`, `INT64`, `GiBy`   
-**[lustre.googleapis.com/Location](https://docs.cloud.google.com/monitoring/api/resources#tag_lustre.googleapis.com/Location)** |  _Current usage on quota metric lustre.googleapis.com/storage_for_125MBps_throughput_per_TiB. After sampling, data is not visible for up to 150 seconds._   
-`limit_name`: The limit name.   
-`network_name`: The Managed Lustre network name in format of projects/{project}/global/networks/{network}.   
-`quota/storage_for_250MBps_throughput_per_TiB/exceeded` ALPHA ** _(project)_**   
-Storage capacity (GiB) for a throughput of 250 MB/s/TiB. quota exceeded error   
-`DELTA`, `INT64`, `1`   
-**[lustre.googleapis.com/Location](https://docs.cloud.google.com/monitoring/api/resources#tag_lustre.googleapis.com/Location)** |  _Number of attempts to exceed the limit on quota metric lustre.googleapis.com/storage_for_250MBps_throughput_per_TiB. After sampling, data is not visible for up to 150 seconds._   
-`limit_name`: The limit name.   
-`network_name`: The Managed Lustre network name in format of projects/{project}/global/networks/{network}.   
-`quota/storage_for_250MBps_throughput_per_TiB/limit` ALPHA ** _(project)_**   
-Storage capacity (GiB) for a throughput of 250 MB/s/TiB. quota limit   
-`GAUGE`, `INT64`, `GiBy`   
-**[lustre.googleapis.com/Location](https://docs.cloud.google.com/monitoring/api/resources#tag_lustre.googleapis.com/Location)** |  _Current limit on quota metric lustre.googleapis.com/storage_for_250MBps_throughput_per_TiB. Sampled every 60 seconds. After sampling, data is not visible for up to 150 seconds._   
-`limit_name`: The limit name.   
-`network_name`: The Managed Lustre network name in format of projects/{project}/global/networks/{network}.   
-`quota/storage_for_250MBps_throughput_per_TiB/usage` ALPHA ** _(project)_**   
-Storage capacity (GiB) for a throughput of 250 MB/s/TiB. quota usage   
-`GAUGE`, `INT64`, `GiBy`   
-**[lustre.googleapis.com/Location](https://docs.cloud.google.com/monitoring/api/resources#tag_lustre.googleapis.com/Location)** |  _Current usage on quota metric lustre.googleapis.com/storage_for_250MBps_throughput_per_TiB. After sampling, data is not visible for up to 150 seconds._   
-`limit_name`: The limit name.   
-`network_name`: The Managed Lustre network name in format of projects/{project}/global/networks/{network}.   
-`quota/storage_for_500MBps_throughput_per_TiB/exceeded` ALPHA ** _(project)_**   
-Storage capacity (GiB) for a throughput of 500 MB/s/TiB. quota exceeded error   
-`DELTA`, `INT64`, `1`   
-**[lustre.googleapis.com/Location](https://docs.cloud.google.com/monitoring/api/resources#tag_lustre.googleapis.com/Location)** |  _Number of attempts to exceed the limit on quota metric lustre.googleapis.com/storage_for_500MBps_throughput_per_TiB. After sampling, data is not visible for up to 150 seconds._   
-`limit_name`: The limit name.   
-`network_name`: The Managed Lustre network name in format of projects/{project}/global/networks/{network}.   
-`quota/storage_for_500MBps_throughput_per_TiB/limit` ALPHA ** _(project)_**   
-Storage capacity (GiB) for a throughput of 500 MB/s/TiB. quota limit   
-`GAUGE`, `INT64`, `GiBy`   
-**[lustre.googleapis.com/Location](https://docs.cloud.google.com/monitoring/api/resources#tag_lustre.googleapis.com/Location)** |  _Current limit on quota metric lustre.googleapis.com/storage_for_500MBps_throughput_per_TiB. Sampled every 60 seconds. After sampling, data is not visible for up to 150 seconds._   
-`limit_name`: The limit name.   
-`network_name`: The Managed Lustre network name in format of projects/{project}/global/networks/{network}.   
-`quota/storage_for_500MBps_throughput_per_TiB/usage` ALPHA ** _(project)_**   
-Storage capacity (GiB) for a throughput of 500 MB/s/TiB. quota usage   
-`GAUGE`, `INT64`, `GiBy`   
-**[lustre.googleapis.com/Location](https://docs.cloud.google.com/monitoring/api/resources#tag_lustre.googleapis.com/Location)** |  _Current usage on quota metric lustre.googleapis.com/storage_for_500MBps_throughput_per_TiB. After sampling, data is not visible for up to 150 seconds._   
 `limit_name`: The limit name.   
 `network_name`: The Managed Lustre network name in format of projects/{project}/global/networks/{network}.   
 `quota/throughput/exceeded` BETA ** _(project)_**   
@@ -1766,7 +1694,7 @@ Byte Out Count
 `byte_size` GA ** _(project)_**   
 Byte Size   
 `GAUGE`, `INT64`, `By`   
-**[managedkafka.googleapis.com/TopicPartition](https://docs.cloud.google.com/monitoring/api/resources#tag_managedkafka.googleapis.com/TopicPartition)** |  _The size of the partition on disk in bytes. This comes from MBean kafka.log:type=Log,name=Size,topic=([-.\w]+),partition=([0-9]+). Sampled every 60 seconds. After sampling, data is not visible for up to 120 seconds._   
+**[managedkafka.googleapis.com/TopicPartition](https://docs.cloud.google.com/monitoring/api/resources#tag_managedkafka.googleapis.com/TopicPartition)** |  _The size of the partition on disk in bytes. This comes from MBean kafka.log:type=Log,name=Size,topic=([-.\w]+),partition=([0-9]+). Sampled every 60 seconds. After sampling, data is not visible for up to 180 seconds._   
 `broker_index`: The index of the broker.   
 `cluster_byte_in_count` GA ** _(project)_**   
 Cluster Byte In Count   
@@ -1880,7 +1808,7 @@ Consumer Groups
 `consumer_lag` GA ** _(project)_**   
 Consumer Lag   
 `GAUGE`, `INT64`, `message`   
-**[managedkafka.googleapis.com/TopicPartition](https://docs.cloud.google.com/monitoring/api/resources#tag_managedkafka.googleapis.com/TopicPartition)** |  _Lag in messages per follower replica. This comes from MBean kafka.server:type=FetcherLagMetrics,name=ConsumerLag,clientId=([-.\w]+),topic=([-.\w]+),partition=([0-9]+). Sampled every 60 seconds. After sampling, data is not visible for up to 120 seconds._   
+**[managedkafka.googleapis.com/TopicPartition](https://docs.cloud.google.com/monitoring/api/resources#tag_managedkafka.googleapis.com/TopicPartition)** |  _Lag in messages per follower replica. This comes from MBean kafka.server:type=FetcherLagMetrics,name=ConsumerLag,clientId=([-.\w]+),topic=([-.\w]+),partition=([0-9]+). Sampled every 60 seconds. After sampling, data is not visible for up to 180 seconds._   
 `broker_index`: The index of the broker.   
 `client_id`: The ID of the client consuming from the partition.   
 `cpu/core_usage_time` GA ** _(project)_**   
@@ -1911,7 +1839,7 @@ Used Disk Bytes
 `first_offset` GA ** _(project)_**   
 First Offset   
 `GAUGE`, `INT64`, `{offset}`   
-**[managedkafka.googleapis.com/TopicPartition](https://docs.cloud.google.com/monitoring/api/resources#tag_managedkafka.googleapis.com/TopicPartition)** |  _The first offset in the partition. This comes from MBean kafka.log:type=Log,name=LogStartOffset,topic=([-.\w]+),partition=([0-9]+). Sampled every 60 seconds. After sampling, data is not visible for up to 120 seconds._   
+**[managedkafka.googleapis.com/TopicPartition](https://docs.cloud.google.com/monitoring/api/resources#tag_managedkafka.googleapis.com/TopicPartition)** |  _The first offset in the partition. This comes from MBean kafka.log:type=Log,name=LogStartOffset,topic=([-.\w]+),partition=([0-9]+). Sampled every 60 seconds. After sampling, data is not visible for up to 180 seconds._   
 `broker_index`: The index of the broker.   
 `jvm/memory_area/bytes_committed` GA ** _(project)_**   
 JVM Memory Area Committed Bytes   
@@ -1930,12 +1858,12 @@ JVM Memory Area Used Bytes
 `last_offset` GA ** _(project)_**   
 Last Offset   
 `GAUGE`, `INT64`, `{offset}`   
-**[managedkafka.googleapis.com/TopicPartition](https://docs.cloud.google.com/monitoring/api/resources#tag_managedkafka.googleapis.com/TopicPartition)** |  _The last offset in the partition. This comes from MBean kafka.log:type=Log,name=LogEndOffset,topic=([-.\w]+),partition=([0-9]+). Sampled every 60 seconds. After sampling, data is not visible for up to 120 seconds._   
+**[managedkafka.googleapis.com/TopicPartition](https://docs.cloud.google.com/monitoring/api/resources#tag_managedkafka.googleapis.com/TopicPartition)** |  _The last offset in the partition. This comes from MBean kafka.log:type=Log,name=LogEndOffset,topic=([-.\w]+),partition=([0-9]+). Sampled every 60 seconds. After sampling, data is not visible for up to 180 seconds._   
 `broker_index`: The index of the broker.   
 `log_segments` GA ** _(project)_**   
 Log Segments   
 `GAUGE`, `INT64`, `{log_segments}`   
-**[managedkafka.googleapis.com/TopicPartition](https://docs.cloud.google.com/monitoring/api/resources#tag_managedkafka.googleapis.com/TopicPartition)** |  _The current number of log segments. This comes from MBean kafka.log:type=Log,name=NumLogSegments,topic=([-.\w]+),partition=([0-9]+). Sampled every 60 seconds. After sampling, data is not visible for up to 120 seconds._   
+**[managedkafka.googleapis.com/TopicPartition](https://docs.cloud.google.com/monitoring/api/resources#tag_managedkafka.googleapis.com/TopicPartition)** |  _The current number of log segments. This comes from MBean kafka.log:type=Log,name=NumLogSegments,topic=([-.\w]+),partition=([0-9]+). Sampled every 60 seconds. After sampling, data is not visible for up to 180 seconds._   
 `broker_index`: The index of the broker.   
 `memory/limit` GA ** _(project)_**   
 Memory Limit   
@@ -3880,6 +3808,21 @@ Unique dynamic route prefixes per hub route table per route region quota usage
 **[networkconnectivity.googleapis.com/RouteTable](https://docs.cloud.google.com/monitoring/api/resources#tag_networkconnectivity.googleapis.com/RouteTable)** |  _Current usage on quota metric networkconnectivity.googleapis.com/dynamic_route_prefixes_per_hub_route_table_per_route_region. After sampling, data is not visible for up to 150 seconds._   
 `limit_name`: The limit name.   
 `route_region`: The region that contains unique dynamic route prefixes.   
+`quota/psc_global_gapi_routes_per_route_table/exceeded` GA ** _(project)_**   
+PSC Global GAPI Routes per Route Table quota exceeded error   
+`DELTA`, `INT64`, `1`   
+**[networkconnectivity.googleapis.com/RouteTable](https://docs.cloud.google.com/monitoring/api/resources#tag_networkconnectivity.googleapis.com/RouteTable)** |  _Number of attempts to exceed the limit on quota metric networkconnectivity.googleapis.com/psc_global_gapi_routes_per_route_table. After sampling, data is not visible for up to 150 seconds._   
+`limit_name`: The limit name.   
+`quota/psc_global_gapi_routes_per_route_table/limit` GA ** _(project)_**   
+PSC Global GAPI Routes per Route Table quota limit   
+`GAUGE`, `INT64`, `1`   
+**[networkconnectivity.googleapis.com/RouteTable](https://docs.cloud.google.com/monitoring/api/resources#tag_networkconnectivity.googleapis.com/RouteTable)** |  _Current limit on quota metric networkconnectivity.googleapis.com/psc_global_gapi_routes_per_route_table. Sampled every 60 seconds. After sampling, data is not visible for up to 150 seconds._   
+`limit_name`: The limit name.   
+`quota/psc_global_gapi_routes_per_route_table/usage` GA ** _(project)_**   
+PSC Global GAPI Routes per Route Table quota usage   
+`GAUGE`, `INT64`, `1`   
+**[networkconnectivity.googleapis.com/RouteTable](https://docs.cloud.google.com/monitoring/api/resources#tag_networkconnectivity.googleapis.com/RouteTable)** |  _Current usage on quota metric networkconnectivity.googleapis.com/psc_global_gapi_routes_per_route_table. After sampling, data is not visible for up to 150 seconds._   
+`limit_name`: The limit name.   
 `quota/routes_per_route_table/exceeded` GA ** _(project)_**   
 Subnet Routes per Route Table quota exceeded error   
 `DELTA`, `INT64`, `1`   
@@ -5484,22 +5427,22 @@ Established BGP sessions
 `partner_sse_gateway/sse_received_bytes_count` GA ** _(project)_**   
 Bytes received from partner   
 `DELTA`, `INT64`, `By`   
-**[networksecurity.googleapis.com/PartnerSSEGateway](https://docs.cloud.google.com/monitoring/api/resources#tag_networksecurity.googleapis.com/PartnerSSEGateway)** |  _Count of bytes received by the Partner SSE Gateway from the partner._   
+**[networksecurity.googleapis.com/PartnerSSEGateway](https://docs.cloud.google.com/monitoring/api/resources#tag_networksecurity.googleapis.com/PartnerSSEGateway)** |  _Count of bytes received by the Partner SSE Gateway from the partner. Sampled every 60 seconds._   
 `zone`: The zone in which the gateway received and processed packets.   
 `partner_sse_gateway/sse_received_packets_count` GA ** _(project)_**   
 Packets received from partner   
 `DELTA`, `INT64`, `1`   
-**[networksecurity.googleapis.com/PartnerSSEGateway](https://docs.cloud.google.com/monitoring/api/resources#tag_networksecurity.googleapis.com/PartnerSSEGateway)** |  _Count of packets received by the Partner SSE Gateway from the partner._   
+**[networksecurity.googleapis.com/PartnerSSEGateway](https://docs.cloud.google.com/monitoring/api/resources#tag_networksecurity.googleapis.com/PartnerSSEGateway)** |  _Count of packets received by the Partner SSE Gateway from the partner. Sampled every 60 seconds._   
 `zone`: The zone in which the gateway received and processed packets.   
 `partner_sse_gateway/sse_sent_bytes_count` GA ** _(project)_**   
 Bytes sent to partner   
 `DELTA`, `INT64`, `By`   
-**[networksecurity.googleapis.com/PartnerSSEGateway](https://docs.cloud.google.com/monitoring/api/resources#tag_networksecurity.googleapis.com/PartnerSSEGateway)** |  _Count of bytes sent by the Partner SSE Gateway to the partner._   
+**[networksecurity.googleapis.com/PartnerSSEGateway](https://docs.cloud.google.com/monitoring/api/resources#tag_networksecurity.googleapis.com/PartnerSSEGateway)** |  _Count of bytes sent by the Partner SSE Gateway to the partner. Sampled every 60 seconds._   
 `zone`: The zone from which the gateway sent packets.   
 `partner_sse_gateway/sse_sent_packets_count` GA ** _(project)_**   
 Packets sent to partner   
 `DELTA`, `INT64`, `1`   
-**[networksecurity.googleapis.com/PartnerSSEGateway](https://docs.cloud.google.com/monitoring/api/resources#tag_networksecurity.googleapis.com/PartnerSSEGateway)** |  _Count of packets sent by the Partner SSE Gateway to the partner._   
+**[networksecurity.googleapis.com/PartnerSSEGateway](https://docs.cloud.google.com/monitoring/api/resources#tag_networksecurity.googleapis.com/PartnerSSEGateway)** |  _Count of packets sent by the Partner SSE Gateway to the partner. Sampled every 60 seconds._   
 `zone`: The zone from which the gateway sent packets.   
 `quota/firewall_associations_per_endpoint/exceeded` GA ** _(project)_**   
 Firewall Associations per Endpoint. quota exceeded error   
@@ -8611,12 +8554,12 @@ VM instance patch state
 **[osconfig.googleapis.com/PatchJob](https://docs.cloud.google.com/monitoring/api/resources#tag_osconfig.googleapis.com/PatchJob)** |  _The number of VM instances that have patch jobs in a specific state._   
 `state`: The state of a patch job that is running on a VM instance. The following states are available: "PENDING", "STARTED", "APPLYING_PATCHES", "SUCCEEDED", "FAILED".   
   
-Generated at 2026-10-29 23:33:54 UTC.
+Generated at 2026-11-05 18:04:57 UTC.
 
 Send feedback 
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-02 UTC.
+Last updated 2026-11-05 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-02 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-05 UTC."],[],[]] 

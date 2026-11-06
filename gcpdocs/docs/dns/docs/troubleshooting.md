@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/dns/docs/troubleshooting/
 title: Troubleshoot Cloud DNS \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T22:57:40.231415+00:00
+fetched_at: 2026-11-06T10:24:28.766093+00:00
 ---
 
 # Troubleshoot Cloud DNS  |  Google Cloud Documentation
@@ -411,13 +411,13 @@ These domains generate DNS threat events. If you can't find DNS logs for the lis
 
 
 
-## Outbound Endpoints
+## Outbound endpoints
 
 **Preview**
 
 This product or feature is subject to the "Pre-GA Offerings Terms" in the General Service Terms section of the [Service Specific Terms](https://docs.cloud.google.com/terms/service-terms#1). Pre-GA products and features are available "as is" and might have limited support. For more information, see the [launch stage descriptions](https://cloud.google.com/products/#product-launch-stages). 
 
-This section describes issues you might encounter when using Outbound Endpoints and how to resolve them.
+This section describes issues you might encounter when using outbound endpoints and how to resolve them.
 
 ### DNS queries not being forwarded to the target servers
 
@@ -425,9 +425,9 @@ There are several potential causes for this issue.
 
 #### Resource misconfiguration
 
-Your endpoint and forwarding zone or server policy needs to be properly configured. This includes the endpoint being associated with the correct VPC network and region, or the forwarding zone or server policy being configured to use the right Outbound Endpoint(s).
+Your endpoint and forwarding zone or server policy needs to be properly configured. This includes the endpoint being associated with the correct VPC network and region, or the forwarding zone or server policy being configured to use the right outbound endpoint(s).
 
-Make sure the regional proxy-only subnet is configured correctly and has sufficient IP addresses available for proxying queries. You can also enable query logging and then check the query logs for the `jsonPayload.egressPath` field; this field is set to `OUTBOUND_ENDPOINT` if the forwarded query is using Outbound Endpoints. If the query logs don't include this field, or if the field isn't set to `OUTBOUND_ENDPOINT`, traffic defaults to `35.199.192.0/19`.
+Make sure the regional proxy-only subnet is configured correctly and has sufficient IP addresses available for proxying queries. You can also enable query logging and then check the query logs for the `jsonPayload.egressPath` field; this field is set to `OUTBOUND_ENDPOINT` if the forwarded query is using outbound endpoints. If the query logs don't include this field, or if the field isn't set to `OUTBOUND_ENDPOINT`, traffic defaults to `35.199.192.0/19`.
 
 You can verify your configuration by running the [`gcloud beta dns outbound-endpoints describe` command](https://docs.cloud.google.com/dns/docs/create-update-outbound-endpoints#view-outbound-endpoints):
     
@@ -451,7 +451,7 @@ Verify a route exists from your VPC network to the on-premises or remote DNS ser
 
 ### Shared VPC or peering issue
 
-  * **Shared VPC issue** : Outbound Endpoints must be created in the host project where the Shared VPC network and subnets reside. When associating a forwarding zone or DNS server policy in a service project with an Outbound Endpoint in the host project, verify the user has `dns.outboundEndpoints.bindPrivateDNSZone` or `dns.outboundEndpoints.bindPrivateDNSPolicy` on the host project.
+  * **Shared VPC issue** : Outbound endpoints must be created in the host project where the Shared VPC network and subnets reside. When associating a forwarding zone or DNS server policy in a service project with an outbound endpoint in the host project, verify the user has `dns.outboundEndpoints.bindPrivateDNSZone` or `dns.outboundEndpoints.bindPrivateDNSPolicy` on the host project.
   * **Peering issue** : verify the VPC network peering status is set to `Active`.
 
 
@@ -460,9 +460,9 @@ Also check that routes and firewall rules allow DNS traffic (UDP and TCP port 53
 
 ### DNS queries timing out
 
-The following sections describe why your DNS queries might be timing out when using Outbound Endpoints.
+The following sections describe why your DNS queries might be timing out when using outbound endpoints.
 
-#### Network latency issue between the Outbound Endpoint and target servers
+#### Network latency issue between the outbound endpoint and target servers
 
 Check the latency between your VPC network and target DNS servers. Moving the target DNS servers geographically closer to your Google Cloud project may also help.
 
@@ -472,11 +472,11 @@ Check the [IP address utilization of the proxy-only subnet](https://docs.cloud.g
 
 #### Geolocation policy misconfiguration
 
-Verify your Geolocation routing policy contains an entry for the region where the Outbound Endpoint is located. Also check if the FQDN destination in your forwarding zone matches the DNS name of your Geolocation policy zone.
+Verify your Geolocation routing policy contains an entry for the region where the outbound endpoint is located. Also check if the FQDN destination in your forwarding zone matches the DNS name of your Geolocation policy zone.
 
-### Can't create an Outbound Endpoint
+### Can't create an outbound endpoint
 
-The following sections describe why you might be unable to create an Outbound Endpoint.
+The following sections describe why you might be unable to create an outbound endpoint.
 
 #### Required APIs aren't enabled
 
@@ -484,7 +484,7 @@ Verify that the Cloud DNS API (`dns.googleapis.com`), Compute Engine API (`compu
 
 #### IAM permission issue
 
-Verify the user or service account has the `roles/dns.admin` and `roles/compute.networkAdmin` roles (or permissions for `dns.outboundEndpoints.create`, `compute.networks.get`, `compute.subnetworks.get`, and `compute.subnetworks.use`). For a Shared VPC, Outbound Endpoints must be created in the host project (creating an Outbound Endpoint in a service project is not supported).
+Verify the user or service account has the `roles/dns.admin` and `roles/compute.networkAdmin` roles (or permissions for `dns.outboundEndpoints.create`, `compute.networks.get`, `compute.subnetworks.get`, and `compute.subnetworks.use`). For a Shared VPC, outbound endpoints must be created in the host project (creating an outbound endpoint in a service project is not supported).
 
 #### IP address string provided in `endpointIp` doesn't match the CIDR range of the specified regular subnet, or is malformed
 
@@ -500,11 +500,11 @@ Make sure an active regional proxy-only subnet exists in the specified VPC netwo
 
 ### Resource deletion fails
 
-If you are unable to delete a resource, it might be in active use by an Outbound Endpoint.
+If you are unable to delete a resource, it might be in active use by an outbound endpoint.
 
 #### Attempt to delete a resource that is in active use
 
-Follow the steps outlined in [Manage network resources associated with Outbound Endpoints](https://docs.cloud.google.com/dns/docs/outbound-endpoints-overview#manage-network-resources).
+Follow the steps outlined in [Manage network resources associated with outbound endpoints](https://docs.cloud.google.com/dns/docs/outbound-endpoints-overview#manage-network-resources).
 
 ## What's next
 
@@ -518,6 +518,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-05 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-05 UTC."],[],[]] 

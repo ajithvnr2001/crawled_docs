@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/security-command-center/docs/dspm-use-data-security/
 title: Use Data Security Posture Management \u00a0|\u00a0 Security Command Center \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T05:51:44.449665+00:00
+fetched_at: 2026-11-06T10:27:57.669924+00:00
 ---
 
 # Use Data Security Posture Management  |  Security Command Center  |  Google Cloud Documentation
@@ -21,42 +21,21 @@ Send feedback
 
 #  Use Data Security Posture Management Stay organized with collections  Save and categorize content based on your preferences. 
 
-Standard, Premium, and Enterprise (Deprecated) [service tiers](https://docs.cloud.google.com/security-command-center/docs/service-tiers) (requires [organization-level activation](https://docs.cloud.google.com/security-command-center/docs/activate-scc-overview#overview_of_organization-level_activation)) The Security Command Center Enterprise service tier will shut down on May 21, 2027. If your organization uses the Enterprise service tier, then the organization will automatically move to the Premium service tier on or after May 21, 2027. Contact your account representative or a [Google Cloud sales specialist](https://cloud.google.com/contact) if you have questions.  Data Security Posture Management will be shut down on February 1, 2027. Learn more about the controls and [ alternative detection capabilities](https://docs.cloud.google.com/security-command-center/docs/dspm-data-security#data-security-framework). 
+Standard, Premium, and Enterprise (Deprecated) [service tiers](https://docs.cloud.google.com/security-command-center/docs/service-tiers) (requires [organization-level activation](https://docs.cloud.google.com/security-command-center/docs/activate-scc-overview#overview_of_organization-level_activation)) The Security Command Center Enterprise service tier will shut down on May 21, 2027. If your organization uses the Enterprise service tier, then the organization will automatically move to the Premium service tier on or after May 21, 2027. Contact your account representative or a [Google Cloud sales specialist](https://cloud.google.com/contact) if you have questions.  Data Security Posture Management will be shut down on February 1, 2027. DSPM is no longer available to new organizations. Existing users retain full access until shutdown. Learn more about the controls and [ alternative detection capabilities](https://docs.cloud.google.com/security-command-center/docs/dspm-data-security#data-security-framework). 
 
-This document describes how you can enable and use [Data Security Posture Management (DSPM)](https://docs.cloud.google.com/security-command-center/docs/dspm-data-security).
+This document describes how you can use [Data Security Posture Management (DSPM)](https://docs.cloud.google.com/security-command-center/docs/dspm-data-security).
 
 If you're on the Security Command Center Standard tier, [limited DSPM features](https://docs.cloud.google.com/security-command-center/docs/dspm-data-security-standard) are available.
 
-## Enable DSPM
+## DSPM enablement
 
-You can enable DSPM during or after Security Command Center activation.
+Because DSPM is being shut down, you can no longer enable DSPM for an organization that doesn't already use it. If DSPM is already enabled for your organization, it remains available until the shutdown date, and the information in this document continues to apply.
 
-Complete the following to enable DSPM at the organization level:
-
-  1. To get the permissions that you need to enable DSPM, ask your administrator to grant you the following IAM roles on your organization: 
-
-     * [Organization Administrator ](https://docs.cloud.google.com/iam/docs/roles-permissions/resourcemanager#resourcemanager.organizationAdmin) (`roles/resourcemanager.organizationAdmin`)
-     * [Security Center Admin ](https://docs.cloud.google.com/iam/docs/roles-permissions/securitycenter#securitycenter.admin) (`roles/securitycenter.admin`)
-
-For more information about granting roles, see [Manage access to projects, folders, and organizations](https://docs.cloud.google.com/iam/docs/granting-changing-revoking-access). 
-
-You might also be able to get the required permissions through [custom roles](https://docs.cloud.google.com/iam/docs/creating-custom-roles) or other [predefined roles](https://docs.cloud.google.com/iam/docs/roles-overview#predefined). 
-
-  2. Enable DSPM using one of the following methods: Scenario | Instructions  
----|---  
-You are new to or are migrating to Security Command Center Standard tier. | Enable DSPM by [activating Security Command Center Standard for an organization](https://docs.cloud.google.com/security-command-center/docs/migrate-standard-legacy).  
-You haven't activated Security Command Center and want to use the Security Command Center Premium tier. | Enable DSPM by [activating Security Command Center Premium](https://docs.cloud.google.com/security-command-center/docs/activate-scc-for-an-organization) for an organization.  
-You haven't activated Security Command Center and want to use the Security Command Center Enterprise tier. | Enable DSPM by [activating Security Command Center Enterprise](https://docs.cloud.google.com/security-command-center/docs/activate-enterprise-tier).  
-You activated the Security Command Center Premium tier previously and want to enable DSPM. | Enable DSPM using the **Settings** page. [Go to the Settings page](https://console.cloud.google.com/security/command-center/config/services)  
-You activated the Security Command Center Enterprise tier previously and want to enable DSPM. | Enable DSPM using the **Activate DSPM** page. [Go to Activate DSPM](https://console.cloud.google.com/security/command-center/config/service-activation;serviceName=dspm)  
-  
 For more information about Security Command Center tiers, see [Security Command Center service tiers](https://docs.cloud.google.com/security-command-center/docs/service-tiers).
 
-  3. [Enable discovery](https://docs.cloud.google.com/security-command-center/docs/activate-sensitive-data-discovery) of the resources that you want to protect with DSPM (Premium and Enterprise tiers only).
+To protect additional resources with DSPM, [enable discovery](https://docs.cloud.google.com/security-command-center/docs/activate-sensitive-data-discovery) for those resources (Premium and Enterprise tiers only).
 
-
-
-When you enable DSPM, the following services are also enabled (Premium and Enterprise tiers only):
+When DSPM was enabled for your organization, the following services were also enabled (Premium and Enterprise tiers only):
 
   * [Compliance Manager](https://docs.cloud.google.com/security-command-center/docs/compliance-manager-overview) to create, apply, and manage data security frameworks and cloud controls.
   * [Sensitive Data Protection](https://docs.cloud.google.com/sensitive-data-protection/docs/sensitive-data-protection-overview) to use data sensitivity signals for default data risk assessment.
@@ -65,9 +44,9 @@ When you enable DSPM, the following services are also enabled (Premium and Enter
 
 
 
-The [Data Security and Privacy Essentials framework](https://docs.cloud.google.com/security-command-center/docs/dspm-data-security#data-security-framework) is applied to the organization automatically (Premium and Enterprise tiers only).
+The [Data Security and Privacy Essentials framework](https://docs.cloud.google.com/security-command-center/docs/dspm-data-security#data-security-framework) was applied to the organization automatically (Premium and Enterprise tiers only).
 
-(Premium and Enterprise tiers only) The DSPM service agent (`service-org-ORGANIZATION_ID@gcp-sa-dspm-hpsa.iam.gserviceaccount.com`) is created when you enable DSPM.
+(Premium and Enterprise tiers only) The DSPM service agent (`service-org-ORGANIZATION_ID@gcp-sa-dspm-hpsa.iam.gserviceaccount.com`) was created when DSPM was enabled.
 
 For information about the DSPM Identity and Access Management roles, see [Identity and Access Management for organization-level activations](https://docs.cloud.google.com/security-command-center/docs/access-control-org#dspm).
 
@@ -165,6 +144,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-05 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-05 UTC."],[],[]] 

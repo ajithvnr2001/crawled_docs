@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/monitoring/api/metrics_gcp_d_h/
 title: Google Cloud metrics: API prefix is D through H \u00a0|\u00a0 Cloud Monitoring \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-05T10:54:12.342806+00:00
+fetched_at: 2026-11-06T10:19:22.527607+00:00
 ---
 
 # Google Cloud metrics: API prefix is D through H  |  Cloud Monitoring  |  Google Cloud Documentation
@@ -54,7 +54,7 @@ To chart or monitor metric types with values of type `STRING`, you must use Moni
 
 Metrics from [Google Cloud](https://docs.cloud.google.com/docs).
 
-The following list was last generated at 2026-10-29 23:33:54 UTC. For more information about this process, see [ About the lists](https://docs.cloud.google.com/monitoring/api/metrics#generated).
+The following list was last generated at 2026-11-05 18:04:57 UTC. For more information about this process, see [ About the lists](https://docs.cloud.google.com/monitoring/api/metrics#generated).
 
 ### databasecenter
 
@@ -337,6 +337,18 @@ Oldest active message processing time per DoFn.
 Per-stage data watermark lag   
 `GAUGE`, `INT64`, `s`   
 **[dataflow_job](https://docs.cloud.google.com/monitoring/api/resources#tag_dataflow_job)** |  _The age (time since event timestamp) up to which all data has been processed by this stage of the pipeline. Sampled every 60 seconds. After sampling, data is not visible for up to 420 seconds._   
+`job_id`: The ID of the current run of this pipeline.   
+`stage`: The stage of the pipeline.   
+`job/per_stage_data_watermark_age_with_late_data` BETA ** _(project)_**   
+Per-stage data watermark age with late data   
+`GAUGE`, `INT64`, `s`   
+**[dataflow_job](https://docs.cloud.google.com/monitoring/api/resources#tag_dataflow_job)** |  _The age (time since event timestamp) up to which all data, including late data, has been processed by this stage of the pipeline._   
+`job_id`: The ID of the current run of this pipeline.   
+`stage`: The stage of the pipeline.   
+`job/per_stage_oldest_pending_element_age` BETA ** _(project)_**   
+Per-stage oldest pending element age   
+`GAUGE`, `INT64`, `s`   
+**[dataflow_job](https://docs.cloud.google.com/monitoring/api/resources#tag_dataflow_job)** |  _Elapsed time in seconds since the event timestamp of the oldest unprocessed element at or upstream of this stage._   
 `job_id`: The ID of the current run of this pipeline.   
 `stage`: The stage of the pipeline.   
 `job/per_stage_system_lag` GA ** _(project)_**   
@@ -7198,6 +7210,158 @@ Generate content usage output token count
 `model`: The model used.   
 `output_modality`: The modality of the output content.   
 `thinking_enabled`: Whether thinking was enabled.   
+`quota/create_decision_free_tier_input_token_count/exceeded` ALPHA ** _(project)_**   
+Create decision input token count per model (free tier) quota exceeded error   
+`DELTA`, `INT64`, `1`   
+**[generativelanguage.googleapis.com/Location](https://docs.cloud.google.com/monitoring/api/resources#tag_generativelanguage.googleapis.com/Location)** |  _Number of attempts to exceed the limit on quota metric generativelanguage.googleapis.com/create_decision_free_tier_input_token_count. After sampling, data is not visible for up to 150 seconds._   
+`limit_name`: The limit name.   
+`model`: The model name.   
+`quota/create_decision_free_tier_input_token_count/limit` ALPHA ** _(project)_**   
+Create decision input token count per model (free tier) quota limit   
+`GAUGE`, `INT64`, `1`   
+**[generativelanguage.googleapis.com/Location](https://docs.cloud.google.com/monitoring/api/resources#tag_generativelanguage.googleapis.com/Location)** |  _Current limit on quota metric generativelanguage.googleapis.com/create_decision_free_tier_input_token_count. Sampled every 60 seconds. After sampling, data is not visible for up to 150 seconds._   
+`limit_name`: The limit name.   
+`model`: The model name.   
+`quota/create_decision_free_tier_input_token_count/usage` ALPHA ** _(project)_**   
+Create decision input token count per model (free tier) quota usage   
+`DELTA`, `INT64`, `1`   
+**[generativelanguage.googleapis.com/Location](https://docs.cloud.google.com/monitoring/api/resources#tag_generativelanguage.googleapis.com/Location)** |  _Current usage on quota metric generativelanguage.googleapis.com/create_decision_free_tier_input_token_count. After sampling, data is not visible for up to 150 seconds._   
+`limit_name`: The limit name.   
+`method`: method.   
+`model`: The model name.   
+`quota/create_decision_free_tier_requests/exceeded` ALPHA ** _(project)_**   
+Create decision requests per model (free tier) quota exceeded error   
+`DELTA`, `INT64`, `1`   
+**[generativelanguage.googleapis.com/Location](https://docs.cloud.google.com/monitoring/api/resources#tag_generativelanguage.googleapis.com/Location)** |  _Number of attempts to exceed the limit on quota metric generativelanguage.googleapis.com/create_decision_free_tier_requests. After sampling, data is not visible for up to 150 seconds._   
+`limit_name`: The limit name.   
+`model`: The model name.   
+`quota/create_decision_free_tier_requests/limit` ALPHA ** _(project)_**   
+Create decision requests per model (free tier) quota limit   
+`GAUGE`, `INT64`, `1`   
+**[generativelanguage.googleapis.com/Location](https://docs.cloud.google.com/monitoring/api/resources#tag_generativelanguage.googleapis.com/Location)** |  _Current limit on quota metric generativelanguage.googleapis.com/create_decision_free_tier_requests. Sampled every 60 seconds. After sampling, data is not visible for up to 150 seconds._   
+`limit_name`: The limit name.   
+`model`: The model name.   
+`quota/create_decision_free_tier_requests/usage` ALPHA ** _(project)_**   
+Create decision requests per model (free tier) quota usage   
+`DELTA`, `INT64`, `1`   
+**[generativelanguage.googleapis.com/Location](https://docs.cloud.google.com/monitoring/api/resources#tag_generativelanguage.googleapis.com/Location)** |  _Current usage on quota metric generativelanguage.googleapis.com/create_decision_free_tier_requests. After sampling, data is not visible for up to 150 seconds._   
+`limit_name`: The limit name.   
+`method`: method.   
+`model`: The model name.   
+`quota/create_decision_paid_tier_1_input_token_count/exceeded` ALPHA ** _(project)_**   
+Create decision input token count per model (paid tier 1) quota exceeded error   
+`DELTA`, `INT64`, `1`   
+**[generativelanguage.googleapis.com/Location](https://docs.cloud.google.com/monitoring/api/resources#tag_generativelanguage.googleapis.com/Location)** |  _Number of attempts to exceed the limit on quota metric generativelanguage.googleapis.com/create_decision_paid_tier_1_input_token_count. After sampling, data is not visible for up to 150 seconds._   
+`limit_name`: The limit name.   
+`model`: The model name.   
+`quota/create_decision_paid_tier_1_input_token_count/limit` ALPHA ** _(project)_**   
+Create decision input token count per model (paid tier 1) quota limit   
+`GAUGE`, `INT64`, `1`   
+**[generativelanguage.googleapis.com/Location](https://docs.cloud.google.com/monitoring/api/resources#tag_generativelanguage.googleapis.com/Location)** |  _Current limit on quota metric generativelanguage.googleapis.com/create_decision_paid_tier_1_input_token_count. Sampled every 60 seconds. After sampling, data is not visible for up to 150 seconds._   
+`limit_name`: The limit name.   
+`model`: The model name.   
+`quota/create_decision_paid_tier_1_input_token_count/usage` ALPHA ** _(project)_**   
+Create decision input token count per model (paid tier 1) quota usage   
+`DELTA`, `INT64`, `1`   
+**[generativelanguage.googleapis.com/Location](https://docs.cloud.google.com/monitoring/api/resources#tag_generativelanguage.googleapis.com/Location)** |  _Current usage on quota metric generativelanguage.googleapis.com/create_decision_paid_tier_1_input_token_count. After sampling, data is not visible for up to 150 seconds._   
+`limit_name`: The limit name.   
+`method`: method.   
+`model`: The model name.   
+`quota/create_decision_paid_tier_1_requests/exceeded` ALPHA ** _(project)_**   
+Create decision requests per model (paid tier 1) quota exceeded error   
+`DELTA`, `INT64`, `1`   
+**[generativelanguage.googleapis.com/Location](https://docs.cloud.google.com/monitoring/api/resources#tag_generativelanguage.googleapis.com/Location)** |  _Number of attempts to exceed the limit on quota metric generativelanguage.googleapis.com/create_decision_paid_tier_1_requests. After sampling, data is not visible for up to 150 seconds._   
+`limit_name`: The limit name.   
+`model`: The model name.   
+`quota/create_decision_paid_tier_1_requests/limit` ALPHA ** _(project)_**   
+Create decision requests per model (paid tier 1) quota limit   
+`GAUGE`, `INT64`, `1`   
+**[generativelanguage.googleapis.com/Location](https://docs.cloud.google.com/monitoring/api/resources#tag_generativelanguage.googleapis.com/Location)** |  _Current limit on quota metric generativelanguage.googleapis.com/create_decision_paid_tier_1_requests. Sampled every 60 seconds. After sampling, data is not visible for up to 150 seconds._   
+`limit_name`: The limit name.   
+`model`: The model name.   
+`quota/create_decision_paid_tier_1_requests/usage` ALPHA ** _(project)_**   
+Create decision requests per model (paid tier 1) quota usage   
+`DELTA`, `INT64`, `1`   
+**[generativelanguage.googleapis.com/Location](https://docs.cloud.google.com/monitoring/api/resources#tag_generativelanguage.googleapis.com/Location)** |  _Current usage on quota metric generativelanguage.googleapis.com/create_decision_paid_tier_1_requests. After sampling, data is not visible for up to 150 seconds._   
+`limit_name`: The limit name.   
+`method`: method.   
+`model`: The model name.   
+`quota/create_decision_paid_tier_2_input_token_count/exceeded` ALPHA ** _(project)_**   
+Create decision input token count per model (paid tier 2) quota exceeded error   
+`DELTA`, `INT64`, `1`   
+**[generativelanguage.googleapis.com/Location](https://docs.cloud.google.com/monitoring/api/resources#tag_generativelanguage.googleapis.com/Location)** |  _Number of attempts to exceed the limit on quota metric generativelanguage.googleapis.com/create_decision_paid_tier_2_input_token_count. After sampling, data is not visible for up to 150 seconds._   
+`limit_name`: The limit name.   
+`model`: The model name.   
+`quota/create_decision_paid_tier_2_input_token_count/limit` ALPHA ** _(project)_**   
+Create decision input token count per model (paid tier 2) quota limit   
+`GAUGE`, `INT64`, `1`   
+**[generativelanguage.googleapis.com/Location](https://docs.cloud.google.com/monitoring/api/resources#tag_generativelanguage.googleapis.com/Location)** |  _Current limit on quota metric generativelanguage.googleapis.com/create_decision_paid_tier_2_input_token_count. Sampled every 60 seconds. After sampling, data is not visible for up to 150 seconds._   
+`limit_name`: The limit name.   
+`model`: The model name.   
+`quota/create_decision_paid_tier_2_input_token_count/usage` ALPHA ** _(project)_**   
+Create decision input token count per model (paid tier 2) quota usage   
+`DELTA`, `INT64`, `1`   
+**[generativelanguage.googleapis.com/Location](https://docs.cloud.google.com/monitoring/api/resources#tag_generativelanguage.googleapis.com/Location)** |  _Current usage on quota metric generativelanguage.googleapis.com/create_decision_paid_tier_2_input_token_count. After sampling, data is not visible for up to 150 seconds._   
+`limit_name`: The limit name.   
+`method`: method.   
+`model`: The model name.   
+`quota/create_decision_paid_tier_2_requests/exceeded` ALPHA ** _(project)_**   
+Create decision requests per model (paid tier 2) quota exceeded error   
+`DELTA`, `INT64`, `1`   
+**[generativelanguage.googleapis.com/Location](https://docs.cloud.google.com/monitoring/api/resources#tag_generativelanguage.googleapis.com/Location)** |  _Number of attempts to exceed the limit on quota metric generativelanguage.googleapis.com/create_decision_paid_tier_2_requests. After sampling, data is not visible for up to 150 seconds._   
+`limit_name`: The limit name.   
+`model`: The model name.   
+`quota/create_decision_paid_tier_2_requests/limit` ALPHA ** _(project)_**   
+Create decision requests per model (paid tier 2) quota limit   
+`GAUGE`, `INT64`, `1`   
+**[generativelanguage.googleapis.com/Location](https://docs.cloud.google.com/monitoring/api/resources#tag_generativelanguage.googleapis.com/Location)** |  _Current limit on quota metric generativelanguage.googleapis.com/create_decision_paid_tier_2_requests. Sampled every 60 seconds. After sampling, data is not visible for up to 150 seconds._   
+`limit_name`: The limit name.   
+`model`: The model name.   
+`quota/create_decision_paid_tier_2_requests/usage` ALPHA ** _(project)_**   
+Create decision requests per model (paid tier 2) quota usage   
+`DELTA`, `INT64`, `1`   
+**[generativelanguage.googleapis.com/Location](https://docs.cloud.google.com/monitoring/api/resources#tag_generativelanguage.googleapis.com/Location)** |  _Current usage on quota metric generativelanguage.googleapis.com/create_decision_paid_tier_2_requests. After sampling, data is not visible for up to 150 seconds._   
+`limit_name`: The limit name.   
+`method`: method.   
+`model`: The model name.   
+`quota/create_decision_paid_tier_3_input_token_count/exceeded` ALPHA ** _(project)_**   
+Create decision input token count per model (paid tier 3) quota exceeded error   
+`DELTA`, `INT64`, `1`   
+**[generativelanguage.googleapis.com/Location](https://docs.cloud.google.com/monitoring/api/resources#tag_generativelanguage.googleapis.com/Location)** |  _Number of attempts to exceed the limit on quota metric generativelanguage.googleapis.com/create_decision_paid_tier_3_input_token_count. After sampling, data is not visible for up to 150 seconds._   
+`limit_name`: The limit name.   
+`model`: The model name.   
+`quota/create_decision_paid_tier_3_input_token_count/limit` ALPHA ** _(project)_**   
+Create decision input token count per model (paid tier 3) quota limit   
+`GAUGE`, `INT64`, `1`   
+**[generativelanguage.googleapis.com/Location](https://docs.cloud.google.com/monitoring/api/resources#tag_generativelanguage.googleapis.com/Location)** |  _Current limit on quota metric generativelanguage.googleapis.com/create_decision_paid_tier_3_input_token_count. Sampled every 60 seconds. After sampling, data is not visible for up to 150 seconds._   
+`limit_name`: The limit name.   
+`model`: The model name.   
+`quota/create_decision_paid_tier_3_input_token_count/usage` ALPHA ** _(project)_**   
+Create decision input token count per model (paid tier 3) quota usage   
+`DELTA`, `INT64`, `1`   
+**[generativelanguage.googleapis.com/Location](https://docs.cloud.google.com/monitoring/api/resources#tag_generativelanguage.googleapis.com/Location)** |  _Current usage on quota metric generativelanguage.googleapis.com/create_decision_paid_tier_3_input_token_count. After sampling, data is not visible for up to 150 seconds._   
+`limit_name`: The limit name.   
+`method`: method.   
+`model`: The model name.   
+`quota/create_decision_paid_tier_3_requests/exceeded` ALPHA ** _(project)_**   
+Create decision requests per model (paid tier 3) quota exceeded error   
+`DELTA`, `INT64`, `1`   
+**[generativelanguage.googleapis.com/Location](https://docs.cloud.google.com/monitoring/api/resources#tag_generativelanguage.googleapis.com/Location)** |  _Number of attempts to exceed the limit on quota metric generativelanguage.googleapis.com/create_decision_paid_tier_3_requests. After sampling, data is not visible for up to 150 seconds._   
+`limit_name`: The limit name.   
+`model`: The model name.   
+`quota/create_decision_paid_tier_3_requests/limit` ALPHA ** _(project)_**   
+Create decision requests per model (paid tier 3) quota limit   
+`GAUGE`, `INT64`, `1`   
+**[generativelanguage.googleapis.com/Location](https://docs.cloud.google.com/monitoring/api/resources#tag_generativelanguage.googleapis.com/Location)** |  _Current limit on quota metric generativelanguage.googleapis.com/create_decision_paid_tier_3_requests. Sampled every 60 seconds. After sampling, data is not visible for up to 150 seconds._   
+`limit_name`: The limit name.   
+`model`: The model name.   
+`quota/create_decision_paid_tier_3_requests/usage` ALPHA ** _(project)_**   
+Create decision requests per model (paid tier 3) quota usage   
+`DELTA`, `INT64`, `1`   
+**[generativelanguage.googleapis.com/Location](https://docs.cloud.google.com/monitoring/api/resources#tag_generativelanguage.googleapis.com/Location)** |  _Current usage on quota metric generativelanguage.googleapis.com/create_decision_paid_tier_3_requests. After sampling, data is not visible for up to 150 seconds._   
+`limit_name`: The limit name.   
+`method`: method.   
+`model`: The model name.   
 `quota/embed_content_batch_active_concurrent_batches_paid_tier_1/exceeded` ALPHA ** _(project)_**   
 Active EmbedContentBatch batches (paid tier 1) quota exceeded error   
 `DELTA`, `INT64`, `1`   
@@ -8222,12 +8386,12 @@ Failed jobs in queue
 `reason`: Reason why the job is in a failed state.   
 `user`: User who scheduled the job.   
   
-Generated at 2026-10-29 23:33:54 UTC.
+Generated at 2026-11-05 18:04:57 UTC.
 
 Send feedback 
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-02 UTC.
+Last updated 2026-11-05 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-02 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-05 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/data-profile-scan/
 title: Profile your data \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T05:45:05.612291+00:00
+fetched_at: 2026-11-06T10:19:11.082693+00:00
 ---
 
 # Profile your data  |  BigQuery  |  Google Cloud Documentation
@@ -25,7 +25,7 @@ Data profile scans help you better understand your data by analyzing its statist
 
 For more information about data profiling, see [About data profiling](https://docs.cloud.google.com/knowledge-catalog/docs/data-profiling-overview).
 
-**Tip:** This document explains how to manage data profile scans across your project. You can also create and manage data profile scans when working with a specific table. For more information, see Manage data profile scans for a specific table.
+**Tip:** This document explains how to create and manage data profile scans when working with a specific table in BigQuery. To manage data profile scans across your project, use Knowledge Catalog (see [Create and use data profile scans](https://docs.cloud.google.com/knowledge-catalog/docs/use-data-profiling)).
 
 ## Before you begin
 
@@ -185,9 +185,9 @@ Replace the following:
 
 ### Console
 
-  1. In the Google Cloud console, on the BigQuery **Metadata curation** page, go to the **Data profiling & quality** tab.
+  1. In the Google Cloud console, go to the Knowledge Catalog **Data profiling & quality** page.
 
-[Go to Data profiling & quality](https://console.cloud.google.com/bigquery/governance/metadata-curation/data-profiling-and-quality)
+[Go to Data profiling & quality](https://console.cloud.google.com/dataplex/govern/data-profiling-and-quality)
 
   2. Click **Create data profile scan**.
 
@@ -293,7 +293,7 @@ If the source data isn't organized in a Knowledge Catalog lake, include the `--d
 
 Replace the following variables:
 
-  * `DATASCAN`: The name of the data profile scan.
+  * `DATASCAN`: The ID of the data profile scan.
   * `LOCATION`: The Google Cloud region in which to create the data profile scan.
   * `DATA_SOURCE_ENTITY`: The Knowledge Catalog entity that contains the data for the data profile scan. For example, `projects/test-project/locations/test-location/lakes/test-lake/zones/test-zone/entities/test-entity`.
   * `DATA_SOURCE_RESOURCE`: The name of the resource that contains the data for the data profile scan. For example, `//bigquery.googleapis.com/projects/test-project/datasets/test-dataset/tables/test-table`.
@@ -304,9 +304,9 @@ Replace the following variables:
 
 ### C#
 
-Before trying this sample, follow the C# setup instructions in the [BigQuery quickstart using client libraries](https://docs.cloud.google.com/knowledge-catalog/docs/reference/libraries). For more information, see the [BigQuery C# API reference documentation](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.Dataplex.V1/latest). 
+Before trying this sample, follow the C# setup instructions in the [Knowledge Catalog quickstart using client libraries](https://docs.cloud.google.com/knowledge-catalog/docs/reference/libraries). For more information, see the [Knowledge Catalog C# API reference documentation](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.Dataplex.V1/latest). 
 
-To authenticate to BigQuery, set up Application Default Credentials. For more information, see [Set up authentication for a local development environment](https://docs.cloud.google.com/docs/authentication/set-up-adc-local-dev-environment). 
+To authenticate to Knowledge Catalog, set up Application Default Credentials. For more information, see [Set up authentication for a local development environment](https://docs.cloud.google.com/docs/authentication/set-up-adc-local-dev-environment). 
     
     
     using [Google.Api.Gax.ResourceNames](https://docs.cloud.google.com/dotnet/docs/reference/Google.Api.Gax/latest/Google.Api.Gax.ResourceNames.html);
@@ -360,9 +360,9 @@ To authenticate to BigQuery, set up Application Default Credentials. For more in
 
 ### Go
 
-Before trying this sample, follow the Go setup instructions in the [BigQuery quickstart using client libraries](https://docs.cloud.google.com/knowledge-catalog/docs/reference/libraries). For more information, see the [BigQuery Go API reference documentation](https://pkg.go.dev/cloud.google.com/go/dataplex). 
+Before trying this sample, follow the Go setup instructions in the [Knowledge Catalog quickstart using client libraries](https://docs.cloud.google.com/knowledge-catalog/docs/reference/libraries). For more information, see the [Knowledge Catalog Go API reference documentation](https://pkg.go.dev/cloud.google.com/go/dataplex). 
 
-To authenticate to BigQuery, set up Application Default Credentials. For more information, see [Set up authentication for a local development environment](https://docs.cloud.google.com/docs/authentication/set-up-adc-local-dev-environment). 
+To authenticate to Knowledge Catalog, set up Application Default Credentials. For more information, see [Set up authentication for a local development environment](https://docs.cloud.google.com/docs/authentication/set-up-adc-local-dev-environment). 
     
     
     //go:build examples
@@ -411,9 +411,9 @@ To authenticate to BigQuery, set up Application Default Credentials. For more in
 
 ### Java
 
-Before trying this sample, follow the Java setup instructions in the [BigQuery quickstart using client libraries](https://docs.cloud.google.com/knowledge-catalog/docs/reference/libraries). For more information, see the [BigQuery Java API reference documentation](https://docs.cloud.google.com/java/docs/reference/google-cloud-dataplex/latest/overview). 
+Before trying this sample, follow the Java setup instructions in the [Knowledge Catalog quickstart using client libraries](https://docs.cloud.google.com/knowledge-catalog/docs/reference/libraries). For more information, see the [Knowledge Catalog Java API reference documentation](https://docs.cloud.google.com/java/docs/reference/google-cloud-dataplex/latest/overview). 
 
-To authenticate to BigQuery, set up Application Default Credentials. For more information, see [Set up authentication for a local development environment](https://docs.cloud.google.com/docs/authentication/set-up-adc-local-dev-environment). 
+To authenticate to Knowledge Catalog, set up Application Default Credentials. For more information, see [Set up authentication for a local development environment](https://docs.cloud.google.com/docs/authentication/set-up-adc-local-dev-environment). 
     
     
     import com.google.cloud.dataplex.v1.[CreateDataScanRequest](https://docs.cloud.google.com/java/docs/reference/google-cloud-dataplex/latest/com.google.cloud.dataplex.v1.CreateDataScanRequest.html);
@@ -450,9 +450,9 @@ To authenticate to BigQuery, set up Application Default Credentials. For more in
 
 ### Python
 
-Before trying this sample, follow the Python setup instructions in the [BigQuery quickstart using client libraries](https://docs.cloud.google.com/knowledge-catalog/docs/reference/libraries). For more information, see the [BigQuery Python API reference documentation](https://docs.cloud.google.com/python/docs/reference/dataplex/latest). 
+Before trying this sample, follow the Python setup instructions in the [Knowledge Catalog quickstart using client libraries](https://docs.cloud.google.com/knowledge-catalog/docs/reference/libraries). For more information, see the [Knowledge Catalog Python API reference documentation](https://docs.cloud.google.com/python/docs/reference/dataplex/latest). 
 
-To authenticate to BigQuery, set up Application Default Credentials. For more information, see [Set up authentication for a local development environment](https://docs.cloud.google.com/docs/authentication/set-up-adc-local-dev-environment). 
+To authenticate to Knowledge Catalog, set up Application Default Credentials. For more information, see [Set up authentication for a local development environment](https://docs.cloud.google.com/docs/authentication/set-up-adc-local-dev-environment). 
     
     
     # Copyright 2026 Google LLC
@@ -528,9 +528,9 @@ To authenticate to BigQuery, set up Application Default Credentials. For more in
 
 ### Ruby
 
-Before trying this sample, follow the Ruby setup instructions in the [BigQuery quickstart using client libraries](https://docs.cloud.google.com/knowledge-catalog/docs/reference/libraries). For more information, see the [BigQuery Ruby API reference documentation](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-dataplex/latest). 
+Before trying this sample, follow the Ruby setup instructions in the [Knowledge Catalog quickstart using client libraries](https://docs.cloud.google.com/knowledge-catalog/docs/reference/libraries). For more information, see the [Knowledge Catalog Ruby API reference documentation](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-dataplex/latest). 
 
-To authenticate to BigQuery, set up Application Default Credentials. For more information, see [Set up authentication for a local development environment](https://docs.cloud.google.com/docs/authentication/set-up-adc-local-dev-environment). 
+To authenticate to Knowledge Catalog, set up Application Default Credentials. For more information, see [Set up authentication for a local development environment](https://docs.cloud.google.com/docs/authentication/set-up-adc-local-dev-environment). 
     
     
     require "google/cloud/dataplex/v1"
@@ -578,9 +578,9 @@ To create a data profile scan, use the [`dataScans.create` method](https://docs.
 
 You can configure data profile scans for multiple tables in a BigQuery dataset at the same time by using the Google Cloud console.
 
-  1. In the Google Cloud console, on the BigQuery **Metadata curation** page, go to the **Data profiling & quality** tab.
+  1. In the Google Cloud console, go to the Knowledge Catalog **Data profiling & quality** page.
 
-[Go to Data profiling & quality](https://console.cloud.google.com/bigquery/governance/metadata-curation/data-profiling-and-quality)
+[Go to Data profiling & quality](https://console.cloud.google.com/dataplex/govern/data-profiling-and-quality)
 
   2. Click **Create data profile scan**.
 
@@ -651,9 +651,9 @@ If you set the schedule to on-demand, you can also run the scans now by clicking
 
 ### Console
 
-  1. In the Google Cloud console, on the BigQuery **Metadata curation** page, go to the **Data profiling & quality** tab. 
+  1. In the Google Cloud console, go to the Knowledge Catalog **Data profiling & quality** page. 
 
-[Go to Data profiling & quality](https://console.cloud.google.com/bigquery/governance/metadata-curation/data-profiling-and-quality)
+[Go to Data profiling & quality](https://console.cloud.google.com/dataplex/govern/data-profiling-and-quality)
 
   2. Click the data profile scan to run.
   3. Click **Run now**.
@@ -671,7 +671,7 @@ To run a data profile scan, use the [`gcloud dataplex datascans run` command](ht
 
 Replace the following variables:
 
-  * `DATASCAN`: The name of the data profile scan.
+  * `DATASCAN`: The ID of the data profile scan.
   * `LOCATION`: The Google Cloud region in which the data profile scan was created.
 
 
@@ -680,9 +680,9 @@ Replace the following variables:
 
 ### C#
 
-Before trying this sample, follow the C# setup instructions in the [BigQuery quickstart using client libraries](https://docs.cloud.google.com/knowledge-catalog/docs/reference/libraries). For more information, see the [BigQuery C# API reference documentation](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.Dataplex.V1/latest). 
+Before trying this sample, follow the C# setup instructions in the [Knowledge Catalog quickstart using client libraries](https://docs.cloud.google.com/knowledge-catalog/docs/reference/libraries). For more information, see the [Knowledge Catalog C# API reference documentation](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.Dataplex.V1/latest). 
 
-To authenticate to BigQuery, set up Application Default Credentials. For more information, see [Set up authentication for a local development environment](https://docs.cloud.google.com/docs/authentication/set-up-adc-local-dev-environment). 
+To authenticate to Knowledge Catalog, set up Application Default Credentials. For more information, see [Set up authentication for a local development environment](https://docs.cloud.google.com/docs/authentication/set-up-adc-local-dev-environment). 
     
     
     using [Google.Cloud.Dataplex.V1](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.Dataplex.V1/latest/Google.Cloud.Dataplex.V1.html);
@@ -715,9 +715,9 @@ To authenticate to BigQuery, set up Application Default Credentials. For more in
 
 ### Go
 
-Before trying this sample, follow the Go setup instructions in the [BigQuery quickstart using client libraries](https://docs.cloud.google.com/knowledge-catalog/docs/reference/libraries). For more information, see the [BigQuery Go API reference documentation](https://pkg.go.dev/cloud.google.com/go/dataplex). 
+Before trying this sample, follow the Go setup instructions in the [Knowledge Catalog quickstart using client libraries](https://docs.cloud.google.com/knowledge-catalog/docs/reference/libraries). For more information, see the [Knowledge Catalog Go API reference documentation](https://pkg.go.dev/cloud.google.com/go/dataplex). 
 
-To authenticate to BigQuery, set up Application Default Credentials. For more information, see [Set up authentication for a local development environment](https://docs.cloud.google.com/docs/authentication/set-up-adc-local-dev-environment). 
+To authenticate to Knowledge Catalog, set up Application Default Credentials. For more information, see [Set up authentication for a local development environment](https://docs.cloud.google.com/docs/authentication/set-up-adc-local-dev-environment). 
     
     
     //go:build examples
@@ -761,9 +761,9 @@ To authenticate to BigQuery, set up Application Default Credentials. For more in
 
 ### Java
 
-Before trying this sample, follow the Java setup instructions in the [BigQuery quickstart using client libraries](https://docs.cloud.google.com/knowledge-catalog/docs/reference/libraries). For more information, see the [BigQuery Java API reference documentation](https://docs.cloud.google.com/java/docs/reference/google-cloud-dataplex/latest/overview). 
+Before trying this sample, follow the Java setup instructions in the [Knowledge Catalog quickstart using client libraries](https://docs.cloud.google.com/knowledge-catalog/docs/reference/libraries). For more information, see the [Knowledge Catalog Java API reference documentation](https://docs.cloud.google.com/java/docs/reference/google-cloud-dataplex/latest/overview). 
 
-To authenticate to BigQuery, set up Application Default Credentials. For more information, see [Set up authentication for a local development environment](https://docs.cloud.google.com/docs/authentication/set-up-adc-local-dev-environment). 
+To authenticate to Knowledge Catalog, set up Application Default Credentials. For more information, see [Set up authentication for a local development environment](https://docs.cloud.google.com/docs/authentication/set-up-adc-local-dev-environment). 
     
     
     import com.google.cloud.dataplex.v1.[DataScanName](https://docs.cloud.google.com/java/docs/reference/google-cloud-dataplex/latest/com.google.cloud.dataplex.v1.DataScanName.html);
@@ -797,9 +797,9 @@ To authenticate to BigQuery, set up Application Default Credentials. For more in
 
 ### Python
 
-Before trying this sample, follow the Python setup instructions in the [BigQuery quickstart using client libraries](https://docs.cloud.google.com/knowledge-catalog/docs/reference/libraries). For more information, see the [BigQuery Python API reference documentation](https://docs.cloud.google.com/python/docs/reference/dataplex/latest). 
+Before trying this sample, follow the Python setup instructions in the [Knowledge Catalog quickstart using client libraries](https://docs.cloud.google.com/knowledge-catalog/docs/reference/libraries). For more information, see the [Knowledge Catalog Python API reference documentation](https://docs.cloud.google.com/python/docs/reference/dataplex/latest). 
 
-To authenticate to BigQuery, set up Application Default Credentials. For more information, see [Set up authentication for a local development environment](https://docs.cloud.google.com/docs/authentication/set-up-adc-local-dev-environment). 
+To authenticate to Knowledge Catalog, set up Application Default Credentials. For more information, see [Set up authentication for a local development environment](https://docs.cloud.google.com/docs/authentication/set-up-adc-local-dev-environment). 
     
     
     # This snippet has been automatically generated and should be regarded as a
@@ -833,9 +833,9 @@ To authenticate to BigQuery, set up Application Default Credentials. For more in
 
 ### Ruby
 
-Before trying this sample, follow the Ruby setup instructions in the [BigQuery quickstart using client libraries](https://docs.cloud.google.com/knowledge-catalog/docs/reference/libraries). For more information, see the [BigQuery Ruby API reference documentation](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-dataplex/latest). 
+Before trying this sample, follow the Ruby setup instructions in the [Knowledge Catalog quickstart using client libraries](https://docs.cloud.google.com/knowledge-catalog/docs/reference/libraries). For more information, see the [Knowledge Catalog Ruby API reference documentation](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-dataplex/latest). 
 
-To authenticate to BigQuery, set up Application Default Credentials. For more information, see [Set up authentication for a local development environment](https://docs.cloud.google.com/docs/authentication/set-up-adc-local-dev-environment). 
+To authenticate to Knowledge Catalog, set up Application Default Credentials. For more information, see [Set up authentication for a local development environment](https://docs.cloud.google.com/docs/authentication/set-up-adc-local-dev-environment). 
     
     
     require "google/cloud/dataplex/v1"
@@ -908,9 +908,9 @@ Replace the following variables:
 
 ### Console
 
-  1. In the Google Cloud console, on the BigQuery **Metadata curation** page, go to the **Data profiling & quality** tab.
+  1. In the Google Cloud console, go to the Knowledge Catalog **Data profiling & quality** page.
 
-[Go to Data profiling & quality](https://console.cloud.google.com/bigquery/governance/metadata-curation/data-profiling-and-quality)
+[Go to Data profiling & quality](https://console.cloud.google.com/dataplex/govern/data-profiling-and-quality)
 
   2. Click the name of a data profile scan.
 
@@ -938,7 +938,7 @@ Replace the following variables:
 
   * `JOB`: The job ID of the data profile scan job.
   * `LOCATION`: The Google Cloud region in which the data profile scan was created.
-  * `DATASCAN`: The name of the data profile scan the job belongs to.
+  * `DATASCAN`: The ID of the data profile scan that the job belongs to.
   * `--view=FULL`: To see the scan job result, specify `FULL`.
 
 
@@ -947,9 +947,9 @@ Replace the following variables:
 
 ### C#
 
-Before trying this sample, follow the C# setup instructions in the [BigQuery quickstart using client libraries](https://docs.cloud.google.com/knowledge-catalog/docs/reference/libraries). For more information, see the [BigQuery C# API reference documentation](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.Dataplex.V1/latest). 
+Before trying this sample, follow the C# setup instructions in the [Knowledge Catalog quickstart using client libraries](https://docs.cloud.google.com/knowledge-catalog/docs/reference/libraries). For more information, see the [Knowledge Catalog C# API reference documentation](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.Dataplex.V1/latest). 
 
-To authenticate to BigQuery, set up Application Default Credentials. For more information, see [Set up authentication for a local development environment](https://docs.cloud.google.com/docs/authentication/set-up-adc-local-dev-environment). 
+To authenticate to Knowledge Catalog, set up Application Default Credentials. For more information, see [Set up authentication for a local development environment](https://docs.cloud.google.com/docs/authentication/set-up-adc-local-dev-environment). 
     
     
     using [Google.Cloud.Dataplex.V1](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.Dataplex.V1/latest/Google.Cloud.Dataplex.V1.html);
@@ -983,9 +983,9 @@ To authenticate to BigQuery, set up Application Default Credentials. For more in
 
 ### Go
 
-Before trying this sample, follow the Go setup instructions in the [BigQuery quickstart using client libraries](https://docs.cloud.google.com/knowledge-catalog/docs/reference/libraries). For more information, see the [BigQuery Go API reference documentation](https://pkg.go.dev/cloud.google.com/go/dataplex). 
+Before trying this sample, follow the Go setup instructions in the [Knowledge Catalog quickstart using client libraries](https://docs.cloud.google.com/knowledge-catalog/docs/reference/libraries). For more information, see the [Knowledge Catalog Go API reference documentation](https://pkg.go.dev/cloud.google.com/go/dataplex). 
 
-To authenticate to BigQuery, set up Application Default Credentials. For more information, see [Set up authentication for a local development environment](https://docs.cloud.google.com/docs/authentication/set-up-adc-local-dev-environment). 
+To authenticate to Knowledge Catalog, set up Application Default Credentials. For more information, see [Set up authentication for a local development environment](https://docs.cloud.google.com/docs/authentication/set-up-adc-local-dev-environment). 
     
     
     //go:build examples
@@ -1029,9 +1029,9 @@ To authenticate to BigQuery, set up Application Default Credentials. For more in
 
 ### Java
 
-Before trying this sample, follow the Java setup instructions in the [BigQuery quickstart using client libraries](https://docs.cloud.google.com/knowledge-catalog/docs/reference/libraries). For more information, see the [BigQuery Java API reference documentation](https://docs.cloud.google.com/java/docs/reference/google-cloud-dataplex/latest/overview). 
+Before trying this sample, follow the Java setup instructions in the [Knowledge Catalog quickstart using client libraries](https://docs.cloud.google.com/knowledge-catalog/docs/reference/libraries). For more information, see the [Knowledge Catalog Java API reference documentation](https://docs.cloud.google.com/java/docs/reference/google-cloud-dataplex/latest/overview). 
 
-To authenticate to BigQuery, set up Application Default Credentials. For more information, see [Set up authentication for a local development environment](https://docs.cloud.google.com/docs/authentication/set-up-adc-local-dev-environment). 
+To authenticate to Knowledge Catalog, set up Application Default Credentials. For more information, see [Set up authentication for a local development environment](https://docs.cloud.google.com/docs/authentication/set-up-adc-local-dev-environment). 
     
     
     import com.google.cloud.dataplex.v1.[DataScan](https://docs.cloud.google.com/java/docs/reference/google-cloud-dataplex/latest/com.google.cloud.dataplex.v1.DataScan.html);
@@ -1065,9 +1065,9 @@ To authenticate to BigQuery, set up Application Default Credentials. For more in
 
 ### Python
 
-Before trying this sample, follow the Python setup instructions in the [BigQuery quickstart using client libraries](https://docs.cloud.google.com/knowledge-catalog/docs/reference/libraries). For more information, see the [BigQuery Python API reference documentation](https://docs.cloud.google.com/python/docs/reference/dataplex/latest). 
+Before trying this sample, follow the Python setup instructions in the [Knowledge Catalog quickstart using client libraries](https://docs.cloud.google.com/knowledge-catalog/docs/reference/libraries). For more information, see the [Knowledge Catalog Python API reference documentation](https://docs.cloud.google.com/python/docs/reference/dataplex/latest). 
 
-To authenticate to BigQuery, set up Application Default Credentials. For more information, see [Set up authentication for a local development environment](https://docs.cloud.google.com/docs/authentication/set-up-adc-local-dev-environment). 
+To authenticate to Knowledge Catalog, set up Application Default Credentials. For more information, see [Set up authentication for a local development environment](https://docs.cloud.google.com/docs/authentication/set-up-adc-local-dev-environment). 
     
     
     # This snippet has been automatically generated and should be regarded as a
@@ -1101,9 +1101,9 @@ To authenticate to BigQuery, set up Application Default Credentials. For more in
 
 ### Ruby
 
-Before trying this sample, follow the Ruby setup instructions in the [BigQuery quickstart using client libraries](https://docs.cloud.google.com/knowledge-catalog/docs/reference/libraries). For more information, see the [BigQuery Ruby API reference documentation](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-dataplex/latest). 
+Before trying this sample, follow the Ruby setup instructions in the [Knowledge Catalog quickstart using client libraries](https://docs.cloud.google.com/knowledge-catalog/docs/reference/libraries). For more information, see the [Knowledge Catalog Ruby API reference documentation](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-dataplex/latest). 
 
-To authenticate to BigQuery, set up Application Default Credentials. For more information, see [Set up authentication for a local development environment](https://docs.cloud.google.com/docs/authentication/set-up-adc-local-dev-environment). 
+To authenticate to Knowledge Catalog, set up Application Default Credentials. For more information, see [Set up authentication for a local development environment](https://docs.cloud.google.com/docs/authentication/set-up-adc-local-dev-environment). 
     
     
     require "google/cloud/dataplex/v1"
@@ -1168,9 +1168,9 @@ The latest published results are displayed.
 
 ### Console
 
-  1. In the Google Cloud console, on the BigQuery **Metadata curation** page, go to the **Data profiling & quality** tab.
+  1. In the Google Cloud console, go to the Knowledge Catalog **Data profiling & quality** page.
 
-[Go to Data profiling & quality](https://console.cloud.google.com/bigquery/governance/metadata-curation/data-profiling-and-quality)
+[Go to Data profiling & quality](https://console.cloud.google.com/dataplex/govern/data-profiling-and-quality)
 
   2. Click the name of a data profile scan.
 
@@ -1193,7 +1193,7 @@ To view the most recent successful data profile scan, use the [`gcloud dataplex 
 
 Replace the following variables:
 
-  * `DATASCAN`: The name of the data profile scan to view the most recent job for.
+  * `DATASCAN`: The ID of the data profile scan to view the most recent job for.
   * `LOCATION`: The Google Cloud region in which the data profile scan was created.
   * `--view=FULL`: To see the scan job result, specify `FULL`.
 
@@ -1209,9 +1209,9 @@ Knowledge Catalog saves the data profile scan history of the last 300 jobs or fo
 
 ### Console
 
-  1. In the Google Cloud console, on the BigQuery **Metadata curation** page, go to the **Data profiling & quality** tab.
+  1. In the Google Cloud console, go to the Knowledge Catalog **Data profiling & quality** page.
 
-[Go to Data profiling & quality](https://console.cloud.google.com/bigquery/governance/metadata-curation/data-profiling-and-quality)
+[Go to Data profiling & quality](https://console.cloud.google.com/dataplex/govern/data-profiling-and-quality)
 
   2. Click the name of a data profile scan.
 
@@ -1237,7 +1237,7 @@ To view historical data profile scan jobs, use the [`gcloud dataplex datascans j
 Replace the following variables:
 
   * `LOCATION`: The Google Cloud region in which the data profile scan was created.
-  * `DATASCAN`: The name of the data profile scan to view jobs for.
+  * `DATASCAN`: The ID of the data profile scan to view jobs for.
 
 
 
@@ -1245,9 +1245,9 @@ Replace the following variables:
 
 ### C#
 
-Before trying this sample, follow the C# setup instructions in the [BigQuery quickstart using client libraries](https://docs.cloud.google.com/knowledge-catalog/docs/reference/libraries). For more information, see the [BigQuery C# API reference documentation](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.Dataplex.V1/latest). 
+Before trying this sample, follow the C# setup instructions in the [Knowledge Catalog quickstart using client libraries](https://docs.cloud.google.com/knowledge-catalog/docs/reference/libraries). For more information, see the [Knowledge Catalog C# API reference documentation](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.Dataplex.V1/latest). 
 
-To authenticate to BigQuery, set up Application Default Credentials. For more information, see [Set up authentication for a local development environment](https://docs.cloud.google.com/docs/authentication/set-up-adc-local-dev-environment). 
+To authenticate to Knowledge Catalog, set up Application Default Credentials. For more information, see [Set up authentication for a local development environment](https://docs.cloud.google.com/docs/authentication/set-up-adc-local-dev-environment). 
     
     
     using [Google.Api.Gax](https://docs.cloud.google.com/dotnet/docs/reference/Google.Api.Gax/latest/Google.Api.Gax.html);
@@ -1315,9 +1315,9 @@ To authenticate to BigQuery, set up Application Default Credentials. For more in
 
 ### Go
 
-Before trying this sample, follow the Go setup instructions in the [BigQuery quickstart using client libraries](https://docs.cloud.google.com/knowledge-catalog/docs/reference/libraries). For more information, see the [BigQuery Go API reference documentation](https://pkg.go.dev/cloud.google.com/go/dataplex). 
+Before trying this sample, follow the Go setup instructions in the [Knowledge Catalog quickstart using client libraries](https://docs.cloud.google.com/knowledge-catalog/docs/reference/libraries). For more information, see the [Knowledge Catalog Go API reference documentation](https://pkg.go.dev/cloud.google.com/go/dataplex). 
 
-To authenticate to BigQuery, set up Application Default Credentials. For more information, see [Set up authentication for a local development environment](https://docs.cloud.google.com/docs/authentication/set-up-adc-local-dev-environment). 
+To authenticate to Knowledge Catalog, set up Application Default Credentials. For more information, see [Set up authentication for a local development environment](https://docs.cloud.google.com/docs/authentication/set-up-adc-local-dev-environment). 
     
     
     //go:build examples
@@ -1374,9 +1374,9 @@ To authenticate to BigQuery, set up Application Default Credentials. For more in
 
 ### Java
 
-Before trying this sample, follow the Java setup instructions in the [BigQuery quickstart using client libraries](https://docs.cloud.google.com/knowledge-catalog/docs/reference/libraries). For more information, see the [BigQuery Java API reference documentation](https://docs.cloud.google.com/java/docs/reference/google-cloud-dataplex/latest/overview). 
+Before trying this sample, follow the Java setup instructions in the [Knowledge Catalog quickstart using client libraries](https://docs.cloud.google.com/knowledge-catalog/docs/reference/libraries). For more information, see the [Knowledge Catalog Java API reference documentation](https://docs.cloud.google.com/java/docs/reference/google-cloud-dataplex/latest/overview). 
 
-To authenticate to BigQuery, set up Application Default Credentials. For more information, see [Set up authentication for a local development environment](https://docs.cloud.google.com/docs/authentication/set-up-adc-local-dev-environment). 
+To authenticate to Knowledge Catalog, set up Application Default Credentials. For more information, see [Set up authentication for a local development environment](https://docs.cloud.google.com/docs/authentication/set-up-adc-local-dev-environment). 
     
     
     import com.google.cloud.dataplex.v1.[DataScanJob](https://docs.cloud.google.com/java/docs/reference/google-cloud-dataplex/latest/com.google.cloud.dataplex.v1.DataScanJob.html);
@@ -1415,9 +1415,9 @@ To authenticate to BigQuery, set up Application Default Credentials. For more in
 
 ### Python
 
-Before trying this sample, follow the Python setup instructions in the [BigQuery quickstart using client libraries](https://docs.cloud.google.com/knowledge-catalog/docs/reference/libraries). For more information, see the [BigQuery Python API reference documentation](https://docs.cloud.google.com/python/docs/reference/dataplex/latest). 
+Before trying this sample, follow the Python setup instructions in the [Knowledge Catalog quickstart using client libraries](https://docs.cloud.google.com/knowledge-catalog/docs/reference/libraries). For more information, see the [Knowledge Catalog Python API reference documentation](https://docs.cloud.google.com/python/docs/reference/dataplex/latest). 
 
-To authenticate to BigQuery, set up Application Default Credentials. For more information, see [Set up authentication for a local development environment](https://docs.cloud.google.com/docs/authentication/set-up-adc-local-dev-environment). 
+To authenticate to Knowledge Catalog, set up Application Default Credentials. For more information, see [Set up authentication for a local development environment](https://docs.cloud.google.com/docs/authentication/set-up-adc-local-dev-environment). 
     
     
     # This snippet has been automatically generated and should be regarded as a
@@ -1452,9 +1452,9 @@ To authenticate to BigQuery, set up Application Default Credentials. For more in
 
 ### Ruby
 
-Before trying this sample, follow the Ruby setup instructions in the [BigQuery quickstart using client libraries](https://docs.cloud.google.com/knowledge-catalog/docs/reference/libraries). For more information, see the [BigQuery Ruby API reference documentation](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-dataplex/latest). 
+Before trying this sample, follow the Ruby setup instructions in the [Knowledge Catalog quickstart using client libraries](https://docs.cloud.google.com/knowledge-catalog/docs/reference/libraries). For more information, see the [Knowledge Catalog Ruby API reference documentation](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-dataplex/latest). 
 
-To authenticate to BigQuery, set up Application Default Credentials. For more information, see [Set up authentication for a local development environment](https://docs.cloud.google.com/docs/authentication/set-up-adc-local-dev-environment). 
+To authenticate to Knowledge Catalog, set up Application Default Credentials. For more information, see [Set up authentication for a local development environment](https://docs.cloud.google.com/docs/authentication/set-up-adc-local-dev-environment). 
     
     
     require "google/cloud/dataplex/v1"
@@ -1529,13 +1529,19 @@ When you monitor your data scan jobs, keep the following best practices in mind:
 
 ### View the data profile scans for a table
 
-To view the data profile scans that apply to a specific table, do the following:
+To view all data profile scans that apply to a specific table, do the following:
 
-  1. In the Google Cloud console, on the BigQuery **Metadata curation** page, go to the **Data profiling & quality** tab.
+  1. In the Google Cloud console, go to the **BigQuery Studio** page.
 
-[Go to Data profiling & quality](https://console.cloud.google.com/bigquery/governance/metadata-curation/data-profiling-and-quality)
+[Go to BigQuery Studio](https://console.cloud.google.com/bigquery)
 
-  2. Filter the list by table name and scan type.
+  2. In the **Explorer** pane, click **Datasets** , and then click your dataset.
+
+  3. Click **Overview > Tables**, and then select the table whose data profile scans you want to see.
+
+  4. Click the **Data profile** tab.
+
+  5. Click **Data profile scan** , and then select **View all scans**. This opens the **Data profiling & quality** page in Knowledge Catalog, filtered by your table.
 
 
 
@@ -1544,9 +1550,9 @@ To view the data profile scans that apply to a specific table, do the following:
 
 To let users in your organization view the scan results, do the following:
 
-  1. In the Google Cloud console, on the BigQuery **Metadata curation** page, go to the **Data profiling & quality** tab.
+  1. In the Google Cloud console, go to the Knowledge Catalog **Data profiling & quality** page.
 
-[Go to Data profiling & quality](https://console.cloud.google.com/bigquery/governance/metadata-curation/data-profiling-and-quality)
+[Go to Data profiling & quality](https://console.cloud.google.com/dataplex/govern/data-profiling-and-quality)
 
   2. Click the data profile scan you want to share the results of.
 
@@ -1561,9 +1567,7 @@ To let users in your organization view the scan results, do the following:
 
 ## Manage data profile scans for a specific table
 
-The steps in this document show how to manage data profile scans across your project by using the BigQuery **Metadata curation > Data profiling & quality** page in the Google Cloud console.
-
-You can also create and manage data profile scans when working with a specific table. In the Google Cloud console, on the BigQuery page for the table, use the **Data profile** tab. Do the following:
+You can create and manage data profile scans directly when working with a specific table. In the Google Cloud console, on the BigQuery page for the table, use the **Data profile** tab. Do the following:
 
   1. In the Google Cloud console, go to the **BigQuery** page.
 
@@ -1604,9 +1608,9 @@ To manage the data profile scans for this table, click **Data profile scan** , a
 
 ### Console
 
-  1. In the Google Cloud console, on the BigQuery **Metadata curation** page, go to the **Data profiling & quality** tab.
+  1. In the Google Cloud console, go to the Knowledge Catalog **Data profiling & quality** page.
 
-[Go to Data profiling & quality](https://console.cloud.google.com/bigquery/governance/metadata-curation/data-profiling-and-quality)
+[Go to Data profiling & quality](https://console.cloud.google.com/dataplex/govern/data-profiling-and-quality)
 
   2. Click the name of a data profile scan.
 
@@ -1629,7 +1633,7 @@ To update a data profile scan, use the [`gcloud dataplex datascans update data-p
 
 Replace the following variables:
 
-  * `DATASCAN`: The name of the data profile scan to update.
+  * `DATASCAN`: The ID of the data profile scan to update.
   * `LOCATION`: The Google Cloud region in which the data profile scan was created.
   * `DESCRIPTION`: The new description for the data profile scan.
 
@@ -1639,9 +1643,9 @@ Replace the following variables:
 
 ### C#
 
-Before trying this sample, follow the C# setup instructions in the [BigQuery quickstart using client libraries](https://docs.cloud.google.com/knowledge-catalog/docs/reference/libraries). For more information, see the [BigQuery C# API reference documentation](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.Dataplex.V1/latest). 
+Before trying this sample, follow the C# setup instructions in the [Knowledge Catalog quickstart using client libraries](https://docs.cloud.google.com/knowledge-catalog/docs/reference/libraries). For more information, see the [Knowledge Catalog C# API reference documentation](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.Dataplex.V1/latest). 
 
-To authenticate to BigQuery, set up Application Default Credentials. For more information, see [Set up authentication for a local development environment](https://docs.cloud.google.com/docs/authentication/set-up-adc-local-dev-environment). 
+To authenticate to Knowledge Catalog, set up Application Default Credentials. For more information, see [Set up authentication for a local development environment](https://docs.cloud.google.com/docs/authentication/set-up-adc-local-dev-environment). 
     
     
     using [Google.Cloud.Dataplex.V1](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.Dataplex.V1/latest/Google.Cloud.Dataplex.V1.html);
@@ -1694,9 +1698,9 @@ To authenticate to BigQuery, set up Application Default Credentials. For more in
 
 ### Go
 
-Before trying this sample, follow the Go setup instructions in the [BigQuery quickstart using client libraries](https://docs.cloud.google.com/knowledge-catalog/docs/reference/libraries). For more information, see the [BigQuery Go API reference documentation](https://pkg.go.dev/cloud.google.com/go/dataplex). 
+Before trying this sample, follow the Go setup instructions in the [Knowledge Catalog quickstart using client libraries](https://docs.cloud.google.com/knowledge-catalog/docs/reference/libraries). For more information, see the [Knowledge Catalog Go API reference documentation](https://pkg.go.dev/cloud.google.com/go/dataplex). 
 
-To authenticate to BigQuery, set up Application Default Credentials. For more information, see [Set up authentication for a local development environment](https://docs.cloud.google.com/docs/authentication/set-up-adc-local-dev-environment). 
+To authenticate to Knowledge Catalog, set up Application Default Credentials. For more information, see [Set up authentication for a local development environment](https://docs.cloud.google.com/docs/authentication/set-up-adc-local-dev-environment). 
     
     
     //go:build examples
@@ -1745,9 +1749,9 @@ To authenticate to BigQuery, set up Application Default Credentials. For more in
 
 ### Java
 
-Before trying this sample, follow the Java setup instructions in the [BigQuery quickstart using client libraries](https://docs.cloud.google.com/knowledge-catalog/docs/reference/libraries). For more information, see the [BigQuery Java API reference documentation](https://docs.cloud.google.com/java/docs/reference/google-cloud-dataplex/latest/overview). 
+Before trying this sample, follow the Java setup instructions in the [Knowledge Catalog quickstart using client libraries](https://docs.cloud.google.com/knowledge-catalog/docs/reference/libraries). For more information, see the [Knowledge Catalog Java API reference documentation](https://docs.cloud.google.com/java/docs/reference/google-cloud-dataplex/latest/overview). 
 
-To authenticate to BigQuery, set up Application Default Credentials. For more information, see [Set up authentication for a local development environment](https://docs.cloud.google.com/docs/authentication/set-up-adc-local-dev-environment). 
+To authenticate to Knowledge Catalog, set up Application Default Credentials. For more information, see [Set up authentication for a local development environment](https://docs.cloud.google.com/docs/authentication/set-up-adc-local-dev-environment). 
     
     
     import com.google.cloud.dataplex.v1.[DataScan](https://docs.cloud.google.com/java/docs/reference/google-cloud-dataplex/latest/com.google.cloud.dataplex.v1.DataScan.html);
@@ -1783,9 +1787,9 @@ To authenticate to BigQuery, set up Application Default Credentials. For more in
 
 ### Python
 
-Before trying this sample, follow the Python setup instructions in the [BigQuery quickstart using client libraries](https://docs.cloud.google.com/knowledge-catalog/docs/reference/libraries). For more information, see the [BigQuery Python API reference documentation](https://docs.cloud.google.com/python/docs/reference/dataplex/latest). 
+Before trying this sample, follow the Python setup instructions in the [Knowledge Catalog quickstart using client libraries](https://docs.cloud.google.com/knowledge-catalog/docs/reference/libraries). For more information, see the [Knowledge Catalog Python API reference documentation](https://docs.cloud.google.com/python/docs/reference/dataplex/latest). 
 
-To authenticate to BigQuery, set up Application Default Credentials. For more information, see [Set up authentication for a local development environment](https://docs.cloud.google.com/docs/authentication/set-up-adc-local-dev-environment). 
+To authenticate to Knowledge Catalog, set up Application Default Credentials. For more information, see [Set up authentication for a local development environment](https://docs.cloud.google.com/docs/authentication/set-up-adc-local-dev-environment). 
     
     
     # This snippet has been automatically generated and should be regarded as a
@@ -1826,9 +1830,9 @@ To authenticate to BigQuery, set up Application Default Credentials. For more in
 
 ### Ruby
 
-Before trying this sample, follow the Ruby setup instructions in the [BigQuery quickstart using client libraries](https://docs.cloud.google.com/knowledge-catalog/docs/reference/libraries). For more information, see the [BigQuery Ruby API reference documentation](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-dataplex/latest). 
+Before trying this sample, follow the Ruby setup instructions in the [Knowledge Catalog quickstart using client libraries](https://docs.cloud.google.com/knowledge-catalog/docs/reference/libraries). For more information, see the [Knowledge Catalog Ruby API reference documentation](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-dataplex/latest). 
 
-To authenticate to BigQuery, set up Application Default Credentials. For more information, see [Set up authentication for a local development environment](https://docs.cloud.google.com/docs/authentication/set-up-adc-local-dev-environment). 
+To authenticate to Knowledge Catalog, set up Application Default Credentials. For more information, see [Set up authentication for a local development environment](https://docs.cloud.google.com/docs/authentication/set-up-adc-local-dev-environment). 
     
     
     require "google/cloud/dataplex/v1"
@@ -1876,9 +1880,9 @@ To edit a data profile scan, use the [`dataScans.patch` method](https://docs.clo
 
 ### Console
 
-  1. In the Google Cloud console, on the BigQuery **Metadata curation** page, go to the **Data profiling & quality** tab.
+  1. In the Google Cloud console, go to the Knowledge Catalog **Data profiling & quality** page.
 
-[Go to Data profiling & quality](https://console.cloud.google.com/bigquery/governance/metadata-curation/data-profiling-and-quality)
+[Go to Data profiling & quality](https://console.cloud.google.com/dataplex/govern/data-profiling-and-quality)
 
   2. Click the scan you want to delete.
 
@@ -1898,7 +1902,7 @@ To delete a data profile scan, use the [`gcloud dataplex datascans delete` comma
 
 Replace the following variables:
 
-  * `DATASCAN`: The name of the data profile scan to delete.
+  * `DATASCAN`: The ID of the data profile scan to delete.
   * `LOCATION`: The Google Cloud region in which the data profile scan was created.
 
 
@@ -1922,6 +1926,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-27 UTC.
+Last updated 2026-11-05 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-05 UTC."],[],[]] 

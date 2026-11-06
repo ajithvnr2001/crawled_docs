@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/apis/service/storage/storage-s3-rest-api/
 title: Storage S3 REST API \u00a0|\u00a0 Google Distributed Cloud air-gapped \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T17:06:54.109701+00:00
+fetched_at: 2026-11-06T10:53:10.667940+00:00
 ---
 
 # Storage S3 REST API  |  Google Distributed Cloud air-gapped  |  Google Cloud Documentation
@@ -323,7 +323,7 @@ This operation uses the tagging subresource to add a set of tags to an existing 
     Date: Mon, 17 Oct 2022 22:47:09 GMT
     
 
-### DeleteObject (versionId optional)
+### DeleteObjects (versionId optional)
 
 This operation lets you delete multiple objects from a single bucket with one request. The request can contain a list of up to 1000 keys that you want to delete.
 
@@ -368,7 +368,7 @@ This operation lets you delete multiple objects from a single bucket with one re
     </DeleteResult>
     
 
-### DeleteObjects (versionId optional)
+### DeleteObject (versionId optional)
 
 Removes an object from a bucket. The behavior depends on the bucket's versioning state: \- If bucket versioning is not enabled, the operation permanently deletes the object. \- If bucket versioning is enabled, the operation inserts a delete marker, which becomes the current version of the object. To permanently delete an object in a versioned bucket, you must include the object's versionId in the request.
 
@@ -783,6 +783,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-05 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-05 UTC."],[],[]] 

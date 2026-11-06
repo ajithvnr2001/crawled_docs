@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/assured-open-source-software/docs/access-metadata-using-container-analysis/
 title: Access metadata using the Artifact Analysis API \u00a0|\u00a0 Assured Open Source Software \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T23:44:17.668795+00:00
+fetched_at: 2026-11-06T10:24:28.915973+00:00
 ---
 
 # Access metadata using the Artifact Analysis API  |  Assured Open Source Software  |  Google Cloud Documentation
@@ -21,16 +21,9 @@ Send feedback
 
 #  Access metadata using the Artifact Analysis API Stay organized with collections  Save and categorize content based on your preferences. 
 
-Assured OSS provides security metadata for every package available. Each version of the package has its own metadata. This page explains what information is provided as part of the metadata and how you can access this metadata.
+Assured Open Source Software (Assured OSS) provides security metadata for every available package and package version. You can access this metadata in Artifact Analysis to review build details, vulnerability status, test results, and license information.
 
-You can access the security metadata using one of the following options:
-
-  * Artifact Analysis API
-  * Cloud Storage
-
-
-
-This page applies to the free tier only.
+This document applies to the free tier only. For instructions on accessing metadata using Cloud Storage, see [Access metadata using Cloud Storage](https://docs.cloud.google.com/assured-open-source-software/docs/access-metadata-using-cloud-storage).
 
 ## Security metadata
 
@@ -206,6 +199,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-05 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-05 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sql/docs/mysql/replication/
 title: About replication in Cloud SQL \u00a0|\u00a0 Cloud SQL for MySQL \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-30T08:39:18.787089+00:00
+fetched_at: 2026-11-06T10:41:48.859430+00:00
 ---
 
 # About replication in Cloud SQL  |  Cloud SQL for MySQL  |  Google Cloud Documentation
@@ -81,7 +81,7 @@ You [connect](https://docs.cloud.google.com/sql/docs/mysql/connect-admin-ip) to 
 
 For information about how to create a read replica, see [ Creating read replicas](https://docs.cloud.google.com/sql/docs/mysql/replication/create-replica). For information about managing a read replica, see [ Managing read replicas](https://docs.cloud.google.com/sql/docs/mysql/replication/manage-replicas).
 
-**Note:** Read replicas don't provide failover capability. To provide failover capability for an instance, see [Configuring an instance for high availability](https://docs.cloud.google.com/sql/docs/mysql/configure-ha).
+**Note:** Read replicas don't provide automatic failover capabilities. To configure automatic in-region failover for an instance during a zonal outage, see [Enable and disable high availability](https://docs.cloud.google.com/sql/docs/mysql/configure-ha). For regional failover and disaster recovery, you can promote a read replica to become a primary instance. For more information, see [Promote replicas for regional migration or disaster recovery](https://docs.cloud.google.com/sql/docs/mysql/replication/cross-region-replicas).
 
 As a best practice, put read replicas in a different zone than the primary instance when you use HA on your primary instance. This practice ensures that read replicas continue to operate when the zone that contains the primary instance has an outage. See the [Overview of high availability](https://docs.cloud.google.com/sql/docs/mysql/high-availability) for more information.
 
@@ -427,6 +427,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-29 UTC.
+Last updated 2026-11-05 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-05 UTC."],[],[]] 

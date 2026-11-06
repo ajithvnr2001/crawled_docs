@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/workload-manager/docs/release-notes/
 title: Workload Manager release notes \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T10:10:50.837919+00:00
+fetched_at: 2026-11-06T10:40:19.155203+00:00
 ---
 
 # Workload Manager release notes  |  Google Cloud Documentation
@@ -39,6 +39,14 @@ For more information, see the following:
   * [Share evaluation findings](https://docs.cloud.google.com/workload-manager/docs/evaluate/create-evaluation#share-findings)
 
 
+
+## July 01, 2026
+
+Feature
+
+**Preview** : You can use Workload Manager to automate cluster configuration validation for self-managed OpenShift clusters that run on Google Cloud.
+
+For more information, see [Automate cluster configuration validation](https://docs.cloud.google.com/openshift-cluster/automate-cluster-config-validation).
 
 ## March 27, 2026
 

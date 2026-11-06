@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/compute/docs/instances/placement-policies-overview/
 title: Placement policies overview \u00a0|\u00a0 Compute Engine \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T23:09:05.461043+00:00
+fetched_at: 2026-11-06T10:23:17.929521+00:00
 ---
 
 # Placement policies overview  |  Compute Engine  |  Google Cloud Documentation
@@ -48,13 +48,24 @@ To learn more, see About spread placement policies in this document.
 
 ### About compact placement policies
 
-When you apply a compact placement policy to compute instances, Compute Engine tries to place the compute instances as close to each other as possible. This placement is subject to the machine type and zone availability of the compute instances, and instance compactness is achieved only on a best-effort basis. If your application is latency-sensitive and requires compute instances to be as close together as possible (maximum compactness) in a zone, then specify a _maximum distance value_ ([Preview](https://cloud.google.com/products/#product-launch-stages)). Lower maximum distance values ensure closer instance placement, but can result in fewer available machines for compute instance placement.
+When you apply a compact placement policy to compute instances, Compute Engine attempts to place the compute instances as close to each other as possible. This placement is subject to the machine type and zone availability of the compute instances, and instance compactness is achieved only on a best-effort basis. If your application is latency-sensitive and requires compute instances to be as close together as possible (maximum compactness) in a zone, then you can specify a _maximum distance value_ ([Preview](https://cloud.google.com/products/#product-launch-stages)).
+
+**Caution** : Compact placement policies that enforce strict physical colocation inherently conflict with compute instance obtainability and capacity assurance. When you restrict capacity to run within a specific physical configuration, such as a low maximum distance value, block, or sub-block, you directly reduce the probability that Compute Engine can allocate those resources.
+
+When you decide whether to specify a maximum distance value, consider the trade-off between strict physical colocation and both compute instance obtainability and capacity assurance:
+
+  * **Unspecified distance** : you prioritize compute instance obtainability and capacity assurance over strict colocation. However, if capacity is constrained, then Compute Engine might place compute instances further apart than your application can tolerate.
+
+  * **Specified distance** : you require closer physical colocation for lower network latency, which directly reduces compute instance obtainability and capacity assurance. If your placement requirements are too strict for the available capacity in a zone, then you might encounter [resource availability errors](https://docs.cloud.google.com/compute/docs/troubleshooting/troubleshooting-resource-availability). To resolve these errors, use a compact placement policy with a higher maximum distance value, such as `3` instead of `1`, or leave the maximum distance value unspecified.
+
+
+
 
 The following table outlines the supported machine series, maximum number of compute instances, and [host maintenance policy](https://docs.cloud.google.com/compute/docs/instances/setting-vm-host-options#settingoptions) for each maximum distance value:
 
 Maximum distance value | Description | Supported machine series | Maximum number of compute instances | Supported host maintenance policy  
 ---|---|---|---|---  
-Unspecified (Not recommended) | Compute Engine makes best-effort attempts to place the compute instances as close to each other as possible, but with no maximum distance between compute instances in the zone. | 
+Unspecified | Compute Engine prioritizes compute instance obtainability and capacity assurance. Compute Engine attempts to place compute instances as close to each other as possible, with no maximum distance guarantee in the zone. If capacity is constrained, then Compute Engine might place compute instances further apart than your application can tolerate. | 
 
   * **Accelerator-optimized machines** : A4X Max, A4X, A4, G4, A3 Ultra, A3 Mega1, A3 High1, A3 Edge1, A2, and G2
   * **Compute-optimized machines** : H4D, H3, C2D, and C2
@@ -214,6 +225,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-05 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-05 UTC."],[],[]] 

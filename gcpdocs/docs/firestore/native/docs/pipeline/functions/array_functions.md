@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/firestore/native/docs/pipeline/functions/array_functions/
 title: Array Functions Reference \u00a0|\u00a0 Firestore in Native mode \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-05T11:08:45.500586+00:00
+fetched_at: 2026-11-06T08:22:56.159430+00:00
 ---
 
 # Array Functions Reference  |  Firestore in Native mode  |  Google Cloud Documentation
@@ -178,7 +178,7 @@ Android
     	)).
     	Execute(ctx)
     
-    [pipeline_snippets_array.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/db12cf239dd4dcddd2c15c703bb21991d4193a8a/firestore/pipeline_snippets_array.go#L85-L90)
+    [pipeline_snippets_array.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/7c21bf1faae9139ce31b1321fa2815e95caff660/firestore/pipeline_snippets_array.go#L85-L90)
 
 ### ARRAY_CONTAINS
 
@@ -293,7 +293,7 @@ Android
     	)).
     	Execute(ctx)
     
-    [pipeline_snippets_array.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/db12cf239dd4dcddd2c15c703bb21991d4193a8a/firestore/pipeline_snippets_array.go#L104-L109)
+    [pipeline_snippets_array.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/7c21bf1faae9139ce31b1321fa2815e95caff660/firestore/pipeline_snippets_array.go#L104-L109)
 
 ### ARRAY_CONTAINS_ALL
 
@@ -436,7 +436,7 @@ Android
     	)).
     	Execute(ctx)
     
-    [pipeline_snippets_array.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/db12cf239dd4dcddd2c15c703bb21991d4193a8a/firestore/pipeline_snippets_array.go#L123-L128)
+    [pipeline_snippets_array.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/7c21bf1faae9139ce31b1321fa2815e95caff660/firestore/pipeline_snippets_array.go#L123-L128)
 
 ### ARRAY_CONTAINS_ANY
 
@@ -576,7 +576,7 @@ Android
     	)).
     	Execute(ctx)
     
-    [pipeline_snippets_array.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/db12cf239dd4dcddd2c15c703bb21991d4193a8a/firestore/pipeline_snippets_array.go#L142-L147)
+    [pipeline_snippets_array.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/7c21bf1faae9139ce31b1321fa2815e95caff660/firestore/pipeline_snippets_array.go#L142-L147)
 
 ### ARRAY_FILTER
 
@@ -749,7 +749,7 @@ Android
     	)).
     	Execute(ctx)
     
-    [pipeline_snippets_array.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/db12cf239dd4dcddd2c15c703bb21991d4193a8a/firestore/pipeline_snippets_array.go#L161-L166)
+    [pipeline_snippets_array.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/7c21bf1faae9139ce31b1321fa2815e95caff660/firestore/pipeline_snippets_array.go#L161-L166)
 
 ### ARRAY_REVERSE
 
@@ -866,7 +866,7 @@ Android
     	)).
     	Execute(ctx)
     
-    [pipeline_snippets_array.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/db12cf239dd4dcddd2c15c703bb21991d4193a8a/firestore/pipeline_snippets_array.go#L180-L185)
+    [pipeline_snippets_array.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/7c21bf1faae9139ce31b1321fa2815e95caff660/firestore/pipeline_snippets_array.go#L180-L185)
 
 ### ARRAY_FIRST
 

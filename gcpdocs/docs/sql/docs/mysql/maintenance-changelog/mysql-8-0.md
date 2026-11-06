@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sql/docs/mysql/maintenance-changelog/mysql-8-0/
 title: MySQL 8.0 maintenance changelog \u00a0|\u00a0 Cloud SQL for MySQL \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-05T11:10:56.206184+00:00
+fetched_at: 2026-11-06T10:28:22.910284+00:00
 ---
 
 # MySQL 8.0 maintenance changelog  |  Cloud SQL for MySQL  |  Google Cloud Documentation

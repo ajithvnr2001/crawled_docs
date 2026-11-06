@@ -1,17 +1,22 @@
 ---
 url: https://docs.cloud.google.com/storage-transfer/docs/create-transfers/agentless/managed-private-network/
-title: Transfer over a Google-managed private network \u00a0|\u00a0 Google Cloud Documentation
+title: Transfer over a Google-managed private network \u00a0|\u00a0 Storage Transfer Service \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-05T00:17:54.710976+00:00
+fetched_at: 2026-11-06T10:53:08.044954+00:00
 ---
 
-# Transfer over a Google-managed private network  |  Google Cloud Documentation
+# Transfer over a Google-managed private network  |  Storage Transfer Service  |  Google Cloud Documentation
 
 > Source: https://docs.cloud.google.com/storage-transfer/docs/create-transfers/agentless/managed-private-network/
 
-  * [ Guides ](https://docs.cloud.google.com/storage-transfer/docs/overview)
+  * [ Home ](https://docs.cloud.google.com/)
+  * [ Documentation ](https://docs.cloud.google.com/docs)
+  * [ Storage ](https://docs.cloud.google.com/docs/storage)
+  * [ Storage Transfer Service ](https://docs.cloud.google.com/storage-transfer/docs/overview)
 
 
+
+Send feedback 
 
 #  Transfer over a Google-managed private network Stay organized with collections  Save and categorize content based on your preferences. 
 
@@ -75,7 +80,7 @@ Before creating your transfer, you must configure IAM and source permissions.
 
 ### Configure IAM permissions
 
-Follow the instructions in [Agentless transfer permissions](https://docs.cloud.google.com/storage-transfer/docs/iam-cloud) to grant the required Google Cloud permissions.
+Follow the instructions in [Configure access to a sink: Cloud Storage](https://docs.cloud.google.com/storage-transfer/docs/sink-cloud-storage) to grant the required Google Cloud permissions on the destination bucket.
 
 ### Configure access to your S3 bucket
 
@@ -276,8 +281,10 @@ If the Google-managed private network does not meet your workload requirements, 
 
 
 
+Send feedback 
+
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-03 UTC.
+Last updated 2026-11-05 UTC.
 
-[[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-05 UTC."],[],[]] 

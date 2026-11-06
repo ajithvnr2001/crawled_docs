@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigtable/docs/samples/bigtable-filters-print-hbase/
 title: Print filters (HBase) \u00a0|\u00a0 Bigtable \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T10:18:45.729529+00:00
+fetched_at: 2026-11-06T12:45:40.307818+00:00
 ---
 
 # Print filters (HBase)  |  Bigtable  |  Google Cloud Documentation

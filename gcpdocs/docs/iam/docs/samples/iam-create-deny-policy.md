@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/iam/docs/samples/iam-create-deny-policy/
 title: Create a deny policy \u00a0|\u00a0 Identity and Access Management (IAM) \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T23:44:45.623413+00:00
+fetched_at: 2026-11-06T08:21:16.779270+00:00
 ---
 
 # Create a deny policy  |  Identity and Access Management (IAM)  |  Google Cloud Documentation
@@ -161,11 +161,11 @@ To learn how to install and use the client library for IAM, see [IAM client libr
 To authenticate to IAM, set up Application Default Credentials. For more information, see [Set up authentication for a local development environment](https://docs.cloud.google.com/docs/authentication/set-up-adc-local-dev-environment). 
     
     
-    import com.google.iam.v2.[CreatePolicyRequest](https://docs.cloud.google.com/java/docs/reference/proto-google-iam-v1/latest/com.google.iam.v2.CreatePolicyRequest.html);
-    import com.google.iam.v2.[DenyRule](https://docs.cloud.google.com/java/docs/reference/proto-google-iam-v1/latest/com.google.iam.v2.DenyRule.html);
+    import com.google.iam.v2.[CreatePolicyRequest](https://docs.cloud.google.com/java/docs/reference/google-iam-policy/latest/com.google.iam.v2.CreatePolicyRequest.html);
+    import com.google.iam.v2.[DenyRule](https://docs.cloud.google.com/java/docs/reference/google-iam-policy/latest/com.google.iam.v2.DenyRule.html);
     import com.google.iam.v2.[PoliciesClient](https://docs.cloud.google.com/java/docs/reference/google-iam-policy/latest/com.google.iam.v2.PoliciesClient.html);
-    import com.google.iam.v2.[Policy](https://docs.cloud.google.com/java/docs/reference/proto-google-iam-v1/latest/com.google.iam.v2.Policy.html);
-    import com.google.iam.v2.[PolicyRule](https://docs.cloud.google.com/java/docs/reference/proto-google-iam-v1/latest/com.google.iam.v2.PolicyRule.html);
+    import com.google.iam.v2.[Policy](https://docs.cloud.google.com/java/docs/reference/google-iam-policy/latest/com.google.iam.v2.Policy.html);
+    import com.google.iam.v2.[PolicyRule](https://docs.cloud.google.com/java/docs/reference/google-iam-policy/latest/com.google.iam.v2.PolicyRule.html);
     import com.google.longrunning.[Operation](https://docs.cloud.google.com/java/docs/reference/proto-google-common-protos/latest/com.google.longrunning.Operation.html);
     import com.google.type.[Expr](https://docs.cloud.google.com/java/docs/reference/proto-google-common-protos/latest/com.google.type.Expr.html);
     import java.io.IOException;
@@ -219,13 +219,13 @@ To authenticate to IAM, set up Application Default Credentials. For more informa
           // Its format is: "policies/{attachmentPoint}/denypolicies/{policyId}"
           String policyParent = String.format("policies/%s/denypolicies", attachmentPoint);
     
-          [DenyRule](https://docs.cloud.google.com/java/docs/reference/proto-google-iam-v1/latest/com.google.iam.v2.DenyRule.html) denyRule =
-              [DenyRule](https://docs.cloud.google.com/java/docs/reference/proto-google-iam-v1/latest/com.google.iam.v2.DenyRule.html).newBuilder()
+          [DenyRule](https://docs.cloud.google.com/java/docs/reference/google-iam-policy/latest/com.google.iam.v2.DenyRule.html) denyRule =
+              [DenyRule](https://docs.cloud.google.com/java/docs/reference/google-iam-policy/latest/com.google.iam.v2.DenyRule.html).newBuilder()
                   // Add one or more principals who should be denied the permissions specified in this
                   // rule.
                   // For more information on allowed values, see:
                   // https://cloud.google.com/iam/docs/principal-identifiers
-                  .[addDeniedPrincipals](https://docs.cloud.google.com/java/docs/reference/proto-google-iam-v1/latest/com.google.iam.v2.DenyRule.Builder.html#com_google_iam_v2_DenyRule_Builder_addDeniedPrincipals_java_lang_String_)("principalSet://goog/public:all")
+                  .[addDeniedPrincipals](https://docs.cloud.google.com/java/docs/reference/google-iam-policy/latest/com.google.iam.v2.DenyRule.Builder.html#com_google_iam_v2_DenyRule_Builder_addDeniedPrincipals_java_lang_String_)("principalSet://goog/public:all")
     
                   // Optionally, set the principals who should be exempted from the
                   // list of denied principals. For example, if you want to deny certain permissions
@@ -237,7 +237,7 @@ To authenticate to IAM, set up Application Default Credentials. For more informa
                   // The permission value is of the format: service_fqdn/resource.action
                   // For the list of supported permissions, see:
                   // https://cloud.google.com/iam/help/deny/supported-permissions
-                  .[addDeniedPermissions](https://docs.cloud.google.com/java/docs/reference/proto-google-iam-v1/latest/com.google.iam.v2.DenyRule.Builder.html#com_google_iam_v2_DenyRule_Builder_addDeniedPermissions_java_lang_String_)("cloudresourcemanager.googleapis.com/projects.delete")
+                  .[addDeniedPermissions](https://docs.cloud.google.com/java/docs/reference/google-iam-policy/latest/com.google.iam.v2.DenyRule.Builder.html#com_google_iam_v2_DenyRule_Builder_addDeniedPermissions_java_lang_String_)("cloudresourcemanager.googleapis.com/projects.delete")
     
                   // Optionally, add the permissions to be exempted from this rule.
                   // Meaning, the deny rule will not be applicable to these permissions.
@@ -245,7 +245,7 @@ To authenticate to IAM, set up Application Default Credentials. For more informa
     
                   // Set the condition which will enforce the deny rule. If this condition is true,
                   // the deny rule will be applicable. Else, the rule will not be enforced.
-                  .[setDenialCondition](https://docs.cloud.google.com/java/docs/reference/proto-google-iam-v1/latest/com.google.iam.v2.DenyRule.Builder.html#com_google_iam_v2_DenyRule_Builder_setDenialCondition_com_google_type_Expr_)(
+                  .[setDenialCondition](https://docs.cloud.google.com/java/docs/reference/google-iam-policy/latest/com.google.iam.v2.DenyRule.Builder.html#com_google_iam_v2_DenyRule_Builder_setDenialCondition_com_google_type_Expr_)(
                       [Expr](https://docs.cloud.google.com/java/docs/reference/proto-google-common-protos/latest/com.google.type.Expr.html).newBuilder()
                           // The expression uses Common Expression Language syntax (CEL).
                           // Here we block access based on tags.
@@ -265,26 +265,26 @@ To authenticate to IAM, set up Application Default Credentials. For more informa
                   .build();
     
           // Add the deny rule and a description for it.
-          [Policy](https://docs.cloud.google.com/java/docs/reference/proto-google-iam-v1/latest/com.google.iam.v2.Policy.html) policy =
-              [Policy](https://docs.cloud.google.com/java/docs/reference/proto-google-iam-v1/latest/com.google.iam.v2.Policy.html).newBuilder()
+          [Policy](https://docs.cloud.google.com/java/docs/reference/google-iam-policy/latest/com.google.iam.v2.Policy.html) policy =
+              [Policy](https://docs.cloud.google.com/java/docs/reference/google-iam-policy/latest/com.google.iam.v2.Policy.html).newBuilder()
                   // Set the deny rule.
-                  .[addRules](https://docs.cloud.google.com/java/docs/reference/proto-google-iam-v1/latest/com.google.iam.v2.Policy.Builder.html#com_google_iam_v2_Policy_Builder_addRules_com_google_iam_v2_PolicyRule_)(
-                      [PolicyRule](https://docs.cloud.google.com/java/docs/reference/proto-google-iam-v1/latest/com.google.iam.v2.PolicyRule.html).newBuilder()
+                  .[addRules](https://docs.cloud.google.com/java/docs/reference/google-iam-policy/latest/com.google.iam.v2.Policy.Builder.html#com_google_iam_v2_Policy_Builder_addRules_com_google_iam_v2_PolicyRule_)(
+                      [PolicyRule](https://docs.cloud.google.com/java/docs/reference/google-iam-policy/latest/com.google.iam.v2.PolicyRule.html).newBuilder()
                           // Set a description for the rule.
                           .setDescription(
                               "block all principals from deleting projects, unless the principal"
                                   + " is a member of project-admins@example.com and the project"
                                   + " being deleted has a tag with the value test")
-                          .[setDenyRule](https://docs.cloud.google.com/java/docs/reference/proto-google-iam-v1/latest/com.google.iam.v2.PolicyRule.Builder.html#com_google_iam_v2_PolicyRule_Builder_setDenyRule_com_google_iam_v2_DenyRule_)(denyRule)
+                          .[setDenyRule](https://docs.cloud.google.com/java/docs/reference/google-iam-policy/latest/com.google.iam.v2.PolicyRule.Builder.html#com_google_iam_v2_PolicyRule_Builder_setDenyRule_com_google_iam_v2_DenyRule_)(denyRule)
                           .build())
                   .build();
     
           // Set the policy resource path, policy rules and a unique ID for the policy.
-          [CreatePolicyRequest](https://docs.cloud.google.com/java/docs/reference/proto-google-iam-v1/latest/com.google.iam.v2.CreatePolicyRequest.html) createPolicyRequest =
-              [CreatePolicyRequest](https://docs.cloud.google.com/java/docs/reference/proto-google-iam-v1/latest/com.google.iam.v2.CreatePolicyRequest.html).newBuilder()
+          [CreatePolicyRequest](https://docs.cloud.google.com/java/docs/reference/google-iam-policy/latest/com.google.iam.v2.CreatePolicyRequest.html) createPolicyRequest =
+              [CreatePolicyRequest](https://docs.cloud.google.com/java/docs/reference/google-iam-policy/latest/com.google.iam.v2.CreatePolicyRequest.html).newBuilder()
                   .setParent(policyParent)
                   .setPolicy(policy)
-                  .[setPolicyId](https://docs.cloud.google.com/java/docs/reference/proto-google-iam-v1/latest/com.google.iam.v2.CreatePolicyRequest.Builder.html#com_google_iam_v2_CreatePolicyRequest_Builder_setPolicyId_java_lang_String_)(policyId)
+                  .[setPolicyId](https://docs.cloud.google.com/java/docs/reference/google-iam-policy/latest/com.google.iam.v2.CreatePolicyRequest.Builder.html#com_google_iam_v2_CreatePolicyRequest_Builder_setPolicyId_java_lang_String_)(policyId)
                   .build();
     
           // Build the create policy request.
@@ -301,8 +301,8 @@ To authenticate to IAM, set up Application Default Credentials. For more informa
           }
     
           // Retrieve the policy name.
-          [Policy](https://docs.cloud.google.com/java/docs/reference/proto-google-iam-v1/latest/com.google.iam.v2.Policy.html) response = policiesClient.getPolicy(String.format("%s/%s", policyParent, policyId));
-          String policyName = response.[getName](https://docs.cloud.google.com/java/docs/reference/proto-google-iam-v1/latest/com.google.iam.v2.Policy.html#com_google_iam_v2_Policy_getName__)();
+          [Policy](https://docs.cloud.google.com/java/docs/reference/google-iam-policy/latest/com.google.iam.v2.Policy.html) response = policiesClient.getPolicy(String.format("%s/%s", policyParent, policyId));
+          String policyName = response.[getName](https://docs.cloud.google.com/java/docs/reference/google-iam-policy/latest/com.google.iam.v2.Policy.html#com_google_iam_v2_Policy_getName__)();
           System.out.println(
               "Created the deny policy: " + policyName.substring(policyName.lastIndexOf("/") + 1));
         }

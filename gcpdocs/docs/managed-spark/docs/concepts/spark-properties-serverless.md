@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/managed-spark/docs/concepts/spark-properties-serverless/
 title: Spark properties \u00a0|\u00a0 Managed Service for Apache Spark \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-06T05:53:30.076788+00:00
+fetched_at: 2026-11-06T11:11:35.841466+00:00
 ---
 
 # Spark properties  |  Managed Service for Apache Spark  |  Google Cloud Documentation

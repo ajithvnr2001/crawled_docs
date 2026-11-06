@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/monitoring/api/metrics_gcp/
 title: Google Cloud metrics overview \u00a0|\u00a0 Cloud Monitoring \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-05T10:54:09.863571+00:00
+fetched_at: 2026-11-06T10:19:43.023743+00:00
 ---
 
 # Google Cloud metrics overview  |  Cloud Monitoring  |  Google Cloud Documentation
@@ -76,6 +76,7 @@ blockchainnodeengine | Blockchain Node Engine | [Link to metrics](https://docs.c
 certificatemanager | Certificate Manager | [Link to metrics](https://docs.cloud.google.com/monitoring/api/metrics_gcp_c#gcp-certificatemanager)  
 ces | Gemini Enterprise for Customer Experience | [Link to metrics](https://docs.cloud.google.com/monitoring/api/metrics_gcp_c#gcp-ces)  
 chronicle | Google Security Operations | [Link to metrics](https://docs.cloud.google.com/monitoring/api/metrics_gcp_c#gcp-chronicle)  
+claud | Anthropic's Claude | [Link to metrics](https://docs.cloud.google.com/monitoring/api/metrics_gcp_c#gcp-claude)  
 cloudaicompanion | Gemini | [Link to metrics](https://docs.cloud.google.com/monitoring/api/metrics_gcp_c#gcp-cloudaicompanion)  
 cloudbuild | Cloud Build | [Link to metrics](https://docs.cloud.google.com/monitoring/api/metrics_gcp_c#gcp-cloudbuild)  
 clouddeploy | Cloud Deploy | [Link to metrics](https://docs.cloud.google.com/monitoring/api/metrics_gcp_c#gcp-clouddeploy)  
@@ -228,6 +229,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-02 UTC.
+Last updated 2026-11-05 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-02 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-05 UTC."],[],[]] 

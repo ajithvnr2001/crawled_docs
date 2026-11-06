@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/kubernetes-engine/docs/how-to/hardening-your-cluster/
 title: Best practices for hardening your cluster's security \u00a0|\u00a0 GKE security \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-01T05:44:09.811495+00:00
+fetched_at: 2026-11-06T12:56:45.098621+00:00
 ---
 
 # Best practices for hardening your cluster's security  |  GKE security  |  Google Cloud Documentation
@@ -226,17 +226,11 @@ To enforce this recommendation in your organization, use the `constraints/contai
 
 ### Disable node self-registration
 
-**Preview**
+**Recommended** : use a trusted control plane component to create `Node` objects instead of the `kubelet` for clusters that use Shielded GKE Nodes.
 
-This feature is subject to the "Pre-GA Offerings Terms" in the General Service Terms section of the [Service Specific Terms](https://docs.cloud.google.com/terms/service-terms#1). Pre-GA features are available "as is" and might have limited support. For more information, see the [launch stage descriptions](https://cloud.google.com/products/#product-launch-stages). 
+When the `kubelet` process in a new GKE node registers the node with the control plane after the control plane returns an approved CertificateSigningRequest, this self-registration workflow creates a security risk where a compromised `kubelet` could register new nodes with malicious taints or labels, such as in [CVE-2025-5187](https://nvd.nist.gov/vuln/detail/CVE-2025-5187).
 
-**Recommended** : use a trusted control plane component to create `Node` objects instead of the `kubelet`.
-
-By default, the `kubelet` process in a new GKE node registers the node with the control plane after the control plane returns an approved CertificateSigningRequest. This self-registration workflow creates a security risk where a compromised `kubelet` could register new nodes with malicious taints or labels, such as in [CVE-2025-5187](https://nvd.nist.gov/vuln/detail/CVE-2025-5187).
-
-If you use Shielded GKE Nodes, which is enabled by default in all GKE clusters, you can prevent the `kubelet` from registering nodes. Instead, a trusted control plane component creates new `Node` objects in the Kubernetes API after the control plane returns an approved CertificateSigningRequest. GKE rejects any attempt by the `kubelet` to create `Node` objects.
-
-For more information, see [control plane node creation](https://docs.cloud.google.com/kubernetes-engine/security/control-plane-node-creation).
+If you use Shielded GKE Nodes in new clusters that run GKE version 1.37.1-gke.3020000 and later, a trusted control plane component registers Node objects instead of the `kubelet` process, which mitigates this risk. Clusters that were created in earlier versions continue to use `kubelet` self-registration, even after you upgrade the cluster. To protect these clusters, enable control plane node creation manually. For more information, see [control plane node creation](https://docs.cloud.google.com/kubernetes-engine/security/control-plane-node-creation).
 
 ## Access control
 
@@ -663,6 +657,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-30 UTC.
+Last updated 2026-11-05 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-05 UTC."],[],[]] 

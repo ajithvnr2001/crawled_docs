@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/java/getting-started/getting-started-with-google-auth-library/
 title: Get started with Google Auth Library \u00a0|\u00a0 Java \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T19:53:50.871006+00:00
+fetched_at: 2026-11-06T10:22:00.253896+00:00
 ---
 
 # Get started with Google Auth Library  |  Java  |  Google Cloud Documentation
@@ -390,7 +390,14 @@ To access Google Cloud resources from an identity provider that supports [OpenID
 
 As part of that process, you will generate a credential configuration file using the [Google Cloud CLI](https://cloud.google.com/cli/). This file contains non-sensitive metadata that instructs the library how to retrieve external subject tokens and exchange them for service account access tokens.
 
-For OIDC providers, the Auth library can retrieve OIDC tokens from a local file (file-sourced credentials), a local server (URL-sourced credentials), or a X.509 certificate and private-key combination (X.509 certificate-sourced credentials).
+For OIDC providers, the Auth library can retrieve OIDC tokens from any of the following sources:
+
+  * A local file (file-sourced credentials)
+  * A local server (URL-sourced credentials)
+  * An X.509 certificate and private key (X.509 certificate-sourced credentials)
+  * A local JSON file containing both a subject token and an actor token for actor delegation (with optional X.509 client certificate binding)
+
+
 
 ### File-sourced credentials
 
@@ -538,6 +545,220 @@ This command results in:
 
 You can now use the Auth library to call Google Cloud resources with X.509 certificate-sourced credentials.
 
+### Access resources with actor delegation
+
+**Preview**
+
+This feature is subject to the "Pre-GA Offerings Terms" in the General Service Terms section of the [Service Specific Terms](https://docs.cloud.google.com/terms/service-terms#1). Pre-GA features are available "as is" and might have limited support. For more information, see the [launch stage descriptions](https://cloud.google.com/products/#product-launch-stages). 
+
+For workloads that use [OIDC workload identity federation](https://docs.cloud.google.com/iam/docs/workload-identity-federation-with-other-providers) with actor delegation (as defined in [RFC 8693: OAuth 2.0 Token Exchange](https://datatracker.ietf.org/doc/html/rfc8693)), the Auth library exchanges both a third-party **subject token** and a third-party **actor token** from a local JSON file. The subject token represents the principal identity for the request, and the actor token represents the workload or service acting on the subject's behalf.
+
+You can use actor delegation in two modes:
+
+  * **Standard actor delegation (without certificate binding):** The Auth library exchanges the subject token and actor token over standard TLS with the Security Token Service (`sts.googleapis.com`) and, if configured, impersonates a service account with `iamcredentials.googleapis.com`.
+  * **Certificate-bound tokens with actor delegation (mTLS):** The Auth library presents an X.509 client certificate over mutual TLS (mTLS) during the token exchange with `sts.mtls.googleapis.com` (and, if configured, service account impersonation with `iamcredentials.mtls.googleapis.com`). Google Cloud verifies that the SHA-256 certificate fingerprint in the token's confirmation (`cnf.x5t#S256`) claim matches the leaf client certificate presented in the mTLS handshake and issues a short-lived access token cryptographically bound to that certificate.
+
+**Note:** Cloud Client Libraries for Java (GAPIC clients built on `gax`) support certificate-bound tokens with actor delegation. These libraries automatically negotiate mTLS and present the configured client certificate when calling Google Cloud APIs. If you use low-level HTTP clients directly (such as `NetHttpTransport` with `HttpCredentialsAdapter`), you must manually configure the underlying HTTP transport with the same X.509 client certificate and target `.mtls.googleapis.com` endpoints.
+
+#### Before you begin
+
+Before configuring the Java Auth library, ensure that you have:
+
+  1. An [OIDC workload identity pool and provider](https://docs.cloud.google.com/iam/docs/workload-identity-federation-with-other-providers) configured for identity delegation (with the actor provider's full resource name authorized in the subject provider's `--actor-providers` configuration) and, optionally, [Context-Aware Access policy enforcement](https://docs.cloud.google.com/access-context-manager/docs/configure_cba_for_workloads) when using certificate-bound tokens.
+  2. A local background process that continuously refreshes a JSON file containing both the subject token and the actor token before expiration:
+         
+         {
+           "subject_token": "<var>SUBJECT_JWT_TOKEN</var>",
+           "actor_token": "<var>ACTOR_JWT_TOKEN</var>"
+         }
+         
+
+Ensure that the tokens meet the following requirements:
+
+     * **Subject token (`may_act` claim):** The subject token must include a `may_act` claim authorizing the actor's `sub` (and optional `iss`) claim:
+           
+           "may_act": {
+              "sub": "<var>ACTOR_SUBJECT</var>",
+              "iss": "<var>ACTOR_ISSUER</var>"
+            }
+            ```
+           
+
+     * **Actor token (`aud`, `sub`, and `iss` claims):** The actor token's `aud` claim must be set to the actor provider's full resource URI (`//iam.googleapis.com/projects/<var>PROJECT_NUMBER</var>/locations/global/workloadIdentityPools/<var>POOL_ID</var>/providers/<var>ACTOR_PROVIDER_ID</var>`), and its `sub` (and `iss`) claim must match the values declared in the subject token's `may_act` claim.
+
+     * **Confirmation (`cnf`) claim _(for certificate-bound tokens only)_ :** The JWT payload of the bound token must include a `cnf` claim containing the base64url-encoded SHA-256 thumbprint (`x5t#S256`) of the workload's DER-encoded X.509 leaf certificate. If the subject token is certificate-bound, the actor token must also be certificate-bound, and the client certificate presented in the mTLS handshake must match the actor token's `cnf.x5t#S256` thumbprint:
+           
+           "cnf": {
+              "x5t#S256": "<var>BASE64URL_SHA256_CERT_FINGERPRINT</var>"
+            }
+            ```
+           
+
+  3. _(For certificate-bound tokens only)_ A PEM-encoded X.509 leaf certificate file and a matching unencrypted PKCS#8 private key file on disk.
+
+
+
+
+#### Create the configuration files
+
+##### Standard actor delegation (without certificate binding)
+
+Create the credential configuration file (`config.json`) referencing the local JSON token file and the field names for both the subject token and the actor token:
+    
+    
+    {
+      "universe_domain": "googleapis.com",
+      "type": "external_account",
+      "audience": "//iam.googleapis.com/projects/<var>PROJECT_NUMBER</var>/locations/global/workloadIdentityPools/<var>POOL_ID</var>/providers/<var>OIDC_PROVIDER_ID</var>",
+      "subject_token_type": "urn:ietf:params:oauth:token-type:jwt",
+      "actor_token_type": "urn:ietf:params:oauth:token-type:jwt",
+      "token_url": "https://sts.googleapis.com/v1/token",
+      "service_account_impersonation_url": "https://iamcredentials.googleapis.com/v1/projects/-/serviceAccounts/<var>SERVICE_ACCOUNT_EMAIL</var>:generateAccessToken",
+      "credential_source": {
+        "file": "<var>PATH_TO_TOKENS_JSON</var>",
+        "format": {
+          "type": "json",
+          "subject_token_field_name": "<var>SUBJECT_TOKEN_FIELD_NAME</var>",
+          "actor_token_field_name": "<var>ACTOR_TOKEN_FIELD_NAME</var>"
+        }
+      }
+    }
+    
+
+##### Certificate-bound tokens with actor delegation (mTLS)
+
+To configure certificate-bound tokens with actor delegation, create two JSON configuration files:
+
+  * **Certificate configuration file (`certificate_config.json`):** Specifies the paths for the workload's X.509 leaf certificate and private key.
+  * **Credential configuration file (`config.json`):** Specifies the audience for the workload identity pool provider, `.mtls.googleapis.com` endpoints, the path to the JSON token file and field names for both the subject token and actor token, and the reference to the certificate configuration.
+
+
+  1. Create the certificate configuration file at the default Google Cloud CLI configuration path (`~/.config/gcloud/certificate_config.json` on Linux and macOS, or `%APPDATA%\gcloud\certificate_config.json` on Windows), or at a custom path:
+         
+         {
+           "cert_configs": {
+             "workload": {
+               "cert_path": "<var>PATH_TO_CERTIFICATE</var>",
+               "key_path": "<var>PATH_TO_PRIVATE_KEY</var>"
+             }
+           }
+         }
+         
+
+Replace the following:
+
+     * **`PATH_TO_CERTIFICATE`:** the path to your PEM-encoded leaf X.509 certificate.
+     * **`PATH_TO_PRIVATE_KEY`:** the path to the corresponding PEM-encoded private key.
+  2. Create the primary credential configuration file (`config.json`):
+         
+         {
+           "universe_domain": "googleapis.com",
+           "type": "external_account",
+           "audience": "//iam.googleapis.com/projects/<var>PROJECT_NUMBER</var>/locations/global/workloadIdentityPools/<var>POOL_ID</var>/providers/<var>OIDC_PROVIDER_ID</var>",
+           "subject_token_type": "urn:ietf:params:oauth:token-type:jwt",
+           "actor_token_type": "urn:ietf:params:oauth:token-type:jwt",
+           "token_url": "https://sts.mtls.googleapis.com/v1/token",
+           "service_account_impersonation_url": "https://iamcredentials.mtls.googleapis.com/v1/projects/-/serviceAccounts/<var>SERVICE_ACCOUNT_EMAIL</var>:generateAccessToken",
+           "credential_source": {
+             "file": "<var>PATH_TO_TOKENS_JSON</var>",
+             "format": {
+               "type": "json",
+               "subject_token_field_name": "<var>SUBJECT_TOKEN_FIELD_NAME</var>",
+               "actor_token_field_name": "<var>ACTOR_TOKEN_FIELD_NAME</var>"
+             },
+             "certificate": {
+               "use_default_certificate_config": true
+             }
+           }
+         }
+         
+
+If you stored `certificate_config.json` at a custom path instead of the default Google Cloud CLI location, replace `"use_default_certificate_config": true` in the `certificate` block with `"certificate_config_location": "/custom/path/certificate_config.json"`.
+
+
+
+
+In `config.json` (for either mode), replace the following:
+
+  * **`PROJECT_NUMBER`:** the Google Cloud project number.
+  * **`POOL_ID`:** the workload identity pool ID.
+  * **`OIDC_PROVIDER_ID`:** the OIDC subject provider ID.
+  * **`SERVICE_ACCOUNT_EMAIL`:** optional. The email address of the service account to impersonate. If you use direct resource access instead of service account impersonation, omit the `service_account_impersonation_url` field.
+  * **`PATH_TO_TOKENS_JSON`:** the path to the local JSON file containing both the subject token and the actor token.
+  * **`SUBJECT_TOKEN_FIELD_NAME`:** the JSON key in `PATH_TO_TOKENS_JSON` that contains the subject token (for example, `subject_token`).
+  * **`ACTOR_TOKEN_FIELD_NAME`:** the JSON key in `PATH_TO_TOKENS_JSON` that contains the actor token (for example, `actor_token`). This key must differ from `SUBJECT_TOKEN_FIELD_NAME`.
+
+
+
+#### Configure environment variables and call Google Cloud APIs
+
+  1. Set `GOOGLE_APPLICATION_CREDENTIALS` to point to your credential configuration file:
+         
+         export GOOGLE_APPLICATION_CREDENTIALS=/path/to/config.json
+         
+
+When using **certificate-bound tokens** , also set `GOOGLE_API_USE_CLIENT_CERTIFICATE=true` to enable client certificate mTLS transport in the Cloud Client Libraries:
+         
+         export GOOGLE_API_USE_CLIENT_CERTIFICATE=true
+         
+
+If you stored `certificate_config.json` at a custom location, then set `GOOGLE_API_CERTIFICATE_CONFIG`:
+         
+         export GOOGLE_API_CERTIFICATE_CONFIG=/custom/path/certificate_config.json
+         
+
+  2. Initialize a Google Cloud client library using Application Default Credentials. The client library automatically uses `IdentityPoolCredentials` to exchange the subject and actor tokens (and presents the workload client certificate over mTLS when certificate binding is configured):
+         
+         import com.google.cloud.pubsub.v1.[TopicAdminClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-pubsub/latest/com.google.cloud.pubsub.v1.TopicAdminClient.html);
+         import com.google.pubsub.v1.[ProjectName](https://docs.cloud.google.com/java/docs/reference/google-cloud-pubsub/latest/com.google.pubsub.v1.ProjectName.html);
+         import com.google.pubsub.v1.[Topic](https://docs.cloud.google.com/java/docs/reference/google-cloud-pubsub/latest/com.google.pubsub.v1.Topic.html);
+         
+         public class ActorDelegationExample {
+           public static void main(String[] args) throws Exception {
+             String projectId = "your-project-id";
+         
+             // TopicAdminClient automatically detects GOOGLE_APPLICATION_CREDENTIALS
+             // and uses mTLS when GOOGLE_API_USE_CLIENT_CERTIFICATE=true is set.
+             try ([TopicAdminClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-pubsub/latest/com.google.cloud.pubsub.v1.TopicAdminClient.html) topicAdminClient = [TopicAdminClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-pubsub/latest/com.google.cloud.pubsub.v1.TopicAdminClient.html).create()) {
+               for ([Topic](https://docs.cloud.google.com/java/docs/reference/google-cloud-pubsub/latest/com.google.pubsub.v1.Topic.html) topic :
+                   topicAdminClient.listTopics([ProjectName](https://docs.cloud.google.com/java/docs/reference/google-cloud-pubsub/latest/com.google.pubsub.v1.ProjectName.html).of(projectId)).iterateAll()) {
+                 System.out.println(topic.getName());
+               }
+             }
+           }
+         }
+         
+
+
+
+
+#### Token and certificate rotation
+
+When your background process rotates tokens (and, for certificate-bound tokens, the workload's X.509 leaf certificate and private key) on disk, keep the following behaviors and requirements in mind:
+
+  * **Atomic updates:** The Auth library reads both the subject token and actor token from the JSON token file in a single read per refresh. Update the JSON token file atomically (for example, by writing to a temporary file and renaming it) so the subject token and actor token stay synchronized. When using certificate-bound tokens, update the certificate, private key, and JSON token file atomically so the `cnf.x5t#S256` thumbprint in the token file stays synchronized with the X.509 certificate on disk.
+  * **Per-cycle certificate pinning _(certificate-bound tokens)_ :** When `IdentityPoolCredentials` refreshes an access token over mTLS, it snapshots the X.509 key store at the start of the refresh cycle and uses the same client certificate across both the Security Token Service `exchangeToken` request and (if configured) the Service Account Credentials API `generateAccessToken` impersonation request.
+  * **Automatic reload on`401 Unauthorized` _(certificate-bound tokens)_ :** If the certificate rotates and an mTLS request returns `401 Unauthorized`, the Auth library automatically reloads the X.509 certificate and private key from disk and retries the token refresh once.
+
+
+
+#### Troubleshoot actor delegation
+
+The following table lists common errors and resolutions for actor delegation:
+
+Error or Exception | Cause | Resolution  
+---|---|---  
+`IllegalArgumentException: Actor tokens are only supported for JSON-formatted credential sources.` | `credential_source.format.type` is missing or set to `text` while `actor_token_field_name` is specified. | Set `credential_source.format.type` to `"json"` and specify both `subject_token_field_name` and `actor_token_field_name`.  
+`IllegalArgumentException: The actor_token_field_name must not be empty.` | `actor_token_field_name` in `credential_source.format` is an empty string (`""`). | Provide a non-empty JSON field name for `actor_token_field_name`, or remove the field if actor delegation isn't used.  
+`IllegalArgumentException: The actor_token_field_name must differ from the subject_token_field_name.` | `actor_token_field_name` and `subject_token_field_name` are set to the same JSON key. | Use distinct JSON field names for the subject token and actor token in your token file and `config.json`.  
+`IllegalArgumentException: An actorTokenType must be specified when an actorTokenSupplier is configured.` (or vice versa) | Only one of `actor_token_type` or `actor_token_field_name` is present in `config.json`. | Specify both `"actor_token_type": "urn:ietf:params:oauth:token-type:jwt"` and `credential_source.format.actor_token_field_name`.  
+`IOException: Invalid token field name. No token was found for field: FIELD_NAME` | The JSON file at `credential_source.file` does not contain the configured `subject_token_field_name` or `actor_token_field_name` key, or its value is `null`. | Verify that your token refresh process writes both keys to the JSON file.  
+`IOException: Invalid token field value. Empty token was found for field: FIELD_NAME` | The configured `subject_token_field_name` or `actor_token_field_name` key in the JSON token file is an empty or whitespace-only string. | Verify that your token refresh process populates both fields with non-empty JWT strings.  
+`IOException: Token field value for FIELD_NAME must be a String...` | The value at `subject_token_field_name` or `actor_token_field_name` in the JSON token file is a JSON object, array, number, or boolean instead of a string. | Ensure both token fields contain serialized JWT strings (`"eyJ..."`).  
+`RuntimeException: Failed to initialize mTLS transport for file credential source due to certificate configuration error.` | The SDK couldn't load or parse `certificate_config.json`, the X.509 certificate at `cert_path`, or the private key at `key_path`. | Verify that `certificate_config.json` exists at the default path (or `GOOGLE_API_CERTIFICATE_CONFIG`), and that `cert_path` and `key_path` point to valid, readable PEM files.  
+`400 Bad Request` / `invalid_request` from `sts.mtls.googleapis.com` | The `cnf.x5t#S256` fingerprint in the token does not match the client certificate presented during the mTLS handshake. | Verify that the `x5t#S256` value is the base64url-encoded SHA-256 hash of the DER-encoded leaf certificate in `certificate_config.json`.  
+`401 Unauthorized` or `403 Forbidden` when calling Google Cloud APIs after token exchange succeeds | Downstream client library did not establish mTLS or used a different certificate than the one bound to the access token. | Verify that `export GOOGLE_API_USE_CLIENT_CERTIFICATE=true` is set and (if using a custom certificate config path) `GOOGLE_API_CERTIFICATE_CONFIG` points to the same `certificate_config.json` file referenced by `config.json`.  
+  
 ### Use executable-sourced credentials with OIDC and SAML
 
 For executable-sourced credentials, a local executable is used to retrieve the third-party token. The executable must provide a valid, unexpired OIDC ID token or SAML assertion in JSON format to `stdout`.
@@ -1138,6 +1359,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-27 UTC.
+Last updated 2026-11-05 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-05 UTC."],[],[]] 

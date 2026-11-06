@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-cx/agent-assist/build-your-own-genai-assist/
 title: Build your own GenAI assist \u00a0|\u00a0 Agent Assist \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T16:56:20.128357+00:00
+fetched_at: 2026-11-06T13:12:15.376531+00:00
 ---
 
 # Build your own GenAI assist  |  Agent Assist  |  Google Cloud Documentation
@@ -31,7 +31,7 @@ Build your own GenAI assist lets you create a text generator and integrate it wi
 
 The text generator requires the following inputs:
 
-  * **Instruction** : A text to describe the task you want the text generator to perform. In Vertex AI the instruction is called a [prompt](https://docs.cloud.google.com/vertex-ai/docs/generative-ai/learn/introduction-prompt-design).
+  * **Instruction** : A text to describe the task you want the text generator to perform. In Vertex AI the instruction is called a [prompt](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/prompts/introduction-prompt-design).
 
   * **Model Options** : The model choice and settings needed for optimal model performance, such as temperature, output token limit, TopK, and TopP. The generator outputs are limited by these settings. You can choose a model and set the model options when you create a generator by clicking **Model Options** , or you can use the default settings. In Vertex AI, the model options are called [parameter values](https://docs.cloud.google.com/vertex-ai/docs/generative-ai/model-reference/text).
 
@@ -685,6 +685,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-05 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-05 UTC."],[],[]] 

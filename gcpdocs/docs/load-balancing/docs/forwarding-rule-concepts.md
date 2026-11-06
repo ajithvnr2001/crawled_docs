@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/load-balancing/docs/forwarding-rule-concepts/
 title: Forwarding rules overview \u00a0|\u00a0 Cloud Load Balancing \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-03T09:54:20.463821+00:00
+fetched_at: 2026-11-06T13:46:30.319355+00:00
 ---
 
 # Forwarding rules overview  |  Cloud Load Balancing  |  Google Cloud Documentation
@@ -51,7 +51,7 @@ Internal forwarding rules are used by the following Google Cloud load balancers:
 
 ### Internal Application Load Balancer
 
-The internal Application Load Balancer supports IPv4 and IPv6 ([Preview](https://cloud.google.com/products#product-launch-stages)) traffic using either the HTTP, HTTPS, or HTTP/2 protocols.
+The internal Application Load Balancer supports IPv4 and IPv6 traffic using either the HTTP, HTTPS, or HTTP/2 protocols.
 
 The scope of the forwarding rule depends on the type of load balancer:
 
@@ -78,7 +78,7 @@ For more information about internal Application Load Balancers, see the followin
 
 ### Internal proxy Network Load Balancer
 
-With an internal proxy Network Load Balancer, the supported traffic types are IPv4 and IPv6 ([Preview](https://cloud.google.com/products#product-launch-stages)), and the supported protocol is TCP.
+With an internal proxy Network Load Balancer, the supported traffic types are IPv4 and IPv6, and the supported protocol is TCP.
 
 The scope of the forwarding rule depends on the type of load balancer:
 
@@ -156,7 +156,7 @@ In an external Application Load Balancer, a forwarding rule points to a target H
 
 IP address and forwarding rule requirements change depending on the Network Service Tier:
 
-  * **In Premium Tier, global external Application Load Balancers and classic Application Load Balancers** use a global external IP address, which can be either IPv4 or IPv6 ([Preview](https://cloud.google.com/products#product-launch-stages)), and a global external forwarding rule. You can provide a globally accessible application that directs end users to backends in the closest region and distributes traffic among multiple regions. Because a global external forwarding rule uses a single external IP address, you don't need to maintain separate DNS records in different regions or wait for DNS changes to propagate.
+  * **In Premium Tier, global external Application Load Balancers and classic Application Load Balancers** use a global external IP address, which can be either IPv4 or IPv6, and a global external forwarding rule. You can provide a globally accessible application that directs end users to backends in the closest region and distributes traffic among multiple regions. Because a global external forwarding rule uses a single external IP address, you don't need to maintain separate DNS records in different regions or wait for DNS changes to propagate.
 
 You can have two different global external IP addresses pointing to the same global external Application Load Balancer. For example, in Premium Tier, the global external IP address for one forwarding rule can be IPv4, and the global external IP address for a second forwarding rule can be IPv6. Both forwarding rules can point to the same target proxy. As a result, you can provide both an IPv4 and an IPv6 address for the same external Application Load Balancer. For more information, see the [IPv6 termination](https://docs.cloud.google.com/load-balancing/docs/ipv6) documentation.
 
@@ -191,7 +191,7 @@ IP address and forwarding rule requirements change depending on the Network Serv
 
 It is possible to have two different global external IP addresses pointing to the same external proxy Network Load Balancer. For example, in Premium Tier, the global external IP address for one forwarding rule can be IPv4, and the global external IP address for a second forwarding rule can be IPv6. Both forwarding rules can point to the same target proxy. As a result, you can provide both an IPv4 and an IPv6 address for the same external proxy Network Load Balancer. For more information, see the [IPv6 termination](https://docs.cloud.google.com/load-balancing/docs/ipv6) documentation.
 
-  * **In Premium Tier, regional external proxy Network Load Balancers** use a regional external IPv4 or IPv6 ([Preview](https://cloud.google.com/products#product-launch-stages)) address and a regional external forwarding rule.
+  * **In Premium Tier, regional external proxy Network Load Balancers** use a regional external IPv4 or IPv6 address and a regional external forwarding rule.
 
   * **In Standard Tier, regional external proxy Network Load Balancers and classic proxy Network Load Balancers** use a regional external IPv4 or IPv6 ([Preview](https://cloud.google.com/products#product-launch-stages)) address and a regional external forwarding rule. A load balancer in Standard Tier can only distribute traffic to backends within a single region.
 
@@ -338,15 +338,15 @@ Standard Tier: Regional external IPv4 address and forwarding rule | Yes, optiona
 Regional external Application Load Balancer  
   
 EXTERNAL_MANAGED  | Target HTTP proxy  
-Target HTTPS proxy | External | Regional | Premium Tier or Standard Tier | Yes, optional | External IPv6 addresses are supported in Premium Tier and Standard Tier ([Preview](https://cloud.google.com/products#product-launch-stages))  
+Target HTTPS proxy | External | Regional | Premium Tier or Standard Tier | Yes, optional | External IPv6 addresses are supported in Premium Tier  
 Cross-region internal Application Load Balancer  
   
 INTERNAL_MANAGED | Target HTTP proxy  
-Target HTTPS proxy | Internal | Regional | Premium Tier | Yes, optional | Global forwarding rule is configured with a regional IPv4 or IPv6 ([Preview](https://cloud.google.com/products#product-launch-stages)) address within the range of the associated regional subnet. This is different from the global external Application Load Balancer where the global forwarding rule has a global anycast IP address. For IPv6 address requirements, see [IPv6 address format](https://docs.cloud.google.com/load-balancing/docs/ipv6#ipv6-address-format).   
+Target HTTPS proxy | Internal | Regional | Premium Tier | Yes, optional | Global forwarding rule is configured with a regional IPv4 or IPv6 address within the range of the associated regional subnet. This is different from the global external Application Load Balancer where the global forwarding rule has a global anycast IP address. For IPv6 address requirements, see [IPv6 address format](https://docs.cloud.google.com/load-balancing/docs/ipv6#ipv6-address-format).   
 Regional internal Application Load Balancer  
   
 INTERNAL_MANAGED | Target HTTP proxy  
-Target HTTPS proxy | Internal | Regional | Premium Tier | Yes, optional | Forwarding rule address must be within the primary IPv4 address range of the associated subnet. For IPv6 address requirements, see [IPv6 address format](https://docs.cloud.google.com/load-balancing/docs/ipv6#ipv6-address-format). ([Preview](https://cloud.google.com/products#product-launch-stages))  
+Target HTTPS proxy | Internal | Regional | Premium Tier | Yes, optional | Forwarding rule address must be within the primary IPv4 address range of the associated subnet. For IPv6 address requirements, see [IPv6 address format](https://docs.cloud.google.com/load-balancing/docs/ipv6#ipv6-address-format).   
 Global external proxy Network Load Balancer  
   
 EXTERNAL_MANAGED | Target SSL proxy  
@@ -359,13 +359,13 @@ Target TCP proxy | External | Regional or global, matching the forwarding rule |
 Standard Tier: Regional external IPv4 address and forwarding rule | Yes, optional | IPv6 available with a global external address (Premium Tier)  
 Regional external proxy Network Load Balancer  
   
-EXTERNAL_MANAGED | Target TCP proxy | External | Regional | Premium Tier or Standard Tier | Yes, optional | External IPv6 addresses are supported in Premium Tier and Standard Tier ([Preview](https://cloud.google.com/products#product-launch-stages))  
+EXTERNAL_MANAGED | Target TCP proxy | External | Regional | Premium Tier or Standard Tier | Yes, optional | External IPv6 addresses are supported in Premium Tier  
 Regional internal proxy Network Load Balancer  
   
-INTERNAL_MANAGED | Target TCP proxy | Internal | Regional | Premium Tier | Yes, optional | Forwarding rule address must be within the primary IPv4 address range of the associated subnet. For IPv6 address requirements, see [IPv6 address format](https://docs.cloud.google.com/load-balancing/docs/ipv6#ipv6-address-format). ([Preview](https://cloud.google.com/products#product-launch-stages))  
+INTERNAL_MANAGED | Target TCP proxy | Internal | Regional | Premium Tier | Yes, optional | Forwarding rule address must be within the primary IPv4 address range of the associated subnet. For IPv6 address requirements, see [IPv6 address format](https://docs.cloud.google.com/load-balancing/docs/ipv6#ipv6-address-format).   
 Cross-region internal proxy Network Load Balancer  
   
-INTERNAL_MANAGED | Target TCP proxy | Internal | Regional | Premium Tier | Yes, optional | Forwarding rule address must be within the primary IPv4 address range of the associated subnet. For IPv6 address requirements, see [IPv6 address format](https://docs.cloud.google.com/load-balancing/docs/ipv6#ipv6-address-format). ([Preview](https://cloud.google.com/products#product-launch-stages))  
+INTERNAL_MANAGED | Target TCP proxy | Internal | Regional | Premium Tier | Yes, optional | Forwarding rule address must be within the primary IPv4 address range of the associated subnet. For IPv6 address requirements, see [IPv6 address format](https://docs.cloud.google.com/load-balancing/docs/ipv6#ipv6-address-format).   
 Global external passthrough Network Load Balancer  
   
 EXTERNAL_PASSTHROUGH | Backend service  
@@ -588,6 +588,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-02 UTC.
+Last updated 2026-11-06 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-02 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-06 UTC."],[],[]] 

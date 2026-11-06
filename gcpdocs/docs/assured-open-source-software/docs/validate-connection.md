@@ -1,22 +1,8 @@
 ---
 url: https://docs.cloud.google.com/assured-open-source-software/docs/validate-connection/
 title: Validate your connection \u00a0|\u00a0 Assured Open Source Software \u00a0|\u00a0 Google Cloud Documentation
-method: httpx+scrapegraph (scrapling: scrapling status 429 | crawl4ai: crawl4ai failed: Unexpected error in _crawl_web at line 1299 in create_browser_context (../../../../usr/local/lib/python3.10/dist-packages/crawl4ai/browser_manager.py):
-Error: Browser is not available. It may have been closed, crashed, or not yet started. Ensure the browser is running before creating new contexts.
-
-Code context:
-1294                   raise RuntimeError(
-1295                       "Cannot create new browser contexts when using "
-1296                       "use_persistent_context=True. Persistent context uses a "
-1297                       "single shared context."
-1298                   )
-1299 →             raise RuntimeError(
-1300                   "Browser is not available. It may have been closed, crashed, "
-1301                   "or not yet started. Ensure the browser is running before "
-1302                   "creating new contexts."
-1303               )
-1304           # Base settings)
-fetched_at: 2026-10-27T16:22:39.937653+00:00
+method: scrapling+scrapegraph
+fetched_at: 2026-11-06T13:26:26.059142+00:00
 ---
 
 # Validate your connection  |  Assured Open Source Software  |  Google Cloud Documentation
@@ -35,11 +21,11 @@ Send feedback
 
 #  Validate your connection Stay organized with collections  Save and categorize content based on your preferences. 
 
-This document helps you confirm that your service accounts and AWS accounts are successfully enabled for accessing the Assured Open Source Software service.
+After you enable access to Assured Open Source Software (Assured OSS), you must confirm that your service accounts and Amazon Web Services (AWS) accounts (for the free tier only) can access the Assured OSS service.
 
-To validate whether your Google Cloud service accounts or (for the free tier only) AWS account ID is enabled for access to the Assured OSS repository and portfolio of curated packages, list the available Java, Python, Go, or JavaScript (NPM) packages using an API. To do this, you can either directly call the APIs, or use [Cloud Shell](https://docs.cloud.google.com/shell/docs/launching-cloud-shell) to run a curl command line call to the API.
+To validate whether your accounts have access, list the available Java, Python, Go, or JavaScript (NPM) packages. To list the packages, you can directly call the APIs or use [Cloud Shell](https://docs.cloud.google.com/shell/docs/launching-cloud-shell) to run a `curl` command-line call to the API.
 
-If you're using the free tier, in rare cases, you might face permission denied errors for an hour or more after you submit the [customer enablement form](https://developers.google.com/assured-oss#get-started) submission.
+If you're using the free tier, in rare cases, you might face permission denied errors for an hour or more after you submit the [customer enablement form](https://developers.google.com/assured-oss#get-started).
 
 This document applies to both the premium tier and free tier.
 
@@ -161,10 +147,17 @@ For the premium tier of Assured OSS, enter the following HTTP request:
     
     
       curl -X GET -H "Authorization: Bearer "$(gcloud auth application-default print-access-token) \
-          https://artifactregistry.googleapis.com/v1/projects/PROJECT_ID/locations/us/repositories/assuredoss-java/packages
+          https://artifactregistry.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/repositories/assuredoss-java/packages
     
 
-Replace PROJECT_ID with the ID of the project that you selected when you set up Assured OSS.
+Replace the following:
+
+  * `PROJECT_ID`: the ID of the project that you selected when you set up Assured OSS.
+
+  * `LOCATION`: a [supported region](https://docs.cloud.google.com/security-command-center/docs/integrate-aoss-with-scc#supported-regions).
+
+
+
 
 The following is a sample curl command to connect to the Java repository on the free tier:
     
@@ -280,10 +273,17 @@ For the premium tier of Assured OSS, enter the following HTTP request:
     
     
       curl -X GET -H "Authorization: Bearer "$(gcloud auth application-default print-access-token) \
-        "https://artifactregistry.googleapis.com/v1/projects/PROJECT_ID/locations/us/repositories/assuredoss-python/packages"
+        "https://artifactregistry.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/repositories/assuredoss-python/packages"
     
 
-Replace PROJECT_ID with the ID of the project that you selected when you set up Assured OSS.
+Replace the following:
+
+  * `PROJECT_ID`: the ID of the project that you selected when you set up Assured OSS.
+
+  * `LOCATION`: a [supported region](https://docs.cloud.google.com/security-command-center/docs/integrate-aoss-with-scc#supported-regions).
+
+
+
 
 To list all packages specific to your environment, [use the `generator.sh` script](https://docs.cloud.google.com/assured-open-source-software/docs/pythonaccess#option_1_use_a_script_to_generate_a_single_requirements_file_for_all_artifacts).
 
@@ -409,10 +409,17 @@ For the premium tier of Assured OSS, enter the following HTTP request:
     
     
     curl -X GET -H "Authorization: Bearer "$(gcloud auth application-default print-access-token) \
-    https://artifactregistry.googleapis.com/v1/projects/PROJECT_ID/locations/us/repositories/assuredoss-go/packages
+    https://artifactregistry.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/repositories/assuredoss-go/packages
     
 
-Replace PROJECT_ID with the ID of the project that you selected when you set up Assured OSS.
+Replace the following:
+
+  * `PROJECT_ID`: the ID of the project that you selected when you set up Assured OSS.
+
+  * `LOCATION`: a [supported region](https://docs.cloud.google.com/security-command-center/docs/integrate-aoss-with-scc#supported-regions).
+
+
+
 
 The following is a sample curl command to connect to the Go repository on the free tier:
     
@@ -558,6 +565,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-06 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-06 UTC."],[],[]] 

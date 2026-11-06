@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/platform-application/pa-ao-operations/audit-syslog/
 title: System logging protocol (syslog) audit logs \u00a0|\u00a0 Google Distributed Cloud air-gapped \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T19:22:21.899516+00:00
+fetched_at: 2026-11-06T10:53:02.436090+00:00
 ---
 
 # System logging protocol (syslog) audit logs  |  Google Distributed Cloud air-gapped  |  Google Cloud Documentation
@@ -22,7 +22,7 @@ Send feedback
 
 #  System logging protocol (syslog) audit logs Stay organized with collections  Save and categorize content based on your preferences. 
 
-Various components in GDC produce their audit logs using a standard syslog format according to the RFC-5424 specification. For more information, see <https://datatracker.ietf.org/doc/html/rfc5424>.
+System logging protocol (syslog) audit logs in Google Distributed Cloud (GDC) air-gapped let you monitor operational and security events across system components. These components format audit log entries according to the [RFC 5424 syslog specification](https://datatracker.ietf.org/doc/html/rfc5424) with structured header attributes and JSON event messages.
 
 **JSON representation**
     
@@ -55,6 +55,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-05 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-05 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/knowledge-catalog/docs/cloud-storage-discovery/
 title: Discover and catalog Cloud Storage data \u00a0|\u00a0 Knowledge Catalog \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-01T05:42:26.519818+00:00
+fetched_at: 2026-11-06T10:24:38.598782+00:00
 ---
 
 # Discover and catalog Cloud Storage data  |  Knowledge Catalog  |  Google Cloud Documentation
@@ -452,7 +452,7 @@ To run a discovery scan, use the [`gcloud dataplex datascans run` command](https
 Replace the following variables:
 
   * `LOCATION`: the Google Cloud region in which the discovery scan was created.
-  * `DATASCAN`: the name of the discovery scan.
+  * `DATASCAN`: the ID of the discovery scan.
 
 
 
@@ -520,7 +520,7 @@ Replace the following:
 
   * `JOB`: the job ID of the discovery scan job.
   * `LOCATION`: the Google Cloud region in which the discovery scan was created.
-  * `DATASCAN`: the name of the discovery scan the job belongs to.
+  * `DATASCAN`: the ID of the discovery scan that the job belongs to.
 
 
 
@@ -557,7 +557,7 @@ To view historical discovery scan results, select one of the following options.
 Replace the following:
 
   * `LOCATION`: the Google Cloud region in which the discovery scan was created.
-  * `DATASCAN`: the name of the discovery scan the job belongs to.
+  * `DATASCAN`: the ID of the discovery scan that the job belongs to.
 
 
 
@@ -649,6 +649,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-30 UTC.
+Last updated 2026-11-05 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-05 UTC."],[],[]] 

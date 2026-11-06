@@ -1,11 +1,11 @@
 ---
 url: https://docs.cloud.google.com/dns/docs/migrate-existing-dns-setup/
-title: Migrate an existing Cloud DNS forwarding setup to Outbound Endpoints \u00a0|\u00a0 Google Cloud Documentation
+title: Migrate an existing Cloud DNS forwarding setup to outbound endpoints \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T08:22:00.261451+00:00
+fetched_at: 2026-11-06T10:24:40.190822+00:00
 ---
 
-# Migrate an existing Cloud DNS forwarding setup to Outbound Endpoints  |  Google Cloud Documentation
+# Migrate an existing Cloud DNS forwarding setup to outbound endpoints  |  Google Cloud Documentation
 
 > Source: https://docs.cloud.google.com/dns/docs/migrate-existing-dns-setup/
 
@@ -19,17 +19,17 @@ fetched_at: 2026-10-27T08:22:00.261451+00:00
 
 Send feedback 
 
-#  Migrate an existing Cloud DNS forwarding setup to Outbound Endpoints Stay organized with collections  Save and categorize content based on your preferences. 
+#  Migrate an existing Cloud DNS forwarding setup to outbound endpoints Stay organized with collections  Save and categorize content based on your preferences. 
 
 **Preview**
 
 This product or feature is subject to the "Pre-GA Offerings Terms" in the General Service Terms section of the [Service Specific Terms](https://docs.cloud.google.com/terms/service-terms#1). Pre-GA products and features are available "as is" and might have limited support. For more information, see the [launch stage descriptions](https://cloud.google.com/products/#product-launch-stages). 
 
-This document provides a high-level overview of what you need to do to migrate an existing Cloud DNS forwarding setup to use Outbound Endpoints.
+This document provides a high-level overview of what you need to do to migrate an existing Cloud DNS forwarding setup to use outbound endpoints.
 
 ## Migrate an existing Cloud DNS forwarding setup
 
-There are four phases to migrating an existing Cloud DNS forwarding setup to use Outbound Endpoints, which are as follows:
+There are four phases to migrating an existing Cloud DNS forwarding setup to use outbound endpoints, which are as follows:
 
   * Preparation
   * Verification
@@ -40,11 +40,11 @@ There are four phases to migrating an existing Cloud DNS forwarding setup to use
 
 ### Preparation
 
-In the preparation phase, before you can start the migration, you create the [proxy-only subnets](https://docs.cloud.google.com/load-balancing/docs/proxy-only-subnets), regular subnets, and Outbound Endpoints. Also make sure your on-premises network has a return route for the regional proxy-only subnet IP address range and that your on-premises firewall rules permit inbound DNS traffic from the IP address range of your regional proxy-only subnet.
+In the preparation phase, before you can start the migration, you create the [proxy-only subnets](https://docs.cloud.google.com/load-balancing/docs/proxy-only-subnets), regular subnets, and outbound endpoints. Also make sure your on-premises network has a return route for the regional proxy-only subnet IP address range and that your on-premises firewall rules permit inbound DNS traffic from the IP address range of your regional proxy-only subnet.
 
-  1. **Create proxy-only subnets** : If not already present, in each region where you intend to deploy an Outbound Endpoint, create a [proxy-only subnet](https://docs.cloud.google.com/load-balancing/docs/proxy-only-subnets) with a minimum size of `/26` (64 addresses).
-  2. **Identify or create a regular subnet** : In each region where you plan to deploy an Outbound Endpoint, identify or create a regular subnet with an available internal IPv4 address in its primary IP range.
-  3. **Create Outbound Endpoints** : [Create your Outbound Endpoints](https://docs.cloud.google.com/dns/docs/create-update-outbound-endpoints#create-outbound-endpoint) and associate them with your target VPC network, region, regular subnet (`--subnetwork=REGULAR_SUBNET`), and an available internal IPv4 address (`--endpoint-ip=IP_ADDRESS_STRING`. Cloud DNS automatically creates and manages the static IP reservation resource and binds the endpoint to the regional proxy-only subnet in the VPC network.
+  1. **Create proxy-only subnets** : If not already present, in each region where you intend to deploy an outbound endpoint, create a [proxy-only subnet](https://docs.cloud.google.com/load-balancing/docs/proxy-only-subnets) with a minimum size of `/26` (64 addresses).
+  2. **Identify or create a regular subnet** : In each region where you plan to deploy an outbound endpoint, identify or create a regular subnet with an available internal IPv4 address in its primary IP range.
+  3. **Create outbound endpoints** : [Create your outbound endpoints](https://docs.cloud.google.com/dns/docs/create-update-outbound-endpoints#create-outbound-endpoint) and associate them with your target VPC network, region, regular subnet (`--subnetwork=REGULAR_SUBNET`), and an available internal IPv4 address (`--endpoint-ip=IP_ADDRESS_STRING`). Cloud DNS automatically creates and manages the static IP reservation resource and binds the endpoint to the regional proxy-only subnet in the VPC network.
   4. **Update on-premises firewalls and routes** : Ensure your on-premises network has a return route for the regional proxy-only subnet IP address range. Add firewall rules in your on-premises and external environments to permit inbound DNS traffic (UDP and TCP port 53) originating from the IP address range of your regional proxy-only subnet.
 
 **Note:** Don't remove the existing firewall rule for `35.199.192.0/19` at this time.
@@ -53,10 +53,10 @@ In the preparation phase, before you can start the migration, you create the [pr
 
 ### Verification (optional)
 
-Optionally, you can use the verification phase to verify your Outbound Endpoint configuration.
+Optionally, you can use the verification phase to verify your outbound endpoint configuration.
 
   1. **Create a test forwarding zone** : Create a new, temporary forwarding zone for a test domain (for example, `test.corp.example.com`).
-  2. **Configure for the endpoints** : Configure the test zone to use the new Outbound Endpoints.
+  2. **Configure for the endpoints** : Configure the test zone to use the new outbound endpoints.
   3. **Launch a test VM** : In a relevant VPC network, launch a temporary test VM.
   4. **Verify resolution** : From the test VM, use `dig` or `nslookup` to query a host within your test zone (for example, `dig host.test.corp.example.com`). Confirm that you receive a successful DNS response. Verify in your on-premises or external DNS server logs that the server received the query from a source IP address in the new regional proxy-only subnet. Also verify in the `dns_query` logs that `jsonPayload.egressPath` is set to `OUTBOUND_ENDPOINT`.
 
@@ -64,9 +64,9 @@ Optionally, you can use the verification phase to verify your Outbound Endpoint 
 
 ### Production migration
 
-During the production migration phase, you update your forwarding zones and server policies to use your Outbound Endpoints and review query logs to make sure queries are resolving successfully.
+During the production migration phase, you update your forwarding zones and server policies to use your outbound endpoints and review query logs to make sure queries are resolving successfully.
 
-  1. **Update forwarding zones and server policies** : For each forwarding zone or server policy you want to migrate, edit the configuration and change the forwarding path from the default `35.199.192.0/19` range to your Outbound Endpoints.
+  1. **Update forwarding zones and server policies** : For each forwarding zone or server policy you want to migrate, edit the configuration and change the forwarding path from the default `35.199.192.0/19` range to your outbound endpoints.
   2. **Monitor resolution and health** : Review your Cloud DNS query logs (checking `jsonPayload.egressPath=OUTBOUND_ENDPOINT`, `jsonPayload.outboundEndpoint`, and `jsonPayload.egressError`) and existing monitoring metrics for the migrated zones to confirm that queries are successfully resolving. 
      * Use `dns.googleapis.com/query/response_count` to track query volume and response status codes.
   3. **High-volume migration and pre-warming strategy** : 
@@ -85,7 +85,7 @@ After you have verified the production migration is successful, you need to clea
 
   1. **Confirm full migration** : Verify all necessary forwarding zones and server policies in your project aren't using the default `35.199.192.0/19` range. 
      * Review your on-premises DNS logs and make sure there is no traffic sourcing from this range for a safe period (for example, 24 hours).
-  2. **Remove the previous firewall rule** : After confirming all traffic has been moved to Outbound Endpoints, you can safely remove the on-premises firewall rule that allowed inbound DNS traffic from the default `35.199.192.0/19` range. Make sure no other Google Cloud services are using this rule before removing or adjusting it.
+  2. **Remove the previous firewall rule** : After confirming all traffic has been moved to outbound endpoints, you can safely remove the on-premises firewall rule that allowed inbound DNS traffic from the default `35.199.192.0/19` range. Make sure no other Google Cloud services are using this rule before removing or adjusting it.
 
 
 
@@ -100,9 +100,9 @@ If you need to roll back your migration, do the following:
 
 ## What's next
 
-  * For general information about Outbound Endpoints, see [Outbound endpoints overview](https://docs.cloud.google.com/dns/docs/outbound-endpoints-overview).
-  * For details about creating and updating Outbound Endpoints, see [Create and update Outbound Endpoints](https://docs.cloud.google.com/dns/docs/create-update-outbound-endpoints).
-  * For solutions to common issues related to Outbound Endpoints, see [Troubleshooting](https://docs.cloud.google.com/dns/docs/troubleshooting#outbound-endpoints).
+  * For general information about outbound endpoints, see [Outbound endpoints overview](https://docs.cloud.google.com/dns/docs/outbound-endpoints-overview).
+  * For details about creating and updating outbound endpoints, see [Create and update outbound endpoints](https://docs.cloud.google.com/dns/docs/create-update-outbound-endpoints).
+  * For solutions to common issues related to outbound endpoints, see [Troubleshooting](https://docs.cloud.google.com/dns/docs/troubleshooting#outbound-endpoints).
 
 
 
@@ -110,6 +110,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-05 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-05 UTC."],[],[]] 

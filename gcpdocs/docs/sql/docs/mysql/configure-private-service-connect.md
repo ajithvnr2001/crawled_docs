@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sql/docs/mysql/configure-private-service-connect/
 title: Configure Private Service Connect \u00a0|\u00a0 Cloud SQL for MySQL \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-03T09:44:24.008034+00:00
+fetched_at: 2026-11-06T10:25:10.258249+00:00
 ---
 
 # Configure Private Service Connect  |  Cloud SQL for MySQL  |  Google Cloud Documentation
@@ -475,7 +475,12 @@ Use these parameters to enable and configure Private Service Connect:
 
   * `--enable-private-service-connect`: Enables Private Service Connect.
   * `--allowed-psc-projects=ALLOWED_PROJECTS`: Specifies a comma-separated list of allowed project IDs or numbers. These are the projects from which Private Service Connect endpoints can connect to Cloud SQL instances.
-  * `--psc-auto-connections=network=CONSUMER_NETWORK,project=CONSUMER_PROJECT`: Specifies the path to the VPC network for which Private Service Connect endpoints need to be created.
+  * `--psc-auto-connections=network=CONSUMER_NETWORK,project=CONSUMER_PROJECT`: Specifies the path to the VPC network and the project for which Private Service Connect endpoints need to be created. To create endpoints automatically in multiple VPC networks, specify the `--psc-auto-connections` flag multiple times. For example:
+        
+        --psc-auto-connections="network=projects/PROJECT1/global/networks/NETWORK1,project=PROJECT1" \
+        --psc-auto-connections="network=projects/PROJECT2/global/networks/NETWORK2,project=PROJECT2"
+        
+
   * `--enable-psc-auto-dns`: Indicates whether Private Service Connect DNS automation should be enabled for this instance. Defaults to disabled for new instances when Private Service Connect is enabled using `--enable-private-service-connect`.
 
 When DNS automation is enabled, Cloud SQL provisions a per-instance DNS record in all networks configured with Private Service Connect auto-connections.
@@ -2716,6 +2721,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-02 UTC.
+Last updated 2026-11-05 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-02 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-05 UTC."],[],[]] 

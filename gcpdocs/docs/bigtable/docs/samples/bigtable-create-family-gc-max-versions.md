@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigtable/docs/samples/bigtable-create-family-gc-max-versions/
 title: Maximum number of versions \u00a0|\u00a0 Bigtable \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-05T11:12:21.338283+00:00
+fetched_at: 2026-11-06T12:45:47.470478+00:00
 ---
 
 # Maximum number of versions  |  Bigtable  |  Google Cloud Documentation

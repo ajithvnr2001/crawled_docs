@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/security-command-center/docs/dspm-data-security-standard/
 title: Data Security Posture Management in the Standard tier \u00a0|\u00a0 Security Command Center \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T05:51:45.137211+00:00
+fetched_at: 2026-11-06T10:26:04.377405+00:00
 ---
 
 # Data Security Posture Management in the Standard tier  |  Security Command Center  |  Google Cloud Documentation
@@ -21,7 +21,7 @@ Send feedback
 
 #  Data Security Posture Management in the Standard tier Stay organized with collections  Save and categorize content based on your preferences. 
 
-Standard [service tier](https://docs.cloud.google.com/security-command-center/docs/service-tiers) (requires [organization-level activation](https://docs.cloud.google.com/security-command-center/docs/activate-scc-overview#overview_of_organization-level_activation)) Data Security Posture Management will be shut down on February 1, 2027. Learn more about the controls and [alternative detection capabilities](https://docs.cloud.google.com/security-command-center/docs/dspm-data-security#data-security-framework). 
+Standard [service tier](https://docs.cloud.google.com/security-command-center/docs/service-tiers) (requires [organization-level activation](https://docs.cloud.google.com/security-command-center/docs/activate-scc-overview#overview_of_organization-level_activation)) Data Security Posture Management will be shut down on February 1, 2027. DSPM is no longer available to new organizations. Existing users retain full access until shutdown. Learn more about the controls and [alternative detection capabilities](https://docs.cloud.google.com/security-command-center/docs/dspm-data-security#data-security-framework). 
 
 Data Security Posture Management (DSPM) in the Security Command Center Standard tier offers baseline data security features at the organization level through the Security Essentials framework, which includes foundational data security controls.
 
@@ -66,6 +66,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-05 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-05 UTC."],[],[]] 

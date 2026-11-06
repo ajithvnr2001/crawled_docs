@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/iam/docs/create-and-deploy-agent/
 title: Create and deploy an agent with Agent CLI and Agent Identity \u00a0|\u00a0 Identity and Access Management (IAM) \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T23:45:04.477396+00:00
+fetched_at: 2026-11-06T13:52:46.222397+00:00
 ---
 
 # Create and deploy an agent with Agent CLI and Agent Identity  |  Identity and Access Management (IAM)  |  Google Cloud Documentation
@@ -26,9 +26,7 @@ Send feedback
 
 This feature is subject to the "Pre-GA Offerings Terms" in the General Service Terms section of the [Service Specific Terms](https://docs.cloud.google.com/terms/service-terms#1). Pre-GA features are available "as is" and might have limited support. For more information, see the [launch stage descriptions](https://cloud.google.com/products/#product-launch-stages). 
 
-This guide shows you how to create and deploy an agent in Agent Runtime on Gemini Enterprise Agent Platform with Agent Identity enabled.
-
-Agent Identity assigns a secure SPIFFE identity to your deployed agent. The agent uses this identity to authenticate to Google Cloud services and retrieve credentials from the Agent Identity auth manager.
+[Agent Identity](https://docs.cloud.google.com/iam/docs/agent-identity-overview) lets you provision a managed identity for agents that you create and deploy in Agent Runtime on Gemini Enterprise Agent Platform by using the Agent CLI and Agent Development Kit (ADK). Your deployed agent can then authenticate to Google Cloud services and retrieve credentials from the [Agent Identity auth manager](https://docs.cloud.google.com/iam/docs/auth-manager-overview) without manual credential management.
 
 ## Before you begin
 
@@ -194,6 +192,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-04 UTC.
+Last updated 2026-11-05 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-05 UTC."],[],[]] 

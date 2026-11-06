@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/docs/migration/plan/landing-zones/
 title: Enterprise landing zones and foundations \u00a0|\u00a0 Migration \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T05:39:51.625110+00:00
+fetched_at: 2026-11-06T12:03:57.064578+00:00
 ---
 
 # Enterprise landing zones and foundations  |  Migration  |  Google Cloud Documentation
@@ -80,9 +80,9 @@ For architectural patterns, security controls, and design guides, see the follow
 
 ## What's next
 
-  * [Virtual machine migration](https://docs.cloud.google.com/docs/migration/scenarios/virtual-machine-migration.md)
-  * [Database migration](https://docs.cloud.google.com/docs/migration/scenarios/database-migration.md)
-  * [Unstructured data and storage migration](https://docs.cloud.google.com/docs/migration/scenarios/data-storage-migration.md)
+  * [Virtual machine migration](https://docs.cloud.google.com/docs/migration/scenarios/virtual-machine-migration)
+  * [Database migration](https://docs.cloud.google.com/docs/migration/scenarios/database-migration)
+  * [Unstructured data and storage migration](https://docs.cloud.google.com/docs/migration/scenarios/data-storage-migration)
 
 
 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/lakehouse/docs/lakehouse-basics/
 title: How borderless Lakehouse works \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-01T05:44:54.847436+00:00
+fetched_at: 2026-11-06T13:26:26.599448+00:00
 ---
 
 # How borderless Lakehouse works  |  Google Cloud Documentation
@@ -29,7 +29,7 @@ The technical architecture of _borderless Lakehouse_ supports interoperability b
 
 Building Google Cloud's _Lakehouse_ consists of the following technical components:
 
-  * **Storage:** Cloud Storage and BigQuery storage serve as the storage layer, with Apache Iceberg as the recommended open table format for high-performance, interoperable storage in Cloud Storage. With borderless Lakehouse, your data doesn't need to reside in Google Cloud. By setting up [cross-cloud connections](https://docs.cloud.google.com/lakehouse/docs/about-cross-cloud-data-access) (Preview) to supported remote catalogs, you can keep your data in other cloud storage systems, such as Amazon S3, and query it without migrating files or building ETL pipelines.
+  * **Storage:** Cloud Storage and BigQuery storage serve as the storage layer, with Apache Iceberg as the recommended open table format for high-performance, interoperable storage in Cloud Storage. With borderless Lakehouse, your data doesn't need to reside in Google Cloud. By setting up [cross-cloud connections](https://docs.cloud.google.com/lakehouse/docs/about-cross-cloud-data-access) to supported remote catalogs, you can keep your data in other cloud storage systems, such as Amazon S3, and query it without migrating files or building ETL pipelines.
 
   * **Catalog:** The Lakehouse runtime catalog provides a single source of truth for managing metadata. It centralizes metadata discovery across multiple engines using various compatibility options, such as the Apache Iceberg REST catalog endpoint. Table registrations into the catalog automatically register entries into the business metadata knowledge catalog.
 
@@ -161,6 +161,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-27 UTC.
+Last updated 2026-11-06 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-06 UTC."],[],[]] 

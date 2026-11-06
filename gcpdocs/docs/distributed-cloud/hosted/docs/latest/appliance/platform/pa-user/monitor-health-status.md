@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/appliance/platform/pa-user/monitor-health-status/
 title: Monitor health status \u00a0|\u00a0 Google Distributed Cloud Hosted Appliance \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T22:17:58.929303+00:00
+fetched_at: 2026-11-06T10:42:03.536948+00:00
 ---
 
 # Monitor health status  |  Google Distributed Cloud Hosted Appliance  |  Google Cloud Documentation
@@ -23,18 +23,9 @@ Send feedback
 
 #  Monitor health status Stay organized with collections  Save and categorize content based on your preferences. 
 
-This page describes how to access the health status dashboards to monitor and identify potential issues.
+Health status dashboards in Grafana let you monitor key infrastructure metrics across your Google Distributed Cloud (GDC) air-gapped appliance environment to identify potential issues. Viewing component health helps you diagnose unexpected system behavior, isolate root causes, and prioritize performance tuning or feature development.
 
-Health status helps you visualize the essential metrics of your Google Distributed Cloud (GDC) air-gapped appliance infrastructure and provides a high-level overview of component health. Visualizing health status dashboards helps you identify root causes, diagnose behaviors, and obtain additional context during your investigation for resolving problems.
-
-GDC monitors and provides the health status for each hardware and software component which includes:
-
-  * Hardware: server node
-  * Software: clusters, VMs, and storage
-
-
-
-Health status dashboards let you visualize the metrics with which each component measures monitoring status.
+GDC tracks and reports health status metrics for both hardware components, such as server nodes, and software resources, including Kubernetes clusters, VMs, and storage.
 
 ## Before you begin
 
@@ -83,6 +74,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-05 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-05 UTC."],[],[]] 

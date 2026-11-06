@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/compute/docs/troubleshooting/troubleshooting-resource-availability/
 title: Troubleshoot resource availability errors \u00a0|\u00a0 Compute Engine \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-05T00:20:40.724343+00:00
+fetched_at: 2026-11-06T13:54:35.625698+00:00
 ---
 
 # Troubleshoot resource availability errors  |  Compute Engine  |  Google Cloud Documentation
@@ -38,7 +38,7 @@ Resource availability errors occur when a zone lacks sufficient capacity for one
   * Memory
 
 
-**Note:** Available quota in your project doesn't guarantee resource availability. Quota is an administrative limit that specifies the maximum resources that your project can use. Resource availability reflects the real-time supply of physical hardware in a specific zone.
+**Note:** Available quota in your project doesn't guarantee resource availability. Quota is an administrative limit that specifies the maximum resources that your project can use. Resource availability reflects the real-time supply of physical hardware in a zone.
 
 For example, suppose that you want to create a compute instance that uses the `a2-highgpu-2g` machine type and has two Local SSD disks attached. This machine type includes 24 vCPUs on the Intel Xeon Platinum 8273CL Processor, 170 GB of memory, and two NVIDIA A100 GPUs. If _all_ of these resources are available in your specified zone at the time of your request, then your request succeeds. Otherwise, your request fails with a resource availability error.
 
@@ -103,6 +103,8 @@ You can view an error message for a resource availability error as follows:
 Resource availability errors fall into two categories: configuration errors that you can fix (for example, when you attempt to request an unsupported machine type in a zone), and physical hardware constraints that you can't control.
 
 To address a resource availability error, complete the following steps. If you prefer to evaluate options based on what your workload can adjust, then instead see Summary of recommendations by workload requirements.
+
+**Caution:** Don't stop and restart, or delete and recreate, compute instances to resolve a resource availability error if you lack a reservation. When you stop or delete a compute instance, Compute Engine releases its vCPUs, memory, accelerators, and disks back to the zone. If the zone lacks capacity for any of these resources, then you can't restart or recreate the compute instance.
 
   1. **Address specific resource constraints** : if your error message includes a reason code, then see Resolve errors by error reasons. If those specific solutions don't resolve the issue, then go to the next step.
 
@@ -466,6 +468,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-03 UTC.
+Last updated 2026-11-05 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-05 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/vision/docs/release-notes/
 title: Vision release notes \u00a0|\u00a0 Cloud Vision API \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-03T09:43:18.192151+00:00
+fetched_at: 2026-11-06T10:40:50.895208+00:00
 ---
 
 # Vision release notes  |  Cloud Vision API  |  Google Cloud Documentation

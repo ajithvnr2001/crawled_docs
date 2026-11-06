@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/compute/docs/instance-groups/about-workload-policies/
 title: About workload policies in MIGs \u00a0|\u00a0 Compute Engine \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T23:24:34.178317+00:00
+fetched_at: 2026-11-06T10:23:22.579901+00:00
 ---
 
 # About workload policies in MIGs  |  Compute Engine  |  Google Cloud Documentation
@@ -77,15 +77,24 @@ For more information about A4X Max and A4X instances, see [The A4X Max and A4X m
 
 #### Maximum topology distance property
 
-When you create and apply a workload policy to a MIG, Compute Engine makes best-effort attempts to create your compute instances close together. If you require maximum compactness in a zone, then we recommend that you specify the maximum topology distance (`maxTopologyDistance`) property. A maximum topology distance value specifies to create A4, A3 Ultra, A3 Mega, A3 High (8 GPUs), or H4D instances in the same [_cluster_ , _block_ , or _sub-block_](https://docs.cloud.google.com/compute/docs/instances/view-instance-topology#overview).
+When you create and apply a workload policy to a MIG, Compute Engine attempts to place your compute instances close together on a best-effort basis. If you require closer physical placement in a zone, then you can specify the maximum topology distance (`maxTopologyDistance`) property. Specifying a maximum topology distance instructs Compute Engine to place A4, A3 Ultra, A3 Mega, A3 High (8 GPUs), or H4D instances in the same [_cluster_ , _block_ , or _sub-block_](https://docs.cloud.google.com/compute/docs/instances/view-instance-topology#overview).
 
-**Important:** If you have strict requirements for placing compute instances in your workload, then you might encounter errors due to resource availability. If you do encounter such errors, then use a workload policy with less strict placement requirements.
+**Caution** : Workload policies that enforce strict physical colocation inherently conflict with compute instance obtainability and capacity assurance. When you restrict capacity to run within a specific physical configuration, such as a strict topology distance, block, or sub-block, you directly reduce the probability that Compute Engine can allocate those resources.
+
+When you decide whether to specify a maximum topology distance, consider the trade-off between strict physical colocation and both compute instance obtainability and capacity assurance:
+
+  * **Unspecified distance** : you prioritize compute instance obtainability and capacity assurance over strict colocation. However, if capacity is constrained, then Compute Engine might place compute instances further apart than your application can tolerate.
+
+  * **Specified distance** : you require closer physical colocation for lower network latency, which directly reduces compute instance obtainability and capacity assurance. If your placement requirements are too strict for the available capacity in a zone, then you might encounter [resource availability errors](https://docs.cloud.google.com/compute/docs/troubleshooting/troubleshooting-resource-availability). To resolve these errors, use a workload policy with a less strict maximum topology distance value, such as `CLUSTER` instead of `SUBBLOCK`, or leave the value unspecified.
+
+
+
 
 The following table shows the maximum topology distance values and the machine series that they support:
 
 Maximum topology distance value | Description | Supported machine series | Maximum number of compute instances  
 ---|---|---|---  
-Unspecified (Not recommended) | Compute Engine makes best-effort attempts to place the compute instances as close to each other as possible, but with no maximum distance guarantee among compute instances in a zone. | A4, A3 Ultra, A3 Mega, A3 High (8 GPUs), and H4D | 1,500  
+Unspecified | Compute Engine prioritizes compute instance obtainability and capacity assurance. Compute Engine attempts to place the compute instances as close to each other as possible, with no maximum distance guarantee in a zone. If capacity is constrained, then Compute Engine might place compute instances further apart than your application can tolerate. | A4, A3 Ultra, A3 Mega, A3 High (8 GPUs), and H4D | 1,500  
 `CLUSTER` | Compute Engine creates compute instances in adjacent blocks within a cluster. | A4 and H4D | 1,500  
 `BLOCK` | Compute Engine creates compute instances in the same block. | A4, A3 Ultra, A3 Mega, A3 High (8 GPUs), or H4D | 
 
@@ -150,6 +159,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-05 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-05 UTC."],[],[]] 

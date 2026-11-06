@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/docs/ai/invoke-predictions/
 title: Invoke predictions \u00a0|\u00a0 AlloyDB for PostgreSQL \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-05T00:18:37.026768+00:00
+fetched_at: 2026-11-06T10:06:34.981728+00:00
 ---
 
 # Invoke predictions  |  AlloyDB for PostgreSQL  |  Google Cloud Documentation
@@ -41,7 +41,7 @@ To let AlloyDB invoke predictions, do the following:
   * You must have an active Agent Platform model with an active endpoint that you have Identity and Access Management (IAM) permission to access. AlloyDB doesn't support private endpoints for getting online predictions.
   * Grant permissions for database users to execute the prediction function to invoke predictions:
         
-        \c DB_NAME;
+        \c DB_NAME
         GRANT EXECUTE ON FUNCTION ml_predict_row TO USER_NAME;
         
 
@@ -62,21 +62,21 @@ The format of the function's initial argument depends on whether the ML model th
 
 ### Use a model in Model Garden
 
-To invoke an online prediction using an ML model that's running in the Model Garden, use the following syntax for the `google_ml.predict_row()` SQL function:
+To invoke an online prediction using an ML model that's running in the Model Garden, use the following syntax for the `ml_predict_row()` SQL function:
     
     
-    SELECT ml_predict_row('projects/PROJECT_ID/locations/REGION_ID/publishers/google/models/MODEL_ID', '{"instances": [CONTENTS]}');
+    SELECT ml_predict_row('projects/PROJECT_ID/locations/REGION_ID/publishers/google/models/MODEL_ID', '{ CONTENTS }');
     
 
 Replace the following:
 
   * `PROJECT_ID`: the ID of your Google Cloud project
 
-  * `REGION_ID`: the ID of the Google Cloud region that the model is located in—for example, `us-central1` for gemini-3.5-flash-lite
+  * `REGION_ID`: the ID of the Google Cloud region or endpoint location that the model is located in—for example, `global` for `gemini-3.5-flash-lite`, or a supported region such as `us-central1`
 
-  * `MODEL_ID`: the ID of the ML model to use—for example, gemini-3.5-flash-lite
+  * `MODEL_ID`: the ID of the ML model to use, including the method suffix (`:generateContent` or `:streamGenerateContent`) for Gemini models—for example, `gemini-3.5-flash-lite:generateContent` or `gemini-3.5-flash-lite:streamGenerateContent`
 
-  * `CONTENTS`: the inputs to the prediction call, in JSON format
+  * `CONTENTS`: the inputs to the prediction call, in JSON format—for example, `"contents": [{"role": "user", "parts": [{"text": "..."}]}]` for Gemini models, or `"instances": [...]` for other Agent Platform models
 
 
 
@@ -137,10 +137,19 @@ The following example modifies the previous example in the following ways:
 
   * The example uses the contents of the current database's `messages.message` column as input.
 
-  * The example demonstrates the use of [the `json_build_object()` function](https://www.postgresql.org/docs/current/functions-json.html) as an aid to formatting the function parameters.
+  * The example demonstrates the use of [the `json_build_object()` and `json_build_array()` functions](https://www.postgresql.org/docs/current/functions-json.html) as an aid to formatting the function parameters.
 
 
 
+
+First, create a sample `messages` table if you don't already have one:
+    
+    
+    CREATE TABLE IF NOT EXISTS messages (message TEXT);
+    INSERT INTO messages (message) VALUES ('Why is the sky blue?');
+    
+
+Then invoke `ml_predict_row()` against the `messages` table:
     
     
     SELECT
@@ -148,9 +157,13 @@ The following example modifies the previous example in the following ways:
         'projects/PROJECT_ID/locations/global/publishers/google/models/gemini-3.5-flash-lite:generateContent',
         json_build_object(
           'contents',
-          json_build_object(
-            'role', 'user',
-            'parts', json_build_object('text', message)
+          json_build_array(
+            json_build_object(
+              'role', 'user',
+              'parts', json_build_array(
+                json_build_object('text', message)
+              )
+            )
           )
         )
       )
@@ -167,9 +180,13 @@ Because the response is a JSON object, you can pull specific fields from it usin
         'projects/PROJECT_ID/locations/global/publishers/google/models/gemini-3.5-flash-lite:generateContent',
         json_build_object(
           'contents',
-          json_build_object(
-            'role', 'user',
-            'parts', json_build_object('text', message)
+          json_build_array(
+            json_build_object(
+              'role', 'user',
+              'parts', json_build_array(
+                json_build_object('text', message)
+              )
+            )
           )
         )
       ) -> 'candidates' -> 0 -> 'content' -> 'parts' -> 0 -> 'text'
@@ -189,6 +206,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-03 UTC.
+Last updated 2026-11-06 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-06 UTC."],[],[]] 

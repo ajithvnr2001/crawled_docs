@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/kubernetes-engine/docs/how-to/shielded-gke-nodes/
 title: Using Shielded GKE Nodes \u00a0|\u00a0 GKE security \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-01T05:43:58.368302+00:00
+fetched_at: 2026-11-06T12:56:44.713845+00:00
 ---
 
 # Using Shielded GKE Nodes  |  GKE security  |  Google Cloud Documentation
@@ -37,7 +37,7 @@ Shielded GKE Nodes are built on top of Compute Engine [Shielded VMs](https://doc
 
 
 
-This limits the ability of an attacker to impersonate a node in your cluster even if they are able to exfiltrate bootstrap credentials of the node. The bootstrap credentials, which are contained in node metadata (`TPM_BOOTSTRAP_KEY`) only have the ability to create Certificate Signing Requests. Those certificates won't be automatically approved by the control plane and become working node certificates unless the conditions listed earlier are met and the CSR contains an attestation from the node's [vTPM](https://docs.cloud.google.com/compute/shielded-vm/docs/shielded-vm#vtpm). You can optionally also prevent the `kubelet` on your nodes from creating `Node` objects in the cluster by enabling [control plane node creation](https://docs.cloud.google.com/kubernetes-engine/security/control-plane-node-creation) ([Preview](https://cloud.google.com/products#product-launch-stages)), which limits the impact even if a node is compromised after a CSR is approved.
+This limits the ability of an attacker to impersonate a node in your cluster even if they are able to exfiltrate bootstrap credentials of the node. The bootstrap credentials, which are contained in node metadata (`TPM_BOOTSTRAP_KEY`) only have the ability to create Certificate Signing Requests. Those certificates won't be automatically approved by the control plane and become working node certificates unless the conditions listed earlier are met and the CSR contains an attestation from the node's [vTPM](https://docs.cloud.google.com/compute/shielded-vm/docs/shielded-vm#vtpm). In new clusters that run GKE version 1.37.1-gke.3020000 and later, GKE also prevents the `kubelet` on your nodes from creating `Node` objects in the cluster by default, which limits the impact even if a node is compromised after a CSR is approved. For clusters that were created in earlier versions, you can enable this protection manually. For more information, see [Prevent node self-registration in GKE clusters](https://docs.cloud.google.com/kubernetes-engine/security/control-plane-node-creation).
 
 GKE cluster control plane nodes always use Shielded GKE Nodes, even if you disable the feature on your cluster. Enabling or disabling Shielded GKE Nodes only affects whether the worker nodes that run your workloads use the feature.
 
@@ -316,6 +316,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-30 UTC.
+Last updated 2026-11-05 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-05 UTC."],[],[]] 

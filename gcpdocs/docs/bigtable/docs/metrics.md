@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigtable/docs/metrics/
 title: Metrics \u00a0|\u00a0 Bigtable \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-30T05:41:58.814729+00:00
+fetched_at: 2026-11-06T12:45:02.082048+00:00
 ---
 
 # Metrics  |  Bigtable  |  Google Cloud Documentation
@@ -235,10 +235,62 @@ Memory layer request unit count
 `method`: Cloud Bigtable API method.   
 `app_profile`: Cloud Bigtable application profile.   
 `memory_access`: Whether the memory read was successful in this request.   
-`memory_layer/storage_capacity` BETA ** _(project)_**   
-Memory layer storage capacity   
-`GAUGE`, `INT64`, `By`   
-**[bigtable_cluster](https://docs.cloud.google.com/monitoring/api/resources#tag_bigtable_cluster)** |  _Memory layer storage capacity in bytes. Sampled every 60 seconds. After sampling, data is not visible for up to 240 seconds._  
+`query_type/cells_seen_count` GA ** _(project)_**   
+Cells seen count   
+`DELTA`, `DOUBLE`, `1`   
+**[bigtable_table](https://docs.cloud.google.com/monitoring/api/resources#tag_bigtable_table)** |  _Number of cells seen by server requests for a table. Sampled every 60 seconds. After sampling, data is not visible for up to 120 seconds._   
+`method`: Cloud Bigtable API method.   
+`app_profile`: Cloud Bigtable application profile.   
+`query_type`: The query type of the request.   
+`query_type/latencies` GA ** _(project)_**   
+Server Latencies   
+`DELTA`, `DISTRIBUTION`, `ms`   
+**[bigtable_table](https://docs.cloud.google.com/monitoring/api/resources#tag_bigtable_table)** |  _Distribution of server request latencies for a table. The latency is measured between the time when Cloud Bigtable (behind the Google frontend) receives an RPC and the time when it sends back the last byte of the response. Sampled every 60 seconds. After sampling, data is not visible for up to 120 seconds._   
+`method`: Cloud Bigtable API method.   
+`app_profile`: Cloud Bigtable application profile.   
+`query_type`: The query type of the request.   
+`query_type/modified_rows_count` GA ** _(project)_**   
+Modified rows count   
+`DELTA`, `DOUBLE`, `1`   
+**[bigtable_table](https://docs.cloud.google.com/monitoring/api/resources#tag_bigtable_table)** |  _Number of rows modified by server requests for a table. Sampled every 60 seconds. After sampling, data is not visible for up to 120 seconds._   
+`method`: Cloud Bigtable API method.   
+`app_profile`: Cloud Bigtable application profile.   
+`query_type`: The query type of the request.   
+`query_type/request_count` GA ** _(project)_**   
+Request count   
+`DELTA`, `INT64`, `1`   
+**[bigtable_table](https://docs.cloud.google.com/monitoring/api/resources#tag_bigtable_table)** |  _Number of server requests for a table. Sampled every 60 seconds. After sampling, data is not visible for up to 120 seconds._   
+`method`: Cloud Bigtable API method.   
+`app_profile`: Cloud Bigtable application profile.   
+`query_type`: The query type of the request.   
+`query_type/returned_rows_count` GA ** _(project)_**   
+Returned rows count   
+`DELTA`, `DOUBLE`, `1`   
+**[bigtable_table](https://docs.cloud.google.com/monitoring/api/resources#tag_bigtable_table)** |  _Number of rows returned by server requests for a table. Sampled every 60 seconds. After sampling, data is not visible for up to 120 seconds._   
+`method`: Cloud Bigtable API method.   
+`app_profile`: Cloud Bigtable application profile.   
+`query_type`: The query type of the request.   
+`query_type/scanned_rows_count` GA ** _(project)_**   
+Scanned rows count   
+`DELTA`, `DOUBLE`, `1`   
+**[bigtable_table](https://docs.cloud.google.com/monitoring/api/resources#tag_bigtable_table)** |  _Number of rows scanned by server requests for a table. Sampled every 60 seconds. After sampling, data is not visible for up to 120 seconds._   
+`method`: Cloud Bigtable API method.   
+`app_profile`: Cloud Bigtable application profile.   
+`query_type`: The query type of the request.   
+`query_type/sent_bytes_count` GA ** _(project)_**   
+Sent bytes count   
+`DELTA`, `DOUBLE`, `By`   
+**[bigtable_table](https://docs.cloud.google.com/monitoring/api/resources#tag_bigtable_table)** |  _Number of bytes of row data returned by server requests for a table. Sampled every 60 seconds. After sampling, data is not visible for up to 120 seconds._   
+`method`: Cloud Bigtable API method.   
+`app_profile`: Cloud Bigtable application profile.   
+`query_type`: The query type of the request.   
+`query_type/sent_cells_count` GA ** _(project)_**   
+Sent cells count   
+`DELTA`, `DOUBLE`, `1`   
+**[bigtable_table](https://docs.cloud.google.com/monitoring/api/resources#tag_bigtable_table)** |  _Number of cells in response data sent by servers for a table. Sampled every 60 seconds. After sampling, data is not visible for up to 120 seconds._   
+`method`: Cloud Bigtable API method.   
+`app_profile`: Cloud Bigtable application profile.   
+`query_type`: The query type of the request.   
 `replication/latency` GA ** _(project)_**   
 Replication latencies   
 `DELTA`, `DISTRIBUTION`, `ms`   
@@ -317,7 +369,7 @@ Received bytes
 `server/request_count` GA ** _(project)_**   
 Request count   
 `DELTA`, `INT64`, `1`   
-**[bigtable_table](https://docs.cloud.google.com/monitoring/api/resources#tag_bigtable_table)** |  _Number of server requests for a table. Sampled every 60 seconds. After sampling, data is not visible for up to 120 seconds._   
+**[bigtable_table](https://docs.cloud.google.com/monitoring/api/resources#tag_bigtable_table)** |  _Number of server requests for a table. Sampled every 60 seconds. After sampling, data is not visible for up to 180 seconds._   
 `method`: Cloud Bigtable API method.   
 `app_profile`: Cloud Bigtable application profile.   
 `server/request_max_per_minute_count` GA ** _(project)_**   
@@ -353,7 +405,7 @@ Change stream data
 **[bigtable_table](https://docs.cloud.google.com/monitoring/api/resources#tag_bigtable_table)** |  _Amount of disk storage used by the change stream logs. Sampled every 60 seconds. After sampling, data is not visible for up to 120 seconds._   
 `storage_type`: Type of disk storage.   
   
-Table generated at 2026-10-29 23:33:54 UTC.
+Table generated at 2026-11-05 18:04:57 UTC.
 
 ## What's next
 
@@ -368,6 +420,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-30 UTC.
+Last updated 2026-11-06 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-06 UTC."],[],[]] 

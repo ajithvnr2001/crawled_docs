@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/kubernetes-engine/docs/concepts/sandbox-pods/
 title: GKE Sandbox \u00a0|\u00a0 GKE security \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-01T05:43:45.688010+00:00
+fetched_at: 2026-11-06T10:23:18.021628+00:00
 ---
 
 # GKE Sandbox  |  GKE security  |  Google Cloud Documentation
@@ -324,6 +324,7 @@ The following feature limitations apply to GKE Sandbox:
     * [Cloud Service Mesh](https://docs.cloud.google.com/service-mesh/docs) isn't supported for sandboxes in Autopilot clusters.
     * Linux kernel security modules such as seccomp, AppArmor, SELinux, the [No New Privileges flag](https://docs.kernel.org/userspace-api/no_new_privs.html), [bidirectional mount propagation](https://kubernetes.io/docs/concepts/storage/volumes/#mount-propagation), and the [`procMount` Pod security context](https://kubernetes.io/docs/concepts/security/pod-security-policy/#allowedprocmounttypes) aren't supported in sandboxed Pods.
     * Memory usage metrics at the container level aren't supported. However, Pod memory usage is supported.
+    * Tools that hook into the host Linux kernel to monitor container activity (such as Security Command Center Container Threat Detection, Falco, or Tetragon) can't observe or alert on system calls executed inside sandboxed containers in either gVisor or microVM sandboxes. In microVM sandboxes, you can run eBPF monitoring tools as a privileged sidecar container inside the Pod to monitor the guest kernel of the microVM.
   * The following limitations apply only to gVisor sandboxes:
 
     * Containers that use [privileged mode](https://kubernetes.io/docs/concepts/workloads/pods/pod/#privileged-mode-for-containers) aren't supported.
@@ -332,6 +333,7 @@ The following feature limitations apply to GKE Sandbox:
     * [Hostpath storage](https://kubernetes.io/docs/concepts/storage/volumes/#hostpath) isn't supported.
     * [Setting `sysctl` kernel parameters](https://kubernetes.io/docs/tasks/administer-cluster/sysctl-cluster/#setting-sysctls-for-a-pod) isn't supported.
     * CPU and memory limits are only applied for Pods that have the `Guaranteed` or `Burstable` QoS classes, and only when CPU and memory limits are specified for all of the containers in the Pod.
+    * Open source gVisor `seccheck`, `pod-init-config`, and custom Unix domain socket (UDS) telemetry streaming features aren't supported or configurable on GKE Sandbox node pools.
   * The following limitations apply only to microVM sandboxes:
 
     * Pods that use the `hostNetwork: true` setting aren't supported. Pods that run in a microVM sandbox and use the `hostNetwork: true` setting can't access any resources outside of the Pod.
@@ -351,6 +353,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-30 UTC.
+Last updated 2026-11-05 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-05 UTC."],[],[]] 

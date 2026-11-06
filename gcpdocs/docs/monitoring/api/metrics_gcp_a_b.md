@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/monitoring/api/metrics_gcp_a_b/
 title: Google Cloud metrics: A or B \u00a0|\u00a0 Cloud Monitoring \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-05T10:54:14.472909+00:00
+fetched_at: 2026-11-06T10:19:30.085179+00:00
 ---
 
 # Google Cloud metrics: A or B  |  Cloud Monitoring  |  Google Cloud Documentation
@@ -54,7 +54,7 @@ To chart or monitor metric types with values of type `STRING`, you must use Moni
 
 Metrics from [Google Cloud](https://docs.cloud.google.com/docs).
 
-The following list was last generated at 2026-10-29 23:33:54 UTC. For more information about this process, see [ About the lists](https://docs.cloud.google.com/monitoring/api/metrics#generated).
+The following list was last generated at 2026-11-05 18:04:57 UTC. For more information about this process, see [ About the lists](https://docs.cloud.google.com/monitoring/api/metrics#generated).
 
 ### actions
 
@@ -2473,6 +2473,7 @@ Semantic Governance Policy Engine Evaluation Count
 `DELTA`, `INT64`, `1{evaluation}`   
 **[aiplatform.googleapis.com/SemanticGovernancePolicyEngine](https://docs.cloud.google.com/monitoring/api/resources#tag_aiplatform.googleapis.com/SemanticGovernancePolicyEngine)** |  _Number of evaluations performed by the Semantic Governance Policy Engine in a given region._   
 `final_verdict`: The verdict returned by the engine, for example, "ALLOW" or "DENY".   
+`llm_family`: LLM family of the request, for example, "CLAUDE", "GEMINI", "OPENAI", "MISTRAL", "LLAMA", "OPENAI_COMPATIBLE", or "UNKNOWN".   
 `semantic_governance/evaluation_latencies` BETA ** _(project)_**   
 Semantic Governance Policy Engine Evaluation Latencies   
 `DELTA`, `DISTRIBUTION`, `s`   
@@ -2491,6 +2492,7 @@ Semantic Governance Policy Engine Request Count
 `status_code`: HTTP status code, for example, "200".   
 `status`: Semantic outcome of the request, for example, "OK", "MODEL_ERROR", "EVALUATION_ERROR", or "INTERNAL_ERROR".   
 `request_type`: Kind of intercepted egress, for example, "LLM", "TOOL", "OTHER", or "UNKNOWN".   
+`llm_family`: LLM family of the request, for example, "CLAUDE", "GEMINI", "OPENAI", "MISTRAL", "LLAMA", "OPENAI_COMPATIBLE", or "UNKNOWN".   
 `semantic_governance/request_latencies` BETA ** _(project)_**   
 Semantic Governance Policy Engine Request Latencies   
 `DELTA`, `DISTRIBUTION`, `s`   
@@ -2498,6 +2500,7 @@ Semantic Governance Policy Engine Request Latencies
 `method`: HTTP method, for example, "POST".   
 `status`: Semantic outcome of the request, for example, "OK", "MODEL_ERROR", "EVALUATION_ERROR", or "INTERNAL_ERROR".   
 `request_type`: Kind of intercepted egress, for example, "LLM", "TOOL", "OTHER", or "UNKNOWN".   
+`llm_family`: LLM family of the request, for example, "CLAUDE", "GEMINI", "OPENAI", "MISTRAL", "LLAMA", "OPENAI_COMPATIBLE", or "UNKNOWN".   
 `shared_generate_content_multimodal_per_continent_per_mimetype` BETA ** _(project)_**   
 Generate content requests with multimodal input per minute per continent per mime type across all user projects   
 `DELTA`, `INT64`, `1`   
@@ -3133,6 +3136,70 @@ Temporary files used for writing data for each database
 Available memory   
 `GAUGE`, `INT64`, `By`   
 **[alloydb.googleapis.com/InstanceNode](https://docs.cloud.google.com/monitoring/api/resources#tag_alloydb.googleapis.com/InstanceNode)** |  _An estimate of memory in bytes available for allocation on the VM including memory that is currently used, but can be potentially freed. Sampled every 60 seconds. After sampling, data is not visible for up to 60 seconds._  
+`node/mlintegration/incremental_bulk_embedding_call_count` BETA ** _(project)_**   
+Incremental bulk embedding calls   
+`DELTA`, `INT64`, `1`   
+**[alloydb.googleapis.com/InstanceNode](https://docs.cloud.google.com/monitoring/api/resources#tag_alloydb.googleapis.com/InstanceNode)** |  _Number of incremental bulk embedding invocations. Sampled every 60 seconds. After sampling, data is not visible for up to 180 seconds._   
+`status`: The status of the incremental bulk embedding call, one of [success, failure].   
+`node/mlintegration/model_call_count` BETA ** _(project)_**   
+Model calls   
+`DELTA`, `INT64`, `1`   
+**[alloydb.googleapis.com/InstanceNode](https://docs.cloud.google.com/monitoring/api/resources#tag_alloydb.googleapis.com/InstanceNode)** |  _Number of requests sent to model providers. Sampled every 60 seconds. After sampling, data is not visible for up to 180 seconds._   
+`provider`: Model provider name, one of [unspecified, custom, google, open_ai, anthropic, hugging_face].   
+`model_type`: Model type, one of [unspecified, text_embedding, generic, reranking, multimodal_embedding, llm, ts_forecasting].   
+`model_qualified_name`: Model qualified name, for example, "gemini-3.5-flash" or "gemini-embedding-001".   
+`node/mlintegration/model_error_count` BETA ** _(project)_**   
+Model errors   
+`DELTA`, `INT64`, `1`   
+**[alloydb.googleapis.com/InstanceNode](https://docs.cloud.google.com/monitoring/api/resources#tag_alloydb.googleapis.com/InstanceNode)** |  _Errors encountered from model providers during inference requests. Sampled every 60 seconds. After sampling, data is not visible for up to 180 seconds._   
+`error_code`: The type of error received from the model, one of [ERROR_QUOTA, ERROR_TIMEOUT, ERROR_4XX, ERROR_5XX, ERROR_OTHERS].   
+`provider`: Model provider name, one of [unspecified, custom, google, open_ai, anthropic, hugging_face].   
+`model_type`: Model type, one of [unspecified, text_embedding, generic, reranking, multimodal_embedding, llm, ts_forecasting].   
+`model_qualified_name`: Model qualified name, for example, "gemini-3.5-flash" or "gemini-embedding-001".   
+`node/mlintegration/optimized_models` BETA ** _(project)_**   
+Optimized models   
+`GAUGE`, `INT64`, `1`   
+**[alloydb.googleapis.com/InstanceNode](https://docs.cloud.google.com/monitoring/api/resources#tag_alloydb.googleapis.com/InstanceNode)** |  _Number of optimized models stored in the instance. Sampled every 60 seconds. After sampling, data is not visible for up to 180 seconds._   
+`function_type`: Type of the function approximated by the proxy model, one of [Classify, Summarize, Generate, IF, Rank, Sentiment].   
+`node/mlintegration/prediction_function_call_count` BETA ** _(project)_**   
+Prediction function calls   
+`DELTA`, `INT64`, `1`   
+**[alloydb.googleapis.com/InstanceNode](https://docs.cloud.google.com/monitoring/api/resources#tag_alloydb.googleapis.com/InstanceNode)** |  _Number of times an AlloyDB AI prediction function was called. Sampled every 60 seconds. After sampling, data is not visible for up to 180 seconds._   
+`function_name`: Name of the prediction function called, such as "mm_text_embedding", "llm_if", "llm_generate", "llm_rank", or "sem_rank".   
+`node/mlintegration/prediction_function_latencies` BETA ** _(project)_**   
+Prediction function latency distribution   
+`DELTA`, `DISTRIBUTION`, `ms`   
+**[alloydb.googleapis.com/InstanceNode](https://docs.cloud.google.com/monitoring/api/resources#tag_alloydb.googleapis.com/InstanceNode)** |  _Latency distribution of different prediction functions invoked in SQL queries. Sampled every 60 seconds. After sampling, data is not visible for up to 180 seconds._   
+`function_name`: Name of the prediction function called.   
+`model_name`: Model name.   
+`node/mlintegration/proxy_model_estimated_token_savings_count` BETA ** _(project)_**   
+Proxy model estimated token savings   
+`DELTA`, `DOUBLE`, `1`   
+**[alloydb.googleapis.com/InstanceNode](https://docs.cloud.google.com/monitoring/api/resources#tag_alloydb.googleapis.com/InstanceNode)** |  _Estimated total tokens saved by fielding queries via a proxy model instead of a remote LLM. Sampled every 60 seconds. After sampling, data is not visible for up to 180 seconds._   
+`function_type`: Type of the function approximated by the proxy model (for example, "IF").   
+`node/mlintegration/proxy_model_rows_evaluated_count` BETA ** _(project)_**   
+Proxy model rows evaluated   
+`DELTA`, `INT64`, `1`   
+**[alloydb.googleapis.com/InstanceNode](https://docs.cloud.google.com/monitoring/api/resources#tag_alloydb.googleapis.com/InstanceNode)** |  _Number of database rows evaluated by an active proxy model. Sampled every 60 seconds. After sampling, data is not visible for up to 180 seconds._   
+`function_type`: Type of the function approximated by the proxy model (for example, "IF").   
+`node/mlintegration/queries_redirected_to_llm_count` BETA ** _(project)_**   
+Queries redirected to LLM   
+`DELTA`, `INT64`, `1`   
+**[alloydb.googleapis.com/InstanceNode](https://docs.cloud.google.com/monitoring/api/resources#tag_alloydb.googleapis.com/InstanceNode)** |  _Number of times an optimized model detected low accuracy while using local models and redirected to the remote LLM. Sampled every 60 seconds. After sampling, data is not visible for up to 180 seconds._  
+`node/mlintegration/refresh_bulk_embedding_call_count` BETA ** _(project)_**   
+Refresh bulk embedding calls   
+`DELTA`, `INT64`, `1`   
+**[alloydb.googleapis.com/InstanceNode](https://docs.cloud.google.com/monitoring/api/resources#tag_alloydb.googleapis.com/InstanceNode)** |  _Number of refresh bulk embedding invocations. Sampled every 60 seconds. After sampling, data is not visible for up to 180 seconds._   
+`status`: The status of the refresh bulk embedding call, one of [total, success, failure].   
+`node/mlintegration/registered_models` BETA ** _(project)_**   
+Registered models   
+`GAUGE`, `INT64`, `1`   
+**[alloydb.googleapis.com/InstanceNode](https://docs.cloud.google.com/monitoring/api/resources#tag_alloydb.googleapis.com/InstanceNode)** |  _Number of models registered in the database. Sampled every 60 seconds. After sampling, data is not visible for up to 180 seconds._   
+`model_qualified_name`: Model qualified name, for example, "gemini-3.5-flash" or "gemini-embedding-001".   
+`model_type`: Model type, one of [unspecified, text_embedding, generic, reranking, multimodal_embedding, llm, ts_forecasting].   
+`provider`: Model provider name, one of [unspecified, custom, google, open_ai, anthropic, hugging_face].   
+`model_id`: Model ID.   
+`database`: Database name.   
 `node/network/received_bytes_count` BETA ** _(project)_**   
 Received bytes   
 `DELTA`, `INT64`, `By`   
@@ -5734,10 +5801,62 @@ Memory layer request unit count
 `method`: Cloud Bigtable API method.   
 `app_profile`: Cloud Bigtable application profile.   
 `memory_access`: Whether the memory read was successful in this request.   
-`memory_layer/storage_capacity` BETA ** _(project)_**   
-Memory layer storage capacity   
-`GAUGE`, `INT64`, `By`   
-**[bigtable_cluster](https://docs.cloud.google.com/monitoring/api/resources#tag_bigtable_cluster)** |  _Memory layer storage capacity in bytes. Sampled every 60 seconds. After sampling, data is not visible for up to 240 seconds._  
+`query_type/cells_seen_count` GA ** _(project)_**   
+Cells seen count   
+`DELTA`, `DOUBLE`, `1`   
+**[bigtable_table](https://docs.cloud.google.com/monitoring/api/resources#tag_bigtable_table)** |  _Number of cells seen by server requests for a table. Sampled every 60 seconds. After sampling, data is not visible for up to 120 seconds._   
+`method`: Cloud Bigtable API method.   
+`app_profile`: Cloud Bigtable application profile.   
+`query_type`: The query type of the request.   
+`query_type/latencies` GA ** _(project)_**   
+Server Latencies   
+`DELTA`, `DISTRIBUTION`, `ms`   
+**[bigtable_table](https://docs.cloud.google.com/monitoring/api/resources#tag_bigtable_table)** |  _Distribution of server request latencies for a table. The latency is measured between the time when Cloud Bigtable (behind the Google frontend) receives an RPC and the time when it sends back the last byte of the response. Sampled every 60 seconds. After sampling, data is not visible for up to 120 seconds._   
+`method`: Cloud Bigtable API method.   
+`app_profile`: Cloud Bigtable application profile.   
+`query_type`: The query type of the request.   
+`query_type/modified_rows_count` GA ** _(project)_**   
+Modified rows count   
+`DELTA`, `DOUBLE`, `1`   
+**[bigtable_table](https://docs.cloud.google.com/monitoring/api/resources#tag_bigtable_table)** |  _Number of rows modified by server requests for a table. Sampled every 60 seconds. After sampling, data is not visible for up to 120 seconds._   
+`method`: Cloud Bigtable API method.   
+`app_profile`: Cloud Bigtable application profile.   
+`query_type`: The query type of the request.   
+`query_type/request_count` GA ** _(project)_**   
+Request count   
+`DELTA`, `INT64`, `1`   
+**[bigtable_table](https://docs.cloud.google.com/monitoring/api/resources#tag_bigtable_table)** |  _Number of server requests for a table. Sampled every 60 seconds. After sampling, data is not visible for up to 120 seconds._   
+`method`: Cloud Bigtable API method.   
+`app_profile`: Cloud Bigtable application profile.   
+`query_type`: The query type of the request.   
+`query_type/returned_rows_count` GA ** _(project)_**   
+Returned rows count   
+`DELTA`, `DOUBLE`, `1`   
+**[bigtable_table](https://docs.cloud.google.com/monitoring/api/resources#tag_bigtable_table)** |  _Number of rows returned by server requests for a table. Sampled every 60 seconds. After sampling, data is not visible for up to 120 seconds._   
+`method`: Cloud Bigtable API method.   
+`app_profile`: Cloud Bigtable application profile.   
+`query_type`: The query type of the request.   
+`query_type/scanned_rows_count` GA ** _(project)_**   
+Scanned rows count   
+`DELTA`, `DOUBLE`, `1`   
+**[bigtable_table](https://docs.cloud.google.com/monitoring/api/resources#tag_bigtable_table)** |  _Number of rows scanned by server requests for a table. Sampled every 60 seconds. After sampling, data is not visible for up to 120 seconds._   
+`method`: Cloud Bigtable API method.   
+`app_profile`: Cloud Bigtable application profile.   
+`query_type`: The query type of the request.   
+`query_type/sent_bytes_count` GA ** _(project)_**   
+Sent bytes count   
+`DELTA`, `DOUBLE`, `By`   
+**[bigtable_table](https://docs.cloud.google.com/monitoring/api/resources#tag_bigtable_table)** |  _Number of bytes of row data returned by server requests for a table. Sampled every 60 seconds. After sampling, data is not visible for up to 120 seconds._   
+`method`: Cloud Bigtable API method.   
+`app_profile`: Cloud Bigtable application profile.   
+`query_type`: The query type of the request.   
+`query_type/sent_cells_count` GA ** _(project)_**   
+Sent cells count   
+`DELTA`, `DOUBLE`, `1`   
+**[bigtable_table](https://docs.cloud.google.com/monitoring/api/resources#tag_bigtable_table)** |  _Number of cells in response data sent by servers for a table. Sampled every 60 seconds. After sampling, data is not visible for up to 120 seconds._   
+`method`: Cloud Bigtable API method.   
+`app_profile`: Cloud Bigtable application profile.   
+`query_type`: The query type of the request.   
 `replication/latency` GA ** _(project)_**   
 Replication latencies   
 `DELTA`, `DISTRIBUTION`, `ms`   
@@ -5816,7 +5935,7 @@ Received bytes
 `server/request_count` GA ** _(project)_**   
 Request count   
 `DELTA`, `INT64`, `1`   
-**[bigtable_table](https://docs.cloud.google.com/monitoring/api/resources#tag_bigtable_table)** |  _Number of server requests for a table. Sampled every 60 seconds. After sampling, data is not visible for up to 120 seconds._   
+**[bigtable_table](https://docs.cloud.google.com/monitoring/api/resources#tag_bigtable_table)** |  _Number of server requests for a table. Sampled every 60 seconds. After sampling, data is not visible for up to 180 seconds._   
 `method`: Cloud Bigtable API method.   
 `app_profile`: Cloud Bigtable application profile.   
 `server/request_max_per_minute_count` GA ** _(project)_**   
@@ -5946,12 +6065,12 @@ Validator Count
 `GAUGE`, `INT64`, `1`   
 **[blockchainnodeengine.googleapis.com/BlockchainNode](https://docs.cloud.google.com/monitoring/api/resources#tag_blockchainnodeengine.googleapis.com/BlockchainNode)** |  _Total count of validators that are specifically monitored by this beacon node. Sampled every 60 seconds. After sampling, data is not visible for up to 120 seconds._  
   
-Generated at 2026-10-29 23:33:54 UTC.
+Generated at 2026-11-05 18:04:57 UTC.
 
 Send feedback 
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-02 UTC.
+Last updated 2026-11-05 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-02 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-05 UTC."],[],[]] 

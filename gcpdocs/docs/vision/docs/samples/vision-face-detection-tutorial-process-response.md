@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/vision/docs/samples/vision-face-detection-tutorial-process-response/
 title: Process the Cloud Vision API response \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T05:47:44.055445+00:00
+fetched_at: 2026-11-06T10:38:11.140292+00:00
 ---
 
 # Process the Cloud Vision API response  |  Google Cloud Documentation
@@ -38,7 +38,10 @@ Before trying this sample, follow the Java setup instructions in the [Vision qui
 To authenticate to Vision, set up Application Default Credentials. For more information, see [Set up authentication for a local development environment](https://docs.cloud.google.com/docs/authentication/set-up-adc-local-dev-environment). 
     
     
-    /** Reads image {@code inputPath} and writes {@code outputPath} with {@code faces} outlined. */
+    /**
+     * Reads image {@code inputPath} and writes {@code outputPath} with
+     * {@code faces} outlined.
+     */
     private static void writeWithFaces(Path inputPath, Path outputPath, List<FaceAnnotation> faces)
         throws IOException {
       BufferedImage img = ImageIO.read(inputPath.toFile());
@@ -46,7 +49,10 @@ To authenticate to Vision, set up Application Default Credentials. For more info
       ImageIO.write(img, "jpg", outputPath.toFile());
     }
     
-    /** Annotates an image {@code img} with a polygon around each face in {@code faces}. */
+    /**
+     * Annotates an image {@code img} with a polygon around each face in
+     * {@code faces}.
+     */
     public static void annotateWithFaces(BufferedImage img, List<FaceAnnotation> faces) {
       for (FaceAnnotation face : faces) {
         annotateWithFace(img, face);
@@ -57,12 +63,13 @@ To authenticate to Vision, set up Application Default Credentials. For more info
     private static void annotateWithFace(BufferedImage img, FaceAnnotation face) {
       Graphics2D gfx = img.createGraphics();
       Polygon poly = new Polygon();
-      for (Vertex vertex : face.getFdBoundingPoly().getVertices()) {
+      for (Vertex vertex : face.getFdBoundingPoly().getVerticesList()) {
         poly.addPoint(vertex.getX(), vertex.getY());
       }
       gfx.setStroke(new BasicStroke(5));
       gfx.setColor(new Color(0x00ff00));
       gfx.draw(poly);
+      gfx.dispose();
     }
 
 ### Node.js

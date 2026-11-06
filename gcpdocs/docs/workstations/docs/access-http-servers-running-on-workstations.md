@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/workstations/docs/access-http-servers-running-on-workstations/
 title: Connect to HTTP servers running on a workstation \u00a0|\u00a0 Cloud Workstations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-30T08:38:59.381907+00:00
+fetched_at: 2026-11-06T10:19:51.722313+00:00
 ---
 
 # Connect to HTTP servers running on a workstation  |  Cloud Workstations  |  Google Cloud Documentation
@@ -37,7 +37,7 @@ The placeholders represent the following:
 
   * `PORT`: the port number, which is port `80` by default.
   * `WORKSTATION_NAME`: the workstation name.
-  * `CLUSTER_ID`: the randomly generated cluster identifier
+  * `CLUSTER_ID`: the randomly generated cluster identifier.
   * `cloudworkstations.dev`: the default domain name for a workstation.
 
 URLs for custom domains use a different format. For more about setting up custom domains in Cloud Workstations, see [Set up custom domains for Cloud Workstations](https://docs.cloud.google.com/workstations/docs/set-up-custom-domains-for-cloud-workstations).
@@ -47,7 +47,7 @@ URLs for custom domains use a different format. For more about setting up custom
 
 ## Connect to a different port by changing the URL
 
-In order to connect on a different port, specify a different port number as a prefix. For example, the following URL connects to port `9900`:
+To connect on a different port, specify a different port number as a prefix. For example, the following URL connects to port `9900`:
     
     
     https://9900-myworkstation.cluster-12345abcde.cloudworkstations.dev
@@ -64,11 +64,17 @@ In this example, note the following:
 
 These URLs require user authentication. To open these URLs, you must be logged in and must have the Cloud Workstations User IAM role, `roles/workstations.user`, or the `workstations.workstations.use` permission.
 
+If your workstation cluster is configured with direct access ports, instead of encoding the port as a prefix, you can connect to a configured port by appending `:PORT` to the workstation hostname. For example, after you configure port `9900` as a direct access port, the following URL also connects to port `9900`:
+    
+    
+    https://myworkstation.cluster-12345abcde.cloudworkstations.dev:9900
+    
+
 ## Connect to an HTTP app from Google Cloud console
 
 You can connect to an HTTP app running on a workstation from the Google Cloud console.
 
-For any running workstation that you have permissions to use, you see a **Launch** button. By default, this button connects on port `80`. You can click the arrow_drop_downexpander arrow next to **Launch** to see alternative connecting options. The **Connect to web app on port** option lets you specify a different port to connect to.
+For any running workstation that you have permissions to use, you see a **Launch** button. By default, this button connects on port `80`. You can click the arrow_drop_down expander arrow next to **Launch** to see alternative connecting options. The **Connect to web app on port** option lets you specify a different port to connect to.
 
 ## Connect to an HTTP app from the base editor
 
@@ -86,12 +92,33 @@ To connect to an app running on your workstation from the Cloud Workstations bas
 Replace `PORT` with a port number such as `80` or `8080`.
 
     3. Hold `Control` (or `Command` on macOS) and then click the localhost link.   
-This opens `PORT-WORKSTATION-HOSTNAME` in your browser.
+This opens `PORT-WORKSTATION_HOSTNAME` in your browser.
 
-  * Use the browser window: navigate to `https://PORT-WORKSTATION-HOSTNAME`, where `PORT` is the port number and `WORKSTATION-HOSTNAME` is your workstation hostname.
+  * Use the browser window: navigate to `https://PORT-WORKSTATION_HOSTNAME`, where `PORT` is the port number and `WORKSTATION_HOSTNAME` is your workstation hostname.
 
 
 
+
+## Configure direct access ports
+
+**Preview**
+
+This feature is subject to the "Pre-GA Offerings Terms" in the General Service Terms section of the [Service Specific Terms](https://docs.cloud.google.com/terms/service-terms#1). Pre-GA features are available "as is" and might have limited support. For more information, see the [launch stage descriptions](https://cloud.google.com/products/#product-launch-stages). 
+
+By default, when you connect to a workstation port by encoding the port as a prefix in the URL, your request connects to the cluster gateway over HTTPS port `443`, and the gateway forwards the request to `PORT` on your workstation.
+
+To connect directly to a workstation port using the standard `https://WORKSTATION_NAME.CLUSTER_ID.cloudworkstations.dev:PORT` URL format, you must configure the port as a direct access port on the workstation cluster.
+
+To set direct access ports on an existing workstation cluster, run the following Google Cloud CLI command:
+    
+    
+        gcloud beta workstations clusters update CLUSTER_ID \
+            --region=REGION \
+            --project=PROJECT \
+            --direct-access-ports=80,8080
+    
+
+You can only configure port `80` and ports in the range `1024` to `65535` as direct access ports. You also can't specify more than eight direct access ports per workstation cluster.
 
 ## Restrict port access for a workstation
 
@@ -99,7 +126,7 @@ To restrict the ports that can be connected to on a workstation, set the `allowe
 
 To restrict a single port, set the [`PortRange`](https://docs.cloud.google.com/workstations/docs/reference/rest/v1/projects.locations.workstationClusters.workstationConfigs#PortRange) `first` and `last` fields to the same port number.
 
-By default ports `22`, `80` and `1024`to`65535` are allowed.
+By default ports `22`, `80` and `1024` to `65535` are allowed.
 
 To create a workstation configuration with restricted port access to `80` and `8080` to `8100`, run the following Google Cloud CLI command:
     
@@ -154,6 +181,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-29 UTC.
+Last updated 2026-11-05 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-05 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sensitive-data-protection/docs/creating-custom-infotypes-rules/
 title: Modifying infoType detectors to refine scan results \u00a0|\u00a0 Sensitive Data Protection \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-03T08:19:28.719009+00:00
+fetched_at: 2026-11-06T10:24:02.063227+00:00
 ---
 
 # Modifying infoType detectors to refine scan results  |  Sensitive Data Protection  |  Google Cloud Documentation

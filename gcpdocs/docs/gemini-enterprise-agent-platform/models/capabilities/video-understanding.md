@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/video-understanding/
 title: Video understanding \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T23:13:56.635841+00:00
+fetched_at: 2026-11-06T10:06:21.714629+00:00
 ---
 
 # Video understanding  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation
@@ -41,6 +41,36 @@ Models | Media details | MIME types
   * Maximum video length (with audio): 10 seconds 
   * Maximum video length (without audio): 10 seconds 
   * Maximum number of videos per prompt: 3 
+
+| 
+
+  * `video/x-flv`
+  * `video/quicktime`
+  * `video/mpeg`
+  * `video/mpegs`
+  * `video/mpg`
+  * `video/mp4`
+  * `video/webm`
+  * `video/wmv`
+  * `video/3gpp`
+
+  
+  
+  * [Gemini Omni 1.2 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/omni-1-2-flash)
+
+| 
+
+  * Maximum video length (with audio): 15 seconds 
+  * Maximum video length (without audio): 15 seconds 
+  * Maximum input video length (video understanding): 10 minutes 
+  * Maximum input video length (editing): 15 seconds 
+  * Maximum input video length (extension): Any duration (uses up to the last 10 seconds) 
+  * Maximum input video length (upscaling): 15 seconds 
+  * Output video duration (generation and editing): 3 to 15 seconds (3 to 10 seconds for first and last frames) 
+  * Output video duration (extension): 3 to 10 seconds (concatenated onto up to the last 30 seconds of the input video) 
+  * Maximum number of videos per prompt: 3 
+  * Supported aspect ratios: 16:9, 9:16 
+  * Supported resolutions: 360p, 720p, 1080p, 4k 
 
 | 
 
@@ -1973,6 +2003,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-04 UTC.
+Last updated 2026-11-06 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-06 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/platform/pa-user/collect-metrics/
 title: Collect metrics from your workloads \u00a0|\u00a0 Google Distributed Cloud air-gapped \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T20:14:08.081656+00:00
+fetched_at: 2026-11-06T11:31:34.938359+00:00
 ---
 
 # Collect metrics from your workloads  |  Google Distributed Cloud air-gapped  |  Google Cloud Documentation
@@ -22,13 +22,9 @@ Send feedback
 
 #  Collect metrics from your workloads Stay organized with collections  Save and categorize content based on your preferences. 
 
-This page outlines the process for scraping metrics from workloads in Google Distributed Cloud (GDC) air-gapped environments to facilitate monitoring and data observability.
+Google Distributed Cloud (GDC) air-gapped lets you scrape and collect metrics from your workloads over time to monitor application performance and maintain data observability. To initiate metric collection, you deploy a `MonitoringTarget` custom resource to your project namespace on the management API server.
 
-You can scrape and collect metrics your components produce over time. The monitoring platform offers a custom API to scrape metrics from running workloads within your Distributed Cloud project namespace. To scrape metrics, you deploy a `MonitoringTarget` custom resource to your project namespace in the Management API server. Upon deployment of this resource, the monitoring platform initiates data collection.
-
-The `MonitoringTarget` custom resource directs the monitoring pipeline to scrape designated pods within your project. These pods must expose an HTTP endpoint that delivers metrics in a Prometheus exposition format, such as OpenMetrics. The scraped metrics are then displayed in your project's Grafana instance, providing insights into your application's operational state.
-
-To configure the `MonitoringTarget` custom resource, you must specify the pods within your project namespace for metric collection. You can customize various settings, including the scraping frequency, the pods' metrics endpoint, labels, and annotations.
+The `MonitoringTarget` custom resource directs the monitoring pipeline to scrape designated pods that expose an HTTP endpoint in a Prometheus exposition format, such as OpenMetrics. You can customize the scrape frequency, endpoint settings, labels, and annotations for your target pods. Your project's Grafana instance displays the collected metrics so that you can analyze your application's operational state.
 
 ## Before you begin
 
@@ -288,6 +284,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-05 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-05 UTC."],[],[]] 

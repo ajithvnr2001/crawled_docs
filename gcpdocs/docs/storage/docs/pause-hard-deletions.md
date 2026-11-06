@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/storage/docs/pause-hard-deletions/
 title: Pause permanent (hard) deletions of soft-deleted objects \u00a0|\u00a0 Cloud Storage \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T22:27:31.753955+00:00
+fetched_at: 2026-11-06T10:21:47.821141+00:00
 ---
 
 # Pause permanent (hard) deletions of soft-deleted objects  |  Cloud Storage  |  Google Cloud Documentation
@@ -39,13 +39,15 @@ Pausing hard deletions gives you extra time to perform very large or complicated
 
 ## Recommended workflow
 
-We recommend the following workflow to temporarily pause hard deletions for a bucket:
+We recommend the following workflow to temporarily pause hard deletions for a bucket. When you detect a mass deletion incident that might take more time to resolve than the soft delete retention duration, follow these steps:
 
-  1. When you detect a mass deletion incident that might take more time to resolve than the soft delete retention duration, then pause hard deletions for the affected bucket.
+  1. If necessary, [restore the bucket](https://docs.cloud.google.com/storage/docs/use-soft-deleted-buckets).
 
-  2. [Restore the bucket](https://docs.cloud.google.com/storage/docs/use-soft-deleted-buckets) if necessary, and [restore the objects](https://docs.cloud.google.com/storage/docs/use-soft-deleted-objects) in the bucket.
+  2. Pause hard deletions for the bucket.
 
-  3. After you complete the recovery and validate that your data was successfully restored, then resume hard deletions for the bucket.
+  3. [Restore the objects](https://docs.cloud.google.com/storage/docs/use-soft-deleted-objects) in the bucket.
+
+  4. After you complete the recovery and validate that your data was successfully restored, then resume hard deletions for the bucket.
 
 
 
@@ -160,6 +162,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-04 UTC.
+Last updated 2026-11-05 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-05 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/managed-spark/docs/concepts/configuring-clusters/service-accounts/
 title: Managed Service for Apache Spark service accounts \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-06T05:53:32.684091+00:00
+fetched_at: 2026-11-06T11:10:44.315986+00:00
 ---
 
 # Managed Service for Apache Spark service accounts  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/load-balancing/docs/tcp/
 title: External proxy Network Load Balancer overview \u00a0|\u00a0 Cloud Load Balancing \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-30T08:40:21.281180+00:00
+fetched_at: 2026-11-06T13:46:29.419521+00:00
 ---
 
 # External proxy Network Load Balancer overview  |  Cloud Load Balancing  |  Google Cloud Documentation
@@ -118,10 +118,6 @@ Points to remember:
 
 ### Forwarding rules and IP addresses
 
-**Preview — Cross-region, regional external, and regional internal proxy Network Load Balancers support terminating IPv6 traffic**
-
-This feature is subject to the "Pre-GA Offerings Terms" in the General Service Terms section of the [Service Specific Terms](https://docs.cloud.google.com/terms/service-terms#1). Pre-GA features are available "as is" and might have limited support. For more information, see the [launch stage descriptions](https://cloud.google.com/products/#product-launch-stages). 
-
 [Forwarding rules](https://docs.cloud.google.com/load-balancing/docs/forwarding-rule-concepts) route traffic by IP address, port, and protocol to a load balancing configuration that consists of a target proxy and a backend service.
 
 **IP address specification**. Each forwarding rule references a single IP address that you can use in DNS records for your application. You can either reserve a static IP address that you can use or let Cloud Load Balancing assign one for you. We recommend that you reserve a static IP address. Otherwise, you must update your DNS record with the newly assigned ephemeral IP address whenever you delete a forwarding rule and create a new one.
@@ -154,8 +150,8 @@ Regional external proxy Network Load Balancer | The forwarding rule's VPC networ
   * Regional external IPv6 address ranges always exist inside a VPC network. When you create the forwarding rule, you're required to specify the subnet from which the IP address range is taken. This subnet must be in the same region and VPC network where a proxy-only subnet has been created. Thus, there is an implied network association. **Network and subnet requirements.** For IPv6 traffic, your network and subnets must meet the following configuration requirements: 
     * VPC network: you must use a custom mode VPC network configured with the `--enable-ula-internal-ipv6` flag.
     * Forwarding rule subnet: this subnet must be a dual-stack (`IPv4_IPv6`) or `IPV6_ONLY` subnet with the `ipv6-access-type` set to `EXTERNAL`.
-**IPv6 address allocation options.** The forwarding rule must reference a `/96` range of IPv6 addresses from the subnet's `/64` external IPv6 address range. You can assign this `/96` IPv6 address range using one of the following methods: 
-    * Specifying a reserved external IPv6 address.
+**IPv6 address allocation options.** The forwarding rule must reference a `/96` range of IPv6 addresses from the subnet's `/64` external IPv6 address range. The load balancer accepts traffic sent to any address within the allocated `/96` range. You can assign this `/96` IPv6 address range using one of the following methods: 
+    * Specifying a [ reserved external IPv6 address](https://docs.cloud.google.com/vpc/docs/reserve-static-external-ip-address#reserve_new_static), either automatically allocated or a custom `/96` range.
     * Specifying a custom ephemeral IPv6 address.
     * Letting Google Cloud automatically assign an ephemeral IPv6 address.
 **Limitations.** To specify a custom ephemeral IPv6 address, you must use the Google Cloud CLI or the API. The Google Cloud console doesn't support specifying custom ephemeral IPv6 addresses for forwarding rules.
@@ -264,11 +260,7 @@ Your backend's network must satisfy _one of the following_ network requirements:
 
 **Backend IPv6 subnet requirements**
 
-**Preview**
-
-This product or feature is subject to the "Pre-GA Offerings Terms" in the General Service Terms section of the [Service Specific Terms](https://docs.cloud.google.com/terms/service-terms#1). Pre-GA products and features are available "as is" and might have limited support. For more information, see the [launch stage descriptions](https://cloud.google.com/products/#product-launch-stages). 
-
-The IP version used for the frontend connection is independent of the backend connection. Since the proxy-only subnet is [dual-stack (IPV4_IPV6)](https://docs.cloud.google.com/load-balancing/docs/proxy-only-subnets#dual_stack_proxy_only), the proxy-only subnet can communicate with backends using either IPv4 or IPv6.
+The IP version used for the frontend connection is independent of the backend connection. If the proxy-only subnet is configured as dual-stack (IPV4_IPV6), the proxy-only subnet can communicate with backends using either IPv4 or IPv6. If the proxy-only subnet is single-stack (IPV4_ONLY), it can only communicate with backends using IPv4.
 
 If your backend instances are handling IPv6 traffic, the backend subnet can be configured with a stack type of `IPV4_ONLY` or `IPV4_IPV6` (dual-stack). If the backend subnet's stack type includes IPv6, you must explicitly set the subnet's ipv6-access-type to `EXTERNAL`.
 
@@ -715,6 +707,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-29 UTC.
+Last updated 2026-11-06 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-06 UTC."],[],[]] 

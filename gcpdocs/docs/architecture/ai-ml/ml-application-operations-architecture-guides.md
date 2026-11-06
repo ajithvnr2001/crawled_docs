@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/architecture/ai-ml/ml-application-operations-architecture-guides/
 title: ML applications and operations architecture guides \u00a0|\u00a0 Cloud Architecture Center \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T01:43:37.935887+00:00
+fetched_at: 2026-11-06T10:21:44.814130+00:00
 ---
 
 # ML applications and operations architecture guides  |  Cloud Architecture Center  |  Google Cloud Documentation
@@ -39,7 +39,6 @@ Architecture guide | Description
 [Architecture for MLOps using TensorFlow Extended, Gemini Enterprise Agent Platform Pipelines, and Cloud Build](https://docs.cloud.google.com/architecture/architecture-for-mlops-using-tfx-kubeflow-pipelines-and-cloud-build) | A reference architecture to help you build a machine learning (ML) system using[ TensorFlow Extended (TFX)](https://www.tensorflow.org/tfx) libraries.  
 [MLOps: Continuous delivery and automation pipelines in machine learning](https://docs.cloud.google.com/architecture/mlops-continuous-delivery-and-automation-pipelines-in-machine-learning) | A guide that discusses techniques for implementing and automating continuous integration (CI), continuous delivery (CD), and continuous training (CT) for ML systems.  
 [Build an ML vision analytics solution with Dataflow and Cloud Vision API](https://docs.cloud.google.com/architecture/building-a-vision-analytics-solution) | A reference architecture to help you build a[ Dataflow](https://docs.cloud.google.com/dataflow) pipeline to process image files with[ Cloud Vision](https://docs.cloud.google.com/vision/docs) and to store processed results in BigQuery. For information about how to deploy this reference architecture, see [Deploy an ML vision analytics solution with Dataflow and Cloud Vision API](https://docs.cloud.google.com/architecture/building-a-vision-analytics-solution/deployment)  
-[Confidential computing for data analytics, AI, and federated learning](https://docs.cloud.google.com/architecture/security/confidential-computing-analytics-ai) | A reference architecture to help you use confidential computing for secure data collaboration, AI model training, and [federated learning](https://ai.googleblog.com/2017/04/federated-learning-collaborative.html).   
 [Cross-silo and cross-device federated learning on Google Cloud](https://docs.cloud.google.com/architecture/cross-silo-cross-device-federated-learning-google-cloud) | A reference architecture to help you create a[ federated learning](https://ai.googleblog.com/2017/04/federated-learning-collaborative.html) platform using Google Kubernetes Engine (GKE).  
 [Implement two-tower retrieval for large-scale candidate generation](https://docs.cloud.google.com/architecture/implement-two-tower-retrieval-large-scale-candidate-generation) | A reference architecture to help you implement an end-to-end two-tower[ candidate generation](https://developers.google.com/machine-learning/recommendation/overview/types) workflow with[ Gemini Enterprise Agent Platform](https://docs.cloud.google.com/vertex-ai).  
 [Model development and data labeling with Google Cloud and Labelbox](https://docs.cloud.google.com/architecture/partners/model-development-data-labeling-labelbox-google-cloud) | A reference architecture to help you build a standardized pipeline with [Labelbox](https://labelbox.com/).  

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/application-design-center/docs/manage-applications/
 title: Manage applications \u00a0|\u00a0 Application Design Center \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T19:53:45.354692+00:00
+fetched_at: 2026-11-06T13:12:19.974499+00:00
 ---
 
 # Manage applications  |  Application Design Center  |  Google Cloud Documentation
@@ -145,7 +145,7 @@ Replace the following:
      * `LOCATION`: The application region.
      * `SPACE`: Your space ID.
      * `SOURCE_APPLICATION_TEMPLATE_REVISION`: Your application template URI. For example, `projects/PROJECT/locations/LOCATION/spaces/SPACE/applicationTemplates/APPLICATION_TEMPLATE/revisions/REVISION`
-     * `SCOPE_TYPE`: The scope for your application. One of `regional` or `global`. If the application scope is 'global`, the region is applied to components that don't already have a configured region. If the application scope is`regional`, the region is applied to all components.
+     * `SCOPE_TYPE`: The scope for your application. One of `regional` or `global`. If the application scope is `global`, the region is applied to components that don't already have a configured region. If the application scope is `regional`, the region is applied to all components.
 
 For more information, see [gcloud design-center spaces applications create](https://docs.cloud.google.com/sdk/gcloud/reference/design-center/spaces/applications/create).
 
@@ -360,11 +360,9 @@ To create an application revision:
 
   3. To modify application details, do the following:
 
-  4. Click **Edit** and modify the details.
-
-  5. Click **Save** to save your changes.
-
-  6. To modify a component in this application, do the following:
+     1. Click **Edit** and modify the details.
+     2. Click **Save** to save your changes.
+  4. To modify a component in this application, do the following:
 
      1. Click the component in the design canvas and edit the details in the **Configuration** area.
 
@@ -451,6 +449,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-27 UTC.
+Last updated 2026-11-05 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-05 UTC."],[],[]] 

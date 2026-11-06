@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigtable/quotas/
 title: Quotas and limits \u00a0|\u00a0 Bigtable \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T06:15:09.601559+00:00
+fetched_at: 2026-11-06T13:06:19.685664+00:00
 ---
 
 # Quotas and limits  |  Bigtable  |  Google Cloud Documentation
@@ -181,6 +181,7 @@ The maximum number of [application profiles](https://docs.cloud.google.com/bigta
 
   * Maximum number of standard backups that can be created: 150 per table per cluster
   * Maximum number of hot backups that can be created: 10 per table per cluster
+  * Maximum cluster SSD storage usage to enable hot automated backups: 400 TB per cluster. To enable hot automated backups for a table on a cluster that exceeds this limit, contact [Cloud Customer Care](https://docs.cloud.google.com/bigtable/docs/support/getting-support).
   * Minimum retention period of a backup: 6 hours after initial creation time
   * Maximum retention period of a backup: 90 days in the Enterprise edition or 365 days in the Enterprise Plus edition, counted after the initial creation date
 
@@ -311,10 +312,9 @@ To prevent these issues, [monitor storage utilization for your clusters](https:/
 
 Storage configuration | Enterprise Edition | Enterprise Plus edition  
 ---|---|---  
-**SSD clusters without[tiered storage](https://docs.cloud.google.com/bigtable/docs/tiered-storage) ([Preview](https://docs.cloud.google.com/products#product-launch-stages))** | 5 TB per node | 5 TB per node  
+**SSD clusters without[tiered storage](https://docs.cloud.google.com/bigtable/docs/tiered-storage) ([Preview](https://cloud.google.com/products#product-launch-stages))** | 5 TB per node | 5 TB per node  
 **SSD clusters with tiered storage** | 32 TB per node, of which a maximum of 5 TB is SSD storage. | 64 TB per node, of which a maximum of 5 TB is SSD storage.  
 **HDD clusters** | 16 TB per node | 16 TB per node  
-**In-memory tier ([Preview](https://docs.cloud.google.com/products#product-launch-stages))** | Not supported | 8 GB per node  
   
 TB values are measured in binary terabytes (TB), where 1 TB is 240 bytes. This unit of measurement is also known as a [tebibyte (TiB)](https://en.wikipedia.org/wiki/Tebibyte). 
 
@@ -334,6 +334,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-28 UTC.
+Last updated 2026-11-06 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-06 UTC."],[],[]] 

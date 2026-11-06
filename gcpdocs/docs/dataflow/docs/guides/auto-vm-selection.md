@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/dataflow/docs/guides/auto-vm-selection/
 title: Auto VM Selection \u00a0|\u00a0 Cloud Dataflow \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T02:30:01.282579+00:00
+fetched_at: 2026-11-06T10:24:24.353945+00:00
 ---
 
 # Auto VM Selection  |  Cloud Dataflow  |  Google Cloud Documentation
@@ -59,6 +59,77 @@ Dataflow attempts to use 4th generation machine families first (for example, N4 
 
 If you specify a disk type such as `pd-ssd` or `pd-standard` when enabling Auto VM Selection using resource hints (right fitting), Dataflow only provisions compatible 2nd generation machine families. To ensure maximum compatibility and allow the use of newer machine generations, don't assign a disk type.
 
+## View selected machine types
+
+Because Auto VM Selection chooses machine types when it creates worker VMs, the workers of a job can use different machine types. To see which machine types your jobs use, query worker VM metrics with the Cloud Monitoring API. Cloud Monitoring records the machine type of each worker VM in the `machine_type` system metadata label. Dataflow adds a `dataflow_job_id` label to each worker VM.
+
+To run the following command, you need the Google Cloud CLI and curl. To get the permission that you need to query metrics, ask your administrator to grant you the [Monitoring Viewer](https://docs.cloud.google.com/iam/docs/roles-permissions/monitoring#monitoring.viewer) (`roles/monitoring.viewer`) role on the project.
+
+The following command lists the machine types that the workers of a Dataflow job used. The command calls the [`projects.timeSeries.list`](https://docs.cloud.google.com/monitoring/api/ref_v3/rest/v3/projects.timeSeries/list) method and formats the response as a table by using only built-in shell commands:
+    
+    
+    PROJECT_ID="PROJECT_ID"
+    JOB_ID="JOB_ID"
+    START_TIME="${JOB_ID%%_*}T00:00:00Z"
+    END_TIME="$(date -u +%Y-%m-%dT%H:%M:%SZ)"
+    
+    TOKEN="$(gcloud auth print-access-token)" &&
+    RESPONSE="$(curl -fsS --get \
+        "https://monitoring.googleapis.com/v3/projects/${PROJECT_ID}/timeSeries" \
+        -H "Authorization: Bearer ${TOKEN}" \
+        --data-urlencode "filter=metric.type=\"compute.googleapis.com/instance/cpu/utilization\" resource.type=\"gce_instance\" metadata.user_labels.\"dataflow_job_id\"=\"${JOB_ID}\"" \
+        --data-urlencode "interval.startTime=${START_TIME}" \
+        --data-urlencode "interval.endTime=${END_TIME}" \
+        --data-urlencode "aggregation.alignmentPeriod=60s" \
+        --data-urlencode "aggregation.perSeriesAligner=ALIGN_MEAN" \
+        --data-urlencode "aggregation.crossSeriesReducer=REDUCE_COUNT" \
+        --data-urlencode 'aggregation.groupByFields=metadata.system_labels."machine_type"' \
+        --data-urlencode "view=FULL" \
+        --data-urlencode "prettyPrint=true" \
+        --data-urlencode "fields=timeSeries.metadata,timeSeries.points.value,nextPageToken")" &&
+    printf '%s\n' "$RESPONSE" | {
+      printf '%-22s%s\n' MACHINE_TYPE PEAK_INSTANCES
+      type= peak=0
+      while IFS= read -r line; do
+        case $line in
+          *'"int64Value": "'*)
+            v=${line#*'"int64Value": "'}; v=${v%%'"'*}
+            [ "$v" -gt "$peak" ] && peak=$v ;;
+          *'"machine_type": "'*)
+            type=${line#*'"machine_type": "'}; type=${type%%'"'*} ;;
+          '    }' | '    },')
+            [ -n "$type" ] && printf '%-22s%s\n' "$type" "$peak"
+            type= peak=0 ;;
+          *'"nextPageToken":'*)
+            printf 'Warning: output is incomplete; use a shorter time range.\n' >&2 ;;
+        esac
+      done
+    }
+    
+
+Replace the following:
+
+  * `PROJECT_ID`: the ID of the project that runs the job
+  * `JOB_ID`: the ID of the Dataflow job
+
+
+
+The output has a row for each machine type that the job's workers used. The `PEAK_INSTANCES` column shows the maximum number of workers of that machine type that ran at the same time. The output is similar to the following:
+    
+    
+    MACHINE_TYPE          PEAK_INSTANCES
+    c4-standard-2         1
+    n4-standard-2         4
+    
+
+The command counts the job's VMs of each machine type in each minute, based on the `compute.googleapis.com/instance/cpu/utilization` metric, which every running VM reports. Metric data can take up to 4 minutes to appear in Monitoring, and the command might not count VMs that run for less than 1 minute.
+
+A job ID starts with the job's creation date in Pacific Time. By default, `START_TIME` is midnight UTC on that date, which is always before the job started, and `END_TIME` is the current time. To query a different time range, set `START_TIME` and `END_TIME` to UTC timestamps in RFC 3339 format. For example, `START_TIME="2026-11-04T18:00:00Z"` and `END_TIME="2026-11-05T18:00:00Z"`.
+
+If the command prints a warning that the output is incomplete, run the command for shorter time ranges. This warning can appear for jobs that run for several weeks.
+
+Monitoring stores data that's older than 6 weeks at 10-minute intervals. To query that data, change `aggregation.alignmentPeriod` to `600s`.
+
 ## Limitations
 
 When using Auto VM Selection, [Portable Runner container image updates](https://docs.cloud.google.com/dataflow/docs/guides/common-errors#portable_runner_harness_update) are disabled for streaming jobs that use the [Portable Runner](https://docs.cloud.google.com/dataflow/docs/portable-runner).
@@ -92,6 +163,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-05 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-05 UTC."],[],[]] 

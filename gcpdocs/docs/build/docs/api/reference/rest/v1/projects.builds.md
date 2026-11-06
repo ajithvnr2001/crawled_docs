@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/build/docs/api/reference/rest/v1/projects.builds
 title: REST Resource: projects.builds \u00a0|\u00a0 Cloud Build \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T09:45:11.575066+00:00
+fetched_at: 2026-11-06T10:23:31.998299+00:00
 ---
 
 # REST Resource: projects.builds  |  Cloud Build  |  Google Cloud Documentation
@@ -1243,7 +1243,8 @@ Fields
 `pubsubTopic` |  `string` Optional. Option to specify the Pub/Sub topic to receive build status updates.  
 `workerRelease` |  `string` Optional. Option to specify which release or release channel (rapid|regular|stable) to use to run this build.  
 `resolvedWorkerRelease` |  `string` Output only. Worker release resolved from the release channel.  
-`rankedMachineSeries[]` |  `enum (`[MachineSeries](https://docs.cloud.google.com/build/docs/api/reference/rest/v1/MachineSeries)`)` Optional. Ranked list (earlier items have higher priority) of Machine Series to consider when provisioning Worker VMs. A concrete machine type will be selected based on machine availability in the given region. This field must be empty for the Build to be eligible to be paired with a pre-provisioned worker VM.  
+`rankedMachineSeries[]  
+**(deprecated)**` |  `enum (`[MachineSeries](https://docs.cloud.google.com/build/docs/api/reference/rest/v1/MachineSeries)`)` This item is deprecated!Optional. Deprecated: Use `[PrivatePoolV1Config.WorkerConfig.ranked_machine_series](https://docs.cloud.google.com/build/docs/api/reference/rest/v1/projects.locations.workerPools#WorkerConfig.FIELDS.ranked_machine_series)` instead. This field has no effect.  
   
 ### VerifyOption
 
@@ -1722,6 +1723,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-28 UTC.
+Last updated 2026-11-05 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-05 UTC."],[],[]] 

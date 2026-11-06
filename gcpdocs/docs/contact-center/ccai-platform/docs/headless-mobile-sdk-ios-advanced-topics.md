@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/contact-center/ccai-platform/docs/headless-mobile-sdk-ios-advanced-topics/
 title: Headless mobile SDK for iOS: Advanced topics, localization, and post-session flows \u00a0|\u00a0 Google Cloud Contact Center as a Service \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T23:27:41.146151+00:00
+fetched_at: 2026-11-06T11:31:33.521689+00:00
 ---
 
 # Headless mobile SDK for iOS: Advanced topics, localization, and post-session flows  |  Google Cloud Contact Center as a Service  |  Google Cloud Documentation
@@ -171,7 +171,7 @@ All three are independent - always check each one.
 
 ### Surveys (medium priority)
 
-**What the SDK provides:** The `rateService` exposes methods to retrieve survey questions and submit answers for a communication session. Survey questions are configured by the administrator for each queue and can include multiple question types (CSAT, star rating, free-form text, enumeration, numeric scale).
+**What the SDK provides:** The `rateService` exposes methods to retrieve survey questions and submit answers for a communication session. Survey questions are configured by the administrator for each queue and can include multiple question types (CSAT, star rating, free-form text, enumeration, numeric scale). The samples in this section rate a chat (`communicationType: "chats"`). For a call, pass the call's ID and `"calls"`.
 
 **What you build:** A dynamic form that fetches the survey, loops through the questions, renders the appropriate UI (such as radio buttons, star ratings, or text fields) for each, validates that required fields are filled out, and packages the answers to send back.
 
@@ -319,7 +319,7 @@ So, why does the CCAI Platform SDK need to know the user's language?
 
 ### Language service APIs
 
-**What the SDK provides:** A read and write `languageCode` property for the active SDK language.
+**What the SDK provides:** A read and write `languageCode` property for the active SDK language (default `"en"`), and `getPortalAvailableLanguageCodes()`, an async method that returns the languages your admins enabled in the CCAI Platform portal.
 
 **What you build:** A language picker UI (if you want users to choose manually) and the logic to set the language before a session starts.
     
@@ -329,9 +329,12 @@ So, why does the CCAI Platform SDK need to know the user's language?
     
     // Set the active language before the user starts a support session
     CCAI.shared.languageService?.languageCode = "es"
+    // Languages your admins enabled in the UJET Portal (from an async context)
+    let enabledLanguages = await CCAI.shared.languageService?.getPortalAvailableLanguageCodes() ?? []
+    
     
 
-The SDK doesn't expose a fixed SDK-supported language list. If your app shows a language picker, maintain the app's display list yourself or use instance or company configuration returned by the SDK to determine which languages to offer.
+The SDK doesn't expose a fixed list of supported languages. To build a language picker, use `getPortalAvailableLanguageCodes()` or the languages list from `companyService.get()`.
 
 ### Setting the SDK language (the pre-session rule)
 
@@ -606,7 +609,7 @@ This is useful when migrating a user from a third-party chat system into a CCAI 
 
 The `chatService` exposes Combine publishers for observing real-time chat events.
 
-**Warning:** The chat service publishers are raw `PassthroughSubject` / `CurrentValueSubject` values - they don't apply `.receive(on: DispatchQueue.main)` internally. Depending on where the SDK emits from, `sink` closures may run on a background thread. If you update UIKit or SwiftUI from `sink`, add `.receive(on: DispatchQueue.main)` before `.sink` (or hop to `MainActor` inside the closure) to avoid crashes.Publisher | Emits  
+**Warning:** The chat service publishers are `AnyPublisher` values backed by Combine subjects, and the SDK doesn't apply `.receive(on: DispatchQueue.main)` to them. `sink` closures can run on a background thread. If you update UIKit or SwiftUI from `sink`, add `.receive(on: DispatchQueue.main)` before `.sink` (or hop to `MainActor` inside the closure) to avoid crashes.Publisher | Emits  
 ---|---  
 `messagesReceived` | Lists of incoming chat messages (from agents, virtual agents, or system).  
 `typingEvent` | When a user or an agent is typing.  
@@ -614,12 +617,15 @@ The `chatService` exposes Combine publishers for observing real-time chat events
 `stateChanged` | State changes of the chat provider (connecting, connected, disconnected, error).  
 `chatReceived` | Chat response data when a chat is received or updated (including status changes, agent assignment, and post-session state).  
   
-The `chatService` exposes additional publishers for transfer events (`coldTransferSubject`) and other internal state changes. For complete type signatures and all available publishers, see the **Headless Mobile SDK - iOS API Reference**.
+The `chatService` also exposes `transferEvent` for transfer events and `networkConnectivityChanged` for device connectivity. For complete type signatures and all available publishers, see the **Headless Mobile SDK - iOS API Reference.**
 
-**Implementation example:**
+#### Implementation example
     
     
     import Combine
+    import Foundation
+    import CCAIKit
+    import CCAIChat
     
     private var cancellables = Set<AnyCancellable>()
     
@@ -656,9 +662,9 @@ The `chatService` exposes additional publishers for transfer events (`coldTransf
         .sink { event in
             switch event {
             case .joined(let identity):
-                print("Member joined: \\(identity ?? "Unknown")")
+                print("Member joined: \(identity ?? "Unknown")")
             case .left(let identity):
-                print("Member left: \\(identity ?? "Unknown")")
+                print("Member left: \(identity ?? "Unknown")")
             default:
                 break
             }
@@ -669,7 +675,7 @@ The `chatService` exposes additional publishers for transfer events (`coldTransf
     
     // 4. Chat provider state changes
     CCAI.shared.chatService?.stateChanged
-         .receive(on: DispatchQueue.main)
+        .receive(on: DispatchQueue.main)
         .sink { state in
             // Update UI based on connection state (connecting, connected, etc.)
             updateConnectionStatus(state)
@@ -684,6 +690,26 @@ The `chatService` exposes additional publishers for transfer events (`coldTransf
             guard let chat = chat else { return }
             updateAgentInfo(chat.agent)
             handlePostSessionIfNeeded(chat)
+        }
+        .store(in: &cancellables)
+    
+
+#### Join failures
+
+If the SDK can't join the chat, `stateChanged` publishes `.error` with `ChatError.failedToJoin`. If the chat is still unavailable after the SDK's retries, it publishes `.error` with `ChatError.failedToGetChat` instead, or `ChatError.failedToGetChatId` if the SDK couldn't get the chat's ID. These failures arrive on this publisher, not as an error thrown by `start(request:)` or `resumeChat(_:)`, so a `do/catch` around those calls doesn't catch them. Handle them in your `stateChanged` subscriber:
+    
+    
+    import Foundation
+    import CCAIKit
+    import CCAIChat
+    
+    CCAI.shared.chatService?.stateChanged
+        .receive(on: DispatchQueue.main)
+        .sink { state in
+            if case .error(let error, _, _) = state,
+               error == .failedToJoin || error == .failedToGetChat || error == .failedToGetChatId {
+                showError("We couldn't connect you to the chat. Please try again.")
+            }
         }
         .store(in: &cancellables)
     
@@ -907,7 +933,7 @@ When you submit your app to Apple for review, the App Store will ask:
   * Fix: Ensure your SPM dependency uses the correct repository URL and branch:
         
         dependencies: [
-            .package(url: "<https://github.com/UJET/ccai-ios-sdk.git>", branch: "3.3.1")
+            package(url: "https://github.com/UJET/ccai-ios-sdk.git", from: "3.5.0")   
         ]
         
 
@@ -946,7 +972,9 @@ Then implement your `AppDelegate` class with `CCAIDelegate` conformance and push
         try CCAI.shared.initialize(options: options)
         // 2. Initialize Chat
         CCAI.shared.initializeChat()
-        // 3. Initialize Screen Share (optional)
+        // 3. Initialize Call (if you use voice)
+        CCAI.shared.initializeCall()
+        // 4. Initialize Screen Share (optional)
         // CCAI.shared.initializeScreenShare(screenShareOptions)
         
 
@@ -961,7 +989,7 @@ The `chatService` property on `CCAI.shared` only has a value after `initializeCh
 
   * Fix: Ensure you call `initializeScreenShare()` with a valid screen share key:
         
-        CCAI.shared.initializeScreenShare(ScreenShareOptions(key: "YOUR_SCREEN_SHARE_KEY"))
+        CCAI.shared.initializeScreenShare(ScreenShareOptions(key: "YOUR_SCREEN_SHARE_LICENSE_KEY"))
         
 
 
@@ -1096,7 +1124,7 @@ The `delegate` property on `InitOptions` is declared as `weak`, so the object yo
 
   * Fix:
 
-    * Ensure `CCAI.shared.initializeScreenShare()` is called with valid `ScreenShareOptions` containing your screen share key.
+    * Ensure `CCAI.shared.initializeScreenShare()` is called with valid `ScreenShareOptions` containing your screen share key (in the CCAI Platform portal under **Settings > Developer Settings > Screen Share**).
 
     * Verify that the current chat supports screen share by checking `chat?.isSupportingScreenShare == true`.
 
@@ -1170,6 +1198,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-05 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-05 UTC."],[],[]] 

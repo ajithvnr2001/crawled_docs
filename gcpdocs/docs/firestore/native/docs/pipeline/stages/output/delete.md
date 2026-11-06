@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/firestore/native/docs/pipeline/stages/output/delete/
 title: Delete (Output Stage) \u00a0|\u00a0 Firestore in Native mode \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-05T11:08:57.813359+00:00
+fetched_at: 2026-11-06T08:22:59.363160+00:00
 ---
 
 # Delete (Output Stage)  |  Firestore in Native mode  |  Google Cloud Documentation
@@ -85,7 +85,7 @@ For example, the following query deletes all `users` documents with `address.use
     	Delete().
     	Execute(ctx)
     
-    [pipeline_snippets_dml.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/db12cf239dd4dcddd2c15c703bb21991d4193a8a/firestore/pipeline_snippets_dml.go#L50-L55)
+    [pipeline_snippets_dml.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/7c21bf1faae9139ce31b1321fa2815e95caff660/firestore/pipeline_snippets_dml.go#L50-L55)
 
 ## Behavior
 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/firestore/native/docs/pipeline/stages/input/database/
 title: Database (Input Stage) \u00a0|\u00a0 Firestore in Native mode \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-05T11:09:01.654948+00:00
+fetched_at: 2026-11-06T08:23:02.211735+00:00
 ---
 
 # Database (Input Stage)  |  Firestore in Native mode  |  Google Cloud Documentation
@@ -104,7 +104,7 @@ Android
     	Aggregate(firestore.Accumulators(firestore.CountAll().As("total"))).
     	Execute(ctx)
     
-    [pipeline_snippets_general.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/db12cf239dd4dcddd2c15c703bb21991d4193a8a/firestore/pipeline_snippets_general.go#L911-L915)
+    [pipeline_snippets_general.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/7c21bf1faae9139ce31b1321fa2815e95caff660/firestore/pipeline_snippets_general.go#L911-L915)
 
 ## Behavior
 

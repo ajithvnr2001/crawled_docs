@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sql/docs/mysql/samples/cloud-sql-mysql-instance-flags/
 title: Add database flags \u00a0|\u00a0 Cloud SQL for MySQL \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T08:57:22.149977+00:00
+fetched_at: 2026-11-06T10:30:12.016405+00:00
 ---
 
 # Add database flags  |  Cloud SQL for MySQL  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/spanner/docs/pg-jdbc-connect/
 title: Connect JDBC to a PostgreSQL-dialect database \u00a0|\u00a0 Spanner \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T09:31:45.497432+00:00
+fetched_at: 2026-11-06T10:39:45.049101+00:00
 ---
 
 # Connect JDBC to a PostgreSQL-dialect database  |  Spanner  |  Google Cloud Documentation
@@ -36,12 +36,12 @@ If you use the PostgreSQL JDBC driver, you must use PGAdapter to translate betwe
          <dependency>
            <groupId>org.postgresql</groupId>
            <artifactId>postgresql</artifactId>
-           <version>0.56.1</version>
+           <version>0.56.2</version>
          </dependency>
          <dependency>
            <groupId>com.google.cloud</groupId>
            <artifactId>google-cloud-spanner-pgadapter</artifactId>
-           <version>0.56.1</version>
+           <version>0.56.2</version>
          </dependency>
 
   2. Start PGAdapter in-process with your application. 

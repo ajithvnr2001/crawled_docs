@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/firestore/native/docs/pipeline/stages/transformation/find_nearest/
 title: Find Nearest (Transformation Stage) \u00a0|\u00a0 Firestore in Native mode \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-05T11:09:05.576993+00:00
+fetched_at: 2026-11-06T08:23:05.471419+00:00
 ---
 
 # Find Nearest (Transformation Stage)  |  Firestore in Native mode  |  Google Cloud Documentation
@@ -141,7 +141,7 @@ Android
     	FindNearest("embedding", []float64{1.5, 2.345}, firestore.PipelineDistanceMeasureEuclidean).
     	Execute(ctx)
     
-    [pipeline_snippets_general.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/db12cf239dd4dcddd2c15c703bb21991d4193a8a/firestore/pipeline_snippets_general.go#L2039-L2041)
+    [pipeline_snippets_general.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/7c21bf1faae9139ce31b1321fa2815e95caff660/firestore/pipeline_snippets_general.go#L2039-L2041)
 
 ## Behavior
 

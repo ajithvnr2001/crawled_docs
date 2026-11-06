@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/compute/docs/cpu-platforms/
 title: CPU platforms \u00a0|\u00a0 Compute Engine \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T23:47:04.765429+00:00
+fetched_at: 2026-11-06T12:32:59.573041+00:00
 ---
 
 # CPU platforms  |  Compute Engine  |  Google Cloud Documentation
@@ -81,11 +81,15 @@ CPU processor | Processor SKU | Supported machine series and types | Base freque
 Intel Xeon Scalable Processor  
 (Granite Rapids)  
 6th generation  
-  
-Intel Xeon Platinum 6985P-C Processor  
+| Intel Xeon Platinum 6788P Processor  
 | 
 
   * [X5](https://docs.cloud.google.com/compute/docs/memory-optimized-machines#x5_series)
+
+| 2.0 | 3.2 | 3.8  
+Intel Xeon Platinum 6985P-C Processor  
+| 
+
   * [C4](https://docs.cloud.google.com/compute/docs/general-purpose-machines#c4_series)
 
 | 2.81 | 3.9 | 4.2  
@@ -463,6 +467,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-05 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-05 UTC."],[],[]] 

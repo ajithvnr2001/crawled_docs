@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/managed-spark/docs/guides/monitor-troubleshoot-sessions/
 title: Monitor and troubleshoot interactive sessions \u00a0|\u00a0 Managed Service for Apache Spark \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-06T05:53:28.137140+00:00
+fetched_at: 2026-11-06T11:11:39.871431+00:00
 ---
 
 # Monitor and troubleshoot interactive sessions  |  Managed Service for Apache Spark  |  Google Cloud Documentation

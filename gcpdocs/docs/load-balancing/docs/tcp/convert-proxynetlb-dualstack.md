@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/load-balancing/docs/tcp/convert-proxynetlb-dualstack/
 title: Convert proxy Network Load Balancer to IPv6 \u00a0|\u00a0 Cloud Load Balancing \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T20:47:12.338634+00:00
+fetched_at: 2026-11-06T13:46:30.764945+00:00
 ---
 
 # Convert proxy Network Load Balancer to IPv6  |  Cloud Load Balancing  |  Google Cloud Documentation
@@ -42,7 +42,7 @@ Classic proxy Network Load Balancers don't support dual-stack backends or subnet
 
   * Your load balancer is using either VM instance group backends or zonal network endpoint groups (NEGs) with `GCE_VM_IP_PORT` endpoints. Other backend types don't have dual-stack support.
 
-  * For all supported proxy Network Load Balancers, you must convert the backends to dual-stack _and_ you create an IPv6 forwarding rule that can handle incoming IPv6 traffic.
+  * For all supported proxy Network Load Balancers, you must convert the backends to dual-stack if you want to support end-to-end IPv6 backend traffic. To support client IPv6 traffic only, you don't need to convert your backends; you only need to create an IPv6 forwarding rule that can handle incoming IPv6 traffic.
 
 
 
@@ -204,9 +204,9 @@ If you select **Manually** , enter a `/48` range from within the `fd20::/20` ran
 
 
 
-#### Update the proxy-only subnet
+#### Optional: Update the proxy-only subnet
 
-If you are using an Envoy based load balancer, we recommend that you change the proxy-only subnet stack type to dual stack. However, for cross-regional internal load balancer, you must use dual stack proxy-only subnet. For information about load balancers that support proxy-only subnets, see [Supported load balancers](https://docs.cloud.google.com/load-balancing/docs/proxy-only-subnets#envoy-lb).
+If you are using an Envoy-based load balancer, we recommend that you change the proxy-only subnet stack type to dual stack if you want the proxy to reach IPv6 backends. If you only want to support client IPv6 traffic, you can use a single-stack (IPV4_ONLY) or dual-stack (IPV4_IPV6) proxy-only subnet. For information about load balancers that support proxy-only subnets, see [Supported load balancers](https://docs.cloud.google.com/load-balancing/docs/proxy-only-subnets#envoy-lb).
 
 **Note:** Before you update the stack type of a proxy-only subnet to dual-stack, you need to [assign an internal IPv6 range on the VPC network](https://docs.cloud.google.com/vpc/docs/create-modify-vpc-networks#enable-internal-ipv6-network).
 
@@ -545,6 +545,8 @@ Without this firewall rule, the [default deny ingress](https://docs.cloud.google
 
 
 ### Create a firewall rule for the proxy-only subnet
+
+This section applies if you updated your proxy-only subnet to dual-stack (`IPV4_IPV6`) as described in the Update the proxy-only subnet section of this document. If your proxy-only subnet remains single-stack (`IPV4_ONLY`), you don't need to update this firewall rule because traffic from the proxy to your backends continues to use IPv4.
 
 If you are using a regional external proxy Network Load Balancer or an internal proxy Network Load Balancer, you must update the ingress firewall rule `fw-allow-lb-access-ipv6` to allow traffic from the proxy-only subnet to the backends. 
 
@@ -927,6 +929,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-06 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-06 UTC."],[],[]] 

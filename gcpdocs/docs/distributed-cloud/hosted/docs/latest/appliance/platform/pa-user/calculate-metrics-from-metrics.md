@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/appliance/platform/pa-user/calculate-metrics-from-metrics/
 title: Create new metrics from existing metrics \u00a0|\u00a0 Google Distributed Cloud Hosted Appliance \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T22:05:14.845403+00:00
+fetched_at: 2026-11-06T11:31:34.664292+00:00
 ---
 
 # Create new metrics from existing metrics  |  Google Distributed Cloud Hosted Appliance  |  Google Cloud Documentation
@@ -23,11 +23,9 @@ Send feedback
 
 #  Create new metrics from existing metrics Stay organized with collections  Save and categorize content based on your preferences. 
 
-This page describes how to generate new metrics from existing metrics by deploying a `MonitoringRule` custom resource in Google Distributed Cloud (GDC) air-gapped appliance.
+`MonitoringRule` custom resources in Google Distributed Cloud (GDC) air-gapped appliance let you derive new time series metrics from existing metrics. Recording rules defined within a `MonitoringRule` custom resource precompute frequently used or computationally expensive PromQL expressions and save the results as new metrics.
 
-Recording rules allow you to precompute frequently used or computationally expensive expressions, improving performance for dashboards and alerts. Defined within `MonitoringRule` custom resources, these rules generate new time series metrics from existing metrics, enhancing data observability.
-
-By storing precomputed results, recording rules eliminate redundant calculations each time an expression is needed. This method significantly speeds up query times, particularly for complex dashboards and alerts that require repeated evaluations of the same expression. Essentially, `MonitoringRule` resources let you derive new metrics from existing ones by specifying the necessary calculations within their recording rules.
+Storing precomputed results eliminates redundant calculations each time an expression is evaluated. This approach reduces query latency for complex dashboards and alerts that repeatedly evaluate the same metric data.
 
 ## Before you begin
 
@@ -183,6 +181,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-05 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-05 UTC."],[],[]] 

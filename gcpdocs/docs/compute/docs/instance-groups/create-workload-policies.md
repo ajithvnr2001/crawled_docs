@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/compute/docs/instance-groups/create-workload-policies/
 title: Create workload policies for MIGs \u00a0|\u00a0 Compute Engine \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T22:58:19.922535+00:00
+fetched_at: 2026-11-06T10:23:19.076303+00:00
 ---
 
 # Create workload policies for MIGs  |  Compute Engine  |  Google Cloud Documentation
@@ -137,9 +137,20 @@ Replace the following:
 
 ### Create a workload policy for A4, A3 Ultra, A3 Mega, A3 High (8 GPUs), or H4D instances
 
-If you want to apply a workload policy to A4, A3 Ultra, A3 Mega, A3 High (8 GPUs), or H4D instances in a MIG, then we recommend that you specify a [maximum topology distance value](https://docs.cloud.google.com/compute/docs/instance-groups/about-workload-policies#max-distance) when you create your policy. This action helps ensure closer placement among your compute instances. However, the more compact the placement you specify, the fewer resources might be available in the zone where you want to create your compute instances.
+If you want to apply a workload policy to A4, A3 Ultra, A3 Mega, A3 High (8 GPUs), or H4D instances in a MIG, then you can optionally specify a [maximum topology distance value](https://docs.cloud.google.com/compute/docs/instance-groups/about-workload-policies#max-distance) when you create your policy.
 
-To create a workload policy for A4, A3 Ultra, A3 Mega, or A3 High (8 GPUs) instances, select one of the following options:
+**Caution** : Workload policies that enforce strict physical colocation inherently conflict with compute instance obtainability and capacity assurance. When you restrict capacity to run within a specific physical configuration, such as a strict topology distance, block, or sub-block, you directly reduce the probability that Compute Engine can allocate those resources.
+
+When you decide whether to specify a maximum topology distance, consider the trade-off between strict physical colocation and both compute instance obtainability and capacity assurance:
+
+  * **Unspecified distance** : you prioritize compute instance obtainability and capacity assurance over strict colocation. However, if capacity is constrained, then Compute Engine might place compute instances further apart than your application can tolerate.
+
+  * **Specified distance** : you require closer physical colocation for lower network latency, which directly reduces compute instance obtainability and capacity assurance. If your placement requirements are too strict for the available capacity in a zone, then you might encounter [resource availability errors](https://docs.cloud.google.com/compute/docs/troubleshooting/troubleshooting-resource-availability). To resolve these errors, use a workload policy with a less strict maximum topology distance value, such as `CLUSTER` instead of `SUBBLOCK`, or leave the value unspecified.
+
+
+
+
+To create a workload policy for A4, A3 Ultra, A3 Mega, A3 High (8 GPUs), or H4D instances, select one of the following options:
 
 ###  gcloud 
 
@@ -169,7 +180,7 @@ Replace the following:
 
   * `REGION`: the region where to create your workload policy. Specify a region in which you want to create the MIG, and where the machine type that you want to use is available. To review the regions in which GPU machine types are available, see [Available regions and zones](https://docs.cloud.google.com/compute/docs/regions-zones#available).
 
-  * `TOPOLOGY_DISTANCE`: the maximum topology distance. A shorter maximum distance can reduce the probability of VM availability. Specify one of the following values:
+  * `TOPOLOGY_DISTANCE`: the maximum topology distance. Specify one of the following values:
 
     * To place A4 or H4D instances in the same cluster: `CLUSTER`
 
@@ -220,7 +231,7 @@ Replace the following:
 
   * `WORKLOAD_POLICY_NAME`: the name for your workload policy.
 
-  * `TOPOLOGY_DISTANCE`: the maximum topology distance. A shorter maximum distance can reduce the probability of VM availability. Specify one of the following values:
+  * `TOPOLOGY_DISTANCE`: the maximum topology distance. Specify one of the following values:
 
     * To place A4 or H4D instances in the same cluster: `CLUSTER`
 
@@ -258,6 +269,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-05 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-05 UTC."],[],[]] 

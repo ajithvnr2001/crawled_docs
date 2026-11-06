@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini/data-agents/conversational-analytics-api/cmek/
 title: Customer-managed encryption keys (CMEK) \u00a0|\u00a0 Conversational Analytics API \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T16:25:34.660720+00:00
+fetched_at: 2026-11-06T08:23:47.267132+00:00
 ---
 
 # Customer-managed encryption keys (CMEK)  |  Conversational Analytics API  |  Google Cloud Documentation
@@ -60,11 +60,27 @@ CMEK for the Conversational Analytics API has the following limitations:
 
   * CMEK must be configured when the resource is created. It can't be added to or changed on an existing resource.
   * CMEK organization policies aren't supported.
-  * The Cloud KMS key and the Conversational Analytics API resource must be in the same location.
+  * The required location of the Cloud KMS key depends on the resource type and location. In a single region, the key must be in the same region as the resource. In the `us` or `eu` multi-region, the key location for `DataAgent` and `Conversation` resources differs. For more information, see Key location requirements.
   * The `global` region isn't supported.
   * You can use only one CMEK per project per region for all `Conversation` resources within that project and region.
 
 
+
+### Key location requirements
+
+The required location of the Cloud KMS key depends on the type of resource that you protect and the location of that resource:
+
+Resource location | Key location for `DataAgent` resources | Key location for `Conversation` resources  
+---|---|---  
+`us` multi-region | `us` | `us-central1`  
+`eu` multi-region | `europe` | `europe-west1`  
+A single region, such as `us-east4` | The same region as the resource | The same region as the resource  
+  
+`DataAgent` resources in a multi-region are stored in the multi-region that's specified in the resource name, so the key must be in the matching Cloud KMS multi-region. For the `us` multi-region, the Cloud KMS location is also `us`. For the `eu` multi-region, the Cloud KMS location is `europe`, because Cloud KMS doesn't have an `eu` location. For more information, see [Cloud KMS locations](https://docs.cloud.google.com/kms/docs/locations).
+
+`Conversation` resources in a multi-region are stored in a specific region within that multi-region: `us-central1` for `us`, and `europe-west1` for `eu`. The key must be in that region. For example, to protect a `Conversation` resource that's named `projects/PROJECT_ID/locations/us/conversations/CONVERSATION_ID`, use a key in the `us-central1` location.
+
+**Note:** Because of these requirements, you can't use the same Cloud KMS key to protect both `DataAgent` and `Conversation` resources in the `us` or `eu` multi-region. Create a separate key for each required location—for example, one key in `us` and one key in `us-central1`—and grant the required IAM roles on each key, as described in Before you begin. If you specify a key in the wrong location, the request fails with an `INVALID_ARGUMENT` error.
 
 ## Before you begin
 
@@ -95,7 +111,7 @@ With the [Google Cloud CLI](https://docs.cloud.google.com/sdk/docs/install-sdk),
 
 In the previous sample gcloud CLI commands, replace `project_id` with your Google Cloud project ID.
 
-  2. Create a Cloud KMS key ring and key in the same location as your Conversational Analytics API resources. For more information, see [Create a key](https://docs.cloud.google.com/kms/docs/create-key).
+  2. Create a Cloud KMS key ring and key in the location that's required for your Conversational Analytics API resources, as described in Key location requirements. For more information, see [Create a key](https://docs.cloud.google.com/kms/docs/create-key).
 
   3. Create the Google-managed [service agents](https://docs.cloud.google.com/iam/docs/service-agents), also known as _per-product per-project service accounts (P4SAs)_ , if they don't already exist. These service agents are required to allow the services that are involved in protecting your Conversational Analytics API resources with CMEK to access your Cloud KMS key.
 
@@ -106,7 +122,7 @@ Run the following `gcloud` commands to create the service agents:
          
 
 Replace `PROJECT_ID` with your Google Cloud project ID.
-  4. Grant the [Cloud KMS CryptoKey Encrypter/Decrypter](https://docs.cloud.google.com/kms/docs/reference/permissions-and-roles#cloudkms.cryptoKeyEncrypterDecrypter) (`roles/cloudkms.cryptoKeyEncrypterDecrypter`) role in Identity and Access Management (IAM) to both service agents that you created in the previous step to enable the Gemini Data Analytics service to use your Cloud KMS key for encrypting and decrypting your Conversational Analytics API data.
+  4. Grant the [Cloud KMS CryptoKey Encrypter/Decrypter](https://docs.cloud.google.com/kms/docs/reference/permissions-and-roles#cloudkms.cryptoKeyEncrypterDecrypter) (`roles/cloudkms.cryptoKeyEncrypterDecrypter`) role in Identity and Access Management (IAM) to both service agents that you created in the previous step to enable the Gemini Data Analytics service to use your Cloud KMS key for encrypting and decrypting your Conversational Analytics API data. If you use more than one key—for example, separate keys for `DataAgent` and `Conversation` resources in the `us` or `eu` multi-region—grant the role on each key.
 
 Grant the permission to the Gemini Data Analytics service agent:
          
@@ -148,7 +164,7 @@ You can enable CMEK only when you create a `DataAgent` or `Conversation` resourc
 
 **Important:** You can't add or change a Cloud KMS key on an existing resource.
 
-A CMEK key must be in the same region as the resource that it protects. For more information, see Limitations.
+The required location of a Cloud KMS key depends on the type and location of the resource that it protects. For more information, see Key location requirements.
 
 ### Protect a `DataAgent` resource with CMEK
 
@@ -164,12 +180,15 @@ The following example shows how to specify a Cloud KMS key when you create a `Da
     key_ring = "KEY_RING_NAME"
     key_name = "KEY_NAME"
     key_project = "KMS_PROJECT_ID" # Project where the key was created
-    location = "LOCATION" # Region of your key ring
+    location = "LOCATION" # Location of the data agent
+    key_location = "KEY_LOCATION" # Location of your key ring
     
     if key_project == "":
       key_project = billing_project
+    if key_location == "":
+      key_location = location
     
-    kms_key_data_agent = f"projects/{key_project}/locations/{location}/keyRings/{key_ring}/cryptoKeys/{key_name}"
+    kms_key_data_agent = f"projects/{key_project}/locations/{key_location}/keyRings/{key_ring}/cryptoKeys/{key_name}"
     
     data_agent = geminidataanalytics.DataAgent()
     data_agent.data_analytics_agent.published_context = published_context
@@ -182,7 +201,8 @@ In the previous example, replace values as follows:
   * `KEY_RING_NAME`: The name of your Cloud KMS key ring.
   * `KEY_NAME`: The name of your Cloud KMS key.
   * `KMS_PROJECT_ID`: The project ID where the key was created. If left empty, `billing_project` is used.
-  * `LOCATION`: The region of your key ring.
+  * `LOCATION`: The location of the data agent—for example, `us`, `eu`, or `us-east4`.
+  * `KEY_LOCATION`: The location of your key ring. For the `eu` multi-region, use `europe`. For all other locations, use the same location as `LOCATION`. If left empty, this defaults to the data agent's location, which works for all locations except the `eu` multi-region.
 
 
 
@@ -191,11 +211,18 @@ In the previous example, replace values as follows:
 The following example shows how to specify a Cloud KMS key in the request body when you create a `DataAgent` resource with HTTP and Python. For an example of a complete `create` request, see [Build a data agent using HTTP and Python](https://docs.cloud.google.com/gemini/data-agents/conversational-analytics-api/build-agent-http#create_a_data_agent).
     
     
+    # Define the KMS key.
+    key_ring = "KEY_RING_NAME"
+    key_name = "KEY_NAME"
+    key_project = "KMS_PROJECT_ID" # Project where the key was created
+    location = "LOCATION" # Location of the data agent
+    key_location = "KEY_LOCATION" # Location of your key ring
+    
     data_agent_payload = {
           "name": f"projects/{billing_project}/locations/{location}/dataAgents/{data_agent_id}",
           "description": "This is the description of data_agent_1.",
           # If using CMEK, include the kms_key field.
-          "kms_key": f"projects/{key_project}/locations/{location}/keyRings/{key_ring}/cryptoKeys/{key_name}",
+          "kms_key": f"projects/{key_project}/locations/{key_location}/keyRings/{key_ring}/cryptoKeys/{key_name}",
           "data_analytics_agent": {
               "published_context": {
                   "datasource_references": looker_data_source,
@@ -207,16 +234,19 @@ The following example shows how to specify a Cloud KMS key in the request body w
 
 In the previous example, replace values as follows:
 
-  * `KMS_PROJECT_ID`: The project ID where the key was created.
-  * `LOCATION`: The region of your key ring.
   * `KEY_RING_NAME`: The name of your Cloud KMS key ring.
   * `KEY_NAME`: The name of your Cloud KMS key.
+  * `KMS_PROJECT_ID`: The project ID where the key was created.
+  * `LOCATION`: The location of the data agent—for example, `us`, `eu`, or `us-east4`.
+  * `KEY_LOCATION`: The location of your key ring. For the `eu` multi-region, use `europe`. For all other locations, use the same location as the data agent.
 
 
 
 ### Protect a `Conversation` resource with CMEK
 
 To protect a new `Conversation` resource with CMEK, specify a Cloud KMS key in the `kms_key` field when you create the conversation.
+
+**Important:** If you create the conversation in the `us` or `eu` multi-region, the key must be in a specific region within that multi-region (`us-central1` for `us`, or `europe-west1` for `eu`), not in the multi-region itself. For more information, see Key location requirements.
 
 ### Python SDK
 
@@ -228,12 +258,15 @@ The following example shows how to specify a Cloud KMS key when you create a `Co
     key_ring = "KEY_RING_NAME"
     key_name = "KEY_NAME"
     key_project = "KMS_PROJECT_ID" # Project where the key was created
-    location = "LOCATION" # Region of your key ring
+    location = "LOCATION" # Location of the conversation and data agent
+    key_location = "KEY_LOCATION" # Location of your key ring
     
     if key_project == "":
       key_project = billing_project
+    if key_location == "":
+      key_location = location
     
-    kms_key_conversation = f"projects/{key_project}/locations/{location}/keyRings/{key_ring}/cryptoKeys/{key_name}"
+    kms_key_conversation = f"projects/{key_project}/locations/{key_location}/keyRings/{key_ring}/cryptoKeys/{key_name}"
     
     conversation = geminidataanalytics.Conversation()
     conversation.agents = [f"projects/{billing_project}/locations/{location}/dataAgents/{data_agent_id}"]
@@ -246,7 +279,8 @@ In the previous example, replace values as follows:
   * `KEY_RING_NAME`: The name of your Cloud KMS key ring.
   * `KEY_NAME`: The name of your Cloud KMS key.
   * `KMS_PROJECT_ID`: The project ID where the key was created. If left empty, `billing_project` is used.
-  * `LOCATION`: The region of your key ring.
+  * `LOCATION`: The location of the conversation and data agent—for example, `us`, `eu`, or `us-east4`.
+  * `KEY_LOCATION`: The location of your key ring. For the `us` multi-region, use `us-central1`. For the `eu` multi-region, use `europe-west1`. For a single region, use the same region as `LOCATION`. If left empty, this defaults to the conversation's location, which works only for single regions.
 
 
 
@@ -255,22 +289,30 @@ In the previous example, replace values as follows:
 The following example shows how to specify a Cloud KMS key in the request body when you create a `Conversation` resource with HTTP and Python. For an example of a complete `create` request, see [Build a data agent using HTTP and Python](https://docs.cloud.google.com/gemini/data-agents/conversational-analytics-api/build-agent-http#create_a_conversation).
     
     
+    # Define the KMS key.
+    key_ring = "KEY_RING_NAME"
+    key_name = "KEY_NAME"
+    key_project = "KMS_PROJECT_ID" # Project where the key was created
+    location = "LOCATION" # Location of the conversation and data agent
+    key_location = "KEY_LOCATION" # Location of your key ring
+    
     conversation_payload = {
         "agents": [
             f"projects/{billing_project}/locations/{location}/dataAgents/{data_agent_id}"
         ],
         "name": f"projects/{billing_project}/locations/{location}/conversations/{conversation_id}",
         # If using CMEK, include the kms_key field.
-        "kms_key": f"projects/{key_project}/locations/{location}/keyRings/{key_ring_name}/cryptoKeys/{key_name}"
+        "kms_key": f"projects/{key_project}/locations/{key_location}/keyRings/{key_ring}/cryptoKeys/{key_name}"
     }
     
 
 In the previous example, replace values as follows:
 
-  * `KMS_PROJECT_ID`: The project ID where the key was created.
-  * `LOCATION`: The region of your key ring.
   * `KEY_RING_NAME`: The name of your Cloud KMS key ring.
   * `KEY_NAME`: The name of your Cloud KMS key.
+  * `KMS_PROJECT_ID`: The project ID where the key was created.
+  * `LOCATION`: The location of the conversation and data agent—for example, `us`, `eu`, or `us-east4`.
+  * `KEY_LOCATION`: The location of your key ring. For the `us` multi-region, use `us-central1`. For the `eu` multi-region, use `europe-west1`. For a single region, use the same region as the conversation.
 
 
 
@@ -318,6 +360,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-06 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-06 UTC."],[],[]] 

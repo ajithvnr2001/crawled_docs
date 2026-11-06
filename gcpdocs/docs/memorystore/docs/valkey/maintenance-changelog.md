@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/memorystore/docs/valkey/maintenance-changelog/
 title: Memorystore for Valkey maintenance changelogs \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-05T00:20:43.642185+00:00
+fetched_at: 2026-11-06T10:57:55.126611+00:00
 ---
 
 # Memorystore for Valkey maintenance changelogs  |  Google Cloud Documentation
@@ -24,7 +24,7 @@ Send feedback
 
 This page contains a log of maintenance changes. Memorystore for Valkey releases maintenance updates for new features, security patches, bug fixes, performance improvements, and more.
 
-You can perform maintenance updates by using [self-service maintenance](https://docs.cloud.google.com/memorystore/docs/valkey/self-service-maintenance). Memorystore for Valkey also performs scheduled maintenance updates once every few months. You can set windows for when maintenance updates occur. For more information, see [Find and set maintenance windows](https://docs.cloud.google.com/memorystore/docs/valkey/find-and-set-maintenance-windows).
+Memorystore for Valkey also performs scheduled maintenance updates once every few months. This is known as _automatic maintenance_. If you want the updates sooner, then you can perform maintenance updates by using self-service maintenance. You can also set windows for when maintenance updates occur. For more information, see [Find and set maintenance windows](https://docs.cloud.google.com/memorystore/docs/valkey/find-and-set-maintenance-windows).
 
 To view the maintenance version, use the [`gcloud memorystore instances describe`](https://docs.cloud.google.com/sdk/gcloud/reference/memorystore/instances/describe) command. The maintenance version appears next to the `effectiveMaintenanceVersion` parameter. For more information, see [View instance information](https://docs.cloud.google.com/memorystore/docs/cluster/view-instance-information). Also, to learn more about maintenance updates, see [About maintenance](https://docs.cloud.google.com/memorystore/docs/valkey/about-maintenance).
 
@@ -32,10 +32,8 @@ To get the latest maintenance changes, add the URL for the [XML file](https://do
 
 ## MEMORYSTORE_20261022_06_00
 
-**Date released** | **Release type**  
----|---  
-2026-11-02 | Self-service  
-  
+**Date released** : 2026-11-02
+
 ### Summary
 
 Covered instances | Summary  
@@ -404,10 +402,8 @@ All Memorystore for Valkey instances | Set the Valkey host OS version to [cos-12
 
 ## MEMORYSTORE_20261008_00_00
 
-**Date released** | **Release type**  
----|---  
-2026-10-13 | Self-service  
-  
+**Date released** : 2026-10-13
+
 ### Summary
 
 Covered instances | Summary  
@@ -442,10 +438,8 @@ All Memorystore for Valkey instances | Refresh all versions of the Valkey binary
 
 ## MEMORYSTORE_20260924_00_00
 
-**Date released** | **Release type**  
----|---  
-2026-09-29 | Self-service  
-  
+**Date released** : 2026-09-29
+
 ### Summary
 
 Covered instances | Summary  
@@ -888,10 +882,8 @@ All Memorystore for Valkey instances | Refresh all versions of the Valkey binary
 
 ## MEMORYSTORE_20260813_00_00
 
-**Date released** | **Release type**  
----|---  
-2026-08-31 | Self-service  
-  
+**Date released** : 2026-08-31
+
 ### Summary
 
 Covered instances | Summary  
@@ -1154,10 +1146,8 @@ All Memorystore for Valkey instances | Refresh all versions of the Valkey binary
 
 ## MEMORYSTORE_20260701_01_02
 
-**Date released** | **Release type**  
----|---  
-2026-07-27 | Self-service  
-  
+**Date released** : 2026-07-07
+
 ### Summary
 
 Covered instances | Summary  
@@ -1285,10 +1275,8 @@ All Memorystore for Valkey instances | Apply security patch for CVE-2026-56684
 
 ## MEMORYSTORE_20260522_00_00
 
-**Date released** | **Release type**  
----|---  
-2026-06-09 | Self-service  
-  
+**Date released** : 2026-06-09
+
 ### Summary
 
 Covered instances | Summary  
@@ -1643,12 +1631,10 @@ All Memorystore for Valkey instances | Set the Valkey host OS version to [cos-12
 
 
 
-## MEMORYSTORE_20260217_02_00
+## MMEMORYSTORE_20260217_02_00
 
-**Date released** | **Release type**  
----|---  
-2026-02-23 | Self-service  
-  
+**Date released** : 2026-02-23
+
 ### Summary
 
 Covered instances | Summary  
@@ -1780,10 +1766,8 @@ All Memorystore for Valkey instances | Refresh all versions of the Valkey binary
 
 ## MEMORYSTORE_20251007_00_00
 
-**Date released** | **Release type**  
----|---  
-2025-10-07 | Self-service  
-  
+**Date released** : 2025-10-07
+
 ### Summary
 
 Covered instances | Summary  
@@ -1837,6 +1821,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-03 UTC.
+Last updated 2026-11-05 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-05 UTC."],[],[]] 

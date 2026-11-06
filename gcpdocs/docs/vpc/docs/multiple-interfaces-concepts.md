@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/vpc/docs/multiple-interfaces-concepts/
 title: Multiple network interfaces \u00a0|\u00a0 Virtual Private Cloud \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T05:46:40.875888+00:00
+fetched_at: 2026-11-06T10:05:30.998484+00:00
 ---
 
 # Multiple network interfaces  |  Virtual Private Cloud  |  Google Cloud Documentation
@@ -539,9 +539,9 @@ Zonal NEGs with `GCE_VM_IP_PORT` endpoints enforce the following rules for addin
 
   * If you specify an instance name and an IP address, or an instance name, an IP address, and port information for the endpoint, the instance must be in the same zone as the NEG, and:
 
-    * If you specify an IPv4 address: The IPv4 address must be a primary internal IPv4 address or IPv4 address from an alias IP range that's associated with a load balancer target interface in the NEG's subnet.
+    * If you specify an IPv4 address, the IPv4 address must be a primary internal IPv4 address or an IPv4 address from an alias IP range that's associated with a load balancer target interface in the NEG's subnet.
 
-    * If you specify an IPv6 address: The IPv6 address must be a single IPv6 address from the `/96` IPv6 address range of the load balancer target interface in the NEG's subnet.
+    * If you specify an IPv6 address, the IPv6 address must be a single IPv6 address (`/128`) from the `/96` IPv6 address range of the load balancer target interface in the NEG's subnet.
 
     * The endpoint's port is the port you specify. If you don't specify a port, the endpoint's port is set to the NEG's default port.
 
@@ -556,14 +556,14 @@ The NEG's subnet must be in the same region as the NEG's zone. If the NEG's netw
 
 Zonal NEGs with `GCE_VM_IP` endpoints enforce the following rules for adding endpoints:
 
-  * If you specify only an instance name for the endpoint, the instance must be in the same zone as the NEG and have a load balancer target interface in the NEG's subnet.
+  * If you specify only an instance name for the endpoint, the instance must be in the same zone as the NEG and have a load balancer target interface in the NEG's subnet. If the endpoint references an IPv4-only or a dual-stack network interface, the primary internal IPv4 address of the instance's network interface is selected as the endpoint IP address. If the endpoint references an IPv6-only network interface, the first IPv6 address (`/128`) of the instance's network interface is selected as the endpoint IP address.
 
-  * If you specify both an instance name and an IP address for adding an endpoint, the instance must be in the same zone as the NEG, and the IP address must be the primary internal IPv4 address of a load balancer target interface in the NEG's subnet.
-
-
+  * If you specify both an instance name and an IP address for adding an endpoint, the instance must be in the same zone as the NEG. The IP address must be set to the primary internal IPv4 address or the first IPv6 address (`/128`) of the instance's network interface.
 
 
-Since an instance can have only one NIC in the NEG's subnet, it can have only one `GCE_VM_IP` endpoint per zonal NEG, and the endpoint is always identified with the primary internal IPv4 address of the load balancer target interface. The actual destination IP addresses of load-balanced packets match a passthrough Network Load Balancer forwarding rule.
+
+
+Since an instance can have only one NIC in the NEG's subnet, it can have only one `GCE_VM_IP` endpoint per zonal NEG. For `GCE_VM_IP` endpoints, the endpoint IP address is a redundant label whose value must be a primary internal IPv4 address or the first IPv6 address (`/128`) of a load balancer target interface. The actual destination IP addresses of load-balanced packets match a passthrough Network Load Balancer forwarding rule.
 
 #### Instance group backends and network interfaces
 
@@ -690,6 +690,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-06 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-06 UTC."],[],[]] 

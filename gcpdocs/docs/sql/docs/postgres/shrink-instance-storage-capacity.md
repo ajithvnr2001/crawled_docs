@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sql/docs/postgres/shrink-instance-storage-capacity/
 title: Shrink instance storage capacity \u00a0|\u00a0 Cloud SQL for PostgreSQL \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-05T11:11:03.827401+00:00
+fetched_at: 2026-11-06T10:25:25.790468+00:00
 ---
 
 # Shrink instance storage capacity  |  Cloud SQL for PostgreSQL  |  Google Cloud Documentation

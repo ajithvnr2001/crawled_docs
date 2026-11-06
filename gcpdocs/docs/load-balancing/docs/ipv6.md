@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/load-balancing/docs/ipv6/
 title: IPv6 for Application Load Balancers and proxy Network Load Balancers \u00a0|\u00a0 Cloud Load Balancing \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T22:34:50.002875+00:00
+fetched_at: 2026-11-06T13:46:27.234786+00:00
 ---
 
 # IPv6 for Application Load Balancers and proxy Network Load Balancers  |  Cloud Load Balancing  |  Google Cloud Documentation
@@ -62,7 +62,7 @@ Regional external proxy Network Load Balancer
 Regional internal Application Load Balancer  
 Regional internal proxy Network Load Balancer  
 Cross-region internal Application Load Balancer  
-Cross-region internal proxy Network Load Balancer  | Both IPv4 and IPv6 ([Preview](https://cloud.google.com/products#product-launch-stages)) connections can be terminated. | Either of the following: 
+Cross-region internal proxy Network Load Balancer  | Both IPv4 and IPv6 connections can be terminated. | Either of the following: 
 
   * IPv4 connection: supported with IPv4-only or dual-stack backends
   * IPv6 connection: supported with dual-stack backends* only
@@ -98,17 +98,13 @@ If you need both an IPv4 and IPv6 address for your load balancer, you can create
 
 #### IPv6 address format
 
-**Preview — Cross-region, regional external, and regional internal Application Load Balancers and proxy Network Load Balancers support terminating IPv6 traffic**
-
-This feature is subject to the "Pre-GA Offerings Terms" in the General Service Terms section of the [Service Specific Terms](https://docs.cloud.google.com/terms/service-terms#1). Pre-GA features are available "as is" and might have limited support. For more information, see the [launch stage descriptions](https://cloud.google.com/products/#product-launch-stages). 
-
 When you create a forwarding rule, depending on the type of load balancer, the IPv6 address allocation behavior is as follows:
 
   * For global external Application Load Balancer and global external proxy Network Load Balancer, Google Cloud allocates a `/64` IPv6 address range to IPv6 forwarding rules. The Google Cloud CLI lists IPv6 addresses with the least significant 64 bits set to 0, but the load balancer accepts traffic on the full range. For global external Application Load Balancers, you might see other load balancer IPv6 addresses in the allocated range in `X-Forwarded-For` headers depending on which IPv6 server IP address the client is connected to.
 
-  * For internal Application Load Balancer and internal proxy Network Load Balancer, with the `--ip-version` set to `IPV6`, Google Cloud creates a random `/96` prefix IPv6 address range for the forwarding rule. This forwarding rule address is allocated from a custom-mode dual-stack or IPv6-only subnet's `/64` that must be configured with an `--ipv6-access-type` of `INTERNAL` and a `--stack-type` of `IPV4_IPV6` or `IPV6_ONLY`.
+  * For internal Application Load Balancer and internal proxy Network Load Balancer, Google Cloud allocates a `/96` prefix IPv6 address range for the forwarding rule from a custom-mode dual-stack or IPv6-only subnet's `/64` range. The subnet must be configured with an `--ipv6-access-type` of `INTERNAL` and a `--stack-type` of `IPV4_IPV6` or `IPV6_ONLY`. The forwarding rule can use an automatically allocated ephemeral `/96` range, a custom ephemeral `/96` range, or a [reserved static internal IPv6 address](https://docs.cloud.google.com/vpc/docs/reserve-static-internal-ip-address#reservenewip). The load balancer accepts traffic on the full `/96` range.
 
-  * For regional external Application Load Balancer and regional external proxy Network Load Balancer, with the `--ip-version` set to `IPV6`, Google Cloud creates a random `/96` prefix IPv6 address range for the forwarding rule. This forwarding rule address is allocated from a custom-mode dual-stack or IPv6-only subnet's `/64` subnet that must be configured with an `ipv6-access-type` of `EXTERNAL` and a `stack-type` of `IPV4_IPV6` or `IPV6_ONLY`. The `--endpoint-type` flag must be set as `NETLB` to be used for forwarding rule.
+  * For regional external Application Load Balancer and regional external proxy Network Load Balancer, Google Cloud allocates a `/96` prefix IPv6 address range for the forwarding rule from a custom-mode dual-stack or IPv6-only subnet's `/64` range. The subnet must be configured with an `--ipv6-access-type` of `EXTERNAL` and a `--stack-type` of `IPV4_IPV6` or `IPV6_ONLY`. The forwarding rule can use an automatically allocated ephemeral `/96` range, a custom ephemeral `/96` range, or a [reserved static external IPv6 address](https://docs.cloud.google.com/vpc/docs/reserve-static-external-ip-address#reserve_new_static). When you reserve a static regional external IPv6 address for the forwarding rule, set `--endpoint-type=NETLB` on `gcloud compute addresses create`. The load balancer accepts traffic on the full `/96` range.
 
 
 
@@ -163,10 +159,7 @@ For load balancing pricing details, see [Network pricing: Cloud Load Balancing](
   * Classic proxy Network Load Balancers and classic Application Load Balancers don't support dual-stack backends; the IPv6 traffic is terminated by the load balancer and then proxied over an IPv4 connection to the backends.
 
 
-  * When an IPv6 forwarding rule is created, a `/96` IPv6 address range is automatically allocated from the subnet. However, only the first address in this /96 range (for example, ending in `:0:0`) is reachable by clients. Ensure that your clients and DNS records are configured to use this specific first address. This is applicable for Regional external Application Load Balancers, regional internal Application Load Balancers, regional internal proxy Network Load Balancers, cross-region internal proxy Network Load Balancers, cross-region internal Application Load Balancers, and regional external proxy Network Load Balancers ([Preview](https://cloud.google.com/products#product-launch-stages)).
-
   * Only VM instance group backends and zonal network endpoint group (NEG) with `GCE_VM_IP_PORT` endpoints support dual-stack (IPv4 and IPv6) backends.
-
 
 
 
@@ -180,6 +173,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-06 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-06 UTC."],[],[]] 

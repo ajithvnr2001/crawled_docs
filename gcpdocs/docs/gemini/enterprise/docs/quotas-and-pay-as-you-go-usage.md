@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini/enterprise/docs/quotas-and-pay-as-you-go-usage/
 title: Quotas and pay-as-you-go usage \u00a0|\u00a0 Gemini Enterprise \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T05:46:55.237309+00:00
+fetched_at: 2026-11-06T10:06:02.436675+00:00
 ---
 
 # Quotas and pay-as-you-go usage  |  Gemini Enterprise  |  Google Cloud Documentation
@@ -134,15 +134,13 @@ AI developer tools2 |  Included Google Antigravity, Antigravity for IDEs, and An
 
 3 Although quotas are listed as a monthly per-user amount, Gemini Enterprise enforces them on a rolling seven-day basis as a shared pool. Gemini Enterprise calculates your project's weekly quota by dividing the monthly per-user value by four and multiplying it by your project's total licensed seats, including free-trial seats. Any user in your edition can draw from this shared weekly pool. Unused quota doesn't roll over to the next week.
 
-4 Daily creation quotas apply to both creating custom agents in Workflow Builder and registering external or custom agents (such as A2A, ADK, or Dialogflow agents) in an app. Each registration in an engine or app consumes 1 creation quota unit. For detailed agent creation limits, registration quotas across multi-app architectures, subagent depth constraints, file upload thresholds, and sharing member caps, see [Workflow Builder quotas and limits](https://docs.cloud.google.com/gemini/enterprise/docs/workflow-builder/quotas-and-limits#creation-quotas).
+4 Daily creation quotas apply to both creating custom agents in Workflow Builder and registering external or custom agents (such as A2A, Agent Development Kit (ADK), or Dialogflow agents) in an app. Each registration in an engine or app consumes 1 creation quota unit. For detailed agent creation limits, registration quotas across multi-app architectures, subagent depth constraints, file upload thresholds, and sharing member caps, see [Workflow Builder quotas and limits](https://docs.cloud.google.com/gemini/enterprise/docs/workflow-builder/quotas-and-limits#creation-quotas).
 
 ### Quotas and pricing for the Pay-as-you-go edition
 
-**Note:** If your project is linked to a self-serve (online) Cloud Billing account, you pay for Gemini Enterprise Pay-as-you-go usage with [prepaid credits](https://docs.cloud.google.com/gemini/enterprise/docs/manage-prepaid-credits), and you must buy credits to subscribe. If your project is linked to an [invoiced Cloud Billing account](https://docs.cloud.google.com/billing/docs/concepts#billing_account_types), usage is billed on your monthly invoice.
+**Note** : If your project is linked to a self-serve (online) Cloud Billing account, you pay for Gemini Enterprise Pay-as-you-go usage with [prepaid credits](https://docs.cloud.google.com/gemini/enterprise/docs/manage-prepaid-credits), and if prepaid credits aren't set up on your billing account yet, you must buy credits to subscribe. If your project is linked to an [invoiced Cloud Billing account](https://docs.cloud.google.com/billing/docs/concepts#billing_account_types), usage is billed on your monthly invoice.
 
-Prepaid credits for self-serve (online) billing accounts are rolling out gradually. If you don't see the **Credit balance** tab on **Plans & billing** or the **AI developer tools** tab on **Settings** yet, your account hasn't been included.
-
-The Gemini Enterprise Pay-as-you-go edition has no feature quota limits, as you pay for what you use. To get started, purchase a subscription to the Pay-as-you-go edition. If your project is linked to a self-serve Cloud Billing account, you pay for usage with [prepaid credits](https://docs.cloud.google.com/gemini/enterprise/docs/manage-prepaid-credits). For more information, see [Cloud Billing account types](https://docs.cloud.google.com/billing/docs/concepts#billing_account_types) and [Get subscriptions and assign licenses](https://docs.cloud.google.com/gemini/enterprise/docs/licenses#about-subscriptions).
+The Gemini Enterprise Pay-as-you-go edition has no subscription or license fee and no feature quota limits, because you pay only for what you use at pay-as-you-go rates. To get started, [subscribe to the Pay-as-you-go edition](https://docs.cloud.google.com/gemini/enterprise/docs/licenses#get-subscription). For more information about subscriptions, see [Get subscriptions and assign licenses](https://docs.cloud.google.com/gemini/enterprise/docs/licenses#about-subscriptions).
 
 The following table lists the rates and pricing for this edition:
 
@@ -448,6 +446,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-30 UTC.
+Last updated 2026-11-06 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-06 UTC."],[],[]] 

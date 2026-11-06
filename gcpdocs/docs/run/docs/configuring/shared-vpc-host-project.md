@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/run/docs/configuring/shared-vpc-host-project/
 title: Configure connectors in the Shared VPC host project \u00a0|\u00a0 Cloud Run \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T05:49:54.148470+00:00
+fetched_at: 2026-11-06T10:21:49.180955+00:00
 ---
 
 # Configure connectors in the Shared VPC host project  |  Cloud Run  |  Google Cloud Documentation
@@ -21,9 +21,9 @@ Send feedback
 
 #  Configure connectors in the Shared VPC host project Stay organized with collections  Save and categorize content based on your preferences. 
 
-If your organization uses Shared VPC, you can set up a Serverless VPC Access connector in either the service project or the host project. This guide shows how to set up a connector in the host project.
+Serverless VPC Access connectors let Cloud Run workloads connect to internal resources in a Virtual Private Cloud network. Creating a connector in the Shared VPC host project centralizes network administration and lets multiple service projects share the same connector.
 
-If you need to set up a connector in a service project, see [Configure connectors in service projects](https://docs.cloud.google.com/run/docs/configuring/shared-vpc-service-projects). To learn about the advantages of each method, see [Connecting to a Shared VPC network](https://docs.cloud.google.com/run/docs/configuring/connecting-shared-vpc).
+To create a connector in a service project, see [Configure connectors in service projects](https://docs.cloud.google.com/run/docs/configuring/shared-vpc-service-projects). To compare both approaches, see [Connecting to a Shared VPC network](https://docs.cloud.google.com/run/docs/configuring/connecting-shared-vpc).
 
 ## Before you begin
 
@@ -516,6 +516,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-30 UTC.
+Last updated 2026-11-05 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-05 UTC."],[],[]] 

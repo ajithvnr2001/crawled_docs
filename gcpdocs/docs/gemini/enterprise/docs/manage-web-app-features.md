@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini/enterprise/docs/manage-web-app-features/
 title: Manage web app features \u00a0|\u00a0 Gemini Enterprise \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T05:51:16.386198+00:00
+fetched_at: 2026-11-06T10:23:37.029901+00:00
 ---
 
 # Manage web app features  |  Gemini Enterprise  |  Google Cloud Documentation
@@ -83,6 +83,7 @@ Enabling this feature increases exposure to security risks, such as prompt injec
 **Enable agent sharing without admin approval** |  When enabled, users on your team can share and use agents created using Workflow Builder without administrator approval when using the Gemini Enterprise app.  
 Note: Review and approve pending sharing requests before turning on this feature to prevent users from having to resubmit the sharing requests. For more information, see [Share an agent](https://docs.cloud.google.com/gemini/enterprise/docs/workflow-builder/share-chat-agent).   
 **Enable End Users to share with Groups** |  When enabled, users can share custom agents with groups in the organization. Whether the administrator must approve sharing depends on the **Enable agent sharing without admin approval** setting. For more information, see [Share an agent](https://docs.cloud.google.com/gemini/enterprise/docs/workflow-builder/share-chat-agent). If you use Okta or Microsoft Entra ID as a third-party identity provider with Workforce Identity Federation, [configure SCIM](https://docs.cloud.google.com/gemini/enterprise/docs/configure-identity-provider#configure_workforce_id_federation) to enable autocomplete of group names (and email addresses) when users share agents.  
+**Show license tier badge** |  When enabled, users see the app's [edition](https://docs.cloud.google.com/gemini/enterprise/docs/editions) label (for example, **Standard** or **Plus**) in the web app. This setting is enabled by default and applies to the entire web app.   
 **Model availability** |  You can select the models that users can use in the web app. To enable model selection, you must turn on the **Enable model selector** toggle.  The following Gemini and partner models are available: 
      * **Gemini models** : Gemini 4 Argon, Gemini 3.8 Flash, Gemini 3.7 Flash, Gemini 3.6 Flash, Gemini 3.5 Flash, Gemini 3.1 Pro, and Gemini 2.5 Pro. For more information, see Enable Gemini models. 
      * **Partner models** : Anthropic models—Claude Opus 5.5 and Claude Sonnet 5.5. For more information, see Enable third-party models.   
@@ -147,7 +148,7 @@ Model | Publisher | Supported locations
   
 Anthropic models—Claude Opus 5.5 and Claude Sonnet 5.5—are turned off by default in the `global`, `us`, and `eu` regions. To make them available to end users, turn them on by enabling billing and accepting the terms of service. For more information about regional support, see [Data residency for Gemini Enterprise](https://docs.cloud.google.com/gemini/enterprise/docs/locations).
 
-Third-party models aren't available in the Gemini Enterprise Starter edition. They also aren't available for in-country regions.
+Third-party models aren't available for in-country regions.
 
 ### Before you begin
 
@@ -221,6 +222,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-30 UTC.
+Last updated 2026-11-05 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-05 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sap/docs/scp/scp-cf-gcp-service-broker-guide/
 title: Integrating Google Cloud services with Cloud Foundry on SAP Business Technology Platform (SAP BTP) \u00a0|\u00a0 SAP on Google Cloud \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-03T09:44:06.041183+00:00
+fetched_at: 2026-11-06T10:41:37.862060+00:00
 ---
 
 # Integrating Google Cloud services with Cloud Foundry on SAP Business Technology Platform (SAP BTP)  |  SAP on Google Cloud  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/stackdriver/docs/solutions/agents/ops-agent/troubleshoot-agent-vmem-policies/
 title: Troubleshoot VM Extension Manager policies for the Ops Agent \u00a0|\u00a0 Google Cloud Observability \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-03T09:42:34.968403+00:00
+fetched_at: 2026-11-06T10:39:57.175445+00:00
 ---
 
 # Troubleshoot VM Extension Manager policies for the Ops Agent  |  Google Cloud Observability  |  Google Cloud Documentation

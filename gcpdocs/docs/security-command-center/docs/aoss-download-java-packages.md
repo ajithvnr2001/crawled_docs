@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/security-command-center/docs/aoss-download-java-packages/
 title: Download Java packages using direct repository access \u00a0|\u00a0 Security Command Center \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T10:58:17.427590+00:00
+fetched_at: 2026-11-06T13:26:25.647415+00:00
 ---
 
 # Download Java packages using direct repository access  |  Security Command Center  |  Google Cloud Documentation
@@ -23,9 +23,7 @@ Send feedback
 
 Premium and Enterprise (Deprecated) [service tiers](https://docs.cloud.google.com/security-command-center/docs/service-tiers) (requires [organization-level activation](https://docs.cloud.google.com/security-command-center/docs/activate-scc-overview#overview_of_organization-level_activation)) The Security Command Center Enterprise service tier will shut down on May 21, 2027. If your organization uses the Enterprise service tier, then the organization will automatically move to the Premium service tier on or after May 21, 2027. Contact your account representative or a [Google Cloud sales specialist](https://cloud.google.com/contact) if you have questions. 
 
-After you [integrate Assured OSS with Security Command Center](https://docs.cloud.google.com/security-command-center/docs/integrate-aoss-with-scc), Assured Open Source Software packages are hosted in an Artifact Registry repository that is created in a project that you control.
-
-This page explains how you can connect to the Artifact Registry repository for Assured OSS to directly access and download the Java packages.
+In the premium tier, Assured OSS packages are hosted in an Artifact Registry repository that's created in a project that you control. To directly access and download Java packages, you can connect to the Artifact Registry repository for Assured OSS.
 
 This document applies to the Assured OSS premium tier only. For the free tier, see [Download Java packages using direct repository access for the free tier](https://docs.cloud.google.com/assured-open-source-software/docs/download-java-packages).
 
@@ -151,7 +149,7 @@ In the `build.gradle` file, specify the repository settings using the following 
     
     repositories {
       maven {
-        url "artifactregistry://us-maven.pkg.dev/PROJECT_ID/assuredoss-java"
+        url "artifactregistry://LOCATION-maven.pkg.dev/PROJECT_ID/assuredoss-java"
         credentials {
           username = "_json_key_base64"
           password = "$artifactRegistryMavenSecret"
@@ -163,7 +161,14 @@ In the `build.gradle` file, specify the repository settings using the following 
     }
     
 
-Replace `PROJECT_ID` with the ID of the project that you selected when you set up Assured Open Source Software.
+Replace the following:
+
+  * `PROJECT_ID`: the ID of the project that you selected when you set up Assured OSS.
+
+  * `LOCATION`: a [supported region](https://docs.cloud.google.com/security-command-center/docs/integrate-aoss-with-scc#supported-regions).
+
+
+
 
 ## Update the project configuration file to point to the repository
 
@@ -176,7 +181,7 @@ Add the following settings to the appropriate section in the `pom.xml` file for 
       <repositories>
         <repository>
           <id>artifact-registry</id>
-          <url>artifactregistry://us-maven.pkg.dev/PROJECT_ID/assuredoss-java</url>
+          <url>artifactregistry://LOCATION-maven.pkg.dev/PROJECT_ID/assuredoss-java</url>
           <releases>
             <enabled>true</enabled>
           </releases>
@@ -188,7 +193,14 @@ Add the following settings to the appropriate section in the `pom.xml` file for 
     </project>
     
 
-Replace `PROJECT_ID` with the ID of the project that you selected when you set up Assured Open Source Software.
+Replace the following:
+
+  * `PROJECT_ID`: the ID of the project that you selected when you set up Assured OSS.
+
+  * `LOCATION`: a [supported region](https://docs.cloud.google.com/security-command-center/docs/integrate-aoss-with-scc#supported-regions).
+
+
+
 
 See the Maven [POM reference](https://maven.apache.org/pom.html) for details about the structure of the file.
 
@@ -199,12 +211,19 @@ Specify the following repository settings in your `build.gradle` file. Don't rep
     
     repositories {
       maven {
-      url "artifactregistry://us-maven.pkg.dev/PROJECT_ID/assuredoss-java"
+      url "artifactregistry://LOCATION-maven.pkg.dev/PROJECT_ID/assuredoss-java"
       }
     }
     
 
-Replace `PROJECT_ID` with the ID of the project that you selected when you set up Assured Open Source Software.
+Replace the following:
+
+  * `PROJECT_ID`: the ID of the project that you selected when you set up Assured OSS.
+
+  * `LOCATION`: a [supported region](https://docs.cloud.google.com/security-command-center/docs/integrate-aoss-with-scc#supported-regions).
+
+
+
 
 ## Update the project configuration file to add dependencies
 
@@ -247,6 +266,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-06 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-06 UTC."],[],[]] 

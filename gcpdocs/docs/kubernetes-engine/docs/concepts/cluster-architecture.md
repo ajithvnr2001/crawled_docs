@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/kubernetes-engine/docs/concepts/cluster-architecture/
 title: GKE cluster architecture \u00a0|\u00a0 Google Kubernetes Engine (GKE) \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-01T05:42:18.465056+00:00
+fetched_at: 2026-11-06T12:56:44.963837+00:00
 ---
 
 # GKE cluster architecture  |  Google Kubernetes Engine (GKE)  |  Google Cloud Documentation
@@ -152,11 +152,18 @@ Machine hardware selection | Request [_compute classes_](https://docs.cloud.goog
   
 ## Node registration with the Kubernetes API
 
-When a node is created in a GKE cluster, the `kubelet` process on that node establishes a [TLS connection](https://kubernetes.io/docs/reference/access-authn-authz/kubelet-tls-bootstrapping/#initialization-process) with the Kubernetes API server. During node initialization, the kubelet creates a `CertificateSigningRequest` to request a unique client certificate from the API server. The `kubelet` uses the certificate to create a `Node` object in the Kubernetes API.
+When a node is created in a GKE cluster, the `kubelet` process on that node establishes a [TLS connection](https://kubernetes.io/docs/reference/access-authn-authz/kubelet-tls-bootstrapping/#initialization-process) with the Kubernetes API server. During node initialization, the kubelet creates a `CertificateSigningRequest` to request a unique client certificate from the API server. The `kubelet` uses the certificate to authenticate to the Kubernetes API.
 
-A GKE feature named [Shielded GKE Nodes](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/shielded-gke-nodes), which is enabled by default in all new clusters, enhances the security of this node self-registration process by using a virtual Trusted Platform Module (vTPM) on the node to cryptographically verify the node's identity. This verification ensures that the control plane issues credentials only to legitimate nodes.
+A GKE feature named [Shielded GKE Nodes](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/shielded-gke-nodes), which is enabled by default in all new clusters, enhances the security of this node registration process by using a virtual Trusted Platform Module (vTPM) on the node to cryptographically verify the node's identity. This verification ensures that the control plane issues credentials only to legitimate nodes.
 
-You can optionally require a trusted GKE control plane component to create these `Node` objects instead of the `kubelet`, which reduces the potential impact if a node is compromised. For more information, see [Control Plane node creation](https://docs.cloud.google.com/kubernetes-engine/security/control-plane-node-creation) ([Preview](https://cloud.google.com/products#product-launch-stages)). 
+The system component that creates the Node object in the Kubernetes API is one of the following:
+
+  * **The`kubelet` process**: in versions earlier than 1.37.1-gke.3020000, the `kubelet` process registers `Node` objects by default. If you use Shielded GKE Nodes running a version later than 1.35.3-gke.1189000, you can manually configure a trusted control plane component to perform the registration instead.
+  * **A trusted control plane component** : if you use Shielded GKE Nodes in new clusters that run version 1.37.1-gke.3020000 or later, a control plane component registers `Node` objects.
+
+
+
+For more information, see [Prevent node self-registration in GKE clusters](https://docs.cloud.google.com/kubernetes-engine/security/control-plane-node-creation).
 
 ## What's next
 
@@ -172,6 +179,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-30 UTC.
+Last updated 2026-11-05 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-05 UTC."],[],[]] 

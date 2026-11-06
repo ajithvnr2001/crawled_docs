@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/knowledge-catalog/docs/create-data-products/
 title: Create data products \u00a0|\u00a0 Knowledge Catalog \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T23:32:37.024707+00:00
+fetched_at: 2026-11-06T10:24:20.380526+00:00
 ---
 
 # Create data products  |  Knowledge Catalog  |  Google Cloud Documentation
@@ -552,6 +552,8 @@ You can add various data assets, such as BigQuery tables, views, datasets, and m
   1. In the **Add assets** pane, click **+Add**.
 
   2. Search for and select the assets that you want to add to your data product. The assets you select must reside in the same region as the data product.
+
+For Looker (Google Cloud core) dashboards, only user-defined dashboards and user-defined dashboard elements are supported. LookML dashboards and LookML dashboard elements aren't supported as data assets, even though they might appear in the list of assets that you can add. To include a LookML dashboard in a data product, copy it as a user-defined dashboard (see [Converting from LookML to user-defined dashboards](https://docs.cloud.google.com/looker/docs/converting-lookml-to-user-defined-dashboard)).
 
 If you have necessary permissions, you can view the metadata of assets by clicking the asset.
 
@@ -1954,6 +1956,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-04 UTC.
+Last updated 2026-11-05 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-05 UTC."],[],[]] 

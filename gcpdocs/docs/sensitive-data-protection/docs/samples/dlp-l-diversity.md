@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sensitive-data-protection/docs/samples/dlp-l-diversity/
 title: Compute l-diversity \u00a0|\u00a0 Sensitive Data Protection \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T09:31:06.282442+00:00
+fetched_at: 2026-11-06T10:26:28.086013+00:00
 ---
 
 # Compute l-diversity  |  Sensitive Data Protection  |  Google Cloud Documentation

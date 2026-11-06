@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/load-balancing/docs/negs/zonal-neg-concepts/
 title: Zonal network endpoint groups overview \u00a0|\u00a0 Cloud Load Balancing \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T05:40:45.314345+00:00
+fetched_at: 2026-11-06T10:05:31.708746+00:00
 ---
 
 # Zonal network endpoint groups overview  |  Cloud Load Balancing  |  Google Cloud Documentation
@@ -29,7 +29,7 @@ Zonal NEGs are [zonal](https://docs.cloud.google.com/compute/docs/regions-zones)
 
   * Route packets to any network interface of a VM instance, including interfaces other than `nic0`. This lets you create logical groupings of IP addresses and ports representing software services instead of entire VMs.
 
-  * Create a flexible set of IP addresses where an IP address can be attached to multiple NEGs, where each NEG can have different but possibly overlapping set of IP addresses.
+  * Create a flexible set of unique endpoint IP addresses or IP addresses and ports.
 
 
 
@@ -120,95 +120,57 @@ Application Load Balancers and proxy Network Load Balancers support zonal NEGs w
 
 ## Endpoint specifications
 
-When you [create a NEG](https://docs.cloud.google.com/load-balancing/docs/negs/setting-up-zonal-negs), you select a zone, a network, and a subnet.
+Each endpoint that you add to a zonal NEG must be a unique [load balancer target interface](https://docs.cloud.google.com/vpc/docs/multiple-interfaces-concepts#load-balancers). Each zonal NEG supports up to the [maximum number of endpoints per NEG](https://docs.cloud.google.com/load-balancing/docs/quotas#endpoints_per_neg).
 
-If the network you select is an [auto mode VPC network](https://docs.cloud.google.com/vpc/docs/vpc#subnet-ranges), you can omit specifying the subnet. However, _a subnet is still associated with the zonal NEG._ If you specify an auto mode VPC network but don't specify a subnet when creating a zonal NEG, the subnet it uses is the automatically created subnet in the region that contains the zone that you selected for the zonal NEG.
+### `GCE_VM_IP` zonal NEG backends and network interfaces
 
-When you add an endpoint to a NEG, the corresponding instance network interface must reside in the NEG's subnet. If you specify only the instance name, the system automatically selects the instance's interface in that subnet. If you also specify an IP address, it must belong to that specific interface. For multi-NIC instances, you must use a NEG associated with the subnet of the interface through which you want to receive traffic. In all cases, the attachment succeeds only if the interface in the NEG's subnet is a [load balancer target interface](https://docs.cloud.google.com/vpc/docs/multiple-interfaces-concepts#load-balancers).
+When you create a new zonal NEG with `GCE_VM_IP` endpoints, you specify a zone, a VPC network, and a subnet in that network. None of these attributes can be changed after the zonal NEG has been created.
 
-The type of zonal NEG you create is specified when you create the NEG (either `GCE_VM_IP` or `GCE_VM_IP_PORT`). This determines what types of endpoints the NEG supports.
+The NEG's subnet must be in the same region as the NEG's zone. If the NEG's network is an auto mode VPC network, you can omit specifying the NEG's subnet. When you don't specify a subnet, Google Cloud sets the NEG's subnet to the automatically created subnet in the region that contains the NEG's zone.
 
-### `GCE_VM_IP` zonal NEGs
+Zonal NEGs with `GCE_VM_IP` endpoints enforce the following rules for adding endpoints:
 
-Within a given NEG, each `GCE_VM_IP` endpoint actually represents a network interface.
+  * If you specify only an instance name for the endpoint, the instance must be in the same zone as the NEG and have a load balancer target interface in the NEG's subnet. If the endpoint references an IPv4-only or a dual-stack network interface, the primary internal IPv4 address of the instance's network interface is selected as the endpoint IP address. If the endpoint references an IPv6-only network interface, the first IPv6 address (`/128`) of the instance's network interface is selected as the endpoint IP address.
 
-The following must be true for `GCE_VM_IP` zonal NEGs:
-
-  * You must specify the VM name for each endpoint.
-
-  * Each endpoint VM must be located in the same zone as the NEG.
-
-  * Every endpoint in a `GCE_VM_IP` NEG must be a unique IP address. A unique endpoint IP address can be referenced by more than one NEG.
-
-  * Each `GCE_VM_IP` NEG is always associated with a network and a subnetwork. The IP address from any network interface of a multi-NIC VM instance can be added to a NEG as long as it is in the same subnet as the NEG.
-
-  * Each NEG supports up to the [maximum number of endpoints per NEG](https://docs.cloud.google.com/load-balancing/docs/quotas#endpoints_per_neg). The endpoints must be distributed among all unique VMs. Multiple endpoints can't be located on a single VM because a VM can't have more than one network interface associated with the same subnet.
+  * If you specify both an instance name and an IP address for adding an endpoint, the instance must be in the same zone as the NEG. The IP address must be set to the primary internal IPv4 address or the first IPv6 address (`/128`) of the instance's network interface.
 
 
 
 
-When adding an endpoint for a `GCE_VM_IP` NEG, you can choose whether to specify the IP address or not:
+Since an instance can have only one NIC in the NEG's subnet, it can have only one `GCE_VM_IP` endpoint per zonal NEG. For `GCE_VM_IP` endpoints, the endpoint IP address is a redundant label whose value must be a primary internal IPv4 address or the first IPv6 address (`/128`) of a load balancer target interface. The actual destination IP addresses of load-balanced packets match a passthrough Network Load Balancer forwarding rule.
 
-  * If the IP address is specified, it must be set to the primary internal IPv4 address or the first IPv6 address (`/128`) of the VM's network interface.
+### `GCE_VM_IP_PORT` zonal NEG backends and network interfaces
 
-  * If you omit the IP address, the IP address is selected based on the network interface that is in the NEG's subnet. If the endpoint references an IPv4-only or a dual-stack network interface, the primary internal IPv4 address of the VM's network interface is selected as the endpoint IP address. If the endpoint references an IPv6-only network interface, the first IPv6 address (`/128`) of the VM's network interface is selected as the endpoint IP address.
+When you create a new zonal NEG with `GCE_VM_IP_PORT` endpoints, you specify a zone, a default port, a VPC network, and a subnet in that network. None of these attributes can be changed after the zonal NEG has been created.
 
-Note that specifying an IP address is redundant because there can only be a single network interface that is in the subnet associated with the NEG.
+The NEG's subnet must be in the same region as the NEG's zone. If the NEG's network is an auto mode VPC network, you can omit specifying the NEG's subnet. When you don't specify a subnet, Google Cloud sets the NEG's subnet to the automatically created subnet in the region that contains the NEG's zone.
 
+Zonal NEGs with `GCE_VM_IP_PORT` endpoints enforce the following rules for adding endpoints:
 
+  * If you specify only an instance name for the endpoint, the instance must be in the same zone as the NEG and have a load balancer target interface in the NEG's subnet. The endpoint's IP address is set to the primary internal IPv4 address of the load balancer target interface, and the endpoint's port is set to the NEG's default port.
 
+  * If you specify an instance name and an IP address, or an instance name, an IP address, and port information for the endpoint, the instance must be in the same zone as the NEG, and:
 
-### `GCE_VM_IP_PORT` zonal NEGs
+    * If you specify an IPv4 address, the IPv4 address must be a primary internal IPv4 address or an IPv4 address from an alias IP range that's associated with a load balancer target interface in the NEG's subnet.
 
-Within a given NEG, each `GCE_VM_IP_PORT` endpoint can represent not only the primary IP address of a network interface but any IP address of a network interface.
+    * If you specify an IPv6 address, the IPv6 address must be a single IPv6 address (`/128`) from the `/96` IPv6 address range of the load balancer target interface in the NEG's subnet.
 
-The following must be true for `GCE_VM_IP_PORT` zonal NEGs:
-
-  * You must specify the VM name for each endpoint.
-
-  * Each endpoint VM must be located in the same zone as the NEG.
-
-  * Every endpoint in the NEG must be a unique IP address and port combination. A unique endpoint IP address and port combination can be referenced by more than one NEG.
-
-  * Each endpoint VM must have a network interface in the same VPC network as the NEG. Endpoint IP addresses must be associated with the same subnet specified as the NEG.
-
-  * Each NEG supports up to the [maximum number of endpoints per NEG](https://docs.cloud.google.com/load-balancing/docs/quotas#endpoints_per_neg). The endpoints can be distributed among that many unique VMs or all located on one VM.
-
-
-
-
-When adding an endpoint for a `GCE_VM_IP_PORT` NEG, you can choose to specify an IP address and port, just an IP address, or neither:
-
-  * If you specify an IP address and port, the IP address can be an IPv4 address, an IPv6 address, or both an IPv4 and IPv6 address. The port used is of your choice. The different combinations of IP addresses and ports are outlined in the NEGs with `GCE_VM_IP_PORT` endpoints section of this document.
-
-The IPv4 address can be the primary internal or an internal IPv4 address from the alias IP address range on the network interface. The IPv6 address can be any IPv6 address (`/128`) from a `/96` range assigned to a VM network interface. The port used is of your choice.
-
-  * If you specify just an IP address, the IP address can be an IPv4 address, an IPv6 address, or both an IPv4 and IPv6 address. The port used is the NEG's default port number for the endpoint.
-
-The IPv4 address can be the primary internal or an internal IPv4 address from the alias IP address range on the network interface. The IPv6 address can be any IPv6 address (`/128`) address from a `/96` range assigned to a VM network interface. The port used is the NEG's default port number for the endpoint.
-
-  * If you omit both the IP address and port, the IP address is selected based on the network interface that is in the NEG's subnet. If the endpoint references an IPv4-only or a dual-stack network interface, the primary internal IPv4 address of the VM's network interface is selected as the endpoint IP address. If the endpoint references an IPv6-only network interface, the first IPv6 address (`/128`) of the VM's network interface is selected as the endpoint IP address.
-
-For the port, Google Cloud uses the NEG's default port number for the endpoint.
+    * The endpoint's port is the port you specify. If you don't specify a port, the endpoint's port is set to the NEG's default port.
 
 
 
 
 ## Load balancing with zonal NEGs
 
-Zonal NEGs can be used as backends for [backend services](https://docs.cloud.google.com/load-balancing/docs/backend-service) in a load balancer. When you use a zonal NEG as a backend for a backend service, all other backends in that backend service must also be zonal NEGs of the same type (either all `GCE_VM_IP` or `GCE_VM_IP_PORT`). You cannot use instance groups and zonal NEGs as backends in the same backend service.
+Zonal NEGs can be used as backend groups connected to a [backend service](https://docs.cloud.google.com/load-balancing/docs/backend-service) in a load balancer. When you use a zonal NEG as a backend group, the backend service's other backend groups must be zonal NEGs with the same type of endpoints (either all `GCE_VM_IP` or `GCE_VM_IP_PORT`). You cannot use both instance groups and zonal NEGs as backend groups on the same backend service.
 
 You can add the same network endpoint to more than one zonal NEG. You can also use the same zonal NEG as a backend for more than one backend service.
 
-Zonal NEGs with `GCE_VM_IP_PORT` endpoints are used by proxy-based load balancers with the balancing modes as defined in [Balancing modes for Application Load Balancers and Cloud Service Mesh](https://docs.cloud.google.com/load-balancing/docs/backend-service#applb-csm) and [Balancing modes for Proxy Network Load Balancers](https://docs.cloud.google.com/load-balancing/docs/backend-service#proxy-net-lb).
+Zonal NEGs with `GCE_VM_IP_PORT` endpoints are supported by proxy-based load balancers with the balancing modes as defined in [Balancing modes for Application Load Balancers and Cloud Service Mesh](https://docs.cloud.google.com/load-balancing/docs/backend-service#applb-csm) and [Balancing modes for Proxy Network Load Balancers](https://docs.cloud.google.com/load-balancing/docs/backend-service#proxy-net-lb).
 
-Zonal NEGs with `GCE_VM_IP` endpoints are used by passthrough load balancers, with the balancing modes as defined in [Balancing modes for passthrough Network Load Balancers](https://docs.cloud.google.com/load-balancing/docs/backend-service#pass-net-lb).
+Zonal NEGs with `GCE_VM_IP` endpoints are are supported by passthrough Network Load Balancers, with the balancing modes as defined in [Balancing modes for passthrough Network Load Balancers](https://docs.cloud.google.com/load-balancing/docs/backend-service#pass-net-lb).
 
-### Passthrough Network Load Balancers
-
-See the following sections for the primary use-cases for NEGs with `GCE_VM_IP` endpoints.
-
-#### Flexible endpoint grouping
+### Flexible endpoint grouping
 
 Like instance groups, you can use the same NEG as a backend for multiple passthrough Network Load Balancers. Unlike instance groups, a NEG endpoint can be a member of multiple NEGs, and each of those NEGs can be used as a backend for one or more passthrough Network Load Balancers. Compared to instance groups, you aren't constrained by the fact that a VM instance can only be a part of a single instance group.
 
@@ -216,11 +178,11 @@ The following figure shows a sample internal passthrough Network Load Balancer a
 
 [ ![Internal passthrough Network Load Balancers with overlapping `GCE_VM_IP` zonal NEGs.](https://docs.cloud.google.com/static/load-balancing/images/l4ilb-zonal-neg-overlap.svg)](https://docs.cloud.google.com/static/load-balancing/images/l4ilb-zonal-neg-overlap.svg) Internal passthrough Network Load Balancers with overlapping zonal NEGs (click to enlarge).
 
-#### Non-`nic0` interfaces as backend endpoints
+### Load balanced network interfaces and endpoints
 
-Zonal NEGs allow load balancing to non-`nic0` network interfaces of VMs. This can be useful when integrating with third-party appliance VMs that typically reserve `nic0` for management operations. Non-`nic0` network interfaces can also be attached to a NEG backend of a passthrough Network Load Balancer. However, for multi-NIC instances, only [load balancer target interfaces](https://docs.cloud.google.com/vpc/docs/multiple-interfaces-concepts#load-balancers) can be attached to a NEG backend.
+Zonal NEGs support distributing load-balanced traffic to `nic0` vNICs, non-`nic0` vNICs, and Dynamic NICs. For more information, see [load balancer target interfaces](https://docs.cloud.google.com/vpc/docs/multiple-interfaces-concepts#load-balancers).
 
-For more information, see the following documents:
+For information about using zonal NEGs with passthrough Network Load Balancers, see the following documents:
 
   * [Zonal NEG backends and network interfaces for global external passthrough Network Load Balancers](https://docs.cloud.google.com/load-balancing/docs/network/global-networklb-architecture#neg-nic-net)
 
@@ -231,69 +193,28 @@ For more information, see the following documents:
 
 
 
-#### GKE subsetting
+### GKE and zonal NEGs
 
-GKE uses `GCE_VM_IP` zonal NEGs and _subsetting_ to improve the scalability of internal passthrough Network Load Balancers in the following way:
+GKE uses zonal NEGs with `GCE_VM_IP` and `GCE_VM_IP_PORT` endpoints:
 
-Without subsetting, GKE creates one unmanaged instance group per zone, consisting of the cluster's nodes from all node pools in that zone. These zonal instance groups are used as backends for one or more internal LoadBalancer Services (and for external Ingresses that don't use NEGs themselves).
+  * GKE creates a unique `GCE_VM_IP` NEG in each zone for each LoadBalancer Service. These NEGs contain cluster node VMs as endpoints, which GKE selects based on the `externalTrafficPolicy` of the service and the number of nodes in the cluster. For more information, see [Node grouping](https://docs.cloud.google.com/kubernetes-engine/docs/concepts/service-load-balancer#endpoint-grouping) in _About LoadBalancer Services_ document.
 
-With subsetting, GKE creates `GCE_VM_IP` zonal NEGs for each internal LoadBalancer Service. The same endpoint can be a member of more than one zonal NEG. Unlike instance groups, Google Cloud can load balance to more multiple zonal NEGs that contain the same endpoint.
+  * GKE Gateway and Ingress controllers use `GCE_VM_IP_PORT` NEGs to route traffic directly to Pods ([container-native load balancing](https://docs.cloud.google.com/kubernetes-engine/docs/concepts/about-load-balancing#what_is_container-native_load_balancing)). Each endpoint in a `GCE_VM_IP_PORT` NEG contains a Pod's IP address and container port (`targetPort`). The way GKE creates these NEGs depends on the Gateway or Ingress resource that you use:
 
-Subsetting more efficiently distributes traffic to internal LoadBalancer Services in clusters with more than 250 nodes. For example, a 300-node GKE cluster might have one internal LoadBalancer Service with 25 nodes in a NEG because there are 25 serving Pods for that Service. Not all 300 nodes need to be added to an instance group backend for this Service.
+    * **Internal and external Gateway** : GKE creates `GCE_VM_IP_PORT` NEGs automatically for each referenced Service. See [About Gateway API](https://docs.cloud.google.com/kubernetes-engine/docs/concepts/gateway-api).
 
-Note that quotas for NEGs, forwarding rules, backend services, and other [Google Cloud networking resources](https://docs.cloud.google.com/load-balancing/docs/quotas) still apply.
+    * **Internal Ingress** : GKE creates `GCE_VM_IP_PORT` NEGs automatically for each referenced Service. See [Configure Ingress for internal Application Load Balancer](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/internal-load-balance-ingress).
 
-For more details, see [Using internal passthrough Network Load Balancer subsetting](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/internal-load-balancing#subsetting).
+    * **External Ingress** : GKE creates `GCE_VM_IP_PORT` NEGs for each referenced Service that includes the `cloud.google.com/neg: '{"ingress": true}'` annotation. See [Configure Ingress for external Application Load Balancer](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/load-balance-ingress).
 
-### Application Load Balancers and proxy Network Load Balancers
+  * You can instruct GKE to create standalone `GCE_VM_IP_PORT` NEGs and maintain their Pod endpoints so that you can attach those NEGs as backends to Application Load Balancers and proxy Network Load Balancers that you manage yourself. For more information, see [Container-native load balancing through standalone zonal NEGs](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/standalone-neg).
 
-The following illustrations show configuration components for load balancers where zonal NEGs with `GCE_VM_IP_PORT` endpoints are the backends:
-
-[ ![Zonal network endpoint groups in load balancing.](https://docs.cloud.google.com/static/load-balancing/images/neg-lb-over.svg)](https://docs.cloud.google.com/static/load-balancing/images/neg-lb-over.svg) Zonal network endpoint groups in load balancing (click to enlarge).
-
-To learn more about the architectural requirements of these load balancers, see:
-
-  * [External Application Load Balancer overview](https://docs.cloud.google.com/load-balancing/docs/https)
-  * [Internal Application Load Balancer overview](https://docs.cloud.google.com/load-balancing/docs/l7-internal)
-  * [External proxy Network Load Balancer overview](https://docs.cloud.google.com/load-balancing/docs/tcp)
-  * [Internal proxy Network Load Balancer overview](https://docs.cloud.google.com/load-balancing/docs/tcp/internal-proxy)
-
-
-
-The primary use case for `GCE_VM_IP_PORT` zonal NEGs is container-native load balancing so that you can distribute traffic directly to containers running on VMs—for example, to Pod IP addresses in GKE clusters.
-
-[Container-native load balancing](https://docs.cloud.google.com/kubernetes-engine/docs/concepts/container-native-load-balancing) enables load balancers to target Pods directly and to make load distribution decisions at the Pod-level instead of at the VM-level.
-
-The following example demonstrates how load balancers distribute traffic among microservices running in containers on your VMs. The VMs are configured to use alias IP ranges from their subnets, and those ranges are the addresses used by the containers.
-
-[ ![Load balancing zonal network endpoint groups with containers.](https://docs.cloud.google.com/static/load-balancing/images/neg-container.svg)](https://docs.cloud.google.com/static/load-balancing/images/neg-container.svg) Load balancing zonal network endpoint groups with containers (click to enlarge).
-
-There are two ways to configure container-native load balancing: either use NEGs managed by GKE Ingress, or use standalone NEGs.
-
-  * **Kubernetes Ingress with NEGs (Recommended)**
-
-When NEGs are used with Ingress, the Ingress controller facilitates the creation of all aspects of an HTTP(S) load balancer. This includes creating the virtual IP address, forwarding rules, health checks, firewall rules, and more. To learn how to configure this, see [Container-native load balancing through Ingress](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/container-native-load-balancing).
-
-Ingress is the recommended way to use NEGs for container-native load balancing as it has many features that simplify the management of NEGs. Alternatively, you can create a proxy load balancer manually but still have GKE manage NEG endpoint membership, as described in the next point (Standalone NEGs).
-
-For instructions about how to set up a load balancer through Ingress, see [Container-native load balancing through Ingress](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/container-native-load-balancing).
-
-  * **Standalone NEGs**
-
-Standalone NEGs provide a way for your GKE cluster to create zonal NEGs with `GCE_VM_IP_PORT` endpoints representing Pod IP addresses and container ports, while giving you the flexibility to configure the load balancer components outside of GKE.
-
-For examples on using standalone zonal NEGs with GKE, see:
-
-    * [Attach an external Application Load Balancer to standalone zonal NEGs](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/standalone-neg#attaching-ext-https-lb)
-    * [Attach an internal Application Load Balancer to standalone zonal NEGs](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/standalone-neg#attaching-int-https-lb)
 
 
 
 ## Limitations
 
   * You cannot use zonal NEGs with legacy networks.
-  * A backend service that uses NEGs as backends cannot also use instance groups as backends.
-  * An instance with multiple network interfaces attached to the same VPC network can be added as an endpoint to a zonal NEG. However, from the set of network interfaces that are attached to the same VPC network, only the network interface that meets [the conditions for receiving load-balanced traffic](https://docs.cloud.google.com/vpc/docs/multiple-interfaces-concepts#load-balancers) can be referenced by the endpoint.
   * The [`default-port` property](https://docs.cloud.google.com/sdk/gcloud/reference/compute/network-endpoint-groups/create) is not supported for `GCE_VM_IP` zonal NEGs.
 
 
@@ -315,6 +236,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-06 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-06 UTC."],[],[]] 

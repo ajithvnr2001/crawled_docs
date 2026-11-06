@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/managed-spark/docs/samples/dataproc-submit-hadoop-fs-job/
 title: Submit hadoop fs job \u00a0|\u00a0 Managed Service for Apache Spark \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-01T05:43:22.036159+00:00
+fetched_at: 2026-11-06T11:11:33.661948+00:00
 ---
 
 # Submit hadoop fs job  |  Managed Service for Apache Spark  |  Google Cloud Documentation

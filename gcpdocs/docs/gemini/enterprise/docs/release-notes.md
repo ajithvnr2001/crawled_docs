@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini/enterprise/docs/release-notes/
 title: Gemini Enterprise release notes \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T23:31:08.007626+00:00
+fetched_at: 2026-11-06T10:06:03.160127+00:00
 ---
 
 # Gemini Enterprise release notes  |  Google Cloud Documentation
@@ -28,6 +28,30 @@ This page documents production updates to Gemini Enterprise. Check this page for
 You can see the latest product updates for all of Google Cloud on the [ Google Cloud](https://docs.cloud.google.com/release-notes) page, browse and filter all release notes in the [Google Cloud console](https://console.cloud.google.com/release-notes), or programmatically access release notes in [BigQuery](https://console.cloud.google.com/bigquery?p=bigquery-public-data&d=google_cloud_release_notes&t=release_notes&page=table). 
 
 To get the latest product updates delivered to you, add the URL of this page to your [feed reader](https://wikipedia.org/wiki/Comparison_of_feed_aggregators), or add the [feed URL](https://docs.cloud.google.com/feeds/gemini-enterprise-release-notes.xml) directly. 
+
+## November 05, 2026
+
+Feature
+
+**Gemini Enterprise: Prepaid credits for Pay-as-you-go subscriptions and usage above quota**
+
+Prepaid credits are generally available (GA) for self-serve (online) Cloud Billing accounts. You can buy credits to pay for usage without an invoiced billing account. Your billing account's credit balance covers usage in the Pay-as-you-go edition and pay-as-you-go usage above quota in the Gemini Enterprise app, Gemini Enterprise Agent Platform, and AI developer tools, such as Google Antigravity. Pay-as-you-go subscriptions have no license fee because you pay for what you use at pay-as-you-go rates. Cloud Billing still bills your account directly for seat-based license fees in editions such as Standard and Plus.
+
+  * **Buy credits and configure auto-reload** : Buy prepaid credits, track your balance and transactions, and configure auto-reload with an optional monthly auto-charge limit. Usage is blocked if your credit balance reaches zero or a project reaches its monthly spend limit. Because credits are deducted after usage occurs, your balance might briefly drop below zero if usage occurs before the deduction runs.
+  * **Use AI developer tools on self-serve accounts** : With an upgraded paid self-serve billing account and an active non-trial Gemini Enterprise subscription, you can enable AI developer tools and pay with prepaid credits for Pay-as-you-go edition usage or pay-as-you-go usage above quota. Eligible editions include Standard, Plus, eligible Standard Emerging Market, and Pay-as-you-go. Free-trial subscriptions, free-tier billing accounts, and reseller-managed subaccounts aren't eligible.
+  * **Monitor costs and invoices** : View 30-day costs across the Gemini Enterprise app, Gemini Enterprise Agent Platform, and AI developer tools, and view and download prepayment and monthly consumption invoices.
+
+
+
+For more information, see:
+
+  * [Manage prepaid credits](https://docs.cloud.google.com/gemini/enterprise/docs/manage-prepaid-credits)
+  * [Configure pay-as-you-go usage above quota](https://docs.cloud.google.com/gemini/enterprise/docs/configure-pay-as-you-go-usage-above-quota)
+  * [Quotas and pricing for the Pay-as-you-go edition](https://docs.cloud.google.com/gemini/enterprise/docs/quotas-and-pay-as-you-go-usage#quotas-pay-as-you-go)
+  * [AI developer tools overview](https://docs.cloud.google.com/gemini/enterprise/docs/ai-developer-tools-overview)
+  * [View costs](https://docs.cloud.google.com/gemini/enterprise/docs/view-costs)
+
+
 
 ## November 04, 2026
 

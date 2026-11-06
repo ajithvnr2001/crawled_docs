@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/platform-application/pa-ao-operations/monitor-harbor-metrics/
 title: Monitor Harbor metrics \u00a0|\u00a0 Google Distributed Cloud air-gapped \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T17:28:30.495016+00:00
+fetched_at: 2026-11-06T10:53:06.760774+00:00
 ---
 
 # Monitor Harbor metrics  |  Google Distributed Cloud air-gapped  |  Google Cloud Documentation
@@ -22,9 +22,11 @@ Send feedback
 
 #  Monitor Harbor metrics Stay organized with collections  Save and categorize content based on your preferences. 
 
-The metrics dashboard of the Managed Harbor Service (MHS) component provides graphs and visualization panels for viewing storage consumption and the number of vulnerability scans performed.
+The Managed Harbor Service (MHS) metrics dashboard in Google Distributed Cloud (GDC) air-gapped lets you track container registry activity and resource utilization through visualization panels and graphs. You can monitor object storage consumption, vulnerability scan counts, and Harbor project totals across your organization.
 
-Open the following URL to access the user cluster health dashboard:
+## View the MHS metrics dashboard
+
+Open the following URL to access the MHS metrics dashboard:
     
     
     https://GDC_URL/platform-obs/grafana/d/haas-billing/haas-billing-dashboard?orgId=ORG_ID
@@ -32,12 +34,10 @@ Open the following URL to access the user cluster health dashboard:
 
 Replace the following:
 
-  * `GDC_URL`: the URL of your organization in Google Distributed Cloud (GDC) air-gapped.
+  * `GDC_URL`: the URL of your organization in GDC.
   * `ORG_ID`: the ID for your organization in GDC.
 
 
-
-## View the MHS metrics dashboard
 
 In this dashboard, you can gain valuable insights for your Harbor instances, such as the following:
 
@@ -61,6 +61,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-05 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-05 UTC."],[],[]] 

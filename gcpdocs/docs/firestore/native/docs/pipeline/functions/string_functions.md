@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/firestore/native/docs/pipeline/functions/string_functions/
 title: String Functions Reference \u00a0|\u00a0 Firestore in Native mode \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-05T11:09:08.520894+00:00
+fetched_at: 2026-11-06T08:23:10.314169+00:00
 ---
 
 # String Functions Reference  |  Firestore in Native mode  |  Google Cloud Documentation
@@ -168,7 +168,7 @@ Android
     	)).
     	Execute(ctx)
     
-    [pipeline_snippets_string.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/db12cf239dd4dcddd2c15c703bb21991d4193a8a/firestore/pipeline_snippets_string.go#L28-L33)
+    [pipeline_snippets_string.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/7c21bf1faae9139ce31b1321fa2815e95caff660/firestore/pipeline_snippets_string.go#L28-L33)
 
 ### CHAR_LENGTH
 
@@ -289,7 +289,7 @@ Android
     	)).
     	Execute(ctx)
     
-    [pipeline_snippets_string.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/db12cf239dd4dcddd2c15c703bb21991d4193a8a/firestore/pipeline_snippets_string.go#L47-L52)
+    [pipeline_snippets_string.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/7c21bf1faae9139ce31b1321fa2815e95caff660/firestore/pipeline_snippets_string.go#L47-L52)
 
 ### STARTS_WITH
 
@@ -417,7 +417,7 @@ Android
     	)).
     	Execute(ctx)
     
-    [pipeline_snippets_string.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/db12cf239dd4dcddd2c15c703bb21991d4193a8a/firestore/pipeline_snippets_string.go#L66-L71)
+    [pipeline_snippets_string.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/7c21bf1faae9139ce31b1321fa2815e95caff660/firestore/pipeline_snippets_string.go#L66-L71)
 
 ### ENDS_WITH
 
@@ -530,7 +530,7 @@ Android
     	)).
     	Execute(ctx)
     
-    [pipeline_snippets_string.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/db12cf239dd4dcddd2c15c703bb21991d4193a8a/firestore/pipeline_snippets_string.go#L85-L90)
+    [pipeline_snippets_string.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/7c21bf1faae9139ce31b1321fa2815e95caff660/firestore/pipeline_snippets_string.go#L85-L90)
 
 ### LIKE
 
@@ -657,7 +657,7 @@ Android
     	)).
     	Execute(ctx)
     
-    [pipeline_snippets_string.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/db12cf239dd4dcddd2c15c703bb21991d4193a8a/firestore/pipeline_snippets_string.go#L104-L109)
+    [pipeline_snippets_string.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/7c21bf1faae9139ce31b1321fa2815e95caff660/firestore/pipeline_snippets_string.go#L104-L109)
 
 ### REGEX_CONTAINS
 
@@ -803,7 +803,7 @@ Android
     	)).
     	Execute(ctx)
     
-    [pipeline_snippets_string.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/db12cf239dd4dcddd2c15c703bb21991d4193a8a/firestore/pipeline_snippets_string.go#L123-L128)
+    [pipeline_snippets_string.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/7c21bf1faae9139ce31b1321fa2815e95caff660/firestore/pipeline_snippets_string.go#L123-L128)
 
 ### REGEX_FIND
 
@@ -1014,7 +1014,7 @@ Android
     	)).
     	Execute(ctx)
     
-    [pipeline_snippets_string.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/db12cf239dd4dcddd2c15c703bb21991d4193a8a/firestore/pipeline_snippets_string.go#L180-L185)
+    [pipeline_snippets_string.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/7c21bf1faae9139ce31b1321fa2815e95caff660/firestore/pipeline_snippets_string.go#L180-L185)
 
 ### STRING_CONCAT
 
@@ -1145,7 +1145,7 @@ Android
     	)).
     	Execute(ctx)
     
-    [pipeline_snippets_string.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/db12cf239dd4dcddd2c15c703bb21991d4193a8a/firestore/pipeline_snippets_string.go#L199-L204)
+    [pipeline_snippets_string.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/7c21bf1faae9139ce31b1321fa2815e95caff660/firestore/pipeline_snippets_string.go#L199-L204)
 
 ### STRING_CONTAINS
 
@@ -1273,7 +1273,7 @@ Android
     	)).
     	Execute(ctx)
     
-    [pipeline_snippets_string.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/db12cf239dd4dcddd2c15c703bb21991d4193a8a/firestore/pipeline_snippets_string.go#L218-L223)
+    [pipeline_snippets_string.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/7c21bf1faae9139ce31b1321fa2815e95caff660/firestore/pipeline_snippets_string.go#L218-L223)
 
 ### STRING_INDEX_OF
 
@@ -1433,7 +1433,7 @@ Android
     	)).
     	Execute(ctx)
     
-    [pipeline_snippets_string.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/db12cf239dd4dcddd2c15c703bb21991d4193a8a/firestore/pipeline_snippets_string.go#L237-L242)
+    [pipeline_snippets_string.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/7c21bf1faae9139ce31b1321fa2815e95caff660/firestore/pipeline_snippets_string.go#L237-L242)
 
 ### TO_LOWER
 
@@ -1562,7 +1562,7 @@ Android
     	)).
     	Execute(ctx)
     
-    [pipeline_snippets_string.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/db12cf239dd4dcddd2c15c703bb21991d4193a8a/firestore/pipeline_snippets_string.go#L256-L261)
+    [pipeline_snippets_string.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/7c21bf1faae9139ce31b1321fa2815e95caff660/firestore/pipeline_snippets_string.go#L256-L261)
 
 ### SUBSTRING
 
@@ -1725,7 +1725,7 @@ Android
     	)).
     	Execute(ctx)
     
-    [pipeline_snippets_string.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/db12cf239dd4dcddd2c15c703bb21991d4193a8a/firestore/pipeline_snippets_string.go#L275-L281)
+    [pipeline_snippets_string.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/7c21bf1faae9139ce31b1321fa2815e95caff660/firestore/pipeline_snippets_string.go#L275-L281)
 
 ### STRING_REVERSE
 
@@ -1849,7 +1849,7 @@ Android
     	)).
     	Execute(ctx)
     
-    [pipeline_snippets_string.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/db12cf239dd4dcddd2c15c703bb21991d4193a8a/firestore/pipeline_snippets_string.go#L295-L300)
+    [pipeline_snippets_string.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/7c21bf1faae9139ce31b1321fa2815e95caff660/firestore/pipeline_snippets_string.go#L295-L300)
 
 ### STRING_REPEAT
 
@@ -2061,7 +2061,7 @@ Android
     	)).
     	Execute(ctx)
     
-    [pipeline_snippets_string.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/db12cf239dd4dcddd2c15c703bb21991d4193a8a/firestore/pipeline_snippets_string.go#L314-L319)
+    [pipeline_snippets_string.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/7c21bf1faae9139ce31b1321fa2815e95caff660/firestore/pipeline_snippets_string.go#L314-L319)
 
 ### LTRIM
 

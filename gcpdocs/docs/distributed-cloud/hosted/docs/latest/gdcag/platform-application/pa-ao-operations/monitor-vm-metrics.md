@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/platform-application/pa-ao-operations/monitor-vm-metrics/
 title: Monitor VM metrics \u00a0|\u00a0 Google Distributed Cloud air-gapped \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T19:30:10.624138+00:00
+fetched_at: 2026-11-06T10:46:07.882195+00:00
 ---
 
 # Monitor VM metrics  |  Google Distributed Cloud air-gapped  |  Google Cloud Documentation
@@ -22,18 +22,18 @@ Send feedback
 
 #  Monitor VM metrics Stay organized with collections  Save and categorize content based on your preferences. 
 
-The VM-level metrics dashboard provides you with graphs for viewing VM-specific metrics for your projects. Access the dashboard from this address:
+The virtual machine (VM) metrics dashboard in Google Distributed Cloud (GDC) air-gapped lets you track VM performance and resource utilization across your projects. Project users and platform administrators can use the dashboard graphs to evaluate CPU, memory, network, and disk activity across their workloads.
+
+## VM dashboard
+
+Access the dashboard from the following address:
 
 `https://GDC_URL/PROJECT/grafana/d/h2Wx80n4k/workload-vms`
 
-  * Replace GDC_URL with the URL of your organization in Google Distributed Cloud (GDC) air-gapped.
-  * Replace PROJECT with the name of your project. The name of the project for platform administrators is `platform-obs`.
+  * Replace `GDC_URL` with the URL of your organization in GDC.
+  * Replace `PROJECT` with the name of your project. The name of the project for platform administrators is `platform-obs`.
 
 
-
-This page provides an overview of the VM dashboard and the type of information provided by the different graphs accessible from it.
-
-## VM dashboard
 
 The VM dashboard presents graphs that contain information regarding the following for each VM in each of your project namespaces:
 
@@ -99,6 +99,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-05 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-05 UTC."],[],[]] 

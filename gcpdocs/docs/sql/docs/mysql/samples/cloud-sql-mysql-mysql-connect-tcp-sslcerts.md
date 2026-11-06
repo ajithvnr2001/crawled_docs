@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sql/docs/mysql/samples/cloud-sql-mysql-mysql-connect-tcp-sslcerts/
 title: Create a TCP connection with SSL certificates when using Node.js \u00a0|\u00a0 Cloud SQL for MySQL \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T08:57:17.995947+00:00
+fetched_at: 2026-11-06T10:30:03.399098+00:00
 ---
 
 # Create a TCP connection with SSL certificates when using Node.js  |  Cloud SQL for MySQL  |  Google Cloud Documentation

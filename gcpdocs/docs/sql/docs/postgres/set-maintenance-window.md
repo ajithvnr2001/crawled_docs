@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sql/docs/postgres/set-maintenance-window/
 title: View and set maintenance windows \u00a0|\u00a0 Cloud SQL for PostgreSQL \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-05T00:20:38.938998+00:00
+fetched_at: 2026-11-06T10:24:58.966152+00:00
 ---
 
 # View and set maintenance windows  |  Cloud SQL for PostgreSQL  |  Google Cloud Documentation

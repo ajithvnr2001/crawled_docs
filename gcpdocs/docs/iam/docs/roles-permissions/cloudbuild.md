@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/iam/docs/roles-permissions/cloudbuild/
 title: Cloud Build roles and permissions \u00a0|\u00a0 Identity and Access Management (IAM) \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T08:00:08.000382+00:00
+fetched_at: 2026-11-06T08:21:46.290225+00:00
 ---
 
 # Cloud Build roles and permissions  |  Identity and Access Management (IAM)  |  Google Cloud Documentation

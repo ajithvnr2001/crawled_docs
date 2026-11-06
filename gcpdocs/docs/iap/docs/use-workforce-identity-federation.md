@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/iap/docs/use-workforce-identity-federation/
 title: Configure IAP with Workforce Identity Federation \u00a0|\u00a0 Identity-Aware Proxy \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T18:17:20.190636+00:00
+fetched_at: 2026-11-06T10:06:32.024903+00:00
 ---
 
 # Configure IAP with Workforce Identity Federation  |  Identity-Aware Proxy  |  Google Cloud Documentation
@@ -349,7 +349,38 @@ IAP supports service account JWT authentication for applications configured with
 
 ### Limitations when working with workforce pools
 
-* For each IAP-enabled application, only one workforce pool can be configured, and the workforce pool can contain only one provider. * The workforce pool, OAuth client ID and secret, and the IAP-enabled applications must all be in the same organization. * Access levels for device-related information are not supported. * Only the following IAP settings configurations are supported: * [CorsSettings](https://docs.cloud.google.com/iap/docs/reference/rest/v1/IapSettings#CorsSettings) * [CsmSettings](https://docs.cloud.google.com/iap/docs/reference/rest/v1/IapSettings#CsmSettings) * [AccessDeniedPageSettings.accessDeniedPageUri](https://docs.cloud.google.com/iap/docs/reference/rest/v1/IapSettings#AccessDeniedPageSettings) * [CookieDomain](https://docs.cloud.google.com/iap/docs/reference/rest/v1/IapSettings#ApplicationSettings) * Programmatic access with Workforce Identity Federation is only supported for Google service accounts. 
+When using Workforce Identity Federation, consider the following limitations:
+
+  * For each IAP-enabled application, only one workforce pool can be configured, and the workforce pool can contain only one provider.
+
+  * The workforce pool, OAuth client ID and secret, and the IAP-enabled applications must all be in the same organization.
+
+  * Access levels for device-related information are not supported.
+
+  * Only the following IAP settings configurations are supported:
+
+    * [CorsSettings](https://docs.cloud.google.com/iap/docs/reference/rest/v1/IapSettings#CorsSettings)
+
+    * [CsmSettings](https://docs.cloud.google.com/iap/docs/reference/rest/v1/IapSettings#CsmSettings)
+
+    * [AccessDeniedPageSettings.accessDeniedPageUri](https://docs.cloud.google.com/iap/docs/reference/rest/v1/IapSettings#AccessDeniedPageSettings)
+
+    * [CookieDomain](https://docs.cloud.google.com/iap/docs/reference/rest/v1/IapSettings#ApplicationSettings)
+
+  * Only the following user and Workforce Identity Federation claims are passed in the [IAP signed header JWT](https://docs.cloud.google.com/iap/docs/signed-headers-howto#jwts-workforce-identity-federation) payload:
+
+    * `sub`: A unique identifier for the user, prefixed with `sts.google.com:`.
+
+    * `email`: Propagated only when there is a `google.email=assertion.email` mapping specified when you create the workforce pool provider. For more information, see [Attribute mappings](https://docs.cloud.google.com/iam/docs/workforce-identity-federation#attribute-mappings).
+
+    * `workforce_identity.workforce_pool_name`: The workforce pool name in the format `locations/global/workforcePools/WORKFORCE_POOL_ID`.
+
+    * `workforce_identity.iam_principal`: The IAM principal identifier in the format `principal://iam.googleapis.com/locations/global/workforcePools/WORKFORCE_POOL_ID/subject/SUBJECT_ATTRIBUTE_VALUE`.
+
+  * Programmatic access with Workforce Identity Federation is only supported for Google service accounts.
+
+
+
 
 ### Troubleshooting
 
@@ -359,6 +390,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-06 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-06 UTC."],[],[]] 

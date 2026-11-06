@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/storage-transfer/docs/create-url-list/
 title: Transfer from public URLs to Cloud Storage \u00a0|\u00a0 Storage Transfer Service \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T09:48:12.872221+00:00
+fetched_at: 2026-11-06T10:53:07.213853+00:00
 ---
 
 # Transfer from public URLs to Cloud Storage  |  Storage Transfer Service  |  Google Cloud Documentation
@@ -100,7 +100,7 @@ To avoid storing your list in a public location, you can store it in a Cloud Sto
 
 The service agent must be granted the following permissions:
 
-  * The `storage.object.get` permission on the object. This can be granted by granting the `roles/storage.legacyObjectReader` role on the bucket, or with a custom role.
+  * The `storage.objects.get` permission on the object. This can be granted by granting the `roles/storage.objectViewer` role on the bucket, or with a custom role.
   * The `storage.buckets.get` permission on the bucket. This can be granted by granting the `roles/storage.legacyBucketReader` role, or with a custom role.
 
 
@@ -126,7 +126,7 @@ Copy this value.
 
 #### Grant the required roles
 
-To grant the `roles/storage.objectViewer` role and the `roles/storage.bucketViewer` role to the service agent on the bucket containing the URL list, follow the instructions in [Set and manage IAM policies on buckets](https://docs.cloud.google.com/storage/docs/access-control/using-iam-permissions).
+To grant the `roles/storage.objectViewer` role and the `roles/storage.legacyBucketReader` role to the service agent on the bucket containing the URL list, follow the instructions in [Set and manage IAM policies on buckets](https://docs.cloud.google.com/storage/docs/access-control/using-iam-permissions).
 
 The principal you are adding is the service agent's email address. If required, the principal identifier is `serviceAccount`. For example, `serviceAccount:project-PROJECT_NUMBER@storage-transfer-service.iam.gserviceaccount.com`.
 
@@ -187,6 +187,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-05 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-05 UTC."],[],[]] 

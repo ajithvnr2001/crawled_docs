@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini/docs/discover/write-prompts/
 title: Write better prompts for Gemini in Google Cloud \u00a0|\u00a0 Gemini for Google Cloud \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T18:14:01.610770+00:00
+fetched_at: 2026-11-06T13:12:17.159144+00:00
 ---
 
 # Write better prompts for Gemini in Google Cloud  |  Gemini for Google Cloud  |  Google Cloud Documentation
@@ -21,13 +21,13 @@ Send feedback
 
 #  Write better prompts for Gemini in Google Cloud Stay organized with collections  Save and categorize content based on your preferences. 
 
-Optimizing your prompts helps you get more effective assistance from Gemini across conversational interfaces, code editors, and query tools. For more information about available features, see the [Google Cloud with Gemini overview](https://docs.cloud.google.com/gemini/docs/overview).
+Optimizing your prompts helps you get more effective assistance from Gemini in interactive chat panels—such as the Google Cloud console chat panel—and in inline code generation in your IDE and query editors. If you're designing prompts for agentic workflows, system instructions, or tool calling, see [Agentic AI prompt engineering](https://docs.cloud.google.com/gemini/docs/discover/engineer-agentic-prompts). For more information about available features, see the [Google Cloud with Gemini overview](https://docs.cloud.google.com/gemini/docs/overview).
 
 ## Provide context and details in your prompts
 
-The questions that you ask Gemini in Google Cloud, including any input information or code you want Gemini to analyze or complete, are called _prompts_. The answers or code completions that you receive from Gemini are called _responses_.
+The questions and instructions that you give to Gemini in Google Cloud, including any input information or code you want Gemini to analyze or complete, are called _prompts_. The answers or code completions that you receive from Gemini are called _responses_.
 
-When you ask Gemini in Google Cloud for help, you should include as much context and specific detail as possible. Because AI-generated responses are based on a vast range of possibilities, it's important for you to be precise. For the best results, your prompts shouldn't exceed 4,000 characters.
+When you ask Gemini in Google Cloud for help, you should include as much context and specific detail as possible. Gemini models support large context windows, allowing you to include extensive codebase context, error logs, and detailed requirements in your prompts. Because AI-generated responses are based on a vast range of possibilities, providing clear context helps ensure precise responses.
 
 Here are some ways to provide helpful context and detail in your prompts:
 
@@ -133,7 +133,8 @@ When you provide us with positive or negative feedback about your conversational
 
 ## What's next
 
-  * For more about large language model (LLM) prompt design, see [Introduction to prompt design](https://docs.cloud.google.com/vertex-ai/docs/generative-ai/learn/introduction-prompt-design).
+  * For guidance on prompt engineering for agentic workflows, system instructions, and tool calling, see [Agentic AI prompt engineering](https://docs.cloud.google.com/gemini/docs/discover/engineer-agentic-prompts).
+  * For more about large language model (LLM) prompt design, see [Introduction to prompt design](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/prompts/introduction-prompt-design).
   * To learn more about generative AI, see [Generative AI learning path](https://www.cloudskillsboost.google/journeys/118).
   * For more on Gemini and LLM models, see [Google Cloud with Gemini and responsible AI](https://docs.cloud.google.com/gemini/docs/discover/responsible-ai).
   * For more on how we only use your feedback data with your permission, see [How Gemini products in Google Cloud use your data](https://docs.cloud.google.com/gemini/docs/discover/data-governance).
@@ -144,6 +145,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-05 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-05 UTC."],[],[]] 

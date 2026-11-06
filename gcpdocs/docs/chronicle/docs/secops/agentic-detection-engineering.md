@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chronicle/docs/secops/agentic-detection-engineering/
 title: Use the Detection Engineering Agent \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T23:27:47.066319+00:00
+fetched_at: 2026-11-06T10:21:37.371160+00:00
 ---
 
 # Use the Detection Engineering Agent  |  Google Security Operations  |  Google Cloud Documentation
@@ -24,16 +24,16 @@ Send feedback  Stay organized with collections  Save and categorize content base
 **Note:** This feature is covered by [Pre-GA Offerings Terms](https://chronicle.security/legal/service-terms/) of the Google Security Operations Service Specific Terms. Pre-GA features might have limited support, and changes to pre-GA features might not be compatible with other pre-GA versions. For more information, see the [Google SecOps Technical Support Service guidelines](https://chronicle.security/legal/technical-support-services-guidelines/) and the [Google SecOps Service Specific Terms](https://chronicle.security/legal/service-terms/).  
 If this feature isn't visible in your environment, see [Manage preview features](https://docs.cloud.google.com/chronicle/docs/secops/preview-features-manage) or contact your system administrator.
 
-This guide is for security engineers and SOC analysts who want to evaluate and strengthen their Google Security Operations security posture against new and existing threats, using the _Detection Engineering Agent_. The Detection Engineering Agent is an AI-powered engineering assistant, which is part of Google SecOps. The agent is accessible using Model Context Protocol (MCP) tools operated by compatible AI clients (for example, Google Antigravity or Claude Code). Using the Detection Engineering Agent, you can extract threat intelligence and automatically draft [YARA-L](https://docs.cloud.google.com/chronicle/docs/yara-l/yara-l-overview) rules, which improves time-to-value for custom security automation and improves risk mitigation.
+This guide is for security engineers and SOC analysts who want to evaluate and strengthen their Google Security Operations security posture against new and existing threats, using the AI-powered **Detection Engineering Agent** in Google SecOps.
 
-This AI-powered assistant helps you extract threat intelligence and automatically draft YARA-L detection rules, improve time-to-value for custom security automation, and accelerate risk mitigation.
+You can access the agent using Model Context Protocol (MCP) tools operated by compatible AI clients (for example, Google Antigravity or Claude Code). Using the Detection Engineering Agent, you can extract threat intelligence and automatically draft [YARA-L](https://docs.cloud.google.com/chronicle/docs/yara-l/yara-l-overview) rules, which improves time-to-value for custom security automation and accelerates risk mitigation.
 
 ## Key terminology
 
-  * **Detection Engineering Agent** : An AI-powered engineering assistant embedded in Google SecOps, operated by AI clients (for example, AntiGravity or Claude Code) using MCP tools.
-  * **Model Context Protocol (MCP)** : An open-source standard for connecting AI applications to external systems, which is used across Google Cloud services to securely connect AI agents and applications to various data sources and infrastructure tools. 
+  * **Detection Engineering Agent** : An AI-powered engineering assistant embedded in Google SecOps, operated by AI clients (for example, Antigravity or Claude Code) using MCP tools.
+  * **Model Context Protocol (MCP)** : An open-source standard for connecting AI applications to external systems, which is used across Google Cloud services to securely connect AI agents and applications to various data sources and infrastructure tools.
   * **Threat Detection Opportunity (TDO)** : A formalized data model designed to identify, track, and prioritize potential new detection rules or analytics.
-  * **Synthetic events** : Unified Data Model ([UDM](https://docs.cloud.google.com/chronicle/docs/event-processing/udm-overview)) logs generated to simulate an input TDO.
+  * **Synthetic events** : [Unified Data Model (UDM)](https://docs.cloud.google.com/chronicle/docs/event-processing/udm-overview) logs generated to simulate an input TDO.
 
 
 
@@ -46,7 +46,7 @@ Before you begin, confirm the following prerequisites are met:
 
 
 
-### Environment check—AI client
+### Environment check — AI client
 
 You must operate an AI client (such as Antigravity or Claude Code) capable of interfacing with MCP tools.
 
@@ -56,9 +56,9 @@ This section lists the required Identity and Access Management (IAM) permissions
 
 #### Required roles for all principal users
 
-Every principal calling the Detection Engineering Agent must have the following roles: **MCP Tool User** and **Chronicle API Viewer**. Ensure that a system administrator updates these roles for all principal users. 
+Every principal calling the Detection Engineering Agent must have the following roles: **MCP Tool User** and **Chronicle API Viewer**. Ensure that a system administrator updates these roles for all principal users.
 
-For additional guidance, refer to the [Google SecOps MCP documentation](https://docs.cloud.google.com/chronicle/docs/secops/use-google-secops-mcp).
+For more information, see [Configure MCP](https://docs.cloud.google.com/chronicle/docs/secops/use-google-secops-mcp).
 
 #### Required core permissions
 
@@ -110,7 +110,7 @@ The following predefined roles provide the necessary permissions for both human 
 
 ## Set up the MCP server
 
-Refer to the [MCP server configuration](https://docs.cloud.google.com/chronicle/docs/secops/use-google-secops-mcp) guidance to create your `settings.json`. Once you have everything collected, ensure that the contents of your `settings.json` file looks like the following:
+To create your `settings.json` file, see [Configure MCP](https://docs.cloud.google.com/chronicle/docs/secops/use-google-secops-mcp). After you collect the required values, make sure that the contents of your `settings.json` file look like the following:
     
     
     {
@@ -137,9 +137,9 @@ Refer to the [MCP server configuration](https://docs.cloud.google.com/chronicle/
 
 ## Set up a context file
 
-To get started, you need to set up a [_context_](https://geminicli.com/docs/cli/gemini-md/) file to ensure that Gemini targets the correct Google SecOps instance for every request.
+To get started, set up a [context](https://geminicli.com/docs/cli/gemini-md/) file to ensure that Gemini targets the correct Google SecOps instance for every request.
 
-To keep everything lightweight, Google recommends starting with the following content in your `Gemini.md` file and then building from there. Update with the correct information for your Google SecOps instance and environment:
+To keep everything lightweight, Google recommends starting with the following content in your `GEMINI.md` file and then building from there. Replace the placeholder values with the correct information for your Google SecOps instance and environment:
     
     
     When using the Google SecOps MCP server, use these parameters for EVERY request: Customer ID: aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa Region: us Project ID: my-cloud-project-name
@@ -147,21 +147,21 @@ To keep everything lightweight, Google recommends starting with the following co
 
 ## Set up the skill to interact with the tools
 
-Google highly recommends using the `detection-engineering-coverage-evaluation` skill to interact with the tools. This skill prevents the AI from summarizing or abbreviating critical tool outputs. 
+Google highly recommends using the `detection-engineering-coverage-evaluation` skill to interact with the tools. This skill prevents the AI from summarizing or abbreviating critical tool outputs.
 
 This skill is built-in as `detection-engineering-coverage-evaluation` and is hosted publicly in the [Google Agent Skills GitHub repository](https://github.com/google/skills/blob/main/skills/cloud/detection-engineering-coverage-evaluation/SKILL.md).
 
-**Caution:** Gemini may try to take shortcuts (such as summarizing tool output or overzealously compacting the TDO). Using the `detection-engineering-coverage-evaluation` skill enforces proper iterative execution.
+**Caution:** Gemini might try to take shortcuts (such as summarizing tool output or overzealously compacting the TDO). Using the `detection-engineering-coverage-evaluation` skill enforces proper iterative execution.
 
 ## Key capabilities
 
-This section describes key capabilities for threat analysis and rule generation that the Detection Engineering Agent provides. 
+This section describes key capabilities for threat analysis and rule generation that the Detection Engineering Agent provides.
 
 ### Generate Threat Detection Opportunities
 
 The `generate_threat_detection_opportunity` tool extracts and enriches raw threat intelligence from sources (for example, security blogs and internal findings) to create prioritized TDOs for analysis. The TDOs produced in this step inform the subsequent detection engineering agent steps to evaluate existing rule coverage or generate new rules.
 
-  * To use the `generate_threat_detection_opportunity` tool, instruct Gemini to use curl to extract the text, or you can copy and paste raw text from a threat report into the tool.
+  * To use the `generate_threat_detection_opportunity` tool, instruct Gemini to use `curl` to extract the text, or copy and paste raw text from a threat report into the tool.
 
 
 
@@ -186,7 +186,7 @@ SaaS applications | [Microsoft 365 (Office 365)](https://docs.cloud.google.com/c
   
 ### Evaluate coverage
 
-Checks whether existing rules in your Google SecOps instance trigger on simulated events ingested through [event simulation](https://docs.cloud.google.com/chronicle/docs/secops/event-simulation). If any rules match the simulated events, the tool returns the matching rule identifiers and coverage result metadata. If no rules match, an empty result is returned, signaling a coverage gap.
+The Detection Engineering Agent checks whether existing rules in your Google SecOps instance trigger on simulated events ingested through [event simulation](https://docs.cloud.google.com/chronicle/docs/secops/event-simulation). If any rules match the simulated events, the tool returns the matching rule identifiers and coverage result metadata. If no rules match, an empty result is returned, signaling a coverage gap.
 
 ### Generate draft rules
 
@@ -214,6 +214,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-04 UTC.
+Last updated 2026-11-05 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-05 UTC."],[],[]] 

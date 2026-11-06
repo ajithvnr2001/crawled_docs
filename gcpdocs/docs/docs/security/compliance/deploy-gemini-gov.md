@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/docs/security/compliance/deploy-gemini-gov/
 title: Deployment guidance for Gemini for Government \u00a0|\u00a0 Security \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T23:31:54.761998+00:00
+fetched_at: 2026-11-06T10:24:07.636161+00:00
 ---
 
 # Deployment guidance for Gemini for Government  |  Security  |  Google Cloud Documentation
@@ -107,7 +107,6 @@ Anthropic's Claude Opus 4.5 on Google Cloud |  |  |  |
 Anthropic's Claude Opus 4.8 on Google Cloud |  |  |  |   
 Anthropic's Claude Opus 4.7 on Google Cloud |  |  |  |   
 Anthropic's Claude Opus 4.6 on Google Cloud |  |  |  |   
-Anthropic's Claude Sonnet 4.5 on Google Cloud |  |  |  |   
 Anthropic's Claude Sonnet 4.6 on Google Cloud |  |  |  |   
   
 ### Third-party model support

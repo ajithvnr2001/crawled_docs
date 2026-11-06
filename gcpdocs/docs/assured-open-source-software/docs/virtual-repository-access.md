@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/assured-open-source-software/docs/virtual-repository-access/
 title: Access Assured OSS packages using a virtual repository \u00a0|\u00a0 Assured Open Source Software \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T16:49:12.289617+00:00
+fetched_at: 2026-11-06T10:24:25.562178+00:00
 ---
 
 # Access Assured OSS packages using a virtual repository  |  Assured Open Source Software  |  Google Cloud Documentation
@@ -21,9 +21,11 @@ Send feedback
 
 #  Access Assured OSS packages using a virtual repository Stay organized with collections  Save and categorize content based on your preferences. 
 
-This page provides information about [setting up a virtual repository](https://docs.cloud.google.com/artifact-registry/docs/repositories/virtual-repo) in an Artifact Registry instance in one of your own projects to access and download the Assured OSS packages. For more information about repository options, see [Assured OSS repository options](https://docs.cloud.google.com/assured-open-source-software/docs/overview#aoss-repository-options).
+A virtual repository is a type of Artifact Registry repository that lets you access Assured Open Source Software (Assured OSS) packages from multiple upstream repositories through a single repository.
 
 Virtual repositories are supported in the free tier only. In the premium tier, Assured OSS repositories are provisioned automatically.
+
+For more information about repository options, see [Assured OSS repository options](https://docs.cloud.google.com/assured-open-source-software/docs/overview#aoss-repository-options).
 
 ## Before you begin
 
@@ -108,6 +110,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-05 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-05 UTC."],[],[]] 

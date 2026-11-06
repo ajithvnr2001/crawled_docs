@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sap/docs/sap-hana-ha-scaleout-config-rhel/
 title: HA scale-out cluster configuration guide for SAP HANA on RHEL \u00a0|\u00a0 SAP on Google Cloud \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-03T09:44:09.183253+00:00
+fetched_at: 2026-11-06T08:23:50.514917+00:00
 ---
 
 # HA scale-out cluster configuration guide for SAP HANA on RHEL  |  SAP on Google Cloud  |  Google Cloud Documentation
@@ -32,13 +32,18 @@ This guide includes the steps for:
 
 This guide also includes steps for configuring SAP HANA system replication, but refer to the SAP documentation for the definitive instructions.
 
-To deploy a SAP HANA system without a Linux high-availability cluster or a standby node host, use the [SAP HANA deployment guide](https://docs.cloud.google.com/sap/docs/sap-hana-deployment-guide).
+To deploy a SAP HANA system without a Linux high-availability cluster or a standby node host, see the following resources:
+
+  * [Terraform: SAP HANA scale-up deployment guide](https://docs.cloud.google.com/sap/docs/sap-hana-deployment-guide-tf)
+  * [Terraform: SAP HANA multi-host scale-out deployment guide](https://docs.cloud.google.com/sap/docs/sap-hana-scaleout-deployment-tf)
+
+
 
 This guide is intended for advanced SAP HANA users who are familiar with Linux high-availability configurations for SAP HANA.
 
 ## The system that this guide deploys
 
-Following this guide, you will deploy a multi-node SAP HANA HA system configured for full zone-redundancy with [an additional instance acting as a majority maker](https://github.com/sap-architecture/sap-hana/blob/master/pages/generic_architecture/module_high_availability.md#majority-maker-node), also known as tie-breaker node, which ensures the cluster quorum is maintained in case of the loss of one zone.
+Following this guide, you deploy a multi-node SAP HANA HA system configured for full zone-redundancy with [an additional instance acting as a majority maker](https://github.com/sap-architecture/sap-hana/blob/master/pages/generic_architecture/module_high_availability.md#majority-maker-node), also known as tie-breaker node, which ensures that the cluster quorum is maintained in case of the loss of one zone.
 
 The final deployment comprises of the following resources:
 
@@ -46,29 +51,29 @@ The final deployment comprises of the following resources:
   * Two sites configured for synchronous replication.
   * A single compute instance to act as a majority maker.
   * A Pacemaker high-availability cluster resource manager with a fencing mechanism.
-  * Persistent disk(s) for SAP HANA data and log volumes attached to each SAP HANA instance.
+  * Hyperdisk or Persistent Disk volumes to host the SAP HANA data and log directories, which are attached to each SAP HANA instance.
 
 
 
 ![Overview of a high-availability Linux cluster for a multi-node SAP HANA scaleout system](https://docs.cloud.google.com/static/sap/docs/images/ha-hana-scaleout-overview.svg)
 
-This guide has you use the Terraform templates that are provided by Google Cloud to deploy the Compute Engine virtual machines (VMs) and the SAP HANA instances, which ensures that the VMs and the base SAP HANA systems meet SAP supportability requirements and conform to current best practices.
+This guide has you use the Terraform templates that are provided by Google Cloud to deploy the Compute Engine instances and the SAP HANA instances, which ensures that the compute instances and the base SAP HANA systems meet SAP supportability requirements and conform to best practices.
 
-SAP HANA Studio is used in this guide to test SAP HANA system replication. You can use SAP HANA Cockpit instead, if you prefer. For information about installing SAP HANA Studio, see:
+This guide also uses SAP HANA Studio to test SAP HANA system replication. If you prefer, you can use SAP HANA Cockpit instead. For information about installing SAP HANA Studio, see the following resources:
 
   * [Installing SAP HANA Studio on a Compute Engine Windows VM](https://docs.cloud.google.com/sap/docs/sap-hana-deployment-guide#install_hana_studio)
   * [SAP HANA Studio Installation and Update Guide](https://help.sap.com/viewer/a2a49126a5c546a9864aae22c05c3d0e/2.0.02/en-US)
 
 
 
-## Prerequisites
+## Before you begin
 
-Before you create the SAP HANA high availability cluster, make sure that the following prerequisites are met:
+Before you create the SAP HANA high availability cluster, make sure that you satisfy the following prerequisites:
 
   * You have read the [SAP HANA planning guide](https://docs.cloud.google.com/sap/docs/sap-hana-planning-guide) and the [SAP HANA high-availability planning guide](https://docs.cloud.google.com/sap/docs/sap-hana-ha-planning-guide). 
-  * You or your organization has a Google Cloud account and you have created a project for the SAP HANA deployment. For information about creating Google Cloud accounts and projects, see [Setting up your Google account](https://docs.cloud.google.com/sap/docs/sap-hana-deployment-guide#setting-up-your-google-account) in the SAP HANA Deployment Guide.
+  * You or your organization has a Google Cloud account and you have created a project for the SAP HANA deployment. For information about creating Google Cloud accounts and projects, see [Setting up your Google account](https://docs.cloud.google.com/sap/docs/sap-hana-deployment-guide-tf#setting-up-your-google-account).
   * If you require your SAP workload to run in compliance with data residency, access control, support personnel, or regulatory requirements, then you must create the required Assured Workloads folder. For more information, see [Compliance and sovereign controls for SAP on Google Cloud](https://docs.cloud.google.com/sap/docs/compliance-and-sovereign-controls). 
-  * The SAP HANA installation media is stored in a Cloud Storage bucket that is available in your deployment project and region. For information about how to upload SAP HANA installation media to a Cloud Storage bucket, see [Downloading SAP HANA](https://docs.cloud.google.com/sap/docs/sap-hana-deployment-guide#creating_a_cloud_storage_bucket_for_the_sap_hana_installation_files) in the SAP HANA Deployment Guide.
+  * The SAP HANA installation media is stored in a Cloud Storage bucket that is available in your deployment project and region. For information about how to upload SAP HANA installation media to a Cloud Storage bucket, see [Creating a Cloud Storage bucket for the SAP HANA installation files](https://docs.cloud.google.com/sap/docs/sap-hana-deployment-guide-tf#creating_a_cloud_storage_bucket_for_the_sap_hana_installation_files).
 
   * If [OS login](https://docs.cloud.google.com/compute/docs/instances/access-overview#oslogin) is enabled in your project metadata, then you need to disable OS login temporarily until your deployment is complete. For deployment purposes, this procedure configures SSH keys in instance metadata. When OS login is enabled, metadata-based SSH key configurations are disabled, and this deployment fails. After deployment is complete, you can enable OS login again.
 
@@ -76,12 +81,12 @@ For more information, see:
 
     * [Enabling or disabling OS Login](https://docs.cloud.google.com/compute/docs/instances/managing-instance-access#enable_oslogin)
     * [Add SSH keys to VMs that use metadata-based SSH keys](https://docs.cloud.google.com/compute/docs/connect/add-ssh-keys#metadata)
-  * If you are using [VPC internal DNS](https://docs.cloud.google.com/compute/docs/internal-dns), the value of the `vmDnsSetting` variable in your project metadata must be either `GlobalOnly` or `ZonalPreferred` to enable the resolution of the node names across zones. The default setting of `vmDnsSetting` is `ZonalOnly`. For more information, see:
+  * If you're using [VPC internal DNS](https://docs.cloud.google.com/compute/docs/internal-dns), then the value of the `vmDnsSetting` variable in your project metadata must be either `GlobalOnly` or `ZonalPreferred` to enable the resolution of the node names across zones. The default setting of `vmDnsSetting` is `ZonalOnly`. For more information, see:
 
     * [Configuring DNS names for your project or instances](https://docs.cloud.google.com/compute/docs/networking/zonal-dns#setting-zonal-dns)
     * [Querying custom metadata](https://docs.cloud.google.com/compute/docs/storing-retrieving-metadata#querying_custom_metadata)
     * [Setting project-wide custom metadata](https://docs.cloud.google.com/compute/docs/storing-retrieving-metadata#projectwide)
-  * You have an NFS solution, such as the managed [Filestore](https://docs.cloud.google.com/filestore) solution, for sharing the SAP HANA `/hana/shared` and `/hanabackup` volumes among the hosts in the scale-out SAP HANA system. To deploy Filestore NFS servers, see [Creating instances](https://docs.cloud.google.com/filestore/docs/creating-instances).
+  * You have an NFS solution, such as the managed [Filestore](https://docs.cloud.google.com/filestore/docs) solution, for sharing the SAP HANA `/hana/shared` and `/hanabackup` volumes among the hosts in the scale-out SAP HANA system. To deploy Filestore NFS servers, see [Creating instances](https://docs.cloud.google.com/filestore/docs/creating-instances).
 
     * Note that the primary and secondary sites must have access to their own dedicated NFS paths to avoid overwriting data. To use a single Filestore instance, you must configure the deployment to use distinct sub-directories as the mount path. 
 
@@ -519,7 +524,9 @@ To verify that the infrastructure metrics are collected by Google Cloud's Agent 
 
 ## Set up monitoring for SAP HANA
 
-Optionally, you can monitor your SAP HANA instances using Google Cloud's Agent for SAP. From version 2.0, you can configure the agent to collect the SAP HANA monitoring metrics and send them to [Cloud Monitoring](https://docs.cloud.google.com/monitoring/docs). Cloud Monitoring lets you create dashboards to visualize these metrics, set up alerts based on metric thresholds, and more.
+Optionally, you can monitor your SAP HANA instances by using Google Cloud's Agent for SAP. From version 2.0, you can configure the agent to collect the SAP HANA monitoring metrics and send them to [Cloud Monitoring](https://docs.cloud.google.com/monitoring/docs). Cloud Monitoring lets you create dashboards to visualize these metrics, set up alerts based on metric thresholds, and more.
+
+To monitor an HA cluster by using Google Cloud's Agent for SAP, make sure to follow the guidance given in [High-availability configuration for the agent](https://docs.cloud.google.com/sap/docs/agent-for-sap/latest/monitoring-sap-hana#high-availability_configuration_for_the_agent).
 
 For more information about the collection of SAP HANA monitoring metrics using Google Cloud's Agent for SAP, see [SAP HANA monitoring metrics collection](https://docs.cloud.google.com/sap/docs/agent-for-sap/latest/planning#sap_hana_monitoring_metrics).
 
@@ -979,13 +986,11 @@ On both the primary and secondary site, complete the following steps:
          
          > sapcontrol -nr 00 -function StopSystem
 
-
-
-  1. As root or `SID_LCadm`, open the `global.ini` file for editing:
+  2. As root or `SID_LCadm`, open the `global.ini` file for editing:
          
          > vi /hana/shared/SID/global/hdb/custom/config/global.ini
 
-  2. Add the following definitions to the `global.ini` file:
+  3. Add the following definitions to the `global.ini` file:
 
 **Note:** To implement the `chksrv.py` hook, you require RHEL 8 for SAP SP6 or later.
          
@@ -1005,11 +1010,11 @@ On both the primary and secondary site, complete the following steps:
          ha_dr_chksrv = info
          
 
-  3. As root, create a custom configuration file in the `/etc/sudoers.d` directory by running the following command. This new configuration file allows the `SID_LCadm` user to access the cluster node attributes when the `srConnectionChanged()` hook method is called.
+  4. As root, create a custom configuration file in the `/etc/sudoers.d` directory by running the following command. This new configuration file allows the `SID_LCadm` user to access the cluster node attributes when the `srConnectionChanged()` hook method is called.
          
          > visudo -f /etc/sudoers.d/20-saphana
 
-  4. In the `/etc/sudoers.d/20-saphana` file, add the following text:
+  5. In the `/etc/sudoers.d/20-saphana` file, add the following text:
 
 Replace `SID_LC` with the SID in lowercase letters. 
          
@@ -1018,18 +1023,18 @@ Replace `SID_LC` with the SID in lowercase letters.
          SID_LCadm ALL=(ALL) NOPASSWD: SOK, SFAIL
          Defaults!SOK, SFAIL !requiretty
 
-  5. In your `/etc/sudoers` file, make sure that the following text is included:
+  6. In your `/etc/sudoers` file, make sure that the following text is included:
          
          **#** includedir /etc/sudoers.d
 
 Note that the `#` in this text is part of the syntax and does not mean that the line is a comment.
 
 **Note:** While the procedure in this section is recommended by Red Hat, you can use an alternative approach. Instead of creating a drop-in configuration file, you can add the required access directly to your `/etc/sudoers` file.
-  6. As `SID_LCadm`, start SAP HANA:
+  7. As `SID_LCadm`, start SAP HANA:
          
          > sapcontrol -nr 00 -function StartSystem
 
-  7. On the primary host as `SID_LCadm`, test the status reported by the hook script:
+  8. On the primary host as `SID_LCadm`, test the status reported by the hook script:
          
          > cdtrace
          > awk '/ha_dr_SAPHanaSR.*crm_attribute/ { printf "%s %s %s %s\n",$2,$3,$5,$16 }' nameserver_*
@@ -2150,7 +2155,7 @@ These instructions use `iptables` to simulate a network disruption between your 
          
          # iptables -D INPUT -s PRIMARY_CLUSTER_IP -j DROP; iptables -D OUTPUT -d PRIMARY_CLUSTER_IP -j DROP
 
-  3. Enter `pcs status` to confirm that the primary host is now active on the VM that used to contain the secondary host. Automatic restart is enabled in the cluster, so the stopped host will restart and assume the role of secondary host, as shown in the following example.
+  3. Enter `pcs status` to confirm that the primary host is now active on the VM that used to contain the secondary host. Automatic restart is enabled in the cluster, so the stopped host restarts and assumes the role of secondary host, as shown in the following example.
          
          Cluster name: hana-ha-cluster
          Stack: corosync
@@ -2233,7 +2238,7 @@ After you complete the deployment, finish with the following steps:
          
          sudo passwd SID_LCadm
 
-For information from SAP about changing the password, see [Reset the SYSTEM User Password of the System Database](https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/LATEST/en-US/6b13cdd1982f4aa6b90b443663d17d7e.html).
+For information from SAP about changing the password, see [Reset the `SYSTEM` User Password of the System Database](https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/LATEST/en-US/6b13cdd1982f4aa6b90b443663d17d7e.html).
 
   2. Before using your SAP HANA instance, configure and backup your new SAP HANA database.
 
@@ -2258,7 +2263,7 @@ See the following resource for more information:
   * [Support Policies for RHEL High Availability Clusters - General Requirements for Fencing/STONITH](https://access.redhat.com/articles/2881341)
   * [SAP HANA high-availability planning guide](https://docs.cloud.google.com/sap/docs/sap-hana-ha-planning-guide)
   * [SAP HANA disaster recovery planning guide](https://docs.cloud.google.com/sap/docs/sap-hana-dr-planning-guide)
-  * For more information about VM administration and monitoring, see the [SAP HANA Operations Guide](https://docs.cloud.google.com/sap/docs/sap-hana-operations-guide)
+  * For more information about VM administration and monitoring, see the [SAP HANA operations guide](https://docs.cloud.google.com/sap/docs/sap-hana-operations-guide)
 
 
 
@@ -2266,6 +2271,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-29 UTC.
+Last updated 2026-11-06 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-06 UTC."],[],[]] 

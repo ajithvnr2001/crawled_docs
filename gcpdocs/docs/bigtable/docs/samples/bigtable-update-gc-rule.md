@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigtable/docs/samples/bigtable-update-gc-rule/
 title: Update a garbage-collection rule \u00a0|\u00a0 Bigtable \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-05T11:12:15.356868+00:00
+fetched_at: 2026-11-06T13:05:37.416585+00:00
 ---
 
 # Update a garbage-collection rule  |  Bigtable  |  Google Cloud Documentation

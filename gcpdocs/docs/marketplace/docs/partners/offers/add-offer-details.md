@@ -1,11 +1,11 @@
 ---
 url: https://docs.cloud.google.com/marketplace/docs/partners/offers/add-offer-details/
-title: Add product and customer details to the offer \u00a0|\u00a0 Google Cloud Marketplace Partners \u00a0|\u00a0 Google Cloud Documentation
+title: Add customer and sales contact details to the offer \u00a0|\u00a0 Google Cloud Marketplace Partners \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T21:57:34.008920+00:00
+fetched_at: 2026-11-06T10:22:29.133633+00:00
 ---
 
-# Add product and customer details to the offer  |  Google Cloud Marketplace Partners  |  Google Cloud Documentation
+# Add customer and sales contact details to the offer  |  Google Cloud Marketplace Partners  |  Google Cloud Documentation
 
 > Source: https://docs.cloud.google.com/marketplace/docs/partners/offers/add-offer-details/
 
@@ -20,30 +20,34 @@ fetched_at: 2026-10-27T21:57:34.008920+00:00
 
 Send feedback 
 
-#  Add product and customer details to the offer Stay organized with collections  Save and categorize content based on your preferences. 
+#  Add customer and sales contact details to the offer Stay organized with collections  Save and categorize content based on your preferences. 
 
-This article describes how to add product and customer details to a [private offer in Producer Portal](https://docs.cloud.google.com/marketplace/docs/partners/offers/create-private-offers).
+This document describes how to add customer and sales contact details to a [private offer in Producer Portal](https://docs.cloud.google.com/marketplace/docs/partners/offers/create-private-offers).
 
 ## Add customer and sales contact details
 
-After you've [begun creating your private offer](https://docs.cloud.google.com/marketplace/docs/partners/offers/create-private-offers#create-offer), you add the following details:
+After you've [begun creating your private offer](https://docs.cloud.google.com/marketplace/docs/partners/offers/create-private-offers#create-offer), expand **Contact information** and enter the following details:
 
-  1. Under **Customer details** , include the organization, Cloud Billing account, and name for the offer. This information appears on the offer page that the customer receives. Click **Next**.
+  1. Under **Customer information** , enter the following details, which appear on the offer page that your customer receives:
 
-**Caution:** If you modify the Cloud Billing account, product, or pricing plan later, other information that you already input might be erased. To avoid losing offer data, ensure that you've selected the correct product, pricing plan, and Cloud Billing account for the customer.
+     * **Customer organization** : Your customer's organization name.
+     * **Customer contact name** : The name of your customer contact.
+     * **Customer email** (optional): Your customer contact's business email address.
+     * **Notes for your customer** (optional): A short message or third-party system ID, up to 120 characters. Don't include commercial terms or URLs.
+**Note:** You enter the customer's Cloud Billing account, product, pricing plan, and **Offer title** in **Purchasing and pricing**. For more information, see [Set up your offer's pricing](https://docs.cloud.google.com/marketplace/docs/partners/offers/set-up-pricing-model).
+  2. Under **Sales information** , enter a contact in case your customer has questions or needs support for the offer:
 
-If the Cloud Billing account is a resold customer Cloud Billing subaccount, you must set up a [private offer plan](https://docs.cloud.google.com/marketplace/docs/partners/resell/reseller-private-offer-plans), which can include a reseller discount, to transact with this customer.
-
-  2. Under **Sales contact details** , include a contact in case your customer has questions or needs support for the offer.
-
-  3. To [proceed to **Pricing and payments**](https://docs.cloud.google.com/marketplace/docs/partners/offers/set-up-pricing-model), click **Next**.
+     * **Sales contact name** : The name of your sales contact.
+     * **Sales contact email** : The email address of your sales contact.
+     * **Notes for your team** (optional): Internal notes for your team, up to 1,500 characters. Your customer can't see these notes. This information appears in your [Customer Insights report](https://docs.cloud.google.com/marketplace/docs/partners/reports/report-customer-insight).
+  3. Click **Save** , and then [proceed to **Purchasing and pricing**](https://docs.cloud.google.com/marketplace/docs/partners/offers/set-up-pricing-model).
 
 
 
 
 ## What's next
 
-After you've added the customer and product details for your private offer, you complete the following steps in Producer Portal:
+After you've added the customer and sales contact details for your private offer, you complete the following steps in Producer Portal:
 
   1. [Set up pricing](https://docs.cloud.google.com/marketplace/docs/partners/offers/set-up-pricing-model) for your offer.
 
@@ -58,6 +62,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-05 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-05 UTC."],[],[]] 

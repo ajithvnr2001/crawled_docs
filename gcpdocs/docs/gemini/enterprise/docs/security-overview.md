@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini/enterprise/docs/security-overview/
 title: Gemini Enterprise security overview \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T05:50:29.377797+00:00
+fetched_at: 2026-11-06T10:22:04.313599+00:00
 ---
 
 # Gemini Enterprise security overview  |  Google Cloud Documentation
@@ -59,6 +59,12 @@ Gemini Enterprise also supports External key manager (EKM) or hardware security 
 
 
 
+
+## Data privacy and model training
+
+Gemini Enterprise doesn't use your prompts, generated responses, or connected enterprise data (whether ingested or accessed through federated search) to train Google's foundation models. Your data remains isolated within your Google Cloud project and isn't shared with other customers.
+
+Unlike the public consumer Gemini web application (`gemini.google.com`), Gemini Enterprise operates under Google Cloud enterprise data protection terms. For more information, see [Data governance for Gemini for Google Cloud](https://docs.cloud.google.com/gemini/docs/discover/data-governance).
 
 ## Gemini Enterprise compliance
 
@@ -142,6 +148,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-30 UTC.
+Last updated 2026-11-05 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-05 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/managed-spark/docs/concepts/versions/spark-runtime-2.3
 title: Managed Service for Apache Spark runtime 2.3 \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T21:58:17.584441+00:00
+fetched_at: 2026-11-06T11:11:13.665907+00:00
 ---
 
 # Managed Service for Apache Spark runtime 2.3  |  Google Cloud Documentation
@@ -27,13 +27,13 @@ See the [Managed Service for Apache Spark release notes](https://docs.cloud.goog
 
 ## Spark runtime version 2.3 components
 
-Component | [2.3.42  
-2026/09/23](https://docs.cloud.google.com/managed-spark/docs/release-notes#September_23_2026) | [2.3.39  
-2026/08/12](https://docs.cloud.google.com/managed-spark/docs/release-notes#August_12_2026)  
-[](https://docs.cloud.google.com/managed-spark/docs/release-notes#November_11_2022) | [2.3.38  
+Component | [2.3.43  
+2026/11/02](https://docs.cloud.google.com/managed-spark/docs/release-notes#November_02_2026) | [2.3.42  
+2026/09/23](https://docs.cloud.google.com/managed-spark/docs/release-notes#September_23_2026)  
+[](https://docs.cloud.google.com/managed-spark/docs/release-notes#November_11_2022) | [2.3.39  
+2026/08/12](https://docs.cloud.google.com/managed-spark/docs/release-notes#August_12_2026) | [2.3.38  
 2026/08/07](https://docs.cloud.google.com/managed-spark/docs/release-notes#August_07_2026) | [2.3.35  
-2026/06/09](https://docs.cloud.google.com/managed-spark/docs/release-notes#June_09_2026) | [2.3.33  
-2026/05/11](https://docs.cloud.google.com/dataproc-serverless/docs/release-notes#May_11_2026)  
+2026/06/09](https://docs.cloud.google.com/managed-spark/docs/release-notes#June_09_2026)  
 ---|---|---|---|---|---  
 [**Apache Spark**](https://spark.apache.org/) | [3.5.3](https://spark.apache.org/releases/spark-release-3-5-3.html) | [3.5.3](https://spark.apache.org/releases/spark-release-3-5-3.html) | [3.5.3](https://spark.apache.org/releases/spark-release-3-5-3.html) | [3.5.3](https://spark.apache.org/releases/spark-release-3-5-3.html) | [3.5.3](https://spark.apache.org/releases/spark-release-3-5-3.html)  
 [**Cloud Storage Connector**](https://github.com/GoogleCloudDataproc/hadoop-connectors/tree/master/gcs) | [3.1.2](https://github.com/GoogleCloudDataproc/hadoop-connectors/releases/tag/v3.1.2) | [3.1.2](https://github.com/GoogleCloudDataproc/hadoop-connectors/releases/tag/v3.1.2) | [3.1.2](https://github.com/GoogleCloudDataproc/hadoop-connectors/releases/tag/v3.1.2) | [3.1.2](https://github.com/GoogleCloudDataproc/hadoop-connectors/releases/tag/v3.1.2) | [3.1.2](https://github.com/GoogleCloudDataproc/hadoop-connectors/releases/tag/v3.1.2)  
@@ -352,6 +352,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-06 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-06 UTC."],[],[]] 

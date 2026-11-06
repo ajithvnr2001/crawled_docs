@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/security-command-center/docs/compliance-manager-enable/
 title: Enable Compliance Manager \u00a0|\u00a0 Security Command Center \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T10:57:35.526392+00:00
+fetched_at: 2026-11-06T10:40:02.426701+00:00
 ---
 
 # Enable Compliance Manager  |  Security Command Center  |  Google Cloud Documentation
@@ -69,7 +69,6 @@ When you enable Compliance Manager, the following services are also enabled:
 
      * (Premium and Enterprise tiers only) [Sensitive Data Protection](https://docs.cloud.google.com/sensitive-data-protection/docs/sensitive-data-protection-overview) to use data sensitivity signals for default data risk assessment.
      * (Premium and Enterprise tiers only) [Event Threat Detection](https://docs.cloud.google.com/security-command-center/docs/concepts-event-threat-detection-overview) (part of Security Command Center) at the organization level.
-     * [Data Security Posture Management](https://docs.cloud.google.com/security-command-center/docs/dspm-data-security) for data security frameworks.
      * (Premium and Enterprise tiers only) [AI protection](https://docs.cloud.google.com/security-command-center/docs/ai-protection-overview) for AI security frameworks.
 
 For the Standard tier, AI-related findings are evaluated by using the baseline security controls that are included in the default Security Essentials framework.
@@ -85,10 +84,7 @@ For Security Command Center Standard, the Security Essentials framework is appli
 
 For Security Command Center Premium, frameworks are not applied to the organization automatically.
 
-For Security Command Center Enterprise, the following frameworks are applied to the organization automatically:
-
-  * Google Recommended AI Essentials - Gemini Enterprise Agent Platform
-  * Data Security and Privacy Essentials
+For Security Command Center Enterprise, the Google Recommended AI Essentials - Gemini Enterprise Agent Platform framework is applied to the organization automatically.
 
 **Note:** You can deploy frameworks to individual projects based on your compliance needs.
 
@@ -148,7 +144,6 @@ When you return to the Security Command Center Premium or Enterprise service tie
   * [Configure IAM roles for your compliance users](https://docs.cloud.google.com/security-command-center/docs/access-control-org#compliance-manager)
   * [Configure support for VPC Service Controls](https://docs.cloud.google.com/security-command-center/docs/compliance-manager-configure-vpc-sc)
   * [Manage a framework](https://docs.cloud.google.com/security-command-center/docs/compliance-manager-apply-framework)
-  * [Configure Data Security Posture Management](https://docs.cloud.google.com/security-command-center/docs/dspm-data-security)
   * [Configure AI Protection](https://docs.cloud.google.com/security-command-center/docs/configure-ai-protection)
 
 
@@ -157,6 +152,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-05 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-05 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sql/docs/sqlserver/samples/cloud-sql-sqlserver-pdo-connection/
 title: Create a PDO connection using PHP \u00a0|\u00a0 Cloud SQL for SQL Server \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T09:39:51.636056+00:00
+fetched_at: 2026-11-06T10:28:29.423664+00:00
 ---
 
 # Create a PDO connection using PHP  |  Cloud SQL for SQL Server  |  Google Cloud Documentation

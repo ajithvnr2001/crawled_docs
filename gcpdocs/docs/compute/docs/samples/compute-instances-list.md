@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/compute/docs/samples/compute-instances-list/
 title: List VMs in a zone \u00a0|\u00a0 Compute Engine \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T05:39:38.958559+00:00
+fetched_at: 2026-11-06T12:17:48.940500+00:00
 ---
 
 # List VMs in a zone  |  Compute Engine  |  Google Cloud Documentation
@@ -26,6 +26,7 @@ Get a list of VMs in a specific zone in a project.
 For detailed documentation that includes this code sample, see the following: 
 
   * [Compute Engine client libraries](https://docs.cloud.google.com/compute/docs/api/libraries)
+  * [Quickstart: Use Compute Engine with Rust](https://docs.cloud.google.com/rust/docs/quickstart-compute)
   * [Using client libraries](https://docs.cloud.google.com/compute/docs/api/using-libraries)
 
 

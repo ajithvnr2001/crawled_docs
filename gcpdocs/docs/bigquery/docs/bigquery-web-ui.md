@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/bigquery-web-ui/
 title: Explore BigQuery in the Google Cloud console \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-03T09:36:21.837949+00:00
+fetched_at: 2026-11-06T10:19:43.679099+00:00
 ---
 
 # Explore BigQuery in the Google Cloud console  |  Google Cloud Documentation
@@ -95,7 +95,7 @@ You can use the navigation menu to open the following pages:
 You can also use the navigation menu to perform specific tasks in the following menu sections:
 
   * **Pipelines and integration** : lets you create and configure [data transfers](https://docs.cloud.google.com/bigquery/docs/dts-introduction), create and list [Dataform](https://docs.cloud.google.com/bigquery/docs/orchestrate-workloads#dataform) repositories, and create and list [scheduled resources](https://docs.cloud.google.com/bigquery/docs/orchestrate-workloads) such as [scheduled queries](https://docs.cloud.google.com/bigquery/docs/scheduling-queries).
-  * **Governance** : lets you display shared [data exchanges](https://docs.cloud.google.com/bigquery/docs/analytics-hub-manage-exchanges) and [data clean rooms](https://docs.cloud.google.com/bigquery/docs/data-clean-rooms), manage security and access policies from the [Security center](https://docs.cloud.google.com/bigquery/docs/security-center-overview) page, and [curate metadata](https://docs.cloud.google.com/bigquery/docs/automatic-discovery).
+  * **Governance** : lets you display shared [data exchanges](https://docs.cloud.google.com/bigquery/docs/analytics-hub-manage-exchanges) and [data clean rooms](https://docs.cloud.google.com/bigquery/docs/data-clean-rooms), and manage security and access policies from the [Security center](https://docs.cloud.google.com/bigquery/docs/security-center-overview) page.
   * **Administration** : lets you perform administrative tasks such as [monitoring](https://docs.cloud.google.com/bigquery/docs/admin-resource-charts), viewing information about [jobs](https://docs.cloud.google.com/bigquery/docs/admin-jobs-explorer), [managing capacity](https://docs.cloud.google.com/bigquery/docs/reservations-intro), viewing information about [disaster recovery](https://docs.cloud.google.com/bigquery/docs/managed-disaster-recovery), and displaying [recommendations](https://docs.cloud.google.com/bigquery/docs/recommendations-intro).
   * **Migration** : lets you view and set up options for [migrating your data warehouse](https://docs.cloud.google.com/bigquery/docs/migration/migration-overview) to BigQuery.
   * **Partner Center** : provides tools and services from [partners](https://docs.cloud.google.com/bigquery/docs/bigquery-ready-overview#partner_center) to accelerate your workflow.
@@ -450,6 +450,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-03 UTC.
+Last updated 2026-11-05 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-05 UTC."],[],[]] 

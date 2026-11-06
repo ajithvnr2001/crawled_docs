@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/storage-transfer/docs/cross-bucket-replication/
 title: Use cross-bucket replication \u00a0|\u00a0 Storage Transfer Service \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T09:40:58.466935+00:00
+fetched_at: 2026-11-06T10:23:11.521745+00:00
 ---
 
 # Use cross-bucket replication  |  Storage Transfer Service  |  Google Cloud Documentation
@@ -56,6 +56,8 @@ Cross-bucket replication uses Storage Transfer Service to replicate objects and 
 
   * Objects that are already in the bucket when a replication job is created are not automatically replicated. Only new and updated objects are replicated. To replicate existing objects, create a one-time Storage Transfer Service transfer job from your existing bucket to the new bucket. See [Create transfers](https://docs.cloud.google.com/storage-transfer/docs/create-transfers) for instructions.
 
+  * Cross-bucket replication replicates only live object creations and updates, and doesn't replicate noncurrent object versions. To transfer existing noncurrent versions during a one-time migration, use an object manifest as described in [Handle versioned objects](https://docs.cloud.google.com/storage-transfer/docs/cloud-storage-to-cloud-storage#handle_versioned_objects).
+
 
 
 
@@ -69,20 +71,26 @@ If you haven't already, [enable the Storage Transfer Service API](https://consol
 
 ### Get required roles
 
-To get the permissions that you need to use cross-bucket replication, ask your administrator to grant you the [Storage Transfer User ](https://docs.cloud.google.com/iam/docs/roles-permissions/storagetransfer#storagetransfer.user) (`roles/storagetransfer.user`) IAM role on the bucket or the source project. 
+To get the permissions that you need to use cross-bucket replication, ask your administrator to grant you the following IAM roles on the project creating the replication job: 
 
-This predefined role contains the permissions required to use cross-bucket replication. To see the exact permissions that are required, expand the **Required permissions** section: 
+  * Create, run, and update jobs: [Storage Transfer User ](https://docs.cloud.google.com/iam/docs/roles-permissions/storagetransfer#storagetransfer.user) (`roles/storagetransfer.user`) 
+  * All, including deleting jobs: [Storage Transfer Admin ](https://docs.cloud.google.com/iam/docs/roles-permissions/storagetransfer#storagetransfer.admin) (`roles/storagetransfer.admin`) 
+
+
+
+These predefined roles contain the permissions required to use cross-bucket replication. To see the exact permissions that are required, expand the **Required permissions** section: 
 
 #### Required permissions
 
 The following permissions are required to use cross-bucket replication:
 
-  * `storagetransfer.jobs.create`
-  * `storagetransfer.jobs.delete`
-  * `storagetransfer.jobs.get`
-  * `storagetransfer.jobs.list`
-  * `storagetransfer.jobs.run`
-  * `storagetransfer.jobs.update`
+  * Create, run, and update jobs: 
+    * `storagetransfer.jobs.create`
+    * `storagetransfer.jobs.get`
+    * `storagetransfer.jobs.list`
+    * `storagetransfer.jobs.run`
+    * `storagetransfer.jobs.update`
+  * Delete jobs: `storagetransfer.jobs.delete`
 
 
 
@@ -90,7 +98,7 @@ For instructions on granting roles on buckets, see [Use IAM with buckets](https:
 
 ### Grant required roles
 
-Cross-bucket replication uses Storage Transfer Service to replicate objects from your source bucket to your destination bucket, and Pub/Sub to receive notifications of changes to your source bucket. 
+Cross-bucket replication uses Storage Transfer Service to replicate objects from your source bucket to your destination bucket, and Pub/Sub to receive notifications of changes to your source bucket.
 
 So that cross-bucket replication can use these services, you must grant the required permissions to the service account that's used by Storage Transfer Service to replicate data, as well as the service agent that's used by Pub/Sub to write notifications.
 
@@ -143,7 +151,7 @@ These permissions can be granted through [custom roles](https://docs.cloud.googl
 
   * Pub/Sub Editor (`roles/pubsub.editor`) role on the source project
   * Storage Legacy Bucket Owner (`roles/storage.legacyBucketOwner`) and Storage Object Viewer (`roles/storage.objectViewer`) roles on the source bucket
-  * Storage Legacy Bucket Writer (`roles/storage.legacyBucketWriter`) and Storage Object Viewer (`roles/storage.objectViewer`) roles on the destination bucket
+  * Storage Object User (`roles/storage.objectUser`) and Storage Legacy Bucket Reader (`roles/storage.legacyBucketReader`) roles on the destination bucket
 
 
 
@@ -158,8 +166,6 @@ The Cloud Storage service agent needs the following permissions to set up Pub/Su
 ##### Required permissions
 
   * `pubsub.topics.publish` on the Pub/Sub topic
-  * `pubsub.subscriptions.consume` on the Pub/Sub topic
-  * `pubsub.subscriptions.create` on the source project
 
 
 
@@ -325,13 +331,9 @@ Replace:
 You can update the following fields of a replication job:
 
   * The description of the replication job
-
   * The configuration for running a replication job
-
   * The configuration of notifications published to Pub/Sub
-
   * The logging behavior for replication job operations
-
   * The status of the replication job (whether it's enabled, disabled, or deleted)
 
 
@@ -444,6 +446,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-05 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-05 UTC."],[],[]] 

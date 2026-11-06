@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/eventarc/docs/samples/eventarc-audit-storage-handler/
 title: Create an event handler that receives and processes a Cloud Audit Log event with Cloud Storage data \u00a0|\u00a0 Eventarc \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T23:46:13.259007+00:00
+fetched_at: 2026-11-06T08:23:40.311496+00:00
 ---
 
 # Create an event handler that receives and processes a Cloud Audit Log event with Cloud Storage data  |  Eventarc  |  Google Cloud Documentation
@@ -40,7 +40,7 @@ To authenticate to Eventarc, set up Application Default Credentials. For more in
     using Microsoft.AspNetCore.Builder;
     using Microsoft.AspNetCore.Hosting;
     using Microsoft.AspNetCore.Http;
-    using [Microsoft.Extensions.DependencyInjection](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.Dlp.V2/latest/Microsoft.Extensions.DependencyInjection.html);
+    using [Microsoft.Extensions.DependencyInjection](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.Security.PrivateCA.V1/latest/Microsoft.Extensions.DependencyInjection.html);
     using Microsoft.Extensions.Hosting;
     using Microsoft.Extensions.Logging;
     

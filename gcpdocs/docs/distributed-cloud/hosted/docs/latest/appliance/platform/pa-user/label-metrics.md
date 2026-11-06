@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/appliance/platform/pa-user/label-metrics/
 title: Label metrics \u00a0|\u00a0 Google Distributed Cloud Hosted Appliance \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T22:20:20.946000+00:00
+fetched_at: 2026-11-06T11:31:33.736376+00:00
 ---
 
 # Label metrics  |  Google Distributed Cloud Hosted Appliance  |  Google Cloud Documentation
@@ -23,15 +23,9 @@ Send feedback
 
 #  Label metrics Stay organized with collections  Save and categorize content based on your preferences. 
 
-Labels let you differentiate the characteristics of a metric. In addition to [collecting metrics](https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/appliance/platform/pa-user/collect-metrics), the `MonitoringTarget` custom resource lets you label metrics for optional observability features:
+`MonitoringTarget` custom resources in Google Distributed Cloud (GDC) air-gapped appliance let you label scraped metrics to differentiate metric characteristics and filter time series data. In addition to [collecting metrics](https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/appliance/platform/pa-user/collect-metrics), you can configure relabeling rules to route metrics to another project, add custom key-value labels, or rename metrics before ingestion.
 
-  * Send metrics to another project.
-  * Add new labels to metrics.
-  * Rename a metric.
-
-**Important:** Each unique combination of key-value label pairs creates a new time series, which can significantly increase data storage. Avoid using labels for high-cardinality dimensions (many possible values), like user IDs or email addresses.
-
-For more information on metrics relabeling, see <https://grafana.com/blog/2022/03/21/how-relabeling-in-prometheus-works/>.
+Each unique combination of key-value label pairs creates a new time series, which can significantly increase data storage. Avoid using labels for high-cardinality dimensions with many possible values, such as user IDs or email addresses. For more information about metric relabeling, see [How relabeling in Prometheus works](https://grafana.com/blog/2022/03/21/how-relabeling-in-prometheus-works/).
 
 ## Before you begin
 
@@ -148,6 +142,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-05 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-05 UTC."],[],[]] 

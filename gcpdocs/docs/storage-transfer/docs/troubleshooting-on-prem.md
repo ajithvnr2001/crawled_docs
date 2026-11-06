@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/storage-transfer/docs/troubleshooting-on-prem/
 title: Troubleshoot file system transfers \u00a0|\u00a0 Storage Transfer Service \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T05:48:08.677482+00:00
+fetched_at: 2026-11-06T10:53:05.570311+00:00
 ---
 
 # Troubleshoot file system transfers  |  Storage Transfer Service  |  Google Cloud Documentation
@@ -58,8 +58,8 @@ Failed due to permissions | PERMISSION_FAILURE and UNAUTHENTICATED | A transfer 
 |  Verify the following:
 
   * [ Ensure that your agents have the following IAM roles](https://docs.cloud.google.com/iam/docs/granting-changing-revoking-access#viewing-console): 
-    * `storagetransfer.transferAgent`
-    * `storage.admin` for all destination buckets
+    * `roles/storagetransfer.transferAgent`
+    * `roles/storage.objectUser` for all destination or intermediate buckets
 Either of these roles can be granted to a [service account](https://docs.cloud.google.com/storage-transfer/docs/on-prem-agent-details#service-credentials) that is used by the agents, or a user with these roles can use their default credentials when [installing agents](https://docs.cloud.google.com/storage-transfer/docs/managing-on-prem-agents#install-agent). 
   * Ensure that all paths on the source file system are readable by each agent.
 
@@ -68,7 +68,7 @@ Object is subject to bucket's retention policy and cannot be deleted, overwritte
 Service lacked sufficient permissions | SERVICE_PERMISSION_FAILURE | Storage Transfer Service didn't have sufficient permissions to perform an operation. |  Storage Transfer Service uses a [service agent](https://docs.cloud.google.com/iam/docs/service-account-types#service-agents), typically in the format of `project-PROJECT_NUMBER@storage-transfer-service.iam.gserviceaccount.com`, to access resources. To determine your specific `PROJECT_NUMBER`, use the [ `googleserviceaccounts.get`](https://docs.cloud.google.com/storage-transfer/docs/reference/rest/v1/googleServiceAccounts/get) API call. [ Verify that the service account has the following roles](https://docs.cloud.google.com/iam/docs/granting-changing-revoking-access#viewing-console): 
 
   * `roles/storagetransfer.serviceAgent` for the project.
-  * `roles/storage.admin` for all destination buckets.
+  * `roles/storage.objectCreator`, `roles/storage.objectViewer`, and `roles/storage.legacyBucketReader` for all destination or intermediate buckets (see [Configure access to a sink: Cloud Storage](https://docs.cloud.google.com/storage-transfer/docs/sink-cloud-storage)).
 
   
 Agent unsupported | AGENT_UNSUPPORTED_VERSION | The agent version is no longer compatible with Storage Transfer Service. | This is a temporary error, related to a bad agent update. If it occurs, do the following: 
@@ -85,7 +85,7 @@ Failed due to no space left on the file system | FILESYSTEM_NO_SPACE_ON_DEVICE |
 Failed due to an unknown error | UNKNOWN_FAILURE | An unexpected error occurred. | Read the failure description. If the failure description does not contain sufficient information to resolve the issue, please contact support.  
 Failed due to an invalid specification | INVALID_SPEC | The agent received a corrupted internal specification. | Check for data corruption on agent hosts and contact support if you cannot find any.  
 Failed due to an empty or invalid manifest file | CONFORMANCE_FAILURE | The agent cannot read or get valid CSV bytes due to invalid formatting or CSV entries. | Ensure that the manifest entries are valid file paths. If the failure description does not contain sufficient information to resolve the issue, please contact support.   
-Falling back to resumable uploads instead of multipart uploads due to permission denied error | PERMISSION_FAILURE | [ Multipart uploads](https://docs.cloud.google.com/storage-transfer/docs/on-prem-agent-best-practices#enable_multipart_uploads) have been enabled for this transfer, but the correct permissions have not been set on the bucket. | Refer to the **Multipart uploads** section of [ File system permissions](https://docs.cloud.google.com/storage-transfer/docs/file-system-permissions#multipart_uploads) for the required permissions.  
+Falling back to resumable uploads instead of multipart uploads due to permission denied error | PERMISSION_FAILURE | [ Multipart uploads](https://docs.cloud.google.com/storage-transfer/docs/on-prem-agent-best-practices#enable-multipart-uploads) have been enabled for this transfer, but the correct permissions have not been set on the bucket. | Refer to [ Configure access to a sink: Cloud Storage](https://docs.cloud.google.com/storage-transfer/docs/sink-cloud-storage) for the required permissions.  
 Entries listed out of order | INCOMPATIBLE_LIST_ORDER_FAILURE | The source file system returned a list of files in an order that is incompatible with Storage Transfer Service. Storage Transfer Service requires that the source file system return files in lexicographically sorted order. | Verify that the file system returns files in lexicographically sorted order.  
   
 ## Viewing agent logs
@@ -243,6 +243,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-05 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-05 UTC."],[],[]] 

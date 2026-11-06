@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sap/docs/agent-for-sap/latest/config-commands/
 title: Configuration commands for Google Cloud's Agent for SAP \u00a0|\u00a0 SAP on Google Cloud \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-03T09:44:13.395964+00:00
+fetched_at: 2026-11-06T10:41:44.798112+00:00
 ---
 
 # Configuration commands for Google Cloud's Agent for SAP  |  SAP on Google Cloud  |  Google Cloud Documentation
@@ -43,7 +43,7 @@ If you see this output, then after running all the required configuration comman
 
   * To print the version of your agent instance: 
         
-        sudo /usr/bin/google_cloud_sap_agent configure -version
+        sudo /usr/bin/google_cloud_sap_agent version
 
 
 
@@ -232,7 +232,6 @@ or
   
 `-h` or `-help` |  Displays help information for the command.  
 `-loglevel`=`LOG_LEVEL` |  `STRING` Sets the logging level for the agent. The supported values are: `debug`, `info`, `warn`, and `error`.  
-`-path`=`PATH` |  `STRING` Sets the path for the agent's configuration file: `/etc/google-cloud-sap-agent/configuration.json`.  
 `-process_metrics_to_skip`="`LIST_OF_METRICS`" |  `STRING` Specifies the [Process Monitoring metrics](https://docs.cloud.google.com/sap/docs/agent-for-sap/latest/process-monitoring) that the agent must stop collecting. Use a comma to separate the metric names. Use the `-add` and `-remove` arguments with `-process_metrics_to_skip`.  
 `-process_metrics_frequency`=`FREQUENCY` |  `INT` Sets the frequency at which the agent collects fast-changing [Process Monitoring metrics](https://docs.cloud.google.com/sap/docs/agent-for-sap/latest/process-monitoring#pm_metric_types). The default value is `30` seconds.  
 `-slow_process_metrics_frequency`=`FREQUENCY` |  `INT` Sets the frequency at which the agent collects slow-changing [Process Monitoring metrics](https://docs.cloud.google.com/sap/docs/agent-for-sap/latest/process-monitoring#pm_metric_types). The default value is `120` seconds.  
@@ -242,7 +241,6 @@ or
 `-setting`=`SETTING` |  `STRING` Specifies the agent setting that you want configure.  
 `-showall` |  Prints the status of the features of your agent instance.  
 `-slow_process_metrics_frequency`=`FREQUENCY` |  `INT` Sets the collection frequency of the slow-changing [Process Monitoring metrics](https://docs.cloud.google.com/sap/docs/agent-for-sap/latest/process-monitoring), in seconds.  
-`-v` or `-version` |  Prints the version of the agent.  
 `-workload_evaluation_metrics_frequency`=`FREQUENCY` |  `INT` Sets the frequency at which the agent collects the Workload Manager evaluation metrics.  
 `-workload_evaluation_db_metrics_frequency`=`FREQUENCY` |  `INT` Sets the frequency at which the agent collects the SAP HANA database metrics for Workload Manager evaluation.  
   
@@ -250,6 +248,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-29 UTC.
+Last updated 2026-11-02 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-02 UTC."],[],[]] 

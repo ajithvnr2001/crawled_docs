@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/agents/
 title: Agents overview \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T23:15:16.306414+00:00
+fetched_at: 2026-11-06T10:06:08.116442+00:00
 ---
 
 # Agents overview  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation
@@ -51,11 +51,11 @@ Agent Platform provides an integrated suite of tools and services to support the
 
 ### Build
 
-The Build pillar provides raw intelligence and connectivity (including Model Garden, ADK, and MCP). Key components include:
+The Build pillar provides foundation models and tool connectivity (including Model Garden, ADK, and MCP). Key components include:
 
   * **[Agent Studio](https://docs.cloud.google.com/gemini-enterprise-agent-platform/agent-studio):** Provides a low-code development environment for agent creation.
   * **[Agent Garden](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/agent-garden):** Provides a library of prebuilt agent samples that accelerate agent development for common AI patterns and use cases.
-  * **[CodeMender](https://docs.cloud.google.com/gemini-enterprise-agent-platform/agents/codemender):** Provides an autonomous AI code security agent that finds, verifies, and fixes vulnerabilities in your codebase.
+  * **[CodeMender](https://docs.cloud.google.com/gemini-enterprise-agent-platform/agents/codemender):** Provides an autonomous AI code security agent that finds, verifies, and generates patches for vulnerabilities in your codebase.
   * **[Gemini Deep Research Agent](https://docs.cloud.google.com/gemini-enterprise-agent-platform/agents/use-deep-research):** Provides an autonomous research agent that plans, executes, and synthesizes multi-step research reports.
   * **[ADK](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/adk):** Is used for code-first development of complex agents and orchestration logic.
   * **[Model Garden](https://console.cloud.google.com/agent-platform/model-garden):** Is a library of over 200 foundation models from Google, partners, and open source communities for discovery and experimentation.
@@ -223,6 +223,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-04 UTC.
+Last updated 2026-11-06 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-06 UTC."],[],[]] 

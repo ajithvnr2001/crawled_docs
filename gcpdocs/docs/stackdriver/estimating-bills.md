@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/stackdriver/estimating-bills/
 title: Estimate your bills \u00a0|\u00a0 Google Cloud Observability \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-03T09:43:06.087771+00:00
+fetched_at: 2026-11-06T10:24:14.772848+00:00
 ---
 
 # Estimate your bills  |  Google Cloud Observability  |  Google Cloud Documentation
@@ -140,7 +140,7 @@ If you use the search bar to find this page, then select the result whose subhea
 
 Don't select [Log bytes](https://docs.cloud.google.com/monitoring/api/metrics_gcp_i_o#logging/byte_count), which isn't a billing metric. This metric is computed differently from the billing metric.
 
-        * [ Log bucket bytes ingested](https://docs.cloud.google.com/monitoring/api/metrics_gcp_i_o#logging/billing/log_bucket_bytes_ingested): Bytes steamed for storage into individual log buckets in Logging.
+        * [ Log bucket bytes ingested](https://docs.cloud.google.com/monitoring/api/metrics_gcp_i_o#logging/billing/log_bucket_bytes_ingested): Bytes streamed for storage into individual log buckets in Logging.
 
         * [ Monthly log bytes ingested](https://docs.cloud.google.com/monitoring/api/metrics_gcp_i_o#logging/billing/monthly_bytes_ingested): Each point represents the month-to-date sum of log bytes streamed for storage in Logging for your project. The monthly total is available on the last day of the month, when it also resets.
 
@@ -154,7 +154,7 @@ Don't select [Log bytes](https://docs.cloud.google.com/monitoring/api/metrics_gc
 
         * [ Monthly trace spans ingested](https://docs.cloud.google.com/monitoring/api/metrics_gcp_c#cloudtrace/billing/monthly_spans_ingested): Each point represents the month-to-date sum of trace spans streamed for storage in Trace. It resets on the last day of the month; the monthly total is found on the last day of the month.
 
-† Billing metrics have `billing` in their names, for example, `logging.googleapis.com/**billing** /log_bytes_ingested`.
+† Billing metrics have `billing` in their names, for example, `logging.googleapis.com/**billing** /bytes_ingested`.
 
      4. Click **Apply**.
   4. To add filters, which remove time series from the query results, use the [**Filter** element](https://docs.cloud.google.com/monitoring/charts/metrics-selector#filter-option).
@@ -169,7 +169,7 @@ All time series are displayed when the first menu of the **Aggregation** element
 
 
 
-Your usage data appears, filtered by the metrics you selected. If metrics usage data doesn't appear in the chart, then you might need to zoom out to `1w` or `1m` in the time range selector above the chart.
+Your usage data appears, filtered by the metrics you selected. If metrics usage data doesn't appear in the chart, then you might need to zoom out to `1w` or `1m` in the time range selector above the chart. Because Logging and Trace report `bytes_ingested`, `log_bucket_bytes_ingested`, and `spans_ingested` usage in hourly batches, charts over short time ranges might show gaps unless you set the minimum alignment interval to be longer than one hour.
 
 **Key Points:**
 
@@ -288,6 +288,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-02 UTC.
+Last updated 2026-11-05 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-02 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-05 UTC."],[],[]] 

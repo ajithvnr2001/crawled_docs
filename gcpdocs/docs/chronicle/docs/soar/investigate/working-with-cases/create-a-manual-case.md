@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chronicle/docs/soar/investigate/working-with-cases/create-a-manual-case/
 title: Create a case manually \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T09:57:05.473240+00:00
+fetched_at: 2026-11-06T10:21:59.183995+00:00
 ---
 
 # Create a case manually  |  Google Security Operations  |  Google Cloud Documentation
@@ -27,36 +27,31 @@ Google SecOps  [ SOAR ](https://docs.cloud.google.com/chronicle/docs/secops/goog
 
 You can manually create a case to enter specific data. This is useful when you need to ingest information on an alert; for example, information that was reported from sources that aren't integrated with your detection pipeline (for example, alerts reported from non-cyber channels). 
 
-  1. On the **Cases** page, click  add  **Add > Create Manual Case**.
-  2. Enter the following case properties: 
+  1. On the **Cases** page, click  add  **Add a Case > Create Manual Case**.
+  2. In the **Case** step, configure the following case details: 
      * **Case Title** : Enter a title for the new case. 
-     * **Creation Reason** : Enter the reason for creating the case. 
-     * **Environment** : Select the specific environment being monitored. 
-     * **Assigned To** : Assign the case to a specific role or user. 
+     * **Creation reason** : Optional. Enter the reason for creating the case. 
+     * **Environment** : Select the specific environment being monitored. If your organization has only one environment, it is selected automatically. 
+     * **Assign to** : Assign the case to a specific role or user. Select **(Assign to me)** to assign the case to yourself. 
      * **Priority** : Set the priority level for the case. 
-     * **Mark as Important** : Click the **Mark as important** toggle on if the case should be flagged as important. 
-  3. Click **Next**.
-  4. In the **Alert** step, enter the following alert information: 
-     * **Alert Name** : Enter a name for the security alert. 
-     * **Occurrence Time** : In the calendar, select the date and time the alert occurred. 
-     * **SLA** : Specify a date and time by which the SOC team should resolve the case. 
-  5. Click **Next**. 
-  6. In **Entities** , select any required existing entities, as follows; you can:
-     * Add an existing entity or create a new one with a corresponding identifier.
-     * Mark an entity as suspicious (this highlights it in red).
-  7. Click **Next**. 
-  8. In **Tags** , select any existing tags, create new tags, or leave blank, according to your needs. 
-  9. Click **Next**. 
-  10. In **Playbooks** , configure how playbooks attach to the new case: 
+     * **Mark as important** : Click the **Mark as important** toggle on if the case should be flagged as important. 
+  3. Optional: Under **Tags** , select any existing tags, create new tags, or leave blank. 
+  4. Optional: Under **Playbooks** , configure case-level automation: 
      * **Attach playbooks automatically** : Enable the toggle to allow matching system triggers to attach playbooks automatically. 
-     * **Attach alert playbooks manually** : Select one or more alert-scoped playbooks from the menu to execute on individual alerts. 
-     * **Attach case playbooks manually** : Select one or more case-scoped playbooks from the menu to run across the overarching case container. 
+     * **Attach case playbooks manually** : Select up to 3 case-scoped playbooks from the menu to run across the case container. This field is enabled once an environment is selected. 
+  5. To create the case without an alert, click **Create case**. Otherwise, click **Next** (or click the **Alert** step header) to add alert information. 
+  6. Optional: In the **Alert** step, configure alert details: 
+     * **Alert Name** : Enter a name for the security alert. Leaving this blank creates the case without an alert. 
+     * **Occurrence Time** : Select the date and time the alert occurred. If left empty, the current time is used. 
+     * **SLA** : Specify a date and time by which the SOC team should resolve the case. 
+     * **Entities** : Add existing entities or create new ones. **Note:** Adding entities requires both an Alert Name and an Environment. 
+     * **Attach alert playbooks manually** : Select up to 3 alert-scoped playbooks to execute on the alert. **Note:** Attaching alert playbooks requires both an Alert Name and an Environment. 
+  7. Click **Create case**. 
 
-_Note: You can attach up to 30 unique playbooks per alert or case. Automatically attached playbooks take precedence over manually attached playbooks._
-
-  11. Click **Finish**. 
+A confirmation notification appears with a link to open the new case. 
 
 
+**Note:** Service Level Agreements (SLAs) are calculated only for cases that contain an alert. If you create a case without an alert, no SLA is calculated. 
 
 **Need more help?** [Get answers from Community members and Google SecOps professionals.](https://security.googlecloudcommunity.com/)
 
@@ -64,6 +59,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-28 UTC.
+Last updated 2026-11-05 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-05 UTC."],[],[]] 

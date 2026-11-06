@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/storage-transfer/docs/create-transfers/
 title: Create transfers \u00a0|\u00a0 Storage Transfer Service \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T09:40:57.592421+00:00
+fetched_at: 2026-11-06T10:53:07.140804+00:00
 ---
 
 # Create transfers  |  Storage Transfer Service  |  Google Cloud Documentation
@@ -40,8 +40,8 @@ Depending on your source and destination, you may need to create and configure a
 Before configuring your transfers, make sure you have configured access:
 
   * For users and service accounts: 
-    * [Agentless transfers](https://docs.cloud.google.com/storage-transfer/docs/iam-cloud)
-    * [Agent-based transfers](https://docs.cloud.google.com/storage-transfer/docs/file-system-permissions)
+    * [Required user permissions](https://docs.cloud.google.com/storage-transfer/docs/iam-user)
+    * [Agent-based project-level permissions](https://docs.cloud.google.com/storage-transfer/docs/iam-agent-based)
   * [To your source data and to your destination](https://docs.cloud.google.com/storage-transfer/docs/sources-and-sinks).
 
 
@@ -219,7 +219,7 @@ This option ensures that the destination Cloud Storage bucket exactly matches yo
 
         7. Under **Notification options** , optionally select your Pub/Sub topic and which events to notify for. See [Pub/Sub notifications](https://docs.cloud.google.com/storage-transfer/docs/pub-sub-transfer) for more details.
 
-     6. If you're [delegating service agent permissions](https://docs.cloud.google.com/storage-transfer/docs/iam-cloud#umsa) to a user-managed service account, select that option and enter the service account email address in the format `SERVICE_ACCOUNT_NAME@PROJECT_ID.iam.gserviceaccount.com`.
+     6. If you're [delegating service agent permissions](https://docs.cloud.google.com/storage-transfer/docs/delegate-service-agent-permissions) to a user-managed service account, select that option and enter the service account email address in the format `SERVICE_ACCOUNT_NAME@PROJECT_ID.iam.gserviceaccount.com`.
 
      7. Click **Create**.
 
@@ -264,7 +264,7 @@ You can enter an optional **End date** , or leave **End date** blank to run the 
 
      9. Under **Notification options** , optionally select your Pub/Sub topic and which events to notify for. See [Pub/Sub notifications](https://docs.cloud.google.com/storage-transfer/docs/pub-sub-transfer) for more details.
 
-     10. If you're [delegating service agent permissions](https://docs.cloud.google.com/storage-transfer/docs/iam-cloud#umsa) to a user-managed service account, select that option and enter the service account email address in the format `SERVICE_ACCOUNT_NAME@PROJECT_ID.iam.gserviceaccount.com`.
+     10. If you're [delegating service agent permissions](https://docs.cloud.google.com/storage-transfer/docs/delegate-service-agent-permissions) to a user-managed service account, select that option and enter the service account email address in the format `SERVICE_ACCOUNT_NAME@PROJECT_ID.iam.gserviceaccount.com`.
 
      11. To create your transfer job, click **Create**.
 
@@ -319,7 +319,7 @@ Additional options include:
 
   * `--source-creds-file` specifies the relative path to a local file on your machine that includes AWS or Azure credentials for the transfer source. For credential file formatting information, see the [TransferSpec](https://docs.cloud.google.com/storage-transfer/docs/reference/rest/v1/TransferSpec) reference.
 
-  * `--do-not-run` prevents Storage Transfer Service from running the job upon submission of the command. To run the job, update it to add a schedule, or use `jobs run` to start it manually.
+  * `--do-not-run` prevents Storage Transfer Service from running the job upon submission of the command. To run the job, [update](https://docs.cloud.google.com/storage-transfer/docs/manage-transfers#update-job) it to add a schedule, or use `jobs run` to [start it manually](https://docs.cloud.google.com/storage-transfer/docs/manage-transfers#run-job).
 
   * `--manifest-file` specifies the path to a CSV file in Cloud Storage containing a list of files to transfer from your source. For manifest file formatting, see [Transfer specific files or objects using a manifest](https://docs.cloud.google.com/storage-transfer/docs/manifest).
 
@@ -1349,6 +1349,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-05 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-05 UTC."],[],[]] 

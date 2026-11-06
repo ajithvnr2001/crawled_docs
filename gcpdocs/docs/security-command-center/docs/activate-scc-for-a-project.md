@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/security-command-center/docs/activate-scc-for-a-project/
 title: Activate Security Command Center for a project \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T10:58:09.066569+00:00
+fetched_at: 2026-11-06T10:40:03.968229+00:00
 ---
 
 # Activate Security Command Center for a project  |  Google Cloud Documentation
@@ -274,7 +274,6 @@ A [service agent](https://docs.cloud.google.com/iam/docs/service-account-types#s
   * [Cloud Security Command Center Service Agent](https://docs.cloud.google.com/iam/docs/service-agents#cloud-security-command-center-service-agent) for Event Threat Detection, Security Health Analytics, Virtual Machine Threat Detection, and Vulnerability Assessment
   * [Cloud Security Compliance Service Agent](https://docs.cloud.google.com/iam/docs/service-agents#cloud-security-compliance-service-agent-organization) for AI Protection and Compliance Manager
   * [Container Threat Detection Service Agent](https://docs.cloud.google.com/iam/docs/service-agents#container-threat-detection-service-agent-gcp-sa-ktd-hpsa) for Container Threat Detection
-  * Data Security Posture Management Service Agent for DSPM
 
 
 
@@ -282,7 +281,6 @@ A [service agent](https://docs.cloud.google.com/iam/docs/service-account-types#s
 
   * [Compliance Manager](https://docs.cloud.google.com/security-command-center/docs/compliance-manager-configure-vpc-sc)
   * [Container Threat Detection](https://docs.cloud.google.com/security-command-center/docs/how-to-use-container-threat-detection#service-perimeter)
-  * [DSPM](https://docs.cloud.google.com/security-command-center/docs/dspm-use-data-security#use-dspm-vpcsc)
   * [Security Health Analytics](https://docs.cloud.google.com/security-command-center/docs/how-to-use-security-health-analytics#service-perimeter)
   * [Vulnerability Assessment](https://docs.cloud.google.com/security-command-center/docs/vulnerability-assessment-google-cloud-vpcsc#create-ingress-egress-rules)
 
@@ -304,6 +302,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-05 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-05 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/security-command-center/docs/aoss-access-security-metadata/
 title: Access security metadata and verify packages \u00a0|\u00a0 Security Command Center \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T10:58:21.079364+00:00
+fetched_at: 2026-11-06T10:24:26.064904+00:00
 ---
 
 # Access security metadata and verify packages  |  Security Command Center  |  Google Cloud Documentation
@@ -23,7 +23,7 @@ Send feedback
 
 Premium and Enterprise (Deprecated) [service tiers](https://docs.cloud.google.com/security-command-center/docs/service-tiers) (requires [organization-level activation](https://docs.cloud.google.com/security-command-center/docs/activate-scc-overview#overview_of_organization-level_activation)) The Security Command Center Enterprise service tier will shut down on May 21, 2027. If your organization uses the Enterprise service tier, then the organization will automatically move to the Premium service tier on or after May 21, 2027. Contact your account representative or a [Google Cloud sales specialist](https://cloud.google.com/contact) if you have questions. 
 
-This document describes how to access security metadata from the `assuredoss-metadata` Cloud Storage bucket. For a description of the security metadata, see [Security metadata fields](https://docs.cloud.google.com/assured-open-source-software/docs/security-metadata-fields).
+Assured Open Source Software (Assured OSS) provides security metadata for every available package and package version. You can access this metadata in the `assuredoss-metadata` Cloud Storage bucket to review build details, vulnerability status, test results, and license information. For a description of the security metadata, see [Security metadata fields](https://docs.cloud.google.com/security-command-center/docs/aoss-security-metadata-fields).
 
 This document applies to the Assured OSS premium tier only. For the free tier, see [Verify signatures in the Assured OSS free tier](https://docs.cloud.google.com/assured-open-source-software/docs/verify-packages).
 
@@ -322,6 +322,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-05 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-05 UTC."],[],[]] 

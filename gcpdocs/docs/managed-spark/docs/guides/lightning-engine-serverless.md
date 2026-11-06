@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/managed-spark/docs/guides/lightning-engine-serverless/
 title: Accelerate Spark batch workloads and sessions with Lightning Engine \u00a0|\u00a0 Managed Service for Apache Spark \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-06T05:53:31.373236+00:00
+fetched_at: 2026-11-06T11:11:29.022059+00:00
 ---
 
 # Accelerate Spark batch workloads and sessions with Lightning Engine  |  Managed Service for Apache Spark  |  Google Cloud Documentation

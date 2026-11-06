@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigtable/docs/performance/
 title: Understand performance \u00a0|\u00a0 Bigtable \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T10:19:33.786490+00:00
+fetched_at: 2026-11-06T12:45:34.696960+00:00
 ---
 
 # Understand performance  |  Bigtable  |  Google Cloud Documentation
@@ -56,7 +56,7 @@ This feature is subject to the "Pre-GA Offerings Terms" in the General Service T
 
 With the in-memory tier enabled, each node includes 40,000 rows per second. Adding nodes horizontally increases the total cluster capacity. In addition, each node can scale vertically up to a maximum of 120,000 rows per second per node to support in-memory read throughput. When the vertical scaling limit is reached, Bigtable autoscaling adds additional nodes to scale horizontally. A cluster with manual scaling supports in-memory vertical scaling until throughput capacity is reached. Vertical scaling beyond the base 40,000 rows per second is billed by applying a multiplier to the node's hourly cost. For more information, see [Pricing](https://cloud.google.com/bigtable/pricing).
 
-Each in-memory node includes 8 GB of storage capacity. While throughput can scale vertically, storage capacity remains fixed per node. However, horizontal scaling adds an additional 8 GB of memory for each new node. Because storage doesn't increase during vertical scaling, the miss rate of a workload may rise when a node scales its in-memory throughput vertically.
+While in-memory throughput can scale vertically, in-memory storage capacity doesn't change during vertical scaling; only horizontal scaling adds memory capacity to the cluster. Because memory capacity doesn't increase during vertical scaling, the miss rate of a workload might rise when a node scales its in-memory throughput vertically.
 
 ### CPU utilization
 
@@ -282,6 +282,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-28 UTC.
+Last updated 2026-11-06 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-06 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/managed-lustre/docs/storage-mirror/
 title: Mirror from Cloud Storage \u00a0|\u00a0 Managed Lustre \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T05:36:28.578685+00:00
+fetched_at: 2026-11-06T11:31:36.206830+00:00
 ---
 
 # Mirror from Cloud Storage  |  Managed Lustre  |  Google Cloud Documentation
@@ -197,7 +197,7 @@ Run the `mirrors create` command:
       --instance=INSTANCE_ID \
       --location=LOCATION \
       --direction=from-cloud-storage \
-      --gcs-path="gs://BUCKET_NAME/PREFIX/" \
+      --gcs-path-uri="gs://BUCKET_NAME/PREFIX/" \
       --lustre-path="/LUSTRE_DIRECTORY"
     
 
@@ -207,7 +207,7 @@ Where:
   * INSTANCE_ID is your Managed Lustre instance ID.
   * LOCATION is the zone of your instance. For example, `us-central1-a`.
   * `--direction` specifies the mirror direction. Must be `from-cloud-storage`.
-  * `--gcs-path` is the source Cloud Storage bucket and optional object prefix. If you specify an object prefix, the path must end with a forward slash: `gs://<var>BUCKET_NAME</var>/<var>PREFIX</var>/`.
+  * `--gcs-path-uri` is the source Cloud Storage bucket and optional object prefix. If you specify an object prefix, the path must end with a forward slash: `gs://<var>BUCKET_NAME</var>/<var>PREFIX</var>/`.
   * `--lustre-path` is the target directory on the Managed Lustre file system. Must be an absolute path starting with `/`, for example `/data` or `/data/subdir`. Defaults to the root directory, `/`. If the specified directory doesn't exist, it is created.
 
 
@@ -478,6 +478,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-03 UTC.
+Last updated 2026-11-05 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-05 UTC."],[],[]] 

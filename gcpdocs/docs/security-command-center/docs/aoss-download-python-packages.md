@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/security-command-center/docs/aoss-download-python-packages/
 title: Download Python packages using direct repository access \u00a0|\u00a0 Security Command Center \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T10:58:25.056333+00:00
+fetched_at: 2026-11-06T13:26:26.314310+00:00
 ---
 
 # Download Python packages using direct repository access  |  Security Command Center  |  Google Cloud Documentation
@@ -23,9 +23,7 @@ Send feedback
 
 Premium and Enterprise (Deprecated) [service tiers](https://docs.cloud.google.com/security-command-center/docs/service-tiers) (requires [organization-level activation](https://docs.cloud.google.com/security-command-center/docs/activate-scc-overview#overview_of_organization-level_activation)) The Security Command Center Enterprise service tier will shut down on May 21, 2027. If your organization uses the Enterprise service tier, then the organization will automatically move to the Premium service tier on or after May 21, 2027. Contact your account representative or a [Google Cloud sales specialist](https://cloud.google.com/contact) if you have questions. 
 
-After you [integrate Assured OSS with Security Command Center](https://docs.cloud.google.com/security-command-center/docs/integrate-aoss-with-scc), Assured Open Source Software packages are hosted in an Artifact Registry repository that is created in a project that you control.
-
-This page explains how you can connect to the Artifact Registry repository for Assured OSS to directly access and download the Python packages.
+In the premium tier, Assured OSS packages are hosted in an Artifact Registry repository that's created in a project that you control. To directly access and download Python packages, you can connect to the Artifact Registry repository for Assured OSS.
 
 This document applies to the Assured OSS premium tier only. For the free tier, see [Download Python packages using direct repository access for the free tier](https://docs.cloud.google.com/assured-open-source-software/docs/download-python-packages).
 
@@ -96,9 +94,16 @@ Authenticate with a service account key when the application requires authentica
 
 If you acquired the service account key from an external source, you must validate it before use. For more information, see [ Security requirements for externally sourced credentials](https://docs.cloud.google.com/docs/authentication/external/externally-sourced-credentials). 
 
-Replace the package repository URL `https://us-python.pkg.dev/PROJECT_ID/assuredoss-python/simple` with the URL `https://_json_key_base64:$BASE64_KEY@us-python.pkg.dev/PROJECT_ID/assuredoss-python/simple`
+Replace the package repository URL `https://LOCATION-python.pkg.dev/PROJECT_ID/assuredoss-python/simple` with the URL `https://_json_key_base64:$BASE64_KEY@LOCATION-python.pkg.dev/PROJECT_ID/assuredoss-python/simple`
 
-Replace `PROJECT_ID` with the ID of the project that you selected when you set up Assured Open Source Software.
+Replace the following:
+
+  * `PROJECT_ID`: the ID of the project that you selected when you set up Assured OSS.
+
+  * `LOCATION`: a [supported region](https://docs.cloud.google.com/security-command-center/docs/integrate-aoss-with-scc#supported-regions).
+
+
+
 
 ## Install packages
 
@@ -137,14 +142,15 @@ To download the packages, run the following commands:
   * To download the required packages that are in the Artifact Registry for Assured OSS, run the following:
         
         pip install --require-hashes --requirement=requirements-google.txt \
-             --index-url https://_json_key_base64:$BASE64_KEY@us-python.pkg.dev/PROJECT_ID/assuredoss-python repo/simple -v \
+             --index-url https://_json_key_base64:$BASE64_KEY@LOCATION-python.pkg.dev/PROJECT_ID/assuredoss-python repo/simple -v \
              --no-deps
         
 
 Consider the following:
 
-    * `--require-hashes` is optional. If included, hashes are specified for all packages and for all package versions in the `requirements.txt` file. We recommend pinning dependencies with SHA-256 hashes in your `requirements.txt` file to ensure security and reproducibility. 
+    * `--require-hashes` is optional. If included, hashes are specified for all packages and for all package versions in the `requirements.txt` file. We recommend pinning dependencies with SHA-256 hashes in your `requirements.txt` file to ensure security and reproducibility.
     * `-v` is optional. If specified, the command gives more [output](https://pip.pypa.io/en/stable/cli/pip/#cmdoption-v).
+    * Replace `LOCATION` with a [supported region](https://docs.cloud.google.com/security-command-center/docs/integrate-aoss-with-scc#supported-regions).
   * To download the required packages that aren't in the Artifact Registry for Assured OSS, run the following:
         
         pip install --requirement=requirements-pypi.txt --index-url https://pypi.org/simple -v
@@ -174,7 +180,7 @@ The following sections provide more information about these options.
 
 ### Option 1: Use a script to generate a single requirements file for all artifacts
 
-Use the `generator.sh` script to generate a single `requirements-google.txt` file for all the Python packages (along with their hashes) available with Assured OSS for Linux operating system. The packages must satisfy constraints such as Python version, machine architecture, and operating system. You can then delete the package versions that you don't need and use the resulting file.
+Use the `generator.sh` script to generate a single `requirements-google.txt` file for all the Python packages (along with their hashes) available with Assured OSS for the Linux operating system. The packages must satisfy constraints such as Python version, machine architecture, and operating system. You can then delete the package versions that you don't need and use the resulting file.
 
 The `generator.sh` script helps in the following two ways:
 
@@ -192,7 +198,7 @@ To download the script and the `README.md` file, follow these steps:
          gcloud auth activate-service-account --key-file KEY_FILE
          
 
-Replace `KEY_FILE` with the path to the file containing the credentials of the service account provided during the set up.
+Replace `KEY_FILE` with the path to the file containing the credentials of the service account provided during set up.
 
   2. Download the `generator.sh` to your machine using the following command:
          
@@ -232,7 +238,7 @@ To run the script, use the following commands:
 
 You can also download a separate `requirements.txt` (containing the hash) file for each Python artifact and then combine them into a single `requirements.txt` file.
 
-Artifact hashes are available in a Cloud Storage bucket which can be downloaded using the [gcloud CLI](https://docs.cloud.google.com/sdk/docs/install). Hashes for each package and a version are located at the `gs://cloud-aoss/python/PACKAGE_NAME/VERSION` Cloud Storage bucket location.
+Artifact hashes are available in a Cloud Storage bucket, which can be downloaded using the [gcloud CLI](https://docs.cloud.google.com/sdk/docs/install). Hashes for each package and a version are located at the `gs://cloud-aoss/python/PACKAGE_NAME/VERSION` Cloud Storage bucket location.
 
 To download the `requirements.txt` file, follow these steps:
 
@@ -280,6 +286,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-06 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-06 UTC."],[],[]] 

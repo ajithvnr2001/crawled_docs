@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/managed-spark/docs/concepts/autotuning/
 title: Autotune Spark batch workloads \u00a0|\u00a0 Managed Service for Apache Spark \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-06T05:53:30.768228+00:00
+fetched_at: 2026-11-06T11:10:46.022266+00:00
 ---
 
 # Autotune Spark batch workloads  |  Managed Service for Apache Spark  |  Google Cloud Documentation

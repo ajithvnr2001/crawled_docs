@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/kubernetes-engine/docs/concepts/about-custom-compute-classes/
 title: About custom ComputeClasses \u00a0|\u00a0 Google Kubernetes Engine (GKE) \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-05T11:08:12.907902+00:00
+fetched_at: 2026-11-06T13:51:27.239505+00:00
 ---
 
 # About custom ComputeClasses  |  Google Kubernetes Engine (GKE)  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/contact-center/ccai-platform/docs/servicenow/
 title: ServiceNow \u00a0|\u00a0 Google Cloud Contact Center as a Service \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T23:10:35.928609+00:00
+fetched_at: 2026-11-06T10:23:32.456212+00:00
 ---
 
 # ServiceNow  |  Google Cloud Contact Center as a Service  |  Google Cloud Documentation
@@ -29,7 +29,7 @@ Preferred minimum ServiceNow Version requirements: `Tokyo patch 1`
 
 ## Set up a basic auth user
 
-It is likely that the ServiceNow administrator account has 2-step verification enabled and associated with that user. As a result, it cannot be used to gain administrator access in CCAI Platform. You must create a user account in ServiceNow for this purpose. 
+It is likely that the ServiceNow administrator account has 2-step verification enabled and associated with that user. As a result, it can't be used to gain administrator access in CCAI Platform. You must create a user account in ServiceNow for this purpose.
 
 Create a basic user with credentials:
 
@@ -56,7 +56,7 @@ To perform this integration, you need to have the following roles in ServiceNow:
 
   * **personalize_dictionary** : This role allows customization of dictionary entries and labels to meet specific business requirements.
 
-  * **function_field_admin** : This role is intended for users who need to create, edit, and view function fields specifically within the report designer. It does not provide the ability to create or delete function fields from the platform list or form.
+  * **function_field_admin** : This role is intended for users who need to create, edit, and view function fields specifically within the report designer. It doesn't provide the ability to create or delete function fields from the platform list or form.
 
 
 
@@ -69,11 +69,14 @@ The following sections outline the configuration changes needed to instance view
 
 Favorites are a quick way to find your most commonly used links within the ServiceNow instance. To add a favorite, select the star icon next to a field in the Navigator panel. If you want to later filter the navigator panel to only see your favorites, you can select the star icon directly below the filter navigator field in the Navigator panel.
 
-Examples of useful Favorites:
+Examples of useful favorites:
 
-  * Incidents: Associations to records for Custom CRM.
-  * Users: Associations to accounts for Custom CRM.
-  * Rest API Explorer: A good way to test the API.
+  * Incidents: Associations to records for custom CRM.
+
+  * Users: Associations to accounts for custom CRM.
+
+  * REST API Explorer: A good way to test the API.
+
 
 
 
@@ -87,7 +90,7 @@ Select the expander icon (3 horizontal lines) in the upper left hand corner insi
 
   3. Drag the type of custom field you would like to add.
 
-  4. Once you drop the field type into the section you want, select the cog icon to see **Settings**.
+  4. After you drop the field type into the section you want, select the cog icon to see **Settings**.
 
   5. Inside the window, change the label and take note of the name. The name is what you use in CCAI Platform app settings.
 
@@ -160,13 +163,13 @@ Params: `table below`
 
 ## Integrate agent adapters (custom forms)
 
-**Note:** Click to call buttons for top of incidents/cases/contacts/users are included with CCAI Platform, so this section only applies to custom forms.
+**Note:** Click-to-call buttons for top of incidents/cases/contacts/users are included with CCAI Platform, so this section only applies to custom forms.
 
-The following steps walk you through the process of enabling agent adapters and the **Click to Call** function in the ServiceNow Instance. 
+The following steps walk you through the process of enabling agent adapters and the click-to-call function in the ServiceNow instance.
 
 ### Install and configure OpenFrame
 
-**Note:** With multiple configurations within a Servicenow Instance, your user may not have access to a newly created configuration. Check your groups and the list of OpenFrame configuration orders to determine which configuration your user is using. OpenFrame might not appear to agents by default. If agents don't see OpenFrame, they might need to be added to the role `sn_openframe_user`. 
+**Note:** With multiple configurations within a ServiceNow instance, your user may not have access to a newly created configuration. Check your groups and the list of OpenFrame configuration orders to determine which configuration your user is using. OpenFrame might not appear to agents by default. If agents don't see OpenFrame, they might need to be added to the role `sn_openframe_user`.
 
   1. Navigate to **All > System Applications > All Available Applications > All**.
 
@@ -174,9 +177,9 @@ The following steps walk you through the process of enabling agent adapters and 
 
   3. Install OpenFrame.
 
-  4. Once installed, navigate to **All > OpenFrame > Configurations**.
+  4. After installing, navigate to **All > OpenFrame > Configurations**.
 
-  5. Create configuration with a URL. If you have multiple configurations within a Servicenow Instance, your user might not have access to a newly created configuration. Check your groups and the list of OpenFrame configuration orders to determine which configuration your user is using.
+  5. Create configuration with a URL. If you have multiple configurations within a ServiceNow instance, your user might not have access to a newly created configuration. Check your groups and the list of OpenFrame configuration orders to determine which configuration your user is using.
 
   6. Type `sys_properties.list` into search.
 
@@ -191,7 +194,7 @@ The following steps walk you through the process of enabling agent adapters and 
 
 
 
-### Enable Next UI Experience for Users
+### Enable Next UI experience for users
 
   1. Type `sys_properties.list` in the navigation bar and click **Enter**.
 
@@ -204,7 +207,7 @@ The following steps walk you through the process of enabling agent adapters and 
 
 
 
-### Update System Properties
+### Update system properties
 
   1. Enter `sys_properties.list` into the navigation bar and click **Enter**.
 
@@ -212,25 +215,25 @@ The following steps walk you through the process of enabling agent adapters and 
 
   3. Add the URL to the list of values. Multiple values need to be comma separated.
 
-**Note:** It's important the URL does not end with a `/`, or else it won't work.
+**Note:** It's important the URL doesn't end with a `/`, or else it won't work.
   4. Edit `sn_openframe.cross.origin.access`.
 
   5. Add autoplay to the list of values.
 
   6. Edit `glide.ui.polaris.experience`.
 
-  7. Change to **false** , because some features do not work if enabled.
+  7. Change to **false** , because some features don't work if enabled.
 
 
 
 
-### Add Click to Call to the top of the form
+### Add click-to-call to the top of the form
 
   1. Navigate to **System UI** > **UI Actions**.
 
   2. Select **Create New Action**.
 
-  3. In the form as illustrated, select the table that this Click to Call will be a part of.
+  3. In the form as illustrated, select the table that this click-to-call will be a part of.
 
 ![](https://docs.cloud.google.com/static/contact-center/ccai-platform/docs/images/clicktocall.png)
 
@@ -239,8 +242,8 @@ The following steps walk you through the process of enabling agent adapters and 
          function clickToDial() {
            var user = g_form.getReference('caller_id',function(res) {
              var phone = res.phone || res.mobile_phone;
-             var payload = {"name": "clicktodial", "number": phone}; 
-             var data = {"payload": payload, "method": "openframe_communication" }; 
+             var payload = {"name": "clicktodial", "number": phone};
+             var data = {"payload": payload, "method": "openframe_communication" };
              CustomEvent.fireAll("openframe_request", data);
            });
          }
@@ -250,8 +253,8 @@ The following steps walk you through the process of enabling agent adapters and 
          
          function clickToDial() {
            var phone = g_form.getValue('phone') || g_form.getValue('mobile_phone');
-           var payload = {"name": "clicktodial", "number": phone}; 
-           var context = {"payload": payload, "method" : "openframe_communication" }; 
+           var payload = {"name": "clicktodial", "number": phone};
+           var context = {"payload": payload, "method" : "openframe_communication" };
            CustomEvent.fireAll("openframe_request", context);
          }
          
@@ -259,7 +262,7 @@ The following steps walk you through the process of enabling agent adapters and 
 
 
 
-### Add Click to Call next to references
+### Add click-to-call next to references
 
   1. The call button next to references to contacts must be edited within the form. Right-click the field and navigate to **Configure Dictionary**. For attributes add either the value `show_phone` or `show_phone_customer_service` to the `ref_contributions` value.
 
@@ -276,14 +279,14 @@ The following steps walk you through the process of enabling agent adapters and 
     var task =    {"entity": p.attr('data-task-table'), "query" :"sys_id="+p.attr('data-task-id')+"$[AMP]sysparm_view="+p.attr('data-task-view'),"value":p.attr('data-task-value'),"label":p.attr('data-task-label')};
                                             var company = {"entity": p.attr('data-company-table'),"query":"sys_id="+p.attr('data-company-id')+"$[AMP]sysparm_view="+p.attr('data-task-view'),"value":p.attr('data-company-value'),"label":p.attr('data-company-label')};
                                             var caller = {"entity": p.attr('data-caller-table'),"query": "sys_id="+p.attr('data-caller-id')+"$[AMP]sysparm_view="+p.attr('data-task-view'),"value":p.attr('data-caller-value'),"label":p.attr('data-caller-label')};
-                                            
+    
                                             var callContext = [];
                                             callContext.push(task);
                                             callContext.push(company);
                                             callContext.push(caller);
-                    
+    
                                             var metaData = {"phoneNumber":p.attr('data-caller-phone'),"taskId":p.attr('data-task-id')};
-                                            
+    
                                             var data =    {"metaData":metaData , "data": callContext};
                                             var payload = {"type": "OUTGOING_CALL", "data" : data};
                                             var createInteractionData ={};
@@ -295,7 +298,7 @@ The following steps walk you through the process of enabling agent adapters and 
                                             if(p.attr('data-caller-table') === 'customer_contact')
                                                     createInteractionData.contact = p.attr('data-caller-id');
                                             createInteractionData.opened_for = p.attr('data-caller-id');
-            
+    
                                             var ga = new GlideAjax('sn_openframe.OpenFrameAjaxUtility');
                                             ga.addParam('sysparm_name', 'createInteractionWithPropertyCheck');
                                             ga.addParam('context', JSON.stringify(createInteractionData));
@@ -316,8 +319,8 @@ The following steps walk you through the process of enabling agent adapters and 
     
     
     var phone = p.attr('data-caller-phone')
-                       var payload = {"name": "clicktodial", "number": phone}; 
-                       var data = {"payload": payload, "method": "openframe_communication" }; 
+                       var payload = {"name": "clicktodial", "number": phone};
+                       var data = {"payload": payload, "method": "openframe_communication" };
                        CustomEvent.fireAll("openframe_request", data);
     
 
@@ -335,29 +338,34 @@ The following steps illustrate how to connect the API to ServiceNow using the CC
 
   5. In the **Authentication Credentials** fields, enter your username and password.
 
-  6. **If you selected`Incident` for the Cloud Selection Field type** you will see the following fields:
+  6. **If you selected`Incident` for the cloud selection field type** you will see the following fields:
 
-     * **Lookup Account Object** includes three drop-down fields: `Object Type`, `Phone Number lookup fields`, and `Phone number primary field`.
-  7. **If you selected`Custom` for the Cloud Selection Field type** you will see the following fields:
+     * **Lookup account object** includes three drop-down fields: `Object Type`, `Phone Number lookup fields`, and `Phone number primary field`.
+  7. **If you selected`Custom` for the cloud selection field type** you will see the following fields:
 
-     * **Lookup Record Object** : 
-       * **Base Record Object Type** : Select either a `task` or `incident` table type.
-       * **Record Object Type** : This field will populate with data if an incident table has been extended, and you can select it if required.
-     * **Lookup Account Object** includes three drop-down fields: `Object Type`, `Phone Number lookup fields`, and `Phone number primary field`.
-  8. **Custom User ID Fields** : Check this box if you want to enable custom user lookup fields for Mobile or Web SDK sessions.
+     * **Lookup record object** :
 
-  9. **Phone Number Format** : Provides the ability to select the format you would like to use for displaying phone numbers.
+       * **Base record object type** : Select either a `task` or `incident` table type.
 
-  10. **Session Metadata File** : Check this box to attach session metadata to CRM records.
+       * **Record object type** : This field will populate with data if an incident table has been extended, and you can select it if required.
 
-  11. Click **Save** to save your selections. If you have checked the **Custom User ID Fields** box, you will have the option to create custom fields for records. This will add custom fields tabs to the bottom of each ServiceNow Incident below the resolution code and resolution notes sections of the page.
+       * **Lookup account object** includes three drop-down fields: `Object Type`, `Phone Number lookup fields`, and `Phone number primary field`.
+
+  8. **Custom user ID fields** : Check this box if you want to enable custom user lookup fields for Mobile or Web SDK, or Apps API (Chat) sessions.
+
+  9. **Phone number format** : Provides the ability to select the format you would like to use for displaying phone numbers.
+
+  10. **Session metadata file** : Check this box to attach session metadata to CRM records.
+
+  11. Click **Save** to save your selections. 
+
+**Note:** If you have checked the **Custom User ID Fields** box, you will have the option to create custom fields for records. This will add custom fields tabs to the bottom of each ServiceNow incident below the resolution code and resolution notes sections of the page.
 
 
 
+## Custom fields for records
 
-### Custom fields for records
-
-These are custom fields that have already been created for the ServiceNow Instance in the Form Designer. Instructions about how to create other custom fields can be found in the ServiceNow documentation under **ServiceNow CRM Setup** , section **Add Custom Fields Manually**.
+These are the custom fields which have already been created for the ServiceNow instance in the Form Designer, and can be used in CCAI Platform. You can also create other custom fields by selecting **Create** in the Custom Fields for Records section in the menu.
 
 Field | Type | Definition  
 ---|---|---  
@@ -379,7 +387,7 @@ Field | Type | Definition
 
 To configure OAuth, take steps to create an OAuth application in ServiceNow. Then, enter credentials (OAuth Client ID and OAuth Client Secret) under **Developer Settings > CRM > Authentication Method**.
 
-### Create an OAuth application in Service Now
+### Create an OAuth application in ServiceNow
 
   1. In your ServiceNow account, navigate to **All > System OAuth > Application Registry**.
 
@@ -387,19 +395,19 @@ To configure OAuth, take steps to create an OAuth application in ServiceNow. The
 
   3. Configure the following fields:
 
-     * **Name** : Enter a unique Name.
+     * **Name** : Enter a unique name.
 
      * **Client ID** : The Client ID is automatically generated by the ServiceNow OAuth server.
 
-     * **Client Secret** : This is the client secret for the OAuth application. Leave it empty for auto-generation.
+     * **Client secret** : This is the client secret for the OAuth application. Leave it empty for auto-generation.
 
-     * **Refresh Token Lifespan** : The time, in seconds, the refresh token will be valid.
+     * **Refresh token lifespan** : The time, in seconds, the refresh token will be valid.
 
-     * **Access Token Lifespan** : The time, in seconds, the access token will be valid.
+     * **Access token lifespan** : The time, in seconds, the access token will be valid.
 
      * **Redirect URL** : Enter your environment URL plus the subdirectory. For example: `https://servicenow.yourcompany.co/v1/servicenow/oauth_callback`
 
-     * **Enforce Token Restriction** : Restricts the access token usage to the APIs defined in the REST API Access Policies found in the ServiceNow documentation. Unselecting this option would allow access token usage across other REST APIs.
+     * **Enforce token restriction** : Restricts the access token usage to the APIs defined in the REST API Access Policies found in the ServiceNow documentation. Unselecting this option would allow access token usage across other REST APIs.
 
   4. Click **Submit**.
 
@@ -435,21 +443,51 @@ Field Mapping Title | CRM Field Label | Custom Data Field Label
 ---|---|---  
 Virtual Agent Feedback | `ccaip_custom_field_incident_feedback` | `va_feedback`  
   
-## Configure other Settings
+## Add CRM field mapping
 
-You will find the other settings that will allow you to properly integrate CCAI Platform into your ServiceNow Instance under the **Settings** drop-down menu. Refer to the links in the following list for additional information about configuring each section.
+  1. Go to **Settings > Operation Management**.
+
+  2. Go to **CRM Custom Field Mapping** section > click **View All**.
+
+  3. Click the **\+ Add CRM Field Mapping** link.
+
+     * **Field Mapping Title** : CCAI Platform name for this [custom field mapping](https://docs.cloud.google.com/contact-center/ccai-platform/docs/crm-custom-field-mapping) used in the CCAI Platform Portal.
+
+     * **CRM Field Label** : Label within your CRM of the CRM field to which you are mapping.
+
+     * **Custom Data Field Label (custom data key)** : The top-level key name in the CCAI Platform custom data payload you want to map from (for example, `device` for SDK payloads, or `orderId` for Apps API Chat payloads). This key must be sent by the CCAI Platform Web or Mobile SDKs or (for chat interactions) using the Apps API [`Send custom data in a chat`](https://docs.cloud.google.com/contact-center/ccai-platform/docs/chat-platform-api-endpoints#send-custom-data-chat) endpoint. The key must match exactly (including capitalization).
+
+  4. Click **Save**.
+
+
+
+
+## Configure other settings
+
+You will find the other settings that will allow you to properly integrate CCAI Platform into your ServiceNow instance under the **Settings** drop-down menu. Refer to the links in the following list for additional information about configuring each section.
 
   * [Languages and Messages](https://docs.cloud.google.com/contact-center/ccai-platform/docs/Customizing_Languages__Recordings____Messages)
+
   * [Users and Teams](https://docs.cloud.google.com/contact-center/ccai-platform/docs/Agent___Team_Configuration)
+
   * [Virtual Agent](https://docs.cloud.google.com/contact-center/ccai-platform/docs/Virtual_Agent)
+
   * [Campaigns](https://docs.cloud.google.com/contact-center/ccai-platform/docs/Campaign_Management)
+
   * [Surveys](https://docs.cloud.google.com/contact-center/ccai-platform/docs/Surveys)
+
   * [Queues](https://docs.cloud.google.com/contact-center/ccai-platform/docs/Queue_and_Menu_Setup)
+
   * [Calls](https://docs.cloud.google.com/contact-center/ccai-platform/docs/Call_Settings_and_Features)
+
   * [Chat](https://docs.cloud.google.com/contact-center/ccai-platform/docs/chat-settings-web-and-mobile)
+
   * [SMS](https://docs.cloud.google.com/contact-center/ccai-platform/docs/SMS)
+
   * [Consumer Management](https://docs.cloud.google.com/contact-center/ccai-platform/docs/Consumer_Management)
+
   * [Developer Settings](https://docs.cloud.google.com/contact-center/ccai-platform/docs/Developer_Settings)
+
 
 
 
@@ -457,20 +495,20 @@ You will find the other settings that will allow you to properly integrate CCAI 
 
 You can now verify the functionality of your call and chat flows by clicking on the relevant buttons at the top of the screen of the CCAI Platform portal. It is important to ensure your pop-up blocker is disabled when running this test.
 
-You should expect an **Incident** to be created in **ServiceNow** , with the call or chat contact listed in the **Activities** section of the Incident. This should show up as a **Work Note** , rather than an Incident Comment, so that this backend activity is not visible to customers.
+You should expect an **Incident** to be created in **ServiceNow** , with the call or chat contact listed in the **Activities** section of the incident. This should show up as a **Work Note** , rather than an incident comment, so that this backend activity isn't visible to customers.
 
 The case description will autopopulate with "Call using CCAI Platform" or "Chat using CCAI Platform" and might need to be updated by agents.
 
-**Note:** You should see both an activity and a work note in the Incident when a contact occurs. This is especially important if you want to export your contacts to external storage rather than the CRM itself. For more information, see [Set up external storage for CRMs](https://docs.cloud.google.com/contact-center/ccai-platform/docs/crm-external-storage).
+**Note:** You should see both an activity and a work note in the incident when a contact occurs. This is especially important if you want to export your contacts to external storage rather than the CRM itself. For more information, see [Set up external storage for CRMs](https://docs.cloud.google.com/contact-center/ccai-platform/docs/crm-external-storage).
 
-Once you are satisfied with the outputs of your call or chat you can enter a resolution code and note (if ServiceNow resolution code and notes fields have been configured), then close the case.
+After you are satisfied with the outputs of your call or chat you can enter a resolution code and note (if ServiceNow resolution code and notes fields have been configured), then close the case.
 
-To verify that the case has closed, you might need to click the `back` navigation button on your browser. It is expected behavior in the ServiceNow Instance that after resolving the case it automatically closes and advances you to a customer record page.
+To verify that the case has closed, you might need to click the `back` navigation button on your browser. It is expected behavior in the ServiceNow instance that after resolving the case it automatically closes and advances you to a customer record page.
 
 Send feedback 
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-05 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-05 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/load-balancing/docs/application-load-balancer/
 title: Application Load Balancer overview \u00a0|\u00a0 Cloud Load Balancing \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T22:32:31.877137+00:00
+fetched_at: 2026-11-06T13:46:27.977994+00:00
 ---
 
 # Application Load Balancer overview  |  Cloud Load Balancing  |  Google Cloud Documentation
@@ -32,7 +32,7 @@ Deployment mode | Network service tier | Load balancing scheme | IP address | Fr
 Global external | Premium Tier | EXTERNAL_MANAGED | IPv4   
 IPv6  | Can reference exactly one port from 1-65535.  
 Regional external | Premium or Standard Tier | EXTERNAL_MANAGED | IPv4   
-IPv6 ([Preview](https://cloud.google.com/products#product-launch-stages))   
+IPv6   
 Classic | Global in Premium Tier Regional in Standard Tier | EXTERNAL* | IPv4   
 IPv6 (requires Premium Tier)   
   
@@ -43,9 +43,9 @@ IPv6 (requires Premium Tier)
 Deployment mode | Network service tier | Load balancing scheme | IP address | Frontend ports  
 ---|---|---|---|---  
 Regional internal | Premium Tier | INTERNAL_MANAGED | IPv4   
-IPv6 ([Preview](https://cloud.google.com/products#product-launch-stages))  | Can reference exactly one port from 1-65535.  
+IPv6  | Can reference exactly one port from 1-65535.  
 Cross-region internal* | Premium Tier | INTERNAL_MANAGED | IPv4   
-IPv6 ([Preview](https://cloud.google.com/products#product-launch-stages))   
+IPv6   
   
 * The load balancer uses global resources and can be deployed in one or multiple Google Cloud regions that you choose.
 
@@ -55,10 +55,6 @@ IPv6 ([Preview](https://cloud.google.com/products#product-launch-stages))
 The _load balancing scheme_ is an attribute on the [forwarding rule](https://docs.cloud.google.com/load-balancing/docs/forwarding-rule-concepts) and the [backend service](https://docs.cloud.google.com/load-balancing/docs/backend-service) of a load balancer and indicates whether the load balancer can be used for internal or external traffic. The term `__MANAGED_` in the load balancing scheme indicates that the load balancer is implemented as a managed service either on [Google Front Ends (GFEs)](https://docs.cloud.google.com/docs/security/infrastructure/design#google-frontend-service) or on the open source [Envoy proxy](https://www.envoyproxy.io/). In a load balancing scheme that is `_MANAGED`, requests are routed either to the GFE or to the Envoy proxy.
 
 ## External Application Load Balancer
-
-**Preview — Cross-region, regional external, and regional internal Application Load Balancers support terminating IPv6 traffic**
-
-This feature is subject to the "Pre-GA Offerings Terms" in the General Service Terms section of the [Service Specific Terms](https://docs.cloud.google.com/terms/service-terms#1). Pre-GA features are available "as is" and might have limited support. For more information, see the [launch stage descriptions](https://cloud.google.com/products/#product-launch-stages). 
 
 External Application Load Balancers are implemented using Google Front Ends (GFEs) or managed proxies. Global external Application Load Balancers and classic Application Load Balancers use GFEs that are [distributed globally](https://docs.cloud.google.com/load-balancing/docs/locations), operating together by using Google's global network and control plane. GFEs offer multi-region load balancing in the Premium tier, directing traffic to the closest healthy backend that has capacity and terminating HTTP(S) traffic as close as possible to your users. Global external Application Load Balancers and regional external Application Load Balancers use the open source [Envoy proxy](https://www.envoyproxy.io/) software to enable advanced traffic management capabilities.
 
@@ -83,10 +79,6 @@ The following diagram shows a sample external Application Load Balancer architec
 For a complete overview, see [Architecture overview for External Application Load Balancers](https://docs.cloud.google.com/load-balancing/docs/https).
 
 ## Internal Application Load Balancer
-
-**Preview — Cross-region, regional external, and regional internal Application Load Balancers support terminating IPv6 traffic**
-
-This feature is subject to the "Pre-GA Offerings Terms" in the General Service Terms section of the [Service Specific Terms](https://docs.cloud.google.com/terms/service-terms#1). Pre-GA features are available "as is" and might have limited support. For more information, see the [launch stage descriptions](https://cloud.google.com/products/#product-launch-stages). 
 
 The internal Application Load Balancers are Envoy proxy-based regional Layer 7 load balancers that enable you to run and scale your HTTP application traffic behind an internal IP address. Internal Application Load Balancers support backends in one region, but can be configured to be globally accessible by clients from any Google Cloud region.
 
@@ -277,6 +269,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-06 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-06 UTC."],[],[]] 

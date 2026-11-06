@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sensitive-data-protection/docs/samples/dlp-inspect-table/
 title: Inspect a table for sensitive content \u00a0|\u00a0 Sensitive Data Protection \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T09:38:35.419885+00:00
+fetched_at: 2026-11-06T10:26:31.549295+00:00
 ---
 
 # Inspect a table for sensitive content  |  Sensitive Data Protection  |  Google Cloud Documentation

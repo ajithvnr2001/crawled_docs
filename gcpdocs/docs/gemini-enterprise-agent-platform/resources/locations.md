@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/locations/
 title: Deployments and endpoints \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-05T11:08:26.221195+00:00
+fetched_at: 2026-11-06T10:06:20.441139+00:00
 ---
 
 # Deployments and endpoints  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation
@@ -184,6 +184,7 @@ Model | Latest supported model version
 [Gemini 4 Argon Cyber Permissive](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/4-argon#cyber) | `gemini-4-argon-cyber-permissive`  
 [Gemini 3.8 Flash Cyber](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-8-flash-cyber) | `gemini-3.8-flash-cyber`  
 [Gemini 3.8 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-8-flash) | `gemini-3.8-flash`  
+[Gemini Omni 1.2 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/omni-1-2-flash) | `gemini-omni-1.2-flash`  
 [Gemini Omni 1.1 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/omni-1-1-flash) preview | `gemini-omni-1.1-flash-preview`  
 [Gemini 3.7 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-7-flash) | `gemini-3.7-flash`  
 [Gemini 3.6 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-6-flash) | `gemini-3.6-flash`  
@@ -221,6 +222,8 @@ Gemini models
 `(gemini-3.8-flash-cyber)` |   
 [Gemini 3.8 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-8-flash)   
 `(gemini-3.8-flash)` |   
+[Gemini Omni 1.2 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/omni-1-2-flash)   
+`(gemini-omni-1.2-flash)` |   
 [Gemini Omni 1.1 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/omni-1-1-flash) preview    
 `(gemini-omni-1.1-flash-preview)` |   
 [Gemini 3.7 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-7-flash)   
@@ -314,6 +317,8 @@ Gemini models
 `(gemini-3.8-flash-cyber)` |  |   
 [Gemini 3.8 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-8-flash)   
 `(gemini-3.8-flash)` |  |   
+[Gemini Omni 1.2 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/omni-1-2-flash)   
+`(gemini-omni-1.2-flash)` |  |   
 [Gemini Omni 1.1 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/omni-1-1-flash) preview    
 `(gemini-omni-1.1-flash-preview)` |  |   
 [Gemini 3.7 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-7-flash)   
@@ -412,6 +417,8 @@ Gemini models
 `(gemini-3.8-flash-cyber)` |  |  |  |  |  |  |   
 [Gemini 3.8 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-8-flash)   
 `(gemini-3.8-flash)` |  |  |  |  |  |  |   
+[Gemini Omni 1.2 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/omni-1-2-flash)   
+`(gemini-omni-1.2-flash)` |  |  |  |  |  |  |   
 [Gemini Omni 1.1 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/omni-1-1-flash) preview    
 `(gemini-omni-1.1-flash-preview)` |  |  |  |  |  |  |   
 [Gemini 3.7 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-7-flash)   
@@ -505,6 +512,8 @@ Gemini models
 `(gemini-3.8-flash-cyber)` |  |   
 [Gemini 3.8 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-8-flash)   
 `(gemini-3.8-flash)` |  |   
+[Gemini Omni 1.2 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/omni-1-2-flash)   
+`(gemini-omni-1.2-flash)` |  |   
 [Gemini Omni 1.1 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/omni-1-1-flash) preview    
 `(gemini-omni-1.1-flash-preview)` |  |   
 [Gemini 3.7 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-7-flash)   
@@ -606,6 +615,8 @@ Gemini models
 `(gemini-3.8-flash-cyber)` |  |  |  |  |  |  |  |  |  |   
 [Gemini 3.8 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-8-flash)   
 `(gemini-3.8-flash)` |  |  |  |  |  |  |  |  |  |   
+[Gemini Omni 1.2 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/omni-1-2-flash)   
+`(gemini-omni-1.2-flash)` |  |  |  |  |  |  |  |  |  |   
 [Gemini Omni 1.1 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/omni-1-1-flash) preview    
 `(gemini-omni-1.1-flash-preview)` |  |  |  |  |  |  |  |  |  |   
 [Gemini 3.7 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-7-flash)   
@@ -704,6 +715,8 @@ Gemini models
 `(gemini-3.8-flash-cyber)` |  |  |  |  |  |  |   
 [Gemini 3.8 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-8-flash)   
 `(gemini-3.8-flash)` |  |  |  |  |  |  |   
+[Gemini Omni 1.2 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/omni-1-2-flash)   
+`(gemini-omni-1.2-flash)` |  |  |  |  |  |  |   
 [Gemini Omni 1.1 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/omni-1-1-flash) preview    
 `(gemini-omni-1.1-flash-preview)` |  |  |  |  |  |  |   
 [Gemini 3.7 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-7-flash)   
@@ -798,6 +811,8 @@ Gemini models
 `(gemini-3.8-flash-cyber)` |  |  |   
 [Gemini 3.8 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-8-flash)   
 `(gemini-3.8-flash)` |  |  |   
+[Gemini Omni 1.2 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/omni-1-2-flash)   
+`(gemini-omni-1.2-flash)` |  |  |   
 [Gemini Omni 1.1 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/omni-1-1-flash) preview    
 `(gemini-omni-1.1-flash-preview)` |  |  |   
 [Gemini 3.7 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-7-flash)   
@@ -1584,6 +1599,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-05 UTC.
+Last updated 2026-11-06 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-05 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-06 UTC."],[],[]] 

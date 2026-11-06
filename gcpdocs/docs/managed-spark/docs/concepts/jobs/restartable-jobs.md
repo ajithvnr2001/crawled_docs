@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/managed-spark/docs/concepts/jobs/restartable-jobs/
 title: Restartable jobs \u00a0|\u00a0 Managed Service for Apache Spark \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-06T05:53:33.427131+00:00
+fetched_at: 2026-11-06T11:11:27.361637+00:00
 ---
 
 # Restartable jobs  |  Managed Service for Apache Spark  |  Google Cloud Documentation

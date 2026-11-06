@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/contact-center/ccai-platform/docs/manager-api-menu/
 title: Menu endpoints \u00a0|\u00a0 Google Cloud Contact Center as a Service \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T23:05:40.848384+00:00
+fetched_at: 2026-11-06T11:31:38.411778+00:00
 ---
 
 # Menu endpoints  |  Google Cloud Contact Center as a Service  |  Google Cloud Documentation
@@ -107,7 +107,7 @@ id[] | FALSE | Array[String] | Array[Strings]. Id of records to search and retur
 name[] | FALSE | Array[String] | Returns records based on name of resource.   
 parent_id[] | FALSE | Array[String] | Returns records based on the parent id of the given records  
 position[] | FALSE | Array[String] | Returns records based on what position a menu is in  
-menu_type[] | FALSE | Array[String] | Returns records based on the type of menu. Possible values: ivr_menu, mobile_menu, web_menu  
+menu_type[] | FALSE | String | The menu type whose tree to return. Pass a single value without brackets, for example `menu_type=ivr_menu`. If you omit `menu_type`, the API returns the mobile menu tree. To retrieve more than one menu type, request the tree once for each type.  
 hidden[] | FALSE | Boolean | Returns records that have been hidden (True) or not including records that have been hidden (False)  
 with_deleted | FALSE | Boolean | Returns records that have been deleted (True) or not including records that have been deleted (False)  
   
@@ -214,8 +214,8 @@ with_deleted | FALSE | Boolean | Returns records that have been deleted (True) o
 
 Parameter | Required | Data Type | Definition  
 ---|---|---|---  
-menu_type | FALSE | Array[String] | Returns records based on the type of menu. Possible values: ivr_menu, mobile_menu, web_menu  
-lang | FALSE | String | Returns records that have a specific language property. Possible Values: en, es, fr, de  
+menu_type | FALSE | Array[String] | Returns records based on the type of menu. Pass `menu_type[]` once per type, for example `menu_type[]=ivr_menu&menu_type[]=web_menu`, and use this array form even for a single type. If your HTTP client requires it, encode the brackets as `menu_type%5B%5D`. If you omit menu_type[], the API returns menus of every type. The API doesn't filter on a type parameter.  
+lang | FALSE | String | The language whose tree to return. If you omit lang, the API returns the `en` tree. To retrieve more than one language, request the tree once for each language.  
   
 **_Endpoint:_**
     
@@ -647,6 +647,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-05 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-05 UTC."],[],[]] 

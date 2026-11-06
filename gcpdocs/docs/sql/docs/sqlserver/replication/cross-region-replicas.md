@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sql/docs/sqlserver/replication/cross-region-replicas/
 title: Promote replicas for regional migration or disaster recovery \u00a0|\u00a0 Cloud SQL for SQL Server \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T09:39:50.694354+00:00
+fetched_at: 2026-11-06T10:52:59.255432+00:00
 ---
 
 # Promote replicas for regional migration or disaster recovery  |  Cloud SQL for SQL Server  |  Google Cloud Documentation
@@ -65,6 +65,13 @@ For more information, see [Advanced disaster recovery (DR)](https://docs.cloud.g
 
 Because replication is asynchronous, when a region outage occurs and a failover is attempted, some recent transactions that were committed to the primary may be lost (not replicated to the replica). Whenever a primary instance becomes unavailable, the following steps show (1) how to determine the amount of data, if any, that may have been lost in the cross-region failover and (2) how to ensure that the promoted replica reflects as many recent writes as possible.
 
+Before checking replication lag or promoting a replica, verify the replica's replication status by checking the **Replication state** metric (`cloudsql.googleapis.com/database/replication/state`) on the replica instance **Overview** page in the Google Cloud console:
+
+  * **During a primary outage:** The metric might report `Error` or `Stopped`. This indicates that replication has halted due to the outage. Any transactions committed on the primary instance after replication stopped are lost when you promote the replica.
+  * **During normal operations (planned failover or migration):** Verify that the metric reports `Running`. If the state is `Error` or `Stopped`, the replica is not receiving updates from the primary instance. Promoting a replica in this state causes data loss.
+
+
+
 You can [ check the replication status](https://docs.cloud.google.com/sql/docs/sqlserver/replication/manage-replicas#replication-status) of the replica with the [ Always On Availability Group dashboard](https://docs.microsoft.com/en-us/sql/database-engine/availability-groups/windows/use-the-always-on-dashboard-sql-server-management-studio?view=sql-server-ver15) in SQL Server Management Studio (SSMS), or with another tool. For related information about using Transact-SQL, see the following:
 
   * [Always On Availability Groups Dynamic Management Views - Functions](https://docs.microsoft.com/en-us/sql/relational-databases/system-dynamic-management-views/always-on-availability-groups-dynamic-management-views-functions?view=sql-server-ver15)
@@ -123,6 +130,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-05 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-05 UTC."],[],[]] 

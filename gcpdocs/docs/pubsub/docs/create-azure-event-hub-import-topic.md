@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/pubsub/docs/create-azure-event-hub-import-topic/
 title: Create an Azure Event Hubs import topic \u00a0|\u00a0 Pub/Sub \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-03T09:52:41.684805+00:00
+fetched_at: 2026-11-06T13:51:09.666194+00:00
 ---
 
 # Create an Azure Event Hubs import topic  |  Pub/Sub  |  Google Cloud Documentation

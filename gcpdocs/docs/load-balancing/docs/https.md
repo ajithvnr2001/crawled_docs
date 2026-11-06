@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/load-balancing/docs/https/
 title: External Application Load Balancer overview \u00a0|\u00a0 Cloud Load Balancing \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-06T05:53:25.461767+00:00
+fetched_at: 2026-11-06T13:46:30.607815+00:00
 ---
 
 # External Application Load Balancer overview  |  Cloud Load Balancing  |  Google Cloud Documentation
@@ -153,10 +153,6 @@ If you previously created a proxy-only subnet with `--purpose=INTERNAL_HTTPS_LOA
 
 ### Forwarding rules and IP addresses
 
-**Preview — Cross-region, regional external, and regional internal Application Load Balancers support terminating IPv6 traffic**
-
-This feature is subject to the "Pre-GA Offerings Terms" in the General Service Terms section of the [Service Specific Terms](https://docs.cloud.google.com/terms/service-terms#1). Pre-GA features are available "as is" and might have limited support. For more information, see the [launch stage descriptions](https://cloud.google.com/products/#product-launch-stages). 
-
 [Forwarding rules](https://docs.cloud.google.com/load-balancing/docs/forwarding-rule-concepts) route traffic by IP address, port, and protocol to a load balancing configuration consisting of a target proxy, URL map, and one or more backend services.
 
 **IP address specification**. Each forwarding rule provides a single IP address that can be used in DNS records for your application. No DNS-based load balancing is required. You can either specify the IPv4 or IPv6 address to be used or let Cloud Load Balancing assign one for you.
@@ -195,7 +191,11 @@ Regional external Application Load Balancer | The forwarding rule's VPC network 
   * Regional external IPv6 address ranges always exist inside a VPC network. When you create the forwarding rule, you're required to specify the subnet from which the IP address range is taken. This subnet must be in the same region and VPC network where a proxy-only subnet has been created. Thus, there is an implied network association. **Network and subnet requirements.** For IPv6 traffic, your network and subnets must meet the following configuration requirements: 
     * VPC network: you must use a custom mode VPC network configured with the `--enable-ula-internal-ipv6` flag.
     * Forwarding rule subnet: this subnet must be a dual-stack (`IPv4_IPv6`) or `IPV6_ONLY` subnet with the `ipv6-access-type` set to `EXTERNAL`.
-**IPv6 address allocation options.** The forwarding rule must reference a `/96` range of IPv6 addresses from the subnet's `/64` external IPv6 address range. **Limitations.** To specify a custom ephemeral IPv6 address, you must use the Google Cloud CLI or the API. The Google Cloud console doesn't support specifying custom ephemeral IPv6 addresses for forwarding rules. To deploy a regional external Application Load Balancer with an IPv6 address on GKE, see [Deploy a regional external Gateway](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/deploying-gateways#deploy_a_regional_external_gateway) in the GKE documentation.
+**IPv6 address allocation options.** The forwarding rule must reference a `/96` range of IPv6 addresses from the subnet's `/64` external IPv6 address range. The load balancer accepts traffic sent to any address within the allocated `/96` range. To assign this `/96` IPv6 address range, you can use one of the following methods:
+    * Specifying a [ reserved external IPv6 address](https://docs.cloud.google.com/vpc/docs/reserve-static-external-ip-address#reserve_new_static), either automatically allocated or a custom `/96` range.
+    * Specifying a custom ephemeral IPv6 address.
+    * Letting Google Cloud automatically assign an ephemeral IPv6 address.
+**Limitations.** To specify a custom ephemeral IPv6 address, you must use the Google Cloud CLI or the API. The Google Cloud console doesn't support specifying custom ephemeral IPv6 addresses for forwarding rules. To deploy a regional external Application Load Balancer with an IPv6 address on GKE, see [Deploy a regional external Gateway](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/deploying-gateways#deploy_a_regional_external_gateway) in the GKE documentation.
 
   
   
@@ -468,11 +468,7 @@ Your backend's network must satisfy _one of the following_ network requirements:
 
 **Backend IPv6 subnet requirements**
 
-**Preview — Cross-region, regional external, and regional internal Application Load Balancers support terminating IPv6 traffic**
-
-This feature is subject to the "Pre-GA Offerings Terms" in the General Service Terms section of the [Service Specific Terms](https://docs.cloud.google.com/terms/service-terms#1). Pre-GA features are available "as is" and might have limited support. For more information, see the [launch stage descriptions](https://cloud.google.com/products/#product-launch-stages). 
-
-The IP version used for the frontend connection is independent of the backend connection. Since the proxy-only subnet is [dual-stack (IPV4_IPV6)](https://docs.cloud.google.com/load-balancing/docs/proxy-only-subnets#dual_stack_proxy_only), the proxy-only subnet can communicate with backends using either IPv4 or IPv6.
+The IP version used for the frontend connection is independent of the backend connection. If the proxy-only subnet is configured as dual-stack (IPV4_IPV6), the proxy-only subnet can communicate with backends using either IPv4 or IPv6. If the proxy-only subnet is single-stack (IPV4_ONLY), it can only communicate with backends using IPv4.
 
 If your backend instances are handling IPv6 traffic, the backend subnet can be configured with a stack type of `IPV4_ONLY` or `IPV4_IPV6` (dual-stack). If the backend subnet's stack type includes IPv6, you must explicitly set the subnet's ipv6-access-type to `EXTERNAL`.
 
@@ -592,7 +588,7 @@ For IPv6 health checks to the backends:
 
   * `2600:2d00:1:b029::/64`
 
-Allowing traffic from Google's health check probe ranges isn't required for hybrid NEGs. However, if you're using a combination of hybrid and zonal NEGs in a single backend service, you need to allow traffic from the [Google health check probe ranges](https://docs.cloud.google.com/load-balancing/docs/health-check-concepts#ip-ranges) for the zonal NEGs.  |  The [ proxy-only subnet](https://docs.cloud.google.com/load-balancing/docs/proxy-only-subnets#proxy_only_subnet_create) that you configure. If you are using a dual-stack proxy-only subnet to proxy IPv6 traffic, your firewall rule should explicitly set the IPv6 source range to ensure traffic can successfully reach the backends. For example, using `--source-ranges ::/0` or the proxy-only subnet's specific IPv6 range ([Preview](https://cloud.google.com/products#product-launch-stages)).   
+Allowing traffic from Google's health check probe ranges isn't required for hybrid NEGs. However, if you're using a combination of hybrid and zonal NEGs in a single backend service, you need to allow traffic from the [Google health check probe ranges](https://docs.cloud.google.com/load-balancing/docs/health-check-concepts#ip-ranges) for the zonal NEGs.  |  The [ proxy-only subnet](https://docs.cloud.google.com/load-balancing/docs/proxy-only-subnets#proxy_only_subnet_create) that you configure. If you are using a dual-stack proxy-only subnet to proxy IPv6 traffic, your firewall rule should explicitly set the IPv6 source range to ensure traffic can successfully reach the backends. For example, using `--source-ranges ::/0` or the proxy-only subnet's specific IPv6 range.   
 **Important:** Make sure to allow packets from the full health check ranges. If your firewall rule allows packets from only a subset of the ranges, you might see health check failures because the load balancer can't communicate with your backends. This causes HTTP `502` status code responses. 
 
 ## Global Front End

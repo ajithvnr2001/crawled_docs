@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/interactions/developer-guide/
 title: Interactions API developer guide \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T23:16:26.260880+00:00
+fetched_at: 2026-11-06T08:23:18.372564+00:00
 ---
 
 # Interactions API developer guide  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation
@@ -149,6 +149,8 @@ Ensure your environment and requests meet the following requirements before inte
   * **Supported models** : Use supported Gemini 3 models or later. Earlier model families don't support this API. For a complete list of supported models, see [Supported models](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/interactions#supported-models) and [Migrate to the latest model versions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/migrate).
 
   * **Turn-scoped parameters** : Configuration parameters such as `tools`, `system_instruction`, and `generation_config` apply only to the current turn. Pass these parameters on each subsequent interaction turn if your workflow requires them across a multi-turn conversation.
+
+  * **Long decodes on Gemini 4 Argon** : To generate single-turn outputs exceeding 65,536 tokens (up to 1,048,576 tokens minus input tokens) on `gemini-4-argon` or `gemini-4-argon-cyber-permissive`, use automatic Google Gen AI SDK continuation (`google-genai >= 2.34.0` for Python, `@google/genai >= 2.32.0` for TypeScript/JavaScript, Go `>= 1.77.0`, Java `>= 1.80.0`), `background=True`, or `continuation_token` on the `v1beta1` endpoint. For code samples and continuation rules, see [Long decodes in the developer's guide to Gemini 4 Argon](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/guides/gemini-4-argon#long-decodes).
 
 
 **Tip:** If you use an AI coding assistant, you can install the Interactions API agent skill from the [`google/skills` GitHub repository](https://github.com/google/skills/blob/main/skills/cloud/gemini-interactions-api/SKILL.md).
@@ -1796,6 +1798,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-04 UTC.
+Last updated 2026-11-05 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-05 UTC."],[],[]] 

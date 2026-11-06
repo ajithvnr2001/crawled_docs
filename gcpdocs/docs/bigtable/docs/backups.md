@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigtable/docs/backups/
 title: Bigtable backups overview \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T10:18:49.263073+00:00
+fetched_at: 2026-11-06T13:06:16.204999+00:00
 ---
 
 # Bigtable backups overview  |  Google Cloud Documentation
@@ -21,7 +21,7 @@ Send feedback  Stay organized with collections  Save and categorize content base
 
 # Bigtable backups overview
 
-**Note:** This page includes features that are available only in the Enterprise Plus edition. For more information, see [Editions overview](https://docs.cloud.google.com/bigtable/docs/editions-overview).
+**Note:** This page includes features that are available only in Enterprise Plus edition. For more information, see [Editions overview](https://docs.cloud.google.com/bigtable/docs/editions-overview).
 
 This page provides an overview of Bigtable backups. The content presented here is intended for Bigtable administrators and developers.
 
@@ -40,17 +40,19 @@ You can create backups in the following ways:
 
 
 
-Before you read this page, you should be familiar with the [Bigtable overview](https://docs.cloud.google.com/bigtable/docs/overview) and [Manage tables](https://docs.cloud.google.com/bigtable/docs/managing-tables).
+Before you read this page, review [Bigtable overview](https://docs.cloud.google.com/bigtable/docs/overview) and [Manage tables](https://docs.cloud.google.com/bigtable/docs/managing-tables).
 
 ## Features
 
-  * **Fully integrated** : Backups are handled entirely by the Bigtable service, with no need to import or export.
-  * **Incremental** : A backup shares physical storage with the source table and other backups of the table.
-  * **Cost effective** : Using Bigtable backups lets you avoid the costs associated with exporting, storing, and importing data using other services.
-  * **Automatic expiration** : Each backup has a user-defined retention period. For more information, see the Retention section of this document.
-  * **Flexible restore options** : You can restore from a backup to a table in a different instance from where the backup was created.
-  * **Automated backup** : Enable automated backup to let Bigtable create daily backups.
-  * **Hot backups** : Plan for disaster recovery with production-ready hot backups.
+Bigtable backups provide the following features and benefits:
+
+  * **Fully integrated** : Bigtable handles backups without the need to import or export data.
+  * **Incremental** : a backup shares physical storage with the source table and other backups of the table.
+  * **Cost effective** : using Bigtable backups lets you avoid the costs associated with exporting, storing, and importing data using other services.
+  * **Automatic expiration** : each backup has a user-defined retention period. For more information, see the Retention section of this document.
+  * **Flexible restore options** : restore from a backup to a table in a different instance from where the backup was created.
+  * **Automated backup** : enable automated backups to let Bigtable create daily backups.
+  * **Hot backups** : production-ready hot backups let you plan for disaster recovery.
 
 
 
@@ -72,21 +74,36 @@ Consider the following disaster recovery scenarios:
 **Protect against human error:** You want to always have a recent backup of your data ready in case of accidental deletion or corruption.  | Determine the backups creation schedule that's right for your business needs, such as daily. Optionally, create periodic copies of the backups and store them in a different project or region for increased isolation and protection. For even more protection, store the backup copies in a project or instance with restricted access permissions.  | Restore to a new table from the backup or copy, and then re-route requests to the new table.   
 **Zone unavailability:** You need to make sure that in the unlikely event that a Google Cloud zone becomes unavailable, your data is still available.  | Enable automated backup to let Bigtable create a daily backup on every cluster in the instance. Alternatively, create backups on a regular basis and then periodically create a copy of the most recent backup and store it on one or more clusters in different zones (optionally in a different instance or project).  | If the zone where your serving cluster becomes unavailable, restore from the remote backup copy to a new table, and then re-route requests to the new table.   
 **Data corruption:** Use a backup to recover some of a table's data, such as when part of the source table has become corrupted.  | Enable replication and automated backup to create daily backups in multiple regions, so that if a table becomes corrupted on one cluster, you have one or more backups that don't share storage on the corrupted cluster.  | Restore from the backup to a new table on the new cluster or instance. Then write an application using a Bigtable client library or [Dataflow](https://cloud.google.com/products/dataflow) that reads from the new table and then writes the data back to the source table. When the data has been copied to the original table, delete the new table.   
-**Fast recovery:** Restore to full production performance levels quickly, minimizing downtime.  | Always maintain a recent hot backup of your table. | Restore to a new table from the hot backup, and then re-route requests to the new table.   
+**Fast recovery:** Restore to full production performance levels quickly, minimizing downtime.  | Configure automated backups to create daily hot backups, or create hot backups on demand, to ensure that you always have a recent hot backup of your table.  | Restore to a new table from the hot backup, and then re-route requests to the new table.   
   
 ## Hot backups
 
 A _hot backup_ is a production-ready backup that is optimized for speedy recovery, with lower latency when reading from the new table shortly after restoration. Restoring to production performance from a hot backup is faster than restoring from a standard backup.
 
-When you create a hot backup, you can configure the hot-to-standard transition time. The hot backup then automatically transitions to a standard backup after a specific date and time. For more information, see [Create a hot backup](https://docs.cloud.google.com/bigtable/docs/managing-backups#create-hot-backup).
+You can create a hot backup on demand whenever you need one, or configure an automated backup policy to create daily hot backups:
+
+  * **On-demand hot backups** : setting a _hot-to-standard transition time_ is optional. If you don't set a transition time, the backup remains hot until it expires. To automatically transition the backup to a standard backup, you can set a transition time at least 24 hours after the backup creation start time. You can also set or modify this time later. For more information, see [Create a hot backup](https://docs.cloud.google.com/bigtable/docs/managing-backups#create-hot-backup) and [Modify a backup or backup copy](https://docs.cloud.google.com/bigtable/docs/managing-backups#modify).
+  * **Hot automated backups** : setting a _keep-hot duration_ is required. To enable hot automated backups on an SSD instance, you must specify a duration from 24 hours to 10 days, not exceeding the policy's retention period. This setting determines how long each daily backup remains hot before it automatically transitions to a standard backup for the remainder of its retention period. For more information, see [Configure hot automated backups](https://docs.cloud.google.com/bigtable/docs/managing-backups#configure-hot-automated-backups).
+
+
+
+### Keep your latest backup hot
+
+To balance fast disaster recovery with storage costs, you can keep only your most recent backup hot while storing older backups as standard backups:
+
+  * **Daily automated backups** : configure an automated backup policy with a keep-hot duration of 24 hours, or 1 day in the Google Cloud console. Because Bigtable creates an automated backup every 24 hours, each daily backup remains hot until the next daily backup is created, and then automatically transitions to a standard backup for the remainder of its retention period. For instructions, see [Configure hot automated backups](https://docs.cloud.google.com/bigtable/docs/managing-backups#configure-hot-automated-backups).
+  * **On-demand backups** : when you create hot backups on a recurring schedule, set each backup's hot-to-standard transition time to when your next hot backup is scheduled (at least 24 hours after the backup creation start time). When that time is reached, the older backup automatically transitions to a standard backup while your latest backup remains hot. For instructions, see [Create a hot backup](https://docs.cloud.google.com/bigtable/docs/managing-backups#create-hot-backup).
+
+
 
 ### Limitations for hot backups
 
 Hot backups have the following limitations:
 
   * You can convert a hot backup to a standard backup, but you can't convert a standard backup to a hot backup.
-  * You can't create hot backups using automated backup, and you can't create a hot backup on an HDD cluster.
-  * A copy of a hot backup is always a standard backup. As such, the backup copy doesn't have the same efficient restoration to production-level performance and low-latency serving as the hot backup.
+  * You can create on-demand hot backups and configure hot automated backups only for tables in SSD instances. You can't create hot backups in HDD instances.
+  * Bigtable doesn't support hot backups for tables with tiered storage enabled. For more information, see [Tiered storage overview](https://docs.cloud.google.com/bigtable/docs/tiered-storage).
+  * A copy of a hot backup is always a standard backup. The backup copy doesn't have the same fast restoration to production-level performance and low-latency serving as the original hot backup.
 
 
 
@@ -145,7 +162,7 @@ Use the following to work with Bigtable backups:
 
 ## Backup storage
 
-A table backup that you create manually or programmatically is stored on a single cluster that you specify. When automated backup is enabled, Bigtable stores a backup on each cluster in the instance. In the Enterprise Plus edition, you can [select cluster locations where automated backup is enabled](https://docs.cloud.google.com/bigtable/docs/managing-backups#automated-backup-cluster-locations).
+A table backup that you create manually or programmatically is stored on a single cluster that you specify. When automated backup is enabled, Bigtable stores a backup on each cluster in the instance. In Enterprise Plus edition, you can [select cluster locations where automated backup is enabled](https://docs.cloud.google.com/bigtable/docs/managing-backups#automated-backup-cluster-locations).
 
 If your cluster exceeds the recommended limits for CPU or storage utilization when you create a backup, your backup creation might be delayed. For more information, see [Understand CPU and disk usage](https://docs.cloud.google.com/bigtable/docs/monitoring-instance#cpu-and-disk).
 
@@ -173,10 +190,10 @@ Bigtable backups let you retain your data for a specified period. You can config
 
   * The retention period begins from the moment when the backup is created.
   * The default retention period for tables with enabled automated backup is seven days.
-  * You can configure a custom retention period for an automated backup policy of up to 90 days in both Enterprise and Enterprise Plus editions. For individual on-demand backups or when you update a retention period of an existing backup, you can specify up to 90 days in the Enterprise edition or up to 365 days in the Enterprise Plus edition.
+  * You can configure a custom retention period for an automated backup policy of up to 90 days in both Enterprise and Enterprise Plus editions. For individual on-demand backups or when you update a retention period of an existing backup, you can specify up to 90 days in Enterprise edition or up to 365 days in Enterprise Plus edition.
   * If you create a copy of a backup, the maximum retention period for the copy is 30 days from the time the copy is created.
   * When creating a backup, you can specify an _expiration date_ instead of a retention period. An expiration date is an absolute date and time, while a retention period specifies a duration. Both methods result in an expiration time that follows the same rules and limitations.
-  * For hot backups, you can define an independent transition time that determines when the backup ceases to be hot and becomes standard. You can modify this time, but it must be at least 24 hours after you created the backup.
+  * Transitioning a hot backup to a standard backup doesn't change its retention period or expiration time. For on-demand hot backups, setting a hot-to-standard transition time is optional, whereas hot automated backups require a keep-hot duration.
 
 
 
@@ -206,13 +223,15 @@ To store a standard backup or a copy of a backup, you're charged the [standard b
 
 A standard backup is a complete logical copy of a table. Behind the scenes, Bigtable optimizes standard backup storage utilization. This optimization means that a standard backup is incremental — it shares physical storage with the original table or with other backups of the table whenever possible. Because of Bigtable's built-in storage optimizations, the cost to store a standard backup or a copy of a backup might sometimes be less than the cost of a full physical copy of the table backup.
 
-In replicated instances where automated backup is enabled, the storage costs might be higher because a backup is created on each cluster daily. In the Enterprise Plus edition, you can reduce storage costs by enabling automated backups only for clusters in specific locations.
+In replicated instances where automated backup is enabled, the storage costs might be higher because daily backups are created on each cluster. In the Enterprise Plus edition, you can reduce these costs by enabling automated backups only for clusters in specific locations.
 
 #### Hot backup storage costs
 
 To store a hot backup, you're charged the [hot backup storage rate](https://cloud.google.com/skus?filter=Bigtable%20hot%20backup&currency=USD) for the region that the cluster that contains the hot backup is located.
 
 Because a hot backup is stored in a ready state, optimized for quick restoration, you are charged for storage of the entire logical copy of the table, rather than for incremental portions, as you are with a standard backup.
+
+When a hot backup transitions to a standard backup—including when the keep-hot duration of a hot automated backup expires—you're charged the hot backup storage rate while the backup is hot, and the standard backup storage rate after the transition. You aren't charged an additional fee for the transition itself. To check the configured keep-hot duration for a table, see [View automated backup policy](https://docs.cloud.google.com/bigtable/docs/managing-backups#view-auto-policy). For more information about backup storage rates, see [Pricing](https://docs.cloud.google.com/bigtable/pricing#backups).
 
 ### Costs when copying a backup
 
@@ -226,7 +245,7 @@ If you restore to a different instance than where the backup was created, and th
 
 ## CMEK
 
-When you create a backup in a cluster that is protected by a [customer-managed encryption key (CMEK)](https://docs.cloud.google.com/bigtable/docs/cmek), the backup is pinned to the primary version of the cluster's CMEK key at the time it is taken. Once the backup is created, its key and key version cannot be modified, even if the KMS key is rotated.
+When you create a backup in a cluster that is protected by a [customer-managed encryption key (CMEK)](https://docs.cloud.google.com/bigtable/docs/cmek), the backup is pinned to the primary version of the cluster's CMEK key at the time it is taken. Once the backup is created, its key and key version can't be modified, even if the KMS key is rotated.
 
 When you restore from a backup, the key version that the backup is pinned to must be enabled for the backup decryption process to succeed. The new table is protected with the latest primary version of the CMEK key for each cluster in the destination instance. If you want to restore from a CMEK-protected backup to a different instance, the destination instance must be CMEK-protected as well but does not need to have the same CMEK configuration as the source instance.
 
@@ -236,7 +255,7 @@ This section describes additional concepts to understand when backing up and res
 
 ### Replication and backing up
 
-When you take a backup of a table manually in a replicated instance, you choose the cluster where you want to create and store the backup. For tables with automated backup enabled, a daily backup is created on each cluster in the instance. In the Enterprise Plus edition, you can limit the automated backup to clusters only in specific locations.
+When you take a backup of a table manually in a replicated instance, you choose the cluster where you want to create and store the backup. For tables with automated backup enabled, a daily backup is created on each cluster in the instance. In Enterprise Plus edition, you can limit the automated backup to clusters only in specific locations.
 
 You don't have to stop writing to the cluster that contains the backup, but you should understand how Bigtable handles replicated writes to the cluster.
 
@@ -339,8 +358,8 @@ The following limitations apply to Bigtable backups:
 
   * You can't read directly from a backup.
   * A backup is a version of a table in a single cluster at a specific time. Backups don't represent a consistent state. The same also applies to backups of the same table in different clusters.
-  * You cannot back up more than one table in a single operation.
-  * You cannot export, copy, or move a Bigtable backup to another service, such as Cloud Storage.
+  * You can't back up more than one table in a single operation.
+  * You can't export, copy, or move a Bigtable backup to another service, such as Cloud Storage.
   * Bigtable backups contain only Bigtable data and are not integrated with or related to backups for other Google services.
   * You can't create a backup of a view.
 
@@ -379,6 +398,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-28 UTC.
+Last updated 2026-11-06 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-06 UTC."],[],[]] 

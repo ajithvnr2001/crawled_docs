@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/translate/docs/list-supported-languages/
 title: List Supported languages \u00a0|\u00a0 Cloud Translation \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T20:10:04.164866+00:00
+fetched_at: 2026-11-06T10:38:16.466545+00:00
 ---
 
 # List Supported languages  |  Cloud Translation  |  Google Cloud Documentation

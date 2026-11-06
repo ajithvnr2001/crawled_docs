@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/iam/docs/roles-permissions/apigeeregistry/
 title: Apigee Registry roles and permissions \u00a0|\u00a0 Identity and Access Management (IAM) \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T08:00:25.070626+00:00
+fetched_at: 2026-11-06T08:22:52.780798+00:00
 ---
 
 # Apigee Registry roles and permissions  |  Identity and Access Management (IAM)  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sql/docs/mysql/samples/cloud-sql-mysql-mysql-connect-unix/
 title: Create a socket connection when using Node.js \u00a0|\u00a0 Cloud SQL for MySQL \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T08:57:40.651067+00:00
+fetched_at: 2026-11-06T10:30:04.591813+00:00
 ---
 
 # Create a socket connection when using Node.js  |  Cloud SQL for MySQL  |  Google Cloud Documentation

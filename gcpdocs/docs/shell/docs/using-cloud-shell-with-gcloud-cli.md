@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/shell/docs/using-cloud-shell-with-gcloud-cli/
 title: Use Cloud Shell with the gcloud CLI \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T09:14:05.578643+00:00
+fetched_at: 2026-11-06T10:23:22.626595+00:00
 ---
 
 # Use Cloud Shell with the gcloud CLI  |  Google Cloud Documentation
@@ -16,9 +16,9 @@ fetched_at: 2026-10-28T09:14:05.578643+00:00
 
 
 
-Send feedback 
+Send feedback  Stay organized with collections  Save and categorize content based on your preferences. 
 
-#  Use Cloud Shell with the gcloud CLI Stay organized with collections  Save and categorize content based on your preferences. 
+# Use Cloud Shell with the gcloud CLI
 
 If you have the [gcloud CLI installed](https://docs.cloud.google.com/sdk/install), you can interact with Cloud Shell from your terminal and use it as a sandbox and a portable development environment. This provides the convenience of working with Cloud Shell resources, whether to quickly test an operation or use an IDE of your choice to edit a file saved on your Cloud Shell instance from your local desktop.
 
@@ -64,6 +64,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-05 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-05 UTC."],[],[]] 

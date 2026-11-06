@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/vision/docs/samples/vision-face-detection-tutorial-run-application/
 title: Running the app for face detection \u00a0|\u00a0 Cloud Vision API \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T05:48:01.561626+00:00
+fetched_at: 2026-11-06T10:38:12.786637+00:00
 ---
 
 # Running the app for face detection  |  Cloud Vision API  |  Google Cloud Documentation
@@ -39,7 +39,7 @@ To authenticate to Vision, set up Application Default Credentials. For more info
     
     
     /** Annotates an image using the Vision API. */
-    public static void main(String[] args) throws IOException, GeneralSecurityException {
+    public static void main(String[] args) throws IOException {
       if (args.length != 2) {
         System.err.println("Usage:");
         System.err.printf(
@@ -52,12 +52,14 @@ To authenticate to Vision, set up Application Default Credentials. For more info
         System.err.println("outputImagePath must have the file extension 'jpg'.");
         System.exit(1);
       }
+      try (ImageAnnotatorClient client = ImageAnnotatorClient.create()) {
     
-      FaceDetectApp app = new FaceDetectApp(getVisionService());
-      List<FaceAnnotation> faces = app.detectFaces(inputPath, MAX_RESULTS);
-      System.out.printf("Found %d face%s\n", faces.size(), faces.size() == 1 ? "" : "s");
-      System.out.printf("Writing to file %s\n", outputPath);
-      app.writeWithFaces(inputPath, outputPath, faces);
+        FaceDetectApp app = new FaceDetectApp(client);
+        List<FaceAnnotation> faces = app.detectFaces(inputPath, MAX_RESULTS);
+        System.out.printf("Found %d face%s\n", faces.size(), faces.size() == 1 ? "" : "s");
+        System.out.printf("Writing to file %s\n", outputPath);
+        app.writeWithFaces(inputPath, outputPath, faces);
+      }
     }
 
 ### Node.js

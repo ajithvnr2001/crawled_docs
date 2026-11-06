@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/security-command-center/docs/assess-risk/
 title: Assess risk using Risk overview dashboards \u00a0|\u00a0 Security Command Center \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T10:18:20.396313+00:00
+fetched_at: 2026-11-06T10:28:28.520599+00:00
 ---
 
 # Assess risk using Risk overview dashboards  |  Security Command Center  |  Google Cloud Documentation
@@ -131,6 +131,8 @@ Standard, Premium, and Enterprise (Deprecated) [service tiers](https://docs.clou
 
 The **Data** dashboard in the Google Cloud console lets you see how your organization's data aligns with your data security and compliance requirements. For more information, see [Data Security Posture Management overview](https://docs.cloud.google.com/security-command-center/docs/dspm-data-security).
 
+The **Data** dashboard is available only if DSPM was enabled before its deprecation. For more information, see [Deprecations and shut down features](https://docs.cloud.google.com/security-command-center/docs/deprecations).
+
 The dashboard displays the following information:
 
 ###  Standard 
@@ -249,6 +251,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-28 UTC.
+Last updated 2026-11-05 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-05 UTC."],[],[]] 

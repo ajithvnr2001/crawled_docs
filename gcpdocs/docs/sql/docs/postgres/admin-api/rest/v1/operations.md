@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sql/docs/postgres/admin-api/rest/v1/operations/
 title: REST Resource: operations \u00a0|\u00a0 Cloud SQL for PostgreSQL \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-13T23:14:21.775549+00:00
+fetched_at: 2026-11-06T10:28:44.305185+00:00
 ---
 
 # REST Resource: operations  |  Cloud SQL for PostgreSQL  |  Google Cloud Documentation
@@ -47,6 +47,13 @@ Send feedback
   * PreCheckResponse
     * JSON representation
   * MessageType
+  * StartWorkloadCaptureContext
+    * JSON representation
+  * StopWorkloadCaptureContext
+    * JSON representation
+  * StartWorkloadReplayContext
+    * JSON representation
+  * StopWorkloadReplayContext
   * AcquireSsrsLeaseContext
     * JSON representation
   * SqlSubOperationType
@@ -91,6 +98,18 @@ JSON representation
       "preCheckMajorVersionUpgradeContext": {
         object ([PreCheckMajorVersionUpgradeContext](https://docs.cloud.google.com/sql/docs/postgres/admin-api/rest/v1/operations#PreCheckMajorVersionUpgradeContext))
       },
+      "startWorkloadCaptureContext": {
+        object ([StartWorkloadCaptureContext](https://docs.cloud.google.com/sql/docs/postgres/admin-api/rest/v1/operations#StartWorkloadCaptureContext))
+      },
+      "stopWorkloadCaptureContext": {
+        object ([StopWorkloadCaptureContext](https://docs.cloud.google.com/sql/docs/postgres/admin-api/rest/v1/operations#StopWorkloadCaptureContext))
+      },
+      "startWorkloadReplayContext": {
+        object ([StartWorkloadReplayContext](https://docs.cloud.google.com/sql/docs/postgres/admin-api/rest/v1/operations#StartWorkloadReplayContext))
+      },
+      "stopWorkloadReplayContext": {
+        object ([StopWorkloadReplayContext](https://docs.cloud.google.com/sql/docs/postgres/admin-api/rest/v1/operations#StopWorkloadReplayContext))
+      },
       "name": string,
       "targetId": string,
       "selfLink": string,
@@ -119,6 +138,10 @@ Fields
 `exportContext` |  `object (`[ExportContext](https://docs.cloud.google.com/sql/docs/postgres/admin-api/rest/v1/operations#ExportContext)`)` The context for export operation, if applicable.  
 `backupContext` |  `object (`[BackupContext](https://docs.cloud.google.com/sql/docs/postgres/admin-api/rest/v1/operations#BackupContext)`)` The context for backup operation, if applicable.  
 `preCheckMajorVersionUpgradeContext` |  `object (`[PreCheckMajorVersionUpgradeContext](https://docs.cloud.google.com/sql/docs/postgres/admin-api/rest/v1/operations#PreCheckMajorVersionUpgradeContext)`)` This field is only populated when the operationType is PRE_CHECK_MAJOR_VERSION_UPGRADE. The PreCheckMajorVersionUpgradeContext message itself contains the details for that pre-check, such as the target database version for the upgrade and the results of the check (including any warnings or errors found).  
+`startWorkloadCaptureContext` |  `object (`[StartWorkloadCaptureContext](https://docs.cloud.google.com/sql/docs/postgres/admin-api/rest/v1/operations#StartWorkloadCaptureContext)`)` The context for the `StartWorkloadCapture` operation, which contains details to start recording the workload (SQL queries) on a Cloud SQL instance.  
+`stopWorkloadCaptureContext` |  `object (`[StopWorkloadCaptureContext](https://docs.cloud.google.com/sql/docs/postgres/admin-api/rest/v1/operations#StopWorkloadCaptureContext)`)` The context for the `StopWorkloadCapture` operation, which contains details to stop recording the workload (SQL queries) on a Cloud SQL instance.  
+`startWorkloadReplayContext` |  `object (`[StartWorkloadReplayContext](https://docs.cloud.google.com/sql/docs/postgres/admin-api/rest/v1/operations#StartWorkloadReplayContext)`)` The context for the `StartWorkloadReplay` operation, which contains details about starting the execution of a captured workload (recorded read and write SQL queries) on a replay instance (the Cloud SQL instance where the recorded SQL queries are executed).  
+`stopWorkloadReplayContext` |  `object (`[StopWorkloadReplayContext](https://docs.cloud.google.com/sql/docs/postgres/admin-api/rest/v1/operations#StopWorkloadReplayContext)`)` The context for the `StopWorkloadReplay` operation, which contains details about stopping the execution of a captured workload (recorded read and write SQL queries) on a replay instance.  
 `name` |  `string` An identifier that uniquely identifies the operation. You can use this identifier to retrieve the Operations resource that has information about the operation.  
 `targetId` |  `string` Name of the resource on which this operation runs.  
 `selfLink` |  `string` The URI of this resource.  
@@ -249,6 +272,7 @@ Enums
 `CREATE_READ_POOL` | Creates a Cloud SQL read pool instance.  
 `PRE_CHECK_MAJOR_VERSION_UPGRADE` | Pre-checks the major version upgrade operation.  
 `SETUP_MIGRATION` | This operation type represents individual steps in a multi-step setup migration workflow: including configuration, replication, switchover/back, and data reseeding, as defined by operation's intent.  
+`RECONCILE_NETWORKING` | Reconciles network infrastructure (e.g. Private Service Connect, Automated DNS Records).  
   
 ## ImportContext
 
@@ -421,7 +445,7 @@ Fields
 `sqlExportOptions.threads` |  `integer` Optional. The number of threads to use for parallel export.  
 `sqlExportOptions.parallel` |  `boolean` Optional. Whether or not the export should be parallel.  
 `sqlExportOptions.postgresExportOptions` |  `object` Optional. Options for exporting from a Cloud SQL for PostgreSQL instance.  
-`sqlExportOptions.postgresExportOptions.clean` |  `boolean` Optional. Use this option to include DROP  `<object>` SQL statements. Use these statements to delete database objects before running the import operation.  
+`sqlExportOptions.postgresExportOptions.clean` |  `boolean` Optional. Use this option to include DROP `<object>` SQL statements. Use these statements to delete database objects before running the import operation.  
 `sqlExportOptions.postgresExportOptions.ifExists` |  `boolean` Optional. Option to include an IF EXISTS SQL statement with each DROP statement produced by clean.  
 `csvExportOptions` |  `object` Options for exporting data as CSV. `MySQL` and `PostgreSQL` instances only.  
 `csvExportOptions.selectQuery` |  `string` The select query used to extract the data.  
@@ -523,6 +547,66 @@ Enums
 `WARNING` | Warnings that might impact the upgrade but don't block it.  
 `ERROR` | Errors that a user must resolve before proceeding with the upgrade.  
   
+## StartWorkloadCaptureContext
+
+The context for the `StartWorkloadCapture` operation, which contains details to start recording the workload (SQL queries) on a Cloud SQL instance.
+
+JSON representation  
+---  
+      
+    
+    {
+      "enableLiveReplay": boolean,
+      "replayInstance": string
+    }  
+  
+Fields  
+---  
+`enableLiveReplay` |  `boolean` Optional. If true, the captured workload is simultaneously executed on a separate, ephemeral Cloud SQL instance. This "live replay" instance is automatically provisioned and is cloned from the source instance. If false (the default), the workload is only stored and no live replay occurs. It can be replayed later using a separate `StartWorkloadReplayRequest`. Note: The workload capture runs continuously until an explicit `StopWorkloadCaptureRequest` is issued.  
+`replayInstance` |  `string` Optional. Required if `enableLiveReplay` is true. The name of the Cloud SQL instance where the captured workload (SQL queries) is being executed, excluding the project ID (for example, `my-replay-instance`). The instance name must start with a lowercase letter and contain only lowercase letters, numbers, and hyphens. The combined length of `project-ID:instance-name` must be 98 characters or less.  
+  
+## StopWorkloadCaptureContext
+
+The context for the `StopWorkloadCapture` operation, which contains details to stop recording the workload (SQL queries) on a Cloud SQL instance.
+
+JSON representation  
+---  
+      
+    
+    {
+      "abortLiveReplay": boolean
+    }  
+  
+Fields  
+---  
+`abortLiveReplay` |  `boolean` Optional. If true, immediately aborts the concurrent live replay and discards any un-replayed traffic alongside stopping the capture. If false (the default), the capture stops recording new traffic, but the live replay will continue executing until the entire backlog of captured traffic has been replayed.  
+  
+## StartWorkloadReplayContext
+
+The context for the `StartWorkloadReplay` operation, which contains details about starting the execution of a captured workload (recorded read and write SQL queries) on a replay instance (the Cloud SQL instance where the recorded SQL queries are executed).
+
+JSON representation  
+---  
+      
+    
+    {
+      "replayInstance": string,
+      "workloadId": string,
+      "sourceInstance": string
+    }  
+  
+Fields  
+---  
+`replayInstance` |  `string` Required. The name of the Cloud SQL instance where the captured workload (SQL queries) is being executed, excluding the project ID (for example, `my-replay-instance`). The instance name must start with a lowercase letter and contain only lowercase letters, numbers, and hyphens. The combined length of `project-ID:instance-name` must be 98 characters or less.  
+`workloadId` |  `string` Output only. The ID of the workload to start executing on the replay instance. Each workload capture generates a unique ID in the format `workload-<epoch_timestamp>` (for example, `workload-1786046400`). Use this ID to start executing the recorded SQL queries.  
+`sourceInstance` |  `string` Output only. The name of the source Cloud SQL instance where the workload was captured, excluding the project ID (for example, `my-source-instance`).  
+  
+## StopWorkloadReplayContext
+
+This type has no fields.
+
+The context for the `StopWorkloadReplay` operation, which represents an operation that stops an active workload replay on a target Cloud SQL replay instance.
+
 ## AcquireSsrsLeaseContext
 
 Acquire SSRS lease context.
@@ -555,15 +639,17 @@ JSON representation
     
     {
     
-      // Union field sub_operation_details can be only one of the following:
+      // The following is a list of mutually exclusive fields. At most one of the
+      // fields will be set in a response:
       "maintenanceType": enum ([SqlMaintenanceType](https://docs.cloud.google.com/sql/docs/postgres/admin-api/rest/v1/operations#SqlMaintenanceType))
-      // End of list of possible types for union field sub_operation_details.
+      // End of mutually exclusive fields.
     }  
   
 Fields  
 ---  
-Union field `sub_operation_details`. Sub operation details corresponding to the operation type. `sub_operation_details` can be only one of the following:  
+Sub operation details corresponding to the operation type. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:  
 `maintenanceType` |  `enum (`[SqlMaintenanceType](https://docs.cloud.google.com/sql/docs/postgres/admin-api/rest/v1/operations#SqlMaintenanceType)`)` The type of maintenance to be performed on the instance.  
+End of mutually exclusive fields.  
   
 ## SqlMaintenanceType
 
@@ -597,6 +683,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-05-19 UTC.
+Last updated 2026-11-05 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-05-19 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-05 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/python/docs/observability/
 title: Instrumenting Google Cloud Python client libraries \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-01T05:40:47.493697+00:00
+fetched_at: 2026-11-06T11:31:37.772642+00:00
 ---
 
 # Instrumenting Google Cloud Python client libraries  |  Google Cloud Documentation
@@ -182,7 +182,7 @@ The following self-contained example demonstrates configuring standard OpenTelem
     
     
     
-    [get_secret_version_trace.py](https://github.com/GoogleCloudPlatform/python-docs-samples/blob/186be983f8cb38752e10c510a19621e03a23975a/secretmanager/snippets/get_secret_version_trace.py#L19-L73)
+    [get_secret_version_trace.py](https://github.com/GoogleCloudPlatform/python-docs-samples/blob/3ca0b5d7b06e829834d623437c897c352e601b3b/secretmanager/snippets/get_secret_version_trace.py#L19-L73)
 
 ### 2\. Programmatic Configuration (`ClientOptions`)
 
@@ -237,7 +237,7 @@ If you prefer not to use environment variables or need to pass different `Tracer
     
     
     
-    [get_secret_version_trace_client_options.py](https://github.com/GoogleCloudPlatform/python-docs-samples/blob/186be983f8cb38752e10c510a19621e03a23975a/secretmanager/snippets/get_secret_version_trace_client_options.py#L19-L65)
+    [get_secret_version_trace_client_options.py](https://github.com/GoogleCloudPlatform/python-docs-samples/blob/3ca0b5d7b06e829834d623437c897c352e601b3b/secretmanager/snippets/get_secret_version_trace_client_options.py#L19-L65)
 
 ### 3\. Asynchronous Client Example (`SecretManagerServiceAsyncClient`)
 
@@ -301,7 +301,7 @@ The following sample defines an asynchronous coroutine (`async def get_secret_ve
     
     
     
-    [get_secret_version_trace_async.py](https://github.com/GoogleCloudPlatform/python-docs-samples/blob/186be983f8cb38752e10c510a19621e03a23975a/secretmanager/snippets/get_secret_version_trace_async.py#L19-L74)
+    [get_secret_version_trace_async.py](https://github.com/GoogleCloudPlatform/python-docs-samples/blob/3ca0b5d7b06e829834d623437c897c352e601b3b/secretmanager/snippets/get_secret_version_trace_async.py#L19-L74)
 
 **Context Propagation in Asynchronous Code:** OpenTelemetry Python automatically propagates trace context across `await` points and concurrent tasks using Python's built-in `contextvars`. Even when multiple coroutines yield and resume execution concurrently, each client call correctly preserves its active parent span and trace context.
 

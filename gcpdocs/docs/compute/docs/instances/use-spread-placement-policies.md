@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/compute/docs/instances/use-spread-placement-policies/
 title: Create and apply spread placement policies to VMs \u00a0|\u00a0 Compute Engine \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T23:05:00.134282+00:00
+fetched_at: 2026-11-06T10:29:54.131776+00:00
 ---
 
 # Create and apply spread placement policies to VMs  |  Compute Engine  |  Google Cloud Documentation
@@ -176,7 +176,7 @@ Before applying a spread placement policy to an existing VM, consider the follow
 
 
 
-If you want to specify the availability domain in which to place your VM, then apply the placement policy to the VM by [updating its properties](https://docs.cloud.google.com/compute/docs/instances/update-instance-properties). When updating the VM's properties, make sure to include the `resourcePolicies` and `scheduling.availabilityDomain` fields.
+If you want to specify the availability domain in which to place your VM, then [update the VM properties](https://docs.cloud.google.com/compute/docs/instances/update-instance-properties#updatable-properties) to apply the placement policy to the VM. In your update request, include the `resourcePolicies` and `scheduling.availabilityDomain` fields, and specify `REFRESH` as the most disruptive allowed action. If you later change the `scheduling.availabilityDomain` field for a VM that already has a spread placement policy attached, then you must specify `RESTART` as the most disruptive allowed action.
 
 To apply a spread placement policy to an existing VM, select one of the following options:
 
@@ -709,6 +709,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-05 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-05 UTC."],[],[]] 

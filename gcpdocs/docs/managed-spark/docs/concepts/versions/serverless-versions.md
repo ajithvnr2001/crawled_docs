@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/managed-spark/docs/concepts/versions/serverless-versions/
 title: Managed Service for Apache Spark serverless runtime versions \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T05:52:23.338214+00:00
+fetched_at: 2026-11-06T11:10:40.720068+00:00
 ---
 
 # Managed Service for Apache Spark serverless runtime versions  |  Google Cloud Documentation
@@ -54,9 +54,9 @@ This section describes how Managed Service for Apache Spark runtime versions all
 Version | Last updated | Released on | Supported until | Available until | Notes  
 ---|---|---|---|---|---  
 [Spark runtime 3.0](https://docs.cloud.google.com/managed-spark/docs/concepts/versions/spark-runtime-3.0) | [2026/08/25](https://docs.cloud.google.com/managed-spark/docs/release-notes#August_25_2026) | [2025/12/04](https://docs.cloud.google.com/dataproc/docs/release-notes#December_04_2025) | 2027/01/31 | 2029/01/31 | General Availability release  
-[Spark runtime 2.3 LTS](https://docs.cloud.google.com/managed-spark/docs/concepts/versions/spark-runtime-2.3) | [2026/09/23](https://docs.cloud.google.com/managed-spark/docs/release-notes#September_23_2026) | [2025/05/28](https://docs.cloud.google.com/dataproc/docs/release-notes#May_28_2025) | 2027/11/26 | 2029/11/26 | General Availability release  
-[Spark runtime 2.2 LTS](https://docs.cloud.google.com/managed-spark/docs/concepts/versions/spark-runtime-2.2) | [2026/09/23](https://docs.cloud.google.com/managed-spark/docs/release-notes#September_23_2026) | [2024/03/27](https://docs.cloud.google.com/dataproc/docs/release-notes#December_06_2023) | 2027/03/31 | 2029/03/31 | General Availability release. This is the **default version**.  
-[Spark runtime 1.2 LTS](https://docs.cloud.google.com/managed-spark/docs/concepts/versions/spark-runtime-1.2) | [2026/09/23](https://docs.cloud.google.com/managed-spark/docs/release-notes#September_23_2026) | [2024/03/27](https://docs.cloud.google.com/dataproc/docs/release-notes#March_20_2024) | 2027/03/31 | 2029/03/31 | General Availability release  
+[Spark runtime 2.3 LTS](https://docs.cloud.google.com/managed-spark/docs/concepts/versions/spark-runtime-2.3) | [2026/11/02](https://docs.cloud.google.com/managed-spark/docs/release-notes#November_02_2026) | [2025/05/28](https://docs.cloud.google.com/dataproc/docs/release-notes#May_28_2025) | 2027/11/26 | 2029/11/26 | General Availability release  
+[Spark runtime 2.2 LTS](https://docs.cloud.google.com/managed-spark/docs/concepts/versions/spark-runtime-2.2) | [2026/11/02](https://docs.cloud.google.com/managed-spark/docs/release-notes#November_02_2026) | [2024/03/27](https://docs.cloud.google.com/dataproc/docs/release-notes#December_06_2023) | 2027/03/31 | 2029/03/31 | General Availability release. This is the **default version**.  
+[Spark runtime 1.2 LTS](https://docs.cloud.google.com/managed-spark/docs/concepts/versions/spark-runtime-1.2) | [2026/11/02](https://docs.cloud.google.com/managed-spark/docs/release-notes#November_02_2026) | [2024/03/27](https://docs.cloud.google.com/dataproc/docs/release-notes#March_20_2024) | 2027/03/31 | 2029/03/31 | General Availability release  
   
 ### How to choose a Managed Service for Apache Spark runtime version
 
@@ -103,6 +103,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-30 UTC.
+Last updated 2026-11-06 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-06 UTC."],[],[]] 

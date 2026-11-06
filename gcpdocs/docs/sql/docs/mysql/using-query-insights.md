@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sql/docs/mysql/using-query-insights/
 title: Use query insights to improve query performance \u00a0|\u00a0 Cloud SQL for MySQL \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-05T00:20:39.558001+00:00
+fetched_at: 2026-11-06T10:24:45.079518+00:00
 ---
 
 # Use query insights to improve query performance  |  Cloud SQL for MySQL  |  Google Cloud Documentation

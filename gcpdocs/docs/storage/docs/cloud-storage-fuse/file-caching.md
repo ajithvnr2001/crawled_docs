@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/storage/docs/cloud-storage-fuse/file-caching/
 title: File caching in Cloud Storage FUSE \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-03T09:41:55.004207+00:00
+fetched_at: 2026-11-06T10:31:50.631496+00:00
 ---
 
 # File caching in Cloud Storage FUSE  |  Google Cloud Documentation

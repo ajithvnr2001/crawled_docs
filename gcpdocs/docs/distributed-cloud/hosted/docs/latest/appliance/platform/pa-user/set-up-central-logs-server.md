@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/appliance/platform/pa-user/set-up-central-logs-server/
 title: Set up central logs server \u00a0|\u00a0 Google Distributed Cloud Hosted Appliance \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T22:05:30.689319+00:00
+fetched_at: 2026-11-06T10:42:04.110998+00:00
 ---
 
 # Set up central logs server  |  Google Distributed Cloud Hosted Appliance  |  Google Cloud Documentation
@@ -23,15 +23,9 @@ Send feedback
 
 #  Set up central logs server Stay organized with collections  Save and categorize content based on your preferences. 
 
-This page describes how to set up a central logs server for Google Distributed Cloud (GDC) air-gapped appliance devices through the Google Distributed Cloud air-gapped data center organization.
+A central logs server lets you aggregate, store, and query logs from Google Distributed Cloud (GDC) air-gapped appliance devices in a single location through a Google Distributed Cloud air-gapped data center organization.
 
-To create a central logging location, the GDC appliance must have the following components in the GDC data center organization:
-
-  * unique project
-  * bucket for the audit logs 
-  * bucket for operational logs
-
-
+To establish this central logging environment, you create a dedicated project and separate destination buckets for audit and operational logs in the data center organization. After you export logs from the GDC appliance to those buckets, you configure Loki and Grafana data sources in the data center organization to view the exported logs.
 
 ## Create a project
 
@@ -598,6 +592,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-05 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-05 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/dialogflow/cx/docs/concept/playbook/parameter/
 title: Playbook parameters \u00a0|\u00a0 Dialogflow CX \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T05:47:38.830540+00:00
+fetched_at: 2026-11-06T13:12:17.077438+00:00
 ---
 
 # Playbook parameters  |  Dialogflow CX  |  Google Cloud Documentation
@@ -60,7 +60,7 @@ Create examples to control how playbooks determine the value for each output par
 
 **Note:** Because a task playbook can't call a routine playbook, that parameter passing scenario isn't described in the following sections.
 
-Playbooks, unlike flows, **don't** support injecting parameter values with a particular syntax. Instead, playbooks rely on instructions and [few-shot prompt examples](https://docs.cloud.google.com/vertex-ai/docs/generative-ai/learn/introduction-prompt-design#include-examples) to determine how parameter values should be used and decided.
+Playbooks, unlike flows, **do not** support injecting parameter values with a particular syntax. Instead, playbooks rely on instructions and [Agentic AI prompt engineering](https://docs.cloud.google.com/gemini/docs/discover/engineer-agentic-prompts) to determine how parameter values should be used and how values should be decided when specifying parameter values.
 
 ### Routine playbook to flow
 
@@ -151,7 +151,7 @@ For example, the `Ticket ordering` playbook can include the following instructio
     - Use parameter event_id to send a buy_tickets request with ${TOOL: Ticket sales API}
     
 
-With the described examples and instructions present, the `Event selection` playbook correctly decides an `event_id` based on the user's selection and passes it as an input parameter named `event_id` to the `Ticket ordering` playbook. Then, `Ticket ordering` passes the same `event_id` in the body of a request to the `Ticket sales API`. Playbooks depend on examples with distinct parameter values to help them infer how parameters are used.
+With the described examples and instructions present, the `Event selection` playbook correctly decides an `event_id` based on the user's selection, and passes it as an input parameter named `event_id` to the `Ticket ordering playbook`. Then, `Ticket ordering` passes the same `event_id` in the body of a request to the `Ticket sales API`. Playbooks depend on examples with distinct parameter values to help them infer how parameters should be used.
 
 [ Previous arrow_back  Playbook examples  ](https://docs.cloud.google.com/dialogflow/cx/docs/concept/playbook/example)
 
@@ -161,6 +161,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-30 UTC.
+Last updated 2026-11-05 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-05 UTC."],[],[]] 

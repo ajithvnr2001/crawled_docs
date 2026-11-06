@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chronicle/docs/event-processing/parsers-using-ai/
 title: Create custom parsers and parser extensions with Gemini \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T10:01:26.169158+00:00
+fetched_at: 2026-11-06T10:21:39.177583+00:00
 ---
 
 # Create custom parsers and parser extensions with Gemini  |  Google Security Operations  |  Google Cloud Documentation
@@ -13,6 +13,7 @@ fetched_at: 2026-10-29T10:01:26.169158+00:00
   * [ Documentation ](https://docs.cloud.google.com/docs)
   * [ Security ](https://docs.cloud.google.com/docs/security)
   * [ Google Security Operations ](https://docs.cloud.google.com/chronicle/docs)
+  * [ Guides ](https://docs.cloud.google.com/chronicle/docs/secops/secops-overview)
 
 
 
@@ -50,7 +51,7 @@ Input | Log type, ingested raw logs, and optional documentation links | Log type
 
 ## Before you begin
 
-Before you use AI Parsing, confirm that the following prerequisites are met:
+Before using AI Parsing, make sure that you meet the following prerequisites:
 
   * Confirm that AI Parsing capabilities are enabled for your Google SecOps instance. If you don't see the **Create Parser with AI** or **Write Extension with AI** options, contact your Google SecOps representative.
   * For AI parser extensions, verify that the target log type already has an active prebuilt or custom parser, and prepare a sample raw log to test your extraction.
@@ -144,7 +145,7 @@ Follow these guidelines to craft effective refinement prompts:
 
   1. State both the raw source field (or a sample value from the log) and the exact target UDM field path.
   2. Group related changes together, and avoid mixing unrelated fixes in a single long prompt.
-  3. Enclose exact strings from the raw log in single quotation marks, such as `'NXDOMAIN'` or `'allow'`.
+  3. Enclose exact strings from the raw log with single quotation marks, such as `'NXDOMAIN'` or `'allow'`.
   4. State conditional mappings explicitly using an `if ... then ... otherwise ...` structure when a mapping depends on a field value.
   5. Instruct the agent to map vendor-specific attributes that don't have a matching UDM field to `additional.fields` with a clear key name.
 
@@ -195,13 +196,27 @@ When a default log parser in Google SecOps parses your log source, it might omit
 
 
 
-### Best practices for crafting prompts
+## Key terminology
+
+  * Unified Data Model (UDM): The standard data structure used in Google SecOps to store and analyze log data.
+
+
+
+## Before you begin
+
+Before you begin, confirm the following prerequisites are met:
+
+  * **Usage quotas:** You can run a maximum of 10 AI Parser Extension generation sessions per 24-hour window, with up to 5 messages per session.
+
+
+
+## Best practices for crafting prompts
 
 To get accurate parser extensions, follow these prompting guidelines:
 
-  1. Clearly state which part of the raw log to extract and which exact UDM field path it populates (for example, `principal.ip`, `target.user.email_addresses`, or `security_result.action`).
-  2. Enclose literal strings, delimiters, or sample values in unstructured logs in single quotation marks, such as `'198.51.100.0'` or `'allow'`.
-  3. Instruct the AI to map proprietary or vendor-specific attributes that don't have a dedicated UDM field into `additional.fields` with a clear key name (for example, `additional.fields["application"]`).
+  1. **Specify source and target explicitly:** Clearly state which part of the raw log to extract and which exact UDM field path it populates, for example, `principal.ip`, `target.user.email_addresses`, or `security_result.action`.
+  2. **Use quotes for exact match literals:** When referring to literal strings, delimiters, or sample values in unstructured logs, enclose them in quotation marks, for example, `"198.51.100.0"` or `"allow"`.
+  3. **Handle custom fields by using`additional.fields`:** For proprietary or vendor-specific attributes that don't have a dedicated UDM field, instruct the AI to map them into `additional.fields` with a clear key name, for example, `additional.fields["application"]`.
 
 
 
@@ -209,19 +224,19 @@ To get accurate parser extensions, follow these prompting guidelines:
 
 You can start the parser extension workflow from either of the following locations in Google SecOps:
 
-  * Go to **SIEM Settings > Parsers** to select and extend any existing log parser.
-  * Open the extension creation flow directly from an event with unparsed fields when investigating logs on the **Search** page.
+  * **Parsers settings page:** Go to the **Parsers** page to select and extend any existing log parser.
+  * **Search page:** When investigating logs on the **Search** page, open the extension creation flow directly from an event with unparsed fields.
 
 
 
 To generate a parser extension from the **Parsers** page, follow these steps:
 
-  1. In Google SecOps, go to **SIEM Settings > Parsers**.
-  2. Search the **Parsers** table for the log type that you want to extend.
-  3. In the row for the parser, click more_vert **Menu** and select **Extend Parser > Create Extension**.
-  4. In the **Raw Log** pane, verify the sample raw log or click edit **Edit** to paste a sample of the log that you want to parse.
-  5. In the **Extension** pane, under **Extension Method** , select **Write Extension with AI**.
-  6. In the prompt field, enter a plain-English description of the fields that you want to extract.
+  1. In Google SecOps, navigate to the **Parsers** settings page.
+  2. Search for the log type you want to extend.
+  3. Click the menu next to the parser and select the option to extend it.
+  4. In the **RAW LOG** field, paste a sample of the log you want to parse.
+  5. In the **Extension Method** section, select the **Generate with AI** tab.
+  6. In the prompt field, enter a plain English description of the extraction.
   7. Click **Confirm**.
 
 The system generates the extension code and updates the **UDM Output** pane.
@@ -233,25 +248,25 @@ The system generates the extension code and updates the **UDM Output** pane.
 
 You can build and refine your parser extension iteratively across multi-turn chat sessions. When you submit a follow-up prompt, the AI applies your new instructions on top of the previously generated extension. Existing mappings and conditional logic from earlier turns are preserved automatically unless you explicitly ask to override or remove them.
 
-**Note:** Sessions don't persist after you leave the page. To avoid losing your work, complete or save your extension before navigating away.
+**Note:** Sessions don't persist after you leave the page. To avoid losing your work, complete or save your extension before you leave the page.
 
   1. In the prompt field, enter a follow-up instruction to adjust the generated code.
   2. Click **Confirm**.
   3. After each prompt, preview the generated extension code, inspect sample UDM outputs, and confirm or adjust the logic.
 
-**Note:** If you need to correct a mistake from a previous turn, state what to change in plain English, for example, `"Change the target field for callerIp from target.ip to principal.ip"`.
+**Note:** To correct a mistake from a previous turn, state what to change in plain English, for example, `"Change the target field for callerIp from target.ip to principal.ip"`.
 
 The following example workflow shows how iterative refinement builds a parser extension across multiple turns:
 
-  1. **Turn 1 (initial extraction):**
-     * **User prompt:** `"Extract source IP '198.51.100.0' to principal.ip and destination IP '198.51.100.1' to target.ip."`
-     * **Result:** The AI generates an extension mapping `principal.ip` and `target.ip`.
-  2. **Turn 2 (additive mapping):**
-     * **User prompt:** `"Also map virtual system string 'vsys1' to observer.administrative_domain."`
-     * **Result:** The AI updates the extension to map `observer.administrative_domain` while maintaining the IP mappings from turn 1.
-  3. **Turn 3 (conditional refinement):**
-     * **User prompt:** `"In addition, map action string 'allow' to security_result[0].action as ALLOW."`
-     * **Result:** The AI incorporates the conditional action enumeration mapping on top of all previous extractions.
+  1. **Turn 1 (initial extraction)** : 
+     * **User prompt** : "Extract source IP '198.51.100.0' to principal.ip and destination IP '198.51.100.1' to target.ip."
+     * **Result** : The AI generates an extension mapping `principal.ip` and `target.ip`.
+  2. **Turn 2 (additive mapping)** : 
+     * **User prompt** : "Also map virtual system string `vsys1` to `observer.administrative_domain`."
+     * **Result** : The AI updates the extension to map `observer.administrative_domain` while maintaining the IP mappings from turn 1.
+  3. **Turn 3 (conditional refinement)** : 
+     * **User prompt** : "In addition, map action string `allow` to `security_result[0].action` as ALLOW."
+     * **Result** : The AI incorporates the conditional action enumeration mapping on top of all previous extractions.
 
 
 
@@ -270,7 +285,7 @@ Use the following examples to craft accurate prompts for parser extensions.
 
 For structured logs where data is organized into named keys, attributes, or XML tags, specify the field names or paths in your prompt.
 
-##### Sample structured log - JSON format
+##### Sample JSON log
     
     
     {
@@ -323,9 +338,9 @@ Prompt instruction | Sample literal value or description | Target UDM field
 
 Describe conditional logic to normalize raw log values to specific UDM enumerations.
 
-  * **Enumeration normalization:** `"If the firewall action in the log is 'allow', set security_result.action to ALLOW; otherwise set security_result.action to BLOCK."`
-  * **Conditional field mapping:** `"If the protocol is 'icmp', map the ICMP type and code into network.icmp.type and network.icmp.code."`
-  * **Status mapping:** `"When the log status contains 'success' or '0', set security_result.severity to INFO; if it contains 'error', set it to ERROR."`
+  * **Enumeration normalization** : `"If the firewall action in the log is 'allow', set security_result.action to ALLOW; otherwise set security_result.action to BLOCK."`
+  * **Conditional field mapping** : `"If the protocol is 'icmp', map the ICMP type and code into network.icmp.type and network.icmp.code."`
+  * **Status mapping** : `"When the log status contains 'success' or '0', set security_result.severity to INFO; if it contains 'error', set it to ERROR."`
 
 
 
@@ -333,10 +348,8 @@ Describe conditional logic to normalize raw log values to specific UDM enumerati
 
 To maintain optimal performance and resource availability, AI Parsing capabilities enforce the following default usage quotas:
 
-  * You can start up to 10 AI custom parser generation or AI parser extension sessions per instance in a rolling 24-hour window. For custom parsers, each click of **Generate Parser** for a new parser starts a session.
-  * Each session enforces the following interaction limits: 
-    * For AI custom parser generation, each session supports up to 6 turns in total, which includes the initial generation plus up to 5 refinement prompts.
-    * For AI parser extensions, each session supports up to 5 messages in total, which includes your initial prompt and subsequent refinement turns.
+  * Each customer is allotted a **maximum of 10 AI Parser Extension generation sessions per 24-hour window**.
+  * Within a single session, you can only send up to 5 messages, including your initial prompt and subsequent refinement turns, to craft and refine your parser extension.
 
 
 
@@ -344,8 +357,7 @@ If you reach the turn or message limit for a session, you can submit or save you
 
 ## What's next
 
-  * For more information about creating and managing custom parsers, see [Configure custom parsers](https://docs.cloud.google.com/chronicle/docs/event-processing/configure-custom-parsers).
-  * For more details on other parser extension methods, see [Develop parser extensions](https://docs.cloud.google.com/chronicle/docs/event-processing/using-parser-extensions).
+  * For more information about other parser extension methods, see [Develop parser extensions](https://docs.cloud.google.com/chronicle/docs/event-processing/using-parser-extensions).
   * For sample extension snippets and scenarios, see [Parser extension examples](https://docs.cloud.google.com/chronicle/docs/event-processing/parser-extension-examples).
   * For an overview of how raw logs are parsed to UDM, see [Overview of log parsing](https://docs.cloud.google.com/chronicle/docs/event-processing/parsing-overview).
 
@@ -357,6 +369,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-28 UTC.
+Last updated 2026-11-05 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-05 UTC."],[],[]] 

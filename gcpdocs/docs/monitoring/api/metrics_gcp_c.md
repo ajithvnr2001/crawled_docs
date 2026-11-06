@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/monitoring/api/metrics_gcp_c/
 title: Google Cloud metrics: API prefix is C \u00a0|\u00a0 Cloud Monitoring \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-05T10:29:34.167984+00:00
+fetched_at: 2026-11-06T10:19:27.594097+00:00
 ---
 
 # Google Cloud metrics: API prefix is C  |  Cloud Monitoring  |  Google Cloud Documentation
@@ -54,7 +54,7 @@ To chart or monitor metric types with values of type `STRING`, you must use Moni
 
 Metrics from [Google Cloud](https://docs.cloud.google.com/docs).
 
-The following list was last generated at 2026-10-29 23:33:54 UTC. For more information about this process, see [ About the lists](https://docs.cloud.google.com/monitoring/api/metrics#generated).
+The following list was last generated at 2026-11-05 18:04:57 UTC. For more information about this process, see [ About the lists](https://docs.cloud.google.com/monitoring/api/metrics#generated).
 
 ### certificatemanager
 
@@ -449,6 +449,65 @@ Native Workspace Health Status
 `GAUGE`, `INT64`, `1`   
 **[chronicle.googleapis.com/Collector](https://docs.cloud.google.com/monitoring/api/resources#tag_chronicle.googleapis.com/Collector)** |  _The status of the Native Workspace ingestion source. State value describes the type of status for unhealthy sources. Sampled every 60 seconds. After sampling, data is not visible for up to 720 seconds._   
 `state`: Indicates the health of the Native Workspace ingestion.   
+  
+### claude
+
+Metrics from [Claude](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/claude). Launch stages of these metrics: BETA
+
+The "metric type" strings in this table must be prefixed with `claude.googleapis.com/`. That prefix has been omitted from the entries in the table. When querying a label, use the `metric.labels.` prefix; for example, `metric.labels.LABEL="VALUE"`. 
+
+Metric type Launch stage  _(Resource hierarchy levels)_  
+Display name  
+---  
+Kind, Type, Unit  
+Monitored resources | _Description_  
+Labels  
+`message/first_token_latencies` BETA ** _(project)_**   
+First token latencies (TTFT)   
+`DELTA`, `DISTRIBUTION`, `ms`   
+**[claude.googleapis.com/Workspace](https://docs.cloud.google.com/monitoring/api/resources#tag_claude.googleapis.com/Workspace)** |  _Duration from request received to first token sent back to the client through the message route._   
+`model`: The ID of the model, including its version.   
+`message/model_invocation_count` BETA ** _(project)_**   
+Model Invocation Count   
+`DELTA`, `INT64`, `1`   
+**[claude.googleapis.com/Workspace](https://docs.cloud.google.com/monitoring/api/resources#tag_claude.googleapis.com/Workspace)** |  _Number of model invocations through the message route._   
+`model`: The ID of the model, including its version.   
+`response_code`: HTTP response code (e.g., 200, 404, 500).   
+`message/per_token_latencies` BETA ** _(project)_**   
+Per token latencies (TPOT)   
+`DELTA`, `DISTRIBUTION`, `ms`   
+**[claude.googleapis.com/Workspace](https://docs.cloud.google.com/monitoring/api/resources#tag_claude.googleapis.com/Workspace)** |  _Distribution of time per output token (TPOT) through the message route._   
+`model`: The ID of the model, including its version.   
+`message/token_count` BETA ** _(project)_**   
+Message Token Count   
+`DELTA`, `INT64`, `1`   
+**[claude.googleapis.com/Workspace](https://docs.cloud.google.com/monitoring/api/resources#tag_claude.googleapis.com/Workspace)** |  _Number of tokens processed for model invocations through the message route._   
+`token_type`: Type of token: uncached_input, cache_read_input, cache_write_input_5m, cache_write_input_1h, or output.   
+`model`: The ID of the model, including its version.   
+`message/web_search_request_count` BETA ** _(project)_**   
+Web Search Request Count   
+`DELTA`, `INT64`, `1`   
+**[claude.googleapis.com/Workspace](https://docs.cloud.google.com/monitoring/api/resources#tag_claude.googleapis.com/Workspace)** |  _Number of web search tool requests for model invocations through the message route._   
+`model`: The ID of the model, including its version.   
+`message_batch/token_count` BETA ** _(project)_**   
+Message Batch Token Count   
+`DELTA`, `INT64`, `1`   
+**[claude.googleapis.com/Workspace](https://docs.cloud.google.com/monitoring/api/resources#tag_claude.googleapis.com/Workspace)** |  _Number of tokens processed for message batch requests, reported asynchronously._   
+`token_type`: Type of token: uncached_input, cache_read_input, cache_write_input_5m, cache_write_input_1h, or output.   
+`model`: The ID of the model, including its version.   
+`request_count` BETA ** _(project)_**   
+Request Count   
+`DELTA`, `INT64`, `1`   
+**[claude.googleapis.com/Workspace](https://docs.cloud.google.com/monitoring/api/resources#tag_claude.googleapis.com/Workspace)** |  _Total number of requests to the Workspace._   
+`request_path`: The proxied API path (e.g., v1/messages, v1/files).   
+`http_method`: The proxied HTTP method (e.g., GET, POST).   
+`response_code`: HTTP response code (e.g., 200, 404, 500).   
+`session/token_count` BETA ** _(project)_**   
+Session Token Count   
+`DELTA`, `INT64`, `1`   
+**[claude.googleapis.com/Workspace](https://docs.cloud.google.com/monitoring/api/resources#tag_claude.googleapis.com/Workspace)** |  _Number of tokens processed for sessions, reported asynchronously._   
+`token_type`: Type of token: uncached_input, cache_read_input, cache_write_input_5m, cache_write_input_1h, or output.   
+`model`: The ID of the model, including its version.   
   
 ### cloudaicompanion
 
@@ -3956,8 +4015,8 @@ NVSwitch Port Xmit Wait
 `reservation_id`: The reservation ID.   
 `nvswitch_id`: The obfuscated NVSwitch ID to which machine is connected to.   
 `nvswitch_port_id`: The access link port_id on the nvswitch to which machine is connected to.   
-`instance/gpu/nvswitch_status` BETA ** _(project)_**   
-NV Switch Status   
+`instance/gpu/nvswitch_status` DEPRECATED ** _(project)_**   
+NV Switch Status (Deprecated)   
 `GAUGE`, `INT64`, `1`   
 **[gce_instance](https://docs.cloud.google.com/monitoring/api/resources#tag_gce_instance)** |  _This metric represents the health of an individual NV Switch on the host as a string. If a machine has multiple NV Switches attached, the metric provides each NV Switch health status on the host. The possible values for this metric are provided by NVIDIA BMC. This metric is available for all GPU VM machine types starting with A3 mega, A3 edge, A3 high and all future GPU VM families. Sampled every 60 seconds. After sampling, data is not visible for up to 540 seconds._   
 `nvswitch_id`: (INT64) The ID of the NV Switches used on the host.   
@@ -6777,12 +6836,12 @@ Number of pods in GKE Standard cluster. quota usage
 **[container.googleapis.com/Cluster](https://docs.cloud.google.com/monitoring/api/resources#tag_container.googleapis.com/Cluster)** |  _Current usage on quota metric container.googleapis.com/quota/pods_per_cluster_standard. After sampling, data is not visible for up to 150 seconds._   
 `limit_name`: The limit name.   
   
-Generated at 2026-10-29 23:33:54 UTC.
+Generated at 2026-11-05 18:04:57 UTC.
 
 Send feedback 
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-02 UTC.
+Last updated 2026-11-05 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-02 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-05 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/docs/choose-machine-type/
 title: Choose an AlloyDB machine type \u00a0|\u00a0 AlloyDB for PostgreSQL \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-05T00:18:22.232321+00:00
+fetched_at: 2026-11-06T09:07:30.251667+00:00
 ---
 
 # Choose an AlloyDB machine type  |  AlloyDB for PostgreSQL  |  Google Cloud Documentation
@@ -490,9 +490,56 @@ N2 | C4A | C4 | Z3
 ✅ |   
 –  
   
+## Best practices for capacity planning and resource availability
+
+Creating, starting, or scaling an AlloyDB instance provisions underlying Compute Engine virtual machines (VMs) in the target region and zone. Even when your project has sufficient [resource quota](https://docs.cloud.google.com/alloydb/quotas#resource-quotas), an operation can fail if the selected region or zone temporarily lacks physical hardware capacity for a specific machine series or shape.
+
+To reduce the likelihood of encountering temporary resource constraints and maintain workload continuity, follow these capacity planning best practices.
+
+### Design for machine series and shape flexibility
+
+  * **Evaluate multiple supported machine series** : Different machine series (`N2`, `C4A`, `C4`, and `Z3`) and vCPU configurations draw from distinct underlying hardware pools. If a specific machine type is temporarily unavailable in your region (for example, `N2`), try provisioning a comparable vCPU shape in another supported machine series, such as an Axion-based `C4A`, `C4`, or `Z3` machine type.
+
+  * **Use cross-machine-series configurations for read pools** : Because AlloyDB supports cross-machine-series configurations, you can configure primary and read pool instances on different machine series. If a read pool instance encounters resource constraints on one machine series, you can [change the read pool's machine type](https://docs.cloud.google.com/alloydb/docs/instance-read-pool-scale#scale-instance-machine-type) to another supported machine series with a comparable vCPU count without modifying or restarting the primary instance.
+
+  * **Distribute read capacity across multiple read pools** : If your workload requires substantial read capacity and a single large machine shape is constrained, you can deploy multiple read pool instances or use smaller node shapes with additional nodes to distribute read traffic across hardware pools.
+
+
+
+
+### Design for regional flexibility
+
+  * **Select an alternative region for new clusters** : If a region experiences persistent resource constraints for your required configuration, consider deploying new clusters in another region that meets your latency and data residency requirements. Review Machine series regional deployments to verify which machine series are supported in each region. If your client applications or dependent services remain in the original region, connecting across regions can increase network latency and incur inter-region data transfer charges. For more information, see [AlloyDB pricing](https://cloud.google.com/alloydb/pricing).
+
+  * **Configure cross-region replication for regional resilience** : For critical workloads, configure [cross-region replication](https://docs.cloud.google.com/alloydb/docs/cross-region-replication/about-cross-region-replication) with a secondary cluster in another region. If the secondary region has temporary constraints on the primary cluster's machine series, you can configure the secondary cluster's instance on a different supported machine series. Before you [promote or switch over](https://docs.cloud.google.com/alloydb/docs/cross-region-replication/work-with-cross-region-replication#switchover-secondary) to a secondary cluster, verify that the secondary instance has sufficient vCPU and memory capacity to serve your production workload without requiring an immediate scaling operation.
+
+
+
+
+### Retry operations after temporary resource constraints
+
+  * **Retry failed requests with backoff** : Cloud hardware capacity changes dynamically as other workloads release resources. If a cluster or instance creation, start, or scaling request fails because a location lacks available resources, wait and retry the request. In automated provisioning workflows, implement retries with exponential backoff before changing your target machine type or region.
+
+  * **Retry interrupted maintenance updates** : If temporary resource constraints in a zone interrupt a scheduled maintenance update, you can retry the update when capacity becomes available by using [self-service maintenance](https://docs.cloud.google.com/alloydb/docs/self-service-maintenance).
+
+
+
+
+### Plan capacity proactively
+
+  * **Scale during off-peak hours** : Schedule manual instance creation and vertical scaling operations during periods of low workload traffic and lower regional demand.
+
+  * **Use schedule-based read pool autoscaling** : Configure [read pool autoscaling](https://docs.cloud.google.com/alloydb/docs/instance-read-pool-scale#autoscale-read-pool) with schedule-based policies to scale out read pool nodes ahead of predictable peak traffic windows. Scaling ahead of peak demand gives you time to implement other strategies, such as switching to another supported machine series, if the scaling operation encounters temporary resource constraints.
+
+  * **Account for how AlloyDB manages infrastructure** : Because AlloyDB provisions VMs in Google-managed tenant projects, Compute Engine reservations don't apply to AlloyDB instances, and AlloyDB automatically selects zones within your chosen region rather than letting you pin instances or nodes to specific zones. Use [sizing recommendations](https://docs.cloud.google.com/alloydb/docs/use-sizing-recommendations) and [system insights](https://docs.cloud.google.com/alloydb/docs/monitor-instance) to rightsize instances based on observed CPU and memory utilization.
+
+
+
+
 ## What's next
 
-  * [Create a cluster and its primary instance](https://docs.cloud.google.com/alloydb/docs/cluster-create#procedure). 
+  * [Create a cluster and its primary instance](https://docs.cloud.google.com/alloydb/docs/cluster-create#procedure).
+  * [Scale an instance](https://docs.cloud.google.com/alloydb/docs/instance-read-pool-scale). 
   * Learn about [AlloyDB locations](https://docs.cloud.google.com/alloydb/docs/locations). 
 
 
@@ -501,6 +548,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-03 UTC.
+Last updated 2026-11-06 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-06 UTC."],[],[]] 

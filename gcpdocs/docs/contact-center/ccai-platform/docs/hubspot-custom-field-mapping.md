@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/contact-center/ccai-platform/docs/hubspot-custom-field-mapping/
 title: HubSpot custom field mapping \u00a0|\u00a0 Google Cloud Contact Center as a Service \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T23:27:39.891355+00:00
+fetched_at: 2026-11-06T10:23:32.698401+00:00
 ---
 
 # HubSpot custom field mapping  |  Google Cloud Contact Center as a Service  |  Google Cloud Documentation
@@ -21,20 +21,77 @@ Send feedback
 
 #  HubSpot custom field mapping Stay organized with collections  Save and categorize content based on your preferences. 
 
-HubSpot custom field mapping lets you map your web or mobile SDK custom data fields to your HubSpot installation's custom fields. At runtime, when the SDK sends a custom data value, the system writes the value to the mapped HubSpot custom field.
+HubSpot Custom Field Mapping extends existing [Custom Field Mapping](https://docs.cloud.google.com/contact-center/ccai-platform/docs/crm-custom-field-mapping) functionality (previously available for Salesforce, Zendesk, and Kustomer) of CCAI Platform session data to HubSpot.
+
+Use this feature to:
+
+  * Map custom data sent from CCAI Platform SDKs (mobile or web) or the [Apps API (Chat)](https://docs.cloud.google.com/contact-center/ccai-platform/docs/chat-platform-api-endpoints#send-custom-data-chat) `Send custom data in a chat` endpoint to HubSpot custom properties.
+
+  * Automatically populate HubSpot Ticket or Deal fields with CCAI Platform session data (for example, customer ID, queue name, or any other custom parameter you pass using the SDK or Apps API).
+
+  * Maintain CRM parity across platforms by using the same Custom Field Mapping workflow you may already use for other CRMs.
+
+
+
+
+This guide covers how to:
+
+  * Access the Custom Field Mapping page for HubSpot.
+
+  * Create, edit, and delete custom field mappings.
+
+  * Understand how mappings behave at runtime and how to verify they are working.
+
+
+
 
 ## Before you begin
 
-Before you begin, do the following:
+Before you begin, ensure these requirements are met.
 
-  * Integrate HubSpot with your Contact Center AI Platform (CCAI Platform) instance. For more information, see [HubSpot](https://docs.cloud.google.com/contact-center/ccai-platform/docs/hubspot).
+### Account and licensing
 
-  * Configure your instance to [send SDK custom data](https://docs.cloud.google.com/contact-center/ccai-platform/docs/send-sdk-custom-data).
+  * You must have a HubSpot account connected to CCAI Platform as the CRM Agent Platform.
 
-  * In HubSpot, configure any custom fields that you want to map to.
+  * HubSpot Ticket or Deal objects must have any required custom properties already created in HubSpot (this feature does not create properties in HubSpot for you).
 
 
 
+
+### System and user setup
+
+The following system and user setup is required to configure custom field mappings:
+
+  * **Administrator permissions**. You must be logged into CCAI Platform with an account that has Administrator permissions.
+
+
+  1. Access: **Settings > Operation Management**.
+
+  2. Manage CRM configuration.
+
+
+
+  * **HubSpot configured as CRM**.
+
+
+  1. In your CCAI Platform Admin Portal, HubSpot must be selected as the CRM Agent Platform.
+
+  2. The HubSpot integration must be fully authorized and connected.
+
+
+
+  * **Configure the data source**.
+
+  * Your web or mobile SDK implementation or Apps API (Chat) integration must send custom data fields that you want to map into HubSpot.
+
+  * You must know the custom data key (top-level key name in the payload) for each field you plan to map (for example, `customer_id`, `plan_type`).
+
+
+
+
+### Content and assets (optional)
+
+You need a list of HubSpot custom properties (Ticket or Deal) that you want to populate with CCAI Platform data.
 
 ## Create a HubSpot custom field mapping
 
@@ -97,6 +154,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-05 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-05 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/quotas/
 title: Quotas and limits \u00a0|\u00a0 AlloyDB for PostgreSQL \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-05T00:18:00.242848+00:00
+fetched_at: 2026-11-06T10:39:37.538089+00:00
 ---
 
 # Quotas and limits  |  AlloyDB for PostgreSQL  |  Google Cloud Documentation
@@ -220,7 +220,9 @@ If you make a database write request, such as an `INSERT` statement that results
 
 #### Resource availability
 
-Resource quotas do not guarantee that resources are available at all times. If a resource is not physically available for your region, you cannot create new resources of that type, even if you have remaining quota in your project.
+Resource quotas don't guarantee that physical hardware resources are available in a region or zone at all times. If a specific machine series or shape is temporarily unavailable in your target location, operations to create, start, or scale a cluster or instance can fail even when your project has remaining quota. In addition, because AlloyDB manages underlying Compute Engine VMs in Google-managed tenant projects, Compute Engine reservations don't apply to AlloyDB resources.
+
+To mitigate temporary resource constraints, you can retry the operation after a delay, select a different machine series or vCPU size, or deploy in another region. For detailed guidance, see [Best practices for capacity planning and resource availability](https://docs.cloud.google.com/alloydb/docs/choose-machine-type#capacity-planning-best-practices) and [Best practices for scaling and resource availability](https://docs.cloud.google.com/alloydb/docs/instance-read-pool-scale#scaling-resource-availability-best-practices).
 
 ## Limits
 
@@ -283,6 +285,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-03 UTC.
+Last updated 2026-11-05 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-05 UTC."],[],[]] 

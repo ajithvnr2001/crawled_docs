@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/platform-application/pa-ao-operations/monitor-dns-metrics/
 title: Monitor Cloud DNS metrics \u00a0|\u00a0 Google Distributed Cloud air-gapped \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T19:01:49.029335+00:00
+fetched_at: 2026-11-06T10:53:07.367126+00:00
 ---
 
 # Monitor Cloud DNS metrics  |  Google Distributed Cloud air-gapped  |  Google Cloud Documentation
@@ -22,9 +22,11 @@ Send feedback
 
 #  Monitor Cloud DNS metrics Stay organized with collections  Save and categorize content based on your preferences. 
 
-This document explains how to read Cloud DNS metrics dashboards in Google Distributed Cloud (GDC) air-gapped. The metrics dashboard provides graphs and visualization panels for viewing the health and performance of your Managed DNS Zones. Use these dashboards to monitor DNS requests, response rate, and latency.
+The Cloud DNS metrics dashboard in Google Distributed Cloud (GDC) air-gapped lets you monitor the health and performance of your Managed DNS Zones. Visualization panels display queries per second (QPS), error rates, and 99th-percentile (P99) request latency so that you can identify DNS resolution issues and performance bottlenecks.
 
-This document is for developers in platform administrator or application operator groups that need to monitor DNS system health. For more information, see [Audiences for GDC air-gapped documentation](https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/resources/audiences).
+This document is for developers in the platform administrator or application operator groups who monitor DNS system health. For more information, see [Audiences for GDC air-gapped documentation](https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/resources/audiences).
+
+## Cloud DNS dashboard
 
 Open the following URL to access the Cloud DNS dashboard:
     
@@ -34,12 +36,10 @@ Open the following URL to access the Cloud DNS dashboard:
 
 Replace the following:
 
-  * `GDC_URL`: the URL of your organization in Google Distributed Cloud (GDC) air-gapped.
+  * `GDC_URL`: the URL of your organization in GDC.
   * `PROJECT_NAME`: the name of your project.
 
 
-
-## Cloud DNS dashboard
 
 The Cloud DNS dashboard presents graphs and visualization panels that contain information about the requests, errors, and latency for your Managed DNS Zones.
 
@@ -65,6 +65,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-05 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-05 UTC."],[],[]] 

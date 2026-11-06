@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/pubsub/docs/flow-control-messages/
 title: Flow control \u00a0|\u00a0 Pub/Sub \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T23:31:55.156099+00:00
+fetched_at: 2026-11-06T13:51:09.004256+00:00
 ---
 
 # Flow control  |  Pub/Sub  |  Google Cloud Documentation
@@ -415,7 +415,7 @@ Before trying this sample, follow the Ruby setup instructions in [Quickstart: Us
     
     # topic_id = "your-topic-id"
     
-    pubsub = Google::Cloud::[PubSub](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-pubsub/latest/Google-Cloud-PubSub.html).[new](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-pubsub/latest/Google-Cloud-PubSub.html)
+    pubsub = Google::Cloud::[PubSub](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-pubsub-v1/latest/Google-Cloud-PubSub.html).[new](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-pubsub/latest/Google-Cloud-PubSub.html)
     publisher = pubsub.[publisher](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-pubsub/latest/Google-Cloud-PubSub-Project.html) topic_id, async: {
       # Configure how many messages the publisher client can hold in memory
       # and what to do when messages exceed the limit.

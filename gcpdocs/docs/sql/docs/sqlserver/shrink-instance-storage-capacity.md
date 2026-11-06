@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sql/docs/sqlserver/shrink-instance-storage-capacity/
 title: Shrink instance storage capacity \u00a0|\u00a0 Cloud SQL for SQL Server \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-05T11:11:03.666598+00:00
+fetched_at: 2026-11-06T10:29:33.623134+00:00
 ---
 
 # Shrink instance storage capacity  |  Cloud SQL for SQL Server  |  Google Cloud Documentation

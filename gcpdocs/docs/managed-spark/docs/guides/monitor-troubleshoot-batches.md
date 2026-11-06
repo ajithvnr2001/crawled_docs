@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/managed-spark/docs/guides/monitor-troubleshoot-batches/
 title: Monitor and troubleshoot batch workloads \u00a0|\u00a0 Managed Service for Apache Spark \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-06T05:53:32.807052+00:00
+fetched_at: 2026-11-06T11:10:40.165843+00:00
 ---
 
 # Monitor and troubleshoot batch workloads  |  Managed Service for Apache Spark  |  Google Cloud Documentation

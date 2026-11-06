@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/pubsub/docs/validate-schema-definition/
 title: Validate schema definitions \u00a0|\u00a0 Pub/Sub \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-01T05:41:54.152366+00:00
+fetched_at: 2026-11-06T13:51:11.526705+00:00
 ---
 
 # Validate schema definitions  |  Pub/Sub  |  Google Cloud Documentation

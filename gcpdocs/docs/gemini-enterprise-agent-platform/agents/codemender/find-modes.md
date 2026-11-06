@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/agents/codemender/find-modes/
 title: CodeMender find modes \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T23:15:16.202520+00:00
+fetched_at: 2026-11-06T10:06:10.431574+00:00
 ---
 
 # CodeMender find modes  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation
@@ -59,7 +59,7 @@ The following examples demonstrate how to run a deep scan across a repository:
 
 ### Strengths
 
-A deep scan runs with zero configuration and delivers high recall and comprehensive vulnerability discovery across large enterprise codebases. It outperforms single-session scans and uses automated verification to maintain high precision. It is also platform-independent and works across all languages supported by Gemini without requiring language-specific compilers, build setups, or grammar files. Finally, it optimizes resource usage by focusing analysis on production code and minimizing compute and token consumption on non-production files.
+A deep scan runs with zero configuration and provides comprehensive vulnerability discovery across large enterprise codebases. It performs broader file traversal than single-session scans and uses automated verification to filter out candidate false positives. It is also platform-independent and works across all languages supported by Gemini without requiring language-specific compilers, build setups, or grammar files. Finally, it optimizes resource usage by focusing analysis on production code and minimizing compute and token consumption on non-production files.
 
 ### Trade-offs and limitations
 
@@ -78,7 +78,7 @@ Use a deep scan in the following scenarios:
 
 ## Diff scan
 
-A diff scan performs Git diff analysis for pull request workflows and CI/CD pipelines by inspecting modified and added files, focusing on the exact line ranges (diff hunks) that changed. In addition to inspecting changed lines, it performs impact analysis to discover untouched files in the repository that call, import, or depend on the modified functions and symbols. This helps ensure that changes altering contracts or function signatures in one file don't introduce vulnerabilities in dependent files.
+A diff scan performs Git diff analysis for pull request workflows and CI/CD pipelines by inspecting modified and added files, focusing on the exact line ranges (diff hunks) that changed. In addition to inspecting changed lines, it performs impact analysis to discover untouched files in the repository that call, import, or depend on the modified functions and symbols. This helps verify that changes altering contracts or function signatures in one file don't introduce vulnerabilities in dependent files.
 
 During the scan, CodeMender automatically isolates pre-existing vulnerabilities in untouched code so that legacy issues don't cause the scan to fail or block the pull request. It then evaluates findings against your `--fail-on` policy and outputs results in table, JSON, or SARIF v2.1.0 format.
 
@@ -214,6 +214,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-04 UTC.
+Last updated 2026-11-06 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-06 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/storage-transfer/docs/access-control/
 title: Permissions and roles \u00a0|\u00a0 Storage Transfer Service \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T09:50:04.375352+00:00
+fetched_at: 2026-11-06T10:53:05.864247+00:00
 ---
 
 # Permissions and roles  |  Storage Transfer Service  |  Google Cloud Documentation
@@ -55,26 +55,26 @@ The following table describes permissions for Storage Transfer Service operation
 
 Permission | Description  
 ---|---  
-`storagetransfer.operations.assign` | Used by transfer agents to assign operations.  
+`storagetransfer.operations.assign` | Used by transfer agents to assign operations. Not supported in custom roles; grant the predefined `roles/storagetransfer.transferAgent` role instead.  
 `storagetransfer.operations.cancel` | Can cancel transfer operations.  
 `storagetransfer.operations.get` | Can get details of transfer operations.  
 `storagetransfer.operations.list` | Can list all transfer job operations.  
 `storagetransfer.operations.pause` | Can pause transfer operations.  
-`storagetransfer.operations.report` | Used by transfer agents to report operation status.  
+`storagetransfer.operations.report` | Used by transfer agents to report operation status. Not supported in custom roles; grant the predefined `roles/storagetransfer.transferAgent` role instead.  
 `storagetransfer.operations.resume` | Can resume paused transfer operations.  
   
 ### Transfer agent pool permissions
 
-The following table describes permissions for file system transfer agent pools:
+The following table describes permissions for transfer agent pools:
 
 Permission | Description  
 ---|---  
-`storagetransfer.agentpools.create` | Can create agent pools.  
-`storagetransfer.agentpools.update` | Can update agent pools.  
+`storagetransfer.agentpools.create` | Can create agent pools and configure bandwidth limits.  
+`storagetransfer.agentpools.update` | Can update agent pools and bandwidth limits.  
 `storagetransfer.agentpools.delete` | Can delete agent pools.  
-`storagetransfer.agentpools.get` | Can get information on specific agent pools.  
-`storagetransfer.agentpools.list` | Can list information for all agent pools in the project.  
-`storagetransfer.agentpools.report` | Used by transfer agents to report status.  
+`storagetransfer.agentpools.get` | Can get information and bandwidth limits for specific agent pools.  
+`storagetransfer.agentpools.list` | Can list information and bandwidth limits for all agent pools in the project.  
+`storagetransfer.agentpools.report` | Used by transfer agents to report status. Not supported in custom roles; grant the predefined `roles/storagetransfer.transferAgent` role instead.  
   
 ## Predefined roles
 
@@ -82,25 +82,24 @@ This section describes the predefined roles for Storage Transfer Service. Roles 
 
 ### Role comparison
 
-You can assign the following project role or Storage Transfer Service predefined roles:
+You can assign the following Storage Transfer Service predefined roles to principals:
 
-Capability | Editor (`roles/editor`) | Storage Transfer (`roles/storagetransfer.`)   
----|---|---  
-Admin (`admin`) | User (`user`) | Viewer (`viewer`)  
-List/get jobs |  |  |  |   
-Create jobs |  |  |  |   
-Run jobs |  |  |  |   
-Update jobs |  |  |  |   
-Delete jobs |  |  |  |   
-List/get transfer operations |  |  |  |   
-Pause/resume transfer operations |  |  |  |   
-Read Google service account details that are used by Storage Transfer Service to access Cloud Storage buckets. |  |  |  |   
-List agent pools |  |  |  |   
-Create agent pools |  |  |  |   
-Update agent pools |  |  |  |   
-Delete agent pools |  |  |  |   
-Get agent pools |  |  |  |   
-Read or set project bandwidth |  |  |  |   
+Capability | Storage Transfer Admin  
+(`roles/storagetransfer.admin`) | Storage Transfer User  
+(`roles/storagetransfer.user`) | Storage Transfer Viewer  
+(`roles/storagetransfer.viewer`)  
+---|---|---|---  
+List and get jobs |  |  |   
+Create and configure jobs |  |  |   
+Run and update jobs |  |  |   
+Delete jobs |  |  |   
+List and get transfer operations |  |  |   
+Pause, resume, and cancel transfer operations |  |  |   
+Read Storage Transfer Service service account details |  |  |   
+List and get agent pools |  |  |   
+Create and update agent pools |  |  |   
+Delete agent pools |  |  |   
+Set agent pool bandwidth limits |  |  |   
   
 ### Role details
 
@@ -109,7 +108,7 @@ The following table describes in detail the predefined roles for Storage Transfe
 Role | Description | Included Permissions  
 ---|---|---  
 **Storage Transfer Admin  
-(`roles/storagetransfer.admin`)** |  Provides all Storage Transfer Service permissions, including deleting jobs.  **Rationale:** This is the highest-level role with the broadest responsibilities, the superuser who supports their colleagues as they perform transfers. This is most suitable for people that will administer transfers, such as IT admins.  | 
+(`roles/storagetransfer.admin`)** |  Provides full administrative access to all Storage Transfer Service resources, including creating, updating, running, and deleting transfer jobs and agent pools.  | 
 
   * `resourcemanager.projects.get`
   * `resourcemanager.projects.list`
@@ -117,7 +116,7 @@ Role | Description | Included Permissions
 
   
 **Storage Transfer User  
-(`roles/storagetransfer.user`)** |  Provides permissions for the user to create, get, update, and list transfer jobs within the project. However, they can't delete their own jobs.  **Rationale:** This role allows the separation of creating and maintaining jobs from deleting jobs. This role is best suited for users who are required to execute transfers as part of their job function, such as an employee. This role doesn't allow transfer to be deleted, so that auditors or security personnel can view a fully preserved record of past transfers.  | 
+(`roles/storagetransfer.user`)** |  Provides permissions to create, get, update, and run transfer jobs and agent pools within the project. Cannot delete transfer jobs or agent pools, preserving a complete audit record of past transfers.  | 
 
   * `resourcemanager.projects.get`
   * `resourcemanager.projects.list`
@@ -136,7 +135,7 @@ Role | Description | Included Permissions
 
   
 **Storage Transfer Viewer  
-(`roles/storagetransfer.viewer`)** |  Provides permissions to list and get jobs and transfer operations within the project. The user can't schedule, update, or delete jobs.  **Rationale:** The viewer role is intended for read-only access to view transfer jobs and operations. This role allows separating the report and auditing tasks from creating and maintaining jobs. This role is most suitable for users or internal teams that audit transfer usage, such as security, compliance, or business unit leaders.  | 
+(`roles/storagetransfer.viewer`)** |  Provides read-only access to view and list transfer jobs, operations, and agent pools within the project. Cannot create, run, update, or delete transfers.  | 
 
   * `resourcemanager.projects.get`
   * `resourcemanager.projects.list`
@@ -168,7 +167,7 @@ Role | Description | Included Permissions
   * `storagetransfer.operations.report`
 
   
-**Storage Transfer Service Agent (`roles/storagetransfer.serviceAgent`) ** |  Gives the [ Storage Transfer Service service agent](https://docs.cloud.google.com/storage-transfer/docs/file-system-permissions#service_account) the permissions required to create and modify Pub/Sub topics to communicate from Google Cloud to transfer agents. Grant this role to the [ Storage Transfer Service service agent](https://docs.cloud.google.com/storage-transfer/docs/file-system-permissions#service_account).  | 
+**Storage Transfer Service Agent (`roles/storagetransfer.serviceAgent`) ** |  Gives the [ Storage Transfer Service service agent](https://docs.cloud.google.com/storage-transfer/docs/iam-agent-based#service-agent-permissions) the permissions required to create and modify Pub/Sub topics to communicate from Google Cloud to transfer agents. Grant this role to the [ Storage Transfer Service service agent](https://docs.cloud.google.com/storage-transfer/docs/iam-agent-based#service-agent-permissions).  | 
 
   * `pubsub.subscriptions.consume`
   * `pubsub.subscriptions.create`
@@ -196,6 +195,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-05 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-05 UTC."],[],[]] 

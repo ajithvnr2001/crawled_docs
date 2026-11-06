@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/storage-transfer/docs/hns/
 title: Transfer Cloud Storage hierarchical namespace buckets \u00a0|\u00a0 Storage Transfer Service \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T09:50:03.334561+00:00
+fetched_at: 2026-11-06T10:53:07.962076+00:00
 ---
 
 # Transfer Cloud Storage hierarchical namespace buckets  |  Storage Transfer Service  |  Google Cloud Documentation
@@ -32,20 +32,20 @@ In addition to the standard permissions required for a transfer, the Storage Tra
 
 When the source is a hierarchical namespace bucket:
 
-  * `storage.folders.list` on the source bucket. This permission is included in the Storage Object Viewer (`roles/storage.objectViewer`) role that is [required for all transfers](https://docs.cloud.google.com/storage-transfer/docs/iam-cloud#manually_assigning_roles). No additional role is required.
+  * `storage.folders.list` on the source bucket. This permission is included in the Storage Object Viewer (`roles/storage.objectViewer`) role that is [required on the source bucket](https://docs.cloud.google.com/storage-transfer/docs/source-cloud-storage). No additional role is required.
 
 
 
 When the destination is a hierarchical namespace bucket:
 
-  * `storage.folders.create` on the destination bucket. This permission is included in the Storage Object User (`roles/storage.objectUser`) role. Grant this role in addition to the roles listed in [Agentless transfer permissions](https://docs.cloud.google.com/storage-transfer/docs/iam-cloud#manually_assigning_roles).
+  * `storage.folders.create` on the destination bucket. This permission is included in the Storage Object User (`roles/storage.objectUser`) role that is [required on the destination bucket](https://docs.cloud.google.com/storage-transfer/docs/sink-cloud-storage). No additional role is required.
 
 
 
 For instructions on adding roles to the service agent, see:
 
-  * [Configure access to a source: Cloud Storage](https://docs.cloud.google.com/storage-transfer/docs/source-cloud-storage#grant_the_required_permissions)
-  * [Configure access to a sink: Cloud Storage](https://docs.cloud.google.com/storage-transfer/docs/sink-cloud-storage#grant_the_required_permissions)
+  * [Configure access to a source: Cloud Storage](https://docs.cloud.google.com/storage-transfer/docs/source-cloud-storage)
+  * [Configure access to a sink: Cloud Storage](https://docs.cloud.google.com/storage-transfer/docs/sink-cloud-storage)
 
 
 
@@ -80,6 +80,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-05 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-05 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sql/docs/mysql/maintenance-changelog/mysql-5-6/
 title: MySQL 5.6 maintenance changelog \u00a0|\u00a0 Cloud SQL for MySQL \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-05T11:10:53.025184+00:00
+fetched_at: 2026-11-06T10:28:15.748632+00:00
 ---
 
 # MySQL 5.6 maintenance changelog  |  Cloud SQL for MySQL  |  Google Cloud Documentation

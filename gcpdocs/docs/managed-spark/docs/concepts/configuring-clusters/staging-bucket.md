@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/managed-spark/docs/concepts/configuring-clusters/staging-bucket/
 title: Managed Service for Apache Spark staging and temp buckets \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-06T05:53:31.607830+00:00
+fetched_at: 2026-11-06T11:11:41.386855+00:00
 ---
 
 # Managed Service for Apache Spark staging and temp buckets  |  Google Cloud Documentation

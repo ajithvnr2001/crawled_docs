@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/managed-spark/docs/guides/jupyterlab-sessions-serverless/
 title: Use the JupyterLab extension to develop serverless Spark workloads \u00a0|\u00a0 Managed Service for Apache Spark \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-06T05:53:29.884464+00:00
+fetched_at: 2026-11-06T11:10:52.233705+00:00
 ---
 
 # Use the JupyterLab extension to develop serverless Spark workloads  |  Managed Service for Apache Spark  |  Google Cloud Documentation

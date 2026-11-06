@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/iam/docs/roles-permissions/visualinspection/
 title: Visual Inspection AI roles and permissions \u00a0|\u00a0 Identity and Access Management (IAM) \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T07:55:58.745011+00:00
+fetched_at: 2026-11-06T08:21:34.385329+00:00
 ---
 
 # Visual Inspection AI roles and permissions  |  Identity and Access Management (IAM)  |  Google Cloud Documentation

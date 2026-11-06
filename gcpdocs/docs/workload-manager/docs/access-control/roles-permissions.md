@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/workload-manager/docs/access-control/roles-permissions/
 title: IAM roles and permissions \u00a0|\u00a0 Workload Manager \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T09:47:05.947665+00:00
+fetched_at: 2026-11-06T10:29:50.806004+00:00
 ---
 
 # IAM roles and permissions  |  Workload Manager  |  Google Cloud Documentation

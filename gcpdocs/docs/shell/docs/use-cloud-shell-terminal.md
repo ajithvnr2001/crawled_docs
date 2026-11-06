@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/shell/docs/use-cloud-shell-terminal/
 title: Use the Cloud Shell Terminal \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T09:14:32.315524+00:00
+fetched_at: 2026-11-06T10:23:22.937017+00:00
 ---
 
 # Use the Cloud Shell Terminal  |  Google Cloud Documentation
@@ -16,11 +16,11 @@ fetched_at: 2026-10-28T09:14:32.315524+00:00
 
 
 
-Send feedback 
+Send feedback  Stay organized with collections  Save and categorize content based on your preferences. 
 
-#  Use the Cloud Shell Terminal Stay organized with collections  Save and categorize content based on your preferences. 
+# Use the Cloud Shell Terminal
 
-This page describes how to use the Cloud Shell Terminal. The Gemini CLI is available in Cloud Shell without additional setup.
+This page describes how to use the Cloud Shell Terminal.
 
 ## Use the terminal
 
@@ -59,7 +59,7 @@ To adjust your terminal settings, click ![Settings Button](https://docs.cloud.go
 
 ### Keyboard layout support
 
-If you're using an international keyboard or would like to customize your key bindings, Cloud Shell allows you to specify which key behaves as Alt Gr (your modifier key). To specify key mapping, go to the **Terminal Settings** menu, select **Terminal Preferences** > **Keyboard** > **Alt Gr Key** and choose one of the following options:
+If you're using an international keyboard or would like to customize your key bindings, Cloud Shell lets you specify which key behaves as Alt Gr (your modifier key). To specify key mapping, go to the **Terminal Settings** menu, select **Terminal Preferences** > **Keyboard** > **Alt Gr Key** and choose one of the following options:
 
   * Auto - Autodetect based on browser language
   * None - Disable any AltGr related munging
@@ -77,18 +77,12 @@ To open additional sessions, click ![Add Session Button](https://docs.cloud.goog
 
 ## Tab title customization
 
-Cloud Shell understands xterm escape sequences for [setting tab titles](http://tldp.org/HOWTO/Xterm-Title-4.html#ss4.3). To rename a tab title, set the `PS1` environment variable in your .bashrc to your desired configuration and source your .bashrc for the change to take.
-
-## Use the Gemini CLI
-
-To use the [Gemini CLI](https://docs.cloud.google.com/gemini/docs/codeassist/gemini-cli) in Cloud Shell, run `gemini` in the Cloud Shell terminal.
-
-To get started with the Gemini CLI, see the [Gemini CLI documentation](https://github.com/google-gemini/gemini-cli).
+Cloud Shell understands xterm escape sequences for [setting tab titles](http://tldp.org/HOWTO/Xterm-Title-4.html#ss4.3). To rename a tab title, set the `PS1` environment variable in your .bashrc to your chosen configuration and source your .bashrc for the change to take.
 
 Send feedback 
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-05 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-05 UTC."],[],[]] 

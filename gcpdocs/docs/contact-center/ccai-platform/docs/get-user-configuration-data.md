@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/contact-center/ccai-platform/docs/get-user-configuration-data/
 title: Get user configuration data \u00a0|\u00a0 Google Cloud Contact Center as a Service \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T05:38:58.583057+00:00
+fetched_at: 2026-11-06T10:21:42.487160+00:00
 ---
 
 # Get user configuration data  |  Google Cloud Contact Center as a Service  |  Google Cloud Documentation
@@ -21,7 +21,7 @@ Send feedback
 
 #  Get user configuration data Stay organized with collections  Save and categorize content based on your preferences. 
 
-The Apps API is designed to retrieve user configuration data. You can read the current user configuration for all users, or for a single user, regardless of their role or status. Both system and custom roles are included in this output.
+The Apps API `/apps/api/v1/users` endpoint retrieves user configuration data. You can read the current user configuration for all users, or for a single user, regardless of their role or whether their account is active or deactivated. This output includes both system and custom roles. To retrieve real-time status and presence data for active agents only, see the Manager API [Agent endpoints](https://docs.cloud.google.com/contact-center/ccai-platform/docs/manager-api-agent).
 
 This endpoint differs from the endpoints used in the Bulk User Upload process, and provides necessary information to support bulk operations. For more information about how to perform bulk user management processes, see [Bulk User Management API](https://docs.cloud.google.com/contact-center/ccai-platform/docs/bulk-user-management-api).
 
@@ -197,6 +197,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-05 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-05 UTC."],[],[]] 

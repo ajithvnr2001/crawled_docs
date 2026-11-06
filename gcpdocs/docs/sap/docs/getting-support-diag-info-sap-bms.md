@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sap/docs/getting-support-diag-info-sap-bms/
 title: SAP on Bare Metal Solution diagnostic information \u00a0|\u00a0 SAP on Google Cloud \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-03T09:44:17.298728+00:00
+fetched_at: 2026-11-06T10:41:39.833281+00:00
 ---
 
 # SAP on Bare Metal Solution diagnostic information  |  SAP on Google Cloud  |  Google Cloud Documentation

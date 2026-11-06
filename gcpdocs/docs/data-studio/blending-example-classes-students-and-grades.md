@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/data-studio/blending-example-classes-students-and-grades/
 title: Blending example: Classes, students, and grades \u00a0|\u00a0 Data Studio \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T22:43:55.020655+00:00
+fetched_at: 2026-11-06T10:25:57.456604+00:00
 ---
 
 # Blending example: Classes, students, and grades  |  Data Studio  |  Google Cloud Documentation
@@ -15,6 +15,7 @@ Looker Studio is now called Data Studio. [Learn more about this change](https://
   * [ Documentation ](https://docs.cloud.google.com/docs)
   * [ Data analytics ](https://docs.cloud.google.com/docs/data)
   * [ Data Studio ](https://docs.cloud.google.com/data-studio)
+  * [ Guides ](https://docs.cloud.google.com/data-studio/welcome)
 
 
 
@@ -22,7 +23,7 @@ Send feedback
 
 #  Blending example: Classes, students, and grades Stay organized with collections  Save and categorize content based on your preferences. 
 
-Suppose you are a school administrator and that you store information about the classes offered, the students who enroll in those classes, and the grades they receive in each class. You can use Data Studio to track and visualize this information by using data blending.
+Blend data from multiple related sources in Data Studio to model relationships and build unified multi-table reports. The sample data in this walkthrough contains three datasets from an academic setting: classes, enrolled students, and grades. You can blend these datasets into a single dataset to answer questions about student performance.
 
 **See a demonstration report** : Copy and edit a [live demonstration report](https://datastudio.google.com/reporting/edb8c110-6946-4054-a287-8fe65fcce8f6/page/r7vQ) to see how blending works. (This report is available only in English.) 
 
@@ -82,7 +83,7 @@ s4  |  c4  |  20
 The first step is to connect to your data by creating data sources in Data Studio. The demonstration report uses Sheets for the underlying data, but you could also store this data in a database, such as BigQuery or MySQL.
 
   1. Create a new report.
-  2. Add 3 data sources corresponding to the sample data: 
+  2. Add three data sources corresponding to the sample data: 
      1. Classes
      2. Students
      3. Grades
@@ -110,7 +111,7 @@ To answer this question, follow these steps:
      2. `class_name`
   5. Join **Grades** to **Students** with `student_id`.
   6. Join **Grades** to **Classes** with `class_id`.
-  7. Set both join operations to left outer. ![A blend configuration displays left outer join conditions selected between the Grades and Students tables, and between the Students and Classes tables.](https://docs.cloud.google.com/static/data-studio/images/grades-blend-2022-02-15.png)
+  7. Set both merge operations to **Left outer**. ![A blend configuration displays left outer join operations selected between the Grades and Students tables, and between the Students and Classes tables.](https://docs.cloud.google.com/static/data-studio/images/grades-blend-2022-02-15.png)
   8. Save the blend and close the editor.
   9. Add a table to the report with the `student_name`, `class_name`, and `grade` fields.
   10. Sort the table by `student_name`, descending.
@@ -165,7 +166,7 @@ Home fusion made easy | 88
   
 ## Question 3: Highest grade by student by class
 
-**Question** :"Which student received the highest grade in each class?"
+**Question** : "Which student received the highest grade in each class?"
 
 To answer this question, follow these steps:
 
@@ -183,9 +184,9 @@ To answer this question, follow these steps:
   7. Add a **Students** table, with dimensions: 
      1. `student_id`
      2. `student_name`
-  8. Use **left outer** for each join.
-  9. Join **Classes** to **Grades** with `class_id`.
-  10. Join **Grades** to **Grades 2** with: 
+  8. Use **Left outer** for each merge.
+  9. Join **Classes** to **Grades 1** with `class_id`.
+  10. Join **Grades 1** to **Grades 2** with: 
      1. `class_id = class_id`
      2. `max_grade = grade`
   11. Join **Grades 2** to **Students** with `student_id`.
@@ -210,10 +211,14 @@ Brett | Learn SQL for fun and profit | 94
 Susanna | Home fusion made easy | 88  
 Jennifer | How to train an attack iguana | 32  
   
+## Next steps
+
+Learn more about [blending tips and advanced concepts](https://docs.cloud.google.com/data-studio/blending-tips-and-advanced-concepts).
+
 Send feedback 
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-05 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-05 UTC."],[],[]] 

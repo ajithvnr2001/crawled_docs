@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/go/docs/reference/
 title: Go Cloud Client Libraries \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-30T08:37:04.549600+00:00
+fetched_at: 2026-11-06T10:23:31.261228+00:00
 ---
 
 # Go Cloud Client Libraries  |  Google Cloud Documentation
@@ -481,7 +481,8 @@ Route Optimization API |  [ cloud.google.com/go/maps/routeoptimization/apiv1 ](h
   
 Routes API |  [ cloud.google.com/go/maps/routing/apiv2 ](https://cloud.google.com/go/docs/reference/cloud.google.com/go/maps/latest/routing/apiv2)   
   
-SaaS Runtime |  [ cloud.google.com/go/saasplatform/saasservicemgmt/apiv1beta1 ](https://cloud.google.com/go/docs/reference/cloud.google.com/go/saasplatform/latest/saasservicemgmt/apiv1beta1)   
+SaaS Runtime |  [ cloud.google.com/go/saasplatform/saasservicemgmt/apiv1 ](https://cloud.google.com/go/docs/reference/cloud.google.com/go/saasplatform/latest/saasservicemgmt/apiv1)   
+[ cloud.google.com/go/saasplatform/saasservicemgmt/apiv1beta1 ](https://cloud.google.com/go/docs/reference/cloud.google.com/go/saasplatform/latest/saasservicemgmt/apiv1beta1)   
   
 Secret Manager |  [ cloud.google.com/go/secretmanager/apiv1 ](https://cloud.google.com/go/docs/reference/cloud.google.com/go/secretmanager/latest/apiv1)   
 [ cloud.google.com/go/secretmanager/apiv1beta2 ](https://cloud.google.com/go/docs/reference/cloud.google.com/go/secretmanager/latest/apiv1beta2)   

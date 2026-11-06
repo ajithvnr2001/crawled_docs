@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/agents/google/deep-research/
 title: Gemini Deep Research Agent \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T23:16:05.562337+00:00
+fetched_at: 2026-11-06T10:24:27.248724+00:00
 ---
 
 # Gemini Deep Research Agent  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation
@@ -81,8 +81,9 @@ Technical specifications
 
   * Maximum number of files per prompt: 3,000 
   * Maximum number of pages per file: 3,000 
-  * Maximum file size per file for the API or Cloud Storage imports: 50 MB (application/pdf) or 7 MB (text/plain) 
-  * Maximum file size per file for direct uploads through the console: 7 MB 
+  * Maximum file size per file from Cloud Storage: 2 GiB minus 500 KiB 
+  * Maximum file size per file for direct local uploads in the console: 7 MiB inline (up to 50 MiB staged to Cloud Storage) 
+  * Maximum file size per file for Google Drive imports in the console: 7 MB (10 MB total) 
   * Default resolution tokens: 560 
   * OCR for scanned PDFs: Not used by default 
   * Supported MIME types: `application/pdf`, `text/plain`
@@ -105,6 +106,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-04 UTC.
+Last updated 2026-11-05 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-05 UTC."],[],[]] 

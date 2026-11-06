@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/run/docs/tips/general/
 title: General development tips \u00a0|\u00a0 Cloud Run \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T05:50:25.456829+00:00
+fetched_at: 2026-11-06T10:22:07.045322+00:00
 ---
 
 # General development tips  |  Cloud Run  |  Google Cloud Documentation
@@ -64,7 +64,7 @@ Because instances are [scaled as needed](https://docs.cloud.google.com/run/docs/
 The startup routine consists of:
 
   * Downloading the container image (using Cloud Run's container image streaming technology)
-  * Starting the container by running the [entrypoint](https://docs.cloud.google.com/run/docs/configuring/services/containers#configure-entrypoint) command.
+  * Starting the container by running the [entrypoint](https://docs.cloud.google.com/run/docs/configuring/services/containers#configure-entrypoint-services) command.
   * Waiting for the container to start listening on the [configured port](https://docs.cloud.google.com/run/docs/configuring/services/containers#configure-port).
 
 
@@ -426,7 +426,7 @@ Each request your service handles requires some amount of additional memory. So,
 
 ### Avoid mutable global state
 
-If you want to leverage mutable global state in a concurrent context, take extra steps in your code to ensure this is done safely. Minimize contention by limiting global variables to one-time initialization and reuse as described above under Performance.
+If you want to leverage mutable global state in a concurrent context, take extra steps in your code to ensure this is done safely. Minimize contention by limiting global variables to one-time initialization and reuse as described above under Optimize performance.
 
 If you use mutable global variables in a service that serves multiple requests at the same time, make sure to use locks or mutexes to prevent race conditions.
 
@@ -440,7 +440,7 @@ In the opposite direction, a higher maximum concurrent requests setting generall
 
 ### Cost considerations
 
-[Cloud Run pricing](https://cloud.google.com/run/pricing) is per instance time. If you set [instance-based billing](https://docs.cloud.google.com/run/docs/configuring/billing-settings#pricing-impact), the instance time is the total lifetime of each instance. If you set request-based billing, the instance time is the time each instance spends processing at least one request.
+[Cloud Run pricing](https://cloud.google.com/run/pricing) is per instance time. If you set [instance-based billing](https://docs.cloud.google.com/run/docs/configuring/billing-settings#choosing-instance-based-billing), the instance time is the total lifetime of each instance. If you set request-based billing, the instance time is the time each instance spends processing at least one request.
 
 The impact of maximum concurrent requests on billing depends on your traffic pattern. Lowering maximum concurrent requests _can_ result in a lower bill _if_ the lower setting leads to
 
@@ -466,13 +466,13 @@ To improve container security:
 
   * Apply security updates to your services by regularly rebuilding container images and redeploying your services.
 
-  * Include in the container only what is necessary to run your service. Extra code, packages, and tools are potential security vulnerabilities. See above for the related performance impact.
+  * Include in the container only what is necessary to run your service. Extra code, packages, and tools are potential security vulnerabilities. See Build minimal container images for the related performance impact.
 
   * Implement a [deterministic build process](https://en.wikipedia.org/wiki/Reproducible_builds) that includes specific software and library versions. This prevents unverified code from being included in your container.
 
   * Set your container to run as a user other than `root` with the [Dockerfile `USER` statement](https://docs.docker.com/engine/reference/builder/#user). Some container images may already have a specific user configured.
 
-  * Prevent the use of Preview features by using [custom organization policies](https://docs.cloud.google.com/run/docs/securing/custom-constraints#prevent-launch-stage).
+  * Prevent the use of Preview features by using [custom organization policies](https://docs.cloud.google.com/run/docs/securing/custom-constraints#example_constraints).
 
 
 
@@ -509,6 +509,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-30 UTC.
+Last updated 2026-11-05 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-05 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/managed-spark/docs/concepts/components/flink/
 title: Managed Service for Apache Spark optional Flink component \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-06T05:53:36.053956+00:00
+fetched_at: 2026-11-06T11:11:10.104976+00:00
 ---
 
 # Managed Service for Apache Spark optional Flink component  |  Google Cloud Documentation

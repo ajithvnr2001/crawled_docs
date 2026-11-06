@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chronicle/docs/administration/cli-user-guide/
 title: Google SecOps CLI reference \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T10:10:51.536414+00:00
+fetched_at: 2026-11-06T10:21:38.447967+00:00
 ---
 
 # Google SecOps CLI reference  |  Google Security Operations  |  Google Cloud Documentation
@@ -25,20 +25,19 @@ Supported in:
 
 Google SecOps  [ SIEM ](https://docs.cloud.google.com/chronicle/docs/secops/google-secops-siem-toc)
 
-The Google Security Operations SDK provides a comprehensive command-line interface (CLI) that makes it easy to interact with Google SecOps products from your terminal. The new `secops` CLI replaces the legacy `chronicle_cli` with enhanced functionality and improved user experience.
+The Google Security Operations SDK provides a comprehensive command-line interface (CLI) that lets you interact with Google SecOps products from your terminal. The new `secops` CLI replaces the legacy `chronicle_cli` with enhanced functionality and improved user experience.
 
 ## Overview
 
-The `secops` CLI provides access to:
+The `secops` CLI lets you:
 
   * Search and analyze UDM events
   * Manage feeds, forwarders, and parsers
   * Create and manage detection rules
   * Handle alerts and cases
   * Manage reference lists and data tables
-  * Export data to BigQuery and Google Cloud Storage
+  * Export data to BigQuery and Cloud Storage
   * Query Gemini AI for security insights
-  * And much more
 
 
 
@@ -95,7 +94,7 @@ Place your service account JSON file in a secure location and reference it in co
 
 Save common settings to avoid repetition in commands:
 
-### Save Configuration
+### Save configuration
     
     
     # Save instance and authentication settings
@@ -107,12 +106,12 @@ Save common settings to avoid repetition in commands:
     # Set default time window
     $ secops config set --time-window 48
 
-### View Configuration
+### View configuration
     
     
     $ secops config view
 
-### Clear Configuration
+### Clear configuration
     
     
     $ secops config clear
@@ -138,9 +137,9 @@ Supported regions include:
 
 
 
-## Core Commands
+## Core commands
 
-### Search Events
+### Search UDM events
 
 Search for UDM events using query syntax:
     
@@ -156,7 +155,7 @@ Search for UDM events using query syntax:
         --fields "metadata.event_timestamp,principal.user.userid,principal.ip" \
         --time-window 24 --csv
 
-### Entity Information
+### Entity information
 
 Get detailed information about IPs, domains, or file hashes:
     
@@ -178,16 +177,16 @@ Run statistical analyses on your data:
     order:
       \$count desc" --time-window 24
 
-## Feed Management
+## Feed management
 
 Manage data ingestion feeds in Google SecOps:
 
-### List Feeds
+### List feeds
     
     
     $ secops feed list
 
-### Create Feed
+### Create feed
     
     
     # Create an HTTP feed
@@ -195,38 +194,38 @@ Manage data ingestion feeds in Google SecOps:
         --display-name "My HTTP Feed" \
         --details '{"logType":"projects/your-project-id/locations/us/instances/your-instance-id/logTypes/WINEVTLOG","feedSourceType":"HTTP","httpSettings":{"uri":"https://example.com/feed","sourceType":"FILES"}}'
 
-### Update Feed
+### Update feed
     
     
     $ secops feed update --id "feed-123" --display-name "Updated Feed Name"
 
-### Enable/Disable Feed
+### Enable and disable feeds
     
     
     $ secops feed enable --id "feed-123"
     $ secops feed disable --id "feed-123"
 
-### Delete Feed
+### Delete feed
     
     
     $ secops feed delete --id "feed-123"
 
-## Parser Management
+## Parser management
 
 Parsers process and normalize raw log data into UDM format:
 
-### List Parsers
+### List parsers
     
     
     $ secops parser list
     $ secops parser list --log-type "WINDOWS"
 
-### Get Parser Details
+### Get parser details
     
     
     $ secops parser get --log-type "WINDOWS" --id "pa_12345"
 
-### Create Parser
+### Create parser
     
     
     # Create from file
@@ -235,7 +234,7 @@ Parsers process and normalize raw log data into UDM format:
     # Create from string
     $ secops parser create --log-type "CUSTOM_LOG" --parser-code "filter { mutate { add_field => { \"test\" => \"value\" } } }"
 
-### Test Parser
+### Test parser
 
 Test a parser against sample logs before deployment:
     
@@ -253,43 +252,43 @@ Test a parser against sample logs before deployment:
         --parser-code-file "./parser.conf" \
         --logs-file "./sample_logs.txt"
 
-### Activate/Deactivate Parser
+### Activate and deactivate parsers
     
     
     $ secops parser activate --log-type "WINDOWS" --id "pa_12345"
     $ secops parser deactivate --log-type "WINDOWS" --id "pa_12345"
 
-### Delete Parser
+### Delete parser
     
     
     $ secops parser delete --log-type "WINDOWS" --id "pa_12345"
 
-## Parser Extension Management
+## Parser extension management
 
 Parser extensions extend existing parsers without replacing them:
 
-### List Extensions
+### List extensions
     
     
     $ secops parser-extension list --log-type OKTA
 
-### Create Extension
+### Create extension
     
     
     $ secops parser-extension create --log-type OKTA \
         --log /path/to/sample.log \
         --parser-config-file /path/to/parser-config.conf
 
-### Activate Extension
+### Activate extension
     
     
     $ secops parser-extension activate --log-type OKTA --id "1234567890"
 
-## Forwarder Management
+## Forwarder management
 
 Forwarders are used to ingest logs with specific configurations:
 
-### Create Forwarder
+### Create forwarder
     
     
     # Basic forwarder
@@ -301,22 +300,22 @@ Forwarders are used to ingest logs with specific configurations:
         --upload-compression true \
         --http-settings '{"port":80,"host":"example.com"}'
 
-### List Forwarders
+### List forwarders
     
     
     $ secops forwarder list --page-size 100
 
-### Get Forwarder
+### Get forwarder
     
     
     $ secops forwarder get --id "1234567890"
 
-### Update Forwarder
+### Update forwarder
     
     
     $ secops forwarder update --id "1234567890" --display-name "updated-name"
 
-### Delete Forwarder
+### Delete forwarder
     
     
     $ secops forwarder delete --id "1234567890"
@@ -397,11 +396,11 @@ This section shows the output displayed on the console against different types o
 400  | Email does not exist.   
 Any other response code  | Error while fetching feed. Response Code: `{status code}` Error: `{error message}`  
   
-## Log Ingestion
+## Log ingestion
 
 Ingest logs into Google SecOps:
 
-### Ingest Raw Logs
+### Ingest raw logs
     
     
     # From file
@@ -414,50 +413,50 @@ Ingest logs into Google SecOps:
     # Inline message
     $ secops log ingest --type "WINDOWS" --message "{\"event\": \"data\"}"
 
-### Ingest UDM Events
+### Ingest UDM events
     
     
     $ secops log ingest-udm --file "/path/to/udm_event.json"
 
-### List Log Types
+### List log types
     
     
     $ secops log types
     $ secops log types --search "windows"
 
-### Generate UDM Mapping
+### Generate UDM mapping
     
     
     $ secops log generate-udm-mapping \
         --log-format "JSON" \
         --log '{"id":"123","user":"test_user","source_ip":"192.168.1.10"}'
 
-## Rule Management
+## Rule management
 
 Manage detection rules:
 
-### List Rules
+### List rules
     
     
     $ secops rule list --page-size 50
 
-### Create Rule
+### Create rule
     
     
     $ secops rule create --file "/path/to/rule.yaral"
 
-### Update Rule
+### Update rule
     
     
     $ secops rule update --id "ru_12345" --file "/path/to/updated_rule.yaral"
 
-### Enable/Disable Rule
+### Enable and disable rule
     
     
     $ secops rule enable --id "ru_12345" --enabled true
     $ secops rule enable --id "ru_12345" --enabled false
 
-### Test Rule
+### Test rule
 
 Test a rule against historical data:
     
@@ -471,17 +470,17 @@ Test a rule against historical data:
         --end-time "2023-07-02T00:00:00Z" \
         --max-results 1000
 
-### Validate Rule
+### Validate rule
     
     
     $ secops rule validate --file "/path/to/rule.yaral"
 
-### Delete Rule
+### Delete rule
     
     
     $ secops rule delete --id "ru_12345"
 
-## Alert Management
+## Alert management
 
 Get and manage alerts:
     
@@ -489,18 +488,18 @@ Get and manage alerts:
     $ secops alert --time-window 24 --max-alerts 50
     $ secops alert --snapshot-query "feedback_summary.status != \"CLOSED\"" --time-window 24
 
-## Case Management
+## Case management
 
 Retrieve case details:
     
     
     $ secops case --ids "case-123,case-456"
 
-## Data Tables
+## Data tables
 
 Data tables are structured data collections for use in detection rules:
 
-### Create Data Table
+### Create data table
     
     
     $ secops data-table create \
@@ -508,28 +507,28 @@ Data tables are structured data collections for use in detection rules:
         --description "Known suspicious IP addresses" \
         --header '{"ip_address":"CIDR","description":"STRING","severity":"STRING"}'
 
-### Add Rows
+### Add rows
     
     
     $ secops data-table add-rows \
         --name "suspicious_ips" \
         --rows '[["192.168.1.100","Scanning activity","Medium"]]'
 
-### List Rows
+### List rows
     
     
     $ secops data-table list-rows --name "suspicious_ips"
 
-### Delete Data Table
+### Delete data table
     
     
     $ secops data-table delete --name "suspicious_ips"
 
-## Reference Lists
+## Reference lists
 
-Reference lists are simple value lists for detection rules:
+Reference lists are value lists for detection rules:
 
-### Create Reference List
+### Create reference list
     
     
     $ secops reference-list create \
@@ -537,23 +536,23 @@ Reference lists are simple value lists for detection rules:
         --description "Administrative accounts" \
         --entries "admin,administrator,root,superuser"
 
-### Update Reference List
+### Update reference list
     
     
     $ secops reference-list update \
         --name "admin_accounts" \
         --entries "admin,administrator,root,superuser,sysadmin"
 
-### List Reference Lists
+### List reference lists
     
     
     $ secops reference-list list
 
-## Data Export
+## Data export
 
 Export data for analysis:
 
-### Create Export
+### Create export
     
     
     # Export specific log type
@@ -568,24 +567,24 @@ Export data for analysis:
         --all-logs \
         --time-window 168
 
-### Check Export Status
+### Check export status
     
     
     $ secops export status --id "export-123"
 
-### Cancel Export
+### Cancel export
     
     
     $ secops export cancel --id "export-123"
 
-### List Available Log Types for Export
+### List available log types for export
     
     
     $ secops export log-types --time-window 24
 
-## Gemini AI Integration
+## Gemini integration
 
-Query Gemini AI for security insights:
+Query Gemini for security insights:
     
     
     # Ask about security concepts
@@ -596,17 +595,35 @@ Query Gemini AI for security insights:
     
     # Get vulnerability information
     $ secops gemini --query "Tell me about CVE-2021-44228"
+    
+    # Continue an existing conversation
+    $ secops gemini --query "Show me an example of this rule" --conversation-id "conv-123"
+    
+    # Output the raw API response as JSON
+    $ secops --output text gemini --query "What is Windows event ID 4625?" --raw
 
-Opt-in to Gemini:
+Opt in to Gemini and send a query in the same command:
     
     
-    $ secops gemini --opt-in
+    $ secops gemini --opt-in --query "What is Windows event ID 4625?"
 
-## Dashboard Management
+### Supported flags
 
-Manage native dashboards:
+The `secops gemini` command supports the following flags:
 
-### Create Dashboard
+Flag | Description  
+---|---  
+`--query` | Required. The question or request to send to Gemini.  
+`--output` | Optional. The output format. Valid values are `json` (default), or `text`. Note that this is a global flag that you must specify before the `gemini` flag.  
+`--conversation-id` | Optional. The ID of an existing conversation to continue. If you omit this flag, a new conversation is started.  
+`--raw` | Optional. Outputs the raw API response instead of the formatted text, code blocks, and suggested actions. Use the `--output` flag to set the format to `json` (default) or `text`.  
+`--opt-in` | Optional. Explicitly opts in to Gemini before sending the query.  
+  
+## Dashboard management
+
+Manage Google SecOps dashboards:
+
+### Create dashboard
     
     
     $ secops dashboard create \
@@ -614,19 +631,19 @@ Manage native dashboards:
         --description "Security monitoring dashboard" \
         --access-type PRIVATE
 
-### List Dashboards
+### List dashboards
     
     
     $ secops dashboard list --page-size 10
 
-### Update Dashboard
+### Update dashboard
     
     
     $ secops dashboard update --id dashboard-id \
         --display-name "Updated Security Dashboard" \
         --description "Updated security monitoring dashboard"
 
-### Export/Import Dashboard
+### Export and import dashboards
     
     
     # Export
@@ -635,7 +652,7 @@ Manage native dashboards:
     # Import
     $ secops dashboard import --dashboard-data-file dashboard_data.json
 
-### Add Chart to Dashboard
+### Add chart to dashboard
     
     
     $ secops dashboard add-chart --dashboard-id dashboard-id \
@@ -644,14 +661,14 @@ Manage native dashboards:
         --query-file dns_query.txt \
         --chart_layout '{"startX": 0, "spanX": 12, "startY": 0, "spanY": 8}'
 
-### Delete Dashboard
+### Delete dashboard
     
     
     $ secops dashboard delete --id dashboard-id
 
-## Advanced Examples
+## Advanced examples
 
-### Complete Parser Workflow
+### Complete parser workflow
 
 Retrieve, test, and deploy a parser:
     
@@ -675,7 +692,7 @@ Retrieve, test, and deploy a parser:
     # Activate if successful
     $ secops parser activate --log-type "OKTA" --id "$PARSER_ID"
 
-### Search and Export Workflow
+### Search and export workflow
 
 Search for events and export results:
     
@@ -692,7 +709,7 @@ Search for events and export results:
         secops entity --value "$ip" --time-window 72
     done
 
-### Rule Testing and Deployment
+### Rule testing and deployment
 
 Create, test, and deploy a detection rule:
     
@@ -722,11 +739,9 @@ Create, test, and deploy a detection rule:
     $ secops rule create --file suspicious_activity.yaral
     $ secops rule enable --id "ru_generated_id" --enabled true
 
-## Troubleshooting
+## Troubleshooting common issues
 
-### Common Issues
-
-#### Authentication Errors
+### Authentication errors
 
 If you encounter authentication errors:
 
@@ -736,7 +751,7 @@ If you encounter authentication errors:
 
 
 
-#### Region Errors
+### Region errors
 
 If you get region-related errors:
 
@@ -746,7 +761,7 @@ If you get region-related errors:
 
 
 
-#### Rate Limiting
+### Rate limiting
 
 For rate limiting issues:
 
@@ -756,7 +771,7 @@ For rate limiting issues:
 
 
 
-### Getting Help
+## Getting help
 
 View help for any command:
     
@@ -765,7 +780,7 @@ View help for any command:
     $ secops search --help
     $ secops rule create --help
 
-## Migration from chronicle_cli
+## Migrating from the legacy `chronicle_cli`
 
 If you're migrating from the legacy `chronicle_cli`, here's a mapping of common commands:
 
@@ -789,7 +804,6 @@ The new `secops` CLI offers many additional features not available in `chronicle
   * Rule testing and validation
   * Data tables and reference lists
   * Case management
-  * And much more
 
 
 
@@ -805,6 +819,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-28 UTC.
+Last updated 2026-11-05 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-05 UTC."],[],[]] 

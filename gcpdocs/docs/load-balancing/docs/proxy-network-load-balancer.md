@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/load-balancing/docs/proxy-network-load-balancer/
 title: Proxy Network Load Balancer overview \u00a0|\u00a0 Cloud Load Balancing \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T22:56:15.064379+00:00
+fetched_at: 2026-11-06T13:46:28.496707+00:00
 ---
 
 # Proxy Network Load Balancer overview  |  Cloud Load Balancing  |  Google Cloud Documentation
@@ -47,25 +47,21 @@ IPv6  | Can reference exactly one port from 1-65535
 Classic | Global in Premium Tier Regional in Standard Tier | EXTERNAL | IPv4   
 IPv6 (requires Premium Tier)  
 Regional external | Premium or Standard Tier | EXTERNAL_MANAGED | IPv4   
-IPv6 ([Preview](https://cloud.google.com/products#product-launch-stages))   
+IPv6   
   * **Internal proxy Network Load Balancer** : Load balances traffic within your VPC network or networks connected to your VPC network. For architecture details, see [Internal proxy Network Load Balancer architecture](https://docs.cloud.google.com/load-balancing/docs/tcp/internal-proxy#components).
 
 Deployment mode | Network service tier | Load-balancing scheme † | IP address | Frontend ports  
 ---|---|---|---|---  
 Regional internal | Premium Tier | INTERNAL_MANAGED | IPv4  
-IPv6 ([Preview](https://cloud.google.com/products#product-launch-stages))  | Can reference exactly one port from 1-65535  
+IPv6  | Can reference exactly one port from 1-65535  
 Cross-region internal  | Premium Tier | INTERNAL_MANAGED | IPv4   
-IPv6 ([Preview](https://cloud.google.com/products#product-launch-stages))   
+IPv6   
 
 
 
 † The load-balancing scheme is an attribute on the [forwarding rule](https://docs.cloud.google.com/load-balancing/docs/forwarding-rule-concepts) and the [backend service](https://docs.cloud.google.com/load-balancing/docs/backend-service) of a load balancer and indicates whether the load balancer can be used for internal or external traffic. The term `*_MANAGED` in the load-balancing scheme indicates that the load balancer is implemented as a managed service on [Google Front Ends (GFEs)](https://docs.cloud.google.com/docs/security/infrastructure/design#google-frontend-service) or as a managed service on the open source [Envoy proxy](https://www.envoyproxy.io/). In a load-balancing scheme that is `*_MANAGED`, requests are routed either to the GFE or to the Envoy proxy.
 
 ## External proxy Network Load Balancer
-
-**Preview — Cross-region, regional external, and regional internal proxy Network Load Balancers support terminating IPv6 traffic**
-
-This feature is subject to the "Pre-GA Offerings Terms" in the General Service Terms section of the [Service Specific Terms](https://docs.cloud.google.com/terms/service-terms#1). Pre-GA features are available "as is" and might have limited support. For more information, see the [launch stage descriptions](https://cloud.google.com/products/#product-launch-stages). 
 
 The external proxy Network Load Balancer distributes traffic that comes from the internet to backends in your Google Cloud VPC network, on-premises, or in other cloud environments. These load balancers can be deployed in one of the following modes: global, regional, or classic.
 
@@ -92,10 +88,6 @@ In the following diagram, traffic from users in City A and City B is terminated 
 For more details, see [External proxy Network Load Balancer overview](https://docs.cloud.google.com/load-balancing/docs/tcp).
 
 ## Internal proxy Network Load Balancer
-
-**Preview — Cross-region, regional external, and regional internal proxy Network Load Balancers support terminating IPv6 traffic**
-
-This feature is subject to the "Pre-GA Offerings Terms" in the General Service Terms section of the [Service Specific Terms](https://docs.cloud.google.com/terms/service-terms#1). Pre-GA features are available "as is" and might have limited support. For more information, see the [launch stage descriptions](https://cloud.google.com/products/#product-launch-stages). 
 
 The [internal proxy Network Load Balancer](https://docs.cloud.google.com/load-balancing/docs/tcp/internal-proxy) is an Envoy proxy-based regional Layer 4 load balancer that lets you run and scale your TCP service traffic behind an internal IP address that is accessible only to clients in the same VPC network or clients connected to your VPC network.
 
@@ -147,6 +139,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-06 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-06 UTC."],[],[]] 

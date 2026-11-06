@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/apis/apis-overview/
 title: Google Distributed Cloud air-gapped APIs overview \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T19:00:39.617238+00:00
+fetched_at: 2026-11-06T10:53:09.412613+00:00
 ---
 
 # Google Distributed Cloud air-gapped APIs overview  |  Google Cloud Documentation
@@ -57,7 +57,7 @@ Resources in GDC air-gapped are either zonal resources or global resources. Zona
 
 GDC air-gapped offers two levels of management plane APIs to create and manage both GDC resource types: global APIs and zonal APIs.
 
-Both global and zonal APIs are Kubernetes declarative APIs served at different endpoints, and GDC resources are represented as Kubernetes custom resources in the API servers. The global API servers share a single etcd cluster distributed across zones to provide strong consistency with fault tolerance, at the cost of higher latency and reduced write queries per second (QPS) compared to the zonal API servers. In every organization, a zonal management API server provides the zonal API for administrators and developers to manage zonal resources, and a global management API server provides the global API to manage multi-zone resources.
+Both global and zonal APIs are Kubernetes declarative APIs served at different endpoints, and GDC resources are represented as Kubernetes custom resources in the API servers. The global API servers share a single etcd cluster distributed across zones to provide strong consistency with fault tolerance, at the cost of higher latency and reduced write queries per second (QPS) compared to the zonal API servers. In every organization, a zonal management API server provides the zonal API for administrators and developers to manage zonal resources, and a global API server provides the global API to manage multi-zone resources.
 
 ## GDC APIs access
 
@@ -84,7 +84,7 @@ The `kubectl` Kubernetes CLI is the primary way to work directly with the Kubern
 
 When accessing the Kubernetes API for the first time, use the Kubernetes command-line tool, `kubectl`.
 
-To access a cluster, you need the cluster location information and the credentials to access it. See the [Sign in](https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/platform/pa-user/iam/sign-in#cli) section to learn how to get access to those credentials.
+To access a cluster, you need the cluster location information and the credentials to access it. See the [Sign in](https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/platform/pa-user/iam/sign-in#generate-kubeconfig-file) section to learn how to get access to those credentials.
 
 Examine your current `kubectl` configuration and see the clusters to which you have access:
     
@@ -107,7 +107,7 @@ Replace `MANAGEMENT_API_SERVER` with the path to the kubeconfig file of the mana
 
   2. Download the list of API endpoint descriptions in JSON format:
          
-         curl -s http://127.0.0.1:8001/openapi/v2 | jq 'if .paths then .paths = (.paths \
+         curl -s http://127.0.0.1:8001/openapi/v2 | jq 'if .paths then .paths = (.paths
              | with_entries(select(.key | contains(".private") | not))) else . end' > k8s_swagger.json
          
 
@@ -189,7 +189,7 @@ If you don't want to run `kubectl` in proxy mode, you can pass an authentication
 
   5. Wait for the token controller to populate the secret with a token:
          
-         while ! kubectl describe secret default-token | grep -E '^token' >/dev/null; do
+         while ! kubectl describe secret default-token -n NAMESPACE | grep -E '^token' >/dev/null; do
            echo "waiting for token..." >&2
            sleep 1
          done
@@ -197,13 +197,13 @@ If you don't want to run `kubectl` in proxy mode, you can pass an authentication
 
   6. Set the token value:
          
-         TOKEN=$(kubectl get secret $(kubectl get secrets | grep default | cut -f1 -d ' ')  \
+         TOKEN=$(kubectl get secret default-token -n NAMESPACE \
              -o jsonpath='{.data.token}' | base64 --decode)
          
 
   7. To access the API, use the token with a tool like `curl` by adding the HTTP header `Authorization: Bearer $TOKEN` as shown in the following example:
          
-         $ curl -k $APISERVER/api --header "Authorization: Bearer $TOKEN"
+         curl -k $APISERVER/api --header "Authorization: Bearer $TOKEN"
          
 
 The output is similar to the following:
@@ -229,6 +229,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-05 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-05 UTC."],[],[]] 

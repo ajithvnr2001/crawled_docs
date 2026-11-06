@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/recaptcha/docs/release-notes/
 title: Fraud Defense release notes \u00a0|\u00a0 Google Cloud Fraud Defense \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T01:39:30.423168+00:00
+fetched_at: 2026-11-06T11:45:19.693501+00:00
 ---
 
 # Fraud Defense release notes  |  Google Cloud Fraud Defense  |  Google Cloud Documentation
@@ -28,6 +28,17 @@ This page documents production updates to Fraud Defense. You can periodically ch
 You can see the latest product updates for all of Google Cloud on the [ Google Cloud](https://docs.cloud.google.com/release-notes) page, browse and filter all release notes in the [Google Cloud console](https://console.cloud.google.com/release-notes), or programmatically access release notes in [BigQuery](https://console.cloud.google.com/bigquery?p=bigquery-public-data&d=google_cloud_release_notes&t=release_notes&page=table). 
 
 To get the latest product updates delivered to you, add the URL of this page to your [feed reader](https://wikipedia.org/wiki/Comparison_of_feed_aggregators), or add the [feed URL](https://docs.cloud.google.com/feeds/recaptcha-enterprise-release-notes.xml) directly. 
+
+## October 30, 2026
+
+Change
+
+Fraud Defense Mobile SDK v18.9.4 is available for Android. This version includes the following:
+
+  * Fixes a memory leak where destroyed activities were retained by lifecycle callbacks ([Issue #194](https://github.com/GoogleCloudPlatform/recaptcha-enterprise-mobile-sdk/issues/194)).
+  * Fixes a dependency compatibility issue with Kotlin Coroutines and POM API dependencies.
+
+
 
 ## September 01, 2026
 

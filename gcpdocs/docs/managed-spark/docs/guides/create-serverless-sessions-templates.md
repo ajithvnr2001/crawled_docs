@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/managed-spark/docs/guides/create-serverless-sessions-templates/
 title: Create interactive sessions and runtime profiles \u00a0|\u00a0 Managed Service for Apache Spark \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-06T05:53:26.650059+00:00
+fetched_at: 2026-11-06T11:10:37.949292+00:00
 ---
 
 # Create interactive sessions and runtime profiles  |  Managed Service for Apache Spark  |  Google Cloud Documentation

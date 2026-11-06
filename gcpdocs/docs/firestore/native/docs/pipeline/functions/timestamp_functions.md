@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/firestore/native/docs/pipeline/functions/timestamp_functions/
 title: Timestamp Functions Reference \u00a0|\u00a0 Firestore in Native mode \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T23:45:27.983607+00:00
+fetched_at: 2026-11-06T08:23:19.160129+00:00
 ---
 
 # Timestamp Functions Reference  |  Firestore in Native mode  |  Google Cloud Documentation
@@ -221,7 +221,7 @@ Android
     	)).
     	Execute(ctx)
     
-    [pipeline_snippets_date_timestamp.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/ed08282a171f47c035cf0984a5caa406b76f5bcd/firestore/pipeline_snippets_date_timestamp.go#L28-L33)
+    [pipeline_snippets_date_timestamp.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/7c21bf1faae9139ce31b1321fa2815e95caff660/firestore/pipeline_snippets_date_timestamp.go#L28-L33)
 
 ### UNIX_MILLIS_TO_TIMESTAMP
 
@@ -346,7 +346,7 @@ Android
     	)).
     	Execute(ctx)
     
-    [pipeline_snippets_date_timestamp.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/ed08282a171f47c035cf0984a5caa406b76f5bcd/firestore/pipeline_snippets_date_timestamp.go#L47-L52)
+    [pipeline_snippets_date_timestamp.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/7c21bf1faae9139ce31b1321fa2815e95caff660/firestore/pipeline_snippets_date_timestamp.go#L47-L52)
 
 ### UNIX_SECONDS_TO_TIMESTAMP
 
@@ -471,7 +471,7 @@ Android
     	)).
     	Execute(ctx)
     
-    [pipeline_snippets_date_timestamp.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/ed08282a171f47c035cf0984a5caa406b76f5bcd/firestore/pipeline_snippets_date_timestamp.go#L66-L71)
+    [pipeline_snippets_date_timestamp.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/7c21bf1faae9139ce31b1321fa2815e95caff660/firestore/pipeline_snippets_date_timestamp.go#L66-L71)
 
 ### TIMESTAMP_ADD
 
@@ -607,7 +607,7 @@ Android
     	)).
     	Execute(ctx)
     
-    [pipeline_snippets_date_timestamp.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/ed08282a171f47c035cf0984a5caa406b76f5bcd/firestore/pipeline_snippets_date_timestamp.go#L85-L90)
+    [pipeline_snippets_date_timestamp.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/7c21bf1faae9139ce31b1321fa2815e95caff660/firestore/pipeline_snippets_date_timestamp.go#L85-L90)
 
 ### TIMESTAMP_SUB
 
@@ -747,7 +747,7 @@ Android
     	)).
     	Execute(ctx)
     
-    [pipeline_snippets_date_timestamp.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/ed08282a171f47c035cf0984a5caa406b76f5bcd/firestore/pipeline_snippets_date_timestamp.go#L104-L109)
+    [pipeline_snippets_date_timestamp.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/7c21bf1faae9139ce31b1321fa2815e95caff660/firestore/pipeline_snippets_date_timestamp.go#L104-L109)
 
 ### TIMESTAMP_TO_UNIX_MICROS
 
@@ -868,7 +868,7 @@ Android
     	)).
     	Execute(ctx)
     
-    [pipeline_snippets_date_timestamp.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/ed08282a171f47c035cf0984a5caa406b76f5bcd/firestore/pipeline_snippets_date_timestamp.go#L123-L128)
+    [pipeline_snippets_date_timestamp.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/7c21bf1faae9139ce31b1321fa2815e95caff660/firestore/pipeline_snippets_date_timestamp.go#L123-L128)
 
 ### TIMESTAMP_TO_UNIX_MILLIS
 
@@ -989,7 +989,7 @@ Android
     	)).
     	Execute(ctx)
     
-    [pipeline_snippets_date_timestamp.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/ed08282a171f47c035cf0984a5caa406b76f5bcd/firestore/pipeline_snippets_date_timestamp.go#L142-L147)
+    [pipeline_snippets_date_timestamp.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/7c21bf1faae9139ce31b1321fa2815e95caff660/firestore/pipeline_snippets_date_timestamp.go#L142-L147)
 
 ### TIMESTAMP_TO_UNIX_SECONDS
 
@@ -1110,7 +1110,7 @@ Android
     	)).
     	Execute(ctx)
     
-    [pipeline_snippets_date_timestamp.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/ed08282a171f47c035cf0984a5caa406b76f5bcd/firestore/pipeline_snippets_date_timestamp.go#L161-L166)
+    [pipeline_snippets_date_timestamp.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/7c21bf1faae9139ce31b1321fa2815e95caff660/firestore/pipeline_snippets_date_timestamp.go#L161-L166)
 
 ### TIMESTAMP_DIFF
 

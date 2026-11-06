@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/ai-hypercomputer/docs/workloads/pathways-on-cloud/resilient-training/
 title: Resilient training with Pathways \u00a0|\u00a0 AI Hypercomputer \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-05T00:17:55.198666+00:00
+fetched_at: 2026-11-06T10:23:27.052363+00:00
 ---
 
 # Resilient training with Pathways  |  AI Hypercomputer  |  Google Cloud Documentation
@@ -21,10 +21,14 @@ Send feedback
 
 #  Resilient training with Pathways Stay organized with collections  Save and categorize content based on your preferences. 
 
+This page explains how to configure resiliency features for Pathways workloads on Google Kubernetes Engine (GKE) so that large-scale training jobs can recover from planned interruptions and unplanned hardware failures.
+
 Pathways provides resiliency benefits in the following ways:
 
-  * **Suspend-Resume** : lets your workload tolerate planned interruptions such as preemption notices without requiring custom preemption-handling code.
-  * **Elastic training** : lets your workload tolerate unplanned hardware failures without crashing the client by using recovery logic in your training code.
+  * **Suspend-resume** : Lets your workload tolerate planned interruptions, such as preemption notices, without requiring custom preemption-handling code.
+  * **Elastic training** : Lets your workload tolerate unplanned hardware failures without crashing the client by using recovery logic in your training code.
+  * **Multi-Tier Checkpointing** : Lets your workload save high-frequency local and peer-replicated checkpoints across TPU workers using colocated Python, with asynchronous Cloud Storage backups to reduce recovery time.
+  * **Hot-swap** : Lets a higher-priority GKE JobSet workload quickly take over spare or lower-priority TPU slices when a hardware failure occurs.
 
 
 
@@ -34,20 +38,41 @@ Before you begin, complete the following tasks:
 
   * [Set up Cluster Toolkit](https://docs.cloud.google.com/cluster-toolkit/docs/setup/configure-environment)
   * [Install Kubernetes tools](https://kubernetes.io/docs/tasks/tools/)
-  * [Install the Google Cloud CLI CLI](https://docs.cloud.google.com/sdk/docs/install)
-  * [Enable the Google Kubernetes Engine API](https://docs.cloud.google.com/endpoints/docs/openapi/enable-api)
+  * [Install the Google Cloud CLI](https://docs.cloud.google.com/sdk/docs/install)
+  * [Enable the Kubernetes Engine API](https://docs.cloud.google.com/endpoints/docs/openapi/enable-api)
+
+
+
+If you use elastic training, install the following packages in your workload container image:
+
+  * `pathwaysutils`
+  * **Orbax** (`orbax-checkpoint`): `>= 0.12.6` (required for in-memory snapshots with `ocp.v1.training.pathways.Snapshotter`)
+  * **Grain** (`grain`): required if you use `grain.experimental.ElasticIterator`
+
+
+
+If you use Multi-Tier Checkpointing, also complete the following prerequisites:
+
+  * Configure your GKE cluster for Multi-Tier Checkpointing by following [Train large-scale machine learning models on GKE with Multi-Tier Checkpointing](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/machine-learning/training/multi-tier-checkpointing#configure-cluster): 
+    * Enable the Multi-Tier Checkpointing and Cloud Storage FUSE (`GcsFuseCsiDriver`) add-ons, along with Workload Identity Federation for GKE, on your cluster.
+    * Create a Cloud Storage bucket with [hierarchical namespace](https://docs.cloud.google.com/storage/docs/hns-overview) enabled.
+    * Grant the `roles/storage.objectUser` and `roles/storage.insightsCollectorService` Identity and Access Management (IAM) roles to the Multi-Tier Checkpointing Kubernetes service account.
+    * Deploy a `CheckpointConfiguration` custom resource specifying your Cloud Storage bucket, TPU node selector, and in-memory volume size (`inMemoryVolumeSize`).
+  * Build and push a colocated Python sidecar container image—for example, by using the [sample sidecar Dockerfile](https://github.com/AI-Hypercomputer/pathways-utils/blob/main/pathwaysutils/experimental/shared_pathways_service/dockerfiles/sample_sidecar.dockerfile). In your workload and sidecar images, use matching `jax` and `jaxlib` versions that align with your Pathways release and meet the following minimum version requirements: 
+    * **Orbax version** : `>= 0.12.4`
+    * **JAX version (including colocated Python)** : `>= 0.10.1`
 
 
 
 ## Suspend-resume
 
-Google Kubernetes Engine (GKE) typically sends a preemption notice to an accelerator Pod before the Pod is preempted. Pathways preemption tolerance is enabled by default on all cloud deployments and Pathways accelerator jobs listen for these notices.
+GKE typically sends a preemption notice to an accelerator Pod before preempting the Pod. Pathways enables preemption tolerance by default on all cloud deployments, and Pathways accelerator jobs listen for these notices.
 
-When a preemption notice arrives, Pathways first determines whether Pathways can transparently save and restore the workload. If so, then it attempts to transparently suspend your ML workload by writing out its current state to persistent storage such as Cloud Storage before GKE evicts your accelerator jobs. When GKE reschedules your jobs later, Pathways resumes your ML workload by reading back its persisted state.
+When a preemption notice arrives, Pathways first determines whether it can transparently save and restore the workload. If it can, Pathways attempts to transparently suspend your ML workload by writing out its current state to persistent storage, such as Cloud Storage, before GKE evicts your accelerator jobs. When GKE reschedules your jobs later, Pathways resumes your ML workload by reading back its persisted state.
 
-If the workload isn't restorable, Pathways shuts down the accelerator job and forwards the failure to your job if elastic training is configured. If elastic training isn't configured, GKE restarts the entire workload based on the JobSet restart policy.
+If the workload isn't restorable, Pathways shuts down the accelerator job and forwards the failure to your workload if elastic training is configured. If elastic training isn't configured, GKE restarts the entire workload based on the JobSet restart policy.
 
-Typical ML workloads defined using JAX rely on stateless Pathways XLA components which are restorable using a high bandwidth memory (HBM) snapshot. Certain ML workloads such as those defined using the [JAX colocated python API](https://github.com/jax-ml/jax/blob/main/jax/experimental/colocated_python/api.py) rely on stateful Pathways components; these workloads aren't restorable.
+Typical ML workloads defined using JAX rely on stateless Pathways XLA components, which are restorable using a high-bandwidth memory (HBM) snapshot. Certain ML workloads, such as those defined using the [JAX colocated Python API](https://github.com/jax-ml/jax/blob/main/jax/experimental/colocated_python/api.py), rely on stateful Pathways components and aren't restorable.
 
 ## Elastic training
 
@@ -57,8 +82,8 @@ Elastic training combines Pathways system capabilities with recovery logic in yo
 
   * **Failure detection** : When a hardware failure or preemption occurs on a TPU slice, Pathways unassigns the affected slice and raises a `jax.errors.JaxRuntimeError` the next time your workload accesses data on that slice. Because the client process remains active, your code can catch this error, reconfigure your resources, and continue training.
   * **Recovery modes** : The `pathwaysutils.elastic.manager.Manager` class and its `elastic_retry` decorator support two recovery strategies: 
-    * **Pause and resume** : When `minimum_slice_count` is `None` or equal to the total number of slices in the job, training pauses when a slice is lost and waits until all slices are healthy again before resuming. Because the slice count doesn't change across attempts, your workload can reuse its existing device mesh and compiled executables.
-    * **Replica resize** : When `minimum_slice_count` is less than the total number of slices, training continues immediately on the remaining active slices by rebuilding the device mesh and recompiling for the smaller topology. A background monitor thread periodically checks inactive slices and records newly healthy slices in `elastic_manager.available_inactive_slices`. Your training loop can then rebuild the device mesh with the replacement slices, reinitialize for the expanded topology, and place the current state onto the new mesh.
+    * **Pause and resume** : If you set `minimum_slice_count` to `None` or to the total slice count, training pauses when a slice fails and resumes after all slices are healthy again. Because the slice count doesn't change across attempts, your workload can reuse its existing device mesh and compiled executables.
+    * **Replica resize** : If you set `minimum_slice_count` to less than the total slice count, training continues on the remaining active slices when a slice fails by rebuilding the device mesh and recompiling for the smaller topology. A background monitor thread periodically checks inactive slices and records newly healthy slices in `elastic_manager.available_inactive_slices`. Your training loop can then rebuild the device mesh with the replacement slices, reinitialize for the expanded topology, and place the current state onto the new mesh.
   * **State recovery** : To resume training after an elastic event, your workload restores model parameters, optimizer state, and data iterator state using in-memory snapshots. The `Snapshotter` class in `orbax.checkpoint` asynchronously copies replicated state from TPU HBM to `pinned_host` CPU memory on each slice. During recovery, `Snapshotter` reconstructs the state from surviving host replicas and reshards it directly onto the active TPU mesh without reading from remote storage.
 
 
@@ -69,7 +94,7 @@ To enable elastic device sets on Pathways in GKE, add the `--num_elastic_instanc
     
     
     - name: pathways-proxy
-      image: us-docker.pkg.dev/cloud-tpu-v2-images/pathways/proxy_server:latest
+      image: us-docker.pkg.dev/cloud-tpu-v2-images/cloud-pathways/proxy_server:latest
       args:
       - --resource_manager_address=$(PATHWAYS_HEAD):29001
       - --server_port=29000
@@ -105,15 +130,15 @@ In a Pathways workload, `jax.devices()` returns all devices in the initial alloc
       return jax.sharding.Mesh(device_array, axis_names=("replica", "model"))
     
 
-When the number of active slices changes in replica resize mode, use an elastic data loader such as `grain.experimental.ElasticIterator`. Standard per-host data iterators save state per host and can't restore onto a different number of hosts, whereas `ElasticIterator` tracks a single global dataset position that can be restored across any number of active slices.
+When the number of active slices changes in replica resize mode, use an elastic data loader such as `grain.experimental.ElasticIterator`. Standard per-host data iterators save state per host and can't restore onto a different number of hosts. In contrast, `ElasticIterator` tracks a single global dataset position that you can restore across any number of active slices.
 
 ### Elastic training loop
 
 An elastic training loop coordinates slice monitoring, failure recovery, and in-memory snapshotting, as shown in the following code example:
 
   * Your `train` function creates a single `manager.Manager()` instance and an Orbax `Snapshotter` outside the retry wrapper so slice tracking and host-memory snapshots persist across attempts.
-  * Decorating the inner `run_training_loop` function with `@elastic_manager.elastic_retry` waits for healthy slices, sets `jax.default_device` to an active slice, keeps the background monitor thread active across steps, and retries the loop when a `jax.errors.JaxRuntimeError` occurs.
-  * When recovering from a slice failure at the start of an attempt, your code must rebuild the device mesh from `elastic_manager.active_devices` and call `snapshotter.load` to restore the latest snapshot onto the updated mesh shardings, while letting device buffers from the failed attempt go out of scope.
+  * Applying `@elastic_manager.elastic_retry` to `run_training_loop` configures the function to wait for healthy slices, set `jax.default_device` to an active slice, keep the background monitor thread active, and retry on a `jax.errors.JaxRuntimeError`.
+  * At the start of a recovery attempt, your code must rebuild the device mesh from `elastic_manager.active_devices` and call `snapshotter.load` to restore the latest snapshot onto the updated mesh shardings. Let device buffers from the failed attempt go out of scope so that JAX can free their memory.
   * During each step of the loop, your code periodically calls `snapshotter.save` to back up the training state, and checks `elastic_manager.available_inactive_slices` to detect healthy replacement slices. When replacement slices are available, your code adds them to `elastic_manager.active_slice_indices`, rebuilds the mesh, reinitializes the training loop, and places the state onto the expanded mesh.
 
 
@@ -221,8 +246,8 @@ You can customize retry and scaling behavior by passing the following arguments 
   * `minimum_slice_count`: The minimum number of healthy slices required before starting the initial execution or a retry attempt. If set to `None` (the default), `elastic_retry` waits for all slices in the allocation (`total_slice_count`), operating in pause and resume mode. If set to a smaller integer (such as `1`), `elastic_retry` operates in replica resize mode.
   * `poll_interval`: The interval in seconds between slice health checks performed by the elastic training manager (`Manager`) during training. Defaults to `10`.
   * `timeout`: The maximum number of seconds to wait for `minimum_slice_count` slices to become active before raising a `TimeoutError`. Defaults to `None` (no timeout).
-  * `pre_callback`: An optional callback that is run at the beginning of each attempt after `active_slice_indices` is updated and before the wrapped training loop function runs.
-  * `on_elastic_event_callback`: An optional callback that is run after a slice-down `jax.errors.JaxRuntimeError` is caught, before the next retry attempt begins. You can use this callback to clean up incomplete checkpoints or reset data iterators.
+  * `pre_callback`: An optional callback that runs at the beginning of each attempt after the manager updates `active_slice_indices` and before the wrapped training loop function runs.
+  * `on_elastic_event_callback`: An optional callback that runs after `elastic_retry` catches a slice-down `jax.errors.JaxRuntimeError`, before the next retry attempt begins. You can use this callback to clean up incomplete checkpoints or reset data iterators.
   * `retry_policy`: A callable `(attempt: int, error: Exception) -> bool` that determines whether to continue retrying after an elastic event. Use `manager.ElasticRetryLimit(max_attempts)` to cap the total number of attempts. If omitted, `elastic_retry` retries indefinitely.
 
 
@@ -243,11 +268,11 @@ The `ocp.v1.training.pathways.Snapshotter` class (available in `orbax-checkpoint
 
 ### Reduce sharding on slice failure
 
-When a TPU slice fails or is preempted during execution, Pathways raises a `jax.errors.JaxRuntimeError` (such as `DATA_LOSS`, `DEADLINE_EXCEEDED`, `NOT_FOUND`, or `INTERNAL`). The `elastic_retry` decorator catches this exception and checks `elastic.is_error_due_to_slice_down(error)`:
+When a TPU slice fails or is preempted during execution, Pathways raises a `jax.errors.JaxRuntimeError` (such as `DATA_LOSS`, `DEADLINE_EXCEEDED`, `NOT_FOUND`, or `INTERNAL`). In a function decorated with `@elastic_manager.elastic_retry`, `elastic_retry` catches this exception and checks `elastic.is_error_due_to_slice_down(error)`:
 
   * If the error isn't caused by a slice-down event, `elastic_retry` re-raises the exception immediately.
   * If the error is caused by a slice-down event, `elastic_retry` stops any active JAX profiler trace, runs `on_elastic_event_callback`, and evaluates `retry_policy(attempt, error)`.
-  * Before starting the next attempt, `elastic_retry` calls `elastic.wait_for_slices` once, which polls slice health until at least `minimum_slice_count` slices are active, updates `elastic_manager.active_slice_indices`, and runs your training loop function on the surviving slices.
+  * Before starting the next attempt, `elastic_retry` calls `elastic.wait_for_slices` once to poll slice health until at least `minimum_slice_count` slices are active. It then updates `elastic_manager.active_slice_indices` and runs your training loop function on the surviving slices.
 
 
 
@@ -263,11 +288,158 @@ When `elastic_manager.available_inactive_slices` is non-empty at the end of a tr
 
 
 
+## Multi-Tier Checkpointing
+
+Large-scale training jobs experience frequent interruptions, and writing or restoring checkpoints directly to and from Cloud Storage can bottleneck training progress. [Multi-Tier Checkpointing](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/machine-learning/training/multi-tier-checkpointing) reduces checkpointing overhead and recovery time by coordinating three storage tiers on GKE:
+
+  * **Local RAM disk** : TPU workers write high-frequency checkpoints to an in-memory CSI volume (`multitier-checkpoint.csi.storage.gke.io`) mounted on each worker node. This volume persists across Pod restarts on the same node.
+  * **In-cluster peer replication** : The GKE replicator service replicates local checkpoint shards across peer TPU workers in the cluster.
+  * **Cloud Storage backup** : The replicator service asynchronously backs up local checkpoints to a Cloud Storage bucket with [hierarchical namespace](https://docs.cloud.google.com/storage/docs/hns-overview) enabled, without blocking TPU training steps.
+
+
+
+Unlike multi-controller JAX, where each TPU host runs its own training script, Pathways runs a single controller on the `pathways-head` Pod and dispatches work to `pathways-worker` Pods. To read and write checkpoint shards directly on each TPU host's local RAM disk without routing checkpoint data through the single controller, Pathways uses [colocated Python](https://docs.cloud.google.com/ai-hypercomputer/docs/workloads/pathways-on-cloud/porting-jax-workloads#colocated-python). Each `worker` Pod runs a `colocated-python-sidecar` container alongside the `pathways-worker` container, and both containers mount the Multi-Tier Checkpointing CSI volume and a shared memory directory (`/tmp/sidecar`). During initialization and training, Orbax dispatches checkpoint setup, saves, and restores from the Pathways controller to the worker sidecars on each TPU host. Multi-Tier Checkpointing on Pathways also supports elastic training when scaling down or scaling up the number of active TPU slices.
+
+Pathways supports Multi-Tier Checkpointing with MaxText. For setup and configuration instructions, see the [MaxText multi-tier checkpointing guide](https://maxtext.readthedocs.io/en/latest/guides/checkpointing_solutions/multi_tier_checkpointing.html).
+
+### Configure your Pathways workload
+
+You can configure a Pathways workload for Multi-Tier Checkpointing either by using Cluster Toolkit (`gcluster job submit`) or by configuring a custom Pathways JobSet manifest.
+
+#### Use Cluster Toolkit
+
+When you submit a job with `gcluster job submit --pathways`, pass the `--gke-mtc-enabled`, `--gke-mtc-ramdisk-dir`, and `--pathways-colocated-python-sidecar-image` flags:
+    
+    
+    gcluster job submit \
+        --pathways \
+        --gke-mtc-enabled \
+        --gke-mtc-ramdisk-dir="/tmp/mtc_checkpoints" \
+        --pathways-colocated-python-sidecar-image="SIDECAR_IMAGE" \
+        ...
+    
+
+Replace `SIDECAR_IMAGE` with the URI of your colocated Python sidecar container image.
+
+When you set these flags, `gcluster` automatically configures the following:
+
+  * Passes `--sidecar_name=external` to the `pathways-proxy` container.
+  * Runs the `colocated-python-sidecar` container in each `worker` Pod and mounts a shared `/tmp/sidecar` directory (`--cloud_pathways_sidecar_shm_directory=/tmp/sidecar`) on both `pathways-worker` and `colocated-python-sidecar`.
+  * Mounts the `multitier-checkpoint.csi.storage.gke.io` CSI volume at the path specified by `--gke-mtc-ramdisk-dir` in both `pathways-worker` and `colocated-python-sidecar` on the `worker` Pods, but not on the `pathways-head` Pod.
+
+
+
+#### Use a custom Pathways JobSet manifest
+
+If you manage your own Pathways JobSet manifest instead of using `gcluster`, pass `--sidecar_name=external` to `pathways-proxy`. In your `worker` Pod specification, mount both the shared sidecar memory volume and the `multitier-checkpoint.csi.storage.gke.io` CSI volume on the `pathways-worker` and `colocated-python-sidecar` containers:
+    
+    
+    containers:
+    - name: pathways-worker
+      args:
+      - --cloud_pathways_sidecar_shm_directory=/tmp/sidecar
+      volumeMounts:
+      - name: shared-tmp
+        mountPath: /tmp/sidecar
+      - name: checkpoint-mount
+        mountPath: /tmp/mtc_checkpoints
+    - name: colocated-python-sidecar
+      volumeMounts:
+      - name: shared-tmp
+        mountPath: /tmp/sidecar
+      - name: checkpoint-mount
+        mountPath: /tmp/mtc_checkpoints
+    volumes:
+    - name: shared-tmp
+      emptyDir:
+        medium: Memory
+    - name: checkpoint-mount
+      csi:
+        driver: multitier-checkpoint.csi.storage.gke.io
+    
+
+### Use Orbax Multi-Tier Checkpointing in a custom JAX workload
+
+In a custom JAX training script running on Pathways, use the `orbax.checkpoint.experimental.emergency.multi_tier_checkpointing` package and set `use_colocated_python=True` in both `initialize_multi_tier_checkpointing` and `ReplicatorCheckpointManagerOptions`:
+    
+    
+    from etils import epath
+    import jax
+    import orbax.checkpoint as ocp
+    from orbax.checkpoint.experimental.emergency.multi_tier_checkpointing import (
+        initialization,
+        replicator_checkpoint_manager,
+    )
+    import pathwaysutils
+    
+    pathwaysutils.initialize()
+    
+    local_checkpoint_dir = epath.Path("/tmp/mtc_checkpoints")
+    
+    # Initialize multi-tier checkpointing across worker sidecars.
+    # When using elastic training, pass the active slice devices to `devices`
+    # on initial setup and whenever the active slice count changes.
+    initialization.initialize_multi_tier_checkpointing(
+        local_checkpoint_directory=local_checkpoint_dir,
+        backup_interval_minutes=10,
+        num_slices=num_slices,
+        run_name=run_name,
+        data_parallelism=data_parallelism,
+        use_colocated_python=True,
+        devices=jax.devices(),
+    )
+    
+    options = replicator_checkpoint_manager.ReplicatorCheckpointManagerOptions(
+        save_interval_steps=20,
+        use_colocated_python=True,
+    )
+    checkpoint_manager = (
+        replicator_checkpoint_manager.ReplicatorCheckpointManager(
+            local_checkpoint_dir,
+            options=options,
+            global_mesh=mesh,
+        )
+    )
+    
+    # Restore from the latest checkpoint if one exists.
+    start_step = 1
+    latest_step = checkpoint_manager.latest_step()
+    if latest_step is not None:
+      restore_args = jax.tree.map(
+          lambda x: ocp.type_handlers.ArrayRestoreArgs(sharding=x.sharding),
+          state,
+      )
+      restored = checkpoint_manager.restore(
+          latest_step,
+          args=ocp.args.Composite(
+              state=ocp.args.PyTreeRestore(
+                  item=state,
+                  restore_args=restore_args,
+              )
+          ),
+      )
+      state = restored.state
+      start_step = latest_step + 1
+    
+    # Step 0 is reserved by the replicator service to indicate "no checkpoint".
+    for step in range(start_step, final_step + 1):
+      state = jitted_train_step(state)
+      checkpoint_manager.save(
+          step,
+          args=ocp.args.Composite(
+              state=ocp.args.PyTreeSave(item=state)
+          ),
+      )
+    
+    checkpoint_manager.wait_until_finished()
+    checkpoint_manager.close()
+    
+
 ## Hot-swap
 
-Hot-swap refers to a feature of the GKE JobSet API where a higher-priority job can quickly take over resources from a lower-priority job, minimizing downtime and ensuring faster recovery.
+Hot-swap is a feature of the GKE JobSet API that lets a higher-priority job quickly take over resources from a lower-priority job, minimizing downtime and speeding up recovery.
 
-When a JobSet is created, GKE schedules the workload across multiple slices, as specified in the JobSet configuration. If a hardware failure occurs on one or more slices, the affected Pods are marked as failed. If your GKE cluster has a spare slice running a lower-priority job, the JobSet system remaps the failed slice's workload from the higher-priority job onto that spare slice. This remapping typically takes less than a minute.
+When you create a JobSet, GKE schedules the workload across multiple slices, as specified in the JobSet configuration. If a hardware failure occurs on one or more slices, GKE marks the affected Pods as failed. If your GKE cluster has a spare slice running a lower-priority job, the JobSet controller remaps the failed slice's workload from the higher-priority job onto that spare slice. This remapping typically takes less than a minute.
 
 When a JobSet restarts, hot-swap can occur in the following situations:
 
@@ -276,9 +448,10 @@ When a JobSet restarts, hot-swap can occur in the following situations:
 
 
 
-To use priorities in your cluster, define a `PriorityClass` manifest:
+To use priorities in your cluster, define a `PriorityClass` manifest and save it as `high-prior-job.yaml`:
     
     
+    apiVersion: scheduling.k8s.io/v1
     kind: PriorityClass
     metadata:
       name: high-prior-job
@@ -293,11 +466,19 @@ Apply this YAML to your GKE cluster:
     kubectl apply -f high-prior-job.yaml
     
 
-Next, attach the new priority class to your Pathways worker job by adding the following text to the podspec of your `pathways-worker` Pod.
+Next, attach the new priority class to your Pathways workload. If you submit your workload by using Cluster Toolkit, pass `--priority=high-prior-job` to the `gcluster job submit` command, which sets `priorityClassName` on both the `pathways-head` and `worker` Pods. If you write your own JobSet manifest, set `priorityClassName` in the Pod template of the `worker` replicated job, which runs the `pathways-worker` container:
     
     
-    priorityClassName: high-prior-job
+    replicatedJobs:
+    - name: worker
+      template:
+        spec:
+          template:
+            spec:
+              priorityClassName: high-prior-job
     
+
+If you created your cluster by using a Cluster Toolkit TPU blueprint with Pathways enabled, the cluster already includes the `very-low`, `low`, `medium`, `high`, and `very-high` priority classes, so you can pass one of them to `--priority` instead of creating your own.
 
 ## What's next
 
@@ -305,7 +486,10 @@ Next, attach the new priority class to your Pathways worker job by adding the fo
   * [Run a batch workload with Pathways](https://docs.cloud.google.com/ai-hypercomputer/docs/workloads/pathways-on-cloud/batch-workload)
   * [Pathways interactive mode](https://docs.cloud.google.com/ai-hypercomputer/docs/workloads/pathways-on-cloud/pathways-interactive-mode)
   * [Porting JAX workloads to Pathways](https://docs.cloud.google.com/ai-hypercomputer/docs/workloads/pathways-on-cloud/porting-jax-workloads)
-  * [Troubleshoot Pathways on cloud](https://docs.cloud.google.com/ai-hypercomputer/docs/workloads/pathways-on-cloud/troubleshooting-pathways)
+  * [Troubleshoot Pathways on Cloud](https://docs.cloud.google.com/ai-hypercomputer/docs/workloads/pathways-on-cloud/troubleshooting-pathways)
+  * [Train large-scale machine learning models on GKE with Multi-Tier Checkpointing](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/machine-learning/training/multi-tier-checkpointing)
+  * [MaxText multi-tier checkpointing guide](https://maxtext.readthedocs.io/en/latest/guides/checkpointing_solutions/multi_tier_checkpointing.html)
+  * [Using Multi-Tier Checkpointing for large AI training jobs](https://cloud.google.com/blog/products/ai-machine-learning/using-multi-tier-checkpointing-for-large-ai-training-jobs)
 
 
 
@@ -313,6 +497,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-03 UTC.
+Last updated 2026-11-05 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-05 UTC."],[],[]] 

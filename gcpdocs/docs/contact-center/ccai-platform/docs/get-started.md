@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/contact-center/ccai-platform/docs/get-started/
 title: Get started with Contact Center AI Platform (CCAI Platform) \u00a0|\u00a0 Google Cloud Contact Center as a Service \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T05:38:30.011266+00:00
+fetched_at: 2026-11-06T13:12:14.735546+00:00
 ---
 
 # Get started with Contact Center AI Platform (CCAI Platform)  |  Google Cloud Contact Center as a Service  |  Google Cloud Documentation
@@ -142,7 +142,7 @@ If you have confirmed that quota has been granted and the **Create** button is s
 
      1. In the **Instance name** field, enter a name for your instance.
 
-     2. In the **Region** field, select a region. The region can't be changed after you create your instance. Some Contact Center AI Platform capabilities are available only in certain regions. For more information, see [Google Cloud regions](https://docs.cloud.google.com/contact-center/ccai-platform/docs/localities#regions).
+     2. In the **Region** field, select a region. The region can't be changed after you create your instance. For more information, see [Google Cloud regions](https://docs.cloud.google.com/contact-center/ccai-platform/docs/localities#regions).
 
      3. In the **Domain prefix** field enter your domain prefix. The domain prefix is added to the URL for your instance, which can help you identify your instance by looking at the URL. The domain prefix can't be changed after you create your instance.
 
@@ -207,7 +207,7 @@ For more information, see [Deployment schedules](https://docs.cloud.google.com/c
 
   11. Click **Continue**. The **Configure extensions** pane appears.
 
-  12. Optional: To turn on advanced reporting, select the **Advanced reporting** checkbox. The checkbox is inactive if your instance is in a [region](https://docs.cloud.google.com/contact-center/ccai-platform/docs/localities#regions) where advanced reporting is not supported. If you need advanced reporting, you must create an instance in a region that supports it.
+  12. Optional: To turn on advanced reporting, select the **Advanced reporting** checkbox.
 
   13. Optional: To turn on agent desktop, select the **Agent desktop** checkbox.
 
@@ -530,6 +530,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-05 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-05 UTC."],[],[]] 

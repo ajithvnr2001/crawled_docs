@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/workflows/docs/tutorials/buffer-workflows-executions/
 title: Use a Cloud Tasks queue to buffer your workflow executions \u00a0|\u00a0 Workflows \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-03T09:43:05.678629+00:00
+fetched_at: 2026-11-06T10:38:19.696629+00:00
 ---
 
 # Use a Cloud Tasks queue to buffer your workflow executions  |  Workflows  |  Google Cloud Documentation

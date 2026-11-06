@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/load-balancing/docs/proxy-only-subnets/
 title: Proxy-only subnets for Envoy-based load balancers \u00a0|\u00a0 Cloud Load Balancing \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T23:17:00.433426+00:00
+fetched_at: 2026-11-06T13:46:29.776076+00:00
 ---
 
 # Proxy-only subnets for Envoy-based load balancers  |  Cloud Load Balancing  |  Google Cloud Documentation
@@ -120,8 +120,8 @@ When configuring both an Envoy-based load balancer and Secure Web Proxy in the s
 
 Depending on your load balancer and backend requirements, you can create the proxy-only subnet as either single-stack (`IPV4_ONLY`) or dual-stack (`IPV4_IPV6`).
 
-  * `IPV4_ONLY`: You must use a single-stack proxy-only subnet when your load balancer needs to terminate IPv4 traffic.
-  * `IPV4_IPV6`: You must use a dual-stack proxy-only subnet when your load balancer needs to terminate IPv4 or IPv6 traffic. To support an IPv6 forwarding rule, the proxy-only subnet must be dual-stack.
+  * `IPV4_ONLY`: You can use a single-stack proxy-only subnet when your load balancer terminates IPv4 or IPv6 traffic. If the proxy-only subnet is single-stack, connections to backends are routed using IPv4 only.
+  * `IPV4_IPV6`: You can use a dual-stack proxy-only subnet when your load balancer terminates IPv4 or IPv6 traffic. If the proxy-only subnet is dual-stack, connections to backends are routed using either IPv4 or IPv6.
 
 
 
@@ -399,7 +399,7 @@ Refer to [deleting subnets](https://docs.cloud.google.com/vpc/docs/create-modify
 
 The following constraints apply to proxy-only subnets:
 
-  * You can't create a proxy-only subnet with a stack type of `IPV6_ONLY` for any load balancer. For regional external load balancers, the proxy-only subnet can have a stack type of either `IPV4_ONLY` or `IPV4_IPV6` (dual-stack) to support IPv6 traffic. However, for regional internal and cross-region internal load balancers, you must use the stack type, `IPV4_IPV6`.
+  * You can't create a proxy-only subnet with a stack type of `IPV6_ONLY` for any load balancer. For regional external, regional internal, and cross-region internal load balancers, the proxy-only subnet can have a stack type of either `IPV4_ONLY` or `IPV4_IPV6`.
 
   * You can't have both an `INTERNAL_HTTPS_LOAD_BALANCER` and a `REGIONAL_MANAGED_PROXY` subnet in the same network and region, in the same way you can't have two `REGIONAL_MANAGED_PROXY` proxies or two `INTERNAL_HTTPS_LOAD_BALANCER` proxies.
 
@@ -432,6 +432,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-06 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-06 UTC."],[],[]] 

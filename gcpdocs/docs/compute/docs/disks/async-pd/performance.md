@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/compute/docs/disks/async-pd/performance/
 title: Review Asynchronous Replication performance \u00a0|\u00a0 Compute Engine \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T05:39:26.970690+00:00
+fetched_at: 2026-11-06T12:03:58.175678+00:00
 ---
 
 # Review Asynchronous Replication performance  |  Compute Engine  |  Google Cloud Documentation
@@ -40,7 +40,7 @@ Metric | Description
   
 ## Monitor sent byte counts
 
-Use the **Async replication sent bytes count** metric to graph the average number of byte sent, sampled every minute. The number of sent bytes represents the data your workload writes to block storage, which affects the speed of replication.
+Use the **Async replication sent bytes count** metric to graph the average number of bytes sent, sampled every minute. The number of sent bytes represents the data your workload writes to block storage, which affects the speed of replication.
 
   1. In the Google Cloud console, go to the **Cloud Monitoring > Metrics Explorer** page.
 
@@ -67,7 +67,7 @@ Use the **Async replication sent bytes count** metric to graph the average numbe
      5. Click **Done**.
   8. Click **More options**.
 
-  9. In the **Alignment function** menu select an alignment function. The **Mean** alignment function shows the average number of bytes sent per minute, while the **Max** alignment function shows the highest number of bytes sent per minute.
+  9. In the **Alignment function** menu, select an alignment function. The **Mean** alignment function shows the average number of bytes sent per minute, while the **Max** alignment function shows the highest number of bytes sent per minute.
 
   10. In the **Min alignment period** menu, select an alignment period. The alignment period must be at least one minute.
 
@@ -101,9 +101,9 @@ Use the **Async replication time since last replication** metric to graph the nu
      5. Click **Done**.
   8. Click **More options**.
 
-  9. In the **Alignment function** menu, select an alignment function. The **Mean** alignment function shows the average number of seconds since the last replication was done , while the **Max** alignment function shows the highest number of seconds since the last replication was done .
+  9. In the **Alignment function** menu, select an alignment function. The **Mean** alignment function shows the average number of seconds since the last replication was done, while the **Max** alignment function shows the highest number of seconds since the last replication was done.
 
-  10. In the **Min alignment period** menu, select the select an alignment period. The alignment period must be at least one minute.
+  10. In the **Min alignment period** menu, select an alignment period. The alignment period must be at least one minute.
 
   11. Optional: Save the chart.
 
@@ -112,7 +112,7 @@ Use the **Async replication time since last replication** metric to graph the nu
 
 ## What's next
 
-  * Learn how to customize Asynchronous Replication chats with [Metrics Explorer](https://docs.cloud.google.com/monitoring/charts/metrics-explorer).
+  * Learn how to customize Asynchronous Replication charts with [Metrics Explorer](https://docs.cloud.google.com/monitoring/charts/metrics-explorer).
   * Learn more about [Asynchronous Replication](https://docs.cloud.google.com/compute/docs/disks/async-pd/about).
 
 
@@ -121,6 +121,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-06 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-06 UTC."],[],[]] 

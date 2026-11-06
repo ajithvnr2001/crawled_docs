@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/build/docs/api/reference/rest/v1/projects.locations.workerPools
 title: REST Resource: projects.locations.workerPools \u00a0|\u00a0 Cloud Build \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-21T14:35:15.368727+00:00
+fetched_at: 2026-11-06T10:23:30.503800+00:00
 ---
 
 # REST Resource: projects.locations.workerPools  |  Cloud Build  |  Google Cloud Documentation
@@ -123,7 +123,8 @@ Fields
 ---  
 `workerConfig` |  `object (`[WorkerConfig](https://docs.cloud.google.com/build/docs/api/reference/rest/v1/projects.locations.workerPools#WorkerConfig)`)` Machine configuration for the workers in the pool.  
 `networkConfig` |  `object (`[NetworkConfig](https://docs.cloud.google.com/build/docs/api/reference/rest/v1/projects.locations.workerPools#NetworkConfig)`)` Network configuration for the pool.  
-`privateServiceConnect` |  `object (`[PrivateServiceConnect](https://docs.cloud.google.com/build/docs/api/reference/rest/v1/projects.locations.workerPools#PrivateServiceConnect)`)` Immutable. Private Service Connect(PSC) Network configuration for the pool.  
+`privateServiceConnect  
+**(deprecated)**` |  `object (`[PrivateServiceConnect](https://docs.cloud.google.com/build/docs/api/reference/rest/v1/projects.locations.workerPools#PrivateServiceConnect)`)` This item is deprecated!Immutable. Deprecated: Private Service Connect is no longer supported. Private Service Connect(PSC) Network configuration for the pool.  
   
 ## WorkerConfig
 
@@ -183,7 +184,9 @@ Enums
   
 ## PrivateServiceConnect
 
-Defines the Private Service Connect network configuration for the pool.
+This item is deprecated!
+
+Deprecated: Private Service Connect is no longer supported. Defines the Private Service Connect network configuration for the pool.
 
 JSON representation  
 ---  
@@ -229,6 +232,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-21 UTC.
+Last updated 2026-11-05 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-21 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-05 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/security-command-center/docs/aoss-remote-repository-access/
 title: Download Assured OSS packages using a remote repository \u00a0|\u00a0 Security Command Center \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T10:57:53.844214+00:00
+fetched_at: 2026-11-06T13:26:25.837475+00:00
 ---
 
 # Download Assured OSS packages using a remote repository  |  Security Command Center  |  Google Cloud Documentation
@@ -23,9 +23,9 @@ Send feedback
 
 Premium and Enterprise (Deprecated) [service tiers](https://docs.cloud.google.com/security-command-center/docs/service-tiers) (requires [organization-level activation](https://docs.cloud.google.com/security-command-center/docs/activate-scc-overview#overview_of_organization-level_activation)) The Security Command Center Enterprise service tier will shut down on May 21, 2027. If your organization uses the Enterprise service tier, then the organization will automatically move to the Premium service tier on or after May 21, 2027. Contact your account representative or a [Google Cloud sales specialist](https://cloud.google.com/contact) if you have questions. 
 
-This page explains how you can set up a remote repository to access and download Assured OSS packages. You have two options for setting up a remote repository: JFrog Artifactory or Sonatype Nexus. For more information about repository options, see [Assured OSS repository options](https://docs.cloud.google.com/assured-open-source-software/docs/overview#aoss-repository-options).
+To access and download Assured Open Source Software (Assured OSS) packages, you can set up a JFrog Artifactory or Sonatype Nexus remote repository. This configuration lets you proxy and download Assured OSS packages through your existing artifact manager. For more information about repository options, see [Assured OSS repository options](https://docs.cloud.google.com/assured-open-source-software/docs/overview#aoss-repository-options).
 
-This document applies to the [Assured OSS Premium tier](https://docs.cloud.google.com/assured-open-source-software/docs/overview) only. For other Assured OSS tiers, see [Download Assured OSS packages using a remote repository](https://docs.cloud.google.com/assured-open-source-software/docs/remote-repository-access).
+This document applies to the [Assured OSS premium tier](https://docs.cloud.google.com/assured-open-source-software/docs/overview) only. For the free tier, see [Download Assured OSS packages using a remote repository](https://docs.cloud.google.com/assured-open-source-software/docs/remote-repository-access).
 
 ## Before you begin
 
@@ -48,19 +48,21 @@ This document applies to the [Assured OSS Premium tier](https://docs.cloud.googl
 
         * Java: 
               
-              https://us-maven.pkg.dev
+              https://LOCATION-maven.pkg.dev
 
         * Python: 
               
-              https://us-python.pkg.dev
+              https://LOCATION-python.pkg.dev
 
         * JavaScript (NPM): 
               
-              https://us-npm.pkg.dev
+              https://LOCATION-npm.pkg.dev
 
         * Go: 
               
-              https://us-go.pkg.dev
+              https://LOCATION-go.pkg.dev
+
+Replace `LOCATION` with a [supported region](https://docs.cloud.google.com/security-command-center/docs/integrate-aoss-with-scc#supported-regions).
 
 Don't enter the complete domain name because this action might return an HTTP `404` or HTTP `405` status code.
 
@@ -77,29 +79,33 @@ Don't enter the complete domain name because this action might return an HTTP `4
 
         * Java: 
               
-              https://us-maven.pkg.dev/PROJECT_ID/assuredoss-java
+              https://LOCATION-maven.pkg.dev/PROJECT_ID/assuredoss-java
 
         * Python: 
               
-              https://us-python.pkg.dev/PROJECT_ID/assuredoss-python
+              https://LOCATION-python.pkg.dev/PROJECT_ID/assuredoss-python
 
         * JavaScript (NPM): 
               
-              https://us-npm.pkg.dev/PROJECT_ID/assuredoss-javascript
+              https://LOCATION-npm.pkg.dev/PROJECT_ID/assuredoss-javascript
 
         * Go: 
               
-              https://us-go.pkg.dev/PROJECT_ID/assuredoss-go
+              https://LOCATION-go.pkg.dev/PROJECT_ID/assuredoss-go
 
-Replace `PROJECT_ID` with the ID of the project that you selected when you set up Assured OSS.
+Replace the following:
+
+        * `PROJECT_ID`: the ID of the project that you selected when you set up Assured OSS.
+
+        * `LOCATION`: a [supported region](https://docs.cloud.google.com/security-command-center/docs/integrate-aoss-with-scc#supported-regions).
 
      3. In the **User Name** field, enter `_json_key_base64`.
 
-     4. In the **Password** field, provide the base64-encoded string of the service account JSON key file. Use the entire base64-encoded string in a single line as password. To get the base64-encoded string, run the command `cat key-filename.json | base64 -w 0`.
+     4. In the **Password** field, provide the base64-encoded string of the service account JSON key file. Use the entire base64-encoded string in a single line as the password. To get the base64-encoded string, run the command `cat key-filename.json | base64 -w 0`.
 
      5. For Python only, in the **Registry URL** field, enter the following: 
             
-            https://us-python.pkg.dev/PROJECT_ID/assuredoss-python
+            https://LOCATION-python.pkg.dev/PROJECT_ID/assuredoss-python
 
   6. For Go only, in the **Advanced Settings** tab, select **Bypass HEAD Requests**.
 
@@ -128,21 +134,25 @@ Testing the connection using the **Test** button can return an error even if the
 
         * Java: 
               
-              https://us-maven.pkg.dev/PROJECT_ID/assuredoss-java
+              https://LOCATION-maven.pkg.dev/PROJECT_ID/assuredoss-java
 
         * Python: 
               
-              https://us-python.pkg.dev/PROJECT_ID/assuredoss-python
+              https://LOCATION-python.pkg.dev/PROJECT_ID/assuredoss-python
 
         * JavaScript (NPM): 
               
-              https://us-npm.pkg.dev/PROJECT_ID/assuredoss-javascript
+              https://LOCATION-npm.pkg.dev/PROJECT_ID/assuredoss-javascript
 
         * Go: 
               
-              https://us-go.pkg.dev/PROJECT_ID/assuredoss-go
+              https://LOCATION-go.pkg.dev/PROJECT_ID/assuredoss-go
 
-Replace `PROJECT_ID` with the ID of the project that you selected when you set up Assured OSS.
+Replace the following:
+
+        * `PROJECT_ID`: the ID of the project that you selected when you set up Assured OSS.
+
+        * `LOCATION`: a [supported region](https://docs.cloud.google.com/security-command-center/docs/integrate-aoss-with-scc#supported-regions).
 
   5. Under **HTTP** , select **Authentication**.
 
@@ -150,7 +160,7 @@ Replace `PROJECT_ID` with the ID of the project that you selected when you set u
 
      1. In the **Authentication type** field, enter `Username`.
      2. In the **Username** field, enter `_json_key_base64`.
-     3. In the **Password** field, provide the base64-encoded string of the service account JSON key file. Use the entire base64 encoded-string in a single line as password. To get the base64-encoded string, run the command `cat key-filename.json | base64`.
+     3. In the **Password** field, provide the base64-encoded string of the service account JSON key file. Use the entire base64 encoded-string in a single line as the password. To get the base64-encoded string, run the command `cat key-filename.json | base64`.
   7. Click **Create Repository**.
 
 
@@ -171,6 +181,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-06 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-06 UTC."],[],[]] 

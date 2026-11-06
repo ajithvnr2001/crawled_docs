@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/application-design-center/docs/access-control/
 title: Access control with IAM \u00a0|\u00a0 Application Design Center \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-05T00:18:54.567797+00:00
+fetched_at: 2026-11-06T13:12:20.732535+00:00
 ---
 
 # Access control with IAM  |  Application Design Center  |  Google Cloud Documentation
@@ -66,7 +66,7 @@ The following table describes App Design Center roles and their typical responsi
 **Application Design Center Viewer** | View spaces, catalogs, templates, applications, and their attributes. | 
 
   * To view App Design Center spaces, catalogs, templates, applications, and their dependencies.
-  * For most personnel in the organization. Grant this role who only need to view spaces, catalogs, templates, and applications.
+  * For most personnel in the organization. Grant this role to users who only need to view spaces, catalogs, templates, and applications.
 
   
 **Application Admin** | Create, manage, and deploy applications, and delegate application control to other application developers. | 
@@ -84,7 +84,7 @@ The following table describes App Design Center roles and their typical responsi
 **Application Viewer** | View applications. | 
 
   * To view templates, applications, and their dependencies.
-  * For most personnel in the organization. Grant this role to users who only need to view templates and application.
+  * For most personnel in the organization. Grant this role to users who only need to view templates and applications.
 
   
   
@@ -631,6 +631,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-03 UTC.
+Last updated 2026-11-05 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-05 UTC."],[],[]] 

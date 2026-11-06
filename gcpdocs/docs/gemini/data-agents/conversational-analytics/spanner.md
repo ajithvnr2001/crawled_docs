@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini/data-agents/conversational-analytics/spanner/
 title: Conversational analytics for Spanner overview \u00a0|\u00a0 Data Agents \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-05T11:09:13.865843+00:00
+fetched_at: 2026-11-06T10:21:49.862905+00:00
 ---
 
 # Conversational analytics for Spanner overview  |  Data Agents  |  Google Cloud Documentation
@@ -90,11 +90,11 @@ The chat response returned to you provides the following features:
 
 When you create a direct conversation with a database data source, the [Conversational Analytics API](https://docs.cloud.google.com/gemini/docs/conversational-analytics-api/overview) interprets your question without the context and processing instructions that a data agent offers. Because of this, direct conversation results can be less accurate. Use data agents for cases that require greater accuracy.
 
-You can create and manage conversations in Spanner using the Google Cloud console. For more information, see [Analyze data with conversations](https://docs.cloud.google.com/gemini/data-agents/conversational-analytics/spanner/create-conversations). 
+You can create and manage conversations in Spanner using the Google Cloud console. For more information, see [Analyze data with conversations](https://docs.cloud.google.com/gemini/data-agents/conversational-analytics/spanner/analyze-data-with-conversations). 
 
 ## Security
 
-You can manage access to conversational analytics in Spanner using [Conversational Analytics API IAM roles and permissions](https://docs.cloud.google.com/gemini/data-agents/conversational-analytics-api/access-control). For information about the roles needed for specific operations, see the [data agent required roles](https://docs.cloud.google.com/gemini/data-agents/conversational-analytics/spanner/create-data-agents#before-begin) and the [conversation required roles](https://docs.cloud.google.com/gemini/data-agents/conversational-analytics/spanner/create-conversations#before-begin). 
+You can manage access to conversational analytics in Spanner using [Conversational Analytics API IAM roles and permissions](https://docs.cloud.google.com/gemini/data-agents/conversational-analytics-api/access-control). For information about the roles needed for specific operations, see the [data agent required roles](https://docs.cloud.google.com/gemini/data-agents/conversational-analytics/spanner/create-data-agents#before-begin) and the [conversation required roles](https://docs.cloud.google.com/gemini/data-agents/conversational-analytics/spanner/analyze-data-with-conversations#before-begin). 
 
 ## Locations
 
@@ -114,7 +114,7 @@ Performance, such as latency, can vary depending on the overall system load. Dur
 
   * Learn more about the [Conversational Analytics API](https://docs.cloud.google.com/gemini/docs/conversational-analytics-api/overview).
   * [Create data agents](https://docs.cloud.google.com/gemini/data-agents/conversational-analytics/spanner/create-data-agents).
-  * [Analyze data with conversations](https://docs.cloud.google.com/gemini/data-agents/conversational-analytics/spanner/create-conversations). 
+  * [Analyze data with conversations](https://docs.cloud.google.com/gemini/data-agents/conversational-analytics/spanner/analyze-data-with-conversations). 
 
 
 
@@ -122,6 +122,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-04 UTC.
+Last updated 2026-11-05 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-05 UTC."],[],[]] 

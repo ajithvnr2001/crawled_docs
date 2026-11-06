@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/docs/ai/
 title: Build generative AI applications using AlloyDB AI \u00a0|\u00a0 AlloyDB for PostgreSQL \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-05T00:18:20.831725+00:00
+fetched_at: 2026-11-06T10:06:33.316325+00:00
 ---
 
 # Build generative AI applications using AlloyDB AI  |  AlloyDB for PostgreSQL  |  Google Cloud Documentation
@@ -35,12 +35,12 @@ You can use the `alloydb_scann` extension with PostgreSQL 14, 15, 16, 17, and 18
 
   * **google_ml_integration** extension: the `google_ml_integration` extension provides AI functions for generating embeddings, semantic ranking, and implementing AI-based filters, joins and text generation/summarization. This extension also provides functions to register metadata for AI models. The registered metadata is then used to invoke predictions from these models.
 
-  * **alloydb_ai_nl** extension: the `alloydb_ai_nl` extension enables developers to build applications that accurately and securely answer end user natural language questions about data in the AlloyDB database. This makes the data accessible to users who might not be proficient in writing SQL.
+  * **alloydb_ai_nl** extension: the `alloydb_ai_nl` extension enables developers to build applications that accurately and securely answer end user natural language questions about data in the AlloyDB database. This makes the data accessible to users who might not be proficient in writing SQL. For next-generation text-to-SQL workflows and AI agent integration, we recommend using [QueryData](https://docs.cloud.google.com/gemini/data-agents/querydata/alloydb/data-agent-overview).
 
 
 
 
-The following are some use cases that these extensions enable:
+The following are some use cases that AlloyDB AI and these extensions enable:
 
   * [Vector search](https://docs.cloud.google.com/alloydb/docs/ai/run-vector-similarity-search): use AlloyDB to store vector embeddings and perform highly efficient similarity searches. You can generate a highly efficient nearest-neighbor index powered by the ScaNN algorithm.
 
@@ -50,7 +50,11 @@ The following are some use cases that these extensions enable:
 
   * [Generate embeddings](https://docs.cloud.google.com/alloydb/docs/ai/work-with-embeddings) and [invoke predictions](https://docs.cloud.google.com/alloydb/docs/ai/invoke-predictions): use Gemini Enterprise Agent Platform text embedding models or registered model endpoints to generate text or multimodal embeddings.
 
-  * [Generate SQL statements from natural language](https://docs.cloud.google.com/alloydb/docs/ai/natural-language-landing): add natural language capabilities to your application, and interact with AlloyDB by asking questions in natural language. The natural language questions are then processed by AlloyDB AI to automatically generate an accurate SQL query that retrieves the answer.
+  * [Query data in natural language with QueryData](https://docs.cloud.google.com/gemini/data-agents/querydata/alloydb/data-agent-overview): translate natural language questions into SQL queries using context sets (templates, facets, and value search queries) and integrate single-turn natural-language-to-SQL generation into your [AI agents and applications](https://docs.cloud.google.com/alloydb/docs/ai/querydata).
+
+  * [Build data agents with conversational analytics](https://docs.cloud.google.com/alloydb/docs/ai/conversational-analytics): create and chat with stateful, multi-turn [data agents](https://docs.cloud.google.com/gemini/data-agents/conversational-analytics/alloydb) in AlloyDB Studio to explore your AlloyDB data in natural language.
+
+  * [Generate SQL statements from natural language using the `alloydb_ai_nl` extension](https://docs.cloud.google.com/alloydb/docs/ai/natural-language-landing): add in-database natural language capabilities to your application using the `alloydb_ai_nl` extension (for new text-to-SQL workflows, we recommend [QueryData](https://docs.cloud.google.com/gemini/data-agents/querydata/alloydb/data-agent-overview)).
 
 
 
@@ -70,6 +74,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-03 UTC.
+Last updated 2026-11-06 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-06 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/iam/docs/migrate-to-agent-identity-api/
 title: Migrate to Agent Identity API \u00a0|\u00a0 Identity and Access Management (IAM) \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T23:45:03.692039+00:00
+fetched_at: 2026-11-06T13:52:42.562015+00:00
 ---
 
 # Migrate to Agent Identity API  |  Identity and Access Management (IAM)  |  Google Cloud Documentation
@@ -22,9 +22,7 @@ Send feedback
 
 #  Migrate to Agent Identity API Stay organized with collections  Save and categorize content based on your preferences. 
 
-This document shows you how to migrate your deployed agents and auth providers from the legacy IAM Connectors API (`iamconnectors.googleapis.com`) to the new Agent Identity API (`agentidentity.googleapis.com`).
-
-Both APIs operate side-by-side during the preview migration period, allowing you to migrate your workloads without interrupting existing agent conversations.
+You can migrate your deployed agents and auth providers from the legacy IAM Connectors API (`iamconnectors.googleapis.com`) to the Agent Identity API (`agentidentity.googleapis.com`). Both APIs operate side-by-side during the preview migration period, so you can transition your workloads without interrupting existing agent conversations.
 
 The migration workflow includes the following tasks:
 
@@ -126,6 +124,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-04 UTC.
+Last updated 2026-11-05 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-05 UTC."],[],[]] 

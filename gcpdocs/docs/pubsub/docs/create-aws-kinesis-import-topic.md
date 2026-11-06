@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/pubsub/docs/create-aws-kinesis-import-topic/
 title: Create an Amazon Kinesis Data Streams import topic \u00a0|\u00a0 Pub/Sub \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-03T09:52:44.741173+00:00
+fetched_at: 2026-11-06T13:50:49.522002+00:00
 ---
 
 # Create an Amazon Kinesis Data Streams import topic  |  Pub/Sub  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/spanner/docs/configure-fgac/
 title: Configure fine-grained access control \u00a0|\u00a0 Spanner \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-03T09:43:51.151867+00:00
+fetched_at: 2026-11-06T10:39:19.752475+00:00
 ---
 
 # Configure fine-grained access control  |  Spanner  |  Google Cloud Documentation
@@ -1346,7 +1346,7 @@ To obtain an unfiltered list of database roles, enter the following command. It 
     import com.google.cloud.spanner.admin.database.v1.[DatabaseAdminClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.cloud.spanner.admin.database.v1.DatabaseAdminClient.html).ListDatabaseRolesPage;
     import com.google.cloud.spanner.admin.database.v1.[DatabaseAdminClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.cloud.spanner.admin.database.v1.DatabaseAdminClient.html).ListDatabaseRolesPagedResponse;
     import com.google.spanner.admin.database.v1.[DatabaseName](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.spanner.admin.database.v1.DatabaseName.html);
-    import com.google.spanner.admin.database.v1.[DatabaseRole](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.spanner.admin.database.v1.DatabaseRole.html);
+    import com.google.spanner.admin.database.v1.[DatabaseRole](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner-jdbc/latest/com.google.cloud.spanner.DatabaseRole.html);
     
     public class ListDatabaseRoles {
     
@@ -1367,7 +1367,7 @@ To obtain an unfiltered list of database roles, enter the following command. It 
               = databaseAdminClient.listDatabaseRoles(databaseName);
           System.out.println("List of Database roles");
           for (ListDatabaseRolesPage page : response.iteratePages()) {
-            for ([DatabaseRole](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.spanner.admin.database.v1.DatabaseRole.html) role : page.iterateAll()) {
+            for ([DatabaseRole](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner-jdbc/latest/com.google.cloud.spanner.DatabaseRole.html) role : page.iterateAll()) {
               System.out.printf("Obtained role %s%n", role.getName());
             }
           }

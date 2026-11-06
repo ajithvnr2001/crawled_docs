@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini/enterprise/docs/assistant-chat/
 title: Chat with the assistant \u00a0|\u00a0 Gemini Enterprise \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T05:51:24.704536+00:00
+fetched_at: 2026-11-06T10:05:31.817783+00:00
 ---
 
 # Chat with the assistant  |  Gemini Enterprise  |  Google Cloud Documentation
@@ -238,7 +238,8 @@ Documents |
   * Maximum document size: 
     * PDF: 100 MB
     * XLSX: 50 MB1  
-The XLSX limit applies to the size of the file after it's decompressed. Gemini Enterprise automatically converts each worksheet in a multi-sheet XLSX workbook into a separate table so the assistant can analyze data across all sheets.
+The XLSX limit applies to the size of the file after it's decompressed. Gemini Enterprise automatically converts each worksheet in a multi-sheet XLSX workbook into a separate table so the assistant can analyze data across all sheets.  
+An XLSX workbook can contain at most 15,000,000 cells in total across all worksheets. The cell count covers the range from the first to the last non-empty cell of each worksheet, so empty cells inside that range also count. Larger workbooks are rejected with a generic error (for example, `Precondition check failed`). To upload such a large workbook, split it into smaller files.
     * CSV: 7 MB1
     * DOCX: 3 MB
     * PPTX: 100 MB
@@ -266,7 +267,7 @@ Audio |
 
   
   
-1 The size limits for XLSX and CSV files aren't row limits. For large spreadsheets, the assistant analyzes the data by running code instead of reading the entire file directly, so responses can take longer. For tips on getting faster responses with large spreadsheets, see Best practices for faster responses.
+1 The size limits for XLSX and CSV files aren't row limits, but XLSX workbooks are subject to the 15,000,000-cell limit. For large spreadsheets, the assistant analyzes the data by running code instead of reading the entire file directly, so responses can take longer. For tips on getting faster responses with large spreadsheets, see Best practices for faster responses.
 
 **Note:** In addition to per-file byte limits, the combined content of all files uploaded in a chat session (including any static knowledge files attached to a custom chat agent) and the conversation history can't exceed **800,000 tokens**. Even if a file is within the byte size limit, exceeding the 800,000-token budget returns a `FILE_SIZE_TOO_LARGE` or `Input too long` error. To avoid this limit, start a new chat session, split large PDFs (such as manuals over 100 pages) into smaller topical files, or ask your administrator to index large document collections in a connected data store.
 
@@ -392,6 +393,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-30 UTC.
+Last updated 2026-11-06 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-06 UTC."],[],[]] 

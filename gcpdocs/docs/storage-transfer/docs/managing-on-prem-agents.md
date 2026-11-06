@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/storage-transfer/docs/managing-on-prem-agents/
 title: Manage transfer agents \u00a0|\u00a0 Storage Transfer Service \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T09:48:12.756897+00:00
+fetched_at: 2026-11-06T10:53:08.957267+00:00
 ---
 
 # Manage transfer agents  |  Storage Transfer Service  |  Google Cloud Documentation
@@ -112,7 +112,8 @@ To run agents using a [service account key](https://docs.cloud.google.com/iam/do
     
     
     gcloud transfer agents install --pool=POOL_NAME --count=NUM_AGENTS \
-       --creds-file=/relative/path/to/service-account-key.json
+       --mount-directories=MOUNT_DIRECTORIES \
+       --creds-file=relative/path/to/service-account-key.json
     
 
 ### More info
@@ -605,6 +606,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-05 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-05 UTC."],[],[]] 

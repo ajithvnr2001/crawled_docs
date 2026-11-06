@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/storage/docs/access-control/using-iam-for-managed-folders/
 title: Set and manage IAM policies on managed folders \u00a0|\u00a0 Cloud Storage \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T06:01:10.289086+00:00
+fetched_at: 2026-11-06T12:56:45.752534+00:00
 ---
 
 # Set and manage IAM policies on managed folders  |  Cloud Storage  |  Google Cloud Documentation
@@ -81,6 +81,37 @@ If you want to control access within a folder or a simulated folder, follow the 
 
 ### Command line
 
+You can grant access to a managed folder by using either of the following commands:
+
+  * [`gcloud storage managed-folders add-iam-policy-binding`](https://docs.cloud.google.com/sdk/gcloud/reference/storage/managed-folders/add-iam-policy-binding): adds a single role binding for a principal to the existing IAM policy of the managed folder. Bindings that already exist in the policy remain unchanged. You don't need to create a policy file to use this command.
+
+  * [`gcloud storage managed-folders set-iam-policy`](https://docs.cloud.google.com/sdk/gcloud/reference/storage/managed-folders/set-iam-policy): replaces the entire IAM policy of the managed folder with the policy that you define in a JSON file. Any bindings that aren't included in the JSON file are removed from the managed folder.
+
+
+**Caution:** Because the `set-iam-policy` command overwrites the entire IAM policy of the managed folder, principals lose access if their bindings are missing from your policy file. To grant access without affecting existing bindings, use the `add-iam-policy-binding` command.
+
+To add a role binding to the IAM policy of a managed folder, run the `gcloud storage managed-folders add-iam-policy-binding` command:
+    
+    
+    gcloud storage managed-folders add-iam-policy-binding gs://BUCKET_NAME/MANAGED_FOLDER_NAME --member=PRINCIPAL_IDENTIFIER --role=IAM_ROLE
+
+Replace the following:
+
+  * `BUCKET_NAME`: the name of the bucket that contains the managed folder to which you want to grant the principal access—for example, `my-bucket`.
+
+  * `MANAGED_FOLDER_NAME`: the name of the managed folder to which you want to grant the principal access—for example, `my-managed-folder/`.
+
+  * `PRINCIPAL_IDENTIFIER`: the principal who you are granting managed folder access to—for example, `user:jeffersonloveshiking@gmail.com`. For a list of principal identifier formats, see [Principal identifiers](https://docs.cloud.google.com/iam/docs/principal-identifiers).
+
+  * `IAM_ROLE`: the [IAM role](https://docs.cloud.google.com/storage/docs/access-control/iam-roles) you are granting—for example, `roles/storage.objectViewer`.
+
+
+
+
+To include an IAM condition in the role binding, see Set a new condition on a managed folder.
+
+To replace the entire IAM policy of a managed folder, complete the following steps:
+
   1. Create a JSON file that contains the following information:
          
          {
@@ -94,23 +125,25 @@ If you want to control access within a folder or a simulated folder, follow the 
            ]
          }
 
-Where:
+Replace the following:
 
-     * `IAM_ROLE` is the [IAM role](https://docs.cloud.google.com/storage/docs/access-control/iam-roles) you are granting. For example, `roles/storage.objectViewer`.
+     * `IAM_ROLE`: the [IAM role](https://docs.cloud.google.com/storage/docs/access-control/iam-roles) you are granting—for example, `roles/storage.objectViewer`.
 
-     * `PRINCIPAL_IDENTIFIER` identifies who you are granting managed folder access to. For example, `user:jeffersonloveshiking@gmail.com`. For a list of principal identifier formats, see [Principal identifiers](https://docs.cloud.google.com/iam/docs/principal-identifiers).
+     * `PRINCIPAL_IDENTIFIER`: the principal who you are granting managed folder access to—for example, `user:jeffersonloveshiking@gmail.com`. For a list of principal identifier formats, see [Principal identifiers](https://docs.cloud.google.com/iam/docs/principal-identifiers).
+
+Include every binding that you want the managed folder to have, because the bindings in this file replace all existing bindings.
 
   2. Use the [`gcloud storage managed-folders set-iam-policy` command](https://docs.cloud.google.com/sdk/gcloud/reference/storage/managed-folders/set-iam-policy):
          
          gcloud storage managed-folders set-iam-policy gs://BUCKET_NAME/MANAGED_FOLDER_NAME POLICY_FILE
 
-Where:
+Replace the following:
 
-     * `BUCKET_NAME` is the name of the bucket that contains the managed folder to which you want to apply the IAM policy. For example, `my-bucket`.
+     * `BUCKET_NAME`: the name of the bucket that contains the managed folder to which you want to apply the IAM policy—for example, `my-bucket`.
 
-     * `MANAGED_FOLDER_NAME` is the name of the managed folder to which you want to apply the IAM policy. For example, `my-managed-folder/`.
+     * `MANAGED_FOLDER_NAME`: the name of the managed folder to which you want to apply the IAM policy—for example, `my-managed-folder/`.
 
-     * `POLICY_FILE` is the path to the JSON file you created in step 1.
+     * `POLICY_FILE`: the path to the JSON file you created in step 1.
 
 
 
@@ -134,11 +167,11 @@ Where:
            ]
          }
 
-Where:
+Replace the following:
 
-     * `IAM_ROLE` is the [IAM role](https://docs.cloud.google.com/storage/docs/access-control/iam-roles) you are granting. For example, `roles/storage.objectViewer`.
+     * `IAM_ROLE`: the [IAM role](https://docs.cloud.google.com/storage/docs/access-control/iam-roles) you are granting—for example, `roles/storage.objectViewer`.
 
-     * `PRINCIPAL_IDENTIFIER` identifies who you are granting managed folder access to. For example, `user:jeffersonloveshiking@gmail.com`. For a list of principal identifier formats, see [Principal identifiers](https://docs.cloud.google.com/iam/docs/principal-identifiers).
+     * `PRINCIPAL_IDENTIFIER`: the principal who you are granting managed folder access to—for example, `user:jeffersonloveshiking@gmail.com`. For a list of principal identifier formats, see [Principal identifiers](https://docs.cloud.google.com/iam/docs/principal-identifiers).
 
   3. Use [`cURL`](http://curl.haxx.se/) to call the [JSON API](https://docs.cloud.google.com/storage/docs/json_api) with a [`PUT setIamPolicy`](https://docs.cloud.google.com/storage/docs/json_api/v1/managedFolder/setIamPolicy) request:
          
@@ -147,13 +180,13 @@ Where:
            -H "Content-Type: application/json" \
            "https://storage.googleapis.com/storage/v1/b/BUCKET_NAME/managedFolders/MANAGED_FOLDER_NAME/iam"
 
-Where:
+Replace the following:
 
-     * `POLICY_FILE` is the path to the JSON policy file that you created in the previous step.
+     * `POLICY_FILE`: the path to the JSON policy file that you created in the previous step.
 
-     * `BUCKET_NAME` is the name of the bucket that contains the managed folder to which you want to apply the IAM policy. For example, `my-bucket`.
+     * `BUCKET_NAME`: the name of the bucket that contains the managed folder to which you want to apply the IAM policy—for example, `my-bucket`.
 
-     * `MANAGED_FOLDER_NAME` is the name of the managed folder to which you want to give the principal access. For example, `my-managed-folder/`.
+     * `MANAGED_FOLDER_NAME`: the name of the managed folder to which you want to give the principal access—for example, `my-managed-folder/`.
 
 
 
@@ -185,11 +218,11 @@ Use the [`gcloud storage managed-folder get-iam-policy` command](https://docs.cl
     
     gcloud storage managed-folders get-iam-policy gs://BUCKET_NAME/MANAGED_FOLDER_NAME
 
-Where:
+Replace the following:
 
-  * `BUCKET_NAME` is the name of the bucket that contains the managed folder whose IAM policy you want to view. For example, `my-bucket`.
+  * `BUCKET_NAME`: the name of the bucket that contains the managed folder whose IAM policy you want to view—for example, `my-bucket`.
 
-  * `MANAGED_FOLDER_NAME` is the name of the managed folder whose IAM policy you want to view. For example, `my-managed-folder/`.
+  * `MANAGED_FOLDER_NAME`: the name of the managed folder whose IAM policy you want to view—for example, `my-managed-folder/`.
 
 
 
@@ -206,11 +239,11 @@ Where:
          -H "Authorization: Bearer $(gcloud auth print-access-token)" \
          "https://storage.googleapis.com/storage/v1/b/BUCKET_NAME/managedFolders/MANAGED_FOLDER_NAME/iam"
 
-Where:
+Replace the following:
 
-     * `BUCKET_NAME` is the name of the bucket that contains the managed folder whose IAM policy you want to view. For example, `my-bucket`.
+     * `BUCKET_NAME`: the name of the bucket that contains the managed folder whose IAM policy you want to view—for example, `my-bucket`.
 
-     * `MANAGED_FOLDER_NAME` is the name of the managed folder whose IAM policy you want to view. For example, `my-managed-folder/`.
+     * `MANAGED_FOLDER_NAME`: the name of the managed folder whose IAM policy you want to view—for example, `my-managed-folder/`.
 
 
 
@@ -248,15 +281,15 @@ Use the [`gcloud storage managed-folder remove-iam-policy-binding` command](http
     
     gcloud storage managed-folders remove-iam-policy-binding  gs://BUCKET_NAME/MANAGED_FOLDER_NAME --member=PRINCIPAL_IDENTIFIER --role=IAM_ROLE
 
-Where:
+Replace the following:
 
-  * `BUCKET_NAME` is the name of the bucket that contains the managed folder you are revoking access to. For example, `my-bucket`.
+  * `BUCKET_NAME`: the name of the bucket that contains the managed folder you are revoking access to—for example, `my-bucket`.
 
-  * `MANAGED_FOLDER_NAME` is the name of the managed folder whose IAM policy you want to remove. For example, `my-managed-folder/`.
+  * `MANAGED_FOLDER_NAME`: the name of the managed folder whose IAM policy you want to remove—for example, `my-managed-folder/`.
 
-  * `PRINCIPAL_IDENTIFIER` identifies who you are revoking access from. For example, `user:jeffersonloveshiking@gmail.com`. For a list of principal identifier formats, see [Principal identifiers](https://docs.cloud.google.com/iam/docs/principal-identifiers).
+  * `PRINCIPAL_IDENTIFIER`: the principal who you are revoking access from—for example, `user:jeffersonloveshiking@gmail.com`. For a list of principal identifier formats, see [Principal identifiers](https://docs.cloud.google.com/iam/docs/principal-identifiers).
 
-  * `IAM_ROLE` is the [IAM role](https://docs.cloud.google.com/storage/docs/access-control/iam-roles) you are revoking. For example, `roles/storage.objectViewer`.
+  * `IAM_ROLE`: the [IAM role](https://docs.cloud.google.com/storage/docs/access-control/iam-roles) you are revoking—for example, `roles/storage.objectViewer`.
 
 
 
@@ -273,11 +306,11 @@ Where:
          -H "Authorization: Bearer $(gcloud auth print-access-token)" \
          "https://storage.googleapis.com/storage/v1/b/BUCKET_NAME/managedFolders/MANAGED_FOLDER_NAME/iam"
 
-Where:
+Replace the following:
 
-     * `BUCKET_NAME` is the name of the bucket that contains the managed folder you are revoking access to. For example, `my-bucket`.
+     * `BUCKET_NAME`: the name of the bucket that contains the managed folder you are revoking access to—for example, `my-bucket`.
 
-     * `MANAGED_FOLDER_NAME` is the name of the managed folder whose IAM policy you want to remove. For example, `my-managed-folder/`.
+     * `MANAGED_FOLDER_NAME`: the name of the managed folder whose IAM policy you want to remove—for example, `my-managed-folder/`.
 
   3. Create a JSON file that contains the policy you retrieved in the previous step.
 
@@ -290,13 +323,13 @@ Where:
          -H "Content-Type: application/json" \
          "https://storage.googleapis.com/storage/v1/b/BUCKET_NAME/managedFolders/MANAGED_FOLDER_NAME/iam"
 
-Where:
+Replace the following:
 
-     * `JSON_FILE_NAME` is the path for the file that you created in Step 3.
+     * `JSON_FILE_NAME`: the path for the file that you created in Step 3.
 
-     * `BUCKET_NAME` is the name of the bucket that contains the managed folder you are revoking access to. For example, `my-bucket`.
+     * `BUCKET_NAME`: the name of the bucket that contains the managed folder you are revoking access to—for example, `my-bucket`.
 
-     * `MANAGED_FOLDER_NAME` is the name of the managed folder whose IAM policy you want to remove. For example, `my-managed-folder/`.
+     * `MANAGED_FOLDER_NAME`: the name of the managed folder whose IAM policy you want to remove—for example, `my-managed-folder/`.
 
 
 
@@ -325,17 +358,17 @@ Note that Cloud Storage only supports the [date/time](https://docs.cloud.google.
     
     gcloud storage managed-folders add-iam-policy-binding  gs://BUCKET_NAME/MANAGED_FOLDER_NAME --member=PRINCIPAL_IDENTIFIER --role=IAM_ROLE --condition-from-file=CONDITION_FILE
 
-Where:
+Replace the following:
 
-  * `BUCKET_NAME` is the name of the bucket that contains the managed folder to which you are granting the principal access. For example, `my-bucket`.
+  * `BUCKET_NAME`: the name of the bucket that contains the managed folder to which you are granting the principal access—for example, `my-bucket`.
 
-  * `MANAGED_FOLDER_NAME` is the name of managed folder to which you are granting the principal access. For example, `my-managed-folder/`.
+  * `MANAGED_FOLDER_NAME`: the name of the managed folder to which you are granting the principal access—for example, `my-managed-folder/`.
 
-  * `PRINCIPAL_IDENTIFIER` identifies who the condition applies to. For example, `user:jeffersonloveshiking@gmail.com`. For a list of principal identifier formats, see [Principal identifiers](https://docs.cloud.google.com/iam/docs/principal-identifiers).
+  * `PRINCIPAL_IDENTIFIER`: the principal who the condition applies to—for example, `user:jeffersonloveshiking@gmail.com`. For a list of principal identifier formats, see [Principal identifiers](https://docs.cloud.google.com/iam/docs/principal-identifiers).
 
-  * `IAM_ROLE` is the [IAM role](https://docs.cloud.google.com/storage/docs/access-control/iam-roles) you are granting to the principal. For example, `roles/storage.objectViewer`.
+  * `IAM_ROLE`: the [IAM role](https://docs.cloud.google.com/storage/docs/access-control/iam-roles) you are granting to the principal—for example, `roles/storage.objectViewer`.
 
-  * `CONDITION_FILE` is the file you created in the previous step.
+  * `CONDITION_FILE`: the file you created in the previous step.
 
 
 
@@ -354,11 +387,11 @@ Alternatively, you can include the condition directly in the command with the `-
          'https://storage.googleapis.com/storage/v1/b/BUCKET_NAME/managedFolders/MANAGED_FOLDER_NAMEiam' \
          --header 'Authorization: Bearer $(gcloud auth print-access-token)' > tmp-policy.json
 
-Where:
+Replace the following:
 
-     * `BUCKET_NAME` is the name of the bucket that contains the managed folder you want to set an IAM Condition on.
+     * `BUCKET_NAME`: the name of the bucket that contains the managed folder you want to set an IAM Condition on.
 
-     * `MANAGED_FOLDER_NAME` is the name of the managed folder you want to set an IAM Condition on.
+     * `MANAGED_FOLDER_NAME`: the name of the managed folder you want to set an IAM Condition on.
 
   3. Edit the `tmp-policy.json` file in a text editor to add new conditions to the bindings in the IAM policy:
          
@@ -380,19 +413,19 @@ Where:
              "etag": "ETAG"
          }
 
-Where:
+Replace the following:
 
-     * `VERSION` is the [IAM policy version](https://docs.cloud.google.com/iam/docs/allow-policies#versions), which is required to be 3 for managed folders with IAM Conditions.
+     * `VERSION`: the [IAM policy version](https://docs.cloud.google.com/iam/docs/allow-policies#versions), which is required to be 3 for managed folders with IAM Conditions.
 
-     * `IAM_ROLE` is the role to which the condition applies. For example, `roles/storage.objectViewer`.
+     * `IAM_ROLE`: the role to which the condition applies—for example, `roles/storage.objectViewer`.
 
-     * `PRINCIPAL_IDENTIFIER` identifies who the condition applies to. For example, `user:jeffersonloveshiking@gmail.com`. For a list of principal identifier formats, see [Principal identifiers](https://docs.cloud.google.com/iam/docs/principal-identifiers).
+     * `PRINCIPAL_IDENTIFIER`: the principal who the condition applies to—for example, `user:jeffersonloveshiking@gmail.com`. For a list of principal identifier formats, see [Principal identifiers](https://docs.cloud.google.com/iam/docs/principal-identifiers).
 
-     * `TITLE` is the title of the condition. For example, `expires in 2019`.
+     * `TITLE`: the title of the condition—for example, `expires in 2019`.
 
-     * `DESCRIPTION` is an optional description of the condition. For example, `Permission revoked on New Year's`.
+     * `DESCRIPTION`: an optional description of the condition—for example, `Permission revoked on New Year's`.
 
-     * `EXPRESSION` is an [attribute-based](https://docs.cloud.google.com/iam/docs/conditions-overview#attributes) logic expression. For example, `request.time < timestamp(\"2019-01-01T00:00:00Z\")`. For more examples of expressions, see the [Conditions attribute reference](https://docs.cloud.google.com/iam/docs/conditions-attribute-reference). Cloud Storage only supports the [date/time](https://docs.cloud.google.com/iam/docs/conditions-attribute-reference#date-time), [resource type](https://docs.cloud.google.com/iam/docs/conditions-attribute-reference#resourcetype_attribute), and [resource name](https://docs.cloud.google.com/iam/docs/conditions-attribute-reference#resourcename_attribute) attributes.
+     * `EXPRESSION`: an [attribute-based](https://docs.cloud.google.com/iam/docs/conditions-overview#attributes) logic expression—for example, `request.time < timestamp(\"2019-01-01T00:00:00Z\")`. For more examples of expressions, see the [Conditions attribute reference](https://docs.cloud.google.com/iam/docs/conditions-attribute-reference). Cloud Storage only supports the [date/time](https://docs.cloud.google.com/iam/docs/conditions-attribute-reference#date-time), [resource type](https://docs.cloud.google.com/iam/docs/conditions-attribute-reference#resourcetype_attribute), and [resource name](https://docs.cloud.google.com/iam/docs/conditions-attribute-reference#resourcename_attribute) attributes.
 
 Don't modify `ETAG`.
 
@@ -403,11 +436,11 @@ Don't modify `ETAG`.
          -H "Content-Type: application/json" \
          "https://storage.googleapis.com/storage/v1/b/BUCKET_NAME/managedFoldersMANAGED_FOLDER_NAME/iam"
 
-Where:
+Replace the following:
 
-     * `BUCKET_NAME` is the name of the bucket that contains the managed folder you want to set an IAM Condition on.
+     * `BUCKET_NAME`: the name of the bucket that contains the managed folder you want to set an IAM Condition on.
 
-     * `MANAGED_FOLDER_NAME` is the name of the managed folder you want to set an IAM Condition on.
+     * `MANAGED_FOLDER_NAME`: the name of the managed folder you want to set an IAM Condition on.
 
 
 
@@ -441,11 +474,11 @@ Where:
          'https://storage.googleapis.com/storage/v1/b/BUCKET_NAME/managedFolders/MANAGED_FOLDER_NAMEiam' \
          --header 'Authorization: Bearer $(gcloud auth print-access-token)' > tmp-policy.json
 
-Where:
+Replace the following:
 
-     * `BUCKET_NAME` is the name of the bucket that contains the managed folder you are changing access to. For example, `my-bucket`.
+     * `BUCKET_NAME`: the name of the bucket that contains the managed folder you are changing access to—for example, `my-bucket`.
 
-     * `MANAGED_FOLDER_NAME` is the name of the managed folder you are changing access to. For example, `my-managed-folder/`.
+     * `MANAGED_FOLDER_NAME`: the name of the managed folder you are changing access to—for example, `my-managed-folder/`.
 
   3. Edit the `tmp-policy.json` file in a text editor to remove conditions from the IAM policy.
 
@@ -456,11 +489,11 @@ Where:
          -H "Content-Type: application/json" \
          "https://storage.googleapis.com/storage/v1/b/BUCKET_NAME/managedFolders/MANAGED_FOLDER_NAMEiam"
 
-Where:
+Replace the following:
 
-     * `BUCKET_NAME` is the name of the bucket that contains the managed folder you are changing access to. For example, `my-bucket`.
+     * `BUCKET_NAME`: the name of the bucket that contains the managed folder you are changing access to—for example, `my-bucket`.
 
-     * `MANAGED_FOLDER_NAME` is the name of the managed folder you are changing access to. For example, `my-managed-folder/`.
+     * `MANAGED_FOLDER_NAME`: the name of the managed folder you are changing access to—for example, `my-managed-folder/`.
 
 
 
@@ -490,6 +523,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-30 UTC.
+Last updated 2026-11-05 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-05 UTC."],[],[]] 

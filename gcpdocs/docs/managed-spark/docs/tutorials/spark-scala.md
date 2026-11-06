@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/managed-spark/docs/tutorials/spark-scala/
 title: Write and run Spark Scala jobs on Managed Service for Apache Spark \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-06T05:53:29.612839+00:00
+fetched_at: 2026-11-06T11:11:24.723682+00:00
 ---
 
 # Write and run Spark Scala jobs on Managed Service for Apache Spark  |  Google Cloud Documentation

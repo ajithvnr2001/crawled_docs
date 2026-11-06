@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/storage-transfer/docs/create-transfers/agent-based/s3-compatible/
 title: Transfer from S3-compatible storage to Cloud Storage \u00a0|\u00a0 Storage Transfer Service \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T05:49:29.908710+00:00
+fetched_at: 2026-11-06T10:53:04.613941+00:00
 ---
 
 # Transfer from S3-compatible storage to Cloud Storage  |  Storage Transfer Service  |  Google Cloud Documentation
@@ -35,31 +35,16 @@ Before configuring your transfers, complete the following steps:
 
 
 
-## Obtain source credentials
+## Prerequisites
 
-Transferring from S3-compatible storage requires an **access key ID** and a **secret access key**.
+Before configuring your transfer, ensure you have set up the following:
 
-The steps to obtain these depend on your storage provider.
-
-The account from which the ID and key are generated requires one of the following permissions:
-
-  * Read-only permission on source objects, if you don't want to delete objects at source.
-  * Full access to source objects, if you choose to delete objects at source as part of your transfer.
+  * **User permissions:** Ensure your user account or user-managed service account has permission to configure transfers and agent pools. See [Required user permissions](https://docs.cloud.google.com/storage-transfer/docs/iam-user).
+  * **Agent-based project-level permissions:** Ensure you have configured the required project-level roles for your service agent and transfer agent account. See [Agent-based project-level permissions](https://docs.cloud.google.com/storage-transfer/docs/iam-agent-based).
+  * **Source S3-compatible permissions:** Obtain API credentials with read permissions for the source bucket. See [Configure access to a source: S3-compatible storage](https://docs.cloud.google.com/storage-transfer/docs/source-s3-compatible).
+  * **Destination bucket permissions:** Grant the required permissions on your destination Cloud Storage bucket. See [Configure access to a sink: Cloud Storage](https://docs.cloud.google.com/storage-transfer/docs/sink-cloud-storage).
 
 
-
-Once you've created the account, added permissions, and downloaded the **access key ID** and **secret access key** , store the ID and key in a safe place.
-
-## Configure Google Cloud permissions
-
-Before creating a transfer, you must configure permissions for the following entities:
-
-![](https://fonts.gstatic.com/s/i/short-term/release/googlesymbols/account_circle/wght600fill1/48px.svg) | The **user account** being used to create the transfer. This is the account that is signed in to the Google Cloud console, or the account that is specified when authenticating to the `gcloud` CLI. The user account can be a regular user account, or a user-managed service account.  
----|---  
-![](https://fonts.gstatic.com/s/i/short-term/release/googlesymbols/cloud_circle/wght600fill1/48px.svg) | The **[service agent](https://docs.cloud.google.com/iam/docs/service-account-types#service-agents)** used by Storage Transfer Service. This account is generally identified by its email address, which uses the format `project-PROJECT_NUMBER@storage-transfer-service.iam.gserviceaccount.com`.   
-![](https://docs.cloud.google.com/static/storage-transfer/docs/create-transfers/images/forklift-circle.png) | The **transfer agent account** that provides Google Cloud permissions for transfer agents. Transfer agent accounts use the credentials of the user installing them, or the credentials of a user-managed service account, to authenticate.  
-  
-See [Agent-based transfer permissions](https://docs.cloud.google.com/storage-transfer/docs/file-system-permissions) for instructions.
 
 ## Transfer options
 
@@ -128,7 +113,7 @@ Revoking required Storage Transfer Service permissions from a project while an a
 
 ###  gcloud CLI 
 
-To create an agent pool with the `gcloud` command line tool, run [`gcloud transfer agent-pools create`][agent-pools-create].
+To create an agent pool with the `gcloud` command line tool, run [`gcloud transfer agent-pools create`](https://docs.cloud.google.com/sdk/gcloud/reference/transfer/agent-pools/create).
     
     
     gcloud transfer agent-pools create AGENT_POOL
@@ -833,6 +818,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-05 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-05 UTC."],[],[]] 

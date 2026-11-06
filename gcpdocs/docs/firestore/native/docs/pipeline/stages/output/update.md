@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/firestore/native/docs/pipeline/stages/output/update/
 title: Update (Output Stage) \u00a0|\u00a0 Firestore in Native mode \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T23:45:22.146090+00:00
+fetched_at: 2026-11-06T08:23:01.692931+00:00
 ---
 
 # Update (Output Stage)  |  Firestore in Native mode  |  Google Cloud Documentation
@@ -87,7 +87,7 @@ For example, the following operation backfills a data model change to all docume
     	Update().
     	Execute(ctx)
     
-    [pipeline_snippets_dml.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/ed08282a171f47c035cf0984a5caa406b76f5bcd/firestore/pipeline_snippets_dml.go#L28-L36)
+    [pipeline_snippets_dml.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/7c21bf1faae9139ce31b1321fa2815e95caff660/firestore/pipeline_snippets_dml.go#L28-L36)
 
 ## Behavior
 

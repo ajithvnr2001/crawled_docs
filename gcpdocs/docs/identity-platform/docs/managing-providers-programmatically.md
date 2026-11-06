@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/identity-platform/docs/managing-providers-programmatically/
 title: Managing SAML and OIDC providers programmatically \u00a0|\u00a0 Identity Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-05T11:08:37.159375+00:00
+fetched_at: 2026-11-06T08:21:15.533336+00:00
 ---
 
 # Managing SAML and OIDC providers programmatically  |  Identity Platform  |  Google Cloud Documentation
@@ -132,7 +132,7 @@ The following example demonstrates how to create a SAML provider configuration:
     
     print('Created new SAML provider:', saml.provider_id)
     
-    [index.py](https://github.com/firebase/firebase-admin-python/blob/ae0a284127609272957c594af7c8a6179d87d1d4/snippets/auth/index.py#L676-L689)
+    [index.py](https://github.com/firebase/firebase-admin-python/blob/00e0754146a2051d98952f5928c7e2f2c2ed695a/snippets/auth/index.py#L676-L689)
 
 ###  Java 
     
@@ -203,7 +203,7 @@ The following example demonstrates how to modify a SAML provider configuration. 
     
     print('Updated SAML provider:', saml.provider_id)
     
-    [index.py](https://github.com/firebase/firebase-admin-python/blob/ae0a284127609272957c594af7c8a6179d87d1d4/snippets/auth/index.py#L694-L701)
+    [index.py](https://github.com/firebase/firebase-admin-python/blob/00e0754146a2051d98952f5928c7e2f2c2ed695a/snippets/auth/index.py#L694-L701)
 
 ###  Java 
     
@@ -252,7 +252,7 @@ The primary way to identify a SAML configuration is using its provider ID. The f
     saml = auth.get_saml_provider_config('saml.myProvider')
     print(saml.display_name, saml.enabled)
     
-    [index.py](https://github.com/firebase/firebase-admin-python/blob/ae0a284127609272957c594af7c8a6179d87d1d4/snippets/auth/index.py#L706-L707)
+    [index.py](https://github.com/firebase/firebase-admin-python/blob/00e0754146a2051d98952f5928c7e2f2c2ed695a/snippets/auth/index.py#L706-L707)
 
 ###  Java 
     
@@ -292,7 +292,7 @@ The following example shows how to delete a SAML provider configuration:
     
     auth.delete_saml_provider_config('saml.myProvider')
     
-    [index.py](https://github.com/firebase/firebase-admin-python/blob/ae0a284127609272957c594af7c8a6179d87d1d4/snippets/auth/index.py#L712-L712)
+    [index.py](https://github.com/firebase/firebase-admin-python/blob/00e0754146a2051d98952f5928c7e2f2c2ed695a/snippets/auth/index.py#L712-L712)
 
 ###  Java 
     
@@ -345,7 +345,7 @@ The following example shows how to list existing SAML provider configurations:
     for saml in auth.list_saml_provider_configs('nextPageToken').iterate_all():
         print(saml.provider_id)
     
-    [index.py](https://github.com/firebase/firebase-admin-python/blob/ae0a284127609272957c594af7c8a6179d87d1d4/snippets/auth/index.py#L717-L718)
+    [index.py](https://github.com/firebase/firebase-admin-python/blob/00e0754146a2051d98952f5928c7e2f2c2ed695a/snippets/auth/index.py#L717-L718)
 
 ###  Java 
     
@@ -437,7 +437,7 @@ The following example demonstrates how to create an OIDC provider configuration 
     
     print('Created new OIDC provider:', oidc.provider_id)
     
-    [index.py](https://github.com/firebase/firebase-admin-python/blob/ae0a284127609272957c594af7c8a6179d87d1d4/snippets/auth/index.py#L723-L730)
+    [index.py](https://github.com/firebase/firebase-admin-python/blob/00e0754146a2051d98952f5928c7e2f2c2ed695a/snippets/auth/index.py#L723-L730)
 
 ###  Java 
     
@@ -507,7 +507,7 @@ The following example demonstrates how to modify an OIDC provider configuration.
     
     print('Updated OIDC provider:', oidc.provider_id)
     
-    [index.py](https://github.com/firebase/firebase-admin-python/blob/ae0a284127609272957c594af7c8a6179d87d1d4/snippets/auth/index.py#L735-L740)
+    [index.py](https://github.com/firebase/firebase-admin-python/blob/00e0754146a2051d98952f5928c7e2f2c2ed695a/snippets/auth/index.py#L735-L740)
 
 ###  Java 
     
@@ -559,7 +559,7 @@ The primary way to identify an OIDC configuration is using its provider ID. The 
     
     print(oidc.display_name, oidc.enabled)
     
-    [index.py](https://github.com/firebase/firebase-admin-python/blob/ae0a284127609272957c594af7c8a6179d87d1d4/snippets/auth/index.py#L745-L747)
+    [index.py](https://github.com/firebase/firebase-admin-python/blob/00e0754146a2051d98952f5928c7e2f2c2ed695a/snippets/auth/index.py#L745-L747)
 
 ###  Java 
     
@@ -599,7 +599,7 @@ The following example demonstrates how to delete an OIDC provider configuration:
     
     auth.delete_oidc_provider_config('oidc.myProvider')
     
-    [index.py](https://github.com/firebase/firebase-admin-python/blob/ae0a284127609272957c594af7c8a6179d87d1d4/snippets/auth/index.py#L752-L752)
+    [index.py](https://github.com/firebase/firebase-admin-python/blob/00e0754146a2051d98952f5928c7e2f2c2ed695a/snippets/auth/index.py#L752-L752)
 
 ###  Java 
     
@@ -652,7 +652,7 @@ The following example shows how to list existing OIDC provider configurations:
     for oidc in auth.list_oidc_provider_configs('nextPageToken').iterate_all():
         print(oidc.provider_id)
     
-    [index.py](https://github.com/firebase/firebase-admin-python/blob/ae0a284127609272957c594af7c8a6179d87d1d4/snippets/auth/index.py#L757-L758)
+    [index.py](https://github.com/firebase/firebase-admin-python/blob/00e0754146a2051d98952f5928c7e2f2c2ed695a/snippets/auth/index.py#L757-L758)
 
 ###  Java 
     

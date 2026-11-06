@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sql/docs/postgres/samples/cloud-sql-postgres-knex-connect-tcp-sslcerts/
 title: Create a TCP connection with SSL certificates by using Node.js \u00a0|\u00a0 Cloud SQL for PostgreSQL \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-03T09:43:53.243410+00:00
+fetched_at: 2026-11-06T10:29:13.660200+00:00
 ---
 
 # Create a TCP connection with SSL certificates by using Node.js  |  Cloud SQL for PostgreSQL  |  Google Cloud Documentation

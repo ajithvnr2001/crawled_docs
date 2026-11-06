@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/application/ao-user/db-view-metrics/
 title: Observe metrics \u00a0|\u00a0 Google Distributed Cloud air-gapped \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T19:00:40.709893+00:00
+fetched_at: 2026-11-06T10:46:05.211887+00:00
 ---
 
 # Observe metrics  |  Google Distributed Cloud air-gapped  |  Google Cloud Documentation
@@ -22,7 +22,7 @@ Send feedback
 
 #  Observe metrics Stay organized with collections  Save and categorize content based on your preferences. 
 
-You can observe Database Service metrics with the monitoring instance. See [Monitoring and visualizing metrics](https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/application/ao-user/observability-monitoring-and-visualizing) for general information about the monitoring and visualizing processes for Application Operators (AO) in GDC.
+Database Service metrics in Google Distributed Cloud (GDC) air-gapped let you track database cluster health, evaluate resource utilization, and detect performance bottlenecks. You can observe these metrics and query diagnostic logs by using the monitoring instance to help ensure that your database workloads run reliably. For general information about monitoring and visualizing processes for application operators (AOs) in GDC, see [Monitoring and visualizing metrics](https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/application/ao-user/observability-monitoring-and-visualizing).
 
 You must create a database cluster before you can observe its metrics.
 
@@ -62,6 +62,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-05 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-05 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/logging/docs/routing/copy-logs/
 title: Batch and route log entries retroactively \u00a0|\u00a0 Cloud Logging \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-03T09:53:32.417759+00:00
+fetched_at: 2026-11-06T13:54:21.462481+00:00
 ---
 
 # Batch and route log entries retroactively  |  Cloud Logging  |  Google Cloud Documentation

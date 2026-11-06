@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/managed-lustre/docs/release-notes/
 title: Google Cloud Managed Lustre release notes \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-05T00:19:38.254823+00:00
+fetched_at: 2026-11-06T10:24:24.463414+00:00
 ---
 
 # Google Cloud Managed Lustre release notes  |  Google Cloud Documentation
@@ -36,6 +36,16 @@ A Cloud Storage mirror provides automated, event-driven synchronization from a C
 For more information, see [Mirror from Cloud Storage](https://docs.cloud.google.com/managed-lustre/docs/storage-mirror).
 
 Cloud Storage mirrors are available by request only. To indicate your interest, submit the [ Cloud Storage mirror request form](https://docs.google.com/forms/d/e/1FAIpQLScSTYd2cbjjlNzE9chIMb-5KYn_x4k4_kDWJwrdQwdfLySIQA/viewform).
+
+## October 30, 2026
+
+Feature
+
+Google Cloud Managed Lustre is now integrated with Unified Maintenance and Cloud Hub.
+
+You can view upcoming, in-progress, completed, and canceled maintenance events for your Managed Lustre instances in the [Cloud Hub Maintenance page](https://docs.cloud.google.com/hub/docs/maintenance).
+
+For more information, see [Maintenance notifications and logs](https://docs.cloud.google.com/managed-lustre/docs/maintenance-notifications#cloud-hub).
 
 ## October 26, 2026
 

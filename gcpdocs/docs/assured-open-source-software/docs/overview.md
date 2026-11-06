@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/assured-open-source-software/docs/overview/
 title: Overview of Assured Open Source Software \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T18:09:17.761043+00:00
+fetched_at: 2026-11-06T13:26:26.651767+00:00
 ---
 
 # Overview of Assured Open Source Software  |  Google Cloud Documentation
@@ -46,7 +46,7 @@ The Free tier includes the following:
   * Manual setup steps.
   * Curated repositories created in a Google-managed project.
   * Universal proxy endpoints for open-source packages. This proxy lets you download open-source packages and their metadata from one source, whether the packages were built by Google or not.
-  * Support for Amazon Web Service (AWS) account access.
+  * Support for Amazon Web Services (AWS) account access.
 
 
 
@@ -57,6 +57,7 @@ The Premium tier lets you [integrate Assured OSS with Security Command Center Pr
   * Automated setup as part of the organization-level activation process for Security Command Center Premium or Security Command Center Enterprise.
   * Curated repositories created in a project that you specify.
   * Universal package metadata that's collected and signed by Google. This metadata provides information about the package build, any vulnerabilities, and package health. The package health information is only available for packages that are built by Google.
+  * Support for [Google Cloud regions and multi-regions](https://docs.cloud.google.com/security-command-center/docs/integrate-aoss-with-scc#supported-regions) for remote (or proxy) Artifact Registry repositories.
 
 
 
@@ -66,7 +67,7 @@ For more information about Security Command Center subscription pricing, see [Se
 
 Assured OSS packages are stored on a Google-managed [Artifact Registry](https://docs.cloud.google.com/artifact-registry/docs) repository. You can access and download the open source packages offered by Assured OSS using one of the following methods:
 
-  * Set up a remote (also called a _mirror_ or a _proxy_) repository in your environment to act as a proxy for the Google-managed Artifact Registry repository. Your developers can connect to the remote repository to download the packages. Use this method if you are using a repository manager like Jfrog Artifactory or Sonatype Nexus.
+  * Set up a remote (also called a _mirror_ or a _proxy_) repository in your environment to act as a proxy for the Google-managed Artifact Registry repository. Your developers can connect to the remote repository to download the packages. Use this method if you are using a repository manager like JFrog Artifactory or Sonatype Nexus.
 
   * Connect to the Artifact Registry repository directly using a service account. Use this method if developers are using build tools like Maven, Gradle, Go, or pip.
 
@@ -95,6 +96,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-06 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-06 UTC."],[],[]] 

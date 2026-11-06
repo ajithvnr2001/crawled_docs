@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/architecture/
 title: Cloud Architecture Guidance and Topologies \u00a0|\u00a0 Cloud Architecture Center \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-13T13:56:52.438595+00:00
+fetched_at: 2026-11-06T10:27:34.663425+00:00
 ---
 
 # Cloud Architecture Guidance and Topologies  |  Cloud Architecture Center  |  Google Cloud Documentation
@@ -33,9 +33,9 @@ Design cloud topologies that are secure, efficient, resilient, high-performing, 
 
 Learn about basic archetypes for cloud deployments: zonal, regional, multi-regional, global, hybrid, and multicloud. 
 
-###  [ Infrastructure reliability guide ](https://docs.cloud.google.com/architecture/infra-reliability-guide)
+###  [ Agentic AI architecture guides ](https://docs.cloud.google.com/architecture/agentic-ai-overview)
 
-Design and build infrastructure to run workloads reliably in Google Cloud. 
+Design and build agentic AI systems in Google Cloud. 
 
 ###  [ Landing zone design ](https://docs.cloud.google.com/architecture/landing-zones)
 

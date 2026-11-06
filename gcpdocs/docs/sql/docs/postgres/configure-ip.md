@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sql/docs/postgres/configure-ip/
 title: Configure public IP \u00a0|\u00a0 Cloud SQL for PostgreSQL \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T08:56:52.373543+00:00
+fetched_at: 2026-11-06T10:23:25.972407+00:00
 ---
 
 # Configure public IP  |  Cloud SQL for PostgreSQL  |  Google Cloud Documentation
@@ -2598,7 +2598,12 @@ You want to find out who is connected. | Log into the database and run this comm
     LIMIT 20
          
   
-`Hostname/IP does not match certificate's altnames: Host: localhost. is not in the cert's altnames`. | The host address does not match the address in the server certificate's alternative names. If you are using Node.js with **verify-full** or its equivalent, please use the DNS name for the **servername** parameter. The DNS name can be found in the server certificate using **openssl**. For example, `openssl x509 -in server-cert.pem -noout -text |grep 'DNS:'`.
+`Hostname/IP does not match certificate's altnames: Host: localhost. is not in the cert's altnames`. | The host address does not match the address in the server certificate's alternative names. If you are using Node.js with `verify-full` or its equivalent, use the DNS name from the instance's [server certificate](https://docs.cloud.google.com/sql/docs/postgres/manage-ssl-instance#view-server-cert-content) for the `servername` parameter. The `server-ca.pem` file that you download from Cloud SQL is the server CA certificate and doesn't contain the DNS name. To retrieve the instance's server certificate and find the DNS name by using `openssl`, run the following command:
+    
+    
+    echo | openssl s_client -starttls postgres -connect INSTANCE_IP_ADDRESS:5432 | openssl x509 -noout -text | grep 'DNS:'
+
+Replace `INSTANCE_IP_ADDRESS` with the IP address of the Cloud SQL instance. Then, set the `servername` parameter to the DNS name from the `DNS:` output:
     
     
      ssl: {
@@ -2620,6 +2625,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-05 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-05 UTC."],[],[]] 

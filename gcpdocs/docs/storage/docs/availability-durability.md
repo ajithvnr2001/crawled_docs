@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/storage/docs/availability-durability/
 title: Data availability and durability \u00a0|\u00a0 Cloud Storage \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-05T00:20:12.864372+00:00
+fetched_at: 2026-11-06T10:23:11.242646+00:00
 ---
 
 # Data availability and durability  |  Cloud Storage  |  Google Cloud Documentation
@@ -150,6 +150,8 @@ For instructions on using cross-bucket replication, see [Use cross-bucket replic
 
   * Objects that are already in the bucket when a replication job is created are not automatically replicated. Only new and updated objects are replicated. To replicate existing objects, create a one-time Storage Transfer Service transfer job from your existing bucket to the new bucket. See [Create transfers](https://docs.cloud.google.com/storage-transfer/docs/create-transfers) for instructions.
 
+  * Cross-bucket replication replicates only live object creations and updates, and doesn't replicate noncurrent object versions. To transfer existing noncurrent versions during a one-time migration, use an object manifest as described in [Handle versioned objects](https://docs.cloud.google.com/storage-transfer/docs/cloud-storage-to-cloud-storage#handle_versioned_objects).
+
 
 
 
@@ -183,6 +185,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-03 UTC.
+Last updated 2026-11-05 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-05 UTC."],[],[]] 

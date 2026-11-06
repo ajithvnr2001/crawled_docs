@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/marketplace/docs/partners/offers/select-eula/
 title: Specify your end user license agreement (EULA) \u00a0|\u00a0 Google Cloud Marketplace Partners \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T21:59:17.399097+00:00
+fetched_at: 2026-11-06T10:22:30.897592+00:00
 ---
 
 # Specify your end user license agreement (EULA)  |  Google Cloud Marketplace Partners  |  Google Cloud Documentation
@@ -39,11 +39,21 @@ Before you specify your EULA, you must complete the following steps in Producer 
 
 ## Specify your EULA
 
-In Producer Portal, navigate to the private offer you're creating. Under **Legal terms** , specify whether you want to use the usual EULA for your product or provide a custom EULA for this offer.
+In Producer Portal, open the private offer that you're creating, expand **Legal terms** , and under **End-user license agreement (EULA)** , select one of the following options:
 
-### Standard EULA
+  * **Google Cloud Marketplace Standard EULA** : Uses the [Google Cloud Marketplace Standard EULA](https://cloud.google.com/terms/marketplace/eula-standard-v2-01272021).
+  * **Partner standard or custom EULA** : Upload your own EULA or a Bonterms standard agreement template:
 
-To review a standard EULA or other applicable agreement, see the following links. To use one or more of the following standard agreements, download and attach them to the private offer as described in the Custom EULA section.
+    1. In the **Custom EULA file** field, upload your agreement as a PDF file that is 4 MB or smaller.
+    2. Optionally, in the **Give the EULA name** field, enter a display name of up to 100 characters that customers see on the offer.
+
+**Note:** For [professional services products](https://docs.cloud.google.com/marketplace/docs/partners/professional-services), you must upload your statement of work in the **Custom SOW file** field under **Statement of work (SOW)**. Under **End-user license agreement (EULA)** , select **None** to use only your SOW, or select **Partner standard or custom EULA** to attach an additional agreement.
+
+Click **Save**.
+
+### Bonterms standard agreement templates
+
+To use a standard agreement template from [Bonterms](https://bonterms.com/), upload the PDF under **Partner standard or custom EULA**. You can download any of the following templates:
 
   * [Bonterms Standard End User Agreement](https://console.cloud.google.com/tos?id=marketplace-standard-end-user-agreement)
 
@@ -54,24 +64,7 @@ To review a standard EULA or other applicable agreement, see the following links
 
 
 
-These are standard agreements created by [Bonterms](https://bonterms.com/), which are free to use and licensed under the open-source document license CC BY-ND.
-
-### Custom EULA
-
-If you want to provide a custom EULA:
-
-  1. Use the **Attach a custom EULA** field to select and upload your custom EULA. Your custom EULA file must be:
-
-     * In PDF format.
-
-     * Less than or equal to the maximum file size of 4 MB.
-
-  2. In the **Custom display name** field, specify the name that you want your customers to see for your custom EULA when they view the offer.
-
-  3. Click **Next**.
-
-
-
+These agreements are free to use under the open-source document license CC BY-ND.
 
 ## What's next
 
@@ -81,6 +74,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-05 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-05 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/datastream/docs/implementing-datastream-dataflow-analytics/
 title: Implement Datastream and Dataflow for analytics \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T11:06:05.356588+00:00
+fetched_at: 2026-11-06T09:07:32.883465+00:00
 ---
 
 # Implement Datastream and Dataflow for analytics  |  Google Cloud Documentation
@@ -25,25 +25,32 @@ Datastream
 
 Integrating Datastream with Dataflow job templates lets you customize your stream processing logic when you replicate data into BigQuery for near real-time analytics. For example, you can transform in-flight data or manually set logical primary keys before writing to your destination tables.
 
-In this tutorial, you use Datastream to stream inserts, updates, and deletes from a source MySQL database into a Cloud Storage bucket. You then configure Pub/Sub notifications on the bucket for new change files and run a Dataflow job to process and merge those changes into BigQuery.
+In this tutorial, you use Datastream to replicate data from a source MySQL database into a Cloud Storage bucket. You then configure Pub/Sub notifications for new change files and run a Dataflow streaming job to apply those changes in BigQuery.
 
 The following diagram illustrates the architecture for integrating Datastream and Dataflow:
 
-![Integration user flow diagram](https://docs.cloud.google.com/static/datastream/docs/images/integrating-datastream-and-dataflow-overview.png)
+![Datastream streams source database changes to Cloud Storage, Pub/Sub notifies Dataflow, and Dataflow replicates changes to BigQuery.](https://docs.cloud.google.com/static/datastream/docs/images/integrating-datastream-and-dataflow-overview.svg)
+
+The pipeline processes data across the following stages:
+
+  1. **Ingest** : Datastream captures inserts, updates, and deletes from the source database and writes change files to a Cloud Storage bucket. When new change files arrive, Cloud Storage publishes notifications to a Pub/Sub topic, which delivers them through a subscription.
+  2. **Process** : A Dataflow job receives notifications from the Pub/Sub subscription and reads the corresponding change files from the Cloud Storage bucket.
+  3. **Store** : The Dataflow job stages the changes in a BigQuery dataset and merges them into replica tables for analytics.
+
+
 
 ## Objectives
 
-In this tutorial, you: 
+In this tutorial, you complete the following tasks: 
 
-  * Create a bucket in Cloud Storage. This is the destination bucket into which Datastream streams schemas, tables, and data from a source MySQL database.
-  * Enable Pub/Sub notifications for the Cloud Storage bucket. By doing this, you're configuring the bucket to send notifications that Dataflow uses to learn about any new files that are ready for processing. These files contain changes to data that Datastream streams from the source database into the bucket.
-  * Create datasets in BigQuery. BigQuery uses datasets to contain the data that it receives from Dataflow. This data represents the changes in the source database that Datastream streams into the Cloud Storage bucket.
-  * Create and manage connection profiles for a source database and a destination bucket in Cloud Storage. A stream in Datastream uses the information in the connection profiles to transfer data from the source database into the bucket.
-  * Create and start a stream. This stream transfers data, schemas, and tables from the source database into the bucket.
-  * Verify that Datastream transfers the data and tables associated with a schema of the source database into the bucket.
-  * Create a job in Dataflow. After Datastream streams data changes from the source database into the Cloud Storage bucket, notifications are sent to Dataflow about new files containing the changes. The Dataflow job processes the files and transfers the changes into BigQuery.
-  * Verify that Dataflow processes the files containing changes associated with this data, and transfers the changes into BigQuery. As a result, you have an end-to-end integration between Datastream and BigQuery.
-  * Clean up the resources that you created on Datastream, Cloud Storage, Pub/Sub, Dataflow, and BigQuery so they don't take up quota and you aren't billed for them in the future.
+  * Create a Cloud Storage destination bucket to store schemas, tables, and change files streamed by Datastream from a source MySQL database.
+  * Configure Pub/Sub notifications on the Cloud Storage bucket by creating a topic and a subscription for new change files.
+  * Create staging and replica datasets in BigQuery to store the replicated source data.
+  * Create Datastream connection profiles for the source MySQL database and the Cloud Storage destination bucket.
+  * Create, start, and verify a Datastream stream that writes source schemas, tables, and data changes to the bucket.
+  * Create a Dataflow job that receives notifications from the Pub/Sub subscription, reads change files from the Cloud Storage bucket, and merges the changes into BigQuery.
+  * Verify that Dataflow replicates the source data changes into BigQuery.
+  * Clean up the resources that you created in Datastream, Cloud Storage, Pub/Sub, Dataflow, and BigQuery to avoid incurring future charges.
 
 
 
@@ -692,6 +699,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-28 UTC.
+Last updated 2026-11-06 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-06 UTC."],[],[]] 

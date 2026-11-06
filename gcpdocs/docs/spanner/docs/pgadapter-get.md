@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/spanner/docs/pgadapter-get/
 title: Get PGAdapter \u00a0|\u00a0 Spanner \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T09:14:12.932811+00:00
+fetched_at: 2026-11-06T10:39:46.377994+00:00
 ---
 
 # Get PGAdapter  |  Spanner  |  Google Cloud Documentation
@@ -107,7 +107,7 @@ If you use Maven, add the following dependency to your `pom.xml` file:
     <dependency>
       <groupId>com.google.cloud</groupId>
       <artifactId>google-cloud-spanner-pgadapter</artifactId>
-      <version>0.56.1</version>
+      <version>0.56.2</version>
     </dependency>
 
 ## What's next

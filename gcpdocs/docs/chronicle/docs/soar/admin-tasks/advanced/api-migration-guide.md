@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chronicle/docs/soar/admin-tasks/advanced/api-migration-guide/
 title: Migrate to Chronicle API \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T23:33:59.964827+00:00
+fetched_at: 2026-11-06T12:56:43.242496+00:00
 ---
 
 # Migrate to Chronicle API  |  Google Security Operations  |  Google Cloud Documentation
@@ -153,6 +153,8 @@ If you are using a service account or workload identity federation to authentica
 
 To grant a _service account access_ or _workload identity federation access_ to Google SecOps, you must map the identity to the platform's access control parameters. This mapping is a mandatory step to provide the identity with the necessary access to **SOC Roles** , and **Environments** required to perform automated tasks or API operations.
 
+**Note:** Granting Google Cloud IAM roles to a service account or principal is necessary but not sufficient for Google SecOps SOAR API access. If the service account is not explicitly mapped in **Group Mapping** , API requests fail with a `401 UNAUTHENTICATED` error even when all required project-level IAM roles are configured.
+
   1. Go to **Settings > Access Management > Group Mapping**.
   2. Click add **Add**.
   3. Complete the fields in the **Add Mapping** dialog to map the identity to the platform's access control parameters.
@@ -196,6 +198,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-04 UTC.
+Last updated 2026-11-05 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-05 UTC."],[],[]] 

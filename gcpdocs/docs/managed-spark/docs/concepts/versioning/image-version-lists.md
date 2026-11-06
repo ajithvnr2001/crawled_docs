@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/managed-spark/docs/concepts/versioning/image-version-lists/
 title: Managed Service for Apache Spark cluster image version lists \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T21:58:04.714306+00:00
+fetched_at: 2026-11-06T11:11:26.723349+00:00
 ---
 
 # Managed Service for Apache Spark cluster image version lists  |  Google Cloud Documentation
@@ -48,10 +48,10 @@ The following **Debian-based** image versions are supported in Managed Service f
 
 When creating a Debian-based cluster, you can omit the image version OS Distribution Code suffix, for example by specifying `2.3` to select the `2.3-debian12` image. The OS suffix **must** be used to select a Rocky Linux or Ubuntu-based image, for example by specifying `2.3-ubuntu22`. See [Selecting versions](https://docs.cloud.google.com/managed-spark/docs/concepts/versioning/overview#select_versions) for image selection examples. Version | Last updated | Released on | Supported until | Available until | Notes  
 ---|---|---|---|---|---  
-[3.0-debian13](https://docs.cloud.google.com/managed-spark/docs/concepts/versioning/image-release-3.0) | [2026/09/30](https://docs.cloud.google.com/managed-spark/docs/release-notes#September_30_2026) | [2026/07/15](https://docs.cloud.google.com/managed-spark/docs/release-notes#July%2015,%202026) | 2028/07/15 | 2030/07/15 | General availability release.  
-[2.3-debian12](https://docs.cloud.google.com/managed-spark/docs/concepts/versioning/image-release-2.3) | [2026/09/30](https://docs.cloud.google.com/managed-spark/docs/release-notes#September_30_2026) | [2025/06/09](https://docs.cloud.google.com/managed-spark/docs/release-notes#June_09_2025) | 2027/06/09 | 2029/06/09 | General availability release.  
-[2.2-debian12](https://docs.cloud.google.com/managed-spark/docs/concepts/versioning/image-release-2.2) | [2026/09/30](https://docs.cloud.google.com/managed-spark/docs/release-notes#September_30_2026) | [2023/12/08](https://docs.cloud.google.com/managed-spark/docs/release-notes#December_11_2023) | 2027/03/31 | 2027/12/31 | General availability release. Image version `2.2` becomes the default image version on September, 13, 2024.  
-[2.1-debian11](https://docs.cloud.google.com/managed-spark/docs/concepts/versioning/image-release-2.1) | [2026/10/12](https://docs.cloud.google.com/managed-spark/docs/release-notes#October_12_2026) | [2022/12/12](https://docs.cloud.google.com/managed-spark/docs/release-notes#December_12_2022) | 2026/03/31 | 2026/12/31 | General availability release.  
+[3.0-debian13](https://docs.cloud.google.com/managed-spark/docs/concepts/versioning/image-release-3.0) | [2026/11/02](https://docs.cloud.google.com/managed-spark/docs/release-notes#November_02_2026) | [2026/07/15](https://docs.cloud.google.com/managed-spark/docs/release-notes#July%2015,%202026) | 2028/07/15 | 2030/07/15 | General availability release.  
+[2.3-debian12](https://docs.cloud.google.com/managed-spark/docs/concepts/versioning/image-release-2.3) | [2026/11/02](https://docs.cloud.google.com/managed-spark/docs/release-notes#November_02_2026) | [2025/06/09](https://docs.cloud.google.com/managed-spark/docs/release-notes#June_09_2025) | 2027/06/09 | 2029/06/09 | General availability release.  
+[2.2-debian12](https://docs.cloud.google.com/managed-spark/docs/concepts/versioning/image-release-2.2) | [2026/11/02](https://docs.cloud.google.com/managed-spark/docs/release-notes#November_02_2026) | [2023/12/08](https://docs.cloud.google.com/managed-spark/docs/release-notes#December_11_2023) | 2027/03/31 | 2027/12/31 | General availability release. Image version `2.2` becomes the default image version on September, 13, 2024.  
+[2.1-debian11](https://docs.cloud.google.com/managed-spark/docs/concepts/versioning/image-release-2.1) | [2026/11/02](https://docs.cloud.google.com/managed-spark/docs/release-notes#November_02_2026) | [2022/12/12](https://docs.cloud.google.com/managed-spark/docs/release-notes#December_12_2022) | 2026/03/31 | 2026/12/31 | General availability release.  
   
 ### Ubuntu images
 
@@ -59,10 +59,10 @@ The following **Ubuntu LTS-based** image versions are supported in Managed Servi
 
 Version | Last updated | Released on | Supported until | Available until | Notes  
 ---|---|---|---|---|---  
-[3.0-ubuntu24](https://docs.cloud.google.com/managed-spark/docs/concepts/versioning/image-release-3.0) | [2026/09/30](https://docs.cloud.google.com/managed-spark/docs/release-notes#September_30_2026) | [2026/07/15](https://docs.cloud.google.com/managed-spark/docs/release-notes#July%2015,%202026) | 2028/07/15 | 2030/07/15 | General availability release.  
-[2.3-ubuntu22](https://docs.cloud.google.com/managed-spark/docs/concepts/versioning/image-release-2.3) | [2026/09/30](https://docs.cloud.google.com/managed-spark/docs/release-notes#September_30_2026) | [2025/06/09](https://docs.cloud.google.com/managed-spark/docs/release-notes#June_09_2025) | 2027/06/09 | 2029/06/09 | General availability release.  
-[2.2-ubuntu22](https://docs.cloud.google.com/managed-spark/docs/concepts/versioning/image-release-2.2) | [2026/09/30](https://docs.cloud.google.com/managed-spark/docs/release-notes#September_30_2026) | [2023/12/08](https://docs.cloud.google.com/managed-spark/docs/release-notes#December_11_2023) | 2027/03/31 | 2027/12/31 | General availability release.  
-[2.1-ubuntu20](https://docs.cloud.google.com/managed-spark/docs/concepts/versioning/image-release-2.1) | [2026/10/12](https://docs.cloud.google.com/managed-spark/docs/release-notes#October_12_2026) | [2022/12/12](https://docs.cloud.google.com/managed-spark/docs/release-notes#December_12_2022) | 2026/03/31 | 2026/12/31 | General availability release.  
+[3.0-ubuntu24](https://docs.cloud.google.com/managed-spark/docs/concepts/versioning/image-release-3.0) | [2026/11/02](https://docs.cloud.google.com/managed-spark/docs/release-notes#November_02_2026) | [2026/07/15](https://docs.cloud.google.com/managed-spark/docs/release-notes#July%2015,%202026) | 2028/07/15 | 2030/07/15 | General availability release.  
+[2.3-ubuntu22](https://docs.cloud.google.com/managed-spark/docs/concepts/versioning/image-release-2.3) | [2026/11/02](https://docs.cloud.google.com/managed-spark/docs/release-notes#November_02_2026) | [2025/06/09](https://docs.cloud.google.com/managed-spark/docs/release-notes#June_09_2025) | 2027/06/09 | 2029/06/09 | General availability release.  
+[2.2-ubuntu22](https://docs.cloud.google.com/managed-spark/docs/concepts/versioning/image-release-2.2) | [2026/11/02](https://docs.cloud.google.com/managed-spark/docs/release-notes#November_02_2026) | [2023/12/08](https://docs.cloud.google.com/managed-spark/docs/release-notes#December_11_2023) | 2027/03/31 | 2027/12/31 | General availability release.  
+[2.1-ubuntu20](https://docs.cloud.google.com/managed-spark/docs/concepts/versioning/image-release-2.1) | [2026/11/02](https://docs.cloud.google.com/managed-spark/docs/release-notes#November_02_2026) | [2022/12/12](https://docs.cloud.google.com/managed-spark/docs/release-notes#December_12_2022) | 2026/03/31 | 2026/12/31 | General availability release.  
   
 ### Rocky Linux images
 
@@ -70,10 +70,10 @@ The following **Rocky Linux-based** image versions are supported in Managed Serv
 
 Version | Last updated | Released on | Supported until | Available until | Notes  
 ---|---|---|---|---|---  
-[3.0-rocky9](https://docs.cloud.google.com/managed-spark/docs/concepts/versioning/image-release-3.0) | [2026/09/30](https://docs.cloud.google.com/managed-spark/docs/release-notes#September_30_2026) | [2026/07/15](https://docs.cloud.google.com/managed-spark/docs/release-notes#July%2015,%202026) | 2028/07/15 | 2030/07/15 | General availability release.  
-[2.3-rocky9](https://docs.cloud.google.com/managed-spark/docs/concepts/versioning/image-release-2.3) | [2026/09/30](https://docs.cloud.google.com/managed-spark/docs/release-notes#September_30_2026) | [2025/06/09](https://docs.cloud.google.com/managed-spark/docs/release-notes#June_09_2025) | 2027/06/09 | 2029/06/09 | General availability release.  
-[2.2-rocky9](https://docs.cloud.google.com/managed-spark/docs/concepts/versioning/image-release-2.2) | [2026/09/30](https://docs.cloud.google.com/managed-spark/docs/release-notes#September_30_2026) | [2023/12/08](https://docs.cloud.google.com/managed-spark/docs/release-notes#December_11_2023) | 2027/03/31 | 2027/12/31 | General availability release.  
-[2.1-rocky8](https://docs.cloud.google.com/managed-spark/docs/concepts/versioning/image-release-2.1) | [2026/10/12](https://docs.cloud.google.com/managed-spark/docs/release-notes#October_12_2026) | [2022/12/12](https://docs.cloud.google.com/managed-spark/docs/release-notes#December_12_2022) | 2026/03/31 | 2026/12/31 | General availability release.  
+[3.0-rocky9](https://docs.cloud.google.com/managed-spark/docs/concepts/versioning/image-release-3.0) | [2026/11/02](https://docs.cloud.google.com/managed-spark/docs/release-notes#November_02_2026) | [2026/07/15](https://docs.cloud.google.com/managed-spark/docs/release-notes#July%2015,%202026) | 2028/07/15 | 2030/07/15 | General availability release.  
+[2.3-rocky9](https://docs.cloud.google.com/managed-spark/docs/concepts/versioning/image-release-2.3) | [2026/11/02](https://docs.cloud.google.com/managed-spark/docs/release-notes#November_02_2026) | [2025/06/09](https://docs.cloud.google.com/managed-spark/docs/release-notes#June_09_2025) | 2027/06/09 | 2029/06/09 | General availability release.  
+[2.2-rocky9](https://docs.cloud.google.com/managed-spark/docs/concepts/versioning/image-release-2.2) | [2026/11/02](https://docs.cloud.google.com/managed-spark/docs/release-notes#November_02_2026) | [2023/12/08](https://docs.cloud.google.com/managed-spark/docs/release-notes#December_11_2023) | 2027/03/31 | 2027/12/31 | General availability release.  
+[2.1-rocky8](https://docs.cloud.google.com/managed-spark/docs/concepts/versioning/image-release-2.1) | [2026/11/02](https://docs.cloud.google.com/managed-spark/docs/release-notes#November_02_2026) | [2022/12/12](https://docs.cloud.google.com/managed-spark/docs/release-notes#December_12_2022) | 2026/03/31 | 2026/12/31 | General availability release.  
   
 ## Unsupported Managed Service for Apache Spark image versions
 
@@ -209,6 +209,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-06 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-06 UTC."],[],[]] 

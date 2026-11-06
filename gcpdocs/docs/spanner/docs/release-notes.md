@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/spanner/docs/release-notes/
 title: Spanner release notes \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T05:53:28.859200+00:00
+fetched_at: 2026-11-06T10:41:18.705491+00:00
 ---
 
 # Spanner release notes  |  Google Cloud Documentation
@@ -38,6 +38,15 @@ In GoogleSQL, you can also convert other data types to `JSON` using `CAST(expres
 Additionally, you can use search indexes to accelerate equality comparisons such as `=` or `IN` on JSONB and JSON columns and subpaths.
 
 For more information, see [JSON comparison and sorting](https://docs.cloud.google.com/spanner/docs/reference/standard-sql/data-types#comparison_and_sorting) , [JSON comparison coercion](https://docs.cloud.google.com/spanner/docs/reference/standard-sql/conversion_rules#json_comparison_coercion) , [CAST AS JSON](https://docs.cloud.google.com/spanner/docs/reference/standard-sql/conversion_functions#cast_as_json) , [JSON search indexes](https://docs.cloud.google.com/spanner/docs/full-text-search/json-indexes) , and [Working with JSONB](https://docs.cloud.google.com/spanner/docs/working-with-jsonb).
+
+Feature
+
+Spanner Graph supports the following enhancements:
+
+  * You can create property graphs from SQL views that call [remote functions](https://docs.cloud.google.com/spanner/docs/cloud-run-remote-function) ([Preview](https://cloud.google.com/products#product-launch-stages)) to compute node and edge properties. For more information, see [Compute properties with remote functions](https://docs.cloud.google.com/spanner/docs/graph/graph-with-views-how-to#remote-functions-views).
+  * You can write simplified queries on schemaless dynamic properties without explicit conversions to SQL data types. This lets you group and sort dynamic properties, and compare them directly with literal values or other dynamic properties. For more information, see [Filter, compare, and sort by dynamic properties](https://docs.cloud.google.com/spanner/docs/graph/manage-schemaless-data#filter-property-values) and [JSON comparison and sorting](https://docs.cloud.google.com/spanner/docs/reference/standard-sql/data-types#comparison_and_sorting).
+
+
 
 ## October 27, 2026
 

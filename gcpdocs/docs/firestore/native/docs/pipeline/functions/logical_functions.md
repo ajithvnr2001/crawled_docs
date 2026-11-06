@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/firestore/native/docs/pipeline/functions/logical_functions/
 title: Logical Functions Reference \u00a0|\u00a0 Firestore in Native mode \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T23:45:36.658453+00:00
+fetched_at: 2026-11-06T08:23:06.591040+00:00
 ---
 
 # Logical Functions Reference  |  Firestore in Native mode  |  Google Cloud Documentation
@@ -179,7 +179,7 @@ Android
     	)).
     	Execute(ctx)
     
-    [pipeline_snippets_logical.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/ed08282a171f47c035cf0984a5caa406b76f5bcd/firestore/pipeline_snippets_logical.go#L47-L55)
+    [pipeline_snippets_logical.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/7c21bf1faae9139ce31b1321fa2815e95caff660/firestore/pipeline_snippets_logical.go#L47-L55)
 
 ### OR
 
@@ -323,7 +323,7 @@ Android
     	)).
     	Execute(ctx)
     
-    [pipeline_snippets_logical.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/ed08282a171f47c035cf0984a5caa406b76f5bcd/firestore/pipeline_snippets_logical.go#L69-L77)
+    [pipeline_snippets_logical.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/7c21bf1faae9139ce31b1321fa2815e95caff660/firestore/pipeline_snippets_logical.go#L69-L77)
 
 ### XOR
 
@@ -472,7 +472,7 @@ Android
     	)).
     	Execute(ctx)
     
-    [pipeline_snippets_logical.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/ed08282a171f47c035cf0984a5caa406b76f5bcd/firestore/pipeline_snippets_logical.go#L91-L99)
+    [pipeline_snippets_logical.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/7c21bf1faae9139ce31b1321fa2815e95caff660/firestore/pipeline_snippets_logical.go#L91-L99)
 
 ### NOR
 
@@ -618,7 +618,7 @@ Android
     	)).
     	Execute(ctx)
     
-    [pipeline_snippets_logical.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/ed08282a171f47c035cf0984a5caa406b76f5bcd/firestore/pipeline_snippets_logical.go#L113-L118)
+    [pipeline_snippets_logical.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/7c21bf1faae9139ce31b1321fa2815e95caff660/firestore/pipeline_snippets_logical.go#L113-L118)
 
 ### CONDITIONAL
 
@@ -794,7 +794,7 @@ Android
     	)).
     	Execute(ctx)
     
-    [pipeline_snippets_logical.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/ed08282a171f47c035cf0984a5caa406b76f5bcd/firestore/pipeline_snippets_logical.go#L132-L144)
+    [pipeline_snippets_logical.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/7c21bf1faae9139ce31b1321fa2815e95caff660/firestore/pipeline_snippets_logical.go#L132-L144)
 
 ### IF_NULL
 
@@ -971,7 +971,7 @@ Android
     	)).
     	Execute(ctx)
     
-    [pipeline_snippets_array.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/ed08282a171f47c035cf0984a5caa406b76f5bcd/firestore/pipeline_snippets_array.go#L199-L204)
+    [pipeline_snippets_array.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/7c21bf1faae9139ce31b1321fa2815e95caff660/firestore/pipeline_snippets_array.go#L199-L204)
 
 ### NOT_EQUAL_ANY
 
@@ -1106,7 +1106,7 @@ Android
     	)).
     	Execute(ctx)
     
-    [pipeline_snippets_array.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/ed08282a171f47c035cf0984a5caa406b76f5bcd/firestore/pipeline_snippets_array.go#L218-L223)
+    [pipeline_snippets_array.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/7c21bf1faae9139ce31b1321fa2815e95caff660/firestore/pipeline_snippets_array.go#L218-L223)
 
 ### MAXIMUM
 
@@ -1232,7 +1232,7 @@ Android
     	)).
     	Execute(ctx)
     
-    [pipeline_snippets_logical.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/ed08282a171f47c035cf0984a5caa406b76f5bcd/firestore/pipeline_snippets_logical.go#L158-L163)
+    [pipeline_snippets_logical.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/7c21bf1faae9139ce31b1321fa2815e95caff660/firestore/pipeline_snippets_logical.go#L158-L163)
 
 ### MINIMUM
 
@@ -1358,7 +1358,7 @@ Android
     	)).
     	Execute(ctx)
     
-    [pipeline_snippets_logical.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/ed08282a171f47c035cf0984a5caa406b76f5bcd/firestore/pipeline_snippets_logical.go#L177-L182)
+    [pipeline_snippets_logical.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/7c21bf1faae9139ce31b1321fa2815e95caff660/firestore/pipeline_snippets_logical.go#L177-L182)
 
 ## What's next
 

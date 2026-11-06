@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/release-notes/
 title: BigQuery release notes \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T23:28:11.444265+00:00
+fetched_at: 2026-11-06T10:22:13.801249+00:00
 ---
 
 # BigQuery release notes  |  Google Cloud Documentation
@@ -28,6 +28,16 @@ For older release notes, see the [Release notes archive](https://docs.cloud.goog
 You can see the latest product updates for all of Google Cloud on the [ Google Cloud](https://docs.cloud.google.com/release-notes) page, browse and filter all release notes in the [Google Cloud console](https://console.cloud.google.com/release-notes), or programmatically access release notes in [BigQuery](https://console.cloud.google.com/bigquery?p=bigquery-public-data&d=google_cloud_release_notes&t=release_notes&page=table). 
 
 To get the latest product updates delivered to you, add the URL of this page to your [feed reader](https://wikipedia.org/wiki/Comparison_of_feed_aggregators), or add the [feed URL](https://docs.cloud.google.com/feeds/bigquery-release-notes.xml) directly. 
+
+## November 05, 2026
+
+Change
+
+The BigQuery **Metadata curation** console page has been removed. You can now use Knowledge Catalog to schedule [Cloud Storage discovery scans](https://docs.cloud.google.com/knowledge-catalog/docs/cloud-storage-discovery), manage [data profiling](https://docs.cloud.google.com/knowledge-catalog/docs/data-profiling-overview) and [data quality](https://docs.cloud.google.com/knowledge-catalog/docs/use-auto-data-quality#console), and perform related data governance tasks.
+
+Feature
+
+[Conversational analytics in BigQuery](https://docs.cloud.google.com/bigquery/docs/conversational-analytics) is now available in the `asia-northeast1` (Tokyo) location. For more information, see [Locations](https://docs.cloud.google.com/bigquery/docs/conversational-analytics#locations).
 
 ## November 03, 2026
 

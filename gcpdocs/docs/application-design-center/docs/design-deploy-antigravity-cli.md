@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/application-design-center/docs/design-deploy-antigravity-cli/
 title: Design and deploy an application using Antigravity CLI \u00a0|\u00a0 Application Design Center \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T05:48:02.241750+00:00
+fetched_at: 2026-11-06T13:12:18.133768+00:00
 ---
 
 # Design and deploy an application using Antigravity CLI  |  Application Design Center  |  Google Cloud Documentation
@@ -41,7 +41,7 @@ This tutorial helps you do the following:
 
 In this document, you use the following billable components of Google Cloud: 
 
-  * [App Design Center.](https://cloud.google.com/products/application-design-center/pricing)
+  * [App Design Center](https://cloud.google.com/products/application-design-center/pricing).
   * Google Cloud resources that you create as part of your application infrastructure.
 
 
@@ -173,17 +173,17 @@ If your configuration file doesn't exist, create a new file.
   2. In `mcp_config.json`, add or merge the following configuration block under the `mcpServers` key.
          
          {
-             "mcpServers": {
-               "gemini-cloud-assist": {
-                 "serverUrl": "https://geminicloudassist.googleapis.com/mcp",
-                 "authProviderType": "google_credentials"
-               },
-               "application-design-center": {
-                 "serverUrl": "https://designcenter.googleapis.com/mcp",
-                 "authProviderType": "google_credentials"
-               }
+           "mcpServers": {
+             "gemini-cloud-assist": {
+               "serverUrl": "https://geminicloudassist.googleapis.com/mcp",
+               "authProviderType": "google_credentials"
+             },
+             "application-design-center": {
+               "serverUrl": "https://designcenter.googleapis.com/mcp",
+               "authProviderType": "google_credentials"
              }
            }
+         }
          
 
 This configuration automatically uses your Application Default Credentials.
@@ -259,7 +259,7 @@ The agent asks to activate the skills you configured. The agent creates an infra
          Continue with the plan.
          
 
-The agent identifies tools to use to create the infrastructure, The agent asks to use the `setup_adc` tool, which sets up App Design Center in your project.
+The agent identifies tools to use to create the infrastructure. The agent asks to use the `setup_adc` tool, which sets up App Design Center in your project.
 
   4. Allow Gemini Cloud Assist to use the proposed tools.
 
@@ -283,12 +283,12 @@ Administrators in your organization have likely configured specific security fra
 
   1. Make sure that the infrastructure design is compliant with your organization's security standards.
          
-         I want to make sure that infrastructure design is compliant with my organization's security standards.
+         I want to make sure that the infrastructure design is compliant with my organization's security standards.
          
 
-The agent analyzes the infrastructure design based on the security frameworks your organization's administrator has specified in Security Command Center. If the audit finds compliance issues, the agent suggest security enhancements and asks for your approval.
+The agent analyzes the infrastructure design based on the security frameworks your organization's administrator has specified in Security Command Center. If the audit finds compliance issues, the agent suggests security enhancements and asks for your approval.
 
-  2. Apply the recommended security enhancements
+  2. Apply the recommended security enhancements.
          
          Apply the recommended security enhancements.
          
@@ -311,7 +311,7 @@ Deploy the infrastructure design to Google Cloud.
 
 The agent deploys the final design to your Google Cloud project. The agent asks you to approve changes to your project. For example, you might need to enable an API.
 
-If the application successfully deploys, The agent displays deployment details, architecture components, and steps to use the application.
+If the application successfully deploys, the agent displays deployment details, architecture components, and steps to use the application.
 
   2. If your deployment fails, get help with troubleshooting. For example, you might need to fix component configuration details or Identity and Access Management (IAM) permissions.
          
@@ -355,6 +355,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-30 UTC.
+Last updated 2026-11-05 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-05 UTC."],[],[]] 

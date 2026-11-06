@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/knowledge-catalog/docs/data-products-overview/
 title: About data products \u00a0|\u00a0 Knowledge Catalog \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T20:45:51.477043+00:00
+fetched_at: 2026-11-06T10:24:16.150631+00:00
 ---
 
 # About data products  |  Knowledge Catalog  |  Google Cloud Documentation
@@ -104,7 +104,7 @@ The data product lifecycle in Knowledge Catalog involves two key user journeys: 
 
 ### Data product owner journey
 
-This journey focuses on packaging, securing, and governing the data products to ensure it's trusted and accessible.
+This journey focuses on packaging, securing, and governing the data products to ensure they are trusted and accessible.
 
   * Create: Define the data product and include assets. This involves the following actions:
 
@@ -169,8 +169,8 @@ A data product can be composed of one or more data assets. The following data as
   * Iceberg REST Catalog catalogs
   * Iceberg REST Catalog namespaces
   * Iceberg REST Catalog tables
-  * Looker (Google Cloud core) dashboards
-  * Looker (Google Cloud core) dashboard elements
+  * Looker (Google Cloud core) user-defined dashboards
+  * Looker (Google Cloud core) user-defined dashboard elements
   * Looker (Google Cloud core) Looks
   * Looker (Google Cloud core) Explores
   * Looker (Google Cloud core) LookML projects
@@ -188,6 +188,7 @@ A data product can be composed of one or more data assets. The following data as
     * Service accounts aren't supported: [Google Group mirroring](https://docs.cloud.google.com/looker/docs/looker-core-oauth-authentication#mirroring) in Looker (Google Cloud core) only supports human user identities. Access groups configured on Looker (Google Cloud core) assets can't include a service account principal.
     * Default access group IAM roles aren't supported: Default IAM roles assigned at the access group level aren't applied to Looker (Google Cloud core) assets and are marked as `unsupported`. You must explicitly configure access group permissions on each Looker (Google Cloud core) asset.
     * Manual permission synchronization inside Looker (Google Cloud core): Role names configured on a Looker (Google Cloud core) asset in a data product are informational placeholders for consumers. Data producers must manually configure and maintain [folder access levels](https://docs.cloud.google.com/looker/docs/admin-panel-users-content-access#access_levels) and [Looker roles](https://docs.cloud.google.com/looker/docs/admin-panel-users-roles) for the mirrored group inside the Looker (Google Cloud core) instance.
+    * LookML dashboards aren't supported: LookML dashboards and LookML dashboard elements aren't supported as data assets, even though they might appear in the list of assets that you can add in the Google Cloud console. To include a LookML dashboard in a data product, copy it as a user-defined dashboard (see [Converting from LookML to user-defined dashboards](https://docs.cloud.google.com/looker/docs/converting-lookml-to-user-defined-dashboard)).
   * Quotas and limits: For a complete list of API rate limits and capacity quotas, see [Quotas for data products API requests](https://docs.cloud.google.com/knowledge-catalog/docs/quotas#data-product-quotas).
 
   * [Zonal buckets](https://docs.cloud.google.com/storage/docs/rapid/rapid-bucket) aren't supported.
@@ -209,6 +210,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-05 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-05 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chronicle/docs/soar/investigate/working-with-cases/cases-overview/
 title: Investigation and case management overview \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T10:05:20.507863+00:00
+fetched_at: 2026-11-06T10:52:59.490358+00:00
 ---
 
 # Investigation and case management overview  |  Google Security Operations  |  Google Cloud Documentation
@@ -38,7 +38,9 @@ The **Cases** page is where analysts can investigate incoming alerts and manage 
 
 ## Case queue header and views
 
-All active cases from various connectors appear in the case queue. Each case entry shows key metadata, such as:
+All active cases from various connectors appear in the case queue. The case queue—automatically refreshed every minute—lists all active cases and lets you manually refresh, sort, filter, add, or close cases as needed.
+
+Each case entry shows key metadata, such as:
 
   * Case name and unique ID
   * Case timestamp
@@ -60,7 +62,7 @@ Analysts can toggle between these views:
 
 The **Case Top Bar** displays case-level context and available actions, as follows:
 
-  * The case queue header displays the case title, ID, [priority, stage](https://docs.cloud.google.com/chronicle/docs/soar/investigate/working-with-cases/what-actions-can-you-take-on-a-case), timestamp, change environment, and [tags](https://docs.cloud.google.com/chronicle/docs/soar/investigate/working-with-cases/manage-tags-from-the-cases-screen).
+  * The case queue header displays the case title, ID, [priority, stage](https://docs.cloud.google.com/chronicle/docs/soar/investigate/working-with-cases/what-actions-can-you-take-on-a-case), timestamp, change environment, and [case tags](https://docs.cloud.google.com/chronicle/docs/soar/investigate/working-with-cases/manage-tags-from-the-cases-screen).
   * It also shows the assigned analyst (name or role), and includes controls for [Chat](https://docs.cloud.google.com/chronicle/docs/soar/investigate/working-with-cases/instant-messaging-on-a-case), [Close Case](https://docs.cloud.google.com/chronicle/docs/soar/investigate/working-with-cases/how-to-close-cases), **Refresh** , [Explore](https://docs.cloud.google.com/chronicle/docs/soar/investigate/working-with-cases/explore-entities-and-alerts-investigation), and the [Case Actions](https://docs.cloud.google.com/chronicle/docs/soar/investigate/working-with-cases/what-actions-can-you-take-on-a-case) menu.
 
 
@@ -77,13 +79,15 @@ The **Case Overview** tab displays case-specific widgets configured by the admin
 
 ### Case Wall tab
 
-The **Case Wall** tab displays a chronological log of all case-related events and actions, from creation to closure. When you open this tab, you can view case-related information such as tasks, user comments, pinned chat messages, manual and system actions, and file attachments (up to 50 MB per file). Each type of content is represented by an icon in the upper section of the Case Wall.
+The **Case Wall** tab displays a chronological log of all case-related events and actions, from creation to closure. When you open this tab, you can view case-related information such as tasks, user comments, pinned chat messages, manual and system actions, file attachments (up to 50 MB per file), and custom activity tags. Each type of content is represented by an icon in the upper section of the Case Wall.
 
 Actions you can do with this tab:
 
   * Click **View More** to display both the standard UI results and the corresponding JSON data.
   * To view event details, click one or more of the event icons.
-  * To view events for all alerts in the case, select **All Alerts**.
+  * To view events for all alerts in the case, select **All**.
+  * Filter activities on the Case Wall by custom activity tags.
+
 **Icon** | **Description**  
 ---|---  
 [ ![Action details icon](https://docs.cloud.google.com/static/chronicle/images/soar/casewalltab1.png)](https://docs.cloud.google.com/static/chronicle/images/soar/casewalltab1.png) |  Displays actions taken on alerts in a table, including the action name, timestamp, alert name, result, and status (**Completed** or **Faulted**).  
@@ -95,10 +99,20 @@ Click **Show More** to expand the results, parameters, and affected entities. Cl
 [ ![Favorite item icon](https://docs.cloud.google.com/static/chronicle/images/soar/casewalltab7.png)](https://docs.cloud.google.com/static/chronicle/images/soar/casewalltab7.png) |  Displays items marked as favorites in the Case Wall by clicking the yellow star icon.   
 [ ![Sort icon](https://docs.cloud.google.com/static/chronicle/images/soar/casewalltab8.png)](https://docs.cloud.google.com/static/chronicle/images/soar/casewalltab8.png) |  Sorts event logs by timestamp, either from newest to oldest or oldest to newest.   
 [ ![Insights icon](https://docs.cloud.google.com/static/chronicle/images/soar/casewalltab5.png)](https://docs.cloud.google.com/static/chronicle/images/soar/casewalltab5.png) |  Displays general insights and warnings about the case and associated entities.   
-  * **Alert Overview** tab: Lists all alerts linked to the case, including associated events and metadata. This tab displays crucial information and events associated with the case.
-  * The case queue—automatically refreshed every minute—lists all active cases and lets you manually refresh, sort, filter, add, or close cases as needed.
+  
+#### Enhanced collaboration with Case Wall activity tagging
 
+You can manually flag and categorize individual Case Wall activities with custom tags to improve collaboration, visibility, and discoverability across your team. Tagging at the activity level provides granular tracking distinct from broader alert or case tagging.
 
+You can filter the Case Wall by one or more applied activity tags to quickly isolate specific forensic observations, team handoffs, or remediation steps.
+
+**Use case:** If multiple teams in your SOC collaborate on an incident, you can apply team-specific tags to relevant activities. You can then filter the Case Wall to view only the actions, comments, or findings pertinent to your team.
+
+For more information, see [Add a tag to a Case Wall activity](https://docs.cloud.google.com/chronicle/docs/soar/investigate/working-with-cases/define-tags-in-cases-admin#add-activity-tag).
+
+### Alert Overview tab
+
+Lists all alerts linked to the case, including associated events and metadata. This tab displays crucial information and events associated with the case.
 
 ## Playbook automation
 
@@ -110,6 +124,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-28 UTC.
+Last updated 2026-11-05 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-05 UTC."],[],[]] 

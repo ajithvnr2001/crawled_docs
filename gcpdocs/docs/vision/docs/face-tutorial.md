@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/vision/docs/face-tutorial/
 title: Face detection tutorial \u00a0|\u00a0 Cloud Vision API \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T05:47:55.612602+00:00
+fetched_at: 2026-11-06T10:38:44.304281+00:00
 ---
 
 # Face detection tutorial  |  Cloud Vision API  |  Google Cloud Documentation
@@ -97,21 +97,12 @@ To enable APIs, you need the `serviceusage.services.enable` permission. If you c
      * [Download](https://maven.apache.org/download.cgi) and [install](https://maven.apache.org/install.html) the [Apache Maven](https://maven.apache.org) build system. Maven will ensure that the [Google API Client Library](https://developers.google.com/api-client-library/java/apis/vision/v1) and the Vision API client libraries are installed when the project is built, because we have included them in the `pom.xml`.
            
            <dependency>
-             <groupId>com.google.apis</groupId>
-             <artifactId>google-api-services-vision</artifactId>
-             <version>v1-rev20231219-2.0.0</version>
-           </dependency>
-           <dependency>
-             <groupId>com.google.auth</groupId>
-             <artifactId>google-auth-library-oauth2-http</artifactId>
+             <groupId>com.google.cloud</groupId>
+             <artifactId>google-cloud-vision</artifactId>
            </dependency>
            <dependency>
              <groupId>com.google.guava</groupId>
              <artifactId>guava</artifactId>
-           </dependency>
-           <dependency>
-             <groupId>com.google.http-client</groupId>
-             <artifactId>google-http-client-jackson2</artifactId>
            </dependency>
 
 `...`
@@ -187,49 +178,32 @@ To access Google APIs using the official client SDKs, you create a service objec
 ### Java
     
     
-    import com.google.api.client.googleapis.javanet.[GoogleNetHttpTransport](https://docs.cloud.google.com/java/docs/reference/google-api-client/latest/com.google.api.client.googleapis.javanet.GoogleNetHttpTransport.html);
-    import com.google.api.client.json.[JsonFactory](https://docs.cloud.google.com/java/docs/reference/google-http-client/latest/com.google.api.client.json.JsonFactory.html);
-    import com.google.api.client.json.gson.[GsonFactory](https://docs.cloud.google.com/java/docs/reference/google-http-client/latest/com.google.api.client.json.gson.GsonFactory.html);
-    import com.google.api.services.vision.v1.Vision;
-    import com.google.api.services.vision.v1.VisionScopes;
-    import com.google.api.services.vision.v1.model.AnnotateImageRequest;
-    import com.google.api.services.vision.v1.model.AnnotateImageResponse;
-    import com.google.api.services.vision.v1.model.BatchAnnotateImagesRequest;
-    import com.google.api.services.vision.v1.model.BatchAnnotateImagesResponse;
-    import com.google.api.services.vision.v1.model.FaceAnnotation;
-    import com.google.api.services.vision.v1.model.Feature;
-    import com.google.api.services.vision.v1.model.Image;
-    import com.google.api.services.vision.v1.model.Vertex;
-    import com.google.auth.http.[HttpCredentialsAdapter](https://docs.cloud.google.com/java/docs/reference/google-auth-library/latest/com.google.auth.http.HttpCredentialsAdapter.html);
-    import com.google.auth.oauth2.[GoogleCredentials](https://docs.cloud.google.com/java/docs/reference/google-auth-library/latest/com.google.auth.oauth2.GoogleCredentials.html);
+    import com.google.cloud.vision.v1.[AnnotateImageRequest](https://docs.cloud.google.com/java/docs/reference/google-cloud-vision/latest/com.google.cloud.vision.v1.AnnotateImageRequest.html);
+    import com.google.cloud.vision.v1.[AnnotateImageResponse](https://docs.cloud.google.com/java/docs/reference/google-cloud-vision/latest/com.google.cloud.vision.v1.AnnotateImageResponse.html);
+    import com.google.cloud.vision.v1.[BatchAnnotateImagesResponse](https://docs.cloud.google.com/java/docs/reference/google-cloud-vision/latest/com.google.cloud.vision.v1.BatchAnnotateImagesResponse.html);
+    import com.google.cloud.vision.v1.[FaceAnnotation](https://docs.cloud.google.com/java/docs/reference/google-cloud-vision/latest/com.google.cloud.vision.v1.FaceAnnotation.html);
+    import com.google.cloud.vision.v1.[Feature](https://docs.cloud.google.com/java/docs/reference/google-cloud-vision/latest/com.google.cloud.vision.v1.Feature.html);
+    import com.google.cloud.vision.v1.[Image](https://docs.cloud.google.com/java/docs/reference/google-cloud-vision/latest/com.google.cloud.vision.v1.Image.html);
+    import com.google.cloud.vision.v1.[ImageAnnotatorClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-vision/latest/com.google.cloud.vision.v1.ImageAnnotatorClient.html);
+    import com.google.cloud.vision.v1.[Vertex](https://docs.cloud.google.com/java/docs/reference/google-cloud-vision/latest/com.google.cloud.vision.v1.Vertex.html);
     import com.google.common.collect.ImmutableList;
+    import com.google.protobuf.[ByteString](https://docs.cloud.google.com/java/docs/reference/protobuf/latest/com.google.protobuf.ByteString.html);
     import java.awt.BasicStroke;
     import java.awt.Color;
     import java.awt.Graphics2D;
     import java.awt.Polygon;
     import java.awt.image.BufferedImage;
+    import java.io.FileInputStream;
     import java.io.IOException;
     import java.nio.file.Files;
     import java.nio.file.Path;
     import java.nio.file.Paths;
-    import java.security.GeneralSecurityException;
     import java.util.List;
     import javax.imageio.ImageIO;
     
     
     
-    /** Connects to the Vision API using Application Default Credentials. */
-    public static Vision getVisionService() throws IOException, GeneralSecurityException {
-      GoogleCredentials credential =
-          GoogleCredentials.getApplicationDefault().createScoped(VisionScopes.all());
-      JsonFactory jsonFactory = GsonFactory.getDefaultInstance();
-      return new Vision.Builder(
-              GoogleNetHttpTransport.newTrustedTransport(),
-              jsonFactory,
-              new HttpCredentialsAdapter(credential))
-          .setApplicationName(APPLICATION_NAME)
-          .build();
-    }
+    try (ImageAnnotatorClient client = ImageAnnotatorClient.create()) {
 
 ### Node.js
     
@@ -272,31 +246,34 @@ For this example, you'll simply request `FACE_DETECTION` annotation on one image
     
     /** Gets up to {@code maxResults} faces for an image stored at {@code path}. */
     public List<FaceAnnotation> detectFaces(Path path, int maxResults) throws IOException {
-      byte[] data = Files.readAllBytes(path);
-    
-      AnnotateImageRequest request =
-          new AnnotateImageRequest()
-              .setImage(new Image().encodeContent(data))
-              .setFeatures(
-                  ImmutableList.of(
-                      new Feature().setType("FACE_DETECTION").setMaxResults(maxResults)));
-      Vision.Images.Annotate annotate =
-          vision
-              .images()
-              .annotate(new BatchAnnotateImagesRequest().setRequests(ImmutableList.of(request)));
-      // Due to a bug: requests to Vision API containing large images fail when GZipped.
-      annotate.setDisableGZipContent(true);
-    
-      BatchAnnotateImagesResponse batchResponse = annotate.execute();
-      assert batchResponse.getResponses().size() == 1;
-      AnnotateImageResponse response = batchResponse.getResponses().get(0);
-      if (response.getFaceAnnotations() == null) {
-        throw new IOException(
-            response.getError() != null
-                ? response.getError().getMessage()
-                : "Unknown error getting image annotations");
+      ByteString imgBytes;
+      try (FileInputStream in = new FileInputStream(path.toFile())) {
+        imgBytes = ByteString.readFrom(in);
       }
-      return response.getFaceAnnotations();
+    
+      Image img = Image.newBuilder().setContent(imgBytes).build();
+      Feature feat = Feature.newBuilder()
+          .setType(Feature.Type.FACE_DETECTION)
+          .setMaxResults(maxResults)
+          .build();
+      AnnotateImageRequest request = AnnotateImageRequest.newBuilder()
+          .setImage(img)
+          .addFeatures(feat)
+          .build();
+    
+      BatchAnnotateImagesResponse response = vision.batchAnnotateImages(ImmutableList.of(request));
+      List<AnnotateImageResponse> responses = response.getResponsesList();
+    
+      if (responses.isEmpty()) {
+        throw new IOException("No response received from the Vision API.");
+      }
+    
+      AnnotateImageResponse imageResponse = responses.get(0);
+      if (imageResponse.hasError()) {
+        throw new IOException(
+            "Error getting image annotations: " + imageResponse.getError().getMessage());
+      }
+      return imageResponse.getFaceAnnotationsList();
     }
 
 ### Node.js
@@ -339,7 +316,10 @@ Congratulations - you've detected the faces in your image! The [response](https:
 ### Java
     
     
-    /** Reads image {@code inputPath} and writes {@code outputPath} with {@code faces} outlined. */
+    /**
+     * Reads image {@code inputPath} and writes {@code outputPath} with
+     * {@code faces} outlined.
+     */
     private static void writeWithFaces(Path inputPath, Path outputPath, List<FaceAnnotation> faces)
         throws IOException {
       BufferedImage img = ImageIO.read(inputPath.toFile());
@@ -347,7 +327,10 @@ Congratulations - you've detected the faces in your image! The [response](https:
       ImageIO.write(img, "jpg", outputPath.toFile());
     }
     
-    /** Annotates an image {@code img} with a polygon around each face in {@code faces}. */
+    /**
+     * Annotates an image {@code img} with a polygon around each face in
+     * {@code faces}.
+     */
     public static void annotateWithFaces(BufferedImage img, List<FaceAnnotation> faces) {
       for (FaceAnnotation face : faces) {
         annotateWithFace(img, face);
@@ -358,12 +341,13 @@ Congratulations - you've detected the faces in your image! The [response](https:
     private static void annotateWithFace(BufferedImage img, FaceAnnotation face) {
       Graphics2D gfx = img.createGraphics();
       Polygon poly = new Polygon();
-      for (Vertex vertex : face.getFdBoundingPoly().getVertices()) {
+      for (Vertex vertex : face.getFdBoundingPoly().getVerticesList()) {
         poly.addPoint(vertex.getX(), vertex.getY());
       }
       gfx.setStroke(new BasicStroke(5));
       gfx.setColor(new Color(0x00ff00));
       gfx.draw(poly);
+      gfx.dispose();
     }
 
 ### Node.js
@@ -452,7 +436,7 @@ We use the [node-canvas](https://github.com/Automattic/node-canvas#installation)
     
     
     /** Annotates an image using the Vision API. */
-    public static void main(String[] args) throws IOException, GeneralSecurityException {
+    public static void main(String[] args) throws IOException {
       if (args.length != 2) {
         System.err.println("Usage:");
         System.err.printf(
@@ -465,12 +449,14 @@ We use the [node-canvas](https://github.com/Automattic/node-canvas#installation)
         System.err.println("outputImagePath must have the file extension 'jpg'.");
         System.exit(1);
       }
+      try (ImageAnnotatorClient client = ImageAnnotatorClient.create()) {
     
-      FaceDetectApp app = new FaceDetectApp(getVisionService());
-      List<FaceAnnotation> faces = app.detectFaces(inputPath, MAX_RESULTS);
-      System.out.printf("Found %d face%s\n", faces.size(), faces.size() == 1 ? "" : "s");
-      System.out.printf("Writing to file %s\n", outputPath);
-      app.writeWithFaces(inputPath, outputPath, faces);
+        FaceDetectApp app = new FaceDetectApp(client);
+        List<FaceAnnotation> faces = app.detectFaces(inputPath, MAX_RESULTS);
+        System.out.printf("Found %d face%s\n", faces.size(), faces.size() == 1 ? "" : "s");
+        System.out.printf("Writing to file %s\n", outputPath);
+        app.writeWithFaces(inputPath, outputPath, faces);
+      }
     }
 
 `...`

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini/enterprise/docs/editions/
 title: Compare editions of Gemini Enterprise \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T05:40:27.621464+00:00
+fetched_at: 2026-11-06T10:06:02.169318+00:00
 ---
 
 # Compare editions of Gemini Enterprise  |  Google Cloud Documentation
@@ -28,9 +28,7 @@ Send feedback
 
 To compare features and capabilities of different Gemini Enterprise editions, see the following table.
 
-**Note:** If your project is linked to a self-serve (online) Cloud Billing account, you pay for Gemini Enterprise Pay-as-you-go usage with [prepaid credits](https://docs.cloud.google.com/gemini/enterprise/docs/manage-prepaid-credits), and you must buy credits to subscribe. If your project is linked to an [invoiced Cloud Billing account](https://docs.cloud.google.com/billing/docs/concepts#billing_account_types), usage is billed on your monthly invoice.
-
-Prepaid credits for self-serve (online) billing accounts are rolling out gradually. If you don't see the **Credit balance** tab on **Plans & billing** or the **AI developer tools** tab on **Settings** yet, your account hasn't been included.
+**Note** : If your project is linked to a self-serve (online) Cloud Billing account, you pay for Gemini Enterprise Pay-as-you-go usage with [prepaid credits](https://docs.cloud.google.com/gemini/enterprise/docs/manage-prepaid-credits), and if prepaid credits aren't set up on your billing account yet, you must buy credits to subscribe. If your project is linked to an [invoiced Cloud Billing account](https://docs.cloud.google.com/billing/docs/concepts#billing_account_types), usage is billed on your monthly invoice.
 
 Feature | Gemini Enterprise Business | Gemini Enterprise Standard | Gemini Enterprise Plus | Gemini Enterprise Pay-as-you-go | Gemini Enterprise Frontline  
 ---|---|---|---|---|---  
@@ -71,6 +69,19 @@ Google Cloud console access5 |  | check | check | check | check
 
 5 Gemini Enterprise Business edition is a software as a service (SaaS) application accessible through the web at business.gemini.google. As a result, administrators don't need access to the Google Cloud console, and there are no project numbers or project-level IAM roles to manage.
 
+## Gemini Enterprise compared to consumer Gemini
+
+The following table summarizes the key differences between Gemini Enterprise and the public consumer Gemini web application (`gemini.google.com`):
+
+Capability | Gemini Enterprise | Consumer Gemini (`gemini.google.com`)  
+---|---|---  
+**Data privacy and model training** | Customer prompts, responses, and enterprise data are **not** used to train foundation models. Governed by Google Cloud enterprise privacy terms. | Governed by consumer terms of service; interactions may be reviewed and used to improve Google products and models depending on consumer account settings.  
+**Identity and access management** | Managed by enterprise administrators using IAM, Workforce Identity Federation (SSO), and source-system access control lists (ACLs). | Individual consumer Google Accounts (`@gmail.com`).  
+**Security and compliance** | Supports [VPC Service Controls](https://docs.cloud.google.com/vpc-service-controls/docs/supported-products), [Customer-Managed Encryption Keys (CMEK)](https://docs.cloud.google.com/gemini/enterprise/docs/cmek), [Data residency](https://docs.cloud.google.com/gemini/enterprise/docs/locations) (`us`, `eu`, `global`), [Access Transparency](https://docs.cloud.google.com/gemini/enterprise/docs/access-transparency), and [Cloud Audit Logs](https://docs.cloud.google.com/gemini/enterprise/docs/audit-logging). | Consumer-grade security controls; no enterprise VPC perimeter, CMEK, or audit logging.  
+**Enterprise data grounding** | Built-in connectors (data ingestion, federated search, and actions) for enterprise systems such as Jira, Confluence, ServiceNow, SharePoint, and Google Cloud data stores. | Grounded primarily on Google Search and personal consumer extensions.  
+**Administration and customization** | Project-level administration in the Google Cloud console, [custom assistant instructions and grounding thresholds](https://docs.cloud.google.com/gemini/enterprise/docs/configure-assistant), [model availability controls](https://docs.cloud.google.com/gemini/enterprise/docs/ai-developer-tools-settings), and custom agent deployment. | End-user interface with no organizational policy or project-level administrative controls.  
+**Support and SLAs** | Backed by Google Cloud Service Level Agreements (SLAs) and [Cloud Customer Care](https://docs.cloud.google.com/support/docs). | Supported through the consumer [Gemini Apps Help Center](https://support.google.com/gemini#topic=15280100); not covered by Google Cloud Customer Care.  
+  
 ## Next steps
 
   * On the subscription details page, the **Subscription tier** field displays the edition of your current subscription. For more information, see [View subscription details](https://docs.cloud.google.com/gemini/enterprise/docs/licenses#subscription-detail).
@@ -83,6 +94,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-30 UTC.
+Last updated 2026-11-06 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-06 UTC."],[],[]] 

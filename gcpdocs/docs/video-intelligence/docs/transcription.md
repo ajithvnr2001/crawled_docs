@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/video-intelligence/docs/transcription/
 title: Get audio track transcription \u00a0|\u00a0 Video Intelligence API \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-03T09:42:57.551161+00:00
+fetched_at: 2026-11-06T10:31:46.096475+00:00
 ---
 
 # Get audio track transcription  |  Video Intelligence API  |  Google Cloud Documentation
@@ -298,7 +298,7 @@ To authenticate to Video Intelligence, set up Application Default Credentials. F
               .build();
     
       // asynchronously perform speech transcription on videos
-      Opera<tionFutureAnnotateVideoResponse, AnnotateVid>eoProgress response =
+      OperationFuture<AnnotateVideoResponse, AnnotateVideoProgress> response =
           client.annotateVideoAsync(request);
     
       System.out.println("Waiting for operation to complete...");
@@ -308,7 +308,7 @@ To authenticate to Video Intelligence, set up Application Default Credentials. F
         for (SpeechTranscription speechTranscription : results.getSpeechTranscriptionsList()) {
           try {
             // Print the transcription
-            if (speechTranscription.get>AlternativesCount()  0) {
+            if (speechTranscription.getAlternativesCount() > 0) {
               SpeechRecognitionAlternative alternative = speechTranscription.getAlternatives(0);
     
               System.out.printf("Transcript: %s\n", alternative.getTranscript());
@@ -339,10 +339,10 @@ To authenticate to Video Intelligence, set up Application Default Credentials. F
     
     
     // Imports the Google Cloud Video Intelligence library
-    const videoIntelligence = require(&[#39;@google-cloud/video-intellig](https://docs.cloud.google.com/nodejs/docs/reference/video-intelligence/latest/overview.html)ence');
+    const videoIntelligence = require('[@google-cloud/video-intelligence](https://docs.cloud.google.com/nodejs/docs/reference/video-intelligence/latest/overview.html)');
     
     // Creates a client
-    const client = new videoIntel[ligence](https://docs.cloud.google.com/nodejs/docs/reference/video-intelligence/latest/overview.html).VideoIntelligenceServiceClient();
+    const client = new videoIntelligence.[VideoIntelligenceServiceClient](https://docs.cloud.google.com/nodejs/docs/reference/video-intelligence/latest/overview.html)();
     
     /**
      * TODO(developer): Uncomment the following line before running the sample.
@@ -403,15 +403,15 @@ To authenticate to Video Intelligence, set up Application Default Credentials. F
     """Transcribe speech from a video stored on GCS."""
     from google.cloud import videointelligence
     
-    vid[eo_client](https://docs.cloud.google.com/python/docs/reference/videointelligence/latest/google.cloud.videointelligence_v1.services.video_intelligence_service.VideoIntelligenceServiceClient.html) = videointelligence.VideoIntelligenceServiceClient()
-    [feature](https://docs.cloud.google.com/python/docs/reference/videointelligence/latest/google.cloud.videointelligence_v1.types.Feature.html)s = [videointelligence.Feature.SPEECH_TRANSCRIPTION[]
+    video_client = videointelligence.[VideoIntelligenceServiceClient](https://docs.cloud.google.com/python/docs/reference/videointelligence/latest/google.cloud.videointelligence_v1.services.video_intelligence_service.VideoIntelligenceServiceClient.html)()
+    features = [videointelligence.[Feature](https://docs.cloud.google.com/python/docs/reference/videointelligence/latest/google.cloud.videointelligence_v1.types.Feature.html).SPEECH_TRANSCRIPTION]
     
-    config = videointellig](https://docs.cloud.google.com/python/docs/reference/videointelligence/latest/google.cloud.videointelligence_v1.types.SpeechTranscriptionConfig.html)ence.SpeechTranscriptionConfig(
-        language_code="en-US", enable_automatic_punctuation=T[rue](https://docs.cloud.google.com/python/docs/reference/videointelligence/latest/google.cloud.videointelligence_v1.types.VideoContext.html)
+    config = videointelligence.[SpeechTranscriptionConfig](https://docs.cloud.google.com/python/docs/reference/videointelligence/latest/google.cloud.videointelligence_v1.types.SpeechTranscriptionConfig.html)(
+        language_code="en-US", enable_automatic_punctuation=True
     )
-    video_context = videointelligence.VideoContext(speech_transcription_c[onfig](https://docs.cloud.google.com/python/docs/reference/videointelligence/latest/google.cloud.videointelligence_v1.services.video_intelligence_service.VideoIntelligenceServiceClient.html#google_cloud_videointelligence_v1_services_video_intelligence_service_VideoIntelligenceServiceClient_annotate_video)=config)
+    video_context = videointelligence.[VideoContext](https://docs.cloud.google.com/python/docs/reference/videointelligence/latest/google.cloud.videointelligence_v1.types.VideoContext.html)(speech_transcription_config=config)
     
-    operation = video_client.annotate_video(
+    operation = video_client.[annotate_video](https://docs.cloud.google.com/python/docs/reference/videointelligence/latest/google.cloud.videointelligence_v1.services.video_intelligence_service.VideoIntelligenceServiceClient.html#google_cloud_videointelligence_v1_services_video_intelligence_service_VideoIntelligenceServiceClient_annotate_video)(
         request={
             "features": features,
             "input_uri": path,

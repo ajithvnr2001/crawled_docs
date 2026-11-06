@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/network-intelligence-center/docs/connectivity-tests/states/reasons-dropped-packets/
 title: Reasons for dropped test packets \u00a0|\u00a0 Network Intelligence Center - Connectivity Tests \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T20:45:44.574012+00:00
+fetched_at: 2026-11-06T13:54:21.941906+00:00
 ---
 
 # Reasons for dropped test packets  |  Network Intelligence Center - Connectivity Tests  |  Google Cloud Documentation
@@ -251,6 +251,22 @@ For health checks to work, you must create ingress allow firewall rules that all
 
 Create ingress allow firewall rules according to the [probe IP ranges and firewall rules](https://docs.cloud.google.com/load-balancing/docs/health-check-concepts#ip-ranges) table. For more information, see [Required firewall rules](https://docs.cloud.google.com/load-balancing/docs/health-checks#firewall_rules).
 
+## Firewall blocking load balancer Envoy proxy health check
+
+Firewall rules block health check probes to the Envoy proxies that are used by the load balancer.
+
+### Probable cause
+
+For internal Application Load Balancers and internal proxy Network Load Balancers, Google uses health check probes to monitor managed Envoy proxies. If a regional network firewall policy has rules that target the forwarding rule of the load balancer (`--target-type=INTERNAL_MANAGED_LB`), an ingress deny rule can block these probes.
+
+This drop occurs when the policy doesn't have a higher-priority ingress allow rule for the IP address ranges of the health check probes. As a result, the health check probes are blocked, and the Envoy proxies are considered unavailable.
+
+### Recommendations
+
+Configure a higher-priority ingress allow firewall rule with the `--target-type=INTERNAL_MANAGED_LB` flag to allow incoming traffic from the Google health check probe IP address ranges to the forwarding rule.
+
+For more information, see [Create Cloud NGFW resources](https://docs.cloud.google.com/firewall/docs/regional-network-app-lb#create-ngfw-resources) and [Probe IP ranges for select managed Envoy-based load balancer frontends](https://docs.cloud.google.com/load-balancing/docs/health-check-concepts#ip-ranges-mes-frontends).
+
 ## No external address available
 
 A VM instance with only an internal IP address tried to access external hosts through a route whose next hop is the default internet gateway. Expected when Cloud NAT is not enabled in the subnet or when there's no other default route that uses a different type of next hop (such as a proxy VM).
@@ -434,6 +450,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-05 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-05 UTC."],[],[]] 

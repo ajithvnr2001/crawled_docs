@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/iap/docs/saml-attribute-propagation/
 title: Configure SAML attribute propagation \u00a0|\u00a0 Identity-Aware Proxy \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T16:29:35.052355+00:00
+fetched_at: 2026-11-06T10:21:55.847522+00:00
 ---
 
 # Configure SAML attribute propagation  |  Identity-Aware Proxy  |  Google Cloud Documentation
@@ -22,6 +22,8 @@ Send feedback
 #  Configure SAML attribute propagation Stay organized with collections  Save and categorize content based on your preferences. 
 
 This page describes how to enable and use Security Assertion Markup Language (SAML) attribute propagation. You can use this feature to propagate SAML attributes from an identity provider to applications protected by Identity-Aware Proxy (IAP). When you propagate SAML attributes, you can specify which attributes to propagate, and how to deliver the attributes.
+
+**Note:** SAML attribute propagation is supported for Google identities that use single sign-on (SSO) with a third-party SAML identity provider in Google Workspace or Cloud Identity. SAML attribute propagation isn't supported for applications configured to use IAP with [Workforce Identity Federation](https://docs.cloud.google.com/iap/docs/use-workforce-identity-federation#limitations-when-working-with-workforce-pools).
 
 ## Before you begin
 
@@ -49,7 +51,7 @@ Enable SAML attribute propagation by [creating an SSO profile](https://support.g
   3. Select **Enable attribute propagation** , and then click **Save**.
   4. In the **SAML Attributes** tab, enter the attributes that you want to propagate using the following format: `attribute1, attribute2, attribute3`
 
-You can also enter the attributes by using a custom expression.The attributes for your custom expression are displayed in the **SAML Attributes** tab. You must use the following expression format for your attributes to be displayed in the **SAML Attributes** tab:  
+You can also enter the attributes by using a custom expression. The attributes for your custom expression are displayed in the **SAML Attributes** tab. You must use the following expression format for your attributes to be displayed in the **SAML Attributes** tab:  
 `attributes.saml_attributes.filter(attribute, attribute.name in ['attribute', 'attribute2', 'attribute1'])`
 
   5. For **Credential types to pass** , select at least one attribute format coming from the IdP to pass to applications.
@@ -261,7 +263,7 @@ Escaped header name:
 
 You can use the `selectByName`, `append`, `strict`, and `emitas` functions to modify the propagated attributes names, specify whether or not to use the header prefix for some attributes, and select new IAP-provided attributes.
 
-If you don't require SAML attribute propagation, but need the email address, device ID, or timestamp in an SM_USER field, you can select those attributes from the `iap_attributes list`: `attributes.iap_attributes`…
+If you don't require SAML attribute propagation, but need the email address, device ID, or timestamp in an SM_USER field, you can select those attributes from the `iap_attributes` list: `attributes.iap_attributes`…
 
 IAP provides the following attributes: `user_email`, `device_id`, and `timestamp`.
 
@@ -341,6 +343,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-05 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-05 UTC."],[],[]] 

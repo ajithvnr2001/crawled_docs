@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/kubernetes-engine/docs/troubleshooting/known-issues/
 title: GKE known issues \u00a0|\u00a0 Google Kubernetes Engine (GKE) \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-03T09:54:14.742683+00:00
+fetched_at: 2026-11-06T10:21:44.484354+00:00
 ---
 
 # GKE known issues  |  Google Kubernetes Engine (GKE)  |  Google Cloud Documentation
@@ -43,6 +43,24 @@ Or, search for your issue:
 
 Category | Identified version(s) | Fixed version(s) | Issue and workaround  
 ---|---|---|---  
+Operation | 
+
+  * 1.37.1-gke.1380000 and later versions earlier than 1.37.1-gke.2432000
+
+| 
+
+  * 1.37.1-gke.2432000 and later
+
+| 
+
+###  Pods remain in the Pending state when a built-in Autopilot ComputeClass is the cluster-level default 
+
+If you set a built-in Autopilot ComputeClass (such as `autopilot` or `autopilot-spot`) as the cluster-level default by using the `--default-compute-class` flag, GKE creates a `default` ComputeClass with the `whenUnsatisfiable:` field set to `DoNotScaleUp`. Pods that don't select a ComputeClass and that need nodes that the general-purpose Autopilot platform can't create might remain in the `Pending` state when a new node is needed. For example, this issue affects Pods that request GPUs or TPUs, that select a specific machine family with the `cloud.google.com/machine-family` node selector, or that require Spot VMs when the default class uses on-demand VMs. Pods that fit on existing nodes aren't affected.  When the control plane upgrades to 1.37.1-gke.2432000 or later, GKE updates the `default` ComputeClass by setting the `whenUnsatisfiable` field to `ScaleUpAnyway`, and the issue resolves without further action.  **Workaround:** Use one of the following options:
+
+  * Select a ComputeClass explicitly in the affected workloads, or set a [namespace-level default ComputeClass](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/run-pods-default-compute-classes#namespace-default-computeclass) for their namespaces.
+  * Upgrade the cluster control plane to 1.37.1-gke.2432000 or later.
+
+  
 Upgrades and updates | 
 
   * 1.36.3-gke.1767000 and later
@@ -792,6 +810,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-02 UTC.
+Last updated 2026-11-05 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-02 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-05 UTC."],[],[]] 

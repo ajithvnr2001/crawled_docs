@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini/data-agents/conversational-analytics-api/data-residency/
 title: Data residency \u00a0|\u00a0 Conversational Analytics API \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T18:13:15.750059+00:00
+fetched_at: 2026-11-06T08:23:44.109809+00:00
 ---
 
 # Data residency  |  Conversational Analytics API  |  Google Cloud Documentation
@@ -57,6 +57,7 @@ Location | Location description | Endpoint type | Endpoint URL | Dataset locatio
 `global` | Global | Global | `geminidataanalytics.googleapis.com` | Any region or multi-region | Not supported  
 `eu` | European Union | Multi-regional | `geminidataanalytics.eu.rep.googleapis.com` | Any region or multi-region | **At rest** , **In use (jurisdictional)**  
 `us` | United States | Multi-regional | `geminidataanalytics.us.rep.googleapis.com` | Any region or multi-region | **At rest** , **In use (jurisdictional)**  
+`asia-northeast1` | Tokyo | Regional | `geminidataanalytics-asia-northeast1.googleapis.com` | Any region or multi-region | **At rest** , **In use (jurisdictional)**  
 `northamerica-northeast1` | Montréal | Regional | `geminidataanalytics-northamerica-northeast1.googleapis.com` | Any region or multi-region | **At rest** , **In use (jurisdictional)**  
 `northamerica-northeast2` | Toronto | Regional | `geminidataanalytics-northamerica-northeast2.googleapis.com` | Any region or multi-region | **At rest** , **In use (jurisdictional)**  
 `us-east4` | Northern Virginia | Regional | `geminidataanalytics-us-east4.googleapis.com` | Any region or multi-region | **At rest** , **In use (jurisdictional)**  
@@ -158,7 +159,7 @@ Replace the sample values as follows:
 
 When you use regional endpoints, consider the following points:
 
-  * If you use [customer-managed encryption keys (CMEK)](https://docs.cloud.google.com/gemini/data-agents/conversational-analytics-api/cmek) with the Conversational Analytics API, your Cloud KMS key must be in the same location as your regional endpoint.
+  * If you use [customer-managed encryption keys (CMEK)](https://docs.cloud.google.com/gemini/data-agents/conversational-analytics-api/cmek) with the Conversational Analytics API, your Cloud KMS key must be in a location that's compatible with your regional endpoint. For a single region, the key must be in the same region. For the `us` and `eu` multi-regions, the required key location depends on the resource type. For more information, see [Key location requirements](https://docs.cloud.google.com/gemini/data-agents/conversational-analytics-api/cmek#key-locations).
 
 
 
@@ -175,6 +176,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-06 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-06 UTC."],[],[]] 

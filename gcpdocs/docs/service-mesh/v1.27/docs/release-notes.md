@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/service-mesh/v1.27/docs/release-notes/
 title: Cloud Service Mesh version 1.27 release notes \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-03T09:44:02.521998+00:00
+fetched_at: 2026-11-06T10:41:22.271449+00:00
 ---
 
 # Cloud Service Mesh version 1.27 release notes  |  Google Cloud Documentation
@@ -45,6 +45,102 @@ To get the latest product updates delivered to you, add the URL of this page to 
 
 ## November 02, 2026
 
+1.31.x
+
+Announcement
+
+**1.31.3-asm.3 is now available for in-cluster Cloud Service Mesh.**
+
+For details on upgrading Cloud Service Mesh, see [Upgrade Cloud Service Mesh](https://docs.cloud.google.com/service-mesh/docs/upgrade/upgrade). Cloud Service Mesh 1.31.3-asm.3 uses Envoy v1.39.5-dev.
+
+This release resolves the security vulnerability listed in Security Bulletin [GCP-2026-076](https://cloud.google.com/service-mesh/docs/security-bulletins#gcp-2026-076) ([ISTIO-SECURITY-2026-008](https://istio.io/latest/news/security/istio-security-2026-008/)).
+
+1.31.x
+
+Fixed
+
+Patch 1.31.3-asm.3 contains the fix for the following platform CVEs:
+
+CVE | Proxy | Control Plane | Distroless | CNI | Severity  
+---|---|---|---|---|---  
+[CVE-2026-111497](https://nvd.nist.gov/vuln/detail/CVE-2026-111497) | Yes | Yes | No | Yes | High (9.8)  
+[CVE-2026-85091](https://nvd.nist.gov/vuln/detail/CVE-2026-85091) | Yes | Yes | No | Yes | Medium (8.3)  
+[CVE-2026-86409](https://nvd.nist.gov/vuln/detail/CVE-2026-86409) | Yes | Yes | No | Yes | Low (8.1)  
+[CVE-2026-86414](https://nvd.nist.gov/vuln/detail/CVE-2026-86414) | Yes | Yes | No | Yes | Low (0.0)  
+[CVE-2026-87862](https://nvd.nist.gov/vuln/detail/CVE-2026-87862) | Yes | Yes | No | Yes | Low (0.0)  
+[CVE-2026-87863](https://nvd.nist.gov/vuln/detail/CVE-2026-87863) | Yes | Yes | No | Yes | Low (0.0)  
+[CVE-2026-87864](https://nvd.nist.gov/vuln/detail/CVE-2026-87864) | Yes | Yes | No | Yes | Low (0.0)  
+[CVE-2026-92388](https://nvd.nist.gov/vuln/detail/CVE-2026-92388) | Yes | Yes | No | Yes | Low (0.0)  
+[CVE-2026-92389](https://nvd.nist.gov/vuln/detail/CVE-2026-92389) | Yes | Yes | No | Yes | Low (0.0)  
+[CVE-2026-92391](https://nvd.nist.gov/vuln/detail/CVE-2026-92391) | Yes | Yes | No | Yes | Low (0.0)  
+[CVE-2026-94266](https://nvd.nist.gov/vuln/detail/CVE-2026-94266) | Yes | Yes | No | Yes | Low (0.0)  
+  
+1.30.x
+
+Announcement
+
+**1.30.7-asm.3 is now available for in-cluster Cloud Service Mesh.**
+
+For details on upgrading Cloud Service Mesh, see [Upgrade Cloud Service Mesh](https://docs.cloud.google.com/service-mesh/v1.30/docs/upgrade/upgrade). Cloud Service Mesh 1.30.7-asm.3 uses Envoy v1.38.8-dev.
+
+This release resolves the security vulnerability listed in Security Bulletin [GCP-2026-076](https://cloud.google.com/service-mesh/docs/security-bulletins#gcp-2026-076) ([ISTIO-SECURITY-2026-008](https://istio.io/latest/news/security/istio-security-2026-008/)).
+
+1.30.x
+
+Fixed
+
+Patch 1.30.7-asm.3 contains the fix for the following platform CVEs:
+
+CVE | Proxy | Control Plane | Distroless | CNI | Severity  
+---|---|---|---|---|---  
+[CVE-2026-111497](https://nvd.nist.gov/vuln/detail/CVE-2026-111497) | Yes | Yes | No | Yes | High (9.8)  
+[CVE-2026-5450](https://nvd.nist.gov/vuln/detail/CVE-2026-5450) | No | No | Yes | No | Low (9.8)  
+[CVE-2026-85091](https://nvd.nist.gov/vuln/detail/CVE-2026-85091) | Yes | Yes | No | Yes | Medium (8.3)  
+[CVE-2026-86409](https://nvd.nist.gov/vuln/detail/CVE-2026-86409) | Yes | Yes | No | Yes | Low (8.1)  
+[CVE-2026-116587](https://nvd.nist.gov/vuln/detail/CVE-2026-116587) | Yes | Yes | Yes | Yes | High (7.5)  
+[CVE-2026-5928](https://nvd.nist.gov/vuln/detail/CVE-2026-5928) | No | No | Yes | No | Low (7.5)  
+[CVE-2026-86414](https://nvd.nist.gov/vuln/detail/CVE-2026-86414) | Yes | Yes | No | Yes | Low (0.0)  
+[CVE-2026-87862](https://nvd.nist.gov/vuln/detail/CVE-2026-87862) | Yes | Yes | No | Yes | Low (0.0)  
+[CVE-2026-87863](https://nvd.nist.gov/vuln/detail/CVE-2026-87863) | Yes | Yes | No | Yes | Low (0.0)  
+[CVE-2026-87864](https://nvd.nist.gov/vuln/detail/CVE-2026-87864) | Yes | Yes | No | Yes | Low (0.0)  
+[CVE-2026-92388](https://nvd.nist.gov/vuln/detail/CVE-2026-92388) | Yes | Yes | No | Yes | Low (0.0)  
+[CVE-2026-92389](https://nvd.nist.gov/vuln/detail/CVE-2026-92389) | Yes | Yes | No | Yes | Low (0.0)  
+[CVE-2026-92391](https://nvd.nist.gov/vuln/detail/CVE-2026-92391) | Yes | Yes | No | Yes | Low (0.0)  
+[CVE-2026-94266](https://nvd.nist.gov/vuln/detail/CVE-2026-94266) | Yes | Yes | No | Yes | Low (0.0)  
+  
+1.29.x
+
+Announcement
+
+**1.29.10-asm.0 is now available for in-cluster Cloud Service Mesh.**
+
+For details on upgrading Cloud Service Mesh, see [Upgrade Cloud Service Mesh](https://docs.cloud.google.com/service-mesh/v1.29/docs/upgrade/upgrade). Cloud Service Mesh 1.29.10-asm.0 uses Envoy v1.37.10-dev.
+
+This release resolves the security vulnerability listed in Security Bulletin [GCP-2026-076](https://cloud.google.com/service-mesh/docs/security-bulletins#gcp-2026-076) ([ISTIO-SECURITY-2026-008](https://istio.io/latest/news/security/istio-security-2026-008/)).
+
+1.29.x
+
+Fixed
+
+Patch 1.29.10-asm.0 contains the fix for the following platform CVEs:
+
+CVE | Proxy | Control Plane | Distroless | CNI | Severity  
+---|---|---|---|---|---  
+[CVE-2026-111497](https://nvd.nist.gov/vuln/detail/CVE-2026-111497) | Yes | Yes | No | Yes | High (9.8)  
+[CVE-2026-5450](https://nvd.nist.gov/vuln/detail/CVE-2026-5450) | No | No | Yes | No | Low (9.8)  
+[CVE-2026-85091](https://nvd.nist.gov/vuln/detail/CVE-2026-85091) | Yes | Yes | No | Yes | Medium (8.3)  
+[CVE-2026-86409](https://nvd.nist.gov/vuln/detail/CVE-2026-86409) | Yes | Yes | No | Yes | Low (8.1)  
+[CVE-2026-116587](https://nvd.nist.gov/vuln/detail/CVE-2026-116587) | Yes | Yes | Yes | Yes | High (7.5)  
+[CVE-2026-5928](https://nvd.nist.gov/vuln/detail/CVE-2026-5928) | No | No | Yes | No | Low (7.5)  
+[CVE-2026-86414](https://nvd.nist.gov/vuln/detail/CVE-2026-86414) | Yes | Yes | No | Yes | Low (0.0)  
+[CVE-2026-87862](https://nvd.nist.gov/vuln/detail/CVE-2026-87862) | Yes | Yes | No | Yes | Low (0.0)  
+[CVE-2026-87863](https://nvd.nist.gov/vuln/detail/CVE-2026-87863) | Yes | Yes | No | Yes | Low (0.0)  
+[CVE-2026-87864](https://nvd.nist.gov/vuln/detail/CVE-2026-87864) | Yes | Yes | No | Yes | Low (0.0)  
+[CVE-2026-92388](https://nvd.nist.gov/vuln/detail/CVE-2026-92388) | Yes | Yes | No | Yes | Low (0.0)  
+[CVE-2026-92389](https://nvd.nist.gov/vuln/detail/CVE-2026-92389) | Yes | Yes | No | Yes | Low (0.0)  
+[CVE-2026-92391](https://nvd.nist.gov/vuln/detail/CVE-2026-92391) | Yes | Yes | No | Yes | Low (0.0)  
+[CVE-2026-94266](https://nvd.nist.gov/vuln/detail/CVE-2026-94266) | Yes | Yes | No | Yes | Low (0.0)  
+  
 Managed Cloud Service Mesh
 
 Feature

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/identity-platform/docs/migrating-users/
 title: Migrating users from an existing app \u00a0|\u00a0 Identity Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-05T11:08:36.599375+00:00
+fetched_at: 2026-11-06T08:21:13.366662+00:00
 ---
 
 # Migrating users from an existing app  |  Identity Platform  |  Google Cloud Documentation
@@ -124,7 +124,7 @@ HMAC hashing algorithms include `HMAC_MD5`, `HMAC_SHA1`, `HMAC_SHA256` and `HMAC
     except exceptions.FirebaseError as error:
         print('Error importing users:', error)
     
-    [index.py](https://github.com/firebase/firebase-admin-python/blob/ae0a284127609272957c594af7c8a6179d87d1d4/snippets/auth/index.py#L490-L505)
+    [index.py](https://github.com/firebase/firebase-admin-python/blob/00e0754146a2051d98952f5928c7e2f2c2ed695a/snippets/auth/index.py#L490-L505)
 
 ### Go
     
@@ -230,7 +230,7 @@ MD5, SHA and PBKDF hashing algorithms include `MD5`, `SHA1`, `SHA256`, `SHA512`,
     except exceptions.FirebaseError as error:
         print('Error importing users:', error)
     
-    [index.py](https://github.com/firebase/firebase-admin-python/blob/ae0a284127609272957c594af7c8a6179d87d1d4/snippets/auth/index.py#L510-L525)
+    [index.py](https://github.com/firebase/firebase-admin-python/blob/00e0754146a2051d98952f5928c7e2f2c2ed695a/snippets/auth/index.py#L510-L525)
 
 ### Go
     
@@ -351,7 +351,7 @@ The Admin SDK supports the standard `SCRYPT` algorithm as well as an [internal m
     except exceptions.FirebaseError as error:
         print('Error importing users:', error)
     
-    [index.py](https://github.com/firebase/firebase-admin-python/blob/ae0a284127609272957c594af7c8a6179d87d1d4/snippets/auth/index.py#L530-L546)
+    [index.py](https://github.com/firebase/firebase-admin-python/blob/00e0754146a2051d98952f5928c7e2f2c2ed695a/snippets/auth/index.py#L530-L546)
 
 ### Go
     
@@ -503,7 +503,7 @@ In your code, you'll need to supply the following:
     except exceptions.FirebaseError as error:
         print('Error importing users:', error)
     
-    [index.py](https://github.com/firebase/firebase-admin-python/blob/ae0a284127609272957c594af7c8a6179d87d1d4/snippets/auth/index.py#L571-L593)
+    [index.py](https://github.com/firebase/firebase-admin-python/blob/00e0754146a2051d98952f5928c7e2f2c2ed695a/snippets/auth/index.py#L571-L593)
 
 ### Go
     
@@ -625,7 +625,7 @@ No additional parameters or password salts are required for `BCRYPT` hashed pass
     except exceptions.FirebaseError as error:
         print('Error importing users:', error)
     
-    [index.py](https://github.com/firebase/firebase-admin-python/blob/ae0a284127609272957c594af7c8a6179d87d1d4/snippets/auth/index.py#L551-L566)
+    [index.py](https://github.com/firebase/firebase-admin-python/blob/00e0754146a2051d98952f5928c7e2f2c2ed695a/snippets/auth/index.py#L551-L566)
 
 ### Go
     
@@ -749,7 +749,7 @@ If your users authenticate with an external identity provider using OAuth, SAML,
     except exceptions.FirebaseError as error:
         print('Error importing users:', error)
     
-    [index.py](https://github.com/firebase/firebase-admin-python/blob/ae0a284127609272957c594af7c8a6179d87d1d4/snippets/auth/index.py#L598-L623)
+    [index.py](https://github.com/firebase/firebase-admin-python/blob/00e0754146a2051d98952f5928c7e2f2c2ed695a/snippets/auth/index.py#L598-L623)
 
 ### Go
     

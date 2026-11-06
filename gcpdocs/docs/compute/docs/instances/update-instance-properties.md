@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/compute/docs/instances/update-instance-properties/
 title: Update instance properties \u00a0|\u00a0 Compute Engine \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T23:02:48.374934+00:00
+fetched_at: 2026-11-06T10:29:55.483001+00:00
 ---
 
 # Update instance properties  |  Compute Engine  |  Google Cloud Documentation
@@ -121,8 +121,10 @@ The following properties require a restart (`RESTART`) to update:
   * `reservationAffinity`: You can only update how the instance consumes reservations (`reservationAffinity.consumeReservationType`) as follows: 
     * From consuming any matching reservation (`ANY_RESERVATION`) to not consuming reservations (`NO_RESERVATION`)
     * From not consuming reservations (`NO_RESERVATION`) to consuming any matching reservations (`ANY_RESERVATION`)
-  * `resourcePolicies`
-  * `scheduling`
+  * `resourcePolicies`: if the policy specifies only one availability domain
+  * `scheduling`: all scheduling properties, except the following: 
+    * The `scheduling.nodeAffinities` field
+    * The `scheduling.availabilityDomain` field when you simultaneously attach or remove a spread placement policy in the same update request
   * `serviceAccounts`
   * `shieldedInstanceConfig`
   * `threadsPerCore`
@@ -139,6 +141,8 @@ The following properties only require a refresh (`REFRESH`) to update:
   * `labels`
   * `metadata`
   * `nodeAffinities`
+  * `resourcePolicies`: if the policy specifies two or more availability domains
+  * `scheduling.availabilityDomain`: updates to this field when you simultaneously attach a spread placement policy to an instance, or clear the field when you remove a spread placement policy from an instance, in the same update request
   * `tags`
 
 
@@ -311,6 +315,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-05 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-05 UTC."],[],[]] 

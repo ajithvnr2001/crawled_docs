@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/security-command-center/docs/migrate-standard-legacy/
 title: Standard tier enhanced and automatically activated for some customers \u00a0|\u00a0 Security Command Center \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T09:30:52.109332+00:00
+fetched_at: 2026-11-06T10:29:08.890949+00:00
 ---
 
 # Standard tier enhanced and automatically activated for some customers  |  Security Command Center  |  Google Cloud Documentation
@@ -39,7 +39,6 @@ The following features are now available in the Standard tier:
 
   * [AI Protection](https://docs.cloud.google.com/security-command-center/docs/ai-protection-overview)
   * [Compliance Manager](https://docs.cloud.google.com/security-command-center/docs/compliance-manager-overview)
-  * [Data Security Posture Management](https://docs.cloud.google.com/security-command-center/docs/dspm-data-security)
   * [Vulnerability Assessment for Google Cloud](https://docs.cloud.google.com/security-command-center/docs/vulnerability-assessment-google-cloud)
   * [Mandiant CVE assessments](https://docs.cloud.google.com/security-command-center/docs/concepts-security-sources#mandiant-cve-assessment)
 
@@ -117,7 +116,6 @@ The first time you access Security Command Center after the organization is migr
 You can view the following in the Google Cloud console:
 
   * [AI Security dashboard](https://docs.cloud.google.com/security-command-center/docs/assess-risk#ai-protection) on the **Risk Overview** page
-  * [Data dashboard](https://docs.cloud.google.com/security-command-center/docs/assess-risk#data) on the **Risk Overview** page
   * [Compliance](https://docs.cloud.google.com/security-command-center/docs/how-to-use-security-command-center#compliance-page) page
 
 
@@ -263,6 +261,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-05 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-05 UTC."],[],[]] 

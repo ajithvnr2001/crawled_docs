@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/data-governance/
 title: Introduction to data governance in BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T05:45:05.923155+00:00
+fetched_at: 2026-11-06T10:19:43.821177+00:00
 ---
 
 # Introduction to data governance in BigQuery  |  Google Cloud Documentation
@@ -34,7 +34,7 @@ You can also extract and catalog metadata from third-party data sources using cu
 BigQuery offers the following data discovery capabilities:
 
   * **Search.** Search for data and AI resources across projects and the organization. Within BigQuery in the Google Cloud console, use [semantic search](https://docs.cloud.google.com/bigquery/docs/search-resources) ([Preview](https://cloud.google.com/products#product-launch-stages)) to search for resources by using everyday language. Or, find resources by using [keyword search](https://docs.cloud.google.com/knowledge-catalog/docs/search-assets) in Knowledge Catalog.
-  * **[Automatic discovery of Cloud Storage data](https://docs.cloud.google.com/bigquery/docs/automatic-discovery).** Scan for data in Cloud Storage buckets to extract and then catalog metadata. Automatic discovery creates tables for both structured and unstructured data.
+  * **[Automatic discovery of Cloud Storage data](https://docs.cloud.google.com/knowledge-catalog/docs/cloud-storage-discovery).** Scan for data in Cloud Storage buckets to extract and then catalog metadata. Automatic discovery creates tables for both structured and unstructured data.
   * **[Metadata import](https://docs.cloud.google.com/knowledge-catalog/docs/managed-connectivity-overview).** Import metadata at scale from third-party systems into Knowledge Catalog. You can build custom connectors to extract data from your data sources, and then run managed connectivity pipelines that orchestrate the metadata import workflow.
   * **[Metadata export](https://docs.cloud.google.com/knowledge-catalog/docs/export-metadata).** Export metadata at scale out of Knowledge Catalog. You can analyze the exported metadata with BigQuery, or integrate the metadata into custom applications or programmatic processing workflows.
 
@@ -162,6 +162,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-27 UTC.
+Last updated 2026-11-05 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-05 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sdk/gcloud/reference/alpha/run/instances/dev/sync/
 title: gcloud alpha run instances dev sync \u00a0|\u00a0 Google Cloud SDK \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-05T11:10:37.588855+00:00
+fetched_at: 2026-11-06T10:41:38.012437+00:00
 ---
 
 # gcloud alpha run instances dev sync  |  Google Cloud SDK  |  Google Cloud Documentation
@@ -243,7 +243,7 @@ For example, to set a probe with 10s timeout and HTTP probe requests sent to 808
 To remove existing probe: 
     
     
-    --startup-probe=&quot;"
+    --startup-probe=""
 
 At most one of these can be specified: 
 

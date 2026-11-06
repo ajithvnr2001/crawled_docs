@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sql/docs/sqlserver/using-query-insights/
 title: Use query insights to improve query performance \u00a0|\u00a0 Cloud SQL for SQL Server \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-05T00:20:39.754822+00:00
+fetched_at: 2026-11-06T10:30:24.100316+00:00
 ---
 
 # Use query insights to improve query performance  |  Cloud SQL for SQL Server  |  Google Cloud Documentation

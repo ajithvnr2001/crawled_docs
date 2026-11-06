@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/firestore/mongodb-compatibility/docs/extend-with-cloud-run-functions/
 title: Extend Firestore with MongoDB compatibility with event triggers using Cloud Run functions \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-05T11:09:12.112018+00:00
+fetched_at: 2026-11-06T08:22:45.245508+00:00
 ---
 
 # Extend Firestore with MongoDB compatibility with event triggers using Cloud Run functions  |  Google Cloud Documentation
@@ -924,7 +924,7 @@ Use [protobufjs](https://www.npmjs.com/package/protobufjs) to decode the event d
     import com.google.cloud.firestore.[SetOptions](https://docs.cloud.google.com/java/docs/reference/google-cloud-firestore/latest/com.google.cloud.firestore.SetOptions.html);
     import com.google.cloud.functions.CloudEventsFunction;
     import com.google.events.cloud.firestore.v1.[DocumentEventData](https://docs.cloud.google.com/java/docs/reference/google-cloudevent-types/latest/com.google.events.cloud.firestore.v1.DocumentEventData.html);
-    import com.google.events.cloud.firestore.v1.[Value](https://docs.cloud.google.com/java/docs/reference/protobuf/latest/com.google.protobuf.Value.html);
+    import com.google.events.cloud.firestore.v1.[Value](https://docs.cloud.google.com/java/docs/reference/google-cloudevent-types/latest/com.google.events.cloud.firestore.v1.Value.html);
     import com.google.protobuf.[InvalidProtocolBufferException](https://docs.cloud.google.com/java/docs/reference/protobuf/latest/com.google.protobuf.InvalidProtocolBufferException.html);
     import io.cloudevents.CloudEvent;
     import java.util.Map;
@@ -1006,7 +1006,7 @@ Use [protobufjs](https://www.npmjs.com/package/protobufjs) to decode the event d
     using Google.Cloud.Functions.Hosting;
     using Google.Events.Protobuf.Cloud.Firestore.V1;
     using Microsoft.AspNetCore.Hosting;
-    using [Microsoft.Extensions.DependencyInjection](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.Dlp.V2/latest/Microsoft.Extensions.DependencyInjection.html);
+    using [Microsoft.Extensions.DependencyInjection](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.Security.PrivateCA.V1/latest/Microsoft.Extensions.DependencyInjection.html);
     using Microsoft.Extensions.Logging;
     using System.Collections.Generic;
     using System.Threading;

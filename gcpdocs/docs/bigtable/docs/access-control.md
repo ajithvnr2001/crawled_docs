@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigtable/docs/access-control/
 title: Bigtable access control with IAM \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-06T05:52:19.420449+00:00
+fetched_at: 2026-11-06T13:05:36.981451+00:00
 ---
 
 # Bigtable access control with IAM  |  Google Cloud Documentation
@@ -1197,7 +1197,7 @@ To grant a predefined or custom role to a user or service account at the instanc
 
 Provide the following: 
 
-     * INSTANCE_ID: The permanent identifier for the instance. 
+     * INSTANCE_ID: the permanent identifier for the instance 
      * POLICY_FILE: The path to a local JSON or YAML file that contains a [valid IAM policy](https://docs.cloud.google.com/iam/reference/rest/v1/Policy).
 
 
@@ -1249,7 +1249,7 @@ To grant a predefined or custom role to a user or service account at the table l
 
 Provide the following: 
 
-     * INSTANCE_ID: The permanent identifier for the instance. 
+     * INSTANCE_ID: the permanent identifier for the instance 
   3. Use the `bigtable instances tables set-iam-policy` command:
          
          gcloud bigtable instances tables set-iam-policy \
@@ -1261,7 +1261,7 @@ Provide the following:
 Provide the following: 
 
      * TABLE_ID: The permanent identifier for the table.
-     * INSTANCE_ID: The permanent identifier for the instance. 
+     * INSTANCE_ID: the permanent identifier for the instance 
      * POLICY_FILE: The path to a local JSON or YAML file that contains a [valid IAM policy](https://docs.cloud.google.com/iam/reference/rest/v1/Policy).
 
 
@@ -1288,7 +1288,7 @@ To grant a predefined or custom role to a user or service account at the backup 
 
 Provide the following: 
 
-     * INSTANCE_ID: The permanent identifier for the instance. 
+     * INSTANCE_ID: the permanent identifier for the instance 
   3. Use the `gcloud bigtable backups set-iam-policy` command:
          
          gcloud bigtable backups set-iam-policy BACKUP_ID \
@@ -1300,7 +1300,7 @@ Provide the following:
 Provide the following: 
 
      * BACKUP_ID: The permanent identifier for the backup.
-     * INSTANCE_ID: The permanent identifier for the instance. 
+     * INSTANCE_ID: the permanent identifier for the instance 
      * TABLE_ID: The permanent identifier for the table.
      * POLICY_FILE: Path to a local JSON or YAML file containing a [valid IAM policy](https://docs.cloud.google.com/iam/reference/rest/v1/Policy).
 
@@ -1364,7 +1364,7 @@ To grant a predefined or custom role to a user or service account at the authori
 
 Provide the following: 
 
-     * INSTANCE_ID: The permanent identifier for the instance. 
+     * INSTANCE_ID: the permanent identifier for the instance 
      * TABLE_ID: The permanent identifier for the table.
      * AUTHORIZED_VIEW_ID: The permanent identifier for the view.
      * POLICY_FILE: Path to a local JSON or YAML file containing a [valid IAM policy](https://docs.cloud.google.com/iam/reference/rest/v1/Policy).
@@ -1392,6 +1392,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-28 UTC.
+Last updated 2026-11-06 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-06 UTC."],[],[]] 

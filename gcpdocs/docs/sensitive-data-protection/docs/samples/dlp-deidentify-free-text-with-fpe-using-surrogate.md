@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sensitive-data-protection/docs/samples/dlp-deidentify-free-text-with-fpe-using-surrogate/
 title: De-identify free text with FPE by using a surrogate \u00a0|\u00a0 Sensitive Data Protection \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T09:38:16.400670+00:00
+fetched_at: 2026-11-06T10:25:45.839626+00:00
 ---
 
 # De-identify free text with FPE by using a surrogate  |  Sensitive Data Protection  |  Google Cloud Documentation

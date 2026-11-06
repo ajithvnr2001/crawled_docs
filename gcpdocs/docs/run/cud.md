@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/run/cud/
 title: Compute flexible committed use discounts \u00a0|\u00a0 Cloud Run \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-03T09:54:38.338570+00:00
+fetched_at: 2026-11-06T10:23:30.655540+00:00
 ---
 
 # Compute flexible committed use discounts  |  Cloud Run  |  Google Cloud Documentation
@@ -52,7 +52,7 @@ When you purchase a flexible commitment for your Cloud Billing account, you comm
 
 In return for committing to an hourly spend amount, you receive the following discounts for Cloud Run services with instance-based billing, Cloud Run jobs, and Cloud Run worker pools.
 
-For all of the flexible CUD discounts, the following [consumption models](https://docs.cloud.google.com/docs/cuds-multiprice#consumption-models-intro) apply: 
+For all of the flexible CUD discounts, the following [consumption models](https://docs.cloud.google.com/docs/cuds-multiprice#consumption-model-intro) apply: 
 
   * For a one-year commitment, the consumption model ID is `D97B-0795-975B`.
   * For a three-year commitment, the consumption model ID is `70D7-D1AB-12A4`. 
@@ -92,7 +92,7 @@ If you use any additional resources that take your hourly spend amount beyond yo
 
 Your commitment fee remains the same even if the on-demand prices for your resources change during your commitment term. You can purchase Cloud Run flexible commitments only at a Cloud Billing-account level.
 
-**Important:** A single compute flexible commitment can cover your eligible spend across Compute Engine, GKE, and Cloud Run. For any given Cloud Billing account, Google Cloud uses a set of criteria to determine how your compute flexible commitments cover your eligible hourly usage. If you have multiple commitments and multiple types of usage, then these rules determine which commitment Google Cloud utilizes first and which usage it covers first. To learn more about these criteria, see [Commitment utilization criteria](https://docs.cloud.google.com/compute/docs/instances/committed-use-discounts-overview#commitment-utilization-after-opting-in). Depending on whether your Google Cloud usage is limited to Cloud Run or also spans across these other services, you might see differences in the flexible CUDs that you receive for your commitment.
+**Important:** A single compute flexible commitment can cover your eligible spend across Compute Engine, GKE, and Cloud Run. For any given Cloud Billing account, Google Cloud uses a set of criteria to determine how your compute flexible commitments cover your eligible hourly usage. If you have multiple commitments and multiple types of usage, then these rules determine which commitment Google Cloud utilizes first and which usage it covers first. To learn more about these criteria, see [Commitment utilization criteria](https://docs.cloud.google.com/compute/docs/instances/committed-use-discounts-overview#commitment-utilization-criteria). Depending on whether your Google Cloud usage is limited to Cloud Run or also spans across these other services, you might see differences in the flexible CUDs that you receive for your commitment.
 
 ### Calculate hourly commitment
 
@@ -136,6 +136,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-02 UTC.
+Last updated 2026-11-05 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-02 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-05 UTC."],[],[]] 

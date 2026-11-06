@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/agents/codemender/fix-and-patch/
 title: Fix code vulnerabilities and manage diffs \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T23:16:48.941172+00:00
+fetched_at: 2026-11-06T10:06:07.380502+00:00
 ---
 
 # Fix code vulnerabilities and manage diffs  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation
@@ -25,7 +25,7 @@ Send feedback
 
 This product or feature is subject to the "Pre-GA Offerings Terms" in the General Service Terms section of the [Service Specific Terms](https://docs.cloud.google.com/terms/service-terms#1). Pre-GA products and features are available "as is" and might have limited support. For more information, see the [launch stage descriptions](https://cloud.google.com/products/#product-launch-stages). 
 
-CodeMender can automatically produce, validate, and apply source code patches for verified vulnerabilities, testing them in your local sandbox to prevent regressions.
+CodeMender can automatically produce, validate, and apply source code patches for verified vulnerabilities, testing them in your local sandbox to help reduce regressions.
 
 ## Generate vulnerability fixes
 
@@ -55,7 +55,7 @@ By default, CodeMender prompts you to confirm each file modification before writ
         
         cm fix FINDING_ID -y
 
-**Note:** You can also disable interactive confirmation prompts in your `config.yaml` by setting `tools.confirm_writes: false` and `tools.confirm_commands: false`.
+**Note:** You can also disable interactive confirmation prompts in your `config.yaml` by setting `tools.confirm_writes: false` and `tools.confirm_commands: false`. When confirmation prompts are disabled, review test results before staging or committing changes.
   * **Control sandboxing (`--sandbox`)**: Explicitly enable or disable the OS-level sandbox for this run (for example, `--sandbox=false` to disable): 
         
         cm fix FINDING_ID --sandbox=false
@@ -102,6 +102,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-04 UTC.
+Last updated 2026-11-06 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-06 UTC."],[],[]] 

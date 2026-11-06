@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigtable/docs/monitoring-instance/
 title: Monitoring \u00a0|\u00a0 Bigtable \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T10:18:44.656700+00:00
+fetched_at: 2026-11-06T13:06:13.609884+00:00
 ---
 
 # Monitoring  |  Bigtable  |  Google Cloud Documentation
@@ -93,7 +93,6 @@ Bigtable reports the following metrics for in-memory usage:
 
 Metric | Description  
 ---|---  
-**In-memory storage capacity** |  Memory layer storage capacity in bytes.  
 **In-memory max request units** |  Maximum number of reads per second used in a 5 minute window.  
 **In-memory request unit count** |  The reads per second usage for read requests that attempt to use the memory layer.  
 **In-memory read request count** |  Number of read requests for a table that went to the memory layer, broken down by whether the memory read was successful.  
@@ -311,8 +310,6 @@ App profiles  |  The number of SQL requests that were automatically rerouted fro
 Tables  |  The amount of data stored in the cluster. Change stream usage is not included for this metric.  This metric reflects the physical compressed size of your data on disk, rather than its uncompressed logical size.   
 **Storage utilization (% max)** | Instances |  The percentage of the cluster's storage capacity that is being used. The capacity is based on the number of nodes in your cluster. Change stream usage is not included for this metric.  For details about how this value is calculated, see [Storage utilization per node](https://docs.cloud.google.com/bigtable/quotas#storage-per-node).   
 **Disk load** | Instances |  For HDD clusters, the percentage your cluster is using of the maximum possible bandwidth for HDD reads. For SSD clusters with [tiered storage](https://docs.cloud.google.com/bigtable/docs/tiered-storage) enabled, the percentage your cluster is using of the maximum possible throughput for the [infrequent access tier](https://docs.cloud.google.com/bigtable/docs/tiered-storage#infrequent-access-storage).   
-**In-memory tier storage capacity** | Instances  
-Clusters | Enterprise Plus only. Memory layer storage capacity in bytes.  
 **In-memory tier max request units** | Instances  
 Clusters | Enterprise Plus only. Maximum number of Request-Units per second used in a 5 minute window.  
 **In-memory tier request unit count** | Instances  
@@ -556,6 +553,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-28 UTC.
+Last updated 2026-11-06 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-06 UTC."],[],[]] 

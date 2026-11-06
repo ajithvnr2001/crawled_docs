@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/application-integration/docs/integration-execution-logs/
 title: View execution logs \u00a0|\u00a0 Application Integration \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T18:41:19.997564+00:00
+fetched_at: 2026-11-06T13:12:14.284943+00:00
 ---
 
 # View execution logs  |  Application Integration  |  Google Cloud Documentation
@@ -98,7 +98,7 @@ Execution IDs are returned in the response. Copy the execution ID for which you 
              -H "Content-Type: application/json" \
              -H "Authorization: Bearer $(gcloud auth print-access-token)" \
              'https://integrations.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/integrations/-/executions' \
-             -d 'filter=executionId=EXECUTION_ID'
+             --data-urlencode 'filter=execution_id="EXECUTION_ID"'
          
 
 Replace the following:
@@ -113,14 +113,14 @@ Alternatively, in the Google Cloud console, you can filter execution logs by the
 
 #### Example: Filter logs
 
-If you want to filter the response to list logs for all integrations expect for one integration, use the following format:
+If you want to filter the response to list logs for all integrations except for one integration, use the following format:
     
     curl -X GET \
         -G \
         -H "Content-Type: application/json" \
         -H "Authorization: Bearer $(gcloud auth print-access-token)" \
         'https://integrations.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/integrations/-/executions' \
-        -d 'filter=workflowName!=INTEGRATION_NAME'
+        --data-urlencode 'filter=workflow_name!="INTEGRATION_NAME"'
     
 
 Replace the following:
@@ -128,6 +128,12 @@ Replace the following:
      * `PROJECT_ID`: the ID of your Google Cloud project.
      * `LOCATION`: the region of the integration.
      * `INTEGRATION_NAME`: the name of the integration.
+
+You can filter on the following fields:
+
+     * **`execution_id`, `workflow_name`, and `trigger_id`:** Enclose these string values in double quotes.
+     * **`state`:** Accepts an [ExecutionDetails](https://docs.cloud.google.com/application-integration/docs/reference/rest/v1/projects.locations.integrations.executions#Execution.ExecutionDetails) state value, such as `FAILED` or `SUCCEEDED`. Don't use quotes (for example, `state=FAILED`).
+     * **`create_timestamp` and `update_time`:** Require an RFC 3339 timestamp in UTC, ending in `Z`. Don't use quotes (for example, `create_timestamp>=2026-10-01T00:00:00Z`).
 
 
 
@@ -260,6 +266,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-05 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-05 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/lakehouse/docs/table-options/
 title: Configure table options \u00a0|\u00a0 Lakehouse \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T09:59:52.607135+00:00
+fetched_at: 2026-11-06T10:21:56.677443+00:00
 ---
 
 # Configure table options  |  Lakehouse  |  Google Cloud Documentation
@@ -126,11 +126,20 @@ Table management lets you perform the following operations:
 
     * Limitation: Orphan file removal isn't handled by table management. For more information, see Limitations.
 
-  * **Coalesce (compaction)** : Coalesce is responsible for maintaining the shape of the data, by merging small files into larger files. Coalesce runs automatically in the background after any data mutation. Files are selected for compaction if their average uncompressed size is less than 50% of the target file size of 256 MB. Each coalesce operation produces a new table snapshot. Coalesce jobs typically yield to and retry after any running DML operations. However, to prevent indefinite starvation of storage optimization, a coalesce job is forcibly triggered every 24 hours if data is eligible for coalesce.
+  * **Coalesce (compaction)** : Coalesce maintains the shape of the data and query performance by merging small, fragmented files into larger files. Coalesce is evaluated in the background after data mutations. Files are eligible for compaction if their average uncompressed size is less than 50% of the target file size of 256 MB. Each coalesce operation produces a new table snapshot. Coalesce jobs typically yield to and retry after any running DML operations. However, to prevent indefinite starvation of storage optimization, a coalesce job is forcibly triggered every 24 hours if data is eligible for compaction.
+
+Not every data mutation, insert, or DML statement triggers a storage optimization job. Storage optimization jobs run in your project and consume compute resources. To prevent unnecessary compute costs, BigQuery evaluates the table shape to determine whether optimization is needed, and skips optimization under the following conditions:
+
+    * **Data files are already in an optimal shape** : If files are already well-sized (average uncompressed size is at least 50% of the 256 MB target file size), no compaction is necessary.
+    * **Thresholds aren't met** : Optimization is skipped if the table hasn't accumulated enough small files or doesn't exceed minimum table size thresholds (for example, tables under 1 GB).
+
+When storage optimization is skipped because data is already in an optimal state, no background job is executed.
 
   * **Monitoring table management jobs** : All background table management jobs are logged in the `INFORMATION_SCHEMA.JOBS` view in BigQuery. You can query this view to track these operations, similar to how you monitor other BigQuery jobs. For more information about querying job information, see [Get Iceberg storage optimization jobs](https://docs.cloud.google.com/bigquery/docs/information-schema-jobs#get-iceberg-storage-optimization-jobs).
 
-The frequency of table management jobs directly correlates with data mutation activity. Frequent small inserts or updates trigger more frequent background tasks. You might observe periods with no background jobs if there are no writes to the table. Conversely, high write volumes might result in more visible job activity in `INFORMATION_SCHEMA`.
+The frequency of table management jobs correlates with data mutation activity and file fragmentation. Frequent small inserts or updates trigger more frequent background tasks. You might observe periods with no background jobs if there are no writes to the table. If storage optimization is skipped (for example, because data was loaded in large batches and files are already optimal), no jobs appear in `INFORMATION_SCHEMA.JOBS` for that operation, which is expected behavior.
+
+To observe table management jobs in a test or development environment, insert multiple small batches of data over time into a table with a total size greater than 1 GB. This creates small, fragmented files that fall below the 50% target size threshold and trigger compaction.
 
 
 
@@ -304,6 +313,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-28 UTC.
+Last updated 2026-11-05 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-05 UTC."],[],[]] 

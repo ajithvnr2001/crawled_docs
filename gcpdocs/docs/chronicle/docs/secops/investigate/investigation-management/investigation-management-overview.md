@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chronicle/docs/secops/investigate/investigation-management/investigation-management-overview/
 title: Investigation and case management overview \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-05T08:23:12.358449+00:00
+fetched_at: 2026-11-06T10:52:56.313941+00:00
 ---
 
 # Investigation and case management overview  |  Google Security Operations  |  Google Cloud Documentation
@@ -118,7 +118,7 @@ From this view, you can interact with the following tabs:
 **Note:** The updated experience includes two dedicated views: **New Default Alert View** and **New Default Case View** (located under **Settings > Investigation > Views**). These default views display standard preconfigured widgets and don't automatically include custom widgets from your legacy views. To keep your current setup, you must manually copy your custom widgets and advanced configurations (such as **Safe HTML Rendering** settings or custom conditions) from the **Default Alert View** and **Default Case View** to these new views before enabling the feature.
     * **Dynamic Menu Navigation:** The side navigation panel matches the order of your widgets. Click any section title to jump straight to that specific widget (such as **UDM Events**).
     * **Visual Graph Mapping:** From the side navigation panel, you can also access the **Entities Graph** to visually map out asset interactions or entity relationships. For more information, see [Explore the Case Overview tab](https://docs.cloud.google.com/chronicle/docs/soar/investigate/working-with-cases/whats-on-the-case-overview-tab).
-  * **Case Wall:** Review a central, chronological log documenting every investigation step, user comment, file attachment, and system action taken over the lifecycle of the investigation. For more information, see the [Cases overview](https://docs.cloud.google.com/chronicle/docs/soar/investigate/working-with-cases/cases-overview#case-wall-tab).
+  * **Case Wall:** View a chronological and centralized log of all case-related events and actions. This may include investigation steps, user comments, file attachments, custom activity tags, and system actions taken over the lifecycle of the investigation. For more information, see the [Cases overview](https://docs.cloud.google.com/chronicle/docs/soar/investigate/working-with-cases/cases-overview#case-wall-tab).
 
   * **Alerts & Detections:** Review the list of alerts and detections tied to the case, including their specific rule associations, metadata, and previews.
 

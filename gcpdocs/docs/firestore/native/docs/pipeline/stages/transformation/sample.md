@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/firestore/native/docs/pipeline/stages/transformation/sample/
 title: Sample (Transformation Stage) \u00a0|\u00a0 Firestore in Native mode \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T23:45:41.119335+00:00
+fetched_at: 2026-11-06T08:23:04.978108+00:00
 ---
 
 # Sample (Transformation Stage)  |  Firestore in Native mode  |  Google Cloud Documentation
@@ -192,7 +192,7 @@ Android
     	return err
     }
     
-    [pipeline_snippets_general.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/ed08282a171f47c035cf0984a5caa406b76f5bcd/firestore/pipeline_snippets_general.go#L1001-L1020)
+    [pipeline_snippets_general.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/db12cf239dd4dcddd2c15c703bb21991d4193a8a/firestore/pipeline_snippets_general.go#L1001-L1020)
 
 ## Modes
 
@@ -361,7 +361,7 @@ Android
     	Sample(firestore.WithPercentage(0.5)).
     	Execute(ctx)
     
-    [pipeline_snippets_general.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/ed08282a171f47c035cf0984a5caa406b76f5bcd/firestore/pipeline_snippets_general.go#L1030-L1034)
+    [pipeline_snippets_general.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/db12cf239dd4dcddd2c15c703bb21991d4193a8a/firestore/pipeline_snippets_general.go#L1030-L1034)
 
 Send feedback 
 

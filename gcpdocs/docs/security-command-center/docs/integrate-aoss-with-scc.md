@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/security-command-center/docs/integrate-aoss-with-scc/
 title: Integrate with Assured OSS for code security \u00a0|\u00a0 Security Command Center \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T09:31:41.820375+00:00
+fetched_at: 2026-11-06T13:26:26.531739+00:00
 ---
 
 # Integrate with Assured OSS for code security  |  Security Command Center  |  Google Cloud Documentation
@@ -34,6 +34,28 @@ When you integrate Assured OSS with Security Command Center, you can do the foll
   * Reduce security risk as Google is actively scanning, finding, and fixing new vulnerabilities in curated packages.
 
 
+
+## Supported regions
+
+The Assured OSS premium tier supports the following [Google Cloud regions and multi-regions](https://cloud.google.com/about/locations) for remote (or proxy) Artifact Registry repositories:
+
+  * `asia-southeast2`
+  * `australia-southeast1`
+  * `australia-southeast2`
+  * `europe-north1`
+  * `europe-north2`
+  * `europe-west1`
+  * `europe-west2`
+  * `europe-west3`
+  * `europe-west4`
+  * `northamerica-northeast1`
+  * `northamerica-northeast2`
+  * `europe`
+  * `us`
+
+
+
+Support for [security metadata](https://docs.cloud.google.com/security-command-center/docs/aoss-security-metadata-fields) is limited to the `us` multi-region.
 
 ## Before you begin
 
@@ -131,7 +153,7 @@ These steps apply to Security Command Center Enterprise tier only.
 
   6. Select a new service account or select the existing service accounts that you want to add the Assured Open Source Software permissions to.
 
-  7. Select the Google Cloud project where you want to locate the Assured OSS resources.
+  7. Select the Google Cloud project and region where you want to locate the Assured OSS resources.
 
   8. Click **Set up Assured OSS**.
 
@@ -141,7 +163,7 @@ The setup process automatically completes the following:
      * Assigns the Assured OSS User role to the designated service account to use with Assured OSS.
      * Assigns the Assured OSS Admin role to the logged in user account so that the account can configure the service.
      * Enables the Assured Open Source Software API and, if it isn't enabled already, the [Artifact Registry](https://docs.cloud.google.com/artifact-registry/docs) API.
-     * Sets up the Assured OSS proxy service in an Artifact Registry instance in the project that you selected. A repository is provisioned for each language (Java, Python, Go, and JavaScript (NPM)). These repositories can automatically pull packages from the curated portfolio. If a package isn't available as part of the curated portfolio, the repositories redirect the request to the canonical repositories. The proxy service supports the US region only. For more information, see [Assured OSS repository options](https://docs.cloud.google.com/assured-open-source-software/docs/overview#aoss-repository-options).
+     * Sets up the Assured OSS proxy service in an Artifact Registry instance in the project that you selected. A repository is provisioned for each language (Java, Python, Go, and JavaScript (NPM)). These repositories can automatically pull packages from the curated portfolio. If a package isn't available as part of the curated portfolio, the repositories redirect the request to the canonical repositories. For more information, see [Assured OSS repository options](https://docs.cloud.google.com/assured-open-source-software/docs/overview#aoss-repository-options).
      * Grants you and the service account permissions to access package metadata and notifications from Google owned projects.
   9. [Create a service account key](https://docs.cloud.google.com/iam/docs/keys-create-delete#iam-service-account-keys-create-console) for each designated Assured OSS service account and download the key in JSON format.
 
@@ -162,21 +184,25 @@ You need the base64-encoded string when you set up a remote repository for Assur
 
      * Java: 
            
-           https://us-maven.pkg.dev/PROJECT_ID/assuredoss-java
+           https://LOCATION-maven.pkg.dev/PROJECT_ID/assuredoss-java
 
      * Python: 
            
-           https://us-python.pkg.dev/PROJECT_ID/assuredoss-python
+           https://LOCATION-python.pkg.dev/PROJECT_ID/assuredoss-python
 
      * JavaScript (NPM): 
            
-           https://us-npm.pkg.dev/PROJECT_ID/assuredoss-javascript
+           https://LOCATION-npm.pkg.dev/PROJECT_ID/assuredoss-javascript
 
      * Go: 
            
-           https://us-go.pkg.dev/PROJECT_ID/assuredoss-go
+           https://LOCATION-go.pkg.dev/PROJECT_ID/assuredoss-go
 
-Replace `PROJECT_ID` with the ID of the project that you selected when you set up Assured OSS.
+Replace the following:
+
+     * `PROJECT_ID`: the ID of the project that you selected when you set up Assured OSS.
+
+     * `LOCATION`: a supported region.
 
   12. Click **Next**. [Configure Assured OSS](https://docs.cloud.google.com/security-command-center/docs/aoss-remote-repository-access) with your organization's artifact repository manager such as JFrog Artifactory or Sonatype Nexus.
 
@@ -251,20 +277,24 @@ Replace the following:
      * `SERVICE_ACCOUNT_NAME`: the name of the service account (for example, `assuredoss`).
      * `PROJECT_ID`: the project identifier.
   8. To access the security metadata repository after setting up Assured OSS premium using gcloud, send an email to [customer-support-aoss@google.com](mailto:customer-support-aoss@google.com) with the service accounts that you enabled for Assured OSS.
-  9. Set up the Assured OSS proxy service in an Artifact Registry instance by creating Assured OSS repositories. You must create repositories for all languages. The Assured OSS proxy service that provisions the repositories supports the US region only.
+  9. Set up the Assured OSS proxy service in an Artifact Registry instance by creating Assured OSS repositories. You must create repositories for all languages. Specify the region that the Assured OSS proxy service must provision the repositories in.
          
          alias gcurlj='curl -H "Authorization: Bearer $(gcloud auth print-access-token)" -H "Content-Type: application/json" -X'
          
-         gcurlj POST https://artifactregistry.googleapis.com/v1/projects/PROJECT_ID/locations/us/repositories\?repositoryId\=assuredoss-java   -d '{"format": "MAVEN", "mode": "AOSS_REPOSITORY"}'
+         gcurlj POST https://artifactregistry.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/repositories\?repositoryId\=assuredoss-java   -d '{"format": "MAVEN", "mode": "AOSS_REPOSITORY"}'
          
-         gcurlj POST https://artifactregistry.googleapis.com/v1/projects/PROJECT_ID/locations/us/repositories\?repositoryId\=assuredoss-javascript   -d '{"format": "NPM", "mode": "AOSS_REPOSITORY"}'
+         gcurlj POST https://artifactregistry.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/repositories\?repositoryId\=assuredoss-javascript   -d '{"format": "NPM", "mode": "AOSS_REPOSITORY"}'
          
-         gcurlj POST https://artifactregistry.googleapis.com/v1/projects/PROJECT_ID/locations/us/repositories\?repositoryId\=assuredoss-python   -d '{"format": "PYTHON", "mode": "AOSS_REPOSITORY"}'
+         gcurlj POST https://artifactregistry.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/repositories\?repositoryId\=assuredoss-python   -d '{"format": "PYTHON", "mode": "AOSS_REPOSITORY"}'
          
-         gcurlj POST https://artifactregistry.googleapis.com/v1/projects/PROJECT_ID/locations/us/repositories\?repositoryId\=assuredoss-go   -d '{"format": "GO", "mode": "AOSS_REPOSITORY"}'
+         gcurlj POST https://artifactregistry.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/repositories\?repositoryId\=assuredoss-go   -d '{"format": "GO", "mode": "AOSS_REPOSITORY"}'
          
 
-Replace `PROJECT_ID` with the ID of the project that you selected when you set up Assured OSS.
+Replace the following:
+
+     * `PROJECT_ID`: the ID of the project that you selected when you set up Assured OSS.
+
+     * `LOCATION`: a supported region.
 
 These repositories can automatically pull packages from the curated portfolio. If a package isn't available as part of the curated portfolio, the repositories redirect the request to the canonical repositories.
 
@@ -287,21 +317,25 @@ You need the base64-encoded string when you set up a remote repository for Assur
 
      * Java: 
            
-           https://us-maven.pkg.dev/PROJECT_ID/assuredoss-java
+           https://LOCATION-maven.pkg.dev/PROJECT_ID/assuredoss-java
 
      * Python: 
            
-           https://us-python.pkg.dev/PROJECT_ID/assuredoss-python
+           https://LOCATION-python.pkg.dev/PROJECT_ID/assuredoss-python
 
      * JavaScript (NPM): 
            
-           https://us-npm.pkg.dev/PROJECT_ID/assuredoss-javascript
+           https://LOCATION-npm.pkg.dev/PROJECT_ID/assuredoss-javascript
 
      * Go: 
            
-           https://us-go.pkg.dev/PROJECT_ID/assuredoss-go
+           https://LOCATION-go.pkg.dev/PROJECT_ID/assuredoss-go
 
-Replace `PROJECT_ID` with the ID of the project that you selected when you set up Assured OSS.
+Replace the following:
+
+     * `PROJECT_ID`: the ID of the project that you selected when you set up Assured OSS.
+
+     * `LOCATION`: a supported region.
 
   13. [Configure Assured OSS](https://docs.cloud.google.com/assured-open-source-software/docs/remote-repository-access) to download packages with your organization's artifact repository manager such as JFrog Artifactory or Sonatype Nexus.
 
@@ -319,13 +353,17 @@ Replace `KEY_FILENAME.json` with the name of the service account key that you do
 
 Replace `KEY_FILENAME.json` with the name of the service account key that you downloaded.
          
-         gcurlj GET "https://artifactregistry.googleapis.com/v1/projects/PROJECT_ID/locations/us/repositories/assuredoss-java/packages"
-         gcurlj GET "https://artifactregistry.googleapis.com/v1/projects/PROJECT_ID/locations/us/repositories/assuredoss-python/packages"
-         gcurlj GET "https://artifactregistry.googleapis.com/v1/projects/PROJECT_ID/locations/us/repositories/assuredoss-javascript/packages"
-         gcurlj GET "https://artifactregistry.googleapis.com/v1/projects/PROJECT_ID/locations/us/repositories/assuredoss-go/packages"
+         gcurlj GET "https://artifactregistry.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/repositories/assuredoss-java/packages"
+         gcurlj GET "https://artifactregistry.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/repositories/assuredoss-python/packages"
+         gcurlj GET "https://artifactregistry.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/repositories/assuredoss-javascript/packages"
+         gcurlj GET "https://artifactregistry.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/repositories/assuredoss-go/packages"
          
 
-Replace `PROJECT_ID` with the ID of the project that you selected when you set up Assured OSS.
+Replace the following:
+
+     * `PROJECT_ID`: the ID of the project that you selected when you set up Assured OSS.
+
+     * `LOCATION`: a supported region.
 
 
 
@@ -344,6 +382,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-06 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-06 UTC."],[],[]] 

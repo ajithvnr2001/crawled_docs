@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/netapp/volumes/docs/troubleshoot/known-limitations/
 title: Known issues and limitations \u00a0|\u00a0 NetApp Volumes \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-30T08:39:37.339830+00:00
+fetched_at: 2026-11-06T10:53:02.523771+00:00
 ---
 
 # Known issues and limitations  |  NetApp Volumes  |  Google Cloud Documentation
@@ -21,7 +21,7 @@ Send feedback
 
 #  Known issues and limitations Stay organized with collections  Save and categorize content based on your preferences. 
 
-This page describes known limitations of Google Cloud NetApp Volumes.
+You can review known issues, service limitations, and workarounds for Google Cloud NetApp Volumes to help you troubleshoot errors across general volume operations, Active Directory integration, customer-managed encryption keys (CMEK), volume replication, large capacity volumes, and FlexCache.
 
 ## General issues
 
@@ -52,7 +52,7 @@ This section describes common known issues of NetApp Volumes.
 
 ### `Not found` errors when running backup operations after volume creation
 
-**Issue** : If you run backup operations such as `CreateBackup`, `RestoreVolume`, or `UpdateBackupConfig` immediately after you create an ONTAP mode volume, the operations can fail with a `Not found` error.
+**Issue** : If you run backup operations such as `CreateBackup`, `RestoreVolume`, or `UpdateBackupConfig` immediately after you create an ONTAP-mode volume, the operations can fail with a `Not found` error.
 
 **Reason** : After you create a volume, the volume and its resources related to backup can take a short time to become fully available to the backup service. During this propagation period, the backup service might route backup requests before the volume is discoverable, which results in a `Not found` error.
 
@@ -64,7 +64,7 @@ For more information about this issue, see [Test connectivity to NetApp Volumes]
 
 ### Intermittent connectivity loss when using overlapping Private Services Access connections
 
-When [configuring](https://docs.cloud.google.com/netapp/volumes/docs/plan-and-prepare/networking) the `netapp.servicenetworking.goog` connection, if the CIDR range overlaps with the CIDR range used by another private services access connection on the same VPC, it can result in intermittent connectivity loss of the volume mount connection. Use non-overlapping ranges to avoid this problem.
+When you [configure private services access](https://docs.cloud.google.com/netapp/volumes/docs/plan-and-prepare/networking) for the `netapp.servicenetworking.goog` connection, if the CIDR range overlaps with the CIDR range used by another private services access connection on the same Virtual Private Cloud (VPC), it can result in intermittent connectivity loss of the volume mount connection. Use non-overlapping ranges to avoid this problem.
 
 ### Possible disruption of client access to volumes transitioned from Cloud Volumes Service to NetApp Volumes when updating settings of an NFS volume
 
@@ -72,11 +72,11 @@ When [configuring](https://docs.cloud.google.com/netapp/volumes/docs/plan-and-pr
 
 **Reason** : Updating a volume can lead to synchronization of its export policy with the replication partner volume. If the updated volume has an incorrect or missing export policy, the clients mounted to the production source volume might lose access, potentially causing an outage.
 
-**Background** : When a replication is in a mirrored state, NetApp Volumes automatically synchronizes the export policies of the source and destination volumes. This ensures consistent client access without manual intervention of the administrator, as any policy change on one volume is automatically applied on the other volume.
+**Background** : When a replication is in a mirrored state, NetApp Volumes automatically synchronizes the export policies of the source and destination volumes. This synchronization ensures consistent client access without manual administrator intervention, because any policy change on one volume is automatically applied to the other volume.
 
-In CVS, the administrator needs to manually synchronize the source and destination volume settings. During the volume transition from CVS to NetApp Volumes, the existing export policies were transferred without modifications, which can lead to inconsistent export policies in replicated volumes. When you update the export policy of either the source or destination volume in a volume replication relationship automatically synchronizes the policies on both volumes.
+In Cloud Volumes Service (CVS), the administrator needs to manually synchronize the source and destination volume settings. During the volume transition from CVS to NetApp Volumes, the existing export policies were transferred without modifications, which can lead to inconsistent export policies in replicated volumes. When you update the export policy of either the source or destination volume in a volume replication relationship, NetApp Volumes automatically synchronizes the policies on both volumes.
 
-**Affected volumes**
+**Affected volumes** :
 
 This issue applies to volumes that meet all of the following criteria:
 
@@ -132,7 +132,7 @@ To resolve this issue, contact [Google Cloud Customer Care](https://cloud.google
 
 **Issue** : When attempting to write, copy, or create new files or subdirectories on a mounted volume, the operation fails with either a `No space left on device` (`errno 28` / `ENOSPC`) or a `File too large` (`errno 27` / `EFBIG`) error.
 
-This occurs even when client-side disk space queries (such as `df -h`) and the Google Cloud console show that the volume has plenty of available logical capacity. The error is localized to a specific directory; file creation succeeds in other directories on the same volume.
+This error occurs even when client-side disk space queries (such as `df -h`) and the Google Cloud console show that the volume has plenty of available logical capacity. The error is localized to a specific directory; file creation succeeds in other directories on the same volume.
 
 **Reason** : This issue occurs when a single directory grows excessively large and hits internal limits, preventing the storage system from indexing more files or subdirectories in that specific location.
 
@@ -140,9 +140,12 @@ This occurs even when client-side disk space queries (such as `df -h`) and the G
 
 Verify if you have hit directory size limits by performing the following diagnostic steps on a mounted client:
 
-  1. **Test localized file creation** : Attempt to create a file in a completely different, newly created directory on the exact same volume: `bash mkdir /mount_point/test_dir && touch /mount_point/test_dir/test_file.txt` If this succeeds but writing to the original directory fails, the directory limit has likely been reached.
+  1. **Test localized file creation** : Attempt to create a file in a completely different, newly created directory on the exact same volume: `bash mkdir /mount_point/test_dir && touch /mount_point/test_dir/test_file.txt` If this command succeeds but writing to the original directory fails, the directory limit has likely been reached.
+
   2. **Estimate directory entry counts** : Count the number of entries inside the offending directory: `bash find /mount_point/offending_directory -maxdepth 1 | wc -l`
+
   3. **Inspect directory index file size** : Check the directory's metadata footprint: `bash ls -ld /mount_point/offending_directory` An exceptionally large directory file size indicates massive directory metadata bloat.
+
 
 
 
@@ -151,21 +154,23 @@ Verify if you have hit directory size limits by performing the following diagnos
 To resolve this issue and keep your directory structures healthy, implement the following methods:
 
   * **Implement directory sharding** : Restructure your application or workload to distribute files across nested, hierarchical subdirectories (such as `/aa/bb/filename.txt` instead of keeping massive numbers of files in a single flat directory).
-  * **Rebuild bloated directories** : Simply deleting files from an over-limit directory removes their names but does not automatically shrink the physical size of the directory index file in the underlying file system. To fully reclaim the directory's space, copy or move the active files into a new directory, then delete the old, bloated directory.
+
+  * **Rebuild bloated directories** : Simply deleting files from an over-limit directory removes their names but doesn't automatically shrink the physical size of the directory index file in the underlying file system. To fully reclaim the directory's space, copy or move the active files into a new directory, and then delete the old, bloated directory.
+
 
 
 
 ## Active Directory integration issues
 
-The following sections contains known issues of Active Directory integration.
+The following sections contain known issues of Active Directory integration.
 
 ### Connectivity issues
 
-Connections to on-premise domain controllers fail due to the following limitations:
+Connections to on-premises domain controllers fail due to the following limitations:
 
-  * **[VPC peering](https://docs.cloud.google.com/vpc/docs/vpc-peering#restrictions)** : NetApp Volumes can only reach domain controllers that are on the storage pool's Virtual Private Cloud (VPC) or are connected to it by VPN. NetApp Volumes can't reach domain controllers in any other VPC, including those that are peered to the storage pool's VPC and that connect to the storage pool.
+  * **[VPC peering](https://docs.cloud.google.com/vpc/docs/vpc-peering#restrictions)** : NetApp Volumes can only reach domain controllers that are on the storage pool's VPC or are connected to it by VPN. NetApp Volumes can't reach domain controllers in any other VPC, including those that are peered to the storage pool's VPC and that connect to the storage pool.
 
-  * **Firewalls** : The on-premise connection fails if you don't allow NetApp Volumes to contact your domain controllers. For more information, [Firewall rules for Active Directory access](https://docs.cloud.google.com/netapp/volumes/docs/plan-and-prepare/security-considerations#firewall_rules_for_active_directory_access).
+  * **Firewalls** : The on-premises connection fails if you don't allow NetApp Volumes to contact your domain controllers. For more information, see [Firewall rules for Active Directory access](https://docs.cloud.google.com/netapp/volumes/docs/plan-and-prepare/security-considerations#firewall_rules_for_active_directory_access).
 
 
 
@@ -188,7 +193,7 @@ Although NetApp Volumes supports SMB 3.1.1 for communication between SMB clients
 
 If domain controllers allow only SMB 3.1.1 connections, NetApp Volumes can't connect to Active Directory, which causes service disruptions.
 
-To maintain compatibility, we recommend setting SMB 2.1 as the minimum supported SMB version on your domain controllers. You must apply this setting to all domain controllers, or to every domain controller in the Active Directory site if you use site-based Active Directory policies.
+To maintain compatibility, set SMB 2.1 as the minimum supported SMB version on your domain controllers. You must apply this setting to all domain controllers, or to every domain controller in the Active Directory site if you use site-based Active Directory policies.
 
 The following example shows how to set the minimum supported SMB version to 2.1:
     
@@ -215,11 +220,45 @@ For more information about modifying SMB settings using PowerShell or group poli
 
 
 
-**Solution** : We're working on an update to NetApp Volumes to resolve this issue. In the meantime, don't install these Windows security updates on your domain controllers. If you've already installed these updates or need to install them, contact [Google Cloud Customer Care](https://cloud.google.com/support-hub/).
+NetApp tracks this issue in [NetApp Support Bulletin SU628](https://kb.netapp.com/Support_Bulletins/Customer_Bulletins/SU628).
+
+**Solution** : To resolve this issue on your domain controllers, either roll back the security updates or apply the registry edit workaround described in [Access to NetApp SMB shares might fail after installing the October 2026 Windows security update](https://support.microsoft.com/en-us/servicing/os/windows/docs/2026/10/access-to-netapp-smb-shares-might).
+
+Alternatively, if you use Flex Unified ONTAP-mode, you can configure LDAP session security on your storage virtual machines (SVMs):
+
+  * Before or after you patch your domain controllers, set LDAP session security to `sign` or `seal` on each affected SVM. Either value meets the requirement, though `seal` provides additional encryption for LDAP payload data:
+        
+        vserver cifs security show -fields session-security-for-ad-ldap
+        vserver cifs security modify -vserver SVM_NAME -session-security-for-ad-ldap sign
+        vserver cifs domain discovered-servers reset-servers -vserver SVM_NAME
+        
+
+  * If an LDAP client configuration on the SVM binds as the CIFS server using `vserver services name-service ldap client` with `-bind-as-cifs-server true`, or binds to an Active Directory domain with `-bind-dn` and `-ad-domain` configured, set `-session-security` to `sign` or `seal` on that client configuration:
+        
+        vserver services name-service ldap client show -vserver SVM_NAME
+        vserver services name-service ldap client modify -vserver SVM_NAME -client-config CONFIG_NAME -session-security sign
+        
+
+  * Verify that Kerberos authentication works between the SVM and your domain controllers, which is required when using `sign` or `seal`. Your domain controllers must have resolvable forward (`A`) and reverse (`PTR`) DNS records. Missing or incorrect `PTR` records can cause the LDAP bind to fail with GSSAPI errors, such as `Cannot determine realm for numeric host address` or `Server not found in Kerberos database`.
+
+  * After you apply the changes, test the connection to confirm LDAP connectivity:
+        
+        set -privilege diag
+        secd connections test -node NODE -vserver SVM_NAME
+        
+
+  * Updating the session security setting doesn't require domain credentials or reset the Active Directory machine account password. Because LDAP is evaluated during bind and lookup operations, existing SMB client sessions remain connected.
+
+  * For NFS-only SVMs that use an LDAP client bound to Active Directory, also set `-session-security` to `sign` or `seal` on the LDAP client when applicable, including in environments that use LDAPS on port 636.
+
+
+
+
+If your problem persists or you need assistance, contact [Google Cloud Customer Care](https://cloud.google.com/support-hub/).
 
 ## CMEK issues
 
-The following sections contains known issues of customer-managed encryption key (CMEK) operations.
+The following sections contain known issues of customer-managed encryption key (CMEK) operations.
 
 ### `ListKmsConfigs` returns `Invalid value for enum type` error
 
@@ -227,7 +266,7 @@ While a volume migrates from system-managed to customer-managed encryption, the 
 
 ### `KmsConfig` policy creation fails
 
-Occasionally, `KmsConfig` policy creation fails and blocks you from creating another policy. If this occurs, contact [Google Cloud Customer Care](https://cloud.google.com/support-hub/).
+Occasionally, `KmsConfig` policy creation fails and blocks you from creating another policy. If this issue occurs, contact [Google Cloud Customer Care](https://cloud.google.com/support-hub/).
 
 ## Volume replication issues and limitations
 
@@ -235,7 +274,7 @@ The following sections provide details about known issues and limitations of the
 
 ### Destination volume quota settings might fail in an active replication
 
-When modifying settings on a volume in an active replication, the [settings are applied to both the source and destination volumes](https://docs.cloud.google.com/netapp/volumes/docs/protect-data/about-volume-replication#settings_modifications). However, quota changes specifically for destination volumes are staged and get applied to the destination volume once the replication is stopped. Occasionally, this quota setting might fail, and you will receive an error message at the end of the operation. While the _Stop_ operation succeeds, all of the quotas might not have been applied to the destination volume. If you receive a quota error during a _Stop_ operation, compare the quota rules on both the source and destination volumes and then update any missing quota rules on the destination to match the source volume settings.
+When modifying settings on a volume in an active replication, the [settings are applied to both the source and destination volumes](https://docs.cloud.google.com/netapp/volumes/docs/protect-data/about-volume-replication#settings_modifications). However, quota changes specifically for destination volumes are staged and get applied to the destination volume after the replication is stopped. Occasionally, this quota setting might fail, and you receive an error message at the end of the operation. Although the **Stop** operation succeeds, all of the quotas might not have been applied to the destination volume. If you receive a quota error during a **Stop** operation, compare the quota rules on both the source and destination volumes and then update any missing quota rules on the destination to match the source volume settings.
 
 ### Google Cloud console displays storage pools without associated Active Directory policies
 
@@ -251,7 +290,7 @@ When changing the storage pool (service level), the Google Cloud console might s
 
 ### CMEK migration not blocked
 
-CMEK migration isn't blocked by the Google Cloud console and is allowed even when large capacity volumes are present. If you try CMEK migration when large capacity volumes are configured, the attempt will fail.
+The Google Cloud console doesn't block CMEK migration when large capacity volumes are present. However, if you try CMEK migration when large capacity volumes are configured, the attempt fails.
 
 ## FlexCache issues
 
@@ -259,16 +298,16 @@ This section describes known issues of the FlexCache feature.
 
 ### FlexCache volume modifications in Google Cloud console might fail
 
-FlexCache volumes can only be modified using the API or the Google Cloud CLI. While FlexCache volumes are displayed in the Google Cloud console after creation, they can be viewed or deleted, and attempts to update them using the Google Cloud console might fail. In such cases, use the Google Cloud CLI for modifications.
+You can modify FlexCache volumes only by using the API or the Google Cloud CLI. Although the Google Cloud console displays FlexCache volumes after creation and lets you view or delete them, any attempts to update them in the Google Cloud console might fail. In such cases, use the Google Cloud CLI or API for modifications.
 
 ### FlexCache volume creation fails with `snapshot-directory` set to true
 
-FlexCache volumes don't support the `snapshot-directory` option. While the API defaults this parameter to `false`, the Google Cloud CLI defaults it to `true`. Therefore, when creating a FlexCache volume using Google Cloud CLI, you must explicitly include `--snapshot-directory false` to prevent creation failure.
+FlexCache volumes don't support the `snapshot-directory` option. Although the API sets this parameter to `false` by default, the Google Cloud CLI sets it to `true` by default. Therefore, when creating a FlexCache volume using Google Cloud CLI, you must explicitly include `--snapshot-directory false` to prevent creation failure.
 
 Send feedback 
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-29 UTC.
+Last updated 2026-11-05 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-05 UTC."],[],[]] 

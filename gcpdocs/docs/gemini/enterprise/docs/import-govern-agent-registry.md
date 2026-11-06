@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini/enterprise/docs/import-govern-agent-registry/
 title: Import A2A agents from Agent Registry \u00a0|\u00a0 Gemini Enterprise \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T09:46:47.099724+00:00
+fetched_at: 2026-11-06T10:23:32.593558+00:00
 ---
 
 # Import A2A agents from Agent Registry  |  Gemini Enterprise  |  Google Cloud Documentation
@@ -36,6 +36,19 @@ You can apply access control policies to traffic through Agent Gateway. These po
 The A2A agents in the registry can be custom agents built by you and your colleagues and deployed on various runtimes such as Agent Runtime on Gemini Enterprise Agent Platform, Cloud Run or Google Kubernetes Engine (GKE). These agents can also be agents built in our Google products, such as Google Workspace.
 
 You can associate the agents in Agent Registry with your Gemini Enterprise apps to make them available to the app's end users.
+
+### Supported A2A agent connectivity
+
+A2A agent connectivity is supported through Agent Gateway across the following routing and security configurations:
+
+  * **Public network routing** : Traffic is routed over the public internet to externally reachable A2A endpoints, through an Agent Gateway that's deployed with or without a connectivity template (`AgentConnectivityTemplate`).
+
+  * **Private network routing** : Traffic is routed over internal VPC networks to private A2A endpoints, through an Agent Gateway that's deployed with a connectivity template (`AgentConnectivityTemplate`), a Private Service Connect interface (PSC-I), and Cloud DNS peering.
+
+  * **Certificate authority (CA) requirement** : In both public and private deployment scenarios, the target A2A agent endpoint must use TLS/HTTPS backed by a publicly or privately trusted certificate authority (CA). Endpoints that use a private CA or a self-signed certificate require a Certificate Manager `TrustConfig` resource that's configured in the connectivity template (`AgentConnectivityTemplate`).
+
+
+
 
 ## About Agent Gateway
 
@@ -85,6 +98,8 @@ Before you begin, make sure you've completed the following prerequisites:
 
   * You've set up a gateway to route agent traffic through Agent Gateway. For more information, see [Route Gemini Enterprise traffic through Agent Gateway](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/agent-gateway-ge-deploy).
 
+  * The A2A agent that you want to import must be registered in Agent Registry with a valid [Agent Card](https://a2a-protocol.org/v0.3.0/specification/#agent-card). The Agent Card must follow the [A2A 0.3.0 specification](https://a2a-protocol.org/v0.3.0/specification/) and explicitly set the `protocolVersion` field to `0.3.0`.
+
 
 
 
@@ -106,13 +121,15 @@ To import an agent from Agent Registry to a Gemini Enterprise app, do the follow
 
   3. Click **Agents**.
 
-  4. Click **\+ Add agent** , and click **Add** for **Custom agent via Agent Runtime**.
+  4. Click **\+ Add agent**.
 
-  5. Find the agent that you want to add, and click **Add agent**.
+  5. In the **Choose an agent type** pane, find **Agents from Agent Registry** , and click **Add**.
 
-  6. Review the agent details, and click **Next**.
+  6. Search for the agent that you want to add, or find it in the list of agents from the Agent Registry that's associated with your Agent Gateway. On the agent card, click **Add agent**.
 
-  7. Do one of the following:
+  7. Review the agent details, and click **Next**.
+
+  8. Do one of the following:
 
      * If the agent is publicly available or if permission for a runtime already exists, click **Skip & Finish**.
 
@@ -130,7 +147,8 @@ When you specify scopes, consider the following:
        * Provide a space-separated list of scopes. For example: `read write`.
        * Ensure the scopes are sufficient to let the user sign in and use the agent.  
 **PKCE verification enabled** | Select this if Proof Key for Code Exchange is required by the agent.  
-  8. To make the agent available to the app's end users, do the following:
+**Use HTTP Basic authentication** | Select this to send the client ID and client secret in the HTTP `Authorization` header using Basic authentication instead of in the token request body. Some OAuth providers require this method.  
+  9. To make the agent available to the app's end users, do the following:
 
      1. Navigate to the **User permissions** tab for the agent: **Apps** > APP_NAME > **Agents** > AGENT_NAME > **User permissions**.
 
@@ -166,6 +184,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-28 UTC.
+Last updated 2026-11-05 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-05 UTC."],[],[]] 

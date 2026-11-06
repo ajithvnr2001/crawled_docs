@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigtable/docs/creating-instance/
 title: Create an instance \u00a0|\u00a0 Bigtable \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T10:19:31.357696+00:00
+fetched_at: 2026-11-06T13:06:20.811796+00:00
 ---
 
 # Create an instance  |  Bigtable  |  Google Cloud Documentation
@@ -203,9 +203,9 @@ To create an instance that has more than six clusters, first create an instance 
 
 Replace the following:
 
-     * `INSTANCE_ID`: The permanent identifier for the instance. 
+     * `INSTANCE_ID`: the permanent identifier for the instance 
      * `DISPLAY_NAME`: A human-readable name that identifies the instance in the Google Cloud console. 
-     * `CLUSTER_ID`: The permanent identifier for the cluster. 
+     * `CLUSTER_ID`: the permanent identifier for the cluster 
      * `CLUSTER_ZONE`: The [zone](https://docs.cloud.google.com/bigtable/docs/locations) where the cluster runs. 
 
 You must configure at least one cluster for the instance, using the `--cluster-config` flag. To create an instance that has multiple clusters, **repeat the`--cluster-config` flag for each cluster**.
@@ -278,9 +278,9 @@ tagKeys/123456789012=tagValues/098765432109`
 
 Provide the following: 
 
-     * `INSTANCE_ID`: The permanent identifier for the instance. 
+     * `INSTANCE_ID`: the permanent identifier for the instance 
      * `DISPLAY_NAME`: A human-readable name that identifies the instance in the Google Cloud console. 
-     * `CLUSTER_ID`: The permanent identifier for the cluster. 
+     * `CLUSTER_ID`: the permanent identifier for the cluster 
      * `CLUSTER_ZONE`: The [zone](https://docs.cloud.google.com/bigtable/docs/locations) where the cluster runs. 
      * `CLUSTER_NUM_NODES`: This field is optional. If no value is set, Bigtable automatically allocates nodes based on your data footprint and optimizes for 50% storage utilization. If you want to control the number of nodes in a cluster, update the `CLUSTER_NUM_NODES` value. Ensure that number of nodes is set to a non-zero value. [Learn more about nodes](https://docs.cloud.google.com/bigtable/docs/instances-clusters-nodes#nodes).
      * `CLUSTER_STORAGE_TYPE`: The type of storage to use for the cluster. Each cluster in an instance must use the same storage type. Accepts the values `SSD` and `HDD`. In most cases, `SSD` is best. This choice is permanent. [Learn more](https://docs.cloud.google.com/bigtable/docs/choosing-ssd-hdd).
@@ -296,8 +296,8 @@ Provide the following:
 
 Provide the following: 
 
-     * `INSTANCE_ID`: The permanent identifier for the instance you just created. 
-     * `CLUSTER_ID`: The permanent identifier for the cluster. 
+     * `INSTANCE_ID`: the permanent identifier for the instance you just created 
+     * `CLUSTER_ID`: the permanent identifier for the cluster 
      * `ZONE`: The [zone](https://docs.cloud.google.com/bigtable/docs/locations) where the cluster runs. 
 
 Each [zone in a region](https://docs.cloud.google.com/docs/geography-and-regions#regions_and_zones) can contain only one cluster. For example, if an instance has a cluster in `us-east1-b`, you can add a cluster in a different zone in the same region, such as `us-east1-c`, or a zone in a separate region, such as `europe-west2-a`. 
@@ -744,6 +744,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-28 UTC.
+Last updated 2026-11-06 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-06 UTC."],[],[]] 

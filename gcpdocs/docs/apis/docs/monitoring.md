@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/apis/docs/monitoring/
 title: Monitoring API usage \u00a0|\u00a0 Cloud APIs \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-30T05:41:59.176633+00:00
+fetched_at: 2026-11-06T10:19:04.738820+00:00
 ---
 
 # Monitoring API usage  |  Cloud APIs  |  Google Cloud Documentation
@@ -71,7 +71,7 @@ Request count
 `DELTA`, `INT64`, `1`   
 **[api](https://docs.cloud.google.com/monitoring/api/resources#tag_api)**   
 **[consumed_api](https://docs.cloud.google.com/monitoring/api/resources#tag_consumed_api)**   
-**[produced_api](https://docs.cloud.google.com/monitoring/api/resources#tag_produced_api)** |  _The count of completed requests. Sampled every 60 seconds. After sampling, data is not visible for up to 1800 seconds._   
+**[produced_api](https://docs.cloud.google.com/monitoring/api/resources#tag_produced_api)** |  _The count of completed requests. Sampled every 60 seconds. After sampling, data is not visible for up to 180 seconds._   
 `protocol`: The protocol of the request, e.g. "http", "grpc".   
 `response_code`: The HTTP response code for HTTP requests, or HTTP equivalent code for gRPC requests. See code mapping in <https://github.com/googleapis/googleapis/blob/master/google/rpc/code.proto>.   
 `response_code_class`: The response code class for HTTP requests, or HTTP equivalent class for gRPC requests, e.g. "2xx", "4xx".   
@@ -81,29 +81,29 @@ Request latencies
 `DELTA`, `DISTRIBUTION`, `s`   
 **[api](https://docs.cloud.google.com/monitoring/api/resources#tag_api)**   
 **[consumed_api](https://docs.cloud.google.com/monitoring/api/resources#tag_consumed_api)**   
-**[produced_api](https://docs.cloud.google.com/monitoring/api/resources#tag_produced_api)** |  _Distribution of latencies in seconds for non-streaming requests. Sampled every 60 seconds. After sampling, data is not visible for up to 1800 seconds._  
+**[produced_api](https://docs.cloud.google.com/monitoring/api/resources#tag_produced_api)** |  _Distribution of latencies in seconds for non-streaming requests. Sampled every 60 seconds. After sampling, data is not visible for up to 180 seconds._  
 `api/request_latencies_backend` GA ** _(project)_**   
 Request backend latencies   
 `DELTA`, `DISTRIBUTION`, `s`   
 **[api](https://docs.cloud.google.com/monitoring/api/resources#tag_api)**   
-**[produced_api](https://docs.cloud.google.com/monitoring/api/resources#tag_produced_api)** |  _Distribution of backend latencies in seconds for non-streaming requests. Sampled every 60 seconds. After sampling, data is not visible for up to 1800 seconds._  
+**[produced_api](https://docs.cloud.google.com/monitoring/api/resources#tag_produced_api)** |  _Distribution of backend latencies in seconds for non-streaming requests. Sampled every 60 seconds. After sampling, data is not visible for up to 180 seconds._  
 `api/request_latencies_overhead` GA ** _(project)_**   
 Request overhead latencies   
 `DELTA`, `DISTRIBUTION`, `s`   
 **[api](https://docs.cloud.google.com/monitoring/api/resources#tag_api)**   
-**[produced_api](https://docs.cloud.google.com/monitoring/api/resources#tag_produced_api)** |  _Distribution of request latencies in seconds for non-streaming requests excluding the backend. Sampled every 60 seconds. After sampling, data is not visible for up to 1800 seconds._  
+**[produced_api](https://docs.cloud.google.com/monitoring/api/resources#tag_produced_api)** |  _Distribution of request latencies in seconds for non-streaming requests excluding the backend. Sampled every 60 seconds. After sampling, data is not visible for up to 180 seconds._  
 `api/request_sizes` GA ** _(project)_**   
 Request sizes   
 `DELTA`, `DISTRIBUTION`, `By`   
 **[api](https://docs.cloud.google.com/monitoring/api/resources#tag_api)**   
 **[consumed_api](https://docs.cloud.google.com/monitoring/api/resources#tag_consumed_api)**   
-**[produced_api](https://docs.cloud.google.com/monitoring/api/resources#tag_produced_api)** |  _Distribution of request sizes in bytes recorded at request completion. Sampled every 60 seconds. After sampling, data is not visible for up to 1800 seconds._  
+**[produced_api](https://docs.cloud.google.com/monitoring/api/resources#tag_produced_api)** |  _Distribution of request sizes in bytes recorded at request completion. Sampled every 60 seconds. After sampling, data is not visible for up to 180 seconds._  
 `api/response_sizes` GA ** _(project)_**   
 Response sizes   
 `DELTA`, `DISTRIBUTION`, `By`   
 **[api](https://docs.cloud.google.com/monitoring/api/resources#tag_api)**   
 **[consumed_api](https://docs.cloud.google.com/monitoring/api/resources#tag_consumed_api)**   
-**[produced_api](https://docs.cloud.google.com/monitoring/api/resources#tag_produced_api)** |  _Distribution of response sizes in bytes recorded at request completion. Sampled every 60 seconds. After sampling, data is not visible for up to 1800 seconds._  
+**[produced_api](https://docs.cloud.google.com/monitoring/api/resources#tag_produced_api)** |  _Distribution of response sizes in bytes recorded at request completion. Sampled every 60 seconds. After sampling, data is not visible for up to 180 seconds._  
 `mcp/request_count` GA ** _(project)_**   
 MCP Request Count   
 `DELTA`, `INT64`, `1`   
@@ -189,7 +189,7 @@ Windowed Rate Quota usage
 `window_size`: The window size for rate operation limits.   
 `window_start_time`: The start time of the window.   
   
-Table generated at 2026-10-29 23:33:54 UTC.
+Table generated at 2026-11-05 18:04:57 UTC.
 
 To see API metrics in Metrics Explorer, select **Consumed API** as the resource type, then select one of the `serviceruntime` metrics. Then use the filter and aggregation options to refine your data. After you've found the API usage information you want, you can use Cloud Monitoring to create custom dashboards and alerts that will help you continue to monitor and maintain a robust application. You can find out how to do this in the following pages:
 
@@ -241,6 +241,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-30 UTC.
+Last updated 2026-11-05 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-05 UTC."],[],[]] 

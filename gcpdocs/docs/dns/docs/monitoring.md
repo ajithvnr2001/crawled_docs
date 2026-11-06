@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/dns/docs/monitoring/
 title: Use logging and monitoring \u00a0|\u00a0 Cloud DNS \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T22:57:38.958216+00:00
+fetched_at: 2026-11-06T10:24:34.958515+00:00
 ---
 
 # Use logging and monitoring  |  Cloud DNS  |  Google Cloud Documentation
@@ -232,12 +232,12 @@ Field | Field type | Description | Used in metrics
 `destinationIP` | String / Target | Target IP address, only applicable for forwarding cases | No  
 `dnsArmorResult.threatChecked` | Boolean | Whether the query was forwarded to [DNS Armor](https://docs.cloud.google.com/dns/docs/threat-detection) for threat inspection | No  
 `egressError` | String | Egress proxy error, the actual error reported by the egress proxy as received from the on-premises DNS server This field can be used to differentiate an actual SERVFAIL returned by the on-premises DNS versus a network error encountered by the egress proxy | No  
-`egressPath` | String | `OUTBOUND_ENDPOINT` if the query was forwarded with an Outbound Endpoint or omitted if the query used the default standard Cloud DNS path | No  
+`egressPath` | String | `OUTBOUND_ENDPOINT` if the query was forwarded with an outbound endpoint or omitted if the query used the default standard Cloud DNS path | No  
 `healthyIps` | String | Set of IP addresses in the ResourceRecordSet that are known to be `HEALTHY` to Cloud DNS at the time of the query | No  
 `location` | String | Google Cloud region, for example `us-east1`, from which the response was served | Yes  
-`outboundEndpoint.name` | String | User-provided name of the Outbound Endpoint (this string is only present if `egressPath` is `OUTBOUND_ENDPOINT`) | No  
-`outboundEndpoint.projectId` | String | The Google Cloud project ID where the Outbound Endpoint is located (this string is only present if `egressPath` is `OUTBOUND_ENDPOINT`) | No  
-`outboundEndpoint.location` | String | The Google Cloud region where the Outbound Endpoint is located (this string is only present if `egressPath` is `OUTBOUND_ENDPOINT`) | No  
+`outboundEndpoint.name` | String | User-provided name of the outbound endpoint (this string is only present if `egressPath` is `OUTBOUND_ENDPOINT`) | No  
+`outboundEndpoint.projectId` | String | The Google Cloud project ID where the outbound endpoint is located (this string is only present if `egressPath` is `OUTBOUND_ENDPOINT`) | No  
+`outboundEndpoint.location` | String | The Google Cloud region where the outbound endpoint is located (this string is only present if `egressPath` is `OUTBOUND_ENDPOINT`) | No  
 `project_id` | String | Google Cloud project ID of the network from which the query was received | Yes  
 `protocol` | String / DNS | `TCP` | `UDP` | No  
 `queryName` | String / DNS | DNS query name, [RFC 1035 4.1.2](https://datatracker.ietf.org/doc/html/rfc1035#section-4.1.2) | No  
@@ -356,6 +356,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-05 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-05 UTC."],[],[]] 

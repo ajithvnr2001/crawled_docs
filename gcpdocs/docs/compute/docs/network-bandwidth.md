@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/compute/docs/network-bandwidth/
 title: Network bandwidth \u00a0|\u00a0 Compute Engine \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T23:09:37.847822+00:00
+fetched_at: 2026-11-06T10:23:21.466209+00:00
 ---
 
 # Network bandwidth  |  Compute Engine  |  Google Cloud Documentation
@@ -23,7 +23,7 @@ Send feedback
 
 Most machine types provide only one physical NIC. When you create compute instances using these machine types, each virtual network interface (vNIC) that you configure uses the same physical NIC. For these instances, Google Cloud accounts for bandwidth per virtual machine (VM) instance or bare metal instance, not per virtual network interface (vNIC) or IP address. The instance's [machine type](https://docs.cloud.google.com/compute/docs/machine-resource) defines its maximum possible egress rate; however, you can only achieve that maximum possible egress rate in specific situations.
 
-Some machine types (for example `z4m-highmem-192`) provide multiple physical NICs. When you create compute instances using these machine types, Compute Engine assigns each virtual network interface (vNIC) that you configure to a physical NIC. For Z4D, Z4M, and C4N multi-NIC machine types, Compute Engine uses a round-robin distribution to assign vNICs to physical NICs.
+Some machine types (for example `z4m-highmem-192`) provide multiple physical NICs. When you create compute instances using these machine types, Compute Engine assigns each virtual network interface (vNIC) that you configure to a physical NIC. For Z4D, Z4M, C4N, and M4N multi-NIC machine types, Compute Engine uses a round-robin distribution to assign vNICs to physical NICs.
 
 This page outlines the network bandwidth limits, which are useful when planning your deployments. It categorizes bandwidth using two dimensions:
 
@@ -95,8 +95,8 @@ a VPC network |
     * A4X instances support egress bandwidth limits up to 2,000 Gbps.
     * A4 and A3 instances support egress bandwidth limits up to 3,600 Gbps.
     * C4, C4D, C3, C3D, and Z3 instances support up to 200 Gbps egress bandwidth limits with Tier_1 networking.
-    * Z4D, Z4M, and M4N instances with two physical NICs support up to 400 Gbps VM-to-VM egress bandwidth.
-    * C4N instances with two physical NICs support up to 400 Gbps VM-to-VM egress bandwidth, up to 95,000,000 packets-per-second (PPS), and up to 50 Gbps single-flow bandwidth between C4N instances routed within the same VPC network.
+    * Z4D and Z4M instances with two physical NICs support up to 400 Gbps VM-to-VM egress bandwidth.
+    * C4N and M4N instances with two physical NICs support up to 400 Gbps VM-to-VM egress bandwidth, up to 95,000,000 packets-per-second (PPS), and up to 50 Gbps single-flow bandwidth between C4N or M4N instances routed within the same VPC network.
   * For other factors, definitions, and scenarios, see Egress to destinations routable within a VPC network. 
 
   
@@ -104,19 +104,19 @@ a VPC network |
 Routing outside  
 a VPC network | 
 
-  * For H3 and H4D instances, outbound data transfer to a destination outside of its VPC network is limited to 1 Gbps.
-  * For C4N instances, the limit is:
+  * For H3 and H4D instances: outbound data transfer to a destination outside of its VPC network is limited to 1 Gbps.
+  * For C4N and M4N instances: the limit is:
     * 100 Gbps per physical NIC, or 200 Gbps for dual-NIC instances
     * 24,000,000 PPS per physical NIC, or 48,000,000 PPS for dual-NIC instances
-  * For all other machine series, the limit is primarily defined by a per-instance maximum egress bandwidth based on the sending instance's machine type and whether Tier_1 networking is enabled. A sending instance's maximum possible egress bandwidth to a destination outside of its VPC network can't exceed the following:
+  * For all other machine series: the limit is primarily defined by a per-instance maximum egress bandwidth based on the sending instance's machine type and whether Tier_1 networking is enabled. A sending instance's maximum possible egress bandwidth to a destination outside of its VPC network can't exceed the following:
     * 3 Gbps per flow
     * When Tier_1 networking is enabled: 25 Gbps total
     * When Tier_1 networking isn't enabled or isn't supported, the following total bandwidth is available per machine series: 
-      * For Z4M instances, 50 Gbps total for instances with 192 vCPUs and up to 25 Gbps total for instances with 96 vCPUs or fewer, depending on the machine type size.
-      * For Z4D instances, 50 Gbps total for instances with 384 vCPUs and up to 25 Gbps total for instances with 192 vCPUs or fewer, depending on the machine type size.
+      * For Z4M instances: 50 Gbps total for instances with 192 vCPUs and up to 25 Gbps total for instances with 96 vCPUs or fewer, depending on the machine type size.
+      * For Z4D instances: 50 Gbps total for instances with 384 vCPUs and up to 25 Gbps total for instances with 192 vCPUs or fewer, depending on the machine type size.
       * For G4 instances: 25 Gbps total for machine types with 48 or more vCPUs, and 7 Gbps total for machine types with fewer than 48 vCPUs.
-      * For machine series that support multiple physical NICs, such as M4N, A3, A4, A4X, and A4X Max instances, 7 Gbps per NIC
-      * For all other machine series, 7 Gbps total
+      * For machine series that support multiple physical NICs, such as A3, A4, A4X, and A4X Max instances: 7 Gbps per NIC
+      * For all other machine series: 7 Gbps total
   * For other factors, definitions, and caveats, see Egress to destinations outside of a VPC network.
 
   
@@ -140,10 +140,10 @@ a VPC network |
   * Google Cloud protects each compute instance by limiting ingress traffic routed outside a VPC network. The limit is the first of the following rates encountered:
     * 1,800,000 pps (packets per second)
     * 30 Gbps
-  * For C4N instances, the limit is the first of the following rates encountered: 
+  * For C4N and M4N instances, the limit is the first of the following rates encountered: 
     * 24,000,000 packets per second (PPS) per physical NIC or 48,000,000 PPS for dual-NIC instances
     * 90 Gbps per physical NIC or 180 Gbps for dual-NIC instances
-  * For a machine series that supports multiple physical NICs, such as M4N, Z4D, Z4M, A3, A4, A4X, and A4X Max instances, the limit is the first of the following rates encountered:
+  * For a machine series that supports multiple physical NICs, such as Z4D, Z4M, A3, A4, A4X, and A4X Max instances, the limit is the first of the following rates encountered:
     * 1,800,000 pps (packets per second) per physical NIC
     * 30 Gbps per physical NIC
   * For other factors, definitions, and scenarios, see Ingress to destinations outside of a VPC network.
@@ -266,11 +266,11 @@ From the perspective of a sending instance and for destination IP addresses _out
 
     * If Tier_1 networking is enabled: 25 Gbps
     * If Tier_1 networking isn't enabled or isn't supported: 
-      * For C4N instances: Up to 100 Gbps per physical NIC or 200 Gbps for dual-NIC instances
+      * For C4N and M4N instances: Up to 100 Gbps per physical NIC or 200 Gbps for dual-NIC instances
       * For Z4D and Z4M instances: 7 Gbps total for machine types with fewer than 48 vCPUs, and up to 25 Gbps per physical NIC for machine types with 48 or more vCPUs
       * For G4 instances: 7 Gbps total for machine types with fewer than 48 vCPUs, and 25 Gbps total for machine types with 48 or more vCPUs
       * For H4D and H3 instances: 1 Gbps
-      * For machine series that support multiple physical NICs, such as M4N, A3, A4, A4X, and A4X Max instances: 7 Gbps per physical NIC
+      * For machine series that support multiple physical NICs, such as A3, A4, A4X, and A4X Max instances: 7 Gbps per physical NIC
       * For all other machine series: 7 Gbps
 **Note:** Maximum egress bandwidth can be achieved when the packet size matches the default MTU value of 1,460 bytes. As the packet size decreases, the maximum achievable bandwidth also declines due to limitations on the number of packets per second that the compute instance can handle.
 
@@ -336,7 +336,7 @@ For machine series that don't support multiple physical NICs, the applicable inb
 
 For machine series that support multiple physical NICs the applicable inbound bandwidth restriction applies individually to each physical NIC. The limit is the first of the following rates encountered:
 
-  * For C4N instances: 
+  * For C4N and M4N instances: 
     * 24,000,000 PPS per physical NIC (or 48,000,000 PPS for dual-NIC instances)
     * 90 Gbps per physical NIC (or 180 Gbps for dual-NIC instances)
   * For other instance types: 
@@ -389,11 +389,13 @@ Unless you explicitly assign queue counts for NICs, you can model the algorithm 
 Compute instance configuration | Maximum queue count per vNIC | Maximum queue count per instance  
 ---|---|---  
 Bare metal instances | 16 | 16  
-Network-optimized C4N instances | 64 | The number of vCPUs  
+Network-optimized C4N and M4N instances | 64 | The number of vCPUs  
 Storage-optimized Z4D and Z4M instances (including bare metal machine types) | 16 | The number of vCPUs  
 C4 instances with 2 vCPUs | 1 | 2  
 C4 instances with 4 vCPUs | 2 | 8  
-Third generation (excluding M3) and later VM instances that use gVNIC with [Titanium](https://cloud.google.com/titanium), including Z4D  |  Divide the number of vCPUs by the number of vNICs (`num_vcpus/num_vnics`) and discard any remainder.
+H4D instances with Cloud RDMA | 16 | 16, or 32 if using Cloud RDMA  
+Confidential VM instances | 16 | 16  
+Third generation (excluding M3) and later VM instances that use gVNIC with [Titanium](https://cloud.google.com/titanium) |  Divide the number of vCPUs by the number of vNICs (`num_vcpus/num_vnics`) and discard any remainder.
 
   * If the calculated number is less than 1, then the maximum queue count per vNIC is 1.
   * If the calculated number is greater than 16, then the maximum queue count is 16 for each vNIC.
@@ -414,8 +416,6 @@ First and second generation VMs that use the VirtIO network interface or a custo
   * Otherwise, the maximum queue count per vNIC is the calculated number.
 
 | The number of vCPUs  
-H4D instances with Cloud RDMA | 16 | 16, or 32 if using Cloud RDMA  
-Confidential VM instances | 16 | 16  
   
 #### Examples
 
@@ -694,6 +694,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-05 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-05 UTC."],[],[]] 

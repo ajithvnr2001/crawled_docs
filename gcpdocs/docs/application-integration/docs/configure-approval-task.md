@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/application-integration/docs/configure-approval-task/
 title: Approval Task \u00a0|\u00a0 Application Integration \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T16:21:16.310175+00:00
+fetched_at: 2026-11-06T13:11:37.318295+00:00
 ---
 
 # Approval Task  |  Application Integration  |  Google Cloud Documentation
@@ -25,7 +25,7 @@ The **Approval** task lets you configure approval-based integrations. It also le
 
 You can use the **Approval** task to send approval request emails to one or more integration users. The email includes a link to the integration where the users can manually approve or reject the request. 
 
-During an integration execution, when the control reaches the **Approval** task, execution is halted, and all tasks after the **Approval** task are suspended. The integration resumes the execution only when a user manually approves or rejects the approval request. 
+During an integration execution, when the control reaches the **Approval** task, execution is halted, and all tasks after the **Approval** task are suspended. The integration resumes the execution only when a user approves or rejects the approval request, either in the Google Cloud console or by using the API. 
 
 An **Approval** task can be used for the following purposes:
 
@@ -41,8 +41,8 @@ All the three ([Approval](https://docs.cloud.google.com/application-integration/
 
 Approval task | Suspend task | Timer task  
 ---|---|---  
-Doesn't support automatic resumption of an integration and requires manual intervention to resume the integration. | Supports both manual and automatic resumption of an integration. If there is no manual intervention to revoke the suspension, the integration will automatically resume execution after the expiry of the suspension time limit. | Supports only automatic resumption of an integration. The integration execution automatically resumes after the exipry of the suspension time limit.  
-Can't resume an integration via an API call. You must manually resolve the suspension by using the Integrations UI. | Can resume an integration by using the `Suspensions` API for integrations. | Supports only automatic resumption of an integration.  
+Resumes when a user approves or rejects the request in the Integrations UI or by using the API. | Supports both manual and automatic resumption of an integration. If there is no manual intervention to revoke the suspension, the integration will automatically resume execution after the expiry of the suspension time limit. | Supports only automatic resumption of an integration. The integration execution automatically resumes after the exipry of the suspension time limit.  
+Can resume an integration from the Integrations UI or by calling the [`suspensions.resolve`](https://docs.cloud.google.com/application-integration/docs/reference/rest/v1/projects.locations.integrations.executions.suspensions/resolve) method. See [Approve or reject using the API](https://docs.cloud.google.com/application-integration/docs/configure-approval-task#approve-reject-api). | Can resume an integration by calling the [`suspensions.lift`](https://docs.cloud.google.com/application-integration/docs/reference/rest/v1/projects.locations.integrations.executions.suspensions/lift) method. | Supports only automatic resumption of an integration.  
 Users receive notification when an integration pauses (suspended). | Users don't receive any notification when an integration pauses (suspended). | Users don't receive any notification when an integration pauses (suspended).  
 Supports a output variable (boolean), which allows you to perform conditional checks before resuming an integration. However, the output variable can only have the value as either `true` or `false`. | Supports a output variable (string), which allows you to perform conditional checks before resuming an integration. You can set any value to the output variable. | Doesn't support any output variables.  
   
@@ -94,6 +94,59 @@ The following table describes the configuration properties of the **Approval** t
     $TASK_ID_isApproved$ = TRUE
       
   
+## Respond to an approval request using the API
+
+To approve or reject a pending approval request without the Google Cloud console, call the [`projects.locations.integrations.executions.suspensions.resolve`](https://docs.cloud.google.com/application-integration/docs/reference/rest/v1/projects.locations.integrations.executions.suspensions/resolve) method.
+
+To approve or reject a request, you need the `integrations.suspensions.resolve` permission. To list suspensions, you also need the `integrations.suspensions.list` permission. The Application Integration Approver (`roles/integrations.suspensionResolver`) role contains both permissions, as does the Application Integration Admin (`roles/integrations.integrationAdmin`) role.
+
+If the integration uses a run-as service account, grant the Service Account User (`roles/iam.serviceAccountUser`) role on that service account. This requirement takes effect as the rollout described in [Grant Service Account User](https://docs.cloud.google.com/application-integration/docs/authorization-changes-grant-access) proceeds.
+
+  1. To find the pending request, list the suspensions of the execution by using the [`projects.locations.integrations.executions.suspensions.list`](https://docs.cloud.google.com/application-integration/docs/reference/rest/v1/projects.locations.integrations.executions.suspensions/list) method: 
+         
+         curl -X GET \
+             -H "Authorization: Bearer $(gcloud auth print-access-token)" \
+             "https://integrations.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/integrations/INTEGRATION_NAME/executions/EXECUTION_ID/suspensions"
+         
+
+In the response, find the suspension whose `taskId` is the ID of your Approval task and whose `state` is `PENDING`. The response also includes suspensions from Suspend tasks and from other Approval tasks in the same execution. Note the suspension's `name`, which ends with the suspension ID.
+
+  2. To approve or reject the request, call the `suspensions.resolve` method: 
+         
+         curl -X POST \
+             -H "Authorization: Bearer $(gcloud auth print-access-token)" \
+             -H "Content-Type: application/json" \
+             -d '{
+               "suspension": {
+                 "eventExecutionInfoId": "EXECUTION_ID",
+                 "integration": "INTEGRATION_NAME",
+                 "taskId": "TASK_ID",
+                 "state": "STATE"
+               }
+             }' \
+             "https://integrations.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/integrations/INTEGRATION_NAME/executions/EXECUTION_ID/suspensions/SUSPENSION_ID:resolve"
+         
+
+
+
+
+Replace the following:
+
+  * `PROJECT_ID`: The ID of your Google Cloud project.
+  * `LOCATION`: The region of the integration.
+  * `INTEGRATION_NAME`: The name of the integration.
+  * `EXECUTION_ID`: The ID of the suspended execution.
+  * `TASK_ID`: The ID of the Approval task (the suspension's `taskId`).
+  * `SUSPENSION_ID`: The suspension ID from the suspension's `name`.
+  * `STATE`: The resolution state. Use `LIFTED` to approve the request (sets `isApproved` to `true`), or `REJECTED` to reject it (sets `isApproved` to `false`).
+
+**Note:**
+
+  * Publishing a new version of the integration cancels its executions that are waiting on an approval.
+  * The [`suspensions.lift`](https://docs.cloud.google.com/application-integration/docs/reference/rest/v1/projects.locations.integrations.executions.suspensions/lift) method resumes a [Suspend task](https://docs.cloud.google.com/application-integration/docs/configure-suspend-task). It doesn't approve or reject an Approval task.
+
+
+
 ## Error handling strategy
 
 An error handling strategy for a task specifies the action to take if the task fails due to a [temporary error](https://docs.cloud.google.com/application-integration/docs/error-handling). For information about how to use an error handling strategy, and to know about the different types of error handling strategies, see [Error handling strategies](https://docs.cloud.google.com/application-integration/docs/error-handling-strategy). 
@@ -115,6 +168,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-05 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-05 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/vision/docs/samples/vision-safe-search-detection-gcs/
 title: Detect safe search on a Cloud Storage file. \u00a0|\u00a0 Cloud Vision API \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-03T09:43:13.928514+00:00
+fetched_at: 2026-11-06T10:38:12.309106+00:00
 ---
 
 # Detect safe search on a Cloud Storage file.  |  Cloud Vision API  |  Google Cloud Documentation
@@ -94,38 +94,38 @@ To authenticate to Vision, set up Application Default Credentials. For more info
     
       // Detects whether the specified image on Google Cloud Storage has features you would want to
       // moderate.
-      public static void detectSafeSearchGcs(String gcsPath) throws IOException <{
-        ListAnnotateIm>ageRequest requests = new<> ArrayLis[t](https://docs.cloud.google.com/java/docs/reference/google-cloud-vision/latest/com.google.cloud.vision.v1.ImageSource.html)();
+      public static void detectSafeSearchGcs(String gcsPath) throws IOException {
+        List<AnnotateImageRequest> requests = new ArrayList<>();
     
-        ImageSource im[gSource](https://docs.cloud.google.com/java/docs/reference/google-cloud-vision/latest/com.google.cloud.vision.v1.ImageSource.html) = ImageSource.new[Builder](https://docs.cloud.google.com/java/docs/reference/google-cloud-vision/latest/com.google.cloud.vision.v1.ImageSource.Builder.html#com_google_cloud_vision_v1_ImageSource_Builder_setGcsImageUri_java_lang_String_)().setGcsImageUri(gcsPath).bui[ld](https://docs.cloud.google.com/java/docs/reference/google-cloud-vision/latest/com.google.cloud.vision.v1.Image.html)();
-        Im[age](https://docs.cloud.google.com/java/docs/reference/google-cloud-vision/latest/com.google.cloud.vision.v1.Image.html) img = Image.new[Builder](https://docs.cloud.google.com/java/docs/reference/google-cloud-vision/latest/com.google.cloud.vision.v1.Image.Builder.html#com_google_cloud_vision_v1_Image_Builder_setSource_com_google_cloud_vision_v1_ImageSource_)().setSource(imgSource).bui[ld](https://docs.cloud.google.com/java/docs/reference/google-cloud-vision/latest/com.google.cloud.vision.v1.Feature.html)();
-        Featu[re](https://docs.cloud.google.com/java/docs/reference/google-cloud-vision/latest/com.google.cloud.vision.v1.Feature.html) feat = Feature.newBuilder().setType(Type.SAFE_SEARCH_DETECTION).bui[ld](https://docs.cloud.google.com/java/docs/reference/google-cloud-vision/latest/com.google.cloud.vision.v1.AnnotateImageRequest.html)();
-        AnnotateImageRequest request [=
-            AnnotateIm](https://docs.cloud.google.com/java/docs/reference/google-cloud-vision/latest/com.google.cloud.vision.v1.AnnotateImageRequest.html)ageRequest.newBuilder().addFeatures(feat).setImage(img).build();
+        [ImageSource](https://docs.cloud.google.com/java/docs/reference/google-cloud-vision/latest/com.google.cloud.vision.v1.ImageSource.html) imgSource = [ImageSource](https://docs.cloud.google.com/java/docs/reference/google-cloud-vision/latest/com.google.cloud.vision.v1.ImageSource.html).newBuilder().[setGcsImageUri](https://docs.cloud.google.com/java/docs/reference/google-cloud-vision/latest/com.google.cloud.vision.v1.ImageSource.Builder.html#com_google_cloud_vision_v1_ImageSource_Builder_setGcsImageUri_java_lang_String_)(gcsPath).build();
+        [Image](https://docs.cloud.google.com/java/docs/reference/google-cloud-vision/latest/com.google.cloud.vision.v1.Image.html) img = [Image](https://docs.cloud.google.com/java/docs/reference/google-cloud-vision/latest/com.google.cloud.vision.v1.Image.html).newBuilder().[setSource](https://docs.cloud.google.com/java/docs/reference/google-cloud-vision/latest/com.google.cloud.vision.v1.Image.Builder.html#com_google_cloud_vision_v1_Image_Builder_setSource_com_google_cloud_vision_v1_ImageSource_)(imgSource).build();
+        [Feature](https://docs.cloud.google.com/java/docs/reference/google-cloud-vision/latest/com.google.cloud.vision.v1.Feature.html) feat = [Feature](https://docs.cloud.google.com/java/docs/reference/google-cloud-vision/latest/com.google.cloud.vision.v1.Feature.html).newBuilder().setType(Type.SAFE_SEARCH_DETECTION).build();
+        [AnnotateImageRequest](https://docs.cloud.google.com/java/docs/reference/google-cloud-vision/latest/com.google.cloud.vision.v1.AnnotateImageRequest.html) request =
+            [AnnotateImageRequest](https://docs.cloud.google.com/java/docs/reference/google-cloud-vision/latest/com.google.cloud.vision.v1.AnnotateImageRequest.html).newBuilder().addFeatures(feat).setImage(img).build();
         requests.add(request);
     
         // Initialize client that will be used to send requests. This client only needs to be created
         // once, and can be reused for multiple requests. After completing all of your requests, call
-        // the "close" method on the client to safely clean up any remaining background [resources.](https://docs.cloud.google.com/java/docs/reference/google-cloud-vision/latest/com.google.cloud.vision.v1.ImageAnnotatorClient.html)
-        try (ImageAnnot[atorClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-vision/latest/com.google.cloud.vision.v1.ImageAnnotatorClient.html) client = ImageAnnotatorClien[t](https://docs.cloud.google.com/java/docs/reference/google-cloud-vision/latest/com.google.cloud.vision.v1.BatchAnnotateImagesResponse.html).create()) {
-          BatchAnnotateImagesResponse response = client.batchAnnotateImages(r<equests);
-          ListA>nnotateImageResponse r[esponses](https://docs.cloud.google.com/java/docs/reference/google-cloud-vision/latest/com.google.cloud.vision.v1.BatchAnnotateImagesResponse.html#com_google_cloud_vision_v1_BatchAnnotateImagesResponse_getResponsesList__) = response.getResponses[List](https://docs.cloud.google.com/java/docs/reference/google-cloud-vision/latest/com.google.cloud.vision.v1.AnnotateImageResponse.html)();
+        // the "close" method on the client to safely clean up any remaining background resources.
+        try ([ImageAnnotatorClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-vision/latest/com.google.cloud.vision.v1.ImageAnnotatorClient.html) client = [ImageAnnotatorClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-vision/latest/com.google.cloud.vision.v1.ImageAnnotatorClient.html).create()) {
+          [BatchAnnotateImagesResponse](https://docs.cloud.google.com/java/docs/reference/google-cloud-vision/latest/com.google.cloud.vision.v1.BatchAnnotateImagesResponse.html) response = client.batchAnnotateImages(requests);
+          List<AnnotateImageResponse> responses = response.[getResponsesList](https://docs.cloud.google.com/java/docs/reference/google-cloud-vision/latest/com.google.cloud.vision.v1.BatchAnnotateImagesResponse.html#com_google_cloud_vision_v1_BatchAnnotateImagesResponse_getResponsesList__)();
     
-          for (AnnotateImageResponse res : responses) {
+          for ([AnnotateImageResponse](https://docs.cloud.google.com/java/docs/reference/google-cloud-vision/latest/com.google.cloud.vision.v1.AnnotateImageResponse.html) res : responses) {
             if (res.hasError()) {
               System.out.format("Error: %s%n", res.getError().getMessage());
               return;
             }
     
-            // For full list of available annotations, see http://g[.co/cloud/vision/doc](https://docs.cloud.google.com/java/docs/reference/google-cloud-vision/latest/com.google.cloud.vision.v1.SafeSearchAnnotation.html)s
-            SafeSearchAnnotation annotation = res.getSafeSearchAnnotation();
+            // For full list of available annotations, see http://g.co/cloud/vision/docs
+            [SafeSearchAnnotation](https://docs.cloud.google.com/java/docs/reference/google-cloud-vision/latest/com.google.cloud.vision.v1.SafeSearchAnnotation.html) annotation = res.getSafeSearchAnnotation();
             System.out.format(
-                "adult: %s%nmedical: %s%nspoofed: %s%nviolence: %s%nr[acy: %s%](https://docs.cloud.google.com/java/docs/reference/google-cloud-vision/latest/com.google.cloud.vision.v1.SafeSearchAnnotation.html#com_google_cloud_vision_v1_SafeSearchAnnotation_getAdult__)n",
-                annota[tion](https://docs.cloud.google.com/java/docs/reference/google-cloud-vision/latest/com.google.cloud.vision.v1.SafeSearchAnnotation.html#com_google_cloud_vision_v1_SafeSearchAnnotation_getMedical__).getAdult(),
-                annotati[on](https://docs.cloud.google.com/java/docs/reference/google-cloud-vision/latest/com.google.cloud.vision.v1.SafeSearchAnnotation.html#com_google_cloud_vision_v1_SafeSearchAnnotation_getSpoof__).getMedical(),
-                annota[tion](https://docs.cloud.google.com/java/docs/reference/google-cloud-vision/latest/com.google.cloud.vision.v1.SafeSearchAnnotation.html#com_google_cloud_vision_v1_SafeSearchAnnotation_getViolence__).getSpoof(),
-                annotatio[n](https://docs.cloud.google.com/java/docs/reference/google-cloud-vision/latest/com.google.cloud.vision.v1.SafeSearchAnnotation.html#com_google_cloud_vision_v1_SafeSearchAnnotation_getRacy__).getViolence(),
-                annotation.getRacy());
+                "adult: %s%nmedical: %s%nspoofed: %s%nviolence: %s%nracy: %s%n",
+                annotation.[getAdult](https://docs.cloud.google.com/java/docs/reference/google-cloud-vision/latest/com.google.cloud.vision.v1.SafeSearchAnnotation.html#com_google_cloud_vision_v1_SafeSearchAnnotation_getAdult__)(),
+                annotation.[getMedical](https://docs.cloud.google.com/java/docs/reference/google-cloud-vision/latest/com.google.cloud.vision.v1.SafeSearchAnnotation.html#com_google_cloud_vision_v1_SafeSearchAnnotation_getMedical__)(),
+                annotation.[getSpoof](https://docs.cloud.google.com/java/docs/reference/google-cloud-vision/latest/com.google.cloud.vision.v1.SafeSearchAnnotation.html#com_google_cloud_vision_v1_SafeSearchAnnotation_getSpoof__)(),
+                annotation.[getViolence](https://docs.cloud.google.com/java/docs/reference/google-cloud-vision/latest/com.google.cloud.vision.v1.SafeSearchAnnotation.html#com_google_cloud_vision_v1_SafeSearchAnnotation_getViolence__)(),
+                annotation.[getRacy](https://docs.cloud.google.com/java/docs/reference/google-cloud-vision/latest/com.google.cloud.vision.v1.SafeSearchAnnotation.html#com_google_cloud_vision_v1_SafeSearchAnnotation_getRacy__)());
           }
         }
       }
@@ -139,10 +139,10 @@ To authenticate to Vision, set up Application Default Credentials. For more info
     
     
     // Imports the Google Cloud client libraries
-    const vision = require(&[#39;@google-cloud/vi](https://docs.cloud.google.com/nodejs/docs/reference/vision/latest/overview.html)sion');
+    const vision = require('[@google-cloud/vision](https://docs.cloud.google.com/nodejs/docs/reference/vision/latest/overview.html)');
     
     // Creates a client
-    const client = new[ vision.ImageAnnotat](https://docs.cloud.google.com/nodejs/docs/reference/vision/latest/overview.html)orClient();
+    const client = new vision.[ImageAnnotatorClient](https://docs.cloud.google.com/nodejs/docs/reference/vision/latest/overview.html)();
     
     /**
      * TODO(developer): Uncomment the following lines before running the sample.
@@ -179,15 +179,15 @@ To authenticate to Vision, set up Application Default Credentials. For more info
         $imageAnnotator = new ImageAnnotatorClient();
     
         # annotate the image
-        $response = $image>Annotator-safeSearchDetection($path);
-        $safe = >$response-getSafeSearchAnnotation();
+        $response = $imageAnnotator->safeSearchDetection($path);
+        $safe = $response->getSafeSearchAnnotation();
     
         if ($safe) {
-            $adul>t = $safe-getAdult();
-            $medica>l = $safe-getMedical();
-            $spoo>f = $safe-getSpoof();
-            $violenc>e = $safe-getViolence();
-            $rac>y = $safe-getRacy();
+            $adult = $safe->getAdult();
+            $medical = $safe->getMedical();
+            $spoof = $safe->getSpoof();
+            $violence = $safe->getViolence();
+            $racy = $safe->getRacy();
     
             # names of likelihood from google.cloud.vision.enums
             $likelihoodName = ['UNKNOWN', 'VERY_UNLIKELY', 'UNLIKELY',
@@ -197,12 +197,12 @@ To authenticate to Vision, set up Application Default Credentials. For more info
             printf('Medical: %s' . PHP_EOL, $likelihoodName[$medical]);
             printf('Spoof: %s' . PHP_EOL, $likelihoodName[$spoof]);
             printf('Violence: %s' . PHP_EOL, $likelihoodName[$violence]);
-            printf('Racy: %s' . PHP_EOL, $likeli>hoodName[$racy]);
+            printf('Racy: %s' . PHP_EOL, $likelihoodName[$racy]);
         } else {
             print('No Results.' . PHP_EOL);
         }
     
-        $imageAnnotator-close();
+        $imageAnnotator->close();
     }
 
 ### Python
@@ -215,10 +215,10 @@ To authenticate to Vision, set up Application Default Credentials. For more info
     def detect_safe_search_uri(uri):
         """Detects unsafe features in the file located in Google Cloud Storage or
         on the Web."""
-        from google.cloud impor[t](https://docs.cloud.google.com/python/docs/reference/vision/latest/google.cloud.vision_v1.services.image_annotator.ImageAnnotatorClient.html) vision
+        from google.cloud import vision
     
-        client = vision.ImageAnnotat[orCli](https://docs.cloud.google.com/python/docs/reference/vision/latest/google.cloud.vision_v1.types.Image.html)ent()
-        image = vision.Image()
+        client = vision.[ImageAnnotatorClient](https://docs.cloud.google.com/python/docs/reference/vision/latest/google.cloud.vision_v1.services.image_annotator.ImageAnnotatorClient.html)()
+        image = vision.[Image](https://docs.cloud.google.com/python/docs/reference/vision/latest/google.cloud.vision_v1.types.Image.html)()
         image.source.image_uri = uri
     
         response = client.safe_search_detection(image=image)

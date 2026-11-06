@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/identity-platform/docs/how-to-configure-custom-claims/
 title: Configure custom claims on users \u00a0|\u00a0 Identity Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-05T11:08:36.946312+00:00
+fetched_at: 2026-11-06T08:21:10.003420+00:00
 ---
 
 # Configure custom claims on users  |  Identity Platform  |  Google Cloud Documentation
@@ -62,7 +62,7 @@ To preserve security, set custom claims using the Admin SDK on your server:
          # The new custom claims will propagate to the user's ID token the
          # next time a new one is issued.
          
-         [index.py](https://github.com/firebase/firebase-admin-python/blob/ae0a284127609272957c594af7c8a6179d87d1d4/snippets/auth/index.py#L282-L285)
+         [index.py](https://github.com/firebase/firebase-admin-python/blob/00e0754146a2051d98952f5928c7e2f2c2ed695a/snippets/auth/index.py#L282-L285)
 
 ###  Go 
          
@@ -129,7 +129,7 @@ To preserve security, set custom claims using the Admin SDK on your server:
              # Allow access to requested admin resource.
              pass
          
-         [index.py](https://github.com/firebase/firebase-admin-python/blob/ae0a284127609272957c594af7c8a6179d87d1d4/snippets/auth/index.py#L290-L294)
+         [index.py](https://github.com/firebase/firebase-admin-python/blob/00e0754146a2051d98952f5928c7e2f2c2ed695a/snippets/auth/index.py#L290-L294)
 
 ###  Go 
          
@@ -193,7 +193,7 @@ To preserve security, set custom claims using the Admin SDK on your server:
          # The claims can be accessed on the user record.
          print(user.custom_claims.get('admin'))
          
-         [index.py](https://github.com/firebase/firebase-admin-python/blob/ae0a284127609272957c594af7c8a6179d87d1d4/snippets/auth/index.py#L298-L301)
+         [index.py](https://github.com/firebase/firebase-admin-python/blob/00e0754146a2051d98952f5928c7e2f2c2ed695a/snippets/auth/index.py#L298-L301)
 
 ###  Go 
          

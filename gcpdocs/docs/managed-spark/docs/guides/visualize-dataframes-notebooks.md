@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/managed-spark/docs/guides/visualize-dataframes-notebooks/
 title: Visualize Spark DataFrames in notebooks \u00a0|\u00a0 Managed Service for Apache Spark \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-06T05:53:36.854341+00:00
+fetched_at: 2026-11-06T11:11:31.240570+00:00
 ---
 
 # Visualize Spark DataFrames in notebooks  |  Managed Service for Apache Spark  |  Google Cloud Documentation

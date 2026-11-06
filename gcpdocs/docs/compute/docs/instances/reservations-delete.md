@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/compute/docs/instances/reservations-delete/
 title: Delete reservations \u00a0|\u00a0 Compute Engine \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T23:27:52.120355+00:00
+fetched_at: 2026-11-06T09:08:10.223965+00:00
 ---
 
 # Delete reservations  |  Compute Engine  |  Google Cloud Documentation
@@ -21,15 +21,22 @@ Send feedback
 
 #  Delete reservations Stay organized with collections  Save and categorize content based on your preferences. 
 
-This document explains how to delete reservations. To learn how to delete future reservation requests, see [Cancel or delete future reservation requests](https://docs.cloud.google.com/compute/docs/instances/delete-future-reservations) instead.
+This document explains how to permanently delete a reservation, whether you created it or Compute Engine automatically created the reservation to fulfill a future reservation request. To learn how to delete a future reservation, see one of the following instead:
 
-Delete a reservation to stop incurring charges for reserved resources that you no longer need.
+  * [Cancel or delete a future reservation request](https://docs.cloud.google.com/compute/docs/instances/delete-future-reservations)
+
+  * [Delete a future reservation request in calendar mode](https://docs.cloud.google.com/compute/docs/instances/delete-future-reservations-calendar-mode)
+
+
+
+
+Delete a reservation to stop incurring charges for reserved resources that you no longer need. Alternatively, delete a reservation when you want to replace it with a new reservation that specifies different compute instance properties—such as a different machine type.
 
 ## Limitations
 
 Before you delete a reservation, consider the following:
 
-  * You can only delete a shared reservation in the same project where you created it.
+  * You can only delete a shared reservation from the same project where you created it.
 
   * You can only delete a [_specifically targeted_ reservation](https://docs.cloud.google.com/compute/docs/instances/reservations-overview#consumption-type) if no Compute Engine instances consume it. If any instances consume the reservation, then, before you delete it, do one of the following:
 
@@ -37,7 +44,7 @@ Before you delete a reservation, consider the following:
 
     * [Stop](https://docs.cloud.google.com/compute/docs/instances/stop-start-instance#stop-vm) or [suspend the instances](https://docs.cloud.google.com/compute/docs/instances/suspend-resume-instance)
 
-**Caution:** If you stop or suspend instances that you created to consume a specific reservation, then you can only restart or resume them if you create a new specific reservation with the same name, zone, and properties as the deleted reservation.
+**Caution:** If you stop or suspend instances that you created to consume a specific reservation, then you can only restart or resume those instances if you create a new specific reservation with the same name, zone, owner project, and properties as the deleted reservation.
   * You can only delete an auto-created reservation for a future reservation after its reservation period ends.
 
   * For reservations that are attached to commitments, if your commitment specifies any [resource types that require attached reservations](https://docs.cloud.google.com/compute/docs/instances/reservations-with-commitments#committed_resources_that_require_attached_reservations), then you can't manually delete the reservation. However, you can [replace the existing attached reservation with a new one](https://docs.cloud.google.com/compute/docs/instances/reservations-with-commitments#modifying_reservations_that_are_attached_to_commitments).
@@ -455,6 +462,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-06 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-06 UTC."],[],[]] 

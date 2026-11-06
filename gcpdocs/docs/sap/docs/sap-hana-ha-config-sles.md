@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sap/docs/sap-hana-ha-config-sles/
 title: HA scale-up cluster configuration guide for SAP HANA on SLES \u00a0|\u00a0 SAP on Google Cloud \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-03T09:44:10.880579+00:00
+fetched_at: 2026-11-06T08:23:51.413567+00:00
 ---
 
 # HA scale-up cluster configuration guide for SAP HANA on SLES  |  SAP on Google Cloud  |  Google Cloud Documentation
@@ -36,21 +36,26 @@ This guide includes the steps for:
 
 This guide also includes steps for configuring SAP HANA system replication, but refer to the SAP documentation for the definitive instructions.
 
-To deploy a SAP HANA system without a Linux high-availability cluster or a standby node host, use the [SAP HANA deployment guide](https://docs.cloud.google.com/sap/docs/sap-hana-deployment-guide).
+To deploy a SAP HANA system without a Linux high-availability cluster or a standby node host, see the following resources:
 
-To configure an HA cluster for SAP HANA on Red Hat Enterprise Linux (RHEL), see the [HA cluster configuration guide for SAP HANA scale-up on RHEL](https://docs.cloud.google.com/sap/docs/sap-hana-ha-config-rhel).
+  * [Terraform: SAP HANA scale-up deployment guide](https://docs.cloud.google.com/sap/docs/sap-hana-deployment-guide-tf)
+  * [Terraform: SAP HANA multi-host scale-out deployment guide](https://docs.cloud.google.com/sap/docs/sap-hana-scaleout-deployment-tf)
+
+
+
+To configure an HA cluster for SAP HANA on Red Hat Enterprise Linux (RHEL), see the [HA cluster configuration guide for SAP HANA scale-up on RHEL](https://docs.cloud.google.com/sap/docs/sap-hana-scaleup-ha-manual-config-rhel).
 
 This guide is intended for advanced SAP HANA users who are familiar with Linux high-availability configurations for SAP HANA.
 
 ## The system that this guide deploys
 
-Following this guide, you will deploy two SAP HANA instances and set up an HA cluster on SLES. You deploy each SAP HANA instance on a Compute Engine VM in a different zone within the same region. A high-availability installation of SAP NetWeaver is not covered in this guide.
+Following this guide, you deploy two SAP HANA instances and set up an HA cluster on SLES. You deploy each SAP HANA instance on a Compute Engine instance in a different zone within the same region. A high-availability installation of SAP NetWeaver is not covered in this guide.
 
 ![Overview of a high-availability Linux cluster for a single-node SAP HANA scaleup system](https://docs.cloud.google.com/static/sap/docs/images/ha-hana-scaleup-overview.svg)
 
 The deployed cluster includes the following functions and features:
 
-  * Two host VMs, each with an instance of SAP HANA
+  * Two host Compute Engine instances, each hosting an instance of SAP HANA.
   * Synchronous SAP HANA system replication.
   * The Pacemaker high-availability cluster resource manager.
   * A STONITH fencing mechanism.
@@ -58,23 +63,23 @@ The deployed cluster includes the following functions and features:
 
 
 
-This guide has you use the Cloud Deployment Manager templates that are provided by Google Cloud to deploy the Compute Engine virtual machines (VMs) and the SAP HANA instances, which ensures that the VMs and the base SAP HANA systems meet SAP supportability requirements and conform to current best practices.
+This guide has you use the Cloud Deployment Manager templates that are provided by Google Cloud to deploy the Compute Engine instances and the SAP HANA instances, which ensures that the compute instances and the base SAP HANA systems meet SAP supportability requirements and conform to best practices.
 
-SAP HANA Studio is used in this guide to test SAP HANA system replication. You can use SAP HANA Cockpit instead, if you prefer. For information about installing SAP HANA Studio, see:
+This guide also uses SAP HANA Studio to test SAP HANA system replication. If you prefer, you can use SAP HANA Cockpit instead. For information about installing SAP HANA Studio, see the following resources:
 
   * [Installing SAP HANA Studio on a Compute Engine Windows VM](https://docs.cloud.google.com/sap/docs/sap-hana-deployment-guide#install_hana_studio)
   * [SAP HANA Studio Installation and Update Guide](https://help.sap.com/viewer/a2a49126a5c546a9864aae22c05c3d0e/2.0.02/en-US)
 
 
 
-## Prerequisites
+## Before you begin
 
-Before you create the SAP HANA high availability cluster, make sure that the following prerequisites are met:
+Before you create the SAP HANA high availability cluster, make sure that you satisfy the following prerequisites:
 
   * You have read the [SAP HANA planning guide](https://docs.cloud.google.com/sap/docs/sap-hana-planning-guide) and the [SAP HANA high-availability planning guide](https://docs.cloud.google.com/sap/docs/sap-hana-ha-planning-guide). 
-  * You or your organization has a Google Cloud account and you have created a project for the SAP HANA deployment. For information about creating Google Cloud accounts and projects, see [Setting up your Google account](https://docs.cloud.google.com/sap/docs/sap-hana-deployment-guide#setting-up-your-google-account) in the SAP HANA Deployment Guide.
+  * You or your organization has a Google Cloud account and you have created a project for the SAP HANA deployment. For information about creating Google Cloud accounts and projects, see [Setting up your Google account](https://docs.cloud.google.com/sap/docs/sap-hana-deployment-guide-tf#setting-up-your-google-account).
   * If you require your SAP workload to run in compliance with data residency, access control, support personnel, or regulatory requirements, then you must create the required Assured Workloads folder. For more information, see [Compliance and sovereign controls for SAP on Google Cloud](https://docs.cloud.google.com/sap/docs/compliance-and-sovereign-controls). 
-  * The SAP HANA installation media is stored in a Cloud Storage bucket that is available in your deployment project and region. For information about how to upload SAP HANA installation media to a Cloud Storage bucket, see [Downloading SAP HANA](https://docs.cloud.google.com/sap/docs/sap-hana-deployment-guide#creating_a_cloud_storage_bucket_for_the_sap_hana_installation_files) in the SAP HANA Deployment Guide.
+  * The SAP HANA installation media is stored in a Cloud Storage bucket that is available in your deployment project and region. For information about how to upload SAP HANA installation media to a Cloud Storage bucket, see [Creating a Cloud Storage bucket for the SAP HANA installation files](https://docs.cloud.google.com/sap/docs/sap-hana-deployment-guide-tf#creating_a_cloud_storage_bucket_for_the_sap_hana_installation_files).
 
   * If [OS login](https://docs.cloud.google.com/compute/docs/instances/access-overview#oslogin) is enabled in your project metadata, then you need to disable OS login temporarily until your deployment is complete. For deployment purposes, this procedure configures SSH keys in instance metadata. When OS login is enabled, metadata-based SSH key configurations are disabled, and this deployment fails. After deployment is complete, you can enable OS login again.
 
@@ -82,7 +87,7 @@ For more information, see:
 
     * [Enabling or disabling OS Login](https://docs.cloud.google.com/compute/docs/instances/managing-instance-access#enable_oslogin)
     * [Add SSH keys to VMs that use metadata-based SSH keys](https://docs.cloud.google.com/compute/docs/connect/add-ssh-keys#metadata)
-  * If you are using [VPC internal DNS](https://docs.cloud.google.com/compute/docs/internal-dns), the value of the `vmDnsSetting` variable in your project metadata must be either `GlobalOnly` or `ZonalPreferred` to enable the resolution of the node names across zones. The default setting of `vmDnsSetting` is `ZonalOnly`. For more information, see:
+  * If you're using [VPC internal DNS](https://docs.cloud.google.com/compute/docs/internal-dns), then the value of the `vmDnsSetting` variable in your project metadata must be either `GlobalOnly` or `ZonalPreferred` to enable the resolution of the node names across zones. The default setting of `vmDnsSetting` is `ZonalOnly`. For more information, see:
 
     * [Configuring DNS names for your project or instances](https://docs.cloud.google.com/compute/docs/networking/zonal-dns#setting-zonal-dns)
     * [Querying custom metadata](https://docs.cloud.google.com/compute/docs/storing-retrieving-metadata#querying_custom_metadata)
@@ -508,7 +513,7 @@ To verify that the infrastructure metrics are collected by Google Cloud's Agent 
 
 ## Set up monitoring for SAP HANA
 
-Optionally, you can monitor your SAP HANA instances using Google Cloud's Agent for SAP. From version 2.0, you can configure the agent to collect the SAP HANA monitoring metrics and send them to [Cloud Monitoring](https://docs.cloud.google.com/monitoring/docs). Cloud Monitoring lets you create dashboards to visualize these metrics, set up alerts based on metric thresholds, and more.
+Optionally, you can monitor your SAP HANA instances by using Google Cloud's Agent for SAP. From version 2.0, you can configure the agent to collect the SAP HANA monitoring metrics and send them to [Cloud Monitoring](https://docs.cloud.google.com/monitoring/docs). Cloud Monitoring lets you create dashboards to visualize these metrics, set up alerts based on metric thresholds, and more.
 
 For more information about the collection of SAP HANA monitoring metrics using Google Cloud's Agent for SAP, see [SAP HANA monitoring metrics collection](https://docs.cloud.google.com/sap/docs/agent-for-sap/latest/planning#sap_hana_monitoring_metrics).
 
@@ -965,13 +970,11 @@ On both the primary and secondary site, complete the following steps:
          
          > HDB stop
 
-
-
-  1. As root or `SID_LCadm`, open the `global.ini` file for editing:
+  2. As root or `SID_LCadm`, open the `global.ini` file for editing:
          
          > vi /hana/shared/SID/global/hdb/custom/config/global.ini
 
-  2. Add the following definitions to the `global.ini` file:
+  3. Add the following definitions to the `global.ini` file:
 
 ###  SLES for SAP 15 SP5 or earlier 
          
@@ -1060,11 +1063,11 @@ For the `action_on_lost` parameter, you can choose one of the following values:
 
 For more information, see the [`susCheckSrv.py`](https://github.com/SUSE/SAPHanaSR/blob/main/man/susChkSrv.py.7) man page.
 
-  3. As root, create a custom configuration file in the `/etc/sudoers.d` directory by running the following command. This new configuration file allows the `SID_LCadm` user to access the cluster node attributes when the `srConnectionChanged()` hook method is called.
+  4. As root, create a custom configuration file in the `/etc/sudoers.d` directory by running the following command. This new configuration file allows the `SID_LCadm` user to access the cluster node attributes when the `srConnectionChanged()` hook method is called.
          
          > visudo -f /etc/sudoers.d/SAPHanaSR
 
-  4. In the `/etc/sudoers.d/SAPHanaSR` file, add the following text:
+  5. In the `/etc/sudoers.d/SAPHanaSR` file, add the following text:
 
 ###  SLES for SAP 15 SP5 or earlier 
 
@@ -1113,7 +1116,7 @@ To view the site names, you can run the `crm_mon -A1 | grep site` command as the
     Cmnd_Alias HOOK_HELPER = /usr/bin/SAPHanaSR-hookHelper --sid=SID --case=*
     SID_LCadm ALL=(ALL) NOPASSWD: SOK_SITEA, SFAIL_SITEA, SOK_SITEB, SFAIL_SITEB, HOOK_HELPER
 
-  5. In your `/etc/sudoers` file, make sure that the following text is included:
+  6. In your `/etc/sudoers` file, make sure that the following text is included:
 
      * For SLES for SAP 15 SP3 or later: 
            
@@ -1126,11 +1129,11 @@ To view the site names, you can run the `crm_mon -A1 | grep site` command as the
 Note that the `#` in this text is part of the syntax and does not mean that the line is a comment.
 
 **Note:** While the procedure in this section is recommended by SUSE, you can use an alternative approach. Instead of creating a drop-in configuration file, you can add the required access directly to your `/etc/sudoers` file.
-  6. As `SID_LCadm`, start SAP HANA:
+  7. As `SID_LCadm`, start SAP HANA:
          
          > HDB start
 
-  7. After you complete the cluster configuration for SAP HANA, you can verify that the hook functions correctly during a failover test as described in [Troubleshooting the SAPHanaSR python hook](https://www.suse.com/support/kb/doc/?id=000019865) and [HA cluster takeover takes too long on HANA indexserver failure](https://www.suse.com/support/kb/doc/?id=000020845). 
+  8. After you complete the cluster configuration for SAP HANA, you can verify that the hook functions correctly during a failover test as described in [Troubleshooting the SAPHanaSR python hook](https://www.suse.com/support/kb/doc/?id=000019865) and [HA cluster takeover takes too long on HANA indexserver failure](https://www.suse.com/support/kb/doc/?id=000020845). 
 
 
 
@@ -1953,7 +1956,7 @@ These instructions use `iptables` to simulate a network disruption between your 
          
          # iptables -D INPUT -s PRIMARY_CLUSTER_IP -j DROP; iptables -D OUTPUT -d PRIMARY_CLUSTER_IP -j DROP
 
-  3. Enter `crm status` to confirm that the primary host is now active on the VM that used to contain the secondary host. Automatic restart is enabled in the cluster, so the stopped host will restart and assume the role of secondary host, as shown in the following example.
+  3. Enter `crm status` to confirm that the primary host is now active on the VM that used to contain the secondary host. Automatic restart is enabled in the cluster, so the stopped host restarts and assumes the role of secondary host, as shown in the following example.
 
 ###  SLES for SAP 15 SP5 or earlier 
          
@@ -2241,7 +2244,7 @@ The following examples shows the status of an active, properly configured cluste
 
 To automate continuous validation checks for your SAP HANA high-availability workloads running on Google Cloud, you can use [Workload Manager](https://docs.cloud.google.com/workload-manager/docs/overview).
 
-Workload Manager allows you to automatically scan and evaluate your SAP HANA high-availability workloads against best practices from SAP, Google Cloud, and OS vendors. This helps improve the quality, performance, and reliability of your workloads.
+Workload Manager lets you automatically scan and evaluate your SAP HANA high-availability workloads against best practices from SAP, Google Cloud, and OS vendors. This helps improve the quality, performance, and reliability of your workloads.
 
 For information about the best practices that Workload Manager supports for evaluating SAP HANA high-availability workloads running on Google Cloud, see [Workload Manager best practices for SAP](https://docs.cloud.google.com/workload-manager/docs/reference/best-practices). For information about creating and running an evaluation using Workload Manager, see [Create and run an evaluation](https://docs.cloud.google.com/workload-manager/docs/create-evaluation).
 
@@ -2289,7 +2292,7 @@ After you complete the deployment, finish with the following steps:
          
          sudo passwd SID_LCadm
 
-For information from SAP about changing the password, see [Reset the SYSTEM User Password of the System Database](https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/LATEST/en-US/6b13cdd1982f4aa6b90b443663d17d7e.html).
+For information from SAP about changing the password, see [Reset the `SYSTEM` User Password of the System Database](https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/LATEST/en-US/6b13cdd1982f4aa6b90b443663d17d7e.html).
 
   2. Before using your SAP HANA instance, configure and backup your new SAP HANA database.
 
@@ -2313,12 +2316,12 @@ See the following resource for more information:
 * [Automated SAP HANA System Replication in Scale-Up in pacemaker cluster](https://access.redhat.com/articles/3004101)
 * [SAP HANA high-availability planning guide](https://docs.cloud.google.com/sap/docs/sap-hana-ha-planning-guide)
 * [SAP HANA disaster recovery planning guide](https://docs.cloud.google.com/sap/docs/sap-hana-dr-planning-guide)
-* For more information about VM administration and monitoring, see the [SAP HANA Operations Guide](https://docs.cloud.google.com/sap/docs/sap-hana-operations-guide)
+* For more information about VM administration and monitoring, see the [SAP HANA operations guide](https://docs.cloud.google.com/sap/docs/sap-hana-operations-guide)
 
 Send feedback 
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-29 UTC.
+Last updated 2026-11-06 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-06 UTC."],[],[]] 

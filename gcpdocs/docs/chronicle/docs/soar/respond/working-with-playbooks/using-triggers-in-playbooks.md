@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chronicle/docs/soar/respond/working-with-playbooks/using-triggers-in-playbooks/
 title: Manage playbook triggers \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T23:33:45.873129+00:00
+fetched_at: 2026-11-06T10:21:38.790025+00:00
 ---
 
 # Manage playbook triggers  |  Google Security Operations  |  Google Cloud Documentation
@@ -67,7 +67,7 @@ For event-based and lifecycle triggers that fire during an active investigation,
 
 To add an ingestion trigger to your workflow, follow these steps:
 
-  1. Create a new playbook. For details, see [Create and edit a playbook with Gemini](https://docs.cloud.google.com/chronicle/docs/soar/respond/working-with-playbooks/create-edit-playbook-with-gemini).
+  1. Create a new playbook. For details, see [Create your first playbook](https://docs.cloud.google.com/chronicle/docs/soar/respond/start-developing/my-first-automation).
   2. In the playbook creation dialog, select your playbook **Scope** (**Alert** or **Case**) to load the correct trigger set, then click **Create**.
   3. On the **Step Selection** menu, select **Triggers**.
   4. Select the **Ingestion** tab, choose a trigger, and drag it to the first step box on the playbook canvas.
@@ -86,6 +86,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-04 UTC.
+Last updated 2026-11-05 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-05 UTC."],[],[]] 

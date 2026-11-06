@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/vertex-ai/docs/samples/aiplatform-cancel-training-pipeline-sample/
 title: Cancel a training pipeline \u00a0|\u00a0 Vertex AI \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T09:38:47.770471+00:00
+fetched_at: 2026-11-06T10:31:42.077896+00:00
 ---
 
 # Cancel a training pipeline  |  Vertex AI  |  Google Cloud Documentation
@@ -34,9 +34,9 @@ Before trying this sample, follow the Java setup instructions in the [Vertex AI 
 To authenticate to Vertex AI, set up Application Default Credentials. For more information, see [Set up authentication for a local development environment](https://docs.cloud.google.com/docs/authentication/set-up-adc-local-dev-environment). 
     
     
-    import com.google.cloud.aiplatform.v1.[PipelineServiceClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.PipelineServiceClient.html);
-    import com.google.cloud.aiplatform.v1.[PipelineServiceSettings](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.PipelineServiceSettings.html);
-    import com.google.cloud.aiplatform.v1.[TrainingPipelineName](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.TrainingPipelineName.html);
+    import com.google.cloud.aiplatform.v1.PipelineServiceClient;
+    import com.google.cloud.aiplatform.v1.PipelineServiceSettings;
+    import com.google.cloud.aiplatform.v1.TrainingPipelineName;
     import java.io.IOException;
     
     public class CancelTrainingPipelineSample {
@@ -50,19 +50,19 @@ To authenticate to Vertex AI, set up Application Default Credentials. For more i
     
       static void cancelTrainingPipelineSample(String project, String trainingPipelineId)
           throws IOException {
-        [PipelineServiceSettings](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.PipelineServiceSettings.html) pipelineServiceSettings =
-            [PipelineServiceSettings](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.PipelineServiceSettings.html).newBuilder()
+        PipelineServiceSettings pipelineServiceSettings =
+            PipelineServiceSettings.newBuilder()
                 .setEndpoint("us-central1-aiplatform.googleapis.com:443")
                 .build();
     
         // Initialize client that will be used to send requests. This client only needs to be created
         // once, and can be reused for multiple requests. After completing all of your requests, call
         // the "close" method on the client to safely clean up any remaining background resources.
-        try ([PipelineServiceClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.PipelineServiceClient.html) pipelineServiceClient =
-            [PipelineServiceClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.PipelineServiceClient.html).create(pipelineServiceSettings)) {
+        try (PipelineServiceClient pipelineServiceClient =
+            PipelineServiceClient.create(pipelineServiceSettings)) {
           String location = "us-central1";
-          [TrainingPipelineName](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.TrainingPipelineName.html) trainingPipelineName =
-              [TrainingPipelineName](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.TrainingPipelineName.html).of(project, location, trainingPipelineId);
+          TrainingPipelineName trainingPipelineName =
+              TrainingPipelineName.of(project, location, trainingPipelineId);
     
           pipelineServiceClient.cancelTrainingPipeline(trainingPipelineName);
     
@@ -91,11 +91,11 @@ To authenticate to Vertex AI, set up Application Default Credentials. For more i
         client_options = {"api_endpoint": api_endpoint}
         # Initialize client that will be used to create and send requests.
         # This client only needs to be created once, and can be reused for multiple requests.
-        client = aiplatform.gapic.[PipelineServiceClient](https://docs.cloud.google.com/python/docs/reference/aiplatform/latest/google.cloud.aiplatform_v1.services.pipeline_service.PipelineServiceClient.html)(client_options=client_options)
-        name = client.[training_pipeline_path](https://docs.cloud.google.com/python/docs/reference/aiplatform/latest/google.cloud.aiplatform_v1.services.pipeline_service.PipelineServiceClient.html#google_cloud_aiplatform_v1_services_pipeline_service_PipelineServiceClient_training_pipeline_path)(
+        client = aiplatform.gapic.PipelineServiceClient(client_options=client_options)
+        name = client.training_pipeline_path(
             project=project, location=location, training_pipeline=training_pipeline_id
         )
-        response = client.[cancel_training_pipeline](https://docs.cloud.google.com/python/docs/reference/aiplatform/latest/google.cloud.aiplatform_v1.services.pipeline_service.PipelineServiceClient.html#google_cloud_aiplatform_v1_services_pipeline_service_PipelineServiceClient_cancel_training_pipeline)(name=name)
+        response = client.cancel_training_pipeline(name=name)
         print("response:", response)
     
     

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/storage-transfer/docs/on-prem-agent-best-practices/
 title: Best practices for file system transfers \u00a0|\u00a0 Storage Transfer Service \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T05:49:00.750147+00:00
+fetched_at: 2026-11-06T10:53:04.394974+00:00
 ---
 
 # Best practices for file system transfers  |  Storage Transfer Service  |  Google Cloud Documentation
@@ -55,7 +55,7 @@ HDFS and S3-compatible file systems do not support multipart uploads.
 
 To enable multipart uploads:
 
-  * You must [grant the required permissions](https://docs.cloud.google.com/storage-transfer/docs/file-system-permissions#multipart_uploads) to the account authorizing transfer agents, either a user account or a service account.
+  * You must [grant the required permissions](https://docs.cloud.google.com/storage-transfer/docs/sink-cloud-storage#multipart-permissions) to the account authorizing transfer agents, either a user account or a service account.
 
   * The destination or intermediate bucket must not have a retention policy or object hold.
 
@@ -92,7 +92,7 @@ Replace the following:
 
 
 
-Alternatively, [revoke the required permissions](https://docs.cloud.google.com/storage-transfer/docs/file-system-permissions#multipart_uploads) from the account authorizing transfer agents, either a user account or a service account.
+Alternatively, [revoke the required permissions](https://docs.cloud.google.com/storage-transfer/docs/sink-cloud-storage#multipart-permissions) from the account authorizing transfer agents, either a user account or a service account.
 
 ## Maximize transfer agent performance
 
@@ -123,7 +123,7 @@ To observe the impact of adding agents, and to choose the number of agents that 
 
   1. Start a large transfer that takes at least 1 hour to run. For example, start a transfer that contains at least 100k files and is at least 100 GB in total size.
 
-  2. Use [Cloud Monitoring to observe the overall agent throughput](https://cloud.google.com/storage-transfer/docs/managing-on-prem-agents#monitor-agent-stackdriver).
+  2. Use [Cloud Monitoring to observe the overall agent throughput](https://docs.cloud.google.com/storage-transfer/docs/managing-on-prem-agents#monitor-agents).
 
   3. Wait for the throughput to level off, and determine if you are limited by your WAN capacity or your bandwidth cap.
 
@@ -137,7 +137,7 @@ Repeat steps 3 and 4, adding one agent at a time until you reach your desired li
 If you saturate your outbound bandwidth before you reach your desired limit, you can do any of the following:
 
   * [Control the bandwidth used by Storage Transfer Service](https://docs.cloud.google.com/storage-transfer/docs/obtaining-bandwidth-on-prem).
-  * [Obtain more network bandwidth](https://docs.cloud.google.com/storage-transfer/docs/obtaining-bandwidth-on-prem#moar_bandwidth).
+  * [Obtain more network bandwidth](https://docs.cloud.google.com/storage-transfer/docs/obtaining-bandwidth-on-prem#moar-bandwidth).
 
 
 
@@ -162,6 +162,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-05 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-05 UTC."],[],[]] 

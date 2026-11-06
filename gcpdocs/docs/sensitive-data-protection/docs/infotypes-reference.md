@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sensitive-data-protection/docs/infotypes-reference/
 title: InfoType detector reference \u00a0|\u00a0 Sensitive Data Protection \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-03T09:41:49.894650+00:00
+fetched_at: 2026-11-06T10:26:25.162418+00:00
 ---
 
 # InfoType detector reference  |  Sensitive Data Protection  |  Google Cloud Documentation

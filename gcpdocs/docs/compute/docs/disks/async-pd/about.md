@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/compute/docs/disks/async-pd/about/
 title: About Asynchronous Replication \u00a0|\u00a0 Compute Engine \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T05:39:38.809782+00:00
+fetched_at: 2026-11-06T12:03:58.958530+00:00
 ---
 
 # About Asynchronous Replication  |  Compute Engine  |  Google Cloud Documentation
@@ -94,7 +94,7 @@ For more information on how to customize a secondary disk, see [Create a custom 
 
 Suppose you have a boot disk called `disk-1`, with the following guest OS features: `[GVNIC, UEFI_COMPATIBLE]`.
 
-If you create a secondary disk from `disk-1`, you can only specify additional features. You can't remove the `UEFI_COMPATIBLE` and `GVNIC` features. So, if you specify `MULTI_IP_SUBNET` when you create the secondary disk, the new feature is merged with those of the primary disk, so the resulting guest OS features for the secondary disk are `[GVNIC,UEFI_COMPATIBLE, and MULTI_IP_SUBNET]`.
+If you create a secondary disk from `disk-1`, you can only specify additional features. You can't remove the `UEFI_COMPATIBLE` and `GVNIC` features. So, if you specify `MULTI_IP_SUBNET` when you create the secondary disk, the new feature is merged with those of the primary disk, so the resulting guest OS features for the secondary disk are `[GVNIC, UEFI_COMPATIBLE, and MULTI_IP_SUBNET]`.
 
 ### Modify a primary disk
 
@@ -195,6 +195,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-06 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-06 UTC."],[],[]] 

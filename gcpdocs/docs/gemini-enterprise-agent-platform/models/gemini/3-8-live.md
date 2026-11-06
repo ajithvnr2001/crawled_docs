@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-8-live/
 title: Gemini 3.8 Live \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T23:14:47.712654+00:00
+fetched_at: 2026-11-06T10:06:19.032548+00:00
 ---
 
 # Gemini 3.8 Live  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation
@@ -21,7 +21,11 @@ Send feedback
 
 #  Gemini 3.8 Live Stay organized with collections  Save and categorize content based on your preferences. 
 
-[Try in Agent Studio](https://console.cloud.google.com/agent-platform/studio/multimodal-live?model=gemini-3.8-live) [Pricing](https://cloud.google.com/gemini-enterprise-agent-platform/generative-ai/pricing)
+Gemini 3.8 Live is a real-time conversational model for low-latency, bidirectional voice and video interactions through the [Gemini Live API](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/live-api). 3.8 Live supports dynamic multilingual switching, affective dialogue, proactive audio, function calling, and synchronized [Live Avatar](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/live-api/configure-live-avatars) video synthesis.
+
+You can configure speech output using any of the 30 prebuilt HD voices (`prebuilt_voice_config`) or a per-session custom voice sample (`replicated_voice_config`). For the list of supported voices and languages, see [Configure language and voice](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/live-api/configure-language-voice#voices-supported).
+
+[Try in Agent Studio](https://console.cloud.google.com/agent-platform/studio/multimodal-live?model=gemini-3.8-live) [Developer guide](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/guides/gemini-3-8-live) [Pricing](https://cloud.google.com/gemini-enterprise-agent-platform/generative-ai/pricing)
 
 Model ID | `gemini-3.8-live`  
 ---|---  
@@ -183,6 +187,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-04 UTC.
+Last updated 2026-11-06 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-06 UTC."],[],[]] 

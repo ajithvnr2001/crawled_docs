@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/firestore/native/docs/pipeline/functions/map_functions/
 title: Map Functions Reference \u00a0|\u00a0 Firestore in Native mode \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-05T11:08:47.191812+00:00
+fetched_at: 2026-11-06T08:23:12.548533+00:00
 ---
 
 # Map Functions Reference  |  Firestore in Native mode  |  Google Cloud Documentation
@@ -158,7 +158,7 @@ Android
     	)).
     	Execute(ctx)
     
-    [pipeline_snippets_object.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/db12cf239dd4dcddd2c15c703bb21991d4193a8a/firestore/pipeline_snippets_object.go#L28-L33)
+    [pipeline_snippets_object.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/7c21bf1faae9139ce31b1321fa2815e95caff660/firestore/pipeline_snippets_object.go#L28-L33)
 
 ### MAP_SET
 

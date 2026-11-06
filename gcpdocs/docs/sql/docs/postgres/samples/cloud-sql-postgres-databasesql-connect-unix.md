@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sql/docs/postgres/samples/cloud-sql-postgres-databasesql-connect-unix/
 title: Create a socket connection when using Go \u00a0|\u00a0 Cloud SQL for PostgreSQL \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T09:38:24.959944+00:00
+fetched_at: 2026-11-06T10:29:34.439345+00:00
 ---
 
 # Create a socket connection when using Go  |  Cloud SQL for PostgreSQL  |  Google Cloud Documentation

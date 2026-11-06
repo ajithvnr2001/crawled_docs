@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/appliance/admin/smtp-alerts/
 title: Configure a Simple Mail Transfer Protocol (SMTP) notification channel for Prometheus alerts \u00a0|\u00a0 Google Distributed Cloud Hosted Appliance \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T19:00:35.560789+00:00
+fetched_at: 2026-11-06T10:21:46.091091+00:00
 ---
 
 # Configure a Simple Mail Transfer Protocol (SMTP) notification channel for Prometheus alerts  |  Google Distributed Cloud Hosted Appliance  |  Google Cloud Documentation
@@ -23,7 +23,7 @@ Send feedback
 
 #  Configure a Simple Mail Transfer Protocol (SMTP) notification channel for Prometheus alerts Stay organized with collections  Save and categorize content based on your preferences. 
 
-This page describes how to set up and configure a Simple Mail Transfer Protocol (SMTP) notification channel for Prometheus alerts. If you choose not to set up this notification channel, you can still view alerts at infra-obs or platform-obs.
+A Simple Mail Transfer Protocol (SMTP) notification channel in Google Distributed Cloud (GDC) air-gapped appliance lets you send firing Prometheus alerts directly to your team's email through an `ObservabilityPipeline` custom resource. If you choose not to configure email notifications, you can still view alerts in Grafana dashboards for the `infra-obs` and `platform-obs` namespaces.
 
 ## Before you begin
 
@@ -116,6 +116,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-05 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-05 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigtable/docs/in-memory-overview/
 title: In-memory tier overview \u00a0|\u00a0 Bigtable \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T10:18:54.934254+00:00
+fetched_at: 2026-11-06T12:45:01.096343+00:00
 ---
 
 # In-memory tier overview  |  Bigtable  |  Google Cloud Documentation
@@ -67,7 +67,7 @@ Bigtable ensures that in-memory tier data is consistent with the persistent data
 
 ### Vertical scaling
 
-Enabling the in-memory tier lets each node use vertical [scaling](https://docs.cloud.google.com/bigtable/docs/scaling) to modify its in-memory tier throughput capacity. Each node includes 8 GB of RAM for the in-memory tier and starts with a base capacity of 40,000 reads per second. To manage surges in point-read traffic, nodes can automatically scale in increments of 40,000 reads per second, reaching up to a maximum of 120,000 reads per second per node.
+Enabling the in-memory tier lets each node use vertical [scaling](https://docs.cloud.google.com/bigtable/docs/scaling) to modify its in-memory tier throughput capacity. With the in-memory tier enabled, each node starts with a base capacity of 40,000 reads per second. To manage surges in point-read traffic, nodes can automatically scale in increments of 40,000 reads per second, reaching up to a maximum of 120,000 reads per second per node.
 
 This vertical scaling feature integrates with Bigtable autoscaling. If the maximum in-memory tier capacity is reached on all nodes in the cluster and autoscaling is active, Bigtable automatically provisions additional nodes to further boost in-memory tier throughput.
 
@@ -107,6 +107,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-28 UTC.
+Last updated 2026-11-06 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-06 UTC."],[],[]] 

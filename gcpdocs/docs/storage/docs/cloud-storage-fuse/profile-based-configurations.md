@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/storage/docs/cloud-storage-fuse/profile-based-configurations/
 title: Profile-based configurations for AI/ML workloads \u00a0|\u00a0 Cloud Storage \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-03T09:41:55.559625+00:00
+fetched_at: 2026-11-06T10:31:49.932403+00:00
 ---
 
 # Profile-based configurations for AI/ML workloads  |  Cloud Storage  |  Google Cloud Documentation

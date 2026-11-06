@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/dataflow/docs/guides/troubleshoot-bottlenecks/
 title: Troubleshoot bottlenecks in Dataflow \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T16:21:30.332201+00:00
+fetched_at: 2026-11-06T10:19:30.194125+00:00
 ---
 
 # Troubleshoot bottlenecks in Dataflow  |  Google Cloud Documentation
@@ -136,6 +136,29 @@ To resolve this issue:
   * Once you identify the specific error message or status code in the worker logs, consult the [BigQuery error messages reference](https://docs.cloud.google.com/bigquery/docs/error-messages) for troubleshooting guidance specific to that error.
   * If your pipeline uses the Storage Write API, see [Error handling](https://docs.cloud.google.com/bigquery/docs/write-api-grpc#error-handling) in the BigQuery Storage Write API documentation for information on handling specific write and stream errors.
 
+
+BigQuery sink throttled
+    
+
+This cause indicates that write requests from the pipeline to BigQuery are succeeding, but are experiencing high latency or throttling. This issue occurs when the pipeline approaches BigQuery throughput or in-flight byte quotas and BigQuery slows down write requests to regulate traffic, or when BigQuery experiences elevated backend latency.
+
+To validate this issue:
+
+  1. In the Google Cloud console, open the Dataflow **Job details** page.
+  2. Click the **Job metrics** or **Step info** tab to confirm that the BigQuery sink step is experiencing elevated processing time.
+  3. In the Google Cloud console, open the **Quotas & System Limits** page for the destination BigQuery project and check whether your usage is approaching BigQuery write quotas.
+
+
+
+To resolve this issue:
+
+  * Determine which BigQuery sink implementation your pipeline uses, such as the [Storage Write API](https://docs.cloud.google.com/bigquery/quotas#write-api-limits) or [streaming inserts](https://docs.cloud.google.com/bigquery/quotas#streaming_inserts).
+  * Review your BigQuery quota usage in the Google Cloud console. Look specifically for quotas related to your sink type, such as Storage Write API append throughput, concurrent connections, or streaming insert rows per second. Even when requests don't fail with explicit quota errors, BigQuery can throttle requests as usage approaches quota limits.
+  * If you consistently approach these limits, consider [requesting a quota increase](https://docs.cloud.google.com/bigquery/quotas#requesting_a_quota_increase).
+
+
+
+If these steps don't identify the specific limit being approached, see [Troubleshoot quota and limit errors](https://docs.cloud.google.com/bigquery/docs/troubleshoot-quotas) to investigate further.
 
 Long processing time across all operations
     
@@ -303,6 +326,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-05 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-05 UTC."],[],[]] 

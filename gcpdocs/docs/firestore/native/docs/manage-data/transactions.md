@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/firestore/native/docs/manage-data/transactions/
 title: Transactions and batched writes \u00a0|\u00a0 Firestore in Native mode \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-05T11:09:01.557819+00:00
+fetched_at: 2026-11-06T08:22:52.251349+00:00
 ---
 
 # Transactions and batched writes  |  Firestore in Native mode  |  Google Cloud Documentation
@@ -285,7 +285,7 @@ Android
     
     update_in_transaction(transaction, city_ref)
     
-    [snippets.py](https://github.com/GoogleCloudPlatform/python-docs-samples/blob/f7aa88558cfe5fb9074d69e5541f49c9ea8447e5/firestore/cloud-client/snippets.py#L395-L403)
+    [snippets.py](https://github.com/GoogleCloudPlatform/python-docs-samples/blob/355a49d1921ea4194fe6ca48c2060528cbb532bb/firestore/cloud-client/snippets.py#L395-L403)
 
 ##### Python  
 (Async)
@@ -301,7 +301,7 @@ Android
     
     await update_in_transaction(transaction, city_ref)
     
-    [snippets.py](https://github.com/GoogleCloudPlatform/python-docs-samples/blob/f7aa88558cfe5fb9074d69e5541f49c9ea8447e5/firestore/cloud-async-client/snippets.py#L389-L397)
+    [snippets.py](https://github.com/GoogleCloudPlatform/python-docs-samples/blob/355a49d1921ea4194fe6ca48c2060528cbb532bb/firestore/cloud-async-client/snippets.py#L389-L397)
 
 ##### C++
     
@@ -400,7 +400,7 @@ Android
     }
     
     
-    [save_transaction_document_update.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/db12cf239dd4dcddd2c15c703bb21991d4193a8a/firestore/save_transaction_document_update.go#L18-L59)
+    [save_transaction_document_update.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/7c21bf1faae9139ce31b1321fa2815e95caff660/firestore/save_transaction_document_update.go#L18-L59)
 
 ##### PHP
     
@@ -462,7 +462,7 @@ Android
       tx.update city_ref, { population: new_population }
     end
     
-    [transactions_and_batched_writes.rb](https://github.com/googleapis/google-cloud-ruby/blob/34357aec9b86dc22d66add52b305906957d51628/google-cloud-firestore/samples/transactions_and_batched_writes.rb#L23-L29)
+    [transactions_and_batched_writes.rb](https://github.com/googleapis/google-cloud-ruby/blob/93e5531b5d3b37eef09723a0210d14c59728ad6c/google-cloud-firestore/samples/transactions_and_batched_writes.rb#L23-L29)
 
 ### Passing information out of transactions
 
@@ -745,7 +745,7 @@ Android
     else:
         print("Sorry! Population is too big.")
     
-    [snippets.py](https://github.com/GoogleCloudPlatform/python-docs-samples/blob/f7aa88558cfe5fb9074d69e5541f49c9ea8447e5/firestore/cloud-client/snippets.py#L410-L428)
+    [snippets.py](https://github.com/GoogleCloudPlatform/python-docs-samples/blob/355a49d1921ea4194fe6ca48c2060528cbb532bb/firestore/cloud-client/snippets.py#L410-L428)
 
 ##### Python  
 (Async)
@@ -771,7 +771,7 @@ Android
     else:
         print("Sorry! Population is too big.")
     
-    [snippets.py](https://github.com/GoogleCloudPlatform/python-docs-samples/blob/f7aa88558cfe5fb9074d69e5541f49c9ea8447e5/firestore/cloud-async-client/snippets.py#L404-L422)
+    [snippets.py](https://github.com/GoogleCloudPlatform/python-docs-samples/blob/355a49d1921ea4194fe6ca48c2060528cbb532bb/firestore/cloud-async-client/snippets.py#L404-L422)
 
 ##### C++
     
@@ -843,7 +843,7 @@ Android
     }
     
     
-    [save_transaction_document_update_conditional.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/db12cf239dd4dcddd2c15c703bb21991d4193a8a/firestore/save_transaction_document_update_conditional.go#L18-L57)
+    [save_transaction_document_update_conditional.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/7c21bf1faae9139ce31b1321fa2815e95caff660/firestore/save_transaction_document_update_conditional.go#L18-L57)
 
 ##### PHP
     
@@ -958,7 +958,7 @@ Android
       puts "Sorry! Population is too big."
     end
     
-    [transactions_and_batched_writes.rb](https://github.com/googleapis/google-cloud-ruby/blob/34357aec9b86dc22d66add52b305906957d51628/google-cloud-firestore/samples/transactions_and_batched_writes.rb#L40-L54)
+    [transactions_and_batched_writes.rb](https://github.com/googleapis/google-cloud-ruby/blob/93e5531b5d3b37eef09723a0210d14c59728ad6c/google-cloud-firestore/samples/transactions_and_batched_writes.rb#L40-L54)
 
 ### Transaction failure
 
@@ -1225,7 +1225,7 @@ Android
     # Commit the batch
     batch.commit()
     
-    [snippets.py](https://github.com/GoogleCloudPlatform/python-docs-samples/blob/f7aa88558cfe5fb9074d69e5541f49c9ea8447e5/firestore/cloud-client/snippets.py#L435-L450)
+    [snippets.py](https://github.com/GoogleCloudPlatform/python-docs-samples/blob/355a49d1921ea4194fe6ca48c2060528cbb532bb/firestore/cloud-client/snippets.py#L435-L450)
 
 ##### Python  
 (Async)
@@ -1248,7 +1248,7 @@ Android
     # Commit the batch
     await batch.commit()
     
-    [snippets.py](https://github.com/GoogleCloudPlatform/python-docs-samples/blob/f7aa88558cfe5fb9074d69e5541f49c9ea8447e5/firestore/cloud-async-client/snippets.py#L429-L444)
+    [snippets.py](https://github.com/GoogleCloudPlatform/python-docs-samples/blob/355a49d1921ea4194fe6ca48c2060528cbb532bb/firestore/cloud-async-client/snippets.py#L429-L444)
 
 ##### C++
     
@@ -1343,7 +1343,7 @@ Android
     }
     
     
-    [save_data_batch_writes.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/db12cf239dd4dcddd2c15c703bb21991d4193a8a/firestore/save_data_batch_writes.go#L18-L55)
+    [save_data_batch_writes.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/7c21bf1faae9139ce31b1321fa2815e95caff660/firestore/save_data_batch_writes.go#L18-L55)
 
 ##### PHP
     
@@ -1443,7 +1443,7 @@ Android
       b.delete "#{collection_path}/LA"
     end
     
-    [transactions_and_batched_writes.rb](https://github.com/googleapis/google-cloud-ruby/blob/34357aec9b86dc22d66add52b305906957d51628/google-cloud-firestore/samples/transactions_and_batched_writes.rb#L64-L73)
+    [transactions_and_batched_writes.rb](https://github.com/googleapis/google-cloud-ruby/blob/93e5531b5d3b37eef09723a0210d14c59728ad6c/google-cloud-firestore/samples/transactions_and_batched_writes.rb#L64-L73)
 
 Like transactions, batched writes are atomic. Unlike transactions, batched writes do not need to ensure that read documents remain un-modified which leads to fewer failure cases. They are not subject to retries or to failures from too many retries. Batched writes execute even when the user's device is offline.
 
@@ -1537,6 +1537,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-03 UTC.
+Last updated 2026-11-05 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-05 UTC."],[],[]] 

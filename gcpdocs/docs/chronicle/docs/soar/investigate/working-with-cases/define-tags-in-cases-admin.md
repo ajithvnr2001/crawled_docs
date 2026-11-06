@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chronicle/docs/soar/investigate/working-with-cases/define-tags-in-cases-admin/
 title: Manage case and alert tags \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T23:34:33.265248+00:00
+fetched_at: 2026-11-06T10:52:59.676814+00:00
 ---
 
 # Manage case and alert tags  |  Google Security Operations  |  Google Cloud Documentation
@@ -40,6 +40,7 @@ Tags help you track and categorize your cases. You can quickly identify cases by
 You can manage tags from the following places:
 
   * **Case or Alert** : Manually add and remove tags from a specific case or an individual alert.
+  * **Case Wall activities** : Manually add custom tags to individual comments, tasks, or actions on the **Case Wall**.
   * **Main menu** : Click **Settings > Investigation > Tags**. For more information, see Create an automatic tagging rule. 
   * **Playbooks** : Trigger a playbook on a tag name using the tag trigger. You can also add a case tag to a playbook block: select a playbook block, click **Open Step Selection** , and in the **Triggers** tab, select **Tag Name**. 
 
@@ -65,6 +66,21 @@ To add a tag to an alert, follow these steps:
   4. In the **Manage Tags** dialog, enter the name of the tag and press **Enter** , or select a tag from the list and click **Add**.
 
 **Note:** The ability to create new tags (tags that don't already exist in the system) versus attaching existing tags depends on your specific user permissions. 
+
+### Add a tag to a Case Wall activity
+
+**Note:** Unlike standard Case tags and Alert tags, Case activity tags are applied to individual log entries, comments, or tasks on the **Case Wall** to streamline chronological investigations. They are free-form string tags and are distinct from global tags. 
+
+To tag a specific activity on the **Case Wall** , follow these steps:
+
+  1. Go to the **Cases** page and select a case.
+  2. Open the **Case Wall** tab and locate the specific activity or entry you want to tag.
+  3. Click more_vert **More options** in the chosen entry.
+  4. Click  sell  **Manage Tags**.
+  5. In the **Manage Tags** dialog, type the name of the tag you want to add and press **Enter**. You can repeat this step to add multiple tags.
+  6. Click **Save**.
+
+
 
 ### Alert tag behavior during case changes
 
@@ -124,6 +140,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-04 UTC.
+Last updated 2026-11-05 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-05 UTC."],[],[]] 

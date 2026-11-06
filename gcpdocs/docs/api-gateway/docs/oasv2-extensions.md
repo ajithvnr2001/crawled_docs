@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/api-gateway/docs/oasv2-extensions/
 title: OpenAPI 2.0 extensions in API Gateway \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T23:10:27.824006+00:00
+fetched_at: 2026-11-06T10:52:55.994274+00:00
 ---
 
 # OpenAPI 2.0 extensions in API Gateway  |  Google Cloud Documentation
@@ -159,7 +159,7 @@ When `x-google-backend` is used at the top level of the OpenAPI specification, `
 
 Optional. The number of seconds to wait for a full response from a request. Responses that take longer than the configured deadline will time out. On an SSE or chunked-transfer endpoint, the deadline still bounds the entire stream's duration; on a gRPC or WebSocket endpoint it bounds the gap between messages instead. See [Set the stream deadline](https://docs.cloud.google.com/api-gateway/docs/streaming-configure#configure-deadline) for the timeouts that apply to each kind of request. The default deadline is `15.0` seconds.
 
-Omit the field or set it to `0` to use the default. A negative value also uses the default, but is deprecated: creating an API config with one returns a warning in the operation metadata, and it will be rejected in a future release.
+Omit the field, or set it to `0` or a negative value, to use the default.
 
 The deadline is configurable up to `3600` seconds. A non-streaming gateway enforces a lower maximum of `600` seconds, rejecting a higher deadline at gateway create or update rather than at API config create.
 
@@ -518,9 +518,9 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-05 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-05 UTC."],[],[]] 
 
     * ### Products and pricing
 
@@ -550,7 +550,7 @@ Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["
       * [ Google Cloud on YouTube ](https://www.youtube.com/googlecloud)
       * [ Google Cloud Tech on YouTube ](https://www.youtube.com/googlecloudplatform)
 
-[ ![Google Developers](https://www.gstatic.com/devrel-devsite/prod/v5a0f9ff8b593048661361a49e11ab98a8b1ac025e19e60e6189f2b56796f8a43/clouddocs/images/lockup-google-for-developers.svg)](https://developers.google.com/)
+[ ![Google Developers](https://www.gstatic.com/devrel-devsite/prod/vab328caf183ea693bb389a1701d6be5b2db91193de097b9f38bbe8a87dd02cd9/clouddocs/images/lockup-google-for-developers.svg)](https://developers.google.com/)
     * [ Android ](https://developer.android.com/)
     * [ Chrome ](https://developer.chrome.com/)
     * [ Firebase ](https://firebase.google.com/)

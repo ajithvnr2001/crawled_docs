@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/unified-maintenance/docs/turn-off-logs-storage/
 title: Turn off logs storage \u00a0|\u00a0 Unified Maintenance \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T05:45:55.415824+00:00
+fetched_at: 2026-11-06T10:38:17.034495+00:00
 ---
 
 # Turn off logs storage  |  Unified Maintenance  |  Google Cloud Documentation

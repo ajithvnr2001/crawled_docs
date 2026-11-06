@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/release-notes/
 title: Google Cloud release notes \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-05T09:17:08.181427+00:00
+fetched_at: 2026-11-06T13:05:40.501518+00:00
 ---
 
 # Google Cloud release notes  |  Google Cloud Documentation
@@ -24,7 +24,454 @@ You can also see and filter all release notes in the [Google Cloud console](http
 
 To get the latest product updates delivered to you, add the URL of this page to your [feed reader](https://wikipedia.org/wiki/Comparison_of_feed_aggregators), or add the [feed URL](https://docs.cloud.google.com/feeds/gcp-release-notes.xml) directly. 
 
+## November 05, 2026
+
+**Apigee Edge for Public Cloud**
+
+Announcement
+
+**Scheduled maintenance of Management/Control Plane for the Apigee Edge for Public Cloud on November 6, 2026.**
+
+Scheduled maintenance of Management/Control Plane for the Apigee Edge for Public Cloud production will take place on Friday, November 6, 2026, from 9:00 PM PT to 10:00 PM PT (Saturday, November 7, 2026, from 5:00 AM UTC to 6:00 AM UTC). This maintenance follows the monthly maintenance window schedule documented in the [Apigee Edge release notes archive](https://docs.apigee.com/release/notes/apigee-release-notes).
+
+During the scheduled maintenance window, the following services will be temporarily unavailable, and attempts to access them will return a `4xx` status code:
+
+  * Management Services UI
+  * Management Services APIs
+  * Monetization Management APIs
+  * New proxy deployments
+  * DevPortal Service
+  * Microgateway Services
+  * Edge Query (Analytics Stats APIs)
+
+
+
+Runtime API calls to deployed API proxies are unaffected. While access to analytics queries may be temporarily unavailable during the maintenance window, all analytics and metrics data from this period will be available once maintenance ends.
+
+**BigQuery**
+
+Feature
+
+In the query execution graph's [query text heatmap](https://docs.cloud.google.com/bigquery/docs/query-plan-explanation#query_text_heatmap), you can now view and navigate through a hierarchical list of context references, such as nested function calls or view references, for stage steps. This feature is [generally available](https://cloud.google.com/products#product-launch-stages) (GA).
+
+Feature
+
+In the query execution graph, the [query text heatmap](https://docs.cloud.google.com/bigquery/docs/query-plan-explanation#query_text_heatmap) now supports displaying the SQL text for persistent and temporary user-defined functions (UDFs). This feature is [generally available](https://cloud.google.com/products#product-launch-stages) (GA).
+
+Change
+
+The BigQuery **Metadata curation** console page has been removed. You can now use Knowledge Catalog to schedule [Cloud Storage discovery scans](https://docs.cloud.google.com/knowledge-catalog/docs/cloud-storage-discovery), manage [data profiling](https://docs.cloud.google.com/knowledge-catalog/docs/data-profiling-overview) and [data quality](https://docs.cloud.google.com/knowledge-catalog/docs/use-auto-data-quality#console), and perform related data governance tasks.
+
+Feature
+
+[Conversational analytics in BigQuery](https://docs.cloud.google.com/bigquery/docs/conversational-analytics) is now available in the `asia-northeast1` (Tokyo) location. For more information, see [Locations](https://docs.cloud.google.com/bigquery/docs/conversational-analytics#locations).
+
+**Container Optimized OS**
+
+Change
+
+### cos-133-19999-44-193 
+
+Kernel | Docker | Containerd | [GPU Drivers](https://cloud.google.com/container-optimized-os/docs/how-to/run-gpus)  
+---|---|---|---  
+[COS-6.18.55](https://cos.googlesource.com/third_party/kernel/+/e794243e77b51f9bdf8954da0cb3ce2c79661328) | v29.4.3 | v2.4.1 | [See List](https://storage.googleapis.com/cos-tools/19999.44.193/lakitu/gpu_driver_versions.textproto)  
+  
+Change
+
+Upgraded sys-apps/casfs to v0.1.24.
+
+Feature
+
+Enabled PCI peer to peer direct memory access for 64k kernels.
+
+Fixed
+
+Added support for NVIDIA driver v580.196.07.
+
+Fixed
+
+Added support for NVIDIA driver v595.112.07.
+
+Fixed
+
+Updated cos-gpu-installer to v2.7.12. It installs ucodes firmwares for r615 and newer GPU driver versions.
+
+Fixed
+
+Upgraded app-admin/google-guest-configs to v20261027.00.
+
+Fixed
+
+Upgraded app-admin/oslogin to v20261021.00.
+
+Fixed
+
+Upgraded app-admin/sosreport to v4.12.1.
+
+Fixed
+
+Upgraded app-arch/bzip2 to v1.0.8-r5.
+
+Fixed
+
+Upgraded app-containers/docker-credential-helpers to v0.9.12.
+
+Fixed
+
+Upgraded app-editors/vim to v9.2.1229, Upgraded app-editors/vim-core to v9.2.1229.
+
+Fixed
+
+Upgraded app-misc/ca-certificates to v20260816.3.131.1.
+
+Fixed
+
+Upgraded app-misc/jq to v1.8.2.
+
+Fixed
+
+Upgraded dev-db/sqlite to v3.54.1.
+
+Fixed
+
+Upgraded dev-libs/nss to v3.132.
+
+Fixed
+
+Upgraded sys-libs/talloc to v2.5.0.
+
+Fixed
+
+Upgraded net-fs/cifs-utils to v7.8.
+
+Fixed
+
+Upgraded net-libs/gnutls to v3.8.13.
+
+Fixed
+
+Upgraded sys-fs/mdadm to v4.6-r1.
+
+Fixed
+
+Upgraded sys-libs/libcap-ng to v0.9.6.
+
+Fixed
+
+Upgraded sys-libs/libxcrypt to v4.4.38-r1.
+
+Security
+
+Fixed CVE-2024-41110 in cri-tools.
+
+Security
+
+Fixed CVE-2026-116587 in containerd.
+
+Security
+
+Fixed CVE-2026-24051, CVE-2026-34986 in cos-extensions.
+
+Security
+
+Fixed CVE-2026-29181 in guest-agent.
+
+Security
+
+Fixed CVE-2026-33186 in cni-plugins.
+
+Security
+
+Fixed CVE-2026-35469 in cri-tools.
+
+Security
+
+Fixed CVE-2026-39883 in google-osconfig-agent.
+
+Security
+
+Fixed CVE-2026-63209 in node-problem-detector.
+
+Security
+
+Fixed CVE-2026-84304 in containerd.
+
+Security
+
+Fixed CVE-2026-84304 in docker.
+
+Security
+
+Fixed CVE-2026-84304, CVE-2026-32285 in cri-tools.
+
+Security
+
+Fixed CVE-2026-84445 in containerd.
+
+Security
+
+Fixed CVE-2026-84445 in kubernetes.
+
+Change
+
+### cos-121-18867-652-29 
+
+Kernel | Docker | Containerd | [GPU Drivers](https://cloud.google.com/container-optimized-os/docs/how-to/run-gpus)  
+---|---|---|---  
+[COS-6.6.159](https://cos.googlesource.com/third_party/kernel/+/c87b8de2956ad6b99b07834c48be0a022d71d1d4) | v27.5.1 | v2.0.10 | [See List](https://storage.googleapis.com/cos-tools/18867.652.29/lakitu/gpu_driver_versions.textproto)  
+  
+Fixed
+
+Added support for NVIDIA driver v580.196.07.
+
+Fixed
+
+Upgraded app-admin/google-guest-configs to v20261027.00.
+
+Fixed
+
+Upgraded app-arch/gzip to v1.15.
+
+Fixed
+
+Upgraded app-containers/docker-credential-helpers to v0.9.12.
+
+Fixed
+
+Upgraded app-editors/vim to v9.2.1229.
+
+Fixed
+
+Upgraded app-editors/vim-core to v9.2.1229.
+
+Fixed
+
+Upgraded app-misc/ca-certificates to v20260816.3.131.1.
+
+Fixed
+
+Upgraded dev-db/sqlite to v3.54.1.
+
+Fixed
+
+Upgraded dev-libs/nss to v3.132.
+
+Fixed
+
+Upgraded net-misc/rsync to v3.5.1.
+
+Fixed
+
+Upgraded sys-apps/less to v710.
+
+Fixed
+
+Upgraded sys-libs/libxcrypt to v4.4.38-r1.
+
+Fixed
+
+Upgraded sys-libs/timezone-data to v2026f.
+
+Security
+
+Fixed CVE-2024-25621, CVE-2026-53488 in docker.
+
+Security
+
+Fixed CVE-2024-41110, CVE-2026-33186 in cri-tools.
+
+Security
+
+Fixed CVE-2025-15558, CVE-2024-25621, CVE-2026-71556 in google-osconfig-agent.
+
+Security
+
+Fixed CVE-2025-52881 in cri-tools.
+
+Security
+
+Fixed CVE-2026-116587, CVE-2026-63209 in google-osconfig-agent.
+
+Security
+
+Fixed CVE-2026-24051, CVE-2025-31133, CVE-2026-63209 in docker.
+
+Security
+
+Fixed CVE-2026-29181, CVE-2026-84304 in cos-extensions.
+
+Security
+
+Fixed CVE-2026-29181, CVE-2026-84304, CVE-2026-63209 in containerd.
+
+Security
+
+Fixed CVE-2026-33186 in cni-plugins.
+
+Security
+
+Fixed CVE-2026-33186 in containerd.
+
+Security
+
+Fixed CVE-2026-33186 in docker.
+
+Security
+
+Fixed CVE-2026-33186 in guest-agent.
+
+Security
+
+Fixed CVE-2026-46595 in docker.
+
+Security
+
+Fixed CVE-2026-46595, CVE-2026-42508 in google-osconfig-agent.
+
+Security
+
+Fixed CVE-2026-63209 in node-problem-detector.
+
+Security
+
+Fixed CVE-2026-84304 in google-guest-agent.
+
+Security
+
+Fixed CVE-2026-84445 in google-osconfig-agent.
+
+Security
+
+Fixed CVE-2026-84445, CVE-2026-84304 in guest-agent.
+
+Security
+
+Fixed KCTF-d095321 in the Linux kernel.
+
+Security
+
+Updated app-arch/brotli to 1.0.10. This resolves CVE-2026-111497.
+
+Security
+
+Upgraded dev-libs/expat to v2.8.4. This fixes CVE-2026-76957.
+
+**Data Studio**
+
+Feature
+
+You can now combine tables vertically in Data Studio blends by using the **Union** merge operator, which appends rows across up to five tables and removes duplicate rows. In addition, blend UI labels now use _merge_ (such as **Merge another table** , **Merge conditions** , and **Hide repeated merge fields**) to encompass both join and union operations. For more information, see [How blends work in Data Studio](https://docs.cloud.google.com/data-studio/how-blends-work) and [Create, edit, and manage blends](https://docs.cloud.google.com/data-studio/create-edit-and-manage-blends).
+
+**Gemini Enterprise**
+
+Feature
+
+**Gemini Enterprise: Prepaid credits for Pay-as-you-go subscriptions and usage above quota**
+
+Prepaid credits are generally available (GA) for self-serve (online) Cloud Billing accounts. You can buy credits to pay for usage without an invoiced billing account. Your billing account's credit balance covers usage in the Pay-as-you-go edition and pay-as-you-go usage above quota in the Gemini Enterprise app, Gemini Enterprise Agent Platform, and AI developer tools, such as Google Antigravity. Pay-as-you-go subscriptions have no license fee because you pay for what you use at pay-as-you-go rates. Cloud Billing still bills your account directly for seat-based license fees in editions such as Standard and Plus.
+
+  * **Buy credits and configure auto-reload** : Buy prepaid credits, track your balance and transactions, and configure auto-reload with an optional monthly auto-charge limit. Usage is blocked if your credit balance reaches zero or a project reaches its monthly spend limit. Because credits are deducted after usage occurs, your balance might briefly drop below zero if usage occurs before the deduction runs.
+  * **Use AI developer tools on self-serve accounts** : With an upgraded paid self-serve billing account and an active non-trial Gemini Enterprise subscription, you can enable AI developer tools and pay with prepaid credits for Pay-as-you-go edition usage or pay-as-you-go usage above quota. Eligible editions include Standard, Plus, eligible Standard Emerging Market, and Pay-as-you-go. Free-trial subscriptions, free-tier billing accounts, and reseller-managed subaccounts aren't eligible.
+  * **Monitor costs and invoices** : View 30-day costs across the Gemini Enterprise app, Gemini Enterprise Agent Platform, and AI developer tools, and view and download prepayment and monthly consumption invoices.
+
+
+
+For more information, see:
+
+  * [Manage prepaid credits](https://docs.cloud.google.com/gemini/enterprise/docs/manage-prepaid-credits)
+  * [Configure pay-as-you-go usage above quota](https://docs.cloud.google.com/gemini/enterprise/docs/configure-pay-as-you-go-usage-above-quota)
+  * [Quotas and pricing for the Pay-as-you-go edition](https://docs.cloud.google.com/gemini/enterprise/docs/quotas-and-pay-as-you-go-usage#quotas-pay-as-you-go)
+  * [AI developer tools overview](https://docs.cloud.google.com/gemini/enterprise/docs/ai-developer-tools-overview)
+  * [View costs](https://docs.cloud.google.com/gemini/enterprise/docs/view-costs)
+
+
+
+**Gemini Enterprise Agent Platform**
+
+Feature
+
+**Gemini Omni 1.2 Flash**
+
+[Gemini Omni 1.2 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/omni-1-2-flash) (`gemini-omni-1.2-flash`) is available in [General Availability (GA)](https://cloud.google.com/products#product-launch-stages). Gemini Omni 1.2 Flash is an omni-modal foundation model that processes text, image, and video inputs to generate text and high-definition video with synchronized audio through the [Interactions API](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/interactions).
+
+Gemini Omni 1.2 Flash introduces the following capabilities:
+
+  * **Standalone video upscaling** : Upscale previously generated videos from 360p to 720p or 1080p, and from 720p to 1080p or 4K using `task: "upscale"`. See [Upscale videos](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/video/upscale-videos).
+
+  * **Extended video generation and editing duration** : Generate or edit videos up to 15 seconds in length across text-to-video, image-to-video, reference-to-video, and video editing tasks (up to 10 seconds for first-and-last-frame interpolation and video extension).
+
+  * **Reference-guided video editing and extension** : Supply up to 2 reference images along with an input video when editing or extending videos. See [Edit videos](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/video/edit-videos) and [Extend videos](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/video/extend-videos).
+
+  * **Deterministic generation and billing labels** : Specify `seed` for reproducible video outputs and attach custom `labels` to Interactions API requests.
+
+  * **Standard PayGo and Provisioned Throughput** : Available with [Standard Pay-as-you-go (PayGo)](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/standard-paygo) and [Provisioned Throughput](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/provisioned-throughput/gemini-omni-models) (685 tokens per second per GSU).
+
+
+
+
+Feature
+
+**Interactions API long decodes for Gemini 4 Argon**
+
+Long decodes up to 1,048,576 tokens (minus input tokens) on the [Interactions API](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/interactions) (`v1beta1`) are available in [General Availability (GA)](https://cloud.google.com/products#product-launch-stages) for [Gemini 4 Argon](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/4-argon) (`gemini-4-argon` and `gemini-4-argon-cyber-permissive`). You can extend single-turn outputs beyond the per-segment limit (65,536 streaming or 32,768 non-streaming tokens) using automatic continuation in the Google Gen AI SDK (`google-genai >= 2.34.0` for Python, `@google/genai >= 2.32.0` for JavaScript/TypeScript, Go `>= 1.77.0`, and Java `>= 1.80.0`), server-managed background execution (`background=true`), or custom stored (`store=true`) and stateless (`store=false`) `continuation_token` loops.
+
+For code samples, continuation options, and implementation rules, see [Long decodes in the developer's guide to Gemini 4 Argon](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/guides/gemini-4-argon#long-decodes).
+
+Fixed
+
+**CodeMender updates (v0.18.0)**
+
+This release introduces updates to CodeMender:
+
+  * **Verification tool-turn guardrails** : Added exploratory tool-turn limits to `cm verify` sessions to prevent unbounded command execution loops.
+  * **Release notes link in update prompts** : Added a direct link to DevSite release notes when CodeMender prompts to update to a newer CLI version.
+  * **Agent IAM diagnostic guidance** : Added actionable `roles/aiplatform.agentsUser` IAM binding commands to CLI setup and error messages for service account and CI/CD environments.
+  * **Bug fixes** : 
+    * Improved the reliability of agent sessions, including verification and resumed sessions.
+    * Improved compatibility across shell environments.
+    * Improved the sign-in flow during interactive activation.
+    * Improved error reporting when the service is temporarily unavailable.
+    * Includes security and stability improvements.
+
+
+
+For more information, see the [CodeMender documentation](https://docs.cloud.google.com/gemini-enterprise-agent-platform/agents/codemender).
+
+**Google SecOps**
+
+Feature
+
+**[Spotlight Feature] Case activity tagging**
+
+You can now use custom tags for individual activities, comments, tasks, and actions on the Case Wall, and filter the wall view by those tags. This allows you to categorize specific observations and filter the timeline to view only the entries relevant to your investigation or team.
+
+For more information, see [Add a tag to a Case Wall activity](https://docs.cloud.google.com/chronicle/docs/soar/investigate/working-with-cases/define-tags-in-cases-admin#add-activity-tag).
+
+**Model Armor**
+
+Feature
+
+You can enable or disable the child sexual abuse material (CSAM) filter in Model Armor templates and floor settings, and configure granular confidence levels (`High`, `Medium and above`, and `Low and above`).
+
+For more information, see [Model Armor filters](https://docs.cloud.google.com/model-armor/overview#ma-csam-detection) and [Create and manage templates](https://docs.cloud.google.com/model-armor/manage-templates#configure-detections).
+
+**Security Command Center**
+
+Deprecated
+
+Data Security Posture Management (DSPM) is no longer available to new organizations. If DSPM is already enabled for your organization, you retain full access until its scheduled shutdown on February 1, 2027. For more information, see [Deprecations and shut down features](https://docs.cloud.google.com/security-command-center/docs/deprecations) and [alternative detection capabilities](https://docs.cloud.google.com/security-command-center/docs/dspm-data-security#data-security-framework).
+
 ## November 04, 2026
+
+**API Gateway**
+
+Announcement
+
+**Negative backend deadlines are no longer deprecated**
+
+The deprecation of negative backend `deadline` values announced on October 23, 2026 is withdrawn. In an OpenAPI 2.0 `x-google-backend` extension or a gRPC `BackendRule`, a negative deadline continues to use the default deadline, the same as `0`, and won't be rejected. OpenAPI 3.x backends still reject a negative deadline.
+
+For more information, see [OpenAPI 2.0 extensions](https://docs.cloud.google.com/api-gateway/docs/oasv2-extensions#deadline) and [OpenAPI 3.x extensions](https://docs.cloud.google.com/api-gateway/docs/oasv3-extensions#backends_object).
 
 **AlloyDB for PostgreSQL**
 
@@ -53,6 +500,81 @@ AlloyDB Express is available in [Preview](https://cloud.google.com/products#prod
 
 For more information, see [AlloyDB Express overview](https://docs.cloud.google.com/alloydb/docs/express-overview).
 
+**Apigee Edge for Public Cloud**
+
+Announcement
+
+Released Edge Microgateway 3.3.12.
+
+Edge Microgateway 3.3.12 includes the following component versions:
+
+Component | Version  
+---|---  
+[microgateway](https://github.com/apigee-internal/microgateway/releases) | 3.3.12  
+[plugins](https://github.com/apigee/microgateway-plugins/releases) | 3.3.9  
+[edgeauth](https://github.com/apigee/microgateway-edgeauth/releases) | 3.2.2  
+  
+To upgrade, install version 3.3.12 of the `edgemicro` npm package or pull the `gcr.io/apigee-microgateway/edgemicro:3.3.12` Docker image. For the npm upgrade steps, see [Upgrading Edge Microgateway](https://docs.apigee.com/api-platform/microgateway/3.3.x/operation-and-configuration-reference-edge-microgateway#upgradingedgemicrogateway). For earlier Edge Microgateway releases, see [Edge Microgateway release notes](https://docs.apigee.com/release/notes/edge-microgateway-release-notes-0).
+
+Breaking
+
+Removed support for Node.js 20 from Edge Microgateway. Use Node.js 22, 24, or 26 instead.
+
+Edge Microgateway 3.3.12 supports only Node.js 22, 24, and 26. Support for Node.js 26 is new in this release. Before you upgrade an npm installation of Edge Microgateway to 3.3.12, upgrade the Node.js runtime on each host to version 22, 24, or 26. The 3.3.12 Docker image is built on Node.js 24, so Docker deployments need no action for this change. For supported versions, see [Supported software and supported versions](https://docs.apigee.com/release/supported-software#apigeeedgemicrogateway).
+
+Breaking
+
+Removed the `npm` and `npx` command-line tools from the Edge Microgateway Docker image. Install custom plugin dependencies before you add the plugins to the container.
+
+Starting with version 3.3.12, the Edge Microgateway Docker image doesn't include `npm` or `npx`, and commands that run either tool inside the container fail. The change doesn't affect how Edge Microgateway runs. If your custom plugins have npm dependencies, run `npm install` in each plugin directory before you add the plugins to the container, so that each plugin's `node_modules` directory is included. For the steps, see [Adding a custom plugin](https://docs.apigee.com/api-platform/microgateway/3.3.x/docker#adding_a_custom_plugin). This change doesn't affect npm installations of Edge Microgateway.
+
+Security
+
+Fixed multiple security vulnerabilities in Edge Microgateway. Upgrade to Edge Microgateway 3.3.12.
+
+Edge Microgateway 3.3.12 fixes the following vulnerabilities:
+
+  * [CVE-2026-12590](https://nvd.nist.gov/vuln/detail/CVE-2026-12590)
+  * [CVE-2026-14257](https://nvd.nist.gov/vuln/detail/CVE-2026-14257)
+  * [CVE-2026-45819](https://nvd.nist.gov/vuln/detail/CVE-2026-45819)
+  * [CVE-2026-54272](https://nvd.nist.gov/vuln/detail/CVE-2026-54272)
+  * [CVE-2026-59870](https://nvd.nist.gov/vuln/detail/CVE-2026-59870)
+  * [CVE-2026-69152](https://nvd.nist.gov/vuln/detail/CVE-2026-69152)
+  * [CVE-2026-69192](https://nvd.nist.gov/vuln/detail/CVE-2026-69192)
+  * [CVE-2026-69198](https://nvd.nist.gov/vuln/detail/CVE-2026-69198)
+  * [CVE-2026-73088](https://nvd.nist.gov/vuln/detail/CVE-2026-73088)
+  * [CVE-2026-73089](https://nvd.nist.gov/vuln/detail/CVE-2026-73089)
+  * [CVE-2026-82417](https://nvd.nist.gov/vuln/detail/CVE-2026-82417)
+  * [CVE-2026-82562](https://nvd.nist.gov/vuln/detail/CVE-2026-82562)
+  * [CVE-2026-84375](https://nvd.nist.gov/vuln/detail/CVE-2026-84375)
+  * [CVE-2026-87018](https://nvd.nist.gov/vuln/detail/CVE-2026-87018)
+  * [CVE-2026-101910](https://nvd.nist.gov/vuln/detail/CVE-2026-101910)
+  * [CVE-2026-101911](https://nvd.nist.gov/vuln/detail/CVE-2026-101911)
+  * [CVE-2026-101912](https://nvd.nist.gov/vuln/detail/CVE-2026-101912)
+  * [CVE-2026-101913](https://nvd.nist.gov/vuln/detail/CVE-2026-101913)
+  * [CVE-2026-102276](https://nvd.nist.gov/vuln/detail/CVE-2026-102276)
+  * [CVE-2026-102277](https://nvd.nist.gov/vuln/detail/CVE-2026-102277)
+  * [CVE-2026-102278](https://nvd.nist.gov/vuln/detail/CVE-2026-102278)
+  * [CVE-2026-109383](https://nvd.nist.gov/vuln/detail/CVE-2026-109383)
+  * [CVE-2026-109869](https://nvd.nist.gov/vuln/detail/CVE-2026-109869)
+  * [CVE-2026-109924](https://nvd.nist.gov/vuln/detail/CVE-2026-109924)
+  * [CVE-2026-109932](https://nvd.nist.gov/vuln/detail/CVE-2026-109932)
+  * [CVE-2026-110816](https://nvd.nist.gov/vuln/detail/CVE-2026-110816)
+  * [CVE-2026-111181](https://nvd.nist.gov/vuln/detail/CVE-2026-111181)
+  * [CVE-2026-111497](https://nvd.nist.gov/vuln/detail/CVE-2026-111497)
+  * [CVE-2026-111997](https://nvd.nist.gov/vuln/detail/CVE-2026-111997)
+  * [CVE-2026-115897](https://nvd.nist.gov/vuln/detail/CVE-2026-115897)
+
+
+
+The Edge Microgateway 3.3.12 Docker image is built on `node:24.22.1-trixie-slim`, which includes the Node.js fix for CVE-2026-111497. For npm installations of Edge Microgateway, upgrading the `edgemicro` package doesn't fix CVE-2026-111497. You must also upgrade the Node.js runtime on each host to one of the following versions, or to a later version in the same release line:
+
+Node.js release line | Fixed version  
+---|---  
+22.x | 22.23.4  
+24.x | 24.22.1  
+26.x | 26.12.1  
+  
 **Apigee Operator for kubernetes**
 
 Announcement
@@ -153,7 +675,7 @@ Bug ID | Description
 
 Feature
 
-Bigtable offers conversational analytics, which lets you query you operational data using natural language. This feature is powered by the [Conversational Analytics API](https://docs.cloud.google.com/gemini/data-agents/conversational-analytics-api/overview). This feature is in [Preview](https://cloud.google.com/products#product-launch-stages). For more information, see [Conversational analytics for Bigtable overview](https://docs.cloud.google.com/gemini/data-agents/conversational-analytics/bigtable).
+Bigtable offers conversational analytics, which lets you query your operational data using natural language. This feature uses the [Conversational Analytics API](https://docs.cloud.google.com/gemini/data-agents/conversational-analytics-api/overview) and is in [Preview](https://cloud.google.com/products#product-launch-stages). For more information, see [Conversational analytics for Bigtable overview](https://docs.cloud.google.com/gemini/data-agents/conversational-analytics/bigtable).
 
 Feature
 
@@ -212,6 +734,79 @@ AlphaGenome (`alphagenome-004`) now supports unified HTTP/2 gRPC streaming and c
 
 
 For more information, see the [AlphaGenome documentation](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/open-models/alphagenome).
+
+**Google Cloud Contact Center as a Service**
+
+Announcement
+
+**Google Cloud CCaaS prerelease notes 6.32**
+
+Here are the prerelease notes for what we expect to be the next version of Google Cloud CCaaS. When we release this version, we expect the new capabilities to be as shown here.
+
+Fixed
+
+This release addresses the following issues:
+
+  * Fixed an issue where abandoned queue records incorrectly calculated wait times from the call's initial queue entry rather than the time the caller entered the specific queue they abandoned from.
+
+  * Fixed an issue where the call adapter header title on **SmartActions** and virtual task assistant screens was truncated with an ellipsis, preventing users from viewing the full text.
+
+  * Fixed an issue where the agent adapter froze on **Calling** and didn't dial the customer during recovery calls following an unanswered in-app call.
+
+  * Fixed an issue where inbound calls became unroutable and remained stuck in the queue until abandoned if an agent's browser delivered a delayed connection request after a timeout.
+
+  * Fixed an issue in the CCaaS portal where active Spanish IVR queues were incorrectly displayed as **Setup is required** and grayed out when switching languages from English to Spanish.
+
+  * Fixed an issue where transient network errors during platform validation incorrectly marked virtual agent credentials as invalid.
+
+  * Fixed an issue where SMS and WhatsApp virtual agent chats became unresponsive and didn't escalate to a human agent when encountering a custom payload validation error.
+
+  * Fixed an issue where campaigns didn't resume after being paused, resulting in repeated call session failures and missing participant information.
+
+  * Fixed an issue where call-related actions such as disconnecting or updating status took up to 72 seconds to complete.
+
+  * Fixed an issue where a **Not Found** banner incorrectly appeared in the call adapter when a phone number couldn't be matched in the CRM.
+
+  * Fixed an issue where the **In-email** status bar in the agent desktop appeared white.
+
+  * Fixed an issue where agents in the **In-email** status couldn't change their status directly from the status bar.
+
+  * Fixed an issue where the first letter of uppercase acronym field names was incorrectly lowercased in virtual task assistant input placeholders.
+
+  * Fixed an issue where agents were incorrectly set to an **Unresponsive** status instead of receiving a missed call when a new deltacast offer arrived while the call adapter was already ringing.
+
+  * Fixed an issue where agents became stuck in a projected state and stopped receiving calls after a caller abandoned the call at the moment of routing.
+
+  * Fixed an issue where transient carrier timeouts during outbound callbacks were incorrectly classified as invalid numbers.
+
+  * Fixed an issue where forced virtual agent callbacks booked through the Apps API were incorrectly routed to the original call's queue instead of the requested destination.
+
+  * Fixed an issue where scheduled callback capacity was under-calculated due to a mathematical rounding error.
+
+  * Fixed an issue where inbound calls were prematurely disconnected if the initial connection request timed out and was retried.
+
+  * Fixed an issue where valid Canadian phone numbers using newer area codes were rejected by the Callback call API.
+
+  * Fixed an issue where certain agents were missing from the directory during outbound calls, preventing other agents from transferring calls or adding them to a call.
+
+  * Fixed an issue where dynamic queues incorrectly offered a minimum of one slot even when WFM staffing was zero or resulted in less than one available slot.
+
+  * Fixed an issue where Dynamic Agent Availability queues were saved without a required custom queue identifier, causing workforce management synchronization to fail silently.
+
+  * Fixed an issue where Salesforce cases and contacts were incorrectly created for voice calls handled entirely by a virtual agent, even when the **Create CRM records for calls attended by Virtual Agents** setting was disabled.
+
+  * Fixed an issue where voice transfers addressed to a specific agent were never offered to the target and didn't expire, leaving callers on hold indefinitely.
+
+  * Fixed an issue where NICE WFM session data exports didn't generate for instances with subdomains exceeding 20 characters.
+
+  * Fixed an issue where virtual callbacks routed through external Dynamic Contact Routing (DCR) were missing captured virtual agent custom parameters, causing routing engines to lose the caller's intent.
+
+  * Fixed an issue where Agent Assist transcriptions permanently stopped following transient network or quota errors.
+
+  * Fixed an issue where outbound phone number restriction rules weren't applied to agents with the **Allow unrestricted international calling** setting enabled.
+
+
+
 
 **Google Distributed Cloud (software only) for VMware**
 
@@ -1043,6 +1638,22 @@ Feature
 
 Configuring authorization policies (`GCPAuthzPolicy`) on Cloud Service Mesh sidecars on Google Kubernetes Engine (GKE) is now available ([Preview](https://cloud.google.com/products#product-launch-stages)). This feature is supported only for Cloud Service Mesh with the Gateway API. You can allow or deny inbound HTTP requests at the namespace or workload level, or delegate decisions to an external authorization engine (`GCPAuthzExtension`). For more information, see [Setup authorization policies on sidecars on GKE](https://docs.cloud.google.com/service-mesh/docs/gateway/authorization-policy-sidecar).
 
+**Compute Engine**
+
+Feature
+
+**Generally available** : You can now create C4 sole-tenant nodes on Intel Granite Rapids with the following node types:
+
+  * `c4-node-288-576`
+  * `c4-node-288-1080`
+  * `c4-node-288-1080-lssd`
+  * `c4-node-288-2232`
+  * `c4-node-288-2232-lssd`
+
+
+
+For more information, see [Sole-tenancy overview](https://docs.cloud.google.com/compute/docs/nodes/sole-tenant-nodes).
+
 **Datastream**
 
 Feature
@@ -1141,6 +1752,39 @@ Feature
 Knowledge Studio in Knowledge Catalog is available in [Preview](https://cloud.google.com/products#product-launch-stages). Knowledge Studio lets you explore data assets and semantic relationships using natural language and an interactive context graph, run automated enrichment tasks to generate and curate metadata from schemas, query logs, and enterprise knowledge signals, and package curated domain knowledge into context sets to ground AI agents through the Model Context Protocol (MCP) or Knowledge Catalog APIs.
 
 For more information, see [Knowledge Studio overview](https://docs.cloud.google.com/knowledge-catalog/docs/knowledge-studio), [Context sets overview](https://docs.cloud.google.com/knowledge-catalog/docs/context-sets), and [About enrichment tasks](https://docs.cloud.google.com/knowledge-catalog/docs/about-enrichment-tasks).
+
+**Managed Service for Apache Spark**
+
+Announcement
+
+New **Serverless Spark** [runtime versions](https://docs.cloud.google.com/managed-spark/docs/concepts/versioning/serverless-spark-component-versions):
+
+  * 1.2.90
+  * 2.2.90
+  * 2.3.43
+
+
+
+Announcement
+
+New [**Managed Service for Apache Spark** (formerly Dataproc on Compute Engine) subminor cluster image versions](https://docs.cloud.google.com/managed-spark/docs/concepts/versioning/image-version-lists#supported-dataproc-image-versions):
+
+  * 2.1.121-debian11, 2.1.121-rocky8, 2.1.121-ubuntu20, 2.1.121-ubuntu20-arm
+  * 2.2.89-debian12, 2.2.89-rocky9, 2.2.89-ubuntu22, 2.2.89-ubuntu22-arm
+  * 2.3.38-debian12, 2.3.38-ml-ubuntu22, 2.3.38-rocky9, 2.3.38-ubuntu22, 2.3.38-ubuntu22-arm
+  * 3.0.4-debian13, 3.0.4-ml-ubuntu24, 3.0.4-rocky9, 3.0.4-ubuntu24
+
+
+
+Key updates in these image versions include:
+
+  * **AlloyDB Connector:** Added support for the AlloyDB Connector (`ALLOYDB_CONNECTOR`) in `2.3` images.
+
+
+
+Fixed
+
+**Managed Service for Apache Spark** (formerly Dataproc on Compute Engine) and **Serverless Spark** : Included a fix for the eMudhra CVE in all latest image versions (2.1, 2.2, 2.3, 3.0) and Serverless Spark runtime versions (1.2, 2.2, 2.3).
 
 **Model Armor**
 
@@ -1243,6 +1887,16 @@ Changes to the idle shutdown timeout now take effect on running instances withou
 Fixed
 
 Fixed an issue where temporary metadata server errors could delay idle shutdown or stop it from working until the instance was restarted.
+
+**Google SecOps**
+
+Feature
+
+**Unified Case and Alert Playbooks view**
+
+The **Playbooks** tab in Cases now provides a consolidated view of all automated workflows associated with an investigation, displaying both case-level and alert-level playbooks in a single tab.
+
+For more information, see [View case and alert playbooks](https://docs.cloud.google.com/chronicle/docs/soar/respond/working-with-playbooks/attach-playbooks-to-alerts-cases#view_case_and_alert_playbooks).
 
 **Google SecOps SOAR**
 
@@ -3018,6 +3672,14 @@ This feature is available in:
 
 
 For more information, see [Regular expression URL rewrites for route rules](https://docs.cloud.google.com/load-balancing/docs/url-map-concepts#regex-url-rewrite).
+
+**Cloud Workstations**
+
+Feature
+
+Cloud Workstations supports [configuring direct access ports](https://docs.cloud.google.com/workstations/docs/access-http-servers-running-on-workstations#configure-direct-access-ports) on workstation clusters in [Preview](https://cloud.google.com/products#product-launch-stages). Direct access ports let you connect directly to a workstation port using the standard `https://WORKSTATION_NAME.CLUSTER_ID.cloudworkstations.dev:PORT` URL format instead of encoding the port as a prefix in the URL.
+
+To set direct access ports, use the `--direct-access-ports` flag with the [`gcloud beta workstations clusters create`](https://docs.cloud.google.com/sdk/gcloud/reference/beta/workstations/clusters/create) and [`gcloud beta workstations clusters update`](https://docs.cloud.google.com/sdk/gcloud/reference/beta/workstations/clusters/update) commands—for example, `--direct-access-ports=80,8080`.
 
 **Config Connector**
 
@@ -6487,6 +7149,12 @@ The following resource types are publicly available through the [ExportAssets](h
 
 
 
+**Cloud Healthcare API**
+
+Feature
+
+**General availability:** Redacting burnt-in text in DICOM images using custom regular expressions (`customRegexes` in [`ImageConfig`](https://docs.cloud.google.com/healthcare-api/docs/reference/rest/v1/projects.locations.datasets.fhirStores#ImageConfig)) is now generally available (GA) in Cloud Healthcare API `v1`. You can specify custom regular expression patterns (`pattern`) and optional capturing group indexes (`groupIndexes`, a maximum of three for each pattern) in [`projects.locations.datasets.deidentify`](https://docs.cloud.google.com/healthcare-api/docs/reference/rest/v1/projects.locations.datasets/deidentify) and [`projects.locations.datasets.dicomStores.deidentify`](https://docs.cloud.google.com/healthcare-api/docs/reference/rest/v1/projects.locations.datasets.dicomStores/deidentify) when `textRedactionMode` is set to `REDACT_SENSITIVE_TEXT`. For more information, see [Redacting burnt-in text using custom regular expressions](https://docs.cloud.google.com/healthcare-api/docs/how-tos/dicom-deidentify#redacting-burnt-in-text-using-custom-regular-expressions).
+
 **Cloud Service Mesh**
 
 Announcement
@@ -8705,9 +9373,9 @@ You can now choose the [release channel](https://docs.cloud.google.com/build/doc
 
 Feature
 
-Outbound Endpoints for Cloud DNS is available in [Preview](https://cloud.google.com/products#product-launch-stages).
+Outbound endpoints for Cloud DNS are available in [Preview](https://cloud.google.com/products#product-launch-stages).
 
-Attach Outbound Endpoints to forwarding zones or server policies to enable direct DNS query forwarding from VPC networks to external and on-premises DNS resolvers using private IP addresses. For more information, see [Outbound Endpoints overview](https://docs.cloud.google.com/dns/docs/outbound-endpoints-overview).
+Attach outbound endpoints to forwarding zones or server policies to enable direct DNS query forwarding from VPC networks to external and on-premises DNS resolvers using private IP addresses. For more information, see [Outbound endpoints overview](https://docs.cloud.google.com/dns/docs/outbound-endpoints-overview).
 
 **Cloud Load Balancing**
 
@@ -12971,7 +13639,7 @@ This feature is now in ([Preview](https://cloud.google.com/products#product-laun
 
 Feature
 
-[Network Connectivity Center (NCC)](https://docs.cloud.google.com/network-connectivity/docs/network-connectivity-center/concepts/overview) support for [Partner Cross-Cloud Interconnect for Amazon Web Services (AWS)](https://docs.cloud.google.com/network-connectivity/docs/interconnect/concepts/partner-cci-for-aws-overview) is [Generally Available](https://cloud.google.com/products#product-launch-stages).
+[Network Connectivity Center (NCC)](https://docs.cloud.google.com/network-connectivity/docs/network-connectivity-center/concepts/overview) support for [Partner Cross-Cloud Interconnect for Amazon Web Services (AWS)](https://docs.cloud.google.com/network-connectivity/docs/interconnect/concepts/partner-cci-for-csp-overview) is [Generally Available](https://cloud.google.com/products#product-launch-stages).
 
 **Cloud Run**
 
@@ -13082,9 +13750,9 @@ The Regular channel remains on **Looker 26.14**.
 
 Feature
 
-[Network Connectivity Center (NCC)](https://docs.cloud.google.com/network-connectivity/docs/network-connectivity-center/concepts/overview) support for [Partner Cross-Cloud Interconnect for Amazon Web Services (AWS)](https://docs.cloud.google.com/network-connectivity/docs/interconnect/concepts/partner-cci-for-aws-overview) is [Generally Available](https://cloud.google.com/products#product-launch-stages).
+[Network Connectivity Center (NCC)](https://docs.cloud.google.com/network-connectivity/docs/network-connectivity-center/concepts/overview) support for [Partner Cross-Cloud Interconnect for Amazon Web Services (AWS)](https://docs.cloud.google.com/network-connectivity/docs/interconnect/concepts/partner-cci-for-csp-overview) is [Generally Available](https://cloud.google.com/products#product-launch-stages).
 
-Billing for [Partner Cross-Cloud Interconnect for Amazon Web Services (AWS)](https://docs.cloud.google.com/network-connectivity/docs/interconnect/concepts/partner-cci-for-aws-overview) is going to commence over the next 30 days following General Availability. For the most current billing information, see [Network Connectivity Center pricing](https://cloud.google.com/network-connectivity/pricing).
+Billing for [Partner Cross-Cloud Interconnect](https://docs.cloud.google.com/network-connectivity/docs/interconnect/concepts/partner-cci-for-csp-overview) is going to commence over the next 30 days following General Availability. For the most current billing information, see [Network Connectivity Center pricing](https://cloud.google.com/network-connectivity/pricing).
 
 **SAP on Google Cloud**
 
@@ -13628,30 +14296,6 @@ Runtime sysctl changes:
   * Changed: net.ipv4.udp_mem: 188034 250715 376068 -> 188034 250714 376068
 
 
-
-Change
-
-### cos-117-18613-767-2 
-
-Kernel | Docker | Containerd | [GPU Drivers](https://cloud.google.com/container-optimized-os/docs/how-to/run-gpus)  
----|---|---|---  
-[COS-6.6.157](https://cos.googlesource.com/third_party/kernel/+/04c29e4b70e72c933c0bf02443f8334f4bb78d32) | v24.0.9 | v1.7.34 | [See List](https://storage.googleapis.com/cos-tools/18613.767.2/lakitu/gpu_driver_versions.textproto)  
-  
-Announcement
-
-This is an [LTS Refresh release.](https://docs.cloud.google.com/container-optimized-os/docs/concepts/versioning#lts_refresh_releases)
-
-Change
-
-Ensure time sync prior to TLS handshake.
-
-Fixed
-
-Added support for bare metal TPUs.
-
-Fixed
-
-Upgraded app-admin/google-guest-configs to v20260911.00.
 
 Change
 
@@ -16127,30 +16771,6 @@ Security
 
 Upgraded net-misc/rsync to version 3.5.0. This fixes CVE-2026-53791, CVE-2026-53784, CVE-2026-53786, CVE-2026-53789, CVE-2026-53795, CVE-2026-53797, CVE-2026-53798, CVE-2026-53799, CVE-2026-53800, CVE-2026-53801, CVE-2026-53802, CVE-2026-53803, CVE-2026-70455, CVE-2026-70457, CVE-2026-70459, CVE-2026-70461, and CVE-2026-70463.
 
-Change
-
-### cos-117-18613-731-29 
-
-Kernel | Docker | Containerd | [GPU Drivers](https://cloud.google.com/container-optimized-os/docs/how-to/run-gpus)  
----|---|---|---  
-[COS-6.6.153](https://cos.googlesource.com/third_party/kernel/+/6ee831c40108c3b447bc8edad4c4ebd45b746574) | v24.0.9 | v1.7.34 | [See List](https://storage.googleapis.com/cos-tools/18613.731.29/lakitu/gpu_driver_versions.textproto)  
-  
-Fixed
-
-Fixed an issue where temporary efivarfs mounts under /tmp could persist after boot.
-
-Fixed
-
-Upgraded dev-libs/expat to v2.8.4.
-
-Security
-
-Fixed CVE-2026-0864 in dev-lang/python.
-
-Security
-
-Upgraded net-misc/rsync to version 3.5.0. This fixes CVE-2026-53791, CVE-2026-53784, CVE-2026-53786, CVE-2026-53789, CVE-2026-53795, CVE-2026-53797, CVE-2026-53798, CVE-2026-53799, CVE-2026-53800, CVE-2026-53801, CVE-2026-53802, CVE-2026-53803, CVE-2026-70455, CVE-2026-70457, CVE-2026-70459, CVE-2026-70461, and CVE-2026-70463.
-
 **Dataform**
 
 Feature
@@ -17291,86 +17911,6 @@ Fixed CVE-2026-80856 in the Linux kernel.
 Security
 
 Fixed CVE-2026-80862 in the Linux kernel.
-
-Security
-
-Fixed CVE-2026-80916 in the Linux kernel.
-
-Security
-
-Fixed CVE-2026-80917 in the Linux kernel.
-
-Change
-
-### cos-117-18613-731-21 
-
-Kernel | Docker | Containerd | [GPU Drivers](https://cloud.google.com/container-optimized-os/docs/how-to/run-gpus)  
----|---|---|---  
-[COS-6.6.153](https://cos.googlesource.com/third_party/kernel/+/6ee831c40108c3b447bc8edad4c4ebd45b746574) | v24.0.9 | v1.7.34 | [See List](https://storage.googleapis.com/cos-tools/18613.731.21/lakitu/gpu_driver_versions.textproto)  
-  
-Security
-
-Fixed CVE-2026-80590 in the Linux kernel.
-
-Security
-
-Fixed CVE-2026-80737 in the Linux kernel.
-
-Security
-
-Fixed CVE-2026-80788 in the Linux kernel.
-
-Security
-
-Fixed CVE-2026-80789 in the Linux kernel.
-
-Security
-
-Fixed CVE-2026-80791 in the Linux kernel.
-
-Security
-
-Fixed CVE-2026-80792 in the Linux kernel.
-
-Security
-
-Fixed CVE-2026-80793 in the Linux kernel.
-
-Security
-
-Fixed CVE-2026-80805 in the Linux kernel.
-
-Security
-
-Fixed CVE-2026-80806 in the Linux kernel.
-
-Security
-
-Fixed CVE-2026-80808 in the Linux kernel.
-
-Security
-
-Fixed CVE-2026-80842 in the Linux kernel.
-
-Security
-
-Fixed CVE-2026-80843 in the Linux kernel.
-
-Security
-
-Fixed CVE-2026-80852 in the Linux kernel.
-
-Security
-
-Fixed CVE-2026-80854 in the Linux kernel.
-
-Security
-
-Fixed CVE-2026-80855 in the Linux kernel.
-
-Security
-
-Fixed CVE-2026-80856 in the Linux kernel.
 
 Security
 
@@ -19664,78 +20204,6 @@ We have added support for direct reconciliation to more resources, with opt-in b
 
 Change
 
-### cos-117-18613-731-6 
-
-Kernel | Docker | Containerd | [GPU Drivers](https://cloud.google.com/container-optimized-os/docs/how-to/run-gpus)  
----|---|---|---  
-[COS-6.6.153](https://cos.googlesource.com/third_party/kernel/+/3f9d5994b9233645cbedcc27ffb9885482af3d41) | v24.0.9 | v1.7.34 | [See List](https://storage.googleapis.com/cos-tools/18613.731.6/lakitu/gpu_driver_versions.textproto)  
-  
-Fixed
-
-Fixed docker cp failure when copying to/from containers with symlinked bind mounts.
-
-Fixed
-
-Upgraded app-admin/google-guest-configs to v20260819.00.
-
-Fixed
-
-Upgraded app-arch/zstd to v1.5.7-r1.
-
-Fixed
-
-Upgraded app-containers/docker-credential-helpers to v0.9.9.
-
-Fixed
-
-Upgraded app-shells/dash to v0.5.13.5.
-
-Fixed
-
-Upgraded dev-db/sqlite to v3.53.4.
-
-Fixed
-
-Upgraded dev-libs/expat to v2.8.3.
-
-Fixed
-
-Upgraded dev-libs/libverto to v0.3.2-r1.
-
-Fixed
-
-Upgraded dev-libs/popt to v1.19-r1.
-
-Fixed
-
-Upgraded dev-libs/xxhash to v0.8.3-r2.
-
-Fixed
-
-Upgraded net-libs/libnftnl to v1.2.9.
-
-Fixed
-
-Upgraded sys-apps/acl to v2.4.0-r2.
-
-Fixed
-
-Upgraded sys-auth/passwdqc to v2.0.3-r1.
-
-Fixed
-
-Upgraded sys-process/lsof to v4.99.7.
-
-Security
-
-Fixed CVE-2026-6238 in sys-libs/glibc.
-
-Security
-
-Updated dev-go/net to v0.55.0 to fix CVE-2026-25680.
-
-Change
-
 ### cos-129-19506-448-20 
 
 Kernel | Docker | Containerd | [GPU Drivers](https://cloud.google.com/container-optimized-os/docs/how-to/run-gpus)  
@@ -20258,165 +20726,11 @@ Feature
 
 ## September 07, 2026
 
-**AI Hypercomputer**
-
-Security
-
-Google addressed a security vulnerability (CVE-2026-65107) that affects Slurm clusters. Based on the Google Cloud product that you used to create your Slurm cluster, see one of the following to mitigate the vulnerability:
-
-  * [Security bulletin for Cluster Director](https://docs.cloud.google.com/cluster-director/docs/security-bulletins#gcp-2026-060)
-
-  * [Security bulletin for Cluster Toolkit](https://docs.cloud.google.com/cluster-toolkit/docs/security-bulletins#gcp-2026-060)
-
-
-
-
-**Access Approval**
-
-Feature
-
-Privileged Access Manager is generally available [(GA)](https://cloud.google.com/products#product-launch-stages).
-
-**Access Transparency**
-
-Feature
-
-Privileged Access Manager is generally available [(GA)](https://cloud.google.com/products#product-launch-stages).
-
-**Bigtable**
-
-Libraries
-
-### Go
-
-#### [1.56.0](https://github.com/googleapis/google-cloud-go/compare/bigtable/v1.55.0...bigtable/v1.56.0) (2026-09-03)
-
-##### Features
-
-  * **bigtable/accelerator:** Add --user-agent flag to daemon ([#20341](https://github.com/googleapis/google-cloud-go/issues/20341)) ([6b33c06](https://github.com/googleapis/google-cloud-go/commit/6b33c06f6a19ce512cbe9556fe2932f5d7878b66))
-  * **bigtable/accelerator:** Add daemon binary with identity verification ([#20330](https://github.com/googleapis/google-cloud-go/issues/20330)) ([2f9cf89](https://github.com/googleapis/google-cloud-go/commit/2f9cf898f165c0b4fee6fdda8d037c109b0779e1))
-  * **bigtable/accelerator:** Add proxy channel scaffold owning a sessi… ([#20310](https://github.com/googleapis/google-cloud-go/issues/20310)) ([d65ca7d](https://github.com/googleapis/google-cloud-go/commit/d65ca7da8108c643abc56237e2db0a17c3447c7c))
-  * **bigtable/accelerator:** Add stdin-EOF and parent-PID lifecycle wa… ([#20328](https://github.com/googleapis/google-cloud-go/issues/20328)) ([dc1c6ae](https://github.com/googleapis/google-cloud-go/commit/dc1c6ae0f773d405e35ffe68741c46d220e450d1))
-  * **bigtable/accelerator:** Add UDS server with authenticated proxy i… ([#20320](https://github.com/googleapis/google-cloud-go/issues/20320)) ([a837020](https://github.com/googleapis/google-cloud-go/commit/a837020465473f8cc21213de818dc96d5ff46f3a))
-  * **bigtable/accelerator:** Add V2-to-session request adapters ([#20271](https://github.com/googleapis/google-cloud-go/issues/20271)) ([4cb6f16](https://github.com/googleapis/google-cloud-go/commit/4cb6f1644d070b0af8ee3706d36640a91ded48d8))
-  * **bigtable/accelerator:** Authenticate UDS callers with a stdin tok… ([#20324](https://github.com/googleapis/google-cloud-go/issues/20324)) ([7847ab7](https://github.com/googleapis/google-cloud-go/commit/7847ab71efc0c5745eaa49235762ecab523312f1))
-  * **bigtable/accelerator:** Dispatch MutateRow and single-row ReadRow… ([#20312](https://github.com/googleapis/google-cloud-go/issues/20312)) ([c89f336](https://github.com/googleapis/google-cloud-go/commit/c89f336749601fa958d02c984cafd7e96007c8f1))
-  * **bigtable/bttest:** Honor the table's timestamp granularity ([#20456](https://github.com/googleapis/google-cloud-go/issues/20456)) ([0054866](https://github.com/googleapis/google-cloud-go/commit/0054866d52dca8c5d7b0ab7d3de0259e07b88151))
-  * **bigtable:** Add AFE picker (Simple / LeastInFlight / LeastLatency) ([#20204](https://github.com/googleapis/google-cloud-go/issues/20204)) ([bcbf714](https://github.com/googleapis/google-cloud-go/commit/bcbf71431d1742e2e13a13d1cbe8b0fc0433aede))
-  * **bigtable:** Add ChainInterceptors and RetryingVRpc for vRPC pipeline ([#20185](https://github.com/googleapis/google-cloud-go/issues/20185)) ([c7a832a](https://github.com/googleapis/google-cloud-go/commit/c7a832aa13bad0896c3906f491d798482dd8c02a))
-  * **bigtable:** Add ClientConfig.DisableSession to opt out of session backend ([#20297](https://github.com/googleapis/google-cloud-go/issues/20297)) ([7ee5e44](https://github.com/googleapis/google-cloud-go/commit/7ee5e44e0304c5509b9b77fe0760d97771657cd9))
-  * **bigtable:** Add ClientConfigurationManager ([#19986](https://github.com/googleapis/google-cloud-go/issues/19986)) ([3a8f927](https://github.com/googleapis/google-cloud-go/commit/3a8f9270d9c2831b5d76efe89c913555577ace6a))
-  * **bigtable:** Add debug tag counter (recordDebugTag / assertDebugTag) ([#20114](https://github.com/googleapis/google-cloud-go/issues/20114)) ([3c97590](https://github.com/googleapis/google-cloud-go/commit/3c97590192a19306612389e9d55b93b538e8584b))
-  * **bigtable:** Add getClientConfigDirectAccessChecker for session pools ([#20209](https://github.com/googleapis/google-cloud-go/issues/20209)) ([3b8d30a](https://github.com/googleapis/google-cloud-go/commit/3b8d30adeaf03c8452207b056d69922646d63bf2))
-  * **bigtable:** Add lazyPool helper for on-demand session pool opening ([#20182](https://github.com/googleapis/google-cloud-go/issues/20182)) ([f6ae3fb](https://github.com/googleapis/google-cloud-go/commit/f6ae3fbf65e9e41a1c2d64f281f881ebe8828439))
-  * **bigtable:** Add NoOpChannelPrimer for session channel pools ([#20208](https://github.com/googleapis/google-cloud-go/issues/20208)) ([d055a8a](https://github.com/googleapis/google-cloud-go/commit/d055a8a1b23980ad4b53c0cd690e291c9aa6248c))
-  * **bigtable:** Add opensession descriptors for bigtable ([#14647](https://github.com/googleapis/google-cloud-go/issues/14647)) ([8968f4f](https://github.com/googleapis/google-cloud-go/commit/8968f4fd7ca68297dcc42861878f90a5b339539d))
-  * **bigtable:** Add PeakEwma continuous time-decay latency tracker ([#20187](https://github.com/googleapis/google-cloud-go/issues/20187)) ([9d124ef](https://github.com/googleapis/google-cloud-go/commit/9d124ef7773dae916dfbb97657f83ae633d15220))
-  * **bigtable:** Add per-AFE sessionList for the two-tier session pool ([#20224](https://github.com/googleapis/google-cloud-go/issues/20224)) ([dbf0c3f](https://github.com/googleapis/google-cloud-go/commit/dbf0c3f3ea37279a2aa00803ded8e489229b15c9))
-  * **bigtable:** Add PoolSizer for server-driven session pool capacity ([#20189](https://github.com/googleapis/google-cloud-go/issues/20189)) ([57ebbeb](https://github.com/googleapis/google-cloud-go/commit/57ebbeb8e846f574034e93060682309bc1a00dc1))
-  * **bigtable:** Add protoRowToRow conversion helper for TableShim ([#20257](https://github.com/googleapis/google-cloud-go/issues/20257)) ([1297143](https://github.com/googleapis/google-cloud-go/commit/1297143a4fab4bf58cbd0bd6e44db4653a818c47))
-  * **bigtable:** Add Session debug surface (observability fields + methods) ([#20211](https://github.com/googleapis/google-cloud-go/issues/20211)) ([d8d3e16](https://github.com/googleapis/google-cloud-go/commit/d8d3e160c3e63150ef5d14e83a2ea0fd25a7e214))
-  * **bigtable:** Add Session lifecycle (Start, Close, ForceClose, readLoop, heartBeatLoop) ([#20215](https://github.com/googleapis/google-cloud-go/issues/20215)) ([b9e53c6](https://github.com/googleapis/google-cloud-go/commit/b9e53c6276efe28428adfcd4671d7ac8c7e8d330))
-  * **bigtable:** Add session package with SessionClient + SessionTableAPI interfaces ([#20180](https://github.com/googleapis/google-cloud-go/issues/20180)) ([4b82fd2](https://github.com/googleapis/google-cloud-go/commit/4b82fd25cc81cdee5563d5a049b48d2694bca088))
-  * **bigtable:** Add Session primitives (AttemptOutcome, vRPC ctx, msgtype) ([#20116](https://github.com/googleapis/google-cloud-go/issues/20116)) ([e1011e2](https://github.com/googleapis/google-cloud-go/commit/e1011e2d2c43a838abe080ad9d3f614f8c92e55a))
-  * **bigtable:** Add Session state enum ([#19981](https://github.com/googleapis/google-cloud-go/issues/19981)) ([0748972](https://github.com/googleapis/google-cloud-go/commit/07489725b63174375f7faa68b7aad18cc638c27b))
-  * **bigtable:** Add Session struct + state machine ([#20117](https://github.com/googleapis/google-cloud-go/issues/20117)) ([09acbb3](https://github.com/googleapis/google-cloud-go/commit/09acbb37a385d2c6fca465adb70a3eb03ea4a38e))
-  * **bigtable:** Add session.Config.EnableDebug to gate sessionz debug state ([#20247](https://github.com/googleapis/google-cloud-go/issues/20247)) ([ce74c31](https://github.com/googleapis/google-cloud-go/commit/ce74c315d41371b0ddf2c1ba7342446695a53900))
-  * **bigtable:** Add SessionClient + SessionTable + lazyPool ([#20228](https://github.com/googleapis/google-cloud-go/issues/20228)) ([ab2c96c](https://github.com/googleapis/google-cloud-go/commit/ab2c96c3ed62514dcf6526bb32259267fbe63e97))
-  * **bigtable:** Add SessionPoolImpl (two-tier pool + scaling + debug) ([#20225](https://github.com/googleapis/google-cloud-go/issues/20225)) ([683eda8](https://github.com/googleapis/google-cloud-go/commit/683eda8c690fd2b948bd3b56777039d28421ee7c))
-  * **bigtable:** Add SessionThrottler / AdaptiveSessionThrottler for OpenSession pacing ([#20184](https://github.com/googleapis/google-cloud-go/issues/20184)) ([02e3c6d](https://github.com/googleapis/google-cloud-go/commit/02e3c6d19e8ff5b6a12803bc9b0636575e070dff))
-  * **bigtable:** Add SessionThrottler / AdaptiveSessionThrottler for OpenSession pacing ([#20184](https://github.com/googleapis/google-cloud-go/issues/20184)) ([29be83e](https://github.com/googleapis/google-cloud-go/commit/29be83ed3b631a472e28be4d8569d34f0a071d86))
-  * **bigtable:** Add sessionTracer for per-Session lifecycle + vRPC metrics ([#20190](https://github.com/googleapis/google-cloud-go/issues/20190)) ([a466345](https://github.com/googleapis/google-cloud-go/commit/a4663459260ba054af918c29a94570d5ec69f399))
-  * **bigtable:** Add traffic diverter and table shim for bigtable ([#14633](https://github.com/googleapis/google-cloud-go/issues/14633)) ([2f3c918](https://github.com/googleapis/google-cloud-go/commit/2f3c91847f882cef939496b92d5c4311583b4f5e))
-  * **bigtable:** Add virtual RPC descriptors ([#14648](https://github.com/googleapis/google-cloud-go/issues/14648)) ([5eedda1](https://github.com/googleapis/google-cloud-go/commit/5eedda184cf228e72098a4d8c4a992b625ca9558))
-  * **bigtable:** Debug tags for GetClientConfiguration session_configuration state ([#20472](https://github.com/googleapis/google-cloud-go/issues/20472)) ([8e57e4b](https://github.com/googleapis/google-cloud-go/commit/8e57e4b273bfb532772c4fbe4f6058b929d2c1d5))
-  * **bigtable:** Enable JWT ([#19957](https://github.com/googleapis/google-cloud-go/issues/19957)) ([af93528](https://github.com/googleapis/google-cloud-go/commit/af93528c6eb18e841783987820b9f586293459e4))
-  * **bigtable:** Enable new auth library and JWT for instance admin client ([#20013](https://github.com/googleapis/google-cloud-go/issues/20013)) ([21c4a44](https://github.com/googleapis/google-cloud-go/commit/21c4a448adf789e8acaebfaed7df5c49ac434aab))
-  * **bigtable:** Enable new auth library and remove async refresh ([#19943](https://github.com/googleapis/google-cloud-go/issues/19943)) ([0d3697b](https://github.com/googleapis/google-cloud-go/commit/0d3697b2f31a47b530cd7ba37323a4321d19091b))
-  * **bigtable:** Expose a client option to disable direct access: ([#14626](https://github.com/googleapis/google-cloud-go/issues/14626)) ([f22b29f](https://github.com/googleapis/google-cloud-go/commit/f22b29f5d954a61b34e71995546c818883697aa6))
-  * **bigtable:** Generate Admin API client using selective gapic ([#19962](https://github.com/googleapis/google-cloud-go/issues/19962)) ([a37509d](https://github.com/googleapis/google-cloud-go/commit/a37509ddadc60a81e5dfb0f373e47d0d578d8cca))
-  * **bigtable:** Modularize channel priming behind a ChannelPrimer interface ([#20027](https://github.com/googleapis/google-cloud-go/issues/20027)) ([5214ab7](https://github.com/googleapis/google-cloud-go/commit/5214ab7033bd8a5aa672878ae17ce828d5d78c3c))
-  * **bigtable:** Modularize Direct Access compatibility check ([#19987](https://github.com/googleapis/google-cloud-go/issues/19987)) ([a25e93d](https://github.com/googleapis/google-cloud-go/commit/a25e93d25635b8fd42985edbe0290ba9a8cf2169))
-  * **bigtable:** Refactor channel_pool_factory as we need to maintain two channel factory one for session and another for unary ([#14652](https://github.com/googleapis/google-cloud-go/issues/14652)) ([0c0b6ce](https://github.com/googleapis/google-cloud-go/commit/0c0b6ceba693dbe8af778117f6ca10faf0ca67ff))
-  * **bigtable:** Rename session pool display to <resource-id>-<PERM> ([#20248](https://github.com/googleapis/google-cloud-go/issues/20248)) ([35e146e](https://github.com/googleapis/google-cloud-go/commit/35e146e25d2897082f2d1b78b9273087efd855fd))
-  * **bigtable:** Route Client.Open()-returned *Table through the Diverter ([#20273](https://github.com/googleapis/google-cloud-go/issues/20273)) ([2b81c7d](https://github.com/googleapis/google-cloud-go/commit/2b81c7dc2d73739f4d5f87aa43cc9a3ac031822d))
-  * **bigtable:** Serve grpc.health.v1.Health from the accelerator daemon ([#20446](https://github.com/googleapis/google-cloud-go/issues/20446)) ([5fba38a](https://github.com/googleapis/google-cloud-go/commit/5fba38a8372781d0b3b52c64577318b0a93f0d46))
-  * **bigtable:** State-based classification for abnormal session close ([#20243](https://github.com/googleapis/google-cloud-go/issues/20243)) ([f2905b7](https://github.com/googleapis/google-cloud-go/commit/f2905b793d062ae597d9c39597d15a680e9e9967))
-  * **bigtable:** TableShim fallback to classic on session UNIMPLEMENTED ([#20269](https://github.com/googleapis/google-cloud-go/issues/20269)) ([36540af](https://github.com/googleapis/google-cloud-go/commit/36540af84ab5f7360c5c1a92bbfb5a631d4c5cc6))
-  * **bigtable:** TTL-on-idle cache for per-resource session.TableAPI ([#20263](https://github.com/googleapis/google-cloud-go/issues/20263)) ([00b2a49](https://github.com/googleapis/google-cloud-go/commit/00b2a49de38fe600736cf10c496f85e082ae8871))
-  * **bigtable:** Update admin.go to support instance edition ([#14479](https://github.com/googleapis/google-cloud-go/issues/14479)) ([cf1153d](https://github.com/googleapis/google-cloud-go/commit/cf1153dfb96bb9529e3129f012145e343c048796))
-  * **bigtable:** Wire Diverter on Client and route Open* via TableShim ([#20256](https://github.com/googleapis/google-cloud-go/issues/20256)) ([b32fbd7](https://github.com/googleapis/google-cloud-go/commit/b32fbd7d02f835e8f83b4be1926e5826c27fa8a9))
-  * **bigtable:** Wrap admin client ([#14534](https://github.com/googleapis/google-cloud-go/issues/14534)) ([0bea4ba](https://github.com/googleapis/google-cloud-go/commit/0bea4ba37832608dc05293a1eb2a3c756a9f27d9))
-  * **o11y:** Regenerate clients for LRO tracing ([#20107](https://github.com/googleapis/google-cloud-go/issues/20107)) ([779074e](https://github.com/googleapis/google-cloud-go/commit/779074edd267a26520bae459307660953129eb07))
-  * Update API sources and regenerate ([#14701](https://github.com/googleapis/google-cloud-go/issues/14701)) ([a9b7921](https://github.com/googleapis/google-cloud-go/commit/a9b7921551e9c1535496731da53e880e9e364efa))
-  * Update API sources and regenerate ([#19950](https://github.com/googleapis/google-cloud-go/issues/19950)) ([c7607be](https://github.com/googleapis/google-cloud-go/commit/c7607be52757b803df345670b5d0621c2bb9ba30))
-  * Update API sources and regenerate ([#20369](https://github.com/googleapis/google-cloud-go/issues/20369)) ([bfe3aaf](https://github.com/googleapis/google-cloud-go/commit/bfe3aafc49e0c13815aa0401b1eba47aef4511df))
-  * Update API sources and regenerate ([#20459](https://github.com/googleapis/google-cloud-go/issues/20459)) ([5426e32](https://github.com/googleapis/google-cloud-go/commit/5426e32154fdced65087675b6c37aba66436ac47))
-  * Update sources and regenerate ([#20399](https://github.com/googleapis/google-cloud-go/issues/20399)) ([a6b5cdb](https://github.com/googleapis/google-cloud-go/commit/a6b5cdb4eec5e66fb6bb4a00f9ec89c088826e26))
-
-
-
-##### Bug Fixes
-
-  * **bigtable/internal/transport:** Drop redundant defer p.Close() in AFE picker tests ([#20311](https://github.com/googleapis/google-cloud-go/issues/20311)) ([c05b767](https://github.com/googleapis/google-cloud-go/commit/c05b76788b76de616cf49ca7c3a7cfec863913b8))
-  * **bigtable:** AFE picker latency signal — subtract poolWait and compute TransportLatency = wire − backend at source ([#20281](https://github.com/googleapis/google-cloud-go/issues/20281)) ([bb8c4d5](https://github.com/googleapis/google-cloud-go/commit/bb8c4d56bf5bb53e5e1f1d510be326821fe4ddee))
-  * **bigtable:** Default cluster/zone in toOtelMetricAttrs to avoid Monitoring reject ([#20178](https://github.com/googleapis/google-cloud-go/issues/20178)) ([14493f4](https://github.com/googleapis/google-cloud-go/commit/14493f4de7298b8fac36c1ee67f2647fbc2e6ba9))
-  * **bigtable:** Disable connection pooling when emulator is set ([#14483](https://github.com/googleapis/google-cloud-go/issues/14483)) ([a07a26b](https://github.com/googleapis/google-cloud-go/commit/a07a26b60c2171d3ee84a43f2e35189e20f0623e))
-  * **bigtable:** Disable dynamic channel pool by default and raise default pool size to 10 ([#19945](https://github.com/googleapis/google-cloud-go/issues/19945)) ([5ddf8d4](https://github.com/googleapis/google-cloud-go/commit/5ddf8d469ce0570aedaf925a9a377ddf51873a43))
-  * **bigtable:** Eliminate stats-handler MD race in internal/metrics tracer ([#20158](https://github.com/googleapis/google-cloud-go/issues/20158)) ([c387066](https://github.com/googleapis/google-cloud-go/commit/c38706633aa13da88e8c54b0b6340b9ce7209007))
-  * **bigtable:** Guard NewStream OnFinish against grpc-go double-fire ([#20295](https://github.com/googleapis/google-cloud-go/issues/20295)) ([b51da29](https://github.com/googleapis/google-cloud-go/commit/b51da29536de5aa59582d2a9633a07186f8636ae))
-  * **bigtable:** Measure real scheduling delay in pacemaker_delays ([#20445](https://github.com/googleapis/google-cloud-go/issues/20445)) ([e1304d6](https://github.com/googleapis/google-cloud-go/commit/e1304d63e0280aa7571aca294b9b5c5cf3d4c7f4))
-  * **bigtable:** Raise default connection-recycler MaxAge to 7 days ([#19940](https://github.com/googleapis/google-cloud-go/issues/19940)) ([a7959ef](https://github.com/googleapis/google-cloud-go/commit/a7959efcc0e145ac6bf0e271695a30284aa8b493))
-  * **bigtable:** Real per-resource pool teardown on sessionTable.Close + cache close-race gate ([#20264](https://github.com/googleapis/google-cloud-go/issues/20264)) ([599aea9](https://github.com/googleapis/google-cloud-go/commit/599aea9e67ca2526b7822eb1e873e3aaf7b5124e))
-  * **bigtable:** Register c2p resolver + RLS balancer for accelerator daemon DirectPath ([#20362](https://github.com/googleapis/google-cloud-go/issues/20362)) ([95f372f](https://github.com/googleapis/google-cloud-go/commit/95f372f660f8246fe869ae085b75b70e537533f0))
-  * **bigtable:** Retry unexpected EOF errors ([#13157](https://github.com/googleapis/google-cloud-go/issues/13157)) ([2b4ac42](https://github.com/googleapis/google-cloud-go/commit/2b4ac429c5328ed230ead5e937cd11f7024b73bf))
-  * **bigtable:** Scope session pool maintenance loops to the pool, not the client ([#20444](https://github.com/googleapis/google-cloud-go/issues/20444)) ([7457e6e](https://github.com/googleapis/google-cloud-go/commit/7457e6e23ef1affc15c2341bacb050d6dd2b1586))
-  * **bigtable:** Session client — set AllowNonDefaultServiceAccount on DirectPath dial ([#20343](https://github.com/googleapis/google-cloud-go/issues/20343)) ([b9c76ec](https://github.com/googleapis/google-cloud-go/commit/b9c76ec52f46f4fb1f1252b4ca159ca3cd2f86fa))
-  * **bigtable:** Session client — single ownership + single-flight pool loading ([#20368](https://github.com/googleapis/google-cloud-go/issues/20368)) ([f4ad950](https://github.com/googleapis/google-cloud-go/commit/f4ad950b6ace8c34820568073129e43bc69c7797))
-  * **bigtable:** Session pool — re-drive creation after a never-activated close so the consecutive-failure breaker is reachable ([#20355](https://github.com/googleapis/google-cloud-go/issues/20355)) ([ee74949](https://github.com/googleapis/google-cloud-go/commit/ee749491ff2316f35ae17cb9f82a3059e6e122db))
-  * **bigtable:** Session.durations / session.uptime — set explicit histogram bucket boundaries ([#20276](https://github.com/googleapis/google-cloud-go/issues/20276)) ([97eee22](https://github.com/googleapis/google-cloud-go/commit/97eee225c412db9288bb7813e6b9cc856e6aba44))
-  * **bigtable:** SessionTableHandle self-heals across cache eviction ([#20296](https://github.com/googleapis/google-cloud-go/issues/20296)) ([0dd98cd](https://github.com/googleapis/google-cloud-go/commit/0dd98cd75383bd5902f3bec936d9ae68c64e6682))
-  * **bigtable:** Translate ctx errors to gRPC status on session vRPC ([#20299](https://github.com/googleapis/google-cloud-go/issues/20299)) ([0f3b2a5](https://github.com/googleapis/google-cloud-go/commit/0f3b2a519e07eccdfacad1129aa0fb69bc8f06e6))
-  * **bigtable:** Treat PingAndWarm NotFound as a successful prime ([#20219](https://github.com/googleapis/google-cloud-go/issues/20219)) ([a1557ad](https://github.com/googleapis/google-cloud-go/commit/a1557adec2fc8a579f70cdb4de5f959ceb8d51a1))
-  * **bigtable:** Use composed user agent as CSM client_name ([#20383](https://github.com/googleapis/google-cloud-go/issues/20383)) ([cb02335](https://github.com/googleapis/google-cloud-go/commit/cb02335f55c4c3f8ce04edd890d0745370996cc7))
-  * **bigtable:** Use instance_name instead of name in GetClientConfig ([#20465](https://github.com/googleapis/google-cloud-go/issues/20465)) ([375f198](https://github.com/googleapis/google-cloud-go/commit/375f1983f46b9a236cec76a4cbbd8eee3a068df0))
-
-
-
-##### Performance Improvements
-
-  * **bigtable:** Delete periodic Tick loop; sizing is event-driven ([#20285](https://github.com/googleapis/google-cloud-go/issues/20285)) ([2c096bd](https://github.com/googleapis/google-cloud-go/commit/2c096bddf6fc5353a3804d222b3683a55eda13e5))
-  * **bigtable:** Drop pick_lost_race debug tag from CheckoutSession hot path ([#20280](https://github.com/googleapis/google-cloud-go/issues/20280)) ([bd0e400](https://github.com/googleapis/google-cloud-go/commit/bd0e400948a15639546f150d5d2b1a1a7ceb5741))
-
-
-
-### Go
-
-#### [1.54.0](https://github.com/googleapis/google-cloud-go/compare/bigtable/v1.53.0...bigtable/v1.54.0) (2026-09-02)
-
-##### Features
-
-  * **bigtable:** Serve grpc.health.v1.Health from the accelerator daemon ([#20446](https://github.com/googleapis/google-cloud-go/issues/20446)) ([5fba38a](https://github.com/googleapis/google-cloud-go/commit/5fba38a8372781d0b3b52c64577318b0a93f0d46))
-  * Update API sources and regenerate ([#20459](https://github.com/googleapis/google-cloud-go/issues/20459)) ([5426e32](https://github.com/googleapis/google-cloud-go/commit/5426e32154fdced65087675b6c37aba66436ac47))
-
-
-
-##### Bug Fixes
-
-  * **bigtable:** Measure real scheduling delay in pacemaker_delays ([#20445](https://github.com/googleapis/google-cloud-go/issues/20445)) ([e1304d6](https://github.com/googleapis/google-cloud-go/commit/e1304d63e0280aa7571aca294b9b5c5cf3d4c7f4))
-  * **bigtable:** Scope session pool maintenance loops to the pool, not the client ([#20444](https://github.com/googleapis/google-cloud-go/issues/20444)) ([7457e6e](https://github.com/googleapis/google-cloud-go/commit/7457e6e23ef1affc15c2341bacb050d6dd2b1586))
-
-
-
 **Cluster Toolkit**
 
 Feature
 
 Cluster Toolkit version v1.103.0 is available. This release simplifies the `gcluster` job configuration workflow, adds dynamic catalog fallback for system node pools, increases the maximum system node pool limit to 150 nodes, and replaces deprecated `e2` instances with `n2d` across daily tests and configurations. This release also upgrades Slurm to version 25.11.8 to address multiple security vulnerabilities. For more information about the vulnerabilities, see the [security bulletin](https://docs.cloud.google.com/cluster-toolkit/docs/security-bulletins#gcp-2026-062) and the [release announcement on GitHub](https://github.com/GoogleCloudPlatform/cluster-toolkit/discussions/6280).
-
-Security
-
-Google addressed a security vulnerability (CVE-2026-65107) in the Slurm `sbcast` tool that affects Cluster Toolkit. For more information, see the [security bulletin](https://docs.cloud.google.com/cluster-toolkit/docs/security-bulletins#gcp-2026-060).
 
 **Knowledge Catalog**
 
@@ -20426,54 +20740,10 @@ Data domains in Knowledge Catalog allow you to logically organize the resources 
 
 For more information, see [About data domains](https://docs.cloud.google.com/knowledge-catalog/docs/data-domains-overview).
 
-## September 06, 2026
-
-**Google SecOps**
-
-Feature
-
-**[Spotlight Feature] Case playbooks**
-
-This feature is in preview. Google SecOps now supports case playbooks. You can run playbooks or execute manual actions across an entire case container rather than individual alerts, consolidating response tasks and reducing redundant operations during investigations.
-
-For more information, see [Case playbooks overview](https://docs.cloud.google.com/chronicle/docs/soar/respond/working-with-playbooks/case-playbooks).
-
-Feature
-
-**[Spotlight Feature] Reaction triggers**
-
-This feature is in preview. Google SecOps now supports reaction triggers. As post-ingestion triggers, they allow playbooks to automatically fire in response to real-time case or alert updates during active investigations, such as changes to the case assignee, case tags, alert priority, or newly added entities.
-
-For more information, see [Use reaction triggers in playbooks](https://docs.cloud.google.com/chronicle/docs/soar/respond/working-with-playbooks/using-reaction-triggers-in-playbooks).
-
-**Google SecOps SOAR**
-
-Announcement
-
-Release 6.3.100 is being rolled out to the first phase of regions as listed [here](https://docs.cloud.google.com/chronicle/docs/soar/overview-and-introduction/soar-gradual-release).
-
-This release contains internal and customer bug fixes.
-
-Feature
-
-**Reaction triggers**
-
-This feature is in preview. Google SecOps now supports reaction triggers. As post-ingestion triggers, they allow playbooks to automatically fire in response to real-time case or alert updates during active investigations, such as changes to the case assignee, case tags, alert priority, or newly added entities.
-
-For more information, see [Use reaction triggers in playbooks](https://docs.cloud.google.com/chronicle/docs/soar/respond/working-with-playbooks/using-reaction-triggers-in-playbooks).
-
-Feature
-
-**Case playbooks**
-
-This feature is in preview. Google SecOps now supports case playbooks. You can run playbooks or execute manual actions across an entire case container rather than individual alerts, consolidating response tasks and reducing redundant operations during investigations.
-
-For more information, see [Case playbooks overview](https://docs.cloud.google.com/chronicle/docs/soar/respond/working-with-playbooks/case-playbooks).
-
 Send feedback 
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-05 UTC.
+Last updated 2026-11-06 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-05 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-06 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/kubernetes-engine/docs/learn/learn-gke-net-architecture/
 title: Learn GKE networking architecture \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T22:32:28.406384+00:00
+fetched_at: 2026-11-06T10:21:42.278429+00:00
 ---
 
 # Learn GKE networking architecture  |  Google Cloud Documentation
@@ -202,6 +202,8 @@ Egress is traffic that leaves your cluster. For a GKE cluster to function and fo
 
 **Connectivity to Google Cloud Services** : if you need to allow your cluster to communicate securely with other Google Cloud services, such as Cloud Storage or Cloud SQL, without traversing the public internet, use Private Google Access. This is an important egress mechanism for private clusters that interact with Google APIs.
 
+**Outbound bandwidth limits** : GKE doesn't enforce default per-Pod or per-container network bandwidth limits for ingress or egress traffic. Because each GKE node is a Compute Engine VM, all Pods on a node share the network bandwidth limits that apply to that node. The maximum egress capacity of a node depends on the machine type of the VM, the network configuration, the traffic destination, and applicable Google Cloud quotas. For more information about how node egress bandwidth is calculated and how to increase node bandwidth, see [Per-instance maximum egress bandwidth](https://docs.cloud.google.com/compute/docs/network-bandwidth#vm-out-baseline) and [Increase network bandwidth for clusters and nodes](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/using-tier-1).
+
 #### Hybrid and multi-cluster connectivity
 
 To connect your GKE clusters to on-premises infrastructure, use Cloud VPN for encrypted tunnels or Cloud Interconnect for dedicated, high-bandwidth connections. To enable communication between multiple GKE clusters, use Multi-cluster Services, which facilitate service discovery and traffic flow across different clusters, regions, or projects.
@@ -280,6 +282,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-05 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-05 UTC."],[],[]] 

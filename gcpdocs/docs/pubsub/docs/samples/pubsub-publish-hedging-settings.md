@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/pubsub/docs/samples/pubsub-publish-hedging-settings/
 title: Publish with hedging settings \u00a0|\u00a0 Pub/Sub \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T01:38:51.008435+00:00
+fetched_at: 2026-11-06T10:53:09.043346+00:00
 ---
 
 # Publish with hedging settings  |  Pub/Sub  |  Google Cloud Documentation
@@ -20,6 +20,14 @@ fetched_at: 2026-10-28T01:38:51.008435+00:00
 #  Publish with hedging settings Stay organized with collections  Save and categorize content based on your preferences. 
 
 Creates a publisher client with custom hedging settings and uses it to publish a message.
+
+## Explore further
+
+For detailed documentation that includes this code sample, see the following: 
+
+  * [Publish hedging](https://docs.cloud.google.com/pubsub/docs/publish-hedging)
+
+
 
 ## Code sample
 

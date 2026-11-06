@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/apigee/docs/security-bulletins/security-bulletins/
 title: Security bulletins \u00a0|\u00a0 Apigee \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-05T11:08:22.025622+00:00
+fetched_at: 2026-11-06T10:21:49.377480+00:00
 ---
 
 # Security bulletins  |  Apigee  |  Google Cloud Documentation

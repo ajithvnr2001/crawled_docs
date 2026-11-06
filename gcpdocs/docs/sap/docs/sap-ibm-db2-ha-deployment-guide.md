@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sap/docs/sap-ibm-db2-ha-deployment-guide/
 title: IBM Db2 high-availability cluster for SAP deployment guide \u00a0|\u00a0 SAP on Google Cloud \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-03T09:44:08.191991+00:00
+fetched_at: 2026-11-06T10:41:42.491562+00:00
 ---
 
 # IBM Db2 high-availability cluster for SAP deployment guide  |  SAP on Google Cloud  |  Google Cloud Documentation

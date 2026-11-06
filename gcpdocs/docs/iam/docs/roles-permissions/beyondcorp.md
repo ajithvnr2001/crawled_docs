@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/iam/docs/roles-permissions/beyondcorp/
 title: Chrome Enterprise Premium roles and permissions \u00a0|\u00a0 Identity and Access Management (IAM) \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T08:00:22.411466+00:00
+fetched_at: 2026-11-06T08:22:30.988103+00:00
 ---
 
 # Chrome Enterprise Premium roles and permissions  |  Identity and Access Management (IAM)  |  Google Cloud Documentation

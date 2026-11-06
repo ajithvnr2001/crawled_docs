@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/iam/docs/roles-permissions/cloudaicompanion/
 title: Gemini for Google Cloud API roles and permissions \u00a0|\u00a0 Identity and Access Management (IAM) \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T08:00:10.454251+00:00
+fetched_at: 2026-11-06T08:21:49.943609+00:00
 ---
 
 # Gemini for Google Cloud API roles and permissions  |  Identity and Access Management (IAM)  |  Google Cloud Documentation

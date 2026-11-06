@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sap/docs/sap-hana-scaleup-ha-manual-config-rhel/
 title: HA scale-up cluster configuration guide for SAP HANA on RHEL \u00a0|\u00a0 SAP on Google Cloud \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-30T08:53:10.545775+00:00
+fetched_at: 2026-11-06T08:23:48.990676+00:00
 ---
 
 # HA scale-up cluster configuration guide for SAP HANA on RHEL  |  SAP on Google Cloud  |  Google Cloud Documentation
@@ -1849,13 +1849,11 @@ On both the primary and secondary site, complete the following steps:
          
          > HDB stop
 
-
-
-  1. As root or `SID_LCadm`, open the `global.ini` file for editing:
+  2. As root or `SID_LCadm`, open the `global.ini` file for editing:
          
          > vi /hana/shared/SID/global/hdb/custom/config/global.ini
 
-  2. Add the following definitions to the `global.ini` file:
+  3. Add the following definitions to the `global.ini` file:
 
 **Note:** To implement the `chksrv.py` hook, you require RHEL 8 for SAP SP6 or later.
          
@@ -1875,11 +1873,11 @@ On both the primary and secondary site, complete the following steps:
          ha_dr_saphanasr = info
          ha_dr_chksrv = info
 
-  3. As root, create a custom configuration file in the `/etc/sudoers.d` directory by running the following command. This new configuration file allows the `SID_LCadm` user to access the cluster node attributes when the `srConnectionChanged()` hook method is called.
+  4. As root, create a custom configuration file in the `/etc/sudoers.d` directory by running the following command. This new configuration file allows the `SID_LCadm` user to access the cluster node attributes when the `srConnectionChanged()` hook method is called.
          
          > visudo -f /etc/sudoers.d/20-saphana
 
-  4. In the `/etc/sudoers.d/20-saphana` file, add the following text:
+  5. In the `/etc/sudoers.d/20-saphana` file, add the following text:
 
 Replace the following: 
      * `SITE_A`: the site name of the primary SAP HANA server
@@ -1894,18 +1892,18 @@ To view the site names, you can run the `crm_mon -A1 | grep site` command as the
     SID_LCadm ALL=(ALL) NOPASSWD: SITEA_SOK, SITEA_SFAIL, SITEB_SOK, SITEB_SFAIL
     Defaults!SITEA_SOK, SITEA_SFAIL, SITEB_SOK, SITEB_SFAIL !requiretty
 
-  5. In your `/etc/sudoers` file, make sure that the following text is included:
+  6. In your `/etc/sudoers` file, make sure that the following text is included:
          
          **#** includedir /etc/sudoers.d
 
 Note that the `#` in this text is part of the syntax and does not mean that the line is a comment.
 
 **Note:** While the procedure in this section is recommended by Red Hat, you can use an alternative approach. Instead of creating a drop-in configuration file, you can add the required access directly to your `/etc/sudoers` file.
-  6. As `SID_LCadm`, start SAP HANA:
+  7. As `SID_LCadm`, start SAP HANA:
          
          > HDB start
 
-  7. On the primary host as `SID_LCadm`, test the status reported by the hook script:
+  8. On the primary host as `SID_LCadm`, test the status reported by the hook script:
          
          > cdtrace
          > awk '/ha_dr_SAPHanaSR.*crm_attribute/ { printf "%s %s %s %s\n",$2,$3,$5,$16 }' nameserver_*
@@ -2366,7 +2364,7 @@ These instructions use `iptables` to simulate a network disruption between your 
          
          # iptables -D INPUT -s PRIMARY_CLUSTER_IP -j DROP; iptables -D OUTPUT -d PRIMARY_CLUSTER_IP -j DROP
 
-  3. Enter `pcs status` to confirm that the primary host is now active on the VM that used to contain the secondary host. Automatic restart is enabled in the cluster, so the stopped host will restart and assume the role of secondary host, as shown in the following example.
+  3. Enter `pcs status` to confirm that the primary host is now active on the VM that used to contain the secondary host. Automatic restart is enabled in the cluster, so the stopped host restarts and assumes the role of secondary host, as shown in the following example.
          
          Cluster name: hana-ha-cluster
          Stack: corosync
@@ -2840,6 +2838,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-29 UTC.
+Last updated 2026-11-06 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-06 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sap/docs/sap-hana-scaleup-ha-manual-config-sles/
 title: HA scale-up cluster configuration guide for SAP HANA on SLES \u00a0|\u00a0 SAP on Google Cloud \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-30T08:54:49.906464+00:00
+fetched_at: 2026-11-06T08:23:48.000877+00:00
 ---
 
 # HA scale-up cluster configuration guide for SAP HANA on SLES  |  SAP on Google Cloud  |  Google Cloud Documentation
@@ -1088,13 +1088,11 @@ On both the primary and secondary site, complete the following steps:
          
          > HDB stop
 
-
-
-  1. As root or `SID_LCadm`, open the `global.ini` file for editing:
+  2. As root or `SID_LCadm`, open the `global.ini` file for editing:
          
          > vi /hana/shared/SID/global/hdb/custom/config/global.ini
 
-  2. Add the following definitions to the `global.ini` file:
+  3. Add the following definitions to the `global.ini` file:
 
 ###  SLES for SAP 15 SP5 or earlier 
          
@@ -1183,11 +1181,11 @@ For the `action_on_lost` parameter, you can choose one of the following values:
 
 For more information, see the [`susCheckSrv.py`](https://github.com/SUSE/SAPHanaSR/blob/main/man/susChkSrv.py.7) man page.
 
-  3. As root, create a custom configuration file in the `/etc/sudoers.d` directory by running the following command. This new configuration file allows the `SID_LCadm` user to access the cluster node attributes when the `srConnectionChanged()` hook method is called.
+  4. As root, create a custom configuration file in the `/etc/sudoers.d` directory by running the following command. This new configuration file allows the `SID_LCadm` user to access the cluster node attributes when the `srConnectionChanged()` hook method is called.
          
          > visudo -f /etc/sudoers.d/SAPHanaSR
 
-  4. In the `/etc/sudoers.d/SAPHanaSR` file, add the following text:
+  5. In the `/etc/sudoers.d/SAPHanaSR` file, add the following text:
 
 ###  SLES for SAP 15 SP5 or earlier 
 
@@ -1236,7 +1234,7 @@ To view the site names, you can run the `crm_mon -A1 | grep site` command as the
     Cmnd_Alias HOOK_HELPER = /usr/bin/SAPHanaSR-hookHelper --sid=SID --case=*
     SID_LCadm ALL=(ALL) NOPASSWD: SOK_SITEA, SFAIL_SITEA, SOK_SITEB, SFAIL_SITEB, HOOK_HELPER
 
-  5. In your `/etc/sudoers` file, make sure that the following text is included:
+  6. In your `/etc/sudoers` file, make sure that the following text is included:
 
      * For SLES for SAP 15 SP3 or later: 
            
@@ -1249,11 +1247,11 @@ To view the site names, you can run the `crm_mon -A1 | grep site` command as the
 Note that the `#` in this text is part of the syntax and does not mean that the line is a comment.
 
 **Note:** While the procedure in this section is recommended by SUSE, you can use an alternative approach. Instead of creating a drop-in configuration file, you can add the required access directly to your `/etc/sudoers` file.
-  6. As `SID_LCadm`, start SAP HANA:
+  7. As `SID_LCadm`, start SAP HANA:
          
          > HDB start
 
-  7. After you complete the cluster configuration for SAP HANA, you can verify that the hook functions correctly during a failover test as described in [Troubleshooting the SAPHanaSR python hook](https://www.suse.com/support/kb/doc/?id=000019865) and [HA cluster takeover takes too long on HANA indexserver failure](https://www.suse.com/support/kb/doc/?id=000020845). 
+  8. After you complete the cluster configuration for SAP HANA, you can verify that the hook functions correctly during a failover test as described in [Troubleshooting the SAPHanaSR python hook](https://www.suse.com/support/kb/doc/?id=000019865) and [HA cluster takeover takes too long on HANA indexserver failure](https://www.suse.com/support/kb/doc/?id=000020845). 
 
 
 
@@ -2955,6 +2953,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-29 UTC.
+Last updated 2026-11-06 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-06 UTC."],[],[]] 

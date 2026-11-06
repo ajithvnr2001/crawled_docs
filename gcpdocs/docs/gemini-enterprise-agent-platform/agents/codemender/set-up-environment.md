@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/agents/codemender/set-up-environment/
 title: Install and configure the CLI \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T23:13:31.060925+00:00
+fetched_at: 2026-11-06T10:06:08.866753+00:00
 ---
 
 # Install and configure the CLI  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation
@@ -384,7 +384,7 @@ Here is what the core default parameters mean:
   * **`build: { command: "make build&& make test" }`**
 
     * **What it means:** Defines the exact shell command that CodeMender executes to compile and build your project, as well as run your unit and regression tests.
-    * **Why this is the default:** Setting a build and test command is critical for the verification workflow. It allows CodeMender to compile your project and run your existing test suite in the isolated sandbox environment to prove that the generated security patch successfully mitigates the vulnerability without breaking existing application logic.
+    * **Why this is the default:** Setting a build and test command is critical for the verification workflow. It allows CodeMender to compile your project and run your existing test suite in the isolated sandbox environment to verify that the generated security patch successfully mitigates the vulnerability without breaking existing application logic.
 
 
 
@@ -541,7 +541,7 @@ By default, telemetry is enabled. If you want to disable telemetry, set the `CM_
 
 ## Updating the CLI
 
-CodeMender has a built-in update mechanism to ensure you are running the latest version of the CLI.
+CodeMender has a built-in update mechanism to help keep your CLI up to date with the latest version.
 
 ### Automatic update checks
 
@@ -581,6 +581,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-04 UTC.
+Last updated 2026-11-06 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-06 UTC."],[],[]] 

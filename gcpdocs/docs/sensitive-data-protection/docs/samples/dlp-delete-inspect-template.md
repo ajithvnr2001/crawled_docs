@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sensitive-data-protection/docs/samples/dlp-delete-inspect-template/
 title: Delete an inspection template \u00a0|\u00a0 Sensitive Data Protection \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T09:39:17.747849+00:00
+fetched_at: 2026-11-06T10:26:58.682544+00:00
 ---
 
 # Delete an inspection template  |  Sensitive Data Protection  |  Google Cloud Documentation
