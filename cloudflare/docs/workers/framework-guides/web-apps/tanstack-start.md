@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/workers/framework-guides/web-apps/tanstack-start/
 title: TanStack Start \u00b7 Cloudflare Workers docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-14T06:59:23.714589+00:00
+fetched_at: 2026-11-06T09:03:45.909399+00:00
 ---
 
 # TanStack Start · Cloudflare Workers docs
@@ -22,7 +22,7 @@ Framework guides
 
 # TanStack Start
 
-Last updated Oct 13, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 5, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewCreate a new applicationConfigure an existing applicationDeployCustom entrypoints Test scheduled handlers locallyBindings Use R2 in a server functionStatic prerendering Prerendering data sources
 
@@ -45,6 +45,8 @@ npmyarnpnpm
 
 For more information, refer to [Automatic project configuration](https://developers.cloudflare.com/workers/framework-guides/automatic-configuration/).
 
+To move an existing TanStack Start project from Vercel, refer to [Migrate TanStack Start from Vercel to Cloudflare Workers](https://developers.cloudflare.com/workers/static-assets/migration-guides/vercel-to-workers/tanstack-start/).
+
 TanStack StartDetected
 
 Generated configuration
@@ -52,10 +54,6 @@ Generated configuration
 wrangler.jsonc
 
 main:@tanstack/react-start/server-entry
-
-wrangler.jsonc
-
-compatibility_flags:nodejs_compat
 
 wrangler.jsonc
 
@@ -153,8 +151,7 @@ vite.config.tsts
          	"$schema": "node_modules/wrangler/config-schema.json",
          	"name": "<YOUR_PROJECT_NAME>",
          	// Set this to today's date
-         	"compatibility_date": "2026-10-14",
-         	"compatibility_flags": ["nodejs_compat"],
+         	"compatibility_date": "2026-11-06",
          	"main": "@tanstack/react-start/server-entry",
          	"observability": {
          		"enabled": true,
@@ -164,8 +161,7 @@ vite.config.tsts
          "$schema" = "node_modules/wrangler/config-schema.json"
          name = "<YOUR_PROJECT_NAME>"
          # Set this to today's date
-         compatibility_date = "2026-10-14"
-         compatibility_flags = [ "nodejs_compat" ]
+         compatibility_date = "2026-11-06"
          main = "@tanstack/react-start/server-entry"
          
          [observability]

@@ -1,10 +1,7 @@
 {
   "url": "https://developers.cloudflare.com/dns/private-origins/",
   "file": "dns/private-origins.md",
-  "title": "Private origins (beta) \u00b7 Cloudflare DNS docs",
+  "title": "Cloudflare Services for Private Origins \u00b7 Cloudflare DNS docs",
   "method": "scrapling+scrapegraph",
-  "fetched_at": "2026-10-08T07:11:00.953586+00:00",
-  "html_len": 131104,
-  "md_len": 2230,
-  "depth": 0
+  "fetched_at": "2026-11-06T09:03:45.564519+00:00"
 }

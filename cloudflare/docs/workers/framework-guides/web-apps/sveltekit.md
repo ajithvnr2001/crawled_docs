@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/workers/framework-guides/web-apps/sveltekit/
 title: SvelteKit \u00b7 Cloudflare Workers docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-12T08:23:32.498469+00:00
+fetched_at: 2026-11-06T09:03:45.635266+00:00
 ---
 
 # SvelteKit · Cloudflare Workers docs
@@ -22,7 +22,7 @@ Framework guides
 
 # SvelteKit
 
-Last updated Oct 10, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 5, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 Overview1\. Set up a new project2\. Develop locally3\. Deploy your ProjectBindings
 
@@ -44,6 +44,8 @@ npmyarnpnpm
     pnpm wrangler deploy
 
 Learn more about [automatic project configuration](https://developers.cloudflare.com/workers/framework-guides/automatic-configuration/).
+
+To move an existing SvelteKit project from Vercel, refer to [Migrate SvelteKit from Vercel to Cloudflare Workers](https://developers.cloudflare.com/workers/static-assets/migration-guides/vercel-to-workers/sveltekit/).
 
 First deploy fails with `Types file not found`
 
@@ -89,10 +91,6 @@ main:.svelte-kit/cloudflare/_worker.js
 wrangler.jsonc
 
 assets:directory: .svelte-kit/cloudflare
-
-wrangler.jsonc
-
-compatibility_flags:nodejs_compat
 
 wrangler.jsonc
 

@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/workers/framework-guides/web-apps/more-web-frameworks/nuxt/
 title: Nuxt \u00b7 Cloudflare Workers docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:17:28.156983+00:00
+fetched_at: 2026-11-06T09:03:46.087908+00:00
 ---
 
 # Nuxt · Cloudflare Workers docs
@@ -22,7 +22,7 @@ Framework guidesWeb applications
 
 # Nuxt
 
-Last updated Apr 23, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/workers/framework-guides/web-apps/more-web-frameworks/nuxt/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 5, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 Overview1\. Set up a new project2\. Develop locally3\. Deploy your ProjectBindings
 
@@ -45,6 +45,8 @@ npmyarnpnpm
 
 Learn more about [automatic project configuration](https://developers.cloudflare.com/workers/framework-guides/automatic-configuration/).
 
+To move an existing Nuxt project from Vercel, refer to [Migrate Nuxt from Vercel to Cloudflare Workers](https://developers.cloudflare.com/workers/static-assets/migration-guides/vercel-to-workers/nuxt/).
+
 NuxtDetected
 
 Generated configuration
@@ -56,10 +58,6 @@ main:.output/server/index.mjs
 wrangler.jsonc
 
 assets:directory: .output/public
-
-wrangler.jsonc
-
-compatibility_flags:nodejs_compat
 
 wrangler.jsonc
 

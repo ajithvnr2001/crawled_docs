@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/turnstile/community-resources/
 title: Community resources \u00b7 Cloudflare Turnstile docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:16:06.582532+00:00
+fetched_at: 2026-11-06T09:03:45.342863+00:00
 ---
 
 # Community resources · Cloudflare Turnstile docs
@@ -17,7 +17,7 @@ fetched_at: 2026-10-08T07:16:06.582532+00:00
 
 # Community resources
 
-Last updated Apr 16, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/turnstile/community-resources/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 5, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewClient-side rendering librariesServer-side validation librariesFull-stack librariesIntegrationsOther TypeScript definitions Widget management Additional support
 
@@ -63,6 +63,7 @@ Cloudflare recommends [@marsidev/react-turnstile ↗︎](https://www.npmjs.com/p
 Libraries that only support the server-side validation of Turnstile:
 
   * [fastify-cloudflare-turnstile ↗︎](https://www.npmjs.com/package/fastify-cloudflare-turnstile)
+  * [nest-cloudflare-turnstile ↗︎](https://www.npmjs.com/package/nest-cloudflare-turnstile)
 
 
 

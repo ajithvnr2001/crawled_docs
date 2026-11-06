@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/workers/framework-guides/web-apps/astro/
 title: Astro \u00b7 Cloudflare Workers docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-13T08:48:28.533115+00:00
+fetched_at: 2026-11-06T09:03:45.732495+00:00
 ---
 
 # Astro · Cloudflare Workers docs
@@ -22,7 +22,7 @@ Framework guides
 
 # Astro
 
-Last updated Oct 12, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 5, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewWhat is Astro?Deploy a new Astro project on WorkersDeploy an existing Astro project on WorkersManual configuration If you have a static site If your site uses on demand renderingBindingsSessionsCustom 404 pagesAstro's build configurationNode.js requirements
 
@@ -45,6 +45,8 @@ npmyarnpnpm
 
 [![Deploy to Workers](https://deploy.workers.cloudflare.com/button)](https://dash.cloudflare.com/?to=/:account/workers-and-pages/create/deploy-to-workers&repository=https://github.com/cloudflare/templates/tree/main/astro-blog-starter-template)
 
+To move an existing Astro project from Vercel, refer to [Migrate Astro from Vercel to Cloudflare Workers](https://developers.cloudflare.com/workers/static-assets/migration-guides/vercel-to-workers/astro/).
+
 ## What is Astro?
 
 [Astro ↗︎](https://astro.build/) is a JavaScript web framework designed for creating websites that display large amounts of content (such as blogs, documentation sites, or online stores).
@@ -52,6 +54,8 @@ npmyarnpnpm
 Astro emphasizes performance through minimal client-side JavaScript - by default, it renders as much content as possible at build time, or [on-demand ↗︎](https://docs.astro.build/en/guides/on-demand-rendering/) on the "server" - this can be a Cloudflare Worker. [“Islands” ↗︎](https://docs.astro.build/en/concepts/islands/) of JavaScript are added only where interactivity or personalization is needed.
 
 Astro is also framework-agnostic, and supports every major UI framework, including React, Preact, Svelte, Vue, SolidJS, via its official [integrations ↗︎](https://astro.build/integrations/).
+
+To add a content management system (CMS) to an Astro site on Workers, refer to [EmDash](https://developers.cloudflare.com/workers/framework-guides/web-apps/emdash/).
 
 ## Deploy a new Astro project on Workers
 
@@ -129,10 +133,6 @@ assets:directory: ./dist, binding: ASSETS
 
 wrangler.jsonc
 
-compatibility_flags:nodejs_compat
-
-wrangler.jsonc
-
 observability:enabled: true
 
 astro.config.mjs
@@ -158,7 +158,7 @@ In your project root, create a Wrangler configuration file with the following co
          {
          	"name": "my-astro-app",
          	// Set this to today's date
-         	"compatibility_date": "2026-10-13",
+         	"compatibility_date": "2026-11-06",
          	"assets": {
          		"directory": "./dist"
          	}
@@ -166,7 +166,7 @@ In your project root, create a Wrangler configuration file with the following co
          
          name = "my-astro-app"
          # Set this to today's date
-         compatibility_date = "2026-10-13"
+         compatibility_date = "2026-11-06"
          
          [assets]
          directory = "./dist"
@@ -235,8 +235,7 @@ In your project root, create a Wrangler configuration file with the following co
              "upload_source_maps": true,
          	// Update to today's date
          	// Set this to today's date
-         	"compatibility_date": "2026-10-13",
-         	"compatibility_flags": ["nodejs_compat"],
+         	"compatibility_date": "2026-11-06",
          	"assets": {
          		"binding": "ASSETS",
          		"directory": "./dist"
@@ -250,8 +249,7 @@ In your project root, create a Wrangler configuration file with the following co
          main = "./dist/_worker.js/index.js"
          upload_source_maps = true
          # Set this to today's date
-         compatibility_date = "2026-10-13"
-         compatibility_flags = [ "nodejs_compat" ]
+         compatibility_date = "2026-11-06"
          
          [assets]
          binding = "ASSETS"
@@ -347,7 +345,7 @@ If you want to use Astro as a static site generator, you do not need the Astro C
 
 Astro 5.x supports Node.js 18.20.8, Node.js 20.3.0 and later 20.x releases, or Node.js 22.0.0 or later. Astro 6.x and 7.x require Node.js 22.12.0 or later. If you use [Workers Builds](https://developers.cloudflare.com/workers/ci-cd/builds/), its default Node.js version meets these requirements. If you override the default, select a version that meets [Astro's Node.js requirements ↗︎](https://docs.astro.build/en/install-and-setup/#prerequisites).
 
-[PreviousReact + Vite](https://developers.cloudflare.com/workers/framework-guides/web-apps/react/)[NextReact Router (formerly Remix)](https://developers.cloudflare.com/workers/framework-guides/web-apps/react-router/)
+[PreviousReact + Vite](https://developers.cloudflare.com/workers/framework-guides/web-apps/react/)[NextEmDash](https://developers.cloudflare.com/workers/framework-guides/web-apps/emdash/)
 
 Was this helpful?
 

@@ -3,8 +3,5 @@
   "file": "workers/framework-guides/web-apps/nextjs.md",
   "title": "Next.js \u00b7 Cloudflare Workers docs",
   "method": "scrapling+scrapegraph",
-  "fetched_at": "2026-10-08T07:17:28.803777+00:00",
-  "html_len": 303349,
-  "md_len": 10368,
-  "depth": 0
+  "fetched_at": "2026-11-06T09:03:46.179879+00:00"
 }

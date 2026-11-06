@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/cloudflare-one/account-limits/
 title: Account limits \u00b7 Cloudflare One docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-17T06:28:14.990756+00:00
+fetched_at: 2026-11-06T09:03:46.488681+00:00
 ---
 
 # Account limits · Cloudflare One docs
@@ -17,7 +17,7 @@ fetched_at: 2026-10-17T06:28:14.990756+00:00
 
 # Account limits
 
-Last updated Oct 16, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 5, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewAccessApplication LibraryGatewayData Loss Prevention (DLP)Cloudflare TunnelCloudflare MeshDigital Experience Monitoring (DEX)CertificatesMaximum number of charactersCloudflare One Client
 
@@ -41,9 +41,10 @@ Rules per application | 1,000
 Domains per application | 50  
 Infrastructure targets | 5,000  
 MCP portals | 20  
-MCP servers per portal | 80  
+MCP servers per portal | 120  
 Custom domains per MCP portal | 5  
 MCP portal session inactivity timeout | 24 hours  
+Upstream MCP tool call timeout | 60 seconds (not configurable)  
   
 ## Application Library
 

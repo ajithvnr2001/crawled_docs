@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/dns/private-origins/private-network-routing/
 title: Private network routing \u00b7 Cloudflare DNS docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:11:01.536465+00:00
+fetched_at: 2026-11-06T09:03:45.511746+00:00
 ---
 
 # Private network routing · Cloudflare DNS docs
@@ -18,29 +18,26 @@ fetched_at: 2026-10-08T07:11:01.536465+00:00
 
 # Private network routing
 
-Last updated May 7, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/dns/private-origins/private-network-routing/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 5, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
-OverviewAspects to considerIP rangesEnable private network routing API field behavior
+OverviewAspects to considerAutomatically detected rangesCloudflare source IP rangesEnable private network routing API field behavior
 
-Private network routing allows you to proxy HTTP/HTTPS traffic from public hostnames to origins in your private network. When you enable this setting on a DNS record, Cloudflare routes traffic through your configured tunnel instead of over the public Internet.
+Private network routing allows you to proxy HTTP/HTTPS traffic from public hostnames to origins in your private network. When you enable this setting on a DNS record, Cloudflare reaches the origin over your private network connectivity instead of the public Internet.
 
-For an end-to-end setup walkthrough using Cloudflare WAN (formerly Magic WAN) IPsec, refer to [Set up a private origin via Cloudflare WAN](https://developers.cloudflare.com/dns/private-origins/set-up-via-cloudflare-wan/).
-
-Closed beta
-
-This feature is in closed beta. Contact your account team to request access.
+For end-to-end setup, refer to the guide for your connectivity type: [Cloudflare WAN](https://developers.cloudflare.com/dns/private-origins/set-up-via-cloudflare-wan/), [Cloudflare Tunnel](https://developers.cloudflare.com/dns/private-origins/set-up-via-cloudflare-tunnel/), or [Cloudflare Mesh](https://developers.cloudflare.com/dns/private-origins/set-up-via-cloudflare-mesh/).
 
 ## Aspects to consider
 
 Before you enable private network routing, consider the following:
 
-  * You need an active tunnel connection to Cloudflare through one of the supported on-ramp methods. Refer to [Cloudflare WAN](https://developers.cloudflare.com/cloudflare-wan/on-ramps/) for further guidance.
+  * Private Origins needs to be available on your account and you need a working connection to your private network through Cloudflare WAN (IPsec, GRE, or CNI), Cloudflare Tunnel, or Cloudflare Mesh. The route to the origin must be in your default virtual network.
+  * If you connect over Cloudflare WAN or Cloudflare Mesh, your account must be on [Unified Routing](https://developers.cloudflare.com/cloudflare-wan/reference/traffic-steering/#unified-routing). Contact your account team to enable it. This applies to new and existing accounts. Cloudflare Tunnel does not need Unified Routing.
   * Private network routing is available for `A` (IPv4) and `AAAA` (IPv6) records only. Records must be [proxied](https://developers.cloudflare.com/dns/proxy-status/).
   * If you have multiple `A` or `AAAA` records on the same name, and at least one of them has private network routing enabled, all records on that name will use private network routing. This is consistent with the [proxy status behavior](https://developers.cloudflare.com/dns/proxy-status/#mix-proxied-and-unproxied) in these cases.
 
 
 
-## IP ranges
+## Automatically detected ranges
 
 The following private address ranges are automatically detected:
 
@@ -52,7 +49,24 @@ Range | Description
 `fc00::/7` | Private ([RFC 4193 ↗︎](https://www.rfc-editor.org/rfc/rfc4193.html))  
 `100.64.0.0/10` | CGNAT ([RFC 6598 ↗︎](https://www.rfc-editor.org/rfc/rfc6598.html))  
   
+Caution
+
+`100.64.0.0/10` is detected as private, but the default Cloudflare source range `100.64.0.0/12` sits inside it. If your origins use addresses in `100.64.0.0/12`, [change the Cloudflare source IP range](https://developers.cloudflare.com/cloudflare-wan/configuration/how-to/configure-cloudflare-source-ips/) to a different private `/12` before you enable private network routing.
+
 When you use an IP address from one of these ranges, the **Use private network routing** toggle turns on automatically. You can also turn it on manually for public IP addresses that are only reachable through your tunnel.
+
+## Cloudflare source IP ranges
+
+When Cloudflare reaches an origin over Cloudflare WAN or Cloudflare Mesh, traffic comes from the Cloudflare source IP ranges:
+
+IP version | Range | Configurable  
+---|---|---  
+IPv4 | `100.64.0.0/12` (default) | Yes, to another private `/12`  
+IPv6 | `2606:4700:cf1:5000::/64` | No  
+  
+Add return routes in your private network that send these ranges back to Cloudflare, and allow them in your origin's firewall. Refer to [Configure Cloudflare source IPs](https://developers.cloudflare.com/cloudflare-wan/configuration/how-to/configure-cloudflare-source-ips/).
+
+Behind Cloudflare Tunnel, your origin sees the host running `cloudflared` as the source instead.
 
 ## Enable private network routing
 
@@ -130,7 +144,7 @@ Non-`A`/`AAAA` record types | Field not supported
   
 Also, if you manually set `private_routing: false` on a proxied `A`/`AAAA` record with private IP, the API will return an error.
 
-[PreviousSet up a private origin via Cloudflare WAN](https://developers.cloudflare.com/dns/private-origins/set-up-via-cloudflare-wan/)[NextTroubleshooting](https://developers.cloudflare.com/dns/private-origins/troubleshooting/)
+[PreviousSet up a private origin via Cloudflare Mesh](https://developers.cloudflare.com/dns/private-origins/set-up-via-cloudflare-mesh/)[NextTroubleshooting](https://developers.cloudflare.com/dns/private-origins/troubleshooting/)
 
 Was this helpful?
 

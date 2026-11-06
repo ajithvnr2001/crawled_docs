@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/cloudflare-one/access-controls/ai-controls/mcp-portals/
 title: MCP server portals \u00b7 Cloudflare One docs
 method: scrapling+scrapegraph
-fetched_at: 2026-11-05T09:11:09.212036+00:00
+fetched_at: 2026-11-06T09:03:47.208901+00:00
 ---
 
 # MCP server portals · Cloudflare One docs
@@ -22,7 +22,7 @@ fetched_at: 2026-11-05T09:11:09.212036+00:00
 
 # MCP server portals
 
-Last updated Nov 4, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 5, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewKey featuresHow it works Transport Client identity header Built-in portal tools Session lifecycle NamingPrerequisitesAdd an MCP server Connect a private MCP server Configure manual OAuth credentials MCP Apps Server status Reauthenticate the MCP server Synchronize the MCP server Upstream OAuth callback URLsCreate a portal Customize login settingsManage tools and prompts Turn off individual tools or prompts Use an allowlist pattern Rename tools and prompts with aliases Tool and prompt namespacing Portal-native toolsManage portals via API List portals Create a portal List MCP servers Create an MCP server View tool-call analytics Force sync an MCP server Delete a portalConfigure via TerraformCode Mode Code Mode policies Upstream servers with Code Mode turned on Configure a Code Mode policy Connect with Code ModeRoute portal traffic through Gateway How Gateway routing works TLS decryption Supported transports Enable Gateway routing Example Gateway policy What happens when a request is blocked LimitationsConnect to a portal Connect Claude Desktop Test in Workers AI Playground Portal homepage Sign out of a portal Connect with a service token Device authenticationOptimize context Minimize tools Search and executeManage portal sessions Return to the server selection page Enable or disable a server inline Reauthenticate a server Authorize new serversView portal logs Log fields Export logs with LogpushKnown limitationsPolicy limitationsTroubleshooting Portal creation fails because of a zone hold After authenticating to the portal, my user receives the error No allowed servers available, check your Zero Trust Policies. The portal URL does not prompt for authentication when it is added to an MCP client. The portal returns a 522 error. An MCP server is stuck in Waiting status. An MCP server shows Stale status. Tool calls fail with an unauthorized error. OAuth authentication fails with a redirect URI error when connecting to an upstream MCP server. Tool calls fail when Gateway routing is turned on. Users cannot connect from an MCP client The portal homepage shows the wrong name or domain.
 
@@ -1356,7 +1356,8 @@ MCP server portals have the following known limitations:
   * **Some MCP servers block proxy-based clients.** Certain MCP servers reject requests from proxy-based clients like MCP server portals, returning a `403` error on the registration endpoint. These servers are not compatible with MCP server portals until those providers add Cloudflare as a supported MCP client.
   * **Manual OAuth capabilities are captured during the first user authorization.** Servers configured with manual OAuth credentials remain in **Waiting** status until a user completes upstream OAuth. Cloudflare stores the tools and prompts returned during that connection. Background and manual capability synchronization do not refresh them.
   * **Admin OAuth tokens can expire silently.** The admin credential used to authenticate an MCP server is subject to the upstream provider's token expiration policy. When the token expires, the server status changes to **Error** or **Sync required** and the server will not appear in the portal for end users. Admins are not notified when this happens. Periodically check the server status and reauthenticate servers that show an error.
-  * **Each portal supports up to 80 MCP servers.**
+  * **Upstream MCP tool calls time out after 60 seconds.** The portal returns an error if the upstream server does not respond before the timeout. For longer operations, return a job ID immediately. Expose separate tools to check the operation status and retrieve results.
+  * **Each portal supports up to 120 MCP servers.**
 
 
 

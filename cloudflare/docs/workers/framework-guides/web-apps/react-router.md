@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/workers/framework-guides/web-apps/react-router/
 title: React Router (formerly Remix) \u00b7 Cloudflare Workers docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:17:29.266493+00:00
+fetched_at: 2026-11-06T09:03:46.266430+00:00
 ---
 
 # React Router (formerly Remix) · Cloudflare Workers docs
@@ -22,7 +22,7 @@ Framework guides
 
 # React Router (formerly Remix)
 
-Last updated Jun 19, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/workers/framework-guides/web-apps/react-router/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 5, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewWhat is React Router?Creating a full-stack React Router appUse bindings with React Router
 
@@ -45,7 +45,7 @@ npmyarnpnpm
 
 Note
 
-SPA mode and prerendering are not currently supported when using the [Cloudflare Vite plugin](https://developers.cloudflare.com/workers/vite-plugin/). If you wish to use React Router in an SPA then we recommend starting with the [React template](https://developers.cloudflare.com/workers/framework-guides/web-apps/react/) and using React Router [as a library ↗︎](https://reactrouter.com/start/data/installation).
+SPA mode is not currently supported when using the [Cloudflare Vite plugin](https://developers.cloudflare.com/workers/vite-plugin/). Prerendering is supported in React Router v8. On React Router v7, prerendering requires version 7.13.1 or later with the `future.unstable_previewServerPrerendering` flag. If you wish to use React Router in an SPA then we recommend starting with the [React template](https://developers.cloudflare.com/workers/framework-guides/web-apps/react/) and using React Router [as a library ↗︎](https://reactrouter.com/start/data/installation).
 
 Already have a React Router project?
 
@@ -64,6 +64,8 @@ npmyarnpnpm
 
 Learn more about [automatic project configuration](https://developers.cloudflare.com/workers/framework-guides/automatic-configuration/).
 
+To move an existing Remix or React Router project from Vercel, refer to [Migrate React Router and Remix from Vercel to Cloudflare Workers](https://developers.cloudflare.com/workers/static-assets/migration-guides/vercel-to-workers/react-router/).
+
 React RouterDetected
 
 Generated configuration
@@ -75,10 +77,6 @@ main:build/server/index.js
 wrangler.jsonc
 
 assets:directory: build/client
-
-wrangler.jsonc
-
-compatibility_flags:nodejs_compat
 
 wrangler.jsonc
 
@@ -266,7 +264,7 @@ With bindings, your application can be fully integrated with the Cloudflare Deve
 
 Access to compute, storage, AI and more.
 
-[PreviousAstro](https://developers.cloudflare.com/workers/framework-guides/web-apps/astro/)[NextNext.js](https://developers.cloudflare.com/workers/framework-guides/web-apps/nextjs/)
+[PreviousEmDash](https://developers.cloudflare.com/workers/framework-guides/web-apps/emdash/)[NextNext.js](https://developers.cloudflare.com/workers/framework-guides/web-apps/nextjs/)
 
 Was this helpful?
 

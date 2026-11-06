@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/durable-objects/api/stub/
 title: Durable Object Stub \u00b7 Cloudflare Durable Objects docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:11:06.390785+00:00
+fetched_at: 2026-11-06T09:03:47.387630+00:00
 ---
 
 # Durable Object Stub · Cloudflare Durable Objects docs
@@ -18,7 +18,7 @@ fetched_at: 2026-10-08T07:11:06.390785+00:00
 
 # Durable Object Stub
 
-Last updated Apr 21, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/durable-objects/api/stub/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 5, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewDescriptionProperties id nameRelated resources
 
@@ -29,6 +29,8 @@ The `DurableObjectStub` interface is a client used to invoke methods on a remote
 Durable Objects implement E-order semantics, a concept deriving from the [E distributed programming language ↗︎](https://en.wikipedia.org/wiki/E_\(programming_language\)). When you make multiple calls to the same Durable Object, it is guaranteed that the calls will be delivered to the remote Durable Object in the order in which you made them. E-order semantics makes many distributed programming problems easier. E-order is implemented by the [Cap'n Proto ↗︎](https://capnproto.org) distributed object-capability RPC protocol, which Cloudflare Workers uses for internal communications.
 
 If an exception is thrown by a Durable Object stub all in-flight calls and future calls will fail with [exceptions](https://developers.cloudflare.com/durable-objects/observability/troubleshooting/). To continue invoking methods on a remote Durable Object a Worker must recreate the stub. There are no ordering guarantees between different stubs.
+
+The runtime may retry a failed call before the exception reaches your code. For more information, refer to [Automatic retries](https://developers.cloudflare.com/durable-objects/best-practices/automatic-retries/).
     
     
     import { DurableObject } from "cloudflare:workers";

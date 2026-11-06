@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/magic-transit/troubleshooting/routing-and-bgp/
 title: Troubleshoot routing and BGP \u00b7 Cloudflare Magic Transit docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:12:20.905900+00:00
+fetched_at: 2026-11-06T09:03:45.161844+00:00
 ---
 
 # Troubleshoot routing and BGP · Cloudflare Magic Transit docs
@@ -18,7 +18,7 @@ fetched_at: 2026-10-08T07:12:20.905900+00:00
 
 # Troubleshoot routing and BGP
 
-Last updated Oct 6, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/magic-transit/troubleshooting/routing-and-bgp/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 6, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewQuick diagnostic checklistRoute propagation timing Why withdrawals take longerResolve common issues BGP session not establishing Prefixes not reachable after advertisement Traffic loss during prefix withdrawal Unexpected traffic routing or latency CNI link failures Static and BGP route conflictsCNI, tunnel, and BGP healthGather information for support Required information Helpful diagnostic data Router diagnostic commandsResources
 
@@ -121,7 +121,7 @@ State | Meaning | Action
 #### Solution
 
   1. **Wait for propagation** : Allow up to five minutes for full global propagation. Changes propagate across Cloudflare quickly but external networks update at varying speeds.
-  2. **Verify return path routing** : Ensure your network has routes to send return traffic back through Cloudflare for egress configurations. For ingress-only or direct server return configurations, route return traffic through your tunnels.
+  2. **Verify return path routing** : Ensure your network has routes to send return traffic back through Cloudflare for egress configurations. For ingress-only configurations (aka Direct Server Return or DSR), route return traffic through your ISPs and ensure they are not using uRPF strict mode.
   3. **Check external visibility** : Use BGP looking glass tools such as [bgp.he.net ↗︎](https://bgp.he.net) or [RIPE RIS ↗︎](https://ris.ripe.net/) to confirm your prefix is visible from external networks.
   4. **Verify RPKI configuration** : If you use Resource Public Key Infrastructure (RPKI), confirm your Route Origin Authorization (ROA) records match your prefix and the ASN configuration in Cloudflare.
 

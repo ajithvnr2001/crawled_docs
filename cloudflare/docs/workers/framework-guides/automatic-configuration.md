@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/workers/framework-guides/automatic-configuration/
 title: Deploy an existing project \u00b7 Cloudflare Workers docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T07:31:33.982875+00:00
+fetched_at: 2026-11-06T09:03:46.574373+00:00
 ---
 
 # Deploy an existing project · Cloudflare Workers docs
@@ -18,7 +18,7 @@ fetched_at: 2026-10-27T07:31:33.982875+00:00
 
 # Deploy an existing project
 
-Last updated Oct 26, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 5, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewHow it worksSupported frameworksFiles created and modified wrangler.jsonc package.json .gitignore .assetsignoreUsing automatic configuration Deploy with automatic configuration Configure without deploying Preview changes with dry runSkip configuration confirmationImporting a repository from the dashboardSkipping automatic configurationNext.js configurationTroubleshooting Multiple frameworks detected Framework not detected Configuration already exists Workspaces
 
@@ -47,7 +47,7 @@ Automatic configuration supports the following frameworks:
 
 Framework | Adapter/Tool | Notes  
 ---|---|---  
-[Next.js](https://developers.cloudflare.com/workers/framework-guides/web-apps/nextjs/) | `vinext` | Configures vinext for Cloudflare Workers and adds the required Vite and Wrangler configuration.  
+[Next.js](https://developers.cloudflare.com/workers/framework-guides/web-apps/nextjs/) | OpenNext or vinext | Wrangler configures OpenNext. `cf init` configures vinext for Next.js 16 and later.  
 [Astro](https://developers.cloudflare.com/workers/framework-guides/web-apps/astro/) | `@astrojs/cloudflare` | Runs `astro add cloudflare` automatically  
 [SvelteKit](https://developers.cloudflare.com/workers/framework-guides/web-apps/sveltekit/) | `@sveltejs/adapter-cloudflare` | Runs `sv add sveltekit-adapter` automatically  
 [Nuxt](https://developers.cloudflare.com/workers/framework-guides/web-apps/more-web-frameworks/nuxt/) | Built-in Cloudflare preset |   
@@ -78,8 +78,7 @@ A new Wrangler configuration file is created with settings appropriate for your 
     	"main": "dist/_worker.js/index.js",
     	"upload_source_maps": true,
     	// Set this to today's date
-    	"compatibility_date": "2026-10-27",
-    	"compatibility_flags": ["nodejs_compat"],
+    	"compatibility_date": "2026-11-06",
     	"assets": {
     		"binding": "ASSETS",
     		"directory": "dist",
@@ -95,8 +94,7 @@ A new Wrangler configuration file is created with settings appropriate for your 
     main = "dist/_worker.js/index.js"
     upload_source_maps = true
     # Set this to today's date
-    compatibility_date = "2026-10-27"
-    compatibility_flags = [ "nodejs_compat" ]
+    compatibility_date = "2026-11-06"
     
     [assets]
     binding = "ASSETS"
@@ -105,7 +103,7 @@ A new Wrangler configuration file is created with settings appropriate for your 
     [observability]
     enabled = true
 
-The exact configuration varies based on your framework.
+The exact configuration varies based on your framework. For compatibility dates before `2026-08-04`, automatic configuration also adds the `nodejs_compat` compatibility flag.
 
 ### `package.json`
 
@@ -239,7 +237,14 @@ You can also manually configure your project by following the framework-specific
 
 ## Next.js configuration
 
-For Next.js projects, automatic configuration uses [vinext](https://developers.cloudflare.com/workers/framework-guides/web-apps/nextjs/) as the default deployment path for Cloudflare Workers. The generated configuration adds the vinext and Vite dependencies, creates the Cloudflare Workers configuration, and adds package scripts for development, builds, and deployment.
+The adapter that automatic configuration uses for Next.js depends on the tool you run:
+
+Tool | Next.js 16 and later | Next.js 15 and earlier  
+---|---|---  
+`wrangler setup` or `wrangler deploy` | [OpenNext](https://developers.cloudflare.com/workers/framework-guides/web-apps/opennext/) | [OpenNext](https://developers.cloudflare.com/workers/framework-guides/web-apps/opennext/)  
+[`cf init`](https://developers.cloudflare.com/cf/projects/) | [vinext](https://developers.cloudflare.com/workers/framework-guides/web-apps/nextjs/) | [OpenNext](https://developers.cloudflare.com/workers/framework-guides/web-apps/opennext/)  
+  
+When automatic configuration uses vinext, it runs `vinext init`. The generated configuration adds the vinext and Vite dependencies, creates the Cloudflare Workers configuration, and adds package scripts for development, builds, and deployment. To use vinext with Wrangler, run `vinext init` directly. For more information, refer to [Next.js](https://developers.cloudflare.com/workers/framework-guides/web-apps/nextjs/).
 
 vinext supports Next.js caching features such as Incremental Static Regeneration (ISR), `"use cache"`, and `unstable_cache`. For production applications, configure the generated Workers project with the cache backend your application requires. For more information, refer to [vinext caching ↗︎](https://github.com/cloudflare/vinext#caching).
 
@@ -267,7 +272,7 @@ Support for monorepos and npm/yarn/pnpm workspaces is currently limited. Wrangle
 
 If you encounter issues, report them in the [Wrangler GitHub repository ↗︎](https://github.com/cloudflare/workers-sdk/issues/new/choose).
 
-[PreviousMigrate from Vercel to Workers](https://developers.cloudflare.com/workers/static-assets/migration-guides/vercel-to-workers/)[NextReact + Vite](https://developers.cloudflare.com/workers/framework-guides/web-apps/react/)
+[PreviousMigrate from Netlify to Workers](https://developers.cloudflare.com/workers/static-assets/migration-guides/netlify-to-workers/)[NextReact + Vite](https://developers.cloudflare.com/workers/framework-guides/web-apps/react/)
 
 Was this helpful?
 

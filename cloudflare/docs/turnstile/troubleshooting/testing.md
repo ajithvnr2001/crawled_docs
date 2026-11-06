@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/turnstile/troubleshooting/testing/
 title: Test your Turnstile implementation \u00b7 Cloudflare Turnstile docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-21T06:51:30.043742+00:00
+fetched_at: 2026-11-06T09:03:45.455363+00:00
 ---
 
 # Test your Turnstile implementation · Cloudflare Turnstile docs
@@ -18,7 +18,7 @@ fetched_at: 2026-10-21T06:51:30.043742+00:00
 
 # Test your Turnstile implementation
 
-Last updated Oct 20, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 5, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewTest sitekeysTest secret keysImplementation Local development Client-side testing Server-side testing Environment configurationDummy token behavior Token generation Token validation Validation responseTesting scenarios
 
@@ -140,11 +140,13 @@ Success responsejson
     {
       "success": true,
       "challenge_ts": "2022-02-28T15:14:30.096Z",
-      "hostname": "localhost",
-      "error-codes": [],
-      "action": "test",
-      "cdata": "test-data"
+      "hostname": "example.com",
+      "error-codes": []
     }
+
+Note
+
+A successful validation with a test secret key always returns `example.com` as the `hostname`, and the response does not include `action` or `cdata`. If your server-side validation checks `hostname`, `action`, or `cdata` against your own values, test those checks with your real sitekey and secret key.
 
 Failure responsejson
     

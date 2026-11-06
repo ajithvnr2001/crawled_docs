@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/durable-objects/api/namespace/
 title: Durable Object Namespace \u00b7 Cloudflare Durable Objects docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:11:06.062913+00:00
+fetched_at: 2026-11-06T09:03:47.345252+00:00
 ---
 
 # Durable Object Namespace · Cloudflare Durable Objects docs
@@ -18,7 +18,7 @@ fetched_at: 2026-10-08T07:11:06.062913+00:00
 
 # Durable Object Namespace
 
-Last updated Apr 21, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/durable-objects/api/namespace/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 5, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewDescriptionMethods idFromName newUniqueId idFromString get getByName jurisdictionRelated resources
 
@@ -169,7 +169,9 @@ This method returns the stub immediately, often before a connection has been est
 #### Parameters
 
   * A required [`DurableObjectId`](https://developers.cloudflare.com/durable-objects/api/id)
-  * An optional object with the key `locationHint` and value of a [locationHint](https://developers.cloudflare.com/durable-objects/reference/data-location/#provide-a-location-hint) string.
+  * An optional object with these optional keys: 
+    * `locationHint`: a [locationHint](https://developers.cloudflare.com/durable-objects/reference/data-location/#provide-a-location-hint) string.
+    * `retry`: an object that sets the retry limits for calls through the returned stub. It accepts `maxRetries`, an integer from `0` to `10` that defaults to `4`, and `timeoutMs`, an integer from `500` to `60000` that defaults to `10000`. For more information, refer to [Set retry limits for a stub](https://developers.cloudflare.com/durable-objects/best-practices/automatic-retries/#set-retry-limits-for-a-stub).
 
 
 
@@ -192,7 +194,7 @@ This method returns the stub immediately, often before a connection has been est
 #### Parameters
 
   * A required string to be used to generate a [`DurableObjectStub`](https://developers.cloudflare.com/durable-objects/api/stub) corresponding to an instance of the Durable Object class with the provided name.
-  * An optional object with the key `locationHint` and value of a [locationHint](https://developers.cloudflare.com/durable-objects/reference/data-location/#provide-a-location-hint) string.
+  * An optional object with the same keys as the options for `get`, including `locationHint` and `retry`.
 
 
 

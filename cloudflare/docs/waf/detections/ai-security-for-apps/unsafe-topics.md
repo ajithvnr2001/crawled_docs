@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/waf/detections/ai-security-for-apps/unsafe-topics/
 title: Unsafe and custom topic detection \u00b7 Cloudflare Web Application Firewall (WAF) docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:16:40.852674+00:00
+fetched_at: 2026-11-06T09:03:47.486700+00:00
 ---
 
 # Unsafe and custom topic detection · Cloudflare Web Application Firewall (WAF) docs
@@ -22,7 +22,7 @@ fetched_at: 2026-10-08T07:16:40.852674+00:00
 
 # Unsafe and custom topic detection
 
-Last updated Sep 24, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/waf/detections/ai-security-for-apps/unsafe-topics/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 5, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewDefault unsafe topicsCustom topics How custom topics work Define custom topics ConstraintsBest practices for defining custom topics Lead with intent More best practices Example custom topics
 
@@ -118,8 +118,8 @@ Update your custom topics list using a `PUT` request:
             "topic": "seeking financial advice"
           },
           {
-            "label": "hr-internal",
-            "topic": "asking about internal HR policies"
+            "label": "job-seeking",
+            "topic": "asking for résumé advice"
           }
         ]
       }'
@@ -136,13 +136,21 @@ To retrieve your current topics, use a `GET` request:
 
 ### Constraints
 
+Custom topic descriptions accept UTF-8 characters, including non-ASCII characters. Only English descriptions are officially supported.
+
+Descriptions in other languages are evaluated on a best-effort basis and may produce less consistent results.
+
 Parameter | Limit  
 ---|---  
 Maximum number of topics | 20  
-Topic string length | 2–50 printable ASCII characters  
+Topic description length | 2–50 UTF-8 bytes  
+Topic description characters | Letters, combining marks, numbers, punctuation, symbols, and spaces  
+Prohibited characters | Tabs, line breaks, invalid text, and invisible formatting characters  
 Label length | 2–20 characters  
-Label format | Lowercase letters, numbers, and hyphens (`-`) only  
+Label format | Lowercase ASCII letters, digits, and hyphens (`-`) only  
   
+The topic description limit is measured in bytes, not characters. A non-ASCII character can use multiple UTF-8 bytes.
+
 Caution
 
 If you reference a label in a rule expression that has not been defined, the map lookup returns `nil`. Comparisons against `nil` are almost always `false`. For example, `cf.llm.prompt.custom_topic_categories["missing"] >= 0` evaluates to `false`. Make sure the label in your rule expression exactly matches a label you have defined in your custom topics list.

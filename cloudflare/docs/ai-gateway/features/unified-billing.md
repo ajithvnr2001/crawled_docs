@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/ai-gateway/features/unified-billing/
 title: Unified Billing \u00b7 Cloudflare AI Gateway docs
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T08:48:20.657933+00:00
+fetched_at: 2026-11-06T09:03:46.323011+00:00
 ---
 
 # Unified Billing · Cloudflare AI Gateway docs
@@ -18,7 +18,7 @@ fetched_at: 2026-11-04T08:48:20.657933+00:00
 
 # Unified Billing
 
-Last updated Nov 2, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 5, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewPre-requisitesLoad credits Auto-top upCredential precedencePrevent Unified Billing fallback for BYOK third-party providersUse Unified Billing AI binding HTTP API Spend limits Zero Data Retention (ZDR)
 
@@ -42,7 +42,9 @@ In rare instances, your credit balance may go negative. If this happens, Cloudfl
 
 Note
 
-You can only purchase AI Gateway credits with a credit card. Other payment methods, such as PayPal, are not supported for credit purchases.
+Use a non-prepaid credit or debit card to purchase AI Gateway credits. PayPal, Apple Pay, and Google Pay are not supported, even when linked to a card. Add the card directly in **Billing** and set it as your primary payment method.
+
+If the dashboard displays a permission notice, contact your account administrator. Request access to purchase credits and configure auto top-up.
 
 To load credits for AI Gateway:
 
@@ -54,7 +56,7 @@ The **Credits Available** card on the top right shows how many AI gateway credit
 
   2. In **Credits Available** , select **Manage**.
 
-  3. If your account does not have a credit card on file, AI Gateway will prompt you to add one to purchase credits. Add a credit card.
+  3. If needed, [add a credit or debit card in Billing](https://developers.cloudflare.com/billing/get-started/create-billing-profile/#add-a-primary-payment-method). If your primary payment method is PayPal, Apple Pay, or Google Pay, [make the card your primary payment method](https://developers.cloudflare.com/billing/get-started/create-billing-profile/#add-an-additional-payment-method).
 
   4. Select **Top-up credits**.
 
@@ -78,6 +80,8 @@ You can configure AI Gateway to automatically replenish your credits when they f
 
 
 
+
+If prompted, complete your bank's card verification before enabling auto top-up.
 
 When your balance falls below the set threshold, AI Gateway will automatically apply the auto top-up amount to your account.
 

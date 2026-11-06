@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/durable-objects/best-practices/error-handling/
 title: Error handling \u00b7 Cloudflare Durable Objects docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:11:06.865661+00:00
+fetched_at: 2026-11-06T09:03:47.288533+00:00
 ---
 
 # Error handling · Cloudflare Durable Objects docs
@@ -18,13 +18,15 @@ fetched_at: 2026-10-08T07:11:06.865661+00:00
 
 # Error handling
 
-Last updated Apr 21, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/durable-objects/best-practices/error-handling/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 5, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewHow exceptions are thrownExample
 
 Any uncaught exceptions thrown by a Durable Object or thrown by Durable Objects' infrastructure (such as overloads or network errors) will be propagated to the callsite of the client. Catching these exceptions allows you to retry creating the [`DurableObjectStub`](https://developers.cloudflare.com/durable-objects/api/stub) and sending requests.
 
-JavaScript Errors with the property `.retryable` set to True are suggested to be retried if requests to the Durable Object are idempotent, or can be applied multiple times without changing the response. If requests are not idempotent, then you will need to decide what is best for your application. It is strongly recommended to apply exponential backoff when retrying requests.
+The runtime retries some failures before they reach your code. For more information, refer to [Automatic retries](https://developers.cloudflare.com/durable-objects/best-practices/automatic-retries/).
+
+JavaScript Errors with the property `.retryable` set to True are transient. If one reaches your code, either the runtime ran out of retries, or the failure happened after the request reached the Durable Object. Retry it yourself only if requests to the Durable Object are idempotent, or can be applied multiple times without changing the response. If requests are not idempotent, then you will need to decide what is best for your application. It is strongly recommended to apply exponential backoff when retrying requests.
 
 JavaScript Errors with the property `.overloaded` set to True should not be retried. If a Durable Object is overloaded, then retrying will worsen the overload and increase the overall error rate.
 
@@ -46,6 +48,8 @@ Refer to [Troubleshooting](https://developers.cloudflare.com/durable-objects/obs
 ## Example
 
 This example demonstrates retrying requests using the recommended exponential backoff algorithm.
+
+The runtime also retries each attempt in this loop, so three attempts here can become up to 15 attempts in total. Keep the attempt count low, or set [`retry: { maxRetries: 0 }`](https://developers.cloudflare.com/durable-objects/best-practices/automatic-retries/#set-retry-limits-for-a-stub) on the stub if your loop should be the only source of retries.
     
     
     import { DurableObject } from "cloudflare:workers";
@@ -114,7 +118,7 @@ This example demonstrates retrying requests using the recommended exponential ba
     	}
     }
 
-[PreviousUse WebSockets](https://developers.cloudflare.com/durable-objects/best-practices/websockets/)[NextDurable Object Base Class](https://developers.cloudflare.com/durable-objects/api/base/)
+[PreviousUse WebSockets](https://developers.cloudflare.com/durable-objects/best-practices/websockets/)[NextAutomatic retries](https://developers.cloudflare.com/durable-objects/best-practices/automatic-retries/)
 
 Was this helpful?
 

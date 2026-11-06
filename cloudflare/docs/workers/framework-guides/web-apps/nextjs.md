@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/workers/framework-guides/web-apps/nextjs/
 title: Next.js \u00b7 Cloudflare Workers docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:17:28.803577+00:00
+fetched_at: 2026-11-06T09:03:46.179486+00:00
 ---
 
 # Next.js · Cloudflare Workers docs
@@ -22,15 +22,17 @@ Framework guides
 
 # Next.js
 
-Last updated Aug 25, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/workers/framework-guides/web-apps/nextjs/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 5, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewWhat is Next.js?What is vinext?Supported featuresChoose a setup pathAdd vinext with an agentAdd vinext with the CLICreate a Cloudflare-ready projectAccess Cloudflare bindingsUse another Next.js deployment path
 
 Use vinext to create or migrate a Next.js application and deploy it to Cloudflare Workers.
 
-Cloudflare recommends [vinext ↗︎](https://vinext.dev/) as the default way to run Next.js applications on Cloudflare Workers. vinext gives you two starting points: scaffold a new Workers-ready app with `create-vinext-app`, or add vinext to an existing Next.js 16 app with a single non-destructive `vinext init` (your existing `next dev` keeps working). You do not need a Cloudflare-specific template either way.
+Cloudflare recommends [vinext ↗︎](https://vinext.dev/) as the default way to run Next.js applications on Cloudflare Workers. vinext gives you two starting points: scaffold a new Workers-ready app with `create-vinext-app`, or add vinext to an existing Next.js app with a single non-destructive `vinext init` (your existing `next dev` keeps working). You do not need a Cloudflare-specific template either way.
 
 Already on OpenNext? See other Next.js deployment paths.
+
+To move an existing Next.js project from Vercel, refer to [Migrate Next.js from Vercel to Cloudflare Workers with vinext](https://developers.cloudflare.com/workers/static-assets/migration-guides/vercel-to-workers/nextjs/).
 
 ## What is Next.js?
 
