@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/managed-spark/docs/guides/monitor-troubleshoot-sessions/
 title: Monitor and troubleshoot interactive sessions \u00a0|\u00a0 Managed Service for Apache Spark \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T05:52:24.259784+00:00
+fetched_at: 2026-11-06T05:53:28.137140+00:00
 ---
 
 # Monitor and troubleshoot interactive sessions  |  Managed Service for Apache Spark  |  Google Cloud Documentation
@@ -46,10 +46,14 @@ The following permissions are required to use the Spark UI feature with interact
 
 The Spark UI page is available in the Google Cloud console.
 
-  1. [Go to Managed Service for Apache Spark Interactive Sessions](https://console.cloud.google.com/managed-spark/interactive)
+  1. In the Google Cloud console, go to the Managed Service for Apache Spark **Sessions** page.
 
-  2. Click an **Interactive Session ID** to open the **Interactive Session Details** page.
+[Go to Managed Service for Apache Spark Sessions](https://console.cloud.google.com/dataproc/interactive)
+
+  2. Click a **Session ID** to open the **Session details** page.
+
   3. Click **View Spark UI** in the top menu.
+
 
 
 
@@ -59,6 +63,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-30 UTC.
+Last updated 2026-11-06 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-06 UTC."],[],[]] 

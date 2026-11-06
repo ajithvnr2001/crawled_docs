@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/managed-spark/docs/guides/submit-job/
 title: Submit a job \u00a0|\u00a0 Managed Service for Apache Spark \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-05T10:30:00.739941+00:00
+fetched_at: 2026-11-06T05:53:26.867960+00:00
 ---
 
 # Submit a job  |  Managed Service for Apache Spark  |  Google Cloud Documentation
@@ -57,13 +57,15 @@ Open the Managed Service for Apache Spark [Submit a job](https://console.cloud.g
 
 To submit a sample Spark job, fill in the fields on the **Submit a job** page, as follows:
 
-  1. Select your **Cluster** name from the cluster list.
-  2. Set **Job type** to `Spark`.
-  3. Set **Main class or jar** to `org.apache.spark.examples.SparkPi`.
-  4. Set **Arguments** to the single argument `1000`.
-  5. Add `file:///usr/lib/spark/examples/jars/spark-examples.jar` to **Jar files** (or the API `jarFileUris` field): 
-     1. `file:///` denotes a Hadoop LocalFileSystem scheme. Managed Service for Apache Spark installed `/usr/lib/spark/examples/jars/spark-examples.jar` on the cluster's master node when it created the cluster. This path is used only for pre-installed examples provided by Managed Service for Apache Spark. Don't copy custom JARs into system directories (see the caution in How to submit a job).
-     2. Alternatively, you can specify a Cloud Storage path (`gs://your-bucket/your-jarfile.jar`) or a Hadoop Distributed File System path (`hdfs://path-to-jar.jar`) to one of your jars. (If you submit the job by using the API, specify this path in the `jarFileUris` field.)
+  1. Under **Select compute type for job** , select **Spark on Compute Engine**.
+  2. In the **Cluster job details** section, specify a **Job ID** (or accept the default ID) and select your **Cluster** from the cluster list.
+  3. In the **Files and artifacts** section: 
+     1. Set **Job type** to **Spark (Scala / Java)** (`Spark`).
+     2. Under **Driver configuration** , select **Main class** , and set **Main class** to `org.apache.spark.examples.SparkPi`.
+     3. Set **Arguments** to the single argument `1000`.
+     4. Add `file:///usr/lib/spark/examples/jars/spark-examples.jar` to **Jar files** (or the API `jarFileUris` field): 
+        1. `file:///` denotes a Hadoop LocalFileSystem scheme. Managed Service for Apache Spark installed `/usr/lib/spark/examples/jars/spark-examples.jar` on the cluster's master node when it created the cluster. This path is used only for pre-installed examples provided by Managed Service for Apache Spark. Don't copy custom JARs into system directories (see the caution in How to submit a job).
+        2. Alternatively, you can specify a Cloud Storage path (`gs://your-bucket/your-jarfile.jar`) or a Hadoop Distributed File System path (`hdfs://path-to-jar.jar`) to one of your jars. (If you submit the job by using the API, specify this path in the `jarFileUris` field.)
 
 **To add more arguments** : Each argument must be entered in a separate text box. Press **< Return>** to open a new text box for each additional argument.
 
@@ -292,7 +294,7 @@ You should receive a JSON response similar to the following:
   3. Run the code See [Setting Up a Java Development Environment](https://docs.cloud.google.com/java/docs/setup).
          
          import com.google.api.gax.longrunning.[OperationFuture](https://docs.cloud.google.com/java/docs/reference/gax/latest/com.google.api.gax.longrunning.OperationFuture.html);
-         import com.google.cloud.dataproc.v1.[Job](https://docs.cloud.google.com/java/docs/reference/google-cloud-storagebatchoperations/latest/com.google.cloud.storagebatchoperations.v1.Job.html);
+         import com.google.cloud.dataproc.v1.[Job](https://docs.cloud.google.com/java/docs/reference/google-cloud-dataproc/latest/com.google.cloud.dataproc.v1.Job.html);
          import com.google.cloud.dataproc.v1.[JobControllerClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-dataproc/latest/com.google.cloud.dataproc.v1.JobControllerClient.html);
          import com.google.cloud.dataproc.v1.[JobControllerSettings](https://docs.cloud.google.com/java/docs/reference/google-cloud-dataproc/latest/com.google.cloud.dataproc.v1.JobControllerSettings.html);
          import com.google.cloud.dataproc.v1.[JobMetadata](https://docs.cloud.google.com/java/docs/reference/google-cloud-dataproc/latest/com.google.cloud.dataproc.v1.JobMetadata.html);
@@ -341,13 +343,13 @@ You should receive a JSON response similar to the following:
                        .addArgs("1000")
                        .build();
          
-               [Job](https://docs.cloud.google.com/java/docs/reference/google-cloud-storagebatchoperations/latest/com.google.cloud.storagebatchoperations.v1.Job.html) job = [Job](https://docs.cloud.google.com/java/docs/reference/google-cloud-storagebatchoperations/latest/com.google.cloud.storagebatchoperations.v1.Job.html).newBuilder().setPlacement(jobPlacement).setSparkJob(sparkJob).build();
+               [Job](https://docs.cloud.google.com/java/docs/reference/google-cloud-dataproc/latest/com.google.cloud.dataproc.v1.Job.html) job = [Job](https://docs.cloud.google.com/java/docs/reference/google-cloud-dataproc/latest/com.google.cloud.dataproc.v1.Job.html).newBuilder().setPlacement(jobPlacement).setSparkJob(sparkJob).build();
          
                // Submit an asynchronous request to execute the job.
                OperationFuture<Job, JobMetadata> submitJobAsOperationAsyncRequest =
                    jobControllerClient.[submitJobAsOperationAsync](https://docs.cloud.google.com/java/docs/reference/google-cloud-dataproc/latest/com.google.cloud.dataproc.v1.JobControllerClient.html#com_google_cloud_dataproc_v1_JobControllerClient_submitJobAsOperationAsync_com_google_cloud_dataproc_v1_SubmitJobRequest_)(projectId, region, job);
          
-               [Job](https://docs.cloud.google.com/java/docs/reference/google-cloud-storagebatchoperations/latest/com.google.cloud.storagebatchoperations.v1.Job.html) response = submitJobAsOperationAsyncRequest.get();
+               [Job](https://docs.cloud.google.com/java/docs/reference/google-cloud-dataproc/latest/com.google.cloud.dataproc.v1.Job.html) response = submitJobAsOperationAsyncRequest.get();
          
                // Print output from Google Cloud Storage.
                Matcher matches =
@@ -641,6 +643,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-06 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-06 UTC."],[],[]] 

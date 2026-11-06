@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/data-studio/release-notes/
 title: Data Studio release notes \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T00:00:46.458834+00:00
+fetched_at: 2026-11-06T05:50:42.657832+00:00
 ---
 
 # Data Studio release notes  |  Google Cloud Documentation
@@ -30,6 +30,12 @@ For releases earlier than May 2023, visit the [historical release notes](https:/
 You can see the latest product updates for all of Google Cloud on the [ Google Cloud](https://docs.cloud.google.com/release-notes) page, browse and filter all release notes in the [Google Cloud console](https://console.cloud.google.com/release-notes), or programmatically access release notes in [BigQuery](https://console.cloud.google.com/bigquery?p=bigquery-public-data&d=google_cloud_release_notes&t=release_notes&page=table). 
 
 To get the latest product updates delivered to you, add the URL of this page to your [feed reader](https://wikipedia.org/wiki/Comparison_of_feed_aggregators), or add the [feed URL](https://docs.cloud.google.com/feeds/data-studio-release-notes.xml) directly. 
+
+## November 05, 2026
+
+Feature
+
+You can now combine tables vertically in Data Studio blends by using the **Union** merge operator, which appends rows across up to five tables and removes duplicate rows. In addition, blend UI labels now use _merge_ (such as **Merge another table** , **Merge conditions** , and **Hide repeated merge fields**) to encompass both join and union operations. For more information, see [How blends work in Data Studio](https://docs.cloud.google.com/data-studio/how-blends-work) and [Create, edit, and manage blends](https://docs.cloud.google.com/data-studio/create-edit-and-manage-blends).
 
 ## October 22, 2026
 

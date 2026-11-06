@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/ai-hypercomputer/docs/release-notes/
 title: AI Hypercomputer release notes \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T01:49:40.383433+00:00
+fetched_at: 2026-11-06T05:53:20.901882+00:00
 ---
 
 # AI Hypercomputer release notes  |  Google Cloud Documentation
@@ -116,24 +116,6 @@ For more information, see [Introduction to Pathways on Cloud](https://docs.cloud
 Feature
 
 **Generally available** : You can apply compact placement policies to standalone Flex-start VMs. These policies let you colocate your standalone Flex-start VMs in adjacent blocks or in the same block. Applying a compact placement policy gives you more control over VM placement and helps minimize network latency for AI/ML workloads. For more information, see [Use Flex-start](https://docs.cloud.google.com/ai-hypercomputer/docs/consumption-models#flex-start).
-
-## December 12, 2025
-
-Issue
-
-Workloads on A4 VMs might experience interruptions due to a firmware issue for NVIDIA B200 GPUs. To help prevent the issue, we recommend resetting the GPUs on A4 VMs at least once every 60 days. For more information, see the [known issue](https://docs.cloud.google.com/ai-hypercomputer/docs/troubleshooting/known-issues#a4-firmware).
-
-## December 09, 2025
-
-Feature
-
-**Generally available** : You can enable node health prediction in an AI-optimized GKE cluster to help the cluster avoid scheduling workloads on nodes that are likely to degrade within the next five hours. This approach helps minimize interruptions for critical and interruption-sensitive workloads, such as large-scale training. For more information, see [Enable node health prediction in a GKE cluster](https://docs.cloud.google.com/ai-hypercomputer/docs/workloads/enable-node-health-prediction).
-
-## October 21, 2025
-
-Feature
-
-**Generally available** : You can use future reservations in AI Hypercomputer to request to reserve capacity starting on a specific date up to one year in the future. For more information, see [Reserve capacity](https://docs.cloud.google.com/ai-hypercomputer/docs/reserve-capacity).
 
 ## September 10, 2025
 

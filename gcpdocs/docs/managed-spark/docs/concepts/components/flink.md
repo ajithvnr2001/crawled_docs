@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/managed-spark/docs/concepts/components/flink/
 title: Managed Service for Apache Spark optional Flink component \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-05T00:20:20.598129+00:00
+fetched_at: 2026-11-06T05:53:36.053956+00:00
 ---
 
 # Managed Service for Apache Spark optional Flink component  |  Google Cloud Documentation
@@ -158,12 +158,14 @@ To submit a sample Flink wordcount job from the console:
 
   2. Fill in the fields on the **Submit a job** page:
 
-     1. Select your **Cluster** name from the cluster list.
-     2. Set **Job type** to `Flink`.
-     3. Set **Main class or jar** to `org.apache.flink.examples.java.wordcount.WordCount`.
-     4. Set **Jar files** to `file:///usr/lib/flink/examples/batch/WordCount.jar`. 
-        * `file:///` denotes a file located on the cluster. Managed Service for Apache Spark installed the `WordCount.jar` when it created the Flink cluster.
-        * This field also accepts a Cloud Storage path (`gs://BUCKET/JARFILE`) or a Hadoop Distributed File System (HDFS) path (`hdfs://PATH_TO_JAR`).
+     1. Under **Select compute type for job** , select **Spark on Compute Engine**.
+     2. In the **Cluster job details** section, select your **Cluster** name from the cluster list.
+     3. In the **Files and artifacts** section: 
+        1. Set **Job type** to `Flink`.
+        2. Under **Driver configuration** , select **Main class** , and set **Main class** to `org.apache.flink.examples.java.wordcount.WordCount`.
+        3. Set **Jar files** to `file:///usr/lib/flink/examples/batch/WordCount.jar`. 
+           * `file:///` denotes a file located on the cluster. Managed Service for Apache Spark installed the `WordCount.jar` when it created the Flink cluster.
+           * This field also accepts a Cloud Storage path (`gs://BUCKET/JARFILE`) or a Hadoop Distributed File System (HDFS) path (`hdfs://PATH_TO_JAR`).
   3. Click **Submit**.
 
      * Job driver output is displayed on the **Job details** page.
@@ -642,6 +644,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-03 UTC.
+Last updated 2026-11-06 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-06 UTC."],[],[]] 

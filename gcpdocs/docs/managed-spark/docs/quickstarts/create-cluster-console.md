@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/managed-spark/docs/quickstarts/create-cluster-console/
 title: Quickstart: Create a cluster by using the Google Cloud console \u00a0|\u00a0 Managed Service for Apache Spark \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T20:45:37.874553+00:00
+fetched_at: 2026-11-06T05:53:28.661147+00:00
 ---
 
 # Quickstart: Create a cluster by using the Google Cloud console  |  Managed Service for Apache Spark  |  Google Cloud Documentation
@@ -110,23 +110,21 @@ To ensure that the Compute Engine default service account has the necessary perm
 
 ## Create a cluster
 
-  1. In the Google Cloud console, go to the Managed Service for Apache Spark **Clusters** page.
+  1. In the Google Cloud console navigation menu, under **Infrastructure** , go to the Managed Service for Apache Spark **Clusters** page.
 
 [Go to Clusters](https://console.cloud.google.com/dataproc/clusters)
 
-  2. Click **Create cluster**.
+  2. Click **Create cluster** , and then choose **Cluster on Compute Engine**.
 
-  3. In the **Create Dataproc cluster** dialog, click **Create** in the **Cluster on Compute Engine** row.
+  3. In the **Cluster name** field, enter `example-cluster`.
 
-  4. In the **Cluster name** field, enter `example-cluster`.
-
-  5. In the **Region** and **Zone** lists, select a region and zone.
+  4. In the **Region** and **Zone** lists, select a region and zone.
 
 Select a region (for example, `us-east1` or `europe-west1`) to isolate resources, such as virtual machine (VM) instances and Cloud Storage and metadata storage locations that are used by Managed Service for Apache Spark, in the region. For more information, see [Available regions and zones](https://docs.cloud.google.com/compute/docs/regions-zones/regions-zones#available) and [Cluster region](https://docs.cloud.google.com/managed-spark/docs/concepts/cluster-region)
 
-  6. For all the other options, use the default settings.
+  5. For all the other options, use the default settings.
 
-  7. To create the cluster, click **Create**.
+  6. To create the cluster, click **Create**.
 
 Your new cluster appears in a list on the **Clusters** page. The status is **Provisioning** until the cluster is ready to use, and then the status changes to **Running**. Provisioning the cluster might take a couple of minutes.
 
@@ -137,23 +135,27 @@ Your new cluster appears in a list on the **Clusters** page. The status is **Pro
 
 Submit a Spark job that estimates a value of Pi:
 
-  1. In the Managed Service for Apache Spark navigation menu, click **Jobs**.
-  2. On the **Jobs** page, click add_box **Submit job** , and then do the following:
+  1. In the Managed Service for Apache Spark navigation menu, click **Jobs (and Batches)** (or **Jobs**).
+  2. On the **Jobs** page, click add_box **Submit job** , and then do the following on the **Submit a job** page:
 
-     1. In the **Job ID** field, use the default setting, or provide an ID that is unique to your Google Cloud project.
-     2. In the **Cluster** drop-down, select **`example-cluster`**.
-     3. For **Job type** , select **Spark**.
-     4. In the **Main class or jar** field, enter `org.apache.spark.examples.SparkPi`.
-     5. In the **Jar files** field, enter `file:///usr/lib/spark/examples/jars/spark-examples.jar`. (This sample jar is pre-installed on the cluster. For custom jobs, specify a Cloud Storage path; see [Submit a job](https://docs.cloud.google.com/managed-spark/docs/guides/submit-job).)
+     1. Under **Select compute type for job** , select **Spark on Compute Engine**.
+     2. In the **Cluster job details** section: 
+        1. In the **Job ID** field, use the default setting, or provide an ID that is unique to your Google Cloud project.
+        2. In the **Cluster** menu, select **`example-cluster`**.
+     3. In the **Files and artifacts** section:
+
+        1. For **Job type** , select **Spark (Scala / Java)**.
+        2. Under **Driver configuration** , select **Main class** , and in the **Main class** field, enter `org.apache.spark.examples.SparkPi`.
+        3. In the **Jar files** field, enter `file:///usr/lib/spark/examples/jars/spark-examples.jar`. (This sample jar is pre-installed on the cluster. For custom jobs, specify a Cloud Storage path; see [Submit a job](https://docs.cloud.google.com/managed-spark/docs/guides/submit-job).)
 
 **Caution:** Don't copy custom JAR files directly into cluster system directories such as `/usr/lib/spark/jars/`. Placing custom JARs in system directories pollutes the Managed Service for Apache Spark agent classpath and can cause job cancellation failures and orphaned YARN applications.
-     6. In the **Arguments** field, enter `1000` to set the number of tasks.
+        4. In the **Arguments** field, enter `1000` to set the number of tasks.
 
 **Note:** The Spark job estimates Pi by using the [Monte Carlo method](https://wikipedia.org/wiki/Monte_Carlo_method)
 
 It generates _x_ and _y_ points on a coordinate plane that models a circle enclosed by a unit square. The input argument (`1000`) determines the number of x-y pairs to generate; the more pairs generated, the greater the accuracy of the estimation. This estimation uses Managed Service for Apache Spark worker nodes to parallelize the computation. For more information, see [Estimating Pi using the Monte Carlo Method](https://academo.org/demos/estimating-pi-monte-carlo/) and [JavaSparkPi.java on GitHub](https://github.com/apache/spark/blob/master/examples/src/main/java/org/apache/spark/examples/JavaSparkPi.java).
 
-     7. Click **Submit**.
+     4. Click **Submit**.
 
 Your job is displayed on the **Job details** page. The job status is **Running** or **Starting** , and then it changes to **Succeeded** after it's submitted.
 
@@ -216,6 +218,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-06 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-06 UTC."],[],[]] 

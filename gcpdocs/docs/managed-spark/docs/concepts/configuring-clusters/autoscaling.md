@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/managed-spark/docs/concepts/configuring-clusters/autoscaling/
 title: Autoscale clusters \u00a0|\u00a0 Managed Service for Apache Spark \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-01T05:40:45.370326+00:00
+fetched_at: 2026-11-06T05:53:27.413306+00:00
 ---
 
 # Autoscale clusters  |  Managed Service for Apache Spark  |  Google Cloud Documentation
@@ -87,7 +87,17 @@ To enable autoscaling on a cluster:
 
 ### Google Cloud console
 
-To create an autoscaling policy, select CREATE POLICY from the Managed Service for Apache Spark [**Autoscaling policies**](https://console.cloud.google.com/dataproc/autoscalingPolicies)****page using the Google Cloud console. On the[**Create policy**](https://console.cloud.google.com/dataproc/autoscalingPolicies/create) page, you can select a policy recommendation panel to populate the autoscaling policy fields for a specific job type or scaling objective.
+To create an autoscaling policy in the Google Cloud console:
+
+  1. In the Google Cloud console navigation menu, under **Infrastructure** , go to the Managed Service for Apache Spark [**Autoscaling policies**](https://console.cloud.google.com/dataproc/autoscalingPolicies) page. 
+
+[Go to Autoscaling policies](https://console.cloud.google.com/dataproc/autoscalingPolicies)
+
+  2. Click **Create policy** to open the [**Create policy**](https://console.cloud.google.com/dataproc/autoscalingPolicies/create) page.
+  3. Optional: Select a policy recommendation panel to populate the autoscaling policy fields for a specific job type or scaling objective.
+  4. Enter an **Autoscaling policy name** , select a **Region** and **Cluster type** , configure the **YARN configuration** , **Cooldown duration** , and **Worker configuration** fields, and then click **Submit**.
+
+
 
 ### gcloud CLI
 
@@ -171,8 +181,12 @@ After creating an autoscaling policy, create a cluster that will use the autosca
 
 To apply an autoscaling policy to a new cluster:
 
-  1. Open the Managed Service for Apache Spark [Create cluster](https://console.cloud.google.com/dataproc/clusters/create) page.
-  2. In the **Define your cluster** section, under **Choose worker scaling mode** , select **Autoscaling** , then select your policy in the **Policy** field.
+  1. In the Google Cloud console navigation menu, under **Infrastructure** , go to the Managed Service for Apache Spark [**Clusters**](https://console.cloud.google.com/dataproc/clusters) page. 
+
+[Go to Clusters](https://console.cloud.google.com/dataproc/clusters)
+
+  2. Click **Create cluster** , and then choose **Cluster on Compute Engine** to open the [**Create a cluster**](https://console.cloud.google.com/dataproc/clusters/create) page.
+  3. In the **Define your cluster shape** (or **Define your cluster**) section, under **Worker configuration** > **Choose worker scaling mode** , select **Autoscaling** , and then select your policy in the **Policy** field (or expand **Additional configuration** , click **Edit** next to **Autoscaling** , select **Autoscaling based on policy** , and select your policy in the **Policy** field).
 
 
 
@@ -667,6 +681,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-31 UTC.
+Last updated 2026-11-06 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-31 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-06 UTC."],[],[]] 

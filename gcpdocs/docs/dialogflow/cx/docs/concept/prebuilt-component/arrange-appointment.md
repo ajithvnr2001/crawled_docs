@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/dialogflow/cx/docs/concept/prebuilt-component/arrange-appointment/
 title: Arrange appointment prebuilt component \u00a0|\u00a0 Dialogflow CX \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T08:23:31.173610+00:00
+fetched_at: 2026-11-06T05:53:35.862776+00:00
 ---
 
 # Arrange appointment prebuilt component  |  Dialogflow CX  |  Google Cloud Documentation
@@ -23,13 +23,13 @@ Send feedback
 
 #  Arrange appointment prebuilt component Stay organized with collections  Save and categorize content based on your preferences. 
 
-The arrange appointment [prebuilt component](https://docs.cloud.google.com/dialogflow/cx/docs/concept/prebuilt-component) allows new and existing customers to book appointments. This component uses a customized version of the [Date of birth collection](https://docs.cloud.google.com/dialogflow/cx/docs/concept/prebuilt-component/date-of-birth-collection) prebuilt component to collect appointment dates, and uses the [Telephone number collection](https://docs.cloud.google.com/dialogflow/cx/docs/concept/prebuilt-component/telephone-number-collection) and [Zip code collection](https://docs.cloud.google.com/dialogflow/cx/docs/concept/prebuilt-component/zip-code-collection) prebuilt components to collect information about the user and appointment location.
+The arrange appointment [prebuilt component](https://docs.cloud.google.com/dialogflow/cx/docs/concept/prebuilt-component) lets new and existing customers book appointments. This component uses a customized version of the [Date of birth collection](https://docs.cloud.google.com/dialogflow/cx/docs/concept/prebuilt-component/date-of-birth-collection) prebuilt component to collect appointment dates, and uses the [Telephone number collection](https://docs.cloud.google.com/dialogflow/cx/docs/concept/prebuilt-component/telephone-number-collection) and [Zip code collection](https://docs.cloud.google.com/dialogflow/cx/docs/concept/prebuilt-component/zip-code-collection) prebuilt components to collect information about the user and appointment location.
 
 ## Appointment reasons and types
 
-This component supports several categories of appointment reasons and offers different types of appointments depending on the user's selected reason.
+This component supports several categories of appointment reasons and offers different types of appointments based on the reason that the user selects.
 
-Appointment reason | Available appointment types  
+Appointment Reason | Available Appointment Types  
 ---|---  
 Loans | In-person, virtual, phone  
 Mortgages | In-person, virtual, phone  
@@ -37,25 +37,28 @@ Wealth management | In-person, virtual, phone
 Credit cards | Virtual, phone  
 Other | Phone  
   
-Appointment categories can be customized by modifying the `prebuilt_components_arrange_appt_reason` custom entity. Available appointment types for each category can be configured by modifying the [input parameters](https://docs.cloud.google.com/dialogflow/cx/docs/concept/prebuilt-component/arrange-appointment#input-parameters) for each appointment type.
+Appointment categories can be modified by updating the `prebuilt_components_arrange_appt_reason` custom entity. Available appointment types for each category can be configured by updating the [input parameters](https://docs.cloud.google.com/dialogflow/cx/docs/concept/prebuilt-component/arrange-appointment#input-parameters) for each appointment type.
 
 ## Limitations
 
 In addition to the [common prebuilt component limitations](https://docs.cloud.google.com/dialogflow/cx/docs/concept/prebuilt-component#limits), this prebuilt component has the following limitations:
 
-  * This component does not encrypt any data.
+  * This component doesn't encrypt any data.
 
 
 
 ## Sample dialogs
 
-The following sample dialogs demonstrate common scenarios handled by this prebuilt component. The sample dialogs demonstrate behavior when the component is called via telephony, which triggers the Default Welcome Intent and the first agent response at the start of the conversation.
+These sample dialogs demonstrate common scenarios that this prebuilt component handles when calls come in using telephony, which triggers the Default Welcome Intent and the first agent response at the start of the conversation.
 
 ### Existing user books in-person appointment
 
-The agent identifies that the user has been previously authenticated as an existing user. The user gives the reason for their appointment and selects to book an in-person appointment. The agent confirms that the user would like to go to the branch closest to their registered address, and confirms that the user's preferred date and time are available. The agent confirms the time and place and successfully schedules the appointment.
+  1. The agent identifies that the user has been authenticated as an existing user.
+  2. The user gives the reason for their appointment and selects to book an in-person appointment.
+  3. The agent confirms that the user wants to go to the branch closest to their registered address, and confirms that their preferred date and time are available.
+  4. The agent confirms the time and place and schedules the appointment.
 
-User input | Agent response  
+User Input | Agent Response  
 ---|---  
 | Before scheduling an appointment, we will ask you a few questions. Can you tell us the reason for your appointment?  
 I want to talk to someone about wealth management |   
@@ -64,7 +67,7 @@ I'd like to go in person |
 | Okay, do you want to schedule an appointment in the branch located at 1600 Amphitheatre Pkwy, Mountain View, CA 94043?  
 Yes |   
 | Please provide your preferred appointment date. Please say your preferred month, followed by day and then year. Remember that our branches are open from Monday to Friday: 9 AM to 5 PM, Saturday: 9 AM to 1 PM.  
-| _Agent collects user's preferred appointment date using[Date of birth collection](https://docs.cloud.google.com/dialogflow/cx/docs/concept/prebuilt-component/date-of-birth-collection) prebuilt component_  
+| _The agent collects the user's preferred appointment date using[Date of birth collection](https://docs.cloud.google.com/dialogflow/cx/docs/concept/prebuilt-component/date-of-birth-collection) prebuilt component._  
 | Great, we are done with collecting your preferred date.  
   
 Please provide your preferred time slot.  
@@ -79,11 +82,15 @@ No that's all |
   
 ### New customer books multiple appointments
 
-The agent identifies that the user has not been previously authenticated and collects the user's telephone number. The user requests a virtual appointment to discuss loans. The user's first preference for date and time is not available, so the agent offers available time slots to the user. The user selects an available time slot and the appointment is successfully scheduled. The user confirms that they would like to book a second appointment, and the agent successfully schedules a second appointment.
+  1. The agent identifies that the user hasn't been previously authenticated and collects the user's telephone number.
+  2. The user requests a virtual appointment to discuss loans.
+  3. If the user's first preference for date and time isn't available, the agent offers available time slots to them.
+  4. The user selects an available time slot and the appointment is scheduled.
+  5. If the user wants to book a second appointment, the agent schedules it and confirms the details.
 
-User input | Agent response  
+User Input | Agent Response  
 ---|---  
-| _Agent collects user's telephone number using[Telephone number collection](https://docs.cloud.google.com/dialogflow/cx/docs/concept/prebuilt-component/telephone-number-collection) prebuilt component_  
+| _The agent collects the user's telephone number using[Telephone number collection](https://docs.cloud.google.com/dialogflow/cx/docs/concept/prebuilt-component/telephone-number-collection) prebuilt component._  
 | Great, we are done collecting the telephone number.  
   
 Before scheduling an appointment, we will ask you a few questions. Can you tell us the reason for your appointment?  
@@ -91,7 +98,7 @@ I want to get a loan |
 | Are you looking for a phone, video call or in-person appointment at one of our branches?  
 Virtual appointment is fine |   
 | Please provide your preferred appointment date. Please say your preferred month, followed by day and then year. Remember that our branches are open from Monday to Friday: 9 AM to 5 PM, Saturday: 9 AM to 1 PM.  
-| _Agent collects user's preferred appointment date using[Date of birth collection](https://docs.cloud.google.com/dialogflow/cx/docs/concept/prebuilt-component/date-of-birth-collection) prebuilt component_  
+| _The agent collects the user's preferred appointment date using[Date of birth collection](https://docs.cloud.google.com/dialogflow/cx/docs/concept/prebuilt-component/date-of-birth-collection) prebuilt component._  
 | Great, we are done with collecting your preferred date.  
   
 Please provide your preferred time slot.  
@@ -109,7 +116,7 @@ I need an appointment for my credit card |
 | Are you looking for a phone or video call appointment with one of our branch representatives?  
 Phone |   
 | Please provide your preferred appointment date. Please say your preferred month, followed by day and then year. Remember that our branches are open from Monday to Friday: 9 AM to 5 PM, Saturday: 9 AM to 1 PM.  
-| _Agent collects user's preferred appointment date using[Date of birth collection](https://docs.cloud.google.com/dialogflow/cx/docs/concept/prebuilt-component/date-of-birth-collection) prebuilt component_  
+| _The agent collects the user's preferred appointment date using[Date of birth collection](https://docs.cloud.google.com/dialogflow/cx/docs/concept/prebuilt-component/date-of-birth-collection) prebuilt component._  
 | Great, we are done with collecting your preferred date.  
   
 Please provide your preferred time slot.  
@@ -141,7 +148,7 @@ Webhook | prebuilt_components_[component_name]:[webhook_action] | prebuilt_compo
   
 ## Input parameters
 
-Input parameters are parameters that are used to configure certain behaviors of the component. The parameters will be used by one or more conditions within the flow to determine how the component should behave. Flow-scoped parameters must be set on the start page of the component as described below. Session-scoped parameters may be set either by a calling flow, or on the start page of this component.
+Input parameters configure component behaviors. Conditions within the flow use these parameters to determine component behavior. You can set flow-scoped parameters on the start page of the component, and you can set session-scoped parameters either through a calling flow or on the start page.
 
 This prebuilt component accepts the following input parameters:
 
@@ -179,9 +186,9 @@ Parameter Name | Description | Output Format
 phone_number | User's local phone number, without the country code, used to identify the user. | string  
 transfer_reason | This parameter indicates the reason the flow exited, if it was not successful. The returned value is one of:  
   
-`agent`: the end-user requested a human agent at some point during the conversation.  
+`agent`: the user requested a human agent at some point during the conversation.  
   
-`denial_of_information`: the end-user declined to share information requested by the component.  
+`denial_of_information`: the user declined to share information requested by the component.  
   
 `max_no_input`: the conversation reached the maximum number of retries for no-input events. See [no-input built-in events](https://docs.cloud.google.com/dialogflow/cx/docs/concept/handler#event-built-in).  
   
@@ -196,21 +203,21 @@ transfer_reason | This parameter indicates the reason the flow exited, if it was
 To set up this prebuilt component:
 
   1. [Import the prebuilt component](https://docs.cloud.google.com/dialogflow/cx/docs/concept/prebuilt-component#import).
-  2. Configure the provided [flexible webhooks](https://docs.cloud.google.com/dialogflow/cx/docs/concept/webhook#flexible) with configuration describing your external services, see Webhook setup below.
+  2. Configure the provided [flexible webhooks](https://docs.cloud.google.com/dialogflow/cx/docs/concept/webhook#flexible) with settings that describe your external services. See [Webhook setup](https://docs.cloud.google.com/dialogflow/cx/docs/concept/prebuilt-component/arrange-appointment#webhook-setup).
 
 
 
 ## Webhook setup
 
-In order to use this component, you will need to configure the included [flexible webhooks](https://docs.cloud.google.com/dialogflow/cx/docs/concept/webhook#flexible) to retrieve needed information from your external services.
+To use this component, you must configure the included [flexible webhooks](https://docs.cloud.google.com/dialogflow/cx/docs/concept/webhook#flexible) to retrieve the necessary information from your external services.
 
 ### Get account
 
-The `prebuilt_components_arrange_appointment:get_account` webhook is used by the component to get account details for a provided phone number, if a registered account exists.
+The `prebuilt_components_arrange_appointment:get_account` webhook lets you retrieve account details for a provided phone number if a registered account exists.
 
 #### API request parameters
 
-The following parameters are provided by the component as inputs to the API request.
+The component provides the following parameters as inputs to the API request:
 
 Parameter Name | Description | Input Format  
 ---|---|---  
@@ -218,7 +225,7 @@ $session.params.phone_number | User's local phone number, without the country co
   
 #### API response parameters
 
-The following parameters are pulled from the API response to be used by the component.
+The component pulls the following parameters from the API response:
 
 Parameter Name | Description | Output Format  
 ---|---|---  
@@ -246,11 +253,11 @@ branch_code | Branch code associated with the registered phone number, used to i
 
 ### Get branch
 
-The `prebuilt_components_arrange_appointment:get_branch` webhook is used by the component to retrieve information about a branch location given a branch code.
+The `prebuilt_components_arrange_appointment:get_branch` webhook retrieves information about a branch location by using a branch code.
 
 #### API request parameters
 
-The following parameters are provided by the component as inputs to the API request.
+The component provides the following parameters as inputs to the API request:
 
 Parameter Name | Description | Input Format  
 ---|---|---  
@@ -258,7 +265,7 @@ $flow.branch_code | Branch code identifying a unique branch location. | string
   
 #### API response parameters
 
-The following parameters are pulled from the API response to be used by the component.
+The component pulls the following parameters from the API response:
 
 Parameter Name | Description | Output Format  
 ---|---|---  
@@ -282,19 +289,19 @@ branch_address | Address of the branch. | string
 
 ### Available branch
 
-The `prebuilt_components_arrange_appointment:available_branch` webhook is used by the component to get the nearest branch location given a zip code.
+The `prebuilt_components_arrange_appointment:available_branch` webhook retrieves the nearest branch location by using a zip code.
 
 #### API request parameters
 
-The following parameters are provided by the component as inputs to the API request.
+The component provides the following parameters as inputs to the API request:
 
 Parameter Name | Description | Input Format  
 ---|---|---  
-$flow.zip_code | Zip code provided by the end-user. | string  
+$flow.zip_code | Zip code provided by the user. | string  
   
 #### API response parameters
 
-The following parameters are pulled from the API response to be used by the component.
+The component pulls the following parameters from the API response:
 
 Parameter Name | Description | Output Format  
 ---|---|---  
@@ -318,21 +325,21 @@ branch_address | Address of the branch. | string
 
 ### Get available slots
 
-The `prebuilt_components_arrange_appointment:get_available_slots` webhook is used by the component to check available time slots for a user's preferred date and appointment type.
+The `prebuilt_components_arrange_appointment:get_available_slots` webhook checks available time slots for a user's preferred date and appointment type.
 
 #### API request parameters
 
-The following parameters are provided by the component as inputs to the API request.
+The component provides the following parameters as inputs to the API request:
 
 Parameter Name | Description | Input Format  
 ---|---|---  
-$flow.preferred_date | Preferred date for the appointment provided by the end-user in "YYYY-MM-DD" format. | string  
+$flow.preferred_date | Preferred date for the appointment provided by the user in "YYYY-MM-DD" format. | string  
 $flow.appointment_type | The [appointment type](https://docs.cloud.google.com/dialogflow/cx/docs/concept/prebuilt-component/arrange-appointment#reasons-and-types) of the appointment. | string  
-$flow.branch_code | Branch code identifying the unique branch location selected by the end-user. | string  
+$flow.branch_code | Branch code identifying the unique branch location selected by the user. | string  
   
 #### API response parameters
 
-The following parameters are pulled from the API response to be used by the component.
+The component pulls the following parameters from the API response:
 
 Parameter Name | Description | Output Format  
 ---|---|---  
@@ -356,24 +363,24 @@ available_slots | List of available appointment times for the specified date, in
 
 ### Submit appointment
 
-The `prebuilt_components_arrange_appointment:submit_appointment` webhook is used by the component to schedule an appointment for the user's selected date, time, branch, appointment reason, and appointment type.
+The `prebuilt_components_arrange_appointment:submit_appointment` webhook lets the user schedule an appointment for their selected date, time, branch, appointment reason, and appointment type.
 
 #### API request parameters
 
-The following parameters are provided by the component as inputs to the API request.
+The component provides the following parameters as inputs to the API request:
 
 Parameter Name | Description | Input Format  
 ---|---|---  
-$session.params.phone_number | User's local phone number, without the country code, used to identify the user. | string  
-$flow.preferred_date | Preferred date for the appointment provided by the end-user in "YYYY-MM-DD" format. | string  
-$flow.preferred_slot | Preferred time for the appointment provided by the end-user in "HH:MM XM" format. | string  
+$session.params.phone_number | The local phone number of the user, without the country code, used to identify the user and associate the appointment with their account. | string  
+$flow.preferred_date | Preferred date for the appointment provided by the user in "YYYY-MM-DD" format. | string  
+$flow.preferred_slot | Preferred time for the appointment provided by the user in "HH:MM XM" format. | string  
 $flow.appointment_reason | The [appointment reason](https://docs.cloud.google.com/dialogflow/cx/docs/concept/prebuilt-component/arrange-appointment#reasons-and-types) for the appointment. | string  
 $flow.appointment_type | The [appointment type](https://docs.cloud.google.com/dialogflow/cx/docs/concept/prebuilt-component/arrange-appointment#reasons-and-types) of the appointment. | string  
-$flow.branch_code | Branch code identifying the unique branch location selected by the end-user. | string  
+$flow.branch_code | Branch code identifying the unique branch location provided by the user, if required. | string  
   
 #### API response parameters
 
-The following parameters are pulled from the API response to be used by the component.
+The component pulls the following parameters from the API response:
 
 Parameter Name | Description | Output Format  
 ---|---|---  
@@ -397,7 +404,7 @@ request_number | The request number for the scheduled appointment. | integer
 
 ### Complete
 
-Your agent and its webhooks should now be set up and ready to test.
+This prebuilt component and its webhooks are now set up and ready to test.
 
 [ Previous arrow_back  Alphanumeric collection  ](https://docs.cloud.google.com/dialogflow/cx/docs/concept/prebuilt-component/alphanumeric-collection)
 
@@ -407,6 +414,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-06 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-06 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/managing-table-data/
 title: Managing table data \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T07:55:02.137666+00:00
+fetched_at: 2026-11-06T05:53:05.649142+00:00
 ---
 
 # Managing table data  |  BigQuery  |  Google Cloud Documentation
@@ -478,7 +478,7 @@ Pagination happens automatically in the [Cloud Client Libraries for Ruby](https:
     require "google/cloud/bigquery"
     
     def browse_table
-      bigquery = Google::Cloud::[Bigquery](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-bigquery-connection-v1/latest/Google-Cloud-Bigquery.html).[new](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-bigquery/latest/Google-Cloud-Bigquery.html) project_id: "bigquery-public-data"
+      bigquery = Google::Cloud::[Bigquery](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-bigquery-migration/latest/Google-Cloud-Bigquery.html).[new](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-bigquery/latest/Google-Cloud-Bigquery.html) project_id: "bigquery-public-data"
       dataset  = bigquery.dataset "samples"
       table    = dataset.table "shakespeare"
     

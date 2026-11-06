@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/architecture/release-notes/
 title: What's new in the Architecture Center \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T23:27:51.436657+00:00
+fetched_at: 2026-11-06T05:52:17.863546+00:00
 ---
 
 # What's new in the Architecture Center  |  Google Cloud Documentation
@@ -22,6 +22,12 @@ Send feedback
 This page lists new and updated content in the [Google Cloud Architecture Center](https://docs.cloud.google.com/architecture). 
 
 To get the latest product updates delivered to you, add the URL of this page to your [feed reader](https://wikipedia.org/wiki/Comparison_of_feed_aggregators), or add the [feed URL](https://docs.cloud.google.com/feeds/architecture-center-release-notes.xml) directly. 
+
+## November 06, 2026
+
+Change
+
+[RAG infrastructure for generative AI using Gemini Enterprise and Agent Platform](https://docs.cloud.google.com/architecture/rag-genai-gemini-enterprise-vertexai): Expanded design considerations across reliability, cost optimization, and performance optimization for Cloud Run, Cloud Run functions, and Gemini Enterprise.
 
 ## November 03, 2026
 

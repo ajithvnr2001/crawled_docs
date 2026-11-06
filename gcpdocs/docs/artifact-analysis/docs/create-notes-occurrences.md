@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/artifact-analysis/docs/create-notes-occurrences/
 title: Create custom notes and occurrences \u00a0|\u00a0 Artifact Analysis \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T23:16:54.760320+00:00
+fetched_at: 2026-11-06T05:52:53.254650+00:00
 ---
 
 # Create custom notes and occurrences  |  Artifact Analysis  |  Google Cloud Documentation
@@ -780,7 +780,7 @@ To authenticate to Artifact Analysis, set up Application Default Credentials. Fo
     
       require "google/cloud/pubsub"
     
-      pubsub = Google::Cloud::[PubSub](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-pubsub/latest/Google-Cloud-PubSub.html).[new](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-pubsub/latest/Google-Cloud-PubSub.html) project_id: project_id
+      pubsub = Google::Cloud::[PubSub](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-pubsub-v1/latest/Google-Cloud-PubSub.html).[new](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-pubsub/latest/Google-Cloud-PubSub.html) project_id: project_id
       subscription_admin = pubsub.[subscription_admin](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-pubsub/latest/Google-Cloud-PubSub-Project.html)
       subscription = subscription_admin.create_subscription \
         name: pubsub.subscription_path(subscription_id),

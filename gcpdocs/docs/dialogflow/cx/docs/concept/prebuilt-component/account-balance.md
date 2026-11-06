@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/dialogflow/cx/docs/concept/prebuilt-component/account-balance/
 title: Account balance prebuilt component \u00a0|\u00a0 Dialogflow CX \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T22:51:08.670198+00:00
+fetched_at: 2026-11-06T05:53:36.523345+00:00
 ---
 
 # Account balance prebuilt component  |  Dialogflow CX  |  Google Cloud Documentation
@@ -23,39 +23,39 @@ Send feedback
 
 #  Account balance prebuilt component Stay organized with collections  Save and categorize content based on your preferences. 
 
-The account balance [prebuilt component](https://docs.cloud.google.com/dialogflow/cx/docs/concept/prebuilt-component) checks a customer's authentication level, then provides account balance information to an authenticated customer. If the customer has multiple accounts, the component confirms the specific account the customer would like to retrieve account balance for. This component uses the [Authentication](https://docs.cloud.google.com/dialogflow/cx/docs/concept/prebuilt-component/authentication) prebuilt component to authenticate users.
+The account balance [prebuilt component](https://docs.cloud.google.com/dialogflow/cx/docs/concept/prebuilt-component) checks a customer's authentication level and provides account balance information to an authenticated customer. If the customer has multiple accounts, the component confirms the specific account for which the customer wants to retrieve the account balance. This component uses the [Authentication](https://docs.cloud.google.com/dialogflow/cx/docs/concept/prebuilt-component/authentication) prebuilt component to authenticate users.
 
 ## Limitations
 
 In addition to the [common prebuilt component limitations](https://docs.cloud.google.com/dialogflow/cx/docs/concept/prebuilt-component#limits), this prebuilt component has the following limitations:
 
-  * This component does not encrypt any data.
+  * This component doesn't encrypt any data.
 
 
 
 ## Sample dialogs
 
-The following sample dialogs demonstrate common scenarios handled by this prebuilt component. The sample dialogs demonstrate behavior when the component is called via telephony, which triggers the Default Welcome Intent and the first agent response at the start of the conversation.
+These sample dialogs illustrate common scenarios that this prebuilt component handles. They show behavior when you call the component using telephony, which triggers the Default Welcome Intent and the first agent response at the start of the conversation.
 
 ### Single account
 
-End-user has a single account and is provided with the account balance.
+The user has a single account and is provided with the account balance.
 
-User input | Agent response  
+User Input | Agent Response  
 ---|---  
-| _Agent authenticates user using[Authentication](https://docs.cloud.google.com/dialogflow/cx/docs/concept/prebuilt-component/authentication) prebuilt component_  
-| Thank you, you have been successfully authenticated.  
-| Please wait while we are fetching your account details.  
+| _The agent authenticates the user using[Authentication](https://docs.cloud.google.com/dialogflow/cx/docs/concept/prebuilt-component/authentication) prebuilt component._  
+| Thank you, you've been successfully authenticated.  
+| Please wait while account details are fetched.  
   
 Your balance associated with the account ending in 4567 is $50.00.  
   
 ### Multiple accounts
 
-End-user has multiple accounts; agent requests and confirms the last four digits of the account number and provides the account balance for that account.
+If the user has multiple accounts, the agent requests and confirms the last four digits of the account number and provides the account balance for that account.
 
-User input | Agent response  
+User Input | Agent Response  
 ---|---  
-| _Agent authenticates user using[Authentication](https://docs.cloud.google.com/dialogflow/cx/docs/concept/prebuilt-component/authentication) prebuilt component_  
+| _The agent authenticates the user using[Authentication](https://docs.cloud.google.com/dialogflow/cx/docs/concept/prebuilt-component/authentication) prebuilt component._  
 | Thank you, you have been successfully authenticated.  
 | Please wait while we are fetching your account details.  
   
@@ -69,9 +69,9 @@ yes |
   
 ### Multiple accounts with context
 
-End-user has multiple accounts, the referred account number is retained from previous intent, and is provided with the account balance.
+If the user has multiple accounts, the referenced account number is retained from the previous intent, and the user is provided with the account balance.
 
-User input | Agent response  
+User Input | Agent Response  
 ---|---  
 | Please wait while we are fetching your account details.  
   
@@ -87,13 +87,13 @@ This prebuilt component uses the following naming conventions:
 
 Feature | Format | Example  
 ---|---|---  
-Flow | [Component Name] | Account Balance  
+Flow | Component Name | Account Balance  
 Component Specific Intent | prebuilt_components_[component_name]_[intent_name] | prebuilt_components_account_number_collection_four_digit_account_number  
 Webhook | prebuilt_components_[component_name]:[webhook_action] | prebuilt_components_account_balance:get_account_balance  
   
 ## Input parameters
 
-Input parameters are parameters that are used to configure certain behaviors of the component. The parameters will be used by one or more conditions within the flow to determine how the component should behave. Flow-scoped parameters must be set on the start page of the component as described below. Session-scoped parameters may be set either by a calling flow, or on the start page of this component.
+Input parameters configure specific behaviors of the component. One or more conditions within the flow use the parameters to determine how the component behaves. The user must configure flow-scoped parameters on the start page of the component as described in the following table. The user can also set session-scoped parameters either by a calling flow or on the start page of this component.
 
 This prebuilt component accepts the following input parameters:
 
@@ -105,8 +105,8 @@ $session.params.account_auth_enabled | Indicates whether the user should be auth
 $session.params.card_auth_enabled | Indicates whether the user should be authenticated as a card holder as described in [Authentication types](https://docs.cloud.google.com/dialogflow/cx/docs/concept/prebuilt-component/authentication#authentication-types). This value is configured in the [parameter presets](https://docs.cloud.google.com/dialogflow/cx/docs/concept/fulfillment#param-preset) of the [page entry fulfillment](https://docs.cloud.google.com/dialogflow/cx/docs/concept/fulfillment#use) in the `check auth level` page. By default this value is `false`. | boolean  
 $session.params.phone_number | (optional) Customer's registered phone number used for authentication. | string  
 $session.params.account_count | (optional) Number of accounts associated with the authenticated user. | integer  
-$session.params.last_four_digit_of_account_number | (optional) Last four digits of the customer account number for which the balance needs to be provided. If the customer has a single account, this information is retrieved automatically post authentication. If the customer has multiple accounts, the specific account number is collected from the customer. | string  
-$flow.max_retry_acc_number | Specifies the number of retries allowed when collecting the last four digits of the end-user's account number. The default value is `3` | integer  
+$session.params.last_four_digit_of_account_number | (optional) Last four digits of the customer account number for which the balance needs to be provided. If the customer has a single account, this information is retrieved automatically after authentication. If the customer has multiple accounts, the specific account number is collected from the customer. | string  
+$flow.max_retry_acc_number | Specifies the number of retries allowed when collecting the last four digits of the user's account number. The default value is `3`. | integer  
   
 ####  To configure the input parameters for this component, expand for instructions. 
 
@@ -124,19 +124,21 @@ $flow.max_retry_acc_number | Specifies the number of retries allowed when collec
 
 ## Output parameters
 
-Output parameters are session parameters that will remain active after exiting the component. These parameters contain important information collected by the component. This prebuilt component provides values for the following output parameters:
+Output parameters are session parameters that remain active after the user exits the component. These parameters contain important information that the component collects.
+
+This prebuilt component provides values for the following output parameters:
 
 Parameter Name | Description | Output Format  
 ---|---|---  
 auth_level | Indicates the [authentication level](https://docs.cloud.google.com/dialogflow/cx/docs/concept/prebuilt-component/authentication#authentication-levels) of the caller. | integer  
-phone_number | User's local phone number, without the country code, used to identify the user. | string  
+phone_number | The local phone number of the caller, without the country code, used to identify the user. | string  
 account_count | The number of accounts associated with the registered telephone number. These accounts include self-accounts and accounts for which the user has power of attorney. | integer  
 last_four_digit_of_account_number | If a user has a single account, the last four digits of the account number are returned. If a user has more than one account, the value of this parameter is the last four digits of the account number the user selected to receive account balance information for. | string  
 transfer_reason | This parameter indicates the reason the flow exited, if it was not successful. The returned value is one of:  
   
-`agent`: the end-user requested a human agent at some point during the conversation.  
+`agent`: the user requested a human agent at some point during the conversation.  
   
-`denial_of_information`: the end-user declined to share information requested by the component.  
+`denial_of_information`: the user declined to share information requested by the component.  
   
 `max_no_input`: the conversation reached the maximum number of retries for no-input events. See [no-input built-in events](https://docs.cloud.google.com/dialogflow/cx/docs/concept/handler#event-built-in).  
   
@@ -148,37 +150,37 @@ transfer_reason | This parameter indicates the reason the flow exited, if it was
   
 ## Basic setup
 
-To set up this prebuilt component:
+To set up the prebuilt component, complete the following steps:
 
   1. [Import the prebuilt component](https://docs.cloud.google.com/dialogflow/cx/docs/concept/prebuilt-component#import).
-  2. Configure the provided [flexible webhooks](https://docs.cloud.google.com/dialogflow/cx/docs/concept/webhook#flexible) with configuration describing your external services, see Webhook setup below.
+  2. Configure the provided [flexible webhooks](https://docs.cloud.google.com/dialogflow/cx/docs/concept/webhook#flexible) with settings describing your external services. For more information, see the Webhook setup section.
 
 
 
 ## Webhook setup
 
-In order to use this component, you will need to configure the included [flexible webhooks](https://docs.cloud.google.com/dialogflow/cx/docs/concept/webhook#flexible) to retrieve needed information from your external services.
+To use this component, you must configure the included [flexible webhooks](https://docs.cloud.google.com/dialogflow/cx/docs/concept/webhook#flexible) to retrieve needed information from your external services.
 
 ### Authentication
 
-If you have not previously configured external services required for authentication, you will need to configure them to enable authentication of users for this component. See [Authentication webhook setup](https://docs.cloud.google.com/dialogflow/cx/docs/concept/prebuilt-component/authentication#webhook-setup) for detailed instructions.
+If you haven't previously configured external services required for authentication, configure them to enable authentication of users for this component. For more information about webhook setup, see [Authentication webhook setup](https://docs.cloud.google.com/dialogflow/cx/docs/concept/prebuilt-component/authentication#webhook-setup).
 
 ### Validate account
 
-The `prebuilt_components_account_services:validate_account` webhook is used by the component to verify that an account exists based on the user's registered phone number and the last four digits of the account number provided. The webhook also returns the account balance, if an account exists.
+The component uses the `prebuilt_components_account_services:validate_account` webhook to verify that an account exists based on the user's registered phone number and the last four digits of the account number provided. The webhook also returns the account balance if an account exists.
 
 #### API request parameters
 
-The following parameters are provided by the component as inputs to the API request.
+The component provides the following parameters as inputs to the API request:
 
 Parameter Name | Description | Input Format  
 ---|---|---  
-$session.params.phone_number | User's local phone number, without the country code, used to identify the user. | string  
+$session.params.phone_number | The local phone number of the caller, without the country code, used to identify the user. | string  
 $session.params.last_four_digit_of_account_number | The last four digits of the account number the user selected and confirmed to receive account balance information for. | string  
   
 #### API response parameters
 
-The following parameters are pulled from the API response to be used by the component.
+The component pulls the following parameters from the API response:
 
 Parameter Name | Description | Output Format  
 ---|---|---  
@@ -203,7 +205,7 @@ balance | The amount of the current balance on the account, if it exists. | numb
 
 ### Complete
 
-Your agent and its webhooks should now be set up and ready to test.
+The prebuilt component and its webhooks are now set up and ready to test.
 
 [ Previous arrow_back  Overview  ](https://docs.cloud.google.com/dialogflow/cx/docs/concept/prebuilt-component)
 
@@ -213,6 +215,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-06 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-06 UTC."],[],[]] 

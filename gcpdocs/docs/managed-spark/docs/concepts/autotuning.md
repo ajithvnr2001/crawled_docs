@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/managed-spark/docs/concepts/autotuning/
 title: Autotune Spark batch workloads \u00a0|\u00a0 Managed Service for Apache Spark \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T21:57:39.054241+00:00
+fetched_at: 2026-11-06T05:53:30.768228+00:00
 ---
 
 # Autotune Spark batch workloads  |  Managed Service for Apache Spark  |  Google Cloud Documentation
@@ -83,19 +83,26 @@ You can enable Managed Service for Apache Spark autotuning on a batch workload b
 
 To enable Managed Service for Apache Spark autotuning on each submission of a recurring batch workload, perform the following steps:
 
-  1. In the Google Cloud console, go to the Managed Service for Apache Spark **Batches** page.
+  1. In the Google Cloud console, go to the Managed Service for Apache Spark **Jobs** page.
 
-[Go to Managed Service for Apache Spark Batches](https://console.cloud.google.com/dataproc/batches)
+[Go to Managed Service for Apache Spark Jobs](https://console.cloud.google.com/dataproc/jobs)
 
-  2. To create a batch workload, click **Create**.
+  2. To create a batch workload, click **Submit job** to open the **Submit a job** page.
 
-  3. In the **Autotuning** section:
+  3. Under **Select compute type for job** , confirm that **Serverless Spark** is selected.
 
-     * Toggle the **Enable** button to enable autotuning for the Spark workload.
+  4. In the **Serverless job details** section:
 
-     * **Cohort:** Fill in the cohort name, which identifies the batch as one of a series of recurring workloads. Autotuning is applied to the second and subsequent workloads that are submitted with this cohort name. For example, specify `daily_sales_aggregation` as the cohort name for a scheduled batch workload that runs a daily sales aggregation task.
+     1. Specify a **Job ID** or accept the default ID.
+     2. Select a **Runtime profile** (or keep **Default service configuration** for your region), and then click **Configure** in the **Summary** card (or click **Create new profile** in the **Runtime profile** menu) to open the runtime profile configuration panel.
+     3. In the runtime profile configuration panel, expand **Additional configuration** , and then click **Edit** next to **Other customizations**.
+     4. In the **Other customizations** panel, under **Autotuning** :
 
-  4. Fill in other sections of the **Create batch** page as needed, then click **Submit**. For more information about these fields, see [Submit a batch workload](https://docs.cloud.google.com/dataproc-serverless/docs/quickstarts/spark-batch#dataproc_serverless_create_batch_workload-console).
+        * Click the **Enable** toggle to enable autotuning for the Spark batch workload.
+        * **Cohort ID** : Fill in the cohort ID, which identifies the batch as one of a series of recurring workloads. Autotuning is applied to the second and subsequent workloads that are submitted with this cohort ID. For example, specify `daily_sales_aggregation` as the cohort ID for a scheduled batch workload that runs a daily sales aggregation task.
+     5. Click **Save** in the **Other customizations** panel, and then click **Use configuration** (or **Save new profile**) in the runtime profile configuration panel.
+
+  5. Fill in the **Files and artifacts** and **Job execution and properties** sections on the **Submit a job** page as needed, and then click **Submit**. For more information about these fields, see [Submit a batch workload](https://docs.cloud.google.com/dataproc-serverless/docs/quickstarts/spark-batch#dataproc_serverless_create_batch_workload-console).
 
 
 
@@ -333,7 +340,7 @@ Example: `gcloud dataproc batches describe` output is similar to the following:
     ...
     
 
-You can view the latest autotuning changes that were applied to a running, completed, or failed workload on the **Batch details** page in the Google Cloud console, under the **Summary** tab.
+You can view the latest autotuning changes that were applied to a running, completed, or failed workload on the batch **Job details** page in the Google Cloud console (click the batch **Job ID** on the **Serverless Spark** tab of the **Jobs** page), under the **Summary** tab.
 
 ![Autotuning summary panel.](https://docs.cloud.google.com/static/dataproc-serverless/docs/images/autotuning-summary.png)
 
@@ -345,6 +352,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-06 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-06 UTC."],[],[]] 

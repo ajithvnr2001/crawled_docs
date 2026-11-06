@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/managed-spark/docs/guides/lightning-engine-serverless/
 title: Accelerate Spark batch workloads and sessions with Lightning Engine \u00a0|\u00a0 Managed Service for Apache Spark \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T05:53:22.735616+00:00
+fetched_at: 2026-11-06T05:53:31.373236+00:00
 ---
 
 # Accelerate Spark batch workloads and sessions with Lightning Engine  |  Managed Service for Apache Spark  |  Google Cloud Documentation
@@ -64,31 +64,36 @@ You can use the Google Cloud console, Google Cloud CLI, or Dataproc API to enabl
 
 Use the Google Cloud console to enable Lightning Engine on a batch workload.
 
-  1. In the Google Cloud console:
+  1. In the Google Cloud console, go to the Managed Service for Apache Spark **Jobs** page:
 
-     1. [Go to Managed Service for Apache Spark Batches](https://console.cloud.google.com/dataproc/batches).
-     2. Click **Create** to open the **Create batch** page.
-  2. Select and fill in the following fields:
+[Go to Managed Service for Apache Spark Jobs](https://console.cloud.google.com/dataproc/jobs)
 
-     * **Container:**
-       * **Runtime version:** Select `2.3`.
-     * **Tier Configuration:**
+  2. Click **Submit job** to open the **Submit a job** page.
 
-       * Select `Premium`. This automatically enables and checks "Enable LIGHTNING ENGINE to accelerate Spark performance".
+  3. Under **Select compute type for job** , confirm that **Serverless Spark** is selected.
 
-When you select the premium tier, the **Driver Compute Tier** and the **Executor Compute Tier** are set to `Premium`. These automatically set premium tier compute settings can't be overridden for batches using runtimes prior to `3.0`.
+  4. In the **Serverless job details** section:
 
-You can configure the **Driver Disk Tier** and the **Executor Disk Tier** to `Premium` or leave them at their default `Standard` tier value. If you choose a premium disk tier, you must select the disk size. For more information, see [resource allocation properties](https://docs.cloud.google.com/managed-spark/docs/concepts/properties#resource_allocation_properties).
+     * Select a **Runtime profile** (or keep **Default service configuration** for your region), and click **Configure** in the **Summary** card (or click **Create new profile** in the **Runtime profile** menu) to open the runtime profile configuration panel.
+     * **Tier** : Select **Premium**. This automatically enables and checks **Enable Lightning Engine to accelerate performance**.
 
-     * **Properties:** Optional: Enter the following `Key` (property name) and `Value` pair if you want to select the Native Query Execution runtime: 
+When you select the premium tier, the driver and executor compute tiers are set to `Premium`. These automatically set premium tier compute settings can't be overridden for batches using runtimes prior to `3.0`.
+
+     * **Additional configuration** :
+
+       * **Runtime configuration** : Click **Edit** , select `2.3` for **Spark runtime version** , and click **Save**.
+       * **Executor and driver configuration** : Optional: Click **Edit** to configure **Driver disk** and **Executor disk** to **Premium (SSD)** or leave them at their default **Standard (HDD)** value, and click **Save**. If you choose a premium disk tier, you must select the disk size. For more information, see [resource allocation properties](https://docs.cloud.google.com/managed-spark/docs/concepts/properties#resource_allocation_properties).
+     * Click **Use configuration** (or **Save new profile**).
+
+  5. In the **Job execution and properties** section, under **Spark properties** (or in the runtime profile configuration panel under **Additional configuration** > **Other customizations** > **Spark properties**), optionally click **Add property** and enter the following **Key** (property name) and **Value** pair if you want to select the Native Query Execution runtime: 
 
 Key | Value  
 ---|---  
 `spark.dataproc.lightningEngine.runtime` | native  
 The `spark.dataproc.runtimeEngine=native` property, previously used to enable Native Query Execution, is deprecated. It is unsupported starting with `3.0+` runtimes.
-  3. Fill in, select, or confirm other batch workloads settings. See [Submit a Spark batch workload](https://docs.cloud.google.com/managed-spark/docs/quickstarts/spark-batch#submit_a_spark_batch_workload).
+  6. Fill in **Files and artifacts** and other batch workload settings on the **Submit a job** page. See [Submit a Spark batch workload](https://docs.cloud.google.com/managed-spark/docs/quickstarts/spark-batch#submit_a_spark_batch_workload).
 
-  4. Click **Submit** to run the Spark batch workload.
+  7. Click **Submit** to run the Spark batch workload.
 
 
 
@@ -160,7 +165,7 @@ You can use the Google Cloud console, Google Cloud CLI, or Dataproc API to enabl
 
 Use the Google Cloud console to enable Lightning Engine on a runtime profile (session template):
 
-  1. In the Google Cloud console, go to the **Runtime Profiles** page:
+  1. In the Google Cloud console, go to the Managed Service for Apache Spark **Serverless** (**Runtime Profiles**) page:
 
 [Go to Runtime Profiles](https://console.cloud.google.com/dataproc/runtimeProfiles)
 
@@ -293,7 +298,7 @@ You can use the Google Cloud console, Google Cloud CLI, or Dataproc API to verif
 
   * To verify the batch **tier** is set to `premium` and **engine** is set to `Lightning Engine`:
 
-    * Google Cloud console: On the [Batches](https://console.cloud.google.com/dataproc/batches) page, see the **Tier** and **Engine** columns for the batch. You can click The **Batch ID** to also view these settings on the batch details page.
+    * Google Cloud console: On the [**Jobs**](https://console.cloud.google.com/dataproc/jobs) page, select the **Serverless Spark** tab to see the **Tier** column for the batch, and click the batch **Job ID** to view both the **Tier** and **Engine** settings on the **Summary** tab of the batch **Job details** page.
     * gcloud CLI: Run the `gcloud dataproc batches describe` command.
     * API: Issue a `batches.get` request.
 
@@ -303,7 +308,7 @@ You can use the Google Cloud console, Google Cloud CLI, or Dataproc API to verif
 
   * To verify **engine** is set to `Lightning Engine` for a runtime profile (session template):
 
-    * Google Cloud console: On the [Runtime Profiles](https://console.cloud.google.com/dataproc/runtimeProfiles) page, click the runtime profile name to view its settings on the runtime profile details page.
+    * Google Cloud console: On the [Serverless (Runtime Profiles)](https://console.cloud.google.com/dataproc/runtimeProfiles) page, click the runtime profile name to view its settings on the runtime profile details page.
 
     * gcloud CLI: Run the `gcloud beta dataproc session-templates describe` command.
 
@@ -316,7 +321,7 @@ You can use the Google Cloud console, Google Cloud CLI, or Dataproc API to verif
 
   * To verify **engine** is set to `Lightning Engine` for an interactive session:
 
-    * Google Cloud console: On the [Interactive Sessions](https://console.cloud.google.com/dataproc/interactive) page, see the **Engine** column for the session. You can click the **Interactive Session ID** to also view this setting on the session details page.
+    * Google Cloud console: On the [Sessions](https://console.cloud.google.com/dataproc/interactive) page, see the **Engine** column for the session. You can click the **Session ID** to also view this setting on the session details page.
 
     * gcloud CLI: Run the `gcloud beta dataproc sessions describe` command.
 
@@ -390,6 +395,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-30 UTC.
+Last updated 2026-11-06 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-06 UTC."],[],[]] 

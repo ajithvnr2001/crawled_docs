@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/apigee/docs/apihub/manage-mcp-proxies/
 title: Manage MCP proxies \u00a0|\u00a0 Apigee \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T01:52:01.749648+00:00
+fetched_at: 2026-11-06T05:53:17.688820+00:00
 ---
 
 # Manage MCP proxies  |  Apigee  |  Google Cloud Documentation

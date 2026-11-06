@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/deep-learning-containers/docs/release-notes/
 title: Deep Learning Containers release notes \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T00:01:25.035624+00:00
+fetched_at: 2026-11-06T05:50:41.273788+00:00
 ---
 
 # Deep Learning Containers release notes  |  Google Cloud Documentation
@@ -66,36 +66,6 @@ Feature
   * Base CUDA 12.4 container images are now available.
   * PyTorch 2.4.0 with CUDA 12.4 and Python 3.10 container images are now available.
   * Upgraded R from 4.4.1 to 4.4.2 for R container images.
-
-
-
-## September 26, 2024
-
-Feature
-
-**M125 release**
-
-  * TensorFlow 2.17 container images are now available.
-
-
-
-## August 20, 2024
-
-Feature
-
-**M124 release**
-
-  * Pytorch 2.3.0 with CUDA 12.1 and Python 3.10 container images are now available.
-
-
-
-## July 16, 2024
-
-Feature
-
-**M123 release**
-
-  * Hugging Face Text Generation Inference 2.1 GPU container images are now available.
 
 
 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/architecture/gen-ai-rag-vertex-ai-vector-search/
 title: RAG infrastructure for generative AI using Agent Platform and Vector Search \u00a0|\u00a0 Cloud Architecture Center \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T23:30:01.892494+00:00
+fetched_at: 2026-11-06T05:53:24.147177+00:00
 ---
 
 # RAG infrastructure for generative AI using Agent Platform and Vector Search  |  Cloud Architecture Center  |  Google Cloud Documentation
@@ -112,11 +112,11 @@ An online shopping site might use an LLM-powered chatbot to assist customers wit
 
 ### Clinical assistance systems
 
-Doctors in hospitals need to quickly analyze and diagnose a patient's health condition to make decisions about appropriate care and medication. A generative AI application that uses a medical LLM like [Med-PaLM](https://sites.research.google/med-palm/) can be used to assist doctors in their clinical diagnosis process. The responses that the application generates can be grounded in historical patient records by contextualizing the doctors' prompts with data from the hospital's electronic health record (EHR) database or from an external knowledge base like [PubMed](https://pubmed.ncbi.nlm.nih.gov/).
+Clinicians in hospitals need to review and synthesize patient health information to make informed care decisions. A generative AI application that uses a medical foundation model like [MedGemma](https://developers.google.com/health-ai-developer-foundations/medgemma) can help clinicians summarize clinical notes and review medical context. The responses that the application generates can be grounded in historical patient records by contextualizing prompts with data from the hospital's electronic health record (EHR) database or from an external knowledge base like [PubMed](https://pubmed.ncbi.nlm.nih.gov/).
 
 ### Efficient legal research
 
-Generative AI-powered legal research lets lawyers quickly query large volumes of statutes and case laws to identify relevant legal precedents or summarize complex legal concepts. The output of such research can be enhanced by augmenting a lawyer's prompts with data that's retrieved from the law firm's proprietary corpus of contracts, past legal communication, and internal case records. This design approach ensures that the generated responses are relevant to the legal domain that the lawyer specializes in.
+Generative AI-powered legal research lets lawyers quickly query large volumes of statutes and case laws to identify relevant legal precedents or summarize complex legal concepts. The output of such research can be enhanced by augmenting a lawyer's prompts with data that's retrieved from the law firm's proprietary corpus of contracts, past legal communication, and internal case records. This design approach helps generate responses that are relevant to the legal domain that the lawyer specializes in.
 
 ## Design alternatives
 

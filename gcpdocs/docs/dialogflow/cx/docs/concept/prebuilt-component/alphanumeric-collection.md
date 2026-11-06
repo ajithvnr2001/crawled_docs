@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/dialogflow/cx/docs/concept/prebuilt-component/alphanumeric-collection/
 title: Alphanumeric collection prebuilt component \u00a0|\u00a0 Dialogflow CX \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T22:51:09.129739+00:00
+fetched_at: 2026-11-06T05:53:36.612327+00:00
 ---
 
 # Alphanumeric collection prebuilt component  |  Dialogflow CX  |  Google Cloud Documentation
@@ -23,25 +23,25 @@ Send feedback
 
 #  Alphanumeric collection prebuilt component Stay organized with collections  Save and categorize content based on your preferences. 
 
-The alphanumeric collection [prebuilt component](https://docs.cloud.google.com/dialogflow/cx/docs/concept/prebuilt-component) collects alphanumeric sequences from the end-user. The minimum and maximum length accepted can be configured via input parameters.
+The alphanumeric collection [prebuilt component](https://docs.cloud.google.com/dialogflow/cx/docs/concept/prebuilt-component) collects alphanumeric sequences from the user. Input parameters let you configure the minimum and maximum length accepted.
 
-The component captures chunks of characters from the user on each conversational turn and concatenates them to form the final sequence. The minimum and maximum length accepted per chunk can be configured via input parameters.
+The component captures chunks of characters from the user on each conversational turn and concatenates them to form the final sequence. Input parameters let you configure the minimum and maximum length accepted per chunk.
 
-The sequence capture will continue until the end-user indicates they are done with the sequence with input that matches the [prebuilt_components_confirmation_done intent](https://docs.cloud.google.com/dialogflow/cx/docs/concept/prebuilt-component#common-intents).
+The sequence capture continues until the user indicates that they're done with the sequence by providing input that matches the [`prebuilt_components_confirmation_done intent`](https://docs.cloud.google.com/dialogflow/cx/docs/concept/prebuilt-component#common-intents).
 
 ## Phonetic alphabet
 
-This component supports the use of phonetic alphabets such as the [NATO Phonetic Alphabet](https://en.wikipedia.org/wiki/NATO_phonetic_alphabet).
+This component supports the use of phonetic alphabets, such as the [NATO Phonetic Alphabet](https://en.wikipedia.org/wiki/NATO_phonetic_alphabet).
 
-User input | Captured sequence  
+User Input | Captured Sequence  
 ---|---  
 alpha bravo charlie 123 | abc123  
 A B Cat 1 2 3 | ABC123  
 A as in apple, B as in banana, C for chili, one fifteen | ABC115  
   
-## Additional functionalities
+## Additional capabilities
 
-The following additional functionalities are provided by this prebuilt component:
+The following additional capabilities are provided by this prebuilt component:
 
   * [Repeat](https://docs.cloud.google.com/dialogflow/cx/docs/concept/prebuilt-component#repeat-functionality)
   * [Waiting room](https://docs.cloud.google.com/dialogflow/cx/docs/concept/prebuilt-component#waiting-room-functionality)
@@ -51,13 +51,14 @@ The following additional functionalities are provided by this prebuilt component
 
 ## Sample dialogs
 
-The following sample dialogs demonstrate common scenarios handled by this prebuilt component. The sample dialogs demonstrate behavior when the component is called via telephony, which triggers the Default Welcome Intent and the first agent response at the start of the conversation.
+These sample dialogs show common scenarios that this prebuilt component handles. They show behavior when you call the component using telephony, which triggers the Default Welcome Intent and the first agent response at the start of the conversation.
 
 ### Single chunk
 
-End-user provides an alphanumeric sequence in one chunk and says 'I'm done'; agent successfully accepts it. 
+  1. The user provides an alphanumeric sequence in one chunk and says "I'm done."
+  2. The agent successfully accepts it.
 
-User input | Agent response  
+User Input | Agent Response  
 ---|---  
 | Please start by saying the first 1 to 8 characters of the alphanumeric sequence. Once you're done, say "I'm done" to finish the collection. You can also say "playback" at any time to check the current collected sequence.  
 fvfd3433 |   
@@ -71,9 +72,10 @@ yes |
   
 ### Multiple chunks
 
-End-user provides alphanumeric sequence in 2 chunks; agent successfully accepts it.
+  1. The user provides an alphanumeric sequence in two chunks.
+  2. The agent successfully accepts it.
 
-User input | Agent response  
+User Input | Agent Response  
 ---|---  
 | Please start by saying the first 1 to 8 characters of the alphanumeric sequence. Once you're done, say "I'm done" to finish the collection. You can also say "playback" at any time to check the current collected sequence.  
 fvfd3433 |   
@@ -91,9 +93,12 @@ yes |
   
 ### Successful retry
 
-End-user provides alphanumeric sequence; agent re-prompts the end-user to confirm it. End-user says 'No' to the confirmation and provides an alphanumeric sequence again; agent successfully accepts it.
+  1. The user provides an alphanumeric sequence.
+  2. The agent re-prompts the user to confirm it.
+  3. The user says "No" to the confirmation and provides an alphanumeric sequence again.
+  4. The agent successfully accepts the second sequence.
 
-User input | Agent response  
+User Input | Agent Response  
 ---|---  
 | Please start by saying the first 1 to 8 characters of the alphanumeric sequence. Once you're done, say "I'm done" to finish the collection. You can also say "playback" at any time to check the current collected sequence.  
 fvfd3433 |   
@@ -111,9 +116,9 @@ yes |
   
 ### Unsuccessful retries
 
-End-user is unable to provide an alphanumeric sequence of 1 to 8 characters within three attempts and the component exits the flow.
+The user cannot provide an alphanumeric sequence of 1 to 8 characters within three attempts, so the component exits the flow.
 
-User input | Agent response  
+User Input | Agent Response  
 ---|---  
 | Please start by saying the first 1 to 8 characters of the alphanumeric sequence. Once you're done, say "I'm done" to finish the collection. You can also say "playback" at any time to check the current collected sequence.  
 123N |   
@@ -133,9 +138,14 @@ no |
   
 ### Phonetic alphabet
 
-End-user provides alphanumeric sequence; agent re-prompts the end-user to confirm it. End-user says 'No' to the confirmation two consecutive times, the phonetic conversion is enabled and the end-user provides an alphanumeric sequence again; agent successfully accepts it.
+  1. The user provides an alphanumeric sequence.
+  2. The agent re-prompts the user to confirm it.
+  3. The user says "No" to the confirmation, and the agent re-prompts the user again.
+  4. The user says "No" to the confirmation again, and the agent enables phonetic conversion.
+  5. The user provides an alphanumeric sequence using phonetic conversion.
+  6. The agent successfully accepts the alphanumeric sequence.
 
-User input | Agent response  
+User Input | Agent Response  
 ---|---  
 | Please start by saying the first 1 to 8 characters of the alphanumeric sequence. Once you're done, say "I'm done" to finish the collection. You can also say "playback" at any time to check the current collected sequence.  
 123N |   
@@ -161,9 +171,11 @@ yep |
   
 ### Invalid sequence length
 
-End-user provides alphanumeric sequence with a length that is outside the predefined minimum and maximum length of the alphanumeric sequence. Agent prompts end-user to start over, the end-user declines, and the component exits the flow.
+  1. The user provides an alphanumeric sequence with a length that is outside the predefined minimum and maximum length of the alphanumeric sequence.
+  2. The agent prompts the user to start over.
+  3. The user declines, and the component exits the flow.
 
-User input | Agent response  
+User Input | Agent Response  
 ---|---  
 | Please start by saying the first 1 to 8 characters of the alphanumeric sequence. Once you're done, say "I'm done" to finish the collection. You can also say "playback" at any time to check the current collected sequence.  
 123M |   
@@ -185,7 +197,7 @@ Parameter | [param_name] | alphanumeric_max_length
   
 ## Input parameters
 
-Input parameters are parameters that are used to configure certain behaviors of the component. The parameters will be used by one or more conditions within the flow to determine how the component should behave. Flow-scoped parameters must be set on the start page of the component as described below. Session-scoped parameters may be set either by a calling flow, or on the start page of this component.
+Input parameters configure certain behaviors of the component. The parameters are used by one or more conditions within the flow to determine how the component should behave. Flow-scoped parameters must be set on the start page of the component as described in the following table. Session-scoped parameters can be set either by a calling flow or on the start page of this component.
 
 You can configure the minimum and maximum lengths accepted per capture and for the final collected sequence by modifying [parameter presets](https://docs.cloud.google.com/dialogflow/cx/docs/concept/fulfillment#param-preset) in the [flow's start page](https://docs.cloud.google.com/dialogflow/cx/docs/concept/flow#data).
 
@@ -214,23 +226,21 @@ $flow.upper_limit | Maximum length of the chunk a user can provide each turn. Th
 
 ## Output parameters
 
-Output parameters are session parameters that will remain active after exiting the component. These parameters contain important information collected by the component. This prebuilt component provides values for the following output parameters:
+Output parameters are session parameters that remain active after you exit the component. These parameters contain information that the component collects. This prebuilt component provides values for the following output parameters:
 
 Parameter Name | Description | Output Format  
 ---|---|---  
-alphanumeric_collection_alphanumeric_sequence | This parameter returns the alphanumeric sequence captured by the component | string  
+alphanumeric_collection_alphanumeric_sequence | This parameter returns the alphanumeric sequence captured by the component. | string  
   
 ## Basic setup
 
 To set up this prebuilt component:
 
-  1. [Import the prebuilt component](https://docs.cloud.google.com/dialogflow/cx/docs/concept/prebuilt-component#import).
-
-
+[Import the prebuilt component](https://docs.cloud.google.com/dialogflow/cx/docs/concept/prebuilt-component#import).
 
 ### Complete
 
-Your agent should now be set up and ready to test.
+The prebuilt component is now set up and ready to test.
 
 [ Previous arrow_back  Address collection  ](https://docs.cloud.google.com/dialogflow/cx/docs/concept/prebuilt-component/address-collection)
 
@@ -240,6 +250,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-06 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-06 UTC."],[],[]] 

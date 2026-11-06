@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/appengine/docs/standard/services/ndb/queries/
 title: NDB Queries \u00a0|\u00a0 App Engine standard environment \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T07:54:25.987206+00:00
+fetched_at: 2026-11-06T05:52:55.648560+00:00
 ---
 
 # NDB Queries  |  App Engine standard environment  |  Google Cloud Documentation

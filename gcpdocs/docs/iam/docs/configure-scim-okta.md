@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/iam/docs/configure-scim-okta/
 title: Configure SCIM in Okta \u00a0|\u00a0 Identity and Access Management (IAM) \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T23:44:44.608590+00:00
+fetched_at: 2026-11-06T05:49:55.422093+00:00
 ---
 
 # Configure SCIM in Okta  |  Identity and Access Management (IAM)  |  Google Cloud Documentation
@@ -24,20 +24,13 @@ Send feedback
 
 **Important:** SCIM provisioning applies only to Gemini Enterprise and Looker ([Preview](https://cloud.google.com/products#product-launch-stages)).
 
-This document describes how to configure a SCIM tenant in a workforce identity pool. To learn more about SCIM, see [SCIM provisioning for Workforce Identity Federation](https://docs.cloud.google.com/iam/docs/workforce-identity-federation-scim). 
+System for Cross-domain Identity Management (SCIM) provisioning with Okta lets you automatically synchronize users and groups into your workforce identity pool. Automatic provisioning keeps user lifecycle and group membership changes in your external identity provider (IdP) synchronized with your Google Cloud access controls. For supported configurations and requirements, see [SCIM provisioning for Workforce Identity Federation](https://docs.cloud.google.com/iam/docs/workforce-identity-federation-scim). 
 
-Each workforce identity pool supports only one SCIM tenant. To configure a new SCIM tenant in a pool that already has one, you must first hard-delete the existing tenant. 
+## Before you begin
 
-The `--claim-mapping` flag for a SCIM tenant can contain only specific Common Expression Language (CEL) expressions. To learn which expressions are supported, see Claim mapping. 
-
-Ensure that your IdP provides unique, non-empty values for attributes mapped to `google.subject` and `google.group`. Syncing duplicate values fails with an HTTP `409 Conflict` error, and null or empty values fail with an HTTP `400 Bad Request` error. For more information, see [SCIM support](https://docs.cloud.google.com/iam/docs/workforce-identity-federation-scim). 
-
-To configure [System for Cross-domain Identity Management (SCIM)](https://docs.cloud.google.com/iam/docs/workforce-identity-federation-scim), do the following: 
-
-  1. Configure a SCIM tenant and token in Google Cloud
-  2. Configure SCIM in Okta
-  3. Update the provider to enable SCIM
-  4. Verify SCIM synchronization
+  * Each workforce identity pool supports only one SCIM tenant. To configure a SCIM tenant in a pool that already has one, first hard-delete the existing tenant. 
+  * The `--claim-mapping` flag for a SCIM tenant supports only specific Common Expression Language (CEL) expressions. For supported expressions, see Claim mapping. 
+  * Configure your IdP to provide unique, non-empty values for attributes mapped to `google.subject` and `google.group`. Syncing duplicate values returns an HTTP `409 Conflict` status code, and null or empty values return an HTTP `400 Bad Request` status code. 
 
 
 
@@ -433,6 +426,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-04 UTC.
+Last updated 2026-11-06 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-06 UTC."],[],[]] 

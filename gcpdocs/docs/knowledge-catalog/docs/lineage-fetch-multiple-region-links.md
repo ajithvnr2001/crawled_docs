@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/knowledge-catalog/docs/lineage-fetch-multiple-region-links/
 title: Search multi-region lineage using client-side fan-out \u00a0|\u00a0 Knowledge Catalog \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T20:46:08.616645+00:00
+fetched_at: 2026-11-06T05:53:34.823696+00:00
 ---
 
 # Search multi-region lineage using client-side fan-out  |  Knowledge Catalog  |  Google Cloud Documentation
@@ -23,11 +23,11 @@ Send feedback
 
 #  Search multi-region lineage using client-side fan-out Stay organized with collections  Save and categorize content based on your preferences. 
 
-Fetch data lineage links across multiple Google Cloud regions using a fan-out approach. You use the Data Lineage API to retrieve and aggregate lineage data from all available regions.
+Client-side fan-out in Knowledge Catalog (formerly Dataplex Universal Catalog) lets you use the Data Lineage API to retrieve and aggregate data lineage links across multiple Google Cloud regions. Querying regional endpoints in parallel helps you build a unified lineage view when your data assets span different locations.
 
 ## Why use client-side fan-out?
 
-The client-side fan-out approach is useful when your data assets are distributed across different locations and you need a unified view of their lineage.
+The client-side fan-out approach is useful when your data assets are distributed across different locations and you want to orchestrate regional queries on the client. You can use this approach to fetch and aggregate lineage data from all available regions when tracing single-hop lineage across a known set of regions or maintaining compatibility with existing [projects.locations.searchLinks](https://docs.cloud.google.com/knowledge-catalog/docs/reference/data-lineage/rest/v1/projects.locations/searchLinks) workflows.
 
 For more information, see [About multi-region lineage search](https://docs.cloud.google.com/knowledge-catalog/docs/multi-region-lineage-overview).
 
@@ -92,6 +92,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-06 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-06 UTC."],[],[]] 

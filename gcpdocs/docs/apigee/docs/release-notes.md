@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/apigee/docs/release-notes/
 title: Apigee all release notes \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-05T08:44:04.512818+00:00
+fetched_at: 2026-11-06T05:52:24.201095+00:00
 ---
 
 # Apigee all release notes  |  Google Cloud Documentation
@@ -62,8 +62,107 @@ You can see the latest product updates for all of Google Cloud on the [ Google C
 
 To get the latest product updates delivered to you, add the URL of this page to your [feed reader](https://wikipedia.org/wiki/Comparison_of_feed_aggregators), or add the [feed URL](https://docs.cloud.google.com/feeds/apigee-release-notes.xml) directly. 
 
+## November 05, 2026
+
+**Apigee Edge for Public Cloud**
+
+Announcement
+
+**Scheduled maintenance of Management/Control Plane for the Apigee Edge for Public Cloud on November 6, 2026.**
+
+Scheduled maintenance of Management/Control Plane for the Apigee Edge for Public Cloud production will take place on Friday, November 6, 2026, from 9:00 PM PT to 10:00 PM PT (Saturday, November 7, 2026, from 5:00 AM UTC to 6:00 AM UTC). This maintenance follows the monthly maintenance window schedule documented in the [Apigee Edge release notes archive](https://docs.apigee.com/release/notes/apigee-release-notes).
+
+During the scheduled maintenance window, the following services will be temporarily unavailable, and attempts to access them will return a `4xx` status code:
+
+  * Management Services UI
+  * Management Services APIs
+  * Monetization Management APIs
+  * New proxy deployments
+  * DevPortal Service
+  * Microgateway Services
+  * Edge Query (Analytics Stats APIs)
+
+
+
+Runtime API calls to deployed API proxies are unaffected. While access to analytics queries may be temporarily unavailable during the maintenance window, all analytics and metrics data from this period will be available once maintenance ends.
+
 ## November 04, 2026
 
+**Apigee Edge for Public Cloud**
+
+Announcement
+
+Released Edge Microgateway 3.3.12.
+
+Edge Microgateway 3.3.12 includes the following component versions:
+
+Component | Version  
+---|---  
+[microgateway](https://github.com/apigee-internal/microgateway/releases) | 3.3.12  
+[plugins](https://github.com/apigee/microgateway-plugins/releases) | 3.3.9  
+[edgeauth](https://github.com/apigee/microgateway-edgeauth/releases) | 3.2.2  
+  
+To upgrade, install version 3.3.12 of the `edgemicro` npm package or pull the `gcr.io/apigee-microgateway/edgemicro:3.3.12` Docker image. For the npm upgrade steps, see [Upgrading Edge Microgateway](https://docs.apigee.com/api-platform/microgateway/3.3.x/operation-and-configuration-reference-edge-microgateway#upgradingedgemicrogateway). For earlier Edge Microgateway releases, see [Edge Microgateway release notes](https://docs.apigee.com/release/notes/edge-microgateway-release-notes-0).
+
+Breaking
+
+Removed support for Node.js 20 from Edge Microgateway. Use Node.js 22, 24, or 26 instead.
+
+Edge Microgateway 3.3.12 supports only Node.js 22, 24, and 26. Support for Node.js 26 is new in this release. Before you upgrade an npm installation of Edge Microgateway to 3.3.12, upgrade the Node.js runtime on each host to version 22, 24, or 26. The 3.3.12 Docker image is built on Node.js 24, so Docker deployments need no action for this change. For supported versions, see [Supported software and supported versions](https://docs.apigee.com/release/supported-software#apigeeedgemicrogateway).
+
+Breaking
+
+Removed the `npm` and `npx` command-line tools from the Edge Microgateway Docker image. Install custom plugin dependencies before you add the plugins to the container.
+
+Starting with version 3.3.12, the Edge Microgateway Docker image doesn't include `npm` or `npx`, and commands that run either tool inside the container fail. The change doesn't affect how Edge Microgateway runs. If your custom plugins have npm dependencies, run `npm install` in each plugin directory before you add the plugins to the container, so that each plugin's `node_modules` directory is included. For the steps, see [Adding a custom plugin](https://docs.apigee.com/api-platform/microgateway/3.3.x/docker#adding_a_custom_plugin). This change doesn't affect npm installations of Edge Microgateway.
+
+Security
+
+Fixed multiple security vulnerabilities in Edge Microgateway. Upgrade to Edge Microgateway 3.3.12.
+
+Edge Microgateway 3.3.12 fixes the following vulnerabilities:
+
+  * [CVE-2026-12590](https://nvd.nist.gov/vuln/detail/CVE-2026-12590)
+  * [CVE-2026-14257](https://nvd.nist.gov/vuln/detail/CVE-2026-14257)
+  * [CVE-2026-45819](https://nvd.nist.gov/vuln/detail/CVE-2026-45819)
+  * [CVE-2026-54272](https://nvd.nist.gov/vuln/detail/CVE-2026-54272)
+  * [CVE-2026-59870](https://nvd.nist.gov/vuln/detail/CVE-2026-59870)
+  * [CVE-2026-69152](https://nvd.nist.gov/vuln/detail/CVE-2026-69152)
+  * [CVE-2026-69192](https://nvd.nist.gov/vuln/detail/CVE-2026-69192)
+  * [CVE-2026-69198](https://nvd.nist.gov/vuln/detail/CVE-2026-69198)
+  * [CVE-2026-73088](https://nvd.nist.gov/vuln/detail/CVE-2026-73088)
+  * [CVE-2026-73089](https://nvd.nist.gov/vuln/detail/CVE-2026-73089)
+  * [CVE-2026-82417](https://nvd.nist.gov/vuln/detail/CVE-2026-82417)
+  * [CVE-2026-82562](https://nvd.nist.gov/vuln/detail/CVE-2026-82562)
+  * [CVE-2026-84375](https://nvd.nist.gov/vuln/detail/CVE-2026-84375)
+  * [CVE-2026-87018](https://nvd.nist.gov/vuln/detail/CVE-2026-87018)
+  * [CVE-2026-101910](https://nvd.nist.gov/vuln/detail/CVE-2026-101910)
+  * [CVE-2026-101911](https://nvd.nist.gov/vuln/detail/CVE-2026-101911)
+  * [CVE-2026-101912](https://nvd.nist.gov/vuln/detail/CVE-2026-101912)
+  * [CVE-2026-101913](https://nvd.nist.gov/vuln/detail/CVE-2026-101913)
+  * [CVE-2026-102276](https://nvd.nist.gov/vuln/detail/CVE-2026-102276)
+  * [CVE-2026-102277](https://nvd.nist.gov/vuln/detail/CVE-2026-102277)
+  * [CVE-2026-102278](https://nvd.nist.gov/vuln/detail/CVE-2026-102278)
+  * [CVE-2026-109383](https://nvd.nist.gov/vuln/detail/CVE-2026-109383)
+  * [CVE-2026-109869](https://nvd.nist.gov/vuln/detail/CVE-2026-109869)
+  * [CVE-2026-109924](https://nvd.nist.gov/vuln/detail/CVE-2026-109924)
+  * [CVE-2026-109932](https://nvd.nist.gov/vuln/detail/CVE-2026-109932)
+  * [CVE-2026-110816](https://nvd.nist.gov/vuln/detail/CVE-2026-110816)
+  * [CVE-2026-111181](https://nvd.nist.gov/vuln/detail/CVE-2026-111181)
+  * [CVE-2026-111497](https://nvd.nist.gov/vuln/detail/CVE-2026-111497)
+  * [CVE-2026-111997](https://nvd.nist.gov/vuln/detail/CVE-2026-111997)
+  * [CVE-2026-115897](https://nvd.nist.gov/vuln/detail/CVE-2026-115897)
+
+
+
+The Edge Microgateway 3.3.12 Docker image is built on `node:24.22.1-trixie-slim`, which includes the Node.js fix for CVE-2026-111497. For npm installations of Edge Microgateway, upgrading the `edgemicro` package doesn't fix CVE-2026-111497. You must also upgrade the Node.js runtime on each host to one of the following versions, or to a later version in the same release line:
+
+Node.js release line | Fixed version  
+---|---  
+22.x | 22.23.4  
+24.x | 24.22.1  
+26.x | 26.12.1  
+  
 **Apigee Operator for kubernetes**
 
 Announcement
@@ -16327,19 +16426,6 @@ Apigee now supports CMEK for the control plane. If you have specific compliance 
 
 ## December 07, 2023
 
-**Apigee Integrated Portal**
-
-Announcement
-
-On December 7, 2023 we released an updated version of Apigee integrated portal.
-
-Fixed
-
-Bug ID | Description  
----|---  
-313803133 | Fixed an issue where switching API spec pages in the public developer portal resulted in an error.  
-310865440 | Fixed an issue where updating the documentation of a CatalogItem could timeout.  
-  
 **Apigee X**
 
 Announcement
@@ -16953,24 +17039,6 @@ This addresses the following vulnerabilities:
   
 ## November 10, 2023
 
-**Apigee Integrated Portal**
-
-Announcement
-
-On November 10, 2023 we released an updated version of Apigee integrated portal.
-
-Feature
-
-This release includes the public preview of integrated portal APIs which allow you to manage your integrated portal APIs and reference documentation using API calls. 
-
-The catalog items list view now uses pagination when making requests to the portals service, examples have been added to **Publishing your APIs** , and new reference documentation is available:
-
-  * [Publishing your APIs](https://docs.cloud.google.com/apigee/docs/api-platform/publish/portal/publish-apis)
-  * [API categories reference documentation](https://docs.cloud.google.com/apigee/docs/reference/apis/apigee/rest/v1/organizations.sites.apicategories)
-  * [API documents reference documentation](https://docs.cloud.google.com/apigee/docs/reference/apis/apigee/rest/v1/organizations.sites.apidocs)
-
-
-
 **Apigee X**
 
 Feature
@@ -16987,22 +17055,6 @@ Deprecated
 
 As of November 10, 2023, Configurable API Proxies (preview) is no longer available. For more information, see [Configurable API Proxies (preview) deprecation](https://docs.cloud.google.com/apigee/docs/deprecations/configurable-proxies).
 
-## November 08, 2023
-
-**Apigee Integrated Portal**
-
-Announcement
-
-On November 8, 2023 we released an updated version of Apigee integrated portal.
-
-Fixed
-
-Bug ID | Description  
----|---  
-305287906 | Fixed links to an API product from the **API details** , **User account details** , or **Team details** page in the Apigee UI.  
-307600672 | Fixed issue where the name of the documentation was not populated in the **Documentation** column on the Apigee UI, **API catalog** page.  
-307599975 | Improved pagination through large API catalogs on the Apigee UI, **API catalog** page.  
-  
 ## November 03, 2023
 
 **Apigee X**
@@ -17039,27 +17091,6 @@ The Security scores page in the Apigee UI has been renamed to the [Risk assessme
 
 ## October 26, 2023
 
-**Apigee Integrated Portal**
-
-Announcement
-
-On October 26, 2023 we released an updated version of Apigee integrated portal.
-
-Fixed
-
-Bug ID | Description  
----|---  
-5400261 | Improve confirmation dialog text when user clicks the button to revoke an app key from the portal UI.  
-  
-This dialog is displayed when you:  
-
-
-  1. Select **Apps** from the user account drop-down in the portal.
-  2. Click an app. 
-  3. Click the **Revoke** button in the **API Keys** row.
-
-  
-  
 **Apigee UI**
 
 Change
@@ -17319,14 +17350,6 @@ Advanced API Security's new [Security Actions](https://cloud.google.com/apigee/d
 
 
 **Note:** At the present time, Security Actions is only available for Apigee, but not for Apigee hybrid.
-
-## October 05, 2023
-
-**Apigee Integrated Portal**
-
-Announcement
-
-On October 5, 2023 we released an updated version of Apigee integrated portal. This release includes general improvements to performance and availability.
 
 ## September 29, 2023
 
@@ -20365,20 +20388,6 @@ Issue
 
 **Known issue:** [260324159 - API proxies and shared flows deployed by customers could take around 20 to 30 minutes to deploy in the runtime plane.](https://docs.cloud.google.com/apigee/docs/release/known-issues#260324159)
 
-## November 14, 2022
-
-**Apigee Monetization**
-
-Announcement
-
-On November 14, 2022 we released an updated version of the Apigee Monetization software.
-
-Feature
-
-**Added support for a new recurring fees**
-
-Apigee X now supports optional recurring fees charged to API developers. For more information on fees, see [Understanding billing](https://docs.cloud.google.com/apigee/docs/api-platform/monetization/overview#understanding-billing).
-
 ## November 10, 2022
 
 **Apigee Integrated Portal**
@@ -20396,18 +20405,6 @@ Bug ID | Description
 182687440 | Updated the file filter for icon upload so you can choose and upload `.ico` files.  
 153886771 | Fixed an issue with identity provider configuration where SAML certificate data would not correctly render after initial upload.  
   
-**Apigee Monetization**
-
-Announcement
-
-On November 10, 2022 we released an updated version of the Apigee Monetization software.
-
-Feature
-
-**Added support for a new setup fee**
-
-Apigee X now supports an optional setup fee charged to new API developers. For more information on fees, see [Understanding billing](https://docs.cloud.google.com/apigee/docs/api-platform/monetization/overview#understanding-billing).
-
 ## November 04, 2022
 
 **Apigee Integration**
@@ -21225,16 +21222,6 @@ Starting with this release, Apigee Integrations is available in an Apigee Eval o
 
 ## June 21, 2022
 
-**Apigee Integrated Portal**
-
-Announcement
-
-On June 21, we released an updated version of Apigee integrated portal.
-
-Feature
-
-Added the ability to sort by **Name** and **Created** fields in the [**Apps**](https://docs.apigee.com/api-platform/publish/portal/portal-interact#register-apps) and [**Teams**](https://docs.apigee.com/api-platform/publish/portal/portal-interact#teams) tables. Click the column heading to sort.
-
 **Apigee UI**
 
 Announcement
@@ -21263,25 +21250,6 @@ Announcement
 On June 21, 2022, we released an updated version of Apigee X (1-8-0-apigee-18).
 
 **Note:** Rollouts of this release will begin today and may take four or more business days to be completed across all Google Cloud zones. Your instances may not have the features and fixes available until the rollout is complete.
-
-## June 14, 2022
-
-**Apigee Integrated Portal**
-
-Announcement
-
-On June 14, we released an updated version of Apigee integrated portal.
-
-Feature
-
-Use a GraphQL schema to publish your APIs to an integrated portal. 
-
-For details, see: 
-
-  * [What is GraphQL schema](https://docs.cloud.google.com/apigee/docs/api-platform/publish/api-design-overview#what-graphql)
-  * [GraphQL Explorer](https://docs.cloud.google.com/apigee/docs/api-platform/publish/portal/publish-apis#graphql)
-
-
 
 ## June 02, 2022
 
@@ -21407,24 +21375,6 @@ On May 18, 2022, we released an updated version of the Apigee UI.
 
 ## May 11, 2022
 
-**Apigee Integrated Portal**
-
-Fixed
-
-**Bug ID** | **Description**  
----|---  
-228603948 | Fixed an issue that prevented users from editing custom fields for account creation and signup.  
-228339667 | Documentation now reflects support for the [STARTTLS SMTP authorization type](https://docs.apigee.com/api-platform/publish/portal/configure-email).  
-227511014 | Fixed an issue that prevented V1 Portals from being upgraded to V2.  
-224991572 | Improvements to the **Get Started** documentation bundled with a new portal. Create a new portal and then click **Get Started** to see the new content.  
-220980189 | Fixed issue with publishing API Products on a Portal when the organization has over 1,000 API Products.  
-218320618 | Page descriptions are now limited to 1,000 characters. Page content is now limited to 1 MB.  
-210651558 | Fixed issue where adding a new API Product subscription to an App would remove all scopes on the Apps credentials.  
-  
-Announcement
-
-On May 11, 2022 we released an updated version of the Apigee Integrated Portal software.
-
 **Apigee hybrid**
 
 v1.6.7
@@ -21494,39 +21444,6 @@ Bug ID | Description
   
 ## May 04, 2022
 
-**Apigee Integrated Portal**
-
-Announcement
-
-On May 4, 2022 we released an updated version of the Apigee Integrated Portal software.
-
-Feature
-
-Emails from `portal-sso` will either be the email address of the sender that the user sets up in the custom `smtp` settings, or it will be `no-reply@google.com`, instead of the human-readable name `orgname-portalname`. **[This screenshot](https://docs.cloud.google.com/static/apigee/docs/api-platform/images/portals-email-example.png)** illustrates emails sent from `portal-sso` in `e2e`. It shows one email with custom `smtp` settings (`tsnow-custom-smtp`) and one email with the default settings (`no-reply`).
-
-Feature
-
-Error messages for rejected logins for an inactive user are now more informative to the user.
-
-Fixed
-
-**Bug ID** | **Description**  
----|---  
-220993729 | Portal SSO showed the Apigee domain when hovering over footer links in third-party web pages.  
-220188030 | Reset password was not working for LDAP configurations.  
-214146121 | An authentication issue with Apigee SSO has been fixed.  
-204952689 | Fixed miscellaneous logback error.  
-194469693 | Enabled SAML config error so that it is visible.  
-194053231 | Added server-side validation for the `password` field. If the password is non-compliant, the response is `422:Unprocessable Entity`.  
-190609332 | Improved error output for failures while enabling SSO for Apigee  
-157131343 | Added support for the parenthesis `()` and plus `+` characters for built-in IDP custom fields. Other special characters will continue to be blocked due to security reasons.  
-  
-Security
-
-**ID** | **Description**  
----|---  
-200604177 | Upgraded jQuery and Bootstrap  
-  
 **Apigee UI**
 
 Announcement
@@ -21741,22 +21658,6 @@ Deprecated
 
 **"Apigee Deployer" role deprecated and replaced by "Apigee Environment Admin"** The environment role "Apigee Deployer" has been deprecated, and replaced by "Apigee Environment Admin". (Implemented in Apigee X, December 2, 2022)
 
-## April 05, 2022
-
-**Apigee Integrated Portal**
-
-Announcement
-
-On April 5, 2022 we released an updated version of the Apigee Integrated Portal software.
-
-Fixed
-
-Bug ID | Description  
----|---  
-**220377670** | **Fixed an issue that prevented users from uploading svg and ico files.**  
-**217600695** | **Menus will scroll when they don't fit on the page.**  
-**174476355** | **When adding a custom registration field in the`accounts-authentication` UI for creating/editing a portal, the allowed characters for a custom field has been limited to letters, numbers, and spaces.**  
-  
 ## March 31, 2022
 
 **Apigee X**
@@ -22471,6 +22372,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-05 UTC.
+Last updated 2026-11-06 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-05 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-06 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/contact-center/ccai-platform/docs/zendesk/
 title: Zendesk \u00a0|\u00a0 Google Cloud Contact Center as a Service \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T23:23:30.038631+00:00
+fetched_at: 2026-11-06T05:52:58.871937+00:00
 ---
 
 # Zendesk  |  Google Cloud Contact Center as a Service  |  Google Cloud Documentation

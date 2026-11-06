@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/contact-center/ccai-platform/docs/sms-wait-time/
 title: Wait time SMS \u00a0|\u00a0 Google Cloud Contact Center as a Service \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T23:07:02.370150+00:00
+fetched_at: 2026-11-06T05:52:31.517338+00:00
 ---
 
 # Wait time SMS  |  Google Cloud Contact Center as a Service  |  Google Cloud Documentation
@@ -50,7 +50,7 @@ The following are the steps over the caller user flow:
 
   3. Overcapacity limit has been reached by the queue (settings can be adjusted in [Call settings](https://docs.cloud.google.com/contact-center/ccai-platform/docs/call-settings.md#UUID-5471c8bb-7f98-93fc-ebfc-70e8d560c6b8)).
 
-  4. Caller is played the configured overcapacity options (settings can be adjusted in [Call Settings](https://docs.cloud.google.com/contact-center/ccai-platform/docs/call-settings.md#UUID-5471c8bb-7f98-93fc-ebfc-70e8d560c6b8)) and selects "keep waiting."
+  4. Caller is played the configured overcapacity options (settings can be adjusted in [Call Settings](https://docs.cloud.google.com/contact-center/ccai-platform/docs/call-settings#UUID-5471c8bb-7f98-93fc-ebfc-70e8d560c6b8)) and selects "keep waiting."
 
 If anything but "keep waiting" is selected, the caller won't continue on this flow (for example if Callback is selected).
 
@@ -224,6 +224,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-06 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-06 UTC."],[],[]] 

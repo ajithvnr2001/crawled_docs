@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/resources/release-notes-1162/
 title: Google Distributed Cloud air-gapped 1.16.2 release notes \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T23:28:41.755472+00:00
+fetched_at: 2026-11-06T05:55:03.810536+00:00
 ---
 
 # Google Distributed Cloud air-gapped 1.16.2 release notes  |  Google Cloud Documentation
@@ -87,7 +87,10 @@ The following issues are identified:
 
 **Infrastructure as code**
 
+  * GitLab CI presubmit linters in the `gdch/iac` repository validate unmodified files across the entire codebase, which can block urgent merge requests due to pre-existing YAML lint errors. 
+
   * There are reconciliation errors during an upgrade from 1.15.2 or later. 
+
 
 
 
@@ -112,7 +115,12 @@ The following issues are identified:
 
 **Networking**
 
+  * In Operations Infrastructure Rack v2 (OIRv2) universes, the management switch doesn't advertise the out-of-band management CIDR block to upstream Layer 3 switches over Border Gateway Protocol (BGP). 
+
+  * Custom BFD timer parameters configured on `InterconnectAttachment` custom resources are not propagated to border leaf switch interfaces. 
+
   * The `hnet_network_interface_down` alert might trigger false-positive warnings for physical `eth*` interfaces that are operationally down but unused by Host Networking. 
+
 
 
 
@@ -123,6 +131,8 @@ The following issues are identified:
 
 
 **Storage**
+
+  * After upgrading to 1.16.2 hotfix 3, the `file-user-journey` subcomponent fails reconciliation with a missing `FileUserJourneyFramework` feature error. 
 
   * An issue causes the object storage upgrade request to enter a `QualificationFailed` state during upgrades to 1.16.2. 
 
@@ -286,6 +296,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-04 UTC.
+Last updated 2026-11-06 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-06 UTC."],[],[]] 

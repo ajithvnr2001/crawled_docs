@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/managed-spark/docs/guides/iceberg-metadata-biglake-metastore/
 title: Create an Apache Iceberg table with metadata in Lakehouse runtime catalog \u00a0|\u00a0 Managed Service for Apache Spark \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T22:14:57.730726+00:00
+fetched_at: 2026-11-06T05:53:30.648920+00:00
 ---
 
 # Create an Apache Iceberg table with metadata in Lakehouse runtime catalog  |  Managed Service for Apache Spark  |  Google Cloud Documentation
@@ -270,21 +270,23 @@ Perform the following steps to use the Google Cloud console to submit the Spark 
 
 [Go to Submit a job](https://console.cloud.google.com/dataproc/jobs/jobsSubmit) page, then complete the following fields:
 
-     * **Job ID** : Accept the suggested ID or insert your own ID.
-     * **Region** : Select the region where your cluster is located.
-     * **Cluster** : Select your cluster.
-     * **Job type** : Select `SparkSql`.
-     * **Query source type** : Select `Query file`.
-     * **Query file** : Insert `gs://BUCKET/iceberg-table.sql`
-     * **Jar files** : Insert the following: 
-           
-           gs://BUCKET/iceberg-spark-runtime-3.5_2.12-1.6.1.jar,BIGLAKE_ICEBERG_CATALOG_JAR
-           
+     * **Select compute type for job** : Select **Spark on Compute Engine**.
+     * **Cluster job details** : 
+       * **Job ID** : Accept the suggested ID or insert your own ID.
+       * **Cluster** : Select the region where your cluster is located and select your cluster.
+     * **Files and artifacts** : 
+       * **Job type** : Select **Spark SQL** (`SparkSql`).
+       * **Query source** : Select **Query file**.
+       * **Query file** : Insert `gs://BUCKET/iceberg-table.sql`
+       * **Jar files** : Insert the following: 
+             
+             gs://BUCKET/iceberg-spark-runtime-3.5_2.12-1.6.1.jar,BIGLAKE_ICEBERG_CATALOG_JAR
+             
 
      * **BIGLAKE_ICEBERG_CATALOG_JAR** : the Cloud Storage URI of the Iceberg custom catalog plugin to use. Depending on your Iceberg version number, select one of the following: 
        * Iceberg 1.9.1: `gs://spark-lib/bigquery/iceberg-bigquery-catalog-1.9.1-1.0.1.jar`
        * Iceberg 1.6.1: `gs://spark-lib/bigquery/iceberg-bigquery-catalog-1.6.1-1.0.2.jar`
-     * **Properties** : Click add**Add Property** five times to create a list of five `key` `value` input fields, then copy the following **Key** and **Value** pairs to define five properties. # | Key | Value  
+     * **Job execution and properties** > **Spark properties** : Click add**Add property** five times to create a list of five `key` `value` input fields, then copy the following **Key** and **Value** pairs to define five properties. # | Key | Value  
 ---|---|---  
 1. | 
            
@@ -569,7 +571,7 @@ The following steps show you how to to create an Iceberg table with table metada
 
   1. In the Google Cloud console, go to the Managed Service for Apache Spark **Clusters** page.
 
-[Go to the Managed Service for Apache Spark Clusters page](https://console.cloud.google.com/dataproc/clusters)
+[Go to Managed Service for Apache Spark Clusters](https://console.cloud.google.com/dataproc/clusters)
 
   2. Select your cluster name to open the **Cluster details** page.
 
@@ -661,6 +663,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-06 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-06 UTC."],[],[]] 

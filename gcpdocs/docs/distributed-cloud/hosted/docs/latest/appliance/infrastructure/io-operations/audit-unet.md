@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/appliance/infrastructure/io-operations/audit-unet/
 title: Upper Networking (UNET) \u00a0|\u00a0 Google Distributed Cloud Hosted Appliance \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T21:29:44.296092+00:00
+fetched_at: 2026-11-06T05:49:54.954767+00:00
 ---
 
 # Upper Networking (UNET)  |  Google Distributed Cloud Hosted Appliance  |  Google Cloud Documentation
@@ -22,6 +22,8 @@ fetched_at: 2026-10-27T21:29:44.296092+00:00
 Send feedback 
 
 #  Upper Networking (UNET) Stay organized with collections  Save and categorize content based on your preferences. 
+
+Upper Networking (UNET) audit logs in Google Distributed Cloud (GDC) air-gapped appliance let you track create, read, update, and delete (CRUD) operations on project network policies and load balancers, as well as node and workload traffic flows. Kubernetes audit logs and advanced network devices record the caller or source identity, target resource or destination, action, timestamp, and disposition across the org infrastructure cluster and management API server.
 
 **Workload location** |  File and block storage  
 ---|---  
@@ -367,6 +369,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-05 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-05 UTC."],[],[]] 

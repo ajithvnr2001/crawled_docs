@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/dialogflow/cx/docs/concept/prebuilt-component/address-collection/
 title: Address collection prebuilt component \u00a0|\u00a0 Dialogflow CX \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T22:43:47.476889+00:00
+fetched_at: 2026-11-06T05:53:36.951721+00:00
 ---
 
 # Address collection prebuilt component  |  Dialogflow CX  |  Google Cloud Documentation
@@ -23,13 +23,13 @@ Send feedback
 
 #  Address collection prebuilt component Stay organized with collections  Save and categorize content based on your preferences. 
 
-The address collection [prebuilt component](https://docs.cloud.google.com/dialogflow/cx/docs/concept/prebuilt-component) collects an address from the end-user, and it uses the [Google Address Validation API](https://mapsplatform.google.com/maps-products/address-validation/) to validate addresses.
+The address collection [prebuilt component](https://docs.cloud.google.com/dialogflow/cx/docs/concept/prebuilt-component) collects an address from a customer and validates the address using the [Google Address Validation API](https://mapsplatform.google.com/maps-products/address-validation/).
 
 ## Limitations
 
-In addition to the [common prebuilt component limitations](https://docs.cloud.google.com/dialogflow/cx/docs/concept/prebuilt-component#limits), this prebuilt component has the following limitations:
+In addition to the [common prebuilt component limitations](https://docs.cloud.google.com/dialogflow/cx/docs/concept/prebuilt-component#limits), this prebuilt component includes the following limitations:
 
-  * Only supports addresses from countries listed at [Address Validation API coverage details](https://developers.google.com/maps/documentation/address-validation/coverage).
+  * Supports addresses only from countries listed in the [Address Validation API coverage details](https://developers.google.com/maps/documentation/address-validation/coverage).
 
 
 
@@ -45,13 +45,13 @@ The following additional functionalities are provided by this prebuilt component
 
 ## Sample dialogs
 
-The following sample dialogs demonstrate common scenarios handled by this prebuilt component. The sample dialogs demonstrate behavior when the component is called via telephony, which triggers the Default Welcome Intent and the first agent response at the start of the conversation.
+The following sample dialogs demonstrate common scenarios handled by this prebuilt component. They demonstrate behavior when the component is called using telephony, which triggers the Default Welcome Intent and the first agent response at the start of the conversation.
 
-### Full valid address
+### Full address validation
 
-End-user provides a complete address and the address collection component successfully verifies it.
+The user provides a complete address, and the address collection component verifies it.
 
-User input | Agent response  
+User Input | Agent Response  
 ---|---  
 | Please tell me your full address to start.  
 1600 Amphitheatre Parkway, Mountain View, CA 94043-1351, USA |   
@@ -61,9 +61,10 @@ yes |
   
 ### Partial valid address with inferred elements
 
-End-user provides a partial address; agent guesses the missing part and successfully verifies it after confirmation from the end-user.
+  1. The user provides a partial address.
+  2. The agent guesses the missing part and verifies it after confirmation from the user.
 
-User input | Agent response  
+User Input | Agent Response  
 ---|---  
 | Please tell me your full address to start.  
 1600 Amphitheatre Parkway |   
@@ -75,9 +76,12 @@ Yes |
   
 ### Partial valid address with user-provided elements
 
-End-user provides a partial address; agent guesses the missing part but the end-user provides their own input after saying "no", and the agent successfully accepts the address.
+  1. The user provides a partial address.
+  2. The user rejects the guessed part and provides their own input.
+  3. The agent accepts the user-provided input and re-prompts for confirmation.
+  4. The user accepts the final address.
 
-User input | Agent response  
+User Input | Agent Response  
 ---|---  
 | Please tell me your full address to start.  
 1600 Amphitheatre Parkway |   
@@ -99,9 +103,9 @@ yes |
   
 ### Unrecognized input
 
-Component exits the flow after the end-user provides unrecognized input three times.
+Component exits the flow after the user provides unrecognized input three times.
 
-User input | Agent response  
+User Input | Agent Response  
 ---|---  
 | Please tell me your full address to start.  
 It's fine |   
@@ -113,29 +117,29 @@ great |
   
 ### Unsupported address
 
-Component exits the flow after the end-user provides an address not currently supported by the Address Validation API.
+Component exits the flow after the user provides an address that isn't supported by the Address Validation API.
 
-User input | Agent response  
+User Input | Agent Response  
 ---|---  
 | Please tell me your full address to start.  
 India |   
-| I'm sorry, but I'm currently unable to validate addresses in that region.  
+| I'm sorry, but I'm unable to validate addresses in that region.  
   
 ## Address validation
 
-To understand how the address collection component validates addresses, see [Address Validation API Overview](https://developers.google.com/maps/documentation/address-validation/overview).
+For more information about how the address collection component validates addresses, see [Address Validation API Overview](https://developers.google.com/maps/documentation/address-validation).
 
-The address collection component captures end-user input using the [@sys.address system entity](https://docs.cloud.google.com/dialogflow/cx/docs/reference/system-entities) and sends the captured address to the Address Validation API to extract address elements for further processing.
+The address collection component captures user input by using the [@sys.address system entity](https://docs.cloud.google.com/dialogflow/cx/docs/reference/system-entities) and sends the captured address to the Address Validation API to extract address elements for further processing.
 
-The following address elements are returned by the Address Validation API and are used by the component to collect and validate a complete address:
+The Address Validation API returns the following address elements, which you can use to collect and validate a complete address:
 
-  * _administrative_area_level_1_
-  * _archipelago_
-  * _country_
-  * _locality_
-  * _postal_code_
-  * _route_
-  * _street_number_
+  * `administrative_area_level_1`
+  * `archipelago`
+  * `country`
+  * `locality`
+  * `postal_code`
+  * `route`
+  * `street_number`
 
 
 
@@ -154,22 +158,22 @@ Webhook | prebuilt_components_[component_name]:[webhook_action] | prebuilt_compo
   
 ## Input parameters
 
-Input parameters are parameters that are used to configure certain behaviors of the component. The parameters will be used by one or more conditions within the flow to determine how the component should behave. Flow-scoped parameters must be set on the start page of the component as described below. Session-scoped parameters may be set either by a calling flow, or on the start page of this component.
+Input parameters configure certain behaviors of the component. One or more conditions within the flow use the parameters to determine how the component should behave. The user must set flow-scoped parameters on the start page of the component as described in the following table. The user can set session-scoped parameters either by a calling flow or on the start page of this component.
 
-You can configure which address elements are required by this component by modifying [parameter presets](https://docs.cloud.google.com/dialogflow/cx/docs/concept/fulfillment#param-preset) in the [flow's start page](https://docs.cloud.google.com/dialogflow/cx/docs/concept/flow#data).
+The user can configure which address elements are required by this component by modifying [parameter presets](https://docs.cloud.google.com/dialogflow/cx/docs/concept/fulfillment#param-preset) on the [flow's start page](https://docs.cloud.google.com/dialogflow/cx/docs/concept/flow#data).
 
 This prebuilt component accepts the following input parameters:
 
 Parameter Name | Description | Input Format  
 ---|---|---  
-$flow.zip_code | If the zip code address element is required then set as `true`, else `false`. | boolean  
-$flow.city | If the city address element is required then set as `true`, else `false`. | boolean  
-$flow.admin_area | If the administrative area address element is required then set as `true`, else `false`. | boolean  
-$flow.street_number | If the street number address element is required then set as `true`, else `false`. | boolean  
-$flow.route | If the route address element is required then set as `true`, else `false`. | boolean  
-$flow.country | If the country address element is required then set as `true`, else `false`. | boolean  
-$flow.island | If the island address element is required then set as `true`, else `false`. | boolean  
-$flow.retry_num | Sets the maximum retry limit for Maps Address Validation API webhook calls | integer  
+$flow.zip_code | If the zip code address element is required, then set it to `true`; otherwise, set it to `false`. | boolean  
+$flow.city | If the city address element is required, then set it to `true`; otherwise, set it to `false`. | boolean  
+$flow.admin_area | If the administrative area address element is required, then set it to `true`; otherwise, set it to `false`. | boolean  
+$flow.street_number | If the street number address element is required, then set it to `true`; otherwise, set it to `false`. | boolean  
+$flow.route | If the route address element is required, then set it to `true`; otherwise, set it to `false`. | boolean  
+$flow.country | If the country address element is required, then set it to `true`; otherwise, set it to `false`. | boolean  
+$flow.island | If the island address element is required, then set it to `true`; otherwise, set it to `false`. | boolean  
+$flow.retry_num | Sets the maximum retry limit for Maps Address Validation API webhook calls. | integer  
   
 ####  To configure the input parameters for this component, expand for instructions. 
 
@@ -187,7 +191,9 @@ $flow.retry_num | Sets the maximum retry limit for Maps Address Validation API w
 
 ## Output parameters
 
-Output parameters are session parameters that will remain active after exiting the component. These parameters contain important information collected by the component. This prebuilt component provides values for the following output parameters:
+Output parameters are session parameters that remain active after the user exits the component. These parameters contain important information that the component collects.
+
+The prebuilt component provides the following output parameters:
 
 Parameter Name | Description | Output Format  
 ---|---|---  
@@ -204,17 +210,17 @@ address_collection_address | This parameter returns the address object if an add
       "street-number": string  
     }  
   
-address_collection_status | This parameter returns the status of the collected address. The returned value is one of:  
+address_collection_status | This parameter returns the status of the collected address. The returned value is one of the following:  
   
 `VALID_ADDRESS`: address was collected and validated by the Address Validation API.  
   
-`INVALID_ADDRESS`: address was confirmed by the end-user but one or more elements were not validated or marked as UNCONFIRMED_BUT_PLAUSIBLE by the Address Validation API.  
+`INVALID_ADDRESS`: address was confirmed by the user but one or more elements were not validated or marked as `UNCONFIRMED_BUT_PLAUSIBLE` by the Address Validation API.  
   
 `MAPS_API_ERROR`: address was not collected due to Address Validation API error.  
   
 `COUNTRY_NOT_SUPPORTED`: address was not collected because the Address Validation API doesn't support that region.  
   
-`NO_USER_CONFIRMATION`: address was not confirmed because the end-user didn't confirm an address. | 
+`NO_USER_CONFIRMATION`: address was not confirmed because the user didn't confirm an address. | 
     
     
     string  
@@ -225,46 +231,44 @@ To set up this prebuilt component:
 
   1. [Import the prebuilt component](https://docs.cloud.google.com/dialogflow/cx/docs/concept/prebuilt-component#import).
   2. [Enable](https://docs.cloud.google.com/service-usage/docs/enable-disable) the Address Validation API.
-  3. Configure the provided [flexible webhook](https://docs.cloud.google.com/dialogflow/cx/docs/concept/webhook#flexible) with your Maps API key, see Webhook setup below.
+  3. Configure the provided [flexible webhook](https://docs.cloud.google.com/dialogflow/cx/docs/concept/webhook#flexible) with your Maps API key. For more information, see Webhook setup.
 
 
 
 ## Webhook setup
 
-In order to use the Address Validation API to validate addresses, you will need to configure the provided flexible webhook with the correct credentials.
+To validate addresses with the Address Validation API, configure the provided flexible webhook with the correct credentials.
 
 ### Address Validation webhook
 
 This webhook performs the following actions:
 
-  1. Processes captured Dialogflow CX parameters, forms request, and verifies the address using the [Address Validation API](https://developers.google.com/maps/documentation/address-validation).
-  2. Extracts confirmed, unconfirmed, missing, and inferred address elements from the [Google Address Validation API response](https://developers.google.com/maps/documentation/address-validation/demo).
+  1. Processes captured Dialogflow CX parameters, forms the request, and verifies the address using the [Address Validation API](https://developers.google.com/maps/documentation/address-validation).
+  2. Extracts confirmed, unconfirmed, missing, and inferred address elements from the [Address Validation API response](https://developers.google.com/maps/documentation/address-validation/demo).
 
 
 
-To configure the webhook for this component, you'll need to update the webhook settings with your Maps API key.
+Update the webhook settings with the correct Maps API key to configure the webhook for this component.
 
-  1. To retrieve your API Key: go to [Google Cloud Platform Console > APIs & Services > Credentials](https://console.cloud.google.com/apis/credentials), select your Maps API key, copy the API Key field.
-
-
+To retrieve your API key, go to [Google Cloud **Console** > **APIs & Services** > **Credentials**](https://console.cloud.google.com/apis/credentials), select your Maps API key, and copy the API key field.
 
 To configure the webhook:
 
-  1. Open the [Dialogflow CX console](https://dialogflow.cloud.google.com/cx/projects).
+  1. Go to the [Dialogflow CX console](https://dialogflow.cloud.google.com/cx/projects).
   2. Choose your Google Cloud project.
   3. Select your agent.
   4. Select the **Manage** tab.
   5. Click **Webhooks**.
-  6. Select the prebuilt_components_address_collection:address_validation webhook.
-  7. Replace the URL in the Dialogflow CX **Webhook URL** field with the URL including your Maps API Key: https://addressvalidation.googleapis.com/v1:validateAddress?key=MAPS_API_KEY
-  8. In the **Authentication** settings, configure the Username as `key` and set the Password to your Maps API key.
+  6. Select the `prebuilt_components_address_collection:address_validation` webhook.
+  7. Replace the URL in the Dialogflow CX **Webhook URL** field with the URL including your Maps API key: `https://addressvalidation.googleapis.com/v1:validateAddress?key=<var>MAPS_API_KEY</var>`.
+  8. In the **Authentication** settings, configure the Username as `key`, and set the password for your Maps API key.
   9. Click **Save**.
 
 
 
 ### Complete
 
-Your agent and its webhook should now be set up and ready to test.
+The prebuilt component and its webhook are now set up and ready to test.
 
 [ Previous arrow_back  Account statement  ](https://docs.cloud.google.com/dialogflow/cx/docs/concept/prebuilt-component/account-statement)
 
@@ -274,6 +278,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-06 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-06 UTC."],[],[]] 

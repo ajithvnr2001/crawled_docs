@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/contact-center/ccai-platform/docs/salesforce-integration-guide/
 title: Salesforce integration guide \u00a0|\u00a0 Google Cloud Contact Center as a Service \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T23:27:44.156005+00:00
+fetched_at: 2026-11-06T05:52:18.603601+00:00
 ---
 
 # Salesforce integration guide  |  Google Cloud Contact Center as a Service  |  Google Cloud Documentation
@@ -143,7 +143,7 @@ This also allows an agent to determine their status from just one place. When th
 
   * **Your organization's CCAI Platform environment URL** and tenant or environment name will be used throughout the process and can be found in your CCAI Platform administrator portal link. You will have access when your CCAI Platform account is set up. The URL is `https://[my-instance-name].ccaiplatform.com`.
 
-**Note:** There is a limit of 20 characters for instance names.
+**Note:** Instance names are limited to 20 characters.
 
 
 
@@ -153,7 +153,7 @@ This also allows an agent to determine their status from just one place. When th
 
   * This feature allows for 1-way sync from the CRM -> CCAI Platform
 
-  * If the status is changed in CCAI Platform, the CRM status will not be changed
+  * If the status is changed in CCAI Platform, the CRM status won't be changed
 
 
 
@@ -175,7 +175,7 @@ This also allows an agent to determine their status from just one place. When th
 
       * When Agent is in Offline in CCAI Platform, CRM status changes will be ignored
 
-  * When the CRM status changes while on an active session/call
+  * When the CRM status changes while on an active session or call
 
     * CCAI Platform treats this status change the same as the agent Next Status feature and when the session is complete, after Wrap-up, the next status is governed by the new CRM status
 
@@ -184,6 +184,8 @@ This also allows an agent to determine their status from just one place. When th
 
 
 ### Salesforce Configuration
+
+To set up Salesforce for CCAI Platform, configure the settings described in this section.
 
 #### Configure omni-channel
 
@@ -233,9 +235,9 @@ _If you are using Lightning only, skip this step._
 
   3. In the Edit screen, find the **Choose Console Components** section.
 
-  4. Select **Omni-Channel** in the **Available Items** dropdown.
+  4. Select **Omni-Channel** in the **Available Items** drop-down list.
 
-  5. Click **Add** then **Omni-Channel** will appear in the **Selected Items** dropdown.
+  5. Click **Add** then **Omni-Channel** will appear in the **Selected Items** drop-down list.
 
   6. Click **Save** at the bottom of the screen.
 
@@ -246,7 +248,7 @@ _If you are using Lightning only, skip this step._
 
 _If you are using Classic only, skip this step._
 
-  1. If you are currently in Classic, click **Switch to Lightning Experience.**
+  1. If you are in Classic, click **Switch to Lightning Experience.**
 
   2. Click the gear icon, then click **Setup** in the upper right area of the Lightning screen.
 
@@ -269,9 +271,9 @@ _If you are using Classic only, skip this step._
 
 #### Grant users access to service presence statuses
 
-In order for a Service Presence Status to be available to a User, access for each status needs to be granted to each applicable Profile/Permission Set. If a Profile/Permission set does not have access to a certain Service Presence Status, then that status will not be available/visible in the Omni-Channel widget for the assigned users.
+In order for a Service Presence Status to be available to a User, access for each status needs to be granted to each applicable profile or permission set. If a profile or permission set does not have access to a certain Service Presence Status, then that status won't be available or visible in the Omni-Channel widget for the assigned users.
 
-Please reference [Give Users Access to Presence Statuses with Profiles](https://help.salesforce.com/articleView?id=service_presence_give_access_to_statuses_through_profiles.htm&type=5) and [Give Users Access to Presence Statuses with Permission Sets](https://help.salesforce.com/articleView?id=service_presence_give_access_to_statuses_through_permission_sets.htm&type=5) from Salesforce. The below steps are the simplified steps for giving access with Profiles.
+See [Give Users Access to Presence Statuses with Profiles](https://help.salesforce.com/articleView?id=service_presence_give_access_to_statuses_through_profiles.htm&type=5) and [Give Users Access to Presence Statuses with Permission Sets](https://help.salesforce.com/articleView?id=service_presence_give_access_to_statuses_through_permission_sets.htm&type=5) from Salesforce. The following steps are the simplified steps for giving access with Profiles.
 
   1. From **Setup** , enter **Users** in the Quick Find box, then select **Profiles** under **Manage Users**.
 
@@ -279,7 +281,7 @@ Please reference [Give Users Access to Presence Statuses with Profiles](https://
 
   3. Find **Enabled Service Presence Status Access** and click **Edit**.
 
-  4. In the edit screen, select items in the **Available Service Presence Statuses** dropdown and click **Add**.
+  4. In the edit screen, select items in the **Available Service Presence Statuses** drop-down list and click **Add**.
 
   5. Click **Save**.
 
@@ -289,6 +291,8 @@ Please reference [Give Users Access to Presence Statuses with Profiles](https://
 
 
 #### Verify Omni-Channel
+
+Verify the Omni-Channel configuration in your Salesforce console.
 
 ##### Salesforce Classic Console
 
@@ -335,7 +339,9 @@ Configure the remote site settings for the CCAI Platform Agent Status Inheritanc
 
 ### CCAI Platform configuration
 
-#### Establish admin tokens
+This section describes how to configure CCAI Platform settings.
+
+#### Establish administrator tokens
 
 Configure one or more Salesforce Admin Tokens in the CCAI Platform administrator portal so that the administrator portal can fetch your Salesforce Omni-Channel Service Presence Statuses. For more information, see [CRM default administrator](https://docs.cloud.google.com/contact-center/ccai-platform/docs/crm-default-admin).
 
@@ -346,7 +352,7 @@ Configure one or more Salesforce Admin Tokens in the CCAI Platform administrator
   2. Click **Link New User**.
 
 **Note:** If possible, it's best to use a Salesforce Admin account that is not tied to a specific user. Individual user accounts are prone to being disabled without understanding the underlying connections.
-  3. In the oAuth popup, sign in as your Salesforce administrator and allow the oAuth request
+  3. In the OAuth dialog, sign in as your Salesforce administrator and allow the oAuth request
 
   4. You will see your administrator user is linked in the **Connected Admin Users** section.
 
@@ -364,7 +370,7 @@ Configure one or more Salesforce Admin Tokens in the CCAI Platform administrator
 
 #### Manage Status Mapping
 
-Salesforce Statuses will be fetched from your Salesforce org automatically. If you don't see SFDC statuses please check the Establish Admin Token/s step and Configure Omni-Channel. Any Salesforce statuses that are not mapped will result in an error
+Salesforce Statuses will be fetched from your Salesforce org automatically. If you don't see SFDC statuses, check the Establish administrator tokens step and Configure Omni-Channel. Any Salesforce statuses that are not mapped will result in an error
 
   1. Sign in to the CCAI Platform portal, go to **Settings** > **Developer Settings**
 
@@ -372,7 +378,7 @@ Salesforce Statuses will be fetched from your Salesforce org automatically. If y
 
   2. Click **Manage** in **Status Mapping.**
 
-  3. In the popup, select a preferred CCAI Platform Status for each Salesforce Status.
+  3. In the dialog, select a preferred CCAI Platform Status for each Salesforce Status.
 
 
 
@@ -399,7 +405,7 @@ Salesforce Statuses will be fetched from your Salesforce org automatically. If y
 
 #### Install the CCAI Platform Agent Status Inheritance App
 
-  1. Paste the installation link in the browser's url bar: https://login.salesforce.com/packaging/installPackage.apexp?p0=04t6g000003Rzxv
+  1. Paste the installation link in the browser's address bar: https://login.salesforce.com/packaging/installPackage.apexp?p0=04t6g000003Rzxv
 
   2. Select **Install for all users**.
 
@@ -422,7 +428,7 @@ For longer installations, you will get a notification email after the installati
 
   5. Fill the values for **Company Key** , **Company Secret, Tenant name** and **Connected App name** you have copied in the previous steps.
 
-  6. Check **Enable Agent Status Inheritance**.
+  6. Select **Enable Agent Status Inheritance**.
 
   7. Fill the value in CCAI Platform URL you have copied in the **step 6 Copy settings value from CCAI Platform Admin Portal**.
 
@@ -462,7 +468,7 @@ To enable the CCAI Platform session, follow these steps:
 
   2. Go to the **CRM Record Creation Details** pane.
 
-  3. For **Session Data** , in the **Map data to** list, select **UJET session**.
+  3. For **Session Data** , in the **Map data to** list, select **CCAI Platform session**.
 
   4. Click **Save General**.
 
@@ -477,7 +483,7 @@ Steps to configure in Salesforce:
 
 #### Step 1: Configure and enable Default Admin user
 
-Define a CRM admin user to represent the default user for all CRM actions and events where a specific agent has not been identified or assigned. If this feature is not used, CCAI Platform will randomly assign the ticket or case to any users.
+Define a CRM administrator user to represent the default user for all CRM actions and events where a specific agent has not been identified or assigned. If this feature is not used, CCAI Platform will randomly assign the ticket or case to any users.
 
 For more information, see [CRM default administrator](https://docs.cloud.google.com/contact-center/ccai-platform/docs/crm-default-admin).
 
@@ -497,9 +503,9 @@ For more information, see [CRM default administrator](https://docs.cloud.google.
 
 \- CCAI Platform Transfers
 
-  5. Click on the **CCAI Platform Actions** object.
+  5. Click the **CCAI Platform Actions** object.
 
-If you are using the Default Admin token from Step 1 above, agents do not need create, edit, or view all permissions. If you are not using the Default Admin user, assign all permission for proper access and object creation.
+If you are using the Default Admin token from Step 1, agents don't need create, edit, or view all permissions. If you are not using the Default Admin user, assign all permission for proper access and object creation.
 
 If using the Default Admin user, click the **CCAI Platform Actions** object and enable **Read** permission.
 
@@ -518,15 +524,15 @@ _Follow the same steps for the Account object you are using if not using Case._
 
   1. From Salesforce Setup, navigate to **Object Manager** > **Case** OR your configured **Account object**.
 
-![](https://docs.cloud.google.com/static/contact-center/ccai-platform/docs/images/162c7fc0220b30.png)
+![Object Manager in Salesforce](https://docs.cloud.google.com/static/contact-center/ccai-platform/docs/images/162c7fc0220b30.png)
 
-  2. Click **Case** /Account object **Page Layouts** on the left.
+  2. Click **Case** or Account object **Page Layouts** on the left.
 
   3. Select the Page layout used by CCAI Platform users.
 
   4. Locate CCAI Platform Sessions under **Related Lists** and drag the CCAI Platform Session object to where you want it to display in the Layout page.
 
-![](https://docs.cloud.google.com/static/contact-center/ccai-platform/docs/images/162c7fc02260e2.png)
+![Drag the CCAI Platform Session object](https://docs.cloud.google.com/static/contact-center/ccai-platform/docs/images/162c7fc02260e2.png)
 
   5. Click **Save** at the top of the page.
 
@@ -541,11 +547,11 @@ If using **Lightning** , follow these steps to create a new Lightning Record Pag
 
   2. Click **New.**
 
-![](https://docs.cloud.google.com/static/contact-center/ccai-platform/docs/images/162c7fc022b879.png)
+![New Lightning record page](https://docs.cloud.google.com/static/contact-center/ccai-platform/docs/images/162c7fc022b879.png)
 
   3. Click **Record Page** , then **Next.**
 
-![](https://docs.cloud.google.com/static/contact-center/ccai-platform/docs/images/162c7fc02311d5.png)
+![Select Record Page](https://docs.cloud.google.com/static/contact-center/ccai-platform/docs/images/162c7fc02311d5.png)
 
   4. Create a **label** , and select **Case** as the object, then click **Next.**
 
@@ -553,7 +559,7 @@ If using **Lightning** , follow these steps to create a new Lightning Record Pag
 
   6. Include the component with the CCAI Platform Session object. In the following scenario, it was added to the "Related List" component.
 
-![](https://docs.cloud.google.com/static/contact-center/ccai-platform/docs/images/162c7fc0251391.png)
+![Related List component](https://docs.cloud.google.com/static/contact-center/ccai-platform/docs/images/162c7fc0251391.png)
 
   7. Click **Save**.
 
@@ -568,7 +574,7 @@ If using **Lightning** , follow these steps to create a new Lightning Record Pag
 
   1. In the CCAI Platform Portal, go to **Settings** > **Operation Management**.
 
-  2. Scroll to **Configure ticket creation details** and select the desired behaviors.
+  2. Scroll to **Configure ticket creation details** and select the preferred behaviors.
 
   3. If using Cases, go to **Ticket title** and configure the title of the Case as they are created.
 
@@ -577,7 +583,7 @@ If using **Lightning** , follow these steps to create a new Lightning Record Pag
 
 ## CCAI Platform custom session object for Salesforce configuration
 
-The CCAI Platform Custom Session Object provides a convenient, optimized, custom CCAI Platform Session object, in which **all** session data will be stored in a **session object**. When enabled, instead of storing session data in the Activities object via multiple entries, all session data, including associated files, for example, voice recordings, chat transcripts, and media files uploaded by the end user are included within the CCAI Platform session object. This object is then attached to the appropriate case (or optionally directly to an Account object.
+The CCAI Platform Custom Session Object provides a convenient, optimized, custom CCAI Platform Session object, in which **all** session data will be stored in a **session object**. When enabled, instead of storing session data in the Activities object using multiple entries, all session data, including associated files, for example, voice recordings, chat transcripts, and media files uploaded by the end user are included within the CCAI Platform session object. This object is then attached to the appropriate case (or optionally directly to an Account object.
 
 ### Session object
 
@@ -585,13 +591,13 @@ The session object is an object for call or chat sessions and can be made availa
 
 ### Admin configuration
 
-  1. In order for the CCAI Platform session object option to be available in the admin UI, CCAI Platform package 1.16 or higher, needs to be installed in Salesforce.
+  1. In order for the CCAI Platform session object option to be available in the administrator UI, CCAI Platform package 1.16 or higher, needs to be installed in Salesforce.
 
 For more information, see [Salesforce installation guide](https://docs.cloud.google.com/contact-center/ccai-platform/docs/salesforce-installation-guide).
 
   2. Go to **Settings** > **Developer Settings** > **CRM** > **Salesforce** > **Session Data**.
 
-  3. In the dropdown, set the option to **Map data** to **CCAI Platform Session**.
+  3. In the drop-down list, set the option to **Map data** to **CCAI Platform Session**.
 
 
 
@@ -641,7 +647,7 @@ The following configuration changes are required in Salesforce.
 
 ![](https://docs.cloud.google.com/static/contact-center/ccai-platform/docs/images/162c7fc0381db2.png)
 
-  5. Click on the Agent Actions object and enable **Read** , **Create** , **Edit** , and **View All** access, then click **Save.**
+  5. Click the Agent Actions object and enable **Read** , **Create** , **Edit** , and **View All** access, then click **Save.**
 
   6. Repeat this step for CCAI Platform Sessions and CCAI Platform Transfers.
 
@@ -669,11 +675,11 @@ If using **Lightning** , follow these steps to create a new Lightning Record Pag
 
   2. Click **New.**
 
-![](https://docs.cloud.google.com/static/contact-center/ccai-platform/docs/images/162c7fc022b879.png)
+![New Lightning record page](https://docs.cloud.google.com/static/contact-center/ccai-platform/docs/images/162c7fc022b879.png)
 
   3. Click **Record Page** , then **Next**.
 
-![](https://docs.cloud.google.com/static/contact-center/ccai-platform/docs/images/162c7fc02311d5.png)
+![Select Record Page](https://docs.cloud.google.com/static/contact-center/ccai-platform/docs/images/162c7fc02311d5.png)
 
   4. Create a **label** , and select **Case** as the object, then click **Next.**
 
@@ -681,7 +687,7 @@ If using **Lightning** , follow these steps to create a new Lightning Record Pag
 
   6. Include the component with the CCAI Platform session object. In the following scenario it was added to the **Related List** component.
 
-![](https://docs.cloud.google.com/static/contact-center/ccai-platform/docs/images/162c7fc0251391.png)
+![Related List component](https://docs.cloud.google.com/static/contact-center/ccai-platform/docs/images/162c7fc0251391.png)
 
   7. Click **Save**.
 
@@ -730,11 +736,11 @@ With standard configuration, using cases as the record type:
 
 ### Case updates
 
-All case updates will be viewable to the agent on the call/chat and if they were previously on the call and transferred the call/chat.
+All case updates will be viewable to the agent on the call or chat and if they were previously on the call and transferred the call or chat.
 
 #### Appending calls or chats to cases
 
-  * When there is an **inbound call/chat** from the same contact, same menu selection, and same channel as the most recent case for that contact is in New, Escalated or Working, CCAI Platform appends the call/chat to the open case as a new task on the case.
+  * When there is an **inbound call or chat** from the same contact, same menu selection, and same channel as the most recent case for that contact is in New, Escalated or Working, CCAI Platform appends the call or chat to the open case as a new task on the case.
 
     * This can be disabled in [General Operation Management Settings](https://docs.cloud.google.com/contact-center/ccai-platform/docs/crm-record-creation).
   * When an **outbound call** is placed using click-to-call from the details section of the case (not from the sidebar), if the most recent case with that user is in Open, Working, or Escalated status, CCAI Platform will append the outbound call to the existing case for follow-up cases.
@@ -750,11 +756,11 @@ All case updates will be viewable to the agent on the call/chat and if they were
 
   * After the [default administrator](https://docs.cloud.google.com/contact-center/ccai-platform/docs/crm-default-admin) is enabled, the default administrator is used as the owner for the following:
 
-    * **Ticket/case** and **contact** creation when a new chat is initiated before an agent is assigned to the chat
+    * **Ticket or case** and **contact** creation when a new chat is initiated before an agent is assigned to the chat
 
-    * Voicemail tickets/cases before receiving a callback call
+    * Voicemail tickets or cases before receiving a callback call
 
-    * Call ticket/cases for abandoned calls (if enabled)
+    * Call tickets or cases for abandoned calls (if enabled)
 
 **Note:** If the default user is not configured, CCAI Platform uses a random Agent
   * When a **call/chat is transferred:**
@@ -774,11 +780,13 @@ All case updates will be viewable to the agent on the call/chat and if they were
 
   * When a **SmartAction** fails due to an error on the user's side (i.e. fingerprint access not enabled), CCAI Platform updates the case with the error message.
 
-  * When the company uses **custom field mapping** (set up from the Admin portal), the data coming in from Mobile/Web SDK will be placed in the designated field in the CRM.
+  * When the company uses [custom field mapping](https://docs.cloud.google.com/contact-center/ccai-platform/docs/crm-custom-field-mapping) (set up from the CCAI Platform portal), the data coming in from the Mobile or Web SDK or from the Apps API (Chat) is placed in the designated field in the CRM.
 
   * When the end-user rates an **IVR** or **Mobile call/chat** , CCAI Platform adds a rating score to the case.
 
   * When an agent **reads/dismiss/calls back from voicemail** , CCAI Platform updates the case.
+
+  * When a case is closed, it is assigned the `isClosed` status.
 
 
 
@@ -787,7 +795,7 @@ All case updates will be viewable to the agent on the call/chat and if they were
 
   * When an **IVR call** comes in with a new phone number, CCAI Platform creates a contact in Salesforce.
 
-  * When a new app user(new identifier) starts the **CCAI Platform Mobile SDK** , CCAI Platform creates a contact in Salesforce.
+  * When a new app user (new identifier) starts the **CCAI Platform Mobile SDK** , CCAI Platform creates a contact in Salesforce.
 
   * When IVR caller's number is blocked, CCAI Platform will create Unknown user contact in Salesforce.
 
@@ -802,7 +810,7 @@ All case updates will be viewable to the agent on the call/chat and if they were
 
     * For **IVR** calls, the Contact Owner field is updated to the assigned agent.
 
-    * For contacts created from Mobile, Callback, and Voicemail calls, the Default Admin token is used if the setup is complete, or if default admin token is not available CCAI Platform will use a random agent token. For more information about the default admin user, see [CRM default administrator](https://docs.cloud.google.com/contact-center/ccai-platform/docs/crm-default-admin).
+    * For contacts created from Mobile, Callback, and Voicemail calls, the Default Admin token is used if the setup is complete, or if default administrator token is not available CCAI Platform will use a random agent token. For more information about the default administrator user, see [CRM default administrator](https://docs.cloud.google.com/contact-center/ccai-platform/docs/crm-default-admin).
 
 
 
@@ -818,17 +826,17 @@ All case updates will be viewable to the agent on the call/chat and if they were
 
 ### Outbound click to call
 
-When viewing a Contact in Salesforce you can click on the Contact's Phone Number to start an Outbound Call.
+When viewing a Contact in Salesforce you can click the Contact's Phone Number to start an Outbound Call.
 
 When clicked from within the case details, depending on settings, the call will append if the case is not closed.
 
-![](https://docs.cloud.google.com/static/contact-center/ccai-platform/docs/images/162c7fc038742c.png)
+![Contact phone number in Salesforce](https://docs.cloud.google.com/static/contact-center/ccai-platform/docs/images/162c7fc038742c.png)
 
-![](https://docs.cloud.google.com/static/contact-center/ccai-platform/docs/images/162c7fc03a5fde.png)
+![Outbound call in Salesforce](https://docs.cloud.google.com/static/contact-center/ccai-platform/docs/images/162c7fc03a5fde.png)
 
 ## Salesforce: CCAI Platform session mapping to case or account objects (person account, contact, lead)
 
-When a call or chat takes place, the associated data needs to be made available in your CRM and CCAI Platform offers flexibility in how the call/chat session data to is attached to Salesforce data objects.
+When a call or chat takes place, the associated data needs to be made available in your CRM and CCAI Platform offers flexibility in how the call or chat session data is attached to Salesforce data objects.
 
 The following configuration options are available:
 
@@ -858,30 +866,32 @@ The configuration options for Account Lookup and Session Data are only available
 
 To configure custom account lookup settings, the following is required:
 
-**Logged in Agent** \- at least one agent needs to be logged into a CCAI Platform adapter in Salesforce. This is required to ensure there is an active token enabling CCAI Platform to access Salesforce data during the admin session.
+**Logged in Agent** \- at least one agent needs to be logged into a CCAI Platform adapter in Salesforce. This is required to ensure there is an active token enabling CCAI Platform to access Salesforce data during the administrator session.
 
   * Session Data configuration
 
 To configure session data mapping options like selecting the CCAI Platform Session object, the following is required:
 
-    * **Logged in Agent** \- at least one agent needs to be logged into a CCAI Platform adapter in Salesforce. This is required to ensure there is an active token enabling CCAI Platform to access Salesforce data during the admin session.
+    * **Logged in Agent** \- at least one agent needs to be logged into a CCAI Platform adapter in Salesforce. This is required to ensure there is an active token enabling CCAI Platform to access Salesforce data during the administrator session.
 
     * CCAI Platform Salesforce package version 1.16 (or newer) is installed in your Salesforce instance. For Salesforce Lead object support, package version 1.18 is required, but version 1.20 or higher is recommended.
 
 
 
 
-If the configuration access requirements for one or both of these settings are not met, the CCAI Platform Portal UI to configure **Account Lookup** and **Session Data** will be inactive as shown below:
+If the configuration access requirements for one or both of these settings are not met, the CCAI Platform Portal UI to configure **Account Lookup** and **Session Data** will be inactive, as shown in the following image:
 
-![](https://docs.cloud.google.com/static/contact-center/ccai-platform/docs/images/162c7fc03aae4f.png)
+![Inactive account lookup and session data configuration](https://docs.cloud.google.com/static/contact-center/ccai-platform/docs/images/162c7fc03aae4f.png)
 
 ### CCAI Platform portal configuration
+
+Configure account lookup and session data mapping settings in the CCAI Platform portal.
 
 #### Account lookup and session data mapping
 
   1. In the CCAI Platform portal, go to **Settings** > **Developer Settings** and select **Salesforce**.
 
-![](https://docs.cloud.google.com/static/contact-center/ccai-platform/docs/images/162c7fc03afc85.png)
+![Salesforce developer settings in the portal](https://docs.cloud.google.com/static/contact-center/ccai-platform/docs/images/162c7fc03afc85.png)
 
   2. Select an **Object Type** :
 
@@ -893,19 +903,19 @@ Account
 
 Lead
 
-  3. Select a **Record Type**. These options vary based on the selected **Object Type** above.
+  3. Select a **Record Type**. These options vary based on the selected **Object Type**.
 
-  4. Select the specific field CCAI Platform should match the end-user phone number against from the **Phone number lookup field** option. CCAI Platform will fetch all "phone type" fields from the selected account object above.
+  4. Select the specific field CCAI Platform should match the end-user phone number against from the **Phone number lookup field** option. CCAI Platform will fetch all "phone type" fields from the selected account object.
 
   5. Mark the SDK Custom Lookup field to activate the option to pass a custom user identifier (UID) to CCAI Platform for end user lookup. Available for mobile and web SDKs.
 
 **Note:** this is an existing feature that has been relocated and relabeled from the previous setting labeled 'Custom Field Matching'.
 
-![](https://docs.cloud.google.com/static/contact-center/ccai-platform/docs/images/162c7fc03b4aa4.png)
+![SDK Custom Lookup field](https://docs.cloud.google.com/static/contact-center/ccai-platform/docs/images/162c7fc03b4aa4.png)
 
   6. Select a location for CCAI Platform to organize and attach core session data (call/chat ID, session duration, end-user file uploads, etc.) to Salesforce.
 
-![](https://docs.cloud.google.com/static/contact-center/ccai-platform/docs/images/162c7fc03b97fb.png)
+![Session data location options](https://docs.cloud.google.com/static/contact-center/ccai-platform/docs/images/162c7fc03b97fb.png)
 
      1. **Activity Object** \- the session data is stored within the Salesforce Activity object. Records will be created with this option.
 
@@ -984,7 +994,7 @@ The session object is organized as follows:
 
     * **File list** \- any files that have been uploaded / created as part of the session
 
-  * **Session detail** \- presents the core session object details; i.e.
+  * **Session detail** \- presents the core session object details, such as:
 
 
 
@@ -997,13 +1007,13 @@ The session object is organized as follows:
 
 After opening a session, the following view will be provided, listing all associated CCAI Platform session actions, attached files, and transfers.
 
-![](https://docs.cloud.google.com/static/contact-center/ccai-platform/docs/images/162c7fc03f07e7.png)
+![Session overview](https://docs.cloud.google.com/static/contact-center/ccai-platform/docs/images/162c7fc03f07e7.png)
 
 #### Session details
 
 The available dataset for sessions includes the following fields:
 
-  * Call/Chat ID: CCAI Platform call or chat ID
+  * Call or chat ID: CCAI Platform call or chat ID
 
   * Created at: when the call, chat was created
 
@@ -1065,11 +1075,11 @@ All media files associated with the session object are attached as **files** to 
 
 **File List UI** \- sample for session file list for call recording
 
-![](https://docs.cloud.google.com/static/contact-center/ccai-platform/docs/images/162c7fc04228e2.png)
+![Session file list for call recording](https://docs.cloud.google.com/static/contact-center/ccai-platform/docs/images/162c7fc04228e2.png)
 
 **File Detail UI** \- for example, image upload by the consumer.
 
-![](https://docs.cloud.google.com/static/contact-center/ccai-platform/docs/images/162c7fc042762d.png)
+![File detail for consumer image upload](https://docs.cloud.google.com/static/contact-center/ccai-platform/docs/images/162c7fc042762d.png)
 
 #### Session actions
 
@@ -1088,7 +1098,7 @@ Reflects session activities:
 
 Example: Session action detail UI - end user feedback
 
-![](https://docs.cloud.google.com/static/contact-center/ccai-platform/docs/images/162c7fc042cc25.png)
+![Session action detail for end-user feedback](https://docs.cloud.google.com/static/contact-center/ccai-platform/docs/images/162c7fc042cc25.png)
 
 #### Transfers
 
@@ -1135,7 +1145,7 @@ Provide expected CCAI Platform behaviour in Salesforce Lightning to Admins and A
 
   * Salesforce Lightning enabled
 
-  * CCAI Platform 1.15 or above
+  * CCAI Platform 1.15 or later
 
 
 
@@ -1146,7 +1156,7 @@ The agent adapter will show on the bottom left of the Service Console Lightning 
 
 When making or receiving calls or chats, the CCAI Platform integration will automatically pop the Salesforce case.
 
-![](https://docs.cloud.google.com/static/contact-center/ccai-platform/docs/images/162c7fc0431f40.png)
+![Agent adapter in Salesforce Lightning](https://docs.cloud.google.com/static/contact-center/ccai-platform/docs/images/162c7fc0431f40.png)
 
 #### Other notes
 
@@ -1165,13 +1175,13 @@ When making or receiving calls or chats, the CCAI Platform integration will auto
 
 Immediately upon case creation, CCAI Platform will provide standard data into the Description field of the Case. This includes the Call ID, Language, and Inbound Menu selection.
 
-![](https://docs.cloud.google.com/static/contact-center/ccai-platform/docs/images/162c7fc0437636.png)
+![Standard case data in Salesforce Lightning](https://docs.cloud.google.com/static/contact-center/ccai-platform/docs/images/162c7fc0437636.png)
 
 ### Custom data
 
 If using Custom Data from the CCAI Platform SDKs, the information will create a task related to the case Dependent upon your Salesforce settings, this will show in the publisher feed.
 
-![](https://docs.cloud.google.com/static/contact-center/ccai-platform/docs/images/162c7fc043c76c.png)
+![Custom data task in Salesforce Lightning](https://docs.cloud.google.com/static/contact-center/ccai-platform/docs/images/162c7fc043c76c.png)
 
 ## CCAI Platform agent experience in Salesforce Classic
 
@@ -1194,11 +1204,11 @@ The following sections outline expected behaviors between Salesforce Classic and
 
 The agent adapter will show on the bottom right of the Service Console (or Sales Console) apps.
 
-![](https://docs.cloud.google.com/static/contact-center/ccai-platform/docs/images/162c7fc04424b3.png)
+![Agent adapter in Salesforce Classic](https://docs.cloud.google.com/static/contact-center/ccai-platform/docs/images/162c7fc04424b3.png)
 
 When making or receiving calls or chats, the CCAI Platform integration will automatically pop the Salesforce case.
 
-![](https://docs.cloud.google.com/static/contact-center/ccai-platform/docs/images/162c7fc044889b.png)
+![Salesforce Classic case pop](https://docs.cloud.google.com/static/contact-center/ccai-platform/docs/images/162c7fc044889b.png)
 
 #### Other notes
 
@@ -1221,7 +1231,7 @@ Immediately upon case creation, CCAI Platform will provide standard data into th
 
 If using Custom Data from the CCAI Platform SDKs, the information will create a task related to the case Dependent upon your Salesforce settings, this will show in the publisher feed.
 
-![](https://docs.cloud.google.com/static/contact-center/ccai-platform/docs/images/162c7fc044de1d.png)
+![Custom data task in Salesforce Classic](https://docs.cloud.google.com/static/contact-center/ccai-platform/docs/images/162c7fc044de1d.png)
 
 ## Salesforce: CCAI Platform session object technical details
 
@@ -1246,7 +1256,7 @@ When the session object is enabled:
 
 _Sample UI of multiple CCAI Platform sessions related to a case_
 
-![](https://docs.cloud.google.com/static/contact-center/ccai-platform/docs/images/162c7fc045353b.png)
+![Multiple sessions related to a case](https://docs.cloud.google.com/static/contact-center/ccai-platform/docs/images/162c7fc045353b.png)
 
 #### CCAI Platform session object data hierarchy
 
@@ -1274,9 +1284,9 @@ The session object is organized as follows:
 
 After opening a session, the following view will be provided, listing all associated CCAI Platform session actions, attached files, and transfers.
 
-![](https://docs.cloud.google.com/static/contact-center/ccai-platform/docs/images/162c7fc03f07e7.png)
+![Session overview](https://docs.cloud.google.com/static/contact-center/ccai-platform/docs/images/162c7fc03f07e7.png)
 
-#### CCAI Platform session data set fields
+#### CCAI Platform session dataset fields
 
 The available dataset for sessions includes the following fields. See Data Dictionary for more detailed definitions.
 
@@ -1342,11 +1352,11 @@ All media files associated with the session object are attached as **files** to 
 
 **File list UI** : Example of session file list for call recording.
 
-![](https://docs.cloud.google.com/static/contact-center/ccai-platform/docs/images/162c7fc047486a.png)
+![Session file list for call recording](https://docs.cloud.google.com/static/contact-center/ccai-platform/docs/images/162c7fc047486a.png)
 
 **File Detail UI** : Example of image upload by end user.
 
-![](https://docs.cloud.google.com/static/contact-center/ccai-platform/docs/images/162c7fc049aaf4.png)
+![File detail for end-user image upload](https://docs.cloud.google.com/static/contact-center/ccai-platform/docs/images/162c7fc049aaf4.png)
 
 #### CCAI Platform Session actions
 
@@ -1365,7 +1375,7 @@ Reflects session activities:
 
 Example session action detail UI: End-user feedback.
 
-![](https://docs.cloud.google.com/static/contact-center/ccai-platform/docs/images/162c7fc042cc25.png)
+![Session action detail for end-user feedback](https://docs.cloud.google.com/static/contact-center/ccai-platform/docs/images/162c7fc042cc25.png)
 
 #### Transfers
 
@@ -1444,7 +1454,7 @@ To add multiple phone numbers as additional lookup numbers:
 
   4. Click **Save** in the drop-down box.
 
-  5. Select the primary phone number to use when UJET creates a new CRM account. This drop-down list changes based on the phone numbers you selected for the previous field.
+  5. Select the primary phone number to use when CCAI Platform creates a new CRM account. This drop-down list changes based on the phone numbers you selected for the previous field.
 
   6. Click **Save** in the Developer Settings section. The lookup numbers you selected will now connect to the same account.
 
@@ -1497,7 +1507,7 @@ Many new updates to the Agent call adapter
 
   * Create a new case
 
-  * Configurable option to not create a ticket and/or create a new ticket
+  * Configurable option to not create a ticket or create a new ticket
 
   * Handling multiple matching account records
 
@@ -1508,7 +1518,7 @@ Many new updates to the Agent call adapter
 
 ### Feature details
 
-  * The object/term **Account** is referenced below as well as in the Agent Adapter UI, however, the object being referenced as "Account" may be different based on your configuration in **Developer Settings** .
+  * The object or term **Account** is referenced in this section and in the Agent Adapter UI, however, the object being referenced as "Account" may be different based on your configuration in **Developer Settings** .
 
   * Settings dependencies like settings for appending calls or chats to existing cases impact this feature.
 
@@ -1519,9 +1529,11 @@ Many new updates to the Agent call adapter
 
 ### Account ID and case ID field details
 
+This section details the account ID and case ID fields in the Agent Adapter.
+
 #### Labels
 
-The object/term **Account** is referenced in this article as well as in the Agent Adapter UI, however, the object being referenced as "Account" may be different based on your configuration in Developer Settings.
+The object or term **Account** is referenced in this document as well as in the Agent Adapter UI, however, the object being referenced as "Account" may be different based on your configuration in Developer Settings.
 
   * The Object Type, as set in the Admin portal > **Settings** > **Developer Settings** , under **Account Lookup** will populate the field called "Account ID."
 
@@ -1533,6 +1545,8 @@ The object/term **Account** is referenced in this article as well as in the Agen
 _This UI will be updated to update the Agent Adapter fields dynamically based on settings in a future release._
 
 #### Account and case behavior
+
+This section describes how the Account ID and Case ID are selected.
 
 ##### Account ID
 
@@ -1553,20 +1567,20 @@ Account ID can be selected by:
 
 Case ID can be selected by:
 
-  1. Once the Account ID is selected by one of the options above, CCAI Platform checks for one or more open cases for the selected Account ID and selects the most recent, or allows the agent to select based on your settings.
+  1. Once the Account ID is selected by one of the preceding options, CCAI Platform checks for one or more open cases for the selected Account ID and selects the most recent, or allows the agent to select based on your settings.
 
 When the Account ID is selected and the **Prompt agents to select open case from list (when applicable)** option is enabled, select from the list of open cases.
 
 When the Account ID is selected and the option **Allow agent to select "Create a new case" option for outbound calls** is enabled, a new case ID entered in the field and CCAI Platform pops a case and call attaches session data to the case using activity or CCAI Platform Session object.
 
-![](https://docs.cloud.google.com/static/contact-center/ccai-platform/docs/images/162c7fc05d2899.png)
+![Select open case from list](https://docs.cloud.google.com/static/contact-center/ccai-platform/docs/images/162c7fc05d2899.png)
 
 
 
 
 ### Sync button behavior
 
-![](https://docs.cloud.google.com/static/contact-center/ccai-platform/docs/images/162c7fc05d778e.png)
+![Sync button in Salesforce](https://docs.cloud.google.com/static/contact-center/ccai-platform/docs/images/162c7fc05d778e.png)
 
 Sync button works on the following types of Salesforce objects:
 
@@ -1594,6 +1608,8 @@ Sync button works on the following types of Salesforce objects:
 
 ### CCAI Platform configuration
 
+Configure lookup objects and operation management settings in the CCAI Platform portal.
+
 #### Set lookup object
 
 Based on your data model and process, you can choose what the primary lookup object should be when interacting with Salesforce.
@@ -1613,17 +1629,17 @@ When using the CCAI Platform Session object to map session data to Salesforce, y
 
   1. In the CCAI Platform portal, go to **Settings** > **Operation Management**.
 
-  2. In the Multiple Account/Cases section enable or disable:
+  2. In the Multiple Account or Cases section, enable or disable:
 
 **Prompt agents to select open case from list (when applicable)** :
 
-**Disabled:** most recent open case associated with the contact/account will be auto-selected.
+**Disabled:** most recent open case associated with the contact or account will be auto-selected.
 
-**Enabled** : agent will be prompted to select from all open cases associated with the contact/account.
+**Enabled** : agent will be prompted to select from all open cases associated with the contact or account.
 
-**Note:** In Ticket Creation Details, if "do not append call or chat" is enabled this option will not be editable.
+**Note:** In Ticket Creation Details, if "don't append call or chat" is enabled, this option won't be editable.
 
-When the above option is enabled, **Allow agent to select "Create a new case" option for outbound calls** can be enabled. When disabled the agent must use an existing open case.
+When the preceding option is enabled, **Allow agent to select "Create a new case" option for outbound calls** can be enabled. When disabled the agent must use an existing open case.
 
 **Allow agent to select "Do not create a case" option for outbound calls**
 
@@ -1631,24 +1647,26 @@ When the above option is enabled, **Allow agent to select "Create a new case" op
 
 Agent adapter: The Case ID field will no longer appear in the UI.
 
-     2. When settings indicate that session data is mapped to the Activity Object, no call data will be stored, including the call recording. _Do not enable this option if your compliance regulations/standards require all call recordings to be accessed_ because CCAI Platform will not be able to retrieve call recordings of calls where a case is not created.
+     2. When settings indicate that session data is mapped to the Activity Object, no call data will be stored, including the call recording. _Do not enable this option if your compliance regulations or standards require all call recordings to be accessed_ because CCAI Platform won't be able to retrieve call recordings of calls where a case is not created.
 
 **Allow "Use entered number to make call" option**
 
-Enabled: Agents can select the Account ID, then enter a number not saved to the Account/Contact to place a call. The numbers will not be stored against the Account/Contact
+Enabled: Agents can select the Account ID, then enter a number not saved to the Account or Contact to place a call. The numbers won't be stored against the Account or Contact.
 
-Disabled: Outbound calls can only be placed to numbers that are stored on the Account/Contact object.
+Disabled: Outbound calls can only be placed to numbers that are stored on the Account or Contact object.
 
 
 
 
 ### Agent experience
 
+This section describes the agent experience in the Agent Adapter.
+
 #### Agent UI
 
-Below is an example Call Adapter with all options enabled.
+The following image shows an example Call Adapter with all options enabled.
 
-![](https://docs.cloud.google.com/static/contact-center/ccai-platform/docs/images/162c7fc05dcd92.png)
+![Call adapter with all options enabled](https://docs.cloud.google.com/static/contact-center/ccai-platform/docs/images/162c7fc05dcd92.png)
 
   1. Language and outbound number selection dictate which number will show when the caller answers the call. See [Multiple Outbound Numbers](https://docs.cloud.google.com/contact-center/ccai-platform/Call_Settings_and_Features/index.md#UUID-cb0a39b2-9150-011f-3ecb-44176d94c4a4) for details.
 
@@ -1656,13 +1674,13 @@ Below is an example Call Adapter with all options enabled.
 
   3. Dialpad icon opens the phone number input screen where you can enter or paste a phone number
 
-  4. Check the checkbox to use a number that is not associated with the selected account/contact. See "Use entered number to make call" option. _May not be present based on settings._
+  4. Select the checkbox to use a number that is not associated with the selected account or contact. See "Use entered number to make call" option. _May not be present based on settings._
 
-  5. When the **sync** button is clicked, information from the currently open tab is used to populate the Account ID and/or Case ID fields.
+  5. When the **sync** button is clicked, information from the open tab is used to populate the Account ID or Case ID fields.
 
-  6. Account ID field displays the primary lookup, based on Admin settings in **Settings > DeveloperSettings > Account Lookup > Lookup object**. Further described above in Labels.
+  6. Account ID field displays the primary lookup, based on Admin settings in **Settings > DeveloperSettings > Account Lookup > Lookup object**. Further described earlier in Labels.
 
-  7. Case ID field displays the selected record type, based on Admin settings in **Settings** > **DeveloperSettings** > **Account Lookup** | **Lookup object.** Further described above in Labels _May not be present based on settings._
+  7. Case ID field displays the selected record type, based on Admin settings in **Settings** > **DeveloperSettings** > **Account Lookup** | **Lookup object.** Further described earlier in Labels. _May not be present based on settings._
 
   8. Once Account and Case ID are selected, **Call** places the outbound call.
 
@@ -1677,13 +1695,13 @@ The Agent Adapter will display different options and different views based on yo
 
 ##### Admin Portal settings that can impact the Agent experience
 
-  * Do not append call or chat session to any existing open ticket
+  * Don't append call or chat session to any existing open ticket
 
   * Prompt agents to select open case from list (when applicable)
 
   * Allow agent to select "Create a new case" option for outbound calls
 
-  * Allow agent to select "Do not create a case" option for outbound calls
+  * Allow agent to select "Don't create a case" option for outbound calls
 
   * Allow "Use entered number to make call" option
 
@@ -1715,7 +1733,11 @@ The Agent Adapter will display different options and different views based on yo
 
 ### Placing an outbound call
 
+Agents can place outbound calls from within Salesforce.
+
 #### Dialed outbound call
+
+Agents can dial an outbound call directly using the dialpad.
 
 #### Placing a call by syncing with the current page in Salesforce
 
@@ -1727,9 +1749,9 @@ The Agent Adapter will display different options and different views based on yo
 
 Be aware of the 3 things impact the adapter screen you will see after syncing
 
-Your environment settings: select from open cases option enabled/disabled, create a new case option enabled/disabled, do not create a case option enabled/disabled
+Your environment settings: select from open cases option enabled or disabled, create a new case option enabled or disabled, don't create a case option enabled or disabled
 
-![](https://docs.cloud.google.com/static/contact-center/ccai-platform/docs/images/162c7fc05e23c8.png)
+![Call adapter options after syncing](https://docs.cloud.google.com/static/contact-center/ccai-platform/docs/images/162c7fc05e23c8.png)
 
 Number of contacts with the same phone number
 
@@ -1771,9 +1793,11 @@ A specific account might have multiple locations or contacts, and not all phone 
 
 ## API Direct Access Point - Salesforce REST API
 
-The API Direct Access Point(DAP) allows for routing logic to be implemented directly from an API source. Salesforce provides APEX REST class to fetch their data which CCAI Platform can use to direct callers using that API for Direct Access Points (DAP). Unlike other DAP options, AND logic can be used with multiple key/value pairs.
+The API Direct Access Point (DAP) allows for routing logic to be implemented directly from an API source. Salesforce provides APEX REST class to fetch their data which CCAI Platform can use to direct callers using that API for Direct Access Points (DAP). Unlike other DAP options, AND logic can be used with multiple key-value pairs.
 
-### Salesforce admin configuration
+### Salesforce administrator configuration
+
+Configure the APEX REST class and security settings in Salesforce.
 
 #### Prepare APEX REST class on Salesforce
 
@@ -1781,18 +1805,18 @@ The API Direct Access Point(DAP) allows for routing logic to be implemented dire
 
   2. Select Custom Code > **Apex Classes** > **New**.
 
-![](https://docs.cloud.google.com/static/contact-center/ccai-platform/docs/images/162c7fc05e7a28.png)
+![Create a new Apex class in Salesforce](https://docs.cloud.google.com/static/contact-center/ccai-platform/docs/images/162c7fc05e7a28.png)
 
 
 
 
 #### Create an APEX REST class
 
-Although your code will be different, please see the below example:
+Although your code will be different, see the following example:
     
     
     @RestResource(urlmapping = '/searchVIP')
-    global class UjetVIPSearch {
+    global class UJETVIPSearch {
         @httpPOST
         global static void searchVIP(){
             RestRequest req = RestContext.request;
@@ -1834,7 +1858,7 @@ Since the Apex REST class will be accessed by the agent's OAuth token, you will 
 
   1. Once the APEX Rest class is created, click **Security** to edit.
 
-![](https://docs.cloud.google.com/static/contact-center/ccai-platform/docs/images/162c7fc0613159.png)
+![Apex class security setting](https://docs.cloud.google.com/static/contact-center/ccai-platform/docs/images/162c7fc0613159.png)
 
   2. Select all agent profiles.
 
@@ -1842,7 +1866,7 @@ Since the Apex REST class will be accessed by the agent's OAuth token, you will 
 
   4. Click the **Save** button.
 
-![](https://docs.cloud.google.com/static/contact-center/ccai-platform/docs/images/162c7fc06189e0.png)
+![Enabled Profiles in Salesforce](https://docs.cloud.google.com/static/contact-center/ccai-platform/docs/images/162c7fc06189e0.png)
 
 
 
@@ -1871,6 +1895,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-05 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-05 UTC."],[],[]] 

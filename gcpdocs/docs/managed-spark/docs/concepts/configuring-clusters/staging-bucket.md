@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/managed-spark/docs/concepts/configuring-clusters/staging-bucket/
 title: Managed Service for Apache Spark staging and temp buckets \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T21:58:06.738469+00:00
+fetched_at: 2026-11-06T05:53:31.607830+00:00
 ---
 
 # Managed Service for Apache Spark staging and temp buckets  |  Google Cloud Documentation
@@ -87,7 +87,7 @@ You can use the `gcloud` command line tool, Dataproc API, or Google Cloud consol
 
 ### Google Cloud console
 
-  * You can view cluster details, which includes the name of the cluster staging bucket, on the [Clusters](https://console.cloud.google.com/project/_/managed-spark/clusters) page in the Google Cloud console.
+  * You can view cluster details, which includes the name of the cluster staging bucket, on the [Clusters](https://console.cloud.google.com/dataproc/clusters) page in the Google Cloud console.
   * On the Google Cloud console **[Cloud Storage Browser](https://console.cloud.google.com/storage/browser)** page, filter results that contain "dataproc-temp-".
 
 
@@ -146,6 +146,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-06 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-06 UTC."],[],[]] 

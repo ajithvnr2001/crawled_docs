@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/managed-spark/docs/concepts/service-accounts-serverless/
 title: Managed Service for Apache Spark service accounts \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T21:56:23.561514+00:00
+fetched_at: 2026-11-06T05:54:22.782454+00:00
 ---
 
 # Managed Service for Apache Spark service accounts  |  Google Cloud Documentation
@@ -46,7 +46,7 @@ To view and manage roles granted to the batch workload or session service accoun
 
   1. In the Google Cloud console, go to the **IAM** page.
 
-[Go to Identity and Access Management (IAM)](https://console.cloud.google.com/dataproc/interactive)'
+[Go to Identity and Access Management (IAM)](https://console.cloud.google.com/iam-admin/iam)
 
   2. Click **Include Google-provided role grants**.
 
@@ -203,7 +203,7 @@ To troubleshoot this issue, verify your service account has the following minimu
 
 To verify and update service account permissions:
 
-  1. Go to the [**IAM & Admin** > **IAM**](https://console.cloud.google.com/am-admin/iam) page in the Google Cloud console.
+  1. Go to the [**IAM & Admin** > **IAM**](https://console.cloud.google.com/iam-admin/iam) page in the Google Cloud console.
   2. Locate the service account used for your batch workloads or sessions.
   3. Verify the necessary roles are assigned. If not, add them.
 
@@ -215,6 +215,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-06 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-06 UTC."],[],[]] 

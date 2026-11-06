@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/composer/docs/composer-3/run-local-airflow-environments/
 title: Run a local Airflow environment with Composer Local Development CLI tool \u00a0|\u00a0 Managed Service for Apache Airflow \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T22:59:20.415675+00:00
+fetched_at: 2026-11-06T05:52:25.302099+00:00
 ---
 
 # Run a local Airflow environment with Composer Local Development CLI tool  |  Managed Service for Apache Airflow  |  Google Cloud Documentation

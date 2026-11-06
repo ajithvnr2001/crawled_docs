@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/managed-spark/docs/tutorials/spark-scala/
 title: Write and run Spark Scala jobs on Managed Service for Apache Spark \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T20:45:22.161597+00:00
+fetched_at: 2026-11-06T05:53:29.612839+00:00
 ---
 
 # Write and run Spark Scala jobs on Managed Service for Apache Spark  |  Google Cloud Documentation
@@ -202,11 +202,15 @@ When passing bucket names to the Google Cloud CLI, make sure to only specify the
 
   1. Use the [Google Cloud console](https://console.cloud.google.com/dataproc/jobs/jobsSubmit) to submit the jar file to your Managed Service for Apache Spark job. Fill in the fields on the **Submit a job** page as follows:
 
-     * _Cluster_ : Select your cluster's name from the cluster list
-     * _Job type_ : Spark
-     * _Main class or jar_ : Specify the Cloud Storage URI path to your HelloWorld jar (`gs://your-bucket-name/HelloWorld.jar`).
+     * _Select compute type for job_ : **Spark on Compute Engine**
+     * _Cluster job details_ : 
+       * _Cluster_ : Select your cluster's name from the cluster list
+     * _Files and artifacts_ :
 
-If your jar does not include a manifest that specifies the entry point to your code ("Main-Class: HelloWorld"), the "Main class or jar" field should state the name of your Main class ("HelloWorld"), and you should fill in the "Jar files" field with the URI path to your jar file (`gs://your-bucket-name/HelloWorld.jar`).
+       * _Job type_ : **Spark (Scala / Java)**
+       * _Driver configuration_ : Select **Main jar URI** , and in the **Main jar** field, specify the Cloud Storage URI path to your HelloWorld jar (`gs://your-bucket-name/HelloWorld.jar`).
+
+If your jar does not include a manifest that specifies the entry point to your code ("Main-Class: HelloWorld"), select **Main class** under **Driver configuration** , enter the name of your main class ("HelloWorld") in the **Main class** field, and fill in the **Jar files** field with the URI path to your jar file (`gs://your-bucket-name/HelloWorld.jar`).
 
   2. Click **Submit** to start the job. Once the job starts, it is added to the Jobs list.
 
@@ -362,6 +366,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-06 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-06 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/contact-center/ccai-platform/docs/call-recording/
 title: Call recording \u00a0|\u00a0 Google Cloud Contact Center as a Service \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T23:27:38.242623+00:00
+fetched_at: 2026-11-06T05:52:45.243460+00:00
 ---
 
 # Call recording  |  Google Cloud Contact Center as a Service  |  Google Cloud Documentation

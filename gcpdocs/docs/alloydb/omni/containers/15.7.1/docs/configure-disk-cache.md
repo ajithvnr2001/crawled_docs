@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/omni/containers/15.7.1/docs/configure-disk-cache/
 title: Accelerate database performance using disk cache \u00a0|\u00a0 AlloyDB Omni for containers: 15.7.1 \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T09:45:53.813543+00:00
+fetched_at: 2026-11-06T05:53:21.888337+00:00
 ---
 
 # Accelerate database performance using disk cache  |  AlloyDB Omni for containers: 15.7.1  |  Google Cloud Documentation
@@ -67,8 +67,8 @@ The following steps demonstrate using `lvm` and `ext4` on a Ubuntu Compute Engin
 
   1. Create a volume group from all available physical devices:
          
-         nvme_prefix="STORAGE_PREFIX"
-           nvme_list=$(ls "$nvme_prefix"*)
+         nvme_prefix=&quot;STORAGE_PREFIX"
+           nvme_list=$(ls "$nvme_prefix";*)
            sudo vgcreate VOLUME_GROUP ${nvme_list}
 
 Replace the following:
@@ -177,7 +177,7 @@ To enable AlloyDB Omni disk cache for your database, set the appropriate Grand U
   2. To set the value of the parameters, use the following commands inside the AlloyDB Omni database:
          
          alter system set omni_disk_cache_enabled=on;
-                 alter system set omni_disk_cache_directory='/CACHE_DIRECTORY_PATH_INSIDE_CONTAINER';
+                 alter system set omni_disk_cache_directory=&#39;/CACHE_DIRECTORY_PATH_INSIDE_CONTAINER';
                
 
   3. By default, AlloyDB Omni uses all available space in the file system. You can override the default value using the `omni_disk_cache_file_size` parameter if needed.

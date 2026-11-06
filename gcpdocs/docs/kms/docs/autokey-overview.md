@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/kms/docs/autokey-overview/
 title: Autokey overview \u00a0|\u00a0 Cloud Key Management Service \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-30T09:01:46.118806+00:00
+fetched_at: 2026-11-06T05:49:54.039155+00:00
 ---
 
 # Autokey overview  |  Cloud Key Management Service  |  Google Cloud Documentation
@@ -230,6 +230,11 @@ Datastream |
   * `datastream.googleapis.com/Stream`
 
 Integration between Datastream and Cloud KMS Autokey is available only for resources that are created by using Terraform or the REST API. | One key per resource  
+Document AI | 
+
+  * `documentai.googleapis.com/Processor`
+
+The key that protects a processor must be in the same location as the processor, except for multi-regions: `us-central1` for the `us` multi-region, and `europe-west4` for the `eu` multi-region. For a multi-region processor, create the key handle in the corresponding region. | One key per resource  
 Managed Service for Apache Airflow | 
 
   * `composer.googleapis.com/Environment`
@@ -305,6 +310,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-27 UTC.
+Last updated 2026-11-06 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-06 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/managed-spark/docs/quickstarts/spark-batch/
 title: Submit an Apache Spark batch workload \u00a0|\u00a0 Managed Service for Apache Spark \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T20:45:18.130027+00:00
+fetched_at: 2026-11-06T05:53:29.294641+00:00
 ---
 
 # Submit an Apache Spark batch workload  |  Managed Service for Apache Spark  |  Google Cloud Documentation
@@ -104,33 +104,39 @@ You can use the Google Cloud console, the Google Cloud CLI, or the REST API to c
 
 ### Console
 
-  1. In the Google Cloud console, [go to Managed Service for Apache Spark Batches](https://console.cloud.google.com/dataproc/batches).
+  1. In the Google Cloud console, go to the Managed Service for Apache Spark **Jobs** page.
 
-  2. Click **Create**.
+[Go to Managed Service for Apache Spark Jobs](https://console.cloud.google.com/dataproc/jobs)
+
+  2. Click **Submit job** to open the **Submit a job** page.
 
   3. Submit a Spark batch workload that computes the approximate value of pi by selecting and filling in the following fields:
 
-     * **Batch Info:**
-       * **Batch ID** : Specify an ID for your batch workload. This value must be 4-63 lowercase characters. Valid characters are `/[a-z][0-9]-/`.
-       * **Region** : Select a [region](https://docs.cloud.google.com/compute/docs/regions-zones#available) where your workload will run.
-     * **Container:**
-       * **Batch type** : Spark.
-       * **Runtime version** : Confirm or select the `3.0` runtime version.
+     * **Select compute type for job:** Select **Serverless Spark**.
+     * **Serverless job details:**
+       * **Job ID** : Specify an ID for your batch workload (or accept the default ID). This value must be 4 to 63 lowercase characters, start and end with a lowercase letter or number, and contain only lowercase letters, numbers, and hyphens (`/[a-z0-9-]/`).
+       * **Runtime profile** : Select a [region](https://docs.cloud.google.com/compute/docs/regions-zones#available) in the **Regions** list and select **Default service configuration** (or a saved runtime profile) in the **Runtime profiles** list.
+       * **Configure runtime profile (optional)** : In the **Summary** card, click **Configure** (or click **Create new profile** in the **Runtime profile** menu) to open the runtime profile configuration panel, where you can customize the following settings and then click **Use configuration** (or **Save new profile**): 
+         * **Tier** and **Executor configuration** : Select the compute tier (**Premium** or **Standard**) and executor shape.
+         * **Additional configuration** : 
+           * **Runtime configuration** : Click **Edit** to confirm or select the `3.0` **Spark runtime version** , or to specify a custom Spark image, Cloud Storage staging bucket, or Python package repository.
+           * **Metastore configuration** : Click **Edit** to configure the workload to use a Lakehouse catalog or an external [self-managed **Dataproc Metastore**](https://docs.cloud.google.com/dataproc-metastore/docs/attach-dataproc).
+           * **Network and security** : Click **Edit** to select **Service Account** (by default, the workload runs using the [Compute Engine default service account](https://docs.cloud.google.com/managed-spark/docs/concepts/service-account), or you can specify a custom service account with the [Dataproc Worker role](https://docs.cloud.google.com/managed-spark/docs/concepts/service-account#required-dataproc-worker-role)) and select a **Subnetwork** in the workload region (Managed Service for Apache Spark enables [Private Google Access (PGA)](https://docs.cloud.google.com/vpc/docs/private-google-access) on the specified subnet; see [Managed Service for Apache Spark network configuration](https://docs.cloud.google.com/managed-spark/docs/concepts/network#open_subnet_connectivity)).
+     * **Files and artifacts:**
+       * **Job type** : Select **Spark (Scala / Java)**.
+       * **Driver configuration** : Select **Main class**.
        * **Main class** : 
              
              org.apache.spark.examples.SparkPi
 
-       * **Jar files** (this file is pre-installed in the Managed Service for Apache Spark execution environment). 
+       * **Arguments** : Enter `1000` and press `Enter`.
+       * **Jar files** (this file is pre-installed in the Managed Service for Apache Spark execution environment): 
              
              file:///usr/lib/spark/examples/jars/spark-examples.jar
 
-       * **Arguments** : 1000.
-     * **Execution Configuration:** Select **Service Account**. By default, the batch will run using the [Compute Engine default service account](https://docs.cloud.google.com/managed-spark/docs/concepts/service-account). You can specify a custom service account. The default or custom service account must have the [Dataproc Worker role](https://docs.cloud.google.com/managed-spark/docs/concepts/service-account#required-dataproc-worker-role).
-     * **Network configuration:** Select a **subnetwork** in the session region. Managed Service for Apache Spark enables [Private Google Access (PGA)](https://docs.cloud.google.com/vpc/docs/private-google-access) on the specified subnet. For network connectivity requirements, see [Managed Service for Apache Spark network configuration](https://docs.cloud.google.com/managed-spark/docs/concepts/network#open_subnet_connectivity).
-     * **Properties:** Enter the `Key` (property name) and `Value` of [supported Spark properties](https://docs.cloud.google.com/managed-spark/docs/concepts/properties) to set on your Spark batch workload. Note: Unlike Managed Service for Apache Spark [cluster properties](https://docs.cloud.google.com/managed-spark/docs/concepts/configuring-clusters/cluster-properties), Managed Service for Apache Spark workload properties don't include a `spark:` prefix.
-     * **Other options:**
-       * You can configure the batch workload to use an external [self-managed **Hive Metastore**](https://docs.cloud.google.com/dataproc-metastore/docs/attach-dataproc).
-       * You can use a [Persistent History Server (PHS)](https://docs.cloud.google.com/managed-spark/docs/concepts/jobs/history-server). The PHS must be located in the region where you run batch workloads.
+     * **Job execution and properties:**
+       * **Spark properties** : Click **Add property** to enter the **Key** (property name) and **Value** of [supported Spark properties](https://docs.cloud.google.com/managed-spark/docs/concepts/properties) to set on your Spark batch workload. Note: Unlike Managed Service for Apache Spark [cluster properties](https://docs.cloud.google.com/managed-spark/docs/concepts/configuring-clusters/cluster-properties), Managed Service for Apache Spark workload properties don't include a `spark:` prefix.
+       * **Labels** : Optional: Click **Add label** to attach **Key** and **Value** label pairs to the workload.
   4. Click **Submit** to run the Spark batch workload.
 
 
@@ -337,6 +343,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-06 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-06 UTC."],[],[]] 

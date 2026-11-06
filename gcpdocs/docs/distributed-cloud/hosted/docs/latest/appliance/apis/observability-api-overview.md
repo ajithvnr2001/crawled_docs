@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/appliance/apis/observability-api-overview/
 title: Observability API overview \u00a0|\u00a0 Google Distributed Cloud Hosted Appliance \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T17:05:14.213554+00:00
+fetched_at: 2026-11-06T05:49:56.168459+00:00
 ---
 
 # Observability API overview  |  Google Distributed Cloud Hosted Appliance  |  Google Cloud Documentation
@@ -24,11 +24,9 @@ Send feedback
 
 #  Observability API overview Stay organized with collections  Save and categorize content based on your preferences. 
 
-The Observability API uses Kubernetes custom resources and relies on the Kubernetes Resource Model (KRM) for provisioning and managing logging and monitoring resources.
+The Observability API in Google Distributed Cloud (GDC) air-gapped appliance lets you manage the lifecycle of observability services, including installation, upgrades, and uninstallation, across an organization or custom project. The API uses Kubernetes custom resources and relies on the Kubernetes Resource Model (KRM) to provision and manage logging and monitoring resources.
 
-Use the Observability API to manage the lifecycle of Observability services in a given organization or custom project. The lifecycle of Observability services includes operations such as install, upgrade, and uninstall. You must deploy a custom resource to your project according to the Observability service you want to manage.
-
-Many Observability services are available automatically for a provisioned project, for example, logging, monitoring, and alerting.
+Many observability services, such as logging, monitoring, and alerting, are available automatically for a provisioned project. To manage specific services, deploy a custom resource to your project according to the observability service you want to configure.
 
 ## Service endpoint
 
@@ -249,6 +247,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-05 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-05 UTC."],[],[]] 

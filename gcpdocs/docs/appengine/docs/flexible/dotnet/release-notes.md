@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/appengine/docs/flexible/dotnet/release-notes/
 title: App Engine flexible environment for .NET release notes \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T01:48:28.993560+00:00
+fetched_at: 2026-11-06T05:52:54.796991+00:00
 ---
 
 # App Engine flexible environment for .NET release notes  |  Google Cloud Documentation
@@ -83,77 +83,11 @@ Feature
 
 Support for [.NET 10 runtime](https://docs.cloud.google.com/appengine/docs/flexible/dotnet/runtime) is in [Preview](https://cloud.google.com/products/#product-launch-stages).
 
-## October 20, 2025
-
-Feature
-
-[Support for TLS version 1.2 and later](https://docs.cloud.google.com/appengine/docs/flexible/secure-minimum-tls), along with a corresponding secure set of cipher suites, is in General Availability (GA).
-
-## August 07, 2025
-
-Feature
-
-To increase security, starting in March 2025, support for Transport Layer Security (TLS) version 1.1 and earlier is deprecated. [Update your application settings](https://docs.cloud.google.com/appengine/docs/flexible/secure-minimum-tls) in the App Engine flexible environment to use TLS version 1.2 and later, along with a corresponding secure set of cipher suites (Preview).
-
-## March 18, 2025
-
-Announcement
-
-Container Registry is now [shut down](https://docs.cloud.google.com/artifact-registry/docs/transition/prepare-gcr-shutdown). We recommend that you use [Artifact Registry](https://docs.cloud.google.com/artifact-registry/docs/overview) for storing and managing container images. By default, new deployments created after March 5, 2025, use Artifact Registry instead of Container Registry for storing application build images. For more information, see [Migrate App Engine container images to Artifact Registry](https://docs.cloud.google.com/appengine/migration-center/migrate-to-artifact-registry).
-
-## November 12, 2024
-
-Announcement
-
-.NET 6 has reached [end of support](https://docs.cloud.google.com/appengine/docs/flexible/lifecycle/runtime-lifecycle#end_of_support). You cannot re-deploy versions that use runtimes [after their end of support date](https://docs.cloud.google.com/appengine/docs/flexible/lifecycle/support-schedule#net). We recommend that you upgrade your app to use the [latest version of .NET](https://docs.cloud.google.com/appengine/docs/flexible/dotnet/runtime#newversions).
-
-## July 30, 2024
-
-Feature
-
-In the App Engine page in the Google Cloud console, you can now filter your existing App Engine versions by [runtime lifecycle stages](https://docs.cloud.google.com/appengine/docs/flexible/lifecycle/runtime-lifecycle). After you apply this filter, the console displays a warning icon for App Engine versions that are approaching end of support, have reached end of support, are deprecated, and are decomissioned.
-
-## July 12, 2024
-
-Announcement
-
-Deployments for new projects might be impacted from the following changes to org policies:
-
-  * Starting in May 2024, Google Cloud enforces [secure-by-default organization policies](https://resource-manager/docs/secure-by-default-organizations) for all organization resources. This policy prevents App Engine from granting the `Editor` role to the App Engine default services accounts by default.
-  * Starting in June 2024, Cloud Build has changed the default behavior for how Cloud Build uses service accounts in new projects. This change is detailed in [Cloud Build Service Account Change](https://docs.cloud.google.com/build/docs/cloud-build-service-account-updates). As a result of this change, new projects deploying versions for the first time may be using the default App Engine service account with [insufficient permissions](https://docs.cloud.google.com/resource-manager/docs/organization-policy/restricting-service-accounts#disable_service_account_default_grants%22) for deploying versions. 
-
-
-
-If you are impacted by this change, you can do the following:
-
-  * Review the Cloud Build guidance on changes to the default service account and [opt out of these changes](https://docs.cloud.google.com/build/docs/cloud-build-service-account-updates#what_do_you_need_to_do).
-  * Grant the [Editor](https://docs.cloud.google.com/appengine/docs/flexible/roles) role to the App Engine default service account.
-
-
-
-## July 10, 2024
-
-Announcement
-
-.NET version 3 and earlier have reached [end of support](https://docs.cloud.google.com/appengine/docs/flexible/lifecycle/runtime-lifecycle#end_of_support). You cannot re-deploy versions that use runtimes [after their end of support date](https://docs.cloud.google.com/appengine/docs/flexible/lifecycle/support-schedule#net). We recommend that you upgrade your app to use the [latest version of .NET](https://docs.cloud.google.com/appengine/docs/flexible/dotnet/runtime#newversions).
-
 ## January 10, 2024
 
 Feature
 
 [.NET 8](https://docs.cloud.google.com/appengine/docs/flexible/dotnet/runtime) is now [generally available](https://cloud.google.com/products/#product-launch-stages).
-
-## December 21, 2023
-
-Change
-
-A warning message now appears before you publish a container image to a public repository.
-
-## December 06, 2023
-
-Feature
-
-[.NET 8](https://docs.cloud.google.com/appengine/docs/flexible/dotnet/runtime) is now available in [preview](https://cloud.google.com/products/#product-launch-stages).
 
 ## August 07, 2023
 
@@ -202,123 +136,6 @@ You can now disable external ephemeral IP addresses for App Engine Flex services
 Feature
 
 Specifying a [user-managed service account](https://docs.cloud.google.com/appengine/docs/flexible/dotnet/user-managed-service-accounts) for each App Engine version during deployment is now [generally available](https://cloud.google.com/products/#general-availability).
-
-## July 19, 2021
-
-Feature
-
-Specifying a [user-managed service account](https://docs.cloud.google.com/appengine/docs/flexible/dotnet/user-managed-service-accounts) for each App Engine version during deployment is now available in preview. This feature lets you grant different privileges to each version, based on the specific tasks it performs, and avoid granting more privileges than necessary.
-
-## June 30, 2021
-
-Change
-
-Requests from internal services to the App Engine flexible environment no longer originate from `10.0.0.1`. The IP ranges are as follows:
-
-  * Cron requests from newly created or updated App Engine Cron jobs sent to the App Engine flexible environment now come from `0.1.0.2`. For Cron jobs created with older gcloud versions (earlier than 326.0.0), Cron requests will come from `0.1.0.1`. Previously, these requests only came from both `0.1.0.1` and `10.0.0.1`.
-  * For other Cloud Scheduler jobs and Cloud Tasks queues (including App Engine Task Queues), requests sent to the App Engine flexible environment now only come from `0.1.0.2`. Previously, these requests came from both `0.1.0.2` and `10.0.0.1`.
-  * For URL Fetch, requests sent to the App Engine flexible environment now only come from `0.1.0.40`. Previously, these requests came from both `0.1.0.40` and `10.0.0.1`.
-
-
-
-For more information, see [Understanding the App Engine firewall](https://docs.cloud.google.com/appengine/docs/flexible/dotnet/understanding-firewalls).
-
-## June 14, 2021
-
-Feature
-
-App Engine is now available in the `us-west1` (Oregon), `asia-southeast1` (Singapore), and `asia-east1` (Taiwan) regions.
-
-## April 13, 2021
-
-Feature
-
-App Engine is now available in the `europe-central2` region (Warsaw).
-
-## November 12, 2020
-
-Change
-
-You can use [network ingress controls](https://docs.cloud.google.com/appengine/docs/flexible/dotnet/application-security#ingress_controls) so your app only receives requests that are sent from your project's VPC or that are routed through the Cloud Load Balancing load balancer. This feature is now generally available.
-
-## September 25, 2020
-
-Feature
-
-You can use [network ingress controls](https://docs.cloud.google.com/appengine/docs/flexible/dotnet/application-security#ingress_controls) so your app only receives requests that are sent from your project's VPC or that are routed through the Cloud Load Balancing load balancer.
-
-## July 08, 2020
-
-Feature
-
-External HTTP(S) Load Balancing is now supported for App Engine via [Serverless network endpoint groups](https://load-balancing/docs/negs/setting-up-serverless-negs). Notably, this feature allows you to use [Cloud CDN](https://docs.cloud.google.com/cdn) with App Engine.  
-This feature is available in Beta.
-
-## June 08, 2020
-
-Feature
-
-App Engine is now available in the `asia-southeast2` region (Jakarta).
-
-## May 14, 2020
-
-Feature
-
-To get a fine-grained view of billing data for each resource used by your App Engine services, you can apply labels to the services, export your billing data to BigQuery, and run queries. For more information, see [Labeling App Engine resources](https://docs.cloud.google.com/appengine/docs/flexible/dotnet/labeling-resources).
-
-## April 20, 2020
-
-Feature
-
-App Engine is now available in the `us-west4` region (Las Vegas, NV)
-
-## April 13, 2020
-
-Change
-
-Quotas for sockets have been removed. There is no longer a limit on the number of socket connections or the amount of data you can send and receive through a socket.
-
-## March 13, 2020
-
-Feature
-
-App Engine is now available in the `asia-northeast3` region (Seoul).
-
-## March 06, 2020
-
-Feature
-
-App Engine is now available in the `us-west3 region` (Salt Lake City, Utah).
-
-## February 11, 2020
-
-Feature
-
-App Engine is changing the URLs that you use to send requests to your apps. URLs now [include a region ID](https://docs.cloud.google.com/appengine/docs/flexible/dotnet/how-requests-are-routed#region-id) to help Google route your requests more efficiently and reliably. For example, an app can receive requests at `https://PROJECT_ID.REGION_ID.r.appspot.com`. This new URL is optional for existing apps and is provided for all new apps.
-
-To ensure a smooth transition, we are slowly updating App Engine to use region IDs. If we haven't updated your Google Cloud project yet, you won't see a region ID for your app. Since the ID is optional for existing apps, you don't need to update URLs or make other changes once the region ID is available for your existing apps.
-
-## April 18, 2019
-
-Feature
-
-  * App Engine is now available in the `asia-northeast2` region (Osaka, Japan).
-
-
-
-## April 15, 2019
-
-Feature
-
-  * App Engine is now available in the `europe-west6` region (Zürich, Switzerland).
-
-
-
-## April 09, 2019
-
-Feature
-
-[Cloud Tasks](https://docs.cloud.google.com/tasks/docs) is now GA and can be used to set up tasks to be performed asychronously, outside of user requests.
 
 ## March 04, 2019
 

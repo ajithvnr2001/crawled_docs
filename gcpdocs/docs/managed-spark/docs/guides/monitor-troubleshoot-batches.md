@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/managed-spark/docs/guides/monitor-troubleshoot-batches/
 title: Monitor and troubleshoot batch workloads \u00a0|\u00a0 Managed Service for Apache Spark \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T21:56:33.346854+00:00
+fetched_at: 2026-11-06T05:53:32.807052+00:00
 ---
 
 # Monitor and troubleshoot batch workloads  |  Managed Service for Apache Spark  |  Google Cloud Documentation
@@ -27,21 +27,21 @@ This document describes the tools and files you can use to monitor and troublesh
 
 ## Troubleshoot workloads from the Google Cloud console
 
-When a batch job fails or has poor performance, a recommended first step is to open to its **Batch details** page from the [**Batches**](https://console.cloud.google.com/dataproc/batches) page in the Google Cloud console.
+When a batch job fails or has poor performance, a recommended first step is to open its **Job details** (**Batch details**) page by clicking the batch **Job ID** on the **Serverless Spark** tab of the [**Jobs**](https://console.cloud.google.com/dataproc/jobs) page in the Google Cloud console.
 
 ### Use the Summary tab: your troubleshooting Hub
 
-The **Summary** tab, which is selected by default when the **Batch details** page opens, displays critical metrics and filtered logs to help you make a quick initial assessment of batch health. After this initial assessment, you can perform a deeper analysis using more specialized tools available from the **Batch details** page, such as the Spark UI, the [Logs Explorer](https://docs.cloud.google.com/logging/docs/view/logs-explorer-interface), and [Gemini Cloud Assist](https://docs.cloud.google.com/managed-spark/docs/guides/ai-investigations-with-gca).
+The **Summary** tab, which is selected by default when the batch **Job details** page opens, displays critical metrics and filtered logs to help you make a quick initial assessment of batch health. After this initial assessment, you can perform a deeper analysis using more specialized tools available from the batch **Job details** page, such as the Spark UI, the [Logs Explorer](https://docs.cloud.google.com/logging/docs/view/logs-explorer-interface), and [Gemini Cloud Assist](https://docs.cloud.google.com/managed-spark/docs/guides/ai-investigations-with-gca).
 
 ### Batch metric highlights
 
-The **Summary** tab on the **Batch details** page includes charts that display important batch workload metric values. The metric charts populate after the completes, and offer a visual indication of potential issues such as resource contention, data skew, or memory pressure.
+The **Summary** and **Monitoring** tabs on the batch **Job details** page include charts that display important batch workload metric values. The metric charts populate after the completes, and offer a visual indication of potential issues such as resource contention, data skew, or memory pressure.
 
 ![Batch metrics dashboard.](https://docs.cloud.google.com/static/managed-spark/docs/images/batch-metrics-highlights.png)
 
 **Metrics table**
 
-The following table lists the Spark workload metrics displayed on the **Batch details** page in the Google Cloud console, and describes how metric values can provide insight into workload status and performance.
+The following table lists the Spark workload metrics displayed on the batch **Job details** page in the Google Cloud console, and describes how metric values can provide insight into workload status and performance.
 
 Metric | What does it show?  
 ---|---  
@@ -59,11 +59,11 @@ Memory Used | This metric shows the percentage of VM memory in use. If the maste
   
 ### Job logs
 
-The **Batch details** page includes a **Job logs** section that lists warnings and errors filtered from the job (batch workload) logs. his feature allows for quick identification of critical issues without needing to manually parse through extensive log files. You can select a log **Severity** (for example, `Error`) from the drop-down menu and add a text **Filter** to narrow down the results. To perform a more in-depth analysis, click the **View in Logs Explorer** icon to open the selected batch logs in the [Logs Explorer](https://docs.cloud.google.com/logging/docs/view/logs-explorer-interface).
+The batch **Job details** page includes a **Job logs** tab (and log highlights) that lists warnings and errors filtered from the job (batch workload) logs. This feature allows for quick identification of critical issues without needing to manually parse through extensive log files. You can select a log **Severity** (for example, `Error`) from the drop-down menu and add a text **Filter** to narrow down the results. To perform a more in-depth analysis, click the **View in Logs Explorer** icon to open the selected batch logs in the [Logs Explorer](https://docs.cloud.google.com/logging/docs/view/logs-explorer-interface).
 
 ![View batch logs in Cloud Logging](https://docs.cloud.google.com/static/managed-spark/docs/images/view-batch-logs.png)View batch logs in Cloud Logging
 
-Example: **Logs Explorer** opens after choosing `Errors` from the Severity selector on the **Batch details** page in the Google Cloud console.
+Example: **Logs Explorer** opens after choosing `Errors` from the Severity selector on the batch **Job details** page in the Google Cloud console.
 
 ![Batch logs explorer.](https://docs.cloud.google.com/static/managed-spark/docs/images/batch-logs-explorer.png)
 
@@ -90,21 +90,21 @@ The following permissions are required to use the Spark UI feature with batch wo
 
 The Spark UI page is available in the Google Cloud console batch workloads.
 
-  1. Go to the **Managed Service for Apache Spark interactive sessions** page.
+  1. In the Google Cloud console, go to the Managed Service for Apache Spark **Jobs** page.
 
-[Go to Managed Service for Apache Spark Batches](https://console.cloud.google.com/managed-spark/batches)
+[Go to Managed Service for Apache Spark Jobs](https://console.cloud.google.com/dataproc/jobs)
 
-  2. Click a **Batch ID** to open the **Batch details** page.
+  2. Select the **Serverless Spark** tab, and click a batch **Job ID** to open its **Job details** page.
 
-  3. Click **View Spark UI** in the top menu.
-
-
+  3. Click **View in Spark UI** (next to **Spark application ID**) or **View Spark UI**.
 
 
-The **View Spark UI** button is disabled in the following cases:
+
+
+The **View in Spark UI** link is disabled in the following cases:
 
   * If a required permission isn't granted
-  * If you clear the **Enable Spark UI** checkbox on the **Batch details** page
+  * If the Spark UI isn't enabled on the batch **Job details** page
   * If you set the `spark.dataproc.appContext.enabled` property to `false` when you [submit a batch workload](https://docs.cloud.google.com/managed-spark/docs/quickstarts/spark-batch#submit_a_spark_batch_workload)
 
 
@@ -127,7 +127,7 @@ The Logs Explorer in the Google Cloud console provides a [query pane](https://do
        1. Under **All resources** , select the **Cloud Managed Service for Apache Spark Batch** resource.
 
 ![](https://docs.cloud.google.com/static/managed-spark/docs/images/select-batch-resource.png)
-          1. In the **Select resource** panel, select the batch **LOCATION** , then the **BATCH ID**. These batch parameters are listed on the Managed Service for Apache Spark [**Batches**](https://console.cloud.google.com/dataproc/batches) page in the Google Cloud console.
+          1. In the **Select resource** panel, select the batch **LOCATION** , then the **BATCH ID**. These batch parameters are listed on the **Serverless Spark** tab of the Managed Service for Apache Spark [**Jobs**](https://console.cloud.google.com/dataproc/jobs) page in the Google Cloud console.
 
 ![](https://docs.cloud.google.com/static/managed-spark/docs/images/other-batch-parameters.png)
           2. Click **Apply**.
@@ -145,7 +145,7 @@ The Logs Explorer in the Google Cloud console provides a [query pane](https://do
 
 Notes: 
           * **VM_NAME_PREFIX:** Use `gdpic-rm` for batch workloads that run on Managed Service for Apache Spark `3.0` and later runtime versions; use `gdpic-srvls-batch` for batch workloads that run on earlier runtime versions.
-          * **BATCH_UUID:** The batch UUID is listed in the Batch details page in the Google Cloud console, which opens when you click the Batch ID on the **Batches** page. ![](https://docs.cloud.google.com/static/managed-spark/docs/images/batch-uuid-example.png)
+          * **BATCH_UUID:** The batch **Job UUID** is listed on the batch **Job details** (**Batch details**) page in the Google Cloud console, which opens when you click the batch **Job ID** on the **Serverless Spark** tab of the **Jobs** page. ![](https://docs.cloud.google.com/static/managed-spark/docs/images/batch-uuid-example.png)
 
 The batch logs also list the batch UUID in the VM resource name. Here's an example from a batch driver.log:
 
@@ -237,7 +237,7 @@ For information on Managed Service for Apache Spark audit logs, see [Managed Ser
 
 ## Workload metrics
 
-Managed Service for Apache Spark provides batch and Spark metrics that you can view from the [**Metrics Explorer**](https://docs.cloud.google.com/monitoring/charts/metrics-selector) or the **Batch details** page in the Google Cloud console.
+Managed Service for Apache Spark provides batch and Spark metrics that you can view from the [**Metrics Explorer**](https://docs.cloud.google.com/monitoring/charts/metrics-selector) or the batch **Job details** page in the Google Cloud console.
 
 ### Batch metrics
 
@@ -297,15 +297,22 @@ To use a PHS with a batch workload, do the following:
 
 Perform the following steps to enable autotuning on each recurring Spark batch workload:
 
-  1. In the Google Cloud console, go to the Managed Service for Apache Spark **Batches** page.
+  1. In the Google Cloud console, go to the Managed Service for Apache Spark **Jobs** page.
 
-[Go to Managed Service for Apache Spark Batches](https://console.cloud.google.com/managed-spark/batches)
+[Go to Managed Service for Apache Spark Jobs](https://console.cloud.google.com/dataproc/jobs)
 
-  2. To create a batch workload, click **Create**.
+  2. To create a batch workload, click **Submit job** to open the **Submit a job** page.
 
-  3. In the **Container** section, fill in the **Cohort** name, which identifies the batch as one of a series of recurring workloads. Gemini-assisted analysis is applied to the second and subsequent workloads that are submitted with this cohort name. For example, specify `TPCH-Query1` as the cohort name for a scheduled workload that runs a daily TPC-H query.
+  3. Under **Select compute type for job** , confirm that **Serverless Spark** is selected.
 
-  4. Fill in other sections of the **Create batch** page as needed, then click **Submit**. For more information, see [Submit a batch workload](https://docs.cloud.google.com/managed-spark/docs/quickstarts/spark-batch#dataproc_serverless_create_batch_workload-console).
+  4. In the **Serverless job details** section:
+
+     1. Specify a **Job ID** or accept the default ID.
+     2. Select a **Runtime profile** (or keep **Default service configuration** for your region), and then click **Configure** in the **Summary** card (or click **Create new profile** in the **Runtime profile** menu) to open the runtime profile configuration panel.
+     3. In the runtime profile configuration panel, expand **Additional configuration** , and then click **Edit** next to **Other customizations**.
+     4. In the **Other customizations** panel, under **Autotuning** , click the **Enable** toggle and fill in the **Cohort ID** , which identifies the batch as one of a series of recurring workloads. Gemini-assisted analysis is applied to the second and subsequent workloads that are submitted with this cohort ID. For example, specify `tpch-query1` as the cohort ID for a scheduled workload that runs a daily TPC-H query.
+     5. Click **Save** in the **Other customizations** panel, and then click **Use configuration** (or **Save new profile**) in the runtime profile configuration panel.
+  5. Fill in the **Files and artifacts** and **Job execution and properties** sections on the **Submit a job** page as needed, and then click **Submit**. For more information, see [Submit a batch workload](https://docs.cloud.google.com/managed-spark/docs/quickstarts/spark-batch#dataproc_serverless_create_batch_workload-console).
 
 
 
@@ -345,6 +352,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-06 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-06 UTC."],[],[]] 

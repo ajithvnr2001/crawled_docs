@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/data-studio/area-chart-reference/
 title: Area chart reference \u00a0|\u00a0 Data Studio \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T22:43:55.990516+00:00
+fetched_at: 2026-11-06T05:50:01.288189+00:00
 ---
 
 # Area chart reference  |  Data Studio  |  Google Cloud Documentation

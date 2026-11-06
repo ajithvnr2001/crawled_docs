@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/dialogflow/cx/docs/concept/prebuilt-component/authentication-retail/
 title: Retail authentication prebuilt component \u00a0|\u00a0 Dialogflow CX \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T22:51:09.001996+00:00
+fetched_at: 2026-11-06T05:53:37.737814+00:00
 ---
 
 # Retail authentication prebuilt component  |  Dialogflow CX  |  Google Cloud Documentation
@@ -23,11 +23,11 @@ Send feedback
 
 #  Retail authentication prebuilt component Stay organized with collections  Save and categorize content based on your preferences. 
 
-The retail authentication [prebuilt component](https://docs.cloud.google.com/dialogflow/cx/docs/concept/prebuilt-component) collects information from the user to authenticate them to the required authentication level. This component covers authentication requirements which are common, but not exclusive, to the retail industry. This component uses the [Telephone number collection](https://docs.cloud.google.com/dialogflow/cx/docs/concept/prebuilt-component/telephone-number-collection) prebuilt component to collect and validate user details.
+The retail authentication [prebuilt component](https://docs.cloud.google.com/dialogflow/cx/docs/concept/prebuilt-component) collects information to authenticate your customer to the required authentication level. This prebuilt component covers authentication requirements that are common, but not exclusive to the retail industry. It uses the [Telephone number collection](https://docs.cloud.google.com/dialogflow/cx/docs/concept/prebuilt-component/telephone-number-collection) prebuilt component to collect and validate the customer's phone details.
 
 ## Authentication levels
 
-There are multiple levels of authentication required by different prebuilt components, with higher levels requiring more user information to authenticate the user. The retail authentication component allows users to authenticate to Level 0 (ANI Match) or Level 1 (Basic) as described in the Authentication Level table.
+Different prebuilt components require multiple levels of authentication, with higher levels requiring more user information. The retail authentication component lets the user authenticate to Level 0 (ANI Match) or Level 1 (Basic) as described in the following table.
 
 Authentication Level | Requirements  
 ---|---  
@@ -38,26 +38,26 @@ Level 1: Basic | User is authenticated by verifying a one-time password (OTP) co
   
 ## Supported user types
 
-The retail authentication component provides support for users with a registered phone number and email.
+The retail authentication component supports users with a registered phone number and email address.
 
 ## Limitations
 
 In addition to the [common prebuilt component limitations](https://docs.cloud.google.com/dialogflow/cx/docs/concept/prebuilt-component#limits), this prebuilt component has the following limitations:
 
-  * OTPs will only be sent to a mobile number or email address previously registered to the user. The component won't use OTP to authenticate customers calling from an alternate phone number that is not registered with their account. When a user calls from an alternate phone number, security questions will be used to authenticate the caller.
-  * This component does not encrypt any data.
+  * OTPs are sent only to a mobile number or email address previously registered to the customer. The component won't use OTP to authenticate customers calling from an alternate phone number that isn't registered with the account. When the user calls from an alternate phone number, the system uses security questions to authenticate them.
+  * This component doesn't encrypt any data.
 
 
 
 ## Sample dialogs
 
-The following sample dialogs demonstrate common scenarios handled by this prebuilt component. The sample dialogs demonstrate behavior when the component is called using telephony, which triggers the Default Welcome Intent and the first agent response at the start of the conversation.
+These sample dialogs show common scenarios handled by the prebuilt component. They show behavior when the component is called using telephony, which triggers the Default Welcome Intent and the first agent response at the start of the conversation.
 
 ### Level 0 authentication success: ANI match
 
-User calls from a phone number registered to an existing account, confirms their account, and is successfully authenticated to Level 0.
+The user calls from a phone number registered to an existing account, confirms their identity, and authenticates successfully to Level 0.
 
-User input | Agent response  
+User Input | Agent Response  
 ---|---  
 | Hello, the number you dialed is linked to John's account. Are you inquiring about another person's order? Please say yes if that's the case, else say no.  
 No |   
@@ -65,12 +65,14 @@ No |
   
 ### Level 1 authentication success: OTP
 
-User calls from an unrecognized phone number. The component collects the user's registered phone number, then sends and asks user to confirm an OTP sent to the channel of the user's choice. User is able to provide a valid OTP and is successfully authenticated to Level 1.
+  1. The user calls from an unrecognized phone number.
+  2. The component collects the user's registered phone number, then sends and asks the user to confirm an OTP sent to the channel of their choice.
+  3. The user provides a valid OTP and authenticates successfully to Level 1.
 
-User input | Agent response  
+User Input | Agent Response  
 ---|---  
 We couldn't find this phone number associated with us. Kindly provide us with the registered phone number. |   
-| _Agent collects telephone number using[Telephone number collection](https://docs.cloud.google.com/dialogflow/cx/docs/concept/prebuilt-component/telephone-number-collection) prebuilt component_  
+| _The agent collects telephone number using[Telephone number collection](https://docs.cloud.google.com/dialogflow/cx/docs/concept/prebuilt-component/telephone-number-collection) prebuilt component._  
 | Great, we are done collecting the telephone number.  
   
 For security purposes, we need to validate your identity, so we will send you a code. Do you prefer to receive the code by phone or by email?  
@@ -94,15 +96,15 @@ Webhook | prebuilt_components_[component_name]:[webhook_action] | prebuilt_compo
   
 ## Input parameters
 
-Input parameters are parameters that are used to configure certain behaviors of the component. The parameters will be used by one or more conditions within the flow to determine how the component should behave. Flow-scoped parameters must be set on the start page of the component as described below. Session-scoped parameters may be set either by a calling flow, or on the start page of this component.
+Input parameters configure component behavior. One or more conditions within the flow use the parameters to determine how the component behaves. The user must set flow-scoped parameters on the start page of this component. They can set session-scoped parameters either by a calling flow or on the start page of this component.
 
 This prebuilt component accepts the following input parameters:
 
 Parameter Name | Description | Input Format  
 ---|---|---  
-$session.params.auth_level_req | Defines the [authentication level](https://docs.cloud.google.com/dialogflow/cx/docs/concept/prebuilt-component/authentication-retail#authentication-levels) the end-user will be authenticated to. Valid values are `0` or `1`. | integer  
-$session.params.auth_level | (optional) Indicates the current [authentication level](https://docs.cloud.google.com/dialogflow/cx/docs/concept/prebuilt-component/authentication-retail#authentication-levels) of the end-user. | integer  
-$session.params.phone_number | (optional) End-user's phone number. If this parameter is not provided, the component will collect the phone number from the end-user. | string  
+$session.params.auth_level_req | Defines the [authentication level](https://docs.cloud.google.com/dialogflow/cx/docs/concept/prebuilt-component/authentication-retail#authentication-levels) the user will be authenticated to. Valid values are `0` or `1`. | integer  
+$session.params.auth_level | (optional) Indicates the current [authentication level](https://docs.cloud.google.com/dialogflow/cx/docs/concept/prebuilt-component/authentication-retail#authentication-levels) of the user. | integer  
+$session.params.phone_number | (optional) user's phone number. If this parameter is not provided, the component will collect the phone number from the user. | string  
 $flow.max_retry_phone_number | Specifies the number of retries allowed when collecting the user's telephone number. The default value is `3`. | integer  
 $flow.max_retry_otp | Specifies the number of retries allowed when collecting the One Time Password (OTP). The default value is `3`. | integer  
 $flow.max_retry_otp_not_received | Specifies the number of retries allowed when the One Time Password (OTP) is not received. The default value is `1`. | integer  
@@ -124,20 +126,22 @@ $flow.max_retry_otp_confirm_channel | Specifies the number of retries allowed wh
 
 ## Output parameters
 
-Output parameters are session parameters that will remain active after exiting the component. These parameters contain important information collected by the component. This prebuilt component provides values for the following output parameters:
+Output parameters are session parameters that remain active after the user exits the component. These parameters contain important information collected by the component.
+
+This prebuilt component provides values for the following output parameters:
 
 Parameter Name | Description | Output Format  
 ---|---|---  
-auth_level | Indicates the current [authentication level](https://docs.cloud.google.com/dialogflow/cx/docs/concept/prebuilt-component/authentication-retail#authentication-levels) of the end-user. | integer  
+auth_level | Indicates the current [authentication level](https://docs.cloud.google.com/dialogflow/cx/docs/concept/prebuilt-component/authentication-retail#authentication-levels) of the user. | integer  
 all_recent_order_id | This parameter lists order IDs associated with the authenticated user, sorted by the order placement date in descending order. The first element of the array represents the most recent order. If a user has no orders, the value of this parameter is `null`. | List (string)  
 phone_number | User's local phone number, without the country code, used to identify the user. | string  
 email | The email registered with the account. | string  
 user_first_name | User's first name, used to greet and confirm ownership of the account. | string  
 transfer_reason | This parameter indicates the reason the flow exited, if it was not successful. The returned value is one of:  
   
-`agent`: the end-user requested a human agent at some point during the conversation.  
+`agent`: the user requested a human agent at some point during the conversation.  
   
-`denial_of_information`: the end-user declined to share information requested by the component.  
+`denial_of_information`: the user declined to share information requested by the component.  
   
 `max_no_input`: the conversation reached the maximum number of retries for no-input events. See [no-input built-in events](https://docs.cloud.google.com/dialogflow/cx/docs/concept/handler#event-built-in).  
   
@@ -152,21 +156,21 @@ transfer_reason | This parameter indicates the reason the flow exited, if it was
 To set up this prebuilt component:
 
   1. [Import the prebuilt component](https://docs.cloud.google.com/dialogflow/cx/docs/concept/prebuilt-component#import).
-  2. Configure the provided [flexible webhooks](https://docs.cloud.google.com/dialogflow/cx/docs/concept/webhook#flexible) with configuration describing your external services, see Webhook setup below.
+  2. Configure the provided [flexible webhooks](https://docs.cloud.google.com/dialogflow/cx/docs/concept/webhook#flexible) with configuration describing your external services, see Webhook setup.
 
 
 
 ## Webhook setup
 
-In order to use this component, you will need to configure the included [flexible webhooks](https://docs.cloud.google.com/dialogflow/cx/docs/concept/webhook#flexible) to retrieve needed information from your external services.
+To use this component, the user must configure the included [flexible webhooks](https://docs.cloud.google.com/dialogflow/cx/docs/concept/webhook#flexible) to retrieve needed information from their external services.
 
 ### Verify user details
 
-The `prebuilt_components_retail_authentication:verify_user_details` webhook is used by the component to fetch user account details based on the provided telephone number.
+The `prebuilt_components_retail_authentication:verify_user_details` webhook fetches user account details based on the provided telephone number.
 
 #### API request parameters
 
-The following parameters are provided by the component as inputs to the API request.
+The component provides the following parameters as inputs to the API request:
 
 Parameter Name | Description | Input Format  
 ---|---|---  
@@ -174,7 +178,7 @@ $session.params.phone_number | User's local phone number, without the country co
   
 #### API response parameters
 
-The following parameters are pulled from the API response to be used by the component.
+The component pulls the following parameters from the API response:
 
 Parameter Name | Description | Output Format  
 ---|---|---  
@@ -200,11 +204,11 @@ user_first_name | User's first name, used to greet and confirm ownership of the 
 
 ### Send OTP
 
-The `prebuilt_components_retail_authentication:send_otp` webhook is used by the component to send a one-time password (OTP) to a registered channel selected by the end-user.
+The component uses the `prebuilt_components_retail_authentication:send_otp` webhook to send a one-time password (OTP) to a registered channel selected by the user.
 
 #### API request parameters
 
-The following parameters are provided by the component as inputs to the API request.
+The component provides the following parameters as inputs to the API request:
 
 Parameter Name | Description | Input Format  
 ---|---|---  
@@ -213,7 +217,7 @@ $flow.channel | The channel the user has selected to receive the OTP on. Valid v
   
 #### API response parameters
 
-The following parameters are pulled from the API response to be used by the component.
+The component pulls the following parameters from the API response:
 
 Parameter Name | Description | Output Format  
 ---|---|---  
@@ -237,7 +241,7 @@ generated_otp | The value of the OTP generated and sent to the user using the se
 
 ### Complete
 
-Your agent and its webhooks should now be set up and ready to test.
+This prebuilt component and its webhooks are now set up and ready to test.
 
 [ Previous arrow_back  Authentication  ](https://docs.cloud.google.com/dialogflow/cx/docs/concept/prebuilt-component/authentication)
 
@@ -247,6 +251,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-06 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-06 UTC."],[],[]] 

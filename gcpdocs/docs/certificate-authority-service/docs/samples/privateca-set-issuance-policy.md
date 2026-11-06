@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/certificate-authority-service/docs/samples/privateca-set-issuance-policy/
 title: Set/ Update Issuance Policy \u00a0|\u00a0 Certificate Authority Service \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T18:08:44.801415+00:00
+fetched_at: 2026-11-06T05:52:34.585303+00:00
 ---
 
 # Set/ Update Issuance Policy  |  Certificate Authority Service  |  Google Cloud Documentation
@@ -65,31 +65,31 @@ To authenticate to CA Service, set up Application Default Credentials. For more 
         /* Initialize client that will be used to send requests. This client only needs to be created
         once, and can be reused for multiple requests. After completing all of your requests, call
         the `certificateAuthorityServiceClient.close()` method on the client to safely
-        clean up any remaining background resources. */
-        try ([CertificateAuthorityServiceClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-security-private-ca/latest/com.google.cloud.security.privateca.v1.CertificateAuthorityServiceClient.html) certificateAuthorityServiceClient =
-            [CertificateAuthorityServiceClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-security-private-ca/latest/com.google.cloud.security.privateca.v1.CertificateAuthorityServiceClient.html).create()) {
+        clean up any remaining back[ground resources. */](https://docs.cloud.google.com/java/docs/reference/google-cloud-security-private-ca/latest/com.google.cloud.security.privateca.v1.CertificateAuthorityServiceClient.html)
+        try (CertificateAuthorityServiceClient certificateAut[horityServiceClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-security-private-ca/latest/com.google.cloud.security.privateca.v1.CertificateAuthorityServiceClient.html) =
+            CertificateAuthorityServiceClient.create()) {
     
           /* Set the updated issuance policy for the CA Pool.
           This particular issuance policy allows only SANs that
           have DNS Names as "us.google.org" or ending in ".google.com". */
           String expr =
-              "subject_alt_names.all(san, san.type == DNS && (san.value == \"dns.example.com\""
-                  + " || san.value.endsWith(\".example.com\")) )";
+        &&      "subject_alt_names.all(san, san.type == DNS  (san.value == \"dns.example.com\""
+    [      ](https://docs.cloud.google.com/java/docs/reference/google-cloud-security-private-ca/latest/com.google.cloud.security.privateca.v1.CaPool.html) [       + "](https://docs.cloud.google.com/java/docs/reference/google-cloud-security-private-ca/latest/com.google.cloud.security.privateca.v1.CaPool.IssuancePolicy.html); || san.value.endsWith(\&qu[ot;.example.co](https://docs.cloud.google.com/java/docs/reference/google-cloud-security-private-ca/latest/com.google.cloud.security.privateca.v1.CaPool.IssuancePolicy.html)m\")) )";
     
-          [CaPool](https://docs.cloud.google.com/java/docs/reference/google-cloud-security-private-ca/latest/com.google.cloud.security.privateca.v1.CaPool.html).[IssuancePolicy](https://docs.cloud.google.com/java/docs/reference/google-cloud-security-private-ca/latest/com.google.cloud.security.privateca.v1.CaPool.IssuancePolicy.html) issuancePolicy =
-              [IssuancePolicy](https://docs.cloud.google.com/java/docs/reference/google-cloud-security-private-ca/latest/com.google.cloud.security.privateca.v1.CaPool.IssuancePolicy.html).newBuilder()
-                  .setIdentityConstraints(
-                      [CertificateIdentityConstraints](https://docs.cloud.google.com/java/docs/reference/google-cloud-security-private-ca/latest/com.google.cloud.security.privateca.v1.CertificateIdentityConstraints.html).newBuilder()
-                          .[setAllowSubjectPassthrough](https://docs.cloud.google.com/java/docs/reference/google-cloud-security-private-ca/latest/com.google.cloud.security.privateca.v1.CertificateIdentityConstraints.Builder.html#com_google_cloud_security_privateca_v1_CertificateIdentityConstraints_Builder_setAllowSubjectPassthrough_boolean_)(true)
-                          .[setAllowSubjectAltNamesPassthrough](https://docs.cloud.google.com/java/docs/reference/google-cloud-security-private-ca/latest/com.google.cloud.security.privateca.v1.CertificateIdentityConstraints.Builder.html#com_google_cloud_security_privateca_v1_CertificateIdentityConstraints_Builder_setAllowSubjectAltNamesPassthrough_boolean_)(true)
-                          .[setCelExpression](https://docs.cloud.google.com/java/docs/reference/google-cloud-security-private-ca/latest/com.google.cloud.security.privateca.v1.CertificateIdentityConstraints.Builder.html#com_google_cloud_security_privateca_v1_CertificateIdentityConstraints_Builder_setCelExpression_com_google_type_Expr_)([Expr](https://docs.cloud.google.com/java/docs/reference/proto-google-common-protos/latest/com.google.type.Expr.html).newBuilder().[setExpression](https://docs.cloud.google.com/java/docs/reference/proto-google-common-protos/latest/com.google.type.Expr.Builder.html#com_google_type_Expr_Builder_setExpression_java_lang_String_)(expr).build())
-                          .build())
-                  .build();
+          CaPool.IssuancePolicy issuancePolicy =
+         [     ](https://docs.cloud.google.com/java/docs/reference/google-cloud-security-private-ca/latest/com.google.cloud.security.privateca.v1.CertificateIdentityConstraints.html)IssuancePolicy.newBuilder()
+                  .setIdentityConstrai[nts](https://docs.cloud.google.com/java/docs/reference/google-cloud-security-private-ca/latest/com.google.cloud.security.privateca.v1.CertificateIdentityConstraints.Builder.html#com_google_cloud_security_privateca_v1_CertificateIdentityConstraints_Builder_setAllowSubjectPassthrough_boolean_)(
+                      CertificateIdentityConstraints.ne[wBuilder](https://docs.cloud.google.com/java/docs/reference/google-cloud-security-private-ca/latest/com.google.cloud.security.privateca.v1.CertificateIdentityConstraints.Builder.html#com_google_cloud_security_privateca_v1_CertificateIdentityConstraints_Builder_setAllowSubjectAltNamesPassthrough_boolean_)()
+                          .setAllowSubjectPassthrough(tru[e](https://docs.cloud.google.com/java/docs/reference/google-cloud-security-private-ca/latest/com.google.cloud.security.privateca.v1.CertificateIdentityConstraints.Builder.html#com_google_cloud_security_privateca_v1_CertificateIdentityConstraints_Builder_setCelExpression_com_google_type_Expr_))
+                  [    ](https://docs.cloud.google.com/java/docs/reference/proto-google-common-protos/latest/com.google.type.Expr.html)    .setAllowS[ubjectAltName](https://docs.cloud.google.com/java/docs/reference/proto-google-common-protos/latest/com.google.type.Expr.Builder.html#com_google_type_Expr_Builder_setExpression_java_lang_String_)sPassthrough(true)
+                          .setCelExpression(Expr.newBuilder().se[tExpre](https://docs.cloud.google.com/java/docs/reference/google-cloud-security-private-ca/latest/com.google.cloud.security.privateca.v1.CaPool.html)ssion(expr).build())[
+         ](https://docs.cloud.google.com/java/docs/reference/google-cloud-security-private-ca/latest/com.google.cloud.security.privateca.v1.CaPool.html)                 .build())
+              [    ](https://docs.cloud.google.com/java/docs/reference/google-cloud-security-private-ca/latest/com.google.cloud.security.privateca.v1.CaPoolName.html).build();
     
-          [CaPool](https://docs.cloud.google.com/java/docs/reference/google-cloud-security-private-ca/latest/com.google.cloud.security.privateca.v1.CaPool.html) caPool =
-              [CaPool](https://docs.cloud.google.com/java/docs/reference/google-cloud-security-private-ca/latest/com.google.cloud.security.privateca.v1.CaPool.html).newBuilder()
-                  .setName([CaPoolName](https://docs.cloud.google.com/java/docs/reference/google-cloud-security-private-ca/latest/com.google.cloud.security.privateca.v1.CaPoolName.html).of(project, location, poolId).toString())
-                  .[setIssuancePolicy](https://docs.cloud.google.com/java/docs/reference/google-cloud-security-private-ca/latest/com.google.cloud.security.privateca.v1.CaPool.Builder.html#com_google_cloud_security_privateca_v1_CaPool_Builder_setIssuancePolicy_com_google_cloud_security_privateca_v1_CaPool_IssuancePolicy_)(issuancePolicy)
+          CaPool caPool =
+              CaPool.newBuilder()
+     [             ](https://docs.cloud.google.com/java/docs/reference/google-cloud-security-private-ca/latest/com.google.cloud.security.privateca.v1.CaPool.Builder.html#com_google_cloud_security_privateca_v1_CaPool_Builder_setIssuancePolicy_com_google_cloud_security_privateca_v1_CaPool_IssuancePolicy_).setName(CaPoolName.of(project, location, poolId).toString())
+                  .setIssuancePolicy(issuancePolicy)
                   .build();
     
           /* 1. Set the CA pool with updated values.
@@ -97,43 +97,43 @@ To authenticate to CA Service, set up Application Default Credentials. For more 
           Only the properties specified in the mask will be updated. Make sure that the mask fields
           match the updated issuance policy.
           For more info on constructing path for update mask, see:
-          https://cloud.google.com/certificate-authority-service/docs/reference/rest/v1/projects.locations.caPools#issuancepolicy */
-          [UpdateCaPoolRequest](https://docs.cloud.google.com/java/docs/reference/google-cloud-security-private-ca/latest/com.google.cloud.security.privateca.v1.UpdateCaPoolRequest.html) updateCaPoolRequest =
-              [UpdateCaPoolRequest](https://docs.cloud.google.com/java/docs/reference/google-cloud-security-private-ca/latest/com.google.cloud.security.privateca.v1.UpdateCaPoolRequest.html).newBuilder()
+          https://cloud.google.com/certificate-au[thority-service/doc](https://docs.cloud.google.com/java/docs/reference/google-cloud-security-private-ca/latest/com.google.cloud.security.privateca.v1.UpdateCaPoolRequest.html)s/reference/rest/v1/projects.loca[tions.caPools#issua](https://docs.cloud.google.com/java/docs/reference/google-cloud-security-private-ca/latest/com.google.cloud.security.privateca.v1.UpdateCaPoolRequest.html)ncepolicy */
+          UpdateCaPoolRequest updateCaPoolRequest =
+              UpdateCaPoolRequest.newB[uilder](https://docs.cloud.google.com/java/docs/reference/protobuf/latest/com.google.protobuf.FieldMask.html)()
                   .setCaPool(caPool)
-                  .setUpdateMask(
-                      [FieldMask](https://docs.cloud.google.com/java/docs/reference/protobuf/latest/com.google.protobuf.FieldMask.html).newBuilder(
-                          [FieldMask](https://docs.cloud.google.com/java/docs/reference/protobuf/latest/com.google.protobuf.FieldMask.html).newBuilder()
-                              .[addPaths](https://docs.cloud.google.com/java/docs/reference/protobuf/latest/com.google.protobuf.FieldMask.Builder.html#com_google_protobuf_FieldMask_Builder_addPaths_java_lang_String_)(
-                                  "issuance_policy.identity_constraints.allow_subject_passthrough")
-                              .[addPaths](https://docs.cloud.google.com/java/docs/reference/protobuf/latest/com.google.protobuf.FieldMask.Builder.html#com_google_protobuf_FieldMask_Builder_addPaths_java_lang_String_)(
-                                  "issuance_policy.identity_constraints."
+      [         ](https://docs.cloud.google.com/java/docs/reference/protobuf/latest/com.google.protobuf.FieldMask.html)   .setUpdateMask(
+                      Fiel[dMask](https://docs.cloud.google.com/java/docs/reference/protobuf/latest/com.google.protobuf.FieldMask.Builder.html#com_google_protobuf_FieldMask_Builder_addPaths_java_lang_String_).newBuilder(
+                          FieldMask.newBuilder()
+                              .addPaths(
+                                  &qu[ot;issua](https://docs.cloud.google.com/java/docs/reference/protobuf/latest/com.google.protobuf.FieldMask.Builder.html#com_google_protobuf_FieldMask_Builder_addPaths_java_lang_String_)nce_policy.identity_constraints.allow_subject_passthrough")
+                              .addPaths(
+                                  "issuance_policy.identity_constraints[."<](https://docs.cloud.google.com/java/docs/reference/protobuf/latest/com.google.protobuf.FieldMask.Builder.html#com_google_protobuf_FieldMask_Builder_addPaths_java_lang_String_)/span>
                                       + "allow_subject_alt_names_passthrough")
-                              .[addPaths](https://docs.cloud.google.com/java/docs/reference/protobuf/latest/com.google.protobuf.FieldMask.Builder.html#com_google_protobuf_FieldMask_Builder_addPaths_java_lang_String_)("issuance_policy.identity_constraints.cel_expression")
+                              .addPaths("issuance_policy.identity_constraints.ce<l_express>ion")
                               .build()))
-                  .build();
+              [    ](https://docs.cloud.google.com/java/docs/reference/google-cloud-security-private-ca/latest/com.google.cloud.security.privateca.v1.CertificateAuthorityServiceClient.html#com_google_cloud_security_privateca_v1_CertificateAuthorityServiceClient_updateCaPoolCallable__).build();
     
           // Update CA Pool request.
-          ApiFuture<Operation> futureCall =
-              certificateAuthorityServiceClient.[updateCaPoolCallable](https://docs.cloud.google.com/java/docs/reference/google-cloud-security-private-ca/latest/com.google.cloud.security.privateca.v1.CertificateAuthorityServiceClient.html#com_google_cloud_security_privateca_v1_CertificateAuthorityServiceClient_updateCaPoolCallable__)().futureCall(updateCaPoolRequest);
+          ApiFuture[Operation](https://docs.cloud.google.com/java/docs/reference/proto-google-common-protos/latest/com.google.longrunning.Operation.html) futureCall =
+              certificateAuthorityServiceClient.updateCaPoolCallable().futureCall(updateC[aPoolReq](https://docs.cloud.google.com/java/docs/reference/proto-google-common-protos/latest/com.google.longrunning.Operation.html#com_google_longrunning_Operation_hasError__)uest);
     
-          [Operation](https://docs.cloud.google.com/java/docs/reference/proto-google-common-protos/latest/com.google.longrunning.Operation.html) operation = futureCall.get(60, TimeUnit.SECONDS);
+          Operation operation = futureCall.get(60, TimeUnit.SECONDS);
     
-          // Check for errors.
-          if (operation.[hasError](https://docs.cloud.google.com/java/docs/reference/proto-google-common-protos/latest/com.google.longrunning.Operation.html#com_google_longrunning_Operation_hasError__)()) {
-            System.out.println("Error in updating CA Pool Issuance policy ! " + operation.[getError](https://docs.cloud.google.com/java/docs/reference/proto-google-common-protos/latest/com.google.longrunning.Operation.html#com_google_longrunning_Operation_getError__)());
+          // Check fo[r errors](https://docs.cloud.google.com/java/docs/reference/proto-google-common-protos/latest/com.google.longrunning.Operation.html#com_google_longrunning_Operation_getError__).
+          if (operation.hasError()) {
+            System.out.println("Error in updating CA Pool Issuance policy ! " + operation.getE[rror](https://docs.cloud.google.com/java/docs/reference/google-cloud-security-private-ca/latest/com.google.cloud.security.privateca.v1.CaPool.IssuancePolicy.html)());
             return;
           }
     
-          // Get the CA Pool's issuance policy and verify if the fields have been successfully updated.
-          [IssuancePolicy](https://docs.cloud.google.com/java/docs/reference/google-cloud-security-private-ca/latest/com.google.cloud.security.privateca.v1.CaPool.IssuancePolicy.html) response =
+          // Get the CA Pool's issuance policy and verify if [the fields](https://docs.cloud.google.com/java/docs/reference/google-cloud-security-private-ca/latest/com.google.cloud.security.privateca.v1.CaPoolName.html) have been successfully updated.
+          IssuancePolicy response =
               certificateAuthorityServiceClient
-                  .getCaPool([CaPoolName](https://docs.cloud.google.com/java/docs/reference/google-cloud-security-private-ca/latest/com.google.cloud.security.privateca.v1.CaPoolName.html).of(project, location, poolId).toString())
+                  .getCaPool(CaPoolName.of(project, location, poolId).toString())
                   .getIssuancePolicy();
     
-          // Similarly, you can check for other modified fields as well.
+          //&& Similarly, you can check for other modified fields as well.
           if (response.getIdentityConstraints().getAllowSubjectPassthrough()
-              && response.getIdentityConstraints().getAllowSubjectAltNamesPassthrough()) {
+               response.getIdentityConstraints().getAllowSubjectAltNamesPassthrough()) {
             System.out.println("CA Pool Issuance policy has been updated successfully ! ");
             return;
           }
@@ -177,7 +177,7 @@ To authenticate to CA Service, set up Application Default Credentials. For more 
         # This particular issuance policy allows only SANs that
         # have DNS Names as "us.google.org" or ending in ".google.com". */
         expr = expr_pb2.Expr(
-            expression='subject_alt_names.all(san, san.type == DNS && (san.value == "us.google.org" || san.value.endsWith(".google.com")) )'
+            expre&&ssion='subject_alt_names.all(san, san.type == DNS  (san.value == "us.google.org" || san.value.endsWith(".google.com")) )'
         )
     
         issuance_policy = privateca_v1.CaPool.IssuancePolicy(

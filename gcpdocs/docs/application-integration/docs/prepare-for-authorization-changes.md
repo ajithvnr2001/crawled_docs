@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/application-integration/docs/prepare-for-authorization-changes/
 title: Prepare for upcoming authorization changes \u00a0|\u00a0 Application Integration \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T11:12:26.239160+00:00
+fetched_at: 2026-11-06T05:52:35.171098+00:00
 ---
 
 # Prepare for upcoming authorization changes  |  Application Integration  |  Google Cloud Documentation
@@ -21,7 +21,7 @@ Send feedback  Stay organized with collections  Save and categorize content base
 
 # Prepare for upcoming authorization changes
 
-Application Integration is updating how it authorizes integrations. These changes took effect for new integrations on October 15, 2026. Existing integrations keep their current behavior until a later date. Most integrations continue to run without changes, but some require a configuration update to keep running. You can make the changes described on this page now because they use configurations you already control. 
+Application Integration has updated its authorization process. These changes already apply to integrations created on or after October 15, 2026. Starting January 15, 2027 (UTC), they will apply to all existing integrations. Although most of your integrations will keep running seamlessly, some will require a configuration update. You can safely make these updates today using settings you already control. 
 
 ## Upcoming authorization changes
 
@@ -44,7 +44,7 @@ Because of this update:
 Integration | When the updates apply  
 ---|---  
 Created **on or after October 15, 2026** | From the first version you create. Every version you publish afterward retains the new behavior.  
-Created **before October 15, 2026** | These integrations keep their current behavior until a later date, which Application Integration announces separately.  
+Created **before October 15, 2026** | Starting **January 15, 2027 (UTC)** , these integrations adopt the new behavior.  
 **Note:** Editing an integration doesn't change its stage, and a sub-integration runs in its own stage, not in the stage of the integration that calls it. The following conditions do not depend on the stage: 
 
   * Service Account User checks apply to every integration, regardless of its creation date.
@@ -64,7 +64,7 @@ Make these changes now, whichever stage your integrations are in. They take effe
 
 ## Try the new behavior before it applies
 
-Integrations created on or after October 15, 2026 already use the new behavior. Your existing integrations keep their current behavior until a later date, but you don't have to wait to find out how they will be affected. There are two ways to try the change while you still control the timing.
+Integrations created on or after October 15, 2026 already use the new behavior. Your existing integrations switch to it starting January 15, 2027 (UTC), but you don't have to wait to find out how they will be affected. There are two ways to try the change while you still control the timing.
 
 ### Turn on end user credentials for a region
 
@@ -100,6 +100,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-28 UTC.
+Last updated 2026-11-05 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-05 UTC."],[],[]] 

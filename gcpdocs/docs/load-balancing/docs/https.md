@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/load-balancing/docs/https/
 title: External Application Load Balancer overview \u00a0|\u00a0 Cloud Load Balancing \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T23:31:22.648028+00:00
+fetched_at: 2026-11-06T05:53:25.461767+00:00
 ---
 
 # External Application Load Balancer overview  |  Cloud Load Balancing  |  Google Cloud Documentation
@@ -215,24 +215,24 @@ Global external Application Load Balancer | [Global HTTP](https://docs.cloud.goo
 [Global HTTPS](https://docs.cloud.google.com/compute/docs/reference/rest/v1/targetHttpsProxies) | The proxies set HTTP request/response headers as follows:
 
   * `Via: 1.1 google` (requests and responses)
-  * `X-Forwarded-Proto`: [http | https] (requests only)
-  * `X-Forwarded-For`: [<supplied-value>,]<client-ip>,<load-balancer-ip> (see X-Forwarded-For header) (requests only) 
+  * `X-Forwarded-Proto: [http | https]` (requests only)
+  * `X-Forwarded-For: [SUPPLIED_VALUE,]CLIENT_IP,LOAD_BALANCER_IP` (see X-Forwarded-For header) (requests only) 
 
 The proxies also set the `X-Cloud-Trace-Context` header if it is not already present. |  [Configured on the backend service or backend bucket](https://docs.cloud.google.com/load-balancing/docs/https/custom-headers) Not supported with Cloud CDN  
 Classic Application Load Balancer | [Global HTTP](https://docs.cloud.google.com/compute/docs/reference/rest/v1/targetHttpProxies),  
 [Global HTTPS](https://docs.cloud.google.com/compute/docs/reference/rest/v1/targetHttpsProxies) | The proxies set HTTP request/response headers as follows:
 
   * `Via: 1.1 google` (requests and responses)
-  * `X-Forwarded-Proto`: [http | https] (requests only)
-  * `X-Forwarded-For`: [<supplied-value>,]<client-ip>,<load-balancer-ip> (see X-Forwarded-For header) (requests only) 
+  * `X-Forwarded-Proto: [http | https]` (requests only)
+  * `X-Forwarded-For: [SUPPLIED_VALUE,]CLIENT_IP,LOAD_BALANCER_IP` (see X-Forwarded-For header) (requests only) 
 
 The proxies also set the `X-Cloud-Trace-Context` header if it is not already present. |  [Configured on the backend service or backend bucket](https://docs.cloud.google.com/load-balancing/docs/https/custom-headers)  
 Regional external Application Load Balancer | [Regional HTTP](https://docs.cloud.google.com/compute/docs/reference/rest/v1/regionTargetHttpProxies),  
 [Regional HTTPS](https://docs.cloud.google.com/compute/docs/reference/rest/v1/regionTargetHttpsProxies) | 
 
-  * `X-Forwarded-Proto`: [http | https] (requests only)
+  * `X-Forwarded-Proto: [http | https]` (requests only)
   * `Via: 1.1 google` (requests and responses)
-  * `X-Forwarded-For`: [<supplied-value>,]<client-ip>,<load-balancer-ip> (see X-Forwarded-For header) (requests only) 
+  * `X-Forwarded-For: [SUPPLIED_VALUE,]CLIENT_IP,LOAD_BALANCER_IP` (see X-Forwarded-For header) (requests only) 
 
 |  [Configured in the URL map](https://docs.cloud.google.com/load-balancing/docs/https/custom-headers-regional)  
 **Note:** In accordance with [RFC 2616](https://datatracker.ietf.org/doc/html/rfc2616#page-92) , the following hop-by-hop headers aren't propagated by the target proxy: `Connection`, `Keep-Alive`, `Proxy-Authenticate`, `Proxy-Authorization`, `TE`, `Trailers`, `Transfer-Encoding`, and `Upgrade`.
@@ -267,16 +267,16 @@ The load balancer appends two IP addresses to the `X-Forwarded-For` header, sepa
 If the incoming request does _not_ include an `X-Forwarded-For` header, the resulting header is as follows:
     
     
-    X-Forwarded-For: <client-ip>,<load-balancer-ip>
+    X-Forwarded-For: CLIENT_IP,LOAD_BALANCER_IP
     
 
 If the incoming request already includes an `X-Forwarded-For` header, the load balancer appends its values to the existing header:
     
     
-    X-Forwarded-For: <existing-value>,<client-ip>,<load-balancer-ip>
+    X-Forwarded-For: EXISTING_VALUE,CLIENT_IP,LOAD_BALANCER_IP
     
 
-**Caution:** The load balancer does not verify any IP addresses that precede `<client-ip>,<load-balancer-ip>` in this header. The preceding IP addresses might contain other characters, including spaces.
+**Caution:** The load balancer does not verify any IP addresses that precede `CLIENT_IP,LOAD_BALANCER_IP` in this header. The preceding IP addresses might contain other characters, including spaces.
 
 **Remove existing header values using a custom request header**
 
@@ -302,12 +302,20 @@ If your load balancer's backends run HTTP reverse proxy software, the software m
 As a result, an upstream system might see an `X-Forwarded-For` header structured as follows:
     
     
-    <existing-value>,<client-ip>,<load-balancer-ip>,<GFE-ip>,<backend-ip>
+    X-Forwarded-For: EXISTING_VALUE,CLIENT_IP,LOAD_BALANCER_IP,GFE_IP,BACKEND_IP
     
+
+For example:
+    
+    
+    X-Forwarded-For: 192.0.2.50,203.0.113.10,198.51.100.5,35.191.0.20,10.128.0.2
+    
+
+In this example, only the two addresses that the load balancer appends (`203.0.113.10,198.51.100.5`, corresponding to `CLIENT_IP,LOAD_BALANCER_IP`) can be trusted. Any values before them come from the client and aren't verified by the load balancer.
 
 #### Cloud Trace support
 
-Trace is not supported with Application Load Balancers. The global and classic Application Load Balancers add the `X-Cloud-Trace-Context` header if it is not present. The regional external Application Load Balancer does not add this header. If the `X-Cloud-Trace-Context` header is already present, it passes through the load balancers unmodified. However, no traces or spans are exported by the load balancer.
+Trace is not supported with Application Load Balancers. The global and classic Application Load Balancers add the `X-Cloud-Trace-Context` header if it is not present. The regional external Application Load Balancer doesn't add this header. If the `X-Cloud-Trace-Context` header is already present, it passes through the load balancers unmodified. However, no traces or spans are exported by the load balancer.
 
 ### URL maps
 
@@ -1186,7 +1194,7 @@ Your backend must respond with `100 Continue` responses after the request header
 
   * Cloud CDN lets you force an object or set of objects to be ignored by the cache by requesting a [cache invalidation](https://docs.cloud.google.com/cdn/docs/cache-invalidation-overview). When you're using a global external Application Load Balancer with Shared VPC cross-project service referencing, by default, service project admins won't have the required permissions to request cache invalidations. This is because cache invalidation is configured in the frontend project (that is, the project that has the forwarding rule, target proxy, and URL map of the load balancer). Thus, cache invalidations can only be issued by principals who have the IAM roles for configuring load balancer related resources in the frontend projects (for example, the Compute Network Admin role). Service admins, who control provisioning of the backend services in a separate project, need to work with the load balancer administrator of the frontend project to issue cache invalidation for their cross-project services.
 
-  * When using a classic Application Load Balancer, the load balancer automatically adds an HTTP `Content-Length: 0` header to `DELETE` requests over HTTP/1.1 and HTTP/2, even if the original request did not specify a content length. This behavior might cause Cloud Armor security policies to block these requests if your policy is configured to filter or reject requests containing a content-length header. This issue is specific to a classic Application Load Balancer and does not occur with `GET` or `HEAD` requests.
+  * When using a classic Application Load Balancer, the load balancer automatically adds an HTTP `Content-Length: 0` header to `DELETE` requests over HTTP/1.1 and HTTP/2, even if the original request did not specify a content length. This behavior might cause Cloud Armor security policies to block these requests if your policy is configured to filter or reject requests containing a content-length header. This issue is specific to a classic Application Load Balancer and doesn't occur with `GET` or `HEAD` requests.
 
 
 
@@ -1239,6 +1247,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-04 UTC.
+Last updated 2026-11-06 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-06 UTC."],[],[]] 

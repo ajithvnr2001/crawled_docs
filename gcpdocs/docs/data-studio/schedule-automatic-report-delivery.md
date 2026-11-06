@@ -1,22 +1,8 @@
 ---
 url: https://docs.cloud.google.com/data-studio/schedule-automatic-report-delivery/
 title: Schedule automatic report delivery \u00a0|\u00a0 Data Studio \u00a0|\u00a0 Google Cloud Documentation
-method: httpx+scrapegraph (scrapling: scrapling status 429 | crawl4ai: crawl4ai failed: Unexpected error in _crawl_web at line 1299 in create_browser_context (../../../../usr/local/lib/python3.10/dist-packages/crawl4ai/browser_manager.py):
-Error: Browser is not available. It may have been closed, crashed, or not yet started. Ensure the browser is running before creating new contexts.
-
-Code context:
-1294                   raise RuntimeError(
-1295                       "Cannot create new browser contexts when using "
-1296                       "use_persistent_context=True. Persistent context uses a "
-1297                       "single shared context."
-1298                   )
-1299 →             raise RuntimeError(
-1300                   "Browser is not available. It may have been closed, crashed, "
-1301                   "or not yet started. Ensure the browser is running before "
-1302                   "creating new contexts."
-1303               )
-1304           # Base settings)
-fetched_at: 2026-10-27T16:24:20.952289+00:00
+method: scrapling+scrapegraph
+fetched_at: 2026-11-06T05:49:57.405642+00:00
 ---
 
 # Schedule automatic report delivery  |  Data Studio  |  Google Cloud Documentation
@@ -175,7 +161,7 @@ Scheduled Google Chat delivery posts a message to the recipient users or spaces.
 If you have [Data Studio Pro](https://docs.cloud.google.com/data-studio/about-pro), you can send reports to Slack users and Slack channels by following these steps:
 
   1. View the report that you want to schedule.
-  2. In the upper right, select **Share** , and then select ![Schedule report delivery icon](https://docs.cloud.google.com/static/data-studio/images/icschedulegrey6002xweb48dp-2019-02-25-.png) **Schedule delivery**.
+  2. In the upper right, select **Share** , and then select ![Schedule report delivery icon](https://docs.cloud.google.com/static/data-studio/images/icschedulegrey6002xweb48dp-2019-02-25-.png)**Schedule delivery**.
   3. In the **Destination** field, select **Slack**.
   4. If your admin has [connected multiple Slack workspaces](https://docs.cloud.google.com/data-studio/slack#connect-slack) to Data Studio, select a workspace.
   5. If prompted, click **Sign in with Slack**.

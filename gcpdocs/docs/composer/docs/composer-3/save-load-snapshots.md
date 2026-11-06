@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/composer/docs/composer-3/save-load-snapshots/
 title: Save and load environment snapshots \u00a0|\u00a0 Managed Service for Apache Airflow \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T22:59:23.426468+00:00
+fetched_at: 2026-11-06T05:52:30.620983+00:00
 ---
 
 # Save and load environment snapshots  |  Managed Service for Apache Airflow  |  Google Cloud Documentation
@@ -185,7 +185,7 @@ To save a snapshot of your environment, run:
     gcloud composer environments snapshots save \
       ENVIRONMENT_NAME \
       --location LOCATION \
-      --snapshot-location "SNAPSHOTS_FOLDER"
+      --snapshot-location &quot;SNAPSHOTS_FOLDER"
     
 
 Replace:
@@ -300,7 +300,7 @@ The name of the folder lists the ID of your project, environment's location and 
     gcloud composer environments snapshots load \
       DESTINATION_ENVIRONMENT_NAME \
       --location LOCATION \
-      --snapshot-path "SNAPSHOT_PATH"
+      --snapshot-path &quot;SNAPSHOT_PATH"
     
 
 Replace:
@@ -335,7 +335,7 @@ This field is optional. If you omit this field, Managed Airflow installs PyPI pa
     
     
     {
-      "snapshotPath": "SNAPSHOT_PATH"
+      "snapshotPath": &quot;SNAPSHOT_PATH"
     }
     
 

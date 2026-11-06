@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/architecture/rag-genai-gemini-enterprise-vertexai/
 title: RAG infrastructure for generative AI using Gemini Enterprise and Agent Platform \u00a0|\u00a0 Cloud Architecture Center \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T23:30:25.608733+00:00
+fetched_at: 2026-11-06T05:54:01.874398+00:00
 ---
 
 # RAG infrastructure for generative AI using Gemini Enterprise and Agent Platform  |  Cloud Architecture Center  |  Google Cloud Documentation
@@ -19,9 +19,9 @@ Send feedback
 
 #  RAG infrastructure for generative AI using Gemini Enterprise and Agent Platform Stay organized with collections  Save and categorize content based on your preferences. 
 
-Last reviewed 2025-11-10 UTC
+Last reviewed 2026-11-06 UTC
 
-This document provides a reference architecture that you can use to design the infrastructure for a generative AI application with [retrieval-augmented generation (RAG)](https://developers.google.com/machine-learning/glossary#retrieval-augmented_generation) by using [Gemini Enterprise](https://cloud.google.com/gemini-enterprise) and [Agent Platform](https://docs.cloud.google.com/gemini-enterprise-agent-platform). This reference architecture demonstrates how to use managed services and deploy a single [AI agent](https://docs.cloud.google.com/docs/generative-ai/glossary#ai-agents) to facilitate an end-to-end RAG dataflow. Gemini Enterprise serves as the unified platform for agent orchestration across the enterprise. Agent Platform accelerates the development and deployment of custom agents and provides managed datastores to facilitate efficient retrieval for RAG.
+This document provides a reference architecture that you can use to design the infrastructure for a generative AI application with [retrieval-augmented generation (RAG)](https://developers.google.com/machine-learning/glossary#retrieval-augmented_generation) by using [Gemini Enterprise](https://cloud.google.com/gemini-enterprise) and [Gemini Enterprise Agent Platform](https://docs.cloud.google.com/gemini-enterprise-agent-platform). This reference architecture demonstrates how to use managed services and deploy a single [AI agent](https://docs.cloud.google.com/docs/ai-ml/generative-ai/glossary#ai-agents) to facilitate an end-to-end RAG dataflow. Gemini Enterprise serves as the unified platform for agent orchestration across the enterprise. Agent Platform accelerates the development and deployment of custom agents and provides managed datastores to facilitate efficient retrieval for RAG.
 
 The intended audience for this document includes architects, developers, and administrators of generative AI applications. The document assumes that you have a basic understanding of AI, machine learning (ML), and large language model (LLM) concepts. This document doesn't provide guidance about how to design and develop a generative AI application. For information about how to design an application, see [Develop a generative AI application](https://docs.cloud.google.com/docs/ai-ml/generative-ai/develop-generative-ai-application).
 
@@ -54,10 +54,10 @@ The data ingestion subsystem ingests data from external sources and prepares the
 
   1. Data engineers upload data from external sources to a [Cloud Storage bucket](https://docs.cloud.google.com/storage/docs/buckets). The external sources might be applications, databases, or streaming services.
   2. Upon completion, Cloud Storage publishes a message to a Pub/Sub topic.
-  3. The Pub/Sub topic triggers a processing job to run in [Cloud Run functions](https://docs.cloud.google.com/functions/docs/concepts/overview).
-  4. Cloud Run functions processes the raw data by generating and storing the metadata as [JSON Lines (JSONL)](https://docs.cloud.google.com/generative-ai-app-builder/docs/prepare-data#storage-unstructured) files. The JSONL files are stored into a separate Cloud Storage bucket.
+  3. The Pub/Sub topic triggers a processing job to run in [Cloud Run functions](https://docs.cloud.google.com/run/docs/functions-with-run).
+  4. Cloud Run functions processes the raw data by generating and storing the metadata as [JSON Lines (JSONL)](https://jsonlines.org/) files. The JSONL files are stored in a separate Cloud Storage bucket.
   5. Upon completion, Cloud Run functions publishes a message to a Pub/Sub topic.
-  6. The Pub/Sub topic triggers a processing job to run in the [managed datastore](https://docs.cloud.google.com/gemini/enterprise/docs/introduction-to-connectors-and-data-stores) within Gemini Enterprise. The processing job pulls the raw ingested data and metadata from the Cloud Storage buckets, then [parses and chunks the data](https://docs.cloud.google.com/gemini/enterprise/docs/parse-chunk-documents#parse-chunk-rag) for efficient retrieval during serving. Gemini Enterprise automatically generates vector embeddings without any configuration necessary.
+  6. The Pub/Sub topic triggers a downstream Cloud Run function that calls the [`documents.import` method](https://docs.cloud.google.com/gemini/enterprise/docs/refresh-data#refresh-unstructured) of the Discovery Engine API to start an import job in the [managed datastore](https://docs.cloud.google.com/gemini/enterprise/docs/connectors/introduction-to-connectors-and-data-stores) within Gemini Enterprise. The import job pulls the raw ingested data and metadata from the Cloud Storage buckets, then [parses and chunks the data](https://docs.cloud.google.com/gemini/enterprise/docs/parse-chunk-documents#parse-chunk-rag) for efficient retrieval during serving. Gemini Enterprise automatically generates vector embeddings without any configuration necessary.
 
 
 
@@ -70,7 +70,7 @@ The serving subsystem handles the query-response flow between the generative AI 
   3. The backend service sends the prepared request to Gemini Enterprise by using the Gemini Enterprise API endpoint to initiate the RAG workflow.
   4. To process the query, Gemini Enterprise uses the enterprise search and custom agent to perform the following tasks: 
      1. Create an embedding of the user's query.
-     2. Perform a semantic search on the indexed data in the Managed datastore to find the most relevant information.
+     2. Perform a semantic search on the indexed data in the managed datastore to find the most relevant information.
      3. Augment the original query with the retrieved data from the managed datastore to create a detailed, contextual prompt.
      4. Generate a final response that's based on the augmented prompt.
   5. Gemini Enterprise sends the generated response to the Cloud Run backend service.
@@ -84,8 +84,9 @@ This reference architecture uses the following Google Cloud products:
 
   * [ Gemini Enterprise](https://cloud.google.com/gemini-enterprise): A fully-managed secure platform to deploy and manage AI agents within an enterprise. 
   * [ Gemini Enterprise Agent Platform](https://docs.cloud.google.com/gemini-enterprise-agent-platform/overview): A comprehensive platform that lets you build, scale, govern, and optimize enterprise‑grade AI agents. 
-    * [ Agent Runtime on Gemini Enterprise Agent Platform](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/runtime): A platform that lets you run, manage, and scale AI agents in production. 
+  * [ Agent Runtime on Gemini Enterprise Agent Platform](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/runtime): A platform that lets you run, manage, and scale AI agents in production. 
   * [ Cloud Run](https://cloud.google.com/run): A serverless compute platform that lets you run containers directly on top of Google's scalable infrastructure.
+  * [ Cloud Run functions](https://cloud.google.com/functions): A serverless compute platform that lets you run single-purpose functions directly in Google Cloud.
   * [ Pub/Sub](https://cloud.google.com/pubsub): An asynchronous and scalable messaging service that decouples services that produce messages from services that process those messages.
   * [ Cloud Storage](https://cloud.google.com/storage): A low-cost, no-limit object store for diverse data types. Data can be accessed from within and outside Google Cloud, and it's replicated across locations for redundancy.
 
@@ -97,8 +98,8 @@ This architecture is designed for enterprise scenarios where your generative AI 
 
 The architecture includes a custom data ingestion subsystem to address two key enterprise requirements:
 
-  * **Real-time data availability:** The event-driven pipeline processes new data as soon as it's available in your organization—for example, a new product guide or an updated report. The pipeline also makes the information available in your managed datastore. This design helps to mitigate information staleness because it ensures that there's a minimal delay between data availability and use.
-  * **Enriched contextual search:** The custom processing job allows your organization to apply its own business logic to enrich data with valuable metadata. The Cloud Run function can tag each document with specific attributes like product line, author, location, or document type. This rich metadata helps the agent to narrow down its search and deliver more precise, context-aware answers.
+  * **Real-time data availability:** The event-driven pipeline processes new data as soon as it's available in your organization—for example, a new product guide or an updated report. The pipeline also makes the information available in your managed datastore. This design helps to mitigate information staleness because it helps minimize the delay between data availability and use.
+  * **Enriched contextual search:** The custom processing job lets your organization apply its own business logic to enrich data with valuable metadata. The Cloud Run function can tag each document with specific attributes like product line, author, location, or document type. This rich metadata helps the agent to narrow down its search and deliver more precise, context-aware answers.
 
 
 
@@ -110,11 +111,11 @@ An online shopping site might use an LLM-powered chatbot to assist customers wit
 
 ### Clinical assistance systems
 
-Doctors in hospitals need to quickly analyze and diagnose a patient's health condition to make decisions about appropriate care and medication. A generative AI application that uses a medical LLM like [Med-PaLM](https://sites.research.google/med-palm/) can be used to assist doctors in their clinical diagnosis process. The responses that the application generates can be grounded in historical patient records by contextualizing the doctors' prompts with data from the hospital's electronic health record (EHR) database or from an external knowledge base like [PubMed](https://pubmed.ncbi.nlm.nih.gov/).
+Clinicians in hospitals need to review and synthesize patient health information to make informed care decisions. A generative AI application that uses a medical foundation model like [MedGemma](https://developers.google.com/health-ai-developer-foundations/medgemma) can help clinicians summarize clinical notes and review medical context. The responses that the application generates can be grounded in historical patient records by contextualizing prompts with data from the hospital's electronic health record (EHR) database or from an external knowledge base like [PubMed](https://pubmed.ncbi.nlm.nih.gov/).
 
 ### Efficient legal research
 
-Generative AI-powered legal research lets lawyers quickly query large volumes of statutes and case laws to identify relevant legal precedents or summarize complex legal concepts. The output of such research can be enhanced by augmenting a lawyer's prompts with data that's retrieved from the law firm's proprietary corpus of contracts, past legal communication, and internal case records. This design approach ensures that the generated responses are relevant to the legal domain that the lawyer specializes in.
+Generative AI-powered legal research lets lawyers quickly query large volumes of statutes and case laws to identify relevant legal precedents or summarize complex legal concepts. The output of such research can be enhanced by augmenting a lawyer's prompts with data that's retrieved from the law firm's proprietary corpus of contracts, past legal communication, and internal case records. This design approach helps generate responses that are relevant to the legal domain that the lawyer specializes in.
 
 ## Design alternatives
 
@@ -126,12 +127,12 @@ For a list of architecture guides to design and deploy generative AI application
 
 ### Application hosting options
 
-In the architecture that's shown in this document, Cloud Run is the host for the generative AI application and data processing. Cloud Run is an application that is developer-focused and fully managed. You can also deploy your application to [Agent Runtime on Gemini Enterprise Agent Platform](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale), [GKE clusters](https://docs.cloud.google.com/kubernetes-engine/docs), or to [Compute Engine](https://docs.cloud.google.com/compute) VMs.
+In the architecture that's shown in this document, Cloud Run is the host for the generative AI application and data processing. Cloud Run is a platform that is developer-focused and fully managed. You can also deploy your application to [Agent Runtime on Gemini Enterprise Agent Platform](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/runtime), [Google Kubernetes Engine (GKE) clusters](https://docs.cloud.google.com/kubernetes-engine/docs/concepts/kubernetes-engine-overview), or to [Compute Engine](https://docs.cloud.google.com/compute/docs/overview) VMs.
 
 To choose an application host, consider the following trade-offs between configuration flexibility and management effort:
 
-  * With the serverless Cloud Run option, you deploy your custom services to a preconfigured, managed environment. To host the frontend services and the custom backend logic for request pre-processing, this architecture requires the ability to deploy custom applications.
-  * With the Agent Runtime option, you use a fully managed platform that's designed for agent serving. Agent Runtime reduces management overhead and ensures tight integration with Gemini Enterprise.
+  * With the serverless Cloud Run option, you deploy your custom services to a preconfigured, managed environment. To host the frontend services and the custom backend logic for request preprocessing, this architecture requires the ability to deploy custom applications.
+  * With the Agent Runtime option, you use a fully managed platform that's designed for agent serving. Agent Runtime reduces management overhead and provides tight integration with Gemini Enterprise.
   * With Compute Engine VMs and GKE containers, you're responsible for managing the underlying compute resources, but you have greater configuration flexibility and control.
 
 
@@ -139,14 +140,14 @@ To choose an application host, consider the following trade-offs between configu
 For more information about choosing an appropriate application hosting service, see the following documents:
 
   * [Is my app a good fit for Cloud Run?](https://docs.cloud.google.com/run/docs/fit-for-run)
-  * [Select a managed container runtime environment](https://docs.cloud.google.com/architecture/select-managed-container-runtime-environment)
-  * [Hosting Applications on Google Cloud](https://cloud.google.com/hosting-options)
+  * [GKE and Cloud Run](https://docs.cloud.google.com/kubernetes-engine/docs/concepts/gke-and-cloud-run)
+  * [Choose compute options](https://docs.cloud.google.com/docs/compute-area/choose-compute-options)
 
 
 
 ### Other infrastructure options
 
-For information about other infrastructure options, supported models, and grounding techniques that you can use for generative AI applications in Google Cloud, see [Choose models and infrastructure for your generative AI application](https://docs.cloud.google.com/docs/generative-ai/choose-models-infra-for-ai).
+For information about other infrastructure options, supported models, and grounding techniques that you can use for generative AI applications in Google Cloud, see [Choose models and infrastructure for your generative AI application](https://docs.cloud.google.com/docs/ai-ml/generative-ai/choose-models-infra-for-ai).
 
 ## Design considerations
 
@@ -169,10 +170,10 @@ Agent Platform supports Google Cloud security controls that you can use to meet 
   * [Agent Platform and zero data retention](https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/zero-data-retention)
   * [Enable access transparency for Gemini Enterprise](https://docs.cloud.google.com/gemini/enterprise/docs/access-transparency)
   * [Compliance and security controls for Gemini Enterprise](https://docs.cloud.google.com/gemini/enterprise/docs/compliance-security-controls)
+  * [Gemini Enterprise compliance](https://docs.cloud.google.com/gemini/enterprise/docs/security-overview#compliance)
+  * [Data deletion on Google Cloud](https://docs.cloud.google.com/docs/security/deletion).
 
 
-
-Gemini Enterprise deletes user-requested data within 60 days. For more information, see [Data deletion on Google Cloud](https://docs.cloud.google.com/docs/security/deletion).
 
 Generative AI models might produce harmful responses, especially when they are explicitly prompted for such responses. To enhance safety and mitigate potential misuse, you can configure content filters to act as barriers to harmful responses. For more information, see [Safety and content filters](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/configure-safety-filters).
 
@@ -208,13 +209,19 @@ For reliability principles and recommendations that are specific to AI and ML wo
 
 #### Agent Platform
 
-Agent Platform ensures data residency at rest. Agent Platform stores your source data, which includes data for RAG in the managed datastore, within the Google Cloud [location](https://cloud.google.com/about/locations) that you have selected. This separation of processing from storage is a fundamental aspect of how the platform provides both high reliability and compliance.
+Agent Platform supports data residency at rest. Agent Platform stores your source data, which includes data for RAG in the managed datastore, within the Google Cloud [location](https://cloud.google.com/about/locations) that you have selected. This separation of processing from storage is a fundamental aspect of how the platform provides both high reliability and compliance.
 
 #### Cloud Run
 
-Cloud Run is a regional service that stores data synchronously across multiple zones within a region. The service automatically load-balances the traffic across the zones. If a zone outage occurs, Cloud Run jobs continue to run and data isn't lost. If a region outage occurs, the Cloud Run jobs stop running until Google resolves the outage.
+Cloud Run is a regional service that automatically distributes and load-balances stateless service instances across multiple zones within a region. If a zone outage occurs, Cloud Run services and Cloud Run functions continue to run without interruption. For resilience against regional outages, you can deploy Cloud Run services across multiple regions behind a global external Application Load Balancer. For more information, see [Serve traffic from multiple regions](https://docs.cloud.google.com/run/docs/multiple-regions).
 
-Individual Cloud Run jobs or tasks might fail. To handle such failures, you can use [task retries](https://docs.cloud.google.com/run/docs/configuring/max-retries) and checkpointing. For more information, see [Jobs retries and checkpoints best practices](https://docs.cloud.google.com/run/docs/jobs-retries).
+In the data ingestion subsystem, event-driven Cloud Run functions might experience transient failures or receive duplicate events due to at-least-once delivery. To handle these scenarios reliably, consider the following best practices:
+
+  * Design [idempotent functions](https://docs.cloud.google.com/run/docs/tips/functions-best-practices#write_idempotent_functions) so that reprocessing an event produces the same result without creating duplicate records.
+  * Configure [event-driven function retries](https://docs.cloud.google.com/run/docs/tips/function-retries) with exponential backoff on the Pub/Sub trigger to recover from transient downstream errors.
+  * Configure a Pub/Sub [dead-letter topic](https://docs.cloud.google.com/pubsub/docs/dead-letter-topics) to isolate messages that repeatedly fail processing for separate inspection and replay.
+
+
 
 #### Cloud Storage
 
@@ -232,11 +239,18 @@ The underlying AI model that the agent invokes can directly influence the cost t
 
 For information about how to minimize token count to reduce cost, see the [Context caching overview](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/context-cache/context-cache-overview).
 
-#### Cloud Run functions
+#### Cloud Run
 
-When you create Cloud Run jobs, you specify the amount of memory and CPU to be allocated to the container instance. To control costs, start with the default CPU and memory allocations. To improve performance, you can increase the allocation by configuring the [CPU limit](https://docs.cloud.google.com/run/docs/configuring/jobs/cpu) and [memory limit](https://docs.cloud.google.com/run/docs/configuring/jobs/memory-limits).
+To optimize the cost of your Cloud Run services and Cloud Run functions, consider the following recommendations:
 
-If you can predict the CPU and memory requirements of your Cloud Run jobs, then you can save money with discounts for committed usage. For more information, see [Cloud Run committed use discounts](https://docs.cloud.google.com/run/cud).
+  * **Billing settings** : Choose an appropriate [billing setting](https://docs.cloud.google.com/run/docs/configuring/billing-settings) based on your traffic pattern. Use _request-based billing_ (default) for sporadic or spiky workloads—such as event-driven Cloud Run functions in the data ingestion pipeline—so that you pay for CPU and memory only while requests are processed. For Cloud Run services with steady, predictable traffic, consider _instance-based billing_ , which eliminates the per-request fee and charges a lower per-second compute rate.
+  * **CPU, memory, and concurrency** : Start with the default CPU and memory allocations and adjust the [CPU limit](https://docs.cloud.google.com/run/docs/configuring/services/cpu) and [memory limit](https://docs.cloud.google.com/run/docs/configuring/services/memory-limits) based on monitored utilization. Tune the [maximum concurrent requests per instance](https://docs.cloud.google.com/run/docs/configuring/concurrency) so that fewer instances can handle concurrent I/O-bound requests (such as waiting on model or API responses).
+  * **Instance scaling limits** : Configure [maximum instances](https://docs.cloud.google.com/run/docs/configuring/max-instances) to cap scaling costs during unexpected traffic spikes, and balance [minimum instances](https://docs.cloud.google.com/run/docs/configuring/min-instances) against cold-start latency requirements.
+  * **Committed use discounts** : If you can predict the compute requirements of your Cloud Run workloads, you can reduce costs with [Cloud Run committed use discounts](https://docs.cloud.google.com/run/cud).
+
+
+
+For more information, see [Best practices for cost-optimized Cloud Run services](https://docs.cloud.google.com/run/docs/tips/services-cost-optimization).
 
 #### Cloud Storage
 
@@ -250,11 +264,13 @@ For performance optimization principles and recommendations that are specific to
 
 #### Gemini Enterprise
 
-To reduce latency during serving, stream responses by sending model responses before the agent generates the complete output. This enables real-time processing of the output, and you can immediately update your user interface and perform other concurrent tasks. Streaming enhances perceived responsiveness and creates a more interactive user experience. For more information, see [Stream answers](https://docs.cloud.google.com/gemini/enterprise/docs/stream-answer).
+To reduce latency during serving, stream responses by sending model responses before the agent generates the complete output. This enables real-time processing of the output, and you can immediately update your user interface and perform other concurrent tasks. Streaming enhances perceived responsiveness and creates a more interactive user experience. For more information, see [Get search results using StreamAssist](https://docs.cloud.google.com/gemini/enterprise/docs/get-answers-from-streamassist).
+
+When you build and register custom Agent Development Kit (ADK) agents on Agent Runtime, minimize sequential multi-agent hops, tool round-trips, and redundant summarization passes to reduce end-to-end turn latency. For more information, see [Best practices for performance and reliability](https://docs.cloud.google.com/gemini/enterprise/docs/register-and-manage-an-adk-agent#best-practices-performance).
 
 #### Cloud Run
 
-Adjust the memory and CPU allocation for the Cloud Run instances based on performance requirements. For more information, see [Configure CPU limits for jobs](https://docs.cloud.google.com/run/docs/configuring/jobs/cpu) and [Configure memory limits for services](https://docs.cloud.google.com/run/docs/configuring/services/memory-limits).
+Adjust the CPU and memory allocations for your Cloud Run services and Cloud Run functions based on workload performance requirements. To reduce cold-start latency when scaling from zero, enable [startup CPU boost](https://docs.cloud.google.com/run/docs/configuring/services/cpu#startup-boost) to temporarily provide additional CPU during container instance startup, or configure [minimum instances](https://docs.cloud.google.com/run/docs/configuring/min-instances) to keep instances warm. For more information, see [Configure CPU limits for services](https://docs.cloud.google.com/run/docs/configuring/services/cpu) and [Configure memory limits for services](https://docs.cloud.google.com/run/docs/configuring/services/memory-limits).
 
 #### Cloud Storage
 
@@ -294,6 +310,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2025-11-10 UTC.
+Last updated 2026-11-06 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2025-11-10 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-06 UTC."],[],[]] 

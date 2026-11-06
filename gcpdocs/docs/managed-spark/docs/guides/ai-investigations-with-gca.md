@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/managed-spark/docs/guides/ai-investigations-with-gca/
 title: Investigate workloads with AI-powered Gemini Cloud Assist \u00a0|\u00a0 Managed Service for Apache Spark \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T21:57:35.995363+00:00
+fetched_at: 2026-11-06T05:53:31.943174+00:00
 ---
 
 # Investigate workloads with AI-powered Gemini Cloud Assist  |  Managed Service for Apache Spark  |  Google Cloud Documentation
@@ -56,10 +56,10 @@ To enable APIs, you need the `serviceusage.services.enable` permission. If you c
 
 To start an investigation, do one of the following:
 
-  * Option 1: In the Google Cloud console, go to the [**Batches List Page**](https://console.cloud.google.com/dataproc/batches). For any batch with a `Failed` status, an **INVESTIGATE** button appears in the **Insights by Gemini** column. Click the button to start an investigation.
+  * Option 1: In the Google Cloud console, go to the [**Jobs** page](https://console.cloud.google.com/dataproc/jobs) and select the **Serverless Spark** tab. For any batch with a `Failed` status, if an **INVESTIGATE** button appears in the **Insights by Gemini** column, click the button to start an investigation.
 
-![Batches list page showing the INVESTIGATE button.](https://docs.cloud.google.com/static/managed-spark/docs/images/investigate-button-batches-list.png)
-  * Option 2: Open the **Batch Details Page** of the batch workload to investigate. For both `Succeeded` and `Failed` batch workloads, in the **Health overview** section of the **Summary** tab, an **INVESTIGATE** button appears in the **Insights by Gemini** panel. Click the button to start an investigation.
+![Jobs page showing the INVESTIGATE button.](https://docs.cloud.google.com/static/managed-spark/docs/images/investigate-button-batches-list.png)
+  * Option 2: On the **Serverless Spark** tab of the [**Jobs** page](https://console.cloud.google.com/dataproc/jobs), click the **Job ID** of the batch workload to open its **Job details** page. For both `Succeeded` and `Failed` batch workloads, on the **Summary** tab, an **INVESTIGATE** button appears in the **Insights by Gemini** panel. Click the button to start an investigation.
 
 ![Batch details page showing the INVESTIGATE button in the Insights by Gemini column for failed jobs.](https://docs.cloud.google.com/static/managed-spark/docs/images/investigate-from-batch-details.png)
 
@@ -114,6 +114,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-06 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-06 UTC."],[],[]] 
