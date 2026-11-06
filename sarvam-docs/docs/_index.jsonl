@@ -1138,3 +1138,4 @@
 {"url": "https://www.sarvam.ai/token-factory/models/sarvam-105b/", "file": "_subdomains/www.sarvam.ai/token-factory/models/sarvam-105b.md", "title": "Sarvam 105B | Sarvam Token Factory", "method": "scrapling+scrapegraph"}
 {"url": "https://www.sarvam.ai/token-factory/models/sarvam-105b-chat/", "file": "_subdomains/www.sarvam.ai/token-factory/models/sarvam-105b-chat.md", "title": "Sarvam 105B Conversations | Sarvam Token Factory", "method": "scrapling+scrapegraph"}
 {"url": "https://www.sarvam.ai/token-factory/pricing/", "file": "_subdomains/www.sarvam.ai/token-factory/pricing.md", "title": "Pricing | Sarvam Token Factory", "method": "scrapling+scrapegraph"}
+{"url": "https://docs.sarvam.ai/changelog/2026/11/3/", "file": "changelog/2026/11/3.md", "title": "November 3, 2026 | Sarvam API Docs", "method": "scrapling+scrapegraph"}

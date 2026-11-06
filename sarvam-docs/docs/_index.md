@@ -2,7 +2,7 @@
 url: https://docs.sarvam.ai/
 title: AI for all from India | Sarvam API Docs
 method: scrapling+scrapegraph
-fetched_at: 2026-11-01T06:38:42.035701+00:00
+fetched_at: 2026-11-06T06:34:13.337964+00:00
 ---
 
 # AI for all from India | Sarvam API Docs
@@ -89,7 +89,7 @@ End-to-end projects you can run today, with the full source in each guide.
 
 [Full changelog →](https://docs.sarvam.ai/changelog)
 
-[October 2026Custom APIsStore the keys for your own HTTPS APIs in Cowork and use them in your personal chats and on agents you own, so an agent can call a service you already pay for without anyone re-entering credentials.Read the changelog →](https://docs.sarvam.ai/cowork/build/connectors)
+[November 2026Knowledge Base Metadata FieldsDefine your own fields on a knowledge base, such as department, year or document type, and fill in the values as you upload each file. Fields can be required, limited to allowed values, or filterable.Read the changelog →](https://docs.sarvam.ai/cowork/build/knowledge-bases)
 
 [October 2026Larger Knowledge Base FilesAdd files up to 5 GB to a knowledge base. Files that are too large or the wrong type are now flagged with a clear message instead of disappearing without explanation.](https://docs.sarvam.ai/cowork/build/knowledge-bases)[October 2026Agent Session HistoryAgent pages now have a Mine / Team toggle, so you can see your own recent sessions or those of your teammates. Any session opens as a read-only transcript you can review after the run finishes.](https://docs.sarvam.ai/cowork/build/chat)[October 2026Bulbul V3 End of Life for Voice AgentsBulbul V3 reaches end of life on Voice Agents on November 10, 2026. Switch your agents to Bulbul V4 before then.](https://docs.sarvam.ai/voice-agents/build/voice-language)
 

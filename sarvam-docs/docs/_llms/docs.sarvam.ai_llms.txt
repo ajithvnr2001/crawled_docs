@@ -246,9 +246,9 @@ Clone a support agent once, then reply to WhatsApp text and voice notes in that 
 
 [Full changelog →](/changelog)
 
-[October 2026 Custom APIs](/cowork/build/connectors)
+[November 2026 Knowledge Base Metadata Fields](/cowork/build/knowledge-bases)
 
-Store the keys for your own HTTPS APIs in Cowork and use them in your personal chats and on agents you own, so an agent can call a service you already pay for without anyone re-entering credentials.
+Define your own fields on a knowledge base, such as department, year or document type, and fill in the values as you upload each file. Fields can be required, limited to allowed values, or filterable.
 
 Read the changelog →
 
@@ -341,8 +341,8 @@ Community
   - [Meta Prompt Guide](https://docs.sarvam.ai/api-reference/metaprompt.md)
   - [Introduction](https://docs.sarvam.ai/api-reference/conversations.md)
 - [Changelog](https://docs.sarvam.ai/changelog/llms.txt): Track API and product updates
+  - [November 3, 2026](https://docs.sarvam.ai/changelog/2026/11/3.md)
   - [October 31, 2026](https://docs.sarvam.ai/changelog/2026/10/31.md)
   - [October 30, 2026](https://docs.sarvam.ai/changelog/2026/10/30.md)
   - [October 29, 2026](https://docs.sarvam.ai/changelog/2026/10/29.md)
   - [October 28, 2026](https://docs.sarvam.ai/changelog/2026/10/28.md)
-  - [October 26, 2026](https://docs.sarvam.ai/changelog/2026/10/26.md)
