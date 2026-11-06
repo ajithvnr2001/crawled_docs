@@ -2,7 +2,7 @@
 url: https://docs.fish.audio/agents/deploy/public-agents/
 title: Public Agents - Fish Audio
 method: scrapling+scrapegraph
-fetched_at: 2026-10-17T10:46:41.775945+00:00
+fetched_at: 2026-11-06T15:15:40.944640+00:00
 ---
 
 # Public Agents - Fish Audio
@@ -10,6 +10,8 @@ fetched_at: 2026-10-17T10:46:41.775945+00:00
 > Source: https://docs.fish.audio/agents/deploy/public-agents/
 
 ## On this page
+
+Back to top
 
   * Enable public access
   * Start a session from the browser
@@ -149,6 +151,7 @@ Code| Meaning
 ---|---  
 `agent_not_public`| The agent’s public switch is off.  
 `origin_forbidden`| The page’s origin is not in `allowed_origins` (HTTP `403`).  
+`insufficient_credit`| The agent owner’s account has no Agent credit left (HTTP `402`). Top up to resume.  
 `session_request_failed`| Other creation failures, for example the agent has no published version.  
   
 ## 

@@ -2,7 +2,7 @@
 url: https://docs.fish.audio/api-reference/agent-errors/
 title: Agents API Errors - Fish Audio
 method: scrapling+scrapegraph
-fetched_at: 2026-10-17T10:47:02.757368+00:00
+fetched_at: 2026-11-06T15:15:41.091383+00:00
 ---
 
 # Agents API Errors - Fish Audio
@@ -10,6 +10,8 @@ fetched_at: 2026-10-17T10:47:02.757368+00:00
 > Source: https://docs.fish.audio/api-reference/agent-errors/
 
 ## On this page
+
+Back to top
 
   * Status codes
   * 400 vs 422
@@ -102,7 +104,7 @@ Message| Cause
 `Agent is not public`| Anonymous session/widget request against an agent whose public switch is off.  
 `Origin header is required for public agents`| Anonymous request without an `Origin` header. Browsers send it automatically, curl must set it.  
 `Origin not allowed`| The page’s origin is not on the agent’s [allowed origins](https://docs.fish.audio/agents/deploy/public-agents#origin-matching).  
-`Agent is unavailable`| The agent’s owner can’t serve public sessions right now; visitors deliberately can’t tell why.  
+`Agent is unavailable`| The agent’s owner can’t serve public sessions right now for a reason other than credit (that is `402`); visitors deliberately can’t tell why.  
 `Phone number limit reached for this team (N)`| The team holds its maximum of live numbers; release one first.  
   
 ## 
@@ -132,7 +134,7 @@ Message| Cause and fix
 
 Billing and rate limits
 
-Exactly two endpoints charge before acting, and both can return `402 Out of API credit`: [`POST /v1/agent/sessions`](https://docs.fish.audio/api-reference/endpoint/agent/create-agent-session) (API-key callers) and [`POST /v1/agent/phone-numbers`](https://docs.fish.audio/api-reference/endpoint/agent/purchase-phone-number) (the first rental day). Anonymous public sessions never see `402`. An out-of-credit owner surfaces to visitors as `403 Agent is unavailable`. Usage is settled after each call and never fails a request. `429` applies only to anonymous session creation on [public agents](https://docs.fish.audio/agents/deploy/public-agents), in fixed per-minute windows per agent and per client IP. API-key traffic is not rate limited on this surface; your backend is the gate.
+Exactly two endpoints charge before acting, and both can return `402 Out of API credit`: [`POST /v1/agent/sessions`](https://docs.fish.audio/api-reference/endpoint/agent/create-agent-session) (API-key and anonymous public callers alike) and [`POST /v1/agent/phone-numbers`](https://docs.fish.audio/api-reference/endpoint/agent/purchase-phone-number) (the first rental day). A public session whose agent owner is out of credit gets the same `402`, which the [Web SDK](https://docs.fish.audio/agents/deploy/web-sdk#errors) reports as `insufficient_credit`. Usage is settled after each call and never fails a request. `429` applies only to anonymous session creation on [public agents](https://docs.fish.audio/agents/deploy/public-agents), in fixed per-minute windows per agent and per client IP. API-key traffic is not rate limited on this surface; your backend is the gate.
 
 ## 
 

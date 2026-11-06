@@ -2,7 +2,7 @@
 url: https://docs.fish.audio/features/text-to-speech/drama-3/
 title: Drama 3 - Fish Audio
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T16:37:29.530077+00:00
+fetched_at: 2026-11-06T15:15:42.085759+00:00
 ---
 
 # Drama 3 - Fish Audio
@@ -10,6 +10,8 @@ fetched_at: 2026-10-23T16:37:29.530077+00:00
 > Source: https://docs.fish.audio/features/text-to-speech/drama-3/
 
 ## On this page
+
+Back to top
 
   * What’s new
   * Voice cast
@@ -82,7 +84,7 @@ If the `model` header is missing or misspelled, the request doesn’t fail: it f
 
 Pricing
 
-Drama 3 is billed by the size of your input text, at $50.00 / M UTF-8 bytes. Until November 12, 2026, 09:00 PT (17:00 UTC), the launch promotion price is $10.00 / M UTF-8 bytes, 80% off. See [Pricing & Rate Limits](https://docs.fish.audio/developer-guide/models-pricing/pricing-and-rate-limits).
+Drama 3 is billed by the size of your input text, at $50.00 / M UTF-8 bytes. Through November 30, 2026 (until December 1, 00:00 PT / 08:00 UTC), the launch promotion price is $10.00 / M UTF-8 bytes, 80% off. See [Pricing & Rate Limits](https://docs.fish.audio/developer-guide/models-pricing/pricing-and-rate-limits).
 
 ## 
 

@@ -2,7 +2,7 @@
 url: https://docs.fish.audio/developer-guide/models-pricing/pricing-and-rate-limits/
 title: Pricing & Rate Limits - Fish Audio
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T16:37:29.433579+00:00
+fetched_at: 2026-11-06T15:15:41.654118+00:00
 ---
 
 # Pricing & Rate Limits - Fish Audio
@@ -10,6 +10,8 @@ fetched_at: 2026-10-23T16:37:29.433579+00:00
 > Source: https://docs.fish.audio/developer-guide/models-pricing/pricing-and-rate-limits/
 
 ## On this page
+
+Back to top
 
   * API Pricing
     * Text-to-Speech (TTS) Models
@@ -58,7 +60,7 @@ Model Name| Price (USD)
   
 1M UTF-8 bytes is approximately 180,000 English words, or about 12 hours of speech
 
-Until November 12, 2026, 09:00 PT (17:00 UTC), `drama-3` is billed at a launch promotion price of $10.00 / M UTF-8 bytes, 80% off the list price above. See [Drama 3](https://docs.fish.audio/features/text-to-speech/drama-3). S1 is deprecated and will be retired on December 31, 2026. After that date, requests that specify `s1` are served by `s2.1-pro` and billed as `s2.1-pro`, at the same price. See [Migrate from S1](https://docs.fish.audio/developer-guide/models-pricing/migrate-from-s1).
+Through November 30, 2026 (until December 1, 00:00 PT / 08:00 UTC), `drama-3` is billed at a launch promotion price of $10.00 / M UTF-8 bytes, 80% off the list price above. See [Drama 3](https://docs.fish.audio/features/text-to-speech/drama-3). S1 is deprecated and will be retired on December 31, 2026. After that date, requests that specify `s1` are served by `s2.1-pro` and billed as `s2.1-pro`, at the same price. See [Migrate from S1](https://docs.fish.audio/developer-guide/models-pricing/migrate-from-s1).
 
 ### 
 
@@ -189,4 +191,4 @@ YesNo
 
 [Suggest edits](https://github.com/fishaudio/docs/edit/main/developer-guide/models-pricing/pricing-and-rate-limits.mdx)[Raise issue](https://github.com/fishaudio/docs/issues/new?title=Issue%20on%20docs&body=Path:%20/developer-guide/models-pricing/pricing-and-rate-limits)
 
-[Migrate from S1](https://docs.fish.audio/developer-guide/models-pricing/migrate-from-s1)
+[Migrate from transcribe-1](https://docs.fish.audio/developer-guide/models-pricing/migrate-from-transcribe-1)

@@ -2,7 +2,7 @@
 url: https://docs.fish.audio/api-reference/sdk/python/client/
 title: Client - Fish Audio
 method: scrapling+scrapegraph
-fetched_at: 2026-11-05T15:40:34.277876+00:00
+fetched_at: 2026-11-06T15:15:41.521372+00:00
 ---
 
 # Client - Fish Audio
