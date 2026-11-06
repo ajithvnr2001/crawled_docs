@@ -1,17 +1,17 @@
 ---
 url: https://docs.comfy.org/built-in-nodes/SaveImageAdvanced/
-title: SaveImageAdvanced - ComfyUI Built-in Node Documentation - ComfyUI
+title: Save Image (Advanced) - ComfyUI Built-in Node Documentation - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-25T12:24:52.718579+00:00
+fetched_at: 2026-11-06T14:51:58.118642+00:00
 ---
 
-# SaveImageAdvanced - ComfyUI Built-in Node Documentation - ComfyUI
+# Save Image (Advanced) - ComfyUI Built-in Node Documentation - ComfyUI
 
 > Source: https://docs.comfy.org/built-in-nodes/SaveImageAdvanced/
 
 Image
 
-# SaveImageAdvanced - ComfyUI Built-in Node Documentation
+# Save Image (Advanced) - ComfyUI Built-in Node Documentation
 
 Copy pageCopy page
 
@@ -113,7 +113,7 @@ Parameter| Description| Data Type| Required| Range
 
   * The format-specific parameters (`bit_depth`, `input_color_space`, and for AVIF also `crf` and `save_mode`) are only available when a specific `format` is selected.
   * For PNG format, only “8-bit” and “16-bit” bit depths are available, and only “sRGB” color space.
-  * For EXR format, both “16-bit float” and “32-bit float” bit depths are available, with “sRGB”, “HDR”, or “linear” color spaces. “16-bit float” is the default and produces smaller files.
+  * For EXR format, both “16-bit float” and “32-bit float” bit depths are available, with “sRGB”, “HDR”, “linear”, or “linear ACEScg” color spaces. “16-bit float” is the default and produces smaller files.
   * For AVIF format, `fps` and `loop_count` are only available when `save_mode` is set to `"animated"`.
   * PNG and EXR images must have 1 (grayscale), 3 (RGB), or 4 (RGBA) channels; other channel counts are not supported and raise an error.
   * AVIF supports only 1-channel grayscale and 3-channel RGB images; RGBA (alpha) images are not supported and raise an error.
@@ -142,4 +142,4 @@ YesNo
 
 [Suggest edits](https://github.com/comfy-org/docs/edit/main/built-in-nodes/SaveImageAdvanced.mdx)[Raise issue](https://github.com/comfy-org/docs/issues/new?title=Issue%20on%20docs&body=Path:%20/built-in-nodes/SaveImageAdvanced)
 
-[SaveImage](https://docs.comfy.org/built-in-nodes/SaveImage)[SaveImageDataSetToFolder](https://docs.comfy.org/built-in-nodes/SaveImageDataSetToFolder)
+[Save Image](https://docs.comfy.org/built-in-nodes/SaveImage)[Save Image (to Folder) (DEPRECATED)](https://docs.comfy.org/built-in-nodes/SaveImageDataSetToFolder)

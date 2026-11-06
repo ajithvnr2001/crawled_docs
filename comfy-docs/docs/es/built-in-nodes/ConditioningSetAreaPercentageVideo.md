@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/es/built-in-nodes/ConditioningSetAreaPercentageVideo/
 title: Acondicionamiento (establecer \u00e1rea con porcentaje para video) - ComfyUI Built-in Node Documentation - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-26T14:01:40.095970+00:00
+fetched_at: 2026-11-06T14:52:00.549258+00:00
 ---
 
 # Acondicionamiento (establecer área con porcentaje para video) - ComfyUI Built-in Node Documentation - ComfyUI
@@ -30,13 +30,13 @@ Entradas
 Parámetro| Descripción| Tipo de datos| Requerido| Rango  
 ---|---|---|---|---  
 `acondicionamiento`| Los datos de condicionamiento que se modificarán| CONDITIONING| Sí| -  
-`ancho`| El ancho del área como porcentaje del ancho total (predeterminado: 1.0)| FLOAT| Sí| 0.0 - 1.0 (step 0.01)  
-`alto`| La altura del área como porcentaje de la altura total (predeterminado: 1.0)| FLOAT| Sí| 0.0 - 1.0 (step 0.01)  
-`temporal`| La duración temporal del área como porcentaje de la longitud total del video (predeterminado: 1.0)| FLOAT| Sí| 0.0 - 1.0 (step 0.01)  
-`x`| La posición horizontal inicial del área como porcentaje (predeterminado: 0.0)| FLOAT| Sí| 0.0 - 1.0 (step 0.01)  
-`y`| La posición vertical inicial del área como porcentaje (predeterminado: 0.0)| FLOAT| Sí| 0.0 - 1.0 (step 0.01)  
-`z`| La posición temporal inicial del área como porcentaje de la línea de tiempo del video (predeterminado: 0.0)| FLOAT| Sí| 0.0 - 1.0 (step 0.01)  
-`fuerza`| El multiplicador de intensidad aplicado al condicionamiento dentro del área definida (predeterminado: 1.0)| FLOAT| Sí| 0.0 - 10.0 (step 0.01)  
+`ancho`| El ancho del área como porcentaje del ancho total (predeterminado: 1.0)| FLOAT| Sí| 0.0 - 1.0 (paso: 0.01)  
+`alto`| La altura del área como porcentaje de la altura total (predeterminado: 1.0)| FLOAT| Sí| 0.0 - 1.0 (paso: 0.01)  
+`temporal`| La duración temporal del área como porcentaje de la longitud total del video (predeterminado: 1.0)| FLOAT| Sí| 0.0 - 1.0 (paso: 0.01)  
+`x`| La posición horizontal inicial del área como porcentaje (predeterminado: 0.0)| FLOAT| Sí| 0.0 - 1.0 (paso: 0.01)  
+`y`| La posición vertical inicial del área como porcentaje (predeterminado: 0.0)| FLOAT| Sí| 0.0 - 1.0 (paso: 0.01)  
+`z`| La posición temporal inicial del área como porcentaje de la línea de tiempo del video (predeterminado: 0.0)| FLOAT| Sí| 0.0 - 1.0 (paso: 0.01)  
+`fuerza`| El multiplicador de intensidad aplicado al condicionamiento dentro del área definida (predeterminado: 1.0)| FLOAT| Sí| 0.0 - 10.0 (paso: 0.01)  
   
 ## 
 

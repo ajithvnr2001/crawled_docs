@@ -1,10 +1,7 @@
 {
   "url": "https://docs.comfy.org/built-in-nodes/ResizeImageMaskNode/",
   "file": "built-in-nodes/ResizeImageMaskNode.md",
-  "title": "ResizeImageMaskNode - ComfyUI Built-in Node Documentation - ComfyUI",
+  "title": "Resize Image/Mask - ComfyUI Built-in Node Documentation - ComfyUI",
   "method": "scrapling+scrapegraph",
-  "fetched_at": "2026-10-17T10:48:51.259358+00:00",
-  "html_len": 650281,
-  "md_len": 5286,
-  "depth": 0
+  "fetched_at": "2026-11-06T14:51:59.041517+00:00"
 }

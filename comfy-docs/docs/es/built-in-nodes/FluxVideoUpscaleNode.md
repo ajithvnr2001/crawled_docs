@@ -1,17 +1,17 @@
 ---
 url: https://docs.comfy.org/es/built-in-nodes/FluxVideoUpscaleNode/
-title: Ampliaci\u00f3n de v\u00eddeo Flux - ComfyUI Built-in Node Documentation - ComfyUI
+title: Flux: reescalado de v\u00eddeo (heredado) - ComfyUI Built-in Node Documentation - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-11-02T16:54:39.690166+00:00
+fetched_at: 2026-11-06T14:52:00.298899+00:00
 ---
 
-# Ampliación de vídeo Flux - ComfyUI Built-in Node Documentation - ComfyUI
+# Flux: reescalado de vídeo (heredado) - ComfyUI Built-in Node Documentation - ComfyUI
 
 > Source: https://docs.comfy.org/es/built-in-nodes/FluxVideoUpscaleNode/
 
 BFL
 
-# Ampliación de vídeo Flux - ComfyUI Built-in Node Documentation
+# Flux: reescalado de vídeo (heredado) - ComfyUI Built-in Node Documentation
 
 Copiar páginaCopiar página
 

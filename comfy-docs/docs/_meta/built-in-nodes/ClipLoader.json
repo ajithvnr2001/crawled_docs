@@ -1,7 +1,7 @@
 {
   "url": "https://docs.comfy.org/built-in-nodes/ClipLoader/",
   "file": "built-in-nodes/ClipLoader.md",
-  "title": "CLIPLoader - ComfyUI Built-in Node Documentation - ComfyUI",
+  "title": "Load CLIP - ComfyUI Built-in Node Documentation - ComfyUI",
   "method": "scrapling+scrapegraph",
-  "fetched_at": "2026-10-25T12:24:51.483297+00:00"
+  "fetched_at": "2026-11-06T14:51:55.791527+00:00"
 }

@@ -1,10 +1,7 @@
 {
   "url": "https://docs.comfy.org/built-in-nodes/LatentUpscaleModelLoader/",
   "file": "built-in-nodes/LatentUpscaleModelLoader.md",
-  "title": "LatentUpscaleModelLoader - ComfyUI Built-in Node Documentation - ComfyUI",
+  "title": "Load Latent Upscale Model - ComfyUI Built-in Node Documentation - ComfyUI",
   "method": "scrapling+scrapegraph",
-  "fetched_at": "2026-10-17T10:48:22.108500+00:00",
-  "html_len": 640169,
-  "md_len": 3907,
-  "depth": 0
+  "fetched_at": "2026-11-06T14:51:56.108378+00:00"
 }

@@ -1,7 +1,7 @@
 {
   "url": "https://docs.comfy.org/built-in-nodes/ClipTextEncodeSdxlRefiner/",
   "file": "built-in-nodes/ClipTextEncodeSdxlRefiner.md",
-  "title": "CLIPTextEncodeSDXLRefiner - ComfyUI Built-in Node Documentation - ComfyUI",
+  "title": "CLIP Text Encode (SDXL Refiner) - ComfyUI Built-in Node Documentation - ComfyUI",
   "method": "scrapling+scrapegraph",
-  "fetched_at": "2026-10-25T12:24:51.774768+00:00"
+  "fetched_at": "2026-11-06T14:51:57.672370+00:00"
 }

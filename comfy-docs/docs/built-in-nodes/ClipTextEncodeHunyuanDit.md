@@ -1,17 +1,17 @@
 ---
 url: https://docs.comfy.org/built-in-nodes/ClipTextEncodeHunyuanDit/
-title: CLIPTextEncodeHunyuanDiT - ComfyUI Built-in Node Documentation - ComfyUI
+title: CLIP Text Encode (Hunyuan Image) - ComfyUI Built-in Node Documentation - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-25T12:24:51.439829+00:00
+fetched_at: 2026-11-06T14:51:56.510289+00:00
 ---
 
-# CLIPTextEncodeHunyuanDiT - ComfyUI Built-in Node Documentation - ComfyUI
+# CLIP Text Encode (Hunyuan Image) - ComfyUI Built-in Node Documentation - ComfyUI
 
 > Source: https://docs.comfy.org/built-in-nodes/ClipTextEncodeHunyuanDit/
 
 Hunyuan Image
 
-# CLIPTextEncodeHunyuanDiT - ComfyUI Built-in Node Documentation
+# CLIP Text Encode (Hunyuan Image) - ComfyUI Built-in Node Documentation
 
 Copy pageCopy page
 

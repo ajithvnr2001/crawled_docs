@@ -1,7 +1,7 @@
 {
   "url": "https://docs.comfy.org/built-in-nodes/ClipTextEncode/",
   "file": "built-in-nodes/ClipTextEncode.md",
-  "title": "CLIPTextEncode - ComfyUI Built-in Node Documentation - ComfyUI",
+  "title": "CLIP Text Encode (Prompt) - ComfyUI Built-in Node Documentation - ComfyUI",
   "method": "scrapling+scrapegraph",
-  "fetched_at": "2026-10-25T12:24:51.290112+00:00"
+  "fetched_at": "2026-11-06T14:51:55.868434+00:00"
 }

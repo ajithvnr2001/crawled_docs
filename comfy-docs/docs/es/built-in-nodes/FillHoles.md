@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/es/built-in-nodes/FillHoles/
 title: Rellenar agujeros - ComfyUI Built-in Node Documentation - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-26T14:01:47.013044+00:00
+fetched_at: 2026-11-06T14:51:59.738754+00:00
 ---
 
 # Rellenar agujeros - ComfyUI Built-in Node Documentation - ComfyUI
@@ -33,7 +33,7 @@ Parámetro| Descripción| Tipo de dato| Obligatorio| Rango
 `max_perimeter`| Perímetro máximo del agujero a rellenar. 0 lo desactiva. (predeterminado: 0.03)| FLOAT| Sí| 0.0 a sin límite superior (paso 0.0001)  
 `weld_epsilon_rel`| Tolerancia de pre-soldadura (fracción de la diagonal de la caja delimitadora); la detección de contorno necesita vértices soldados. 0 lo omite. (predeterminado: 1e-5)| FLOAT| Sí| 0.0 a sin límite superior (paso 1e-6)  
 `max_vertices`| Limita los vértices de contorno por ciclo; el relleno de abanico de centroide solo funciona para agujeros pequeños casi planos. Mantener ≤16. (predeterminado: 16)| INT| Sí| 3 a 1024  
-`fill_chains`| También rellena cadenas abiertas (no solo ciclos). Ruidoso; OFF coincide con cumesh. (predeterminado: False)| BOOLEAN| Sí| True or False  
+`fill_chains`| También rellena cadenas abiertas (no solo ciclos). Ruidoso; OFF coincide con cumesh. (predeterminado: False)| BOOLEAN| Sí| True o False  
   
 Nota: Cuando `max_perimeter` es mayor que 0, el nodo rellena los agujeros; cuando es 0, el relleno de agujeros se omite por completo. Cuando `weld_epsilon_rel` es mayor que 0, el nodo pre-suelda los vértices duplicados antes de detectar los agujeros. La tolerancia de soldadura comienza en la fracción dada de la diagonal de la caja delimitadora y aumenta automáticamente duplicándose hasta que la malla se considere soldada o la tolerancia alcance un límite de 1e-2. Los agujeros con más de 8 vértices de contorno usan un relleno de abanico de centroide (insertando un nuevo vértice de centroide), mientras que los agujeros más pequeños usan un relleno de abanico de vértices que reutiliza un vértice de contorno existente. De forma predeterminada, solo se rellenan los ciclos de contorno cerrados; establezca `fill_chains` en True para cerrar también cadenas abiertas.
 

@@ -1,17 +1,17 @@
 ---
 url: https://docs.comfy.org/es/built-in-nodes/KlingTextToVideoWithAudio/
-title: Kling 2.6 texto a video con audio - ComfyUI Built-in Node Documentation - ComfyUI
+title: Kling texto a video con audio - ComfyUI Built-in Node Documentation - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-26T14:01:59.923016+00:00
+fetched_at: 2026-11-06T14:51:58.508665+00:00
 ---
 
-# Kling 2.6 texto a video con audio - ComfyUI Built-in Node Documentation - ComfyUI
+# Kling texto a video con audio - ComfyUI Built-in Node Documentation - ComfyUI
 
 > Source: https://docs.comfy.org/es/built-in-nodes/KlingTextToVideoWithAudio/
 
 Kling
 
-# Kling 2.6 texto a video con audio - ComfyUI Built-in Node Documentation
+# Kling texto a video con audio - ComfyUI Built-in Node Documentation
 
 Copiar páginaCopiar página
 

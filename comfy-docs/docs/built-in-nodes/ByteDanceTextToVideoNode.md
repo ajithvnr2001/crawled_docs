@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/built-in-nodes/ByteDanceTextToVideoNode/
 title: ByteDance Text to Video - ComfyUI Built-in Node Documentation - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T15:15:48.786256+00:00
+fetched_at: 2026-11-06T14:51:55.712771+00:00
 ---
 
 # ByteDance Text to Video - ComfyUI Built-in Node Documentation - ComfyUI
@@ -19,9 +19,7 @@ The ByteDance Text to Video node generates a video using ByteDance models throug
 
 Copy pageCopy page
 
-The ByteDance Text to Video node generates a video using ByteDance models through an API based on a text prompt. You provide a prompt and choose settings such as the model, resolution, aspect ratio, and duration; the node submits the generation request and returns the generated video.
-
-BytePlus shuts the Seedance 1.5 Pro model down on November 11, 2026, so this node no longer offers it and workflows saved with it stop working. Use `seedance-1-0-pro-250528`, `seedance-1-0-pro-fast-251015`, or the [Seedance 2.5 partner node](https://docs.comfy.org/tutorials/partner-nodes/bytedance/seedance-2-5) instead.
+The ByteDance Text to Video node generates a video using ByteDance models through an API based on a text prompt. You provide a prompt and choose settings such as the model, resolution, aspect ratio, and duration; the node submits the generation request and returns the generated video. **Note:** This node is marked as deprecated in the source code. **Note:** BytePlus shuts the Seedance 1.5 Pro model down on November 11, 2026, so this node no longer offers it and workflows saved with it stop working. Use `seedance-1-0-pro-250528`, `seedance-1-0-pro-fast-251015`, or the [Seedance 2.5 partner node](https://docs.comfy.org/tutorials/partner-nodes/bytedance/seedance-2-5) instead.
 
 ## 
 
@@ -47,7 +45,7 @@ Parameter| Description| Data Type| Required| Range
 `seed`| Seed to use for generation (default: 0).| INT| No| 0 to 2147483647  
 `camera_fixed`| Specifies whether to fix the camera. The platform appends an instruction to fix the camera to your prompt, but does not guarantee the actual effect (default: False).| BOOLEAN| No| -  
 `watermark`| Whether to add an “AI generated” watermark to the video (default: False).| BOOLEAN| No| -  
-`generate_audio`| Accepted for compatibility; the remaining models ignore this input (default: False).| BOOLEAN| No| -  
+`generate_audio`| Adds an AI-generated audio track. The remaining models ignore this input (default: False).| BOOLEAN| No| -  
   
 **Parameter Constraints:**
 
@@ -74,7 +72,7 @@ Output Name| Description| Data Type
 
 * * *
 
-**Source fingerprint (SHA-256):** `83b805b63e59a76cae378b0407b409e1bfe900677ef1e01fc836fede47283eee`
+**Source fingerprint (SHA-256):** `d26d13c99a25bb14a0b1c1f3bae2dea1b30bf35f886331f26ef72e64ca357ef5`
 
 Was this page helpful?
 

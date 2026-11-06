@@ -1,17 +1,17 @@
 ---
 url: https://docs.comfy.org/es/built-in-nodes/MiniMaxH3ContextWindows/
-title: MiniMaxH3ContextWindows - ComfyUI Built-in Node Documentation - ComfyUI
+title: Ventanas de contexto de MiniMax H3 - ComfyUI Built-in Node Documentation - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-11-02T16:54:33.643092+00:00
+fetched_at: 2026-11-06T14:52:02.646786+00:00
 ---
 
-# MiniMaxH3ContextWindows - ComfyUI Built-in Node Documentation - ComfyUI
+# Ventanas de contexto de MiniMax H3 - ComfyUI Built-in Node Documentation - ComfyUI
 
 > Source: https://docs.comfy.org/es/built-in-nodes/MiniMaxH3ContextWindows/
 
 Parches
 
-# MiniMaxH3ContextWindows - ComfyUI Built-in Node Documentation
+# Ventanas de contexto de MiniMax H3 - ComfyUI Built-in Node Documentation
 
 Copiar páginaCopiar página
 

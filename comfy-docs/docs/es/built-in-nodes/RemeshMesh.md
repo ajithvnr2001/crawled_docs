@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/es/built-in-nodes/RemeshMesh/
 title: Remallar malla (DC de banda estrecha) - ComfyUI Built-in Node Documentation - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-26T14:02:22.718303+00:00
+fetched_at: 2026-11-06T14:52:03.732651+00:00
 ---
 
 # Remallar malla (DC de banda estrecha) - ComfyUI Built-in Node Documentation - ComfyUI
@@ -19,7 +19,7 @@ Remesh Mesh reconstruye una malla con un teselado limpio y uniforme muestreando 
 
 Copiar páginaCopiar página
 
-Remesh Mesh reconstruye una malla con un teselado limpio y uniforme muestreando un campo de distancia de banda estrecha alrededor de la superficie original y extrayéndolo con Dual Contouring. Esto normaliza topologías desordenadas, no manifold o auto-intersectantes, y está pensado para ejecutarse antes de Decimate Mesh para alcanzar un recuento exacto de caras. El procesamiento se ejecuta en el dispositivo de cómputo activo y la malla de salida permanece soldada.
+Remesh Mesh reconstruye una malla con un teselado limpio y uniforme muestreando un campo de distancia de banda estrecha alrededor de la superficie original y extrayéndolo con Dual Contouring. Esto normaliza topologías desordenadas, no manifold o auto-intersectantes, y está pensado para ejecutarse antes de Decimate Mesh para alcanzar un recuento exacto de caras. El procesamiento se ejecuta en el dispositivo de cómputo activo y la malla de salida permanece soldada. Las mallas que superan 0.51 o abarcan menos de 0.5 se ajustan primero al cubo [-0.5, 0.5] y después se reasignan a su escala original.
 
 ## 
 
@@ -103,7 +103,7 @@ Nombre de salida| Descripción| Tipo de datos
 
 * * *
 
-**Source fingerprint (SHA-256):** `d2869c681e0485f5946a53f0582188ded2183ecd741ea1ff6a591932b18b5abe`
+**Source fingerprint (SHA-256):** `3d164c3177ac427025ab8dd33df7bc2afe8c10f15c45a477b2f79bf34967124f`
 
 ¿Esta página le ayudó?
 

@@ -1,17 +1,17 @@
 ---
 url: https://docs.comfy.org/built-in-nodes/ClipVisionLoader/
-title: CLIPVisionLoader - ComfyUI Built-in Node Documentation - ComfyUI
+title: Load CLIP Vision - ComfyUI Built-in Node Documentation - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-25T12:24:51.520862+00:00
+fetched_at: 2026-11-06T14:51:56.698324+00:00
 ---
 
-# CLIPVisionLoader - ComfyUI Built-in Node Documentation - ComfyUI
+# Load CLIP Vision - ComfyUI Built-in Node Documentation - ComfyUI
 
 > Source: https://docs.comfy.org/built-in-nodes/ClipVisionLoader/
 
 Loaders
 
-# CLIPVisionLoader - ComfyUI Built-in Node Documentation
+# Load CLIP Vision - ComfyUI Built-in Node Documentation
 
 Copy pageCopy page
 
@@ -49,4 +49,4 @@ YesNo
 
 [Suggest edits](https://github.com/comfy-org/docs/edit/main/built-in-nodes/ClipVisionLoader.mdx)[Raise issue](https://github.com/comfy-org/docs/issues/new?title=Issue%20on%20docs&body=Path:%20/built-in-nodes/ClipVisionLoader)
 
-[CLIPLoader](https://docs.comfy.org/built-in-nodes/ClipLoader)[ConditioningLoader](https://docs.comfy.org/built-in-nodes/ConditioningLoader)
+[Load CLIP](https://docs.comfy.org/built-in-nodes/ClipLoader)[Load Conditioning](https://docs.comfy.org/built-in-nodes/ConditioningLoader)

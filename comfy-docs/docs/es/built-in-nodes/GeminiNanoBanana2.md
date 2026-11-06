@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/es/built-in-nodes/GeminiNanoBanana2/
 title: Nano Banana 2 - ComfyUI Built-in Node Documentation - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-26T14:01:50.134417+00:00
+fetched_at: 2026-11-06T14:51:58.878512+00:00
 ---
 
 # Nano Banana 2 - ComfyUI Built-in Node Documentation - ComfyUI
@@ -30,7 +30,7 @@ Entradas
 Parámetro| Descripción| Tipo de datos| Obligatorio| Rango  
 ---|---|---|---|---  
 `prompt`| Prompt de texto que describe la imagen a generar o las ediciones a aplicar. Incluye cualquier restricción, estilo o detalle que el modelo deba seguir. No puede estar vacío ni contener solo espacios en blanco. (predeterminado: vacío)| STRING| Sí| N/A  
-`model`| El modelo Gemini que se usará para la generación de imágenes.| COMBO| Sí| ”Nano Banana 2 (Gemini 3.1 Flash Image)“  
+`model`| El modelo Gemini que se usará para la generación de imágenes.| COMBO| Sí| ”Nano Banana 2 (Gemini 3.1 Flash Imagen)“  
 `seed`| Cuando la semilla se fija en un valor específico, el modelo hace su mejor esfuerzo por proporcionar la misma respuesta en solicitudes repetidas. No se garantiza una salida determinista. Además, cambiar el modelo o la configuración de parámetros, como la temperatura, puede provocar variaciones en la respuesta incluso cuando se usa el mismo valor de semilla. De forma predeterminada, se usa un valor de semilla aleatorio. (predeterminado: 42)| INT| Sí| 0 a 18446744073709551615  
 `aspect_ratio`| Si se establece en ‘auto’, coincide con la relación de aspecto de la imagen de entrada; si no se proporciona ninguna imagen, normalmente se genera una imagen de 16:9. (predeterminado: “auto”)| COMBO| Sí| ”auto"  
 "1:1"  

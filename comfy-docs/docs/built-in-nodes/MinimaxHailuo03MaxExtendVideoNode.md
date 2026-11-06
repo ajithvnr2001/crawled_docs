@@ -1,17 +1,17 @@
 ---
 url: https://docs.comfy.org/built-in-nodes/MinimaxHailuo03MaxExtendVideoNode/
-title: MinimaxHailuo03MaxExtendVideoNode - ComfyUI Built-in Node Documentation - ComfyUI
+title: MiniMax H3 Max Extend Video - ComfyUI Built-in Node Documentation - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-11-02T16:54:33.217686+00:00
+fetched_at: 2026-11-06T14:51:57.007104+00:00
 ---
 
-# MinimaxHailuo03MaxExtendVideoNode - ComfyUI Built-in Node Documentation - ComfyUI
+# MiniMax H3 Max Extend Video - ComfyUI Built-in Node Documentation - ComfyUI
 
 > Source: https://docs.comfy.org/built-in-nodes/MinimaxHailuo03MaxExtendVideoNode/
 
 Video
 
-# MinimaxHailuo03MaxExtendVideoNode - ComfyUI Built-in Node Documentation
+# MiniMax H3 Max Extend Video - ComfyUI Built-in Node Documentation
 
 Copy pageCopy page
 
@@ -102,4 +102,4 @@ YesNo
 
 [Suggest edits](https://github.com/comfy-org/docs/edit/main/built-in-nodes/MinimaxHailuo03MaxExtendVideoNode.mdx)[Raise issue](https://github.com/comfy-org/docs/issues/new?title=Issue%20on%20docs&body=Path:%20/built-in-nodes/MinimaxHailuo03MaxExtendVideoNode)
 
-[MinimaxHailuo03MaxCameraControlNode](https://docs.comfy.org/built-in-nodes/MinimaxHailuo03MaxCameraControlNode)[MinimaxHailuo03MaxInsertVideoNode](https://docs.comfy.org/built-in-nodes/MinimaxHailuo03MaxInsertVideoNode)
+[MiniMax H3 Max Camera Control](https://docs.comfy.org/built-in-nodes/MinimaxHailuo03MaxCameraControlNode)[MiniMax H3 Max Insert Video](https://docs.comfy.org/built-in-nodes/MinimaxHailuo03MaxInsertVideoNode)

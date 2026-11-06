@@ -1,7 +1,7 @@
 {
   "url": "https://docs.comfy.org/built-in-nodes/FluxVideoUpscaleNode/",
   "file": "built-in-nodes/FluxVideoUpscaleNode.md",
-  "title": "Flux Video Upscale - ComfyUI Built-in Node Documentation - ComfyUI",
+  "title": "Flux Video Upscale (Legacy) - ComfyUI Built-in Node Documentation - ComfyUI",
   "method": "scrapling+scrapegraph",
-  "fetched_at": "2026-11-02T16:54:39.315868+00:00"
+  "fetched_at": "2026-11-06T14:51:56.349611+00:00"
 }

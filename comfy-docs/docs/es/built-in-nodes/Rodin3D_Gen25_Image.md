@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/es/built-in-nodes/Rodin3D_Gen25_Image/
 title: Rodin 3D Gen-2.5 - Imagen a 3D - ComfyUI Built-in Node Documentation - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-26T14:02:24.490553+00:00
+fetched_at: 2026-11-06T14:52:03.640849+00:00
 ---
 
 # Rodin 3D Gen-2.5 - Imagen a 3D - ComfyUI Built-in Node Documentation - ComfyUI
@@ -15,7 +15,7 @@ Rodin
 
 Copiar páginaCopiar página
 
-Este nodo genera un modelo 3D a partir de una a cinco imágenes de referencia usando la API de Rodin Gen-2.5.
+This node generates a 3D model from one to five reference images using the Rodin Gen-2.5 API.
 
 Copiar páginaCopiar página
 

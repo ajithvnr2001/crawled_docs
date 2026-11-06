@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/es/built-in-nodes/LoraModelLoader/
 title: Cargar modelo LoRA - ComfyUI Built-in Node Documentation - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-26T14:02:06.582780+00:00
+fetched_at: 2026-11-06T14:52:02.901006+00:00
 ---
 
 # Cargar modelo LoRA - ComfyUI Built-in Node Documentation - ComfyUI
@@ -32,7 +32,7 @@ Parámetro| Descripción| Tipo de datos| Requerido| Rango
 `modelo`| El modelo de difusión al que se aplicará el LoRA.| MODEL| Sí| -  
 `lora`| El modelo LoRA que se aplicará al modelo de difusión.| LORA_MODEL| Sí| -  
 `fuerza_modelo`| Qué tan fuertemente modificar el modelo de difusión. Este valor puede ser negativo (por defecto: 1.0).| FLOAT| Sí| -100.0 a 100.0  
-`bypass`| Cuando está habilitado, aplica LoRA en modo bypass sin modificar los pesos del modelo base. Útil para entrenamiento y cuando los pesos del modelo están descargados (por defecto: False).| BOOLEAN| Sí| True or False  
+`bypass`| Cuando está habilitado, aplica LoRA en modo bypass sin modificar los pesos del modelo base. Útil para entrenamiento y cuando los pesos del modelo están descargados (por defecto: False).| BOOLEAN| Sí| True o False  
   
 **Nota:** Cuando `strength_model` se establece en 0, el nodo devuelve el modelo original sin aplicar ninguna modificación LoRA.
 

@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/es/built-in-nodes/Rodin3D_Gen25_Text/
 title: Rodin 3D Gen-2.5 - Texto a 3D - ComfyUI Built-in Node Documentation - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-26T14:02:24.583263+00:00
+fetched_at: 2026-11-06T14:52:03.570877+00:00
 ---
 
 # Rodin 3D Gen-2.5 - Texto a 3D - ComfyUI Built-in Node Documentation - ComfyUI
@@ -15,7 +15,7 @@ Rodin
 
 Copiar páginaCopiar página
 
-Genera un modelo 3D a partir de un prompt de texto usando la API de Rodin Gen-2.5.
+Generate a 3D model from a text prompt using the Rodin Gen-2.5 API.
 
 Copiar páginaCopiar página
 

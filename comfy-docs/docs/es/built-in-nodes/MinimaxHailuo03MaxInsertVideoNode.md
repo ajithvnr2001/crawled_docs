@@ -1,17 +1,17 @@
 ---
 url: https://docs.comfy.org/es/built-in-nodes/MinimaxHailuo03MaxInsertVideoNode/
-title: MinimaxHailuo03MaxInsertVideoNode - ComfyUI Built-in Node Documentation - ComfyUI
+title: MiniMax H3 Max Insertar v\u00eddeo - ComfyUI Built-in Node Documentation - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-11-02T16:54:33.864409+00:00
+fetched_at: 2026-11-06T14:52:01.993526+00:00
 ---
 
-# MinimaxHailuo03MaxInsertVideoNode - ComfyUI Built-in Node Documentation - ComfyUI
+# MiniMax H3 Max Insertar vídeo - ComfyUI Built-in Node Documentation - ComfyUI
 
 > Source: https://docs.comfy.org/es/built-in-nodes/MinimaxHailuo03MaxInsertVideoNode/
 
 Video
 
-# MinimaxHailuo03MaxInsertVideoNode - ComfyUI Built-in Node Documentation
+# MiniMax H3 Max Insertar vídeo - ComfyUI Built-in Node Documentation
 
 Copiar páginaCopiar página
 
@@ -93,4 +93,4 @@ SíNo
 
 [Sugerir cambios](https://github.com/comfy-org/docs/edit/main/es/built-in-nodes/MinimaxHailuo03MaxInsertVideoNode.mdx)[Reportar problema](https://github.com/comfy-org/docs/issues/new?title=Issue%20on%20docs&body=Path:%20/es/built-in-nodes/MinimaxHailuo03MaxInsertVideoNode)
 
-[MinimaxHailuo03MaxExtendVideoNode](https://docs.comfy.org/es/built-in-nodes/MinimaxHailuo03MaxExtendVideoNode)[MinimaxHailuo03MaxLipSyncNode](https://docs.comfy.org/es/built-in-nodes/MinimaxHailuo03MaxLipSyncNode)
+[MiniMax H3 Max Ampliar vídeo](https://docs.comfy.org/es/built-in-nodes/MinimaxHailuo03MaxExtendVideoNode)[MiniMax H3 Max Sincronización labial](https://docs.comfy.org/es/built-in-nodes/MinimaxHailuo03MaxLipSyncNode)

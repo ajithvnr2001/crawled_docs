@@ -1,17 +1,17 @@
 ---
 url: https://docs.comfy.org/es/built-in-nodes/QuadrupleCLIPLoader/
-title: Cargar CLIP quad - ComfyUI Built-in Node Documentation - ComfyUI
+title: Cargar CLIP cu\u00e1druple - ComfyUI Built-in Node Documentation - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-26T14:02:19.728869+00:00
+fetched_at: 2026-11-06T14:52:03.136260+00:00
 ---
 
-# Cargar CLIP quad - ComfyUI Built-in Node Documentation - ComfyUI
+# Cargar CLIP cuádruple - ComfyUI Built-in Node Documentation - ComfyUI
 
 > Source: https://docs.comfy.org/es/built-in-nodes/QuadrupleCLIPLoader/
 
 Cargadores
 
-# Cargar CLIP quad - ComfyUI Built-in Node Documentation
+# Cargar CLIP cuádruple - ComfyUI Built-in Node Documentation
 
 Copiar páginaCopiar página
 

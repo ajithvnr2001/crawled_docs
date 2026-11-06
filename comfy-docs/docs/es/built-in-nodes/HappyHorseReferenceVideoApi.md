@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/es/built-in-nodes/HappyHorseReferenceVideoApi/
 title: HappyHorse Referencia a Video - ComfyUI Built-in Node Documentation - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-26T14:01:52.192224+00:00
+fetched_at: 2026-11-06T14:52:00.909225+00:00
 ---
 
 # HappyHorse Referencia a Video - ComfyUI Built-in Node Documentation - ComfyUI
@@ -38,7 +38,7 @@ Parámetro| Descripción| Tipo de datos| Requerido| Rango
 `modelo`| El modelo HappyHorse de referencia a video que se utilizará para la generación.| DYNAMIC_COMBO| Sí| `"happyhorse-1.1-r2v"`  
 `"happyhorse-1.0-r2v"`  
 `semilla`| Semilla a utilizar para la generación (por defecto: 0). Puede configurarse para que cambie automáticamente después de cada generación.| INT| Sí| 0 a 2147483647  
-`marca de agua`| Si se debe añadir una marca de agua generada por IA al resultado (por defecto: False).| BOOLEAN| Sí| True or False  
+`marca de agua`| Si se debe añadir una marca de agua generada por IA al resultado (por defecto: False).| BOOLEAN| Sí| True o False  
   
 ### 
 

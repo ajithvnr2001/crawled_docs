@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/es/built-in-nodes/OpenAIGPTImageNodeV2/
 title: OpenAI GPT Image 2.5 - ComfyUI Built-in Node Documentation - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-26T14:02:15.978642+00:00
+fetched_at: 2026-11-06T14:52:03.497979+00:00
 ---
 
 # OpenAI GPT Image 2.5 - ComfyUI Built-in Node Documentation - ComfyUI
@@ -19,7 +19,7 @@ Este nodo genera imágenes mediante la API GPT Image de OpenAI.
 
 Copiar páginaCopiar página
 
-Este nodo genera imágenes mediante la API GPT Image de OpenAI. Admite cinco modelos —`gpt-image-2.5-flare`, `gpt-image-2.5-sunburst`, `gpt-image-2`, `gpt-image-1.5` y `gpt-image-1`—, permite adjuntar imágenes de referencia para la edición de imágenes y puede usar una máscara para especificar qué partes de una imagen se deben reemplazar.
+Este nodo genera imágenes mediante la API GPT Image de OpenAI. Admite cuatro modelos —`gpt-image-2.5-flare`, `gpt-image-2.5-sunburst`, `gpt-image-2` y `gpt-image-1.5`—, permite adjuntar imágenes de referencia para la edición de imágenes y puede usar una máscara para especificar qué partes de una imagen se deben reemplazar.
 
 ## 
 
@@ -41,7 +41,6 @@ Parámetro| Descripción| Tipo de datos| Obligatorio| Rango
 `"gpt-image-2.5-sunburst"`  
 `"gpt-image-2"`  
 `"gpt-image-1.5"`  
-`"gpt-image-1"`  
 `prompt`| Indicación de texto para GPT Image (predeterminado: `""`).| STRING| Sí| N/A  
 `n`| Cuántas imágenes generar (predeterminado: `1`).| INT| Sí| 1 a 8  
 `semilla`| Semilla para reproducibilidad (predeterminado: `0`). Aún no implementado en el backend.| INT| Sí| 0 a 2147483647  
@@ -113,9 +112,9 @@ Parámetro| Descripción| Tipo de datos| Obligatorio| Rango
 
 ​
 
-Entradas de gpt-image-1.5 y gpt-image-1
+Entradas de gpt-image-1.5
 
-Estas entradas aparecen cuando `model` se establece en `gpt-image-1.5` o `gpt-image-1`. Ambos modelos comparten el mismo conjunto de parámetros.
+Estas entradas aparecen cuando `model` se establece en `gpt-image-1.5`.
 
 Parámetro| Descripción| Tipo de datos| Obligatorio| Rango  
 ---|---|---|---|---  
@@ -169,7 +168,7 @@ Nombre de salida| Descripción| Tipo de datos
 
 * * *
 
-**Source fingerprint (SHA-256):** `9cf1a9fa3e2cd98aff6c42432164ac5e6c55b7bcdc9815043cb359c6968ac172`
+**Source fingerprint (SHA-256):** `fc4fb1421ea45781fa01489cdfdb35324684c728a4df3e7927f0909b08bc9e22`
 
 ¿Esta página le ayudó?
 

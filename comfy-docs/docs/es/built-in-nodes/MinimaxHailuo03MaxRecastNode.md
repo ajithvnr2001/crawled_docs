@@ -1,17 +1,17 @@
 ---
 url: https://docs.comfy.org/es/built-in-nodes/MinimaxHailuo03MaxRecastNode/
-title: MinimaxHailuo03MaxRecastNode - ComfyUI Built-in Node Documentation - ComfyUI
+title: MiniMax H3 Max Recast - ComfyUI Built-in Node Documentation - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-11-02T16:54:33.949381+00:00
+fetched_at: 2026-11-06T14:52:02.127727+00:00
 ---
 
-# MinimaxHailuo03MaxRecastNode - ComfyUI Built-in Node Documentation - ComfyUI
+# MiniMax H3 Max Recast - ComfyUI Built-in Node Documentation - ComfyUI
 
 > Source: https://docs.comfy.org/es/built-in-nodes/MinimaxHailuo03MaxRecastNode/
 
 Video
 
-# MinimaxHailuo03MaxRecastNode - ComfyUI Built-in Node Documentation
+# MiniMax H3 Max Recast - ComfyUI Built-in Node Documentation
 
 Copiar páginaCopiar página
 
@@ -76,4 +76,4 @@ SíNo
 
 [Sugerir cambios](https://github.com/comfy-org/docs/edit/main/es/built-in-nodes/MinimaxHailuo03MaxRecastNode.mdx)[Reportar problema](https://github.com/comfy-org/docs/issues/new?title=Issue%20on%20docs&body=Path:%20/es/built-in-nodes/MinimaxHailuo03MaxRecastNode)
 
-[MinimaxHailuo03MaxLipSyncNode](https://docs.comfy.org/es/built-in-nodes/MinimaxHailuo03MaxLipSyncNode)[MinimaxHailuo03MaxReframeVideoNode](https://docs.comfy.org/es/built-in-nodes/MinimaxHailuo03MaxReframeVideoNode)
+[MiniMax H3 Max Sincronización labial](https://docs.comfy.org/es/built-in-nodes/MinimaxHailuo03MaxLipSyncNode)[MiniMax H3 Max Reencuadrar vídeo](https://docs.comfy.org/es/built-in-nodes/MinimaxHailuo03MaxReframeVideoNode)

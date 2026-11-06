@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/es/built-in-nodes/OpenAIGPTImage1/
 title: OpenAI GPT Image 2 - ComfyUI Built-in Node Documentation - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-26T14:02:16.119242+00:00
+fetched_at: 2026-11-06T14:52:02.825023+00:00
 ---
 
 # OpenAI GPT Image 2 - ComfyUI Built-in Node Documentation - ComfyUI
@@ -19,7 +19,7 @@ Genera imágenes de forma sincrónica a través del endpoint GPT Image de OpenAI
 
 Copiar páginaCopiar página
 
-Genera imágenes de forma sincrónica a través del endpoint GPT Image de OpenAI. Puede crear nuevas imágenes a partir de un prompt de texto o editar imágenes existentes cuando se proporciona una imagen de entrada y una máscara opcional. El nodo admite los modelos `gpt-image-1`, `gpt-image-1.5` y `gpt-image-2`, y está marcado como obsoleto.
+Genera imágenes de forma sincrónica a través del endpoint GPT Image de OpenAI. Puede crear nuevas imágenes a partir de un prompt de texto o editar imágenes existentes cuando se proporciona una imagen de entrada y una máscara opcional. El nodo admite los modelos `gpt-image-1.5` y `gpt-image-2`, y está marcado como obsoleto.
 
 ## 
 
@@ -50,8 +50,7 @@ Parámetro| Descripción| Tipo de datos| Obligatorio| Rango
 `n`| Cuántas imágenes generar (predeterminado: 1)| INT| No| 1 a 8  
 `image`| Imagen de referencia opcional para la edición de imágenes| IMAGE| No| -  
 `mask`| Máscara opcional para inpainting (las áreas blancas se reemplazarán)| MASK| No| -  
-`model`| Modelo GPT Image que se usará (predeterminado: “gpt-image-2”)| COMBO| No| ”gpt-image-1"  
-"gpt-image-1.5"  
+`model`| Modelo GPT Image que se usará (predeterminado: “gpt-image-2”)| COMBO| No| ”gpt-image-1.5"  
 "gpt-image-2”  
 `custom_width`| Se usa solo cuando `size` es “Custom”. Debe ser un múltiplo de 16 (solo GPT Image 2) (predeterminado: 1024)| INT| No| 1024 a 3840, paso 16  
 `custom_height`| Se usa solo cuando `size` es “Custom”. Debe ser un múltiplo de 16 (solo GPT Image 2) (predeterminado: 1024)| INT| No| 1024 a 3840, paso 16  
@@ -67,7 +66,7 @@ Parámetro| Descripción| Tipo de datos| Obligatorio| Rango
   * El borde más largo de una resolución personalizada debe ser 3840 o menos.
   * La relación de aspecto de la resolución personalizada no debe superar 3:1.
   * El total de píxeles de la resolución personalizada debe estar entre 655,360 y 8,294,400.
-  * Los modelos `gpt-image-1` y `gpt-image-1.5` solo admiten los tamaños `auto`, `1024x1024`, `1024x1536` y `1536x1024`. Los demás tamaños solo son compatibles con el modelo `gpt-image-2`.
+  * El modelo `gpt-image-1.5` solo admite los tamaños `auto`, `1024x1024`, `1024x1536` y `1536x1024`. Los demás tamaños solo son compatibles con el modelo `gpt-image-2`.
 
 
 
@@ -85,7 +84,7 @@ Nombre de salida| Descripción| Tipo de datos
 
 * * *
 
-**Source fingerprint (SHA-256):** `f0f0db7fd2cdf8efd2155522b289aa8f3f939fa79a6e9060b0ffbb2dd20efa1e`
+**Source fingerprint (SHA-256):** `e3aaa8ecbc75c200614d278ed6f8a844e35a24c82bd16acbed0ef520e068500f`
 
 ¿Esta página le ayudó?
 

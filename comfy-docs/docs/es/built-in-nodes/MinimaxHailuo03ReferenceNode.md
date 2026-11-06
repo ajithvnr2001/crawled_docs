@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/es/built-in-nodes/MinimaxHailuo03ReferenceNode/
 title: MiniMax H3 Referencia a Video - ComfyUI Built-in Node Documentation - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-26T14:02:12.112341+00:00
+fetched_at: 2026-11-06T14:52:03.402494+00:00
 ---
 
 # MiniMax H3 Referencia a Video - ComfyUI Built-in Node Documentation - ComfyUI
@@ -19,7 +19,7 @@ Este nodo genera un video usando los modelos MiniMax H3, condicionado por imáge
 
 Copiar páginaCopiar página
 
-Este nodo genera un video usando los modelos MiniMax H3, condicionado por imágenes, videos y audio de referencia. Las referencias se mencionan en el prompt según su orden de conexión: “Image 1”, “Image 2”, “Video 1”, “Audio 1”, y así sucesivamente. Hay dos modelos disponibles: “MiniMax H3” y “MiniMax H3 Max”.
+Este nodo genera un video usando los modelos MiniMax H3, condicionado por imágenes, videos y audio de referencia. Las referencias se mencionan en el prompt según su orden de conexión: “@Image1”, “@Image2”, “@Video1”, “@Audio1”, y así sucesivamente. Hay dos modelos disponibles: “MiniMax H3” y “MiniMax H3 Max”.
 
 ## 
 
@@ -51,7 +51,7 @@ Estas entradas están disponibles cuando se selecciona “MiniMax H3” como mod
 
 Parámetro| Descripción| Tipo de datos| Obligatorio| Rango  
 ---|---|---|---|---  
-`prompt`| Prompt de texto para la generación de video. Se puede hacer referencia a los medios de referencia por su orden; por ejemplo, “Image 1”, “Image 2”, “Video 1” o “Audio 1”.| STRING| Sí| Mínimo 1 carácter  
+`prompt`| Prompt de texto para la generación de video. Se puede hacer referencia a los medios de referencia por su orden; por ejemplo, “@Image1”, “@Image2”, “@Video1” o “@Audio1”.| STRING| Sí| Mínimo 1 carácter  
 `resolution`| Resolución del video de salida (predeterminado: “768P”).| COMBO| Sí| ”768P"  
 "2K”  
 `ratio`| Relación de aspecto del video de salida (predeterminado: “adaptive”).| COMBO| Sí| ”adaptive"  
@@ -73,7 +73,7 @@ Estas entradas están disponibles cuando se selecciona “MiniMax H3 Max” como
 
 Parámetro| Descripción| Tipo de datos| Obligatorio| Rango  
 ---|---|---|---|---  
-`prompt`| Prompt de texto para la generación de video. Se puede hacer referencia a los medios de referencia por su orden; por ejemplo, “Image 1”, “Image 2”, “Video 1” o “Audio 1”.| STRING| Sí| 1 a 50000 caracteres  
+`prompt`| Prompt de texto para la generación de video. Se puede hacer referencia a los medios de referencia por su orden; por ejemplo, “@Image1”, “@Image2”, “@Video1” o “@Audio1”.| STRING| Sí| 1 a 50000 caracteres  
 `resolution`| Resolución del video de salida (predeterminado: “768P”).| COMBO| Sí| ”480P"  
 "768P”  
 `ratio`| Relación de aspecto del video de salida (predeterminado: “adaptive”).| COMBO| Sí| ”adaptive"  
@@ -99,9 +99,9 @@ Estas entradas de referencia son compartidas por ambos modelos. Cada una es una 
 
 Parámetro| Descripción| Tipo de datos| Obligatorio| Rango  
 ---|---|---|---|---  
-`reference_images`| Ranura ampliable: conecte hasta 9 elementos (`image_1`…`image_9`). Imágenes de referencia de sujeto o estilo, a las que se hace referencia en el prompt como “Image 1”..”Image 9” en el orden de conexión. Hasta 9 imágenes.| IMAGE| No| 0 a 9 imágenes  
-`reference_videos`| Ranura ampliable: conecte hasta 3 elementos (`video_1`…`video_3`). Videos de referencia de movimiento o escena, a los que se hace referencia en el prompt como “Video 1”..”Video 3” en el orden de conexión. Hasta 3 videos, de 2 a 15 segundos cada uno, 15 segundos en total.| VIDEO| No| 0 a 3 videos  
-`reference_audios`| Ranura ampliable: conecte hasta 3 elementos (`audio_1`…`audio_3`). Referencias de audio, a las que se hace referencia en el prompt como “Audio 1”..”Audio 3” en el orden de conexión. Hasta 3 clips, de 2 a 15 segundos cada uno, 15 segundos en total. No se pueden usar sin una imagen o un video de referencia.| AUDIO| No| 0 a 3 clips  
+`reference_images`| Ranura ampliable: conecte hasta 9 elementos (`image_1`…`image_9`). Imágenes de referencia de sujeto o estilo, a las que se hace referencia en el prompt como “@Image1”..”@Image9” en el orden de conexión. Hasta 9 imágenes.| IMAGE| No| 0 a 9 imágenes  
+`reference_videos`| Ranura ampliable: conecte hasta 3 elementos (`video_1`…`video_3`). Videos de referencia de movimiento o escena, a los que se hace referencia en el prompt como “@Video1”..”@Video3” en el orden de conexión. Hasta 3 videos, de 2 a 15 segundos cada uno, 15 segundos en total.| VIDEO| No| 0 a 3 videos  
+`reference_audios`| Ranura ampliable: conecte hasta 3 elementos (`audio_1`…`audio_3`). Referencias de audio, a las que se hace referencia en el prompt como “@Audio1”..”@Audio3” en el orden de conexión. Hasta 3 clips, de 2 a 15 segundos cada uno, 15 segundos en total. No se pueden usar sin una imagen o un video de referencia.| AUDIO| No| 0 a 3 clips  
   
 ### 
 
@@ -132,7 +132,7 @@ Nombre de salida| Descripción| Tipo de datos
 
 * * *
 
-**Source fingerprint (SHA-256):** `b77eedb1f7757e60518c04484f1cc24c27cf6886b3ae31c15207ea49fd436a73`
+**Source fingerprint (SHA-256):** `4c0dfb349809b51393b8ec8afd235977f1822c0c8ae6dc42a2c264271bb50b53`
 
 ¿Esta página le ayudó?
 

@@ -1,17 +1,17 @@
 ---
 url: https://docs.comfy.org/built-in-nodes/PrunaPVideoUpscaleNode/
-title: PrunaPVideoUpscaleNode - ComfyUI Built-in Node Documentation - ComfyUI
+title: Pruna P-Video Upscale - ComfyUI Built-in Node Documentation - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-11-02T16:54:33.350744+00:00
+fetched_at: 2026-11-06T14:52:00.734178+00:00
 ---
 
-# PrunaPVideoUpscaleNode - ComfyUI Built-in Node Documentation - ComfyUI
+# Pruna P-Video Upscale - ComfyUI Built-in Node Documentation - ComfyUI
 
 > Source: https://docs.comfy.org/built-in-nodes/PrunaPVideoUpscaleNode/
 
 Video
 
-# PrunaPVideoUpscaleNode - ComfyUI Built-in Node Documentation
+# Pruna P-Video Upscale - ComfyUI Built-in Node Documentation
 
 Copy pageCopy page
 
@@ -78,4 +78,4 @@ YesNo
 
 [Suggest edits](https://github.com/comfy-org/docs/edit/main/built-in-nodes/PrunaPVideoUpscaleNode.mdx)[Raise issue](https://github.com/comfy-org/docs/issues/new?title=Issue%20on%20docs&body=Path:%20/built-in-nodes/PrunaPVideoUpscaleNode)
 
-[MinimaxHailuo03MaxReframeVideoNode](https://docs.comfy.org/built-in-nodes/MinimaxHailuo03MaxReframeVideoNode)[SamplerDpmpp2mSde](https://docs.comfy.org/built-in-nodes/SamplerDpmpp2mSde)
+[MiniMax H3 Max Reframe Video](https://docs.comfy.org/built-in-nodes/MinimaxHailuo03MaxReframeVideoNode)[Flux Video Upscale](https://docs.comfy.org/built-in-nodes/FluxVideoUpscaleNodeV2)

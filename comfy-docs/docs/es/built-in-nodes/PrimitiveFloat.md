@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/es/built-in-nodes/PrimitiveFloat/
 title: Flotante - ComfyUI Built-in Node Documentation - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-26T14:02:19.485963+00:00
+fetched_at: 2026-11-06T14:52:03.312220+00:00
 ---
 
 # Flotante - ComfyUI Built-in Node Documentation - ComfyUI
@@ -29,7 +29,7 @@ Entradas
 
 Parámetro| Descripción| Tipo de dato| Requerido| Rango  
 ---|---|---|---|---  
-`valor`| El valor numérico de punto flotante a emitir (predeterminado: 0.0)| FLOAT| Sí| -sys.maxsize to sys.maxsize (step: 0.1)  
+`valor`| El valor numérico de punto flotante a emitir (predeterminado: 0.0)| FLOAT| Sí| -sys.maxsize a sys.maxsize (paso: 0.1)  
   
 ## 
 

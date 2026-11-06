@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/es/built-in-nodes/OpenAIChatConfig/
 title: Opciones avanzadas de OpenAI ChatGPT - ComfyUI Built-in Node Documentation - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-26T14:02:15.880674+00:00
+fetched_at: 2026-11-06T14:52:02.200316+00:00
 ---
 
 # Opciones avanzadas de OpenAI ChatGPT - ComfyUI Built-in Node Documentation - ComfyUI
@@ -33,7 +33,7 @@ Parámetro| Descripción| Tipo de datos| Requerido| Rango
 "disabled”  
 `tokens_salida_max`| Un límite superior para la cantidad de tokens que se pueden generar para una respuesta, incluidos los tokens de salida visibles y los tokens de razonamiento (predeterminado: 4096)| INT| No| 16 a 16384  
 `instrucciones`| Instrucciones para el modelo sobre cómo generar la respuesta (se admite entrada multilínea)| STRING| No| -  
-`reasoning_effort`| Cuánto razona el modelo antes de responder. “default” deja la elección al modelo. Los niveles admitidos varían según el modelo: GPT-6 Astra low-max, GPT-6 Sol/Luna y GPT-5.6 none-max (sin minimal), GPT-5.5 none-xhigh, GPT-5.5 Pro medium-xhigh, GPT-5 minimal-high, o-series low-high; GPT-4.1 no tiene razonamiento. Los niveles no admitidos se rechazan antes de enviar la solicitud. (predeterminado: “default”)| COMBO| No| ”default"  
+`reasoning_effort`| Cuánto razona el modelo antes de responder. “default” deja la elección al modelo. Los niveles admitidos varían según el modelo: GPT-6 Astra low-max, GPT-6.1 Sol low-max, GPT-6.1 Terra none-max, GPT-6 Sol/Luna y GPT-5.6 none-max (sin minimal), GPT-5.5 none-xhigh, GPT-5.5 Pro medium-xhigh, GPT-5 minimal-high, o-series low-high; GPT-4.1 no tiene razonamiento. Los niveles no admitidos se rechazan antes de enviar la solicitud. (predeterminado: “default”)| COMBO| No| ”default"  
 "none"  
 "minimal"  
 "low"  
@@ -58,7 +58,7 @@ Nombre de salida| Descripción| Tipo de datos
 
 * * *
 
-**Source fingerprint (SHA-256):** `4237ad464230c464223c184eab38c7d707a29ba5f47da04c2ec2034cd4347207`
+**Source fingerprint (SHA-256):** `d282083de3568490e78763688ab01a32bc29759f590544ebce727e31c13b97a0`
 
 ¿Esta página le ayudó?
 

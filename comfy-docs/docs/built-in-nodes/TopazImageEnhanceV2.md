@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/built-in-nodes/TopazImageEnhanceV2/
 title: Topaz Image Enhance - ComfyUI Built-in Node Documentation - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T15:15:49.776732+00:00
+fetched_at: 2026-11-06T14:51:59.983488+00:00
 ---
 
 # Topaz Image Enhance - ComfyUI Built-in Node Documentation - ComfyUI
@@ -40,8 +40,8 @@ Parameter| Description| Data Type| Required| Range
 `"Bloom 2"`  
 `"Wonder 3.5"`  
 `"Wonder 4"`  
-`output_width`| Zero value means to calculate automatically (usually it will be original size or scaled proportionally to `output_height` if specified). Wonder 3.5 and Wonder 4 support upscale factors from 1x to 6x, Bloom 2 from 1x to 12x. Bloom 2, Wonder 3.5 and Wonder 4 always keep the input aspect ratio: if both sizes are set and their ratio differs, the larger scale wins, so the output is bigger than the requested size and the price is higher than it would be for the requested size. (default: 0)| INT| No| 0 to 32000  
-`output_height`| Zero value means to output in the same height as original or scaled proportionally to `output_width` if specified. Wonder 3.5 and Wonder 4 support upscale factors from 1x to 6x, Bloom 2 from 1x to 12x. Bloom 2, Wonder 3.5 and Wonder 4 always keep the input aspect ratio: if both sizes are set and their ratio differs, the larger scale wins, so the output is bigger than the requested size and the price is higher than it would be for the requested size. (default: 0)| INT| No| 0 to 32000  
+`output_width`| Zero value means to calculate automatically (usually it will be original size or scaled proportionally to `output_height` if specified). Wonder 3.5 and Wonder 4 support upscale factors from 1x to 6x, Bloom 2 from 1x to 12x. Bloom 2, Wonder 3.5 and Wonder 4 always keep the input aspect ratio: if both sizes are set and their ratio differs, the larger scale wins, so the output is bigger than the requested size and the price is higher than it would be for the requested size. If that result exceeds 179 megapixels or 32000 pixels per side, the node stops with an error. (default: 0)| INT| No| 0 to 32000  
+`output_height`| Zero value means to output in the same height as original or scaled proportionally to `output_width` if specified. Wonder 3.5 and Wonder 4 support upscale factors from 1x to 6x, Bloom 2 from 1x to 12x. Bloom 2, Wonder 3.5 and Wonder 4 always keep the input aspect ratio: if both sizes are set and their ratio differs, the larger scale wins, so the output is bigger than the requested size and the price is higher than it would be for the requested size. If that result exceeds 179 megapixels or 32000 pixels per side, the node stops with an error. (default: 0)| INT| No| 0 to 32000  
   
 ### 
 

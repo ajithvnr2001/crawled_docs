@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/es/built-in-nodes/HitPawVideoEnhance/
 title: HitPaw mejora de v\u00eddeo - ComfyUI Built-in Node Documentation - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-26T14:01:53.644520+00:00
+fetched_at: 2026-11-06T14:52:00.379976+00:00
 ---
 
 # HitPaw mejora de vídeo - ComfyUI Built-in Node Documentation - ComfyUI
@@ -35,7 +35,7 @@ Entradas comunes
 
 Parámetro| Descripción| Tipo de datos| Requerido| Rango  
 ---|---|---|---|---  
-`model`| El modelo de IA que se utilizará para mejorar el video. Seleccionar un modelo revela un parámetro `resolution` anidado. Los modelos disponibles y sus resoluciones compatibles varían.| DYNAMIC_COMBO| Sí| `"Portrait Restore Model (1x)"`  
+`modelo`| El modelo de IA que se utilizará para mejorar el video. Seleccionar un modelo revela un parámetro `resolution` anidado. Los modelos disponibles y sus resoluciones compatibles varían.| DYNAMIC_COMBO| Sí| `"Portrait Restore Model (1x)"`  
 `"Portrait Restore Model (2x)"`  
 `"General Restore Model (1x)"`  
 `"General Restore Model (2x)"`  
@@ -54,7 +54,7 @@ Estas opciones de resolución son compartidas por Portrait Restore Model (1x), P
 
 Parámetro| Descripción| Tipo de datos| Requerido| Rango  
 ---|---|---|---|---  
-`model.resolution`| La resolución objetivo para el video mejorado. Seleccionar `"original"` mantiene la resolución del video de entrada.| COMBO| Sí| `"original"`  
+`resolución`| La resolución objetivo para el video mejorado. Seleccionar `"original"` mantiene la resolución del video de entrada.| COMBO| Sí| `"original"`  
 `"720p"`  
 `"1080p"`  
 `"2K/QHD"`  
@@ -69,7 +69,7 @@ Entradas de Generative Model (1x)
 
 Parámetro| Descripción| Tipo de datos| Requerido| Rango  
 ---|---|---|---|---  
-`model.resolution`| La resolución objetivo para el video mejorado. Seleccionar `"original"` mantiene la resolución del video de entrada. La opción `"8K"` no está disponible para este modelo.| COMBO| Sí| `"original"`  
+`resolución`| La resolución objetivo para el video mejorado. Seleccionar `"original"` mantiene la resolución del video de entrada. La opción `"8K"` no está disponible para este modelo.| COMBO| Sí| `"original"`  
 `"720p"`  
 `"1080p"`  
 `"2K/QHD"`  

@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/es/built-in-nodes/MediaPipeFaceMeshVisualize/
 title: Visualizar Malla Facial de MediaPipe - ComfyUI Built-in Node Documentation - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-26T14:02:09.556511+00:00
+fetched_at: 2026-11-06T14:52:01.436197+00:00
 ---
 
 # Visualizar Malla Facial de MediaPipe - ComfyUI Built-in Node Documentation - ComfyUI
@@ -15,7 +15,7 @@ Detección
 
 Copiar páginaCopiar página
 
-Dibuja los puntos de referencia faciales y las líneas de conexión (una malla facial) sobre una imagen de entrada.
+Draws face landmark points and connection lines (a face mesh) on top of an input image.
 
 Copiar páginaCopiar página
 

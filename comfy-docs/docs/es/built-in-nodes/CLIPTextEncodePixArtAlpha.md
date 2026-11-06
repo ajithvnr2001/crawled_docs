@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/es/built-in-nodes/CLIPTextEncodePixArtAlpha/
 title: Codificar texto CLIP para PixArt Alpha - ComfyUI Built-in Node Documentation - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-26T14:01:36.741490+00:00
+fetched_at: 2026-11-06T14:51:59.898131+00:00
 ---
 
 # Codificar texto CLIP para PixArt Alpha - ComfyUI Built-in Node Documentation - ComfyUI
@@ -29,8 +29,8 @@ Entradas
 
 Parámetro| Descripción| Tipo de datos| Requerido| Rango  
 ---|---|---|---|---  
-`width`| La dimensión de ancho para el condicionamiento de resolución (predeterminado: 1024)| INT| Sí| 0 to MAX_RESOLUTION  
-`height`| La dimensión de alto para el condicionamiento de resolución (predeterminado: 1024)| INT| Sí| 0 to MAX_RESOLUTION  
+`width`| La dimensión de ancho para el condicionamiento de resolución (predeterminado: 1024)| INT| Sí| 0 a MAX_RESOLUTION  
+`height`| La dimensión de alto para el condicionamiento de resolución (predeterminado: 1024)| INT| Sí| 0 a MAX_RESOLUTION  
 `text`| Entrada de texto a codificar. Admite entrada multilínea y prompts dinámicos.| STRING| Sí| -  
 `clip`| Modelo CLIP utilizado para la tokenización y codificación| CLIP| Sí| -  
   

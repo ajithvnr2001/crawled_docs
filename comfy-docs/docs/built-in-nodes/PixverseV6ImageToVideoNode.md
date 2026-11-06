@@ -1,25 +1,25 @@
 ---
 url: https://docs.comfy.org/built-in-nodes/PixverseV6ImageToVideoNode/
-title: PixverseV6ImageToVideoNode - ComfyUI Built-in Node Documentation - ComfyUI
+title: PixVerse V6 Image to Video - ComfyUI Built-in Node Documentation - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-25T12:24:52.472140+00:00
+fetched_at: 2026-11-06T14:51:57.123440+00:00
 ---
 
-# PixverseV6ImageToVideoNode - ComfyUI Built-in Node Documentation - ComfyUI
+# PixVerse V6 Image to Video - ComfyUI Built-in Node Documentation - ComfyUI
 
 > Source: https://docs.comfy.org/built-in-nodes/PixverseV6ImageToVideoNode/
 
 Pixverse
 
-# PixverseV6ImageToVideoNode - ComfyUI Built-in Node Documentation
+# PixVerse V6 Image to Video - ComfyUI Built-in Node Documentation
 
 Copy pageCopy page
 
-This node animates an input image with the PixVerse V6 model and returns a video, optionally with a native audio track.
+This node animates an input image with the PixVerse V6 or V6 Max model and returns a video, optionally with a native audio track.
 
 Copy pageCopy page
 
-This node animates an input image with the PixVerse V6 model and returns a video, optionally with a native audio track. The output video keeps the aspect ratio of the input image.
+This node animates an input image with the PixVerse V6 or V6 Max model and returns a video, optionally with a native audio track. The output video keeps the aspect ratio of the input image.
 
 ## 
 
@@ -80,7 +80,6 @@ Parameter| Description| Data Type| Required| Range
 "1080p”  
 `duration_seconds`| Length of the generated video in seconds (default: 5).| INT| Yes| 1 to 15  
 `generate_audio`| Generate a native audio track together with the video (default: true).| BOOLEAN| Yes| true or false  
-`multi_clip`| Let the model cut the video into several shots instead of one continuous take (default: false).| BOOLEAN| Yes| true or false  
 `seed`| Seed for video generation. PixVerse records it but does not reproduce a run from it (default: 42, control after generate is enabled).| INT| Yes| 0 to 2147483647  
 `negative_prompt`| An optional text description of undesired elements in the video (default: empty).| STRING| No| Up to 2048 characters  
   
@@ -106,4 +105,4 @@ YesNo
 
 [Suggest edits](https://github.com/comfy-org/docs/edit/main/built-in-nodes/PixverseV6ImageToVideoNode.mdx)[Raise issue](https://github.com/comfy-org/docs/issues/new?title=Issue%20on%20docs&body=Path:%20/built-in-nodes/PixverseV6ImageToVideoNode)
 
-[PixverseV6FusionVideoNode](https://docs.comfy.org/built-in-nodes/PixverseV6FusionVideoNode)[PixverseV6TextToVideoNode](https://docs.comfy.org/built-in-nodes/PixverseV6TextToVideoNode)
+[PixVerse V6 Fusion (Reference to Video)](https://docs.comfy.org/built-in-nodes/PixverseV6FusionVideoNode)[PixVerse V6 Text to Video](https://docs.comfy.org/built-in-nodes/PixverseV6TextToVideoNode)

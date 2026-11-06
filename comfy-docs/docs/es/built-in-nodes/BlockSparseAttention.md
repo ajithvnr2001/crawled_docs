@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/es/built-in-nodes/BlockSparseAttention/
 title: Atenci\u00f3n dispersa por bloques del modelo - ComfyUI Built-in Node Documentation - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-26T14:01:32.103782+00:00
+fetched_at: 2026-11-06T14:51:59.300651+00:00
 ---
 
 # Atención dispersa por bloques del modelo - ComfyUI Built-in Node Documentation - ComfyUI
@@ -42,15 +42,15 @@ Parámetro| Descripción| Tipo de datos| Obligatorio| Rango
 `vsa`: Video Sparse Attention (FastVideo) utiliza teselación 3D de cubos de video y una rama de atención gruesa aprendida; requiere pesos de modelo FastH3.| DYNAMIC_COMBO| Sí| `"sol-attn"`  
 `"sla"`  
 `"vsa"`  
-`start_percent`| Punto porcentual en el que comienza la atención dispersa. Antes de este punto, la atención permanece densa. Predeterminado: 0.2.| FLOAT| No| min: 0.0, max: 1.0, step: 0.01  
-`end_percent`| Punto porcentual en el que termina la atención dispersa. Después de este punto, la atención vuelve a ser densa. Predeterminado: 1.0.| FLOAT| No| min: 0.0, max: 1.0, step: 0.01  
-`dense_blocks`| Bloques Transformer que siempre se ejecutan de forma densa, p. ej. ‘0, 1, 47-49’. Predeterminado: "" (vacío). Entrada avanzada.| STRING| No| Default: ""  
-`min_tokens`| Las secuencias más cortas que este valor permanecen densas. Predeterminado: 12288. Entrada avanzada.| INT| No| min: 0, max: 1048576, step: 512  
-`extra_tokens`| Tokens adicionales con mayor puntuación a los que cada bloque de consulta atiende más allá de sus bloques seleccionados. Más cercano a denso para mayor tiempo de atención; se recomienda 256, 0 lo desactiva. Se ignora para VSA. Predeterminado: 256. Entrada avanzada.| INT| No| min: 0, max: 256, step: 64  
+`start_percent`| Punto porcentual en el que comienza la atención dispersa. Antes de este punto, la atención permanece densa. Predeterminado: 0.2.| FLOAT| No| mínimo: 0.0, máximo: 1.0, paso: 0.01  
+`end_percent`| Punto porcentual en el que termina la atención dispersa. Después de este punto, la atención vuelve a ser densa. Predeterminado: 1.0.| FLOAT| No| mínimo: 0.0, máximo: 1.0, paso: 0.01  
+`dense_blocks`| Bloques Transformer que siempre se ejecutan de forma densa, p. ej. ‘0, 1, 47-49’. Predeterminado: "" (vacío). Entrada avanzada.| STRING| No| predeterminado: ""  
+`min_tokens`| Las secuencias más cortas que este valor permanecen densas. Predeterminado: 12288. Entrada avanzada.| INT| No| mínimo: 0, máximo: 1048576, paso: 512  
+`extra_tokens`| Tokens adicionales con mayor puntuación a los que cada bloque de consulta atiende más allá de sus bloques seleccionados. Más cercano a denso para mayor tiempo de atención; se recomienda 256, 0 lo desactiva. Se ignora para VSA. Predeterminado: 256. Entrada avanzada.| INT| No| mínimo: 0, máximo: 256, paso: 64  
 `sink_conditioning`| Solo para MiniMax-H3. `exact_kv`: cada consulta atiende exactamente las filas empaquetadas de texto/audio/referencia (aprox. 3 % de costo). `exact_kv_and_rows`: además ejecuta densamente las filas de consulta de audio objetivo (mantiene intacto el audio generado). `off` desactiva este comportamiento. Predeterminado: “exact_kv_and_rows”. Entrada avanzada.| COMBO| No| `"exact_kv"`  
 `"exact_kv_and_rows"`  
 `"off"`  
-`verbose`| Registra si cada forma de atención usó atención dispersa o por qué permaneció densa. Predeterminado: False. Entrada avanzada.| BOOLEAN| No| Default: False  
+`verbose`| Registra si cada forma de atención usó atención dispersa o por qué permaneció densa. Predeterminado: False. Entrada avanzada.| BOOLEAN| No| predeterminado: False  
   
 ### 
 
@@ -60,7 +60,7 @@ Entradas de sol-attn
 
 Parámetro| Descripción| Tipo de datos| Obligatorio| Rango  
 ---|---|---|---|---  
-`tau`| Umbral en sigmas de la distribución de puntuaciones. Un valor más alto es más disperso: 1.0 conserva exactos aproximadamente el 16 % de los bloques clave, 1.5 alrededor del 7 %, 2.0 alrededor del 2.7 %. Predeterminado: 1.3.| FLOAT| No| min: 0.0, max: 4.0, step: 0.05  
+`tau`| Umbral en sigmas de la distribución de puntuaciones. Un valor más alto es más disperso: 1.0 conserva exactos aproximadamente el 16 % de los bloques clave, 1.5 alrededor del 7 %, 2.0 alrededor del 2.7 %. Predeterminado: 1.3.| FLOAT| No| mínimo: 0.0, máximo: 4.0, paso: 0.05  
   
 ### 
 
@@ -70,7 +70,7 @@ Entradas de sla
 
 Parámetro| Descripción| Tipo de datos| Obligatorio| Rango  
 ---|---|---|---|---  
-`keep_percent`| Porcentaje de bloques clave que cada bloque de consulta conserva exactamente (los sumideros y la diagonal se añaden por encima). Las LoRAs de selección de estilo SLA se destilan contra este valor; sin dicha LoRA, un valor más alto está más cerca de denso. Predeterminado: 10.0.| FLOAT| No| min: 0.5, max: 95.0, step: 0.5  
+`keep_percent`| Porcentaje de bloques clave que cada bloque de consulta conserva exactamente (los sumideros y la diagonal se añaden por encima). Las LoRAs de selección de estilo SLA se destilan contra este valor; sin dicha LoRA, un valor más alto está más cerca de denso. Predeterminado: 10.0.| FLOAT| No| mínimo: 0.5, máximo: 95.0, paso: 0.5  
   
 ### 
 
@@ -80,7 +80,7 @@ Entradas de vsa
 
 Parámetro| Descripción| Tipo de datos| Obligatorio| Rango  
 ---|---|---|---|---  
-`keep_percent`| Porcentaje de cubos de video que cada cubo de consulta conserva; los checkpoints FastH3-VSA están entrenados con 10. Usa las capas `to_gate_compress` del modelo para la rama gruesa cuando están presentes. Predeterminado: 10.0.| FLOAT| No| min: 0.5, max: 95.0, step: 0.5  
+`keep_percent`| Porcentaje de cubos de video que cada cubo de consulta conserva; los checkpoints FastH3-VSA están entrenados con 10. Usa las capas `to_gate_compress` del modelo para la rama gruesa cuando están presentes. Predeterminado: 10.0.| FLOAT| No| mínimo: 0.5, máximo: 95.0, paso: 0.5  
   
 **Nota:** Solo se muestran en la interfaz los parámetros que pertenecen al método seleccionado actualmente.
 

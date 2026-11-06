@@ -1,17 +1,17 @@
 ---
 url: https://docs.comfy.org/built-in-nodes/MinimaxHailuo03MaxRecastNode/
-title: MinimaxHailuo03MaxRecastNode - ComfyUI Built-in Node Documentation - ComfyUI
+title: MiniMax H3 Max Recast - ComfyUI Built-in Node Documentation - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-11-02T16:54:33.273445+00:00
+fetched_at: 2026-11-06T14:51:56.036677+00:00
 ---
 
-# MinimaxHailuo03MaxRecastNode - ComfyUI Built-in Node Documentation - ComfyUI
+# MiniMax H3 Max Recast - ComfyUI Built-in Node Documentation - ComfyUI
 
 > Source: https://docs.comfy.org/built-in-nodes/MinimaxHailuo03MaxRecastNode/
 
 Video
 
-# MinimaxHailuo03MaxRecastNode - ComfyUI Built-in Node Documentation
+# MiniMax H3 Max Recast - ComfyUI Built-in Node Documentation
 
 Copy pageCopy page
 
@@ -76,4 +76,4 @@ YesNo
 
 [Suggest edits](https://github.com/comfy-org/docs/edit/main/built-in-nodes/MinimaxHailuo03MaxRecastNode.mdx)[Raise issue](https://github.com/comfy-org/docs/issues/new?title=Issue%20on%20docs&body=Path:%20/built-in-nodes/MinimaxHailuo03MaxRecastNode)
 
-[MinimaxHailuo03MaxLipSyncNode](https://docs.comfy.org/built-in-nodes/MinimaxHailuo03MaxLipSyncNode)[MinimaxHailuo03MaxReframeVideoNode](https://docs.comfy.org/built-in-nodes/MinimaxHailuo03MaxReframeVideoNode)
+[MiniMax H3 Max Lip Sync](https://docs.comfy.org/built-in-nodes/MinimaxHailuo03MaxLipSyncNode)[MiniMax H3 Max Reframe Video](https://docs.comfy.org/built-in-nodes/MinimaxHailuo03MaxReframeVideoNode)

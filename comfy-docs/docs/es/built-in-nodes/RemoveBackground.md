@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/es/built-in-nodes/RemoveBackground/
 title: Eliminar fondo - ComfyUI Built-in Node Documentation - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-26T14:02:22.871580+00:00
+fetched_at: 2026-11-06T14:52:03.883915+00:00
 ---
 
 # Eliminar fondo - ComfyUI Built-in Node Documentation - ComfyUI
@@ -15,7 +15,7 @@ Eliminación de fondo
 
 Copiar páginaCopiar página
 
-El nodo Remove Background genera una máscara de primer plano que separa el sujeto principal del fondo de una imagen de entrada.
+The Remove Background node generates a foreground mask that separates the main subject from the background of an input image.
 
 Copiar páginaCopiar página
 

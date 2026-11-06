@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/es/built-in-nodes/FluxVTONode/
 title: Flux Prueba virtual de ropa - ComfyUI Built-in Node Documentation - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-26T14:01:49.129308+00:00
+fetched_at: 2026-11-06T14:51:59.551087+00:00
 ---
 
 # Flux Prueba virtual de ropa - ComfyUI Built-in Node Documentation - ComfyUI
@@ -29,10 +29,10 @@ Entradas
 
 Parámetro| Descripción| Tipo de datos| Requerido| Rango  
 ---|---|---|---|---  
-`person`| Imagen de la persona a vestir.| IMAGE| Sí| -  
-`garment`| Imagen de la prenda a aplicar.| IMAGE| Sí| -  
-`prompt`| Instrucción opcional de estilo en lenguaje natural (p. ej., cómo debería quedar la prenda). El valor predeterminado es una cadena vacía.| STRING| No| -  
-`seed`| La semilla aleatoria utilizada para crear el ruido. Predeterminado: 0.| INT| No| 0 a 18446744073709551615  
+`persona`| Imagen de la persona a vestir.| IMAGE| Sí| -  
+`prenda`| Imagen de la prenda a aplicar.| IMAGE| Sí| -  
+`instrucción`| Instrucción opcional de estilo en lenguaje natural (p. ej., cómo debería quedar la prenda). El valor predeterminado es una cadena vacía.| STRING| No| -  
+`semilla`| La semilla aleatoria utilizada para crear el ruido. Predeterminado: 0.| INT| No| 0 a 18446744073709551615  
   
 ## 
 

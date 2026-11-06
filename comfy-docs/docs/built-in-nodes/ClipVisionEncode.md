@@ -1,17 +1,17 @@
 ---
 url: https://docs.comfy.org/built-in-nodes/ClipVisionEncode/
-title: CLIPVisionEncode - ComfyUI Built-in Node Documentation - ComfyUI
+title: CLIP Vision Encode - ComfyUI Built-in Node Documentation - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-25T12:24:51.334528+00:00
+fetched_at: 2026-11-06T14:51:56.434293+00:00
 ---
 
-# CLIPVisionEncode - ComfyUI Built-in Node Documentation - ComfyUI
+# CLIP Vision Encode - ComfyUI Built-in Node Documentation - ComfyUI
 
 > Source: https://docs.comfy.org/built-in-nodes/ClipVisionEncode/
 
 Conditioning
 
-# CLIPVisionEncode - ComfyUI Built-in Node Documentation
+# CLIP Vision Encode - ComfyUI Built-in Node Documentation
 
 Copy pageCopy page
 
@@ -66,4 +66,4 @@ YesNo
 
 [Suggest edits](https://github.com/comfy-org/docs/edit/main/built-in-nodes/ClipVisionEncode.mdx)[Raise issue](https://github.com/comfy-org/docs/issues/new?title=Issue%20on%20docs&body=Path:%20/built-in-nodes/ClipVisionEncode)
 
-[CLIPTextEncodeControlnet](https://docs.comfy.org/built-in-nodes/CLIPTextEncodeControlnet)[InpaintModelConditioning](https://docs.comfy.org/built-in-nodes/InpaintModelConditioning)
+[CLIP Text Encode (Controlnet)](https://docs.comfy.org/built-in-nodes/CLIPTextEncodeControlnet)[InpaintModelConditioning](https://docs.comfy.org/built-in-nodes/InpaintModelConditioning)

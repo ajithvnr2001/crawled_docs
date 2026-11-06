@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/es/built-in-nodes/Krea2StyleReferenceNode/
 title: Referencia de Estilo Krea 2 - ComfyUI Built-in Node Documentation - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-26T14:02:00.207057+00:00
+fetched_at: 2026-11-06T14:52:00.646789+00:00
 ---
 
 # Referencia de Estilo Krea 2 - ComfyUI Built-in Node Documentation - ComfyUI
@@ -15,7 +15,7 @@ Krea
 
 Copiar páginaCopiar página
 
-El nodo Krea 2 Style Reference te permite añadir una imagen de referencia para influir en el estilo de una generación de imagen de Krea 2.
+The Krea 2 Style Reference node lets you add a reference image to influence the style of a Krea 2 image generation.
 
 Copiar páginaCopiar página
 

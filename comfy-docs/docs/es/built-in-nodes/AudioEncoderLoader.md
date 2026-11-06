@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/es/built-in-nodes/AudioEncoderLoader/
 title: Cargar codificador de audio - ComfyUI Built-in Node Documentation - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-26T14:01:31.287800+00:00
+fetched_at: 2026-11-06T14:51:57.826131+00:00
 ---
 
 # Cargar codificador de audio - ComfyUI Built-in Node Documentation - ComfyUI
@@ -15,7 +15,7 @@ Cargadores
 
 Copiar páginaCopiar página
 
-El nodo AudioEncoderLoader carga un modelo de codificador de audio desde un archivo guardado en tu carpeta audioencoders.
+The AudioEncoderLoader node loads an audio encoder model from a file stored in your audioencoders folder.
 
 Copiar páginaCopiar página
 

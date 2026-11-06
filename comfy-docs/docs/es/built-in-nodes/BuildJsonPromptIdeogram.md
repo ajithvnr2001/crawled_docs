@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/es/built-in-nodes/BuildJsonPromptIdeogram/
 title: Construir prompt JSON (Ideogram) - ComfyUI Built-in Node Documentation - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-26T14:01:34.168969+00:00
+fetched_at: 2026-11-06T14:52:01.087325+00:00
 ---
 
 # Construir prompt JSON (Ideogram) - ComfyUI Built-in Node Documentation - ComfyUI
@@ -29,7 +29,7 @@ Entradas
 
 Parámetro| Descripción| Tipo de Dato| Requerido| Rango  
 ---|---|---|---|---  
-`elemento`| Elementos del prompt provenientes del nodo Create Bounding Boxes.| ARRAY| Sí| -  
+`elemento`| Elementos del prompt provenientes del nodo Crear Cajas Delimitadoras.| ARRAY| Sí| -  
 `descripción_general`| Descripción opcional de la imagen en una o dos oraciones. Muy recomendado. (predeterminado: vacío)| STRING| No| -  
 `fondo`| Descripción obligatoria del fondo o entorno de la imagen. Se recomienda encarecidamente proporcionar un valor; el nodo se ejecutará con una cadena vacía, pero los resultados pueden ser impredecibles. (predeterminado: vacío)| STRING| No| -  
 `estilo`| La categoría de estilo visual para la imagen generada. (predeterminado: “none”)| COMBO| Sí| `"none"`  

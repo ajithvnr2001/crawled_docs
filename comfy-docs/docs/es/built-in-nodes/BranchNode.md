@@ -1,17 +1,17 @@
 ---
 url: https://docs.comfy.org/es/built-in-nodes/BranchNode/
-title: BranchNode - ComfyUI Built-in Node Documentation - ComfyUI
+title: Rama - ComfyUI Built-in Node Documentation - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-26T14:01:32.303293+00:00
+fetched_at: 2026-11-06T14:51:58.955974+00:00
 ---
 
-# BranchNode - ComfyUI Built-in Node Documentation - ComfyUI
+# Rama - ComfyUI Built-in Node Documentation - ComfyUI
 
 > Source: https://docs.comfy.org/es/built-in-nodes/BranchNode/
 
 Lógica
 
-# BranchNode - ComfyUI Built-in Node Documentation
+# Rama - ComfyUI Built-in Node Documentation
 
 Copiar páginaCopiar página
 

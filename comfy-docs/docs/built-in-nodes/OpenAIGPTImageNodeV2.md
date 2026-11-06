@@ -1,17 +1,17 @@
 ---
 url: https://docs.comfy.org/built-in-nodes/OpenAIGPTImageNodeV2/
-title: OpenAIGPTImageNodeV2 - ComfyUI Built-in Node Documentation - ComfyUI
+title: OpenAI GPT Image 2.5 - ComfyUI Built-in Node Documentation - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-17T10:48:39.364952+00:00
+fetched_at: 2026-11-06T14:51:55.366875+00:00
 ---
 
-# OpenAIGPTImageNodeV2 - ComfyUI Built-in Node Documentation - ComfyUI
+# OpenAI GPT Image 2.5 - ComfyUI Built-in Node Documentation - ComfyUI
 
 > Source: https://docs.comfy.org/built-in-nodes/OpenAIGPTImageNodeV2/
 
 Openai
 
-# OpenAIGPTImageNodeV2 - ComfyUI Built-in Node Documentation
+# OpenAI GPT Image 2.5 - ComfyUI Built-in Node Documentation
 
 Copy pageCopy page
 
@@ -19,7 +19,7 @@ This node generates images using OpenAI’s GPT Image API.
 
 Copy pageCopy page
 
-This node generates images using OpenAI’s GPT Image API. It supports five models — `gpt-image-2.5-flare`, `gpt-image-2.5-sunburst`, `gpt-image-2`, `gpt-image-1.5`, and `gpt-image-1` — lets you attach reference images for image editing, and can use a mask to specify which parts of an image to replace.
+This node generates images using OpenAI’s GPT Image API. It supports four models — `gpt-image-2.5-flare`, `gpt-image-2.5-sunburst`, `gpt-image-2`, and `gpt-image-1.5` — lets you attach reference images for image editing, and can use a mask to specify which parts of an image to replace.
 
 ## 
 
@@ -41,7 +41,6 @@ Parameter| Description| Data Type| Required| Range
 `"gpt-image-2.5-sunburst"`  
 `"gpt-image-2"`  
 `"gpt-image-1.5"`  
-`"gpt-image-1"`  
 `prompt`| Text prompt for GPT Image (default: `""`).| STRING| Yes| N/A  
 `n`| How many images to generate (default: `1`).| INT| Yes| 1 to 8  
 `seed`| Seed for reproducibility (default: `0`). Not implemented yet in backend.| INT| Yes| 0 to 2147483647  
@@ -113,9 +112,9 @@ Parameter| Description| Data Type| Required| Range
 
 ​
 
-gpt-image-1.5 and gpt-image-1 Inputs
+gpt-image-1.5 Inputs
 
-These inputs appear when `model` is set to `gpt-image-1.5` or `gpt-image-1`. Both models share the same parameter set.
+These inputs appear when `model` is set to `gpt-image-1.5`.
 
 Parameter| Description| Data Type| Required| Range  
 ---|---|---|---|---  
@@ -169,7 +168,7 @@ Output Name| Description| Data Type
 
 * * *
 
-**Source fingerprint (SHA-256):** `9cf1a9fa3e2cd98aff6c42432164ac5e6c55b7bcdc9815043cb359c6968ac172`
+**Source fingerprint (SHA-256):** `fc4fb1421ea45781fa01489cdfdb35324684c728a4df3e7927f0909b08bc9e22`
 
 Was this page helpful?
 
@@ -177,26 +176,4 @@ YesNo
 
 [Suggest edits](https://github.com/comfy-org/docs/edit/main/built-in-nodes/OpenAIGPTImageNodeV2.mdx)[Raise issue](https://github.com/comfy-org/docs/issues/new?title=Issue%20on%20docs&body=Path:%20/built-in-nodes/OpenAIGPTImageNodeV2)
 
-[OpenAIGPTImage1 - ComfyUI Built-in Node DocumentationPrevious](https://docs.comfy.org/built-in-nodes/OpenAIGPTImage1)[OpenRouterImageNode - ComfyUI Built-in Node DocumentationNext](https://docs.comfy.org/built-in-nodes/OpenRouterImageNode)
-
-⌘I
-
-[ComfyUI home page![light logo](https://mintcdn.com/dripart/WCFdTagRdhtvk9-o/logo/light.svg?fit=max&auto=format&n=WCFdTagRdhtvk9-o&q=85&s=ec112de87239058f5a931a7e4b594965)![dark logo](https://mintcdn.com/dripart/QzWbjSCBG7w61rR3/logo/dark.svg?fit=max&auto=format&n=QzWbjSCBG7w61rR3&q=85&s=62b4d879fb3aadbd7a468d1539032d6f)](https://docs.comfy.org/)
-
-[github](https://github.com/Comfy-Org/ComfyUI)[x](https://x.com/ComfyUI)[discord](https://discord.com/invite/comfyorg)[youtube](https://www.youtube.com/@comfyorg)
-
-Resources
-
-[installation](https://docs.comfy.org/installation/system_requirements)[Tutorials](https://docs.comfy.org/tutorials/basic/text-to-image)[Development](https://docs.comfy.org/development/overview)
-
-Products
-
-[Features](https://www.comfy.org/?utm_source=docs)[Gallery](https://www.comfy.org/gallery?utm_source=docs)[Download](https://www.comfy.org/download?utm_source=docs)
-
-Company
-
-[About](https://www.comfy.org/about?utm_source=docs)[Careers](https://www.comfy.org/careers?utm_source=docs)[Terms of Service](https://www.comfy.org/terms-of-service?utm_source=docs)[Privacy Policy](https://www.comfy.org/privacy-policy?utm_source=docs)
-
-[github](https://github.com/Comfy-Org/ComfyUI)[x](https://x.com/ComfyUI)[discord](https://discord.com/invite/comfyorg)[youtube](https://www.youtube.com/@comfyorg)
-
-[Powered byThis documentation is built and hosted on Mintlify, a developer documentation platform](https://www.mintlify.com?utm_campaign=poweredBy&utm_medium=referral&utm_source=dripart)
+[OpenAI GPT Image 2](https://docs.comfy.org/built-in-nodes/OpenAIGPTImage1)[OpenRouter Image](https://docs.comfy.org/built-in-nodes/OpenRouterImageNode)

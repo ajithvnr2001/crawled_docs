@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/es/built-in-nodes/GeminiVideoOmni/
 title: Google Gemini Omni (Video) - ComfyUI Built-in Node Documentation - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-26T14:01:50.607719+00:00
+fetched_at: 2026-11-06T14:51:58.343432+00:00
 ---
 
 # Google Gemini Omni (Video) - ComfyUI Built-in Node Documentation - ComfyUI
@@ -19,7 +19,7 @@ Genera un video con audio a partir de un prompt de texto utilizando el modelo Ge
 
 Copiar páginaCopiar página
 
-Genera un video con audio a partir de un prompt de texto utilizando el modelo Gemini Omni Flash de Google. Opcionalmente, proporciona imágenes y/o videos de referencia para guiar o editar el resultado. Describe la duración deseada (3-10 s) y la relación de aspecto (16:9 o 9:16) directamente en el prompt.
+Genera un video con audio a partir de un prompt de texto utilizando el modelo Gemini Omni Flash de Google. Opcionalmente, proporciona imágenes y/o videos de referencia para guiar o editar el resultado. Describe la duración deseada (3-10 s) y la relación de aspecto (16:9 o 9:16) directamente en el prompt. **Nota:** Este nodo está marcado como obsoleto en el código fuente.
 
 ## 
 
@@ -84,7 +84,7 @@ Nombre de salida| Descripción| Tipo de datos
 
 * * *
 
-**Source fingerprint (SHA-256):** `648844868affb68298d2eac8ac20095bfe378d32e721396781de330ef6a6d69f`
+**Source fingerprint (SHA-256):** `da533824adf93b7502465cf985941f70e0ae4d6813c951f4ffa98c007437c03c`
 
 ¿Esta página le ayudó?
 

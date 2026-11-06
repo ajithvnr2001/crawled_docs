@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/es/built-in-nodes/BuildPoseFile/
 title: Crear archivo de animaci\u00f3n 3D - ComfyUI Built-in Node Documentation - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-26T14:01:34.406750+00:00
+fetched_at: 2026-11-06T14:51:58.684319+00:00
 ---
 
 # Crear archivo de animación 3D - ComfyUI Built-in Node Documentation - ComfyUI
@@ -59,7 +59,7 @@ Parámetro| Descripción| Tipo de datos| Requerido| Rango
 "bones_only"  
 "openpose"  
 "scail”  
-`bone_smooth_window`| Ventana de suavizado gaussiano en los fotogramas clave de rotación por hueso / pistas de keypoints. 0 = desactivado. 7-15 calma giros y vibraciones donde el Smooth anterior no detecta picos. (predeterminado: 0)| INT| Sí| 0-51, step 2  
+`bone_smooth_window`| Ventana de suavizado gaussiano en los fotogramas clave de rotación por hueso / pistas de keypoints. 0 = desactivado. 7-15 calma giros y vibraciones donde el Smooth anterior no detecta picos. (predeterminado: 0)| INT| Sí| 0-51 (paso: 2)  
   
 #### 
 

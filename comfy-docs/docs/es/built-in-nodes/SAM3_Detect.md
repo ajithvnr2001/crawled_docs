@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/es/built-in-nodes/SAM3_Detect/
 title: Detector SAM3 - ComfyUI Built-in Node Documentation - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-26T14:02:26.002073+00:00
+fetched_at: 2026-11-06T14:52:02.564708+00:00
 ---
 
 # Detector SAM3 - ComfyUI Built-in Node Documentation - ComfyUI
@@ -15,7 +15,7 @@ Detección
 
 Copiar páginaCopiar página
 
-El nodo SAM3 Detect realiza detección y segmentación de vocabulario abierto usando descripciones de texto, cuadros delimitadores o prompts de punto.
+The SAM3 Detect node performs open-vocabulary detection and segmentation using text descriptions, bounding boxes, or point prompts.
 
 Copiar páginaCopiar página
 

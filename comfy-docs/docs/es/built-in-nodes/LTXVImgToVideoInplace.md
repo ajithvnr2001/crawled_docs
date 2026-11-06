@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/es/built-in-nodes/LTXVImgToVideoInplace/
 title: LTXV imagen a video (in-place) - ComfyUI Built-in Node Documentation - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-26T14:02:01.721983+00:00
+fetched_at: 2026-11-06T14:51:57.953755+00:00
 ---
 
 # LTXV imagen a video (in-place) - ComfyUI Built-in Node Documentation - ComfyUI
@@ -33,7 +33,7 @@ Parámetro| Descripción| Tipo de datos| Requerido| Rango
 `imagen`| La imagen de entrada que se codificará y se utilizará para condicionar el video latente.| IMAGE| Sí| -  
 `latente`| La representación de video latente objetivo que se modificará.| LATENT| Sí| -  
 `fuerza`| Controla con qué fuerza la imagen codificada condiciona los fotogramas iniciales del latente. Un valor de 1.0 condiciona completamente los fotogramas iniciales con la imagen codificada, mientras que valores más bajos los condicionan con menos fuerza. La máscara de ruido para los fotogramas iniciales se establece en `1.0 - strength`. (por defecto: 1.0)| FLOAT| Sí| 0.0 - 1.0  
-`omitir`| Omite el condicionamiento. Cuando está habilitado, el nodo devuelve el latente de entrada sin cambios. (por defecto: False)| BOOLEAN| Sí| True or False  
+`omitir`| Omite el condicionamiento. Cuando está habilitado, el nodo devuelve el latente de entrada sin cambios. (por defecto: False)| BOOLEAN| Sí| True o False  
   
 **Nota:** La `image` se redimensionará automáticamente para coincidir con las dimensiones espaciales requeridas por el `vae` para la codificación, según el ancho y alto de la entrada `latent`. Solo se utilizan los canales RGB de la `image` para la codificación.
 

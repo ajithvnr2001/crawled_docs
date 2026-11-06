@@ -1,17 +1,17 @@
 ---
 url: https://docs.comfy.org/built-in-nodes/ClipTextEncodeSdxl/
-title: CLIPTextEncodeSDXL - ComfyUI Built-in Node Documentation - ComfyUI
+title: CLIP Text Encode (SDXL) - ComfyUI Built-in Node Documentation - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-25T12:24:51.244177+00:00
+fetched_at: 2026-11-06T14:51:57.518748+00:00
 ---
 
-# CLIPTextEncodeSDXL - ComfyUI Built-in Node Documentation - ComfyUI
+# CLIP Text Encode (SDXL) - ComfyUI Built-in Node Documentation - ComfyUI
 
 > Source: https://docs.comfy.org/built-in-nodes/ClipTextEncodeSdxl/
 
 Stable Diffusion
 
-# CLIPTextEncodeSDXL - ComfyUI Built-in Node Documentation
+# CLIP Text Encode (SDXL) - ComfyUI Built-in Node Documentation
 
 Copy pageCopy page
 
@@ -57,4 +57,4 @@ YesNo
 
 [Suggest edits](https://github.com/comfy-org/docs/edit/main/built-in-nodes/ClipTextEncodeSdxl.mdx)[Raise issue](https://github.com/comfy-org/docs/issues/new?title=Issue%20on%20docs&body=Path:%20/built-in-nodes/ClipTextEncodeSdxl)
 
-[CLIPTextEncodeSD3](https://docs.comfy.org/built-in-nodes/CLIPTextEncodeSD3)[CLIPTextEncodeSDXLRefiner](https://docs.comfy.org/built-in-nodes/ClipTextEncodeSdxlRefiner)
+[CLIP Text Encode (SD3)](https://docs.comfy.org/built-in-nodes/CLIPTextEncodeSD3)[CLIP Text Encode (SDXL Refiner)](https://docs.comfy.org/built-in-nodes/ClipTextEncodeSdxlRefiner)

@@ -1,17 +1,17 @@
 ---
 url: https://docs.comfy.org/built-in-nodes/TextGenerate/
-title: TextGenerate - ComfyUI Built-in Node Documentation - ComfyUI
+title: Generate Text - ComfyUI Built-in Node Documentation - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-25T12:24:52.891902+00:00
+fetched_at: 2026-11-06T14:51:58.765635+00:00
 ---
 
-# TextGenerate - ComfyUI Built-in Node Documentation - ComfyUI
+# Generate Text - ComfyUI Built-in Node Documentation - ComfyUI
 
 > Source: https://docs.comfy.org/built-in-nodes/TextGenerate/
 
 Text
 
-# TextGenerate - ComfyUI Built-in Node Documentation
+# Generate Text - ComfyUI Built-in Node Documentation
 
 Copy pageCopy page
 
@@ -19,7 +19,7 @@ The TextGenerate node uses a CLIP model to create text based on a user’s promp
 
 Copy pageCopy page
 
-The TextGenerate node uses a CLIP model to create text based on a user’s prompt. It can optionally use images, video, or audio as additional context to guide the text generation. You can control the length of the output, enable a thinking mode for supported models, and choose whether to use random sampling with various settings or to generate text without sampling.
+The TextGenerate node uses a CLIP model to create text based on a user’s prompt. It can optionally use images, video, or audio as additional context to guide the text generation. You can control the length of the output, enable a thinking mode for supported models, and choose whether to use random sampling with various settings or to generate text without sampling. **Note:** This node is marked as deprecated in the source code.
 
 ## 
 
@@ -90,7 +90,7 @@ Output Name| Description| Data Type
 
 * * *
 
-**Source fingerprint (SHA-256):** `e0854b0ce5a41e195a2634f4739c22c7dd0df1f2309cb8a02b506b8791bf3bee`
+**Source fingerprint (SHA-256):** `2ac2ffc673f152cc285e256440239de32fcb2a6c86d13374aedd5dacce7a69ee`
 
 Was this page helpful?
 
@@ -98,4 +98,4 @@ YesNo
 
 [Suggest edits](https://github.com/comfy-org/docs/edit/main/built-in-nodes/TextGenerate.mdx)[Raise issue](https://github.com/comfy-org/docs/issues/new?title=Issue%20on%20docs&body=Path:%20/built-in-nodes/TextGenerate)
 
-[StripWhitespace](https://docs.comfy.org/built-in-nodes/StripWhitespace)[TextGenerateLTX2Prompt](https://docs.comfy.org/built-in-nodes/TextGenerateLTX2Prompt)
+[Strip Whitespace (DEPRECATED)](https://docs.comfy.org/built-in-nodes/StripWhitespace)[Generate LTX2 Prompt](https://docs.comfy.org/built-in-nodes/TextGenerateLTX2Prompt)

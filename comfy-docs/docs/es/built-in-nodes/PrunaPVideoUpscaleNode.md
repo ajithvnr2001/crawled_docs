@@ -1,17 +1,17 @@
 ---
 url: https://docs.comfy.org/es/built-in-nodes/PrunaPVideoUpscaleNode/
-title: PrunaPVideoUpscaleNode - ComfyUI Built-in Node Documentation - ComfyUI
+title: Pruna P-Video Upscale - ComfyUI Built-in Node Documentation - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-11-02T16:54:33.826250+00:00
+fetched_at: 2026-11-06T14:52:02.976647+00:00
 ---
 
-# PrunaPVideoUpscaleNode - ComfyUI Built-in Node Documentation - ComfyUI
+# Pruna P-Video Upscale - ComfyUI Built-in Node Documentation - ComfyUI
 
 > Source: https://docs.comfy.org/es/built-in-nodes/PrunaPVideoUpscaleNode/
 
 Video
 
-# PrunaPVideoUpscaleNode - ComfyUI Built-in Node Documentation
+# Pruna P-Video Upscale - ComfyUI Built-in Node Documentation
 
 Copiar páginaCopiar página
 
@@ -78,4 +78,4 @@ SíNo
 
 [Sugerir cambios](https://github.com/comfy-org/docs/edit/main/es/built-in-nodes/PrunaPVideoUpscaleNode.mdx)[Reportar problema](https://github.com/comfy-org/docs/issues/new?title=Issue%20on%20docs&body=Path:%20/es/built-in-nodes/PrunaPVideoUpscaleNode)
 
-[MinimaxHailuo03MaxReframeVideoNode](https://docs.comfy.org/es/built-in-nodes/MinimaxHailuo03MaxReframeVideoNode)[Agregar prefijo de texto](https://docs.comfy.org/es/built-in-nodes/AddTextPrefix)
+[MiniMax H3 Max Reencuadrar vídeo](https://docs.comfy.org/es/built-in-nodes/MinimaxHailuo03MaxReframeVideoNode)[Flux: reescalado de vídeo](https://docs.comfy.org/es/built-in-nodes/FluxVideoUpscaleNodeV2)

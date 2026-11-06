@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/es/built-in-nodes/Krea2ImageNode/
 title: Krea 2 Imagen - ComfyUI Built-in Node Documentation - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-26T14:02:00.138457+00:00
+fetched_at: 2026-11-06T14:52:01.014474+00:00
 ---
 
 # Krea 2 Imagen - ComfyUI Built-in Node Documentation - ComfyUI
@@ -15,7 +15,7 @@ Krea
 
 Copiar páginaCopiar página
 
-El nodo Krea 2 Image genera imágenes con el modelo de IA Krea 2.
+The Krea 2 Image node generates images using the Krea 2 AI model.
 
 Copiar páginaCopiar página
 

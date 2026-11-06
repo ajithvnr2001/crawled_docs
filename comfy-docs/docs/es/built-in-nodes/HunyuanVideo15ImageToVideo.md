@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/es/built-in-nodes/HunyuanVideo15ImageToVideo/
 title: HunyuanVideo 1.5 imagen a video - ComfyUI Built-in Node Documentation - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-26T14:01:54.178132+00:00
+fetched_at: 2026-11-06T14:52:00.218302+00:00
 ---
 
 # HunyuanVideo 1.5 imagen a video - ComfyUI Built-in Node Documentation - ComfyUI
@@ -32,9 +32,9 @@ Parámetro| Descripción| Tipo de dato| Obligatorio| Rango
 `positivo`| Las indicaciones de condicionamiento positivas que describen lo que el video debe contener.| CONDITIONING| Sí| -  
 `negativo`| Las indicaciones de condicionamiento negativas que describen lo que el video debe evitar.| CONDITIONING| Sí| -  
 `vae`| El modelo VAE (autoencoder variacional) utilizado para codificar la imagen inicial en el espacio latente.| VAE| Sí| -  
-`ancho`| El ancho de los fotogramas de video de salida en píxeles. Debe ser divisible por 16. (por defecto: 848)| INT| Sí| 16 to MAX_RESOLUTION, step: 16  
-`alto`| La altura de los fotogramas de video de salida en píxeles. Debe ser divisible por 16. (por defecto: 480)| INT| Sí| 16 to MAX_RESOLUTION, step: 16  
-`longitud`| El número total de fotogramas en la secuencia de video. Los valores aumentan en pasos de 4 a partir de 1 (1, 5, 9, 13, …). (por defecto: 33)| INT| Sí| 1 to MAX_RESOLUTION, step: 4  
+`ancho`| El ancho de los fotogramas de video de salida en píxeles. Debe ser divisible por 16. (por defecto: 848)| INT| Sí| 16 a MAX_RESOLUTION (paso: 16)  
+`alto`| La altura de los fotogramas de video de salida en píxeles. Debe ser divisible por 16. (por defecto: 480)| INT| Sí| 16 a MAX_RESOLUTION (paso: 16)  
+`longitud`| El número total de fotogramas en la secuencia de video. Los valores aumentan en pasos de 4 a partir de 1 (1, 5, 9, 13, …). (por defecto: 33)| INT| Sí| 1 a MAX_RESOLUTION (paso: 4)  
 `tamaño_de_lote`| El número de secuencias de video a generar en un solo lote. (por defecto: 1)| INT| Sí| 1 a 4096  
 `imagen_inicial`| Una imagen inicial opcional para inicializar la generación de video. Si se proporciona, se codifica y se utiliza para condicionar los primeros fotogramas. Solo se utilizan los primeros `length` fotogramas de la imagen.| IMAGE| No| -  
 `clip_vision_output`| Embeddings de visión CLIP opcionales para proporcionar condicionamiento visual adicional para la generación.| CLIP_VISION_OUTPUT| No| -  

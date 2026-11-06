@@ -1,17 +1,17 @@
 ---
 url: https://docs.comfy.org/built-in-nodes/ClipTextEncodeSdxlRefiner/
-title: CLIPTextEncodeSDXLRefiner - ComfyUI Built-in Node Documentation - ComfyUI
+title: CLIP Text Encode (SDXL Refiner) - ComfyUI Built-in Node Documentation - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-25T12:24:51.774328+00:00
+fetched_at: 2026-11-06T14:51:57.671954+00:00
 ---
 
-# CLIPTextEncodeSDXLRefiner - ComfyUI Built-in Node Documentation - ComfyUI
+# CLIP Text Encode (SDXL Refiner) - ComfyUI Built-in Node Documentation - ComfyUI
 
 > Source: https://docs.comfy.org/built-in-nodes/ClipTextEncodeSdxlRefiner/
 
 Stable Diffusion
 
-# CLIPTextEncodeSDXLRefiner - ComfyUI Built-in Node Documentation
+# CLIP Text Encode (SDXL Refiner) - ComfyUI Built-in Node Documentation
 
 Copy pageCopy page
 
@@ -89,4 +89,4 @@ YesNo
 
 [Suggest edits](https://github.com/comfy-org/docs/edit/main/built-in-nodes/ClipTextEncodeSdxlRefiner.mdx)[Raise issue](https://github.com/comfy-org/docs/issues/new?title=Issue%20on%20docs&body=Path:%20/built-in-nodes/ClipTextEncodeSdxlRefiner)
 
-[CLIPTextEncodeSDXL](https://docs.comfy.org/built-in-nodes/ClipTextEncodeSdxl)[SD_4XUpscale_Conditioning](https://docs.comfy.org/built-in-nodes/SD_4XUpscale_Conditioning)
+[CLIP Text Encode (SDXL)](https://docs.comfy.org/built-in-nodes/ClipTextEncodeSdxl)[SD_4XUpscale_Conditioning](https://docs.comfy.org/built-in-nodes/SD_4XUpscale_Conditioning)

@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/es/built-in-nodes/DrawBBoxes/
 title: Dibujar BBoxes - ComfyUI Built-in Node Documentation - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-26T14:01:43.990518+00:00
+fetched_at: 2026-11-06T14:51:58.584680+00:00
 ---
 
 # Dibujar BBoxes - ComfyUI Built-in Node Documentation - ComfyUI
@@ -37,7 +37,6 @@ Parámetro| Descripción| Tipo de Dato| Obligatorio| Rango
   * La entrada `bboxes` es obligatoria y debe proporcionarse.
   * El nodo maneja automáticamente diferentes formatos de entrada para `bboxes`. Un solo diccionario se aplicará a todas las imágenes del lote. Una lista plana de diccionarios se tratará como el mismo conjunto de detecciones para cada imagen. Una lista de listas permite especificar diferentes detecciones para cada imagen del lote.
   * Si no se proporciona una `image`, el nodo creará una imagen en blanco con dimensiones lo suficientemente grandes para ajustar todos los cuadros delimitadores proporcionados, con un tamaño mínimo predeterminado de 640x640.
-  * El campo `label` de cada diccionario de cuadro delimitador se compara con las clases del conjunto de datos COCO. Si la etiqueta no es una clase COCO reconocida, se ignorará y no se dibujará ninguna etiqueta de texto para ese cuadro.
 
 
 

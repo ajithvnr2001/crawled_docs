@@ -1,17 +1,17 @@
 ---
 url: https://docs.comfy.org/built-in-nodes/ClipTextEncode/
-title: CLIPTextEncode - ComfyUI Built-in Node Documentation - ComfyUI
+title: CLIP Text Encode (Prompt) - ComfyUI Built-in Node Documentation - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-25T12:24:51.287768+00:00
+fetched_at: 2026-11-06T14:51:55.868037+00:00
 ---
 
-# CLIPTextEncode - ComfyUI Built-in Node Documentation - ComfyUI
+# CLIP Text Encode (Prompt) - ComfyUI Built-in Node Documentation - ComfyUI
 
 > Source: https://docs.comfy.org/built-in-nodes/ClipTextEncode/
 
 Conditioning
 
-# CLIPTextEncode - ComfyUI Built-in Node Documentation
+# CLIP Text Encode (Prompt) - ComfyUI Built-in Node Documentation
 
 Copy pageCopy page
 
@@ -103,4 +103,4 @@ YesNo
 
 [Suggest edits](https://github.com/comfy-org/docs/edit/main/built-in-nodes/ClipTextEncode.mdx)[Raise issue](https://github.com/comfy-org/docs/issues/new?title=Issue%20on%20docs&body=Path:%20/built-in-nodes/ClipTextEncode)
 
-[CLIPSetLastLayer](https://docs.comfy.org/built-in-nodes/ClipSetLastLayer)[CLIPTextEncodeControlnet](https://docs.comfy.org/built-in-nodes/CLIPTextEncodeControlnet)
+[CLIP Set Last Layer](https://docs.comfy.org/built-in-nodes/ClipSetLastLayer)[CLIP Text Encode (Controlnet)](https://docs.comfy.org/built-in-nodes/CLIPTextEncodeControlnet)

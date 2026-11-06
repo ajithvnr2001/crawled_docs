@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/es/built-in-nodes/LTXVSeparateGeneratedKeyframes/
 title: LTXV Separar fotogramas clave generados - ComfyUI Built-in Node Documentation - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-26T14:02:02.337920+00:00
+fetched_at: 2026-11-06T14:52:04.093500+00:00
 ---
 
 # LTXV Separar fotogramas clave generados - ComfyUI Built-in Node Documentation - ComfyUI
@@ -15,7 +15,7 @@ Ltxv
 
 Copiar páginaCopiar página
 
-El nodo LTXV Separate Generated Keyframes extrae de un latent muestreado los fotogramas clave generados que añadió LTXV Add Generated Keyframes y los elimina
+The LTXV Separate Generated Keyframes node splits the generated keyframes added by LTXV Add Generated Keyframes back out of a sampled latent and removes them
 
 Copiar páginaCopiar página
 

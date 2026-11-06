@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/es/built-in-nodes/HunyuanVideo15SuperResolution/
 title: HunyuanVideo 1.5 super resoluci\u00f3n - ComfyUI Built-in Node Documentation - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-26T14:01:54.110480+00:00
+fetched_at: 2026-11-06T14:52:00.471374+00:00
 ---
 
 # HunyuanVideo 1.5 super resolución - ComfyUI Built-in Node Documentation - ComfyUI
@@ -35,7 +35,7 @@ Parámetro| Descripción| Tipo de datos| Requerido| Rango
 `imagen_inicial`| Una imagen inicial opcional para guiar la superresolución. Si se proporciona, se amplía y se codifica en el latente de condicionamiento.| IMAGE| No| N/A  
 `clip_vision_output`| Incrustaciones de visión CLIP opcionales para añadir al condicionamiento.| CLIP_VISION_OUTPUT| No| N/A  
 `latente`| La representación latente de video de entrada que se incorpora al condicionamiento.| LATENT| Sí| N/A  
-`aumento_de_ruido`| La fuerza del aumento de ruido a aplicar al condicionamiento (predeterminado: 0.70). Este es un parámetro avanzado.| FLOAT| Sí| 0.0 - 1.0 (step 0.01)  
+`aumento_de_ruido`| La fuerza del aumento de ruido a aplicar al condicionamiento (predeterminado: 0.70). Este es un parámetro avanzado.| FLOAT| Sí| 0.0 - 1.0 (paso: 0.01)  
   
 **Nota:** Si se proporciona una `start_image`, también debe conectarse un `vae` para que pueda codificarse. La `start_image` se amplía automáticamente a 16 veces las dimensiones espaciales (ancho y alto) del `latent` de entrada, luego se codifica y se coloca en el latente de condicionamiento. Solo se utilizan los canales RGB de la `start_image` para la codificación.
 

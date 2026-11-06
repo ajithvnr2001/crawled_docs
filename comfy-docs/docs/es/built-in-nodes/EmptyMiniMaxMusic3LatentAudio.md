@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/es/built-in-nodes/EmptyMiniMaxMusic3LatentAudio/
 title: Audio latente vac\u00edo de MiniMax Music3 - ComfyUI Built-in Node Documentation - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-26T14:01:46.185604+00:00
+fetched_at: 2026-11-06T14:51:57.754844+00:00
 ---
 
 # Audio latente vacío de MiniMax Music3 - ComfyUI Built-in Node Documentation - ComfyUI
@@ -29,7 +29,7 @@ Entradas
 
 Parámetro| Descripción| Tipo de datos| Obligatorio| Rango  
 ---|---|---|---|---  
-`seconds`| La duración del latente de audio en segundos (predeterminado: 120.0). El valor se convierte a tramas de audio y se recorta a los límites de duración admitidos por el modelo.| FLOAT| Sí| 0.04 to (MAX_AUDIO_FRAMES / AUDIO_FRAMES_PER_SECOND), step 0.04  
+`seconds`| La duración del latente de audio en segundos (predeterminado: 120.0). El valor se convierte a tramas de audio y se recorta a los límites de duración admitidos por el modelo.| FLOAT| Sí| 0.04 to (MAX_AUDIO_FRAMES / AUDIO_FRAMES_PER_SECOND), paso: 0.04  
 `batch_size`| El número de latentes de audio a generar en un solo lote (predeterminado: 1).| INT| Sí| 1 a 4096  
   
 Nota: El valor de `seconds` se redondea a la trama de audio más cercana y se recorta a un mínimo de 1 trama y un máximo de `MAX_AUDIO_FRAMES` tramas, por lo que la longitud real del latente puede diferir ligeramente del valor exacto introducido.

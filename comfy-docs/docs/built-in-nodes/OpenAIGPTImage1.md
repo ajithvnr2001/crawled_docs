@@ -1,17 +1,17 @@
 ---
 url: https://docs.comfy.org/built-in-nodes/OpenAIGPTImage1/
-title: OpenAIGPTImage1 - ComfyUI Built-in Node Documentation - ComfyUI
+title: OpenAI GPT Image 2 - ComfyUI Built-in Node Documentation - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-17T10:48:39.127894+00:00
+fetched_at: 2026-11-06T14:51:56.626930+00:00
 ---
 
-# OpenAIGPTImage1 - ComfyUI Built-in Node Documentation - ComfyUI
+# OpenAI GPT Image 2 - ComfyUI Built-in Node Documentation - ComfyUI
 
 > Source: https://docs.comfy.org/built-in-nodes/OpenAIGPTImage1/
 
 Openai
 
-# OpenAIGPTImage1 - ComfyUI Built-in Node Documentation
+# OpenAI GPT Image 2 - ComfyUI Built-in Node Documentation
 
 Copy pageCopy page
 
@@ -19,7 +19,7 @@ Generates images synchronously through OpenAI’s GPT Image endpoint.
 
 Copy pageCopy page
 
-Generates images synchronously through OpenAI’s GPT Image endpoint. It can create new images from a text prompt or edit existing images when an input image and optional mask are provided. The node supports the `gpt-image-1`, `gpt-image-1.5`, and `gpt-image-2` models and is marked as deprecated.
+Generates images synchronously through OpenAI’s GPT Image endpoint. It can create new images from a text prompt or edit existing images when an input image and optional mask are provided. The node supports the `gpt-image-1.5` and `gpt-image-2` models and is marked as deprecated.
 
 ## 
 
@@ -50,8 +50,7 @@ Parameter| Description| Data Type| Required| Range
 `n`| How many images to generate (default: 1)| INT| No| 1 to 8  
 `image`| Optional reference image for image editing| IMAGE| No| -  
 `mask`| Optional mask for inpainting (white areas will be replaced)| MASK| No| -  
-`model`| GPT Image model to use (default: “gpt-image-2”)| COMBO| No| ”gpt-image-1"  
-"gpt-image-1.5"  
+`model`| GPT Image model to use (default: “gpt-image-2”)| COMBO| No| ”gpt-image-1.5"  
 "gpt-image-2”  
 `custom_width`| Used only when `size` is “Custom”. Must be a multiple of 16 (GPT Image 2 only) (default: 1024)| INT| No| 1024 to 3840, step 16  
 `custom_height`| Used only when `size` is “Custom”. Must be a multiple of 16 (GPT Image 2 only) (default: 1024)| INT| No| 1024 to 3840, step 16  
@@ -67,7 +66,7 @@ Parameter| Description| Data Type| Required| Range
   * The longest edge of a custom resolution must be 3840 or less.
   * Custom resolution aspect ratio must not exceed 3:1.
   * Custom resolution total pixels must be between 655,360 and 8,294,400.
-  * The `gpt-image-1` and `gpt-image-1.5` models only support the sizes `auto`, `1024x1024`, `1024x1536`, and `1536x1024`. Other sizes are only supported by the `gpt-image-2` model.
+  * The `gpt-image-1.5` model only supports the sizes `auto`, `1024x1024`, `1024x1536`, and `1536x1024`. Other sizes are only supported by the `gpt-image-2` model.
 
 
 
@@ -85,7 +84,7 @@ Output Name| Description| Data Type
 
 * * *
 
-**Source fingerprint (SHA-256):** `f0f0db7fd2cdf8efd2155522b289aa8f3f939fa79a6e9060b0ffbb2dd20efa1e`
+**Source fingerprint (SHA-256):** `e3aaa8ecbc75c200614d278ed6f8a844e35a24c82bd16acbed0ef520e068500f`
 
 Was this page helpful?
 
@@ -93,26 +92,4 @@ YesNo
 
 [Suggest edits](https://github.com/comfy-org/docs/edit/main/built-in-nodes/OpenAIGPTImage1.mdx)[Raise issue](https://github.com/comfy-org/docs/issues/new?title=Issue%20on%20docs&body=Path:%20/built-in-nodes/OpenAIGPTImage1)
 
-[MetaMuseImageTextToImageApi - ComfyUI Built-in Node DocumentationPrevious](https://docs.comfy.org/built-in-nodes/MetaMuseImageTextToImageApi)[OpenAIGPTImageNodeV2 - ComfyUI Built-in Node DocumentationNext](https://docs.comfy.org/built-in-nodes/OpenAIGPTImageNodeV2)
-
-⌘I
-
-[ComfyUI home page![light logo](https://mintcdn.com/dripart/WCFdTagRdhtvk9-o/logo/light.svg?fit=max&auto=format&n=WCFdTagRdhtvk9-o&q=85&s=ec112de87239058f5a931a7e4b594965)![dark logo](https://mintcdn.com/dripart/QzWbjSCBG7w61rR3/logo/dark.svg?fit=max&auto=format&n=QzWbjSCBG7w61rR3&q=85&s=62b4d879fb3aadbd7a468d1539032d6f)](https://docs.comfy.org/)
-
-[github](https://github.com/Comfy-Org/ComfyUI)[x](https://x.com/ComfyUI)[discord](https://discord.com/invite/comfyorg)[youtube](https://www.youtube.com/@comfyorg)
-
-Resources
-
-[installation](https://docs.comfy.org/installation/system_requirements)[Tutorials](https://docs.comfy.org/tutorials/basic/text-to-image)[Development](https://docs.comfy.org/development/overview)
-
-Products
-
-[Features](https://www.comfy.org/?utm_source=docs)[Gallery](https://www.comfy.org/gallery?utm_source=docs)[Download](https://www.comfy.org/download?utm_source=docs)
-
-Company
-
-[About](https://www.comfy.org/about?utm_source=docs)[Careers](https://www.comfy.org/careers?utm_source=docs)[Terms of Service](https://www.comfy.org/terms-of-service?utm_source=docs)[Privacy Policy](https://www.comfy.org/privacy-policy?utm_source=docs)
-
-[github](https://github.com/Comfy-Org/ComfyUI)[x](https://x.com/ComfyUI)[discord](https://discord.com/invite/comfyorg)[youtube](https://www.youtube.com/@comfyorg)
-
-[Powered byThis documentation is built and hosted on Mintlify, a developer documentation platform](https://www.mintlify.com?utm_campaign=poweredBy&utm_medium=referral&utm_source=dripart)
+[Meta Muse Image Text to Image](https://docs.comfy.org/built-in-nodes/MetaMuseImageTextToImageApi)[OpenAI GPT Image 2.5](https://docs.comfy.org/built-in-nodes/OpenAIGPTImageNodeV2)

@@ -1,17 +1,17 @@
 ---
 url: https://docs.comfy.org/built-in-nodes/FluxVideoUpscaleNode/
-title: Flux Video Upscale - ComfyUI Built-in Node Documentation - ComfyUI
+title: Flux Video Upscale (Legacy) - ComfyUI Built-in Node Documentation - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-11-02T16:54:39.315498+00:00
+fetched_at: 2026-11-06T14:51:56.349249+00:00
 ---
 
-# Flux Video Upscale - ComfyUI Built-in Node Documentation - ComfyUI
+# Flux Video Upscale (Legacy) - ComfyUI Built-in Node Documentation - ComfyUI
 
 > Source: https://docs.comfy.org/built-in-nodes/FluxVideoUpscaleNode/
 
 BFL
 
-# Flux Video Upscale - ComfyUI Built-in Node Documentation
+# Flux Video Upscale (Legacy) - ComfyUI Built-in Node Documentation
 
 Copy pageCopy page
 

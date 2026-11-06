@@ -1,17 +1,17 @@
 ---
 url: https://docs.comfy.org/built-in-nodes/OpenAIChatNode/
-title: OpenAIChatNode - ComfyUI Built-in Node Documentation - ComfyUI
+title: OpenAI ChatGPT - ComfyUI Built-in Node Documentation - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T11:54:52.482401+00:00
+fetched_at: 2026-11-06T14:51:57.270626+00:00
 ---
 
-# OpenAIChatNode - ComfyUI Built-in Node Documentation - ComfyUI
+# OpenAI ChatGPT - ComfyUI Built-in Node Documentation - ComfyUI
 
 > Source: https://docs.comfy.org/built-in-nodes/OpenAIChatNode/
 
 Openai
 
-# OpenAIChatNode - ComfyUI Built-in Node Documentation
+# OpenAI ChatGPT - ComfyUI Built-in Node Documentation
 
 Copy pageCopy page
 
@@ -32,6 +32,8 @@ Parameter| Description| Data Type| Required| Range
 `prompt`| Text inputs to the model, used to generate a response (default: empty string).| STRING| Yes| -  
 `persist_context`| This parameter is deprecated and has no effect (default: False).| BOOLEAN| Yes| -  
 `model`| The model used to generate the response (default: `gpt-5`)| COMBO| Yes| `gpt-6-astra`  
+`gpt-6.1-sol`  
+`gpt-6.1-terra`  
 `gpt-6-sol`  
 `gpt-6-luna`  
 `gpt-5.6-sol`  
@@ -44,11 +46,7 @@ Parameter| Description| Data Type| Required| Range
 `gpt-5-nano`  
 `gpt-4.1`  
 `gpt-4.1-mini`  
-`gpt-4.1-nano`  
-`o4-mini`  
 `o3`  
-`o1-pro`  
-`o1`  
 `images`| Optional image(s) to use as context for the model. To include multiple images, you can use the Batch Images node.| IMAGE| No| -  
 `files`| Optional file(s) to use as context for the model. Accepts inputs from the OpenAI Chat Input Files node.| OPENAI_INPUT_FILES| No| -  
 `advanced_options`| Optional configuration for the model. Accepts inputs from the OpenAI Chat Advanced Options node.| OPENAI_CHAT_CONFIG| No| -  
@@ -69,7 +67,7 @@ Output Name| Description| Data Type
 
 * * *
 
-**Source fingerprint (SHA-256):** `46b4558f1368191e2b4eb68f79e098f289c9eb80e1e05f7a516123c098295f2b`
+**Source fingerprint (SHA-256):** `0a4f23acbe136b6137e163b9b2dce49c93746800ac2a42a29602ee4011a2db72`
 
 Was this page helpful?
 
@@ -77,4 +75,4 @@ YesNo
 
 [Suggest edits](https://github.com/comfy-org/docs/edit/main/built-in-nodes/OpenAIChatNode.mdx)[Raise issue](https://github.com/comfy-org/docs/issues/new?title=Issue%20on%20docs&body=Path:%20/built-in-nodes/OpenAIChatNode)
 
-[OpenAIChatConfig](https://docs.comfy.org/built-in-nodes/OpenAIChatConfig)[OpenAIInputFiles](https://docs.comfy.org/built-in-nodes/OpenAIInputFiles)
+[OpenAI ChatGPT Advanced Options](https://docs.comfy.org/built-in-nodes/OpenAIChatConfig)[OpenAI ChatGPT Input Files](https://docs.comfy.org/built-in-nodes/OpenAIInputFiles)

@@ -1,17 +1,17 @@
 ---
 url: https://docs.comfy.org/built-in-nodes/MinimaxHailuo03MaxCameraControlNode/
-title: MinimaxHailuo03MaxCameraControlNode - ComfyUI Built-in Node Documentation - ComfyUI
+title: MiniMax H3 Max Camera Control - ComfyUI Built-in Node Documentation - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-11-02T16:54:33.485000+00:00
+fetched_at: 2026-11-06T14:51:55.605417+00:00
 ---
 
-# MinimaxHailuo03MaxCameraControlNode - ComfyUI Built-in Node Documentation - ComfyUI
+# MiniMax H3 Max Camera Control - ComfyUI Built-in Node Documentation - ComfyUI
 
 > Source: https://docs.comfy.org/built-in-nodes/MinimaxHailuo03MaxCameraControlNode/
 
 Video
 
-# MinimaxHailuo03MaxCameraControlNode - ComfyUI Built-in Node Documentation
+# MiniMax H3 Max Camera Control - ComfyUI Built-in Node Documentation
 
 Copy pageCopy page
 
@@ -82,4 +82,4 @@ YesNo
 
 [Suggest edits](https://github.com/comfy-org/docs/edit/main/built-in-nodes/MinimaxHailuo03MaxCameraControlNode.mdx)[Raise issue](https://github.com/comfy-org/docs/issues/new?title=Issue%20on%20docs&body=Path:%20/built-in-nodes/MinimaxHailuo03MaxCameraControlNode)
 
-[VEED Remove Video Background](https://docs.comfy.org/built-in-nodes/VeedRemoveVideoBackgroundNode)[MinimaxHailuo03MaxExtendVideoNode](https://docs.comfy.org/built-in-nodes/MinimaxHailuo03MaxExtendVideoNode)
+[VEED Remove Video Background](https://docs.comfy.org/built-in-nodes/VeedRemoveVideoBackgroundNode)[MiniMax H3 Max Extend Video](https://docs.comfy.org/built-in-nodes/MinimaxHailuo03MaxExtendVideoNode)

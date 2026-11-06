@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/es/built-in-nodes/ResizeImageMaskNode/
 title: Redimensionar imagen/m\u00e1scara - ComfyUI Built-in Node Documentation - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-26T14:02:23.764353+00:00
+fetched_at: 2026-11-06T14:52:02.724240+00:00
 ---
 
 # Redimensionar imagen/máscara - ComfyUI Built-in Node Documentation - ComfyUI
@@ -38,6 +38,7 @@ Parámetro| Descripción| Tipo de Dato| Obligatorio| Rango
 `SCALE_HEIGHT`  
 `SCALE_TOTAL_PIXELS`  
 `MATCH_SIZE`  
+`SCALE_TO_MULTIPLE`  
 `multiplier`| El factor de escala. Obligatorio cuando `resize_type` es `SCALE_BY` (predeterminado: 1.00).| FLOAT| No| 0.01 a 8.0  
 `width`| El ancho objetivo en píxeles. Obligatorio cuando `resize_type` es `SCALE_DIMENSIONS` o `SCALE_WIDTH` (predeterminado: 512).| INT| No| 0 a 8192  
 `height`| La altura objetivo en píxeles. Obligatorio cuando `resize_type` es `SCALE_DIMENSIONS` o `SCALE_HEIGHT` (predeterminado: 512).| INT| No| 0 a 8192  
@@ -47,6 +48,7 @@ Parámetro| Descripción| Tipo de Dato| Obligatorio| Rango
 `shorter_size`| El tamaño objetivo para el lado más corto de la imagen. Obligatorio cuando `resize_type` es `SCALE_SHORTER_DIMENSION` (predeterminado: 512).| INT| No| 0 a 8192  
 `megapixels`| El número total objetivo de megapíxeles. Obligatorio cuando `resize_type` es `SCALE_TOTAL_PIXELS` (predeterminado: 1.0).| FLOAT| No| 0.01 a 16.0  
 `match`| Una imagen o máscara cuyas dimensiones se utilizarán para redimensionar la entrada. Obligatorio cuando `resize_type` es `MATCH_SIZE`.| IMAGE o MASK| No| N/A  
+`multiple`| El número por el que se hacen divisibles el ancho y la altura; útil para la alineación de latentes (por ejemplo, 8 o 64). Obligatorio cuando `resize_type` es `SCALE_TO_MULTIPLE` (predeterminado: 8).| INT| No| 1 a 8192  
 `scale_method`| El algoritmo de interpolación utilizado para el escalado (predeterminado: “area”).| COMBO| Sí| `"nearest-exact"`  
 `"bilinear"`  
 `"area"`  

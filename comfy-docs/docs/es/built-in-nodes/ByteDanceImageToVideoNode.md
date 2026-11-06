@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/es/built-in-nodes/ByteDanceImageToVideoNode/
 title: Imagen a video usando ByteDance - ComfyUI Built-in Node Documentation - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T15:15:49.962094+00:00
+fetched_at: 2026-11-06T14:51:58.434558+00:00
 ---
 
 # Imagen a video usando ByteDance - ComfyUI Built-in Node Documentation - ComfyUI
@@ -19,9 +19,7 @@ El nodo ByteDance Image to Video genera videos utilizando modelos ByteDance a tr
 
 Copiar páginaCopiar página
 
-El nodo ByteDance Image to Video genera videos utilizando modelos ByteDance a través de una API a partir de una imagen de entrada y un prompt de texto. Toma un primer fotograma de inicio y crea una secuencia de video que sigue la descripción proporcionada. El nodo ofrece diversas opciones de personalización para la resolución del video, la relación de aspecto, la duración y otros parámetros de generación.
-
-BytePlus cerrará el modelo Seedance 1.5 Pro el 11 de noviembre de 2026, así que este nodo ya no lo ofrece y los flujos guardados con ese modelo dejan de funcionar. Usa `seedance-1-0-pro-250528`, `seedance-1-0-pro-fast-251015` o el [nodo de la asociación Seedance 2.5](https://docs.comfy.org/es/tutorials/partner-nodes/bytedance/seedance-2-5) en su lugar.
+El nodo ByteDance Image to Video genera videos utilizando modelos ByteDance a través de una API a partir de una imagen de entrada y un prompt de texto. Toma un primer fotograma de inicio y crea una secuencia de video que sigue la descripción proporcionada. El nodo ofrece diversas opciones de personalización para la resolución del video, la relación de aspecto, la duración y otros parámetros de generación. **Nota:** Este nodo está marcado como obsoleto en el código fuente. **Nota:** BytePlus cerrará el modelo Seedance 1.5 Pro el 11 de noviembre de 2026, así que este nodo ya no lo ofrece y los flujos guardados con ese modelo dejan de funcionar. Usa `seedance-1-0-pro-250528`, `seedance-1-0-pro-fast-251015` o el [nodo de la asociación Seedance 2.5](https://docs.comfy.org/es/tutorials/partner-nodes/bytedance/seedance-2-5) en su lugar.
 
 ## 
 
@@ -51,7 +49,7 @@ Parámetro| Descripción| Tipo de dato| Requerido| Rango
 `True`  
 `marca_de_agua`| Si se debe añadir una marca de agua “AI generated” al video (predeterminado: False).| BOOLEAN| No| `False`  
 `True`  
-`generate_audio`| Se acepta por compatibilidad; los modelos restantes ignoran esta entrada (predeterminado: False).| BOOLEAN| No| `False`  
+`generate_audio`| Añade una pista de audio generada por IA. Los modelos restantes ignoran esta entrada (predeterminado: False).| BOOLEAN| No| `False`  
 `True`  
   
 **Nota:** El prompt no debe contener las siguientes palabras (sin distinción de mayúsculas y minúsculas): `resolution`, `ratio`, `duration`, `seed`, `camerafixed`, `watermark`. Estos parámetros se configuran mediante sus entradas dedicadas.
@@ -70,7 +68,7 @@ Nombre de salida| Descripción| Tipo de dato
 
 * * *
 
-**Source fingerprint (SHA-256):** `9f4ad18642533689f9c664f2ca6a4ce8e92c8698754cdf9b6bb2d2735bc80415`
+**Source fingerprint (SHA-256):** `a1841a368e625bd90583e0f0dbdc32369e6701a44cf985f01de8faa3d999b224`
 
 ¿Esta página le ayudó?
 

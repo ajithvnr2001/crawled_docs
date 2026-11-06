@@ -1,25 +1,25 @@
 ---
 url: https://docs.comfy.org/built-in-nodes/PixverseV6TextToVideoNode/
-title: PixverseV6TextToVideoNode - ComfyUI Built-in Node Documentation - ComfyUI
+title: PixVerse V6 Text to Video - ComfyUI Built-in Node Documentation - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-25T12:24:52.841401+00:00
+fetched_at: 2026-11-06T14:52:00.825180+00:00
 ---
 
-# PixverseV6TextToVideoNode - ComfyUI Built-in Node Documentation - ComfyUI
+# PixVerse V6 Text to Video - ComfyUI Built-in Node Documentation - ComfyUI
 
 > Source: https://docs.comfy.org/built-in-nodes/PixverseV6TextToVideoNode/
 
 Pixverse
 
-# PixverseV6TextToVideoNode - ComfyUI Built-in Node Documentation
+# PixVerse V6 Text to Video - ComfyUI Built-in Node Documentation
 
 Copy pageCopy page
 
-PixVerse V6 Text to Video generates a video from a text prompt using PixVerse’s V6 model.
+PixVerse V6 Text to Video generates a video from a text prompt using PixVerse’s V6 or V6 Max model.
 
 Copy pageCopy page
 
-PixVerse V6 Text to Video generates a video from a text prompt using PixVerse’s V6 model. The node sends the prompt along with your chosen aspect ratio, resolution, duration, and other settings to PixVerse, waits for the generation to finish, and then returns the resulting video — including a native audio track when audio generation is enabled.
+PixVerse V6 Text to Video generates a video from a text prompt using PixVerse’s V6 or V6 Max model. The node sends the prompt along with your chosen aspect ratio, resolution, duration, and other settings to PixVerse, waits for the generation to finish, and then returns the resulting video — including a native audio track when audio generation is enabled.
 
 ## 
 
@@ -107,4 +107,4 @@ YesNo
 
 [Suggest edits](https://github.com/comfy-org/docs/edit/main/built-in-nodes/PixverseV6TextToVideoNode.mdx)[Raise issue](https://github.com/comfy-org/docs/issues/new?title=Issue%20on%20docs&body=Path:%20/built-in-nodes/PixverseV6TextToVideoNode)
 
-[PixverseV6ImageToVideoNode](https://docs.comfy.org/built-in-nodes/PixverseV6ImageToVideoNode)[PrunaImageToVideoNode](https://docs.comfy.org/built-in-nodes/PrunaImageToVideoNode)
+[PixVerse V6 Image to Video](https://docs.comfy.org/built-in-nodes/PixverseV6ImageToVideoNode)[Pruna P-Video-2 Image to Video](https://docs.comfy.org/built-in-nodes/PrunaImageToVideoNode)

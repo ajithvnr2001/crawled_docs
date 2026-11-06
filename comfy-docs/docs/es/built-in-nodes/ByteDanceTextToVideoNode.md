@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/es/built-in-nodes/ByteDanceTextToVideoNode/
 title: Texto a video usando ByteDance - ComfyUI Built-in Node Documentation - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T15:15:50.087089+00:00
+fetched_at: 2026-11-06T14:51:59.455897+00:00
 ---
 
 # Texto a video usando ByteDance - ComfyUI Built-in Node Documentation - ComfyUI
@@ -19,9 +19,7 @@ El nodo ByteDance Text to Video genera un video a partir de un prompt de texto m
 
 Copiar páginaCopiar página
 
-El nodo ByteDance Text to Video genera un video a partir de un prompt de texto mediante modelos de ByteDance a través de una API. Se proporciona un prompt y se eligen ajustes como el modelo, la resolución, la relación de aspecto y la duración; el nodo envía la solicitud de generación y devuelve el video generado.
-
-BytePlus cerrará el modelo Seedance 1.5 Pro el 11 de noviembre de 2026, así que este nodo ya no lo ofrece y los flujos guardados con ese modelo dejan de funcionar. Usa `seedance-1-0-pro-250528`, `seedance-1-0-pro-fast-251015` o el [nodo de la asociación Seedance 2.5](https://docs.comfy.org/es/tutorials/partner-nodes/bytedance/seedance-2-5) en su lugar.
+El nodo ByteDance Text to Video genera un video a partir de un prompt de texto mediante modelos de ByteDance a través de una API. Se proporciona un prompt y se eligen ajustes como el modelo, la resolución, la relación de aspecto y la duración; el nodo envía la solicitud de generación y devuelve el video generado. **Nota:** Este nodo está marcado como obsoleto en el código fuente. **Nota:** BytePlus cerrará el modelo Seedance 1.5 Pro el 11 de noviembre de 2026, así que este nodo ya no lo ofrece y los flujos guardados con ese modelo dejan de funcionar. Usa `seedance-1-0-pro-250528`, `seedance-1-0-pro-fast-251015` o el [nodo de la asociación Seedance 2.5](https://docs.comfy.org/es/tutorials/partner-nodes/bytedance/seedance-2-5) en su lugar.
 
 ## 
 
@@ -47,7 +45,7 @@ Parámetro| Descripción| Tipo de datos| Requerido| Rango
 `semilla`| Semilla que se utilizará para la generación (por defecto: 0).| INT| No| 0 a 2147483647  
 `cámara_fija`| Especifica si se debe fijar la cámara. La plataforma añade al prompt una instrucción para fijar la cámara, pero no garantiza el efecto real (por defecto: False).| BOOLEAN| No| -  
 `marca_de_agua`| Indica si se debe añadir una marca de agua “AI generated” al video (por defecto: False).| BOOLEAN| No| -  
-`generate_audio`| Se acepta por compatibilidad; los modelos restantes ignoran esta entrada (por defecto: False).| BOOLEAN| No| -  
+`generate_audio`| Añade una pista de audio generada por IA. Los modelos restantes ignoran esta entrada (por defecto: False).| BOOLEAN| No| -  
   
 **Restricciones de los parámetros:**
 
@@ -74,7 +72,7 @@ Nombre de salida| Descripción| Tipo de datos
 
 * * *
 
-**Source fingerprint (SHA-256):** `83b805b63e59a76cae378b0407b409e1bfe900677ef1e01fc836fede47283eee`
+**Source fingerprint (SHA-256):** `d26d13c99a25bb14a0b1c1f3bae2dea1b30bf35f886331f26ef72e64ca357ef5`
 
 ¿Esta página le ayudó?
 

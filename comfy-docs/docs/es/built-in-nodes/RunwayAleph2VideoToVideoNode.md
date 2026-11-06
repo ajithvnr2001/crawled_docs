@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/es/built-in-nodes/RunwayAleph2VideoToVideoNode/
 title: Runway Aleph2 Video a Video - ComfyUI Built-in Node Documentation - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-26T14:02:24.840355+00:00
+fetched_at: 2026-11-06T14:52:02.484326+00:00
 ---
 
 # Runway Aleph2 Video a Video - ComfyUI Built-in Node Documentation - ComfyUI
@@ -15,7 +15,7 @@ Runway
 
 Copiar páginaCopiar página
 
-Este nodo edita un video con un prompt de texto usando el modelo Aleph2 de Runway.
+This node edits a video using a text prompt with Runway’s Aleph2 model.
 
 Copiar páginaCopiar página
 

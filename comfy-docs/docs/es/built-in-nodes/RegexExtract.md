@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/es/built-in-nodes/RegexExtract/
 title: Extracci\u00f3n regex - ComfyUI Built-in Node Documentation - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-26T14:02:22.809761+00:00
+fetched_at: 2026-11-06T14:52:02.360523+00:00
 ---
 
 # Extracción regex - ComfyUI Built-in Node Documentation - ComfyUI
@@ -19,7 +19,7 @@ El nodo RegexExtract busca patrones en texto utilizando expresiones regulares.
 
 Copiar páginaCopiar página
 
-El nodo RegexExtract busca patrones en texto utilizando expresiones regulares. Puede encontrar la primera coincidencia, todas las coincidencias, grupos específicos de las coincidencias, o todos los grupos en múltiples coincidencias. El nodo admite varias flags de expresiones regulares para sensibilidad a mayúsculas/minúsculas, coincidencia multilínea y comportamiento dotall.
+El nodo RegexExtract busca patrones en texto utilizando expresiones regulares. Puede encontrar la primera coincidencia, todas las coincidencias, grupos específicos de las coincidencias, o todos los grupos en múltiples coincidencias. El nodo admite varias banderas de expresiones regulares para sensibilidad a mayúsculas/minúsculas, coincidencia multilínea y comportamiento dotall.
 
 ## 
 

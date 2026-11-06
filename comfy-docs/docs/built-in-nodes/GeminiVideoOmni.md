@@ -1,17 +1,17 @@
 ---
 url: https://docs.comfy.org/built-in-nodes/GeminiVideoOmni/
-title: GeminiVideoOmni - ComfyUI Built-in Node Documentation - ComfyUI
+title: Google Gemini Omni (Video) - ComfyUI Built-in Node Documentation - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-17T10:47:59.745454+00:00
+fetched_at: 2026-11-06T14:51:57.422610+00:00
 ---
 
-# GeminiVideoOmni - ComfyUI Built-in Node Documentation - ComfyUI
+# Google Gemini Omni (Video) - ComfyUI Built-in Node Documentation - ComfyUI
 
 > Source: https://docs.comfy.org/built-in-nodes/GeminiVideoOmni/
 
 Gemini
 
-# GeminiVideoOmni - ComfyUI Built-in Node Documentation
+# Google Gemini Omni (Video) - ComfyUI Built-in Node Documentation
 
 Copy pageCopy page
 
@@ -19,7 +19,7 @@ Generate a video with audio from a text prompt using Google’s Gemini Omni Flas
 
 Copy pageCopy page
 
-Generate a video with audio from a text prompt using Google’s Gemini Omni Flash model. Optionally provide reference images and/or videos to guide or edit the result. Describe the desired length (3-10s) and aspect ratio (16:9 or 9:16) directly in the prompt.
+Generate a video with audio from a text prompt using Google’s Gemini Omni Flash model. Optionally provide reference images and/or videos to guide or edit the result. Describe the desired length (3-10s) and aspect ratio (16:9 or 9:16) directly in the prompt. **Note:** This node is marked as deprecated in the source code.
 
 ## 
 
@@ -84,7 +84,7 @@ Output Name| Description| Data Type
 
 * * *
 
-**Source fingerprint (SHA-256):** `648844868affb68298d2eac8ac20095bfe378d32e721396781de330ef6a6d69f`
+**Source fingerprint (SHA-256):** `da533824adf93b7502465cf985941f70e0ae4d6813c951f4ffa98c007437c03c`
 
 Was this page helpful?
 
@@ -92,26 +92,4 @@ YesNo
 
 [Suggest edits](https://github.com/comfy-org/docs/edit/main/built-in-nodes/GeminiVideoOmni.mdx)[Raise issue](https://github.com/comfy-org/docs/issues/new?title=Issue%20on%20docs&body=Path:%20/built-in-nodes/GeminiVideoOmni)
 
-[ByteDanceVideoEnhanceNode - ComfyUI Built-in Node DocumentationPrevious](https://docs.comfy.org/built-in-nodes/ByteDanceVideoEnhanceNode)[GeminiVideoOmniV2 - ComfyUI Built-in Node DocumentationNext](https://docs.comfy.org/built-in-nodes/GeminiVideoOmniV2)
-
-⌘I
-
-[ComfyUI home page![light logo](https://mintcdn.com/dripart/WCFdTagRdhtvk9-o/logo/light.svg?fit=max&auto=format&n=WCFdTagRdhtvk9-o&q=85&s=ec112de87239058f5a931a7e4b594965)![dark logo](https://mintcdn.com/dripart/QzWbjSCBG7w61rR3/logo/dark.svg?fit=max&auto=format&n=QzWbjSCBG7w61rR3&q=85&s=62b4d879fb3aadbd7a468d1539032d6f)](https://docs.comfy.org/)
-
-[github](https://github.com/Comfy-Org/ComfyUI)[x](https://x.com/ComfyUI)[discord](https://discord.com/invite/comfyorg)[youtube](https://www.youtube.com/@comfyorg)
-
-Resources
-
-[installation](https://docs.comfy.org/installation/system_requirements)[Tutorials](https://docs.comfy.org/tutorials/basic/text-to-image)[Development](https://docs.comfy.org/development/overview)
-
-Products
-
-[Features](https://www.comfy.org/?utm_source=docs)[Gallery](https://www.comfy.org/gallery?utm_source=docs)[Download](https://www.comfy.org/download?utm_source=docs)
-
-Company
-
-[About](https://www.comfy.org/about?utm_source=docs)[Careers](https://www.comfy.org/careers?utm_source=docs)[Terms of Service](https://www.comfy.org/terms-of-service?utm_source=docs)[Privacy Policy](https://www.comfy.org/privacy-policy?utm_source=docs)
-
-[github](https://github.com/Comfy-Org/ComfyUI)[x](https://x.com/ComfyUI)[discord](https://discord.com/invite/comfyorg)[youtube](https://www.youtube.com/@comfyorg)
-
-[Powered byThis documentation is built and hosted on Mintlify, a developer documentation platform](https://www.mintlify.com?utm_campaign=poweredBy&utm_medium=referral&utm_source=dripart)
+[ByteDance vCube Video Enhance](https://docs.comfy.org/built-in-nodes/ByteDanceVideoEnhanceNode)[Google Gemini Omni (Video)](https://docs.comfy.org/built-in-nodes/GeminiVideoOmniV2)

@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/es/built-in-nodes/ReplaceVideoLatentFrames/
 title: Reemplazar fotogramas de latente de video - ComfyUI Built-in Node Documentation - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-26T14:02:23.609742+00:00
+fetched_at: 2026-11-06T14:52:01.356578+00:00
 ---
 
 # Reemplazar fotogramas de latente de video - ComfyUI Built-in Node Documentation - ComfyUI
@@ -31,7 +31,7 @@ Parámetro| Descripción| Tipo de datos| Requerido| Rango
 ---|---|---|---|---  
 `destination`| El latente de destino donde se reemplazarán los fotogramas.| LATENT| Sí| -  
 `source`| El latente de origen que proporciona los fotogramas para insertar en el latente de destino. Si no se proporciona, el latente de destino se devuelve sin cambios.| LATENT| No| -  
-`index`| El índice de fotograma latente inicial en el latente de destino donde se colocarán los fotogramas del latente de origen. Los valores negativos cuentan desde el final (por defecto: 0).| INT| Sí| -MAX_RESOLUTION to MAX_RESOLUTION  
+`index`| El índice de fotograma latente inicial en el latente de destino donde se colocarán los fotogramas del latente de origen. Los valores negativos cuentan desde el final (por defecto: 0).| INT| Sí| -MAX_RESOLUTION a MAX_RESOLUTION  
   
 **Restricciones:**
 

@@ -1,10 +1,7 @@
 {
   "url": "https://docs.comfy.org/built-in-nodes/OpenAIChatConfig/",
   "file": "built-in-nodes/OpenAIChatConfig.md",
-  "title": "OpenAIChatConfig - ComfyUI Built-in Node Documentation - ComfyUI",
+  "title": "OpenAI ChatGPT Advanced Options - ComfyUI Built-in Node Documentation - ComfyUI",
   "method": "scrapling+scrapegraph",
-  "fetched_at": "2026-10-17T10:48:39.028917+00:00",
-  "html_len": 604542,
-  "md_len": 4749,
-  "depth": 0
+  "fetched_at": "2026-11-06T14:51:56.763847+00:00"
 }

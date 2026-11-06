@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/es/built-in-nodes/ImageCompare/
 title: Comparar im\u00e1genes - ComfyUI Built-in Node Documentation - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-26T14:01:55.787984+00:00
+fetched_at: 2026-11-06T14:51:59.623873+00:00
 ---
 
 # Comparar imágenes - ComfyUI Built-in Node Documentation - ComfyUI
@@ -15,7 +15,7 @@ Imagen
 
 Copiar páginaCopiar página
 
-El nodo Image Compare ofrece una interfaz visual para comparar dos imágenes una al lado de la otra con un control deslizante arrastrable.
+The Image Compare node provides a visual interface to compare two images side-by-side using a draggable slider.
 
 Copiar páginaCopiar página
 

@@ -1,17 +1,17 @@
 ---
 url: https://docs.comfy.org/built-in-nodes/BranchNode/
-title: BranchNode - ComfyUI Built-in Node Documentation - ComfyUI
+title: Branch - ComfyUI Built-in Node Documentation - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-25T12:24:46.197883+00:00
+fetched_at: 2026-11-06T14:51:57.341272+00:00
 ---
 
-# BranchNode - ComfyUI Built-in Node Documentation - ComfyUI
+# Branch - ComfyUI Built-in Node Documentation - ComfyUI
 
 > Source: https://docs.comfy.org/built-in-nodes/BranchNode/
 
 Logic
 
-# BranchNode - ComfyUI Built-in Node Documentation
+# Branch - ComfyUI Built-in Node Documentation
 
 Copy pageCopy page
 
@@ -57,4 +57,4 @@ YesNo
 
 [Suggest edits](https://github.com/comfy-org/docs/edit/main/built-in-nodes/BranchNode.mdx)[Raise issue](https://github.com/comfy-org/docs/issues/new?title=Issue%20on%20docs&body=Path:%20/built-in-nodes/BranchNode)
 
-[InvertBooleanNode](https://docs.comfy.org/built-in-nodes/InvertBooleanNode)[EndLoop](https://docs.comfy.org/built-in-nodes/EndLoop)
+[InvertBooleanNode](https://docs.comfy.org/built-in-nodes/InvertBooleanNode)[End Loop](https://docs.comfy.org/built-in-nodes/EndLoop)

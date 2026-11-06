@@ -1,17 +1,17 @@
 ---
 url: https://docs.comfy.org/built-in-nodes/ClipSetLastLayer/
-title: CLIPSetLastLayer - ComfyUI Built-in Node Documentation - ComfyUI
+title: CLIP Set Last Layer - ComfyUI Built-in Node Documentation - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-25T12:24:51.732534+00:00
+fetched_at: 2026-11-06T14:51:55.529648+00:00
 ---
 
-# CLIPSetLastLayer - ComfyUI Built-in Node Documentation - ComfyUI
+# CLIP Set Last Layer - ComfyUI Built-in Node Documentation - ComfyUI
 
 > Source: https://docs.comfy.org/built-in-nodes/ClipSetLastLayer/
 
 Conditioning
 
-# CLIPSetLastLayer - ComfyUI Built-in Node Documentation
+# CLIP Set Last Layer - ComfyUI Built-in Node Documentation
 
 Copy pageCopy page
 
@@ -81,4 +81,4 @@ YesNo
 
 [Suggest edits](https://github.com/comfy-org/docs/edit/main/built-in-nodes/ClipSetLastLayer.mdx)[Raise issue](https://github.com/comfy-org/docs/issues/new?title=Issue%20on%20docs&body=Path:%20/built-in-nodes/ClipSetLastLayer)
 
-[AudioEncoderEncode](https://docs.comfy.org/built-in-nodes/AudioEncoderEncode)[CLIPTextEncode](https://docs.comfy.org/built-in-nodes/ClipTextEncode)
+[AudioEncoderEncode](https://docs.comfy.org/built-in-nodes/AudioEncoderEncode)[CLIP Text Encode (Prompt)](https://docs.comfy.org/built-in-nodes/ClipTextEncode)
