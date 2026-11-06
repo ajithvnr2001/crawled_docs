@@ -2,7 +2,7 @@
 url: https://www.canva.dev/docs/connect/reference-apps/realty-commercial/
 title: Automate real estate marketing with Canva - Canva Developers SDK Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-21T14:20:39.450085+00:00
+fetched_at: 2026-11-06T16:59:01.443058+00:00
 ---
 
 # Automate real estate marketing with Canva - Canva Developers SDK Documentation
@@ -112,7 +112,10 @@ Before starting, ensure you have:
   2. In the modal:
 
      * Enter an **App name** , using 18 characters or fewer.
-     * Under **Who can use your app?** , choose **Public** or **Private**. **Private** is only available on a Canva Enterprise plan. This can't be changed later.
+     * Under **Who can use your app?** , choose one of the following options. This can't be changed later. 
+       * **Anyone on Canva** : Creates a public app.
+       * **Restricted to your Canva team** : Creates a private app. This option is only available on a Canva Enterprise plan.
+       * **No Canva sign-in required** : Creates a service app, which uses the REST APIs on its own behalf.
      * Accept the Developer Terms.
      * Click **Create app**.
 

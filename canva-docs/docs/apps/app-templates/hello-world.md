@@ -2,7 +2,7 @@
 url: https://www.canva.dev/docs/apps/app-templates/hello-world/
 title: Hello World app - Canva Developers SDK Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-21T13:55:21.603028+00:00
+fetched_at: 2026-11-06T16:58:48.050544+00:00
 ---
 
 # Hello World app - Canva Developers SDK Documentation
@@ -107,7 +107,7 @@ Copy
 
   5. The setup process guides you through the remaining settings:
 
-     1. Choose the [audience](https://www.canva.dev/docs/apps/quickstart/#public-and-private-apps) for your app.
+     1. Choose the [audience](https://www.canva.dev/docs/apps/quickstart/#who-can-use-your-app) for your app.
      2. Enter a name for your app.
      3. Choose whether to initialize a git repository for your project.
      4. Choose whether your project should use npm to install its dependencies.

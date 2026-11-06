@@ -2,7 +2,7 @@
 url: https://www.canva.dev/docs/apps/rest-apis/reference/print-partner/create-print-partner-design/
 title: Create print partner design - Canva REST API reference - Canva Developers SDK Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-02T19:51:32.952528+00:00
+fetched_at: 2026-11-06T16:58:58.411177+00:00
 ---
 
 # Create print partner design - Canva REST API reference - Canva Developers SDK Documentation
@@ -97,11 +97,13 @@ Blank designs created with this API are automatically deleted if they're not edi
 
 POST` https://api.canva.com/rest/v1/print-partner/designs`
 
+### Rate limit
+
 This operation is rate limited to 20 requests per minute for each user of your app.
 
 ## Authentication and authorization
 
-This endpoint requires a valid access token that acts on behalf of a user. For more information, see [Generate an access token](https://www.canva.dev/docs/apps/rest-apis/reference/authentication/generate-access-token/).
+This endpoint supports public or private apps, and requires a valid OAuth access token that acts on behalf of a user (OAuth authorization code flow). For more information, see [Generate an access token](https://www.canva.dev/docs/apps/rest-apis/reference/authentication/generate-access-token/).
 
 ### Scopes
 

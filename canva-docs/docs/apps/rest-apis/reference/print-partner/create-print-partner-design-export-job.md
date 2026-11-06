@@ -2,7 +2,7 @@
 url: https://www.canva.dev/docs/apps/rest-apis/reference/print-partner/create-print-partner-design-export-job/
 title: Create print partner design export job - Canva REST API reference - Canva Developers SDK Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-02T19:51:34.986818+00:00
+fetched_at: 2026-11-06T16:58:58.667590+00:00
 ---
 
 # Create print partner design export job - Canva REST API reference - Canva Developers SDK Documentation
@@ -103,11 +103,13 @@ For more information on the workflow for using asynchronous jobs, see [API reque
 
 POST` https://api.canva.com/rest/v1/print-partner/exports`
 
+### Rate limit
+
 This operation is rate limited to 20 requests per minute for each user of your app.
 
 ## Authentication and authorization
 
-This endpoint requires a valid access token that acts on behalf of a user. For more information, see [Generate an access token](https://www.canva.dev/docs/apps/rest-apis/reference/authentication/generate-access-token/).
+This endpoint supports public or private apps, and requires a valid OAuth access token that acts on behalf of a user (OAuth authorization code flow). For more information, see [Generate an access token](https://www.canva.dev/docs/apps/rest-apis/reference/authentication/generate-access-token/).
 
 ### Scopes
 

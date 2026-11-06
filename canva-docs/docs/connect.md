@@ -2,7 +2,7 @@
 url: https://www.canva.dev/docs/connect/
 title: About Canva's REST APIs - Canva for your platform - Canva Developers SDK Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-21T13:58:22.167481+00:00
+fetched_at: 2026-11-06T16:58:51.386569+00:00
 ---
 
 # About Canva's REST APIs - Canva for your platform - Canva Developers SDK Documentation
@@ -19,7 +19,7 @@ Fundamentals
 
 Development guides
 
-[Autofill designs with data](https://www.canva.dev/docs/apps/rest-apis/autofill-guide/)[Return users to your platform](https://www.canva.dev/docs/apps/rest-apis/return-navigation-guide/)
+[Generate images with CRAFT](https://www.canva.dev/docs/apps/rest-apis/generate-images-with-craft/)[Autofill designs with data](https://www.canva.dev/docs/apps/rest-apis/autofill-guide/)[Return users to your platform](https://www.canva.dev/docs/apps/rest-apis/return-navigation-guide/)
 
 Design guidelines
 

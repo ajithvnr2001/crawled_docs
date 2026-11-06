@@ -2,7 +2,7 @@
 url: https://www.canva.dev/docs/apps/rest-apis/reference/generations/
 title: Generations - Canva REST API reference - Canva Developers SDK Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T16:37:47.807154+00:00
+fetched_at: 2026-11-06T16:58:47.607614+00:00
 ---
 
 # Generations - Canva REST API reference - Canva Developers SDK Documentation
@@ -109,7 +109,9 @@ The `generations` endpoint lets you generate a Canva document or presentation fr
 
 The image generation APIs let you generate an image from a plain-text prompt. A successful job returns the generated image as a download URL that's valid for 24 hours. You can also save the image to the user's Canva account as an image asset, so it appears in their uploads.
 
-The image generation APIs act on behalf of a user, and require the `asset:write` scope. Starting a job consumes the user's [AI credit allowance⁠(opens in a new tab or window)](https://www.canva.com/help/ai-access/).
+For how to generate your first image, see [Generate images with CRAFT](https://www.canva.dev/docs/apps/rest-apis/generate-images-with-craft/).
+
+A public or private app needs the `asset:write` scope, and the job uses the user's [AI credit allowance⁠(opens in a new tab or window)](https://www.canva.com/help/ai-access/). A service app needs the `service:asset:write` scope, and the job uses your team's [API credits](https://www.canva.dev/docs/apps/rest-apis/credit-rates/).
 
 ### Models
 

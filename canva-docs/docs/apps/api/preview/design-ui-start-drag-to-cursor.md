@@ -2,7 +2,7 @@
 url: https://www.canva.dev/docs/apps/api/preview/design-ui-start-drag-to-cursor/
 title: ui.startDragToCursor - Beta API reference - Canva Developers SDK Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-21T13:58:14.967604+00:00
+fetched_at: 2026-11-06T16:58:50.189975+00:00
 ---
 
 # ui.startDragToCursor - Beta API reference - Canva Developers SDK Documentation
@@ -91,7 +91,7 @@ API reference for the ui.startDragToCursor method.
 
 Copy page
 
-Adds the specified element or content to responsive documents, which slot things into a text stream at the end of a drag event.
+Adds the specified element or content to responsive pages, which slot things into a text stream at the end of a drag event.
 
 ## Parameters
 

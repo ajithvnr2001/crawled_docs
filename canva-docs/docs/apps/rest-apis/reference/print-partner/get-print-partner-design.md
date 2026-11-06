@@ -2,7 +2,7 @@
 url: https://www.canva.dev/docs/apps/rest-apis/reference/print-partner/get-print-partner-design/
 title: Get print partner design - Canva REST API reference - Canva Developers SDK Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-21T14:16:32.431575+00:00
+fetched_at: 2026-11-06T16:59:01.096548+00:00
 ---
 
 # Get print partner design - Canva REST API reference - Canva Developers SDK Documentation
@@ -95,11 +95,13 @@ Print partner proofing information (such as bleed and page constraints) isn't st
 
 GET` https://api.canva.com/rest/v1/print-partner/designs/{designId}`
 
+### Rate limit
+
 This operation is rate limited to 100 requests per minute for each user of your app.
 
 ## Authentication and authorization
 
-This endpoint requires a valid access token that acts on behalf of a user. For more information, see [Generate an access token](https://www.canva.dev/docs/apps/rest-apis/reference/authentication/generate-access-token/).
+This endpoint supports public or private apps, and requires a valid OAuth access token that acts on behalf of a user (OAuth authorization code flow). For more information, see [Generate an access token](https://www.canva.dev/docs/apps/rest-apis/reference/authentication/generate-access-token/).
 
 ### Scopes
 

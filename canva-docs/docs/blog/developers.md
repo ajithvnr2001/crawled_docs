@@ -2,7 +2,7 @@
 url: https://www.canva.dev/blog/developers/
 title: Canva Developers Blog
 method: scrapling+scrapegraph
-fetched_at: 2026-11-03T17:24:26.590775+00:00
+fetched_at: 2026-11-06T16:58:46.615348+00:00
 ---
 
 # Canva Developers Blog
@@ -21,6 +21,15 @@ All the latest announcements, insights, and best practices for the developers bu
 
 ![](https://www.canva.dev/_next/static/media/graphic.906444fc.png)
 
+[![](https://www.canva.dev/_next/static/media/thumbnail.e8448eeb.jpg)](https://www.canva.dev/blog/developers/canva-service-accounts/)
+
+[Canva REST APIsCanva service accounts, bring Canva APIs into your productBuild Canva capabilities into your software with service accounts—secure backend access to Canva APIs for automation, assets, and AI-powered workflows.](https://www.canva.dev/blog/developers/canva-service-accounts/)
+
+  * 
+
+
+[Meredith Hassett⁠(opens in a new tab or window)](https://www.linkedin.com/in/meredith-hassett/)Nov 6, 2026
+
 [![](https://www.canva.dev/_next/static/media/thumbnail.3524a884.jpg)](https://www.canva.dev/blog/developers/image-gen-with-craft/)
 
 [Generative AIBuild AI image generation into your app with Canva CraftGenerate visual assets with Canva Craft (`craft_v1_2k`) using Canva’s preview Image generation API, then download the result or save it to a user’s Canva account.](https://www.canva.dev/blog/developers/image-gen-with-craft/)
@@ -33,9 +42,6 @@ All the latest announcements, insights, and best practices for the developers bu
 [![](https://www.canva.dev/_next/static/media/thumbnail.0b616771.jpg)](https://www.canva.dev/blog/developers/canva-mcp-ga/)
 
 [MCPHow to use Canva MCP in your AI applicationLearn how to connect your AI assistant or platform to Canva's design capabilities with the Canva MCP server.](https://www.canva.dev/blog/developers/canva-mcp-ga/)
-
-  * 
-
 
 [Meredith Hassett⁠(opens in a new tab or window)](https://www.linkedin.com/in/meredith-hassett/)Oct 27, 2026
 
@@ -55,6 +61,9 @@ All the latest announcements, insights, and best practices for the developers bu
 
 [MonetizationExternal monetization for Canva AppsA community member's tips and tricks for monetizing your app](https://www.canva.dev/blog/developers/external-monetization-community-tips/)
 
+  * 
+
+
 [Meredith Hassett⁠(opens in a new tab or window)](https://www.linkedin.com/in/meredith-hassett/)Jun 4, 2026
 
 [![](https://www.canva.dev/_next/static/media/thumbnail.b66d472b.jpg)](https://www.canva.dev/blog/developers/simplebooklet-partner-solution/)
@@ -70,9 +79,6 @@ All the latest announcements, insights, and best practices for the developers bu
 
 [Content Publisher intentMeet the Content Publisher Intent - Part 3Complete implementation, Preview UIs, and publishing](https://www.canva.dev/blog/developers/building-with-content-publisher-part3/)
 
-  * 
-
-
 [Meredith Hassett⁠(opens in a new tab or window)](https://www.linkedin.com/in/meredith-hassett/)May 8, 2026
 
 [![](https://www.canva.dev/_next/static/media/thumbnail.43feae40.jpg)](https://www.canva.dev/blog/developers/image-upscaler/)
@@ -86,11 +92,5 @@ All the latest announcements, insights, and best practices for the developers bu
 [Content Publisher intentMeet the Content Publisher Intent - Part 2Building Settings UIs and UI patterns for asset organization](https://www.canva.dev/blog/developers/building-with-content-publisher-part2/)
 
 [Meredith Hassett⁠(opens in a new tab or window)](https://www.linkedin.com/in/meredith-hassett/)Feb 27, 2026
-
-[![](https://www.canva.dev/_next/static/media/thumbnail.c59330ae.jpg)](https://www.canva.dev/blog/developers/building-with-content-publisher-part1/)
-
-[Content Publisher intentMeet the Content Publisher Intent - Part 1Understanding data flow and structure for publishing](https://www.canva.dev/blog/developers/building-with-content-publisher-part1/)
-
-[Meredith Hassett⁠(opens in a new tab or window)](https://www.linkedin.com/in/meredith-hassett/)Feb 19, 2026
 
 See more

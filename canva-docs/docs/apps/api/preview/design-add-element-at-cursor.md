@@ -2,7 +2,7 @@
 url: https://www.canva.dev/docs/apps/api/preview/design-add-element-at-cursor/
 title: addElementAtCursor - Beta API reference - Canva Developers SDK Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-21T13:58:10.197577+00:00
+fetched_at: 2026-11-06T16:58:50.096672+00:00
 ---
 
 # addElementAtCursor - Beta API reference - Canva Developers SDK Documentation
@@ -93,7 +93,7 @@ Copy page
 
 **This API is a preview**. Preview APIs are unstable and may change without warning. You can't release public apps using this API until it's stable.
 
-Add element to responsive documents, which slot things into a text stream
+Add element to responsive pages, which slot things into a text stream
 
 ## Usage
 

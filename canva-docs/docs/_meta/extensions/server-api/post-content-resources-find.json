@@ -3,8 +3,5 @@
   "file": "extensions/server-api/post-content-resources-find.md",
   "title": "POST /content/resources/find - Canva Extensions Documentation",
   "method": "scrapling+scrapegraph",
-  "fetched_at": "2026-10-21T13:58:45.475142+00:00",
-  "html_len": 138815,
-  "md_len": 14711,
-  "depth": 2
+  "fetched_at": "2026-11-06T16:58:55.045549+00:00"
 }

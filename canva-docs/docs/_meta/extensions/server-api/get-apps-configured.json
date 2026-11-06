@@ -3,8 +3,5 @@
   "file": "extensions/server-api/get-apps-configured.md",
   "title": "GET /apps/configured - Canva Extensions Documentation",
   "method": "scrapling+scrapegraph",
-  "fetched_at": "2026-10-21T13:58:43.853889+00:00",
-  "html_len": 65620,
-  "md_len": 4026,
-  "depth": 2
+  "fetched_at": "2026-11-06T16:58:55.171273+00:00"
 }

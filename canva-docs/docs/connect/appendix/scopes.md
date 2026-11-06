@@ -2,7 +2,7 @@
 url: https://www.canva.dev/docs/connect/appendix/scopes/
 title: Scopes - Canva Developers SDK Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-21T14:20:38.941264+00:00
+fetched_at: 2026-11-06T16:59:00.322055+00:00
 ---
 
 # Scopes - Canva Developers SDK Documentation
@@ -13,29 +13,15 @@ fetched_at: 2026-10-21T14:20:38.941264+00:00
 
 Apps inside Canva
 
-API reference
-
-[Permissions](https://www.canva.dev/docs/apps/configuring-intents-permissions/)[Error codes](https://www.canva.dev/docs/apps/intents-error-codes/)
-
-App UI Kit reference
-
-[Apps Scripts config reference](https://www.canva.dev/docs/apps/canva-app-scripts/configuration-reference/)[Localization syntax](https://www.canva.dev/docs/apps/localization/icu-syntax/)
+[API reference](https://www.canva.dev/docs/apps/api/)[Permissions](https://www.canva.dev/docs/apps/configuring-intents-permissions/)[Error codes](https://www.canva.dev/docs/apps/intents-error-codes/)[App UI Kit reference](https://www.canva.dev/docs/apps/app-ui-kit/changelog/)[Apps Scripts config reference](https://www.canva.dev/docs/apps/canva-app-scripts/configuration-reference/)[Localization syntax](https://www.canva.dev/docs/apps/localization/icu-syntax/)
 
 Canva for your platform
 
-Canva REST API reference
-
-[Keys](https://www.canva.dev/docs/apps/rest-apis/reference/webhooks/keys/)[Scopes](https://www.canva.dev/docs/apps/rest-apis/scopes/)[Error responses](https://www.canva.dev/docs/apps/rest-apis/error-responses/)
-
-Webhooks notification reference
-
-[Changelog](https://www.canva.dev/docs/apps/rest-apis/changelog/)
+[Canva REST API reference](https://www.canva.dev/docs/apps/rest-apis/reference/)[Keys](https://www.canva.dev/docs/apps/rest-apis/reference/webhooks/keys/)[Scopes](https://www.canva.dev/docs/apps/rest-apis/scopes/)[Error responses](https://www.canva.dev/docs/apps/rest-apis/error-responses/)[Credit rates](https://www.canva.dev/docs/apps/rest-apis/credit-rates/)[Webhooks notification reference](https://www.canva.dev/docs/apps/rest-apis/webhooks/)[Changelog](https://www.canva.dev/docs/apps/rest-apis/changelog/)
 
 Canva for AI assistants
 
-Tools
-
-[Rate limits](https://www.canva.dev/docs/apps/mcp/tools/)[Usage policy](https://www.canva.dev/docs/apps/mcp/usage-policy/)[Prohibited use](https://www.canva.dev/docs/apps/mcp/prohibited-use/)
+[Tools](https://www.canva.dev/docs/apps/mcp/tools/search-designs/)[Rate limits](https://www.canva.dev/docs/apps/mcp/tools/)[Usage policy](https://www.canva.dev/docs/apps/mcp/usage-policy/)[Prohibited use](https://www.canva.dev/docs/apps/mcp/prohibited-use/)
 
 Security
 
@@ -53,13 +39,26 @@ Canva CLI
 
 Policies
 
-[Deprecation policy](https://www.canva.dev/docs/apps/deprecation-policy/)
+[Deprecation policy](https://www.canva.dev/docs/apps/deprecation-policy/)[Restricted uses](https://www.canva.dev/docs/apps/restricted-uses/)
 
 # Scopes
 
 Copy page
 
-The `scope` parameter specifies the types of access that your app needs for a user's account. The list of possible scopes used in the Canva REST APIs are shown below:
+The Canva REST APIs use scopes to specify the access an access token grants. The scopes your app can request depend on your app type:
+
+  * **Public or private apps** act on behalf of a user, using the OAuth authorization code flow.
+  * **Service apps** act on behalf of your app itself, using the OAuth client credentials flow.
+
+
+
+Scopes are explicit. A scope that grants write access doesn't also grant read access.
+
+For example, `asset:write` doesn't grant `asset:read` access. To get both read and write access to a user's assets, request both scopes. The same applies to service apps: request each `service:` scope your app needs.
+
+## Scopes for public or private apps
+
+Use these scopes when your app accesses data or performs actions on behalf of a user. Request them as part of the user authorization flow.
 
 Scope| Description  
 ---|---  
@@ -82,8 +81,19 @@ Scope| Description
 `profile`| Read user profile information through OIDC.  
 `profile:read`| Read a user's profile and account information.  
   
-For example, if you just require your app to read design metadata, you can use the `design:meta:read` scope. If you require your app to read designs, as well as write to any folder, you can use both the `design:meta:read` and the `folder:write` scopes.
+For example, to read a user's design metadata, request the `design:meta:read` scope. To also write to the user's folders, request both `design:meta:read` and `folder:write`.
 
-When enabling and using scopes, you must be explicit.
+## Scopes for service apps
 
-For example, the `asset:write` scope doesn't grant `asset:read` permissions. To get both read and write permissions for assets, you must enable both scopes for your app, and request both scopes during the authorization process.
+Use these scopes when your app accesses resources on its own behalf, without acting on behalf of a user. Request them when generating an access token using the client credentials flow.
+
+Scope| Description  
+---|---  
+`service:asset:read`| View the metadata for the app's assets, such as uploaded images.  
+`service:asset:write`| Upload assets on the app's behalf.  
+`service:brandtemplate:content:read`| Read the content of the brand templates associated with the developer's brand.  
+`service:brandtemplate:meta:read`| View the metadata of the brand templates associated with the developer's brand.  
+`service:design:content:read`| View the contents of the app's designs.  
+`service:design:content:write`| Create designs on the app's behalf.  
+`service:design:meta:read`| View the metadata of the app's designs.  
+`service:folder:write`| Move designs, assets, and folders between folders on the app's behalf.

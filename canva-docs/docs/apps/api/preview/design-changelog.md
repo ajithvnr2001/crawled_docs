@@ -2,7 +2,7 @@
 url: https://www.canva.dev/docs/apps/api/preview/design-changelog/
 title: Changelog for @canva/design@beta - Beta API reference - Canva Developers SDK Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T16:37:48.247839+00:00
+fetched_at: 2026-11-06T16:58:47.538544+00:00
 ---
 
 # Changelog for @canva/design@beta - Beta API reference - Canva Developers SDK Documentation
@@ -90,6 +90,22 @@ Error: Test
 The latest changes for the Canva Apps SDK @canva/design@beta package.
 
 Copy page
+
+## 2.14.1-beta.0 - 2026-11-01
+
+### Removed
+
+  * **Breaking:** Removed `brandColorsEnforced` and `brandFontsEnforced` from `DesignMetadata` returned by `getDesignMetadata()`.
+
+
+
+### Added
+
+  * Promoted `autofillDesign`, `requestDataFieldMatching`, `setDataFieldLabelVisibility` and the `dataset` property of `DesignMetadata` to public release.
+  * Promoted `requestApplyPublicTemplate` to public release.
+  * Promoted `requestBrandTemplates`, `getBrandTemplateMetadata` and `applyTemplate` to public release.
+
+
 
 ## 2.13.2-beta.0 - 2026-10-21
 

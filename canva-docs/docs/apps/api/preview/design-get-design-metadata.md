@@ -2,7 +2,7 @@
 url: https://www.canva.dev/docs/apps/api/preview/design-get-design-metadata/
 title: getDesignMetadata - Beta API reference - Canva Developers SDK Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-21T13:58:12.126344+00:00
+fetched_at: 2026-11-06T16:58:49.265581+00:00
 ---
 
 # getDesignMetadata - Beta API reference - Canva Developers SDK Documentation
@@ -90,8 +90,6 @@ Error: Test
 API reference for the getDesignMetadata method.
 
 Copy page
-
-**This API is a preview**. Preview APIs are unstable and may change without warning. You can't release public apps using this API until it's stable.
 
 Retrieves information about the design.
 
@@ -228,9 +226,7 @@ The height of the page, in pixels.
 
 `dataset``DataField[]`
 
-Optional
-
-View type definition
+OptionalView type definition
 
 The set of data fields that were tagged for Autofill.
 
@@ -253,26 +249,6 @@ View type definition
   * `"chart"`
 
 
-
-`brandColorsEnforced``boolean`
-
-Optional
-
-View type definition
-
-Whether brand colors are enforced for this design.
-
-When `true`, a brand admin has switched on Brand Control for colors, so only colors from the Brand Kit can be used. This corresponds to the "Brand Colors" control in the brand settings.
-
-`brandFontsEnforced``boolean`
-
-Optional
-
-View type definition
-
-Whether brand fonts are enforced for this design.
-
-When `true`, a brand admin has switched on Brand Control for fonts, so only fonts from the Brand Kit can be used. This corresponds to the "Brand Fonts" control in the brand settings.
 
 ## Permissions
 

@@ -2,7 +2,7 @@
 url: https://www.canva.dev/docs/extensions/quickstart/
 title: Quickstart - Canva Extensions Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-21T13:58:38.303152+00:00
+fetched_at: 2026-11-06T16:58:54.137844+00:00
 ---
 
 # Quickstart - Canva Extensions Documentation
@@ -15,33 +15,19 @@ App Development
 
 Platform concepts
 
-Apps
+[Apps](https://www.canva.dev/docs/extensions/platform-concepts/apps/)[Extensions](https://www.canva.dev/docs/extensions/platform-concepts/extensions/)[Regions](https://www.canva.dev/docs/extensions/platform-concepts/regions/)[Authentication](https://www.canva.dev/docs/extensions/platform-concepts/authentication/)[Deprecation policy](https://www.canva.dev/docs/extensions/platform-concepts/deprecation-policy/)
 
 Extensions
 
-[Regions](https://www.canva.dev/docs/extensions/platform-concepts/regions/)[Authentication](https://www.canva.dev/docs/extensions/platform-concepts/authentication/)[Deprecation policy](https://www.canva.dev/docs/extensions/platform-concepts/deprecation-policy/)
-
-Extensions
-
-Content extensions
-
-Publish extensions
+[Content extensions](https://www.canva.dev/docs/extensions/extensions/content-extensions/)[Publish extensions](https://www.canva.dev/docs/extensions/extensions/publish-extensions/)
 
 Backend development
 
-Base URL
-
-[Continuation](https://www.canva.dev/docs/extensions/backend-development/continuation/)
-
-Signature verification
-
-SDKs
+[Base URL](https://www.canva.dev/docs/extensions/backend-development/base-url/)[Continuation](https://www.canva.dev/docs/extensions/backend-development/continuation/)[Signature verification](https://www.canva.dev/docs/extensions/backend-development/verify-request/)[SDKs](https://www.canva.dev/docs/extensions/backend-development/sdks/)
 
 Distribution
 
-UX guidelines
-
-[Submission checklist](https://www.canva.dev/docs/extensions/distribution/submission-checklist/)[Creating the App Directory listing](https://www.canva.dev/docs/extensions/distribution/app-directory-listing/)
+[UX guidelines](https://www.canva.dev/docs/extensions/distribution/ux-guidelines/)[Submission checklist](https://www.canva.dev/docs/extensions/distribution/submission-checklist/)[Creating the App Directory listing](https://www.canva.dev/docs/extensions/distribution/app-directory-listing/)
 
 Server API
 

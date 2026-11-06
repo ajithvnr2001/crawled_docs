@@ -2,7 +2,7 @@
 url: https://www.canva.dev/docs/apps/app-templates/multiple-listing-service/
 title: Multiple Listing Service app - Canva Developers SDK Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-21T13:55:21.443200+00:00
+fetched_at: 2026-11-06T16:58:47.678759+00:00
 ---
 
 # Multiple Listing Service app - Canva Developers SDK Documentation
@@ -112,7 +112,7 @@ Copy
   5. The setup process guides you through the remaining settings:
 
      1. Choose any optional configs you want to add to your project.
-     2. Choose the [audience](https://www.canva.dev/docs/apps/quickstart/#public-and-private-apps) for your app.
+     2. Choose the [audience](https://www.canva.dev/docs/apps/quickstart/#who-can-use-your-app) for your app.
      3. Enter a name for your app.
      4. Choose whether to initialize a git repository for your project.
      5. Choose whether your project should use npm to install its dependencies.

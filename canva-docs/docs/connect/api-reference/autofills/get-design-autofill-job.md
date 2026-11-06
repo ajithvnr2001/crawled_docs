@@ -2,7 +2,7 @@
 url: https://www.canva.dev/docs/connect/api-reference/autofills/get-design-autofill-job/
 title: Get design autofill job - Canva REST API reference - Canva Developers SDK Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-21T14:20:37.928361+00:00
+fetched_at: 2026-11-06T16:58:59.946985+00:00
 ---
 
 # Get design autofill job - Canva REST API reference - Canva Developers SDK Documentation
@@ -89,20 +89,31 @@ You might need to make multiple requests to this endpoint until you get a `succe
 
 GET` https://api.canva.com/rest/v1/autofills/{jobId}`
 
+### Rate limit
+
 This operation is rate limited to 120 requests per minute for each user of your app.
 
 ## Authentication and authorization
 
-This endpoint requires a valid access token that acts on behalf of a user. For more information, see [Generate an access token](https://www.canva.dev/docs/apps/rest-apis/reference/authentication/generate-access-token/).
+This endpoint requires a valid OAuth access token. For more information, see [Generate an access token](https://www.canva.dev/docs/apps/rest-apis/reference/authentication/generate-access-token/).
 
 ### Scopes
 
-The access token must have all the following [scopes](https://www.canva.dev/docs/apps/rest-apis/scopes/) (permissions):
+The access token must have the following [scopes](https://www.canva.dev/docs/apps/rest-apis/scopes/) (permissions), depending on your app type:
+
+App type| Required scopes  
+---|---  
+**Public or private apps** (acts on behalf of a user using the OAuth authorization code flow)| 
 
   * `design:meta:read`
 
+  
+**Service apps** (acts on behalf of your app itself using the OAuth client credentials flow)| 
 
+  * `service:design:meta:read`
 
+  
+  
 ## Header parameters
 
 `Authorization``string`

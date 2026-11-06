@@ -2,7 +2,7 @@
 url: https://www.canva.dev/docs/connect/api-reference/authentication/generate-access-token/
 title: Generate an access token - Canva REST API reference - Canva Developers SDK Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-21T14:20:37.530593+00:00
+fetched_at: 2026-11-06T16:58:59.366230+00:00
 ---
 
 # Generate an access token - Canva REST API reference - Canva Developers SDK Documentation
@@ -79,16 +79,14 @@ Generate access tokens to access the Canva REST APIs.
 
 Copy page
 
-This endpoint implements the OAuth 2.0 `token` endpoint, as part of the Authorization Code flow with Proof Key for Code Exchange (PKCE). For more information, see [Authentication](https://www.canva.dev/docs/apps/rest-apis/authentication/).
+This endpoint implements the OAuth 2.0 `token` endpoint. For more information, see [Authentication](https://www.canva.dev/docs/apps/rest-apis/authentication/).
 
-To generate an access token, you must provide one of the following:
+The way you generate an access token depends on your app type:
 
-  * An authorization code
-  * A refresh token
+  * **Public or private apps** act on behalf of a user, using the OAuth authorization code flow with Proof Key for Code Exchange (PKCE). To generate an access token, you provide either an authorization code or a refresh token. You must first [obtain user authorization and get an authorization code](https://www.canva.dev/docs/apps/rest-apis/authentication/#obtain-user-authorization).
+  * **Service apps** act on behalf of the app itself, using the OAuth client credentials flow. To generate an access token, you authenticate with your app's client ID and client secret. No user authorization is required.
 
 
-
-Generating a token using either an authorization code or a refresh token allows your app to act on behalf of a user. You must first [obtain user authorization and get an authorization code](https://www.canva.dev/docs/apps/rest-apis/authentication/#obtain-user-authorization).
 
 Access tokens may be up to 4 KB in size, and are only valid for a specified period of time. The expiry time (currently 4 hours) is shown in the endpoint response and is subject to change.
 
@@ -105,6 +103,8 @@ This endpoint can't be called from a user's web-browser client because it uses c
 
 **Generate an access token using an authorization code**
 
+Only public or private apps can use this grant type.
+
 To generate an access token with an authorization code, you must:
 
   * Set `grant_type` to `authorization_code`.
@@ -115,6 +115,8 @@ To generate an access token with an authorization code, you must:
 
 **Generate an access token using a refresh token**
 
+Only public or private apps can use this grant type.
+
 Using the `refresh_token` value from a previous user token request, you can get a new access token with the same or smaller scope as the previous one, but with a refreshed expiry time. You will also receive a new refresh token that you can use to refresh the access token again.
 
 To refresh an existing access token, you must:
@@ -123,6 +125,20 @@ To refresh an existing access token, you must:
   * Provide the `refresh_token` from a previous token request.
 
 
+
+**Generate an access token using client credentials**
+
+Only service apps can use this grant type. The access token acts on behalf of the app itself, so it can only use [scopes for service apps](https://www.canva.dev/docs/apps/rest-apis/scopes/#scopes-for-service-apps).
+
+To generate an access token using client credentials, you must:
+
+  * Set `grant_type` to `client_credentials`.
+  * Authenticate the request with your client ID and client secret, as described in **Endpoint authentication**.
+  * Optionally, set `scope` to the scopes that the token needs. If you omit `scope`, the token is granted all the scopes that are enabled for your app in the Developer Portal.
+
+
+
+The response doesn't include a refresh token. When the access token expires, generate a new one by making the same request again.
 
 ## HTTP method and URL path
 
@@ -157,6 +173,8 @@ For example: `Content-Type: application/x-www-form-urlencoded`
 authorization_codeauthorization_code
 
 refresh_tokenrefresh_token
+
+client_credentialsclient_credentials
 
 For exchanging an authorization code for an access token.
 
@@ -243,6 +261,40 @@ Optional
 Optional scope value when refreshing an access token. Separate multiple [scopes](https://www.canva.dev/docs/apps/rest-apis/scopes/) with a single space between each scope.
 
 The requested scope cannot include any permissions not already granted, so this parameter allows you to limit the scope when refreshing a token. If omitted, the scope for the token remains unchanged.
+
+For generating an access token using your app's client credentials. Only service apps can use this grant type.
+
+`grant_type``string`
+
+Required
+
+For generating an access token using your app's client credentials. Only service apps can use this grant type.
+
+**Available values:** The only valid value is `client_credentials`.
+
+`client_id``string`
+
+Optional
+
+Your app's unique ID, for authenticating the request.
+
+We recommend that you use basic access authentication instead of specifying `client_id` and `client_secret` as body parameters.
+
+`client_secret``string`
+
+Optional
+
+Your app's client secret, for authenticating the request. Begins with `cnvca`.
+
+We recommend that you use basic access authentication instead of specifying `client_id` and `client_secret` as body parameters.
+
+`scope``string`
+
+Optional
+
+Optional scope value when generating an access token using client credentials. Separate multiple [scopes for service apps](https://www.canva.dev/docs/apps/rest-apis/scopes/#scopes-for-service-apps) with a single space between each scope.
+
+The requested scopes must be enabled for your app in the Developer Portal. If omitted, the token is granted all the scopes that are enabled for your app.
 
 ## Example request
 
@@ -613,11 +665,13 @@ If successful, the endpoint returns a `200` response with a JSON body with the f
 
 `access_token``string`
 
-The bearer access token to use to authenticate to Canva REST API endpoints. If requested using a `authorization_code` or `refresh_token`, this allows you to act on behalf of a user.
+The bearer access token to use to authenticate to Canva REST API endpoints. If requested using `authorization_code` or `refresh_token`, this allows you to act on behalf of a user. If requested using `client_credentials`, this allows your service app to act on its own behalf.
 
 `refresh_token``string`
 
 The token that you can use to refresh the access token.
+
+This is only returned when the access token was requested using `authorization_code` or `refresh_token`. Access tokens requested using `client_credentials` don't have a refresh token, so service apps generate a new access token instead.
 
 `token_type``string`
 

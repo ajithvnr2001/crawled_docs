@@ -2,7 +2,7 @@
 url: https://www.canva.dev/docs/connect/api-reference/brand-templates/list-brand-templates/
 title: List brand templates - Canva REST API reference - Canva Developers SDK Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-21T14:20:37.119918+00:00
+fetched_at: 2026-11-06T16:59:01.562156+00:00
 ---
 
 # List brand templates - Canva REST API reference - Canva Developers SDK Documentation
@@ -87,20 +87,31 @@ Get a list of the [brand templates⁠(opens in a new tab or window)](https://www
 
 GET` https://api.canva.com/rest/v1/brand-templates`
 
+### Rate limit
+
 This operation is rate limited to 100 requests per minute for each user of your app.
 
 ## Authentication and authorization
 
-This endpoint requires a valid access token that acts on behalf of a user. For more information, see [Generate an access token](https://www.canva.dev/docs/apps/rest-apis/reference/authentication/generate-access-token/).
+This endpoint requires a valid OAuth access token. For more information, see [Generate an access token](https://www.canva.dev/docs/apps/rest-apis/reference/authentication/generate-access-token/).
 
 ### Scopes
 
-The access token must have all the following [scopes](https://www.canva.dev/docs/apps/rest-apis/scopes/) (permissions):
+The access token must have the following [scopes](https://www.canva.dev/docs/apps/rest-apis/scopes/) (permissions), depending on your app type:
+
+App type| Required scopes  
+---|---  
+**Public or private apps** (acts on behalf of a user using the OAuth authorization code flow)| 
 
   * `brandtemplate:meta:read`
 
+  
+**Service apps** (acts on behalf of your app itself using the OAuth client credentials flow)| 
 
+  * `service:brandtemplate:meta:read`
 
+  
+  
 ## Header parameters
 
 `Authorization``string`

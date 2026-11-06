@@ -2,7 +2,7 @@
 url: https://www.canva.dev/docs/connect/quickstart/
 title: Quickstart - Canva Developers SDK Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-21T14:20:38.250351+00:00
+fetched_at: 2026-11-06T16:58:59.638115+00:00
 ---
 
 # Quickstart - Canva Developers SDK Documentation
@@ -48,15 +48,25 @@ To follow this guide, you'll need to:
 
 
 
-### Public and private apps
+### Who can use your app
 
 Before you create an app you must decide who your app is for. You can't change this after the app is created.
 
-  * Public apps are created for release to the general public. After they're [reviewed by Canva](https://www.canva.dev/docs/apps/app-review-process/) and released, they can be discovered in the Apps Marketplace. A public app must meet the requirements outlined in [the submission checklist](https://www.canva.dev/docs/apps/submission-checklist/).
+  * **Public apps** are created for release to the general public. After they're [reviewed by Canva](https://www.canva.dev/docs/apps/app-review-process/) and released, they can be discovered in the Apps Marketplace. A public app must meet the requirements outlined in [the submission checklist](https://www.canva.dev/docs/apps/submission-checklist/). In the Developer Portal, this is the **Anyone on Canva** option.
 
-  * Private apps are created solely for a team using Canva, such as an app that works with a specific internal system. These apps aren't available to the general public. Your team administrators review and approve private apps.
+  * **Private apps** are created solely for a team using Canva, such as an app that works with a specific internal system. These apps aren't available to the general public. Your team administrators review and approve private apps. In the Developer Portal, this is the **Restricted to your Canva team** option.
 
 Private apps are only available to [teams⁠(opens in a new tab or window)](https://www.canva.com/for-teams/) on an [Enterprise plan⁠(opens in a new tab or window)](https://www.canva.com/enterprise/).
+
+  * **Service apps** let your platform use the REST APIs on the app's own behalf, using the OAuth client credentials flow. Your platform's users don't need to sign in to Canva. A service app only uses the REST APIs, and its requests use credits that your team buys in API packs. In the Developer Portal, this is the **No Canva sign-in required** option.
+
+To create a service app:
+
+    * Your Canva team must be on a Canva Business, Teams, or Nonprofit plan.
+    * Your Canva account must have multi-factor authentication (MFA) turned on, or be managed through single sign-on (SSO).
+    * Your team can't already have a service app. Each team can have one service app.
+
+You can only create a service app in the Developer Portal. The Canva CLI doesn't support service apps.
 
 
 
@@ -127,7 +137,10 @@ When the build process is complete, the Canva CLI automatically opens the [Devel
   2. In the modal:
 
      * Enter an **App name** , using 18 characters or fewer.
-     * Under **Who can use your app?** , choose **Public** or **Private**. **Private** is only available on a Canva Enterprise plan. This can't be changed later.
+     * Under **Who can use your app?** , choose one of the following options. This can't be changed later. 
+       * **Anyone on Canva** : Creates a public app.
+       * **Restricted to your Canva team** : Creates a private app. This option is only available on a Canva Enterprise plan.
+       * **No Canva sign-in required** : Creates a service app, which uses the REST APIs on its own behalf.
      * Accept the Developer Terms.
      * Click **Create app**.
 
@@ -135,7 +148,7 @@ When the build process is complete, the Canva CLI automatically opens the [Devel
 
 You land on the app's **Overview** page, which summarizes the app and links to the setup for each surface.
 
-For help choosing between **Public** and **Private** , see [Public and private apps](https://www.canva.dev/docs/apps/quickstart/#public-and-private-apps) above.
+For help choosing who can use your app, see [Who can use your app](https://www.canva.dev/docs/apps/quickstart/#who-can-use-your-app) above.
 
 ## Step 2: Set up and run the app
 
@@ -390,6 +403,21 @@ SHELL
 
 Copy
 
+Canva for your platform uses the Canva REST APIs. Choose one of the following app types, depending on whose behalf your platform calls the REST APIs on:
+
+  * **Public or private app:** Your platform acts on behalf of a Canva user, who signs in to Canva and authorizes your app.
+  * **Service app:** Your platform acts on behalf of your app itself, and your platform's users don't need to sign in to Canva.
+
+
+
+For more information about each app type, see [Who can use your app](https://www.canva.dev/docs/apps/quickstart/#who-can-use-your-app) above.
+
+To learn how to use Canva's CRAFT-1 2K model, see [Generate images with CRAFT](https://www.canva.dev/docs/apps/rest-apis/generate-images-with-craft/).
+
+Public or private appPublic or private app
+
+Service appService app
+
 To help you get started with the Canva REST APIs, Canva has created an [example app in a GitHub repository⁠(opens in a new tab or window)](https://github.com/canva-sdks/canva-connect-api-starter-kit) that demonstrates some of the main features.
 
 This part of the guide shows you how to create and configure an app, clone the repository, and run the example locally on your machine. You can then review the source code to understand how its features work.
@@ -401,7 +429,10 @@ This part of the guide shows you how to create and configure an app, clone the r
   2. In the modal:
 
      * Enter an **App name** , using 18 characters or fewer.
-     * Under **Who can use your app?** , choose **Public** or **Private**. **Private** is only available on a Canva Enterprise plan. This can't be changed later.
+     * Under **Who can use your app?** , choose one of the following options. This can't be changed later. 
+       * **Anyone on Canva** : Creates a public app.
+       * **Restricted to your Canva team** : Creates a private app. This option is only available on a Canva Enterprise plan.
+       * **No Canva sign-in required** : Creates a service app, which uses the REST APIs on its own behalf.
      * Accept the Developer Terms.
      * Click **Create app**.
 
@@ -409,7 +440,7 @@ This part of the guide shows you how to create and configure an app, clone the r
 
 You land on the app's **Overview** page, which summarizes the app and links to the setup for each surface.
 
-For help choosing between **Public** and **Private** , see [Public and private apps](https://www.canva.dev/docs/apps/quickstart/#public-and-private-apps) above.
+For help choosing who can use your app, see [Who can use your app](https://www.canva.dev/docs/apps/quickstart/#who-can-use-your-app) above.
 
 ## Step 2: Enable and configure the REST APIs
 
@@ -539,6 +570,111 @@ BASH
 
 Copy
 
+This part of the guide shows you how to create a service app, generate an access token using the OAuth client credentials flow, and use the token to call a REST API.
+
+## Step 1: Create a service app
+
+  1. Open [Your apps⁠(opens in a new tab or window)](https://www.canva.com/developers/apps) in the Developer Portal and click **Create an app**.
+
+  2. In the modal:
+
+     * Enter an **App name** , using 18 characters or fewer.
+     * Under **Who can use your app?** , choose **No Canva sign-in required**. This can't be changed later.
+     * Accept the Developer Terms.
+     * Click **Create app**.
+
+
+
+If you can't choose **No Canva sign-in required** , the modal shows which requirement you haven't met. For the requirements, see [Who can use your app](https://www.canva.dev/docs/apps/quickstart/#who-can-use-your-app) above.
+
+You land on the app's **Overview** page, which shows the app's credentials and API credits.
+
+## Step 2: Choose the scopes
+
+Scopes for service apps start with `service:`. The example request in this guide lists your team's brand templates, which requires the `service:brandtemplate:meta:read` scope.
+
+  1. Go to **Configuration**.
+  2. Under **Scopes** , select **Read** for `service:brandtemplate:meta`.
+
+
+
+For all the scopes that service apps can use, see [Scopes for service apps](https://www.canva.dev/docs/apps/rest-apis/scopes/#scopes-for-service-apps).
+
+## Step 3: Get the app's credentials
+
+On **Overview** :
+
+  1. Note the **Client ID**.
+  2. Click **Generate secret** , then store the secret somewhere secure. It isn't shown again.
+
+
+
+Only the app's owner can generate client secrets.
+
+Treat the client secret like a password. Don't commit it to source control, and don't include it in a client-side bundle.
+
+## Step 4: Buy an API pack
+
+A service app can't make API requests until your team buys an API pack. An API pack adds credits to your team's API credit pool, and each request from the app uses credits from that pool. Credits expire 12 months after purchase.
+
+To buy an API pack, on **Overview** , click **Get API credit pack**.
+
+Only your team's owners and admins can buy credits. If you aren't an owner or admin, **Overview** shows a billing page link that you can send to one of them.
+
+For the number of credits that each request uses, see [API credit rates](https://www.canva.dev/docs/apps/rest-apis/credit-rates/).
+
+## Step 5: Generate an access token
+
+To generate an access token, call the [Generate an access token endpoint](https://www.canva.dev/docs/apps/rest-apis/reference/authentication/generate-access-token/) from your platform's backend:
+
+  * Set `grant_type` to `client_credentials`.
+  * Authenticate with your client ID and client secret, using [basic access authentication⁠(opens in a new tab or window)](https://en.wikipedia.org/wiki/Basic_access_authentication).
+  * Optionally, set `scope` to the scopes the token needs, separated by spaces. If you leave it out, the token gets the scopes you selected in Step 2.
+
+
+
+For example:
+    
+    
+    curl --request POST 'https://api.canva.com/rest/v1/oauth/token' \
+    
+      --user '{client id}:{client secret}' \
+    
+      --data-urlencode 'grant_type=client_credentials' \
+    
+      --data-urlencode 'scope=service:brandtemplate:meta:read'
+
+SHELL
+
+Copy
+
+A successful response includes the access token (`access_token`) and the number of seconds until it expires (`expires_in`). The client credentials flow doesn't return a refresh token. When the access token expires, generate a new one the same way.
+
+Requests that authenticate with your client ID and client secret can't be made from a web-browser client. They must come from your backend, otherwise they'll be blocked by Canva's [Cross-Origin Resource Sharing (CORS)⁠(opens in a new tab or window)](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS) policy.
+
+## Step 6: Call a REST API
+
+Use the access token to call the [List brand templates endpoint](https://www.canva.dev/docs/apps/rest-apis/reference/brand-templates/list-brand-templates/):
+    
+    
+    curl --request GET 'https://api.canva.com/rest/v1/brand-templates' \
+    
+      --header 'Authorization: Bearer {access token}'
+
+SHELL
+
+Copy
+
+The request uses credits from your team's API credit pool. Each endpoint's reference page shows whether service apps can use it, and which scopes they need.
+
+## Next steps
+
+  * [Scopes](https://www.canva.dev/docs/apps/rest-apis/scopes/)
+  * [Restricted uses](https://www.canva.dev/docs/apps/restricted-uses/)
+  * [Canva REST API reference](https://www.canva.dev/docs/apps/rest-apis/reference/)
+
+
+
 Canva for AI assistants uses the Canva MCP server, the remote server that an AI assistant connects to so it can use Canva. For more information about the surface, see [About Canva MCP](https://www.canva.dev/docs/apps/mcp/).
 
 ## Step 1: Get access to the Canva MCP server
@@ -552,7 +688,10 @@ Before users can authorize your AI application, create an app in the Developer P
   2. In the modal:
 
      * Enter an **App name** , using 18 characters or fewer.
-     * Under **Who can use your app?** , choose **Public** or **Private**. **Private** is only available on a Canva Enterprise plan. This can't be changed later.
+     * Under **Who can use your app?** , choose one of the following options. This can't be changed later. 
+       * **Anyone on Canva** : Creates a public app.
+       * **Restricted to your Canva team** : Creates a private app. This option is only available on a Canva Enterprise plan.
+       * **No Canva sign-in required** : Creates a service app, which uses the REST APIs on its own behalf.
      * Accept the Developer Terms.
      * Click **Create app**.
 
@@ -560,7 +699,7 @@ Before users can authorize your AI application, create an app in the Developer P
 
 You land on the app's **Overview** page, which summarizes the app and links to the setup for each surface.
 
-For help choosing between **Public** and **Private** , see [Public and private apps](https://www.canva.dev/docs/apps/quickstart/#public-and-private-apps) above.
+For help choosing who can use your app, see [Who can use your app](https://www.canva.dev/docs/apps/quickstart/#who-can-use-your-app) above.
 
 ### Turn on Canva MCP
 

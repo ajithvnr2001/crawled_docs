@@ -3,8 +3,5 @@
   "file": "extensions/server-api/post-publish-resources-upload.md",
   "title": "POST /publish/resources/upload - Canva Extensions Documentation",
   "method": "scrapling+scrapegraph",
-  "fetched_at": "2026-10-21T13:58:46.503189+00:00",
-  "html_len": 88930,
-  "md_len": 7451,
-  "depth": 2
+  "fetched_at": "2026-11-06T16:58:55.355686+00:00"
 }

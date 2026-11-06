@@ -2,7 +2,7 @@
 url: https://www.canva.dev/docs/connect/authentication/
 title: Authentication - Canva for your platform - Canva Developers SDK Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-21T14:20:36.848214+00:00
+fetched_at: 2026-11-06T16:58:59.839730+00:00
 ---
 
 # Authentication - Canva for your platform - Canva Developers SDK Documentation
@@ -19,7 +19,7 @@ Fundamentals
 
 Development guides
 
-[Autofill designs with data](https://www.canva.dev/docs/apps/rest-apis/autofill-guide/)[Return users to your platform](https://www.canva.dev/docs/apps/rest-apis/return-navigation-guide/)
+[Generate images with CRAFT](https://www.canva.dev/docs/apps/rest-apis/generate-images-with-craft/)[Autofill designs with data](https://www.canva.dev/docs/apps/rest-apis/autofill-guide/)[Return users to your platform](https://www.canva.dev/docs/apps/rest-apis/return-navigation-guide/)
 
 Design guidelines
 
@@ -29,11 +29,33 @@ Design guidelines
 
 Copy page
 
-To start using the Canva REST APIs, you need to authorize your users using [OAuth 2.0⁠(opens in a new tab or window)](https://datatracker.ietf.org/doc/html/rfc6749).
+To start using the Canva REST APIs, your app must authenticate using [OAuth 2.0⁠(opens in a new tab or window)](https://datatracker.ietf.org/doc/html/rfc6749). The OAuth flow your app uses depends on the app type you chose when you created the app in the Developer Portal:
 
-OAuth lets your app authenticate the user, get their authorization to access the REST API endpoints, and then perform actions on their behalf. Specifically, the REST APIs use OAuth 2.0 with the [Authorization Code flow with Proof Key for Code Exchange (PKCE)⁠(opens in a new tab or window)](https://datatracker.ietf.org/doc/html/rfc7636) using SHA-256.
+  * **Public or private apps** act on behalf of a Canva user, using the OAuth [authorization code flow with Proof Key for Code Exchange (PKCE)⁠(opens in a new tab or window)](https://datatracker.ietf.org/doc/html/rfc7636). The user signs in to Canva and authorizes your app for the scopes it requires, and your app exchanges the resulting authorization code for an access token and a refresh token.
+  * **Service apps** let your platform use the REST APIs on the app's own behalf, using the OAuth [client credentials flow⁠(opens in a new tab or window)](https://datatracker.ietf.org/doc/html/rfc6749#section-4.4). Your platform's users don't sign in to Canva. Your app exchanges its client ID and client secret directly for an access token.
 
-The authorization and authentication process involves the following steps:
+
+
+An app uses only one of these flows, and you can't change an app's type after you create it. For help choosing an app type, see [Who can use your app](https://www.canva.dev/docs/apps/quickstart/#who-can-use-your-app).
+
+Requests that require authenticating with your client ID and client secret can't be made from a web-browser client. They must come from your backend, otherwise they'll be blocked by Canva's [Cross-Origin Resource Sharing (CORS)⁠(opens in a new tab or window)](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS) policy.
+
+## Prerequisites
+
+Before authenticating to the REST APIs, you must first create and configure your app in the Developer Portal, including:
+
+  * Setting an app name
+  * Generating and saving a client secret
+  * Selecting the [scopes](https://www.canva.dev/docs/apps/rest-apis/scopes/) for your app type
+  * For public or private apps, setting at least one authentication redirect URL
+
+
+
+For more information, see [Quickstart](https://www.canva.dev/docs/apps/quickstart/).
+
+## Authenticate public or private apps
+
+Public and private apps act on behalf of a Canva user, so the user must authorize your app before it can access their resources. The authorization and authentication process involves the following steps:
 
   1. Obtain authorization from the Canva user for the scopes that your app requires. After the user authorizes your app, you'll receive an authorization code at your specified redirect URL.
   2. Use the authorization code to generate access tokens, which lets your app access REST API resources. This lets your app act on the user's behalf.
@@ -42,26 +64,13 @@ The authorization and authentication process involves the following steps:
 
 There are libraries in various languages that provide support for handling the OAuth process. For more information, see the [OAuth Community Site⁠(opens in a new tab or window)](https://oauth.net/code/).
 
-You can also use the [starter kit for the Canva REST APIs⁠(opens in a new tab or window)](https://github.com/canva-sdks/canva-connect-api-starter-kit) as a starting point for an authorization and authentication implementation.
+You can also use the [starter kit for the Canva REST APIs⁠(opens in a new tab or window)](https://github.com/canva-sdks/canva-connect-api-starter-kit) as a starting point for an authorization and authentication implementation for public or private apps.
 
-## Prerequisites
-
-Before authenticating to the REST APIs, you must first create and configure your app in the Developer Portal, including:
-
-  * Setting an app name
-  * Generating and saving a client secret
-  * Selecting scopes
-  * Setting at least one authentication redirect URL
-
-
-
-For more information, see [Quickstart](https://www.canva.dev/docs/apps/quickstart/).
-
-## Obtain user authorization
+### Obtain user authorization
 
 To obtain user authorization, you must direct your users to Canva's authorization URL. This lets a user review and approve access for your app.
 
-### Create the authorization URL
+#### Create the authorization URL
 
 The authorization URL that you direct users to is in the following format:
     
@@ -96,13 +105,13 @@ This must be set to `S256` (SHA-256).
 
   3. **`scope`**
 
-This is a space-separated list of [scopes](https://www.canva.dev/docs/apps/rest-apis/scopes/) requested by your app.
+This is a space-separated list of [scopes for public or private apps](https://www.canva.dev/docs/apps/rest-apis/scopes/#scopes-for-public-or-private-apps) requested by your app.
 
 The scopes you request must already be set in your app's settings in the Developer Portal. You can't request any scopes you haven't set in your app's settings.
 
 You must be explicit when listing scopes.
 
-For example, specifying `asset:write` doesn't grant `asset:read` permissions. You must specify _both_ in the scope string, for example: `asset:read asset:write`.
+For example, specifying `asset:write` doesn't grant `asset:read` permissions. You must specify _both_ in the scope string: `asset:read asset:write`.
 
   4. **`response_type`**
 
@@ -176,7 +185,7 @@ JS
 
 Copy
 
-### Send the user to the authorization URL
+#### Send the user to the authorization URL
 
 You must direct your users to the authorization URL that you created to get their approval for your app and the requested scopes.
 
@@ -200,11 +209,11 @@ The value of the `state` parameter, if it was provided with the initial request.
 
 To prevent forgery of cross-site requests, you must verify that the received `state` value matches the one in the authorization URL you sent to the user. If they don't match, you must stop the authorization flow and return an error to the user.
 
-## Generate access tokens
+### Generate access tokens
 
 After you've obtained user authorization and received an authorization code, you can exchange the code for an access token (that lets you act on the user's behalf) and a refresh token (that you can use to get new access tokens).
 
-Because access tokens are only valid for a short period time, you can handle requesting new access tokens using a refresh token instead of having to re-authorize the user to get a new authorization code.
+Because access tokens are only valid for a short period of time, you can handle requesting new access tokens using a refresh token instead of having to re-authorize the user to get a new authorization code.
 
 An overview of the token request process is shown in the diagram below:
 
@@ -212,16 +221,14 @@ An overview of the token request process is shown in the diagram below:
 
 Token request flow (Adapted from the OAuth 2.0 specification).
 
-Requests that require authenticating with your client ID and client secret can't be made from a web-browser client. They must come from your backend, otherwise they'll be blocked by Canva's [Cross-Origin Resource Sharing (CORS)⁠(opens in a new tab or window)](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS) policy.
-
-### Use an authorization code
+#### Use an authorization code
 
 To exchange an authorization code for an access token, use the [Generate an access token endpoint](https://www.canva.dev/docs/apps/rest-apis/reference/authentication/generate-access-token/).
 
 Some points to note when using the endpoint with an authorization code:
 
   * Requests to the endpoint must be authenticated, and we recommend using the [basic access authentication⁠(opens in a new tab or window)](https://en.wikipedia.org/wiki/Basic_access_authentication) method. For basic access authentication, the `{credentials}` string must be a Base64 encoded value of `{client id}:{client secret}`.
-  * When exchanging an authorization code for an access token, you must set `grant_type` to `authorization_code` .
+  * When exchanging an authorization code for an access token, you must set `grant_type` to `authorization_code`.
   * You must provide the `code_verifier` value that you generated when [creating the user authorization URL](https://www.canva.dev/docs/apps/rest-apis/authentication/#create-the-authorization-url).
   * You must provide the authorization code you received after the [user authorized your app](https://www.canva.dev/docs/apps/rest-apis/authentication/#send-the-user-to-the-authorization-url).
 
@@ -231,7 +238,7 @@ The endpoint reference includes [example request code](https://www.canva.dev/doc
 
 A successful response from the endpoint includes the access token, the expiry time for the token, and a refresh token.
 
-### Use a refresh token
+#### Use a refresh token
 
 When an access token expires or becomes invalid, you can use a refresh token from a previous access token request to get a new access token.
 
@@ -249,6 +256,54 @@ Some points to note when using the endpoint with a refresh token:
 
 
 A successful response from the endpoint includes a new access token, the expiry time for the new token, and another refresh token.
+
+## Authenticate service apps
+
+Service apps act on behalf of your app itself, not on behalf of a Canva user. There's no authorization URL to send a user to, no authorization code, and no PKCE. Instead, your app authenticates directly with its client ID and client secret using the client credentials flow. The authentication process involves the following steps:
+
+  1. Generate an access token using the [Generate an access token endpoint](https://www.canva.dev/docs/apps/rest-apis/reference/authentication/generate-access-token/).
+  2. Put the access token in the `Authorization` header of your requests to the REST API endpoints.
+  3. When the access token expires, generate a new one using the same endpoint.
+
+
+
+You can get your service app's client ID and generate a client secret from the app's **Overview** page in the Developer Portal. For a step-by-step walkthrough of creating a service app and making your first request, see the [Quickstart for service apps](https://www.canva.dev/docs/apps/quickstart/?app-surface=Canva%20for%20your%20platform&platform-app-type=Service%20app).
+
+Requests from a service app use credits from your team's API credit pool, so your team must buy credits before the app can make requests. For the credits that each request uses, see [Canva REST API credit rates](https://www.canva.dev/docs/apps/rest-apis/credit-rates/). [Capabilities](https://www.canva.dev/docs/apps/rest-apis/capabilities/) are tied to a user's Canva account, so they don't apply to requests from service apps.
+
+### Generate an access token with client credentials
+
+To generate an access token, call the [Generate an access token endpoint](https://www.canva.dev/docs/apps/rest-apis/reference/authentication/generate-access-token/) from your platform's backend with the following:
+
+  * Your client ID and client secret, to authenticate the request. We recommend using the [basic access authentication⁠(opens in a new tab or window)](https://en.wikipedia.org/wiki/Basic_access_authentication) method, where the `{credentials}` string must be a Base64 encoded value of `{client id}:{client secret}`.
+
+  * `grant_type` set to `client_credentials`.
+
+  * Optionally, `scope` set to a space-separated list of [scopes for service apps](https://www.canva.dev/docs/apps/rest-apis/scopes/#scopes-for-service-apps). The scopes you request must already be set in your app's settings in the Developer Portal. If you omit `scope`, the access token includes the default scopes for your app.
+
+You must be explicit when listing scopes.
+
+For example, specifying `service:asset:write` doesn't grant `service:asset:read` permissions. You must specify _both_ in the scope string: `service:asset:read service:asset:write`.
+
+
+
+
+For example, the following cURL request generates an access token. The `--user` option Base64 encodes the client ID and client secret into the `Authorization` header for you, so you don't need to build the `{credentials}` string yourself:
+    
+    
+    curl --request POST 'https://api.canva.com/rest/v1/oauth/token' \
+    
+      --user '{client id}:{client secret}' \
+    
+      --data-urlencode 'grant_type=client_credentials' \
+    
+      --data-urlencode 'scope=service:design:meta:read service:asset:read'
+
+SHELL
+
+Copy
+
+A successful response from the endpoint includes the access token, the expiry time for the token, and the scopes granted to the token. The client credentials flow doesn't return a refresh token, so when the access token expires, generate a new one the same way.
 
 ## Introspect an access token
 

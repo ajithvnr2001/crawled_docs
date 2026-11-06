@@ -2,7 +2,7 @@
 url: https://www.canva.dev/docs/connect/mcp-server/
 title: Dev MCP server - Canva Developers SDK Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-21T14:20:38.030059+00:00
+fetched_at: 2026-11-06T16:58:59.676960+00:00
 ---
 
 # Dev MCP server - Canva Developers SDK Documentation
@@ -13,11 +13,7 @@ fetched_at: 2026-10-21T14:20:38.030059+00:00
 
 Build with Canva
 
-Apps inside Canva
-
-Canva for your platform
-
-Canva for AI assistants
+[Apps inside Canva](https://www.canva.dev/docs/apps/apps-inside-canva/)[Canva for your platform](https://www.canva.dev/docs/apps/rest-apis/)[Canva for AI assistants](https://www.canva.dev/docs/apps/mcp/)
 
 Developer resources
 
