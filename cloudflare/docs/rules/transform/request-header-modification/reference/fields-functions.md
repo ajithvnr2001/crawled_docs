@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/rules/transform/request-header-modification/reference/fields-functions/
 title: Available fields and functions \u00b7 Cloudflare Rules docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-10T14:39:26.133121+00:00
+fetched_at: 2026-11-07T08:31:58.484935+00:00
 ---
 
 # Available fields and functions · Cloudflare Rules docs
@@ -22,12 +22,13 @@ fetched_at: 2026-10-10T14:39:26.133121+00:00
 
 # Available fields and functions
 
-Last updated Oct 9, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 6, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 The available fields when setting an HTTP request header value using an expression are the following:
 
   * `cf.bot_management.*`
   * `cf.client.bot`
+  * `cf.colo.code`
   * `cf.verified_bot_category`
   * `cf.edge.server_ip`
   * `cf.edge.server_port`

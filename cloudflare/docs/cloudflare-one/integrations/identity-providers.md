@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/cloudflare-one/integrations/identity-providers/
 title: Identity providers \u00b7 Cloudflare One docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:09:01.357917+00:00
+fetched_at: 2026-11-07T08:31:58.093901+00:00
 ---
 
 # Identity providers · Cloudflare One docs
@@ -18,13 +18,15 @@ fetched_at: 2026-10-08T07:09:01.357917+00:00
 
 # Identity providers
 
-Last updated Jun 19, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/cloudflare-one/integrations/identity-providers/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 6, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewSet up IdPs in Cloudflare OneTest IdPs in Cloudflare One Your provider is connected Your provider is not connectedUse The API
 
 Cloudflare One integrates with your organization's identity provider to apply Cloudflare One and Secure Web Gateway policies. If you work with partners, contractors, or other organizations, you can integrate multiple identity providers simultaneously.
 
 When you create a new Zero Trust organization, Cloudflare automatically configures the [Cloudflare identity provider](https://developers.cloudflare.com/cloudflare-one/integrations/identity-providers/cloudflare/) as your default login method. Your users can authenticate with their existing Cloudflare account credentials without any additional setup, and you can add more identity providers at any time.
+
+With [passkeys](https://developers.cloudflare.com/cloudflare-one/integrations/identity-providers/passkeys/), users can sign in to Access without an independent IDP or one-time PIN. Configure passkeys as a login method to let users enroll their own passkeys.
 
 You can also send a [one-time PIN (OTP)](https://developers.cloudflare.com/cloudflare-one/integrations/identity-providers/one-time-pin/) to approved email addresses. No configuration needed — simply add a user's email address to an [Access policy](https://developers.cloudflare.com/cloudflare-one/access-controls/policies/) and to the group that allows your team to reach the application. You can configure OTP and an identity provider at the same time to let users choose their own authentication method.
 
@@ -102,7 +104,7 @@ If your provider is not connected, another window will open in your browser. Alo
 
 We recommend that you use our dashboard to configure your identity providers. However, if you would like to use the [Cloudflare API ↗︎](https://api.cloudflare.com/), each of the identity provider topics covered here include an example API configuration snippet as well.
 
-[PreviousTroubleshoot compute accounts](https://developers.cloudflare.com/cloudflare-one/integrations/cloud-and-saas/troubleshooting/troubleshoot-compute-accounts/)[NextCloudflare as identity provider](https://developers.cloudflare.com/cloudflare-one/integrations/identity-providers/cloudflare/)
+[PreviousZoom](https://developers.cloudflare.com/cloudflare-one/integrations/cloud-and-saas/zoom/)[NextCloudflare as identity provider](https://developers.cloudflare.com/cloudflare-one/integrations/identity-providers/cloudflare/)
 
 Was this helpful?
 

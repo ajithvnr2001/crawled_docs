@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/flagship/sdk/server-provider/
 title: TypeScript Server SDK \u00b7 Cloudflare Flagship docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-20T06:57:49.649624+00:00
+fetched_at: 2026-11-07T08:31:57.222145+00:00
 ---
 
 # TypeScript Server SDK · Cloudflare Flagship docs
@@ -18,9 +18,9 @@ fetched_at: 2026-10-20T06:57:49.649624+00:00
 
 # TypeScript Server SDK
 
-Last updated Oct 19, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 7, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
-OverviewSetupConfiguration optionsResponse cachingEvaluation contextAvailable hooksMigrate from another provider
+OverviewSetupConfiguration optionsLocal evaluationResponse cachingEvaluation contextAvailable hooksMigrate from another provider
 
 The `FlagshipServerProvider` implements the OpenFeature server provider interface. The provider works in [Cloudflare Workers](https://developers.cloudflare.com/workers/), Node.js, and any server-side JavaScript runtime that supports the Fetch API.
 
@@ -136,8 +136,44 @@ Option | Type | Required | Description
 `retryDelay` | `number` | No | Delay between retries in milliseconds. Defaults to `1000` and is capped at `30000`.  
 `cacheTtl` | `number` | No | Cache TTL in milliseconds. Enables response caching when greater than `0`.  
 `cacheMaxSize` | `number` | No | Maximum cached entries. Defaults to `1000` when `cacheTtl` is set.  
+`localEvaluation` | `boolean` | No | Downloads flag definitions and evaluates flags in-process. Requires `accountId` and either `appId` or `endpoint`. Defaults to `false`.  
+`refreshInterval` | `number` | No | Minimum time between local evaluation refreshes in milliseconds. Defaults to `30000`.  
   
 Provide either `binding` or `appId`, `accountId`, and `authToken`.
+
+## Local evaluation
+
+With local evaluation, the provider downloads the app's flag definitions and evaluates flags in-process. No network request is made per evaluation. Local evaluation works in Node.js, in Workers without a binding, and in other runtimes that support the Fetch API. It cannot be combined with a binding.
+
+Local evaluation requires an API token with Flagship Read or Flagship App Read permission. Local evaluations do not appear in Flagship analytics.
+    
+    
+    await OpenFeature.setProviderAndWait(
+    	new FlagshipServerProvider({
+    		appId: "<APP_ID>",
+    		accountId: "<ACCOUNT_ID>",
+    		authToken: "<READ_API_TOKEN>",
+    		localEvaluation: true,
+    		refreshInterval: 30_000,
+    	}),
+    );
+    
+    
+    await OpenFeature.setProviderAndWait(
+    	new FlagshipServerProvider({
+    		appId: "<APP_ID>",
+    		accountId: "<ACCOUNT_ID>",
+    		authToken: "<READ_API_TOKEN>",
+    		localEvaluation: true,
+    		refreshInterval: 30_000,
+    	}),
+    );
+
+The provider downloads the definitions when OpenFeature initializes it. If the first download fails, initialization fails and the provider reports the `ERROR` status. A `401` or `403` response reports `FATAL`.
+
+The provider refreshes definitions lazily. When an evaluation runs and the downloaded definitions are older than `refreshInterval`, the provider starts a refresh in the background and evaluates against the current definitions. If a refresh fails, the provider keeps serving the last downloaded definitions and emits the `PROVIDER_STALE` event. It emits `PROVIDER_READY` again when a refresh succeeds.
+
+`accountId` is always required. If you set `endpoint` instead of `appId`, the URL path must end in `/evaluate` so the provider can derive the definitions URL. Local evaluation cannot be combined with `cacheTtl` or `binding`.
 
 ## Response caching
 

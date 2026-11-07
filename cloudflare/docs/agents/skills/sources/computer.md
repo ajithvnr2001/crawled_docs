@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/agents/skills/sources/computer/
 title: Computer \u00b7 Cloudflare Agents docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-30T08:19:19.213805+00:00
+fetched_at: 2026-11-07T08:31:58.748761+00:00
 ---
 
 # Computer · Cloudflare Agents docs
@@ -22,7 +22,7 @@ fetched_at: 2026-10-30T08:19:19.213805+00:00
 
 # Computer
 
-Last updated Oct 29, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 6, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewRead skills from the WorkspaceAdd skills to the WorkspaceRun skill scriptsExample
 
@@ -152,14 +152,14 @@ src/server.jsjs
     
     
     import { Workspace } from "@cloudflare/computer";
-    import { WorkerJavaScriptBackend } from "@cloudflare/computer/backends/worker-javascript";
+    import { CodemodeBackend } from "@cloudflare/computer/backends/codemode";
     import { Think, skills } from "@cloudflare/think";
     
     export class MyAgent extends Think {
     	workspace = new Workspace({
     		storage: this.ctx.storage,
     		backends: [
-    			new WorkerJavaScriptBackend({
+    			new CodemodeBackend({
     				id: "js",
     				loader: this.env.LOADER,
     				access: "read-write",
@@ -176,14 +176,14 @@ src/server.tsts
     
     
     import { Workspace } from "@cloudflare/computer";
-    import { WorkerJavaScriptBackend } from "@cloudflare/computer/backends/worker-javascript";
+    import { CodemodeBackend } from "@cloudflare/computer/backends/codemode";
     import { Think, skills } from "@cloudflare/think";
     
     export class MyAgent extends Think<Env> {
     	workspace = new Workspace({
     		storage: this.ctx.storage,
     		backends: [
-    			new WorkerJavaScriptBackend({
+    			new CodemodeBackend({
     				id: "js",
     				loader: this.env.LOADER,
     				access: "read-write",

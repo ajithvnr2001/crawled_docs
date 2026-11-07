@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/cloudflare-one/team-and-resources/users/users/
 title: User logs \u00b7 Cloudflare One docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:10:06.246768+00:00
+fetched_at: 2026-11-07T08:31:57.732921+00:00
 ---
 
 # User logs · Cloudflare One docs
@@ -22,9 +22,9 @@ Team and resources
 
 # User logs
 
-Last updated May 1, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/cloudflare-one/team-and-resources/users/users/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 6, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
-OverviewView user logs Available logs
+OverviewView user logs Available logs Registered passkeys
 
 User logs show a list of all users who have authenticated to Cloudflare One. For each user who has logged in, you can view their enrolled devices, login history, seat usage, and identity used for policy enforcement.
 
@@ -43,7 +43,11 @@ This page lists all users who have registered the Cloudflare One Client or authe
 
 
 
-[PreviousSCIM provisioning](https://developers.cloudflare.com/cloudflare-one/team-and-resources/users/scim/)[NextRisk score](https://developers.cloudflare.com/cloudflare-one/team-and-resources/users/risk-score/)
+### Registered passkeys
+
+In a user's **User identity** tab, the **Passkeys** section lists their registered passkeys, creation dates, and last-used dates. Administrators can [remove a user's passkey](https://developers.cloudflare.com/cloudflare-one/integrations/identity-providers/passkeys/#remove-a-users-passkey) from this section.
+
+[PreviousView SCIM users and groups](https://developers.cloudflare.com/cloudflare-one/team-and-resources/users/scim-population-viewer/)[NextRisk score](https://developers.cloudflare.com/cloudflare-one/team-and-resources/users/risk-score/)
 
 Was this helpful?
 

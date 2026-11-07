@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/d1/observability/metrics-analytics/
 title: Metrics and analytics \u00b7 Cloudflare D1 docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T08:10:26.290551+00:00
+fetched_at: 2026-11-07T08:31:58.577677+00:00
 ---
 
 # Metrics and analytics · Cloudflare D1 docs
@@ -18,7 +18,7 @@ fetched_at: 2026-10-31T08:10:26.290551+00:00
 
 # Metrics and analytics
 
-Last updated Oct 30, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 6, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewMetrics Row countsView metrics in the dashboardQuery via the GraphQL API ExamplesQuery insights
 
@@ -40,6 +40,12 @@ Query Response (bytes) | `queryBatchResponseBytes` | The total response size of 
 Query Latency (ms) | `queryBatchTimeMs` | The total query response time, including response serialization, on the server-side. Reported in milliseconds.  
 Storage (Bytes) | `databaseSizeBytes` | Maximum size of a database. Reported in bytes.  
   
+Analytics coverage
+
+`queryBatchTimeMs` measures SQL execution time inside the D1 database only. It does not include time spent routing the request to the database, establishing a connection, or waiting in a queue before SQL begins. During a platform-side incident, `queryBatchTimeMs` can show near-zero values while actual end-to-end D1 call duration is tens of seconds.
+
+`d1AnalyticsAdaptiveGroups` records a data point only when a request successfully reaches SQL execution. Requests that fail before SQL begins — for example, during a storage restart or an overload event — are not recorded. If your D1 calls are timing out but analytics show no activity, this does not rule out a platform event.
+
 Metrics can be queried (and are retained) for the past 31 days.
 
 ### Row counts

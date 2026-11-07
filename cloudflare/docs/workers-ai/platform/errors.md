@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/workers-ai/platform/errors/
 title: Errors \u00b7 Cloudflare Workers AI docs
 method: scrapling+scrapegraph
-fetched_at: 2026-11-05T09:11:08.563423+00:00
+fetched_at: 2026-11-07T08:31:57.841000+00:00
 ---
 
 # Errors · Cloudflare Workers AI docs
@@ -18,7 +18,7 @@ fetched_at: 2026-11-05T09:11:08.563423+00:00
 
 # Errors
 
-Last updated Nov 5, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 6, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 Below is a list of Workers AI errors.
 
@@ -36,6 +36,7 @@ Model requires Workers Paid plan | `5035` | `403` | This model requires a Worker
 Deprecated SDK version | `5019` | `405` | Request trying to use deprecated SDK version  
 LoRa unsupported | `5005` | `405` | The model `${this.model}` does not support LoRa inference  
 Invalid model ID | `3042` | `404` | The model name is invalid  
+Model deprecated | `5028` | `410` | `${model}` was deprecated on `${date}`. See the [model catalog](https://developers.cloudflare.com/workers-ai/models/) for alternatives.  
 Request too large | `3006` | `413` | Request is too large  
 Timeout | `3007` | `408` | Request timeout  
 Aborted | `3008` | `408` | Request was aborted  

@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/agents/tools/filesystem/
 title: File system \u00b7 Cloudflare Agents docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T16:06:43.011398+00:00
+fetched_at: 2026-11-07T08:31:58.991414+00:00
 ---
 
 # File system · Cloudflare Agents docs
@@ -18,7 +18,7 @@ fetched_at: 2026-10-23T16:06:43.011398+00:00
 
 # File system
 
-Last updated Oct 23, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/agents/tools/filesystem/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 6, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewHow it worksInstallAdd a workspace to a Durable Object Work with filesGive the model file tools Think AI SDK Pi OpenCode Configure the toolsRun JavaScript in the workspace Run code from the agent Configure the backend Give code access to your own functionsResume runs after a restart Calls that must not run twice Wait for an answer Current limitationsLimitsSecurity considerationsAPI reference Workspace workspace.fs workspace.runtime Tool functions Host modulesRelated resources
 
@@ -138,7 +138,7 @@ Configure the Durable Object binding and a SQLite migration in your Wrangler con
     
     {
     	// Set this to today's date
-    	"compatibility_date": "2026-10-23",
+    	"compatibility_date": "2026-11-07",
     	"compatibility_flags": ["nodejs_compat"],
     	"durable_objects": {
     		"bindings": [
@@ -158,7 +158,7 @@ Configure the Durable Object binding and a SQLite migration in your Wrangler con
     
     
     # Set this to today's date
-    compatibility_date = "2026-10-23"
+    compatibility_date = "2026-11-07"
     compatibility_flags = [ "nodejs_compat" ]
     
     [[durable_objects.bindings]]
@@ -477,7 +477,7 @@ Option | Default | Description
 `read` | Default caps | Limits for `read`, such as `maxBytes`, `maxLines`, and `includeLineNumbers`.  
 `write` | Default caps | Limits for `write`.  
 `edit` | Default caps | Limits for `edit`.  
-`exec` | Every backend | A map from backend ID to `{ description }`. Pass `{}` to leave out the `exec` tool.  
+`exec` | Every backend | Set `exec.backends` to a map from backend ID to `{ description }`. Pass `exec: { backends: {} }` to leave out the `exec` tool.  
   
 To let the model read and search files but not change them, pass `readonly: true`:
     
@@ -489,29 +489,29 @@ To let the model read and search files but not change them, pass `readonly: true
 
 ## Run JavaScript in the workspace
 
-Add a `WorkerJavaScriptBackend` to let the agent, or the model, run JavaScript against workspace files. Each run is an ECMAScript module that executes in a new [Dynamic Worker](https://developers.cloudflare.com/dynamic-workers/). It is faster and cheaper to run than a container. Network access is configurable but off by default, and the module reaches the workspace through `node:fs/promises`.
+Add a `CodemodeBackend` to let the agent, or the model, run JavaScript against workspace files. Each run is an ECMAScript module that executes in a new [Dynamic Worker](https://developers.cloudflare.com/dynamic-workers/). It is faster and cheaper to run than a container. Network access is configurable but off by default, and the module reaches the workspace through `node:fs/promises`.
     
     
     import { Workspace } from "@cloudflare/computer";
-    import { WorkerJavaScriptBackend } from "@cloudflare/computer/backends/worker-javascript";
+    import { CodemodeBackend } from "@cloudflare/computer/backends/codemode";
     import { DurableObject } from "cloudflare:workers";
     
     export class NotesAgent extends DurableObject {
     	workspace = new Workspace({
     		storage: this.ctx.storage,
-    		backends: [new WorkerJavaScriptBackend({ loader: this.env.LOADER })],
+    		backends: [new CodemodeBackend({ loader: this.env.LOADER })],
     	});
     }
     
     
     import { Workspace } from "@cloudflare/computer";
-    import { WorkerJavaScriptBackend } from "@cloudflare/computer/backends/worker-javascript";
+    import { CodemodeBackend } from "@cloudflare/computer/backends/codemode";
     import { DurableObject } from "cloudflare:workers";
     
     export class NotesAgent extends DurableObject<Env> {
     	workspace = new Workspace({
     		storage: this.ctx.storage,
-    		backends: [new WorkerJavaScriptBackend({ loader: this.env.LOADER })],
+    		backends: [new CodemodeBackend({ loader: this.env.LOADER })],
     	});
     }
 
@@ -522,7 +522,7 @@ The backend needs a [Worker Loader binding](https://developers.cloudflare.com/dy
     
     {
     	// Set this to today's date
-    	"compatibility_date": "2026-10-23",
+    	"compatibility_date": "2026-11-07",
     	"compatibility_flags": ["nodejs_compat"],
     	"worker_loaders": [
     		{
@@ -533,7 +533,7 @@ The backend needs a [Worker Loader binding](https://developers.cloudflare.com/dy
     
     
     # Set this to today's date
-    compatibility_date = "2026-10-23"
+    compatibility_date = "2026-11-07"
     compatibility_flags = [ "nodejs_compat" ]
     
     [[worker_loaders]]
@@ -594,12 +594,12 @@ Your own code can run a module through `workspace.runtime.exec()`. Pass structur
 
 ### Configure the backend
 
-`WorkerJavaScriptBackend` accepts the following common options:
+`CodemodeBackend` accepts the following common options:
 
 Option | Default | Description  
 ---|---|---  
 `loader` | Required | The Worker Loader binding.  
-`id` | `"worker-javascript"` | The backend ID that `exec` and `runtime.exec()` use to select this backend.  
+`id` | `"codemode"` | The backend ID that `exec` and `runtime.exec()` use to select this backend.  
 `root` | `/workspace` | The directory that code can access. Paths outside it are rejected.  
 `access` | `"read-write"` | Set to `"read"` to let code read files but not change them.  
 `defaultTimeoutMs` | `60000` | How long a run can take when the caller does not set a timeout.  
@@ -611,14 +611,14 @@ Option | Default | Description
   
 ### Give code access to your own functions
 
-Custom modules can be registered under the `ws:` namespace. Use these modules to give the model access to your application logic or file system tools, or to perform external actions.
+Custom modules can be registered under the `codemode:` namespace. Use these modules to give the model access to your application logic or file system tools, or to perform external actions.
     
     
     // In the `backends` list of the workspace.
-    new WorkerJavaScriptBackend({
+    new CodemodeBackend({
     	loader: this.env.LOADER,
     	modules: {
-    		"ws:orders": {
+    		"codemode:orders": {
     			// Arguments arrive as an array of JSON-compatible values.
     			lookup: ([orderId]) => this.lookUpOrder(String(orderId)),
     		},
@@ -627,10 +627,10 @@ Custom modules can be registered under the `ws:` namespace. Use these modules to
     
     
     // In the `backends` list of the workspace.
-    new WorkerJavaScriptBackend({
+    new CodemodeBackend({
     	loader: this.env.LOADER,
     	modules: {
-    		"ws:orders": {
+    		"codemode:orders": {
     			// Arguments arrive as an array of JSON-compatible values.
     			lookup: ([orderId]) => this.lookUpOrder(String(orderId)),
     		},
@@ -640,7 +640,7 @@ Custom modules can be registered under the `ws:` namespace. Use these modules to
 Code imports the module like any other:
     
     
-    import { lookup } from "ws:orders";
+    import { lookup } from "codemode:orders";
     
     export default async function ({ ids }) {
     	return Promise.all(ids.map((id) => lookup(id)));
@@ -657,12 +657,12 @@ Resuming runs and waiting for answers are experimental. Their behavior and store
 A deploy or a crash restarts the Durable Object and ends every JavaScript run in flight. The `onInterrupt` option decides what happens to those runs. Set a default on the backend, and override it for a single run in `exec()`:
     
     
-    new WorkerJavaScriptBackend({ loader: this.env.LOADER, onInterrupt: "replay" });
+    new CodemodeBackend({ loader: this.env.LOADER, onInterrupt: "replay" });
     
     await this.workspace.runtime.exec(source, { onInterrupt: "fail" });
     
     
-    new WorkerJavaScriptBackend({ loader: this.env.LOADER, onInterrupt: "replay" });
+    new CodemodeBackend({ loader: this.env.LOADER, onInterrupt: "replay" });
     
     await this.workspace.runtime.exec(source, { onInterrupt: "fail" });
 
@@ -685,11 +685,11 @@ A call that was still running at the restart never returned, so the replay runs 
     
     import { unsafeToRepeat } from "@cloudflare/computer";
     
-    new WorkerJavaScriptBackend({
+    new CodemodeBackend({
     	loader: this.env.LOADER,
     	onInterrupt: "replay",
     	modules: {
-    		"ws:billing": {
+    		"codemode:billing": {
     			refund: ([order], { callId }) =>
     				this.refund(String(order), { idempotencyKey: callId }),
     			charge: unsafeToRepeat(([order, cents]) =>
@@ -702,11 +702,11 @@ A call that was still running at the restart never returned, so the replay runs 
     
     import { unsafeToRepeat } from "@cloudflare/computer";
     
-    new WorkerJavaScriptBackend({
+    new CodemodeBackend({
     	loader: this.env.LOADER,
     	onInterrupt: "replay",
     	modules: {
-    		"ws:billing": {
+    		"codemode:billing": {
     			refund: ([order], { callId }) =>
     				this.refund(String(order), { idempotencyKey: callId }),
     			charge: unsafeToRepeat(([order, cents]) =>
@@ -721,11 +721,11 @@ A call that was still running at the restart never returned, so the replay runs 
 A host module function can pause a replayable run until someone answers, for example to approve an action. The code in the isolate calls the function as usual, and gets its result once the answer arrives.
     
     
-    new WorkerJavaScriptBackend({
+    new CodemodeBackend({
     	loader: this.env.LOADER,
     	onInterrupt: "replay",
     	modules: {
-    		"ws:github": {
+    		"codemode:github": {
     			postComment: async ([issue, body], ctx) => {
     				const { approved } = await ctx.interrupt({
     					issue,
@@ -739,11 +739,11 @@ A host module function can pause a replayable run until someone answers, for exa
     });
     
     
-    new WorkerJavaScriptBackend({
+    new CodemodeBackend({
     	loader: this.env.LOADER,
     	onInterrupt: "replay",
     	modules: {
-    		"ws:github": {
+    		"codemode:github": {
     			postComment: async ([issue, body], ctx) => {
     				const { approved } = await ctx.interrupt<{ approved: boolean }>({
     					issue,
@@ -821,7 +821,7 @@ Every user who talks to the same agent instance shares its workspace. Give each 
 Option | Description  
 ---|---  
 `storage` | Required. The storage of the Durable Object, `this.ctx.storage`.  
-`backends` | Execution backends, such as `WorkerJavaScriptBackend`. The first backend is the default.  
+`backends` | Execution backends, such as `CodemodeBackend`. The first backend is the default.  
 `mounts` | Read-only content mounted at a path, from an R2 bucket (`R2Bucket()`) or the Worker bundle (`WorkerBundle()`).  
 `git` | A Git client from `createGitClient()` in `@cloudflare/computer/git`, which turns on `workspace.git`.  
 `defaultGitIdentity` | The `{ name, email }` that Git commits use.  
@@ -891,13 +891,13 @@ Function | Entry point | Returns
   
 ### Host modules
 
-Pass these to the `modules` option of `WorkerJavaScriptBackend`:
+Pass these to the `modules` option of `CodemodeBackend`:
 
 Function | Entry point | Module | Description  
 ---|---|---|---  
-`createGitModule()` | `@cloudflare/computer/modules/git` | `ws:git` | Git operations on the workspace. Requires the `git` workspace option. Pass `{ allowNetwork: true }` to clone, fetch, and push.  
-`createArtifactsModule()` | `@cloudflare/computer/modules/artifacts` | `ws:artifacts` | [Artifacts](https://developers.cloudflare.com/artifacts/) repositories. Requires the `artifacts` workspace option.  
-`createToolBindings()` | `@cloudflare/computer/modules/tools` | `ws:tools` | The agent's own tools, callable from code. Build the bindings with `forAISDKTools()` or `forPiTools()`.  
+`createGitModule()` | `@cloudflare/computer/modules/git` | `codemode:git` | Git operations on the workspace. Requires the `git` workspace option. Pass `{ allowNetwork: true }` to clone, fetch, and push.  
+`createArtifactsModule()` | `@cloudflare/computer/modules/artifacts` | `codemode:artifacts` | [Artifacts](https://developers.cloudflare.com/artifacts/) repositories. Requires the `artifacts` workspace option.  
+`createToolBindings()` | `@cloudflare/computer/modules/tools` | `codemode:tools` | The agent's own tools, callable from code. Build the bindings with `forAISDKTools()` or `forPiTools()`.  
   
 For the full interfaces, refer to the [Computer design documentation ↗︎](https://github.com/cloudflare/computer/tree/main/docs).
 
@@ -919,7 +919,7 @@ Built-in workspace tools, custom tools, and approvals for Think agents.
 
 Load and run Workers on demand from another Worker.
 
-[PreviousPush notifications](https://developers.cloudflare.com/agents/communication-channels/webhooks/push-notifications/)[NextSandbox](https://developers.cloudflare.com/agents/tools/sandbox/)
+[PreviousLong-running agents](https://developers.cloudflare.com/agents/concepts/agentic-patterns/long-running-agents/)[NextSandbox](https://developers.cloudflare.com/agents/tools/sandbox/)
 
 Was this helpful?
 

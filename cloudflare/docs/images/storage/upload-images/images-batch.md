@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/images/storage/upload-images/images-batch/
 title: Upload via batch API \u00b7 Cloudflare Images docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:11:37.690388+00:00
+fetched_at: 2026-11-07T08:31:58.429200+00:00
 ---
 
 # Upload via batch API · Cloudflare Images docs
@@ -22,7 +22,7 @@ Storage
 
 # Upload via batch API
 
-Last updated Apr 21, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/images/storage/upload-images/images-batch/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 6, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 The Images batch API lets you make several requests in sequence while bypassing Cloudflare’s global API rate limits.
 
@@ -50,6 +50,7 @@ After getting your token, use it to make requests for:
   * [Upload an image](https://developers.cloudflare.com/api/resources/images/subresources/v1/methods/create/) \- `POST /images/v1`
   * [Delete an image](https://developers.cloudflare.com/api/resources/images/subresources/v1/methods/delete/) \- `DELETE /images/v1/{identifier}`
   * [Image details](https://developers.cloudflare.com/api/resources/images/subresources/v1/methods/get/) \- `GET /images/v1/{identifier}`
+  * [Download image](https://developers.cloudflare.com/api/resources/images/subresources/v1/subresources/blobs/methods/get/) \- `GET /images/v1/{identifier}/blob`
   * [Update image](https://developers.cloudflare.com/api/resources/images/subresources/v1/methods/edit/) \- `PATCH /images/v1/{identifier}`
   * [List images V2](https://developers.cloudflare.com/api/resources/images/subresources/v2/methods/list/) \- `GET /images/v2`
   * [Direct upload V2](https://developers.cloudflare.com/api/resources/images/subresources/v2/subresources/direct_uploads/methods/create/) \- `POST /images/v2/direct_upload`

@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/dns/nameservers/custom-nameservers/nameserver-sets/
 title: Nameserver sets \u00b7 Cloudflare DNS docs
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T08:48:24.391375+00:00
+fetched_at: 2026-11-07T08:31:59.087993+00:00
 ---
 
 # Nameserver sets · Cloudflare DNS docs
@@ -22,7 +22,7 @@ fetched_at: 2026-11-04T08:48:24.391375+00:00
 
 # Nameserver sets
 
-Last updated Nov 2, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 6, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewAvailabilityHow nameserver sets workIP setsLimits Set namesCreate a nameserver set Standard nameserver set Advanced Custom Nameserver setRename a nameserver setPrepare nameserver address recordsAssign a nameserver set to a zoneUpdate the nameserversActivation requirementsDelete a nameserver set
 
@@ -41,7 +41,7 @@ To use a nameserver set, a zone must be in the same account as the set.
   * Cloudflare assigns both IPv4 and IPv6 addresses to each nameserver name in a set.
   * Each nameserver set is either standard or Advanced.
   * Nameserver names can belong to any domain, even a domain that does not exist as a zone in Cloudflare.
-  * The same nameserver name can be used in more than one set within your account.
+  * The same nameserver name can be used in more than one set within your account, except for sets used by parent and child zones.
   * Sets are immutable. You can create and delete a set, but you cannot change one. Only the name can be changed later.
   * Cloudflare does not create or update DNS records for a nameserver set. You manage the required `A`, `AAAA`, and `NS` records, plus glue where DNS requires it.
   * Currently, nameserver sets cannot yet be used as a [DNS zone default](https://developers.cloudflare.com/dns/additional-options/dns-zone-defaults/) for new zones.
@@ -59,7 +59,7 @@ Each nameserver set belongs to an IP set. The `ip_set` number defaults to `1` wh
 
 For example, a standard set with `ip_set: 1` and an Advanced set with `ip_set: 1` use separate IP sets.
 
-A zone cannot use the same nameserver IP addresses as its parent zone, its subdomains, or a zone with the same name in another account. To use the same set type on a zone and its subdomains, create sets with different `ip_set` numbers.
+A zone cannot use the same nameserver IP addresses as its parent zone, its subdomains, or a zone with the same name in another account. Parent and child zones must also use different nameserver names. To use the same set type on a zone and its subdomains, create sets with different `ip_set` numbers.
 
 ## Limits
 

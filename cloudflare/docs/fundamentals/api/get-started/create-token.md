@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/fundamentals/api/get-started/create-token/
 title: Create API token \u00b7 Cloudflare Fundamentals docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:11:20.327415+00:00
+fetched_at: 2026-11-07T08:31:57.784441+00:00
 ---
 
 # Create API token · Cloudflare Fundamentals docs
@@ -22,7 +22,7 @@ Cloudflare's API
 
 # Create API token
 
-Last updated Apr 20, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/fundamentals/api/get-started/create-token/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 6, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 Prerequisite
 
@@ -34,23 +34,23 @@ Before you begin, [find your zone and account IDs](https://developers.cloudflare
 
   3. Select **Create Token**.
 
-  4. Select a template from the available [API token templates](https://developers.cloudflare.com/fundamentals/api/reference/template/) or create a custom token. The following example uses the **Edit zone DNS** template.
+  4. Add a token name to describe why or how the token is used.
 
-  5. Add or edit the token name to describe why or how the token is used. Templates are prefilled with a token name and permissions.
+  5. Select a template from the available [API token templates](https://developers.cloudflare.com/fundamentals/api/reference/template/) or start from scratch. Templates include policies with predefined permissions. The following example uses the **Edit zone DNS** template.
 
-![Token template overview screen](https://developers.cloudflare.com/cdn-cgi/image/onerror=redirect,width=1677,height=1328,format=webp/_astro/template-customize.Bt5BDoKm.png)
-  6. Modify the token's permissions. After selecting a permissions group (_Account_ , _User_ , or _Zone_), choose what level of access to grant the token. Most groups offer `Edit` or `Read` options. `Edit` is full CRUDL (create, read, update, delete, list) access, while `Read` is the read permission and list where appropriate. Refer to the [available token permissions](https://developers.cloudflare.com/fundamentals/api/reference/permissions/) for more information.
+![Token template overview screen](https://developers.cloudflare.com/cdn-cgi/image/onerror=redirect,width=2953,height=1955,format=webp/_astro/template-customize.BZQKf5iV.png)
+  6. Create a policy to organize the token's permissions. Select a policy type (_Account_ , _User_ , or _Zone_), then select resource rules within the policy to specify which resources the permissions apply to, such as specific accounts or zones.
 
-  7. Select which resources the token is authorized to access. For example, granting `Zone DNS Read` access to a zone `example.com` will allow the token to read DNS records only for that specific zone. Any other zone will return an error for DNS record reads operations. Any other operation on that zone will also return an error.
+  7. Choose the permissions to grant within the policy. Most permissions offer `Edit` or `Read` access. `Edit` is full CRUDL (create, read, update, delete, list) access, while `Read` is the read permission and list where appropriate. For example, `Zone DNS Read` for `example.com` allows the token to read DNS records only for that zone. Refer to the [available token permissions](https://developers.cloudflare.com/fundamentals/api/reference/permissions/) for more information.
 
-  8. (Optional) Restrict how a token is used in the **Client IP Address Filtering** and **TTL (time to live)** fields.
+  8. (Optional) Restrict how a token is used in the **Token expiration** and **Client IP Address Filtering** fields.
 
   9. Select **Continue to summary**.
 
-  10. Review the token summary. Select **Edit token** to make adjustments. You can also edit a token after creation.
+  10. Review the token summary. Select **Back** to make adjustments. You can also edit a token after creation.
 
 
-![Token summary screen displaying the resources and permissions selected](https://developers.cloudflare.com/cdn-cgi/image/onerror=redirect,width=1202,height=884,format=webp/_astro/token-summary.BFSJoL8C.png)
+![Token summary screen displaying the resources and permissions selected](https://developers.cloudflare.com/cdn-cgi/image/onerror=redirect,width=2953,height=1949,format=webp/_astro/token-summary.B2YcuQmd.png)
 
   11. Select **Create Token** to generate the token's secret.
   12. Copy the secret to a secure place.
@@ -61,7 +61,7 @@ Warning
 
 The token secret is **only shown once**. Do not store the secret in plaintext where others can access it. Anyone with this token can perform the authorized actions against the resources that the token has access to.
 
-![Token creation completion screen displaying your API token and the curl command to test your token](https://developers.cloudflare.com/cdn-cgi/image/onerror=redirect,width=1204,height=940,format=webp/_astro/token-complete.Dg4S1W72.png)
+![Token creation completion screen displaying your API token and the curl command to test your token](https://developers.cloudflare.com/cdn-cgi/image/onerror=redirect,width=2953,height=1955,format=webp/_astro/token-complete.ethtDojh.png)
 
 The token secret page also includes an example command to test the token. Use the `/user/tokens/verify` endpoint to fetch the current status of the given token.
     

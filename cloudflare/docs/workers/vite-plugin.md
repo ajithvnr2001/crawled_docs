@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/workers/vite-plugin/
 title: Vite plugin \u00b7 Cloudflare Workers docs
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T08:48:18.836210+00:00
+fetched_at: 2026-11-07T08:31:58.306443+00:00
 ---
 
 # Vite plugin · Cloudflare Workers docs
@@ -17,11 +17,13 @@ fetched_at: 2026-11-04T08:48:18.836210+00:00
 
 # Vite plugin
 
-Last updated Nov 3, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 6, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewFeaturesUse casesGet started
 
 The Cloudflare Vite plugin enables a full-featured integration between [Vite ↗︎](https://vite.dev/) and the [Workers runtime](https://developers.cloudflare.com/workers/runtime-apis/). Your Worker code runs inside a local [`workerd` ↗︎](https://github.com/cloudflare/workerd) process, which closely matches the runtime APIs and behavior of deployed Workers.
+
+For new Workers and supported Vite-based apps, use [Vite+](https://developers.cloudflare.com/workers/vite-plugin/vite-plus/) for development, builds, formatting, linting, type checking, and testing.
 
 Miniflare is not a hardened sandbox
 

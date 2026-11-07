@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/flagship/sdk/python/
 title: Python SDK \u00b7 Cloudflare Flagship docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-20T06:57:49.942944+00:00
+fetched_at: 2026-11-07T08:31:57.405210+00:00
 ---
 
 # Python SDK · Cloudflare Flagship docs
@@ -18,11 +18,11 @@ fetched_at: 2026-10-20T06:57:49.942944+00:00
 
 # Python SDK
 
-Last updated Oct 19, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 7, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
-OverviewInstallationSetupFlag typesConfiguration optionsResponse cachingEvaluation contextAsync evaluation
+OverviewInstallationSetupFlag typesConfiguration optionsLocal evaluationResponse cachingEvaluation contextAsync evaluation
 
-The Python SDK provides an OpenFeature-compatible `FlagshipServerProvider` for server-side Python applications. It evaluates flags over HTTP and does not support the Cloudflare Workers binding.
+The Python SDK provides an OpenFeature-compatible `FlagshipServerProvider` for server-side Python applications. It evaluates flags over HTTP or locally from downloaded flag definitions. It does not support the Cloudflare Workers binding.
 
 ## Installation
 
@@ -76,16 +76,41 @@ Use the `*_details` methods when you need the resolved value, reason, variant, o
 Option | Type | Default | Description  
 ---|---|---|---  
 `app_id` | `str` | None | Flagship app ID.  
-`account_id` | `str` | None | Required with `app_id`.  
+`account_id` | `str` | None | Required with `app_id`, and always required for local evaluation.  
 `auth_token` | `str` | None | Bearer token added to every request.  
 `headers_factory` | `Callable[[], dict[str, str]]` | None | Dynamic per-request headers.  
 `timeout` | `float` | `5.0` | Request timeout in seconds.  
 `retries` | `int` | `1` | Retry attempts on transient errors, capped at `10`.  
 `retry_delay` | `float` | `1.0` | Delay between retries in seconds, capped at `30.0`.  
+`local_evaluation` | `bool` | `False` | Download flag definitions and evaluate flags in-process.  
+`refresh_interval` | `float` | `30.0` | Seconds between background definition refreshes.  
 `logging` | `bool` | `False` | Enable SDK-level debug output through the SDK logger.  
 `cache_ttl` | `float` | None | Cache TTL in seconds. Enables caching when set.  
 `cache_max_size` | `int` | `1000` | Maximum cached entries before least-recently-used eviction.  
   
+## Local evaluation
+
+With local evaluation, the provider downloads the app's flag definitions and evaluates flags in-process. No network request is made per evaluation. The provider refreshes the definitions on a background daemon thread.
+
+Local evaluation requires an API token with Flagship Read or Flagship App Read permission. Local evaluations do not appear in Flagship analytics.
+    
+    
+    api.set_provider_and_wait(
+        FlagshipServerProvider(
+            app_id="<APP_ID>",
+            account_id="<ACCOUNT_ID>",
+            auth_token="<READ_API_TOKEN>",
+            local_evaluation=True,
+            refresh_interval=30.0,
+        )
+    )
+
+Use `set_provider_and_wait` so the first definitions download completes before you evaluate flags. If the first download fails, initialization raises an error and the provider reports the `ERROR` status. If a background refresh fails, the provider keeps serving the last downloaded definitions.
+
+Local evaluation cannot be combined with `cache_ttl`. `account_id` is always required. If you set `endpoint` instead of `app_id`, the URL path must end in `/evaluate` so the provider can derive the definitions URL.
+
+Local evaluation does not enforce the Flagship request size limits on evaluation context. The Flagship API rejects very large contexts, but local evaluation evaluates them.
+
 ## Response caching
 
 Server-side response caching is off by default. Enable it with `cache_ttl` when you want repeated evaluations for the same flag, type, and evaluation context to reuse a recent result.
@@ -120,7 +145,7 @@ When shutting down in an async context, use `shutdown_async()`:
     
     await api.shutdown_async()
 
-[PreviousGo SDK](https://developers.cloudflare.com/flagship/sdk/go/)[NextOverview](https://developers.cloudflare.com/flagship/targeting/)
+[PreviousGo SDK](https://developers.cloudflare.com/flagship/sdk/go/)[NextRust SDK](https://developers.cloudflare.com/flagship/sdk/rust/)
 
 Was this helpful?
 

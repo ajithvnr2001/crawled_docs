@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/d1/reference/time-travel/
 title: Time Travel and backups \u00b7 Cloudflare D1 docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:10:39.418034+00:00
+fetched_at: 2026-11-07T08:31:58.158759+00:00
 ---
 
 # Time Travel and backups · Cloudflare D1 docs
@@ -18,7 +18,7 @@ fetched_at: 2026-10-08T07:10:39.418034+00:00
 
 # Time Travel and backups
 
-Last updated Apr 21, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/d1/reference/time-travel/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 6, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewBookmarksTimestampsRequirementsRetrieve a bookmarkRestore a databaseUndo a restoreExport D1 into R2 using WorkflowsNotes
 
@@ -46,6 +46,7 @@ Time Travel leverages D1's concept of a  bookmark  to restore to a point in time
   * Restoring a database to a specific bookmark does not remove or delete older bookmarks. For example, if you restore to a bookmark representing the state of your database 10 minutes ago, and determine that you needed to restore to an earlier point in time, you can still do so.
   * Bookmarks are lexicographically sortable. Sorting orders a list of bookmarks from oldest-to-newest.
   * Bookmarks can be derived from a [Unix timestamp ↗︎](https://en.wikipedia.org/wiki/Unix_time) (seconds since Jan 1st, 1970), and conversion between a specific timestamp and a bookmark is deterministic (stable).
+  * Bookmarks can advance due to Cloudflare internal maintenance events, such as instance restarts or storage checkpointing, without any SQL writes from your application. A newer current bookmark does not mean your data changed. To verify data state, compare row counts or use `wrangler d1 time-travel info` with a specific past timestamp.
 
 
 

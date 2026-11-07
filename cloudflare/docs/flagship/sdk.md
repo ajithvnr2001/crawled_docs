@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/flagship/sdk/
 title: OpenFeature SDK \u00b7 Cloudflare Flagship docs
 method: scrapling+scrapegraph
-fetched_at: 2026-11-05T09:11:08.828106+00:00
+fetched_at: 2026-11-07T08:31:57.460672+00:00
 ---
 
 # OpenFeature SDK · Cloudflare Flagship docs
@@ -17,7 +17,7 @@ fetched_at: 2026-11-05T09:11:08.828106+00:00
 
 # OpenFeature SDK
 
-Last updated Nov 4, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 7, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewSDKsContext supportInstallationNext steps
 
@@ -29,9 +29,9 @@ Flagship provides official OpenFeature-compatible SDKs for TypeScript, Python, G
 
 SDK | Package | Runtime | Evaluation modes  
 ---|---|---|---  
-TypeScript | [`@cloudflare/flagship` ↗︎](https://www.npmjs.com/package/@cloudflare/flagship) | Workers, Node.js, browsers | Workers binding, HTTP, browser prefetch cache  
-Python | [`cloudflare-flagship` ↗︎](https://pypi.org/project/cloudflare-flagship/) | Python server applications | HTTP  
-Go | [`github.com/cloudflare/flagship/sdks/go` ↗︎](https://pkg.go.dev/github.com/cloudflare/flagship/sdks/go) | Go server applications | HTTP  
+TypeScript | [`@cloudflare/flagship` ↗︎](https://www.npmjs.com/package/@cloudflare/flagship) | Workers, Node.js, browsers | Workers binding, HTTP, local evaluation, browser prefetch cache  
+Python | [`cloudflare-flagship` ↗︎](https://pypi.org/project/cloudflare-flagship/) | Python server applications | HTTP, local evaluation  
+Go | [`github.com/cloudflare/flagship/sdks/go` ↗︎](https://pkg.go.dev/github.com/cloudflare/flagship/sdks/go) | Go server applications | HTTP, local evaluation  
 Rust | [`cloudflare-flagship` ↗︎](https://crates.io/crates/cloudflare-flagship) | Async Rust server applications | HTTP, local evaluation  
   
 ## SDKs

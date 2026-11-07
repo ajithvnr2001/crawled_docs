@@ -1,12 +1,12 @@
 {
-  "date": "2026-11-06",
-  "at": "2026-11-06T09:03:44.117627+00:00",
+  "date": "2026-11-07",
+  "at": "2026-11-07T08:31:56.681047+00:00",
   "new": {
-    "developers": 15,
+    "developers": 6,
     "blog": 0,
-    "www": 1
+    "www": 4
   },
-  "refreshed": 24,
-  "stale_total": 24,
-  "total_index": 22475
+  "refreshed": 21,
+  "stale_total": 21,
+  "total_index": 22490
 }

@@ -4,7 +4,7 @@ Crawls **https://developers.cloudflare.com/** completely (sitemap + `llms.txt` +
 
 ## Results (verified)
 
-> Last verified: 2026-11-06 — see `docs/_last_verified.json` (rewritten daily by GitHub Actions).
+> Last verified: 2026-11-07 — see `docs/_last_verified.json` (rewritten daily by GitHub Actions).
 
 | Scope | Coverage |
 |---|---|

@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/d1/observability/find-expensive-queries/
 title: Find slow and expensive queries \u00b7 Cloudflare D1 docs
 method: scrapling+scrapegraph
-fetched_at: 2026-11-01T08:55:30.082884+00:00
+fetched_at: 2026-11-07T08:31:59.248917+00:00
 ---
 
 # Find slow and expensive queries · Cloudflare D1 docs
@@ -18,7 +18,7 @@ fetched_at: 2026-11-01T08:55:30.082884+00:00
 
 # Find slow and expensive queries
 
-Last updated Oct 31, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 6, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewFind the most expensive databasesFind queries that need an indexFind queries to cacheFind queries to batch
 
@@ -175,7 +175,7 @@ In the example output in step 1, the `JOIN` query reads 1,244,521 rows each time
 
   4. Find the index that fixes the query. To find the correct fix for each query pattern, refer to [Indexes and your bill](https://developers.cloudflare.com/d1/best-practices/use-indexes/#indexes-and-your-bill). For the example query, add an index on the `OrderId` column of the `OrderDetail` table.
 
-  5. Create a [migration](https://developers.cloudflare.com/d1/reference/migrations/) for the index:
+  5. If you use [D1 migrations](https://developers.cloudflare.com/d1/reference/migrations/) to manage your database schema, add the index with a migration. First, create a migration for the index:
          
          npx cf d1 migrations create add_orderdetail_orderid_index
 
@@ -187,14 +187,14 @@ The database must be in your [Wrangler configuration file](https://developers.cl
 
 The command creates a file in the `migrations` directory. The number at the start of the file name depends on the migrations that you already have.
 
-  6. Add the `CREATE INDEX` statement to the new migration file:
+Add the `CREATE INDEX` statement to the new migration file:
 
 migrations/0001_add_orderdetail_orderid_index.sqlsql
          
          -- Migration number: 0001 	 2026-10-29T15:42:06.092Z
          CREATE INDEX IF NOT EXISTS idx_orderdetail_orderid ON OrderDetail (OrderId);
 
-  7. Apply the migration to your remote database:
+Apply the migration to your remote database:
          
          npx cf d1 migrations apply <database_id>
          
@@ -206,7 +206,7 @@ migrations/0001_add_orderdetail_orderid_index.sqlsql
          │ 0001_add_orderdetail_orderid_index.sql │ ✅     │
          └────────────────────────────────────────┴────────┘
 
-  8. Make sure that D1 uses the new index. Put `EXPLAIN QUERY PLAN` in front of the query and run it:
+  6. Make sure that D1 uses the new index. Put `EXPLAIN QUERY PLAN` in front of the query and run it:
          
          npx cf d1 query <database_id> --sql "EXPLAIN QUERY PLAN <query>"
          
@@ -214,7 +214,7 @@ migrations/0001_add_orderdetail_orderid_index.sqlsql
 
 The line for the table that you added the index to should show `SEARCH ... USING INDEX`, not `SCAN`. For the example query, `SCAN OrderDetail` changes to `SEARCH OrderDetail USING INDEX idx_orderdetail_orderid (OrderId=?)`. For more information, refer to [Test an index](https://developers.cloudflare.com/d1/best-practices/use-indexes/#test-an-index).
 
-  9. Make sure that the number of rows read decreases. Run the command from step 2 again with a shorter time period, such as `INTERVAL '1' HOUR` or `--time-period=1h`.
+  7. Make sure that the number of rows read decreases. Run the command from step 2 again with a shorter time period, such as `INTERVAL '1' HOUR` or `--time-period=1h`.
 
 The results include all the queries in the time period. Queries that ran before you added the index increase the totals of a long time period.
 

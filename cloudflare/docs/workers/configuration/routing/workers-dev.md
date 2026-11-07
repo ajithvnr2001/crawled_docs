@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/workers/configuration/routing/workers-dev/
 title: workers.dev \u00b7 Cloudflare Workers docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:17:15.917597+00:00
+fetched_at: 2026-11-07T08:31:57.963591+00:00
 ---
 
 # workers.dev · Cloudflare Workers docs
@@ -22,9 +22,9 @@ fetched_at: 2026-10-08T07:17:15.917597+00:00
 
 # workers.dev
 
-Last updated Sep 22, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/workers/configuration/routing/workers-dev/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 6, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
-OverviewConfigure workers.devManage access to workers.devDisabling workers.dev Disabling workers.dev in the dashboard Disabling workers.dev in the Wrangler configuration fileLimitationsRelated resources
+OverviewConfigure workers.devManage access to workers.devBrowser Integrity Check on workers.devDisabling workers.dev Disabling workers.dev in the dashboard Disabling workers.dev in the Wrangler configuration fileLimitationsRelated resources
 
 Cloudflare Workers accounts come with a `workers.dev` subdomain that is configurable in the Cloudflare dashboard. Your `workers.dev` subdomain allows you getting started quickly by deploying Workers without first onboarding your custom domain to Cloudflare.
 
@@ -51,6 +51,33 @@ When enabled, your `workers.dev` URL is available publicly. You can use [Cloudfl
 Access can protect one Worker's production `workers.dev` URL, preview URLs, or both. You can also protect all Workers or all Worker previews in an account.
 
 To use details about the signed-in user in your Worker, use [`ctx.access`](https://developers.cloudflare.com/workers/configuration/cloudflare-access/#read-authenticated-user-identity-with-ctxaccess). You can also read the [user's identity](https://developers.cloudflare.com/cloudflare-one/access-controls/applications/http-apps/authorization-cookie/application-token/#user-identity) from the validated JWT or the `/cdn-cgi/access/get-identity` endpoint.
+
+## Browser Integrity Check on `workers.dev`
+
+All requests to a `workers.dev` hostname are evaluated by [Browser Integrity Check](https://developers.cloudflare.com/waf/tools/browser-integrity-check/) (BIC) on the Cloudflare-managed `workers.dev` zone. This includes [Preview URLs](https://developers.cloudflare.com/workers/previews/) and [Version URLs](https://developers.cloudflare.com/workers/versions-and-deployments/version-urls/).
+
+  * You cannot turn off this check for a `workers.dev` hostname.
+  * Turning off BIC in your own zone, or adding a [custom rule](https://developers.cloudflare.com/waf/custom-rules/skip/) or [configuration rule](https://developers.cloudflare.com/rules/configuration-rules/) that skips or turns off BIC, only affects your zone. It does not affect the check on the `workers.dev` zone.
+  * Automated clients that send some default library `User-Agent` headers (for example, the default Python `urllib` user agent) receive [error 1010](https://developers.cloudflare.com/support/troubleshooting/http-status-codes/cloudflare-1xxx-errors/error-1010/) before your Worker runs. These requests do not appear in your Worker logs.
+
+
+
+To allow automated clients to reach your Worker:
+
+  1. **Recommended:** Configure the client to send a descriptive `User-Agent` header that identifies your application. The client does not need to send a browser user agent. For example, in Python:
+         
+         import urllib.request
+         
+         req = urllib.request.Request(
+             "https://example.com/data.json",
+             headers={"User-Agent": "my-app/1.0 (+https://example.com)"},
+         )
+         urllib.request.urlopen(req)
+
+  2. Serve your Worker on a [Custom Domain](https://developers.cloudflare.com/workers/configuration/routing/custom-domains/) or [route](https://developers.cloudflare.com/workers/configuration/routing/routes/) in a zone you own. You can then create a [configuration rule](https://developers.cloudflare.com/rules/configuration-rules/) that turns off Browser Integrity Check, or a [custom rule](https://developers.cloudflare.com/waf/custom-rules/skip/) that skips it, for only the paths that need it.
+
+
+
 
 ## Disabling `workers.dev`
 
