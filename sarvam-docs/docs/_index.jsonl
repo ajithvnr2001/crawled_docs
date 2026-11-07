@@ -3,7 +3,7 @@
 {"url": "https://docs.sarvam.ai/", "file": "_index.md", "title": "AI for all from India | Sarvam API Docs", "method": "scrapling+scrapegraph"}
 {"url": "https://docs.sarvam.ai/api-reference/analytics/attempts/", "file": "api-reference/analytics/attempts.md", "title": "Get attempts | Sarvam API Docs", "method": "scrapling+scrapegraph"}
 {"url": "https://docs.sarvam.ai/api-reference/analytics/recordings/", "file": "api-reference/analytics/recordings.md", "title": "Get recordings | Sarvam API Docs", "method": "scrapling+scrapegraph"}
-{"url": "https://docs.sarvam.ai/api-reference/beta-apis/", "file": "api-reference/beta-apis.md", "title": "Beta APIs and Models | Sarvam API Docs", "method": "scrapling+scrapegraph"}
+{"url": "https://docs.sarvam.ai/api-reference/beta-apis/", "file": "api-reference/beta-apis.md", "title": "Beta APIs | Sarvam API Docs", "method": "scrapling+scrapegraph"}
 {"url": "https://docs.sarvam.ai/api-reference/analytics/interactions/", "file": "api-reference/analytics/interactions.md", "title": "Get interactions | Sarvam API Docs", "method": "scrapling+scrapegraph"}
 {"url": "https://docs.sarvam.ai/api-reference/boards/create/", "file": "api-reference/boards/create.md", "title": "Create board | Sarvam API Docs", "method": "scrapling+scrapegraph"}
 {"url": "https://docs.sarvam.ai/api-reference/boards/duplicate/", "file": "api-reference/boards/duplicate.md", "title": "Duplicate board | Sarvam API Docs", "method": "scrapling+scrapegraph"}
@@ -1139,3 +1139,12 @@
 {"url": "https://www.sarvam.ai/token-factory/models/sarvam-105b-chat/", "file": "_subdomains/www.sarvam.ai/token-factory/models/sarvam-105b-chat.md", "title": "Sarvam 105B Conversations | Sarvam Token Factory", "method": "scrapling+scrapegraph"}
 {"url": "https://www.sarvam.ai/token-factory/pricing/", "file": "_subdomains/www.sarvam.ai/token-factory/pricing.md", "title": "Pricing | Sarvam Token Factory", "method": "scrapling+scrapegraph"}
 {"url": "https://docs.sarvam.ai/changelog/2026/11/3/", "file": "changelog/2026/11/3.md", "title": "November 3, 2026 | Sarvam API Docs", "method": "scrapling+scrapegraph"}
+{"url": "https://docs.sarvam.ai/changelog/2026/11/6/", "file": "changelog/2026/11/6.md", "title": "November 6, 2026 | Sarvam API Docs", "method": "scrapling+scrapegraph"}
+{"url": "https://docs.sarvam.ai/api/token-factory/models/kimi-k3.1-pro", "file": "api/token-factory/models/kimi-k3.1-pro.md", "title": "Kimi K3.1 Pro | Sarvam API Docs", "method": "scrapling+scrapegraph"}
+{"url": "https://docs.sarvam.ai/doc-ai/getting-started/overview/", "file": "doc-ai/getting-started/overview.md", "title": "Welcome to Document AI | Sarvam API Docs", "method": "scrapling+scrapegraph"}
+{"url": "https://docs.sarvam.ai/doc-ai/how-to/translate-a-document/", "file": "doc-ai/how-to/translate-a-document.md", "title": "Translate a document | Sarvam API Docs", "method": "scrapling+scrapegraph"}
+{"url": "https://docs.sarvam.ai/doc-ai/extract-as-csv-excel/", "file": "doc-ai/extract-as-csv-excel.md", "title": "Extract as CSV/Excel | Sarvam API Docs", "method": "scrapling+scrapegraph"}
+{"url": "https://docs.sarvam.ai/doc-ai/how-to/extract-fields-from-a-document/create-a-reusable-config/", "file": "doc-ai/how-to/extract-fields-from-a-document/create-a-reusable-config.md", "title": "Create a Config | Sarvam API Docs", "method": "scrapling+scrapegraph"}
+{"url": "https://docs.sarvam.ai/doc-ai/how-to/digitise-a-document/", "file": "doc-ai/how-to/digitise-a-document.md", "title": "Digitise a document | Sarvam API Docs", "method": "scrapling+scrapegraph"}
+{"url": "https://docs.sarvam.ai/doc-ai/how-to/extract-fields-from-a-document/extract-structured-fields/", "file": "doc-ai/how-to/extract-fields-from-a-document/extract-structured-fields.md", "title": "Extract structured fields | Sarvam API Docs", "method": "scrapling+scrapegraph"}
+{"url": "https://docs.sarvam.ai/doc-ai/resources/faq/", "file": "doc-ai/resources/faq.md", "title": "FAQs | Sarvam API Docs", "method": "scrapling+scrapegraph"}

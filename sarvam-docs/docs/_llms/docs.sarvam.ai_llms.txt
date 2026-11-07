@@ -337,12 +337,12 @@ Community
 - [API Reference](https://docs.sarvam.ai/api-reference/llms.txt): Explore REST & WebSocket endpoints
   - [Introduction](https://docs.sarvam.ai/api-reference/introduction.md)
   - [Authentication](https://docs.sarvam.ai/api-reference/authentication.md)
-  - [Beta APIs and Models](https://docs.sarvam.ai/api-reference/beta-apis.md)
+  - [Beta APIs](https://docs.sarvam.ai/api-reference/beta-apis.md)
   - [Meta Prompt Guide](https://docs.sarvam.ai/api-reference/metaprompt.md)
   - [Introduction](https://docs.sarvam.ai/api-reference/conversations.md)
 - [Changelog](https://docs.sarvam.ai/changelog/llms.txt): Track API and product updates
+  - [November 6, 2026](https://docs.sarvam.ai/changelog/2026/11/6.md)
   - [November 3, 2026](https://docs.sarvam.ai/changelog/2026/11/3.md)
   - [October 31, 2026](https://docs.sarvam.ai/changelog/2026/10/31.md)
   - [October 30, 2026](https://docs.sarvam.ai/changelog/2026/10/30.md)
   - [October 29, 2026](https://docs.sarvam.ai/changelog/2026/10/29.md)
-  - [October 28, 2026](https://docs.sarvam.ai/changelog/2026/10/28.md)

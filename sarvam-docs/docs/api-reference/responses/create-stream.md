@@ -2,7 +2,7 @@
 url: https://docs.sarvam.ai/api-reference/responses/create-stream/
 title: Create Response | Sarvam API Docs
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T06:32:38.706167+00:00
+fetched_at: 2026-11-07T06:39:19.331381+00:00
 ---
 
 # Create Response | Sarvam API Docs
@@ -54,7 +54,7 @@ Try it
 
 Generate a model reply in the OpenAI Responses format.
 
-**Models:** `sarvam-105b`, `glm5.3`, `gemma4`, `deepseekv4.1-flash-1017`, `glm5.3-flash`, `deepseekv4-pro`, `kimi-k3`, `mimo-v2.6-flash`, `mimo-v2.6-pro` (ids are case-sensitive).
+**Models:** `sarvam-105b`, `glm5.3`, `gemma4`, `deepseekv4.1-flash-1017`, `glm5.3-flash`, `deepseekv4-pro`, `kimi-k3.1-pro` (ids are case-sensitive).
 
 **Each call is independent.** Send the full conversation in `input` every time — nothing is stored for you. Leave out `store` or set it to `false` (`true` returns **`400`**). You cannot load a past response by id (`GET /v2/responses/{id}` is always **`404`**).
 
@@ -89,14 +89,12 @@ Model IDs accepted by `POST /v2/responses` (case-sensitive; unknown ids return `
   * **`glm5.3-flash`** — long context, vision (inline base64 images), tools, and reasoning; `reasoning.effort` accepts `low` or `high` only, as on `glm5.3`.
   * **`gemma4`** — 262,144-token context, vision (inline base64 images), tools, and optional reasoning (`reasoning.effort` `low` or `high`).
   * **`deepseekv4.1-flash-1017`** — long context, tools, and reasoning.
-  * **`deepseekv4-pro`** (beta) — long context, text input, tools, and reasoning (default `high`).
-  * **`kimi-k3`** (beta) — long context, image input (inline base64; no video on this route), tools, and reasoning (always on).
-  * **`mimo-v2.6-flash`** (beta) — long context, image and audio input (inline base64; no video on this route), tools, and reasoning (on by default).
-  * **`mimo-v2.6-pro`** (beta) — same contract as `mimo-v2.6-flash`.
+  * **`deepseekv4-pro`** (Provisioned Throughput) — long context, text input, tools, and reasoning (default `high`).
+  * **`kimi-k3.1-pro`** (Provisioned Throughput) — long context, image input (inline base64; no video on this route), tools, and reasoning (always on).
 
 
 
-Show 9 enum values
+Show 7 enum values
 
 inputstring or list of objectsRequired
 
@@ -134,7 +132,7 @@ Show 2 variants
 
 reasoningobject or nullOptional
 
-Optional reasoning config for `glm5.3`, `glm5.3-flash`, `gemma4`, `deepseekv4.1-flash-1017`, `deepseekv4-pro`, `kimi-k3`, `mimo-v2.6-flash`, `mimo-v2.6-pro`. **`effort`:** on `glm5.3` and `glm5.3-flash`, `low` or `high` only (the literal string `max` returns `400`; omitting it gives `max` on `glm5.3` and `high` on `glm5.3-flash`); on `deepseekv4.1-flash-1017`, `deepseekv4-pro`, `kimi-k3`, `mimo-v2.6-flash`, and `mimo-v2.6-pro`, `low`, `high`, or `max` all work directly. The trace is in the reasoning item’s `content[0].text`; `summary` is filled only when `summary` is set. Optional **`summary`:** `auto` or `detailed`.
+Optional reasoning config for `glm5.3`, `glm5.3-flash`, `gemma4`, `deepseekv4.1-flash-1017`, `deepseekv4-pro`, `kimi-k3.1-pro`. **`effort`:** on `glm5.3` and `glm5.3-flash`, `low` or `high` only (the literal string `max` returns `400`; omitting it gives `max` on `glm5.3` and `high` on `glm5.3-flash`); on `deepseekv4.1-flash-1017`, `deepseekv4-pro`, and `kimi-k3.1-pro`, `low`, `high`, or `max` all work directly. The trace is in the reasoning item’s `content[0].text`; `summary` is filled only when `summary` is set. Optional **`summary`:** `auto` or `detailed`.
 
 Show 2 properties
 
@@ -248,7 +246,7 @@ YesNo
 
     * [Introduction](https://docs.sarvam.ai/api-reference/introduction)
     * [Authentication](https://docs.sarvam.ai/api-reference/authentication)
-    * [Beta APIs and Models](https://docs.sarvam.ai/api-reference/beta-apis)
+    * [Beta APIs](https://docs.sarvam.ai/api-reference/beta-apis)
     * [Meta Prompt Guide](https://docs.sarvam.ai/api-reference/metaprompt)
   * APIs
 
@@ -301,7 +299,7 @@ YesNo
 
   * [Introduction](https://docs.sarvam.ai/api-reference/introduction)
   * [Authentication](https://docs.sarvam.ai/api-reference/authentication)
-  * [Beta APIs and Models](https://docs.sarvam.ai/api-reference/beta-apis)
+  * [Beta APIs](https://docs.sarvam.ai/api-reference/beta-apis)
   * [Meta Prompt Guide](https://docs.sarvam.ai/api-reference/metaprompt)
   * [REST](https://docs.sarvam.ai/api-reference/speech-to-text/transcribe)
   * [Batch - Initiate Job](https://docs.sarvam.ai/api-reference/speech-to-text/stt/job/initiate)
@@ -451,7 +449,7 @@ YesNo
 
   * [Model APIs](https://docs.sarvam.ai/api)
   * [Voice Agents](https://docs.sarvam.ai/voice-agents)
-  * [Doc Agents](https://docs.sarvam.ai/docai)
+  * [Document AI](https://docs.sarvam.ai/doc-ai)
   * [Content Studio](https://docs.sarvam.ai/creative)
   * [Cowork](https://docs.sarvam.ai/cowork)
   * [API Reference](https://docs.sarvam.ai/api-reference)

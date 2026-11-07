@@ -2,7 +2,7 @@
 url: https://docs.sarvam.ai/api-reference/chat/chat-completions-v2/
 title: Chat Completion V2 | Sarvam API Docs
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T06:32:47.383459+00:00
+fetched_at: 2026-11-07T06:39:26.826875+00:00
 ---
 
 # Chat Completion V2 | Sarvam API Docs
@@ -131,7 +131,7 @@ Requires `api-subscription-key`.
 
 **Streaming is optional.** Default is one JSON response (`stream` omitted or `false`). Set `stream: true` for server-sent events; the stream ends with a `[DONE]` line.
 
-**Reasoning (`glm5.3`, `glm5.3-flash`, `gemma4`, `deepseekv4.1-flash-1017`, `deepseekv4-pro`, `kimi-k3`, `mimo-v2.6-flash`, `mimo-v2.6-pro`):** set `reasoning_effort` to **`low`** , **`high`** , or **`max`**. Default when omitted is **`max`** , except **`high`** on `glm5.3-flash`, `deepseekv4.1-flash-1017`, and `deepseekv4-pro`, and no reasoning on `gemma4`. **`none`** turns thinking off on `deepseekv4.1-flash-1017`, `deepseekv4-pro`, `mimo-v2.6-flash`, and `mimo-v2.6-pro`; on `mimo-v2.6-*`, any other value only switches thinking on. `kimi-k3` always thinks. The trace is in `choices[].message.reasoning_content` and counts toward `max_tokens`. `gemma4` reasons only when `reasoning_effort` is set.
+**Reasoning (`glm5.3`, `glm5.3-flash`, `gemma4`, `deepseekv4.1-flash-1017`, `deepseekv4-pro`, `kimi-k3.1-pro`):** set `reasoning_effort` to **`low`** , **`high`** , or **`max`**. Default when omitted is **`max`** , except **`high`** on `glm5.3-flash`, `deepseekv4.1-flash-1017`, and `deepseekv4-pro`, and no reasoning on `gemma4`. **`none`** turns thinking off on `deepseekv4.1-flash-1017` and `deepseekv4-pro`. `kimi-k3.1-pro` always thinks. The trace is in `choices[].message.reasoning_content` and counts toward `max_tokens`. `gemma4` reasons only when `reasoning_effort` is set.
 
 Request fields documented on this operation are validated by the API. Other OpenAI-compatible fields may be forwarded to the model when sent.
 
@@ -174,14 +174,12 @@ Model IDs accepted by `POST /v2/chat/completions` (case-sensitive; unknown ids r
   * **`glm5.3-flash`** — 1,048,576-token context window, image input (inline base64), tool calling, and reasoning (on by default).
   * **`gemma4`** — 262,144-token context window, image input (inline base64), tool calling, and optional reasoning (`reasoning_effort`).
   * **`deepseekv4.1-flash-1017`** — 1,048,576-token context window, tool calling, and reasoning.
-  * **`deepseekv4-pro`** (beta) — 1,000,000-token context window; text input only; tool calling; reasoning (default `high`; `none` turns it off).
-  * **`kimi-k3`** (beta) — 1,048,576-token context window; image input and short video clips (inline base64); tool calling; reasoning is always on (default `max`).
-  * **`mimo-v2.6-flash`** (beta) — 1,048,576-token context window; image, audio, and video input (inline base64); tool calling; reasoning on by default (`none` turns it off).
-  * **`mimo-v2.6-pro`** (beta) — same contract as `mimo-v2.6-flash`.
+  * **`deepseekv4-pro`** (Provisioned Throughput) — 1,000,000-token context window; text input only; tool calling; reasoning (default `high`; `none` turns it off).
+  * **`kimi-k3.1-pro`** (Provisioned Throughput) — 1,048,576-token context window; image input and short video clips (inline base64); tool calling; reasoning is always on (default `max`).
 
 
 
-Show 9 enum values
+Show 7 enum values
 
 temperaturedouble or nullOptional`0-2`Defaults to `1`
 
@@ -193,7 +191,7 @@ Nucleus sampling: greater than `0` and at most `1`. On `glm5.3`, `top_p: 0` is r
 
 reasoning_effortenum or nullOptional
 
-On reasoning models (`glm5.3`, `glm5.3-flash`, `gemma4`, `deepseekv4.1-flash-1017`, `deepseekv4-pro`, `kimi-k3`, `mimo-v2.6-flash`, `mimo-v2.6-pro`): **`low`** , **`high`** , or **`max`**. Default when omitted is **`max`** , except **`high`** on `glm5.3-flash`, `deepseekv4.1-flash-1017`, and `deepseekv4-pro`, and no reasoning on `gemma4`. **`none`** turns thinking off on `deepseekv4.1-flash-1017`, `deepseekv4-pro`, `mimo-v2.6-flash`, and `mimo-v2.6-pro`; on `mimo-v2.6-*`, any other value only switches thinking on. `kimi-k3` always thinks. Trace in `message.reasoning_content`; billed as completion tokens and counts toward `max_tokens`. On `gemma4`, reasoning is off unless this is set (`low`, `high`, or `max`).
+On reasoning models (`glm5.3`, `glm5.3-flash`, `gemma4`, `deepseekv4.1-flash-1017`, `deepseekv4-pro`, `kimi-k3.1-pro`): **`low`** , **`high`** , or **`max`**. Default when omitted is **`max`** , except **`high`** on `glm5.3-flash`, `deepseekv4.1-flash-1017`, and `deepseekv4-pro`, and no reasoning on `gemma4`. **`none`** turns thinking off on `deepseekv4.1-flash-1017` and `deepseekv4-pro`. `kimi-k3.1-pro` always thinks. Trace in `message.reasoning_content`; billed as completion tokens and counts toward `max_tokens`. On `gemma4`, reasoning is off unless this is set (`low`, `high`, or `max`).
 
 Allowed values:nonelowhighmax
 
@@ -269,11 +267,11 @@ Show 1 property
 
 logprobsboolean or nullOptional
 
-If `true`, return log probabilities for output tokens (use with `top_logprobs`). Supported on **`sarvam-105b`** , **`gemma4`** , **`glm5.3-flash`** , **`deepseekv4.1-flash-1017`** , **`deepseekv4-pro`** , **`kimi-k3`** , **`mimo-v2.6-flash`** , and **`mimo-v2.6-pro`**. Not supported on **`glm5.3`** (`400` if enabled).
+If `true`, return log probabilities for output tokens (use with `top_logprobs`). Supported on **`sarvam-105b`** , **`gemma4`** , **`glm5.3-flash`** , **`deepseekv4.1-flash-1017`** , **`deepseekv4-pro`** , and **`kimi-k3.1-pro`**. Not supported on **`glm5.3`** (`400` if enabled).
 
 top_logprobsinteger or nullOptional
 
-How many top token log probabilities to return at each position. Takes effect only when `logprobs` is `true`; without it, some models ignore the field and others return **`400`**. Same model support as `logprobs`: works on `sarvam-105b`, `gemma4`, `glm5.3-flash`, `deepseekv4.1-flash-1017`, `deepseekv4-pro`, `kimi-k3`, `mimo-v2.6-flash`, and `mimo-v2.6-pro`; on `glm5.3`, omit entirely — do not send `0`, since many SDKs add it by default.
+How many top token log probabilities to return at each position. Takes effect only when `logprobs` is `true`; without it, some models ignore the field and others return **`400`**. Same model support as `logprobs`: works on `sarvam-105b`, `gemma4`, `glm5.3-flash`, `deepseekv4.1-flash-1017`, `deepseekv4-pro`, and `kimi-k3.1-pro`; on `glm5.3`, omit entirely — do not send `0`, since many SDKs add it by default.
 
 ### Response
 
@@ -355,7 +353,7 @@ YesNo
 
     * [Introduction](https://docs.sarvam.ai/api-reference/introduction)
     * [Authentication](https://docs.sarvam.ai/api-reference/authentication)
-    * [Beta APIs and Models](https://docs.sarvam.ai/api-reference/beta-apis)
+    * [Beta APIs](https://docs.sarvam.ai/api-reference/beta-apis)
     * [Meta Prompt Guide](https://docs.sarvam.ai/api-reference/metaprompt)
   * APIs
 
@@ -415,7 +413,7 @@ YesNo
 
   * [Introduction](https://docs.sarvam.ai/api-reference/introduction)
   * [Authentication](https://docs.sarvam.ai/api-reference/authentication)
-  * [Beta APIs and Models](https://docs.sarvam.ai/api-reference/beta-apis)
+  * [Beta APIs](https://docs.sarvam.ai/api-reference/beta-apis)
   * [Meta Prompt Guide](https://docs.sarvam.ai/api-reference/metaprompt)
   * [REST](https://docs.sarvam.ai/api-reference/speech-to-text/transcribe)
   * [Batch - Initiate Job](https://docs.sarvam.ai/api-reference/speech-to-text/stt/job/initiate)
@@ -565,7 +563,7 @@ YesNo
 
   * [Model APIs](https://docs.sarvam.ai/api)
   * [Voice Agents](https://docs.sarvam.ai/voice-agents)
-  * [Doc Agents](https://docs.sarvam.ai/docai)
+  * [Document AI](https://docs.sarvam.ai/doc-ai)
   * [Content Studio](https://docs.sarvam.ai/creative)
   * [Cowork](https://docs.sarvam.ai/cowork)
   * [API Reference](https://docs.sarvam.ai/api-reference)

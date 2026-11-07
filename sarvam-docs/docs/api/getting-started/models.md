@@ -2,7 +2,7 @@
 url: https://docs.sarvam.ai/api/getting-started/models/
 title: Models | Sarvam API Docs
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T06:32:49.039226+00:00
+fetched_at: 2026-11-07T06:39:12.590757+00:00
 ---
 
 # Models | Sarvam API Docs
@@ -40,7 +40,7 @@ This page is for Model APIs.
 Model APIs come in two families that share one API key, one SDK, and one credit balance:
 
   * **Sarvam Models** : Sarvam’s own models for Indian languages, covering speech to text, text to speech, translation, and document intelligence. Each is trained and evaluated on Indian languages, accents, and code-mixed input.
-  * **Token Factory (Open-Weight)** : open-weight LLMs (Sarvam 105B, GLM, Gemma, DeepSeek, Kimi, and MiMo) on an OpenAI-compatible `/v2` API, plus Sarvam Prism, a System-1 decision model built on Sarvam 105B.
+  * **Token Factory (Open-Weight)** : open-weight LLMs (Sarvam 105B, GLM, Gemma, DeepSeek, and Kimi) on an OpenAI-compatible `/v2` API, plus Sarvam Prism, a System-1 decision model built on Sarvam 105B.
 
 
 
@@ -67,7 +67,7 @@ Model| API| Description
 
 Token Factory models are available on **`/v2`** using the same Sarvam API key and credits.
 
-DeepSeek V4 Pro, Kimi K3, MiMo V2.6 Flash, and MiMo V2.6 Pro are **in beta**. See [Beta models](https://docs.sarvam.ai/api-reference/beta-apis).
+DeepSeek V4 Pro and Kimi K3.1 Pro are on **Provisioned Throughput** and are enabled per organisation. See [Provisioned Throughput](https://docs.sarvam.ai/api/token-factory/models#provisioned-throughput).
 
 Model| Context window| Modality| Reasoning  
 ---|---|---|---  
@@ -79,9 +79,7 @@ Model| Context window| Modality| Reasoning
 [Gemma 4 31B](https://docs.sarvam.ai/api/token-factory/models/gemma-4-31b)| 262,144 tokens| Text + image → text| Yes, off by default  
 [DeepSeek V4.1 Flash 1017](https://docs.sarvam.ai/api/token-factory/models/deepseek-v4.1-flash-1017)| 1,048,576 tokens| Text + image → text| Yes  
 [DeepSeek V4 Pro](https://docs.sarvam.ai/api/token-factory/models/deepseek-v4-pro)| 1,000,000 tokens| Text → text| Yes  
-[Kimi K3](https://docs.sarvam.ai/api/token-factory/models/kimi-k3)| 1,048,576 tokens| Text + image + video → text| Yes  
-[MiMo V2.6 Flash](https://docs.sarvam.ai/api/token-factory/models/mimo-v2.6-flash)| 1,048,576 tokens| Text + image + audio + video → text| Yes  
-[MiMo V2.6 Pro](https://docs.sarvam.ai/api/token-factory/models/mimo-v2.6-pro)| 1,048,576 tokens| Text + image + audio + video → text| Yes  
+[Kimi K3.1 Pro](https://docs.sarvam.ai/api/token-factory/models/kimi-k3.1-pro)| 1,048,576 tokens| Text + image + video → text| Yes  
   
 [Compare the Token Factory models →](https://docs.sarvam.ai/api/token-factory/models)
 
@@ -101,16 +99,14 @@ Model| Languages| Status
 **Bulbul v3** (Text to Speech)| 11 (10 Indian + English), [full list](https://docs.sarvam.ai/api/api-guides-tutorials/models/bulbul#language-support)| Active (API default)  
 **Sarvam Instant Voice Cloning**|  12 Indian languages, [full list](https://docs.sarvam.ai/api/api-guides-tutorials/voice-cloning/supported-languages)| Active (Beta)  
 **Mayura** (Text Translation)| 11 (10 Indian + English), [full list](https://docs.sarvam.ai/api/api-guides-tutorials/models/mayura#language-support)| Active  
-**Sarvam-105B** (Chat LLM)| 11 (10 Indian + English), `sarvam-105b`| Active  
-**Sarvam-105B Conversations** (Chat LLM)| 11 (10 Indian + English), `sarvam-105b-conversations`| Active  
-**GLM-5.3** (Chat LLM, [open-weight](https://docs.sarvam.ai/api/token-factory/models))| See the model page for language coverage| Active  
-**GLM-5.3 Flash** (Chat LLM, [open-weight](https://docs.sarvam.ai/api/token-factory/models))| See the model page for language coverage| Active  
-**Gemma 4 31B** (Chat LLM, [open-weight](https://docs.sarvam.ai/api/token-factory/models))| See the model page for language coverage| Active  
-**DeepSeek V4.1 Flash 1017** (Chat LLM, [open-weight](https://docs.sarvam.ai/api/token-factory/models))| See the model page for language coverage| Active  
-**DeepSeek V4 Pro** (Chat LLM, [open-weight](https://docs.sarvam.ai/api/token-factory/models))| See the model page for language coverage| Beta  
-**Kimi K3** (Chat LLM, [open-weight](https://docs.sarvam.ai/api/token-factory/models))| See the model page for language coverage| Beta  
-**MiMo V2.6 Flash** (Chat LLM, [open-weight](https://docs.sarvam.ai/api/token-factory/models))| See the model page for language coverage| Beta  
-**MiMo V2.6 Pro** (Chat LLM, [open-weight](https://docs.sarvam.ai/api/token-factory/models))| See the model page for language coverage| Beta  
+**Sarvam-105B** (Chat LLM)| 11 (10 Indian + English), `sarvam-105b`| Serverless  
+**Sarvam-105B Conversations** (Chat LLM)| 11 (10 Indian + English), `sarvam-105b-conversations`| Serverless  
+**GLM-5.3** (Chat LLM, [open-weight](https://docs.sarvam.ai/api/token-factory/models))| See the model page for language coverage| Serverless  
+**GLM-5.3 Flash** (Chat LLM, [open-weight](https://docs.sarvam.ai/api/token-factory/models))| See the model page for language coverage| Serverless  
+**Gemma 4 31B** (Chat LLM, [open-weight](https://docs.sarvam.ai/api/token-factory/models))| See the model page for language coverage| Serverless  
+**DeepSeek V4.1 Flash 1017** (Chat LLM, [open-weight](https://docs.sarvam.ai/api/token-factory/models))| See the model page for language coverage| Serverless  
+**DeepSeek V4 Pro** (Chat LLM, [open-weight](https://docs.sarvam.ai/api/token-factory/models))| See the model page for language coverage| Provisioned Throughput  
+**Kimi K3.1 Pro** (Chat LLM, [open-weight](https://docs.sarvam.ai/api/token-factory/models))| See the model page for language coverage| Provisioned Throughput  
   
 ### 23-language set (Saaras v4, Sarvam Translate, Sarvam Vision)
 
@@ -252,9 +248,7 @@ YesNo
   * [Gemma 4 31B](https://docs.sarvam.ai/api/token-factory/models/gemma-4-31b)
   * [DeepSeek V4.1 Flash 1017](https://docs.sarvam.ai/api/token-factory/models/deepseek-v4.1-flash-1017)
   * [DeepSeek V4 Pro](https://docs.sarvam.ai/api/token-factory/models/deepseek-v4-pro)
-  * [Kimi K3](https://docs.sarvam.ai/api/token-factory/models/kimi-k3)
-  * [MiMo V2.6 Flash](https://docs.sarvam.ai/api/token-factory/models/mimo-v2.6-flash)
-  * [MiMo V2.6 Pro](https://docs.sarvam.ai/api/token-factory/models/mimo-v2.6-pro)
+  * [Kimi K3.1 Pro](https://docs.sarvam.ai/api/token-factory/models/kimi-k3.1-pro)
   * [Chat Completions](https://docs.sarvam.ai/api/token-factory/chat-completions)
   * [Responses API](https://docs.sarvam.ai/api/token-factory/responses-api)
   * [Decisions API](https://docs.sarvam.ai/api/token-factory/decisions-api)
@@ -429,7 +423,7 @@ YesNo
 
   * [Model APIs](https://docs.sarvam.ai/api)
   * [Voice Agents](https://docs.sarvam.ai/voice-agents)
-  * [Doc Agents](https://docs.sarvam.ai/docai)
+  * [Document AI](https://docs.sarvam.ai/doc-ai)
   * [Content Studio](https://docs.sarvam.ai/creative)
   * [Cowork](https://docs.sarvam.ai/cowork)
   * [API Reference](https://docs.sarvam.ai/api-reference)

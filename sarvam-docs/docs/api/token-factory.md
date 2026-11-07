@@ -2,7 +2,7 @@
 url: https://docs.sarvam.ai/api/token-factory/
 title: Token Factory | Sarvam API Docs
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T06:32:49.208109+00:00
+fetched_at: 2026-11-07T06:39:11.703264+00:00
 ---
 
 # Token Factory | Sarvam API Docs
@@ -77,7 +77,7 @@ Model| Model ID| Best for| Input / output price (₹ per 1M tokens)
   
 Need a yes/no, a label, or a score instead of generated text? [Sarvam Prism](https://docs.sarvam.ai/api/token-factory/models/sarvam-prism) (`sarvam-prism`) is a System-1 decision model built on Sarvam 105B. On [`POST /v2/systemone`](https://docs.sarvam.ai/api-reference/decisions/systemone) it returns a calibrated probability for every option, at ₹4 per 1M input tokens (₹0 output).
 
-[DeepSeek V4 Pro](https://docs.sarvam.ai/api/token-factory/models/deepseek-v4-pro), [Kimi K3](https://docs.sarvam.ai/api/token-factory/models/kimi-k3), [MiMo V2.6 Flash](https://docs.sarvam.ai/api/token-factory/models/mimo-v2.6-flash), and [MiMo V2.6 Pro](https://docs.sarvam.ai/api/token-factory/models/mimo-v2.6-pro) are in [beta](https://docs.sarvam.ai/api-reference/beta-apis) and are enabled per organisation. See [Pricing](https://docs.sarvam.ai/api/getting-started/pricing) for their rates and for cached-input rates.
+[DeepSeek V4 Pro](https://docs.sarvam.ai/api/token-factory/models/deepseek-v4-pro) and [Kimi K3.1 Pro](https://docs.sarvam.ai/api/token-factory/models/kimi-k3.1-pro) are on [Provisioned Throughput](https://docs.sarvam.ai/api/token-factory/models#provisioned-throughput) and are enabled per organisation. See [Pricing](https://docs.sarvam.ai/api/getting-started/pricing) for their rates and for cached-input rates.
 
 Moving from another provider? Follow the guide for [OpenRouter](https://docs.sarvam.ai/api/token-factory/migrations/from-openrouter/overview), [Fireworks AI](https://docs.sarvam.ai/api/token-factory/migrations/from-fireworks/overview), or [Together AI](https://docs.sarvam.ai/api/token-factory/migrations/from-together/overview).
 
@@ -165,9 +165,7 @@ YesNo
   * [Gemma 4 31B](https://docs.sarvam.ai/api/token-factory/models/gemma-4-31b)
   * [DeepSeek V4.1 Flash 1017](https://docs.sarvam.ai/api/token-factory/models/deepseek-v4.1-flash-1017)
   * [DeepSeek V4 Pro](https://docs.sarvam.ai/api/token-factory/models/deepseek-v4-pro)
-  * [Kimi K3](https://docs.sarvam.ai/api/token-factory/models/kimi-k3)
-  * [MiMo V2.6 Flash](https://docs.sarvam.ai/api/token-factory/models/mimo-v2.6-flash)
-  * [MiMo V2.6 Pro](https://docs.sarvam.ai/api/token-factory/models/mimo-v2.6-pro)
+  * [Kimi K3.1 Pro](https://docs.sarvam.ai/api/token-factory/models/kimi-k3.1-pro)
   * [Chat Completions](https://docs.sarvam.ai/api/token-factory/chat-completions)
   * [Responses API](https://docs.sarvam.ai/api/token-factory/responses-api)
   * [Decisions API](https://docs.sarvam.ai/api/token-factory/decisions-api)
@@ -342,7 +340,7 @@ YesNo
 
   * [Model APIs](https://docs.sarvam.ai/api)
   * [Voice Agents](https://docs.sarvam.ai/voice-agents)
-  * [Doc Agents](https://docs.sarvam.ai/docai)
+  * [Document AI](https://docs.sarvam.ai/doc-ai)
   * [Content Studio](https://docs.sarvam.ai/creative)
   * [Cowork](https://docs.sarvam.ai/cowork)
   * [API Reference](https://docs.sarvam.ai/api-reference)

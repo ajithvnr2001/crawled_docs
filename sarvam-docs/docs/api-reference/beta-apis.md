@@ -1,11 +1,11 @@
 ---
 url: https://docs.sarvam.ai/api-reference/beta-apis/
-title: Beta APIs and Models | Sarvam API Docs
+title: Beta APIs | Sarvam API Docs
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T06:32:49.660062+00:00
+fetched_at: 2026-11-07T06:39:12.655968+00:00
 ---
 
-# Beta APIs and Models | Sarvam API Docs
+# Beta APIs | Sarvam API Docs
 
 > Source: https://docs.sarvam.ai/api-reference/beta-apis/
 
@@ -13,8 +13,7 @@ Skip to navigation
 
 On this page
 
-  * Beta models
-  * Future Beta Features
+  * Future beta features
 
 
 
@@ -22,32 +21,15 @@ Scroll to top
 
 [API Reference](https://docs.sarvam.ai/api-reference/introduction)
 
-# Beta APIs and Models
+# Beta APIs
 
 Ask a question|Copy page|[View as Markdown](https://docs.sarvam.ai/api-reference/beta-apis.md "View this page as plain text")|More actions
 
 This page is for API Reference.
 
-## Beta models
+Open-weight models that were listed here as beta are now offered on [Provisioned Throughput](https://docs.sarvam.ai/api/token-factory/models#provisioned-throughput).
 
-[`POST /v2/chat/completions`](https://docs.sarvam.ai/api-reference/chat/chat-completions-v2) and [`POST /v2/responses`](https://docs.sarvam.ai/api-reference/responses/create) are generally available with `sarvam-105b`, [`glm5.3`](https://docs.sarvam.ai/api/token-factory/models/glm-5-3), [`glm5.3-flash`](https://docs.sarvam.ai/api/token-factory/models/glm-5-3-flash), [`gemma4`](https://docs.sarvam.ai/api/token-factory/models/gemma-4-31b), and [`deepseekv4.1-flash-1017`](https://docs.sarvam.ai/api/token-factory/models/deepseek-v4.1-flash-1017).
-
-The following models on those endpoints are in **beta**. Their behaviour, limits, and availability may change before general availability.
-
-Beta access is enabled **per organisation** , for all beta models at once: every API key in an organisation with access can call them. Without access, requests get `400 invalid_request_error` (“This model is currently in beta”) for these model IDs, even though [`GET /v2/models`](https://docs.sarvam.ai/api-reference/chat/models-v2) still lists them. [Contact us](https://docs.sarvam.ai/api/getting-started/help) to enable beta models for your organisation.
-
-Model ID| Chat Completion V2| Responses  
----|---|---  
-[`deepseekv4-pro`](https://docs.sarvam.ai/api/token-factory/models/deepseek-v4-pro)| Yes| Yes  
-[`kimi-k3`](https://docs.sarvam.ai/api/token-factory/models/kimi-k3)| Yes| Yes  
-[`mimo-v2.6-flash`](https://docs.sarvam.ai/api/token-factory/models/mimo-v2.6-flash)| Yes| Yes  
-[`mimo-v2.6-pro`](https://docs.sarvam.ai/api/token-factory/models/mimo-v2.6-pro)| Yes| Yes  
-  
-[`/v1/chat/completions`](https://docs.sarvam.ai/api/token-factory/chat-completions) serves `sarvam-105b` and `sarvam-105b-conversations`. Open-weight models require `/v2`. [`POST /v2/responses`](https://docs.sarvam.ai/api-reference/responses/create) uses the OpenAI Responses protocol with the same model IDs as Chat Completion V2. It is create-only and stateless: replay `input` every turn. Omit `store` or pass `false`. Listing or deleting stored responses is not supported (`GET /v2/responses` and `DELETE /v2/responses/{id}` return **405**).
-
-Call [`GET /v2/models`](https://docs.sarvam.ai/api-reference/chat/models-v2) to see which IDs your key can use. That endpoint is unauthenticated; completions and responses require `api-subscription-key`.
-
-### Future Beta Features
+## Future beta features
 
 As we continue to innovate and develop new capabilities, we may introduce additional beta APIs and features. When available, these will:
 
@@ -67,7 +49,7 @@ YesNo
 
     * [Introduction](https://docs.sarvam.ai/api-reference/introduction)
     * [Authentication](https://docs.sarvam.ai/api-reference/authentication)
-    * [Beta APIs and Models](https://docs.sarvam.ai/api-reference/beta-apis)
+    * [Beta APIs](https://docs.sarvam.ai/api-reference/beta-apis)
     * [Meta Prompt Guide](https://docs.sarvam.ai/api-reference/metaprompt)
   * APIs
 
@@ -119,7 +101,7 @@ YesNo
 
   * [Introduction](https://docs.sarvam.ai/api-reference/introduction)
   * [Authentication](https://docs.sarvam.ai/api-reference/authentication)
-  * [Beta APIs and Models](https://docs.sarvam.ai/api-reference/beta-apis)
+  * [Beta APIs](https://docs.sarvam.ai/api-reference/beta-apis)
   * [Meta Prompt Guide](https://docs.sarvam.ai/api-reference/metaprompt)
   * [REST](https://docs.sarvam.ai/api-reference/speech-to-text/transcribe)
   * [Batch - Initiate Job](https://docs.sarvam.ai/api-reference/speech-to-text/stt/job/initiate)
@@ -269,7 +251,7 @@ YesNo
 
   * [Model APIs](https://docs.sarvam.ai/api)
   * [Voice Agents](https://docs.sarvam.ai/voice-agents)
-  * [Doc Agents](https://docs.sarvam.ai/docai)
+  * [Document AI](https://docs.sarvam.ai/doc-ai)
   * [Content Studio](https://docs.sarvam.ai/creative)
   * [Cowork](https://docs.sarvam.ai/cowork)
   * [API Reference](https://docs.sarvam.ai/api-reference)

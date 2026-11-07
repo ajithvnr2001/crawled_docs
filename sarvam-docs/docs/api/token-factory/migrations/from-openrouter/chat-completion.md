@@ -2,7 +2,7 @@
 url: https://docs.sarvam.ai/api/token-factory/migrations/from-openrouter/chat-completion/
 title: Migrating Chat Completion from OpenRouter to Sarvam | Sarvam API Docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-30T06:37:12.914288+00:00
+fetched_at: 2026-11-07T06:39:13.238280+00:00
 ---
 
 # Migrating Chat Completion from OpenRouter to Sarvam | Sarvam API Docs
@@ -61,7 +61,7 @@ This guide covers moving OpenRouter Chat Completions and Responses calls for ope
 ---|---|---  
 Base URL| `https://openrouter.ai/api/v1`| `https://api.sarvam.ai/v2`  
 Auth header| `Authorization: Bearer <key>`| `api-subscription-key: <key>` or `Authorization: Bearer <key>`  
-Model ID| `moonshotai/kimi-k3`| `kimi-k3` (see the [model ID table](https://docs.sarvam.ai/api/token-factory/migrations/from-openrouter/overview#model-ids))  
+Model ID| `moonshotai/kimi-k3`| `kimi-k3.1-pro` (see the [model ID table](https://docs.sarvam.ai/api/token-factory/migrations/from-openrouter/overview#model-ids))  
   
 ###### Before (OpenRouter)
 
@@ -112,7 +112,7 @@ OpenRouter| Sarvam| Note
 ---|---|---  
 `reasoning: {"effort": "low"}`| `reasoning_effort: "low"`| Sarvam uses the top-level field only; the `reasoning` object returns `400` on chat. Use `low`, `high`, or `max`.  
 `reasoning_effort` (top level)| `reasoning_effort`| Same field. `medium` is accepted on some models and returns `400` on others, such as `glm5.3`.  
-`reasoning: {"enabled": false}` or `effort: "none"`| `reasoning_effort: "none"`| Turns thinking off on `deepseekv4-pro`, `mimo-v2.6-flash`, and `mimo-v2.6-pro`. `kimi-k3` and `glm5.3-flash` always think. See [Reasoning](https://docs.sarvam.ai/api/token-factory/models#reasoning).  
+`reasoning: {"enabled": false}` or `effort: "none"`| `reasoning_effort: "none"`| Turns thinking off on `deepseekv4-pro`. `kimi-k3.1-pro` and `glm5.3-flash` always think. See [Reasoning](https://docs.sarvam.ai/api/token-factory/models#reasoning).  
 `reasoning: {"max_tokens": N}`| Not supported| Choose an effort level instead, and size `max_tokens` to cover reasoning plus the answer.  
 `reasoning: {"exclude": true}`| Not supported| Ignore `reasoning_content` in your code. Reasoning tokens are billed either way.  
 `include_reasoning: true`| Remove| Reasoning is always returned when the model thinks.  
@@ -152,8 +152,7 @@ OpenRouter| Sarvam| Note
 `top_k`, `repetition_penalty`| Same|   
 `stream: true`| Same| No `: OPENROUTER PROCESSING` keep-alive comments. Usage arrives in the final chunk.  
 `image_url` content parts| Same| Inline base64 data URIs only, on models with image input. See each [model page](https://docs.sarvam.ai/api/token-factory/models).  
-`input_audio` content parts| Same, on the MiMo models| `wav` or `mp3`. For FLAC, OGG, or Opus, send an `audio_url` part with a data URI. See [Media input](https://docs.sarvam.ai/api/token-factory/migrations/from-openrouter/overview#media-input-and-request-size).  
-`video_url` content parts| Same, as a base64 data URI| On the MiMo models and `kimi-k3` (beta, short clips). Sarvam doesn’t fetch video URLs.  
+`video_url` content parts| Same, as a base64 data URI| On `kimi-k3.1-pro` (short clips). Sarvam doesn’t fetch video URLs.  
 `usage.cost`| Not returned| Token counts are in `usage`. Check spend in the [dashboard](https://indus.sarvam.ai/billing?ref=docs).  
 `GET /api/v1/generation?id=`| Not available| Log the `id` and `usage` from each response yourself.  
   
@@ -217,7 +216,7 @@ Fields like `provider`, `models`, `reasoning`, and `plugins` are often passed th
 
 ###### Keeping the provider prefix in the model ID
 
-`moonshotai/kimi-k3` returns `404` on Sarvam. Use `kimi-k3`. See the [model ID table](https://docs.sarvam.ai/api/token-factory/migrations/from-openrouter/overview#model-ids).
+`moonshotai/kimi-k3` returns `404` on Sarvam. Use `kimi-k3.1-pro`. See the [model ID table](https://docs.sarvam.ai/api/token-factory/migrations/from-openrouter/overview#model-ids).
 
 ###### Reading message.reasoning
 
@@ -259,6 +258,7 @@ YesNo
 
     * [Chat Completions](https://docs.sarvam.ai/api/token-factory/chat-completions)
     * [Responses API](https://docs.sarvam.ai/api/token-factory/responses-api)
+    * [Decisions API](https://docs.sarvam.ai/api/token-factory/decisions-api)
     * How-to
 
     * Migration Guides
@@ -323,16 +323,17 @@ YesNo
   * [Talk to us](https://docs.sarvam.ai/api/getting-started/help)
   * [Token Factory (Open-Weight)](https://docs.sarvam.ai/api/token-factory)
   * [Models](https://docs.sarvam.ai/api/token-factory/models)
+  * [Sarvam 105B](https://docs.sarvam.ai/api/token-factory/models/sarvam-105b)
+  * [Sarvam Prism](https://docs.sarvam.ai/api/token-factory/models/sarvam-prism)
   * [GLM-5.3](https://docs.sarvam.ai/api/token-factory/models/glm-5-3)
   * [GLM-5.3 Flash](https://docs.sarvam.ai/api/token-factory/models/glm-5-3-flash)
   * [Gemma 4 31B](https://docs.sarvam.ai/api/token-factory/models/gemma-4-31b)
   * [DeepSeek V4.1 Flash 1017](https://docs.sarvam.ai/api/token-factory/models/deepseek-v4.1-flash-1017)
   * [DeepSeek V4 Pro](https://docs.sarvam.ai/api/token-factory/models/deepseek-v4-pro)
-  * [Kimi K3](https://docs.sarvam.ai/api/token-factory/models/kimi-k3)
-  * [MiMo V2.6 Flash](https://docs.sarvam.ai/api/token-factory/models/mimo-v2.6-flash)
-  * [MiMo V2.6 Pro](https://docs.sarvam.ai/api/token-factory/models/mimo-v2.6-pro)
+  * [Kimi K3.1 Pro](https://docs.sarvam.ai/api/token-factory/models/kimi-k3.1-pro)
   * [Chat Completions](https://docs.sarvam.ai/api/token-factory/chat-completions)
   * [Responses API](https://docs.sarvam.ai/api/token-factory/responses-api)
+  * [Decisions API](https://docs.sarvam.ai/api/token-factory/decisions-api)
   * [List your chat messages](https://docs.sarvam.ai/api/token-factory/how-to/list-your-chat-messages)
   * [Control response randomness](https://docs.sarvam.ai/api/token-factory/how-to/control-response-randomness)
   * [Control response diversity](https://docs.sarvam.ai/api/token-factory/how-to/control-response-diversity)
@@ -352,7 +353,6 @@ YesNo
   * [Chat Completion](https://docs.sarvam.ai/api/token-factory/migrations/from-together/chat-completion)
   * [Saaras](https://docs.sarvam.ai/api/api-guides-tutorials/models/saaras)
   * [Bulbul](https://docs.sarvam.ai/api/api-guides-tutorials/models/bulbul)
-  * [Sarvam 105B](https://docs.sarvam.ai/api/api-guides-tutorials/models/sarvam-105b)
   * [Mayura](https://docs.sarvam.ai/api/api-guides-tutorials/models/mayura)
   * [Sarvam Translate](https://docs.sarvam.ai/api/api-guides-tutorials/models/sarvam-translate)
   * [Sarvam Vision](https://docs.sarvam.ai/api/api-guides-tutorials/models/sarvam-vision)
@@ -505,7 +505,7 @@ YesNo
 
   * [Model APIs](https://docs.sarvam.ai/api)
   * [Voice Agents](https://docs.sarvam.ai/voice-agents)
-  * [Doc Agents](https://docs.sarvam.ai/docai)
+  * [Document AI](https://docs.sarvam.ai/doc-ai)
   * [Content Studio](https://docs.sarvam.ai/creative)
   * [Cowork](https://docs.sarvam.ai/cowork)
   * [API Reference](https://docs.sarvam.ai/api-reference)

@@ -2,7 +2,7 @@
 url: https://docs.sarvam.ai/api/token-factory/migrations/from-fireworks/overview/
 title: Migrating from Fireworks AI: Overview | Sarvam API Docs
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T06:32:52.988787+00:00
+fetched_at: 2026-11-07T06:39:11.418624+00:00
 ---
 
 # Migrating from Fireworks AI: Overview | Sarvam API Docs
@@ -124,21 +124,19 @@ Sarvam has one ID per model. Fireworks’ Fast and US router variants, and your 
 
 Fireworks `model`| Sarvam `model`| Status on Sarvam  
 ---|---|---  
-`accounts/fireworks/models/glm-5p3` (also `routers/glm-5p3-fast`, `routers/glm-5p3-us`)| [`glm5.3`](https://docs.sarvam.ai/api/token-factory/models/glm-5-3)| GA  
-`accounts/fireworks/models/glm-5p3-flash` (also `routers/glm-5p3-flash-us`)| [`glm5.3-flash`](https://docs.sarvam.ai/api/token-factory/models/glm-5-3-flash)| GA  
-`accounts/fireworks/models/gemma-4-31b-it` (on-demand deployment on Fireworks)| [`gemma4`](https://docs.sarvam.ai/api/token-factory/models/gemma-4-31b)| GA  
-`accounts/fireworks/models/deepseek-v4p1-flash` (also `routers/deepseek-v4p1-flash-us`)| [`deepseekv4.1-flash-1017`](https://docs.sarvam.ai/api/token-factory/models/deepseek-v4.1-flash-1017)| GA  
-`accounts/fireworks/routers/deepseek-v4p1-flash-1017-us` (US-only router on Fireworks)| [`deepseekv4.1-flash-1017`](https://docs.sarvam.ai/api/token-factory/models/deepseek-v4.1-flash-1017)| GA  
-`accounts/fireworks/models/deepseek-v4-pro` (April 2026 snapshot; on-demand deployment on Fireworks)| [`deepseekv4-pro`](https://docs.sarvam.ai/api/token-factory/models/deepseek-v4-pro) (0813 snapshot)| Beta  
-`accounts/fireworks/models/kimi-k3` (also `routers/kimi-k3-fast`, `routers/kimi-k3-us`)| [`kimi-k3`](https://docs.sarvam.ai/api/token-factory/models/kimi-k3)| Beta  
-Not offered on Fireworks| [`mimo-v2.6-flash`](https://docs.sarvam.ai/api/token-factory/models/mimo-v2.6-flash)| Beta  
-Not offered on Fireworks (only the MiMo V2.6 Pro-RL variant is listed)| [`mimo-v2.6-pro`](https://docs.sarvam.ai/api/token-factory/models/mimo-v2.6-pro)| Beta  
+`accounts/fireworks/models/glm-5p3` (also `routers/glm-5p3-fast`, `routers/glm-5p3-us`)| [`glm5.3`](https://docs.sarvam.ai/api/token-factory/models/glm-5-3)| Serverless  
+`accounts/fireworks/models/glm-5p3-flash` (also `routers/glm-5p3-flash-us`)| [`glm5.3-flash`](https://docs.sarvam.ai/api/token-factory/models/glm-5-3-flash)| Serverless  
+`accounts/fireworks/models/gemma-4-31b-it` (on-demand deployment on Fireworks)| [`gemma4`](https://docs.sarvam.ai/api/token-factory/models/gemma-4-31b)| Serverless  
+`accounts/fireworks/models/deepseek-v4p1-flash` (also `routers/deepseek-v4p1-flash-us`)| [`deepseekv4.1-flash-1017`](https://docs.sarvam.ai/api/token-factory/models/deepseek-v4.1-flash-1017)| Serverless  
+`accounts/fireworks/routers/deepseek-v4p1-flash-1017-us` (US-only router on Fireworks)| [`deepseekv4.1-flash-1017`](https://docs.sarvam.ai/api/token-factory/models/deepseek-v4.1-flash-1017)| Serverless  
+`accounts/fireworks/models/deepseek-v4-pro` (April 2026 snapshot; on-demand deployment on Fireworks)| [`deepseekv4-pro`](https://docs.sarvam.ai/api/token-factory/models/deepseek-v4-pro) (0813 snapshot)| Provisioned Throughput  
+`accounts/fireworks/models/kimi-k3` (also `routers/kimi-k3-fast`, `routers/kimi-k3-us`)| [`kimi-k3.1-pro`](https://docs.sarvam.ai/api/token-factory/models/kimi-k3.1-pro)| Provisioned Throughput  
   
 Sarvam’s `deepseekv4-pro` is the newer 0813 snapshot of DeepSeek V4 Pro, so outputs can differ from the April 2026 snapshot on Fireworks.
 
 Gemma 4 31B and DeepSeek V4 Pro need a dedicated deployment on Fireworks. On Sarvam, call them by model ID like any other model, with no deployment to create or manage.
 
-Model IDs are case-sensitive. An unknown ID returns `404 not_found_error`. [`GET /v2/models`](https://docs.sarvam.ai/api-reference/chat/models-v2) lists the available models. Beta models need beta access for your organisation: without it, they return `400 invalid_request_error`, even though the list shows them. [Contact us](https://docs.sarvam.ai/api/getting-started/help) to request access.
+Model IDs are case-sensitive. An unknown ID returns `404 not_found_error`. [`GET /v2/models`](https://docs.sarvam.ai/api-reference/chat/models-v2) lists the available models. Models on [Provisioned Throughput](https://docs.sarvam.ai/api/token-factory/models#provisioned-throughput) need access for your organisation: without it, they return `400 invalid_request_error`, even though the list shows them. [Contact us](https://docs.sarvam.ai/api/getting-started/help) to request access.
 
 ## Models not on Sarvam
 
@@ -151,8 +149,7 @@ GLM-5.3 FlashX| [`glm5.3-flash`](https://docs.sarvam.ai/api/token-factory/models
 Earlier GLM (GLM-5.2, GLM-5.1, GLM-5, GLM-4.x)| [`glm5.3`](https://docs.sarvam.ai/api/token-factory/models/glm-5-3)| Newer generation of the same family. For image input, use `glm5.3-flash`.  
 DeepSeek V4 Flash (any snapshot), DeepSeek V3.x| [`deepseekv4.1-flash-1017`](https://docs.sarvam.ai/api/token-factory/models/deepseek-v4.1-flash-1017)| The DeepSeek Flash model Sarvam serves.  
 DeepSeek V4 Pro (April 2026 snapshot), DeepSeek R1| [`deepseekv4-pro`](https://docs.sarvam.ai/api/token-factory/models/deepseek-v4-pro)| Sarvam serves the newer 0813 snapshot.  
-Kimi K2, K2.5, K2.6, K2.7 Code, K2 Thinking| [`kimi-k3`](https://docs.sarvam.ai/api/token-factory/models/kimi-k3)| Newer Kimi generation, with a longer 1M context.  
-MiMo V2.5, MiMo V2.6 Pro UltraSpeed, MiMo V2.6 Pro-RL| [`mimo-v2.6-pro`](https://docs.sarvam.ai/api/token-factory/models/mimo-v2.6-pro) or [`mimo-v2.6-flash`](https://docs.sarvam.ai/api/token-factory/models/mimo-v2.6-flash)| Current MiMo generation, with image, audio, and video input.  
+Kimi K2, K2.5, K2.6, K2.7 Code, K2 Thinking| [`kimi-k3.1-pro`](https://docs.sarvam.ai/api/token-factory/models/kimi-k3.1-pro)| Newer Kimi generation, with a longer 1M context.  
 Gemma 3, Gemma 4 26B| [`gemma4`](https://docs.sarvam.ai/api/token-factory/models/gemma-4-31b)| Gemma 4 31B: image input, a 256K context window, and reasoning (off by default).  
   
 For other model families, such as Qwen, Llama, gpt-oss, or MiniMax, choose by what you need:
@@ -160,12 +157,11 @@ For other model families, such as Qwen, Llama, gpt-oss, or MiniMax, choose by wh
 If you need| Try on Sarvam  
 ---|---  
 Indian-language quality| [`sarvam-105b`](https://docs.sarvam.ai/api/token-factory/models/sarvam-105b)  
-The lowest cost| [`mimo-v2.6-flash`](https://docs.sarvam.ai/api/token-factory/models/mimo-v2.6-flash)  
-Image input| [`glm5.3-flash`](https://docs.sarvam.ai/api/token-factory/models/glm-5-3-flash), [`kimi-k3`](https://docs.sarvam.ai/api/token-factory/models/kimi-k3), [`gemma4`](https://docs.sarvam.ai/api/token-factory/models/gemma-4-31b), or the MiMo models  
-Audio input| [`mimo-v2.6-flash`](https://docs.sarvam.ai/api/token-factory/models/mimo-v2.6-flash) or [`mimo-v2.6-pro`](https://docs.sarvam.ai/api/token-factory/models/mimo-v2.6-pro)  
-Video input| [`mimo-v2.6-flash`](https://docs.sarvam.ai/api/token-factory/models/mimo-v2.6-flash) or [`mimo-v2.6-pro`](https://docs.sarvam.ai/api/token-factory/models/mimo-v2.6-pro) (chat only)  
+The lowest cost| [`glm5.3-flash`](https://docs.sarvam.ai/api/token-factory/models/glm-5-3-flash)  
+Image input| [`glm5.3-flash`](https://docs.sarvam.ai/api/token-factory/models/glm-5-3-flash), [`kimi-k3.1-pro`](https://docs.sarvam.ai/api/token-factory/models/kimi-k3.1-pro), or [`gemma4`](https://docs.sarvam.ai/api/token-factory/models/gemma-4-31b)  
+Video input (short clips)| [`kimi-k3.1-pro`](https://docs.sarvam.ai/api/token-factory/models/kimi-k3.1-pro) (chat only)  
 The hardest coding and agent tasks| [`glm5.3`](https://docs.sarvam.ai/api/token-factory/models/glm-5-3) or [`deepseekv4-pro`](https://docs.sarvam.ai/api/token-factory/models/deepseek-v4-pro)  
-Fast answers without reasoning| [`mimo-v2.6-flash`](https://docs.sarvam.ai/api/token-factory/models/mimo-v2.6-flash) with thinking off, or [`gemma4`](https://docs.sarvam.ai/api/token-factory/models/gemma-4-31b)  
+Fast answers without reasoning| [`gemma4`](https://docs.sarvam.ai/api/token-factory/models/gemma-4-31b)  
   
 ## Media input and request size
 
@@ -173,9 +169,8 @@ Sarvam accepts images, audio, and video only as **inline base64 data URIs**. Rem
 
 Media| Models| Chat Completions| Responses  
 ---|---|---|---  
-Image| Models with image input, such as `gemma4`, `glm5.3-flash`, `kimi-k3`, and the MiMo models| `image_url` part| `input_image` part  
-Audio| `mimo-v2.6-flash`, `mimo-v2.6-pro`| `input_audio` part (`wav` or `mp3`), or an `audio_url` part with a data URI (WAV, MP3, FLAC, OGG, Opus)| `input_audio` part (`wav` or `mp3`)  
-Video| `mimo-v2.6-flash`, `mimo-v2.6-pro`, and `kimi-k3` (beta, short clips)| `video_url` part| Not supported  
+Image| Models with image input, such as `gemma4`, `glm5.3-flash`, and `kimi-k3.1-pro`| `image_url` part| `input_image` part  
+Video| `kimi-k3.1-pro` (short clips)| `video_url` part| Not supported  
       
     
     import base64
@@ -190,7 +185,7 @@ Video| `mimo-v2.6-flash`, `mimo-v2.6-pro`, and `kimi-k3` (beta, short clips)| `v
     
     video_part = {"type": "video_url", "video_url": {"url": data_uri("clip.mp4", "video/mp4")}}
 
-Request bodies, including base64 media, are limited to **40 MiB** on `kimi-k3` and the MiMo models, and **10 MiB** on other models. Larger requests return `413` with the limit in the message. Base64 adds about 33%, so about 30 MB of raw media fits in a 40 MiB request.
+Request bodies, including base64 media, are limited to **40 MiB** on `kimi-k3.1-pro`, and **10 MiB** on other models. Larger requests return `413` with the limit in the message. Base64 adds about 33%, so about 30 MB of raw media fits in a 40 MiB request.
 
 ## Errors and rate limits
 
@@ -201,7 +196,7 @@ Sarvam returns `403` (not `401`) for a missing or invalid key, `429` when you ex
   * [Migrating Chat Completion from Fireworks](https://docs.sarvam.ai/api/token-factory/migrations/from-fireworks/chat-completion)
   * [Migrating the Responses API from Fireworks](https://docs.sarvam.ai/api/token-factory/migrations/from-fireworks/responses-api)
   * [Open-Weight Models](https://docs.sarvam.ai/api/token-factory/models)
-  * [Beta models](https://docs.sarvam.ai/api-reference/beta-apis)
+  * [Provisioned Throughput](https://docs.sarvam.ai/api/token-factory/models#provisioned-throughput)
   * [Errors & Troubleshooting](https://docs.sarvam.ai/api/getting-started/errors-troubleshooting)
 
 
@@ -296,9 +291,7 @@ YesNo
   * [Gemma 4 31B](https://docs.sarvam.ai/api/token-factory/models/gemma-4-31b)
   * [DeepSeek V4.1 Flash 1017](https://docs.sarvam.ai/api/token-factory/models/deepseek-v4.1-flash-1017)
   * [DeepSeek V4 Pro](https://docs.sarvam.ai/api/token-factory/models/deepseek-v4-pro)
-  * [Kimi K3](https://docs.sarvam.ai/api/token-factory/models/kimi-k3)
-  * [MiMo V2.6 Flash](https://docs.sarvam.ai/api/token-factory/models/mimo-v2.6-flash)
-  * [MiMo V2.6 Pro](https://docs.sarvam.ai/api/token-factory/models/mimo-v2.6-pro)
+  * [Kimi K3.1 Pro](https://docs.sarvam.ai/api/token-factory/models/kimi-k3.1-pro)
   * [Chat Completions](https://docs.sarvam.ai/api/token-factory/chat-completions)
   * [Responses API](https://docs.sarvam.ai/api/token-factory/responses-api)
   * [Decisions API](https://docs.sarvam.ai/api/token-factory/decisions-api)
@@ -473,7 +466,7 @@ YesNo
 
   * [Model APIs](https://docs.sarvam.ai/api)
   * [Voice Agents](https://docs.sarvam.ai/voice-agents)
-  * [Doc Agents](https://docs.sarvam.ai/docai)
+  * [Document AI](https://docs.sarvam.ai/doc-ai)
   * [Content Studio](https://docs.sarvam.ai/creative)
   * [Cowork](https://docs.sarvam.ai/cowork)
   * [API Reference](https://docs.sarvam.ai/api-reference)

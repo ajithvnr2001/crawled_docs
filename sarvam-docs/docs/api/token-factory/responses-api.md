@@ -2,7 +2,7 @@
 url: https://docs.sarvam.ai/api/token-factory/responses-api/
 title: Responses API | Sarvam API Docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-30T06:37:16.059838+00:00
+fetched_at: 2026-11-07T06:39:10.563502+00:00
 ---
 
 # Responses API | Sarvam API Docs
@@ -35,7 +35,7 @@ This page is for Model APIs.
 
 The Responses API provides an OpenAI-compatible interface for text generation, reasoning, structured output, and tool calling. **Streaming is optional** : the same pattern as [Chat Completion V2](https://docs.sarvam.ai/api-reference/chat/chat-completions-v2): omit `stream` or set it to `false` for one JSON response (default).
 
-The Responses API supports `sarvam-105b`, `glm5.3`, `glm5.3-flash`, and `gemma4`, plus the [beta models](https://docs.sarvam.ai/api-reference/beta-apis) `deepseekv4.1-flash-1017`, `deepseekv4-pro`, `kimi-k3`, `mimo-v2.6-flash`, and `mimo-v2.6-pro`.
+The Responses API supports `sarvam-105b`, `glm5.3`, `glm5.3-flash`, `gemma4`, and `deepseekv4.1-flash-1017`, plus the [Provisioned Throughput models](https://docs.sarvam.ai/api/token-factory/models#provisioned-throughput) `deepseekv4-pro` and `kimi-k3.1-pro`.
 
 Moving Responses API code from [OpenRouter](https://docs.sarvam.ai/api/token-factory/migrations/from-openrouter/responses-api) or [Fireworks AI](https://docs.sarvam.ai/api/token-factory/migrations/from-fireworks/responses-api)? See the Responses API migration guides.
 
@@ -124,7 +124,7 @@ For message parts in `input`, text uses `{"type": "input_text", "text": "…"}` 
 
 ## Reasoning
 
-The reasoning models (`glm5.3`, `glm5.3-flash`, `gemma4`, `deepseekv4.1-flash-1017`, `deepseekv4-pro`, `kimi-k3`, `mimo-v2.6-flash`, and `mimo-v2.6-pro`) support three modes, `low`, `high`, and `max`, and Chat Completion V2 accepts all three directly. `gemma4` reasons only when you set an effort. On this route (Responses), the models differ:
+The reasoning models (`glm5.3`, `glm5.3-flash`, `gemma4`, `deepseekv4.1-flash-1017`, `deepseekv4-pro` and `kimi-k3.1-pro`) support three modes, `low`, `high`, and `max`, and Chat Completion V2 accepts all three directly. `gemma4` reasons only when you set an effort. On this route (Responses), the models differ:
 
 Model| Accepted `reasoning.effort` values on this route  
 ---|---  
@@ -132,8 +132,7 @@ Model| Accepted `reasoning.effort` values on this route
 `gemma4`| `"low"` or `"high"`. No reasoning when the field is omitted.  
 `deepseekv4.1-flash-1017`| `"low"`, `"high"`, or `"max"`, all three work directly, same as on chat. Default `high`. `"none"` turns thinking off.  
 `deepseekv4-pro`| `"low"`, `"high"`, or `"max"`; default `high`. `"none"` turns thinking off.  
-`kimi-k3`| `"low"`, `"high"`, or `"max"`; default `max`. Thinking is always on.  
-`mimo-v2.6-flash`, `mimo-v2.6-pro`| Thinking is on by default. `"none"` turns it off; any other value only switches it on.  
+`kimi-k3.1-pro`| `"low"`, `"high"`, or `"max"`; default `max`. Thinking is always on.  
   
 **Chat trace:** `choices[].message.reasoning_content`.
 
@@ -154,7 +153,7 @@ Field| Default when omitted
 
 Parameter| Required| Description  
 ---|---|---  
-`model`| Yes| `sarvam-105b`, `glm5.3`, `glm5.3-flash`, `gemma4`, `deepseekv4.1-flash-1017`, `deepseekv4-pro`, `kimi-k3`, `mimo-v2.6-flash`, or `mimo-v2.6-pro`.  
+`model`| Yes| `sarvam-105b`, `glm5.3`, `glm5.3-flash`, `gemma4`, `deepseekv4.1-flash-1017`, `deepseekv4-pro`, or `kimi-k3.1-pro`.  
 `input`| Yes| A prompt string or the complete conversation as input items.  
 `stream`| No| Optional, omit or `false` for one JSON body (default **`false`** on `glm5.3`); `true` for named SSE events, same pattern as chat completions.  
 `max_output_tokens`| No| Cap on generated tokens including reasoning. **No default** : omitting it means unbounded generation. Always set this explicitly in production.  
@@ -181,7 +180,7 @@ Was this page helpful?
 
 YesNo
 
-[Previous](https://docs.sarvam.ai/api/token-factory/chat-completions)[How to list your chat messagesNext](https://docs.sarvam.ai/api/token-factory/how-to/list-your-chat-messages)[Built with](https://buildwithfern.com/?utm_source=others&utm_medium=organic&utm_campaign=fern_indocs_url&utm_content=book_demo&utm_term=docs.sarvam.ai)
+[Previous](https://docs.sarvam.ai/api/token-factory/chat-completions)[Decisions APINext](https://docs.sarvam.ai/api/token-factory/decisions-api)[Built with](https://buildwithfern.com/?utm_source=others&utm_medium=organic&utm_campaign=fern_indocs_url&utm_content=book_demo&utm_term=docs.sarvam.ai)
 
   * Getting Started
 
@@ -195,6 +194,7 @@ YesNo
 
     * [Chat Completions](https://docs.sarvam.ai/api/token-factory/chat-completions)
     * [Responses API](https://docs.sarvam.ai/api/token-factory/responses-api)
+    * [Decisions API](https://docs.sarvam.ai/api/token-factory/decisions-api)
     * How-to
 
     * Migration Guides
@@ -249,16 +249,17 @@ YesNo
   * [Talk to us](https://docs.sarvam.ai/api/getting-started/help)
   * [Token Factory (Open-Weight)](https://docs.sarvam.ai/api/token-factory)
   * [Models](https://docs.sarvam.ai/api/token-factory/models)
+  * [Sarvam 105B](https://docs.sarvam.ai/api/token-factory/models/sarvam-105b)
+  * [Sarvam Prism](https://docs.sarvam.ai/api/token-factory/models/sarvam-prism)
   * [GLM-5.3](https://docs.sarvam.ai/api/token-factory/models/glm-5-3)
   * [GLM-5.3 Flash](https://docs.sarvam.ai/api/token-factory/models/glm-5-3-flash)
   * [Gemma 4 31B](https://docs.sarvam.ai/api/token-factory/models/gemma-4-31b)
   * [DeepSeek V4.1 Flash 1017](https://docs.sarvam.ai/api/token-factory/models/deepseek-v4.1-flash-1017)
   * [DeepSeek V4 Pro](https://docs.sarvam.ai/api/token-factory/models/deepseek-v4-pro)
-  * [Kimi K3](https://docs.sarvam.ai/api/token-factory/models/kimi-k3)
-  * [MiMo V2.6 Flash](https://docs.sarvam.ai/api/token-factory/models/mimo-v2.6-flash)
-  * [MiMo V2.6 Pro](https://docs.sarvam.ai/api/token-factory/models/mimo-v2.6-pro)
+  * [Kimi K3.1 Pro](https://docs.sarvam.ai/api/token-factory/models/kimi-k3.1-pro)
   * [Chat Completions](https://docs.sarvam.ai/api/token-factory/chat-completions)
   * [Responses API](https://docs.sarvam.ai/api/token-factory/responses-api)
+  * [Decisions API](https://docs.sarvam.ai/api/token-factory/decisions-api)
   * [List your chat messages](https://docs.sarvam.ai/api/token-factory/how-to/list-your-chat-messages)
   * [Control response randomness](https://docs.sarvam.ai/api/token-factory/how-to/control-response-randomness)
   * [Control response diversity](https://docs.sarvam.ai/api/token-factory/how-to/control-response-diversity)
@@ -278,7 +279,6 @@ YesNo
   * [Chat Completion](https://docs.sarvam.ai/api/token-factory/migrations/from-together/chat-completion)
   * [Saaras](https://docs.sarvam.ai/api/api-guides-tutorials/models/saaras)
   * [Bulbul](https://docs.sarvam.ai/api/api-guides-tutorials/models/bulbul)
-  * [Sarvam 105B](https://docs.sarvam.ai/api/api-guides-tutorials/models/sarvam-105b)
   * [Mayura](https://docs.sarvam.ai/api/api-guides-tutorials/models/mayura)
   * [Sarvam Translate](https://docs.sarvam.ai/api/api-guides-tutorials/models/sarvam-translate)
   * [Sarvam Vision](https://docs.sarvam.ai/api/api-guides-tutorials/models/sarvam-vision)
@@ -431,7 +431,7 @@ YesNo
 
   * [Model APIs](https://docs.sarvam.ai/api)
   * [Voice Agents](https://docs.sarvam.ai/voice-agents)
-  * [Doc Agents](https://docs.sarvam.ai/docai)
+  * [Document AI](https://docs.sarvam.ai/doc-ai)
   * [Content Studio](https://docs.sarvam.ai/creative)
   * [Cowork](https://docs.sarvam.ai/cowork)
   * [API Reference](https://docs.sarvam.ai/api-reference)

@@ -2,7 +2,7 @@
 url: https://docs.sarvam.ai/voice-agents/overview/
 title: Voice Agents overview: AI voice agents for Indian languages | Sarvam API Docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T16:38:48.430632+00:00
+fetched_at: 2026-11-07T06:39:09.633091+00:00
 ---
 
 # Voice Agents overview: AI voice agents for Indian languages | Sarvam API Docs
@@ -45,7 +45,7 @@ Voice Agents lives in the Sarvam platform. Log in with your Sarvam account and o
 
 [Open Voice AgentsLog in at indus.sarvam.ai/samvaad to create, deploy, and manage your agents.](https://indus.sarvam.ai/samvaad?ref=docs)
 
-![The Sarvam platform home screen. The left navigation lists Model APIs, Voice Agents, Content Studio, and Doc Agents; the main area shows product cards and a credits balance.](https://docs.sarvam.ai/_fern-img/3124f05358412ac8e5259ebb2904cf6ef18c1a6dffa1928330a5b8b3219e0ea4.webp)
+![The Sarvam platform home screen. The left navigation lists Model APIs, Voice Agents, Content Studio, and Document AI; the main area shows product cards and a credits balance.](https://docs.sarvam.ai/_fern-files/_img/3124f05358412ac8e5259ebb2904cf6ef18c1a6dffa1928330a5b8b3219e0ea4.webp)
 
 The Sarvam platform home. Select Voice Agents from the left menu to get started.
 
@@ -153,7 +153,7 @@ Was this page helpful?
 
 YesNo
 
-[Previous](https://docs.sarvam.ai/voice-agents/why-voice-agents)[Voice Agents quickstart: build your first AI calling agentNext](https://docs.sarvam.ai/voice-agents/quickstart)[Built with](https://buildwithfern.com/?utm_campaign=buildWith&utm_medium=docs&utm_source=docs.sarvam.ai)
+[Previous](https://docs.sarvam.ai/voice-agents/why-voice-agents)[Voice Agents quickstart: build your first AI calling agentNext](https://docs.sarvam.ai/voice-agents/quickstart)[Built with](https://buildwithfern.com/?utm_source=others&utm_medium=organic&utm_campaign=fern_indocs_url&utm_content=book_demo&utm_term=docs.sarvam.ai)
 
   * Getting Started
 
@@ -329,6 +329,7 @@ YesNo
   * [List webhook deliveries](https://docs.sarvam.ai/voice-agents/api/campaigns/webhooks/list)
   * [Retry webhook deliveries](https://docs.sarvam.ai/voice-agents/api/campaigns/webhooks/retry)
   * [Upload cohort](https://docs.sarvam.ai/voice-agents/api/campaigns/cohorts/upload)
+  * [Exclude cohort](https://docs.sarvam.ai/voice-agents/api/campaigns/cohorts/exclude-cohort)
   * [Stream cohort](https://docs.sarvam.ai/voice-agents/api/campaigns/cohorts/stream)
   * [List cohorts](https://docs.sarvam.ai/voice-agents/api/campaigns/cohorts/list)
   * [Get cohort](https://docs.sarvam.ai/voice-agents/api/campaigns/cohorts/get)
@@ -396,7 +397,7 @@ YesNo
 
   * [Model APIs](https://docs.sarvam.ai/api)
   * [Voice Agents](https://docs.sarvam.ai/voice-agents)
-  * [Doc Agents](https://docs.sarvam.ai/docai)
+  * [Document AI](https://docs.sarvam.ai/doc-ai)
   * [Content Studio](https://docs.sarvam.ai/creative)
   * [Cowork](https://docs.sarvam.ai/cowork)
   * [API Reference](https://docs.sarvam.ai/api-reference)

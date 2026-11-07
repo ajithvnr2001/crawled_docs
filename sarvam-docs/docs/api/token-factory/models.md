@@ -2,7 +2,7 @@
 url: https://docs.sarvam.ai/api/token-factory/models/
 title: Open-Weight Models | Sarvam API Docs
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T06:32:49.534378+00:00
+fetched_at: 2026-11-07T06:39:11.099843+00:00
 ---
 
 # Open-Weight Models | Sarvam API Docs
@@ -14,6 +14,7 @@ Skip to navigation
 On this page
 
   * Choose a model
+  * Provisioned Throughput
   * Quickstart
   * Common patterns
   * Reasoning
@@ -36,7 +37,7 @@ This page is for Model APIs.
 
 Run leading **open-weight models** on Sarvam infrastructure through the same OpenAI-compatible `/v2` API, with your existing Sarvam API key and credits. Switching models is a one-line change to the `model` field.
 
-Sarvam 105B, Sarvam 105B Conversations, GLM-5.3, GLM-5.3 Flash, Gemma 4 31B, and DeepSeek V4.1 Flash 1017 are generally available. DeepSeek V4 Pro, Kimi K3, MiMo V2.6 Flash, and MiMo V2.6 Pro are in [beta](https://docs.sarvam.ai/api-reference/beta-apis).
+Sarvam 105B, Sarvam 105B Conversations, GLM-5.3, GLM-5.3 Flash, Gemma 4 31B, and DeepSeek V4.1 Flash 1017 are serverless: any API key can call them. DeepSeek V4 Pro and Kimi K3.1 Pro are on [Provisioned Throughput](https://docs.sarvam.ai/api/token-factory/models#provisioned-throughput) and are enabled per organisation.
 
 For classification, routing, or scoring, use [Sarvam Prism](https://docs.sarvam.ai/api/token-factory/models/sarvam-prism) on the [Decisions API](https://docs.sarvam.ai/api-reference/decisions/systemone). It returns a calibrated probability for every option instead of generated text, so it is not in the chat catalog below.
 
@@ -46,15 +47,15 @@ Pick a use case, or filter by status and input type. Click a model ID to copy it
 
 I needIndian languagesCoding and agentsLowest costFastest answersReasoning on images
 
-AllGenerally availableBeta
+AllServerlessProvisioned Throughput
 
-AcceptsImageVideoAudio
+AcceptsImageVideo
 
-Showing 10 of 10 models
+Showing 9 of 9 models
 
 Sort by price
 
-[Sarvam 105B →](https://docs.sarvam.ai/api/token-factory/models/sarvam-105b)GA`sarvam-105b`Copy
+[Sarvam 105B →](https://docs.sarvam.ai/api/token-factory/models/sarvam-105b)Serverless`sarvam-105b`Copy
 
 Sarvam's flagship for Indian-language reasoning, coding, and agents.
 
@@ -70,7 +71,7 @@ Input
 ₹ per 1M in / out
     ₹15 / ₹60
 
-[Sarvam 105B Conversations →](https://docs.sarvam.ai/api/token-factory/models/sarvam-105b#conversational-variant)GA`sarvam-105b-conversations`Copy
+[Sarvam 105B Conversations →](https://docs.sarvam.ai/api/token-factory/models/sarvam-105b#conversational-variant)Serverless`sarvam-105b-conversations`Copy
 
 Tuned for real-time dialogue and voice agents in Indian languages.
 
@@ -86,7 +87,23 @@ Input
 ₹ per 1M in / out
     ₹15 / ₹60
 
-[GLM-5.3 →](https://docs.sarvam.ai/api/token-factory/models/glm-5-3)GA`glm5.3`Copy
+[Sarvam Prism →](https://docs.sarvam.ai/api/token-factory/models/sarvam-prism)Serverless`sarvam-prism`Copy
+
+Calibrated yes/no, choice, and score answers instead of generated text.
+
+Context
+    32K
+
+Reasoning
+    No
+
+Input
+    Text
+
+₹ per 1M in / out
+    ₹4 / ₹0
+
+[GLM-5.3 →](https://docs.sarvam.ai/api/token-factory/models/glm-5-3)Serverless`glm5.3`Copy
 
 Software engineering and long-horizon agents.
 
@@ -102,7 +119,7 @@ Input
 ₹ per 1M in / out
     ₹126 / ₹390
 
-[GLM-5.3 Flash →](https://docs.sarvam.ai/api/token-factory/models/glm-5-3-flash)GA`glm5.3-flash`Copy
+[GLM-5.3 Flash →](https://docs.sarvam.ai/api/token-factory/models/glm-5-3-flash)Serverless`glm5.3-flash`Copy
 
 Faster GLM-5.3 with image input.
 
@@ -118,7 +135,7 @@ Input
 ₹ per 1M in / out
     ₹13.5 / ₹45
 
-[Gemma 4 31B →](https://docs.sarvam.ai/api/token-factory/models/gemma-4-31b)GA`gemma4`Copy
+[Gemma 4 31B →](https://docs.sarvam.ai/api/token-factory/models/gemma-4-31b)Serverless`gemma4`Copy
 
 Fast direct answers and image understanding.
 
@@ -134,7 +151,7 @@ Input
 ₹ per 1M in / out
     ₹35 / ₹90
 
-[DeepSeek V4.1 Flash 1017 →](https://docs.sarvam.ai/api/token-factory/models/deepseek-v4.1-flash-1017)GA`deepseekv4.1-flash-1017`Copy
+[DeepSeek V4.1 Flash 1017 →](https://docs.sarvam.ai/api/token-factory/models/deepseek-v4.1-flash-1017)Serverless`deepseekv4.1-flash-1017`Copy
 
 Low-cost reasoning for long documents and agents.
 
@@ -150,7 +167,7 @@ Input
 ₹ per 1M in / out
     ₹25 / ₹105
 
-[DeepSeek V4 Pro →](https://docs.sarvam.ai/api/token-factory/models/deepseek-v4-pro)Beta`deepseekv4-pro`Copy
+[DeepSeek V4 Pro →](https://docs.sarvam.ai/api/token-factory/models/deepseek-v4-pro)Provisioned`deepseekv4-pro`Copy
 
 Larger DeepSeek V4 for harder text reasoning.
 
@@ -166,7 +183,7 @@ Input
 ₹ per 1M in / out
     ₹115 / ₹350
 
-[Kimi K3 →](https://docs.sarvam.ai/api/token-factory/models/kimi-k3)Beta`kimi-k3`Copy
+[Kimi K3.1 Pro →](https://docs.sarvam.ai/api/token-factory/models/kimi-k3.1-pro)Provisioned`kimi-k3.1-pro`Copy
 
 Always-on reasoning with image and video input.
 
@@ -180,39 +197,7 @@ Input
     TextImageVideo
 
 ₹ per 1M in / out
-    ₹270 / ₹1,350
-
-[MiMo V2.6 Flash →](https://docs.sarvam.ai/api/token-factory/models/mimo-v2.6-flash)Beta`mimo-v2.6-flash`Copy
-
-Lowest-cost reasoning across text, image, audio, and video.
-
-Context
-    1M
-
-Reasoning
-    On, can turn off
-
-Input
-    TextImageAudioVideo
-
-₹ per 1M in / out
-    ₹12.5 / ₹25
-
-[MiMo V2.6 Pro →](https://docs.sarvam.ai/api/token-factory/models/mimo-v2.6-pro)Beta`mimo-v2.6-pro`Copy
-
-Larger MiMo V2.6 for harder multimodal tasks.
-
-Context
-    1M
-
-Reasoning
-    On, can turn off
-
-Input
-    TextImageAudioVideo
-
-₹ per 1M in / out
-    ₹40 / ₹80
+    ₹250 / ₹1,350
 
 Prices are in ₹ per 1M tokens; reasoning is billed as output. See [Pricing](https://docs.sarvam.ai/api/getting-started/pricing). Each model’s reasoning default, and how to turn it off, is under [Reasoning](https://docs.sarvam.ai/api/token-factory/models#reasoning).
 
@@ -234,22 +219,29 @@ Model| Context| Input| ₹ per 1M in / out
 `gemma4`| 256K| Text, image| 35 / 90  
 [DeepSeek V4.1 Flash 1017](https://docs.sarvam.ai/api/token-factory/models/deepseek-v4.1-flash-1017)  
 `deepseekv4.1-flash-1017`| 1M| Text, image| 25 / 105  
-[DeepSeek V4 Pro](https://docs.sarvam.ai/api/token-factory/models/deepseek-v4-pro) (beta)  
+[DeepSeek V4 Pro](https://docs.sarvam.ai/api/token-factory/models/deepseek-v4-pro) (Provisioned Throughput)  
 `deepseekv4-pro`| 1M| Text| 115 / 350  
-[Kimi K3](https://docs.sarvam.ai/api/token-factory/models/kimi-k3) (beta)  
-`kimi-k3`| 1M| Text, image, video| 270 / 1,350  
-[MiMo V2.6 Flash](https://docs.sarvam.ai/api/token-factory/models/mimo-v2.6-flash) (beta)  
-`mimo-v2.6-flash`| 1M| Text, image, audio, video| 12.5 / 25  
-[MiMo V2.6 Pro](https://docs.sarvam.ai/api/token-factory/models/mimo-v2.6-pro) (beta)  
-`mimo-v2.6-pro`| 1M| Text, image, audio, video| 40 / 80  
+[Kimi K3.1 Pro](https://docs.sarvam.ai/api/token-factory/models/kimi-k3.1-pro) (Provisioned Throughput)  
+`kimi-k3.1-pro`| 1M| Text, image, video| 250 / 1,350  
   
   * **Indian languages:** `sarvam-105b`, or `sarvam-105b-conversations` for voice agents
   * **Coding and agents:** `glm5.3`, the strongest reasoning
-  * **Lowest cost:** `mimo-v2.6-flash`, the lowest per-token price
+  * **Lowest cost:** `glm5.3-flash`, the lowest per-token price for open-weight chat
   * **Fastest answers, with image input:** `gemma4`, which skips reasoning by default
-  * **Reasoning on images:** `glm5.3-flash` or `kimi-k3`
+  * **Reasoning on images:** `glm5.3-flash` or `kimi-k3.1-pro`
 
 
+
+## Provisioned Throughput
+
+Token Factory models are offered in two ways:
+
+  * **Serverless** : any Sarvam API key can call the model, billed per token. Sarvam 105B, Sarvam 105B Conversations, GLM-5.3, GLM-5.3 Flash, Gemma 4 31B, and DeepSeek V4.1 Flash 1017 are serverless.
+  * **Provisioned Throughput** : capacity for the model is set up for your workload and enabled for your organisation, so every API key in it can call the model. [DeepSeek V4 Pro](https://docs.sarvam.ai/api/token-factory/models/deepseek-v4-pro) and [Kimi K3.1 Pro](https://docs.sarvam.ai/api/token-factory/models/kimi-k3.1-pro) are on Provisioned Throughput, on both Chat Completion V2 and Responses, at the per-token rates on [Pricing](https://docs.sarvam.ai/api/getting-started/pricing).
+
+
+
+To get access, [contact us](https://docs.sarvam.ai/api/getting-started/help) with the model you need and your expected volume. Without access, requests return `400 invalid_request_error` with the message “This model is currently in beta”, even though [`GET /v2/models`](https://docs.sarvam.ai/api-reference/chat/models-v2) lists the model.
 
 ## Quickstart
 
@@ -289,7 +281,7 @@ Open-weight models are served on `POST /v2/chat/completions`. Pick your SDK:
     
     response = client.chat.completions_v2(
     
-        model="glm5.3",  # or "gemma4", "deepseekv4.1-flash-1017", "kimi-k3", ...
+        model="glm5.3",  # or "gemma4", "deepseekv4.1-flash-1017", "kimi-k3.1-pro", ...
     
         messages=[
     
@@ -360,8 +352,7 @@ Model| Default effort| Turn thinking off
 `gemma4`| Off; turn it on with `reasoning_effort` (`low` or `high` on Responses)| Off by default  
 `deepseekv4.1-flash-1017`| `high`| `reasoning_effort: "none"`  
 `deepseekv4-pro`| `high`| `reasoning_effort: "none"` or `thinking: {"type": "disabled"}`  
-`kimi-k3`| `max`| Not supported; thinking is always on  
-`mimo-v2.6-flash`, `mimo-v2.6-pro`| On| `reasoning_effort: "none"`, `thinking: {"type": "disabled"}`, or `chat_template_kwargs.enable_thinking: false`. Other effort values only switch thinking on  
+`kimi-k3.1-pro`| `max`| Not supported; thinking is always on  
   
 Send `thinking` and `chat_template_kwargs` through `extra_body` in the SDKs. Accepted effort values are listed on each [model page](https://docs.sarvam.ai/api/token-factory/models).
 
@@ -375,7 +366,7 @@ Symptom| Likely cause| Fix
 ---|---|---  
 `403 invalid_api_key_error`| Missing or wrong key header| Check `api-subscription-key` or the Bearer token  
 `404 not_found_error`| Unknown or wrongly cased model ID| IDs are case-sensitive. List the served model IDs with [`GET /v2/models`](https://docs.sarvam.ai/api-reference/chat/models-v2)  
-`400` “This model is currently in beta”| Your organisation doesn’t have beta access| [Contact us](https://docs.sarvam.ai/api/getting-started/help) to enable beta models for your organisation  
+`400` “This model is currently in beta”| Your organisation doesn’t have Provisioned Throughput access for this model| [Contact us](https://docs.sarvam.ai/api/getting-started/help) to request access  
 Empty `content`, `finish_reason: "length"`| Reasoning used the token budget| Raise `max_tokens` or lower `reasoning_effort`  
 `400 invalid_request_error` on a specific parameter| Parameter unsupported by this model| Check the model’s own Supported Parameters table  
 `402 insufficient_quota_error`| No credits left| Add credits in the [dashboard](https://indus.sarvam.ai/billing?ref=docs)  
@@ -418,17 +409,13 @@ Read the model ID from configuration, for example `model=os.environ.get("SARVAM_
 
   * **Chat:** `POST https://api.sarvam.ai/v2/chat/completions`, see the [API reference](https://docs.sarvam.ai/api-reference/chat/chat-completions-v2).
   * **Responses:** `POST https://api.sarvam.ai/v2/responses`, see the [API reference](https://docs.sarvam.ai/api-reference/responses/create).
-  * **Models:** [`GET /v2/models`](https://docs.sarvam.ai/api-reference/chat/models-v2) lists the served models, including beta models your organisation may not have access to yet.
+  * **Models:** [`GET /v2/models`](https://docs.sarvam.ai/api-reference/chat/models-v2) lists the served models, including Provisioned Throughput models your organisation may not have access to yet.
 
 
 
 ###### Billing and rate limits
 
 Usage is metered per token against your Sarvam credits, see [Pricing](https://docs.sarvam.ai/api/getting-started/pricing). Reasoning is billed as output. Limits apply per API key, see [Credits & Rate Limits](https://docs.sarvam.ai/api/getting-started/pricing#rate-limits).
-
-###### Beta models
-
-DeepSeek V4 Pro, Kimi K3, MiMo V2.6 Flash, and MiMo V2.6 Pro are in beta. See [Beta models](https://docs.sarvam.ai/api-reference/beta-apis).
 
 ## Next steps
 
@@ -456,10 +443,8 @@ YesNo
       * [GLM-5.3 Flash](https://docs.sarvam.ai/api/token-factory/models/glm-5-3-flash)
       * [Gemma 4 31B](https://docs.sarvam.ai/api/token-factory/models/gemma-4-31b)
       * [DeepSeek V4.1 Flash 1017](https://docs.sarvam.ai/api/token-factory/models/deepseek-v4.1-flash-1017)
-      * [DeepSeek V4 ProBeta](https://docs.sarvam.ai/api/token-factory/models/deepseek-v4-pro)
-      * [Kimi K3Beta](https://docs.sarvam.ai/api/token-factory/models/kimi-k3)
-      * [MiMo V2.6 FlashBeta](https://docs.sarvam.ai/api/token-factory/models/mimo-v2.6-flash)
-      * [MiMo V2.6 ProBeta](https://docs.sarvam.ai/api/token-factory/models/mimo-v2.6-pro)
+      * [DeepSeek V4 Pro](https://docs.sarvam.ai/api/token-factory/models/deepseek-v4-pro)
+      * [Kimi K3.1 Pro](https://docs.sarvam.ai/api/token-factory/models/kimi-k3.1-pro)
 
     * [Chat Completions](https://docs.sarvam.ai/api/token-factory/chat-completions)
     * [Responses API](https://docs.sarvam.ai/api/token-factory/responses-api)
@@ -525,9 +510,7 @@ YesNo
   * [Gemma 4 31B](https://docs.sarvam.ai/api/token-factory/models/gemma-4-31b)
   * [DeepSeek V4.1 Flash 1017](https://docs.sarvam.ai/api/token-factory/models/deepseek-v4.1-flash-1017)
   * [DeepSeek V4 Pro](https://docs.sarvam.ai/api/token-factory/models/deepseek-v4-pro)
-  * [Kimi K3](https://docs.sarvam.ai/api/token-factory/models/kimi-k3)
-  * [MiMo V2.6 Flash](https://docs.sarvam.ai/api/token-factory/models/mimo-v2.6-flash)
-  * [MiMo V2.6 Pro](https://docs.sarvam.ai/api/token-factory/models/mimo-v2.6-pro)
+  * [Kimi K3.1 Pro](https://docs.sarvam.ai/api/token-factory/models/kimi-k3.1-pro)
   * [Chat Completions](https://docs.sarvam.ai/api/token-factory/chat-completions)
   * [Responses API](https://docs.sarvam.ai/api/token-factory/responses-api)
   * [Decisions API](https://docs.sarvam.ai/api/token-factory/decisions-api)
@@ -702,7 +685,7 @@ YesNo
 
   * [Model APIs](https://docs.sarvam.ai/api)
   * [Voice Agents](https://docs.sarvam.ai/voice-agents)
-  * [Doc Agents](https://docs.sarvam.ai/docai)
+  * [Document AI](https://docs.sarvam.ai/doc-ai)
   * [Content Studio](https://docs.sarvam.ai/creative)
   * [Cowork](https://docs.sarvam.ai/cowork)
   * [API Reference](https://docs.sarvam.ai/api-reference)

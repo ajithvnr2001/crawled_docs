@@ -2,7 +2,7 @@
 url: https://docs.sarvam.ai/api/getting-started/pricing/
 title: Pricing, Credits & Rate Limits | Sarvam API Docs
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T06:32:47.977006+00:00
+fetched_at: 2026-11-07T06:39:12.476242+00:00
 ---
 
 # Pricing, Credits & Rate Limits | Sarvam API Docs
@@ -100,7 +100,7 @@ Rates are listed for each self-serve plan.
 
 ### Language Models
 
-The open-weight models (Gemma, GLM, DeepSeek, Kimi, MiMo) are served by [Token Factory](https://docs.sarvam.ai/api/token-factory).
+The open-weight models (Gemma, GLM, DeepSeek, Kimi) are served by [Token Factory](https://docs.sarvam.ai/api/token-factory).
 
 All prices are ₹ per 1M tokens and are the same on every plan. Reasoning tokens, where applicable, are billed as output tokens.
 
@@ -108,9 +108,9 @@ All prices are ₹ per 1M tokens and are the same on every plan. Reasoning token
 
 Model| Input| Cached input| Output| Status  
 ---|---|---|---|---  
-Sarvam 105B (`sarvam-105b`)| ₹15| ₹5| ₹60| Available  
-Sarvam 105B Chat (`sarvam-105b-conversations`)| ₹15| ₹5| ₹60| Available  
-Sarvam Prism (`sarvam-prism`)| ₹4| —| ₹0| Available  
+Sarvam 105B (`sarvam-105b`)| ₹15| ₹5| ₹60| Serverless  
+Sarvam 105B Chat (`sarvam-105b-conversations`)| ₹15| ₹5| ₹60| Serverless  
+Sarvam Prism (`sarvam-prism`)| ₹4| —| ₹0| Serverless  
   
 [Sarvam Prism](https://docs.sarvam.ai/api/token-factory/models/sarvam-prism) is billed on input tokens only: output is ₹0 because it returns probabilities, not text. The state is counted once per request, so asking 3 short questions about a 1,000-token state bills a little over 1,000 input tokens. See [Token usage](https://docs.sarvam.ai/api/token-factory/models/sarvam-prism#token-usage).
 
@@ -118,16 +118,14 @@ Sarvam Prism (`sarvam-prism`)| ₹4| —| ₹0| Available
 
 Model| Input| Cached input| Output| Status  
 ---|---|---|---|---  
-GLM-5.3 (`glm5.3`)| ₹126| ₹20| ₹390| Available  
-GLM-5.3 Flash (`glm5.3-flash`)| ₹13.5| ₹2.5| ₹45| Available  
-Gemma 4 31B (`gemma4`)| ₹35| ₹10| ₹90| Available  
-DeepSeek V4.1 Flash 1017 (`deepseekv4.1-flash-1017`)| ₹25| ₹0.5| ₹105| Available  
-DeepSeek V4 Pro (`deepseekv4-pro`)| ₹115| ₹4| ₹350| Beta  
-Kimi K3 (`kimi-k3`)| ₹270| ₹27| ₹1,350| Beta  
-MiMo V2.6 Flash (`mimo-v2.6-flash`)| ₹12.5| ₹0.25| ₹25| Beta  
-MiMo V2.6 Pro (`mimo-v2.6-pro`)| ₹40| ₹0.3| ₹80| Beta  
+GLM-5.3 (`glm5.3`)| ₹126| ₹20| ₹390| Serverless  
+GLM-5.3 Flash (`glm5.3-flash`)| ₹13.5| ₹2.5| ₹45| Serverless  
+Gemma 4 31B (`gemma4`)| ₹35| ₹10| ₹90| Serverless  
+DeepSeek V4.1 Flash 1017 (`deepseekv4.1-flash-1017`)| ₹25| ₹0.5| ₹105| Serverless  
+DeepSeek V4 Pro (`deepseekv4-pro`)| ₹115| ₹4| ₹350| Provisioned Throughput  
+Kimi K3.1 Pro (`kimi-k3.1-pro`)| ₹250| ₹25| ₹1,350| Provisioned Throughput  
   
-DeepSeek V4 Pro, Kimi K3, MiMo V2.6 Flash, and MiMo V2.6 Pro are [in beta](https://docs.sarvam.ai/api-reference/beta-apis).
+DeepSeek V4 Pro and Kimi K3.1 Pro are on [Provisioned Throughput](https://docs.sarvam.ai/api/token-factory/models#provisioned-throughput) and are enabled per organisation.
 
 ### Speech to Text
 
@@ -474,9 +472,7 @@ YesNo
   * [Gemma 4 31B](https://docs.sarvam.ai/api/token-factory/models/gemma-4-31b)
   * [DeepSeek V4.1 Flash 1017](https://docs.sarvam.ai/api/token-factory/models/deepseek-v4.1-flash-1017)
   * [DeepSeek V4 Pro](https://docs.sarvam.ai/api/token-factory/models/deepseek-v4-pro)
-  * [Kimi K3](https://docs.sarvam.ai/api/token-factory/models/kimi-k3)
-  * [MiMo V2.6 Flash](https://docs.sarvam.ai/api/token-factory/models/mimo-v2.6-flash)
-  * [MiMo V2.6 Pro](https://docs.sarvam.ai/api/token-factory/models/mimo-v2.6-pro)
+  * [Kimi K3.1 Pro](https://docs.sarvam.ai/api/token-factory/models/kimi-k3.1-pro)
   * [Chat Completions](https://docs.sarvam.ai/api/token-factory/chat-completions)
   * [Responses API](https://docs.sarvam.ai/api/token-factory/responses-api)
   * [Decisions API](https://docs.sarvam.ai/api/token-factory/decisions-api)
@@ -651,7 +647,7 @@ YesNo
 
   * [Model APIs](https://docs.sarvam.ai/api)
   * [Voice Agents](https://docs.sarvam.ai/voice-agents)
-  * [Doc Agents](https://docs.sarvam.ai/docai)
+  * [Document AI](https://docs.sarvam.ai/doc-ai)
   * [Content Studio](https://docs.sarvam.ai/creative)
   * [Cowork](https://docs.sarvam.ai/cowork)
   * [API Reference](https://docs.sarvam.ai/api-reference)

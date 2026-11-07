@@ -2,7 +2,7 @@
 url: https://docs.sarvam.ai/api/token-factory/migrations/from-fireworks/responses-api/
 title: Migrating the Responses API from Fireworks AI to Sarvam | Sarvam API Docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-30T06:37:12.733785+00:00
+fetched_at: 2026-11-07T06:39:13.372088+00:00
 ---
 
 # Migrating the Responses API from Fireworks AI to Sarvam | Sarvam API Docs
@@ -133,7 +133,7 @@ Fireworks| Sarvam| Note
 ---|---|---  
 `reasoning.effort` (`low`, `high`, `max`)| Same| On `glm5.3` and `glm5.3-flash`, `"max"` returns `400`; omitting the field gives `max` on `glm5.3` and `high` on `glm5.3-flash`.  
 `reasoning.effort: "medium"` / `"xhigh"`| Use `"low"`, `"high"`, or `"max"`| Accepted on some models and returns `400` on others.  
-`reasoning.effort: "none"`| Same| Turns thinking off on `deepseekv4-pro`, `mimo-v2.6-flash`, and `mimo-v2.6-pro`.  
+`reasoning.effort: "none"`| Same| Turns thinking off on `deepseekv4-pro`.  
 Reasoning item in `output`| Same| Read the trace from the item’s `content[0].text`. `summary` is filled only when you set `reasoning.summary`.  
   
 Reasoning tokens count toward `max_output_tokens`, which has no default cap on Sarvam.
@@ -172,7 +172,6 @@ Fireworks| Sarvam| Note
 `max_output_tokens`, `temperature`, `top_p`| Same| Set `max_output_tokens`: there’s no default cap.  
 `text.format` (`json_schema`, `json_object`)| Same|   
 `input_image` content parts| Same| Inline base64 data URIs only, on models with image input.  
-`input_audio` content parts| Same, on the MiMo models| `wav` or `mp3` only on the Responses API.  
 Video input| Not supported| Send video on Chat Completions.  
 `stream: true`| Same| Standard events: `response.created`, `response.output_text.delta`, `response.completed`, and so on.  
 `response.output_text` (OpenAI SDK)| Same| The `sarvamai` SDK doesn’t have this shortcut; read the `message` item in `output`.  
@@ -222,6 +221,7 @@ YesNo
 
     * [Chat Completions](https://docs.sarvam.ai/api/token-factory/chat-completions)
     * [Responses API](https://docs.sarvam.ai/api/token-factory/responses-api)
+    * [Decisions API](https://docs.sarvam.ai/api/token-factory/decisions-api)
     * How-to
 
     * Migration Guides
@@ -286,16 +286,17 @@ YesNo
   * [Talk to us](https://docs.sarvam.ai/api/getting-started/help)
   * [Token Factory (Open-Weight)](https://docs.sarvam.ai/api/token-factory)
   * [Models](https://docs.sarvam.ai/api/token-factory/models)
+  * [Sarvam 105B](https://docs.sarvam.ai/api/token-factory/models/sarvam-105b)
+  * [Sarvam Prism](https://docs.sarvam.ai/api/token-factory/models/sarvam-prism)
   * [GLM-5.3](https://docs.sarvam.ai/api/token-factory/models/glm-5-3)
   * [GLM-5.3 Flash](https://docs.sarvam.ai/api/token-factory/models/glm-5-3-flash)
   * [Gemma 4 31B](https://docs.sarvam.ai/api/token-factory/models/gemma-4-31b)
   * [DeepSeek V4.1 Flash 1017](https://docs.sarvam.ai/api/token-factory/models/deepseek-v4.1-flash-1017)
   * [DeepSeek V4 Pro](https://docs.sarvam.ai/api/token-factory/models/deepseek-v4-pro)
-  * [Kimi K3](https://docs.sarvam.ai/api/token-factory/models/kimi-k3)
-  * [MiMo V2.6 Flash](https://docs.sarvam.ai/api/token-factory/models/mimo-v2.6-flash)
-  * [MiMo V2.6 Pro](https://docs.sarvam.ai/api/token-factory/models/mimo-v2.6-pro)
+  * [Kimi K3.1 Pro](https://docs.sarvam.ai/api/token-factory/models/kimi-k3.1-pro)
   * [Chat Completions](https://docs.sarvam.ai/api/token-factory/chat-completions)
   * [Responses API](https://docs.sarvam.ai/api/token-factory/responses-api)
+  * [Decisions API](https://docs.sarvam.ai/api/token-factory/decisions-api)
   * [List your chat messages](https://docs.sarvam.ai/api/token-factory/how-to/list-your-chat-messages)
   * [Control response randomness](https://docs.sarvam.ai/api/token-factory/how-to/control-response-randomness)
   * [Control response diversity](https://docs.sarvam.ai/api/token-factory/how-to/control-response-diversity)
@@ -315,7 +316,6 @@ YesNo
   * [Chat Completion](https://docs.sarvam.ai/api/token-factory/migrations/from-together/chat-completion)
   * [Saaras](https://docs.sarvam.ai/api/api-guides-tutorials/models/saaras)
   * [Bulbul](https://docs.sarvam.ai/api/api-guides-tutorials/models/bulbul)
-  * [Sarvam 105B](https://docs.sarvam.ai/api/api-guides-tutorials/models/sarvam-105b)
   * [Mayura](https://docs.sarvam.ai/api/api-guides-tutorials/models/mayura)
   * [Sarvam Translate](https://docs.sarvam.ai/api/api-guides-tutorials/models/sarvam-translate)
   * [Sarvam Vision](https://docs.sarvam.ai/api/api-guides-tutorials/models/sarvam-vision)
@@ -468,7 +468,7 @@ YesNo
 
   * [Model APIs](https://docs.sarvam.ai/api)
   * [Voice Agents](https://docs.sarvam.ai/voice-agents)
-  * [Doc Agents](https://docs.sarvam.ai/docai)
+  * [Document AI](https://docs.sarvam.ai/doc-ai)
   * [Content Studio](https://docs.sarvam.ai/creative)
   * [Cowork](https://docs.sarvam.ai/cowork)
   * [API Reference](https://docs.sarvam.ai/api-reference)

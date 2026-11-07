@@ -2,7 +2,7 @@
 url: https://docs.sarvam.ai/api/token-factory/models/deepseek-v4-pro/
 title: DeepSeek V4 Pro | Sarvam API Docs
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T06:32:50.878537+00:00
+fetched_at: 2026-11-07T06:39:10.706042+00:00
 ---
 
 # DeepSeek V4 Pro | Sarvam API Docs
@@ -30,15 +30,13 @@ Scroll to top
 
 # DeepSeek V4 Pro
 
-Beta
-
 Ask a question|Copy page|[View as Markdown](https://docs.sarvam.ai/api/token-factory/models/deepseek-v4-pro.md "View this page as plain text")|More actions
 
 This page is for Model APIs.
 
 DeepSeek V4 Pro is the larger model in the DeepSeek V4 family, served on Sarvam infrastructure as an [open-weight model](https://docs.sarvam.ai/api/token-factory/models). It supports text input and output with a **1,000,000-token context window**.
 
-DeepSeek V4 Pro is in **beta**. Its behaviour, limits, and availability may change before general availability. Beta access is enabled for your organisation, and covers all beta models; without it, requests return `400 invalid_request_error` (“This model is currently in beta”). [Contact us](https://docs.sarvam.ai/api/getting-started/help) to request access. See [Beta models](https://docs.sarvam.ai/api-reference/beta-apis).
+DeepSeek V4 Pro is available on **Provisioned Throughput** : capacity is set up for your workload and enabled for your organisation. Without access, requests return `400 invalid_request_error` (the message still reads “This model is currently in beta”). [Contact us](https://docs.sarvam.ai/api/getting-started/help) to request access. See [Provisioned Throughput](https://docs.sarvam.ai/api/token-factory/models#provisioned-throughput).
 
 ## At a glance
 
@@ -189,7 +187,7 @@ Was this page helpful?
 
 YesNo
 
-[Previous](https://docs.sarvam.ai/api/token-factory/models/deepseek-v4.1-flash-1017)[Kimi K3Next](https://docs.sarvam.ai/api/token-factory/models/kimi-k3)[Built with](https://buildwithfern.com/?utm_source=others&utm_medium=organic&utm_campaign=fern_indocs_url&utm_content=book_demo&utm_term=docs.sarvam.ai)
+[Previous](https://docs.sarvam.ai/api/token-factory/models/deepseek-v4.1-flash-1017)[Kimi K3.1 ProNext](https://docs.sarvam.ai/api/token-factory/models/kimi-k3.1-pro)[Built with](https://buildwithfern.com/?utm_source=others&utm_medium=organic&utm_campaign=fern_indocs_url&utm_content=book_demo&utm_term=docs.sarvam.ai)
 
   * Getting Started
 
@@ -207,10 +205,8 @@ YesNo
       * [GLM-5.3 Flash](https://docs.sarvam.ai/api/token-factory/models/glm-5-3-flash)
       * [Gemma 4 31B](https://docs.sarvam.ai/api/token-factory/models/gemma-4-31b)
       * [DeepSeek V4.1 Flash 1017](https://docs.sarvam.ai/api/token-factory/models/deepseek-v4.1-flash-1017)
-      * [DeepSeek V4 ProBeta](https://docs.sarvam.ai/api/token-factory/models/deepseek-v4-pro)
-      * [Kimi K3Beta](https://docs.sarvam.ai/api/token-factory/models/kimi-k3)
-      * [MiMo V2.6 FlashBeta](https://docs.sarvam.ai/api/token-factory/models/mimo-v2.6-flash)
-      * [MiMo V2.6 ProBeta](https://docs.sarvam.ai/api/token-factory/models/mimo-v2.6-pro)
+      * [DeepSeek V4 Pro](https://docs.sarvam.ai/api/token-factory/models/deepseek-v4-pro)
+      * [Kimi K3.1 Pro](https://docs.sarvam.ai/api/token-factory/models/kimi-k3.1-pro)
 
     * [Chat Completions](https://docs.sarvam.ai/api/token-factory/chat-completions)
     * [Responses API](https://docs.sarvam.ai/api/token-factory/responses-api)
@@ -276,9 +272,7 @@ YesNo
   * [Gemma 4 31B](https://docs.sarvam.ai/api/token-factory/models/gemma-4-31b)
   * [DeepSeek V4.1 Flash 1017](https://docs.sarvam.ai/api/token-factory/models/deepseek-v4.1-flash-1017)
   * [DeepSeek V4 Pro](https://docs.sarvam.ai/api/token-factory/models/deepseek-v4-pro)
-  * [Kimi K3](https://docs.sarvam.ai/api/token-factory/models/kimi-k3)
-  * [MiMo V2.6 Flash](https://docs.sarvam.ai/api/token-factory/models/mimo-v2.6-flash)
-  * [MiMo V2.6 Pro](https://docs.sarvam.ai/api/token-factory/models/mimo-v2.6-pro)
+  * [Kimi K3.1 Pro](https://docs.sarvam.ai/api/token-factory/models/kimi-k3.1-pro)
   * [Chat Completions](https://docs.sarvam.ai/api/token-factory/chat-completions)
   * [Responses API](https://docs.sarvam.ai/api/token-factory/responses-api)
   * [Decisions API](https://docs.sarvam.ai/api/token-factory/decisions-api)
@@ -453,7 +447,7 @@ YesNo
 
   * [Model APIs](https://docs.sarvam.ai/api)
   * [Voice Agents](https://docs.sarvam.ai/voice-agents)
-  * [Doc Agents](https://docs.sarvam.ai/docai)
+  * [Document AI](https://docs.sarvam.ai/doc-ai)
   * [Content Studio](https://docs.sarvam.ai/creative)
   * [Cowork](https://docs.sarvam.ai/cowork)
   * [API Reference](https://docs.sarvam.ai/api-reference)

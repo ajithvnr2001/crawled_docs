@@ -2,7 +2,7 @@
 url: https://docs.sarvam.ai/api/getting-started/welcome/
 title: Welcome to Model APIs Documentation | Sarvam API Docs
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T06:32:52.079769+00:00
+fetched_at: 2026-11-07T06:39:11.959017+00:00
 ---
 
 # Welcome to Model APIs Documentation | Sarvam API Docs
@@ -37,7 +37,7 @@ Model APIs bring two model families together. Both use the same API key, the sam
 | Token Factory (Open-Weight)| Sarvam Models  
 ---|---|---  
 **What it is**|  Open-weight LLMs served on Sarvam infrastructure| Sarvam’s own models for Indian-language speech, translation, and documents  
-**Models**|  Sarvam 105B, GLM-5.3, Gemma 4, DeepSeek, Kimi, MiMo| Saaras, Bulbul, Mayura, Sarvam-Translate, Sarvam Vision  
+**Models**|  Sarvam 105B, GLM-5.3, Gemma 4, DeepSeek, Kimi| Saaras, Bulbul, Mayura, Sarvam-Translate, Sarvam Vision  
 **APIs**|  Chat Completions and Responses on `/v2`, compatible with the OpenAI SDK| Speech to Text, Text to Speech, Text Processing, Document Intelligence, Document Translation, Dubbing, Voice Cloning  
 **Use it to**|  Reason, write code, call tools, and run agents| Hear, speak, translate, and read Hindi, Tamil, Telugu, and every major Indian language, including code-mixed input  
 **Start here**| [Token Factory overview](https://docs.sarvam.ai/api/token-factory)| [Speech to Text](https://docs.sarvam.ai/api/api-guides-tutorials/speech-to-text/overview) or [Text to Speech](https://docs.sarvam.ai/api/api-guides-tutorials/text-to-speech/overview)  
@@ -59,7 +59,7 @@ Model| Model ID| Best for
 [Gemma 4 31B](https://docs.sarvam.ai/api/token-factory/models/gemma-4-31b)| `gemma4`| Images and low-latency answers  
 [DeepSeek V4.1 Flash 1017](https://docs.sarvam.ai/api/token-factory/models/deepseek-v4.1-flash-1017)| `deepseekv4.1-flash-1017`| Long documents and cost-sensitive reasoning  
   
-[DeepSeek V4 Pro](https://docs.sarvam.ai/api/token-factory/models/deepseek-v4-pro), [Kimi K3](https://docs.sarvam.ai/api/token-factory/models/kimi-k3), [MiMo V2.6 Flash](https://docs.sarvam.ai/api/token-factory/models/mimo-v2.6-flash), and [MiMo V2.6 Pro](https://docs.sarvam.ai/api/token-factory/models/mimo-v2.6-pro) are in [beta](https://docs.sarvam.ai/api-reference/beta-apis) and are enabled per organisation.
+[DeepSeek V4 Pro](https://docs.sarvam.ai/api/token-factory/models/deepseek-v4-pro) and [Kimi K3.1 Pro](https://docs.sarvam.ai/api/token-factory/models/kimi-k3.1-pro) are on [Provisioned Throughput](https://docs.sarvam.ai/api/token-factory/models#provisioned-throughput) and are enabled per organisation.
 
 [Token Factory overviewWhat Token Factory is, and the two-line switch from the OpenAI SDK.](https://docs.sarvam.ai/api/token-factory)[Compare modelsContext windows, modalities, reasoning, and feature support side by side.](https://docs.sarvam.ai/api/token-factory/models)[Chat CompletionsStreaming, tool calling, reasoning, and structured output.](https://docs.sarvam.ai/api/token-factory/chat-completions)[Responses APIStateless responses with reasoning, structured output, and tool calling.](https://docs.sarvam.ai/api/token-factory/responses-api)
 
@@ -177,9 +177,7 @@ YesNo
   * [Gemma 4 31B](https://docs.sarvam.ai/api/token-factory/models/gemma-4-31b)
   * [DeepSeek V4.1 Flash 1017](https://docs.sarvam.ai/api/token-factory/models/deepseek-v4.1-flash-1017)
   * [DeepSeek V4 Pro](https://docs.sarvam.ai/api/token-factory/models/deepseek-v4-pro)
-  * [Kimi K3](https://docs.sarvam.ai/api/token-factory/models/kimi-k3)
-  * [MiMo V2.6 Flash](https://docs.sarvam.ai/api/token-factory/models/mimo-v2.6-flash)
-  * [MiMo V2.6 Pro](https://docs.sarvam.ai/api/token-factory/models/mimo-v2.6-pro)
+  * [Kimi K3.1 Pro](https://docs.sarvam.ai/api/token-factory/models/kimi-k3.1-pro)
   * [Chat Completions](https://docs.sarvam.ai/api/token-factory/chat-completions)
   * [Responses API](https://docs.sarvam.ai/api/token-factory/responses-api)
   * [Decisions API](https://docs.sarvam.ai/api/token-factory/decisions-api)
@@ -354,7 +352,7 @@ YesNo
 
   * [Model APIs](https://docs.sarvam.ai/api)
   * [Voice Agents](https://docs.sarvam.ai/voice-agents)
-  * [Doc Agents](https://docs.sarvam.ai/docai)
+  * [Document AI](https://docs.sarvam.ai/doc-ai)
   * [Content Studio](https://docs.sarvam.ai/creative)
   * [Cowork](https://docs.sarvam.ai/cowork)
   * [API Reference](https://docs.sarvam.ai/api-reference)

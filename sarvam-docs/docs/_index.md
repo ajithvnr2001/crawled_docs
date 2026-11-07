@@ -2,7 +2,7 @@
 url: https://docs.sarvam.ai/
 title: AI for all from India | Sarvam API Docs
 method: scrapling+scrapegraph
-fetched_at: 2026-11-06T06:34:13.337964+00:00
+fetched_at: 2026-11-07T06:39:09.777248+00:00
 ---
 
 # AI for all from India | Sarvam API Docs
@@ -37,13 +37,13 @@ Design, deploy, and monitor conversational agents across phone and chat in 11 In
 
 Dub video, clone voices, generate speech, and turn scans and handwritten forms into structured data, all from the dashboard with no integration required.
 
-[Content Studio](https://docs.sarvam.ai/creative/studio-overview)[Doc Agents](https://docs.sarvam.ai/docai/getting-started/overview)
+[Content Studio](https://docs.sarvam.ai/creative/studio-overview)[Document AI](https://docs.sarvam.ai/doc-ai/getting-started/overview)
 
 ## Explore the platform
 
 Seven entry points, one account. Start wherever your problem lives.
 
-[Model APIsSpeech, text, chat, document intelligence, and document-to-document translation behind a single API key. Build it into your own product.](https://docs.sarvam.ai/api/getting-started/welcome)[Voice AgentsBuild, deploy, and monitor voice and chat agents. Bring your own telephony or rent a number from Sarvam.](https://docs.sarvam.ai/voice-agents/overview)[Doc AgentsExtract fields and parse documents (invoices, KYC, land deeds, handwritten manuscripts) into JSON, CSV, Markdown, or DOCX.](https://docs.sarvam.ai/docai/getting-started/overview)[Document TranslationTranslate whole PDF and Office files into up to 12 Indian languages per job — layout preserved, document-to-document (PDF stays PDF, DOCX stays DOCX).](https://docs.sarvam.ai/api/api-guides-tutorials/doc-translation/overview)[Content StudioDub video, clone voices, generate speech, and transcribe audio from the browser.](https://docs.sarvam.ai/creative/studio-overview)[CoworkAn agentic workspace for real work: email triage, morning briefings, internal helpdesk, lead follow-up.](https://docs.sarvam.ai/cowork/overview)[Coding AgentAn agentic coding assistant for your terminal and IDE, built on Sarvam models for development tasks.](https://docs.sarvam.ai/api/sarvam-code)
+[Model APIsSpeech, text, chat, document intelligence, and document-to-document translation behind a single API key. Build it into your own product.](https://docs.sarvam.ai/api/getting-started/welcome)[Voice AgentsBuild, deploy, and monitor voice and chat agents. Bring your own telephony or rent a number from Sarvam.](https://docs.sarvam.ai/voice-agents/overview)[Document AIExtract fields and parse documents (invoices, KYC, land deeds, handwritten manuscripts) into JSON, CSV, Markdown, or DOCX.](https://docs.sarvam.ai/doc-ai/getting-started/overview)[Document TranslationTranslate whole PDF and Office files into up to 12 Indian languages per job — layout preserved, document-to-document (PDF stays PDF, DOCX stays DOCX).](https://docs.sarvam.ai/api/api-guides-tutorials/doc-translation/overview)[Content StudioDub video, clone voices, generate speech, and transcribe audio from the browser.](https://docs.sarvam.ai/creative/studio-overview)[CoworkAn agentic workspace for real work: email triage, morning briefings, internal helpdesk, lead follow-up.](https://docs.sarvam.ai/cowork/overview)[Coding AgentAn agentic coding assistant for your terminal and IDE, built on Sarvam models for development tasks.](https://docs.sarvam.ai/api/sarvam-code)
 
 ## Build voice agents
 
@@ -135,7 +135,7 @@ Community
 
   * [Model APIs](https://docs.sarvam.ai/api)
   * [Voice Agents](https://docs.sarvam.ai/voice-agents)
-  * [Doc Agents](https://docs.sarvam.ai/docai)
+  * [Document AI](https://docs.sarvam.ai/doc-ai)
   * [Content Studio](https://docs.sarvam.ai/creative)
   * [Cowork](https://docs.sarvam.ai/cowork)
   * [API Reference](https://docs.sarvam.ai/api-reference)
