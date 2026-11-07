@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/es/registry/api-reference/comfy-router/read-one-partner-models-catalog-entry-by-canonical-model-id/
 title: Read one partner model's catalog entry by canonical model ID. - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-11-02T16:54:40.830581+00:00
+fetched_at: 2026-11-07T13:48:36.796848+00:00
 ---
 
 # Read one partner model's catalog entry by canonical model ID. - ComfyUI
@@ -120,6 +120,8 @@ cURL
 
 404
 
+429
+
 503
     
     
@@ -132,6 +134,21 @@ cURL
       "provider": "bfl",
       "schema_etag": "\"9f2c1e0b7a4d3c6e8f5a2b1d0c9e8f7a6b5c4d3e2f1a0b9c8d7e6f5a4b3c2d1e\"",
       "input_schema_url": "<string>"
+    }
+    
+    
+    {
+      "detail": "<string>",
+      "error_type": "invalid_input",
+      "billed_workspace": {
+        "type": "<string>",
+        "id": "<string>",
+        "rail": "<string>"
+      },
+      "credential_kind": "<string>",
+      "denied_reason": "<string>",
+      "refusal_subject": "<string>",
+      "upstream_detail": "<string>"
     }
     
     
@@ -335,6 +352,8 @@ cURL
 
 404
 
+429
+
 503
     
     
@@ -347,6 +366,21 @@ cURL
       "provider": "bfl",
       "schema_etag": "\"9f2c1e0b7a4d3c6e8f5a2b1d0c9e8f7a6b5c4d3e2f1a0b9c8d7e6f5a4b3c2d1e\"",
       "input_schema_url": "<string>"
+    }
+    
+    
+    {
+      "detail": "<string>",
+      "error_type": "invalid_input",
+      "billed_workspace": {
+        "type": "<string>",
+        "id": "<string>",
+        "rail": "<string>"
+      },
+      "credential_kind": "<string>",
+      "denied_reason": "<string>",
+      "refusal_subject": "<string>",
+      "upstream_detail": "<string>"
     }
     
     

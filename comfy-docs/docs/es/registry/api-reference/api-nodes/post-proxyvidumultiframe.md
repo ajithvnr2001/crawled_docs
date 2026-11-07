@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/es/registry/api-reference/api-nodes/post-proxyvidumultiframe/
 title: Post proxyvidumultiframe - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-11-05T15:16:31.066470+00:00
+fetched_at: 2026-11-07T13:48:30.260486+00:00
 ---
 
 # Post proxyvidumultiframe - ComfyUI

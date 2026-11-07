@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/es/registry/api-reference/comfy-router/read-one-partner-models-input-and-output-schemas-as-an-openapi-document/
 title: Read one partner model's input and output schemas as an OpenAPI document. - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-11-02T16:54:41.140598+00:00
+fetched_at: 2026-11-07T13:48:36.899296+00:00
 ---
 
 # Read one partner model's input and output schemas as an OpenAPI document. - ComfyUI
@@ -120,12 +120,29 @@ cURL
 
 404
 
+429
+
 500
 
 503
     
     
     {}
+    
+    
+    {
+      "detail": "<string>",
+      "error_type": "invalid_input",
+      "billed_workspace": {
+        "type": "<string>",
+        "id": "<string>",
+        "rail": "<string>"
+      },
+      "credential_kind": "<string>",
+      "denied_reason": "<string>",
+      "refusal_subject": "<string>",
+      "upstream_detail": "<string>"
+    }
     
     
     {
@@ -347,12 +364,29 @@ cURL
 
 404
 
+429
+
 500
 
 503
     
     
     {}
+    
+    
+    {
+      "detail": "<string>",
+      "error_type": "invalid_input",
+      "billed_workspace": {
+        "type": "<string>",
+        "id": "<string>",
+        "rail": "<string>"
+      },
+      "credential_kind": "<string>",
+      "denied_reason": "<string>",
+      "refusal_subject": "<string>",
+      "upstream_detail": "<string>"
+    }
     
     
     {

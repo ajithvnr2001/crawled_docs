@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/es/registry/api-reference/registry/retrieve-a-publisher-by-id/
 title: Retrieve a publisher by ID - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-11-05T15:16:30.088762+00:00
+fetched_at: 2026-11-07T13:48:29.291773+00:00
 ---
 
 # Retrieve a publisher by ID - ComfyUI

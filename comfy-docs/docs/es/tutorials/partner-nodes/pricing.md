@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/es/tutorials/partner-nodes/pricing/
 title: Precios de los Nodos asociados - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-26T14:03:54.553475+00:00
+fetched_at: 2026-11-07T13:48:35.758625+00:00
 ---
 
 # Precios de los Nodos asociados - ComfyUI
@@ -19,7 +19,15 @@ Precios en créditos de los Nodos asociados de cada proveedor (Anthropic, OpenAI
 
 Copiar páginaCopiar página
 
-La siguiente tabla muestra los precios de los Nodos asociados actuales. Todos los precios están en créditos.
+La siguiente tabla muestra los precios de los Nodos asociados actuales. Todos los precios están en créditos. Los Nodos asociados se facturan por llamada en créditos. El tiempo de GPU de Comfy API y los planes de Comfy Cloud tienen su precio en otro lugar, en las páginas enlazadas a continuación.
+
+## Precios de GPU de Comfy API
+
+Tarifas de horas de GPU y almacenamiento en red para una implementación gestionada de Comfy API.
+
+## Planes de Comfy Cloud
+
+Planes de suscripción y lo que incluye cada plan.
 
 ## Precios de Comfy Router
 
@@ -170,13 +178,15 @@ Flux Video Edit| 9.05
 
 Video: Flux Video Upscale
 
-Las tarifas son **por megapíxel de salida por segundo**. Créditos totales = **créditos / MP / seg × megapíxeles de salida ×`duration`**. La resolución de salida varía de 1080p (~2.1 MP) a 4K (~8.3 MP).
+Las tarifas son **por megapíxel de salida por segundo**. Créditos totales = **créditos / MP / seg × megapíxeles de salida ×`duration`**. `target_resolution` fija el tamaño de salida: `1080p`, `2K` y `4K` encajan el video en ese tamaño, y `by factor` lo escala según `upscale_factor` (1.5 a 3). La salida está limitada a unos 14.4 MP por fotograma.
 
 Nodo| Modo| Créditos / MP / seg  
 ---|---|---  
-Flux Video Upscale| creative| 30.17  
-Flux Video Upscale| precise| 21.12  
+Flux Video Upscale| creative| 15.09  
+Flux Video Upscale| precise| 10.56  
   
+Una salida de 1080p (2.07 MP) cuesta 31.24 créditos por segundo en modo `creative` y 21.86 en `precise`. Una salida de 4K (8.29 MP) cuesta 125.10 y 87.54.
+
 ## 
 
 ​
@@ -334,23 +344,15 @@ Se factura por tokens (misma fórmula de estimación que Seedance 2.0). A difere
 
 Modelo| Condición| Créditos / 1M tokens  
 ---|---|---  
-seedance-1-5-pro-251215| `generate_audio: false`| 253.2  
-seedance-1-5-pro-251215| `generate_audio: true`| 506.4  
 seedance-1-0-pro-250528| N/A| 527.5  
 seedance-1-0-pro-fast-251015| N/A| 211  
   
-**Obsoleto** : ComfyUI retiró y eliminó `seedance-1-0-lite-t2v-250428` y `seedance-1-0-lite-i2v-250428`, además del nodo **ByteDance Reference Images to Video**. Los precios siguientes son solo de referencia.
+**Obsoleto** : `seedance-1-5-pro-251215` se retira el 11 de noviembre de 2026, cuando BytePlus cierre el modelo. ComfyUI lo elimina de los nodos ByteDance 1.x ese mismo día y sus filas de precios ya no aparecen en esta página. Usa `seedance-1-0-pro-250528`, `seedance-1-0-pro-fast-251015` o un modelo Seedance 2.x.**Ya retirado** : ComfyUI retiró y eliminó `seedance-1-0-lite-t2v-250428` y `seedance-1-0-lite-i2v-250428`, además del nodo **ByteDance Reference Images to Video**. Los precios siguientes son solo de referencia.
 
 **Créditos aproximados / 10 seg** (los créditos se ajustan según `duration ÷ 10`. Los rangos reflejan la relación de aspecto.)
 
 modelo| Resolución| generate_audio| Créditos / 10 seg  
 ---|---|---|---  
-seedance-1-5-pro-251215| 480p| desactivado| 25.32  
-seedance-1-5-pro-251215| 480p| activado| 50.64  
-seedance-1-5-pro-251215| 720p| desactivado| 54.86  
-seedance-1-5-pro-251215| 720p| activado| 109.72  
-seedance-1-5-pro-251215| 1080p| desactivado| 122.38 – 124.49  
-seedance-1-5-pro-251215| 1080p| activado| 244.76 – 249.0  
 seedance-1-0-pro-250528| 480p| N/A| 48.53 – 50.64  
 seedance-1-0-pro-250528| 720p| N/A| 107.61 – 118.16  
 seedance-1-0-pro-250528| 1080p| N/A| 248.98 – 257.42  
@@ -641,7 +643,7 @@ HeyGen Voice 1.0 Instant Clone| N/A| Gratis
 HeyGen Voice 1.0 Text to Speech| `heygen-voice-1`| 9.05 / 1K chars  
 HeyGen Voice 1.0 Text to Speech| `heygen-voice-1-turbo`| 2.26 / 1K chars  
   
-**Oferta por tiempo limitado** : hasta el 31 de octubre de 2026, el texto a voz se factura a aproximadamente **4.53** créditos por 1K caracteres para `heygen-voice-1` y **1.21** para `heygen-voice-1-turbo`. Las filas anteriores muestran las tarifas estándar, que se aplican a partir del 1 de noviembre de 2026. El Video de Avatar HeyGen se factura por segundo según la tarifa del tipo de aspecto de avatar seleccionado (Digital Twin, Photo Avatar o Studio Avatar). **Auto** elige el motor para cada aspecto, así que su tarifa cubre todo el rango anterior; un ID de avatar personalizado se factura según su propio tipo. Los clips de HeyGen Video 1.0 duran de 5 a 15 segundos y se facturan a la tarifa de la resolución seleccionada. Reference to Video usa la tarifa sin referencias hasta que se conecta una imagen o un video de referencia, y cada video de referencia suma 5 segundos a la duración facturada. La salida en **2K** requiere la relación de aspecto `16:9` o `9:16`; `auto` funciona en 2K solo cuando no hay medios de referencia conectados.
+**Precios de texto a voz** : hasta el 31 de octubre de 2026 se aplicó una tarifa de lanzamiento de aproximadamente **4.53** créditos por 1K caracteres para `heygen-voice-1` y **1.21** para `heygen-voice-1-turbo`. Las filas anteriores muestran las tarifas estándar, que se aplican a partir del 1 de noviembre de 2026. El Video de Avatar HeyGen se factura por segundo según la tarifa del tipo de aspecto de avatar seleccionado (Digital Twin, Photo Avatar o Studio Avatar). **Auto** elige el motor para cada aspecto, así que su tarifa cubre todo el rango anterior; un ID de avatar personalizado se factura según su propio tipo. Los clips de HeyGen Video 1.0 duran de 5 a 15 segundos y se facturan a la tarifa de la resolución seleccionada. Reference to Video usa la tarifa sin referencias hasta que se conecta una imagen o un video de referencia, y cada video de referencia suma 5 segundos a la duración facturada. La salida en **2K** requiere la relación de aspecto `16:9` o `9:16`; `auto` funciona en 2K solo cuando no hay medios de referencia conectados.
 
 ## 
 
@@ -843,8 +845,9 @@ Krea 3| 1K| fast| 9.05| 6.03
 Krea 3| 1K| high| 15.09| 6.03  
 Krea 3| 2K| fast| 18.10| 6.03 - 21.12  
 Krea 3| 2K| high| 24.14| 6.03 - 21.12  
+Krea 3| 2K| ultra| 78.45| 6.03 - 21.12  
   
-A 2K, cada imagen de referencia añade **de 6.03 a 21.12 créditos** , según el tamaño en píxeles de la imagen de referencia; a 1K, las imágenes de referencia se reducen a aproximadamente 1 MP, por lo que el recargo es fijo de **6.03 créditos**.
+A 2K, cada imagen de referencia añade **de 6.03 a 21.12 créditos** , según el tamaño en píxeles de la imagen de referencia; a 1K, las imágenes de referencia se reducen a aproximadamente 1 MP, por lo que el recargo es fijo de **6.03 créditos**. `ultra` siempre genera 2K, independientemente de `resolution`, y requiere al menos una imagen de referencia.
 
 ## 
 
@@ -1048,7 +1051,7 @@ Luma
 
 Video
 
-**Obsoleto** : Los nodos clásicos **Luma Text to Video** y **Luma Image to Video** están obsoletos, y Luma elimina los endpoints que usan el 24 de octubre de 2026. Usa los nodos **Luma Ray 3.2** en su lugar. Las filas de ray-2, ray-flash-2 y ray-1-6 a continuación se mantienen como referencia; **ray-1-6** dejó de servirse en septiembre de 2026, así que solo **ray-2** y **ray-flash-2** funcionan hasta la fecha límite.
+**Obsoleto** : Los nodos clásicos **Luma Text to Video** y **Luma Image to Video** están obsoletos, y Luma eliminó los endpoints que usan el 24 de octubre de 2026, así que estos dos nodos ya no pueden generar videos. Usa los nodos **Luma Ray 3.2** en su lugar. Las filas de ray-2, ray-flash-2 y ray-1-6 a continuación se mantienen solo como referencia; **ray-1-6** dejó de servirse en septiembre de 2026.
 
 Los precios fijos de **/run** coinciden con la insignia del nodo para cada opción de `duration`. **Edit** y **reframe** cobran **(créditos / seg) × duración del video**. **ray-1-6** siempre cuesta **105.50 / run**.
 
@@ -1140,6 +1143,19 @@ Meta Muse Image Edit| 3.017 / imagen
 
 ​
 
+Mirelo
+
+Nodo| Créditos / seg  
+---|---  
+Mirelo Video to SFX| 2.796  
+Mirelo Text to SFX| 2.796  
+  
+Créditos totales = **(créditos / seg) × segundos facturados**. **Mirelo Video to SFX** factura la duración del video de entrada (de 1 a 600 segundos). **Mirelo Text to SFX** factura el valor de `duration` (de 0.1 a 600 segundos).
+
+## 
+
+​
+
 MiniMax
 
 Nodo| modelo| Resolución| Créditos  
@@ -1162,8 +1178,30 @@ MiniMax H3 First-Last-Frame to Video| MiniMax H3 Max| 480P| 15.09 / s
 MiniMax H3 First-Last-Frame to Video| MiniMax H3 Max| 768P| 24.14 / s  
 MiniMax H3 Reference to Video| MiniMax H3 Max| 480P| 15.09 / s  
 MiniMax H3 Reference to Video| MiniMax H3 Max| 768P| 24.14 / s  
+MiniMax H3 Max Recast| MiniMax H3 Max| 768P| 90.52 / s  
+MiniMax H3 Max Recast| MiniMax H3 Max| 1080P| 135.78 / s  
+MiniMax H3 Max Extend Video| MiniMax H3 Max| 480P| 15.09 / s  
+MiniMax H3 Max Extend Video| MiniMax H3 Max| 768P| 24.14 / s  
+MiniMax H3 Max Extend Video| MiniMax H3 Max| 1080P| 48.28 / s  
+MiniMax H3 Max Extend Video| MiniMax H3 Max| 2K| 96.55 / s  
+MiniMax H3 Max Extend Video| MiniMax H3 Max Turbo| 480P| 7.54 / s  
+MiniMax H3 Max Extend Video| MiniMax H3 Max Turbo| 768P| 12.07 / s  
+MiniMax H3 Max Extend Video| MiniMax H3 Max Turbo| 1080P| 24.14 / s  
+MiniMax H3 Max Extend Video| MiniMax H3 Max Turbo| 2K| 48.28 / s  
+MiniMax H3 Max Reframe Video| MiniMax H3 Max| 480P| 15.09 / s  
+MiniMax H3 Max Reframe Video| MiniMax H3 Max| 768P| 24.14 / s  
+MiniMax H3 Max Reframe Video| MiniMax H3 Max| 1080P| 48.28 / s  
+MiniMax H3 Max Insert Video| MiniMax H3 Max| 480P| 15.09 / s  
+MiniMax H3 Max Insert Video| MiniMax H3 Max| 768P| 18.10 / s  
+MiniMax H3 Max Lip Sync| MiniMax H3 Max| 480P| 15.09 / s  
+MiniMax H3 Max Lip Sync| MiniMax H3 Max| 768P| 24.14 / s  
+MiniMax H3 Max Lip Sync| MiniMax H3 Max| 1080P| 48.28 / s  
+MiniMax H3 Max Lip Sync| MiniMax H3 Max| 2K| 96.55 / s  
+MiniMax H3 Max Camera Control| MiniMax H3 Max| 480P| 15.09 / s  
+MiniMax H3 Max Camera Control| MiniMax H3 Max| 768P| 24.14 / s  
+MiniMax H3 Max Camera Control| MiniMax H3 Max| 1080P| 48.28 / s  
   
-**MiniMax Hailuo 02 Video** solo admite **6s** en 1080P. **MiniMax H3** cobra por segundo (duración de 4 a 15s). **MiniMax H3 Reference to Video** suma 12.07 créditos por cada imagen de referencia a partir de la quinta y cobra los videos de referencia a 27.16 créditos/s (768P) o 39.22 créditos/s (2K) (2s por video, hasta 15s en total, aproximado). Los precios de **MiniMax H3 Context IR** dependen de los medios adjuntos: solo texto, primer/último fotograma o medios de referencia (aproximado). **MiniMax H3 Max** cobra por segundo (duración de 5 a 15s) con las tarifas anteriores. El cobro de **MiniMax H3 Max Reference to Video** tiene dos partes: el video de salida se cobra por segundo con las tarifas anteriores y las entradas de referencia se cobran como tokens. Los tokens de cada imagen, video y clip de audio de la solicitud se agrupan y comparten una misma asignación gratuita:
+**MiniMax Hailuo 02 Video** solo admite **6s** en 1080P. **MiniMax H3** cobra por segundo (duración de 4 a 15s). **MiniMax H3 Reference to Video** suma 12.07 créditos por cada imagen de referencia a partir de la quinta y cobra los videos de referencia a 27.16 créditos/s (768P) o 39.22 créditos/s (2K) (2s por video, hasta 15s en total, aproximado). Los precios de **MiniMax H3 Context IR** dependen de los medios adjuntos: solo texto, primer/último fotograma o medios de referencia (aproximado). **MiniMax H3 Max** cobra por segundo con las tarifas anteriores. **Text to Video** , **First-Last-Frame to Video** y **Reference to Video** generan salidas de **5 a 15 s**. **Lip Sync** acepta audio de 5 a ~899 segundos; si la salida supera 15 segundos, se aplica el multiplicador **1.2×** indicado más abajo. El cobro de **MiniMax H3 Max Reference to Video** tiene dos partes: el video de salida se cobra por segundo con las tarifas anteriores y las entradas de referencia se cobran como tokens. Los tokens de cada imagen, video y clip de audio de la solicitud se agrupan y comparten una misma asignación gratuita:
 
 > Cargo por referencia (créditos) = max(0, tokens de referencia totales - 4,096) × 6.03 / 1,000
 
@@ -1182,7 +1220,7 @@ Un video de referencia se tokeniza con la resolución de **salida** , no con la 
   * Una imagen de 2048 × 2048 son 4,096 tokens: la primera imagen es gratis y luego cuestan 24.14 créditos cada una.
   * Generar un video de 5 s en 768P condicionado por dos imágenes de 1024 × 1024 y un video de referencia de 5 s: salida 24.14 × 5 = 120.7 créditos; tokens de referencia 2 × 1,024 + 37,296 = 39,344, menos la asignación de 4,096 = 35,248 facturables → 35.248 × 6.03 ≈ 212.6 créditos. Total ≈ 333.3 créditos.
 
-
+**MiniMax H3 Max Recast** , **Extend Video** , **Reframe Video** , **Insert Video** , **Lip Sync** y **Camera Control** cobran por segundo de video. Extend Video también funciona con el modelo Turbo a la mitad de la tarifa Max. **Reframe Video** se cobra a la tarifa de la tabla por segundo. Las fuentes más largas usan ventanas superpuestas, así que los segundos facturados pueden superar la duración final de la salida. **Lip Sync** se cobra a la tarifa de la tabla por segundo. Cuando la salida **supera los 15 segundos** , se aplica un multiplicador de **1.2×** (por ejemplo, 768P → 28.97 / s). Insert Video suma tokens de referencia por encima de la asignación gratuita de 4,096 tokens a 6.03 créditos por 1K tokens, la misma asignación que Reference to Video: 240 tokens base, 2,048 por imagen y 225,000 por video de referencia con salida a 768P (87,000 a 480P).
 
 ## 
 
@@ -1370,6 +1408,22 @@ Notas sobre imágenes
 
 ​
 
+Patina
+
+Los tres nodos cobran por ejecución y cada mapa PBR que actives suma al precio. `MP` es el tamaño de salida en megapíxeles redondeado hacia arriba, así que todos los presets de `image_size` cuentan como 1 MP y un tamaño personalizado cuenta de 1 a 4 MP.
+
+Nodo| Créditos  
+---|---  
+Patina PBR Material Maps| 3.02 / run + 3.02 a 12.07 / mapa  
+Patina Material| 3.02 / run + 6.03 / MP + 3.02 / MP / mapa  
+Patina Material Extract| 30.17 / run + 6.03 / MP + 3.02 / MP / mapa  
+  
+`upscale_factor` de 2× añade 1.21 / MP / mapa y 4× añade 4.83 / MP / mapa. **Patina PBR Material Maps** requiere al menos un mapa activo. Los precios son aproximados. Un material de 1 MP con los mapas `basecolor` y `normal` por defecto cuesta 15.09 créditos, y una salida de 4 MP con los cinco mapas a 4× cuesta 184.06 créditos con **Patina Material** o 211.21 créditos con **Patina Material Extract**.
+
+## 
+
+​
+
 Pixverse
 
 Modelo **v3.5** (fijo en la API; no seleccionable). **1080p** está limitado a **5s** con movimiento **normal**. Los clips de **8s** solo admiten movimiento **normal** (fast se fuerza a normal).
@@ -1517,7 +1571,7 @@ N/A| Recraft Creative Upscale Image| 75.43 / run
 
 Reve
 
-**Obsoleto** : la API pública de Reve se retirará el **14 de agosto de 2026**. Los nodos Reve Image Create, Reve Edit yditar imagen y Reve mezclar imagen pueden dejar de funcionar después de esa fecha.
+**Obsoleto** : la API pública de Reve cerró el **14 de agosto de 2026** , y los nodos Reve Image Create, Reve Image Edit y Reve Image Remix están obsoletos. Pueden dejar de funcionar en cualquier momento; los precios siguientes se mantienen como referencia.
 
 ### 
 
@@ -1623,6 +1677,18 @@ sync.so Talking Image| ~40.13 / seg
 
 Tencent
 
+### 
+
+​
+
+Texto
+
+Las tarifas de la insignia son **por 1K tokens** ; la tabla es **por 1M tokens**. Las imágenes opcionales suman tokens de entrada a la tarifa de entrada.
+
+Modelo| Créditos de entrada / 1M| Créditos de salida / 1M  
+---|---|---  
+hy4| 251.6| 754.6  
+  
 ### 
 
 ​
@@ -1881,6 +1947,29 @@ Pruna P-Video-2 Image to Video| 720p| off| 7.54
 
 ​
 
+VEED
+
+Nodo| Opciones| Créditos  
+---|---|---  
+VEED Fabric 1.0| 480p| 24.14 / seg  
+VEED Fabric 1.0| 720p| 45.26 / seg  
+VEED Lipsync 2.0| —| 21.12 / seg  
+VEED Remove Video Background| fast, bordes refinados off| 2.41 / 30 fotogramas  
+VEED Remove Video Background| fast, bordes refinados on| 3.62 / 30 fotogramas  
+VEED Remove Video Background| standard, bordes refinados off| 4.53 / 30 fotogramas  
+VEED Remove Video Background| standard, bordes refinados on| 6.79 / 30 fotogramas  
+VEED Remove Video Background| green screen| 7.54 / 30 fotogramas  
+VEED Clean Audio| —| 3.77 / minuto  
+VEED Clean Audio (in Video)| —| 3.77 / minuto  
+VEED Dubbing| standard| 33.19 / seg  
+VEED Dubbing| pro| 54.31 / seg  
+  
+Los trabajos de video facturan la duración de la entrada. **VEED Fabric 1.0** factura la pista de audio (hasta 300 segundos), **VEED Lipsync 2.0** factura el audio nuevo (hasta 600 segundos), **VEED Dubbing** factura la pista traducida (hasta 599 segundos), **VEED Remove Video Background** está limitado a 60 segundos, y **VEED Clean Audio** y **VEED Clean Audio (in Video)** facturan por minuto hasta 30 minutos.
+
+## 
+
+​
+
 Vidu
 
 ### 
@@ -1956,7 +2045,7 @@ viduq1| 84.4 / run
 
 Wan
 
-**Oferta por tiempo limitado** : Wan 3.0 tiene un 30 % de descuento hasta el 30 de septiembre de 2026. Los precios de la tabla son los precios antes del descuento.
+**Precios de Wan 3.0** : se aplicó un 30 % de descuento hasta el 30 de septiembre de 2026. Los precios de la tabla son los precios estándar.
 
 modelo| resolución| Créditos  
 ---|---|---  
@@ -2022,7 +2111,7 @@ grok-imagine-image-2.0| 1K| edit| 2.11 de entrada + 12.66 (medium) / 8.44 (low) 
 | 2K| edit| 2.11 de entrada + 16.88 (medium) / 12.66 (low) por imagen de salida  
 grok-imagine-image-quality| 1K| edit| 2.11 de entrada + 10.55 por imagen de salida  
 | 2K| edit| 2.11 de entrada + 14.77 por imagen de salida  
-grok-imagine-image-pro| N/A| edit| 0.422 de entrada + 14.77 por imagen de salida  
+grok-imagine-image-pro| N/A| edit| 2.11 de entrada + 14.77 por imagen de salida  
 grok-imagine-image| N/A| edit| 0.422 a 1.266 de entrada + 4.22 por imagen de salida  
   
 ### 

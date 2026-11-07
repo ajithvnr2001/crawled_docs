@@ -1475,7 +1475,7 @@
 {"url": "https://docs.comfy.org/development/serverless/quickstart/", "file": "development/serverless/quickstart.md", "title": "Comfy API Quickstart - ComfyUI", "method": "scrapling+scrapegraph"}
 {"url": "https://docs.comfy.org/get_started/cloud/", "file": "get_started/cloud.md", "title": "Comfy Cloud - Official ComfyUI Cloud Platform Powered by RTX 6000 Pro - ComfyUI", "method": "scrapling+scrapegraph"}
 {"url": "https://docs.comfy.org/development/serverless/build-sources/", "file": "development/serverless/build-sources.md", "title": "Other Ways to Create a Comfy API Build - ComfyUI", "method": "scrapling+scrapegraph"}
-{"url": "https://docs.comfy.org/get_started/first_generation/", "file": "get_started/first_generation.md", "title": "Getting Started with AI Image Generation - ComfyUI", "method": "scrapling+scrapegraph"}
+{"url": "https://docs.comfy.org/get_started/first_generation/", "file": "get_started/first_generation.md", "title": "Your First Image in ComfyUI: Build a Text-to-Image Workflow - ComfyUI", "method": "scrapling+scrapegraph"}
 {"url": "https://docs.comfy.org/installation/comfyui_portable_windows/", "file": "installation/comfyui_portable_windows.md", "title": "ComfyUI Portable for Windows - ComfyUI", "method": "scrapling+scrapegraph"}
 {"url": "https://docs.comfy.org/installation/desktop/faq/", "file": "installation/desktop/faq.md", "title": "Comfy Desktop FAQ - ComfyUI", "method": "scrapling+scrapegraph"}
 {"url": "https://docs.comfy.org/installation/desktop/linux/", "file": "installation/desktop/linux.md", "title": "Comfy Desktop on Linux - ComfyUI", "method": "scrapling+scrapegraph"}
@@ -4190,3 +4190,5 @@
 {"url": "https://docs.comfy.org/es/built-in-nodes/TencentHyNode/", "file": "es/built-in-nodes/TencentHyNode.md", "title": "TencentHyNode - ComfyUI Built-in Node Documentation - ComfyUI", "method": "scrapling+scrapegraph"}
 {"url": "https://docs.comfy.org/tutorials/partner-nodes/tencent/hy-4/", "file": "tutorials/partner-nodes/tencent/hy-4.md", "title": "Tencent HY4 in ComfyUI: Image to Prompt and Image Analysis - ComfyUI", "method": "scrapling+scrapegraph"}
 {"url": "https://docs.comfy.org/es/tutorials/partner-nodes/tencent/hy-4/", "file": "es/tutorials/partner-nodes/tencent/hy-4.md", "title": "Tencent HY4 en ComfyUI: imagen a prompt y an\u00e1lisis de im\u00e1genes - ComfyUI", "method": "scrapling+scrapegraph"}
+{"url": "https://docs.comfy.org/tutorials/partner-nodes/openai/gpt-image-2-6/", "file": "tutorials/partner-nodes/openai/gpt-image-2-6.md", "title": "OpenAI GPT Image 2.6: Flare and Sunburst Workflows - ComfyUI", "method": "scrapling+scrapegraph"}
+{"url": "https://docs.comfy.org/es/tutorials/partner-nodes/openai/gpt-image-2-6/", "file": "es/tutorials/partner-nodes/openai/gpt-image-2-6.md", "title": "OpenAI GPT Image 2.6: flujos de trabajo Flare y Sunburst - ComfyUI", "method": "scrapling+scrapegraph"}
