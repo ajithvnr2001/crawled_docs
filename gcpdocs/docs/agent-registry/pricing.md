@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/agent-registry/pricing/
 title: Agent Registry pricing \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-30T08:40:12.492842+00:00
+fetched_at: 2026-11-07T08:29:43.188014+00:00
 ---
 
 # Agent Registry pricing  |  Google Cloud Documentation
@@ -97,10 +97,10 @@ You can configure the scanning policy using the Google Cloud CLI or the Agent Re
 
 ###  gcloud 
 
-To create a skill with vulnerability scanning disabled, run the [`gcloud alpha agent-registry skills create`](https://docs.cloud.google.com/sdk/gcloud/reference/alpha/agent-registry/skills/create) command with the `--scanning-policy=disabled` flag:
+To create a skill with vulnerability scanning disabled, run the [`gcloud agent-registry skills create`](https://docs.cloud.google.com/sdk/gcloud/reference/agent-registry/skills/create) command with the `--scanning-policy=disabled` flag:
     
     
-    gcloud alpha agent-registry skills create SKILL_ID \
+    gcloud agent-registry skills create SKILL_ID \
         --project=PROJECT_ID \
         --location=LOCATION \
         --display-name="DISPLAY_NAME" \
@@ -110,10 +110,10 @@ To create a skill with vulnerability scanning disabled, run the [`gcloud alpha a
         --payload="LOCAL_ZIP_PATH"
     
 
-To disable vulnerability scanning on an existing skill before uploading new revisions, run the [`gcloud alpha agent-registry skills update`](https://docs.cloud.google.com/sdk/gcloud/reference/alpha/agent-registry/skills/update) command with the `--scanning-policy=disabled` flag:
+To disable vulnerability scanning on an existing skill before uploading new revisions, run the [`gcloud agent-registry skills update`](https://docs.cloud.google.com/sdk/gcloud/reference/agent-registry/skills/update) command with the `--scanning-policy=disabled` flag:
     
     
-    gcloud alpha agent-registry skills update private-SKILL_ID \
+    gcloud agent-registry skills update private-SKILL_ID \
         --project=PROJECT_ID \
         --location=LOCATION \
         --scanning-policy=disabled
@@ -143,7 +143,7 @@ To disable vulnerability scanning on an existing skill using the REST API, set `
             "policy": "DISABLED"
           }
         }' \
-        "https://agentregistry.googleapis.com/v1alpha/projects/PROJECT_ID/locations/LOCATION/skills/private-SKILL_ID?updateMask=scanningConfig"
+        "https://agentregistry.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/skills/private-SKILL_ID?updateMask=scanningConfig"
     
 
 Replace the following:
@@ -177,6 +177,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-29 UTC.
+Last updated 2026-11-06 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-06 UTC."],[],[]] 

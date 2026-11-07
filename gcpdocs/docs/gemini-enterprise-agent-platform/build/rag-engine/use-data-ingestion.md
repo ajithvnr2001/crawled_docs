@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/rag-engine/use-data-ingestion/
 title: Use data ingestion with RAG Engine \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-06T08:23:21.761946+00:00
+fetched_at: 2026-11-07T08:28:25.654593+00:00
 ---
 
 # Use data ingestion with RAG Engine  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation
@@ -366,18 +366,18 @@ Use your Drive ID to list the children of the root directory:
     
     
         from vertexai.preview import rag
-        from vertexai.preview.rag.utils import [resources](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest/vertexai._genai.types.SandboxEnvironmentTemplateCustomContainerEnvironmentDict.html#vertexai__genai_types_SandboxEnvironmentTemplateCustomContainerEnvironmentDict_resources)
-        import [vertexai](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest)
+        from vertexai.preview.rag.utils import [resources](https://docs.cloud.google.com/python/docs/reference/vertexai/latest/vertexai._genai.types.SandboxEnvironmentTemplateCustomContainerEnvironmentDict.html#vertexai__genai_types_SandboxEnvironmentTemplateCustomContainerEnvironmentDict_resources)
+        import [vertexai](https://docs.cloud.google.com/python/docs/reference/vertexai/latest)
     
-        [vertexai](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest).init(
+        [vertexai](https://docs.cloud.google.com/python/docs/reference/vertexai/latest).init(
             project="PROJECT_ID",
             location="REGION",
         )
     
         # SharePoint Example.
-        source = [resources](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest/vertexai._genai.types.SandboxEnvironmentTemplateCustomContainerEnvironmentDict.html#vertexai__genai_types_SandboxEnvironmentTemplateCustomContainerEnvironmentDict_resources).SharePointSources(
+        source = [resources](https://docs.cloud.google.com/python/docs/reference/vertexai/latest/vertexai._genai.types.SandboxEnvironmentTemplateCustomContainerEnvironmentDict.html#vertexai__genai_types_SandboxEnvironmentTemplateCustomContainerEnvironmentDict_resources).SharePointSources(
             share_point_sources=[
-                [resources](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest/vertexai._genai.types.SandboxEnvironmentTemplateCustomContainerEnvironmentDict.html#vertexai__genai_types_SandboxEnvironmentTemplateCustomContainerEnvironmentDict_resources).SharePointSource(
+                [resources](https://docs.cloud.google.com/python/docs/reference/vertexai/latest/vertexai._genai.types.SandboxEnvironmentTemplateCustomContainerEnvironmentDict.html#vertexai__genai_types_SandboxEnvironmentTemplateCustomContainerEnvironmentDict_resources).SharePointSource(
                     client_id="CLIENT_ID",
                     client_secret="API_KEY_SECRET_VERSION",
                     tenant_id="SHAREPOINT_TENANT_ID",
@@ -409,6 +409,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-05 UTC.
+Last updated 2026-11-07 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-05 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-07 UTC."],[],[]] 

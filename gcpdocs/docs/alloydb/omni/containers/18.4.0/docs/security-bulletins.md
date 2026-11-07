@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/omni/containers/18.4.0/docs/security-bulletins/
 title: Security bulletin \u00a0|\u00a0 AlloyDB Omni using containers: 18.4.0 \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T23:41:30.160419+00:00
+fetched_at: 2026-11-07T08:32:47.915941+00:00
 ---
 
 # Security bulletin  |  AlloyDB Omni using containers: 18.4.0  |  Google Cloud Documentation
@@ -42,8 +42,8 @@ To receive the latest AlloyDB Omni release notes and security updates in your fe
 To focus remediation workflows on actionable security advisories and reduce scanner noise, AlloyDB Omni vulnerability summaries and detailed CVE logs follow these reporting policies:
 
   * Strict Critical and High severity filtering: Vulnerability summary tables and detailed CVE logs report exclusively Critical and High severity CVEs based on National Vulnerability Database (NVD) and upstream vendor severity ratings. Low and Medium severity advisories are excluded from the summary counts and detailed logs. 
-  * Decoupled database kernel and control plane reporting: Standalone AlloyDB Omni security bulletins report vulnerabilities specific to the database kernel container images (`18.x`, `17.x`, `16.x`, and `15.x`). Kubernetes operator and sidecar container advisories are tracked separately in the [AlloyDB Omni on Kubernetes security bulletin](https://docs.cloud.google.com/alloydb/omni/kubernetes/current/docs/security-bulletins). 
-  * Version-specific isolation: Detailed CVE logs are organized into dedicated subpages per release version using a standardized 4-column schema (`CVE ID`, `Severity`, `Impacted images`, and `Mitigated in`). Within each release log, vulnerabilities remediated in a subsequent release display the mitigating release version in the `Mitigated in` column.
+  * Decoupled database kernel and control plane reporting: Standalone AlloyDB Omni security bulletins report vulnerabilities specific to the database kernel container images for versions `18.x`, `17.x`, `16.x`, and `15.x`. Kubernetes operator and sidecar container advisories are tracked separately in the [AlloyDB Omni on Kubernetes security bulletin](https://docs.cloud.google.com/alloydb/omni/kubernetes/current/docs/security-bulletins). 
+  * Version-specific isolation: Detailed CVE logs are organized into dedicated subpages per release version using a standardized 3-column schema with columns for `CVE ID`, `Severity`, and `Mitigated in`. Within each release log, vulnerabilities remediated in a subsequent release display the mitigating release version in the `Mitigated in` column.
 
 
 
@@ -64,7 +64,7 @@ To maintain Federal Information Processing Standards (FIPS) 140-3 compliance whi
   * FIPS compliance for deployments: An AlloyDB Omni deployment operates in a FIPS 140-3 compliant mode when it runs on a FIPS-enabled host OS, such as Red Hat Enterprise Linux (RHEL) 9 with the `/proc/sys/crypto/fips_enabled` file set to `1`. In this mode, the deployment routes all security-relevant cryptographic operations through a FIPS-validated module with power-on Known-Answer Tests (KATs) and HMAC integrity checks enabled. It also enforces approved Transport Layer Security (TLS) versions of TLS 1.2 or later, approved cipher suites, and the `scram-sha-256` password authentication method. Red Hat Universal Base Image 9 (UBI 9) database kernel container images (`-ubi9`) are FIPS-ready, and your organization is responsible for enabling and verifying FIPS mode on the underlying host OS.
   * CVE patching outside the FIPS boundary: Protocol parsing and networking libraries, such as TLS state machines, X.509 and ASN.1 certificate parsing, HTTP/2, and network I/O, reside in the outer layer outside the frozen FIPS module boundary. Because these components sit outside the validated boundary, Google patches outer-layer CVEs across minor and patch releases without modifying the inner cryptographic module or invalidating its NIST CMVP certification. Only a vulnerability inside the low-level cryptographic primitive implementation itself requires an update to the inner FIPS module.
 
-The following table describes the cryptographic stacks across the AlloyDB Omni Red Hat UBI 9 database kernel container images (`-ubi9`), including the frozen inner FIPS boundary and the outer cryptographic and protocol layer that is patched across releases: Cryptographic stack | Database kernel container image | Binaries | Inner FIPS-validated module or provider | Outer cryptographic and protocol layer  
+The following table describes the cryptographic stacks across the AlloyDB Omni Red Hat UBI 9 database kernel container images with the `-ubi9` suffix, including the frozen inner FIPS boundary and the outer cryptographic and protocol layer that is patched across releases: Cryptographic stack | Database kernel container image | Binaries | Inner FIPS-validated module or provider | Outer cryptographic and protocol layer  
 ---|---|---|---|---  
 BoringSSL and BoringCrypto | `alloydbomni` (`-ubi9`) | `postgres` and `pgbackrest` C binaries | Google BoringCrypto Module (BCM) |  BoringSSL `libssl` and non-BCM `libcrypto` packages `x509`, `asn1`, `pem`, and `bio` for `postgres` and `pgbackrest`  
 OpenSSL 3 |  Red Hat UBI 9 base OS layer of `alloydbomni` (`-ubi9`)  | Base OS shared libraries and utilities | RHEL 9 OpenSSL FIPS Provider |  `/lib64/libssl.so.3` and `/lib64/libcrypto.so.3` in the `openssl-libs` RPM package   
@@ -80,6 +80,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-04 UTC.
+Last updated 2026-11-06 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-06 UTC."],[],[]] 

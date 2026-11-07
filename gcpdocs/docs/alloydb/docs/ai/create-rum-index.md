@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/docs/ai/create-rum-index/
 title: Create and query a RUM index \u00a0|\u00a0 AlloyDB for PostgreSQL \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-05T00:18:43.804955+00:00
+fetched_at: 2026-11-07T08:32:43.607815+00:00
 ---
 
 # Create and query a RUM index  |  AlloyDB for PostgreSQL  |  Google Cloud Documentation
@@ -68,14 +68,8 @@ Operator Class | Main Use Case | Limitations
 Use the `rum_tsvector_ops` operator class for standard text search that requires fast ranking and phrase search capabilities. This operator class stores the position of each lexeme in the index. The following example creates a table named `documents` with a `content` column.
 
   1. Create a table named `documents`:
-         
-         CREATE TABLE documents (
-           id SERIAL PRIMARY KEY,
-           title TEXT NOT NULL,
-           content TEXT NOT NULL,
-           published_at TIMESTAMP WITH TIME ZONE DEFAULT NOW()
-         );
-         
+
+`sql CREATE TABLE documents ( id SERIAL PRIMARY KEY, title TEXT NOT NULL, content TEXT NOT NULL, published_at TIMESTAMP WITH TIME ZONE DEFAULT NOW() );`
 
   2. Populate the `documents` table with sample data:
          
@@ -254,12 +248,8 @@ Use the `rum_tsvector_hash_addon_ops` operator class to combine the benefits of 
 Use the `rum_tsquery_ops` operator class to index `tsquery` values. This lets you perform "reverse search," identifying which stored queries match a given input document. The following example creates a table named `queries`.
 
   1. Create a table to store queries:
-         
-         CREATE TABLE queries (
-         query_text tsquery
-         );
-         INSERT INTO queries (query_text) VALUES (plainto_tsquery('AlloyDB is fast!'));
-         
+
+`sql CREATE TABLE queries ( query_text tsquery ); INSERT INTO queries (query_text) VALUES (plainto_tsquery('AlloyDB is fast!'));`
 
   2. Create a RUM index on the `query_text` column:
          
@@ -312,6 +302,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-03 UTC.
+Last updated 2026-11-06 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-06 UTC."],[],[]] 

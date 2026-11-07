@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-cx/insights/bigquery-all-schemas/
 title: All BigQuery schemas \u00a0|\u00a0 Customer Experience Insights \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T16:35:19.419053+00:00
+fetched_at: 2026-11-07T08:32:31.619949+00:00
 ---
 
 # All BigQuery schemas  |  Customer Experience Insights  |  Google Cloud Documentation
@@ -27,6 +27,8 @@ Older schema versions are listed here as references. Contact Cloud support if yo
 
 Schema version | Release date  
 ---|---  
+[BigQuery V19 schema](https://docs.cloud.google.com/gemini-enterprise-cx/insights/bigquery-v19-schema) | Oct 2026  
+[BigQuery V18 schema](https://docs.cloud.google.com/gemini-enterprise-cx/insights/bigquery-v18-schema) | Mar 2026  
 [BigQuery V17 schema](https://docs.cloud.google.com/gemini-enterprise-cx/insights/bigquery-v17-schema) | Dec 2025  
 [BigQuery V16 schema](https://docs.cloud.google.com/gemini-enterprise-cx/insights/bigquery-v16-schema) | Dec 2025  
 [BigQuery V15 schema](https://docs.cloud.google.com/gemini-enterprise-cx/insights/bigquery-v15-schema) | Dec 2025  
@@ -49,6 +51,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-06 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-06 UTC."],[],[]] 

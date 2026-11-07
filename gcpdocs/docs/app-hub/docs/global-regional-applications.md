@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/app-hub/docs/global-regional-applications/
 title: Global and regional applications \u00a0|\u00a0 App Hub \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-03T09:52:46.725187+00:00
+fetched_at: 2026-11-07T08:24:38.250037+00:00
 ---
 
 # Global and regional applications  |  App Hub  |  Google Cloud Documentation
@@ -21,9 +21,11 @@ Send feedback
 
 #  Global and regional applications Stay organized with collections  Save and categorize content based on your preferences. 
 
-[App Hub is available in supported locations](https://docs.cloud.google.com/app-hub/docs/locations) to help you organize global or regional Google Cloud infrastructure resources in App Hub applications. Location support simplifies management by letting you group application components based on their geographical location and communication methods with other parts of your infrastructure.
+App Hub lets you create global or regional applications so you can group components based on their geography and how they communicate. Your [location](https://docs.cloud.google.com/app-hub/docs/locations) choice determines which services and workloads you can register and affects data residency, network latency, organization policy compliance, and cost.
 
-When creating an application, you define its location as either _global_ or _regional_. This choice is fundamental in determining which services and workloads can be part of the application. Also, this choice has important implications for data handling, colocation, cost, and compliance. Global and regional applications are defined as follows:
+## Global and regional applications
+
+Global and regional applications are defined as follows:
 
   * **Global applications:** Functionally group services and workloads that are globally distributed or spread across multiple Google Cloud regions. For example, you can include a global Application Load Balancer service and its backend workloads distributed worldwide.
 
@@ -33,8 +35,6 @@ When creating an application, you define its location as either _global_ or _reg
 
 
 To make the best decision for your needs, it's crucial to understand Google Cloud regions and zones, which are designed to provide fault tolerance and high availability. Regions are independent geographic areas, and zones are deployment areas within a region, acting as single failure domains. To learn more about global and regional resources, see [Geography and regions](https://docs.cloud.google.com/docs/geography-and-regions) and [Cloud locations](https://cloud.google.com/about/locations).
-
-## Compare global and regional applications
 
 The following table highlights the key differences and considerations to help you choose between global and regional applications:
 
@@ -91,6 +91,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-02 UTC.
+Last updated 2026-11-07 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-02 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-07 UTC."],[],[]] 

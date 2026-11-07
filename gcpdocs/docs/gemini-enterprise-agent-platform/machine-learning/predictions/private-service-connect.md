@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/private-service-connect/
 title: Use dedicated private endpoints based on Private Service Connect for online inference \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-06T10:44:09.531134+00:00
+fetched_at: 2026-11-07T08:25:16.779688+00:00
 ---
 
 # Use dedicated private endpoints based on Private Service Connect for online inference  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation
@@ -555,6 +555,10 @@ Getting online inferences from an endpoint with Private Service Connect is simil
 
   * The request must be sent from a project that was specified in the `projectAllowlist` when the online inference endpoint was created.
   * If [global access](https://cloud.google.com/blog/products/networking/access-managed-services-globally-with-private-service-connect) isn't enabled, the request must be sent from the same region.
+  * Because a Private Service Connect endpoint uses an internal IP address that is routable only within your VPC network, you can't send requests directly from public or external networks, such as an unconnected local developer machine or a default Cloud Shell session. To send requests from a local machine or external network, route traffic to the consumer VPC network by using one of the following methods: 
+    * Configure a hybrid networking connection, such as Cloud VPN or Cloud Interconnect, that terminates in the same VPC network as the endpoint. For hybrid routing, DNS, subnet advertisement, and firewall requirements, see [Access endpoints from hybrid networks](https://docs.cloud.google.com/vpc/docs/configure-private-service-connect-services#on-premises) and [Deployment considerations](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/psc-endpoints#deployment-considerations).
+    * Route requests through an intermediate proxy or bastion host, such as a Compute Engine VM instance, deployed inside the consumer VPC network.
+    * Configure an external regional Application Load Balancer with a Private Service Connect Network Endpoint Group (NEG) backend.
   * There are two ports open, 443 with TLS using self-signed certificate and 80 without TLS. Both ports support HTTP and gRPC. All traffic remains on your private network and doesn't traverse the public internet.
   * The best practice is to use HTTPS with the self-signed certificate obtained from Gemini Enterprise Agent Platform online inference or to deploy your own self-signed certificate.
   * To obtain inferences, a connection must be established using the endpoint's static IP address, unless a DNS record is created for the internal IP address. For example, send the [`predict`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.endpoints/predict) requests to the following endpoint:
@@ -821,6 +825,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-05 UTC.
+Last updated 2026-11-07 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-05 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-07 UTC."],[],[]] 

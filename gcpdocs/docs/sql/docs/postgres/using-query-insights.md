@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sql/docs/postgres/using-query-insights/
 title: Use query insights to improve query performance \u00a0|\u00a0 Cloud SQL for PostgreSQL \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-06T10:25:13.041014+00:00
+fetched_at: 2026-11-07T08:32:30.426980+00:00
 ---
 
 # Use query insights to improve query performance  |  Cloud SQL for PostgreSQL  |  Google Cloud Documentation
@@ -100,6 +100,7 @@ The following limitations apply to query insights for Cloud SQL Enterprise Plus 
 
   * If your instance is undergoing heavy system load, then when you query metrics data in the **Query insights** dashboard, your queries might be slow to load or time out.
   * When restoring a query insights for Cloud SQL Enterprise Plus edition instance from an older backup, you might lose the metrics collected between the time the backup was taken and the time you restore the instance. For example, if you restore your instance on April 30 with a backup taken on April 25, then you might lose all the metrics between April 25 and April 30.
+  * When client IP tracking is enabled, a change in client IP addresses might result in a gap in the query insights charts. This limitation applies to Cloud SQL Enterprise Plus edition and Cloud SQL Enterprise edition instances. You can mitigate this issue by restarting the instance or by disabling client IP tracking.
   * If your instance uses PostgreSQL 18 and is running a maintenance version earlier than `20260319.00_RC02`, and your query has comment tags before the start of your SQL statement, then your application tags might not be stored when using query insights. This limitation applies to Cloud SQL Enterprise Plus edition and Cloud SQL Enterprise edition instances.
 
 
@@ -201,7 +202,9 @@ Feature | Description | Cloud SQL Enterprise edition | Cloud SQL Enterprise Plus
 **AI-assisted troubleshooting** | Select this checkbox to enable performance anomaly detection, root cause and situation analysis, and to obtain recommendations for fixing problems with your queries and database. This feature is is in [Preview](https://cloud.google.com/products#product-launch-stages), and you can enable and access this feature only using the Google Cloud console. For more information, see [Observe and troubleshoot with AI assistance](https://docs.cloud.google.com/sql/docs/postgres/observe-troubleshoot-with-ai). | Not available | Available   
   
 **Default** : Disabled  
-**Store client IP addresses** | Select this checkbox to enable the storage of client IP addresses. Cloud SQL can store the IP addresses of where queries are coming from and let you group that data to run metrics against it. Queries come from more than one host. Reviewing graphs for queries from client IP addresses can help identify the source of a problem. | Available   
+**Store client IP addresses** | Select this checkbox to enable the storage of client IP addresses. Cloud SQL can store the IP addresses of where queries are coming from and let you group that data to run metrics against it. Queries come from more than one host. Reviewing graphs for queries from client IP addresses can help identify the source of a problem.   
+  
+**Note:** When client IP tracking is enabled, a change in client IP addresses might result in a gap in the query insights charts. You can mitigate this issue by restarting the instance or by disabling client IP tracking. | Available   
   
 **Default** : Disabled | Available   
   
@@ -260,6 +263,8 @@ Also, use one or more of the following optional flags:
   * `--insights-config-record-client-address`
 
 Stores the client IP addresses where queries are coming from and helps you group that data to run metrics against it. Queries come from more than one host. Reviewing graphs for queries from client IP addresses can help identify the source of a problem.
+
+**Note:** When client IP tracking is enabled, a change in client IP addresses might result in a gap in the query insights charts. You can mitigate this issue by restarting the instance or by disabling client IP tracking.
 
   * `--insights-config-record-application-tags`
 
@@ -1153,6 +1158,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-03 UTC.
+Last updated 2026-11-06 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-06 UTC."],[],[]] 

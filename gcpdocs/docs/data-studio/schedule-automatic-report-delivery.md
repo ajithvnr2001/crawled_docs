@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/data-studio/schedule-automatic-report-delivery/
 title: Schedule automatic report delivery \u00a0|\u00a0 Data Studio \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-06T05:49:57.405642+00:00
+fetched_at: 2026-11-07T08:29:30.954982+00:00
 ---
 
 # Schedule automatic report delivery  |  Data Studio  |  Google Cloud Documentation
@@ -124,7 +124,8 @@ If you have [Data Studio Pro](https://docs.cloud.google.com/data-studio/about-pr
 
 If you have [Data Studio Pro](https://docs.cloud.google.com/data-studio/about-pro), you can send reports to individual users and Chat spaces by following these steps:
 
-  1. View the report that you want to schedule.
+  1. View the report that you want to schedule. 
+     * The report must be in a [team workspace](https://docs.cloud.google.com/data-studio/about-team-workspaces) or your [Sandbox](https://docs.cloud.google.com/data-studio/sandbox) under a Google Cloud project that's linked to an active Data Studio Pro subscription. Reports in **Owned by me** don't support Data Studio Pro scheduling destinations. To schedule a report that's in **Owned by me** , [upgrade the report to Data Studio Pro](https://docs.cloud.google.com/data-studio/upgrade-content-pro) by moving it to a team workspace or your Sandbox.
   2. In the upper right, select **Share** , and then select **Schedule delivery** ![Schedule report delivery icon](https://docs.cloud.google.com/static/data-studio/images/icschedulegrey6002xweb48dp-2019-02-25-.png).
   3. (Data Studio Pro users) In the **Destination** field, select **Google Chat**.
   4. (Optional) Enter a list of recipients.
@@ -132,7 +133,6 @@ If you have [Data Studio Pro](https://docs.cloud.google.com/data-studio/about-pr
 **Note:** If you have Data Studio Pro, your administrator can [restrict allowed recipients](https://knowledge.workspace.google.com/admin/data-studio/set-sharing-permissions). If you enter a restricted recipient, Data Studio displays an error message until you remove the recipient.
   5. Enter a custom subject and message.
 
-     * You can't set a custom subject and message for any reports in the **Owned by me** folder. To remove this limitation, you can [upgrade a report to Data Studio Pro](https://docs.cloud.google.com/data-studio/upgrade-content-pro).
   6. (Optional) Select the report pages that you want to include.
 
   7. Set the date and time that you want to begin sending the report.
@@ -160,7 +160,8 @@ Scheduled Google Chat delivery posts a message to the recipient users or spaces.
 
 If you have [Data Studio Pro](https://docs.cloud.google.com/data-studio/about-pro), you can send reports to Slack users and Slack channels by following these steps:
 
-  1. View the report that you want to schedule.
+  1. View the report that you want to schedule. 
+     * The report must be in a [team workspace](https://docs.cloud.google.com/data-studio/about-team-workspaces) or your [Sandbox](https://docs.cloud.google.com/data-studio/sandbox) under a Google Cloud project that's linked to an active Data Studio Pro subscription. Reports in **Owned by me** don't support Data Studio Pro scheduling destinations. To schedule a report that's in **Owned by me** , [upgrade the report to Data Studio Pro](https://docs.cloud.google.com/data-studio/upgrade-content-pro) by moving it to a team workspace or your Sandbox.
   2. In the upper right, select **Share** , and then select ![Schedule report delivery icon](https://docs.cloud.google.com/static/data-studio/images/icschedulegrey6002xweb48dp-2019-02-25-.png)**Schedule delivery**.
   3. In the **Destination** field, select **Slack**.
   4. If your admin has [connected multiple Slack workspaces](https://docs.cloud.google.com/data-studio/slack#connect-slack) to Data Studio, select a workspace.
@@ -179,7 +180,6 @@ To find the **Manual ID** , follow these steps:
      * You can add multiple channels or multiple users to a single schedule, but not a mix of channels and users.
   8. (Optional) Enter a custom message to accompany the report.
 
-     * You can't set a custom message for any reports in the **Owned by me** folder. To remove this limitation, you can [upgrade a report to Data Studio Pro](https://docs.cloud.google.com/data-studio/upgrade-content-pro).
   9. (Optional) Select the report pages that you want to include.
 
   10. Set the date and time that you want to begin sending the report.
@@ -273,6 +273,7 @@ Scheduled email delivery has the following limits:
 Scheduled Google Chat delivery has the following limits:
 
   * You must be a Data Studio Pro user to schedule delivery using Chat.
+  * The report that you want to schedule must be a [Data Studio Pro report](https://docs.cloud.google.com/data-studio/upgrade-content-pro).
   * You must be an owner or editor of the report that you want to schedule.
   * You can schedule a report only to Google Chat spaces that you are a member of.
   * You can schedule a report only to Google Chat users who are in your organization.
@@ -286,6 +287,7 @@ Scheduled Google Chat delivery has the following limits:
 Scheduled Slack delivery has the following limits:
 
   * You must be a Data Studio Pro user to schedule delivery using Slack.
+  * The report must be in a [team workspace](https://docs.cloud.google.com/data-studio/about-team-workspaces) or your [Sandbox](https://docs.cloud.google.com/data-studio/sandbox) under a Google Cloud project that's linked to an active Data Studio Pro subscription. Reports in **Owned by me** don't support Data Studio Pro scheduling destinations. To schedule a report that's in **Owned by me** , [upgrade the report to Data Studio Pro](https://docs.cloud.google.com/data-studio/upgrade-content-pro) by moving it to a team workspace or your Sandbox.
   * You must be an owner or editor of the report that you want to schedule.
   * You can schedule a report only to Slack channels that you are a member of.
   * For a single report, you can schedule delivery using Slack to a maximum of 5 Slack channels or 10 Slack users. To send to more recipients, create additional schedules.
@@ -382,6 +384,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-07 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-07 UTC."],[],[]] 

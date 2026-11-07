@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/vpc/docs/ipv6-support/
 title: IPv6 support in Google Cloud \u00a0|\u00a0 Virtual Private Cloud \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T05:45:50.592027+00:00
+fetched_at: 2026-11-07T08:30:00.095866+00:00
 ---
 
 # IPv6 support in Google Cloud  |  Virtual Private Cloud  |  Google Cloud Documentation
@@ -64,10 +64,12 @@ IPv6-only |
   * [Add Dynamic NICs to an instance](https://docs.cloud.google.com/vpc/docs/add-dynamic-nics)
 
   
-Google Kubernetes Engine (GKE) nodes and pods |  | Dual-stack | 
+Google Kubernetes Engine (GKE) nodes and Pods |  | Dual-stack,  
+IPv6-only | 
 
-  * [GKE IPv6 overview](https://docs.cloud.google.com/kubernetes-engine/docs/concepts/alias-ips#dual_stack_network)
-  * [Use an IPv4 and IPv6 dual-stack network to create a dual-stack cluster](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/alias-ips#dual-stack)
+  * [GKE IP addressing models overview](https://docs.cloud.google.com/kubernetes-engine/docs/concepts/about-ip-addressing#choose-ip-model)
+  * [Create a cluster with dual-stack networking](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/alias-ips#create_dual_stack_cluster)
+  * [Create and manage single-stack IPv6 clusters](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/single-stack-ipv6)
 
   
 Cloud Run services and jobs (internal IPv6) |   
@@ -347,6 +349,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-06 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-06 UTC."],[],[]] 

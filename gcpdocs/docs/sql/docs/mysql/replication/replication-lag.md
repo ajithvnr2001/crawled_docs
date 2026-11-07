@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sql/docs/mysql/replication/replication-lag/
 title: Replication lag \u00a0|\u00a0 Cloud SQL for MySQL \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-06T10:29:48.926941+00:00
+fetched_at: 2026-11-07T08:29:34.040395+00:00
 ---
 
 # Replication lag  |  Cloud SQL for MySQL  |  Google Cloud Documentation
@@ -313,18 +313,13 @@ Additional feature details apply:
     * Read replica
     * Cross-region read replica
     * Cascading replica
-  * The value set for the `replicationLagMaxSeconds` field is specific to each replica instance. If a primary instance has multiple replica instances, then you can set each replica with a different value.
+  * `replicationLagMaxSeconds` is an instance-level field. If a primary instance has multiple read replicas, then you can set a different value for each replica. Defining different time thresholds for each replica prevents all replicas from being recreated at the same time.
   * When a replica is recreated, users can expect some downtime while the following operations are completed: 
     * Replication is stopped.
     * The replica is deleted.
     * A snapshot of the primary instance is created.
     * The replica is recreated from this latest snapshot. The new replica uses the same name and IP address as the previous replica. As a result, MySQL must stop and restart.
     * The new replica starts replicating data.
-  * The `replicationLagMaxSeconds` is an instance level field. Each instance has its own value.
-  * If you have multiple read replicas for the same primary instance, you can set a unique value for the `replicationLagMaxSeconds` field for each replica.
-
-Defining different time thresholds for different replicas can help you avoid a scenario where all replicas go down at the same time.
-
 
 
 
@@ -410,7 +405,7 @@ To see an example of how to update the setting using the REST API, see [Edit an 
 The following limitations apply to recreating lagging replicas:
 
   * Values for `replicationLagMaxSeconds` can only be set in seconds.
-  * [Indexes](https://docs.cloud.google.com/sql/docs/mysql/replication/read-replica-indexes) created on the read replica prior to a recreate operation won't persist. If an index exists, then create a secondary index after the replica is recreated.
+  * Unmanaged secondary indexes created directly on the read replica prior to a recreate operation don't persist. You must manually recreate them after the replica is recreated. [Managed replica indexes](https://docs.cloud.google.com/sql/docs/mysql/replication/read-replica-indexes#managed-replica-indexes) persist automatically when the replica is recreated.
   * To avoid frequent downtimes on read replicas, recreations are limited to one per day per instance.
   * Replicas of external servers are not supported with this feature.
   * If you enable recreation of lagging replicas on a cascading replica, then Cloud SQL recreates the leaf replicas first in order to maintain replication consistency.
@@ -429,6 +424,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-03 UTC.
+Last updated 2026-11-06 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-06 UTC."],[],[]] 

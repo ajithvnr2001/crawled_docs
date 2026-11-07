@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/omni/kubernetes/17.10.0/docs/cross-data-center-replication/work-with-cross-data-center-replication/
 title: Work with cross-data-center replication \u00a0|\u00a0 AlloyDB Omni using the container orchestrator: 17.10.0 \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T18:55:07.556557+00:00
+fetched_at: 2026-11-07T08:32:35.736225+00:00
 ---
 
 # Work with cross-data-center replication  |  AlloyDB Omni using the container orchestrator: 17.10.0  |  Google Cloud Documentation
@@ -190,7 +190,7 @@ When the secondary database cluster is successfully set up and has streaming rep
 
 When you promote a secondary database cluster, you must first verify that the secondary database cluster applied all transactions received from the primary database cluster. 
 
-  1. To verify that the cluster is ready and healthy, check the replication status of the secondary database cluster. 
+  1. Verify that the replication status of the secondary database cluster is both ready and healthy: 
          
          kubectl get replication SECONDARY_REPLICATION_NAME
 
@@ -233,107 +233,120 @@ Promote a secondary database cluster to a primary database cluster by updating t
         replicationSlotName: PRIMARY_REPLICATION_SLOT
         control: promote
 
-##  Perform a switchover 
+## Perform a switchover
 
-Before you perform a switchover, verify that the primary and the secondary database clusters that belong to both data centers are online and that the database clusters are in a healthy state. To ensure data consistency of your primary and secondary database clusters during switchover, perform the following steps to verify that the secondary database cluster has applied all transactions received from the primary database cluster: 
+Before you perform a switchover, verify that the primary and secondary database clusters in both data centers are online and in a healthy state.
 
-  1. Check the replication status of the secondary database cluster, to ensure that it's both ready and healthy. 
+To maintain data consistency between your primary and secondary database clusters and perform a switchover, follow these steps:
+
+  1. Verify that the replication status of the secondary database cluster is both ready and healthy: 
          
          kubectl get replication SECONDARY_REPLICATION_NAME
 
-  2. Stop all writes to the primary database cluster. Execute a checkpoint on the primary database cluster, and then run the following query on your primary database cluster to check the replication lag of the secondary database. 
-     * Execute a checkpoint to flush memory to disk. 
-           
-           psql -h PRIMARY_HOST -U postgres -d postgres -c 'CHECKPOINT;'
+  2. Stop all writes to the primary database cluster, and then do the following on your primary database cluster: 
+     1. Execute a checkpoint to flush memory to disk: 
+            
+            psql -h PRIMARY_HOST -U postgres -d postgres -c 'CHECKPOINT;'
 
-     * Confirm that the result shows a lag value of `0`. 
-           
-           psql -h PRIMARY_HOST -U postgres -d postgres -c 'SELECT application_name, pg_wal_lsn_diff(pg_current_wal_lsn(), replay_lsn) AS replay_lag FROM pg_stat_replication;'
+     2. Check the replication lag of the secondary database cluster and confirm that the result shows a lag value of `0`: 
+            
+            psql -h PRIMARY_HOST -U postgres -d postgres -c 'SELECT application_name, pg_wal_lsn_diff(pg_current_wal_lsn(), replay_lsn) AS replay_lag FROM pg_stat_replication;'
 
+  3. To promote the secondary database cluster to a primary database cluster and convert the former primary database cluster into a secondary database cluster, follow these steps:
 
-To perform a switchover, complete the following steps: 
-  1. To convert your AlloyDB Omni secondary database cluster into a primary database cluster, update its replication manifest on your Kubernetes cluster in the secondary data center as follows:
-         
-         apiVersion: v1
-         kind: Secret
-         metadata:
-           name: ha-rep-pw-SECONDARY_DB_CLUSTER_NAME
-           namespace: SECONDARY_DB_CLUSTER_NAMESPACE
-         type: Opaque
-         data:
-           rep-user-pw: "ENCODED_PASSWORD"
-         ---
-         apiVersion: alloydbomni.dbadmin.goog/v1
-         kind: Replication
-         metadata:
-           name: SECONDARY_REPLICATION_NAME
-           namespace: SECONDARY_DB_CLUSTER_NAMESPACE
-         spec:
-           dbcluster:
-             name: SECONDARY_DB_CLUSTER_NAME
-           upstream:
-             password:
-               name: ha-rep-pw-SECONDARY_DB_CLUSTER_NAME
+     1. To convert your AlloyDB Omni secondary database cluster into a primary database cluster, update its replication manifest on your Kubernetes cluster in the secondary data center as follows:
+            
+            apiVersion: v1
+            kind: Secret
+            metadata:
+              name: ha-rep-pw-SECONDARY_DB_CLUSTER_NAME
+              namespace: SECONDARY_DB_CLUSTER_NAMESPACE
+            type: Opaque
+            data:
+              rep-user-pw: "ENCODED_PASSWORD"
+            ---
+            apiVersion: alloydbomni.dbadmin.goog/v1
+            kind: Replication
+            metadata:
+              name: SECONDARY_REPLICATION_NAME
+              namespace: SECONDARY_DB_CLUSTER_NAMESPACE
+            spec:
+              dbcluster:
+                name: SECONDARY_DB_CLUSTER_NAME
+              upstream:
+                password:
+                  name: ha-rep-pw-SECONDARY_DB_CLUSTER_NAME
+
+Replace `SECONDARY_DB_CLUSTER_NAME` with the name of your secondary database cluster—for example, `dbc-2`.
 
 Wait for the replication status to be ready.
 
-  2. To get the upstream connection information for replication, run the following command:
-         
-         kubectl get replication SECONDARY_REPLICATION_NAME
-         kubectl get replication SECONDARY_REPLICATION_NAME -o json | jq .status.upstream
+     2. To get the upstream connection information for replication, run the following command:
+            
+            kubectl get replication SECONDARY_REPLICATION_NAME
+            kubectl get replication SECONDARY_REPLICATION_NAME -o json | jq .status.upstream
 
 Sample output looks similar to the following:
-         
-         {
-             "host": "34.23.207.137",
-             "password": {
-               "name": "ha-rep-pw-dbc-2"
-             },
-             "port": 5432,
-             "replicationSlotName": "dbc_2_replication_2",
-             "username": "alloydbreplica"
-           }
-         
+            
+            {
+                "host": "34.23.207.137",
+                "password": {
+                  "name": "ha-rep-pw-dbc-2"
+                },
+                "port": 5432,
+                "replicationSlotName": "dbc_2_replication_2",
+                "username": "alloydbreplica"
+              }
+            
 
-  3. To convert your AlloyDB Omni primary database cluster into a secondary database cluster, update its replication manifest on your Kubernetes cluster on the primary data center similar to the following:
-         
-         apiVersion: v1
-         kind: Secret
-         metadata:
-           name: ha-rep-pw-DB_CLUSTER_NAME
-         type: Opaque
-         data:
-           rep-user-pw: "ENCODED_PASSWORD"
-         ---
-         apiVersion: alloydbomni.dbadmin.goog/v1
-         kind: Replication
-         metadata:
-           name: REPLICATION_NAME
-         spec:
-           dbcluster:
-             name: DB_CLUSTER_NAME
-           downstream:
-             host: SECONDARY_HOST
-             port: SECONDARY_PORT
-             username: alloydbreplica
-             password:
-               name: ha-rep-pw-DB_CLUSTER_NAME
-             replicationSlotName: SECONDARY_REPLICATION_SLOT
-             control: rewind
+     3. To convert your AlloyDB Omni primary database cluster into a secondary database cluster, update its replication manifest on your Kubernetes cluster in the primary data center:
+            
+            apiVersion: v1
+            kind: Secret
+            metadata:
+              name: ha-rep-pw-DB_CLUSTER_NAME
+            type: Opaque
+            data:
+              rep-user-pw: "ENCODED_PASSWORD"
+            ---
+            apiVersion: alloydbomni.dbadmin.goog/v1
+            kind: Replication
+            metadata:
+              name: REPLICATION_NAME
+            spec:
+              dbcluster:
+                name: DB_CLUSTER_NAME
+              downstream:
+                host: SECONDARY_HOST
+                port: SECONDARY_PORT
+                username: alloydbreplica
+                password:
+                  name: ha-rep-pw-DB_CLUSTER_NAME
+                replicationSlotName: SECONDARY_REPLICATION_SLOT
+                control: rewind
 
 Wait for the replication status to become ready and healthy.
 
-  4. To verify the replication status, use:
-         
-         kubectl get replication REPLICATION_NAME
+     4. Verify the replication status:
+            
+            kubectl get replication REPLICATION_NAME
 
 
 
+
+## Perform unplanned disaster recovery
+
+If your primary data center or primary database cluster becomes unexpectedly unavailable, you can perform an unplanned disaster recovery failover. To do this, promote the secondary database cluster, and then reconfigure the former primary database cluster after it comes back online:
+
+  1. Promote your AlloyDB Omni secondary database cluster to a primary database cluster. Update the secondary database cluster's replication manifest on your Kubernetes cluster in the secondary data center as described in step 3a of Perform a switchover.
+  2. After the original primary data center becomes available, convert the former primary database cluster into a secondary database cluster that replicates from the new primary. Follow steps 3b, 3c, and 3d in Perform a switchover, with a change in step 3c. In step 3c, set `control: setup` instead of `control: rewind` to reinitialize the cluster from the new primary. Don't use `control: rewind` because the former primary database cluster might contain changes that weren't synchronized before the failover.
+
+**Note:** Because the `setup` control uses `pg_basebackup` to copy the entire database from the new primary, it can take a long time to complete, especially on large databases. 
 
 Send feedback 
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-06 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-06 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/object-table-introduction/
 title: Introduction to object tables \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T05:43:29.857866+00:00
+fetched_at: 2026-11-07T08:29:45.041107+00:00
 ---
 
 # Introduction to object tables  |  BigQuery  |  Google Cloud Documentation
@@ -173,9 +173,9 @@ With this row-level access policy in place, the following outcomes are true for 
 
   * Running the query `SELECT * FROM my_dataset.my_object_table;` only returns rows that have an `updated` value prior to June 25, 2022.
   * Running inference on `my_dataset.my_object_table` only returns predictions for objects that have an `updated` value prior to June 25, 2022.
-  * Generating signed URLs for `my_dataset.my_object_table` only creates URLs for objects that have an `updated` value prior to June 25, 2022.
+  * Generating signed URLs for `my_dataset.my_object_table` by using the `EXTERNAL_OBJECT_TRANSFORM` function only creates URLs for objects that have an `updated` value prior to June 25, 2022.
 
-
+**Warning:** Do not use the [`bigquery.objectRefs.read`](https://docs.cloud.google.com/bigquery/docs/access-control#bigquery.objectRefs.read) or [`bigquery.objectRefs.write`](https://docs.cloud.google.com/bigquery/docs/access-control#bigquery.objectRefs.write) permissions on the object table's connection with row-level access policies, because these permissions are designed to grant connection-level access to any object accessible to the connection's service account, bypassing row-level access policies.
 
 You can also restrict access to object table rows by using custom metadata. For example, the following statement restricts the `users` group to only access rows where the object has been tagged as not containing any personally identifiable information:
     
@@ -204,6 +204,10 @@ Data lake administrators are responsible for creating connections and sharing th
   * The ability to bind tables to connections (like the BigQuery Connection Administrator).
 
 Otherwise, data analysts can create new tables that do not have any access controls, thus circumventing controls placed by data warehouse administrators.
+
+  * The [`bigquery.objectRefs.read`](https://docs.cloud.google.com/bigquery/docs/access-control#bigquery.objectRefs.read) permission on the table's connection (granted by roles such as [BigQuery ObjectRef Reader](https://docs.cloud.google.com/bigquery/docs/access-control#bigquery.objectRefReader) and [BigQuery ObjectRef Admin](https://docs.cloud.google.com/bigquery/docs/access-control#bigquery.objectRefAdmin)).
+
+This permission lets data analysts use [ObjectRef functions](https://docs.cloud.google.com/bigquery/docs/reference/standard-sql/objectref_functions) to read any Cloud Storage object that the connection's service account can access, circumventing table-level and row-level access controls.
 
 
 
@@ -357,6 +361,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-27 UTC.
+Last updated 2026-11-06 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-06 UTC."],[],[]] 

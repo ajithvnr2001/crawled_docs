@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/embeddings/get-text-embeddings/
 title: Get text embeddings \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-06T10:45:32.404859+00:00
+fetched_at: 2026-11-07T08:27:19.613618+00:00
 ---
 
 # Get text embeddings  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation
@@ -429,7 +429,7 @@ You should receive a JSON response similar to the following. Note that `values` 
 
 ## Supported models
 
-The following tables show the available Google and open text embedding models.
+The following table shows the available Google text embedding models.
 
 ### Google models
 
@@ -443,17 +443,6 @@ Model name | Description | Output Dimensions | Max sequence length | Supported t
 `text-multilingual-embedding-002` | Specialized in multilingual tasks. | up to 768 | 2048 tokens | [Supported text languages](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/models/text-embeddings-api#supported_text_languages)  
   
 For superior embedding quality, `gemini-embedding-001` is our large model designed to provide the highest performance.
-
-### Open models
-
-You can get text embeddings by using the following models:
-
-Model name | Description | Output dimensions | Max sequence length | Supported text languages  
----|---|---|---|---  
-`multilingual-e5-small` | Part of the E5 family of text embedding models. Small variant contains 12 layers. | Up to 384 | 512 tokens | [Supported languages](https://huggingface.co/intfloat/multilingual-e5-small#supported-languages)  
-`multilingual-e5-large` | Part of the E5 family of text embedding models. Large variant contains 24 layers. | Up to 1024 | 512 tokens | [Supported languages](https://huggingface.co/intfloat/multilingual-e5-small#supported-languages)  
-  
-To get started, see the E5 family [model card](https://console.cloud.google.com/agent-platform/publishers/intfloat/model-garden/multilingual-e5-large-instruct-maas). For more information on open models, see [Open models for MaaS](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/maas/use-open-models)
 
 ## Add an embedding to a vector database
 
@@ -475,6 +464,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-05 UTC.
+Last updated 2026-11-07 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-05 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-07 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/app-lifecycle-manager/flags/flags-gradual-rollout/
 title: Use gradual feature rollouts \u00a0|\u00a0 App Lifecycle Manager \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-03T09:54:44.483926+00:00
+fetched_at: 2026-11-07T08:29:45.354097+00:00
 ---
 
 # Use gradual feature rollouts  |  App Lifecycle Manager  |  Google Cloud Documentation
@@ -48,7 +48,7 @@ The following examples demonstrate how to retrieve the initialized client and ev
 ```go import ( "context" "fmt" "log"
     
     
-    "github.com/open-feature/go-sdk/pkg/openfeature"
+    "github.com/open-feature/go-sdk/openfeature"
     
 
 )
@@ -139,7 +139,7 @@ To distribute the newly created gradual allocation rule safely, progress through
          gcloud beta app-lifecycle-manager flags releases create "release-of-enhanced-search" \
             --location="global" \
             --unit-kind="demo-test-unitkind" \
-            --flag-revisions="enhanced-search-rev-1"
+            --revisions="enhanced-search-rev-1"
          
 
   3. **Initiate the rollout:** Define your orchestration strategy and deploy the configuration.
@@ -194,7 +194,7 @@ Once the 1% rollout is deemed successful and stable, expand the rollout percenta
          gcloud beta app-lifecycle-manager flags releases create "enhanced-search-50pct" \
             --location="global" \
             --unit-kind="demo-test-unitkind" \
-            --flag-revisions="enhanced-search-rev-2"
+            --revisions="enhanced-search-rev-2"
          
          gcloud beta app-lifecycle-manager rollouts create "rollout-of-enhanced-search-50pct" \
             --flag-release="enhanced-search-50pct" \
@@ -232,6 +232,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-02 UTC.
+Last updated 2026-11-06 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-02 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-06 UTC."],[],[]] 

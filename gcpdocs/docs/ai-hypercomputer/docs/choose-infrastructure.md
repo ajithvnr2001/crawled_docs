@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/ai-hypercomputer/docs/choose-infrastructure/
 title: Choose your accelerator infrastructure \u00a0|\u00a0 AI Hypercomputer \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T18:24:23.957846+00:00
+fetched_at: 2026-11-07T08:32:27.765408+00:00
 ---
 
 # Choose your accelerator infrastructure  |  AI Hypercomputer  |  Google Cloud Documentation
@@ -71,6 +71,7 @@ The clustered GPU management model is a supercomputing-class environment enginee
 
 The following machine series are clustered GPUs:
 
+  * A5X
   * A4X Max
   * A4X
   * A4
@@ -90,7 +91,7 @@ Characteristic | General GPU management model | Clustered GPU management model
 ---|---|---  
 Primary use cases | Inference, model serving, prototyping, and development | Large-scale distributed training and HPC  
 Maintenance | **Asynchronous:** Independent node updates allow traffic to be redirected without stalling jobs | **Coordinated:** Supports cluster-wide coordinated (synchronized) updates to keep nodes in sync and maximize goodput  
-Target hardware | [A3 High (1, 2, or 4 GPUs)](https://docs.cloud.google.com/compute/docs/gpus#a3-vms), [A3 Edge](https://docs.cloud.google.com/compute/docs/gpus#a3-vms), [G4](https://docs.cloud.google.com/compute/docs/gpus#g4-vms), [G2](https://docs.cloud.google.com/compute/docs/gpus#g2-vms), [A2](https://docs.cloud.google.com/compute/docs/gpus#a2-vms), [N1+T4](https://docs.cloud.google.com/compute/docs/gpus#n1-vms), and [N1+V100](https://docs.cloud.google.com/compute/docs/gpus#n1-vms) | [A4X](https://docs.cloud.google.com/compute/docs/gpus#a4-vms), [A4](https://docs.cloud.google.com/compute/docs/gpus#a4-vms), [A3 Ultra](https://docs.cloud.google.com/compute/docs/gpus#a3-vms), [A3 Mega](https://docs.cloud.google.com/compute/docs/gpus#a3-vms), and [A3 High (8 GPUs)](https://docs.cloud.google.com/compute/docs/gpus#a3-vms)  
+Target hardware | [A3 High (1, 2, or 4 GPUs)](https://docs.cloud.google.com/compute/docs/gpus#a3-vms), [A3 Edge](https://docs.cloud.google.com/compute/docs/gpus#a3-vms), [G4](https://docs.cloud.google.com/compute/docs/gpus#g4-vms), [G2](https://docs.cloud.google.com/compute/docs/gpus#g2-vms), [A2](https://docs.cloud.google.com/compute/docs/gpus#a2-vms), [N1+T4](https://docs.cloud.google.com/compute/docs/gpus#n1-vms), and [N1+V100](https://docs.cloud.google.com/compute/docs/gpus#n1-vms) | [A5X](https://docs.cloud.google.com/compute/docs/gpus#vera-rubin-gpus), [A4X Max](https://docs.cloud.google.com/compute/docs/gpus#gb300-gpus), [A4X](https://docs.cloud.google.com/compute/docs/gpus#gb200-gpus), [A4](https://docs.cloud.google.com/compute/docs/gpus#b200-gpus), [A3 Ultra](https://docs.cloud.google.com/compute/docs/gpus#a3-vms), [A3 Mega](https://docs.cloud.google.com/compute/docs/gpus#a3-vms), and [A3 High (8 GPUs)](https://docs.cloud.google.com/compute/docs/gpus#h100-gpus)  
 Networking | Standard VPC networking over gVNIC interfaces (with the exception of A3 Edge, which uses GPUDirect-TCPX over multiple VPCs) | Specialized low-latency fabrics (RDMA, RoCE, TCPX, or NVIDIA NVLink)  
 Management stack | Standard Google Cloud plane (Compute Engine or GKE) | Specialized management stack (for example, Cluster Director)  
 Reliability | Standard node auto-repair and pod-level uptime | Specialized Resource and Recovery suite  
@@ -101,11 +102,11 @@ Use this matrix to identify which hardware families align with your specific wor
 
 If your workload involves... | Recommended GPU infrastructure | Recommended machine series  
 ---|---|---  
-Prototyping and development | General GPUs | [A3 High (1, 2, or 4 GPUs)](https://docs.cloud.google.com/compute/docs/gpus#a3-vms), [A3 Edge](https://docs.cloud.google.com/compute/docs/gpus#a3-vms),, [A2](https://docs.cloud.google.com/compute/docs/gpus#a2-vms), [G4](https://docs.cloud.google.com/compute/docs/gpus#g4-vms), [G2](https://docs.cloud.google.com/compute/docs/gpus#g2-vms), [N1+T4](https://docs.cloud.google.com/compute/docs/gpus#n1-vms), [N1+V100](https://docs.cloud.google.com/compute/docs/gpus#n1-vms)  
-Real-time inference (< 100B parameters) | General GPUs | [A3 High (1, 2, or 4 GPUs)](https://docs.cloud.google.com/compute/docs/gpus#a3-vms), [A3 Edge](https://docs.cloud.google.com/compute/docs/gpus#a3-vms),, [A2](https://docs.cloud.google.com/compute/docs/gpus#a2-vms), [G4](https://docs.cloud.google.com/compute/docs/gpus#g4-vms), [G2](https://docs.cloud.google.com/compute/docs/gpus#g2-vms), [N1+T4](https://docs.cloud.google.com/compute/docs/gpus#n1-vms), [N1+V100](https://docs.cloud.google.com/compute/docs/gpus#n1-vms)  
+Prototyping and development | General GPUs | [A3 High (1, 2, or 4 GPUs)](https://docs.cloud.google.com/compute/docs/gpus#a3-vms), [A3 Edge](https://docs.cloud.google.com/compute/docs/gpus#a3-vms), [A2](https://docs.cloud.google.com/compute/docs/gpus#a2-vms), [G4](https://docs.cloud.google.com/compute/docs/gpus#g4-vms), [G2](https://docs.cloud.google.com/compute/docs/gpus#g2-vms), [N1+T4](https://docs.cloud.google.com/compute/docs/gpus#n1-vms), [N1+V100](https://docs.cloud.google.com/compute/docs/gpus#n1-vms)  
+Real-time inference (< 100B parameters) | General GPUs | [A3 High (1, 2, or 4 GPUs)](https://docs.cloud.google.com/compute/docs/gpus#a3-vms), [A3 Edge](https://docs.cloud.google.com/compute/docs/gpus#a3-vms), [A2](https://docs.cloud.google.com/compute/docs/gpus#a2-vms), [G4](https://docs.cloud.google.com/compute/docs/gpus#g4-vms), [G2](https://docs.cloud.google.com/compute/docs/gpus#g2-vms), [N1+T4](https://docs.cloud.google.com/compute/docs/gpus#n1-vms), [N1+V100](https://docs.cloud.google.com/compute/docs/gpus#n1-vms)  
 Inference across multiple GPUs | Clustered GPUs | [A4](https://docs.cloud.google.com/compute/docs/gpus#a4-vms), [A3 Ultra](https://docs.cloud.google.com/compute/docs/gpus#a3-vms), [A3 Mega](https://docs.cloud.google.com/compute/docs/gpus#a3-vms), [A3 High (8 GPUs)](https://docs.cloud.google.com/compute/docs/gpus#a3-vms)  
 Large-scale training and inference | Clustered GPUs | [A4](https://docs.cloud.google.com/compute/docs/gpus#a4-vms), [A3 Ultra](https://docs.cloud.google.com/compute/docs/gpus#a3-vms), [A3 Mega](https://docs.cloud.google.com/compute/docs/gpus#a3-vms), [A3 High (8 GPUs)](https://docs.cloud.google.com/compute/docs/gpus#a3-vms)  
-Massive-scale training (> 500B parameters) and disaggregated inference | Clustered GPUs | [A4X Max](https://docs.cloud.google.com/ai-hypercomputer/docs/gpu#a4x-max-machine), [A4X](https://docs.cloud.google.com/compute/docs/gpus#a4-vms), [A4](https://docs.cloud.google.com/compute/docs/gpus#a4-vms)  
+Massive-scale training (> 500B parameters) and disaggregated inference | Clustered GPUs | [A5X](https://docs.cloud.google.com/compute/docs/gpus#vera-rubin-gpus), [A4X Max](https://docs.cloud.google.com/compute/docs/gpus#gb300-gpus), [A4X](https://docs.cloud.google.com/compute/docs/gpus#gb200-gpus), [A4](https://docs.cloud.google.com/compute/docs/gpus#b200-gpus)  
   
 For a detailed decision tree mapping model architectures directly to hardware, see [Choose an accelerator](https://docs.cloud.google.com/ai-hypercomputer/docs/choose-strategy).
 
@@ -123,6 +124,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-06 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-06 UTC."],[],[]] 

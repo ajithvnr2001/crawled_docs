@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/compute/docs/instances/provisioning-models/
 title: Compute Engine instances provisioning models \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T23:18:17.175442+00:00
+fetched_at: 2026-11-07T08:32:17.355485+00:00
 ---
 
 # Compute Engine instances provisioning models  |  Google Cloud Documentation
@@ -159,7 +159,7 @@ Creation prerequisites | No creation prerequisites. | No creation prerequisites.
   * To reserve capacity for workloads that run for up to 90 days, use [ future reservations in calendar mode](https://docs.cloud.google.com/compute/docs/instances/future-reservations-calendar-mode-overview).
 
 At your chosen delivery date and time, Compute Engine provisions your requested capacity. Then, you can consume the capacity by creating compute instances.  
-Supported machine series | You can use any machine series, except A4X Max, A4X, A4, and A3 Ultra.  |  You can use any machine series, except A4X instances and any bare metal instances (machine types with a name that contains `-metal`). To use the TPU7x machine series, you must request access1.  |  You can only use the following machine series:
+Supported machine series | You can use any machine series, except A5X, A4X Max, A4X, A4, and A3 Ultra.  |  You can use any machine series, except A5X, A4X Max, and A4X instances, and any bare metal instances (machine types with a name that contains `-metal`). To use the TPU7x machine series, you must request access1.  |  You can only use the following machine series:
 
   * [ A4, A3, A2, G4, and G2 machine series](https://docs.cloud.google.com/compute/docs/accelerator-optimized-machines)
   * [TPU7x1, TPU v6e, and TPU v5p](https://docs.cloud.google.com/compute/docs/tpus/tpu-machines)
@@ -168,7 +168,7 @@ Supported machine series | You can use any machine series, except A4X Max, A4X, 
 
 |  Based on how you reserve capacity to create VMs, you can only use the following machine series:
 
-  * If you [create a future reservation for capacity blocks](https://docs.cloud.google.com/ai-hypercomputer/docs/reserve-capacity), then you can only use A4X Max, A4X, A4, A3 Ultra, A3 Mega with 8 GPUs, A3 High with 8 GPUs, A3 Edge, H4D, TPU7x1, TPU v6e, and TPU v5p machine series.
+  * If you [create a future reservation for capacity blocks](https://docs.cloud.google.com/ai-hypercomputer/docs/reserve-capacity), then you can only use A5X, A4X Max, A4X, A4, A3 Ultra, A3 Mega, A3 High with 8 GPUs, A3 Edge, H4D, TPU7x1, TPU v6e, and TPU v5p machine series.
   * If you [ create a future reservation in calendar mode](https://docs.cloud.google.com/compute/docs/instances/future-reservations-calendar-mode-overview), then you can only use the A4, A3 Ultra, A3 Mega, A3 High with 8 GPUs, A3 Edge, H4D, TPU7x1, TPU v6e, and TPU v5p machine series.
 
   
@@ -221,6 +221,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-06 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-06 UTC."],[],[]] 

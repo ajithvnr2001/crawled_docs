@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/stackdriver/docs/observability/set-defaults-for-observability-buckets/
 title: Set defaults for observability buckets \u00a0|\u00a0 Google Cloud Observability \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-03T09:42:52.139140+00:00
+fetched_at: 2026-11-07T08:30:39.940135+00:00
 ---
 
 # Set defaults for observability buckets  |  Google Cloud Observability  |  Google Cloud Documentation
@@ -20,9 +20,9 @@ Send feedback
 
 #  Set defaults for observability buckets Stay organized with collections  Save and categorize content based on your preferences. 
 
-If you have compliance or regulatory requirements to store your data in specific locations or to use customer-managed encryption keys (CMEKs), then we recommend that you configure both organization policies and default settings for observability buckets. Organization policies and default settings for observability buckets let you specify the storage location and whether those buckets use Google-default encryption or customer-managed encryption keys (CMEKs).
+If you have compliance or regulatory requirements to store your data in specific locations or to use customer-managed encryption keys (CMEKs), then we recommend that you configure both organization policies and default settings for observability buckets. Organization policies and default settings for observability buckets let you specify the storage location and the encryption model for those buckets. These buckets can use Google-default encryption or customer-managed encryption keys (CMEKs).
 
-For organizations, folders, and projects, default settings for observability buckets let you configure the following:
+For organizations, folders, and projects, _default settings for observability buckets_ let you configure the following:
 
   * A default storage location.
   * For each location, a default Cloud Key Management Service key.
@@ -40,9 +40,9 @@ There are two different ways the system uses default settings:
 
 Because the parent of an observability bucket is always a project, when you create a bucket, the system first searches for project-level default settings. If those don't exist, then the system searches the parent's ancestors for default settings. For example, if you define default settings for a folder, then those settings apply to descendants of the folder, except those descendants that have default settings configured.
 
-You can also use organization policies to restrict the locations of new observability buckets, to require the use of CMEKs, or to restrict which Cloud KMS keys can be used for encryption. If you configure organization policies that require use of CMEKs, then you must configure default settings for observability buckets. If you don't, then provisioning for system-created observability buckets fails.
+You can also use organization policies to restrict the locations of new observability buckets, to require the use of CMEKs, or to restrict which Cloud KMS keys can be used for encryption. If you configure organization policies that require the use of CMEKs, then you must configure default settings for observability buckets. If you don't, then provisioning for system-created observability buckets fails.
 
-This document doesn't apply to log buckets, which store log data. For information about setting a default location or requiring CMEKs for log buckets, see [Configure default resource settings for Cloud Logging](https://docs.cloud.google.com/logging/docs/default-settings).
+This document doesn't apply to log buckets, which store log data. For information about how to set a default location or require CMEKs for log buckets, see [Configure default resource settings for Cloud Logging](https://docs.cloud.google.com/logging/docs/default-settings).
 
 ## Applicable organization policies
 
@@ -494,7 +494,7 @@ For example, if you want all new system-created observability buckets in your or
          service_account_id: service-org-ORGANIZATION_ID@gcp-sa-observability.iam.gserviceaccount.com
          
 
-  3. Grant the service account you identified in the previous step the [Cloud KMS CryptoKey Encrypter/Decrypter (`roles.cloudkms.cryptoKeyEncrypterDecrypter`)](https://docs.cloud.google.com/iam/docs/roles-permissions/cloudkms#cloudkms.cryptoKeyEncrypterDecrypter) role for the Cloud KMS key that you want to use to encrypt and decrypt data.
+  3. Grant the service account you identified in the previous step the [Cloud KMS CryptoKey Encrypter/Decrypter (`roles.cloudkms.cryptoKeyEncrypterDecrypter`](https://docs.cloud.google.com/iam/docs/roles-permissions/cloudkms#cloudkms.cryptoKeyEncrypterDecrypter) role for the Cloud KMS key that you want to use to encrypt and decrypt data.
 
 This role binding is for a specific Cloud KMS key.
 
@@ -900,7 +900,7 @@ The system uses the following algorithm to determine whether a new observability
 
 ### Revoke key access for a resource and location
 
-When you configure the default settings for observability buckets for a resource and location with a Cloud KMS key, you must grant the resource's service account the [Cloud KMS CryptoKey Encrypter/Decrypter (`roles.cloudkms.cryptoKeyEncrypterDecrypter`)](https://docs.cloud.google.com/iam/docs/roles-permissions/cloudkms#cloudkms.cryptoKeyEncrypterDecrypter) role for the key.
+When you configure the default settings for observability buckets for a resource and location with a Cloud KMS key, you must grant the resource's service account the [Cloud KMS CryptoKey Encrypter/Decrypter (`roles.cloudkms.cryptoKeyEncrypterDecrypter`](https://docs.cloud.google.com/iam/docs/roles-permissions/cloudkms#cloudkms.cryptoKeyEncrypterDecrypter) role for the key.
 
 **Note:** If you revoke key access for a resource and location, then for existing observability buckets, the behavior is the same as if the key is unavailable. Additionally, the system can't create new observability buckets.
 
@@ -941,6 +941,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-02 UTC.
+Last updated 2026-11-06 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-02 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-06 UTC."],[],[]] 

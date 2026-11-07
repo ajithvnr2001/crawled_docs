@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/distributed-cloud/sandbox/latest/services/translation/
 title: Try out machine translation \u00a0|\u00a0 Google Distributed Cloud Sandbox \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T21:08:24.323548+00:00
+fetched_at: 2026-11-07T08:29:29.345557+00:00
 ---
 
 # Try out machine translation  |  Google Distributed Cloud Sandbox  |  Google Cloud Documentation
@@ -21,9 +21,9 @@ Send feedback
 
 #  Try out machine translation Stay organized with collections  Save and categorize content based on your preferences. 
 
-This page walks through an example of using the Vertex AI API to translate text from one language to another.
+The Cloud Translation API lets you translate text dynamically between languages. In this tutorial, you deploy a containerized translation service in Google Distributed Cloud (GDC) Sandbox without GPUs.
 
-In this example, you deploy the workloads without using GPUs. To deploy using GPUs, follow the steps in [Deploy GPU container workloads](https://docs.cloud.google.com/distributed-cloud/sandbox/latest/services/gpu#deploy_gpu).
+To run GPU-accelerated workloads instead, see [Deploy GPU container workloads](https://docs.cloud.google.com/distributed-cloud/sandbox/latest/services/gpu#deploy_gpu).
 
 ## Translation API
 
@@ -221,6 +221,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-07 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-07 UTC."],[],[]] 

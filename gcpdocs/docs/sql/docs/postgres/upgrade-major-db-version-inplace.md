@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sql/docs/postgres/upgrade-major-db-version-inplace/
 title: Upgrade the database major version in-place \u00a0|\u00a0 Cloud SQL for PostgreSQL \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-05T00:17:57.283318+00:00
+fetched_at: 2026-11-07T08:29:34.590423+00:00
 ---
 
 # Upgrade the database major version in-place  |  Cloud SQL for PostgreSQL  |  Google Cloud Documentation
@@ -831,7 +831,7 @@ When you place an in-place upgrade request, Cloud SQL first performs a pre-upgra
 
 ### Include replicas in the major version upgrade
 
-If your primary instance has replicas, then you can include all replicas in the upgrade. Cloud SQL can upgrade all replicas of the primary instance, including cross-region replicas and cascading replicas.
+If your primary instance has replicas, then you can include all replicas in the upgrade. Cloud SQL can upgrade all replicas of the primary instance, including cross-region replicas and cascading replicas. When you include replicas in the upgrade, Cloud SQL upgrades the primary instance first and then recreates each read replica from the post-upgrade backup of the primary instance, rather than upgrading the replicas in place individually.
 
 When you include replicas in a major version upgrade, Cloud SQL does the following:
 
@@ -842,7 +842,7 @@ When you include replicas in a major version upgrade, Cloud SQL does the followi
   5. Performs the upgrade on the primary instance.
   6. If the upgrade on the primary instance is successful, then the primary instance becomes available again and restarts replication.
   7. Cloud SQL takes a post-upgrade backup of the primary instance.
-  8. Cloud SQL proceeds to upgrade all replicas.
+  8. Cloud SQL upgrades each replica by recreating it from the post-upgrade backup of the primary instance on the new major version. Because Cloud SQL recreates the read replicas rather than upgrading them in place, each replica operation appears in the operations log as **Recreate replica**.
 
 
 
@@ -1558,6 +1558,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-03 UTC.
+Last updated 2026-11-06 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-06 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sensitive-data-protection/limits/
 title: Quotas and limits \u00a0|\u00a0 Sensitive Data Protection \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-03T08:19:21.996905+00:00
+fetched_at: 2026-11-07T08:29:42.664263+00:00
 ---
 
 # Quotas and limits  |  Sensitive Data Protection  |  Google Cloud Documentation
@@ -29,14 +29,28 @@ You can set lower quotas in the [Google Cloud console](https://console.cloud.goo
 
 ## Rate quotas
 
-This table highlights important quotas for Sensitive Data Protection requests in each project. For other quotas, see the [**Quotas & System Limits** page in the Google Cloud console](https://console.cloud.google.com/iam-admin/quotas?pageState=\(%22allQuotasTable%22:\(%22f%22:%22%255B%257B_22k_22_3A_22Service_22_2C_22t_22_3A10_2C_22v_22_3A_22_5C_22Sensitive%2520Data%2520Protection%2520%2528DLP%2529_5C_22_22_2C_22s_22_3Atrue_2C_22i_22_3A_22serviceTitle_22%257D%255D%22\)\)).
+This table highlights important rate quotas for Sensitive Data Protection requests in each project. For other quotas, see the [**Quotas & System Limits** page in the Google Cloud console](https://console.cloud.google.com/iam-admin/quotas?pageState=\(%22allQuotasTable%22:\(%22f%22:%22%255B%257B_22k_22_3A_22Service_22_2C_22t_22_3A10_2C_22v_22_3A_22_5C_22Sensitive%2520Data%2520Protection%2520%2528DLP%2529_5C_22_22_2C_22s_22_3Atrue_2C_22i_22_3A_22serviceTitle_22%257D%255D%22\)\)).
 
-Quota | Value | Description  
----|---|---  
-Number of requests per minute | 10,000 | Total number of requests to all [global and regional endpoints](https://docs.cloud.google.com/sensitive-data-protection/docs/api-endpoints) for Sensitive Data Protection across all locations  
-Number of requests to a regional endpoint per minute per region | 600 | Requests made to the global endpoint (`dlp.googleapis.com`) [where a location is specified](https://docs.cloud.google.com/sensitive-data-protection/docs/api-endpoints#location-specified)  
-Number of requests to a regional endpoint per minute per region | 100 | Requests made to a [regional endpoint](https://docs.cloud.google.com/sensitive-data-protection/docs/api-endpoints#regional) (`dlp.REGION.rep.googleapis.com`)  
+Quota | Metric | Value | Description  
+---|---|---|---  
+Number of requests per minute | `dlp.googleapis.com/quota_tokens` | 10,000 |  Total number of requests across all [global and regional endpoints](https://docs.cloud.google.com/sensitive-data-protection/docs/api-endpoints) for Sensitive Data Protection in all locations. Requests to regional endpoints or to the global endpoint with a location specified consume both their regional quota and this global quota.   
+Number of requests to the global endpoint with a location specified per minute per region | `dlp.googleapis.com/quota_tokens_regional` | 600 |  Requests made to the global endpoint (`dlp.googleapis.com`) [where a location is specified](https://docs.cloud.google.com/sensitive-data-protection/docs/api-endpoints#location-specified). These requests also consume the global quota (`dlp.googleapis.com/quota_tokens`). In the Google Cloud console, this quota is listed as **Number of requests to a regional endpoint**.   
+Number of requests to a regional (REP) endpoint per minute per region | `dlp.googleapis.com/quota_tokens_rep` | 100 |  Requests made to a [regional endpoint](https://docs.cloud.google.com/sensitive-data-protection/docs/api-endpoints#regional) (`dlp.REGION.rep.googleapis.com`). These requests also consume the global quota (`dlp.googleapis.com/quota_tokens`). In the Google Cloud console, this quota is listed as **Number of requests to a regional REP endpoint**.   
   
+### Quota consumption across endpoints
+
+Requests made to Sensitive Data Protection consume quota as follows:
+
+  * **Global requests with no location specified** : decrement only the global quota (`dlp.googleapis.com/quota_tokens`).
+  * **Global requests with a location specified** : decrement both the regional quota for the global endpoint (`dlp.googleapis.com/quota_tokens_regional`) in that region and the global quota (`dlp.googleapis.com/quota_tokens`).
+  * **Regional (REP) endpoint requests** : decrement both the regional REP quota (`dlp.googleapis.com/quota_tokens_rep`) in that region and the global quota (`dlp.googleapis.com/quota_tokens`).
+
+
+
+Because regional and regional REP requests also decrement the global request quota, raising only your regional or REP quota limit without requesting an equivalent increase to the global quota might cause requests to fail with a `429 Quota exceeded` error on `dlp.googleapis.com/quota_tokens`. When planning capacity or requesting a quota increase, ensure that your global quota accommodates the sum of all regional and global traffic.
+
+**Note:** The default quota for regional (REP) endpoints (`dlp.REGION.rep.googleapis.com`) is 100 requests per minute per region, which is lower than the 600 requests per minute per region available when calling the global endpoint with a specified location. If you adopt regional endpoints for data residency compliance and your workload requires higher throughput, submit a quota increase request before migrating production traffic.
+
 ## Resource limits
 
 Sensitive Data Protection enforces the following limits on stored resources per project.
@@ -239,6 +253,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-03 UTC.
+Last updated 2026-11-06 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-06 UTC."],[],[]] 

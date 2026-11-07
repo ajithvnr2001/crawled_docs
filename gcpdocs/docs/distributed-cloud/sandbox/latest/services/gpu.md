@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/distributed-cloud/sandbox/latest/services/gpu/
 title: Deploy GPU container workloads \u00a0|\u00a0 Google Distributed Cloud Sandbox \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T21:08:22.030794+00:00
+fetched_at: 2026-11-07T08:29:29.416829+00:00
 ---
 
 # Deploy GPU container workloads  |  Google Distributed Cloud Sandbox  |  Google Cloud Documentation
@@ -21,7 +21,7 @@ Send feedback
 
 #  Deploy GPU container workloads Stay organized with collections  Save and categorize content based on your preferences. 
 
-This page describes how to deploy GPU container workloads on the Google Distributed Cloud (GDC) Sandbox AI Optimized SKU.
+The Google Distributed Cloud (GDC) Sandbox AI Optimized SKU lets you run accelerated AI and compute-intensive applications in GPU-enabled containers. In this document, you configure container resource requests and security settings to deploy workloads on dedicated NVIDIA H100 GPUs.
 
 ## Deploy GPU container workloads
 
@@ -128,6 +128,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-07 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-07 UTC."],[],[]] 

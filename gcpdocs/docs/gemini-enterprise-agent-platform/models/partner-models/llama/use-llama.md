@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/llama/use-llama/
 title: Request Llama predictions \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-06T10:42:12.649717+00:00
+fetched_at: 2026-11-07T08:27:39.913859+00:00
 ---
 
 # Request Llama predictions  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation
@@ -25,7 +25,6 @@ You can use curl commands to send requests to the Gemini Enterprise Agent Platfo
 
   * For Llama 4 Maverick 17B-128E, use `llama-4-maverick-17b-128e-instruct-maas`
   * For Llama 4 Scout 17B-16E, use `llama-4-scout-17b-16e-instruct-maas`
-  * For Llama 3.3 70B, use `llama-3.3-70b-instruct-maas`
 
 
 
@@ -37,7 +36,7 @@ To see an example of evaluating Llama 3.1 models by using Automatic side-by-side
 
 ### Before you begin
 
-To use Llama models with Gemini Enterprise Agent Platform, you must perform the following steps. The Agent Platform API (`aiplatform.googleapis.com`) must be enabled to use Gemini Enterprise Agent Platform. If you already have an existing project with the Agent Platform API enabled, you can use that project instead of creating a new project.
+To use Llama models with Gemini Enterprise Agent Platform, you must perform the following steps. The Agent Platform API (`aiplatform.googleapis.com`) and the Cloud Commerce Consumer Procurement API (`cloudcommerceconsumerprocurement.googleapis.com`) must be enabled to use Llama models on Gemini Enterprise Agent Platform. If you already have an existing project with these APIs enabled, you can use that project instead of creating a new project.
 
 **Note:** To use the Llama 4 Model-as-a-Service endpoints, you must accept the end-user license agreement (EULA) on the model card.
 
@@ -51,17 +50,19 @@ To use Llama models with Gemini Enterprise Agent Platform, you must perform the 
 
 [Go to project selector](https://console.cloud.google.com/projectselector2/home/dashboard)
 
-  3. [Verify that billing is enabled for your Google Cloud project](https://docs.cloud.google.com/billing/docs/how-to/verify-billing-enabled#confirm_billing_is_enabled_on_a_project). 
+  3. If you're using an existing project for this guide, verify that you have the permissions required to complete this guide. If you created a new project, then you already have the required permissions. 
 
-  4. Enable the Gemini Enterprise Agent Platform API, if it is not already enabled. 
+  4. [Verify that billing is enabled for your Google Cloud project](https://docs.cloud.google.com/billing/docs/how-to/verify-billing-enabled#confirm_billing_is_enabled_on_a_project). 
+
+  5. Enable the Gemini Enterprise Agent Platform and Cloud Commerce Consumer Procurement APIs, if any are not already enabled. 
 
 **Roles required to enable APIs**
 
 To enable APIs, you need the `serviceusage.services.enable` permission. If you created the project, then you likely already have this permission through the Owner role (`roles/owner`). Otherwise, you can get this permission through the Service Usage Admin role (`roles/serviceusage.serviceUsageAdmin`). [Learn how to grant roles](https://docs.cloud.google.com/iam/docs/granting-changing-revoking-access). 
 
-[Enable the API](https://console.cloud.google.com/apis/enableflow?apiid=aiplatform.googleapis.com)
+[Enable the APIs](https://console.cloud.google.com/apis/enableflow?apiid=aiplatform.googleapis.com,cloudcommerceconsumerprocurement.googleapis.com)
 
-  5. In the Google Cloud console, on the project selector page, select or create a Google Cloud project.
+  6. In the Google Cloud console, on the project selector page, select or create a Google Cloud project.
 
 **Roles required to select or create a project**
 
@@ -70,22 +71,38 @@ To enable APIs, you need the `serviceusage.services.enable` permission. If you c
 
 [Go to project selector](https://console.cloud.google.com/projectselector2/home/dashboard)
 
-  6. [Verify that billing is enabled for your Google Cloud project](https://docs.cloud.google.com/billing/docs/how-to/verify-billing-enabled#confirm_billing_is_enabled_on_a_project). 
+  7. If you're using an existing project for this guide, verify that you have the permissions required to complete this guide. If you created a new project, then you already have the required permissions. 
 
-  7. Enable the Gemini Enterprise Agent Platform API, if it is not already enabled. 
+  8. [Verify that billing is enabled for your Google Cloud project](https://docs.cloud.google.com/billing/docs/how-to/verify-billing-enabled#confirm_billing_is_enabled_on_a_project). 
+
+  9. Enable the Gemini Enterprise Agent Platform and Cloud Commerce Consumer Procurement APIs, if any are not already enabled. 
 
 **Roles required to enable APIs**
 
 To enable APIs, you need the `serviceusage.services.enable` permission. If you created the project, then you likely already have this permission through the Owner role (`roles/owner`). Otherwise, you can get this permission through the Service Usage Admin role (`roles/serviceusage.serviceUsageAdmin`). [Learn how to grant roles](https://docs.cloud.google.com/iam/docs/granting-changing-revoking-access). 
 
-[Enable the API](https://console.cloud.google.com/apis/enableflow?apiid=aiplatform.googleapis.com)
+[Enable the APIs](https://console.cloud.google.com/apis/enableflow?apiid=aiplatform.googleapis.com,cloudcommerceconsumerprocurement.googleapis.com)
 
-  8. Go to one of the following Model Garden model cards, then click **Enable** : 
+  10. Go to one of the following Model Garden model cards, then click **Enable** : 
      * [Go to the Llama 4 Maverick 17B-128E model card](https://console.cloud.google.com/agent-platform/publishers/meta/model-garden/llama-4-maverick-17b-128e-instruct-maas)
      * [Go to the Llama 4 Scout 17B-16E model card](https://console.cloud.google.com/agent-platform/publishers/meta/model-garden/llama-4-maverick-17b-128e-instruct-maas)
-     * [Go to the Llama 3.3 70B model card](https://console.cloud.google.com/agent-platform/publishers/meta/model-garden/llama-3.3-70b-instruct-maas)
 
 
+
+### Required roles
+
+To get the permissions that you need to enable and use Llama models, ask your administrator to grant you the following IAM roles on your project: 
+
+  * [Agent Platform User ](https://docs.cloud.google.com/iam/docs/roles-permissions/aiplatform#aiplatform.user) (`roles/aiplatform.user`)
+  * [Consumer Procurement Entitlement Manager ](https://docs.cloud.google.com/iam/docs/roles-permissions/consumerprocurement#consumerprocurement.entitlementManager) (`roles/consumerprocurement.entitlementManager`)
+
+
+
+For more information about granting roles, see [Manage access to projects, folders, and organizations](https://docs.cloud.google.com/iam/docs/granting-changing-revoking-access). 
+
+You might also be able to get the required permissions through [custom roles](https://docs.cloud.google.com/iam/docs/creating-custom-roles) or other [predefined roles](https://docs.cloud.google.com/iam/docs/roles-overview#predefined). 
+
+For more information about granting permissions and configuring organization policies for partner models, see [Grant user access to partner models](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/use-partner-models#grant-permissions).
 
 ### Make a streaming call to a Llama model
 
@@ -97,8 +114,8 @@ After you set up your environment, you can use REST to test a text prompt. The f
 
 Before using any of the request data, make the following replacements: 
 
-  * LOCATION: A region that supports Llama models.
-  * MODEL: The model name you want to use.
+  * LOCATION: A region that supports Llama models, for example `us-east5`.
+  * MODEL: The model name you want to use, for example `llama-4-maverick-17b-128e-instruct-maas`.
   * ROLE: The role associated with a message. You can specify a `user` or an `assistant`. The first message must use the `user` role. The models operate with alternating `user` and `assistant` turns. If the final message uses the `assistant` role, then the response content continues immediately from the content in that message. You can use this to constrain part of the model's response.
   * CONTENT: The content, such as text, of the `user` or `assistant` message.
   * MAX_OUTPUT_TOKENS: Maximum number of tokens that can be generated in the response. A token is approximately four characters. 100 tokens correspond to roughly 60-80 words. 
@@ -106,7 +123,6 @@ Before using any of the request data, make the following replacements:
 Specify a lower value for shorter responses and a higher value for potentially longer responses.
 
   * STREAM: A boolean that specifies whether the response is streamed or not. Stream your response to reduce the end-use latency perception. Set to `true` to stream the response and `false` to return the response all at once.
-  * ENABLE_LLAMA_GUARD: A boolean that specifies whether to enable Llama Guard on your inputs and outputs. By default, Llama Guard is enabled and flags responses if it determines they are unsafe.
 
 
 
@@ -127,15 +143,7 @@ Request JSON body:
         }
       ],
       "max_tokens": MAX_OUTPUT_TOKENS,
-      "stream": true,
-      "extra_body": {
-        "google": {
-          "model_safety_settings": {
-            "enabled": ENABLE_LLAMA_GUARD,
-            "llama_guard_settings": {}
-          }
-        }
-      }
+      "stream": true
     }
     
 
@@ -181,8 +189,7 @@ You should receive a JSON response similar to the following.
         {
           "delta": {
             "content": "CONTENT",
-            "role": "assistant",
-            "refusal: "REFUSAL_REASON" #If using Llama Guard and response was flagged by Llama Guard
+            "role": "assistant"
           },
           "index": 0
         }
@@ -222,8 +229,8 @@ After you set up your environment, you can use REST to test a text prompt. The f
 
 Before using any of the request data, make the following replacements: 
 
-  * LOCATION: A region that supports Llama models.
-  * MODEL: The model name you want to use.
+  * LOCATION: A region that supports Llama models, for example `us-east5`.
+  * MODEL: The model name you want to use, for example `llama-4-maverick-17b-128e-instruct-maas`.
   * ROLE: The role associated with a message. You can specify a `user` or an `assistant`. The first message must use the `user` role. The models operate with alternating `user` and `assistant` turns. If the final message uses the `assistant` role, then the response content continues immediately from the content in that message. You can use this to constrain part of the model's response.
   * CONTENT: The content, such as text, of the `user` or `assistant` message.
   * MAX_OUTPUT_TOKENS: Maximum number of tokens that can be generated in the response. A token is approximately four characters. 100 tokens correspond to roughly 60-80 words. 
@@ -231,7 +238,6 @@ Before using any of the request data, make the following replacements:
 Specify a lower value for shorter responses and a higher value for potentially longer responses.
 
   * STREAM: A boolean that specifies whether the response is streamed or not. Stream your response to reduce the end-use latency perception. Set to `true` to stream the response and `false` to return the response all at once.
-  * ENABLE_LLAMA_GUARD: A boolean that specifies whether to enable Llama Guard on your inputs and outputs. By default, Llama Guard is enabled and flags responses if it determines they are unsafe.
 
 
 
@@ -252,15 +258,7 @@ Request JSON body:
         }
       ],
       "max_tokens": MAX_OUTPUT_TOKENS,
-      "stream": false,
-      "extra_body": {
-        "google": {
-          "model_safety_settings": {
-            "enabled": ENABLE_LLAMA_GUARD,
-            "llama_guard_settings": {}
-          }
-        }
-      }
+      "stream": false
     }
     
 
@@ -308,12 +306,11 @@ You should receive a JSON response similar to the following.
           "index": 0,
           "message": {
             "content": "CONTENT",
-            "role": "assistant",
-            "refusal: "REFUSAL_REASON" #If using Llama Guard and response was flagged by Llama Guard
+            "role": "assistant"
           }
         }
       ],
-      "model": "meta/llama3-405b-instruct-maas",
+      "model": "meta/llama-4-maverick-17b-128e-instruct-maas",
       "object": "chat.completion",
       "usage": {
         "completion_tokens": 367,
@@ -322,12 +319,6 @@ You should receive a JSON response similar to the following.
       }
     }
     
-
-### Flagged responses
-
-By default, Llama Guard 3 8B is enabled on all predictions that you make with Llama 3.3 and Llama 3.1 models. By default, Llama Guard 3 11B vision is enabled on all predictions that you make with for Llama 3.2 models. Llama Guard helps safeguard responses by checking inputs and outputs. If Llama Guard determines they are unsafe, it flags the response.
-
-If you want to disable Llama Guard, modify the model safety setting. For more information, see the `model_safety_settings` field in the streaming or unary example.
 
 ### Use Agent Studio
 
@@ -349,11 +340,6 @@ Llama 4 Scout 17B-16E
 
 
 |  1,310,720   
-Llama 3.3 70B  
-`us-central1` | 
-
-
-|  128,000   
   
 If you want to increase any of your quotas for Agent Platform, you can use the Google Cloud console to request a quota increase. To learn more about quotas, see the [Cloud Quotas overview](https://docs.cloud.google.com/docs/quotas/overview).
 
@@ -361,6 +347,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-05 UTC.
+Last updated 2026-11-07 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-05 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-07 UTC."],[],[]] 

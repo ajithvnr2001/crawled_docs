@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/managed-service-for-apache-kafka/docs/kafka-acls/create-kafka-acls/
 title: Create a Managed Kafka ACL \u00a0|\u00a0 Managed Service for Apache Kafka \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T21:21:30.413170+00:00
+fetched_at: 2026-11-07T08:32:55.543252+00:00
 ---
 
 # Create a Managed Kafka ACL  |  Managed Service for Apache Kafka  |  Google Cloud Documentation
@@ -79,7 +79,7 @@ After you create a Managed Kafka ACL, you can't change the ACL ID.
 
 An ACL entry defines a specific permission that a principal has on the cluster resources that match the ACL. When you create a Managed Kafka ACL, you must specify at least one ACL entry. You can add or remove ACL entries on an existing ACL.
 
-The maximum number of ACL entries per Managed Kafka ACL resource is 100. If you need more rules for a single resource pattern, you must manage ACLs directly using standard Apache Kafka tools.
+The maximum number of ACL entries per Managed Kafka ACL resource is 1000. If you need more rules for a single resource pattern, you must manage ACLs directly using standard Apache Kafka tools.
 
 Each ACL entry contains the following fields:
 
@@ -216,6 +216,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-06 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-06 UTC."],[],[]] 

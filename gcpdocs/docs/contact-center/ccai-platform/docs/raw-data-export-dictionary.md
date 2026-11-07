@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/contact-center/ccai-platform/docs/raw-data-export-dictionary/
 title: Raw data export dictionary \u00a0|\u00a0 Google Cloud Contact Center as a Service \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-30T05:50:41.889838+00:00
+fetched_at: 2026-11-07T08:32:35.531151+00:00
 ---
 
 # Raw data export dictionary  |  Google Cloud Contact Center as a Service  |  Google Cloud Documentation
@@ -1450,6 +1450,129 @@ Deprecated in favor of interaction based reporting that joins data from the **me
 #### is_out_ticket_account
 
 Boolean dictating whether CRM integrations are working with a ticket or contact entity. When false it is doing the default CRM integration with tickets. When true it is a contact object that is being updated.
+
+### emergency_shutdown_audit_logs
+
+File type: Delta
+
+Tracks configuration changes to Emergency Shutdown at both the global and queue level. Entries are created when Emergency Shutdown is enabled or disabled using the UI or API, so that customers can measure the impact of emergency situations and understand who changed what, when, and for which queues.
+
+#### id
+
+Primary key identifier for records.
+
+#### created_at
+
+Timestamp when this record was created.
+
+#### actor_type
+
+String indicating who triggered the change.
+
+  * `ui_user` – a human administrator in the UI
+
+  * `api_client` – a remote application using the Emergency Shutdown API
+
+
+
+
+#### actor_id
+
+Identifier of the actor:
+
+  * For `ui_user`, references the users table by primary key ID.
+
+  * For `api_client`, this may be an application identifier or integration key (string value only).
+
+
+
+
+#### scope_type
+
+String indicating whether the change was applied at the global level or queue level.
+
+  * `global` – global Emergency Shutdown configuration
+
+  * `queue` – queue-level Emergency Shutdown configuration
+
+
+
+
+#### menu_id
+
+When scope_type = 'queue', references the menus table by primary key ID for the affected queue. NULL for global-level changes.
+
+#### menu_path_id
+
+When scope_type = 'queue', references the menu_paths table by primary key ID for the affected queue path. NULL for global-level changes.
+
+#### action
+
+String enum value describing what happened.
+
+  * `enabled` – Emergency Shutdown was enabled
+
+  * `disabled` – Emergency Shutdown was disabled
+
+  * `updated` – other Emergency Shutdown-related settings were changed without toggling on and off
+
+
+
+
+#### source
+
+String enum describing how the change was made.
+
+  * `portal_ui` – change originated from the administrator portal
+
+  * `api` – change originated from the /apps/api/v1/menus/shutdown endpoint
+
+
+
+
+#### request_payload
+
+JSON payload (for API actions) containing the body that was submitted to the /apps/api/v1/menus/shutdown endpoint, including target queues and shutdown flags. NULL for UI-only actions.
+
+#### emergency_message_type
+
+String enum describing how the emergency message was configured at the time of the change.
+
+  * `tts` – Text-to-speech
+
+  * `audio` – Uploaded audio file
+
+  * `inherit_global` – Queue inherits global emergency message configuration
+
+
+
+
+#### emergency_message_preview
+
+Text snapshot of the configured emergency message at the time of the change:
+
+  * For `tts`, a truncated version of the TTS text.
+
+  * For `audio`, the filename or a short descriptor.
+
+  * For `inherit_global`, may contain a reference indicating global inheritance.
+
+
+
+
+This value is intended for analytics and compliance review and is not guaranteed to be the full message body.
+
+#### auto_reset_enabled
+
+Boolean indicating whether auto-reset is enabled for this queue at the time of the change
+
+#### auto_reset_effective_at
+
+Timestamp representing when Emergency Shutdown is scheduled to automatically reset for the affected configuration (start of next business day or next business opening, depending on queue hours).
+
+#### metadata
+
+JSON column containing any additional implementation-specific metadata related to the event (for example, request IDs, environment tags, or feature-flag identifiers).
 
 ### end_user_activity_logs
 
@@ -5227,6 +5350,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-29 UTC.
+Last updated 2026-11-06 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-06 UTC."],[],[]] 

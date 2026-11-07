@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/lakehouse/docs/set-up-cross-cloud-connection-databricks/
 title: Set up cross-cloud connection for Databricks Unity Catalog \u00a0|\u00a0 Lakehouse \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-05T00:19:33.514090+00:00
+fetched_at: 2026-11-07T08:29:19.659564+00:00
 ---
 
 # Set up cross-cloud connection for Databricks Unity Catalog  |  Lakehouse  |  Google Cloud Documentation
@@ -550,7 +550,7 @@ Replace the following:
   * `REFRESH_INTERVAL`: Specifies how often background metadata refresh runs. Set this value as a duration, for example, `330s` or `5m30s`.
   * `NAMESPACE_FILTERS`: Optional: a comma-separated list of namespaces to federate. For example, `ns1,ns2`. If omitted, Lakehouse includes all namespaces.
   * `CROSS_CLOUD_CACHE_MODE`: Optional: whether to enable cross-cloud caching on the federated catalog (`enabled` or `disabled`). Defaults to `disabled`. When set to `enabled`, Lakehouse caches remote files in the catalog's Google Cloud region. For more information, see [Intelligent caching](https://docs.cloud.google.com/lakehouse/docs/about-cross-cloud-data-access#intelligent-caching).
-  * `IDENTITY_MODE`: Optional: Specifies the identity mode for the catalog. Set to `user-identity-federation` to propagate end-user identities on queries, or `service-identity` to execute queries as the catalog's service account. _If omitted, defaults to`service-identity`_.
+  * `IDENTITY_MODE`: Optional: Specifies the identity mode for the catalog. Set to `user-identity-federation` to propagate end-user identities on queries, or `service-identity` to execute queries as the federated catalog's service account. _If omitted, defaults to`service-identity`_.
   * If you are using a private interconnect (Cross-Cloud Interconnect), specify either or both of the following Service Directory references (omit either flag if you aren't routing that traffic layer over Cross-Cloud Interconnect): 
     * `SERVICE_DIRECTORY_NAMESPACE` and `SERVICE_NAME`: the Service Directory namespace and service name that you created for private query transport to remote object storage.
     * `METADATA_SERVICE_DIRECTORY_NAMESPACE` and `METADATA_SERVICE_NAME`: the Service Directory namespace and service name that you created for private background metadata refresh.
@@ -613,7 +613,7 @@ Replace the following:
   * `REFRESH_INTERVAL`: Specifies how often background metadata refresh runs. Set this value as a duration, for example, `330s` or `5m30s`.
   * `NAMESPACE_FILTERS`: Optional: a comma-separated list of namespaces to federate. For example, `ns1,ns2`. If omitted, Lakehouse includes all namespaces.
   * `CROSS_CLOUD_CACHE_MODE`: Optional: whether to enable cross-cloud caching on the federated catalog (`enabled` or `disabled`). Defaults to `disabled`. When set to `enabled`, Lakehouse caches remote files in the catalog's Google Cloud region. For more information, see [Intelligent caching](https://docs.cloud.google.com/lakehouse/docs/about-cross-cloud-data-access#intelligent-caching).
-  * `IDENTITY_MODE`: Optional: Specifies the identity mode for the catalog. Set to `user-identity-federation` to propagate end-user identities on queries, or `service-identity` to execute queries as the catalog's service account. _If omitted, defaults to`service-identity`_.
+  * `IDENTITY_MODE`: Optional: Specifies the identity mode for the catalog. Set to `user-identity-federation` to propagate end-user identities on queries, or `service-identity` to execute queries as the federated catalog's service account. _If omitted, defaults to`service-identity`_.
   * If you are using a private interconnect (Cross-Cloud Interconnect), specify either or both of the following Service Directory references (omit either flag if you aren't routing that traffic layer over Cross-Cloud Interconnect): 
     * `SERVICE_DIRECTORY_NAMESPACE` and `SERVICE_NAME`: the Service Directory namespace and service name that you created for private query transport to remote object storage.
     * `METADATA_SERVICE_DIRECTORY_NAMESPACE` and `METADATA_SERVICE_NAME`: the Service Directory namespace and service name that you created for private background metadata refresh.
@@ -827,7 +827,7 @@ To verify user-attributed query execution and audit logging:
 
   * [Query remote data](https://docs.cloud.google.com/lakehouse/docs/query-remote-data).
   * [Use VPC Service Controls with federated catalog endpoints](https://docs.cloud.google.com/lakehouse/docs/vpc-sc-federated-catalogs).
-  * [Troubleshoot cross-cloud data access for Databricks Unity Catalog](https://docs.cloud.google.com/lakehouse/docs/troubleshoot-cross-cloud-data-access-databricks).
+  * [Troubleshoot cross-cloud data access for Databricks Unity Catalog](https://docs.cloud.google.com/lakehouse/docs/troubleshoot-cross-cloud-data-access#databricks-issues).
 
 
 
@@ -835,6 +835,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-03 UTC.
+Last updated 2026-11-07 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-07 UTC."],[],[]] 

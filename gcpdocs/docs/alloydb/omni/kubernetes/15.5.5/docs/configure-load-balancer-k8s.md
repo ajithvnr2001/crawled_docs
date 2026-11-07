@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/omni/kubernetes/15.5.5/docs/configure-load-balancer-k8s/
 title: Configure a load balancer for AlloyDB Omni on Kubernetes \u00a0|\u00a0 AlloyDB Omni for Kubernetes: 15.5.5 \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T05:46:14.809100+00:00
+fetched_at: 2026-11-07T08:29:27.078180+00:00
 ---
 
 # Configure a load balancer for AlloyDB Omni on Kubernetes  |  AlloyDB Omni for Kubernetes: 15.5.5  |  Google Cloud Documentation
@@ -49,23 +49,19 @@ Select a documentation version: 15.5.5keyboard_arrow_down
   * [ 15.5.5 ](https://docs.cloud.google.com/alloydb/omni/kubernetes/15.5.5/docs/configure-load-balancer-k8s)
   * [ 15.5.4 ](https://docs.cloud.google.com/alloydb/omni/kubernetes/15.5.4/docs/configure-load-balancer-k8s)
 
-This page summarizes how to configure a load balancer in AlloyDB Omni using the AlloyDB Omni `spec`. In Google Kubernetes Engine (GKE), a load balancer created by default is of the external type and bound with the external IP address to permit connections from the internet. However, if the `networking.gke.io/load-balancer-type: "internal"` annotation is included in the `metadata.annotations[]` field of the load balancer manifest, then GKE creates an internal load balancer. 
+To expose your AlloyDB Omni database cluster to clients outside your Kubernetes cluster, you can configure a `LoadBalancer` Service in the `DBCluster` manifest. This document is for database administrators and Kubernetes operators who manage AlloyDB Omni deployments on Kubernetes and need to customize load balancer behavior. 
 
-Different platforms provide their own annotations for creating the specific type of a load balancer. AlloyDB Omni lets you specify load balancer annotations using the `spec` section of the database cluster manifest. The database controller adds those annotations to the load balancer `spec` when creating a database cluster.
+When you enable external incoming traffic in your `DBCluster` manifest, the AlloyDB Omni Kubernetes Operator creates a Kubernetes `Service` object of type `LoadBalancer`. Different Kubernetes platforms use custom annotations to control load balancer properties, such as internal or external IP address assignment. AlloyDB Omni lets you specify these annotations in the `spec.primarySpec.dbLoadBalancerOptions.annotations` field of your `DBCluster` manifest. When you create or update the database cluster with `spec.allowExternalIncomingTraffic` set to `true`, the AlloyDB Omni Operator applies those annotations to the `metadata.annotations` field of the `LoadBalancer` `Service` object.
 
-## Create an internal load balancer using the database spec
+## Configure a load balancer using the database spec
 
-You can create an internal load balancer by configuring the `dbLoadBalancerOptions` field in the `spec` section of your `DBCluster` manifest.
+You can configure custom load balancer annotations by setting the `dbLoadBalancerOptions` field in the `spec.primarySpec` section of your `DBCluster` manifest.
 
 ###  Kubernetes 
 
-Annotations define the type and properties of a load balancer. An internal load balancer requires the presence of the following annotation:
-    
-    
-    networking.gke.io/load-balancer-type: "internal"
-    
+Annotations define the type and properties of the load balancer `Service` object in your Kubernetes environment. Check the documentation for your Kubernetes platform or load balancer implementation to identify the supported annotation keys and values.
 
-To create an internal load balancer that permits connections from outside the GKE cluster within the same project, apply the following manifest:
+To create a database cluster with custom load balancer annotations and allow incoming traffic from outside the Kubernetes cluster, apply the following manifest:
     
     
     kubectl apply -f - <<EOF
@@ -73,6 +69,7 @@ To create an internal load balancer that permits connections from outside the GK
     kind: Secret
     metadata:
       name: db-pw-DB_CLUSTER_NAME
+      namespace: NAMESPACE
     type: Opaque
     data:
       DB_CLUSTER_NAME: "ENCODED_PASSWORD"
@@ -81,8 +78,9 @@ To create an internal load balancer that permits connections from outside the GK
     kind: DBCluster
     metadata:
       name: DB_CLUSTER_NAME
+      namespace: NAMESPACE
     spec:
-      databaseVersion: "15.5.0"
+      databaseVersion: "15.5.5"
       primarySpec:
         adminUser:
           passwordRef:
@@ -95,31 +93,36 @@ To create an internal load balancer that permits connections from outside the GK
             size: 10Gi
         dbLoadBalancerOptions:
           annotations:
-            **networking.gke.io/load-balancer-type: "internal"**
+            **ANNOTATION_KEY : "ANNOTATION_VALUE"**
       **allowExternalIncomingTraffic: true**
     EOF
 
 Replace the following:
 
-  * `DB_CLUSTER_NAME`: the name of your database cluster. It's the same database cluster name you declared when [you created it](https://docs.cloud.google.com/alloydb/omni/kubernetes/15.5.5/docs/deploy-kubernetes#create).
+  * `DB_CLUSTER_NAME`: a name for your database cluster—for example, `my-db-cluster`.
+  * `NAMESPACE`: the Kubernetes namespace for your database cluster.
+  * `ENCODED_PASSWORD`: the password for the `postgres` administrator user, encoded as a base64 string.
+  * `ANNOTATION_KEY` and `ANNOTATION_VALUE`: a load balancer annotation key and string value supported by your Kubernetes environment. Enclose the value in double quotes, even for boolean or numeric values such as `"true"`. You can specify one or more key-value pairs under `annotations`.
 
 
 
 In this manifest:
 
-  * **networking.gke.io/load-balancer-type: "internal"** : the GKE internal load balancer annotation to your database cluster
-  * **allowExternalIncomingTraffic: true** : the `allowExternalIncomingTraffic` field is set to `true` to allow incoming traffic from outside the Kubernetes cluster
+  * `ANNOTATION_KEY: "ANNOTATION_VALUE"`: specifies a custom annotation that the AlloyDB Omni Operator adds to the load balancer `Service` object for your database cluster.
+  * `allowExternalIncomingTraffic: true`: sets the `allowExternalIncomingTraffic` field to `true` to allow incoming traffic from outside the Kubernetes cluster.
 
-
+**Note:** To configure custom load balancer annotations on an existing database cluster, add `allowExternalIncomingTraffic: true` and `primarySpec.dbLoadBalancerOptions.annotations` to your existing `DBCluster` manifest and apply it, rather than re-applying the sample `Secret` and `resources` block.
 
 ## Get the database cluster and connectivity details
 
 ###  Kubernetes 
 
-To verify that the database cluster resource is in the `Ready` status, use the following command:
+To verify that the database cluster resource is in the `Ready` status, run the following command:
     
     
     kubectl get dbclusters.alloydbomni.dbadmin.goog -n NAMESPACE -w
+
+Replace `NAMESPACE` with the Kubernetes namespace for your database cluster.
 
 The output is similar to the following:
     
@@ -128,15 +131,15 @@ The output is similar to the following:
     DB_CLUSTER_NAME    10.95.0.84        Ready          DBClusterReady
     
 
-Verify that the annotation and IP address of the internal load balancer exist in the load balancer service, as follows:
+To verify that your custom annotation and the assigned external endpoint exist on the load balancer `Service` object, run the following command:
     
     
     kubectl get svc LOAD_BALANCER_SERVICE_NAME -n NAMESPACE -o yaml
 
 Replace the following:
 
-  * `LOAD_BALANCER_SERVICE_NAME`: the name of your load balancer service that creates a unique IP address accessible by external networks.
-  * `NAMESPACE`: the name of the Kubernetes namespace for your load balancer service.
+  * `LOAD_BALANCER_SERVICE_NAME`: the name of the operator-managed `LoadBalancer` `Service` object. For the primary read-write endpoint, the AlloyDB Omni Operator names this `Service` `al-DB_CLUSTER_NAME-rw-elb` (you can also list `Service` objects by running `kubectl get svc -n NAMESPACE`).
+  * `NAMESPACE`: the name of the Kubernetes namespace for your load balancer `Service` object.
 
 
 
@@ -147,22 +150,17 @@ The output is similar to the following:
     kind: Service
     metadata:
       annotations:
-        cloud.google.com/neg: '{"ingress":true}'
-        **networking.gke.io/load-balancer-type: internal**
+        **ANNOTATION_KEY : "ANNOTATION_VALUE"**
       creationTimestamp: "2024-02-22T15:26:18Z"
       finalizers:
-      − gke.networking.io/l4-ilb-v1
-      − service.kubernetes.io/load-balancer-cleanup
+      - service.kubernetes.io/load-balancer-cleanup
       labels:
-        alloydbomni.internal.dbadmin.gdc.goog/dbcluster: DB_CLUSTER_NAME
-        alloydbomni.internal.dbadmin.gdc.goog/dbcluster-ns: NAMESPACE
-        alloydbomni.internal.dbadmin.gdc.goog/instance: ad98-foo
-        alloydbomni.internal.dbadmin.gdc.goog/task-type: database
-        egress.networking.gke.io/enabled: "true"
+        alloydbomni.internal.dbadmin.goog/dbcluster: DB_CLUSTER_NAME
+        alloydbomni.internal.dbadmin.goog/dbcluster-ns: NAMESPACE
       name: LOAD_BALANCER_SERVICE_NAME
       namespace: NAMESPACE
-     ownerReferences:
-      − apiVersion: alloydbomni.dbadmin.goog/v1
+      ownerReferences:
+      - apiVersion: alloydbomni.dbadmin.goog/v1
         blockOwnerDeletion: true
         controller: true
         kind: DBCluster
@@ -174,37 +172,34 @@ The output is similar to the following:
       allocateLoadBalancerNodePorts: true
       clusterIP: 10.60.4.76
       clusterIPs:
-      − 10.60.4.76
+      - 10.60.4.76
       externalTrafficPolicy: Cluster
       internalTrafficPolicy: Cluster
       ipFamilies:
-      − IPv4
+      - IPv4
       ipFamilyPolicy: SingleStack
-      loadBalancerSourceRanges:
-      − 0.0.0.0/0
       ports:
-      − name: db
+      - name: db
         nodePort: 31453
         port: 5432
         protocol: TCP
         targetPort: 5432
       selector:
-        alloydbomni.internal.dbadmin.gdc.goog/dbcluster: DB_CLUSTER_NAME
-        alloydbomni.internal.dbadmin.gdc.goog/dbcluster-ns: NAMESPACE
-        alloydbomni.internal.dbadmin.gdc.goog/instance: ad98-foo
-        alloydbomni.internal.dbadmin.gdc.goog/task-type: database
-        egress.networking.gke.io/enabled: "true"
+        alloydbomni.internal.dbadmin.goog/dbcluster: DB_CLUSTER_NAME
+        alloydbomni.internal.dbadmin.goog/dbcluster-ns: NAMESPACE
+        alloydbomni.internal.dbadmin.goog/task-type: database
+        dbs.internal.dbadmin.goog/ha-role: Primary
       sessionAffinity: None
       type: LoadBalancer
     status:
       loadBalancer:
         ingress:
-        − **ip: 10.95.0.84**
+        - **ip: 10.95.0.84**
 
-The output has the following attributes:
+The output includes the following fields:
 
-  * `networking.gke.io/load-balancer-type: internal`: an internal load balancer must exist in the load balancer service
-  * `ip`: the primary endpoint value in the verification output of the database cluster matches to the ingress controller value of the load balancer
+  * `metadata.annotations`: contains the `ANNOTATION_KEY: "ANNOTATION_VALUE"` annotation that you configured in your `DBCluster` manifest.
+  * `status.loadBalancer.ingress`: displays the external endpoint assigned to the load balancer `Service` object. Depending on your Kubernetes environment, the load balancer controller populates either `ip` (which matches the `PRIMARYENDPOINT` value of your database cluster) or `hostname` (for DNS-based load balancers such as on AWS EKS, where `status.primary.endpoints` on the `DBCluster` records the hostname and port).
 
 
 
@@ -218,6 +213,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-28 UTC.
+Last updated 2026-11-07 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-07 UTC."],[],[]] 

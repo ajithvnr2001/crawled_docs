@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/contact-center/ccai-platform/docs/release-notes/
 title: Contact Center AI Platform release notes \u00a0|\u00a0 Google Cloud Contact Center as a Service \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-05T11:08:16.538936+00:00
+fetched_at: 2026-11-07T08:29:25.766285+00:00
 ---
 
 # Contact Center AI Platform release notes  |  Google Cloud Contact Center as a Service  |  Google Cloud Documentation
@@ -27,13 +27,15 @@ You can see the latest product updates for all of Google Cloud on the [ Google C
 
 To get the latest product updates delivered to you, add the URL of this page to your [feed reader](https://wikipedia.org/wiki/Comparison_of_feed_aggregators), or add the [feed URL](https://docs.cloud.google.com/feeds/ccai-platform-release-notes.xml) directly. 
 
-## November 04, 2026
+## November 06, 2026
 
 Announcement
 
-**Google Cloud CCaaS prerelease notes 6.32**
+**Google Cloud CCaaS 6.32**
 
-Here are the prerelease notes for what we expect to be the next version of Google Cloud CCaaS. When we release this version, we expect the new capabilities to be as shown here.
+We've released version 6.32 of Google Cloud CCaaS.
+
+The timing of the update to your instance depends on the deployment schedule that you have chosen. For more information, see [Deployment schedules](https://docs.cloud.google.com/contact-center/ccai-platform/docs/deployment-schedules).
 
 Fixed
 

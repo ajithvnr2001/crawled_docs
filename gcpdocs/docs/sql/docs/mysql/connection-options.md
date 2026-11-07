@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sql/docs/mysql/connection-options/
 title: Choose how to connect to Cloud SQL \u00a0|\u00a0 Cloud SQL for MySQL \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-06T10:29:48.302718+00:00
+fetched_at: 2026-11-07T08:29:35.794407+00:00
 ---
 
 # Choose how to connect to Cloud SQL  |  Cloud SQL for MySQL  |  Google Cloud Documentation
@@ -122,12 +122,13 @@ Cloud SQL supports enabling the following connection options for instances:
   * Private Service Connect on an instance with private services access only
   * Private Service Connect on an instance with both private services access and public IP
   * Public IP on an instance with private services access only
+  * Public IP on an instance with both private services access and Private Service Connect
 
 
 
 ### Limitations
 
-  * You can't create an instance with both a public IP address and Private Service Connect.
+  * You can't create or update an instance with only a public IP address and Private Service Connect. To use both a public IP address and Private Service Connect on an instance, you must also [configure private services access](https://docs.cloud.google.com/sql/docs/mysql/configure-private-services-access-and-private-service-connect).
   * You can't remove private services access from an instance with private services access and Private Service Connect.
   * You can't remove private services access from an instance with private services access and public IP.
   * If you have an instance that uses only public IP, then you can't enable both private services access and Private Service Connect at the same time. First, enable private services access, and then enable Private Service Connect.
@@ -231,6 +232,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-03 UTC.
+Last updated 2026-11-06 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-06 UTC."],[],[]] 

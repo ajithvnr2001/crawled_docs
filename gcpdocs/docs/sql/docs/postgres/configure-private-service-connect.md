@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sql/docs/postgres/configure-private-service-connect/
 title: Configure Private Service Connect \u00a0|\u00a0 Cloud SQL for PostgreSQL \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-06T10:28:02.821722+00:00
+fetched_at: 2026-11-07T08:29:32.153381+00:00
 ---
 
 # Configure Private Service Connect  |  Cloud SQL for PostgreSQL  |  Google Cloud Documentation
@@ -146,7 +146,7 @@ The following table provides information about the roles required to configure a
 
 Role | Description  
 ---|---  
-[`compute.networkAdmin`](https://docs.cloud.google.com/iam/docs/roles-permissions/compute#compute.networkAdmin) | Grants full control over the VPC network that initiates a connection to a Cloud SQL instance. You can create and manage IP addresses, firewall rules, service connection policies, and [Private Service Connect endpoints](https://docs.cloud.google.com/sql/docs/postgres/about-private-service-connect#psc-endpoint). If you use Private Service Connect to connect to a Cloud SQL instance from multiple VPC networks, then each network has its own administrator.  
+[`compute.networkAdmin`](https://docs.cloud.google.com/iam/docs/roles-permissions/compute#compute.networkAdmin) | Grants full control over the VPC network that initiates a connection to a Cloud SQL instance. You can create and manage IP addresses, firewall rules, service connection policies, [Private Service Connect endpoints](https://docs.cloud.google.com/sql/docs/postgres/about-private-service-connect#psc-endpoint), and [Private Service Connect backends](https://docs.cloud.google.com/sql/docs/postgres/about-private-service-connect#psc-backend). If you use Private Service Connect to connect to a Cloud SQL instance from multiple VPC networks, then each network has its own administrator.  
 [`dns.admin`](https://docs.cloud.google.com/iam/docs/roles-permissions/dns#dns.admin) | Grants full control over Cloud DNS resources, including [DNS zones and records.](https://docs.cloud.google.com/sql/docs/postgres/configure-dns)  
 [`cloudsql.admin`](https://docs.cloud.google.com/iam/docs/roles-permissions/cloudsql#cloudsql.admin) | Provides full control of a Cloud SQL instance and controls the instance over its lifecycle.  
 [`cloudsql.instanceUser`](https://docs.cloud.google.com/iam/docs/roles-permissions/cloudsql#cloudsql.instanceUser) | Provides access to the Cloud SQL instance. If you connect through the Cloud SQL Auth Proxy client, then you must have the [Cloud SQL Client role](https://console.cloud.google.com/iam-admin/iam). If you connect directly, then you don't need any [Identity and Access Management (IAM) roles and permissions](https://docs.cloud.google.com/sql/docs/postgres/roles-and-permissions).  
@@ -1675,6 +1675,111 @@ In the response, verify that an `ACCEPTED` status appears for the `pscConnection
 
 
 
+## Create a Private Service Connect backend
+
+As an alternative to Private Service Connect endpoints, you can use [Private Service Connect backends](https://docs.cloud.google.com/sql/docs/postgres/about-private-service-connect#psc-backend) to access Cloud SQL instances. Compared to Private Service Connect endpoints, Private Service Connect backends offer additional traffic management, security, and observability capabilities. For more information, see [Private Service Connect backends](https://docs.cloud.google.com/vpc/docs/private-service-connect-backends).
+
+To configure a Private Service Connect backend for a Cloud SQL instance, complete the following tasks:
+
+  1. Get the service attachment URI for the Cloud SQL instance.
+  2. Create a Private Service Connect network endpoint group (NEG) that points to the service attachment.
+  3. Configure a load balancer that uses the Private Service Connect NEG as a backend.
+
+
+
+### Create a Private Service Connect NEG
+
+Create a [Private Service Connect network endpoint group (NEG)](https://docs.cloud.google.com/vpc/docs/access-apis-managed-services-private-service-connect-backends#neg-published-service) that targets the service attachment URI of your Cloud SQL instance.
+
+You can create a Private Service Connect NEG by using the Google Cloud console or the [gcloud CLI](https://docs.cloud.google.com/sdk/gcloud).
+
+###  Console 
+
+  1. In the Google Cloud console, go to the **Network endpoint groups** page.
+
+[Go to Network endpoint groups](https://console.cloud.google.com/compute/networkendpointgroups/add)
+
+  2. Click **Create network endpoint group**.
+
+  3. Enter a **Name** for the network endpoint group.
+
+  4. For **Network endpoint group type** , select **Private Service Connect NEG (Regional)**.
+
+  5. In the **Target** section, do the following:
+
+     1. For **Target** , select **Published service**.
+     2. For **Target service** , enter the service attachment URI.
+     3. Optional: For **Producer port** , enter the serving port that you want to connect to.
+     4. Select the **Network** and **Subnetwork** in the same region as the published service.
+  6. Click **Create**.
+
+
+
+
+###  gcloud 
+
+To create a Private Service Connect NEG pointing to the Cloud SQL instance's service attachment, use the [`gcloud compute network-endpoint-groups create`](https://docs.cloud.google.com/sdk/gcloud/reference/compute/network-endpoint-groups/create) command:
+    
+    
+    gcloud compute network-endpoint-groups create NEG_NAME \
+        --network-endpoint-type=private-service-connect \
+        --psc-target-service=TARGET_SERVICE \
+        --region=REGION \
+        --network=NETWORK \
+        --subnet=SUBNET
+
+Make the following replacements:
+
+  * NEG_NAME: a name for the network endpoint group.
+  * TARGET_SERVICE: the service attachment URI of the Cloud SQL instance.
+  * REGION: the region where the Cloud SQL instance is located. The network endpoint group must be in the same region as the target service attachment.
+  * NETWORK: the VPC network where you want to access the instance.
+  * SUBNET: the subnet in the specified region.
+
+
+
+Optional: If you want to specify the serving port on the NEG, then add the `--producer-port=PORT` parameter.
+
+The supported serving ports for PostgreSQL are port 5432 for direct connections, port 6432 for PgBouncer when using [Managed Connection Pooling](https://docs.cloud.google.com/sql/docs/postgres/managed-connection-pooling#ports-psql), or port 3307 for connections through [Cloud SQL Auth Proxy](https://docs.cloud.google.com/sql/docs/postgres/sql-proxy). 
+
+### Configure a load balancer
+
+Because Cloud SQL uses TCP for database connections, you must choose a load balancer that supports TCP traffic. Application Load Balancers aren't supported. For supported load balancer types, see [Supported load balancer targets](https://docs.cloud.google.com/vpc/docs/private-service-connect-backends#supported-lb-targets).
+
+We recommend using a [regional internal proxy Network Load Balancer](https://docs.cloud.google.com/load-balancing/docs/tcp/internal-proxy). For complete configuration instructions, see [Add a backend to a regional internal proxy Network Load Balancer](https://docs.cloud.google.com/vpc/docs/access-apis-managed-services-private-service-connect-backends#add-neg-tcp-proxy-lb) and [Set up a regional internal proxy Network Load Balancer with zonal backends](https://docs.cloud.google.com/load-balancing/docs/tcp/set-up-int-tcp-proxy-zonal).
+
+To configure a regional internal proxy Network Load Balancer with the Private Service Connect NEG, perform the following steps:
+
+  1. Create a backend service for the target service:
+         
+         gcloud compute backend-services create BACKEND_SERVICE_NAME \
+            --load-balancing-scheme=INTERNAL_MANAGED \
+            --protocol=TCP \
+            --region=REGION
+
+Make the following replacements:
+
+     * BACKEND_SERVICE_NAME: a name for the backend service.
+     * REGION: the region of the backend service. Use the same region as the Private Service Connect NEG.
+  2. Add the Private Service Connect NEG as a backend to the backend service:
+         
+         gcloud compute backend-services add-backend BACKEND_SERVICE_NAME \
+            --network-endpoint-group=NEG_NAME \
+            --network-endpoint-group-region=REGION \
+            --region=REGION
+
+Make the following replacements:
+
+     * BACKEND_SERVICE_NAME: the name of the backend service.
+     * NEG_NAME: the name of the Private Service Connect NEG that you created.
+     * REGION: the region of the backend service and the NEG.
+  3. Complete the load balancer configuration by creating a proxy-only subnet in your VPC network if one doesn't exist yet, creating a target TCP proxy, and creating an internal forwarding rule. For detailed instructions, see [Add a backend to a regional internal proxy Network Load Balancer](https://docs.cloud.google.com/vpc/docs/access-apis-managed-services-private-service-connect-backends#add-neg-tcp-proxy-lb).
+
+
+
+
+After you set up the load balancer, you can connect to the Cloud SQL instance by using the IP address or DNS name associated with the load balancer's forwarding rule.
+
 ## Connect to a Cloud SQL instance
 
 You can connect to a Cloud SQL instance with Private Service Connect enabled by using an internal IP address, a DNS record, the Cloud SQL Auth Proxy, the Cloud SQL Language Connectors, or other Google Cloud applications.
@@ -2722,6 +2827,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-05 UTC.
+Last updated 2026-11-06 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-05 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-06 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/organization-policy/reference/rest/v2/ListConstraintsResponse/
 title: ListConstraintsResponse \u00a0|\u00a0 Organization Policy \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-13T16:00:43.181814+00:00
+fetched_at: 2026-11-07T08:29:47.441687+00:00
 ---
 
 # ListConstraintsResponse  |  Organization Policy  |  Google Cloud Documentation
@@ -80,14 +80,15 @@ JSON representation
       "equivalentConstraint": string,
       "supportsSimulation": boolean,
     
-      // Union field constraint_type can be only one of the following:
+      // The following is a list of mutually exclusive fields. At most one of the
+      // fields will be set in a response:
       "listConstraint": {
         object ([ListConstraint](https://docs.cloud.google.com/organization-policy/reference/rest/v2/ListConstraintsResponse#ListConstraint))
       },
       "booleanConstraint": {
         object ([BooleanConstraint](https://docs.cloud.google.com/organization-policy/reference/rest/v2/ListConstraintsResponse#BooleanConstraint))
       }
-      // End of list of possible types for union field constraint_type.
+      // End of mutually exclusive fields.
     }  
   
 Fields  
@@ -105,9 +106,10 @@ For example, "/projects/123/constraints/compute.disableSerialPortAccess".
 `supportsDryRun` |  `boolean` Shows if dry run is supported for this constraint or not.  
 `equivalentConstraint` |  `string` Defines the equivalent constraint name, if it exists. Managed constraints can have an equivalent legacy managed constraint, and legacy managed constraints can have an equivalent managed constraint. For example, "constraints/iam.disableServiceAccountKeyUpload" is equivalent to "constraints/iam.managed.disableServiceAccountKeyUpload".  
 `supportsSimulation` |  `boolean` Shows if simulation is supported for this constraint or not.  
-Union field `constraint_type`. The type of restrictions for this `Constraint`.Immutable after creation. `constraint_type` can be only one of the following:  
+The type of restrictions for this `Constraint`.Immutable after creation. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:  
 `listConstraint` |  `object (`[ListConstraint](https://docs.cloud.google.com/organization-policy/reference/rest/v2/ListConstraintsResponse#ListConstraint)`)` Defines this constraint as being a list constraint.  
 `booleanConstraint` |  `object (`[BooleanConstraint](https://docs.cloud.google.com/organization-policy/reference/rest/v2/ListConstraintsResponse#BooleanConstraint)`)` Defines this constraint as being a boolean constraint.  
+End of mutually exclusive fields.  
   
 ## ConstraintDefault
 
@@ -192,7 +194,7 @@ Fields
 
   
 `methodTypes[]` |  `enum (`[MethodType](https://docs.cloud.google.com/organization-policy/reference/rest/v2/ListConstraintsResponse#MethodType)`)` All the operations being applied for this constraint.  
-`condition` |  `string` Org policy condition/expression. For example: `resource.instanceName.matches("(production|test)_(.+_)?[\d]+")` or, `resource.management.auto_upgrade == true`The max length of the condition is 1000 characters.  
+`condition` |  `string` Org policy condition/expression. For example: `resource.instanceName.matches("(production|test)_(.+_)?[\d]+")` or, `resource.management.auto_upgrade == true`The max length of the condition is 1,500 characters.  
 `actionType` |  `enum (`[ActionType](https://docs.cloud.google.com/organization-policy/reference/rest/v2/ListConstraintsResponse#ActionType)`)` Allow or deny type.  
 `parameters` |  `map (key: string, value: object (`[Parameter](https://docs.cloud.google.com/organization-policy/reference/rest/v2/ListConstraintsResponse#Parameter)`))` Stores the structure of `[`Parameters`](https://docs.cloud.google.com/organization-policy/reference/rest/v2/ListConstraintsResponse#Parameter)` used by the constraint condition. The key of `map` represents the name of the parameter.An object containing a list of `"key": value` pairs. Example: `{ "name": "wrench", "mass": "1.3kg", "count": "3" }`.  
   
@@ -278,6 +280,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-07-22 UTC.
+Last updated 2026-11-06 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-07-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-06 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/compute/docs/disks/hd-types/hyperdisk-balanced-ha/
 title: About Hyperdisk Balanced High Availability \u00a0|\u00a0 Compute Engine \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-05T11:08:41.991069+00:00
+fetched_at: 2026-11-07T08:32:18.076102+00:00
 ---
 
 # About Hyperdisk Balanced High Availability  |  Compute Engine  |  Google Cloud Documentation
@@ -35,6 +35,7 @@ You can use Hyperdisk Balanced High Availability with the following machine seri
 
   * [A3 (H100)](https://docs.cloud.google.com/compute/docs/gpus#h100-gpus)
   * [A3 (H200)](https://docs.cloud.google.com/compute/docs/gpus#h200-gpus)
+  * [A5X](https://docs.cloud.google.com/compute/docs/accelerator-optimized-machines#a5x-instances)
   * [C2D](https://docs.cloud.google.com/compute/docs/compute-optimized-machines#c2d_machine_types)1
   * [C3](https://docs.cloud.google.com/compute/docs/general-purpose-machines#c3_series)
   * [C3D](https://docs.cloud.google.com/compute/docs/general-purpose-machines#c3d_machine_types)
@@ -225,6 +226,8 @@ A3 (A3+H100)
 `a3-megagpu-8g` | 160,000 | 4,800  
 A3 (A3+H200)   
 `a3-ultragpu-8g` | 320,000 | 10,000  
+A5X 1,2  
+`a5x-highgpu-4g-metal`1,2 | 640,000 | 16,000  
 C3   
 `c3-*-4` | 25,000 | 400  
 `c3-*-8` | 50,000 | 800  
@@ -407,6 +410,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-04 UTC.
+Last updated 2026-11-06 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-06 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/guides/gemini-4-argon/
 title: Developer's guide to Gemini 4 Argon \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-06T08:23:03.952808+00:00
+fetched_at: 2026-11-07T08:28:57.026025+00:00
 ---
 
 # Developer's guide to Gemini 4 Argon  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation
@@ -194,6 +194,10 @@ In `google-genai >= 2.34.0` (Python), `@google/genai >= 2.32.0` (JavaScript/Type
     print(f"Merged segment IDs: {interaction.continuation_ids}")
     print(f"Initial input tokens: {interaction.usage.initial_input_tokens}")
     
+    # Optional: Delete each stored server segment (last segment first) before its 7-day TTL expires.
+    for segment_id in reversed(interaction.continuation_ids or [interaction.id]):
+        client.interactions.delete(id=segment_id)
+    
     # Streaming yields events across all segments in order. Intermediate segments
     # emit interaction.completed with status="requires_continuation".
     stream = client.interactions.create(
@@ -213,10 +217,6 @@ In `google-genai >= 2.34.0` (Python), `@google/genai >= 2.32.0` (JavaScript/Type
             and event.interaction.status != "requires_continuation"
         ):
             print(f"\nFinal status: {event.interaction.status}")
-    
-    # Optional: Delete each stored server segment before its 7-day TTL expires.
-    for segment_id in interaction.continuation_ids or [interaction.id]:
-        client.interactions.delete(id=segment_id)
     
     # Set automatic_continuation=False to return after a single segment.
     single_segment = client.interactions.create(
@@ -261,7 +261,8 @@ In `google-genai >= 2.34.0` (Python), `@google/genai >= 2.32.0` (JavaScript/Type
         )
         full_text += segment.output_text or ""
     
-    # If status == "incomplete", max_output_tokens was exhausted; raise max_output_tokens to continue.
+    # If status == "incomplete", max_output_tokens was exhausted; raise max_output_tokens
+    # to continue (leaving default automatic_continuation=True lets the SDK finish remaining segments).
     if segment.status == "incomplete" and segment.continuation_token:
         segment = client.interactions.create(
             model="gemini-4-argon",
@@ -364,7 +365,7 @@ In `google-genai >= 2.34.0` (Python), `@google/genai >= 2.32.0` (JavaScript/Type
       }'
     
 
-For asynchronous server-managed execution (`background=True` with `store=True`) or manual recovery from streaming checkpoints (`interaction.status_update` events emitted at 32,768 output tokens and every 5,000 tokens thereafter), use the following patterns:
+For asynchronous server-managed execution (`background=True` with `store=True`) or recovery from streaming checkpoints (`interaction.status_update` events emitted at 32,768 output tokens and every 5,000 tokens thereafter), use the following patterns:
 
 ### Python (Background)
     
@@ -458,6 +459,7 @@ For asynchronous server-managed execution (`background=True` with `store=True`) 
     
     
     from google import genai
+    from google.genai import errors
     
     client = genai.Client(
         enterprise=True,
@@ -465,36 +467,32 @@ For asynchronous server-managed execution (`background=True` with `store=True`) 
         location="global",
     )
     
-    segment_id = None
-    checkpoint_token = None
-    
+    # With default automatic_continuation=True, stream=True automatically
+    # reconnects from the latest interaction.status_update checkpoint (32,768
+    # output tokens, then every 5,000 tokens) if no output was yielded after the
+    # checkpoint. If a disconnect occurs after output was yielded since the last
+    # checkpoint, the SDK raises ContinuationInterruptedError so you can resume
+    # from err.continuation_token.
     stream = client.interactions.create(
         model="gemini-4-argon",
         input="Write a complete formal proof of the prime number theorem.",
         stream=True,
         store=True,
         generation_config={"max_output_tokens": 256000, "thinking_level": "high"},
-        automatic_continuation=False,
     )
     
     try:
         for event in stream:
-            if event.event_type == "interaction.created":
-                segment_id = event.interaction.id
-            elif event.event_type == "interaction.status_update" and event.continuation_token:
-                # Checkpoints arrive at 32,768 output tokens and every 5,000 tokens thereafter
-                checkpoint_token = event.continuation_token
-            elif event.event_type == "step.delta" and getattr(event.delta, "text", None):
+            if event.event_type == "step.delta" and getattr(event.delta, "text", None):
                 print(event.delta.text, end="", flush=True)
-            elif event.event_type == "interaction.completed":
-                checkpoint_token = event.interaction.continuation_token
-    except Exception:
-        # If the stream drops after a checkpoint, resume from checkpoint_token
-        if segment_id and checkpoint_token:
+    except errors.ContinuationInterruptedError as err:
+        # Resuming from a mid-segment checkpoint regenerates any output yielded
+        # after that checkpoint.
+        if err.interaction_id and err.continuation_token:
             resumed_stream = client.interactions.create(
                 model="gemini-4-argon",
-                previous_interaction_id=segment_id,
-                continuation_token=checkpoint_token,
+                previous_interaction_id=err.interaction_id,
+                continuation_token=err.continuation_token,
                 stream=True,
                 store=True,
                 generation_config={"max_output_tokens": 256000, "thinking_level": "high"},
@@ -706,8 +704,8 @@ Select a continuation pattern based on your API surface, storage posture, and ru
 
 Continuation option | API surface | Who starts each segment | Tokens per segment | Time limit per request | Server storage | Best for  
 ---|---|---|---|---|---|---  
-**Google Gen AI SDK automatic continuation (recommended)** | Interactions API (`v1beta1`) | Google Gen AI SDKs: Python (`google-genai >= 2.34.0`), JavaScript/TypeScript (`@google/genai >= 2.32.0`), Go (`>= 1.77.0`), and Java (`>= 1.80.0`) | Up to 65,536 (`stream=true`) or 32,768 (`stream=false`) | 20 minutes per segment | 7-day server storage by default (`store=true`), or none (`store=false`) | Most stateful or stateless Interactions API applications  
-**Background server-managed loop (`background=true`)** | Interactions API (`v1beta1`) | Agent Platform server loop; your code polls `get` | Managed server-side up to `max_output_tokens` | Asynchronous (no open client stream required) | 7-day server storage (`store=true` required) | Asynchronous jobs, .NET/Kotlin callers, and single-record persistence  
+**Google Gen AI SDK automatic continuation (recommended)** | Interactions API (`v1beta1`) | Google Gen AI SDKs: Python (`google-genai >= 2.34.0`), JavaScript/TypeScript (`@google/genai >= 2.32.0`), Go (`>= 1.77.0`), and Java (`>= 1.80.0`) | Up to 65,536 (`stream=true`) or 32,768 (`stream=false`) | 20 minutes per segment | [7-day server storage](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/interactions/developer-guide#session-lifecycle) by default (`store=true`), or none (`store=false`) | Most stateful or stateless Interactions API applications  
+**Background server-managed loop (`background=true`)** | Interactions API (`v1beta1`) | Agent Platform server loop; your code polls `get` | Managed server-side up to `max_output_tokens` | Asynchronous (no open client stream required) | 7-day server storage (`store=true` required) | Asynchronous jobs, callers in other languages over REST, and single-record persistence  
 **Custom foreground stored loop (`store=true`)** | Interactions API (`v1beta1`) | Your code (`previous_interaction_id` \+ `continuation_token`, no `input`) | Up to 65,536 (`stream=true`, checkpoints every 5,000 tokens after 32,768) or 32,768 (`stream=false`) | 20 minutes per segment | 7-day server storage (`store=true`) | REST callers and custom checkpoint recovery  
 **Custom foreground stateless loop (`store=false`)** | Interactions API (`v1beta1`) | Your code (original `input` \+ `continuation_token`, no `previous_interaction_id`) | Up to 65,536 (`stream=true`, checkpoints every 5,000 tokens after 32,768) or 32,768 (`stream=false`) | 20 minutes per segment | No server storage ([Zero Data Retention](https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/zero-data-retention#customer-data-retention) workflows) | Custom REST harnesses requiring stateless execution  
 **Google Gen AI SDK automatic continuation (recommended)** | `GenerateContent` (`v1beta1`) | Google Gen AI SDKs: Python (`>= 2.30.1`), JavaScript/TypeScript (`>= 2.29.1`), Go (`>= 1.74.0`), Java (`>= 1.77.0`), .NET (`>= 1.26.0`), and Kotlin (`>= 1.6.0`) | Up to 65,536 (`generate_content_stream`) or 32,768 (`generate_content`) | 20 minutes per segment | No server storage ([Zero Data Retention](https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/zero-data-retention#customer-data-retention) workflows) | Existing `GenerateContent` applications  
@@ -718,7 +716,7 @@ Continuation option | API surface | Who starts each segment | Tokens per segment
 Long decodes require the following API version and minimum SDK versions:
 
   * **`v1beta1` API requirement (known issue)**: Long decoding (`continuation_token`) on both the Interactions API and `GenerateContent` (`generateContent` and `streamGenerateContent`) is supported only in the `v1beta1` API (not `v1`) on Agent Platform. The Google Gen AI SDK uses `v1beta1` by default unless `api_version='v1'` is specified in `http_options` (or `api_version="v1"` on `interactions.create`); for direct REST calls, use the `/v1beta1/` endpoint path.
-  * **SDK versions and OpenAI compatibility** : For automatic continuation on the Interactions API, upgrade to Python `google-genai >= 2.34.0`, JavaScript/TypeScript `@google/genai >= 2.32.0`, Go `>= 1.77.0`, or Java `>= 1.80.0` (for .NET and Kotlin on the Interactions API, use `background=true` or a custom continuation loop). For automatic continuation on `GenerateContent`, upgrade to Python `>= 2.30.1`, JavaScript/TypeScript `>= 2.29.1`, Go `>= 1.74.0`, Java `>= 1.77.0`, .NET `>= 1.26.0`, or Kotlin `>= 1.6.0`. Earlier SDK versions and the OpenAI compatibility layer cannot retrieve long completions using continuation tokens.
+  * **SDK versions and OpenAI compatibility** : For automatic continuation on the Interactions API, upgrade to Python `google-genai >= 2.34.0`, JavaScript/TypeScript `@google/genai >= 2.32.0`, Go `>= 1.77.0`, or Java `>= 1.80.0` (for other languages on the Interactions API, call the REST API directly with `background=true` or a custom continuation loop). For automatic continuation on `GenerateContent`, upgrade to Python `>= 2.30.1`, JavaScript/TypeScript `>= 2.29.1`, Go `>= 1.74.0`, Java `>= 1.77.0`, .NET `>= 1.26.0`, or Kotlin `>= 1.6.0`. Earlier SDK versions and the OpenAI compatibility layer cannot retrieve long completions using continuation tokens.
 
 
 
@@ -746,7 +744,7 @@ Continuation requests on the Interactions API enforce the following rules:
   * **Foreground and`background=true` mode switching and branching**: Stored continuations (`store=true`) can switch between foreground (`background=false`) and background (`background=true`) execution across segments, including resuming a cancelled `background=true` interaction from its checkpoint `continuation_token` (persisted after 32,768 output tokens) in either background or foreground mode. Reusing the same `previous_interaction_id` and `continuation_token` creates independent branched continuations.
   * **Turn-boundary enforcement** : Starting a new user turn (`previous_interaction_id` with new `input` and no `continuation_token`) from a segment whose status is `requires_continuation` or `incomplete` returns an HTTP `400` error. Finish continuing the decode to `completed`, or branch your next turn from the most recent `completed` interaction. Once the final segment reaches `completed`, passing that final segment's `id` as `previous_interaction_id` reconstructs the full conversation history across all prior segments.
   * **Parameter consistency across segments** : Changing `model`, `system_instruction`, or function declarations (`tools`) on a continuation segment returns an HTTP `400` error. Keep `thinking_level` and built-in tools unchanged across segments as well (see Known issues).
-  * **Single-segment`get`, `list`, and `delete` behavior**: In foreground mode (`background=false`), each segment is stored as a separate `Interaction` resource (`interactions.get(id)` returns only that segment, `interactions.list()` lists each segment separately, and `interactions.delete(id)` deletes only that segment). In the Google Gen AI SDK with `automatic_continuation=True` (`stream=False`), `interactions.create()` merges all segments on return and populates `interaction.continuation_ids` with the ordered segment IDs (ending with `interaction.id`). If a later segment fails or exceeds a numeric per-call `timeout` after earlier segments have completed, the SDK raises `ContinuationInterruptedError` carrying `partial_interaction`, `continuation_token`, `interaction_id`, and `continuation_ids` so you can resume from the last segment.
+  * **Single-segment`get`, `list`, and `delete` behavior**: In foreground mode (`background=false`), each segment is stored as a separate `Interaction` resource (`interactions.get(id)` returns only that segment, `interactions.list()` lists each segment separately, and `interactions.delete(id)` deletes only that segment; when deleting a chain of segments, delete in reverse order from the last segment backward). In the Google Gen AI SDK with `automatic_continuation=True` (`stream=False`), `interactions.create()` merges all segments on return and populates `interaction.continuation_ids` with the ordered segment IDs (ending with `interaction.id`). If a later segment fails, exceeds a numeric per-call `timeout`, or drops mid-stream after progress was made past a resumable checkpoint, the SDK raises `ContinuationInterruptedError` carrying `partial_interaction`, `continuation_token`, `interaction_id`, and `continuation_ids` so you can resume from `continuation_token`.
 
 
 
@@ -859,6 +857,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-05 UTC.
+Last updated 2026-11-07 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-05 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-07 UTC."],[],[]] 

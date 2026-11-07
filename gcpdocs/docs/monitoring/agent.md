@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/monitoring/agent/
 title: Legacy Monitoring and Logging agents end of support \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-05T10:53:44.274269+00:00
+fetched_at: 2026-11-07T08:31:57.824406+00:00
 ---
 
 # Legacy Monitoring and Logging agents end of support  |  Google Cloud Documentation

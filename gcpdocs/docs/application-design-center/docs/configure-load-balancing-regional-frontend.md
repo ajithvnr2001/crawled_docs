@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/application-design-center/docs/configure-load-balancing-regional-frontend/
 title: Configure a regional Cloud Load Balancing frontend \u00a0|\u00a0 Application Design Center \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-06T13:27:34.028115+00:00
+fetched_at: 2026-11-07T08:32:55.300840+00:00
 ---
 
 # Configure a regional Cloud Load Balancing frontend  |  Application Design Center  |  Google Cloud Documentation
@@ -20,7 +20,7 @@ Send feedback
 
 #  Configure a regional Cloud Load Balancing frontend Stay organized with collections  Save and categorize content based on your preferences. 
 
-You create a load balancer in your application by configuring and connecting distinct [Cloud Load Balancing](https://docs.cloud.google.com/load-balancing/docs/load-balancing-overview) frontend and backend components, which help you apply separate controls for external and internal traffic and prevent direct access to data. In App Design Center, the regional Cloud Load Balancing frontend component handles incoming traffic, defines routing rules, and directs requests through a target proxy, URL map, and forwarding rule, with connections and configuration parameters based on the [terraform-google-regional-lb-http](https://github.com/GoogleCloudPlatform/terraform-google-regional-lb-http/tree/main/modules/frontend) Terraform module.
+You create a load balancer in your application by configuring and connecting distinct [Cloud Load Balancing](https://docs.cloud.google.com/load-balancing/docs/load-balancing-overview) frontend and backend components, which help you apply separate controls for external and internal traffic and prevent direct access to data. In Application Design Center, the regional Cloud Load Balancing frontend component handles incoming traffic, defines routing rules, and directs requests through a forwarding rule, a target proxy with an SSL certificate, and a URL map. Component connections and configuration parameters are based on the [terraform-google-regional-lb-http](https://github.com/GoogleCloudPlatform/terraform-google-regional-lb-http/tree/main/modules/frontend) Terraform module.
 
 ## Component connections
 
@@ -112,6 +112,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-05 UTC.
+Last updated 2026-11-06 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-05 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-06 UTC."],[],[]] 

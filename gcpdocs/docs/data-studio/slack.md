@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/data-studio/slack/
 title: Share and schedule reports with Slack \u00a0|\u00a0 Data Studio \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T18:10:19.340228+00:00
+fetched_at: 2026-11-07T08:29:30.521059+00:00
 ---
 
 # Share and schedule reports with Slack  |  Data Studio  |  Google Cloud Documentation
@@ -28,10 +28,12 @@ You can send Data Studio reports to Slack channels and Slack users on your Slack
 ## Prerequisites
 
   * You must be a user under a Data Studio Pro subscription.
-  * Your Google Workspace admin must have enabled Slack delivery for your organization. The Slack delivery channel is allowed by default in Google Workspace. If you want to change this setting, a Google Workspace admin can change it for you by follow these steps in the Google Admin console: 
+  * The report must be in a [team workspace](https://docs.cloud.google.com/data-studio/about-team-workspaces) or your [Sandbox](https://docs.cloud.google.com/data-studio/sandbox) under a Google Cloud project that's linked to an active Data Studio Pro subscription. Reports in **Owned by me** don't support Data Studio Pro scheduling destinations. To schedule a report that's in **Owned by me** , [upgrade the report to Data Studio Pro](https://docs.cloud.google.com/data-studio/upgrade-content-pro) by moving it to a team workspace or your Sandbox.
+  * Your Google Workspace admin must have enabled Slack delivery for your organization. The Slack delivery channel is allowed by default in Google Workspace. If you want to change this setting, a Google Workspace admin can change it for you by following these steps in the Google Admin console: 
     1. In the Admin console, go to **Menu** > **Apps** > **Additional Google services** > **Data Studio**.
     2. Click **Content distribution settings**.
     3. In the **Pro Features** section, modify the **Allow Slack delivery** setting.
+  * A Data Studio Pro admin must have connected at least one Slack workspace to your Data Studio organization.
 
 
 
@@ -58,7 +60,8 @@ An admin can remove Slack workspaces by following these steps:
 
 If you have [Data Studio Pro](https://docs.cloud.google.com/data-studio/about-pro), you can send reports to Slack users and Slack channels by following these steps:
 
-  1. View the report that you want to schedule.
+  1. View the report that you want to schedule. 
+     * The report must be in a [team workspace](https://docs.cloud.google.com/data-studio/about-team-workspaces) or your [Sandbox](https://docs.cloud.google.com/data-studio/sandbox) under a Google Cloud project that's linked to an active Data Studio Pro subscription. Reports in **Owned by me** don't support Data Studio Pro scheduling destinations. To schedule a report that's in **Owned by me** , [upgrade the report to Data Studio Pro](https://docs.cloud.google.com/data-studio/upgrade-content-pro) by moving it to a team workspace or your Sandbox.
   2. In the upper right, select **Share** , and then select ![Schedule report delivery icon](https://docs.cloud.google.com/static/data-studio/images/icschedulegrey6002xweb48dp-2019-02-25-.png)**Schedule delivery**.
   3. In the **Destination** field, select **Slack**.
   4. If your admin has [connected multiple Slack workspaces](https://docs.cloud.google.com/data-studio/slack#connect-slack) to Data Studio, select a workspace.
@@ -77,7 +80,6 @@ To find the **Manual ID** , follow these steps:
      * You can add multiple channels or multiple users to a single schedule, but not a mix of channels and users.
   8. (Optional) Enter a custom message to accompany the report.
 
-     * You can't set a custom message for any reports in the **Owned by me** folder. To remove this limitation, you can [upgrade a report to Data Studio Pro](https://docs.cloud.google.com/data-studio/upgrade-content-pro).
   9. (Optional) Select the report pages that you want to include.
 
   10. Set the date and time that you want to begin sending the report.
@@ -110,7 +112,6 @@ To re-authenticate or revoke your access to connected Slack workspaces, follow t
   2. The **Slack Integration** section displays a list of available Slack workspaces along with some options for each workspace: 
      * If you have never connected to a workspace, click the **Sign-in to Slack** next to the workspace name.
      * If you have lost access to a workspace, click **Reconnect** next to the workspace name.
-     * If you want to remove access to a workspace, click **Revoke** next the workspace name.
      * If you want to remove access to a workspace, click **Revoke** next to the workspace name.
 
 
@@ -120,6 +121,7 @@ To re-authenticate or revoke your access to connected Slack workspaces, follow t
 Scheduled Slack delivery has the following limits:
 
   * You must be a Data Studio Pro user to schedule delivery using Slack.
+  * The report must be in a [team workspace](https://docs.cloud.google.com/data-studio/about-team-workspaces) or your [Sandbox](https://docs.cloud.google.com/data-studio/sandbox) under a Google Cloud project that's linked to an active Data Studio Pro subscription. Reports in **Owned by me** don't support Data Studio Pro scheduling destinations. To schedule a report that's in **Owned by me** , [upgrade the report to Data Studio Pro](https://docs.cloud.google.com/data-studio/upgrade-content-pro) by moving it to a team workspace or your Sandbox.
   * You must be an owner or editor of the report that you want to schedule.
   * You can schedule a report only to Slack channels that you are a member of.
   * For a single report, you can schedule delivery using Slack to a maximum of 5 Slack channels or 10 Slack users. To send to more recipients, create additional schedules.
@@ -129,6 +131,14 @@ Scheduled Slack delivery has the following limits:
 
 
 ## Troubleshoot a Slack delivery
+
+If the **Slack** option doesn't appear in the **Destination** field when you create a delivery schedule, verify the following requirements:
+
+  1. Confirm that you satisfy all prerequisites for scheduled Slack delivery.
+  2. Check that a Data Studio Pro admin has connected at least one Slack workspace to your Data Studio organization.
+  3. Check that the report isn't in a [data residency](https://docs.cloud.google.com/data-studio/data-residency) regional location.
+
+
 
 If you are not receiving a Slack delivery, follow these troubleshooting steps:
 
@@ -144,6 +154,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-07 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-07 UTC."],[],[]] 

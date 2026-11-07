@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/release-notes/
 title: Google Cloud release notes \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-06T13:05:40.501518+00:00
+fetched_at: 2026-11-07T08:23:19.456319+00:00
 ---
 
 # Google Cloud release notes  |  Google Cloud Documentation
@@ -23,6 +23,440 @@ The following release notes cover the most recent changes over the last 60 days.
 You can also see and filter all release notes in the [Google Cloud console](https://console.cloud.google.com/release-notes) or you can programmatically access release notes in [BigQuery](https://console.cloud.google.com/bigquery?p=bigquery-public-data&d=google_cloud_release_notes&t=release_notes&page=table).
 
 To get the latest product updates delivered to you, add the URL of this page to your [feed reader](https://wikipedia.org/wiki/Comparison_of_feed_aggregators), or add the [feed URL](https://docs.cloud.google.com/feeds/gcp-release-notes.xml) directly. 
+
+## November 06, 2026
+
+**Agent Registry**
+
+Feature
+
+Skill security scanning and governance in Agent Registry are available. You can automatically scan standalone skill revisions for security issues, review `Finding` resources, enforce scanning policies across your organization using custom Organization Policy constraints, and grant least-privilege skill management access.
+
+You can also protect skill payloads at rest with customer-managed encryption keys (CMEK) ([Preview](https://cloud.google.com/products#product-launch-stages)).
+
+For more information, see [Scan skills for security issues](https://docs.cloud.google.com/agent-registry/scan-skills), [Configure CMEK for skills](https://docs.cloud.google.com/agent-registry/register-skills#configure-cmek), and [Agent Registry roles and permissions](https://docs.cloud.google.com/agent-registry/roles-permissions).
+
+Feature
+
+Standalone skills in Agent Registry are [generally available (GA)](https://cloud.google.com/products#product-launch-stages). You can register, version, search, and govern standalone `Skill` resources, immutable `SkillRevision` packages, and verified `Publisher` details.
+
+For more information, see [Skills architecture](https://docs.cloud.google.com/agent-registry/skills-architecture), [Register skills](https://docs.cloud.google.com/agent-registry/register-skills), and [Manage skills](https://docs.cloud.google.com/agent-registry/manage-skills).
+
+**Assured Open Source Software**
+
+Feature
+
+The Assured Open Source Software Premium tier supports [Google Cloud regions and multi-regions](https://docs.cloud.google.com/security-command-center/docs/integrate-aoss-with-scc#supported-regions) for remote (or proxy) Artifact Registry repositories.
+
+For the list of supported regions, see [Supported regions](https://docs.cloud.google.com/security-command-center/docs/integrate-aoss-with-scc#supported-regions).
+
+**BigQuery**
+
+Announcement
+
+You can now use [BigQuery Graph](https://docs.cloud.google.com/bigquery/docs/graph-overview) and run Graph Query Language (GQL) queries when you use on-demand pricing.
+
+Breaking
+
+Starting January 31, 2027, the [BigQuery Data Transfer Service for Shopify connector](https://docs.cloud.google.com/bigquery/docs/shopify-transfer) will no longer support the following fields:
+
+  * The `legacyMode` field from the `DeliveryProfile` dataset schema
+  * The `permitSkuSharing` field from the `FulfillmentService` dataset schema
+
+
+
+For more information, see [January 31, 2027](https://docs.cloud.google.com/bigquery/docs/transfer-changes#Jan31-shopify).
+
+Feature
+
+You can now use a [custom organization policy](https://docs.cloud.google.com/bigquery/docs/custom-constraints) to allow or deny specific operations on models in BigQuery. This feature is in [preview](https://cloud.google.com/products/#product-launch-stages).
+
+**Bigtable**
+
+Feature
+
+You can [configure a Bigtable automated backup policy](https://docs.cloud.google.com/bigtable/docs/managing-backups#configure-hot-automated-backups) on SSD instances to create daily [hot backups](https://docs.cloud.google.com/bigtable/docs/backups#hot-backups) and specify how long the backups remain hot before automatically transitioning to standard backups. This feature is [generally available (GA)](https://cloud.google.com/products#product-launch-stages).
+
+**Cloud Load Balancing**
+
+Feature
+
+Frontend configuration for load balancing incoming IPv6 traffic is now generally available (GA) for the following load balancers:
+
+  * Regional external Application Load Balancer
+  * Regional external proxy Network Load Balancer
+  * Regional internal Application Load Balancer
+  * Regional internal proxy Network Load Balancer
+  * Cross-region internal Application Load Balancer
+  * Cross-region internal proxy Network Load Balancer
+
+
+
+To support client IPv6 traffic, you can configure the proxy-only subnet with a stack type of either `IPV4_ONLY` or `IPV4_IPV6` (dual-stack).
+
+For more information, see the following documentation:
+
+  * [Forwarding rules overview](https://docs.cloud.google.com/load-balancing/docs/forwarding-rule-concepts)
+  * [IPv6 for Application Load Balancers and proxy Network Load Balancers](https://docs.cloud.google.com/load-balancing/docs/ipv6)
+  * [Convert Application Load Balancer to IPv6](https://docs.cloud.google.com/load-balancing/docs/https/convert-applb-dualstack)
+  * [Convert Proxy Network Load Balancer to IPv6](https://docs.cloud.google.com/load-balancing/docs/tcp/convert-proxynetlb-dualstack)
+  * [Proxy-only subnets for Envoy-based load balancers](https://docs.cloud.google.com/load-balancing/docs/proxy-only-subnets#proxy_only_subnet_create)
+
+
+
+**Cloud Trace**
+
+Feature
+
+You can reprovision an existing `_Trace` bucket to satisfy regulatory requirements for data residency and encryption. After reprovisioning, the storage location and encryption configuration of the `_Trace` bucket match your default settings for observability buckets. Reprovisioning is a destructive operation. This feature is [generally available](https://cloud.google.com/products#product-launch-stages).
+
+For more information, see [Remediate data residency and CMEK requirements](https://docs.cloud.google.com/stackdriver/docs/observability/reprovision-observability-bucket).
+
+**Config Controller**
+
+Change
+
+Config Controller now uses the following versions of its included products:
+
+  * Config Connector v1.159.0, [release notes](https://docs.cloud.google.com/config-connector/docs/release-notes#October_13_2026)
+
+
+
+**Gemini Enterprise**
+
+Announcement
+
+**Gemini Enterprise: End of Gemini Code Assist entitlement for existing subscriptions**
+
+Bundled Gemini Code Assist entitlements for existing Gemini Enterprise Standard and Gemini Enterprise Plus subscriptions will end on March 31, 2027. After this date, the entitlement will be removed from existing subscriptions. Support for Gemini Code Assist until March 31, 2027 is limited to the Gemini 3.x model family only. Effective October 9, 2026, new Gemini Enterprise subscriptions no longer include an entitlement to Gemini Code Assist.
+
+To transition your developer workflows, agentic coding assistance is available through Google Antigravity, which is included in Gemini Enterprise editions.
+
+For more information, see the [Gemini Code Assist sunset page](https://docs.cloud.google.com/gemini/docs/codeassist/sunset).
+
+Breaking
+
+**Gemini Notebook Enterprise: Updated web addresses**
+
+The URL path for the Gemini Notebook Enterprise web app is changing in two ways. In both cases, existing links redirect automatically.
+
+**"go/" added** : Starting immediately, `go/` is being added to the URL path:
+
+  * For Gemini Notebook Enterprise,  
+`notebooklm.cloud.google.com/us/`  
+changes to  
+`notebooklm.cloud.google.com/go/us/`.
+
+  * For Gemini Notebook within Gemini Enterprise,  
+`vertexaisearch.cloud.google.com/notebooklm/global/`  
+changes to  
+`vertexaisearch.cloud.google.com/notebooklm/go/global/`.
+
+
+
+
+The dates for this `go/` path change are as follows:
+
+Region | Rollout date  
+---|---  
+`global` and `us` | Live  
+`eu` | Rolling out  
+All other locations | Starting November 9, 2026  
+  
+**"lm" removed** : Starting November 16, 2026, `lm` is being removed from the hostname:
+
+  * For Gemini Notebook Enterprise authenticated with [Google Identity](https://docs.cloud.google.com/gemini/enterprise/docs/configure-identity-provider#choose_your_identity_provider_type),  
+`notebooklm.cloud.google.com`  
+changes to  
+`notebook.cloud.google.com`.
+
+  * For Gemini Notebook Enterprise authenticated with Workforce Identity Federation,  
+`notebooklm.cloud.google`  
+changes to  
+`notebook.cloud.google`.
+
+
+
+
+**Action is required** : if your organization uses a firewall, proxy, or secure web gateway that allows access to Gemini Notebook by a specific URL path. If this applies to you, Google recommends that you add the following URLs to your allowlist:
+
+  1. Allowlist `notebooklm.cloud.google.com/*` and `notebook.cloud.google.com/*`
+
+  2. If you use Workforce Identity Federation, allowlist `notebooklm.cloud.google/*` and `notebook.cloud.google/*`
+
+  3. If you use Gemini Notebook within Gemini Enterprise, allowlist `vertexaisearch.cloud.google.com/notebooklm/*`.
+
+
+
+
+Google recommends allowing entire domains (`/*`) so that future path changes don't require additional updates.
+
+If you don't allow `/*`, you must allow both `/REGION` and `/go/REGION`, where `REGION` is your location value: `global`, `us`, `eu`, `asia-northeast1`, `au`, `ca`, `de`, `europe-west2`, `in`, `kr`, or `sg`. For example, `notebooklm.cloud.google.com/us/` and `notebooklm.cloud.google.com/go/us/`
+
+**Temporary workaround** : If your firewall blocks users before you update your allowlist, users themselves can access the original URLs by removing `/go` from the URL and adding `version=legacy`. For example: `notebooklm.cloud.google.com/eu/?project=1234567&version=legacy`. This fix will fail when Google sunsets the legacy version.
+
+Feature
+
+**Gemini Enterprise: Adobe data store (Preview)**
+
+The [Adobe](https://docs.cloud.google.com/gemini/enterprise/docs/connectors/adobe) data store is available in Public Preview in Gemini Enterprise. You can use natural language to search, share, and manage your Adobe Creative Cloud assets, customize Adobe Express templates, apply Lightroom presets, and edit images. For more information, see [Connect a third-party data source](https://docs.cloud.google.com/gemini/enterprise/docs/connectors/connect-third-party-data-source).
+
+Feature
+
+**Gemini Enterprise: Model availability respects resource location policies**
+
+If the resource locations organization policy for your project doesn't allow the `global` location, Gemini Enterprise administrators can't turn on Gemini models that aren't supported in the app's location, because traffic for these models is routed to the `global` endpoint. In the Google Cloud console, the toggles for these models are unavailable. If one of these models is already turned on, a warning appears under its toggle so that administrators can turn it off.
+
+For more information, see:
+
+  * [Turn on or turn off a Gemini model](https://docs.cloud.google.com/gemini/enterprise/docs/manage-web-app-features#turn-on-gemini-model)
+  * [Data residency for Gemini Enterprise](https://docs.cloud.google.com/gemini/enterprise/docs/locations)
+
+
+
+**Gemini Enterprise Agent Platform**
+
+Feature
+
+**Dedicated Memory Bank functionality in the Google Cloud console**
+
+You can create, configure, and inspect Agent Platform Memory Bank instances from the dedicated **Memory Bank** page in the Google Cloud console, with updated memory management controls for deployed agents in Agent Runtime:
+
+  * **Memory Bank list and creation** : View and manage standalone memory banks on the **Memory Bank** page (separate from deployed agents on the **Deployments** page), edit basic information or labels, delete instances, and click **Create memory bank** to create an instance with default memory settings and Google-managed or Cloud KMS encryption.
+  * **Memories inspection and filtering** : On the **Memories** tab, switch between **Unstructured** and **Structured** views, filter memories by `key:value` scope pairs or scope chips, edit or delete unstructured memories, inspect structured memory profiles and underlying facts in the **Memory details** panel, and select **View revisions** to inspect revision history.
+  * **Instance and schema configuration** : On the **Configuration** tab, view and edit **Details** , **Generation** (memory extraction toggle, perspective, and managed or custom topics), **Retrieval** (embedding model, configurable before you store the first memory), and **Retention** (expiration and revision history TTL), or click **Schemas** to add and edit profile schemas.
+  * **Agent integration snippets** : Click **Link to an agent** to get installation commands and prefilled Python code (populated with your project, region, and memory bank ID) for connecting with Agent Development Kit (ADK) or retrieving memories.
+  * **Agent Runtime memory updates** : On the **Deployments** page, deployed agents include `key:value` scope filtering and **View revisions** on the **Memories** tab, along with **Generation** , **Retrieval** , and **Retention** configuration controls under **Service configuration** in the **Memory bank** section.
+
+
+
+For more information, see [Set up Memory Bank](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/memory-bank/setup), [Fetch memories](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/memory-bank/fetch-memories), [Memory Profiles](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/memory-bank/profiles), and [Memory revisions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/memory-bank/revisions).
+
+**Google Cloud Contact Center as a Service**
+
+Fixed
+
+This release addresses the following issues:
+
+  * Fixed an issue where abandoned queue records incorrectly calculated wait times from the call's initial queue entry rather than the time the caller entered the specific queue they abandoned from.
+
+  * Fixed an issue where the call adapter header title on **SmartActions** and virtual task assistant screens was truncated with an ellipsis, preventing users from viewing the full text.
+
+  * Fixed an issue where the agent adapter froze on **Calling** and didn't dial the customer during recovery calls following an unanswered in-app call.
+
+  * Fixed an issue where inbound calls became unroutable and remained stuck in the queue until abandoned if an agent's browser delivered a delayed connection request after a timeout.
+
+  * Fixed an issue in the CCaaS portal where active Spanish IVR queues were incorrectly displayed as **Setup is required** and grayed out when switching languages from English to Spanish.
+
+  * Fixed an issue where transient network errors during platform validation incorrectly marked virtual agent credentials as invalid.
+
+  * Fixed an issue where SMS and WhatsApp virtual agent chats became unresponsive and didn't escalate to a human agent when encountering a custom payload validation error.
+
+  * Fixed an issue where campaigns didn't resume after being paused, resulting in repeated call session failures and missing participant information.
+
+  * Fixed an issue where call-related actions such as disconnecting or updating status took up to 72 seconds to complete.
+
+  * Fixed an issue where a **Not Found** banner incorrectly appeared in the call adapter when a phone number couldn't be matched in the CRM.
+
+  * Fixed an issue where the **In-email** status bar in the agent desktop appeared white.
+
+  * Fixed an issue where agents in the **In-email** status couldn't change their status directly from the status bar.
+
+  * Fixed an issue where the first letter of uppercase acronym field names was incorrectly lowercased in virtual task assistant input placeholders.
+
+  * Fixed an issue where agents were incorrectly set to an **Unresponsive** status instead of receiving a missed call when a new deltacast offer arrived while the call adapter was already ringing.
+
+  * Fixed an issue where agents became stuck in a projected state and stopped receiving calls after a caller abandoned the call at the moment of routing.
+
+  * Fixed an issue where transient carrier timeouts during outbound callbacks were incorrectly classified as invalid numbers.
+
+  * Fixed an issue where forced virtual agent callbacks booked through the Apps API were incorrectly routed to the original call's queue instead of the requested destination.
+
+  * Fixed an issue where scheduled callback capacity was under-calculated due to a mathematical rounding error.
+
+  * Fixed an issue where inbound calls were prematurely disconnected if the initial connection request timed out and was retried.
+
+  * Fixed an issue where valid Canadian phone numbers using newer area codes were rejected by the Callback call API.
+
+  * Fixed an issue where certain agents were missing from the directory during outbound calls, preventing other agents from transferring calls or adding them to a call.
+
+  * Fixed an issue where dynamic queues incorrectly offered a minimum of one slot even when WFM staffing was zero or resulted in less than one available slot.
+
+  * Fixed an issue where Dynamic Agent Availability queues were saved without a required custom queue identifier, causing workforce management synchronization to fail silently.
+
+  * Fixed an issue where Salesforce cases and contacts were incorrectly created for voice calls handled entirely by a virtual agent, even when the **Create CRM records for calls attended by Virtual Agents** setting was disabled.
+
+  * Fixed an issue where voice transfers addressed to a specific agent were never offered to the target and didn't expire, leaving callers on hold indefinitely.
+
+  * Fixed an issue where NICE WFM session data exports didn't generate for instances with subdomains exceeding 20 characters.
+
+  * Fixed an issue where virtual callbacks routed through external Dynamic Contact Routing (DCR) were missing captured virtual agent custom parameters, causing routing engines to lose the caller's intent.
+
+  * Fixed an issue where Agent Assist transcriptions permanently stopped following transient network or quota errors.
+
+  * Fixed an issue where outbound phone number restriction rules weren't applied to agents with the **Allow unrestricted international calling** setting enabled.
+
+
+
+
+**Looker**
+
+Announcement
+
+**Looker 26.24** will roll out to Looker (original) instances on the following schedule:
+
+  * Expected deployment start: **Sunday, November 8, 2026**
+  * Expected final deployment and download available: **Tuesday, December 8, 2026**
+
+
+
+Looker 26.24 is expected to include the following changes, features, and fixes.
+
+The Looker 26.24 rollout for Looker (Google Cloud core) will be announced separately.
+
+Fixed
+
+An issue has been fixed where custom tooltips in KPI visualizations didn't apply the visualization's **Value Format** and **Comparison Value Format** settings. This feature now performs as expected.
+
+Fixed
+
+An issue has been fixed where custom tooltips in KPI visualizations didn't respect the configured left, center, or right alignment setting. This feature now performs as expected.
+
+Fixed
+
+An issue has been fixed where the custom tooltip editor prevented the saving of and rejected comparison Liquid variables (`comparison_value`, `comparison_rendered_value`, `comparison.value`, and `comparison.rendered`) for KPI visualizations. This feature now performs as expected.
+
+Fixed
+
+An issue has been fixed where expanding a long tile note on a KPI visualization could cause the note to overlap the KPI value, comparison, and sparkline. Long expanded notes now scroll within half of the tile.
+
+Fixed
+
+An issue has been fixed where scheduled deliveries to Google Sheets created duplicate spreadsheets instead of overwriting existing spreadsheets when filenames contained spaces, and scheduled deliveries to Google Drive replaced spaces in filenames with underscores. This feature now performs as expected.
+
+Fixed
+
+An issue has been fixed where scheduled deliveries could fail if the schedule owner had Development Mode enabled and lacked `develop` permission on the schedule's model. This feature now performs as expected.
+
+Fixed
+
+An issue has been fixed where screen readers didn't announce the filter name or label for Yes/No filters and group filter controls on dashboards. This feature now performs as expected.
+
+Fixed
+
+An issue has been fixed where switching a database connection from default credentials to OAuth authentication could retain stale configuration fields and cause connection failures. Connections that were switched to OAuth before this update must be re-saved once on the **Admin > Connections** page to clear stale persistent derived table (PDT) overrides.
+
+Fixed
+
+An issue has been fixed where Databricks OAuth refresh tokens were treated as expired after seven days on the client side even when a longer token lifetime was configured in Databricks. This feature now performs as expected.
+
+Fixed
+
+An issue has been fixed where creating a visual modeling canvas on a project-scoped connection failed unless advanced connection governance was enabled. This feature now performs as expected.
+
+Fixed
+
+An issue has been fixed where updating roles for an Admin user who used the API could fail with an error. This feature now performs as expected.
+
+Fixed
+
+An issue has been fixed where passing malformed dashboard filter attributes to the `dashboard_filters` API endpoints could cause an `HTTP 500` error instead of returning an `HTTP 422 Unprocessable Entity` response. This feature now performs as expected.
+
+Fixed
+
+An issue has been fixed where model set matching treated underscores in model names as wildcards, which could grant self-service access to connections that were linked to similarly named models. This feature now performs as expected.
+
+Fixed
+
+An issue has been fixed where dashboard tag list filters and their drop-down menus resized horizontally when multiple values were selected. This feature now performs as expected.
+
+Fixed
+
+An issue has been fixed where the `GET` `/auth` endpoint returned an `HTTP 500 Internal Server Error` instead of an `HTTP 400 Bad Request` response when the endpoint received a malformed `redirect_uri` parameter. This feature now performs as expected.
+
+Fixed
+
+An issue has been fixed where the data upload file picker could fail to accept XLS files. This feature now performs as expected.
+
+Fixed
+
+An issue has been fixed where sending a `POST /api/token` request without a `Content-Type` header resulted in an `HTTP 500` error. This feature now performs as expected.
+
+Fixed
+
+An issue has been fixed where multi-select filter drop-down menus could immediately reopen after being closed. This feature now performs as expected.
+
+Fixed
+
+An issue has been fixed where **Show Percent of Previous** arrows and labels overlapped bars instead of appearing between them on column charts that use the Modern visualization theme, custom **Group Spacing** settings, or unevenly spaced dates. This feature now performs as expected.
+
+Fixed
+
+Time zone settings have been updated so that scheduled job triggers and table calculation time zone evaluations reflect recent regional daylight saving time (DST) changes.
+
+Fixed
+
+An issue has been fixed where a non-admin user could delete another user's undeployed development project through the API. This feature now performs as expected.
+
+Fixed
+
+An issue has been fixed where Sankey charts that were created with **Chart Config Override** could fail with errors such as `requires exactly two dimensions` or `cyclical data is not supported`. This feature now performs as expected.
+
+Fixed
+
+An issue has been fixed where favoriting or unfavoriting a dashboard or Look updated its last-accessed timestamp and erroneously removed the item from the **Unused Content** list. This feature now performs as expected.
+
+Fixed
+
+An issue has been fixed where screen readers didn't announce individual data points on charts with 200 or more data points per series. This feature now performs as expected.
+
+Fixed
+
+An issue has been fixed where updating legacy Marketplace plugins could fail with a timeout error on instances with large Git repositories. This feature now performs as expected.
+
+Fixed
+
+An issue has been fixed where switching **Series Positioning** from **Stacked** to **Overlay** or **Grouped** on an area, a column, or a bar chart didn't update the chart rendering. This feature now performs as expected.
+
+Fixed
+
+An issue has been fixed where scheduled deliveries to Slack, Google Drive, Cloud Storage, Microsoft Azure, and Dropbox could deliver corrupted single-column dashboard PDF files and unformatted Workflow Agent HTML files. This feature now performs as expected.
+
+Fixed
+
+Roles in the identity provider (IdP) group role mapping drop-down menu are now sorted alphabetically and searchable on the SAML and OIDC configuration pages.
+
+Fixed
+
+An issue has been fixed where hyperlink tooltips inside dashboard tile notes couldn't be clicked. This feature now performs as expected.
+
+Fixed
+
+An issue has been fixed where numeric parameter filters without an `allowed_values` property were misclassified as tier filters in the dashboard filter editor, which exposed invalid operator options and cleared default values. This feature now performs as expected.
+
+Fixed
+
+An issue has been fixed in the System Activity **Conversational Analytics** dashboard where the **Conversations by Type** and **Weekly Conversations** tiles incorrectly counted workflow agent runs as dashboard conversations. This feature now performs as expected.
+
+Fixed
+
+An issue has been fixed where editing a Conversational Analytics agent could overwrite its **Code Interpreter** setting, fail to immediately update active conversations, or allow **Code Interpreter** to remain active when disabled at the instance level. This feature now performs as expected.
+
+Fixed
+
+An issue has been fixed in the System Activity **Conversational Analytics** dashboard where filtering by the **Agent** filter on the **Engagement** tab returned no results for agents on user-defined dashboards. This feature now performs as expected.
+
+Fixed
+
+In the System Activity **Conversational Analytics** dashboard, the **Top Agents** and **Agents Not Used in Last 30 Days** tiles on the **Engagement** tab now display the agent name alongside the Agent ID.
+
+Fixed
+
+An issue has been fixed in the System Activity **Conversational Analytics** dashboard where clicking a dashboard Agent ID on the **Engagement** tab linked to a nonexistent standalone agent page (returning an `HTTP 404` error) instead of the parent dashboard. This feature now performs as expected.
+
+Feature
+
+The [filters as tiles](https://docs.cloud.google.com/looker/docs/filters-user-defined-dashboards#filters_as_tiles) feature is now generally available.
 
 ## November 05, 2026
 
@@ -48,6 +482,397 @@ During the scheduled maintenance window, the following services will be temporar
 
 Runtime API calls to deployed API proxies are unaffected. While access to analytics queries may be temporarily unavailable during the maintenance window, all analytics and metrics data from this period will be available once maintenance ends.
 
+**Apigee hybrid**
+
+Announcement
+
+### v1.14.10
+
+On November 5, 2026 we released an updated version of the Apigee hybrid software, v1.14.10.
+
+  * For information about upgrading, see [Upgrading Apigee hybrid to v1.14.10](https://docs.cloud.google.com/apigee/docs/hybrid/v1.14/upgrade).
+  * For information about new installations, see [The big picture](https://docs.cloud.google.com/apigee/docs/hybrid/v1.14/big-picture).
+
+**Note:** This is a patch release. The container images used in patch releases are integrated with the Apigee hybrid Helm charts. Upgrading to a patch by using the Helm chart automatically updates the images. You don't typically need to make manual image changes. For information about container image support in Apigee hybrid releases, see [Apigee release process](https://docs.cloud.google.com/apigee/docs/release/apigee-release-process#apigee-hybrid-container-images).
+
+Fixed
+
+#### Fixed in this release
+
+Bug ID | Description  
+---|---  
+**578314600** | **Fixed an issue where`apigee-connect-agent` ignored `HTTPS_PROXY` and failed to establish a tether in clusters that require an HTTP forward proxy for egress; the agent now uses HTTP/2 keepalive pings on the control-plane connection while honoring `HTTPS_PROXY` (including proxy credentials).**  
+**576707253** | **Removed the compromised emSign roots and the cross-signing Comodo AAA Services root from the system and Java (`cacerts`) trust stores across containers.**  
+**573622417** | **Fixed an issue where`apigee-ingressgateway` forwarded the `x-envoy-decorator-operation` header to upstream runtime and target backends.**  
+**571378258** | **The`apigee-redis` container now uses the Valkey engine (version 8.1.10). The RESP2 wire protocol and `redis-server` and `redis-cli` binary names are unchanged.**  
+**554114419** | **Fixed an issue where an`AssignMessage`, `HTTPModifier`, or `RaiseFault` policy that creates a new request (`createNew="true"`) in an HTTP/2 flow could not set the `:path` and `:authority` pseudo-headers and failed with an invalid-header error.**  
+**524115876** | **Fixed an intermittent HTTP`400` error in the `OASValidation` policy's strict parameter validation that rejected valid requests under load.**  
+**449228485** | **Fixed an issue where`podDisruptionBudget` overrides configured in the Helm charts were dropped by the Kubernetes API server.**  
+**432315283** | **Fixed an issue where changes to a multi-certificate truststore's trust anchors required a Message Processor restart when`features.truststore.multi_cert_bundle.enabled` was toggled at runtime; the outbound `SSLContext` now rebuilds automatically.**  
+  
+Security
+
+Bug ID | Description  
+---|---  
+**N/A** | **Security fixes for`apigee-asm-ingress`.**   
+This addresses the following vulnerabilities: 
+
+  * [CVE-2026-116585](https://nvd.nist.gov/vuln/detail/CVE-2026-116585)
+  * [CVE-2026-116586](https://nvd.nist.gov/vuln/detail/CVE-2026-116586)
+  * [CVE-2026-56857](https://nvd.nist.gov/vuln/detail/CVE-2026-56857)
+  * [CVE-2026-56866](https://nvd.nist.gov/vuln/detail/CVE-2026-56866)
+  * [CVE-2026-63209](https://nvd.nist.gov/vuln/detail/CVE-2026-63209)
+  * [CVE-2026-78659](https://nvd.nist.gov/vuln/detail/CVE-2026-78659)
+  * [CVE-2026-78660](https://nvd.nist.gov/vuln/detail/CVE-2026-78660)
+  * [CVE-2026-78663](https://nvd.nist.gov/vuln/detail/CVE-2026-78663)
+  * [CVE-2026-78667](https://nvd.nist.gov/vuln/detail/CVE-2026-78667)
+  * [CVE-2026-78669](https://nvd.nist.gov/vuln/detail/CVE-2026-78669)
+  * [CVE-2026-81870](https://nvd.nist.gov/vuln/detail/CVE-2026-81870)
+  * [CVE-2026-84303](https://nvd.nist.gov/vuln/detail/CVE-2026-84303)
+  * [CVE-2026-84304](https://nvd.nist.gov/vuln/detail/CVE-2026-84304)
+  * [CVE-2026-84445](https://nvd.nist.gov/vuln/detail/CVE-2026-84445)
+  * [CVE-2026-94439](https://nvd.nist.gov/vuln/detail/CVE-2026-94439)
+  * [CVE-2026-94440](https://nvd.nist.gov/vuln/detail/CVE-2026-94440)
+  * [CVE-2026-94444](https://nvd.nist.gov/vuln/detail/CVE-2026-94444)
+  * [CVE-2026-94447](https://nvd.nist.gov/vuln/detail/CVE-2026-94447)
+  * [CVE-2026-94448](https://nvd.nist.gov/vuln/detail/CVE-2026-94448)
+  * [CVE-2026-97030](https://nvd.nist.gov/vuln/detail/CVE-2026-97030)
+  * [CVE-2026-97031](https://nvd.nist.gov/vuln/detail/CVE-2026-97031)
+  * [CVE-2026-97032](https://nvd.nist.gov/vuln/detail/CVE-2026-97032)
+
+  
+**N/A** | **Security fixes for`apigee-asm-istiod`.**   
+This addresses the following vulnerabilities: 
+
+  * [CVE-2026-116585](https://nvd.nist.gov/vuln/detail/CVE-2026-116585)
+  * [CVE-2026-116586](https://nvd.nist.gov/vuln/detail/CVE-2026-116586)
+  * [CVE-2026-40179](https://nvd.nist.gov/vuln/detail/CVE-2026-40179)
+  * [CVE-2026-42151](https://nvd.nist.gov/vuln/detail/CVE-2026-42151)
+  * [CVE-2026-42154](https://nvd.nist.gov/vuln/detail/CVE-2026-42154)
+  * [CVE-2026-44903](https://nvd.nist.gov/vuln/detail/CVE-2026-44903)
+  * [CVE-2026-56857](https://nvd.nist.gov/vuln/detail/CVE-2026-56857)
+  * [CVE-2026-56866](https://nvd.nist.gov/vuln/detail/CVE-2026-56866)
+  * [CVE-2026-63209](https://nvd.nist.gov/vuln/detail/CVE-2026-63209)
+  * [CVE-2026-78659](https://nvd.nist.gov/vuln/detail/CVE-2026-78659)
+  * [CVE-2026-78660](https://nvd.nist.gov/vuln/detail/CVE-2026-78660)
+  * [CVE-2026-78663](https://nvd.nist.gov/vuln/detail/CVE-2026-78663)
+  * [CVE-2026-78667](https://nvd.nist.gov/vuln/detail/CVE-2026-78667)
+  * [CVE-2026-78669](https://nvd.nist.gov/vuln/detail/CVE-2026-78669)
+  * [CVE-2026-81870](https://nvd.nist.gov/vuln/detail/CVE-2026-81870)
+  * [CVE-2026-84303](https://nvd.nist.gov/vuln/detail/CVE-2026-84303)
+  * [CVE-2026-84304](https://nvd.nist.gov/vuln/detail/CVE-2026-84304)
+  * [CVE-2026-84445](https://nvd.nist.gov/vuln/detail/CVE-2026-84445)
+  * [CVE-2026-94439](https://nvd.nist.gov/vuln/detail/CVE-2026-94439)
+  * [CVE-2026-94440](https://nvd.nist.gov/vuln/detail/CVE-2026-94440)
+  * [CVE-2026-94444](https://nvd.nist.gov/vuln/detail/CVE-2026-94444)
+  * [CVE-2026-94447](https://nvd.nist.gov/vuln/detail/CVE-2026-94447)
+  * [CVE-2026-94448](https://nvd.nist.gov/vuln/detail/CVE-2026-94448)
+  * [CVE-2026-97030](https://nvd.nist.gov/vuln/detail/CVE-2026-97030)
+  * [CVE-2026-97031](https://nvd.nist.gov/vuln/detail/CVE-2026-97031)
+  * [CVE-2026-97032](https://nvd.nist.gov/vuln/detail/CVE-2026-97032)
+  * [GHSA-gcjh-h69q-9w9g](https://osv.dev/vulnerability/GHSA-gcjh-h69q-9w9g)
+
+  
+**N/A** | **Security fixes for`apigee-connect-agent`.**   
+This addresses the following vulnerabilities: 
+
+  * [CVE-2026-56857](https://nvd.nist.gov/vuln/detail/CVE-2026-56857)
+  * [CVE-2026-56866](https://nvd.nist.gov/vuln/detail/CVE-2026-56866)
+  * [CVE-2026-78659](https://nvd.nist.gov/vuln/detail/CVE-2026-78659)
+  * [CVE-2026-78660](https://nvd.nist.gov/vuln/detail/CVE-2026-78660)
+  * [CVE-2026-78663](https://nvd.nist.gov/vuln/detail/CVE-2026-78663)
+  * [CVE-2026-78667](https://nvd.nist.gov/vuln/detail/CVE-2026-78667)
+  * [CVE-2026-78669](https://nvd.nist.gov/vuln/detail/CVE-2026-78669)
+  * [CVE-2026-94439](https://nvd.nist.gov/vuln/detail/CVE-2026-94439)
+  * [CVE-2026-94440](https://nvd.nist.gov/vuln/detail/CVE-2026-94440)
+  * [CVE-2026-94444](https://nvd.nist.gov/vuln/detail/CVE-2026-94444)
+  * [CVE-2026-94447](https://nvd.nist.gov/vuln/detail/CVE-2026-94447)
+  * [CVE-2026-94448](https://nvd.nist.gov/vuln/detail/CVE-2026-94448)
+  * [CVE-2026-97030](https://nvd.nist.gov/vuln/detail/CVE-2026-97030)
+  * [CVE-2026-97031](https://nvd.nist.gov/vuln/detail/CVE-2026-97031)
+  * [CVE-2026-97032](https://nvd.nist.gov/vuln/detail/CVE-2026-97032)
+
+  
+**N/A** | **Security fixes for`apigee-envoy`.**   
+This addresses the following vulnerabilities: 
+
+  * [CVE-2026-5450](https://nvd.nist.gov/vuln/detail/CVE-2026-5450)
+  * [CVE-2026-5928](https://nvd.nist.gov/vuln/detail/CVE-2026-5928)
+
+  
+**N/A** | **Security fixes for`apigee-fluent-bit`.**   
+This addresses the following vulnerabilities: 
+
+  * [CVE-2026-111497](https://nvd.nist.gov/vuln/detail/CVE-2026-111497)
+  * [CVE-2026-35189](https://nvd.nist.gov/vuln/detail/CVE-2026-35189)
+  * [CVE-2026-35191](https://nvd.nist.gov/vuln/detail/CVE-2026-35191)
+  * [CVE-2026-42772](https://nvd.nist.gov/vuln/detail/CVE-2026-42772)
+  * [CVE-2026-5450](https://nvd.nist.gov/vuln/detail/CVE-2026-5450)
+  * [CVE-2026-54872](https://nvd.nist.gov/vuln/detail/CVE-2026-54872)
+  * [CVE-2026-54873](https://nvd.nist.gov/vuln/detail/CVE-2026-54873)
+  * [CVE-2026-54875](https://nvd.nist.gov/vuln/detail/CVE-2026-54875)
+  * [CVE-2026-58050](https://nvd.nist.gov/vuln/detail/CVE-2026-58050)
+  * [CVE-2026-58051](https://nvd.nist.gov/vuln/detail/CVE-2026-58051)
+  * [CVE-2026-5928](https://nvd.nist.gov/vuln/detail/CVE-2026-5928)
+  * [CVE-2026-66032](https://nvd.nist.gov/vuln/detail/CVE-2026-66032)
+  * [CVE-2026-66033](https://nvd.nist.gov/vuln/detail/CVE-2026-66033)
+  * [CVE-2026-66034](https://nvd.nist.gov/vuln/detail/CVE-2026-66034)
+  * [CVE-2026-66035](https://nvd.nist.gov/vuln/detail/CVE-2026-66035)
+  * [CVE-2026-72897](https://nvd.nist.gov/vuln/detail/CVE-2026-72897)
+  * [CVE-2026-75804](https://nvd.nist.gov/vuln/detail/CVE-2026-75804)
+  * [CVE-2026-75805](https://nvd.nist.gov/vuln/detail/CVE-2026-75805)
+  * [CVE-2026-75806](https://nvd.nist.gov/vuln/detail/CVE-2026-75806)
+  * [CVE-2026-77696](https://nvd.nist.gov/vuln/detail/CVE-2026-77696)
+  * [CVE-2026-8286](https://nvd.nist.gov/vuln/detail/CVE-2026-8286)
+  * [CVE-2026-84782](https://nvd.nist.gov/vuln/detail/CVE-2026-84782)
+  * [CVE-2026-84784](https://nvd.nist.gov/vuln/detail/CVE-2026-84784)
+  * [CVE-2026-8924](https://nvd.nist.gov/vuln/detail/CVE-2026-8924)
+  * [CVE-2026-8927](https://nvd.nist.gov/vuln/detail/CVE-2026-8927)
+  * [CVE-2026-92392](https://nvd.nist.gov/vuln/detail/CVE-2026-92392)
+
+  
+**N/A** | **Security fixes for`apigee-hybrid-cassandra`.**   
+This addresses the following vulnerabilities: 
+
+  * [CVE-2026-18401](https://nvd.nist.gov/vuln/detail/CVE-2026-18401)
+  * [CVE-2026-54512](https://nvd.nist.gov/vuln/detail/CVE-2026-54512)
+  * [CVE-2026-54513](https://nvd.nist.gov/vuln/detail/CVE-2026-54513)
+  * [CVE-2026-54514](https://nvd.nist.gov/vuln/detail/CVE-2026-54514)
+  * [CVE-2026-54515](https://nvd.nist.gov/vuln/detail/CVE-2026-54515)
+  * [CVE-2026-56857](https://nvd.nist.gov/vuln/detail/CVE-2026-56857)
+  * [CVE-2026-56866](https://nvd.nist.gov/vuln/detail/CVE-2026-56866)
+  * [CVE-2026-59888](https://nvd.nist.gov/vuln/detail/CVE-2026-59888)
+  * [CVE-2026-59889](https://nvd.nist.gov/vuln/detail/CVE-2026-59889)
+  * [CVE-2026-68494](https://nvd.nist.gov/vuln/detail/CVE-2026-68494)
+  * [CVE-2026-77310](https://nvd.nist.gov/vuln/detail/CVE-2026-77310)
+  * [CVE-2026-78659](https://nvd.nist.gov/vuln/detail/CVE-2026-78659)
+  * [CVE-2026-78660](https://nvd.nist.gov/vuln/detail/CVE-2026-78660)
+  * [CVE-2026-78663](https://nvd.nist.gov/vuln/detail/CVE-2026-78663)
+  * [CVE-2026-78667](https://nvd.nist.gov/vuln/detail/CVE-2026-78667)
+  * [CVE-2026-78669](https://nvd.nist.gov/vuln/detail/CVE-2026-78669)
+  * [CVE-2026-94439](https://nvd.nist.gov/vuln/detail/CVE-2026-94439)
+  * [CVE-2026-94440](https://nvd.nist.gov/vuln/detail/CVE-2026-94440)
+  * [CVE-2026-94444](https://nvd.nist.gov/vuln/detail/CVE-2026-94444)
+  * [CVE-2026-94447](https://nvd.nist.gov/vuln/detail/CVE-2026-94447)
+  * [CVE-2026-94448](https://nvd.nist.gov/vuln/detail/CVE-2026-94448)
+  * [CVE-2026-97030](https://nvd.nist.gov/vuln/detail/CVE-2026-97030)
+  * [CVE-2026-97031](https://nvd.nist.gov/vuln/detail/CVE-2026-97031)
+  * [CVE-2026-97032](https://nvd.nist.gov/vuln/detail/CVE-2026-97032)
+
+  
+**N/A** | **Security fixes for`apigee-hybrid-cassandra-client`.**   
+This addresses the following vulnerabilities: 
+
+  * [CVE-2026-56857](https://nvd.nist.gov/vuln/detail/CVE-2026-56857)
+  * [CVE-2026-56866](https://nvd.nist.gov/vuln/detail/CVE-2026-56866)
+  * [CVE-2026-78659](https://nvd.nist.gov/vuln/detail/CVE-2026-78659)
+  * [CVE-2026-78660](https://nvd.nist.gov/vuln/detail/CVE-2026-78660)
+  * [CVE-2026-78663](https://nvd.nist.gov/vuln/detail/CVE-2026-78663)
+  * [CVE-2026-78667](https://nvd.nist.gov/vuln/detail/CVE-2026-78667)
+  * [CVE-2026-78669](https://nvd.nist.gov/vuln/detail/CVE-2026-78669)
+  * [CVE-2026-94439](https://nvd.nist.gov/vuln/detail/CVE-2026-94439)
+  * [CVE-2026-94440](https://nvd.nist.gov/vuln/detail/CVE-2026-94440)
+  * [CVE-2026-94444](https://nvd.nist.gov/vuln/detail/CVE-2026-94444)
+  * [CVE-2026-94447](https://nvd.nist.gov/vuln/detail/CVE-2026-94447)
+  * [CVE-2026-94448](https://nvd.nist.gov/vuln/detail/CVE-2026-94448)
+  * [CVE-2026-97030](https://nvd.nist.gov/vuln/detail/CVE-2026-97030)
+  * [CVE-2026-97031](https://nvd.nist.gov/vuln/detail/CVE-2026-97031)
+  * [CVE-2026-97032](https://nvd.nist.gov/vuln/detail/CVE-2026-97032)
+
+  
+**N/A** | **Security fixes for`apigee-kube-rbac-proxy`.**   
+This addresses the following vulnerabilities: 
+
+  * [CVE-2026-56857](https://nvd.nist.gov/vuln/detail/CVE-2026-56857)
+  * [CVE-2026-56866](https://nvd.nist.gov/vuln/detail/CVE-2026-56866)
+  * [CVE-2026-78659](https://nvd.nist.gov/vuln/detail/CVE-2026-78659)
+  * [CVE-2026-78660](https://nvd.nist.gov/vuln/detail/CVE-2026-78660)
+  * [CVE-2026-78663](https://nvd.nist.gov/vuln/detail/CVE-2026-78663)
+  * [CVE-2026-78667](https://nvd.nist.gov/vuln/detail/CVE-2026-78667)
+  * [CVE-2026-78669](https://nvd.nist.gov/vuln/detail/CVE-2026-78669)
+  * [CVE-2026-94439](https://nvd.nist.gov/vuln/detail/CVE-2026-94439)
+  * [CVE-2026-94440](https://nvd.nist.gov/vuln/detail/CVE-2026-94440)
+  * [CVE-2026-94444](https://nvd.nist.gov/vuln/detail/CVE-2026-94444)
+  * [CVE-2026-94447](https://nvd.nist.gov/vuln/detail/CVE-2026-94447)
+  * [CVE-2026-94448](https://nvd.nist.gov/vuln/detail/CVE-2026-94448)
+  * [CVE-2026-97030](https://nvd.nist.gov/vuln/detail/CVE-2026-97030)
+  * [CVE-2026-97031](https://nvd.nist.gov/vuln/detail/CVE-2026-97031)
+  * [CVE-2026-97032](https://nvd.nist.gov/vuln/detail/CVE-2026-97032)
+
+  
+**N/A** | **Security fixes for`apigee-mart-server`.**   
+This addresses the following vulnerabilities: 
+
+  * [CVE-2026-89407](https://nvd.nist.gov/vuln/detail/CVE-2026-89407)
+  * [CVE-2026-89425](https://nvd.nist.gov/vuln/detail/CVE-2026-89425)
+  * [CVE-2026-91776](https://nvd.nist.gov/vuln/detail/CVE-2026-91776)
+  * [CVE-2026-91777](https://nvd.nist.gov/vuln/detail/CVE-2026-91777)
+
+  
+**N/A** | **Security fixes for`apigee-mint-task-scheduler`.**   
+This addresses the following vulnerabilities: 
+
+  * [CVE-2026-89407](https://nvd.nist.gov/vuln/detail/CVE-2026-89407)
+  * [CVE-2026-89425](https://nvd.nist.gov/vuln/detail/CVE-2026-89425)
+  * [CVE-2026-91776](https://nvd.nist.gov/vuln/detail/CVE-2026-91776)
+  * [CVE-2026-91777](https://nvd.nist.gov/vuln/detail/CVE-2026-91777)
+
+  
+**N/A** | **Security fixes for`apigee-open-telemetry-collector`.**   
+This addresses the following vulnerabilities: 
+
+  * [CVE-2026-116585](https://nvd.nist.gov/vuln/detail/CVE-2026-116585)
+  * [CVE-2026-116586](https://nvd.nist.gov/vuln/detail/CVE-2026-116586)
+  * [CVE-2026-116587](https://nvd.nist.gov/vuln/detail/CVE-2026-116587)
+
+  
+**N/A** | **Security fixes for`apigee-operators`.**   
+This addresses the following vulnerabilities: 
+
+  * [CVE-2026-56857](https://nvd.nist.gov/vuln/detail/CVE-2026-56857)
+  * [CVE-2026-56866](https://nvd.nist.gov/vuln/detail/CVE-2026-56866)
+  * [CVE-2026-63209](https://nvd.nist.gov/vuln/detail/CVE-2026-63209)
+  * [CVE-2026-78659](https://nvd.nist.gov/vuln/detail/CVE-2026-78659)
+  * [CVE-2026-78660](https://nvd.nist.gov/vuln/detail/CVE-2026-78660)
+  * [CVE-2026-78663](https://nvd.nist.gov/vuln/detail/CVE-2026-78663)
+  * [CVE-2026-78667](https://nvd.nist.gov/vuln/detail/CVE-2026-78667)
+  * [CVE-2026-78669](https://nvd.nist.gov/vuln/detail/CVE-2026-78669)
+  * [CVE-2026-94439](https://nvd.nist.gov/vuln/detail/CVE-2026-94439)
+  * [CVE-2026-94440](https://nvd.nist.gov/vuln/detail/CVE-2026-94440)
+  * [CVE-2026-94444](https://nvd.nist.gov/vuln/detail/CVE-2026-94444)
+  * [CVE-2026-94447](https://nvd.nist.gov/vuln/detail/CVE-2026-94447)
+  * [CVE-2026-94448](https://nvd.nist.gov/vuln/detail/CVE-2026-94448)
+  * [CVE-2026-97030](https://nvd.nist.gov/vuln/detail/CVE-2026-97030)
+  * [CVE-2026-97031](https://nvd.nist.gov/vuln/detail/CVE-2026-97031)
+  * [CVE-2026-97032](https://nvd.nist.gov/vuln/detail/CVE-2026-97032)
+
+  
+**N/A** | **Security fixes for`apigee-prom-prometheus`.**   
+This addresses the following vulnerabilities: 
+
+  * [CVE-2026-56857](https://nvd.nist.gov/vuln/detail/CVE-2026-56857)
+  * [CVE-2026-56866](https://nvd.nist.gov/vuln/detail/CVE-2026-56866)
+  * [CVE-2026-78659](https://nvd.nist.gov/vuln/detail/CVE-2026-78659)
+  * [CVE-2026-78660](https://nvd.nist.gov/vuln/detail/CVE-2026-78660)
+  * [CVE-2026-78663](https://nvd.nist.gov/vuln/detail/CVE-2026-78663)
+  * [CVE-2026-78667](https://nvd.nist.gov/vuln/detail/CVE-2026-78667)
+  * [CVE-2026-78669](https://nvd.nist.gov/vuln/detail/CVE-2026-78669)
+  * [CVE-2026-81870](https://nvd.nist.gov/vuln/detail/CVE-2026-81870)
+  * [CVE-2026-84303](https://nvd.nist.gov/vuln/detail/CVE-2026-84303)
+  * [CVE-2026-84304](https://nvd.nist.gov/vuln/detail/CVE-2026-84304)
+  * [CVE-2026-94439](https://nvd.nist.gov/vuln/detail/CVE-2026-94439)
+  * [CVE-2026-94440](https://nvd.nist.gov/vuln/detail/CVE-2026-94440)
+  * [CVE-2026-94444](https://nvd.nist.gov/vuln/detail/CVE-2026-94444)
+  * [CVE-2026-94447](https://nvd.nist.gov/vuln/detail/CVE-2026-94447)
+  * [CVE-2026-94448](https://nvd.nist.gov/vuln/detail/CVE-2026-94448)
+  * [CVE-2026-97030](https://nvd.nist.gov/vuln/detail/CVE-2026-97030)
+  * [CVE-2026-97031](https://nvd.nist.gov/vuln/detail/CVE-2026-97031)
+  * [CVE-2026-97032](https://nvd.nist.gov/vuln/detail/CVE-2026-97032)
+
+  
+**N/A** | **Security fixes for`apigee-prometheus-adapter`.**   
+This addresses the following vulnerabilities: 
+
+  * [CVE-2026-56857](https://nvd.nist.gov/vuln/detail/CVE-2026-56857)
+  * [CVE-2026-56866](https://nvd.nist.gov/vuln/detail/CVE-2026-56866)
+  * [CVE-2026-78659](https://nvd.nist.gov/vuln/detail/CVE-2026-78659)
+  * [CVE-2026-78660](https://nvd.nist.gov/vuln/detail/CVE-2026-78660)
+  * [CVE-2026-78663](https://nvd.nist.gov/vuln/detail/CVE-2026-78663)
+  * [CVE-2026-78667](https://nvd.nist.gov/vuln/detail/CVE-2026-78667)
+  * [CVE-2026-78669](https://nvd.nist.gov/vuln/detail/CVE-2026-78669)
+  * [CVE-2026-94439](https://nvd.nist.gov/vuln/detail/CVE-2026-94439)
+  * [CVE-2026-94440](https://nvd.nist.gov/vuln/detail/CVE-2026-94440)
+  * [CVE-2026-94444](https://nvd.nist.gov/vuln/detail/CVE-2026-94444)
+  * [CVE-2026-94447](https://nvd.nist.gov/vuln/detail/CVE-2026-94447)
+  * [CVE-2026-94448](https://nvd.nist.gov/vuln/detail/CVE-2026-94448)
+  * [CVE-2026-97030](https://nvd.nist.gov/vuln/detail/CVE-2026-97030)
+  * [CVE-2026-97031](https://nvd.nist.gov/vuln/detail/CVE-2026-97031)
+  * [CVE-2026-97032](https://nvd.nist.gov/vuln/detail/CVE-2026-97032)
+
+  
+**N/A** | **Security fixes for`apigee-redis`.**   
+This addresses the following vulnerabilities: 
+
+  * [CVE-2026-56857](https://nvd.nist.gov/vuln/detail/CVE-2026-56857)
+  * [CVE-2026-56866](https://nvd.nist.gov/vuln/detail/CVE-2026-56866)
+  * [CVE-2026-78659](https://nvd.nist.gov/vuln/detail/CVE-2026-78659)
+  * [CVE-2026-78660](https://nvd.nist.gov/vuln/detail/CVE-2026-78660)
+  * [CVE-2026-78663](https://nvd.nist.gov/vuln/detail/CVE-2026-78663)
+  * [CVE-2026-78667](https://nvd.nist.gov/vuln/detail/CVE-2026-78667)
+  * [CVE-2026-78669](https://nvd.nist.gov/vuln/detail/CVE-2026-78669)
+  * [CVE-2026-94439](https://nvd.nist.gov/vuln/detail/CVE-2026-94439)
+  * [CVE-2026-94440](https://nvd.nist.gov/vuln/detail/CVE-2026-94440)
+  * [CVE-2026-94444](https://nvd.nist.gov/vuln/detail/CVE-2026-94444)
+  * [CVE-2026-94447](https://nvd.nist.gov/vuln/detail/CVE-2026-94447)
+  * [CVE-2026-94448](https://nvd.nist.gov/vuln/detail/CVE-2026-94448)
+  * [CVE-2026-97030](https://nvd.nist.gov/vuln/detail/CVE-2026-97030)
+  * [CVE-2026-97031](https://nvd.nist.gov/vuln/detail/CVE-2026-97031)
+  * [CVE-2026-97032](https://nvd.nist.gov/vuln/detail/CVE-2026-97032)
+
+  
+**N/A** | **Security fixes for`apigee-runtime`.**   
+This addresses the following vulnerabilities: 
+
+  * [CVE-2026-89407](https://nvd.nist.gov/vuln/detail/CVE-2026-89407)
+  * [CVE-2026-89425](https://nvd.nist.gov/vuln/detail/CVE-2026-89425)
+  * [CVE-2026-91776](https://nvd.nist.gov/vuln/detail/CVE-2026-91776)
+  * [CVE-2026-91777](https://nvd.nist.gov/vuln/detail/CVE-2026-91777)
+
+  
+**N/A** | **Security fixes for`apigee-synchronizer`.**   
+This addresses the following vulnerabilities: 
+
+  * [CVE-2026-89407](https://nvd.nist.gov/vuln/detail/CVE-2026-89407)
+  * [CVE-2026-89425](https://nvd.nist.gov/vuln/detail/CVE-2026-89425)
+  * [CVE-2026-91776](https://nvd.nist.gov/vuln/detail/CVE-2026-91776)
+  * [CVE-2026-91777](https://nvd.nist.gov/vuln/detail/CVE-2026-91777)
+
+  
+**N/A** | **Security fixes for`apigee-udca`.**   
+This addresses the following vulnerabilities: 
+
+  * [CVE-2026-116585](https://nvd.nist.gov/vuln/detail/CVE-2026-116585)
+  * [CVE-2026-116586](https://nvd.nist.gov/vuln/detail/CVE-2026-116586)
+  * [CVE-2026-116587](https://nvd.nist.gov/vuln/detail/CVE-2026-116587)
+  * [CVE-2026-56857](https://nvd.nist.gov/vuln/detail/CVE-2026-56857)
+  * [CVE-2026-56866](https://nvd.nist.gov/vuln/detail/CVE-2026-56866)
+  * [CVE-2026-78659](https://nvd.nist.gov/vuln/detail/CVE-2026-78659)
+  * [CVE-2026-78660](https://nvd.nist.gov/vuln/detail/CVE-2026-78660)
+  * [CVE-2026-78663](https://nvd.nist.gov/vuln/detail/CVE-2026-78663)
+  * [CVE-2026-78667](https://nvd.nist.gov/vuln/detail/CVE-2026-78667)
+  * [CVE-2026-78669](https://nvd.nist.gov/vuln/detail/CVE-2026-78669)
+  * [CVE-2026-94439](https://nvd.nist.gov/vuln/detail/CVE-2026-94439)
+  * [CVE-2026-94440](https://nvd.nist.gov/vuln/detail/CVE-2026-94440)
+  * [CVE-2026-94444](https://nvd.nist.gov/vuln/detail/CVE-2026-94444)
+  * [CVE-2026-94447](https://nvd.nist.gov/vuln/detail/CVE-2026-94447)
+  * [CVE-2026-94448](https://nvd.nist.gov/vuln/detail/CVE-2026-94448)
+  * [CVE-2026-97030](https://nvd.nist.gov/vuln/detail/CVE-2026-97030)
+  * [CVE-2026-97031](https://nvd.nist.gov/vuln/detail/CVE-2026-97031)
+  * [CVE-2026-97032](https://nvd.nist.gov/vuln/detail/CVE-2026-97032)
+
+  
+**N/A** | **Security fixes for`apigee-watcher`.**   
+This addresses the following vulnerabilities: 
+
+  * [CVE-2026-56857](https://nvd.nist.gov/vuln/detail/CVE-2026-56857)
+  * [CVE-2026-56866](https://nvd.nist.gov/vuln/detail/CVE-2026-56866)
+  * [CVE-2026-63209](https://nvd.nist.gov/vuln/detail/CVE-2026-63209)
+  * [CVE-2026-78659](https://nvd.nist.gov/vuln/detail/CVE-2026-78659)
+  * [CVE-2026-78660](https://nvd.nist.gov/vuln/detail/CVE-2026-78660)
+  * [CVE-2026-78663](https://nvd.nist.gov/vuln/detail/CVE-2026-78663)
+  * [CVE-2026-78667](https://nvd.nist.gov/vuln/detail/CVE-2026-78667)
+  * [CVE-2026-78669](https://nvd.nist.gov/vuln/detail/CVE-2026-78669)
+  * [CVE-2026-94439](https://nvd.nist.gov/vuln/detail/CVE-2026-94439)
+  * [CVE-2026-94440](https://nvd.nist.gov/vuln/detail/CVE-2026-94440)
+  * [CVE-2026-94444](https://nvd.nist.gov/vuln/detail/CVE-2026-94444)
+  * [CVE-2026-94447](https://nvd.nist.gov/vuln/detail/CVE-2026-94447)
+  * [CVE-2026-94448](https://nvd.nist.gov/vuln/detail/CVE-2026-94448)
+  * [CVE-2026-97030](https://nvd.nist.gov/vuln/detail/CVE-2026-97030)
+  * [CVE-2026-97031](https://nvd.nist.gov/vuln/detail/CVE-2026-97031)
+  * [CVE-2026-97032](https://nvd.nist.gov/vuln/detail/CVE-2026-97032)
+
+  
+  
 **BigQuery**
 
 Feature
@@ -386,57 +1211,6 @@ For more information, see:
 
 
 
-**Gemini Enterprise Agent Platform**
-
-Feature
-
-**Gemini Omni 1.2 Flash**
-
-[Gemini Omni 1.2 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/omni-1-2-flash) (`gemini-omni-1.2-flash`) is available in [General Availability (GA)](https://cloud.google.com/products#product-launch-stages). Gemini Omni 1.2 Flash is an omni-modal foundation model that processes text, image, and video inputs to generate text and high-definition video with synchronized audio through the [Interactions API](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/interactions).
-
-Gemini Omni 1.2 Flash introduces the following capabilities:
-
-  * **Standalone video upscaling** : Upscale previously generated videos from 360p to 720p or 1080p, and from 720p to 1080p or 4K using `task: "upscale"`. See [Upscale videos](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/video/upscale-videos).
-
-  * **Extended video generation and editing duration** : Generate or edit videos up to 15 seconds in length across text-to-video, image-to-video, reference-to-video, and video editing tasks (up to 10 seconds for first-and-last-frame interpolation and video extension).
-
-  * **Reference-guided video editing and extension** : Supply up to 2 reference images along with an input video when editing or extending videos. See [Edit videos](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/video/edit-videos) and [Extend videos](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/video/extend-videos).
-
-  * **Deterministic generation and billing labels** : Specify `seed` for reproducible video outputs and attach custom `labels` to Interactions API requests.
-
-  * **Standard PayGo and Provisioned Throughput** : Available with [Standard Pay-as-you-go (PayGo)](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/standard-paygo) and [Provisioned Throughput](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/provisioned-throughput/gemini-omni-models) (685 tokens per second per GSU).
-
-
-
-
-Feature
-
-**Interactions API long decodes for Gemini 4 Argon**
-
-Long decodes up to 1,048,576 tokens (minus input tokens) on the [Interactions API](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/interactions) (`v1beta1`) are available in [General Availability (GA)](https://cloud.google.com/products#product-launch-stages) for [Gemini 4 Argon](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/4-argon) (`gemini-4-argon` and `gemini-4-argon-cyber-permissive`). You can extend single-turn outputs beyond the per-segment limit (65,536 streaming or 32,768 non-streaming tokens) using automatic continuation in the Google Gen AI SDK (`google-genai >= 2.34.0` for Python, `@google/genai >= 2.32.0` for JavaScript/TypeScript, Go `>= 1.77.0`, and Java `>= 1.80.0`), server-managed background execution (`background=true`), or custom stored (`store=true`) and stateless (`store=false`) `continuation_token` loops.
-
-For code samples, continuation options, and implementation rules, see [Long decodes in the developer's guide to Gemini 4 Argon](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/guides/gemini-4-argon#long-decodes).
-
-Fixed
-
-**CodeMender updates (v0.18.0)**
-
-This release introduces updates to CodeMender:
-
-  * **Verification tool-turn guardrails** : Added exploratory tool-turn limits to `cm verify` sessions to prevent unbounded command execution loops.
-  * **Release notes link in update prompts** : Added a direct link to DevSite release notes when CodeMender prompts to update to a newer CLI version.
-  * **Agent IAM diagnostic guidance** : Added actionable `roles/aiplatform.agentsUser` IAM binding commands to CLI setup and error messages for service account and CI/CD environments.
-  * **Bug fixes** : 
-    * Improved the reliability of agent sessions, including verification and resumed sessions.
-    * Improved compatibility across shell environments.
-    * Improved the sign-in flow during interactive activation.
-    * Improved error reporting when the service is temporarily unavailable.
-    * Includes security and stability improvements.
-
-
-
-For more information, see the [CodeMender documentation](https://docs.cloud.google.com/gemini-enterprise-agent-platform/agents/codemender).
-
 **Google SecOps**
 
 Feature
@@ -700,6 +1474,12 @@ This feature automates read pool scale in and scale out operations based on one 
 
 
 
+Change
+
+Cloud SQL for SQL Server supports [additional metrics within the system insights dashboard](https://docs.cloud.google.com/sql/docs/sqlserver/use-system-insights) ([GA](https://cloud.google.com/products#product-launch-stages)) related to engine memory, performance, and replication.
+
+For a detailed list of metrics and their descriptions, see [Cloud SQL for SQL Server default metrics](https://docs.cloud.google.com/sql/docs/sqlserver/use-system-insights#default-metrics) and [Cloud SQL metrics](https://docs.cloud.google.com/sql/docs/sqlserver/admin-api/metrics).
+
 **Cloud Storage**
 
 Feature
@@ -717,96 +1497,6 @@ You can switch between multiple teams in the Gemini Enterprise mobile app withou
 When you open a team for the first time, the mobile app saves it to your teams list. Additionally, you can rename teams in the list and you can remove teams from your list.
 
 This feature is generally available (GA). For more information, see [Teams](https://docs.cloud.google.com/gemini/enterprise/docs/use-the-mobile-app#teams) in _Use the mobile app_.
-
-**Gemini Enterprise Agent Platform**
-
-Feature
-
-**AlphaGenome gRPC and unified HTTP serving support**
-
-AlphaGenome (`alphagenome-004`) now supports unified HTTP/2 gRPC streaming and chunked binary protobuf HTTP streaming on Gemini Enterprise Agent Platform:
-
-  * Streams compressed binary tensor chunks directly over gRPC on shared endpoints (`PredictionService.StreamDirectRawPredict` on port `8081`) and chunked binary protobuf payloads (`proto_b64`) over HTTP on dedicated endpoints (`streamRawPredict` on port `8080`) across all seven `DnaModelService` methods (`predict_sequence`, `predict_interval`, `predict_variant`, `score_variant`, `score_interval`, `score_ism_variants`, and `output_metadata`) and 11 genomic modalities, reducing latency for 1 MB track predictions.
-  * Supports concurrent multi-variant evaluation for in silico saturation mutagenesis (`score_ism_variants`) without HTTP gateway timeouts.
-  * Supports model fold selection (`ALL_FOLDS`, `FOLD_0`, `FOLD_1`, `FOLD_2`, and `FOLD_3`) across both gRPC and HTTP clients through the unified `alphagenome_cloud_sdk` Python SDK.
-  * Retains `alphagenome-003` in Model Garden for backward compatibility with existing legacy HTTP deployments.
-
-
-
-For more information, see the [AlphaGenome documentation](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/open-models/alphagenome).
-
-**Google Cloud Contact Center as a Service**
-
-Announcement
-
-**Google Cloud CCaaS prerelease notes 6.32**
-
-Here are the prerelease notes for what we expect to be the next version of Google Cloud CCaaS. When we release this version, we expect the new capabilities to be as shown here.
-
-Fixed
-
-This release addresses the following issues:
-
-  * Fixed an issue where abandoned queue records incorrectly calculated wait times from the call's initial queue entry rather than the time the caller entered the specific queue they abandoned from.
-
-  * Fixed an issue where the call adapter header title on **SmartActions** and virtual task assistant screens was truncated with an ellipsis, preventing users from viewing the full text.
-
-  * Fixed an issue where the agent adapter froze on **Calling** and didn't dial the customer during recovery calls following an unanswered in-app call.
-
-  * Fixed an issue where inbound calls became unroutable and remained stuck in the queue until abandoned if an agent's browser delivered a delayed connection request after a timeout.
-
-  * Fixed an issue in the CCaaS portal where active Spanish IVR queues were incorrectly displayed as **Setup is required** and grayed out when switching languages from English to Spanish.
-
-  * Fixed an issue where transient network errors during platform validation incorrectly marked virtual agent credentials as invalid.
-
-  * Fixed an issue where SMS and WhatsApp virtual agent chats became unresponsive and didn't escalate to a human agent when encountering a custom payload validation error.
-
-  * Fixed an issue where campaigns didn't resume after being paused, resulting in repeated call session failures and missing participant information.
-
-  * Fixed an issue where call-related actions such as disconnecting or updating status took up to 72 seconds to complete.
-
-  * Fixed an issue where a **Not Found** banner incorrectly appeared in the call adapter when a phone number couldn't be matched in the CRM.
-
-  * Fixed an issue where the **In-email** status bar in the agent desktop appeared white.
-
-  * Fixed an issue where agents in the **In-email** status couldn't change their status directly from the status bar.
-
-  * Fixed an issue where the first letter of uppercase acronym field names was incorrectly lowercased in virtual task assistant input placeholders.
-
-  * Fixed an issue where agents were incorrectly set to an **Unresponsive** status instead of receiving a missed call when a new deltacast offer arrived while the call adapter was already ringing.
-
-  * Fixed an issue where agents became stuck in a projected state and stopped receiving calls after a caller abandoned the call at the moment of routing.
-
-  * Fixed an issue where transient carrier timeouts during outbound callbacks were incorrectly classified as invalid numbers.
-
-  * Fixed an issue where forced virtual agent callbacks booked through the Apps API were incorrectly routed to the original call's queue instead of the requested destination.
-
-  * Fixed an issue where scheduled callback capacity was under-calculated due to a mathematical rounding error.
-
-  * Fixed an issue where inbound calls were prematurely disconnected if the initial connection request timed out and was retried.
-
-  * Fixed an issue where valid Canadian phone numbers using newer area codes were rejected by the Callback call API.
-
-  * Fixed an issue where certain agents were missing from the directory during outbound calls, preventing other agents from transferring calls or adding them to a call.
-
-  * Fixed an issue where dynamic queues incorrectly offered a minimum of one slot even when WFM staffing was zero or resulted in less than one available slot.
-
-  * Fixed an issue where Dynamic Agent Availability queues were saved without a required custom queue identifier, causing workforce management synchronization to fail silently.
-
-  * Fixed an issue where Salesforce cases and contacts were incorrectly created for voice calls handled entirely by a virtual agent, even when the **Create CRM records for calls attended by Virtual Agents** setting was disabled.
-
-  * Fixed an issue where voice transfers addressed to a specific agent were never offered to the target and didn't expire, leaving callers on hold indefinitely.
-
-  * Fixed an issue where NICE WFM session data exports didn't generate for instances with subdomains exceeding 20 characters.
-
-  * Fixed an issue where virtual callbacks routed through external Dynamic Contact Routing (DCR) were missing captured virtual agent custom parameters, causing routing engines to lose the caller's intent.
-
-  * Fixed an issue where Agent Assist transcriptions permanently stopped following transient network or quota errors.
-
-  * Fixed an issue where outbound phone number restriction rules weren't applied to agents with the **Allow unrestricted international calling** setting enabled.
-
-
-
 
 **Google Distributed Cloud (software only) for VMware**
 
@@ -1093,215 +1783,6 @@ Change
 
 In [BigQuery Studio](https://docs.cloud.google.com/bigquery/docs/bigquery-web-ui#studio-overview), the left pane has been updated with new tab names. The **Classic Explorer** tab has been renamed to the **Data** tab, and the **Repository** tab has been renamed to the **Source control** tab. The **Data** tab now includes the **Add data** button and focuses on data hierarchies. These changes are [generally available](https://cloud.google.com/products#product-launch-stages) (GA).
 
-**Cloud SDK**
-
-Breaking
-
-## 592.0.0 (2026-11-03)
-
-### Breaking Changes
-
-  * **(Cloud Datastore Emulator)** Removed support for running the Datastore emulator (`gcloud beta emulators datastore start`) in environment with Java versions prior to 25. Users can upgrade to Java 25 or above to continue using the latest Datastore emulator. Alternatively, users can use previous `gcloud` CLI versions to continue using the Datastore emulator with Java 21 support.
-  * **(Cloud Firestore Emulator)** Removed support for running the Firestore emulator (`gcloud emulators firestore start`) in environment with Java versions prior to 25. Users can upgrade to Java 25 or above to continue using the latest Firestore emulator. Alternatively, users can use previous `gcloud` CLI versions to continue using the previous Firestore emulator with Java 21 support.
-  * **(Docker)** Removed the system Python and C compiler from the Debian-based Docker images. gcloud, gsutil and bq now always run on the bundled Python, on both `linux/amd64` and `linux/arm64`. The removed packages differ by image: 
-    * `:latest`, `:slim`, `:debian_component_based`: `python3`, `python3-dev`, `python3-pip`, `python3-crcmod` and `gcc`.
-    * `:emulators`: `python3` and `python3-crcmod`.
-    * `:stable`: `python3-dev` and `python3-crcmod`, on `linux/arm64` only.
-  * **(Docker)** Setting `CLOUDSDK_PYTHON=python3` (or `CLOUDSDK_GSUTIL_PYTHON` / `CLOUDSDK_BQ_PYTHON`) in these images now makes every gcloud, gsutil or bq call fail, because there is no `python3` on `PATH`. Unset it to use the bundled Python.
-  * **(Docker)** If your workflow requires a system Python, install it on top of the image, for example with `apt-get install python3`. This does not change which Python gcloud uses. If you need to compile C extensions, also install `build-essential python3-dev`.
-
-
-
-### Google Cloud CLI
-
-  * Changed the Java dependency of the `google-cloud-cli-datastore-emulator`, `google-cloud-cli-firestore-emulator`, `google-cloud-cli-pubsub-emulator`, `google-cloud-cli-app-engine-java`, and `google-cloud-cli-bqms` deb and rpm packages from a full JDK to a headless JRE, preferring Java 25. The Datastore and Firestore emulator packages now require Java 25 or later.
-
-
-
-### Agent Registry
-
-  * Removed `--scanning-state` flag from `gcloud agent-registry skills create` and `gcloud agent-registry skills update`. Use `--scanning-policy` instead.
-
-
-
-### AlloyDB
-
-  * Updated AlloyDB Auth Proxy installation instructions in `gcloud alloydb connect` to v1.17.2.
-  * Added `--connection-pooling-authproxy-pooler-scaling-type` flag to `gcloud beta alloydb instances create`, `gcloud beta alloydb instances create-secondary`, and `gcloud beta alloydb instances update`.
-  * Promoted the following flags to GA on `gcloud alloydb instances create` and `gcloud alloydb instances update`: 
-    * `--enable-autoscaler`
-    * `--autoscaler-max-node-count`
-    * `--autoscaler-cool-down-period-seconds`
-    * `--autoscaler-target-cpu-usage`
-    * `--autoscaler-set-schedule`
-    * `--autoscaler-schedule-cron-exp`
-    * `--autoscaler-schedule-duration-seconds`
-    * `--autoscaler-schedule-time-zone`
-    * `--autoscaler-schedule-min-node-count`
-    * `--autoscaler-schedule-description`
-  * Promoted the following flags to GA on `gcloud alloydb instances update`: 
-    * `--autoscaler-delete-schedule`
-    * `--autoscaler-disable-schedule`
-    * `--autoscaler-enable-schedule`
-  * Added `--autoscaler-target-connections-count` flag to `gcloud alloydb instances create` and `gcloud alloydb instances update`.
-
-
-
-### App Engine
-
-  * Updated the Java SDK to version 5.2.0 build from the open source project <https://github.com/GoogleCloudPlatform/appengine-java-standard/releases/tag/v5.2.0>.
-  * Added `--from-image` and `--destination-repository` flags to `gcloud beta app migrate-to-run` for App Engine Standard environment.
-  * Updated `gcloud beta app migrate-to-run --from-image` to show the reason returned by the App Engine Admin API when exporting the image fails.
-  * Added support for the `vpc_access` configuration in `app.yaml` to `gcloud app deploy`, enabling Direct VPC egress for App Engine standard environment.
-
-
-
-### App Hub
-
-  * Added `MULTI_REGIONAL` choice to `--scope-type` flag of `gcloud apphub applications create`.
-
-
-
-### Artifact Registry
-
-  * Fixed an issue in `gcloud artifacts attachments download` where attachment file names were not validated before writing to `--destination`.
-
-
-
-### Beyondcorp
-
-  * Added `--dispatch-info-output-type` flag to `gcloud beyondcorp security-gateways create` and `gcloud beyondcorp security-gateways update`, and upstream `dispatchInfo` configuration to `gcloud beyondcorp security-gateways applications create` and `gcloud beyondcorp security-gateways applications update` to configure delegated dispatch info headers.
-  * Removed `gcloud beta beyondcorp app` and `gcloud beta beyondcorp client-connector` command groups.
-
-
-
-### BigLake
-
-  * Added `--kms-key` flag to `gcloud beta biglake hive catalogs create`, and `--kms-key` and `--clear-kms-key` flags to `gcloud beta biglake hive catalogs update` to support customer-managed encryption keys (CMEK).
-  * Added `--workday-api-client-client-id` flag to `gcloud beta biglake iceberg catalogs create` and `gcloud beta biglake iceberg catalogs update` to support Workday OIDC authentication.
-
-
-
-### Cloud Backup DR
-
-  * Removed default value (`-`) for `--location` flag in `gcloud beta backup-dr applied-auto-protection-policies list`. `--location` flag is now required.
-  * Promoted `gcloud backup-dr applied-auto-protection-policies` to GA.
-  * Fixed an issue where `gcloud backup-dr backup-plans update --backup-rules-from-file` failed with `update mask is required` when the file contained an empty `backup-rules` list.
-  * Fixed an issue where `gcloud backup-dr backup-plans update --backup-rules-from-file` cleared `--compute-instance-properties` and `--disk-properties` when they were specified in the same command.
-  * Promoted `gcloud backup-dr applied-auto-protection-policies` to GA.
-  * Promoted `gcloud backup-dr auto-protection-bindings` to GA.
-  * Promoted `gcloud backup-dr auto-protection-policies` commands to GA.
-  * Promoted `gcloud backup-dr binding-matching-resources` to GA.
-
-
-
-### Cloud Bigtable
-
-  * Added `--automated-backup-keep-hot-duration` flag to `gcloud bigtable instances tables create`, `gcloud bigtable instances tables update`, `gcloud bigtable tables create`, and `gcloud bigtable tables update` to create hot automated backups that remain hot for the specified duration before transitioning to standard backups.
-  * Added `--clear-automated-backup-keep-hot-duration` flag to `gcloud bigtable instances tables update` and `gcloud bigtable tables update` to stop creating hot automated backups.
-  * Added `--avro-schema-path` flag to `gcloud bigtable schema-bundles create` and `gcloud bigtable schema-bundles update`.
-
-
-
-### Cloud Dataplex
-
-  * Added `--custom-instructions` flag to `gcloud dataplex datascans create data-documentation` and `--custom-instructions` and `--clear-custom-instructions` flags to `gcloud dataplex datascans update data-documentation` to support specifying or clearing custom instructions that guide data documentation generation.
-  * Added `--sql-dialect` flag to `gcloud dataplex datascans create data-documentation` and `gcloud dataplex datascans update data-documentation` commands to specify the SQL dialect to use in generated SQL queries.
-
-
-
-### Cloud Dataproc
-
-  * Added `--scheduling-timeout` and `--requested-run-duration` flags to `gcloud dataproc clusters create` for creating Dynamic Workload Scheduler (DWS) scheduled clusters.
-
-
-
-### Cloud Datastream
-
-  * Fixed an issue where `gcloud datastream private-connections create` silently dropped user-supplied `--labels`.
-
-
-
-### Cloud Firestore Emulator
-
-  * Release Cloud Firestore emulator v1.23.0 
-    * Added support for Datastore merge join and multiple inequality index selection with `--require-indexes` in Datastore mode
-    * Added support for the `add_window_fields` stage in the Firestore Pipelines API with the `sum`, `average`, `count`, `minimum`, `maximum`, `first`, `last`, `array_agg`, `array_agg_distinct`, and `rank` window functions
-    * Allowed Enterprise data types for all database editions
-    * Fixed transaction conflict detection for concurrent writes against transactional queries
-    * Fixed `ArrayIndexOutOfBoundsException` on incomplete Firestore Rules permission traces
-    * Populated accurate `MoreResultsType` for Datastore mode queries and fixed Pipeline DML edge cases
-    * Updated minimum required Java JRE version to 25
-
-
-
-### Cloud Infrastructure Manager
-
-  * Updated `gcloud infra-manager deployments apply` to display a warning when `--tf-version-constraint` or the deployment configuration specifies a paid Terraform version (1.6.0 or later).
-
-
-
-### Cloud Key Management Service
-
-  * Added support for ECDH key encapsulation mechanism algorithms: `kem-ecdh-p256` and `kem-ecdh-p384`.
-
-
-
-### Cloud Run
-
-  * Added `--public` flag for Cloud Run services, allowing users to make a service public by disabling invoker IAM checks and Identity-Aware Proxy (IAP). This flag is available in `gcloud beta run deploy`, `gcloud beta run services update`, and `gcloud beta run multi-region-services update`.
-
-
-
-### Cloud SQL
-
-  * Added `gcloud sql instances reconcile-networking` to reconcile Private Service Connect (PSC) DNS networking configuration for a Cloud SQL instance.
-
-
-
-### Cloud Shell
-
-  * Updated `gcloud cloud-shell scp` to support passwordless authentication over the Cloud Shell TCP tunnel.
-  * Updated `gcloud cloud-shell ssh` to skip uploading an SSH public key when connecting with passwordless authentication.
-
-
-
-### Cloud Workstations
-
-  * Added `--direct-access-ports` flag to `gcloud beta workstations clusters create` command.
-  * Added `--direct-access-ports` flag to `gcloud beta workstations clusters update` command.
-
-
-
-### Compute Engine
-
-  * Fixed an issue where `gcloud compute` commands omitted troubleshooting documentation links from operation error messages.
-  * Promoted `--reservation-subblock` flag of `gcloud compute hosts describe`, `gcloud compute hosts list`, `gcloud compute reservations hosts describe`, and `gcloud compute reservations hosts list` to GA and beta.
-
-
-
-### Firebase Test Lab
-
-  * Deprecated `gcloud firebase test` command group. Firebase Test Lab is deprecated and will be fully shut down on September 30, 2027. To maintain your testing workflows, you can migrate to the Developer Device Platform on Google Cloud. See the Developer Device Platform Migration Guide (<https://docs.cloud.google.com/developer-device-platform/device-run/migrate>) and FAQ (<https://docs.cloud.google.com/developer-device-platform/troubleshooting>) for more details.
-
-
-
-### Kubernetes Engine
-
-  * Added `--enable-dataplane-v2` flag to `gcloud container clusters update` to initiate GKE Dataplane V2 migration for clusters.
-  * Added `--datapath-provider` flag to `gcloud container node-pools update` to update the datapath provider for a node pool.
-  * Promoted `--enable-ambient-networking` flag to GA for `gcloud container clusters create`, `gcloud container clusters create-auto`, and `gcloud container clusters update`.
-
-
-
-### Network Security
-
-  * Updated `SecurityProfile` and `SecurityProfileGroup` YAML schemas to support WildFire Analysis in beta and GA.
-
-
-
-Subscribe to these release notes at <https://groups.google.com/forum/#!forum/google-cloud-sdk-announce>.
-
 **Cloud SQL for PostgreSQL**
 
 Change
@@ -1348,6 +1829,20 @@ The new maintenance version is [`[PostgreSQL version].R20261013.02_04`](https://
 
 For more information about checking your maintenance version, see [Perform self-service maintenance](https://docs.cloud.google.com/sql/docs/postgres/self-service-maintenance). To find your maintenance window or to manage maintenance updates, see [Find and set maintenance windows](https://docs.cloud.google.com/sql/docs/postgres/set-maintenance-window). For more information about supported extensions, see [Configure PostgreSQL extensions](https://docs.cloud.google.com/sql/docs/postgres/extensions).
 
+**Cluster Toolkit**
+
+Feature
+
+Cluster Toolkit v1.108.0 is available. This release lets you pin node pools to reservation sub-blocks in the [`gke-node-pool` module](https://docs.cloud.google.com/cluster-toolkit/docs/modules/gke-node-pool), adds Slurm support for Cloud TPU v5e, v5p, and v6e, and introduces the `gcluster explain` command to inspect blueprints and modules.
+
+This release also exposes the `wait_for_pods_ready` configuration for Kueue in the [`kubectl-apply` module](https://docs.cloud.google.com/cluster-toolkit/docs/modules/kubectl-apply) and sets the `recovery_timeout` field to `0s` by default for [Pathways workloads](https://docs.cloud.google.com/cluster-toolkit/docs/deploy/gke/run-workloads-pathways).
+
+Additionally, this release suppresses configuration drift for clusters and node pools in the `ignore_changes` argument of the `lifecycle` block for Google Kubernetes Engine (GKE), and upgrades the network modules for the Cloud Foundation Toolkit (CFT) to version 18.3 and later.
+
+This update also checks credentials for Artifact Registry and Docker only when a [job submission](https://docs.cloud.google.com/cluster-toolkit/docs/reference/gcluster-job-submit) uses Crane to build container images.
+
+For more information, see the [release announcement on GitHub](https://github.com/GoogleCloudPlatform/cluster-toolkit/discussions/6622).
+
 **Gemini Enterprise**
 
 Feature
@@ -1385,6 +1880,16 @@ This feature is [generally available (GA)](https://cloud.google.com/products#pro
 Change
 
 Sensitive Data Protection now records the [last generated timestamp](https://docs.cloud.google.com/sensitive-data-protection/docs/metrics-reference) for [data profiles](https://docs.cloud.google.com/sensitive-data-protection/docs/data-profiles) with improved precision, close to the time when the resource data is read.
+
+**VPC Service Controls**
+
+Feature
+
+[General availability](https://cloud.google.com/products#product-launch-stages) support for the following integration:
+
+  * [Service Management](https://docs.cloud.google.com/vpc-service-controls/docs/supported-products#table_management)
+
+
 
 **Virtual Private Cloud**
 
@@ -1472,6 +1977,21 @@ For more information, see [About cross-cloud data access](https://docs.cloud.goo
 
 Feature
 
+_Lakehouse_ supports the following remote catalog providers for cross-cloud data access. This feature is [generally available](https://cloud.google.com/products/#product-launch-stages) (GA).
+
+  * [Databricks Unity Catalog](https://docs.cloud.google.com/lakehouse/docs/set-up-cross-cloud-connection-databricks) on Amazon Web Services (AWS), Microsoft Azure, or Google Cloud
+  * [AWS Glue Data Catalog](https://docs.cloud.google.com/lakehouse/docs/set-up-cross-cloud-connection-aws-glue) on AWS
+  * [Snowflake Horizon Catalog](https://docs.cloud.google.com/lakehouse/docs/set-up-cross-cloud-connection-snowflake) on AWS, Microsoft Azure, or Google Cloud
+  * [Workday Data Lake](https://docs.cloud.google.com/lakehouse/docs/set-up-cross-cloud-connection-workday) on AWS or Google Cloud
+
+
+
+This feature lets you configure federated catalog endpoints to synchronize catalog metadata and query Apache Iceberg tables in remote catalogs directly from Google Cloud using BigQuery, Managed Service for Apache Spark, and Apache Spark without migrating data or building complex ETL pipelines. You can route background metadata refresh and queries over the public internet or privately over Cross-Cloud Interconnect, and protect cross-cloud data access with VPC Service Controls service perimeters. For Databricks Unity Catalog, you can also use [user identity federation](https://docs.cloud.google.com/lakehouse/docs/set-up-cross-cloud-connection-databricks#configure-user-identity-federation) to propagate end-user identities on queries for permission enforcement and audit logging.
+
+For more information, see [About cross-cloud data access](https://docs.cloud.google.com/lakehouse/docs/about-cross-cloud-data-access), [Query remote data](https://docs.cloud.google.com/lakehouse/docs/query-remote-data), and [Use VPC Service Controls with federated catalog endpoints](https://docs.cloud.google.com/lakehouse/docs/vpc-sc-federated-catalogs).
+
+Feature
+
 You can now [monitor](https://docs.cloud.google.com/bigquery/docs/create-data-agents#monitor_agents_and_conversations) the performance, adoption, latency, and costs of your data agents and their conversations by using Google Cloud Observability in BigQuery. This feature is [generally available](https://cloud.google.com/products#product-launch-stages) (GA).
 
 Feature
@@ -1479,6 +1999,16 @@ Feature
 You can use the [`AI.PARSE_DOCUMENT` function](https://docs.cloud.google.com/bigquery/docs/reference/standard-sql/bigqueryml-syntax-ai-parse-document) to extract layout elements such as titles, headings, paragraphs, lists, tables, and images by using the Document AI layout parser to convert unstructured documents into structured `JSON` data.
 
 This function is [generally available](https://cloud.google.com/products#product-launch-stages) (GA).
+
+Feature
+
+You can now use BigQuery change history and continuous queries for [Apache Iceberg managed tables](https://docs.cloud.google.com/bigquery/docs/biglake-iceberg-tables-in-bigquery) in Lakehouse.
+
+You can use the `APPENDS` table-valued function (TVF) to track rows appended to Apache Iceberg managed tables over a specified time range, and use [BigQuery continuous queries](https://docs.cloud.google.com/bigquery/docs/continuous-queries) to read incoming data from and write output rows to Apache Iceberg managed tables.
+
+This feature is [generally available](https://cloud.google.com/products#product-launch-stages) (GA).
+
+For more information, see [Work with change history](https://docs.cloud.google.com/lakehouse/docs/change-history) and [Introduction to continuous queries](https://docs.cloud.google.com/bigquery/docs/continuous-queries-introduction).
 
 Feature
 
@@ -1664,16 +2194,6 @@ Feature
 
 Datastream is now available in the `asia-southeast3` (Bangkok) region. For the list of all available regions, see [IP allowlists and regions](https://docs.cloud.google.com/datastream/docs/ip-allowlists-and-regions).
 
-**Gemini Enterprise Agent Platform**
-
-Feature
-
-**Serving tuned Gemini 3.x models on global endpoints**
-
-Serving tuned Gemini 3.x models on `global` endpoints is available in [General Availability (GA)](https://cloud.google.com/products#product-launch-stages). You can copy fine-tuned Gemini 3.x models to the `global` region using the Model Registry `models:copy` API, deploy them to global serving endpoints, and send inference requests directly to `aiplatform.googleapis.com`.
-
-For more information, see [About supervised fine-tuning for Gemini models](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/supervised-tuning) and [Tune Gemini models with supervised fine-tuning](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/supervised-tuning/use#copy-tuned-model).
-
 **Google Cloud Contact Center as a Service**
 
 Announcement
@@ -1744,6 +2264,16 @@ Deprecated
 **Deprecation of the ListCaseEvents API endpoint**
 
 Effective November 2, 2026, the `ListCaseEvents` API endpoint is deprecated. You should use the [`ListCaseEvidenceData`](https://docs.cloud.google.com/chronicle/docs/reference/rest/v1alpha/projects.locations.instances.cases.caseEvidenceDatas/list) API endpoint instead.
+
+**Infrastructure Manager**
+
+Feature
+
+Infrastructure Manager now supports Terraform version 1.16.5.
+
+Terraform version 1.16.5 is distributed under the Business Source License (BUSL) and is offered as a Paid version in Infrastructure Manager. Using Terraform version 1.16.5 incurs a resource management charge of $1.00 USD per resource-year beyond a free tier allowance of 500 resources per month per Cloud Billing account. Previews remain free of charge.
+
+For more information, see [Terraform versions](https://docs.cloud.google.com/infrastructure-manager/docs/infra-manager-terraform#terraform_licensing_pricing).
 
 **Knowledge Catalog**
 
@@ -1898,14 +2428,6 @@ The **Playbooks** tab in Cases now provides a consolidated view of all automated
 
 For more information, see [View case and alert playbooks](https://docs.cloud.google.com/chronicle/docs/soar/respond/working-with-playbooks/attach-playbooks-to-alerts-cases#view_case_and_alert_playbooks).
 
-**Google SecOps SOAR**
-
-Announcement
-
-Release 6.3.105 is being rolled out to the first phase of regions as listed [here](https://docs.cloud.google.com/chronicle/docs/soar/overview-and-introduction/soar-gradual-release).
-
-This release contains internal and customer bug fixes.
-
 ## October 31, 2026
 
 **Google SecOps**
@@ -1917,12 +2439,6 @@ Feature
 This feature is in public preview. The **SIEM Search** page now provides two search-execution modes: **Basic Mode** and **Advanced Mode**. **Basic Mode** (the default option) uses a streamlined, fast-path execution pipeline that bypasses secondary enrichment steps during search execution. This approach reduces end-to-end search wait times while preserving full data fidelity and query syntax parity. **Advanced Mode** is equivalent to the previous search experience.
 
 For more information, see [Choose the search-execution mode](https://docs.cloud.google.com/chronicle/docs/investigation/udm-search#choose-search-execution-mode) and [Understand the search-execution modes](https://docs.cloud.google.com/chronicle/docs/investigation/udm-search#search-execution-modes).
-
-**Google SecOps SOAR**
-
-Announcement
-
-[Release 6.3.104](https://docs.cloud.google.com/chronicle/docs/soar/release-notes#October_25_2026) is now available for all regions.
 
 ## October 30, 2026
 
@@ -2517,24 +3033,6 @@ Feature
 **Gemini Enterprise: S &P Global - Adaptive Retrieval data store (Preview)**
 
 The [S&P Global - Adaptive Retrieval](https://docs.cloud.google.com/gemini/enterprise/docs/connectors/s_p_global_adaptive_retrieval) data store is available in Public Preview in Gemini Enterprise. You can use natural language to ask questions about the S&P Global data your S&P Global account is entitled to access. For more information, see [Connect a third-party data source](https://docs.cloud.google.com/gemini/enterprise/docs/connectors/connect-third-party-data-source).
-
-**Gemini Enterprise Agent Platform**
-
-Feature
-
-**Inference request metadata logging (GA)**
-
-Inference request metadata logging is generally available. Gemini Enterprise Agent Platform can write one Cloud Logging entry for every inference request your project serves. Each entry records the model, region, consumption option, token counts, Provisioned Throughput usage, latency and error code. Entries record metadata only and never contain prompts or responses. Logging is supported for Gemini models that use `generateContent` and `streamGenerateContent`, and for Claude models that use `rawPredict` and `streamRawPredict`.
-
-You can turn on logging in the Google Cloud console, from the Provisioned Throughput page, or with the REST API. Turning on logging in the console also turns on detailed metrics, which chart Provisioned Throughput traffic at one-second resolution. With logging on, the model observability dashboard adds 1-second resolution options to its charts for pay-as-you-go traffic. To attribute usage to a team, application or tenant, add request headers with the `x-goog-agent-platform-observability-label-` prefix, and query the entries with SQL in Observability Analytics.
-
-For more information, see [Log inference request metadata](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/inference-metadata-logging).
-
-Feature
-
-**Computer use tool is available in General Availability**
-
-The [Computer use tool](https://docs.cloud.google.com/gemini-enterprise-agent-platform/agents/tools/computer-use) is available in [General Availability (GA)](https://cloud.google.com/products#product-launch-stages). This release introduces comprehensive Human-in-the-Loop (HITL) safety governance, enabling developers to selectively configure or override specific confirmation policies (such as financial transactions or data modification) while allowing administrators to mandate organization-wide guardrails using the `configurableComputerUseToolSafetyPolicies` constraint.
 
 **Looker**
 
@@ -3359,41 +3857,6 @@ This location is available in GA with allowlist. To get access to this location 
 
 For more information, see [Data residency for Gemini Enterprise](https://docs.cloud.google.com/gemini/enterprise/docs/locations#in-country_regions).
 
-**Gemini Enterprise Agent Platform**
-
-Change
-
-**Use a single regional Agent Registry instance for Gemini Enterprise apps**
-
-For Gemini Enterprise apps, we recommend associating each Agent Gateway with a single regional Agent Registry instance in the same project and region as the gateway. Use the `us-central1` registry for `global` and `us` apps, and the `europe-west1` registry for `eu` apps.
-
-This note updates the [September 9, 2026](https://docs.cloud.google.com/gemini-enterprise-agent-platform/release-notes#September_09_2026) entry. For more information, see [Register your agents and destination resources](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/set-up-agent-gateway#agent-registry).
-
-Fixed
-
-**CodeMender updates (v0.17.0)**
-
-This release introduces updates to CodeMender:
-
-  * **Support bundle diagnostics** : Introduce `cm support-bundle` to collect environment metadata, configuration policies, health reports, and session logs into a compressed archive for streamlined troubleshooting.
-  * **Plain output mode** : Add the persistent `--plain` flag (configurable via the `CM_PLAIN` environment variable or `output.plain` in `config.yaml`) to suppress decorative emojis, ANSI escape sequences, and Unicode borders for compatibility with screen readers and CI/CD log pipelines.
-  * **Dedicated exit codes for setup failures** : Assign distinct exit codes (such as code 10 for credential issues) to configuration and authentication failures, preventing CI/CD pipelines from confusing environment setup issues with security findings.
-  * **Tailored CI/CD credential guidance** : Provide environment-specific authentication guidance when running inside automated CI/CD systems such as GitHub Actions, GitLab CI, Buildkite, and Jenkins instead of interactive login prompts.
-  * **Single-line JSONL statistics** : Add the `--jsonl` flag to `cm stats` to output single-line JSON records with model and team attribution for seamless integration with Cloud Logging and log aggregation pipelines.
-  * **Granular sandbox and policy flags** : Replace the overloaded `--unrestricted` flag with orthogonal flags (`--sandbox=false`) and configurable command policies to decouple container sandboxing from execution safety controls.
-  * **Sandbox configuration protections** : Mount `.git/hooks`, `.git/config`, and `.codemender` read-only within writable execution sandboxes during `cm fix` and `cm verify` to prevent modifications to repository security policies.
-  * **Bug fixes** : 
-    * Added a security warning when commands are executed with both sandbox isolation disabled and interactive approval skipped.
-    * Enforced `allowedRoots` path boundaries across host discovery and remediation file operations to prevent traversal via dangling symlinks.
-    * Supplied exact finding line ranges to remediation agents during `cm fix` to eliminate manual file scanning overhead.
-    * Updated `cm report import` to properly treat findings without location data as file-level findings rather than defaulting to the first line.
-    * Ensured `cm session cancel` routes requests to the session's original region regardless of local environment overrides.
-    * Fixed finding status tracking in `cm verify` so unexploitable verdicts update the local state database rather than leaving findings open.
-
-
-
-For more information, see the [CodeMender documentation](https://docs.cloud.google.com/gemini-enterprise-agent-platform/agents/codemender).
-
 **Google SecOps**
 
 Fixed
@@ -4104,20 +4567,6 @@ This feature is generally available (GA). For more information, see:
 
 
 
-**Gemini Enterprise Agent Platform**
-
-Feature
-
-**Gemini Robotics ER 2 (Preview)**
-
-[Gemini Robotics ER 2](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/gemini-robotics-er) ([`gemini-robotics-er-2-preview`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/robotics-er-2)) is available in [Preview](https://cloud.google.com/products#product-launch-stages). Gemini Robotics ER 2 is an embodied reasoning vision-language model built on Gemini 3.5 Flash for robotics applications, including [spatial reasoning](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/gemini-robotics-er/spatial), [agentic code execution](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/gemini-robotics-er/agentic), [task orchestration](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/gemini-robotics-er/orchestration), and [video understanding](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/gemini-robotics-er/video-understanding).
-
-Feature
-
-**xAI's Grok 4.7 is generally available**
-
-[Grok 4.7](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/grok/grok-4-7) is now [generally available (GA)](https://cloud.google.com/products#product-launch-stages) for production use on the global endpoint and the US multi-region endpoint.
-
 **Google Cloud Armor**
 
 Feature
@@ -4558,40 +5007,6 @@ You can now create heterogeneous conversion workspaces by importing database sch
 Security
 
 A vulnerability (CVE-2026-85299) about incorrect authorization in Compute Engine was discovered and has been addressed. For more information, see the [GCP-2026-073 security bulletin](https://docs.cloud.google.com/compute/docs/security-bulletins#gcp-2026-073).
-
-**Gemini Enterprise Agent Platform**
-
-Feature
-
-**Control user intent matching for semantic governance policies**
-
-You can now turn user intent matching on or off for semantic governance policies by setting the `sgpUserIntentMatching` key on the authorization extension metadata. User intent matching is on by default; set the key to `DISABLED` to turn it off. Turning it off reduces protection against indirect prompt injection. When the key is set, policy evaluation logs report the mode each evaluation used in the `sgpUserIntentMatchingMode` field.
-
-For more information, see [Control user intent matching](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/configure-semantic-governance#control-intent-matching).
-
-Feature
-
-**Cloud Storage output support for Gemini image generation models**
-
-Direct Cloud Storage output persistence is [generally available (GA)](https://cloud.google.com/products#product-launch-stages) for [Gemini Nano Banana 2.1](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/nano-banana-2-1) (`gemini-nano-banana-2.1`), [Gemini 3.1 Flash Image](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-1-flash-image) (`gemini-3.1-flash-image`), [Gemini 3.1 Flash-Lite Image](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-1-flash-lite-image) (`gemini-3.1-flash-lite-image`), and [Gemini 3 Pro Image](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-pro-image) (`gemini-3-pro-image`). You can set `outputConfig.outputUriPrefix` and `generationConfig.responseFormat[].image.delivery` to `"URI"` in `generateContent` and `streamGenerateContent` requests to write generated and edited images directly to a Cloud Storage bucket and receive the object URI in `fileData.fileUri` instead of inline bytes. For more information, see [Save generated images to Cloud Storage](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/image-generation#save-generated-images-cloud-storage).
-
-Feature
-
-**Gemini 3.8 Flash TTS and Gemini 3.8 Flash-Lite TTS are Generally Available (GA)**
-
-[Gemini 3.8 Flash TTS](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-8-flash-tts) and [Gemini 3.8 Flash-Lite TTS](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-8-flash-lite-tts) are available in [General Availability (GA)](https://cloud.google.com/products#product-launch-stages) in the `global` location and the `us` and `eu` multi-regions. The models support structured speaker and style metadata, inline vocal tags, multi-speaker dialogue, and streaming. [Voice design](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/text-to-speech/voice-design) and [voice replication](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/text-to-speech/voice-replication) capabilities remain available in Preview.
-
-For more information, see [Generate speech with Gemini TTS](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/text-to-speech/overview).
-
-Feature
-
-**Semantic governance policies support more model providers**
-
-Semantic governance policies now evaluate tool calls from agents that use models from providers other than Gemini. The policy engine reads each provider's request and response format, so the same policies apply whichever model your agent uses. Supported APIs include the Gemini Developer API and Gemini models on Gemini Enterprise Agent Platform, the Anthropic Messages API, Claude models on Gemini Enterprise Agent Platform, the OpenAI Chat Completions API, the Mistral AI API, the OpenAI-compatible endpoint on Gemini Enterprise Agent Platform (including Llama models), and self-hosted OpenAI-compatible servers such as vLLM. Streamed model responses aren't supported.
-
-To govern these providers, update the `when` condition of your authorization policy to match each provider's request path. The updated condition also matches requests that include a query string.
-
-For more information, see [Supported model providers](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/semantic-governance-overview#supported-providers) and [Connect the policy engine to Agent Gateway](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/configure-semantic-governance#connect-policy-engine).
 
 **Google Distributed Cloud (software only) for bare metal**
 
@@ -5046,14 +5461,6 @@ Feature
 **Resize inline images in Case Wall comments**
 
 You can now resize inline images directly in rich-text comments on the Case Wall. To resize an image, switch the comment box to rich-text mode and insert an image either by using the toolbar's image menu or by pasting it into the comment. Click the image to display the resizing overlay, then drag the bottom-right handle to adjust its dimensions.
-
-**Google SecOps SOAR**
-
-Announcement
-
-Release 6.3.104 is being rolled out to the first phase of regions as listed [here](https://docs.cloud.google.com/chronicle/docs/soar/overview-and-introduction/soar-gradual-release).
-
-This release contains internal and customer bug fixes.
 
 ## October 24, 2026
 
@@ -5550,12 +5957,6 @@ For instructions, see [Version 53.0 rollback](https://docs.cloud.google.com/chro
 
 
 
-
-**Google SecOps SOAR**
-
-Announcement
-
-[Release 6.3.103](https://docs.cloud.google.com/chronicle/docs/soar/release-notes#October_18_2026) is now available for all regions.
 
 ## October 23, 2026
 
@@ -6829,27 +7230,6 @@ Feature
 
 Dataflow now supports streaming high availability for [Streaming Engine](https://docs.cloud.google.com/dataflow/docs/streaming-engine) jobs ([Preview](https://cloud.google.com/products#product-launch-stages)). When you enable the `requires_high_availability` service option, Dataflow replicates backend state across multiple zones in a region to protect your job from single-zone failures. For more information, see [Streaming high availability](https://docs.cloud.google.com/dataflow/docs/guides/streaming-high-availability).
 
-**Gemini Enterprise Agent Platform**
-
-Fixed
-
-**CodeMender updates (v0.16.0)**
-
-This release introduces updates to CodeMender:
-
-  * **Deep scan by default (`cm find`)**: `cm find` now runs a concurrent file-by-file deep scan (`--deep`) by default for higher vulnerability recall across repositories. To run a single-session quick scan instead, pass the `--quick` flag (`cm find --quick`). `cm stats` now breaks down scan usage by mode (`--deep`, `--quick`, and `--diff`).
-  * **Pre-flight health checks (`cm health`)**: Added the `cm health` command (with `--json`, `--strict`, and `--timeout` flags) to verify credentials, configuration, endpoint reachability, and project authorization before running scans.
-  * **Expanded file discovery** : `cm find` now scans `.hh`, `.hxx`, `.inl`, and `.ipp` C++ headers, extensionless scripts with supported language shebangs (`python`, `node`, `ruby`, and `php`), nested `build/`, `target/`, `obj/`, and `bin/` source directories, and production code under `spec/`, `locale/`, and `i18n/`.
-  * **Bug fixes** : 
-    * Restricted `cm verify` file writes to `.exploit/` inside the project root and skipped missing or out-of-scope session artifacts during workspace restore.
-    * Capped single-turn file reads at 256 KiB with pagination hints, bounded unified diff generation on large files, and raised `run_command` default and maximum timeouts to 120 seconds and 300 seconds.
-    * Fixed an issue where sandboxed sessions could not write tool call entries to `~/.codemender/audit.log`.
-    * Updated multi-file `--deep` and `--diff` scans to report `INCOMPLETE` status when one or more file scans fail.
-
-
-
-For more information, see the [CodeMender documentation](https://docs.cloud.google.com/gemini-enterprise-agent-platform/agents/codemender).
-
 **Google Distributed Cloud (software only) for VMware**
 
 Announcement
@@ -7301,6 +7681,20 @@ Cloud Tasks is available in the following [locations](https://docs.cloud.google.
 
 
 
+**Cluster Toolkit**
+
+Feature
+
+Cluster Toolkit v1.107.0 is available. This release adds the `random_name_suffix` variable to the [`resource-policy` module](https://docs.cloud.google.com/cluster-toolkit/docs/modules/resource-policy) so that you can optionally omit the random hexadecimal suffix from the names of resource policies.
+
+This release also upgrades Slurm to version 26.05.4 and updates image families to include CUDA 13.2.2 and NVIDIA driver version 595 for H4D, A3 Ultra, A4, and A4X blueprints.
+
+Additionally, this release enforces context timeouts to prevent unresponsive commands in the [`gcluster` CLI](https://docs.cloud.google.com/cluster-toolkit/docs/reference/gcluster), and pins `kubectl` calls and the dynamic client to the configured `kubeconfig` context for operations on GKE.
+
+This update also resolves slice shorthands for Cloud TPU, unifies placement policies across GPU and TPU machine types when you [submit jobs](https://docs.cloud.google.com/cluster-toolkit/docs/reference/gcluster-job-submit), and waits for Pods to start before the [`gcluster job logs` command](https://docs.cloud.google.com/cluster-toolkit/docs/reference/gcluster-job-logs) fetches logs.
+
+For more information, see the [release announcement on GitHub](https://github.com/GoogleCloudPlatform/cluster-toolkit/discussions/6516).
+
 **Compute Engine**
 
 Feature
@@ -7478,24 +7872,6 @@ Feature
 Feature
 
 [Text search](https://docs.cloud.google.com/firestore/mongodb-compatibility/docs/text-query) and [Geospatial search](https://docs.cloud.google.com/firestore/mongodb-compatibility/docs/geo-query) are generally available ([GA](https://cloud.google.com/products#product-launch-stages)).
-
-**Gemini Enterprise Agent Platform**
-
-Feature
-
-**Supervised fine-tuning for Gemini 3 models is available in General Availability**
-
-[Supervised fine-tuning](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/supervised-tuning) for Gemini 3 models is available in [General Availability (GA)](https://cloud.google.com/products#product-launch-stages).
-
-Key updates include the following:
-
-  * **Gemini 3.5 Flash Lite support** : Supervised fine-tuning is now supported for [Gemini 3.5 Flash Lite](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-5-flash-lite) (`gemini-3.5-flash-lite`), in addition to Gemini 3.5 Flash (`gemini-3.5-flash`) and Gemini 3.1 Flash Lite (`gemini-3.1-flash-lite`).
-  * **Supported regions** : Model tuning jobs and tuned model serving for Gemini 3 models are supported on the `us` and `eu` multi-region endpoints.
-  * **Customer-managed encryption keys (CMEK)** : [Customer-managed encryption keys (CMEK)](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/cmek) are supported for protecting tuning job resources and tuned models.
-
-
-
-For more information, see [About supervised fine-tuning for Gemini models](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/supervised-tuning) and [Tune Gemini models by using supervised fine-tuning](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/supervised-tuning/use).
 
 **Google Cloud Armor**
 
@@ -7707,32 +8083,6 @@ Feature
 **Specify whether to reopen closed cases when the grouping is by Source Grouping Identifier**
 
 You can now specify whether Google SecOps reopens closed cases when grouping SOAR alerts by **Source Grouping Identifier**. When the option is enabled and a new alert is received with a source grouping identifier of a case that was previously closed in Google SecOps, then Google SecOps reopens the case. For more information, see [Configure alert grouping](https://docs.cloud.google.com/chronicle/docs/soar/investigate/working-with-alerts/alert-grouping-mechanism-admin).
-
-**Google SecOps SOAR**
-
-Announcement
-
-Release 6.3.103 is being rolled out to the first phase of regions as listed [here](https://docs.cloud.google.com/chronicle/docs/soar/overview-and-introduction/soar-gradual-release).
-
-Feature
-
-**Specify whether to reopen closed cases when the grouping is by Source Grouping Identifier**
-
-You can now specify whether Google SecOps reopens closed cases when grouping alerts by **Source Grouping Identifier**. When the option is enabled and a new alert is received with a source grouping identifier of a case that was previously closed in Google SecOps, then Google SecOps reopens the case. For more information, see [Configure alert grouping](https://docs.cloud.google.com/chronicle/docs/soar/investigate/working-with-alerts/alert-grouping-mechanism-admin).
-
-Deprecated
-
-**Deprecation of the ListCaseEvents API endpoint**
-
-Effective October 12, 2026, the ListCaseEvents API endpoint is deprecated. You should use the [ListCaseEvidenceData](https://docs.cloud.google.com/chronicle/docs/reference/rest/v1alpha/projects.locations.instances.cases.caseEvidenceDatas/list) API endpoint instead.
-
-## October 17, 2026
-
-**Google SecOps SOAR**
-
-Announcement
-
-[Release 6.3.102](https://docs.cloud.google.com/chronicle/docs/soar/release-notes#October_11_2026) is now available for all regions.
 
 ## October 16, 2026
 
@@ -8364,37 +8714,6 @@ Gemini 4 Argon is generally available (GA) for Workflow Builder. Gemini 4 Argon 
 
 
 For more information, see [Workflow Builder](https://docs.cloud.google.com/gemini/enterprise/docs/workflow-builder).
-
-**Gemini Enterprise Agent Platform**
-
-Feature
-
-**Priority PayGo support for Gemini Nano Banana 2.1**
-
-[Priority Pay-as-you-go (PayGo)](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/priority-paygo) is available in [General Availability (GA)](https://cloud.google.com/products#product-launch-stages) for [Gemini Nano Banana 2.1](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/nano-banana-2-1) (`gemini-nano-banana-2.1`) on the `global` endpoint.
-
-Fixed
-
-**CodeMender updates (v0.15.0)**
-
-This release introduces updates to CodeMender:
-
-  * **Enhanced SARIF 2.1.0 reporting** : Updated `cm report` SARIF output with standardized rule descriptors, severity properties, and repository-relative artifact locations for improved GitHub Code Scanning compatibility.
-  * **Model invocation metrics** : Added model invocation tracking to `cm stats --json`, providing total, per-session, and per-turn invocation counts.
-  * **Bug fixes** : 
-    * Fixed an issue where token usage from completed turns was omitted from session logs during error or cancellation exit paths.
-
-
-
-For more information, see the [CodeMender documentation](https://docs.cloud.google.com/gemini-enterprise-agent-platform/codemender).
-
-Feature
-
-**DeepSeek-V4.1-Flash is available in Public Preview**
-
-DeepSeek-V4.1-Flash from DeepSeek is available as a fully managed model (MaaS) in Model Garden. The model accepts text and image input, targets agentic and coding tasks, and supports a context window of up to 1M tokens.
-
-For more information, see [DeepSeek-V4.1-Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/maas/deepseek/deepseek-v41-flash).
 
 **Google Cloud Armor**
 
@@ -9163,30 +9482,6 @@ AlphaEvolve experiments can generate candidate programs with Gemini 4 Argon in t
 
 For more information, see [Supported models](https://docs.cloud.google.com/gemini/enterprise/docs/alphaevolve/reference-guide/api-reference#supported-models) and [AlphaEvolve limitations](https://docs.cloud.google.com/gemini/enterprise/docs/locations#alphaevolve-limitations).
 
-**Gemini Enterprise Agent Platform**
-
-Feature
-
-**Gemini 4 Argon in CodeMender (Preview)**
-
-CodeMender now supports Gemini 4 Argon. To use it, pass `--model gemini-4-argon` to `cm find`, `cm verify`, or `cm fix`. Gemini 3.8 Flash remains the default model.
-
-For more information, see [Specifying the model](https://docs.cloud.google.com/gemini-enterprise-agent-platform/agents/codemender#specifying-the-model).
-
-Feature
-
-**Gemini 4 Argon and Gemini 4 Argon Cyber Permissive**
-
-[Gemini 4 Argon](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/4-argon) (`gemini-4-argon`) is available in [General Availability (GA)](https://cloud.google.com/products#product-launch-stages). Gemini 4 Argon is Google's frontier model that excels at deep work in complex, real-world tasks across domains including coding, finance, legal, cybersecurity, and science. It supports a unified 1,048,576-token input and output limit, configurable thinking levels (`LOW`, `MEDIUM`, `HIGH`), [long decodes](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/guides/gemini-4-argon#long-decodes) up to 1,048,576 tokens using continuation tokens on the `GenerateContent` API, and [agentic video understanding](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/video-understanding#agentic-video-processing) in GA.
-
-[Gemini 4 Argon Cyber Permissive](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/4-argon#cyber) (`gemini-4-argon-cyber-permissive`), a version of Gemini 4 Argon for defensive cybersecurity use cases, is also available in GA behind the [Fairwind Program](https://deepmind.google/fairwind-program/) allowlist.
-
-  * **Known issue (long decodes)** : Long decoding (`continuation_token`) on the `GenerateContent` API (`generateContent` and `streamGenerateContent`) is supported only in the `v1beta1` API (not `v1`). The Google Gen AI SDK uses `v1beta1` by default unless `api_version='v1'` is specified in `http_options`; for direct REST calls, use the `v1beta1` endpoint path.
-
-
-
-For more information, see [Get started with Gemini 4](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/start/get-started-with-gemini-4) and the [developer's guide to Gemini 4 Argon](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/guides/gemini-4-argon).
-
 **Google Distributed Cloud (software only) for VMware**
 
 Announcement
@@ -9785,29 +10080,6 @@ Firestore with MongoDB compatibility now supports QueryData, which you can use t
 
 This feature is available in [Preview](https://cloud.google.com/products#product-launch-stages).
 
-**Gemini Enterprise Agent Platform**
-
-Fixed
-
-**CodeMender updates (v0.14.0)**
-
-This release introduces updates to CodeMender:
-
-  * **Better pull request scans** : `cm find --diff` now catches removed security controls and gives large files more time (configurable with `--diff-job-timeout`).
-  * **Unified sessions** : `--deep` and `--diff` scans now appear as a single session in `cm session list`, `cm report`, and `cm stats`.
-  * **Moved code in`cm verify`**: `cm verify` now finds code that moved since `cm find` and updates the finding's location.
-  * **Guided activation** : `cm` now opens the activation page and waits for activation instead of exiting.
-  * **New`cm find` flags**: `--deep-max-turns` limits exploratory steps per file in `--deep` scans, and `--enable-bash` allows shell commands during scans.
-  * **Improved detection** : More distinct findings per file and more precise CWE classification for weak hashing and randomness.
-  * **Bug fixes** : 
-    * Fixed scans of repositories reached through nested symbolic links.
-    * Fixed findings for nonexistent files and over-merged findings.
-    * Shell scripts created by `cm verify` are now executable.
-
-
-
-For more information, see the [CodeMender documentation](https://docs.cloud.google.com/gemini-enterprise-agent-platform/agents/codemender).
-
 **Google Cloud Managed Service for Apache Kafka**
 
 Announcement
@@ -10089,12 +10361,6 @@ As a follow-up to the release of the `GTI_IOC` feed and the deprecation of the l
 
 The update follows the standard Google SecOps rollout schedule. It starts on Monday, October 12, 2026 and rolls out to all regions during the week.
 
-**Google SecOps SOAR**
-
-Announcement
-
-The deadline for the migration of SOAR APIs to the Chronicle API has been extended from November 30, 2026 until March 31, 2027. For more information, refer to [SOAR Migration overview](https://docs.cloud.google.com/chronicle/docs/soar/admin-tasks/advanced/migrate-to-gcp)
-
 **Looker**
 
 Feature
@@ -10157,14 +10423,6 @@ Change
 
 Installed latest packages from upstream dependencies.
 
-**Google SecOps SOAR**
-
-Announcement
-
-Release 6.3.102 is being rolled out to the first phase of regions as listed [here](https://docs.cloud.google.com/chronicle/docs/soar/overview-and-introduction/soar-gradual-release).
-
-This release contains internal and customer bug fixes.
-
 ## October 10, 2026
 
 **Cloud SQL for MySQL**
@@ -10174,12 +10432,6 @@ Change
 MySQL 8.0.46 is now the [default minor version](https://docs.cloud.google.com/sql/docs/mysql/db-versions#database-version-support) for Cloud SQL for MySQL 8.0.
 
 For more information about minor version support in Cloud SQL for MySQL, see [MySQL 8.0](https://docs.cloud.google.com/sql/docs/mysql/db-versions#mysql-8.0).
-
-**Google SecOps SOAR**
-
-Announcement
-
-[Release 6.3.101](https://docs.cloud.google.com/chronicle/docs/soar/release-notes#September_27_2026) is now available for all regions.
 
 ## October 09, 2026
 
@@ -10202,6 +10454,12 @@ Feature
 The [BigQuery Data Engineering Agent](https://docs.cloud.google.com/gemini/data-agents/data-engineering-agent/agent-overview) is now available in the `asia-northeast1` (Tokyo) regional endpoint and supports the gemini-3.5-flash model. For more information, see [Where Gemini in BigQuery processes your data](https://docs.cloud.google.com/bigquery/docs/gemini-locations#bigquery-data-engineering-agent).
 
 This feature is [Generally Available](https://cloud.google.com/products#product-launch-stages) (GA).
+
+Feature
+
+Lakehouse now supports change data capture (CDC) ingestion from Delta Lake and Apache Iceberg tables ([Preview](https://cloud.google.com/products#product-launch-stages)).
+
+You can now synchronize CDC transaction logs (inserts, updates, deletes) from Delta Lake and Apache Iceberg tables into Lakehouse Apache Iceberg tables using Dataflow batch jobs (for Delta Lake) or batch and streaming jobs (for Apache Iceberg). For more information, see [Migrate Delta Lake CDC data into Lakehouse using Dataflow](https://docs.cloud.google.com/lakehouse/docs/migrate-delta-lake-cdc) and [Migrate Apache Iceberg CDC data into Lakehouse using Dataflow](https://docs.cloud.google.com/lakehouse/docs/migrate-iceberg-cdc).
 
 **Cloud SQL for MySQL**
 
@@ -11002,7 +11260,7 @@ Conversational Analytics preview features can still be enabled selectively under
 
 Feature
 
-Conversational Analytics data agents for both [user-defined dashboards](https://docs.cloud.google.com/looker/docs/conversational-analytics-looker-data-agents-dashboards) and [LookML dashboards](https://docs.cloud.google.com/release-notes/looker/docs/conversational-analytics-looker-data-agents-lookml-dashboards) are now generally available.
+Conversational Analytics data agents for both [user-defined dashboards](https://docs.cloud.google.com/looker/docs/conversational-analytics-looker-data-agents-dashboards) and [LookML dashboards](https://docs.cloud.google.com/looker/docs/conversational-analytics-looker-data-agents-lookml-dashboards) are now generally available.
 
 (**Note** : This item was added on October 14, 2026.)
 
@@ -11365,31 +11623,6 @@ For more information, see the following resources:
   * [Overview of pay-as-you-go usage above quota and spend controls](https://docs.cloud.google.com/gemini/enterprise/docs/manage-costs-overview)
 
 
-
-**Gemini Enterprise Agent Platform**
-
-Feature
-
-**Anthropic's Claude Haiku 5.5**
-
-[Claude Haiku 5.5](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/claude/haiku-5-5) is available in Model Garden.
-
-Fixed
-
-**CodeMender updates (v0.13.0)**
-
-This release introduces updates to CodeMender:
-
-  * **Consistent finding deduplication** : Improved finding deduplication consistency across repeated `cm find`, `--deep`, `--diff`, and `--parallel` scans.
-  * **Bug fixes** : 
-    * Fixed an issue where deduplicated findings could appear in `cm report --status DISMISSED`.
-    * Improved local state reliability during concurrent `cm find --diff` and `cm find --deep` scans.
-    * Updated streaming error handling so non-retryable errors fail immediately instead of retrying.
-    * Ensured local session state and logs are saved cleanly when a session is interrupted (`Ctrl+C`).
-
-
-
-For more information, see the [CodeMender documentation](https://docs.cloud.google.com/gemini-enterprise-agent-platform/agents/codemender).
 
 **Google Distributed Cloud (software only) for VMware**
 
@@ -11840,14 +12073,6 @@ These settings are generally available (GA) for administrators in Gemini Enterpr
 
 For more information, see [Configure feature settings](https://docs.cloud.google.com/gemini/enterprise/docs/ai-developer-tools-settings#configure-feature-settings).
 
-**Gemini Enterprise Agent Platform**
-
-Feature
-
-**Gemini Nano Banana 2.1**
-
-[Gemini Nano Banana 2.1](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/nano-banana-2-1) (`gemini-nano-banana-2.1`) is available in [General Availability (GA)](https://cloud.google.com/products#product-launch-stages). Gemini Nano Banana 2.1 is optimized for high-speed multimodal image generation and editing, offering improved visual quality, prompt adherence, and text rendering across `1K`, `2K`, and `4K` output resolutions.
-
 **Google Kubernetes Engine**
 
 Issue
@@ -11970,30 +12195,6 @@ Feature
 Announcement
 
 A new Confidential Space image (260900) is available.
-
-**Gemini Enterprise Agent Platform**
-
-Fixed
-
-**CodeMender updates (v0.12.0)**
-
-This release introduces updates to CodeMender:
-
-  * **Hidden file scanning** : Added the `--include-hidden` flag to `cm find` (or `include_hidden` under `scan` in `config.yaml`) to include hidden directories and files, such as `.github/` and `.config/`, in vulnerability scans.
-  * **Larger file support** : Raised the default file discovery size limit (`max_file_size_kb`) from 500 KB to 2 MiB so `cm find` no longer skips large source files. Existing configurations that use the previous 500 KB default are upgraded automatically, and `--deep` and `--diff` scans can now read beyond the inline preview of files larger than 64 KB.
-  * **Report output for every scan mode** : `cm find --output` now writes the scan report for standard, `--deep`, `--parallel`, and `--diff` scans.
-  * **Scoped fixes** : `cm fix` now prevents the agent from modifying CI/CD pipelines, static analysis configurations, build definitions, and repository configuration files that are outside the scope of the vulnerability being fixed.
-  * **Accurate session token usage** : `cm` now reports the total token usage across all turns of a session, instead of only the final turn, so token counts in `cm stats` and session exports match billed usage.
-  * **Bug fixes** : 
-    * Fixed duplicate findings in `cm report` and `cm stats`, and stopped merging distinct vulnerability types reported on the same line.
-    * Fixed `database is locked` errors during `cm find --deep` scans with multiple workers.
-    * Reduced false positives by requiring a concrete, viable exploit before reporting a finding with high confidence.
-    * Included sessions from `cm find --deep` and `cm find --diff` workers in `cm stats`.
-    * Fixed `cm verify` resolving relative finding and exploit artifact paths against the current working directory instead of the project root.
-
-
-
-For more information, see the [CodeMender documentation](https://docs.cloud.google.com/gemini-enterprise-agent-platform/agents/codemender).
 
 **Google Kubernetes Engine**
 
@@ -12141,21 +12342,7 @@ Change
 
 The BigQuery JupyterLab plugin is now enabled independently of the Dataproc plugin: it is enabled by default and can be turned off with the new disable-bigquery instance metadata key, while disable-mixer now controls only the Dataproc plugin.
 
-**Google SecOps SOAR**
-
-Announcement
-
-Release 6.3.101.2 is being rolled out to the first phase of regions as listed [here](https://docs.cloud.google.com/chronicle/docs/soar/overview-and-introduction/soar-gradual-release).
-
-This release contains internal and customer bug fixes.
-
 ## October 03, 2026
-
-**Google SecOps SOAR**
-
-Announcement
-
-Release 6.3.100.3 is now available for all regions.
 
 **Sensitive Data Protection**
 
@@ -14468,14 +14655,6 @@ Change
 
 Installed latest packages from upstream dependencies.
 
-**Google SecOps SOAR**
-
-Announcement
-
-Release 6.3.101 is being rolled out to the first phase of regions as listed [here](https://docs.cloud.google.com/chronicle/docs/soar/overview-and-introduction/soar-gradual-release).
-
-This release contains internal and customer bug fixes.
-
 ## September 26, 2026
 
 **Backup and DR**
@@ -14545,12 +14724,6 @@ These features are now available for the Host Agent:
   * Expanded Linux Changed Block Tracking (CBT) support across the latest kernel updates for RHEL 8, RHEL 9, and RHEL 10 distributions.
 
 
-
-**Google SecOps SOAR**
-
-Announcement
-
-[Release 6.3.100](https://docs.cloud.google.com/chronicle/docs/soar/release-notes#September_06_2026) is now available for all regions.
 
 ## September 25, 2026
 
@@ -16588,6 +16761,12 @@ Bug ID | Description
 **N/A** | Updates to infrastructure and libraries.  
   
 **BigQuery**
+
+Feature
+
+_Lakehouse_ now supports Workday Data Lake as a remote catalog provider for cross-cloud data access ([Preview](https://cloud.google.com/products#product-launch-stages)). You can configure federated catalogs to query data stored in Workday Data Lake directly from Google Cloud using BigQuery or Apache Spark without migrating data or building complex ETL pipelines.
+
+For more information, see [Set up cross-cloud connection for Workday Data Lake](https://docs.cloud.google.com/lakehouse/docs/set-up-cross-cloud-connection-workday).
 
 Feature
 
@@ -20724,26 +20903,10 @@ Feature
 
 
 
-## September 07, 2026
-
-**Cluster Toolkit**
-
-Feature
-
-Cluster Toolkit version v1.103.0 is available. This release simplifies the `gcluster` job configuration workflow, adds dynamic catalog fallback for system node pools, increases the maximum system node pool limit to 150 nodes, and replaces deprecated `e2` instances with `n2d` across daily tests and configurations. This release also upgrades Slurm to version 25.11.8 to address multiple security vulnerabilities. For more information about the vulnerabilities, see the [security bulletin](https://docs.cloud.google.com/cluster-toolkit/docs/security-bulletins#gcp-2026-062) and the [release announcement on GitHub](https://github.com/GoogleCloudPlatform/cluster-toolkit/discussions/6280).
-
-**Knowledge Catalog**
-
-Feature
-
-Data domains in Knowledge Catalog allow you to logically organize the resources within the enterprise to discover and curate your data at scale. This feature is available in [Preview](https://cloud.google.com/products#product-launch-stages).
-
-For more information, see [About data domains](https://docs.cloud.google.com/knowledge-catalog/docs/data-domains-overview).
-
 Send feedback 
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-06 UTC.
+Last updated 2026-11-07 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-06 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-07 UTC."],[],[]] 

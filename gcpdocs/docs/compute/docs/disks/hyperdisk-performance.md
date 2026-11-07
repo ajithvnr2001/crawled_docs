@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/compute/docs/disks/hyperdisk-performance/
 title: Google Cloud Hyperdisk performance overview \u00a0|\u00a0 Compute Engine \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-05T11:08:51.514416+00:00
+fetched_at: 2026-11-07T08:32:19.040521+00:00
 ---
 
 # Google Cloud Hyperdisk performance overview  |  Compute Engine  |  Google Cloud Documentation
@@ -148,6 +148,7 @@ The following machine series offer steady state performance:
 
   * [A3 (H200)](https://docs.cloud.google.com/compute/docs/gpus#h200-gpus)
   * [A4](https://docs.cloud.google.com/compute/docs/accelerator-optimized-machines#a4-vms)
+  * [A5X](https://docs.cloud.google.com/compute/docs/accelerator-optimized-machines#a5x-instances)
   * [C4](https://docs.cloud.google.com/compute/docs/general-purpose-machines#c4_series)
   * [C4D](https://docs.cloud.google.com/compute/docs/general-purpose-machines#c4d_series)
   * [C4N](https://docs.cloud.google.com/compute/docs/network-optimized-machines#c4n_series)
@@ -248,7 +249,7 @@ To reach the maximum IOPS and throughput levels offered by Hyperdisk volumes, yo
 
   * **I/O size** : You must use specific block sizes to reach the IOPS and throughput limits, as follows: 
     * Maximum IOPS limits require an I/O size of 4 KB.
-    * Maximum throughput limits require a I/O size of at least 256 KB.
+    * Maximum throughput limits require an I/O size of at least 256 KB.
   * **Queue length** : Queue length is the number of pending requests for a volume. To reach maximum performance limits, you must adjust your queue length according to the I/O size, IOPS, and latency sensitivity of your workload. Optimal queue length varies for each workload, but typically should be larger than 256. 
   * **Number of attached volumes** : For best performance results, we recommend attaching 8 or fewer volumes to a single instance. 
 
@@ -266,6 +267,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-04 UTC.
+Last updated 2026-11-06 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-06 UTC."],[],[]] 

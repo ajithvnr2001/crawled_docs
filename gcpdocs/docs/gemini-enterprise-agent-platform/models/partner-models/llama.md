@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/llama/
 title: Fully-managed Llama models \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-06T10:42:33.930176+00:00
+fetched_at: 2026-11-07T08:27:55.684462+00:00
 ---
 
 # Fully-managed Llama models  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation
@@ -32,7 +32,7 @@ Llama models offer fully managed and serverless models as APIs. To use a Llama m
 
 The following models are available from Llama to use in Gemini Enterprise Agent Platform. To access a Llama model, go to its Model Garden model card.
 
-[Llama 4 Maverick 17B-128E](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/llama/llama4-maverick) The largest and most capable multimodal Llama 4 model (MoE 17B active / 400B total), optimized for coding, deep reasoning, sophisticated chat, and high-precision image understanding. [Llama 4 Scout 17B-16E](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/llama/llama4-scout) High-efficiency MoE model (17B active / 109B total) delivering state-of-the-art results for long-context retrieval, document summarization, and reasoning across large codebases. block [Llama 3.3 70B](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/llama/llama3-3) A text-only 70B instruction-tuned model that provides enhanced performance relative to Llama 3.1 70B and Llama 3.2 90B for text-only applications.
+[Llama 4 Maverick 17B-128E](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/llama/llama4-maverick) The largest and most capable multimodal Llama 4 model (MoE 17B active / 400B total), optimized for coding, deep reasoning, sophisticated chat, and high-precision image understanding. [Llama 4 Scout 17B-16E](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/llama/llama4-scout) High-efficiency MoE model (17B active / 109B total) delivering state-of-the-art results for long-context retrieval, document summarization, and reasoning across large codebases.
 
 ## Use Llama models
 
@@ -56,6 +56,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-05 UTC.
+Last updated 2026-11-07 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-05 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-07 UTC."],[],[]] 

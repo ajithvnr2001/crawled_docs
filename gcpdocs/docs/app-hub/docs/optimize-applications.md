@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/app-hub/docs/optimize-applications/
 title: Optimize an application with design recommendations \u00a0|\u00a0 App Hub \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T18:47:21.885293+00:00
+fetched_at: 2026-11-07T08:24:44.023995+00:00
 ---
 
 # Optimize an application with design recommendations  |  App Hub  |  Google Cloud Documentation
@@ -21,9 +21,9 @@ Send feedback
 
 #  Optimize an application with design recommendations Stay organized with collections  Save and categorize content based on your preferences. 
 
-Continuously improving your App Hub applications is key to meeting operational and business goals. Application insights and assistance services, such as [Cloud Hub](https://docs.cloud.google.com/hub/docs/overview) and [Gemini Cloud Assist](https://docs.cloud.google.com/cloud-assist/overview), help you identify optimization opportunities. For example, you might receive recommendations to resize underutilized virtual machines or configure Cloud CDN to reduce latency and cost.
+Insights from [Cloud Hub](https://docs.cloud.google.com/hub/docs/overview) and [Gemini Cloud Assist](https://docs.cloud.google.com/cloud-assist/overview) help you identify opportunities to optimize your applications. For example, you can review recommendations to resize underutilized virtual machines or configure Cloud CDN to reduce latency and cost.
 
-This guide shows you how to analyze an existing application and then use [Application Design Center](https://docs.cloud.google.com/application-design-center/docs/overview) to implement architectural changes.
+After you analyze an existing application, you can use [Application Design Center](https://docs.cloud.google.com/application-design-center/docs/overview) to model and deploy the recommended architectural changes.
 
 ## Before you begin
 
@@ -84,6 +84,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-07 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-07 UTC."],[],[]] 

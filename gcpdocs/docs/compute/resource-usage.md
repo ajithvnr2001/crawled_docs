@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/compute/resource-usage/
 title: Allocation quotas \u00a0|\u00a0 Compute Engine \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T23:45:21.371064+00:00
+fetched_at: 2026-11-07T08:32:26.132084+00:00
 ---
 
 # Allocation quotas  |  Compute Engine  |  Google Cloud Documentation
@@ -141,7 +141,7 @@ Local SSD disks are sold in increments of 375 GiB or 3 TiB, depending on the mac
 
 **Note:** `LOCAL_SSD_TOTAL_GB` quota has been deprecated. To view the local SSD quota usage and limits, you must use the quota metric `compute.googleapis.com/local_ssd_total_storage_per_vm_family` BETA in your Cloud Monitoring dashboards, alerts, and queries. For more information, see [View and manage local SSD quota](https://docs.cloud.google.com/compute/docs/quotas/migrate-local-ssd-quota).
 
-For A4X Max, A4X, A4, A3 Ultra, A3 Mega, A3 High, A3 Edge, A2 ultra, and G4 machine types, you don't need to request this quota as Local SSDs are automatically added to VMs created by using these machine types. However, you need to request `LOCAL_SSD_TOTAL_GB_PER_VM_FAMILY` for the other [accelerator-optimized VMs](https://docs.cloud.google.com/compute/docs/accelerator-optimized-machines).
+For A5X, A4X Max, A4X, A4, A3 Ultra, A3 Mega, A3 High, A3 Edge, A2 ultra, and G4 machine types, you don't need to request this quota as Local SSDs are automatically added to VMs created by using these machine types. However, you need to request `LOCAL_SSD_TOTAL_GB_PER_VM_FAMILY` for the other [accelerator-optimized VMs](https://docs.cloud.google.com/compute/docs/accelerator-optimized-machines).
 
 
 
@@ -239,6 +239,7 @@ C4A | separate pool | `CPUS_PER_VM_FAMILY` | `vm_family="C4A"` | `Committed_C4A_
 C4D | separate pool | `CPUS_PER_VM_FAMILY` | `vm_family="C4D"` | `Committed_C4D_CPUS`  
 C4N | separate pool | `CPUS_PER_VM_FAMILY` | `vm_family="C4N"` | `Committed_C4N_CPUS`  
 A2* | separate pool | `A2_CPUS` | Not applicable | `Committed_A2_CPUS`  
+A5X† | N/A for A5X | N/A for A5X | Not applicable | N/A for A5X  
 A4X Max† | N/A for A4X Max | N/A for A4X Max | Not applicable | N/A for A4X Max  
 A4X† | N/A for A4X | N/A for A4X | Not applicable | N/A for A4X  
 A4† | N/A for A4 | N/A for A4 | Not applicable | N/A for A4  
@@ -249,7 +250,7 @@ Preemptible VMs | shared pool | `PREEMPTIBLE_CPUS` | Not applicable | Not availa
   
 *To create A2 VMs, you only need to have the required NVIDIA A100 GPU quotas. You don't need to request CPU quotas. 
 
-† To create A4X Max, A4X, A4, A3, G4, and G2 VMs, you only need to have the required NVIDIA GB300, GB200, B200, H200, H100, RTX PRO 6000, or L4 GPU quotas for the VM type. You don't need to request CPU quotas.
+† To create A5X, A4X Max, A4X, A4, A3, G4, and G2 VMs, you only need to have the required NVIDIA Vera Rubin, GB300, GB200, B200, H200, H100, RTX PRO 6000, or L4 GPU quotas for the VM type. You don't need to request CPU quotas.
 
 ### GPU quota
 
@@ -263,8 +264,9 @@ The following table lists the GPU quotas available for each machine type.
 
 **Caution:** NVIDIA T4 and P4 GPUs reach end of support on August 1, 2027. For more information, see [NVIDIA T4 end of support](https://docs.cloud.google.com/compute/docs/eol/t4-eos) and [NVIDIA P4 end of support](https://docs.cloud.google.com/compute/docs/eol/p4-eos). 
 
-Machine type | GPU type | Standard quota | Committed quota | Virtual workstation quota | Preemptible quota | Preemptible virtual workstation quota | A4X Max | GB300 | Not available | `COMMITTED_NVIDIA_GB300_GPUS` | Not available | `PREEMPTIBLE_NVIDIA_GB300_GPUS` | Not available  
+Machine type | GPU type | Standard quota | Committed quota | Virtual workstation quota | Preemptible quota | Preemptible virtual workstation quota | A5X | Vera Rubin | Not available | `COMMITTED_NVIDIA_VR200_METAL_GPUS` | Not available | `PREEMPTIBLE_NVIDIA_VR200_METAL_GPUS` | Not available  
 ---|---|---|---|---|---|---  
+A4X Max | GB300 | Not available | `COMMITTED_NVIDIA_GB300_GPUS` | Not available | `PREEMPTIBLE_NVIDIA_GB300_GPUS` | Not available  
 A4X | GB200 | Not available | `COMMITTED_NVIDIA_GB200_GPUS` | Not available | `PREEMPTIBLE_NVIDIA_GB200_GPUS` | Not available  
 A4 | B200 | Not available | `COMMITTED_NVIDIA_B200_GPUS` | Not available | `PREEMPTIBLE_NVIDIA_B200_GPUS` | Not available  
 A3 Ultra | H200 | Not available | `COMMITTED_NVIDIA_H200_GPUS` | Not available | `PREEMPTIBLE_NVIDIA_H200_GPUS` | Not available  
@@ -349,6 +351,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-06 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-06 UTC."],[],[]] 

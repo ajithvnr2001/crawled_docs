@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-cx/insights/qai-basics/
 title: Quality AI basics \u00a0|\u00a0 Customer Experience Insights \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-05T00:17:51.704566+00:00
+fetched_at: 2026-11-07T08:29:37.968807+00:00
 ---
 
 # Quality AI basics  |  Customer Experience Insights  |  Google Cloud Documentation
@@ -74,55 +74,12 @@ You can use predefined questions in your scorecard with questions and answer cho
 
 Predefined questions identify the following metrics:
 
+  * Agent quality
   * Conversation outcome
-  * Escalation initiator
-  * AI aversion
+  * Customer satisfaction
+  * Guardrails
 
 
-
-#### Conversation outcome
-
-Conversation outcomes identify the outcome of the conversation in the context of the user's task.
-
-  * **Abandoned** : The user stopped responding or dropped off the conversation before any of the user's tasks were completed and without being escalated to a human agent.
-  * **Partially resolved** : The agent understood the user's intent and completed some, but not all of the user's tasks. The conversation ended before all the user's tasks were fully completed.
-  * **Escalated** : Conversation transferred to a human agent, initiated by the user's request.
-  * **Redirected** : Conversation transferred to a human agent, initiated by the agent.
-  * **Successfully resolved** : The agent understood the user's intent, completed the user's tasks, and received an explicit acknowledgement from the user at the end of the conversation.
-  * **Unknown** : The conversation's outcome could not be identified.
-
-
-
-#### Escalation initiator
-
-The escalation initiator identifies if there is an escalation to a human agent and who initiated that process.
-
-  * **User** : The user initiated an escalation to a human agent.
-  * **Agent** : The agent initiated an escalation to a human agent.
-  * **No transfer** : The conversation was not escalated to a human agent. This includes cases where the agent redirected the user to a different resource to resolve their request, but did not escalate to a human agent.
-
-
-
-#### AI aversion
-
-The AI aversion metric highlights situations where customers express reluctance, attempt to bypass the system, or show frustration when interacting with virtual agents early in a conversation. This distinction helps separate initial customer preference for a human representative from standard escalations caused by virtual agent errors later in the session.
-
-Quality AI automatically categorizes each customer turn into one of the following levels:
-
-  * **High aversion** : The user refuses to engage with the agent from the start and doesn't state any intent or issue, includes messages with direct demands for a human. Or, the user expresses explicit hostility toward AI automation, such as _I hate talking to robots_.
-  * **Moderate aversion** : The user shows reluctance to engage with the virtual agent by providing only a vague or overly generic intent (for example, _help_ or _problem_) such that the virtual agent lacks enough information to assist, and immediately demands a human transfer. Alternatively, the user states an intent but refuses to answer basic clarifying questions from the virtual agent, insisting on reaching an agent instead.
-  * **No aversion** : The user treats the virtual agent as a valid support channel by engaging naturally and providing actionable issue details. One example of a normal escalation due to virtual agent failure, and not AI aversion, is when the user provides a specific intent (for example, _My internet is down_) and later escalates because the virtual agent provided an inaccurate or unhelpful answer.
-
-
-
-CX Insights and Customer Experience Agent Studio dashboards display the following AI aversion metrics to track early escalation trends:
-
-  * **AI Aversion Rate (Summary Card):** Shows the percentage of overall conversations where customers demonstrate AI aversion within the first two message exchanges. Click the card to open detailed metrics.
-  * **AI Aversion Breakdown (Chart):** Visual breakdown of the distribution between high, moderate, and no aversion levels.
-
-
-
-Select the summary card or click any section of the breakdown chart to view session details, filtered for conversations with early AI aversion.
 
 ### Custom tags
 
@@ -206,6 +163,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-03 UTC.
+Last updated 2026-11-06 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-06 UTC."],[],[]] 

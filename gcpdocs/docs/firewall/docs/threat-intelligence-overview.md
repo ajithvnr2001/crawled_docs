@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/firewall/docs/threat-intelligence-overview/
 title: Google Threat Intelligence for firewall policy rules \u00a0|\u00a0 Cloud Next Generation Firewall \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T16:25:24.146325+00:00
+fetched_at: 2026-11-07T08:29:46.321045+00:00
 ---
 
 # Google Threat Intelligence for firewall policy rules  |  Cloud Next Generation Firewall  |  Google Cloud Documentation
@@ -30,7 +30,7 @@ This page describes how firewall policy rules secure your network by allowing or
     * IP address ranges used by Amazon Web Services
     * IP address ranges used by Microsoft Azure
     * IP address ranges used by Google Cloud
-    * IP address ranges used by Google services
+    * IP address ranges owned by Google
 
 
 
@@ -52,8 +52,6 @@ Public clouds - Azure
 (`iplist-public-clouds-azure`) | Matches IP address ranges used by Microsoft Azure  
 Public clouds - Google Cloud  
 (`iplist-public-clouds-gcp`) | Matches IP address ranges used by customer resources, such as Compute Engine VMs and GKE clusters. These ranges include [customer-assigned IP ranges](https://www.gstatic.com/ipranges/cloud.json) used by all Google Cloud customers and are not restricted to your own project or organization.   
-Public clouds - Google services  
-(`iplist-public-clouds-google-services`) | Matches IP address ranges used for API and web access to all Google services, including Google Cloud, Google Workspace, Maps, and YouTube. This list covers Google-owned service infrastructure, such as Google Public DNS, and represents the subset of [Google public IP ranges](https://www.gstatic.com/ipranges/goog.json) distinct from the customer-assigned IPs in the Google Cloud list.   
 VPN providers  
 (`iplist-vpn-providers`) | Matches IP addresses that belong to low-reputation VPN providers  
 Anonymous proxies  
@@ -107,6 +105,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-06 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-06 UTC."],[],[]] 

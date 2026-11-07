@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sql/docs/sqlserver/release-notes/
 title: Cloud SQL for SQL Server release notes \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T23:41:33.443267+00:00
+fetched_at: 2026-11-07T08:32:29.434562+00:00
 ---
 
 # Cloud SQL for SQL Server release notes  |  Google Cloud Documentation
@@ -40,6 +40,12 @@ This feature automates read pool scale in and scale out operations based on one 
   * Allowed number of client connections to the read pool
 
 
+
+Change
+
+Cloud SQL for SQL Server supports [additional metrics within the system insights dashboard](https://docs.cloud.google.com/sql/docs/sqlserver/use-system-insights) ([GA](https://cloud.google.com/products#product-launch-stages)) related to engine memory, performance, and replication.
+
+For a detailed list of metrics and their descriptions, see [Cloud SQL for SQL Server default metrics](https://docs.cloud.google.com/sql/docs/sqlserver/use-system-insights#default-metrics) and [Cloud SQL metrics](https://docs.cloud.google.com/sql/docs/sqlserver/admin-api/metrics).
 
 ## October 30, 2026
 

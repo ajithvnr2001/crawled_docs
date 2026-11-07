@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/memorystore/docs/valkey/maintenance-changelog/
 title: Memorystore for Valkey maintenance changelogs \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-06T10:57:55.126611+00:00
+fetched_at: 2026-11-07T08:29:41.706927+00:00
 ---
 
 # Memorystore for Valkey maintenance changelogs  |  Google Cloud Documentation
@@ -29,6 +29,88 @@ Memorystore for Valkey also performs scheduled maintenance updates once every fe
 To view the maintenance version, use the [`gcloud memorystore instances describe`](https://docs.cloud.google.com/sdk/gcloud/reference/memorystore/instances/describe) command. The maintenance version appears next to the `effectiveMaintenanceVersion` parameter. For more information, see [View instance information](https://docs.cloud.google.com/memorystore/docs/cluster/view-instance-information). Also, to learn more about maintenance updates, see [About maintenance](https://docs.cloud.google.com/memorystore/docs/valkey/about-maintenance).
 
 To get the latest maintenance changes, add the URL for the [XML file](https://docs.cloud.google.com/static/feeds/memorystore-for-valkey-maintenance-changelog.xml) of the maintenance changelog for Memorystore for Valkey to your feed reader.
+
+## MEMORYSTORE_20261102_00_00
+
+**Date released** : 2026-11-05
+
+### Summary
+
+Covered instances | Summary  
+---|---  
+All Memorystore for Valkey instances | Refresh all versions of the Valkey binary to address the CVEs listed in Security patches.   
+All Memorystore for Valkey instances | Set the Valkey host OS version to [cos-125-19216-760-20](https://docs.cloud.google.com/container-optimized-os/docs/release-notes/m125#cos-125-19216-760-20_).  
+  
+### Security patches
+
+#### 2026
+
+  * [CVE-2026-53275](https://nvd.nist.gov/vuln/detail/CVE-2026-53275)
+  * [CVE-2026-53270](https://nvd.nist.gov/vuln/detail/CVE-2026-53270)
+  * [CVE-2026-53269](https://nvd.nist.gov/vuln/detail/CVE-2026-53269)
+  * [CVE-2026-53268](https://nvd.nist.gov/vuln/detail/CVE-2026-53268)
+  * [CVE-2026-53267](https://nvd.nist.gov/vuln/detail/CVE-2026-53267)
+  * [CVE-2026-53266](https://nvd.nist.gov/vuln/detail/CVE-2026-53266)
+  * [CVE-2026-53264](https://nvd.nist.gov/vuln/detail/CVE-2026-53264)
+  * [CVE-2026-53249](https://nvd.nist.gov/vuln/detail/CVE-2026-53249)
+  * [CVE-2026-53239](https://nvd.nist.gov/vuln/detail/CVE-2026-53239)
+  * [CVE-2026-53236](https://nvd.nist.gov/vuln/detail/CVE-2026-53236)
+  * [CVE-2026-53233](https://nvd.nist.gov/vuln/detail/CVE-2026-53233)
+  * [CVE-2026-53232](https://nvd.nist.gov/vuln/detail/CVE-2026-53232)
+  * [CVE-2026-53230](https://nvd.nist.gov/vuln/detail/CVE-2026-53230)
+  * [CVE-2026-53229](https://nvd.nist.gov/vuln/detail/CVE-2026-53229)
+  * [CVE-2026-53223](https://nvd.nist.gov/vuln/detail/CVE-2026-53223)
+  * [CVE-2026-53220](https://nvd.nist.gov/vuln/detail/CVE-2026-53220)
+  * [CVE-2026-53219](https://nvd.nist.gov/vuln/detail/CVE-2026-53219)
+  * [CVE-2026-53218](https://nvd.nist.gov/vuln/detail/CVE-2026-53218)
+  * [CVE-2026-53214](https://nvd.nist.gov/vuln/detail/CVE-2026-53214)
+  * [CVE-2026-53212](https://nvd.nist.gov/vuln/detail/CVE-2026-53212)
+  * [CVE-2026-53207](https://nvd.nist.gov/vuln/detail/CVE-2026-53207)
+  * [CVE-2026-53199](https://nvd.nist.gov/vuln/detail/CVE-2026-53199)
+  * [CVE-2026-53191](https://nvd.nist.gov/vuln/detail/CVE-2026-53191)
+  * [CVE-2026-53189](https://nvd.nist.gov/vuln/detail/CVE-2026-53189)
+  * [CVE-2026-53185](https://nvd.nist.gov/vuln/detail/CVE-2026-53185)
+  * [CVE-2026-53184](https://nvd.nist.gov/vuln/detail/CVE-2026-53184)
+  * [CVE-2026-53181](https://nvd.nist.gov/vuln/detail/CVE-2026-53181)
+  * [CVE-2026-53180](https://nvd.nist.gov/vuln/detail/CVE-2026-53180)
+  * [CVE-2026-53168](https://nvd.nist.gov/vuln/detail/CVE-2026-53168)
+  * [CVE-2026-53156](https://nvd.nist.gov/vuln/detail/CVE-2026-53156)
+  * [CVE-2026-53154](https://nvd.nist.gov/vuln/detail/CVE-2026-53154)
+  * [CVE-2026-53134](https://nvd.nist.gov/vuln/detail/CVE-2026-53134)
+  * [CVE-2026-53131](https://nvd.nist.gov/vuln/detail/CVE-2026-53131)
+  * [CVE-2026-53122](https://nvd.nist.gov/vuln/detail/CVE-2026-53122)
+  * [CVE-2026-53120](https://nvd.nist.gov/vuln/detail/CVE-2026-53120)
+  * [CVE-2026-53074](https://nvd.nist.gov/vuln/detail/CVE-2026-53074)
+  * [CVE-2026-53069](https://nvd.nist.gov/vuln/detail/CVE-2026-53069)
+  * [CVE-2026-53033](https://nvd.nist.gov/vuln/detail/CVE-2026-53033)
+  * [CVE-2026-52943](https://nvd.nist.gov/vuln/detail/CVE-2026-52943)
+  * [CVE-2026-52942](https://nvd.nist.gov/vuln/detail/CVE-2026-52942)
+  * [CVE-2026-52930](https://nvd.nist.gov/vuln/detail/CVE-2026-52930)
+  * [CVE-2026-52927](https://nvd.nist.gov/vuln/detail/CVE-2026-52927)
+  * [CVE-2026-52921](https://nvd.nist.gov/vuln/detail/CVE-2026-52921)
+  * [CVE-2026-48524](https://nvd.nist.gov/vuln/detail/CVE-2026-48524)
+  * [CVE-2026-46159](https://nvd.nist.gov/vuln/detail/CVE-2026-46159)
+  * [CVE-2026-46135](https://nvd.nist.gov/vuln/detail/CVE-2026-46135)
+  * [CVE-2026-46046](https://nvd.nist.gov/vuln/detail/CVE-2026-46046)
+  * [CVE-2026-34040](https://nvd.nist.gov/vuln/detail/CVE-2026-34040)
+  * [CVE-2026-31788](https://nvd.nist.gov/vuln/detail/CVE-2026-31788)
+  * [CVE-2026-27135](https://nvd.nist.gov/vuln/detail/CVE-2026-27135)
+  * [CVE-2026-23240](https://nvd.nist.gov/vuln/detail/CVE-2026-23240)
+  * [CVE-2026-21441](https://nvd.nist.gov/vuln/detail/CVE-2026-21441)
+
+
+
+#### 2025
+
+  * [CVE-2025-66471](https://nvd.nist.gov/vuln/detail/CVE-2025-66471)
+  * [CVE-2025-66418](https://nvd.nist.gov/vuln/detail/CVE-2025-66418)
+  * [CVE-2025-13837](https://nvd.nist.gov/vuln/detail/CVE-2025-13837)
+  * [CVE-2025-13836](https://nvd.nist.gov/vuln/detail/CVE-2025-13836)
+  * [CVE-2025-13462](https://nvd.nist.gov/vuln/detail/CVE-2025-13462)
+  * [CVE-2025-12084](https://nvd.nist.gov/vuln/detail/CVE-2025-12084)
+  * [CVE-2025-6021](https://nvd.nist.gov/vuln/detail/CVE-2025-6021)
+
+
 
 ## MEMORYSTORE_20261022_06_00
 
@@ -408,7 +490,7 @@ All Memorystore for Valkey instances | Set the Valkey host OS version to [cos-12
 
 Covered instances | Summary  
 ---|---  
-All Memorystore for Valkey instances | Refresh all versions of the Valkey binary to address the CVEs listed in Security patches.  
+All Memorystore for Valkey instances | Refresh all versions of the Valkey binary to address the CVEs listed in Security patches.   
   
 ### Security patches
 
@@ -444,7 +526,7 @@ All Memorystore for Valkey instances | Refresh all versions of the Valkey binary
 
 Covered instances | Summary  
 ---|---  
-All Memorystore for Valkey instances | Refresh all versions of the Valkey binary to address the CVEs listed in Security patches.  
+All Memorystore for Valkey instances | Refresh all versions of the Valkey binary to address the CVEs listed in Security patches.   
   
 ### Security patches
 
@@ -888,7 +970,7 @@ All Memorystore for Valkey instances | Refresh all versions of the Valkey binary
 
 Covered instances | Summary  
 ---|---  
-All Memorystore for Valkey instances | Refresh all versions of the Valkey binary to address the CVEs listed in Security patches.  
+All Memorystore for Valkey instances | Refresh all versions of the Valkey binary to address the CVEs listed in Security patches.   
   
 ### Security patches
 
@@ -1146,13 +1228,13 @@ All Memorystore for Valkey instances | Refresh all versions of the Valkey binary
 
 ## MEMORYSTORE_20260701_01_02
 
-**Date released** : 2026-07-07
+**Date released** : 2026-07-27
 
 ### Summary
 
 Covered instances | Summary  
 ---|---  
-All Memorystore for Valkey instances | Refresh all versions of the Valkey binary to address the CVEs listed in Security patches.  
+All Memorystore for Valkey instances | Refresh all versions of the Valkey binary to address the CVEs listed in Security patches.   
 All Memorystore for Valkey instances | Apply security patch for CVE-2026-63639  
 All Memorystore for Valkey instances | Apply security patch for CVE-2026-56684  
   
@@ -1281,7 +1363,7 @@ All Memorystore for Valkey instances | Apply security patch for CVE-2026-56684
 
 Covered instances | Summary  
 ---|---  
-All Memorystore for Valkey instances | Refresh all versions of the Valkey binary to address the CVEs listed in Security patches.  
+All Memorystore for Valkey instances | Refresh all versions of the Valkey binary to address the CVEs listed in Security patches.   
 All Memorystore for Valkey instances | Apply security patch for CVE-2026-25243  
 All Memorystore for Valkey instances | Apply security patch for CVE-2026-23631  
 All Memorystore for Valkey instances | Apply security patch for CVE-2026-23479  
@@ -1631,7 +1713,7 @@ All Memorystore for Valkey instances | Set the Valkey host OS version to [cos-12
 
 
 
-## MMEMORYSTORE_20260217_02_00
+## MEMORYSTORE_20260217_02_00
 
 **Date released** : 2026-02-23
 
@@ -1639,7 +1721,7 @@ All Memorystore for Valkey instances | Set the Valkey host OS version to [cos-12
 
 Covered instances | Summary  
 ---|---  
-All Memorystore for Valkey instances | Refresh all versions of the Valkey binary to address the CVEs listed in Security patches.  
+All Memorystore for Valkey instances | Refresh all versions of the Valkey binary to address the CVEs listed in Security patches.   
   
 ### Security patches
 
@@ -1772,7 +1854,7 @@ All Memorystore for Valkey instances | Refresh all versions of the Valkey binary
 
 Covered instances | Summary  
 ---|---  
-All Memorystore for Valkey instances | Refresh all versions of the Valkey binary to address the CVEs listed in Security patches.  
+All Memorystore for Valkey instances | Refresh all versions of the Valkey binary to address the CVEs listed in Security patches.   
   
 ### Security patches
 
@@ -1821,6 +1903,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-05 UTC.
+Last updated 2026-11-06 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-05 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-06 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/lakehouse/docs/set-up-cross-cloud-connection-snowflake/
 title: Set up cross-cloud connection for Snowflake Horizon Catalog \u00a0|\u00a0 Lakehouse \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-05T00:19:32.367274+00:00
+fetched_at: 2026-11-07T08:29:21.071059+00:00
 ---
 
 # Set up cross-cloud connection for Snowflake Horizon Catalog  |  Lakehouse  |  Google Cloud Documentation
@@ -459,7 +459,7 @@ The **Connection details** section appears.
   10. Select an option for **Authentication Method** :
 
      * For **Secret** , enter the name of your secret for **Secret-based (PAT)**. Use the following format: `projects/PROJECT_ID/locations/REGION/secrets/SNOWFLAKE_SECRET_NAME`.
-     * For **OIDC** , enter your Snowflake role for **Workload Identity Federation**. For example: `ICEBERG_VIEW`.
+     * For **OIDC** , enter your Snowflake role for **Workload Identity Federation**. For example, `ICEBERG_VIEW`.
   11. Under **Transport layer** , select **Public internet** or **Dedicated private interconnect**. If you select **Dedicated private interconnect** , configure the following fields:
 
      * In the **Service directory name** field, enter the path to your transport Service Directory service in the format `projects/PROJECT_ID/locations/REGION/namespaces/SERVICE_DIRECTORY_NAMESPACE/services/SERVICE_NAME`.
@@ -601,7 +601,7 @@ When the catalog is created, Lakehouse provisions a unique service account for i
 
 You must grant this service account permission to access the secret you created earlier. Note that propagating IAM policies can take a few minutes.
 
-Grant the catalog's service account permission to access the secret:
+Grant the federated catalog's service account permission to access the secret:
     
     
     gcloud config set api_endpoint_overrides/secretmanager https://secretmanager.REGION.rep.googleapis.com/
@@ -649,7 +649,7 @@ Look for the `biglake-service-account-id` in the output.
              SUBJECT = 'LAKEHOUSE_SERVICE_ACCOUNT_ID'
            )
            DEFAULT_ROLE = SNOWFLAKE_ROLE
-           COMMENT = 'Service user for Lakehouse federation over WIF';
+           COMMENT = 'Service user for Lakehouse cross-cloud access';
          
          -- Also explicitly GRANT permissions to the role
          GRANT ROLE SNOWFLAKE_ROLE TO USER SNOWFLAKE_SERVICE_USER;
@@ -735,7 +735,7 @@ Verify that the catalog background metadata refresh cycle completed successfully
 
   * [Query remote data](https://docs.cloud.google.com/lakehouse/docs/query-remote-data).
   * [Use VPC Service Controls with federated catalog endpoints](https://docs.cloud.google.com/lakehouse/docs/vpc-sc-federated-catalogs).
-  * [Troubleshoot cross-cloud data access for Snowflake Horizon Catalog](https://docs.cloud.google.com/lakehouse/docs/troubleshoot-cross-cloud-data-access-snowflake).
+  * [Troubleshoot cross-cloud data access for Snowflake Horizon Catalog](https://docs.cloud.google.com/lakehouse/docs/troubleshoot-cross-cloud-data-access#snowflake-issues).
 
 
 
@@ -743,6 +743,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-03 UTC.
+Last updated 2026-11-07 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-07 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/docs/release-notes/
 title: AlloyDB for PostgreSQL release notes \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T23:20:55.700452+00:00
+fetched_at: 2026-11-07T08:23:06.597309+00:00
 ---
 
 # AlloyDB for PostgreSQL release notes  |  Google Cloud Documentation
@@ -311,6 +311,14 @@ For more information, see [Database Insights remote MCP server](https://docs.clo
 Feature
 
 You can publish an [AlloyDB for PostgreSQL conversational analytics agent in Gemini Enterprise](https://docs.cloud.google.com/gemini/data-agents/conversational-analytics/alloydb/create-data-agents#publish-agent-gemini-enterprise). This feature is in [Preview](https://cloud.google.com/products/#product-launch-stages).
+
+## June 06, 2026
+
+Feature
+
+Index prefetch is generally available ([GA](https://cloud.google.com/products#product-launch-stages)) and enabled by default for AlloyDB and AlloyDB Omni instances that run PostgreSQL 17 and later. Index prefetch speeds up B-tree index range scans by reading upcoming index and table pages in parallel into the local SSD cache, reducing query wait time for storage I/O without reducing PostgreSQL shared buffers. You don't need to configure flags, rebuild indexes, or modify applications or SQL queries to use prefetching.
+
+For more information, see [Index prefetch overview](https://docs.cloud.google.com/alloydb/docs/index-prefetch-overview).
 
 ## June 02, 2026
 
@@ -2335,6 +2343,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-03 UTC.
+Last updated 2026-11-07 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-07 UTC."],[],[]] 

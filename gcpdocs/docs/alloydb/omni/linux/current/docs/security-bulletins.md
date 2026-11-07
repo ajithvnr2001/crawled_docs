@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/omni/linux/current/docs/security-bulletins/
 title: Security bulletin \u00a0|\u00a0 AlloyDB Omni using RPM: Current (18.4.0) \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T23:41:28.849627+00:00
+fetched_at: 2026-11-07T08:32:51.482462+00:00
 ---
 
 # Security bulletin  |  AlloyDB Omni using RPM: Current (18.4.0)  |  Google Cloud Documentation
@@ -40,7 +40,7 @@ To receive the latest AlloyDB Omni release notes and security updates in your fe
 To focus remediation workflows on actionable security advisories and reduce scanner noise, AlloyDB Omni vulnerability summaries and detailed CVE logs follow these reporting policies:
 
   * Strict Critical and High severity filtering: Vulnerability summary tables and detailed CVE logs report exclusively Critical and High severity CVEs based on National Vulnerability Database (NVD) and upstream vendor severity ratings. Low and Medium severity advisories are excluded from the summary counts and detailed logs. 
-  * Version-specific isolation: Detailed CVE logs are organized into dedicated subpages per release version using a standardized 4-column schema (`CVE ID`, `Severity`, `AlloyDB Omni version`, and `Mitigated in`). Within each release log, vulnerabilities remediated in a subsequent release display the mitigating release version in the `Mitigated in` column.
+  * Version-specific isolation: Detailed CVE logs are organized into dedicated subpages per release version using a standardized 4-column schema with columns for `CVE ID`, `Severity`, `AlloyDB Omni version`, and `Mitigated in`. Within each release log, vulnerabilities remediated in a subsequent release display the mitigating release version in the `Mitigated in` column.
 
 
 
@@ -74,6 +74,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-04 UTC.
+Last updated 2026-11-06 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-06 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/agent-registry/manage-skill-revisions/
 title: Manage skill revisions \u00a0|\u00a0 Agent Registry \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-30T08:40:10.715960+00:00
+fetched_at: 2026-11-07T08:29:40.054736+00:00
 ---
 
 # Manage skill revisions  |  Agent Registry  |  Google Cloud Documentation
@@ -20,10 +20,6 @@ fetched_at: 2026-10-30T08:40:10.715960+00:00
 Send feedback 
 
 #  Manage skill revisions Stay organized with collections  Save and categorize content based on your preferences. 
-
-**Preview**
-
-This product or feature is subject to the "Pre-GA Offerings Terms" in the General Service Terms section of the [Service Specific Terms](https://docs.cloud.google.com/terms/service-terms#1). Pre-GA products and features are available "as is" and might have limited support. For more information, see the [launch stage descriptions](https://cloud.google.com/products/#product-launch-stages). 
 
 In Agent Registry, skill revisions let you version-control your standalone skills as immutable snapshots without disrupting active agents. Each skill has a default revision and can contain multiple versioned [skill revisions](https://docs.cloud.google.com/agent-registry/skills-architecture#skill-revision). When you update the instructions or optional scripts of a skill, you can create, list, inspect, download, and delete skill revisions in Agent Registry. For information about updating the default revision of a skill, see [Update skill metadata or default revision](https://docs.cloud.google.com/agent-registry/manage-skills#update-skill).
 
@@ -61,7 +57,7 @@ Creating a new revision uploads a new ZIP payload to the existing skill containe
 
 For information about pricing and feature costs for skills, see [Agent Registry pricing](https://docs.cloud.google.com/agent-registry/pricing).
 
-The maximum ZIP file size of a skill revision is 500 KB.
+The maximum ZIP file size of a skill revision is 1 MB.
 
 ###  Console 
 
@@ -96,9 +92,9 @@ Replace the following:
   * `PROJECT_ID`: the project ID.
   * `LOCATION`: the registry location.
 
-  * **Upload a local ZIP file** : to create a skill revision using a local ZIP payload, run the [`gcloud alpha agent-registry skills revisions create`](https://docs.cloud.google.com/sdk/gcloud/reference/alpha/agent-registry/skills/revisions/create) command:
+  * **Upload a local ZIP file** : to create a skill revision using a local ZIP payload, run the [`gcloud agent-registry skills revisions create`](https://docs.cloud.google.com/sdk/gcloud/reference/agent-registry/skills/revisions/create) command:
         
-        gcloud alpha agent-registry skills revisions create REVISION_ID \
+        gcloud agent-registry skills revisions create REVISION_ID \
             --skill=SKILL_ID \
             --project=PROJECT_ID \
             --location=LOCATION \
@@ -107,9 +103,9 @@ Replace the following:
 
 Replace `LOCAL_ZIP_PATH` with the path to your packaged skill archive on your local machine.
 
-  * **Import from a Cloud Storage bucket** : to create a skill revision using a ZIP archive hosted in a Cloud Storage bucket, run the [`gcloud alpha agent-registry skills revisions create`](https://docs.cloud.google.com/sdk/gcloud/reference/alpha/agent-registry/skills/revisions/create) command:
+  * **Import from a Cloud Storage bucket** : to create a skill revision using a ZIP archive hosted in a Cloud Storage bucket, run the [`gcloud agent-registry skills revisions create`](https://docs.cloud.google.com/sdk/gcloud/reference/agent-registry/skills/revisions/create) command:
         
-        gcloud alpha agent-registry skills revisions create REVISION_ID \
+        gcloud agent-registry skills revisions create REVISION_ID \
             --skill=SKILL_ID \
             --project=PROJECT_ID \
             --location=LOCATION \
@@ -139,7 +135,7 @@ To create a skill revision, send a `POST` request to the revisions collection. Y
                   "archiveContent": "'"$(base64 -w0 local_skill.zip)"'"
                 }
               }' \
-            "https://agentregistry.googleapis.com/v1alpha/projects/PROJECT_ID/locations/LOCATION/skills/SKILL_ID/revisions?skillRevisionId=REVISION_ID"
+            "https://agentregistry.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/skills/SKILL_ID/revisions?skillRevisionId=REVISION_ID"
         
 
   * **Import from a Cloud Storage bucket** : specify `gcsSource` in the request body pointing to your bucket path:
@@ -152,7 +148,7 @@ To create a skill revision, send a `POST` request to the revisions collection. Y
                   "uri": "gs://BUCKET_NAME/SKILL_PACKAGE.zip"
                 }
               }' \
-            "https://agentregistry.googleapis.com/v1alpha/projects/PROJECT_ID/locations/LOCATION/skills/SKILL_ID/revisions?skillRevisionId=REVISION_ID"
+            "https://agentregistry.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/skills/SKILL_ID/revisions?skillRevisionId=REVISION_ID"
         
 
 
@@ -171,7 +167,7 @@ Replace the following:
 
 ## List and describe revisions
 
-You can view the list of all revisions for a skill and inspect their metadata. If you want to update the default revision of a skill, see [Update skill metadata or default revision](https://docs.cloud.google.com/agent-registry/manage-skills#update-skill).
+You can view the list of all revisions for a skill and inspect their metadata, including automated security [scan results](https://docs.cloud.google.com/agent-registry/scan-skills#review-scan-status). If you want to update the default revision of a skill, see [Update skill metadata or default revision](https://docs.cloud.google.com/agent-registry/manage-skills#update-skill).
 
 To list and see details of a revision, follow these steps:
 
@@ -189,19 +185,19 @@ To list and see details of a revision, follow these steps:
 
 ###  gcloud 
 
-To list all revisions for a skill, run the [`gcloud alpha agent-registry skills revisions list`](https://docs.cloud.google.com/sdk/gcloud/reference/alpha/agent-registry/skills/revisions/list) command:
+To list all revisions for a skill, run the [`gcloud agent-registry skills revisions list`](https://docs.cloud.google.com/sdk/gcloud/reference/agent-registry/skills/revisions/list) command:
     
     
-    gcloud alpha agent-registry skills revisions list \
+    gcloud agent-registry skills revisions list \
         --skill=SKILL_ID \
         --project=PROJECT_ID \
         --location=LOCATION
     
 
-To describe metadata of a specific revision, run the [`gcloud alpha agent-registry skills revisions describe`](https://docs.cloud.google.com/sdk/gcloud/reference/alpha/agent-registry/skills/revisions/describe) command:
+To describe metadata of a specific revision, run the [`gcloud agent-registry skills revisions describe`](https://docs.cloud.google.com/sdk/gcloud/reference/agent-registry/skills/revisions/describe) command:
     
     
-    gcloud alpha agent-registry skills revisions describe REVISION_ID \
+    gcloud agent-registry skills revisions describe REVISION_ID \
         --skill=SKILL_ID \
         --project=PROJECT_ID \
         --location=LOCATION
@@ -223,7 +219,7 @@ To list revisions:
     
     curl -X GET \
         -H "Authorization: Bearer $(gcloud auth print-access-token)" \
-        "https://agentregistry.googleapis.com/v1alpha/projects/PROJECT_ID/locations/LOCATION/skills/SKILL_ID/revisions"
+        "https://agentregistry.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/skills/SKILL_ID/revisions"
     
 
 To get metadata for a single revision:
@@ -231,7 +227,7 @@ To get metadata for a single revision:
     
     curl -X GET \
         -H "Authorization: Bearer $(gcloud auth print-access-token)" \
-        "https://agentregistry.googleapis.com/v1alpha/projects/PROJECT_ID/locations/LOCATION/skills/SKILL_ID/revisions/REVISION_ID"
+        "https://agentregistry.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/skills/SKILL_ID/revisions/REVISION_ID"
     
 
 Replace the following:
@@ -247,10 +243,11 @@ Replace the following:
 
 You can download a specific revision's ZIP file payload for local verification or debugging.
 
-To download the payload, both of the following conditions must be met:
+To download the payload, all of the following conditions must be met:
 
-  * **Skill** : the [skill](https://docs.cloud.google.com/agent-registry/skills-architecture) must be in the **Active** or **Deprecated** state. To change the skill's target state, see [Manage skill lifecycle states](https://docs.cloud.google.com/agent-registry/manage-skills#lifecycle).
+  * **Skill** : the [skill](https://docs.cloud.google.com/agent-registry/skills-architecture) must be in the **Active** or **Deprecated** [lifecycle state](https://docs.cloud.google.com/agent-registry/skills-architecture#lifecycle). To change the skill's target state, see [Manage skill lifecycle states](https://docs.cloud.google.com/agent-registry/manage-skills#lifecycle).
   * **Skill revision** : the revision must be in the **Active** state. Revisions in **Failed** or **Creating** states can't be downloaded. To review the state of a skill revision, list and describe revisions.
+  * **Security scan status** : if the skill's [scanning policy](https://docs.cloud.google.com/agent-registry/skills-architecture#scanning-policies) is set to `ENABLED_BLOCKING`, the revision must not have security findings. If findings exist in a blocking policy, downloading the archive fails with a `FAILED_PRECONDITION` error.
 
 
 
@@ -271,14 +268,14 @@ To download the revision payload of an active revision, follow these steps:
 
 ###  gcloud 
 
-To download a revision's archive payload, run the [`gcloud alpha agent-registry skills revisions download`](https://docs.cloud.google.com/sdk/gcloud/reference/alpha/agent-registry/skills/revisions/download) command and specify the destination path:
+To download a revision's archive payload, run the [`gcloud agent-registry skills revisions download`](https://docs.cloud.google.com/sdk/gcloud/reference/agent-registry/skills/revisions/download) command and specify the destination path:
     
     
-    gcloud alpha agent-registry skills revisions download REVISION_ID \
+    gcloud agent-registry skills revisions download REVISION_ID \
         --skill=SKILL_ID \
         --project=PROJECT_ID \
         --location=LOCATION \
-        --destination="./skill_payload.zip"
+        --destination="DESTINATION_PATH"
     
 
 Replace the following:
@@ -287,6 +284,14 @@ Replace the following:
   * `SKILL_ID`: the ID of the skill container. For manually registered skills, include the `private-` prefix, such as `private-my-skill`.
   * `PROJECT_ID`: the project ID.
   * `LOCATION`: the registry location.
+  * `DESTINATION_PATH`: the local path where the command downloads and extracts the archive contents, and then deletes the downloaded ZIP file:
+
+    * If you specify an existing directory, such as `./my-dir`, the command extracts the archive into `./my-dir/REVISION_ID/`.
+    * If you specify a path ending with the ZIP extension, such as `./skill_payload.zip`, the command extracts the archive into a directory with the ZIP extension removed, such as `./skill_payload/`.
+    * If you specify a path that doesn't end with the ZIP extension, such as `./skill_payload`, the command extracts the archive into `DESTINATION_PATH_extracted/`, such as `./skill_payload_extracted/`.
+
+The parent directory of `DESTINATION_PATH` must already exist. To overwrite existing files during the download, append the `--allow-overwrite` flag.
+
 
 
 
@@ -298,7 +303,7 @@ Send a `GET` request to the revision's resource URL adding the query parameter `
     curl -L -X GET \
         -H "Authorization: Bearer $(gcloud auth print-access-token)" \
         -o skill_payload.zip \
-        "https://agentregistry.googleapis.com/v1alpha/projects/PROJECT_ID/locations/LOCATION/skills/SKILL_ID/revisions/REVISION_ID?alt=media"
+        "https://agentregistry.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/skills/SKILL_ID/revisions/REVISION_ID?alt=media"
     
 
 Replace the following:
@@ -333,10 +338,10 @@ To delete a specific revision, follow these steps:
 
 ###  gcloud 
 
-To delete a revision, run the [`gcloud alpha agent-registry skills revisions delete`](https://docs.cloud.google.com/sdk/gcloud/reference/alpha/agent-registry/skills/revisions/delete) command:
+To delete a revision, run the [`gcloud agent-registry skills revisions delete`](https://docs.cloud.google.com/sdk/gcloud/reference/agent-registry/skills/revisions/delete) command:
     
     
-    gcloud alpha agent-registry skills revisions delete REVISION_ID \
+    gcloud agent-registry skills revisions delete REVISION_ID \
         --skill=SKILL_ID \
         --project=PROJECT_ID \
         --location=LOCATION
@@ -358,7 +363,7 @@ To delete a revision, send a `DELETE` request:
     
     curl -X DELETE \
         -H "Authorization: Bearer $(gcloud auth print-access-token)" \
-        "https://agentregistry.googleapis.com/v1alpha/projects/PROJECT_ID/locations/LOCATION/skills/SKILL_ID/revisions/REVISION_ID"
+        "https://agentregistry.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/skills/SKILL_ID/revisions/REVISION_ID"
     
 
 Replace the following:
@@ -372,6 +377,7 @@ Replace the following:
 
 ## What's next
 
+  * Learn how to [scan skills for security issues](https://docs.cloud.google.com/agent-registry/scan-skills).
   * Learn how to [explore verified publishers](https://docs.cloud.google.com/agent-registry/review-publishers).
   * Understand [quotas and limits](https://docs.cloud.google.com/agent-registry/quotas) for skill revisions.
 
@@ -381,6 +387,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-29 UTC.
+Last updated 2026-11-06 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-06 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini/enterprise/docs/release-notes/
 title: Gemini Enterprise release notes \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-06T10:06:03.160127+00:00
+fetched_at: 2026-11-07T08:29:33.912298+00:00
 ---
 
 # Gemini Enterprise release notes  |  Google Cloud Documentation
@@ -28,6 +28,98 @@ This page documents production updates to Gemini Enterprise. Check this page for
 You can see the latest product updates for all of Google Cloud on the [ Google Cloud](https://docs.cloud.google.com/release-notes) page, browse and filter all release notes in the [Google Cloud console](https://console.cloud.google.com/release-notes), or programmatically access release notes in [BigQuery](https://console.cloud.google.com/bigquery?p=bigquery-public-data&d=google_cloud_release_notes&t=release_notes&page=table). 
 
 To get the latest product updates delivered to you, add the URL of this page to your [feed reader](https://wikipedia.org/wiki/Comparison_of_feed_aggregators), or add the [feed URL](https://docs.cloud.google.com/feeds/gemini-enterprise-release-notes.xml) directly. 
+
+## November 06, 2026
+
+Announcement
+
+**Gemini Enterprise: End of Gemini Code Assist entitlement for existing subscriptions**
+
+Bundled Gemini Code Assist entitlements for existing Gemini Enterprise Standard and Gemini Enterprise Plus subscriptions will end on March 31, 2027. After this date, the entitlement will be removed from existing subscriptions. Support for Gemini Code Assist until March 31, 2027 is limited to the Gemini 3.x model family only. Effective October 9, 2026, new Gemini Enterprise subscriptions no longer include an entitlement to Gemini Code Assist.
+
+To transition your developer workflows, agentic coding assistance is available through Google Antigravity, which is included in Gemini Enterprise editions.
+
+For more information, see the [Gemini Code Assist sunset page](https://docs.cloud.google.com/gemini/docs/codeassist/sunset).
+
+Breaking
+
+**Gemini Notebook Enterprise: Updated web addresses**
+
+The URL path for the Gemini Notebook Enterprise web app is changing in two ways. In both cases, existing links redirect automatically.
+
+**"go/" added** : Starting immediately, `go/` is being added to the URL path:
+
+  * For Gemini Notebook Enterprise,  
+`notebooklm.cloud.google.com/us/`  
+changes to  
+`notebooklm.cloud.google.com/go/us/`.
+
+  * For Gemini Notebook within Gemini Enterprise,  
+`vertexaisearch.cloud.google.com/notebooklm/global/`  
+changes to  
+`vertexaisearch.cloud.google.com/notebooklm/go/global/`.
+
+
+
+
+The dates for this `go/` path change are as follows:
+
+Region | Rollout date  
+---|---  
+`global` and `us` | Live  
+`eu` | Rolling out  
+All other locations | Starting November 9, 2026  
+  
+**"lm" removed** : Starting November 16, 2026, `lm` is being removed from the hostname:
+
+  * For Gemini Notebook Enterprise authenticated with [Google Identity](https://docs.cloud.google.com/gemini/enterprise/docs/configure-identity-provider#choose_your_identity_provider_type),  
+`notebooklm.cloud.google.com`  
+changes to  
+`notebook.cloud.google.com`.
+
+  * For Gemini Notebook Enterprise authenticated with Workforce Identity Federation,  
+`notebooklm.cloud.google`  
+changes to  
+`notebook.cloud.google`.
+
+
+
+
+**Action is required** : if your organization uses a firewall, proxy, or secure web gateway that allows access to Gemini Notebook by a specific URL path. If this applies to you, Google recommends that you add the following URLs to your allowlist:
+
+  1. Allowlist `notebooklm.cloud.google.com/*` and `notebook.cloud.google.com/*`
+
+  2. If you use Workforce Identity Federation, allowlist `notebooklm.cloud.google/*` and `notebook.cloud.google/*`
+
+  3. If you use Gemini Notebook within Gemini Enterprise, allowlist `vertexaisearch.cloud.google.com/notebooklm/*`.
+
+
+
+
+Google recommends allowing entire domains (`/*`) so that future path changes don't require additional updates.
+
+If you don't allow `/*`, you must allow both `/REGION` and `/go/REGION`, where `REGION` is your location value: `global`, `us`, `eu`, `asia-northeast1`, `au`, `ca`, `de`, `europe-west2`, `in`, `kr`, or `sg`. For example, `notebooklm.cloud.google.com/us/` and `notebooklm.cloud.google.com/go/us/`
+
+**Temporary workaround** : If your firewall blocks users before you update your allowlist, users themselves can access the original URLs by removing `/go` from the URL and adding `version=legacy`. For example: `notebooklm.cloud.google.com/eu/?project=1234567&version=legacy`. This fix will fail when Google sunsets the legacy version.
+
+Feature
+
+**Gemini Enterprise: Adobe data store (Preview)**
+
+The [Adobe](https://docs.cloud.google.com/gemini/enterprise/docs/connectors/adobe) data store is available in Public Preview in Gemini Enterprise. You can use natural language to search, share, and manage your Adobe Creative Cloud assets, customize Adobe Express templates, apply Lightroom presets, and edit images. For more information, see [Connect a third-party data source](https://docs.cloud.google.com/gemini/enterprise/docs/connectors/connect-third-party-data-source).
+
+Feature
+
+**Gemini Enterprise: Model availability respects resource location policies**
+
+If the resource locations organization policy for your project doesn't allow the `global` location, Gemini Enterprise administrators can't turn on Gemini models that aren't supported in the app's location, because traffic for these models is routed to the `global` endpoint. In the Google Cloud console, the toggles for these models are unavailable. If one of these models is already turned on, a warning appears under its toggle so that administrators can turn it off.
+
+For more information, see:
+
+  * [Turn on or turn off a Gemini model](https://docs.cloud.google.com/gemini/enterprise/docs/manage-web-app-features#turn-on-gemini-model)
+  * [Data residency for Gemini Enterprise](https://docs.cloud.google.com/gemini/enterprise/docs/locations)
+
+
 
 ## November 05, 2026
 

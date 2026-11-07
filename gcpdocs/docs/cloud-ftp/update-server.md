@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/cloud-ftp/update-server/
 title: Update an SFTP server \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T05:40:32.006930+00:00
+fetched_at: 2026-11-07T08:29:52.873570+00:00
 ---
 
 # Update an SFTP server  |  Google Cloud Documentation
@@ -27,13 +27,47 @@ You can't change whether a server is external or internal after the server has b
 
 ## Required roles
 
-To get the permission that you need to update an SFTP server, ask your administrator to grant you the [Cloud FTP Admin ](https://docs.cloud.google.com/iam/docs/roles-permissions/ftp#ftp.admin) (`roles/ftp.admin`) IAM role on your project. For more information about granting roles, see [Manage access to projects, folders, and organizations](https://docs.cloud.google.com/iam/docs/granting-changing-revoking-access). 
+To get the permissions that you need to update an SFTP server, ask your administrator to grant you the [Cloud FTP Admin ](https://docs.cloud.google.com/iam/docs/roles-permissions/ftp#ftp.admin) (`roles/ftp.admin`) IAM role on your project. For more information about granting roles, see [Manage access to projects, folders, and organizations](https://docs.cloud.google.com/iam/docs/granting-changing-revoking-access). 
 
-This predefined role contains the `ftp.servers.update` permission, which is required to update an SFTP server. 
+This predefined role contains the permissions required to update an SFTP server. To see the exact permissions that are required, expand the **Required permissions** section: 
 
-You might also be able to get this permission with [custom roles](https://docs.cloud.google.com/iam/docs/creating-custom-roles) or other [predefined roles](https://docs.cloud.google.com/iam/docs/roles-overview#predefined). 
+#### Required permissions
+
+The following permissions are required to update an SFTP server:
+
+  * `ftp.servers.update`
+  * If you use the Google Cloud console to do this task: 
+    * `ftp.servers.list`
+    * `ftp.servers.get`
+
+
+
+You might also be able to get these permissions with [custom roles](https://docs.cloud.google.com/iam/docs/creating-custom-roles) or other [predefined roles](https://docs.cloud.google.com/iam/docs/roles-overview#predefined). 
 
 ## Update access for an external server
+
+###  Console 
+
+  1. In the Google Cloud console, go to the **Cloud FTP** page. 
+
+[Go to Cloud FTP](https://console.cloud.google.com/transfer/ftp-servers)
+
+  2. Click the server ID.
+
+  3. In the **External config** section, click edit **Edit external configuration**.
+
+  4. In the **Allowed IP ranges** field, specify the IP addresses that are allowed to access the server:
+
+     * To allow access for an IP range, provide a CIDR block, and then press `Enter`. For example, `192.0.2.0/24`. To allow connections from all IP addresses, use `0.0.0.0/0`.
+
+     * To remove access for an IP range, click clear **Remove**.
+
+You must provide at least one value, and can provide a maximum of 500 CIDR blocks.
+
+  5. Click **Save**.
+
+
+
 
 ###  gcloud 
 
@@ -496,6 +530,41 @@ To authenticate to Cloud FTP, set up Application Default Credentials. For more i
     end
 
 ## Update access for an internal server
+
+###  Console 
+
+  1. In the Google Cloud console, go to the **Cloud FTP** page. 
+
+[Go to Cloud FTP](https://console.cloud.google.com/transfer/ftp-servers)
+
+  2. Click the server ID.
+
+  3. In the **Internal config** section, click edit **Edit internal configuration**.
+
+  4. In the **Accepted projects** section, specify the consumer projects that are allowed to connect to the server by using Private Service Connect:
+
+     * To allow a project, do the following:
+
+       1. Click **Add accepted project**.
+
+       2. In the **Project ID or number** field, enter the project ID or number of a project that is allowed to connect. For example, `example-allowed-project`.
+
+       3. In the **Connection limit** field, enter the maximum number of Private Service Connect endpoints that can be created in the consumer project. The value must be from 1 to 250 endpoints.
+
+     * To remove an allowed project, click delete **Delete accepted project**.
+
+  5. (Optional) In the **Rejected projects** section, specify the projects that are prohibited from connecting to the server:
+
+     * To prohibit a project, click **Add rejected project**. Enter the project ID or number of a consumer project that is prohibited from connecting to the server.
+
+Projects in this list are rejected from accessing the server even if they are included in the list of allowed projects.
+
+     * To remove a prohibited project, click delete **Delete rejected project**.
+
+  6. Click **Save**.
+
+
+
 
 ###  gcloud 
 
@@ -989,6 +1058,21 @@ To authenticate to Cloud FTP, set up Application Default Credentials. For more i
 
 ## Update a server's display name
 
+###  Console 
+
+  1. In the Google Cloud console, go to the **Cloud FTP** page. 
+
+[Go to Cloud FTP](https://console.cloud.google.com/transfer/ftp-servers)
+
+  2. Click the server ID.
+
+  3. Click edit **Edit display name**.
+
+  4. Enter a display name, and then click **Save**.
+
+
+
+
 ###  gcloud 
 
 To update metadata such as the display name of an SFTP server, run the [`gcloud alpha storage ftp servers update` command](https://docs.cloud.google.com/sdk/gcloud/reference/alpha/storage/ftp/servers/update).
@@ -1094,6 +1178,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-06 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-06 UTC."],[],[]] 

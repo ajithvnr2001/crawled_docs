@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/compute/docs/gpus/
 title: GPU machine types \u00a0|\u00a0 Compute Engine \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-30T08:52:43.675644+00:00
+fetched_at: 2026-11-07T08:32:22.083882+00:00
 ---
 
 # GPU machine types  |  Compute Engine  |  Google Cloud Documentation
@@ -21,7 +21,7 @@ Send feedback
 
 #  GPU machine types Stay organized with collections  Save and categorize content based on your preferences. 
 
-This document outlines the NVIDIA GPU models that you can use to accelerate machine learning (ML), data processing, and graphics-intensive workloads on your Compute Engine instances. This document also details which GPUs come pre-attached to accelerator-optimized machine series such as A4X Max, A4X, A4, A3, A2, G4, and G2, and which GPUs you can attach to N1 general-purpose instances.
+This document outlines the NVIDIA GPU models that you can use to accelerate machine learning (ML), data processing, and graphics-intensive workloads on your Compute Engine instances. This document also details which GPUs come pre-attached to accelerator-optimized machine series such as A5X, A4X Max, A4X, A4, A3, A2, G4, and G2, and which GPUs you can attach to N1 general-purpose instances.
 
 Use this document to compare the performance, memory, and features of different GPU models. For a more detailed overview of the accelerator-optimized machine family, including information on CPU platforms, storage options, and networking capabilities, and to find the specific machine type that matches your workload, see [Accelerator-optimized machine family](https://docs.cloud.google.com/compute/docs/accelerator-optimized-machines).
 
@@ -40,9 +40,11 @@ Some machine types support [NVIDIA RTX Virtual Workstations (vWS)](https://www.n
 AI and ML workloads | Graphics and visualization | Other GPU workloads  
 **Accelerator-optimized A series machine types** are designed for high performance computing (HPC), artificial intelligence (AI), and machine learning (ML) workloads. The later generation A series are ideal for pre-training and fine-tuning foundation models that involves large clusters of accelerators, while the A2 series can be used for training smaller models and single host inference. For these machine types, the GPU model is automatically attached to the instance. |  **Accelerator-optimized G series machine types** are designed for workloads such as NVIDIA Omniverse simulation workloads, graphics-intensive applications, video transcoding, and virtual desktops. These machine types support [NVIDIA RTX Virtual Workstations (vWS)](https://www.nvidia.com/en-us/design-visualization/virtual-workstation/). The G series can also be used for training smaller models and for single-host inference. For these machine types, the GPU model is automatically attached to the instance. |  For N1 general-purpose machine types, except for the N1 shared-core (`f1-micro` and `g1-small`), you can attach a select set of GPU models. Some of these GPU models also support NVIDIA RTX Virtual Workstations (vWS).  
   
-  * [A4X Max](https://docs.cloud.google.com/compute/docs/accelerator-optimized-machines#a4x-vms) (NVIDIA GB300 Ultra Superchips)   
+  * [A5X](https://docs.cloud.google.com/compute/docs/accelerator-optimized-machines#a5x-instances) (NVIDIA Vera Rubin superchips)   
+(`nvidia-vr200`)
+  * [A4X Max](https://docs.cloud.google.com/compute/docs/accelerator-optimized-machines#a4x-vms) (NVIDIA GB300 Ultra superchips)   
 (`nvidia-gb300`)
-  * [A4X](https://docs.cloud.google.com/compute/docs/accelerator-optimized-machines#a4x-vms) (NVIDIA GB200 Superchips)   
+  * [A4X](https://docs.cloud.google.com/compute/docs/accelerator-optimized-machines#a4x-vms) (NVIDIA GB200 superchips)   
 (`nvidia-gb200`)
   * [A4](https://docs.cloud.google.com/compute/docs/accelerator-optimized-machines#a4-vms) (NVIDIA B200)   
 (`nvidia-b200`)
@@ -82,6 +84,26 @@ AI and ML workloads | Graphics and visualization | Other GPU workloads
   
   
 You can also use some GPU machine types on [AI Hypercomputer](https://docs.cloud.google.com/ai-hypercomputer/docs/overview). AI Hypercomputer is a supercomputing system that is optimized to support your artificial intelligence (AI) and machine learning (ML) workloads. This option is recommended for creating a densely allocated, performance-optimized infrastructure that has integrations for Google Kubernetes Engine (GKE) and Slurm schedulers.
+
+## A5X machine series (NVIDIA Vera Rubin)
+
+[A5X accelerator-optimized](https://docs.cloud.google.com/compute/docs/accelerator-optimized-machines#a5x-instances) machine types use NVIDIA Vera Rubin superchips and are ideal for foundation model training, reasoning, and serving. A5X machine types are available as [bare metal instances](https://docs.cloud.google.com/compute/docs/instances/bare-metal-instances). 
+
+A5X is an exascale platform based on [NVIDIA Vera Rubin NVL72](https://www.nvidia.com/en-us/data-center/vera-rubin-nvl72/). Each machine has two sockets with NVIDIA Vera CPUs. These CPUs connect to four NVIDIA Rubin GPUs with fast chip-to-chip ([NVLink-C2C](https://www.nvidia.com/en-us/data-center/nvlink-c2c/)) communication. For information about machine type limitations, see [A5X limitations](https://docs.cloud.google.com/compute/docs/accelerator-optimized-machines#a5x-limitations). 
+
+**Note:** To get started with A5X instances, contact your account team to [reserve capacity](https://docs.cloud.google.com/ai-hypercomputer/docs/reserve-capacity) and get instructions to create instances and clusters. Machine type | vCPU count | Instance memory (GB) | Attached Local SSD (GiB) | Physical NIC count | Maximum network bandwidth (Gbps) | NVIDIA Rubin GPU count | GPU memory (GB HBM4)  
+---|---|---|---|---|---|---|---  
+`a5x-highgpu-4g-metal` | 176 | 1,440 | 48,000 | 10 | 7,200 | 4 | 1,152  
+  
+### A5X machine type notes
+
+The following notes apply to the preceding table:
+
+  * **vCPU count** : for A5X bare metal instances, the vCPU count of 176 represents the 176 physical CPU cores across two 88-core sockets on the NVIDIA Vera [CPU platform](https://docs.cloud.google.com/compute/docs/cpu-platforms).
+  * **Maximum network bandwidth** : maximum egress bandwidth can't exceed the number given. Actual egress bandwidth depends on the destination IP address and other factors. For more information about network bandwidth, see [Network bandwidth](https://docs.cloud.google.com/compute/docs/network-bandwidth).
+  * **GPU memory** : GPU memory is the memory on a GPU device that stores temporary data. It's separate from the instance's memory and handles the higher bandwidth demands of your graphics-intensive workloads.
+
+
 
 ## A4X Max and A4X machine series
 
@@ -405,6 +427,7 @@ In the following table, `N/A` indicates that the metric is not applicable or not
 
 Machine type (GPU model) | GPU memory and bandwidth | Interconnect | NVIDIA RTX Virtual Workstation (vWS) support | Best used for  
 ---|---|---|---|---  
+A5X (Vera Rubin) | 288 GB HBM4 (22 TBps) | NVLink Full Mesh (3,600 GBps) | No | Large-scale distributed training and inference of MoE LLMs, Recommenders, HPC  
 A4X Max (GB300) | 279 GB HBM3e (8 TBps) | NVLink Full Mesh (1,800 GBps) | No | Large-scale distributed training and inference of MoE LLMs, Recommenders, HPC  
 A4X (GB200) | 186 GB HBM3e (8 TBps) | NVLink Full Mesh (1,800 GBps) | No | Large-scale distributed training and inference of LLMs, Recommenders, HPC  
 A4 (B200) | 180 GB HBM3e (8 TBps) | NVLink Full Mesh (1,800 GBps) | No | Large-scale distributed training and inference of LLMs, Recommenders, HPC  
@@ -435,6 +458,31 @@ This type of performance is best for general compute, graphics rendering, and wo
 
 
 
+### Rubin architecture
+
+The A5X machine type runs on NVIDIA's [Vera Rubin NVL72 architecture](https://www.nvidia.com/en-us/data-center/vera-rubin-nvl72/).
+
+### Tensor Core
+
+NVIDIA's Rubin architecture, used by the A5X machine type, provides Tensor Core acceleration across FP64, FP32, TF32, FP16, INT8, FP8, and FP4 precision formats for high performance in large-scale foundation model training, reasoning, and inference.
+
+The following notes apply to the table in this section:
+
+  * **TF32, Mixed FP16/32, INT8, FP8, and FP4** : the Rubin architecture supports [structural sparsity](https://developer.nvidia.com/blog/structured-sparsity-in-the-nvidia-ampere-architecture-and-applications-in-search-engines/), which can double computational throughput. The performance values in this table assume dense matrix multiplication. If you use structural sparsity, then computational throughput doubles.
+  * **Mixed FP16/32** : for mixed-precision training, GPUs that run on the Rubin architecture also support the `bfloat16` data type.
+
+Machine type (GPU model) | FP64 (TFLOPS) | FP32 (TFLOPS) | TF32 (TFLOPS) | Mixed FP16/32 (TFLOPS) | INT8 (TFLOPS) | FP8 (TFLOPS) | FP4 (TFLOPS)  
+---|---|---|---|---|---|---|---  
+A5X (Vera Rubin) | 200 | 800 | 2,000 | 4,000 | 250 | 17,000 | 34,000  
+  
+### Standard CUDA cores
+
+The A5X machine type uses the Rubin architecture to provide high-performance vector operations for FP64 and FP32 on standard CUDA cores for demanding HPC and AI workloads.
+
+Machine type (GPU model) | FP64 (TFLOPS) | FP32 (TFLOPS)  
+---|---|---  
+A5X (Vera Rubin) | 32 | 130  
+  
 ### Blackwell architecture
 
 The A4X Max, A4X, A4, and G4 machine types run on NVIDIA's [Blackwell architecture](https://www.nvidia.com/en-us/data-center/technologies/blackwell-architecture/).
@@ -555,6 +603,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-29 UTC.
+Last updated 2026-11-06 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-06 UTC."],[],[]] 

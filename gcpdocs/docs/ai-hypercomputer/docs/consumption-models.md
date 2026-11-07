@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/ai-hypercomputer/docs/consumption-models/
 title: Consumption options for AI Hypercomputer \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T18:27:17.727219+00:00
+fetched_at: 2026-11-07T08:32:15.564922+00:00
 ---
 
 # Consumption options for AI Hypercomputer  |  Google Cloud Documentation
@@ -35,7 +35,7 @@ Consumption option | Provisioning model | Best for | Capacity assurance | Lifesp
 ---|---|---|---|---|---|---|---|---  
 Flex-start | Flex-start | Short-duration workloads up to seven days that can wait for capacity. | Best-effort | Up to seven days | No | Preemptible quota | Discounted (up to 53%) on supported series | Dense for MIG resize requests; best-effort for standalone VMs.  
 Spot VMs | Spot |  Fault-tolerant, short-duration general GPU workloads.  | Best-effort | Preemptible | Yes | Preemptible quota | Deeply discounted (up to 91%) | Standard  
-Standard reservations | Standard | Critical general GPU workloads that require a very high level of assurance for capacity. | Very high | Very high | User-defined | No | No quota consumed | Discounted rates with committed use discounts (CUDs)  
+Standard reservations | Standard | Critical general GPU workloads that require a very high level of assurance for capacity. | Very high | Unlimited | No | No quota consumed | Discounted rates with committed use discounts (CUDs) | Standard  
 Future reservations for capacity blocks | Reservation-bound | Large-scale, long-running training on clustered GPU. | Very high | Unlimited within the reservation period. | No | Quota is increased before delivery | Discounted (up to 53%) with CUDs | Dense  
 Future reservations in calendar mode | Reservation-bound | clustered GPU workloads up to 90 days that require reserved capacity. | Very high | Up to 90 days | No | No quota consumed | Discounted (up to 53%) | Dense  
 On-demand VMs | Standard |  general GPU workloads with no specific duration.  | Best-effort | Unlimited | No | On-demand quota | None (pay-as-you-go) | Standard  
@@ -69,7 +69,7 @@ To run short-duration workloads that require densely allocated resources, you ca
 #### Key characteristics
 
   * **Provisioning model** : Flex-start.
-  * **Broad hardware support** : request any clustered GPU machine type, except A4X Max and A4X.
+  * **Broad hardware support** : request any clustered GPU machine type, except A5X, A4X Max, and A4X.
   * **Latency optimization** : apply a compact placement policy to standalone VMs to minimize network latency.
   * **Cost efficiency** : receive a discount of up to 53% on vCPUs, memory, GPUs, and Local SSD disks for A4, A3, A2, and G4 machine series. Standard on-demand rates apply to other supported series. For more information, see [Flex-start pricing](https://docs.cloud.google.com/compute/docs/instances/about-flex-start-vms#pricing).
 
@@ -89,7 +89,7 @@ To run fault-tolerant workloads, you can obtain compute resources immediately ba
 #### Key characteristics
 
   * **Provisioning model** : Spot.
-  * **Broad hardware support** : request any clustered GPU machine type, except A4X Max and A4X.
+  * **Broad hardware support** : request any clustered GPU machine type, except A5X, A4X Max, and A4X.
   * **Latency optimization** : apply a compact placement policy to standalone VMs to minimize network latency.
   * **Cost efficiency** : receive a discount of up to 91% on vCPUs, memory, GPUs, and Local SSD disks.
 
@@ -159,7 +159,7 @@ To run long-running, large-scale distributed workloads that require densely allo
 #### Key characteristics
 
   * **Provisioning model** : Reservation-bound.
-  * **Premium machine support** : reserve A4X Max, A4X, A4, A3 Ultra, A3 Mega, or A3 High (8 GPUs) machine types.
+  * **Premium machine support** : reserve A5X, A4X Max, A4X, A4, A3 Ultra, A3 Mega, or A3 High (8 GPUs) machine types.
   * **Hyperdisk reservations** : you can reserve a Hyperdisk Storage Pool or Hyperdisk Exapool together with compute capacity to help ensure that your workloads have sufficient storage resources. Google co-locates Hyperdisk pools with your compute nodes to optimize storage performance.
   * **Commitment requirements** : attach a resource-based commitment for reservations of one year or longer to receive discounts on compute resources and Hyperdisk pools.
   * **Dynamic modifications** : enable hardware emergency maintenance notifications for Vertex AI jobs usage after the period starts.
@@ -246,6 +246,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-06 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-06 UTC."],[],[]] 

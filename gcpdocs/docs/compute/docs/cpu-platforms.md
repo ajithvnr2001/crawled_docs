@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/compute/docs/cpu-platforms/
 title: CPU platforms \u00a0|\u00a0 Compute Engine \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-06T12:32:59.573041+00:00
+fetched_at: 2026-11-07T08:32:21.210333+00:00
 ---
 
 # CPU platforms  |  Compute Engine  |  Google Cloud Documentation
@@ -27,7 +27,7 @@ A CPU platform offers multiple physical processors, and each of these processors
 
 The [machine type](https://docs.cloud.google.com/compute/docs/machine-resource) of your compute instance specifies its number of vCPUs, and you can infer its number of physical CPU cores using the default vCPU per core ratio for that machine series:
 
-  * For the C4A, N4A, T2D, T2A, H4D, H3, and A4X machine series, Compute Engine instances always have one vCPU per core.
+  * For the C4A, N4A, T2D, T2A, H4D, H3, A5X, A4X Max, and A4X machine series, Compute Engine instances always have one vCPU per core.
   * For all other machine series, the compute instances have two vCPUs per core by default.
 
 
@@ -254,7 +254,8 @@ The following table describes the Arm processors that are available for Compute 
 
 CPU processor | Processor SKU | Supported machine series and types  
 ---|---|---  
-NVIDIA Grace Processors with Arm Neoverse V2 cores | Superchip | [A4X Max and A4X](https://docs.cloud.google.com/compute/docs/accelerator-optimized-machines#a4x-vms)  
+NVIDIA Vera Processors with Armv9.2 Olympus cores | NVIDIA Vera Rubin superchip | [A5X](https://docs.cloud.google.com/compute/docs/accelerator-optimized-machines#a5x-instances)  
+NVIDIA Grace Processors with Arm Neoverse V2 cores | NVIDIA Grace Blackwell superchip | [A4X Max and A4X](https://docs.cloud.google.com/compute/docs/accelerator-optimized-machines#a4x-vms)  
 Google Axion Processors with Neoverse V2 Armv9 cores |  | [C4A](https://docs.cloud.google.com/compute/docs/general-purpose-machines#c4a_series)  
 Google Axion Processors with Neoverse N3 Armv9.2 cores |  | [N4A](https://docs.cloud.google.com/compute/docs/general-purpose-machines#n4a_series)  
 Ampere Altra Arm Neoverse N1 cores | Q64-30 | [Tau T2A](https://docs.cloud.google.com/compute/docs/general-purpose-machines#t2a_machines)  
@@ -467,6 +468,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-05 UTC.
+Last updated 2026-11-06 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-05 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-06 UTC."],[],[]] 

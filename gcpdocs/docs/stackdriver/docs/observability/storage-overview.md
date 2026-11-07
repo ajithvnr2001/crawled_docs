@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/stackdriver/docs/observability/storage-overview/
 title: Google Cloud Observability storage overview \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-03T09:42:46.557418+00:00
+fetched_at: 2026-11-07T08:31:07.154362+00:00
 ---
 
 # Google Cloud Observability storage overview  |  Google Cloud Documentation
@@ -87,15 +87,26 @@ For more information, see the following:
 The Observability API storage model relies on the following architecture:
 
 Observability buckets
-    An observability bucket is the management entity for datasets, which store data. An observability bucket is in a specific location and has a data retention policy. When a Google Cloud service uses the Observability API to store their data, the system creates an observability bucket based on the name of the service, a dataset to store data, and a view to provide read access to the stored data. For example, for the Cloud Trace service, the system names the system-created bucket `_Trace`, the dataset `Spans`, and the view `_AllSpans`. To learn about the structure of an observability bucket, see [`Bucket`](https://docs.cloud.google.com/stackdriver/docs/reference/observability/api/rest/v1/projects.locations.buckets#Bucket).
+    
+
+An observability bucket is the management entity for datasets, which store data. An observability bucket is in a specific location and has a data retention policy. When a Google Cloud service uses the Observability API to store its data, the system creates an observability bucket based on the name of the service, a dataset to store data, and a view to provide read access to the stored data. For example, for the Cloud Trace service, the system names the system-created bucket `_Trace`, the dataset `Spans`, and the view `_AllSpans`. To learn about the structure of an observability bucket, see [`Bucket`](https://docs.cloud.google.com/stackdriver/docs/reference/observability/api/rest/v1/projects.locations.buckets#Bucket).
+
+Google Cloud Observability uses [default settings](https://docs.cloud.google.com/stackdriver/docs/observability/set-defaults-for-observability-buckets) and organization policies to determine the location and encryption model for new observability buckets. If an existing observability bucket doesn't meet your organization's regulatory requirements, then you might be able to [reprovision the observability bucket](https://docs.cloud.google.com/stackdriver/docs/observability/reprovision-observability-bucket).
+
 Datasets
-    A dataset stores data. The system automatically creates one dataset when it creates an observability bucket, which manages the dataset. For example, when the system creates the `_Trace` bucket, it also creates a dataset named `Spans`, which stores your trace data. To learn about the structure of a dataset, see [`Dataset`](https://docs.cloud.google.com/stackdriver/docs/reference/observability/api/rest/v1/projects.locations.buckets.datasets#Dataset).
+    
+
+A dataset stores data. The system automatically creates one dataset when it creates an observability bucket, which manages the dataset. For example, when the system creates the `_Trace` bucket, it also creates a dataset named `Spans`, which stores your trace data. To learn about the structure of a dataset, see [`Dataset`](https://docs.cloud.google.com/stackdriver/docs/reference/observability/api/rest/v1/projects.locations.buckets.datasets#Dataset).
+
 Views on datasets
-    Each dataset hosts one or more views. A _view_ provides read access to a subset of entries in the dataset. The system creates one view when it creates a dataset. That view includes all data in the dataset. The name of the view depends on the service. For example, for the Cloud Trace service, the system creates a view named `_AllSpans` on the `Spans` dataset. To learn about the structure of a view, see [`View`](https://docs.cloud.google.com/stackdriver/docs/reference/observability/api/rest/v1/projects.locations.buckets.datasets.views#View).
+    
+
+Each dataset hosts one or more views. A _view_ provides read access to a subset of entries in the dataset. The system creates one view when it creates a dataset. That view includes all data in the dataset. The name of the view depends on the service. For example, for the Cloud Trace service, the system creates a view named `_AllSpans` on the `Spans` dataset. To learn about the structure of a view, see [`View`](https://docs.cloud.google.com/stackdriver/docs/reference/observability/api/rest/v1/projects.locations.buckets.datasets.views#View).
+
 Links on datasets
     
 
-Each dataset can contain at most one link. When you create a _link_ for a dataset, the system creates a linked BigQuery dataset. You can then query the data in your dataset using BigQuery or by other services that use the BigQuery API. To learn about the structure of a link, see [`Link`](https://docs.cloud.google.com/stackdriver/docs/reference/observability/api/rest/v1/projects.locations.buckets.datasets.links#Link).
+Each dataset can contain at most one link. When you create a _link_ for a dataset, the system creates a linked BigQuery dataset. You can then query the data in your dataset using BigQuery or other services that use the BigQuery API. To learn about the structure of a link, see [`Link`](https://docs.cloud.google.com/stackdriver/docs/reference/observability/api/rest/v1/projects.locations.buckets.datasets.links#Link).
 
 The system doesn't automatically create links on datasets.
 
@@ -107,7 +118,7 @@ For example, your trace data resides in a `Spans` dataset inside the `_Trace` ob
 
 If you have compliance or regulatory requirements to store your data in specific locations or to use customer-managed encryption keys (CMEKs), then we recommend that you configure both organization policies and default settings for observability buckets.
 
-For organizations, folders, and projects, default settings for observability buckets let you configure the following:
+For organizations, folders, and projects, _default settings for observability buckets_ let you configure the following:
 
   * A default storage location.
   * For each location, a default Cloud Key Management Service key.
@@ -125,9 +136,14 @@ There are two different ways the system uses default settings:
 
 Because the parent of an observability bucket is always a project, when you create a bucket, the system first searches for project-level default settings. If those don't exist, then the system searches the parent's ancestors for default settings. For example, if you define default settings for a folder, then those settings apply to descendants of the folder, except those descendants that have default settings configured.
 
-You can also use organization policies to restrict the locations of new observability buckets, to require the use of CMEKs, or to restrict which Cloud KMS keys can be used for encryption. If you configure organization policies that require use of CMEKs, then you must configure default settings for observability buckets. If you don't, then provisioning for system-created observability buckets fails.
+You can also use organization policies to restrict the locations of new observability buckets, to require the use of CMEKs, or to restrict which Cloud KMS keys can be used for encryption. If you configure organization policies that require the use of CMEKs, then you must configure default settings for observability buckets. If you don't, then provisioning for system-created observability buckets fails.
 
-For more information, see [Set defaults for observability buckets](https://docs.cloud.google.com/stackdriver/docs/observability/set-defaults-for-observability-buckets). 
+For more information, see the following documents: 
+
+  * [Set defaults for observability buckets](https://docs.cloud.google.com/stackdriver/docs/observability/set-defaults-for-observability-buckets).
+  * [Remediate data residency and CMEK requirements](https://docs.cloud.google.com/stackdriver/docs/observability/reprovision-observability-bucket).
+
+
 
 ## Limitations
 
@@ -152,6 +168,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-02 UTC.
+Last updated 2026-11-06 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-02 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-06 UTC."],[],[]] 

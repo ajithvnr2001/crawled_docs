@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/logging/docs/api/v2/resource-list/
 title: Monitored resources and services \u00a0|\u00a0 Cloud Logging \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-05T10:54:27.356401+00:00
+fetched_at: 2026-11-07T08:32:02.550317+00:00
 ---
 
 # Monitored resources and services  |  Cloud Logging  |  Google Cloud Documentation
@@ -1514,7 +1514,7 @@ Wasm Plugin Version  |  A single immutable version of a WasmPlugin (code + runti
 Goldkey Resource  |  A Goldkey resource managed by the Builder stack.   
 `resource_container`: The GCP project number owning the resource.   
 `location`: The deployment location of the resource.   
-`resource_id`: The unique ID of the resource.   
+`resource_id`: The full relative resource name, e.g. projects/123/locations/global/colossusNodes/n.   
 `resource_type`: Type of the resource.   
 `oracledatabase.googleapis.com/AutonomousDatabase`  
 Autonomous Database  |  Monitored resource representing a Autonomous Database.   
@@ -1816,7 +1816,7 @@ Workflow  |  A Workflows specification of steps to execute.
 `location`: The region in which the workflow is deployed.   
 `workflow_id`: The ID of the workflow.   
   
-This list of monitored-resource types was last generated at 2026-10-29 21:04:47 UTC.
+This list of monitored-resource types was last generated at 2026-11-05 17:53:37 UTC.
 
 ## Mappings for Logging-only resources
 
@@ -1929,6 +1929,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-02 UTC.
+Last updated 2026-11-06 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-02 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-06 UTC."],[],[]] 

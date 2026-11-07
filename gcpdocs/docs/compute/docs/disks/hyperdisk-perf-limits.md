@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/compute/docs/disks/hyperdisk-perf-limits/
 title: Performance limits for machine series that support Hyperdisk \u00a0|\u00a0 Compute Engine \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-05T11:08:52.701175+00:00
+fetched_at: 2026-11-07T08:32:23.037071+00:00
 ---
 
 # Performance limits for machine series that support Hyperdisk  |  Compute Engine  |  Google Cloud Documentation
@@ -68,7 +68,7 @@ The performance limits also apply to [custom N2, N2D, N4, N4A, and N4D machine t
 
 Select a machine series to display the performance limits for its machine types.
 
-A2A3 (H100)A3 (H200)A4A4XA4X MaxC3C3DC4C4AC4DC4NG2G4H3H4DM1M2M3M4M4NN2N2DN4N4AN4DT2DTPU v6eTPU7xX4X5Z3Z4DZ4MInstance machine type | Maximum IOPS | Maximum throughput (MiB/s)  
+A2A3 (H100)A3 (H200)A4A4XA4X MaxA5XC3C3DC4C4AC4DC4NG2G4H3H4DM1M2M3M4M4NN2N2DN4N4AN4DT2DTPU v6eTPU7xX4X5Z3Z4DZ4MInstance machine type | Maximum IOPS | Maximum throughput (MiB/s)  
 ---|---|---  
 A2   
 `a2-ultragpu-1g` | 30,000 | 1,800  
@@ -90,6 +90,8 @@ A4X
 `a4x-highgpu-4g` | 500,000 | 10,000  
 A4X Max   
 `a4x-maxgpu-4g-metal` | 500,000 | 12,500  
+A5X 1  
+`a5x-highgpu-4g-metal`1 | 2,000,000 | 16,000  
 C3   
 `c3-*-4` | 25,000 | 400  
 `c3-*-8` | 50,000 | 800  
@@ -327,7 +329,7 @@ Z4M 1
 `z4m-*-192-metal`1 | 500,000 | 12,500  
   
 1 Also offers steady state performance. For these limits, see Performance limits for machine types with steady state performance.  
-2 The actual throughput limits are 240 MB/s for read operations and 204 MB/s for write operations.  
+2 The actual throughput limits are 240 MiB/s for read operations and 204 MiB/s for write operations.  
 
 
 ### Performance limits for machine types with steady state performance
@@ -349,6 +351,8 @@ A3 (H200)
 `a3-ultragpu-8g` | 500,000 | 10,000| 500,000 | 10,000  
 A4   
 `a4-highgpu-8g` | 500,000 | 10,000| 500,000 | 10,000  
+A5X   
+`a5x-highgpu-4g-metal` | 2,000,000 | 16,000| 2,000,000 | 16,000  
 C4   
 `c4-*-2` | 6,200 | 120| 50,000 | 400  
 `c4-*-4` | 12,500 | 240| 50,000 | 400  
@@ -472,6 +476,8 @@ A4X 1
 `a4x-highgpu-4g`1 | 320,000 | 10,000  
 A4X Max 1  
 `a4x-maxgpu-4g-metal`1 | 320,000 | 12,500  
+A5X 1,2  
+`a5x-highgpu-4g-metal`1,2 | 640,000 | 16,000  
 C3   
 `c3-*-4` | 25,000 | 400  
 `c3-*-8` | 50,000 | 800  
@@ -691,6 +697,8 @@ A3 (A3+H100)
 `a3-megagpu-8g` | 160,000 | 4,800  
 A3 (A3+H200)   
 `a3-ultragpu-8g` | 320,000 | 10,000  
+A5X 1,2  
+`a5x-highgpu-4g-metal`1,2 | 640,000 | 16,000  
 C3   
 `c3-*-4` | 25,000 | 400  
 `c3-*-8` | 50,000 | 800  
@@ -867,6 +875,8 @@ A4X 2
 `a4x-highgpu-4g`2 | 500,000 | 12,500  
 A4X Max 2  
 `a4x-maxgpu-4g-metal`2 | 500,000 | 12,500  
+A5X 2,3  
+`a5x-highgpu-4g-metal`2,3 | 2,000,000 | 16,000  
 C3 1  
 `c3-*-88`1 | 350,000 | 5,000  
 `c3-*-176`1 | 500,000 | 10,000  
@@ -966,7 +976,7 @@ This section lists the maximum performance that Hyperdisk ML volumes can achieve
 
 The provisioned throughput for a Hyperdisk ML volume is shared between each instance the volume is attached to, up to the maximum limit for the machine type that's listed in the following table. If a Hyperdisk ML volume's provisioned performance is higher than an instance's performance limit, the volume can achieve its provisioned performance only if it is attached to multiple instances.
 
-For example, suppose you have a Hyperdisk ML volume provisioned with 500,000 MiB/s of throughput and you want to attach the volume to `a3-ultragpu-8` instances. A single `a3-ultragpu-8` instance can't acheieve more than 4,000 MiB/s of throughput. Therefore, to achieve the volume's provisioned throughput, you must attach the volume to at least 125 (500,000/4,000) `a3-ultragpu-8` instances. On the other hand, for the `a2-highgpu-1g` machine type, you would need 272 instances. 
+For example, suppose you have a Hyperdisk ML volume provisioned with 500,000 MiB/s of throughput and you want to attach the volume to `a3-ultragpu-8` instances. A single `a3-ultragpu-8` instance can't achieve more than 4,000 MiB/s of throughput. Therefore, to achieve the volume's provisioned throughput, you must attach the volume to at least 125 (500,000/4,000) `a3-ultragpu-8` instances. On the other hand, for the `a2-highgpu-1g` machine type, you would need 272 instances. 
 
 For more information about Hyperdisk ML, see [About Hyperdisk ML](https://docs.cloud.google.com/compute/docs/disks/hd-types/hyperdisk-ml).
 
@@ -993,6 +1003,8 @@ A4X 1
 `a4x-highgpu-4g`1 | 200,000 | 12,500  
 A4X Max 1  
 `a4x-maxgpu-4g-metal`1 | 200,000 | 12,500  
+A5X 1,2  
+`a5x-highgpu-4g-metal`1,2 | 256,000 | 16,000  
 C3   
 `c3-*-4` | 6,400 | 400  
 `c3-*-8` | 12,800 | 800  
@@ -1180,6 +1192,8 @@ A3 (A3+H100)
 `a3-*-8g` | 12,000 | 3,000  
 A4X Max   
 `a4x-maxgpu-4g-metal` | 40,000 | 10,000  
+A5X 1,2  
+`a5x-highgpu-4g-metal`1,2 | 64,000 | 16,000  
 C3   
 `c3-*-4` | 960 | 240  
 `c3-*-8` | 3,200 | 800  
@@ -1512,6 +1526,7 @@ machine types
   * [A4](https://docs.cloud.google.com/compute/docs/accelerator-optimized-machines#a4-disks)
   * [A4X](https://docs.cloud.google.com/compute/docs/accelerator-optimized-machines#a4x-disks)
   * [A4X Max](https://docs.cloud.google.com/compute/docs/accelerator-optimized-machines#a4x-disks)
+  * [A5X](https://docs.cloud.google.com/compute/docs/accelerator-optimized-machines#a5x-disks)
   * [G2](https://docs.cloud.google.com/compute/docs/accelerator-optimized-machines#g2-disks)
   * [G4](https://docs.cloud.google.com/compute/docs/accelerator-optimized-machines#g4-disks)
 
@@ -1527,6 +1542,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-04 UTC.
+Last updated 2026-11-06 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-06 UTC."],[],[]] 

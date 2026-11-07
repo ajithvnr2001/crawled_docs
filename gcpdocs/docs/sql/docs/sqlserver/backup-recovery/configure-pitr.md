@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sql/docs/sqlserver/backup-recovery/configure-pitr/
 title: Configure point-in-time recovery (PITR) \u00a0|\u00a0 Cloud SQL for SQL Server \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-06T10:29:40.814532+00:00
+fetched_at: 2026-11-07T08:29:41.895819+00:00
 ---
 
 # Configure point-in-time recovery (PITR)  |  Cloud SQL for SQL Server  |  Google Cloud Documentation
@@ -611,7 +611,7 @@ To set the number of days to retain transaction logs:
 
 [Go to Cloud SQL Instances](https://console.cloud.google.com/sql)
 
-  2. Open the more actions menu ![More actions icon.](https://docs.cloud.google.com/static/sql/images/more-actions.png) for the instance you want to set the transaction log on and select **Edit**.
+  2. Open the more actions menu ![More actions icon.](https://docs.cloud.google.com/static/sql/images/more-actions.png) for the instance you want to set the transaction log retention and select **Edit**.
   3. Under **Customize your instance** , expand the **Data Protection** section.
   4. In the **Enable point-in-time recovery** section, expand **Advanced options**.
   5. Enter the number of days to retain logs, from 1-35 for Cloud SQL Enterprise Plus edition or 1-7 for Cloud SQL Enterprise edition.
@@ -835,6 +835,7 @@ Example response:
 
 In the output of the command, the `transactionalLogStorageState` field or the `TRANSACTIONAL_LOG_STORAGE_STATE` column provides information about where the transaction logs for PITR are stored for the instance. The possible transaction log storage states are the following:
 
+  * `TRANSACTIONAL_LOG_STORAGE_STATE_UNSPECIFIED`: point-in-time recovery (PITR) is disabled for the instance.
   * `DISK`: the instance stores the transaction logs used for PITR on disk. 
   * `CLOUD_STORAGE`: the instance stores the transaction logs used for PITR in Cloud Storage.
 
@@ -850,6 +851,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-03 UTC.
+Last updated 2026-11-06 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-06 UTC."],[],[]] 

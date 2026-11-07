@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/memory-bank/adk-quickstart/
 title: Memory Bank quickstart with ADK \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-06T10:43:05.684346+00:00
+fetched_at: 2026-11-07T08:24:51.399833+00:00
 ---
 
 # Memory Bank quickstart with ADK  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation
@@ -171,7 +171,7 @@ After you've created your memory-enabled agent, you need to link it to a memory 
 
 **Note:** Skip this section if you already have an existing Memory Bank instance.
 
-You first need to create a Memory Bank instance. This step is optional if you're using Agent Runtime to deploy your agent. For more information on customizing your Memory Bank behavior, see the [Configure your Memory Bank instance](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/memory-bank/setup#memory-bank-config) section on the Set up Memory Bank page.
+You first need to create a Memory Bank instance. This step is optional if you're using Agent Runtime to deploy your agent. You can create an instance on the **Memory Bank** page in the Google Cloud console (and click **Link to an agent** > **Use with ADK** for prefilled setup code) or with the Agent Platform SDK. For more information on customizing your Memory Bank behavior, see [Configure your Memory Bank instance](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/memory-bank/setup#memory-bank-config).
     
     
     import agentplatform
@@ -606,6 +606,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-05 UTC.
+Last updated 2026-11-07 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-05 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-07 UTC."],[],[]] 

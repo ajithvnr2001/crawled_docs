@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/platform/pa-user/pnp/pnp-overview/
 title: Overview \u00a0|\u00a0 Google Distributed Cloud air-gapped \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T19:30:22.299635+00:00
+fetched_at: 2026-11-07T08:29:40.262610+00:00
 ---
 
 # Overview  |  Google Distributed Cloud air-gapped  |  Google Cloud Documentation
@@ -135,6 +135,25 @@ Workload-level network policies also provide the capability to enforce PNP along
 
 For more information, see [Create a workload-level intra-project policy](https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/platform/pa-user/pnp/intra-project-traffic#create-workload-level-intra) and [Create a workload-level cross-project policy](https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/platform/pa-user/pnp/cross-project-traffic#create-workload-level-cross).
 
+## Supported and unsupported labels for network policies
+
+GDC evaluates network policies using the static labels that you define on your workloads. To keep internal policy tables within scale limits, GDC ignores labels that Kubernetes or the platform automatically assigns to individual pods, controller revisions, or system components.
+
+**Warning:** Don't use the excluded labels in the following table in `ProjectNetworkPolicy` (`userWorkloadSelector` or `workloadSelector`) or Kubernetes `NetworkPolicy` (`podSelector`) rules. Because network policy enforcement ignores these labels, a selector that references an excluded label matches zero workloads. In an `Allow` peer selector (`from` or `to`) on an isolated workload, the rule fails to allow traffic and the traffic is blocked. In a subject selector (`spec.subject` or `podSelector`), the policy selects zero workloads, which fails to isolate the workload or apply the intended allow rules. In an explicit `Deny` rule, matching zero subjects or peers causes the deny rule to have no effect, so the traffic isn't blocked.Category | Excluded label or pattern | Description  
+---|---|---  
+**StatefulSet labels** | `statefulset.kubernetes.io/pod-name`, `apps.kubernetes.io/pod-index` | Automated Kubernetes per-pod replica name and ordinal index  
+**Job and batch labels** | `batch.kubernetes.io/job-name`, `batch.kubernetes.io/job-completion-index`, `batch.kubernetes.io/controller-uid`, `controller-uid`, `job-name` | Automated Kubernetes Job and CronJob instance identifiers  
+**Rollout and template hashes** | `pod-template-hash`, `pod-template-generation`, `controller-revision-hash` | ReplicaSet, Deployment, and StatefulSet rollout hashes  
+**Reserved system prefixes** | `kubernetes.io/*`, `io.kubernetes.*`, `*.beta.kubernetes.io/*`, `k8s.io/*`, `*.node.kubevirt.io/*`, `annotation.*`, `etcd_node` | Internal Kubernetes, KubeVirt node, and node-level system labels  
+  
+Follow these best practices when authoring workload selectors:
+
+  * **Use stable application labels** : Target static labels defined in your workload specification, such as `app`, `app.kubernetes.io/name`, `app.kubernetes.io/component`, `tier`, or `role`.
+  * **Prefix VM labels** : When targeting virtual machine (VM) labels assigned in the GDC console or the API, prepend `user-label.gpc.gke.io/` to the label key (for example, `user-label.gpc.gke.io/app: backend`).
+  * **Target individual StatefulSet replicas with explicit static labels** : To target a specific StatefulSet pod independently, assign an explicit static label to that workload rather than matching on `statefulset.kubernetes.io/pod-name` or `apps.kubernetes.io/pod-index`.
+
+
+
 ## Policy structure and validation
 
 In a `ProjectNetworkPolicy` resource, workload label selectors are nested several levels deep. The following ingress policy shows the correct location of each selector:
@@ -252,6 +271,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-06 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-06 UTC."],[],[]] 

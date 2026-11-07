@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/maas/use-open-models/
 title: Gemini Enterprise Agent Platform open models for MaaS \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-06T10:43:12.474769+00:00
+fetched_at: 2026-11-07T08:25:43.607580+00:00
 ---
 
 # Gemini Enterprise Agent Platform open models for MaaS  |  Google Cloud Documentation
@@ -40,13 +40,6 @@ gpt-oss 120B | Language | A 120B model that offers high performance on reasoning
 Llama 4 Maverick 17B-128E | Language, Vision | The largest Llama 4 model that has coding, reasoning, and image capabilities. Llama 4 Maverick 17B-128E is a multimodal model that uses the Mixture-of-Experts (MoE) architecture and early fusion. |  [Model card](https://console.cloud.google.com/agent-platform/publishers/meta/model-garden/llama-4-maverick-17b-128e-instruct-maas)  
 Llama 4 Scout 17B-16E | Language, Vision | Llama 4 Scout 17B-16E delivers high-performance results for its size class, outperforming other open and proprietary models on several benchmarks. Llama 4 Scout 17B-16E is a multimodal model that uses the Mixture-of-Experts (MoE) architecture and early fusion. |  [Model card](https://console.cloud.google.com/agent-platform/publishers/meta/model-garden/llama-4-maverick-17b-128e-instruct-maas)  
   
-The following open embedding models are offered as managed APIs on Gemini Enterprise Agent Platform Model Garden (MaaS):
-
-Model name | Description | Output dimensions | Max sequence length | Supported text languages | Quickstart  
----|---|---|---|---|---  
-multilingual-e5-small | Part of the E5 family of text embedding models. Small variant contains 12 layers. | Up to 384 | 512 tokens | [Supported languages](https://huggingface.co/intfloat/multilingual-e5-small#supported-languages) | [Model card](https://console.cloud.google.com/agent-platform/publishers/intfloat/model-garden/multilingual-e5-large-instruct-maas)  
-multilingual-e5-large | Part of the E5 family of text embedding models. Large variant contains 24 layers. | Up to 1024 | 512 tokens | [Supported languages](https://huggingface.co/intfloat/multilingual-e5-small#supported-languages) | [Model card](https://console.cloud.google.com/agent-platform/publishers/intfloat/model-garden/multilingual-e5-large-instruct-maas)  
-  
 ## Open model regulatory compliance
 
 The [certifications](https://cloud.google.com/security/compliance/services-in-scope/) for [Generative AI on Gemini Enterprise Agent Platform](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models) continue to apply when open models are used as a managed API using Gemini Enterprise Agent Platform. If you need details about the models themselves, additional information can be found in the respective model card, or you can contact the respective model publisher.
@@ -67,15 +60,8 @@ The supported type of caching is implicit caching, which is automatic caching th
 
 ### Supported models
 
-  * qwen3-coder-480b-a35b-instruct-maas
-  * kimi-k2-thinking-maas
-  * minimax-m2-maas
-  * gpt-oss-20b-maas
-  * deepseek-v3.1-maas
-  * deepseek-v3.2-maas
   * deepseek-v4.1-flash-maas
   * gemma-4-26b-a4b-it-maas
-  * glm-5-maas
   * glm-5.2-maas
 
 
@@ -100,6 +86,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-05 UTC.
+Last updated 2026-11-07 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-05 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-07 UTC."],[],[]] 

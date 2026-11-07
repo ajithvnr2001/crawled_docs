@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/contact-center/ccai-platform/docs/agent-status/
 title: Agent statuses \u00a0|\u00a0 Google Cloud Contact Center as a Service \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T23:04:28.775157+00:00
+fetched_at: 2026-11-07T08:30:00.933281+00:00
 ---
 
 # Agent statuses  |  Google Cloud Contact Center as a Service  |  Google Cloud Documentation
@@ -46,7 +46,7 @@ See [Auto Answer - Calls](https://docs.cloud.google.com/contact-center/ccai-plat
 
 
 
-With the exception of Available and In-chat, all default and custom statuses are considered "unavailable" states and calls or chats aren't routed to agents in an "unavailable" status. An exception is when agent status breakthough is enabled. If an agent is in In-Chat status and has not reached the max chat threshold, they will be routed new chats until the threshold is met. See [Chat Settings](https://docs.cloud.google.com/contact-center/ccai-platform/docs/chat-settings-web-and-mobile#UUID-edf6dbbd-4caa-3edc-9070-2dfecf1af729) for further information regarding maximum chats.
+With the exception of Available and In-chat, all default and custom statuses are considered "unavailable" states and calls or chats aren't routed to agents in an "unavailable" status. An exception is when agent status breakthrough is enabled. If an agent is in In-Chat status and has not reached the max chat threshold, they will be routed new chats until the threshold is met. See [Chat Settings](https://docs.cloud.google.com/contact-center/ccai-platform/docs/chat-settings-web-and-mobile#UUID-edf6dbbd-4caa-3edc-9070-2dfecf1af729) for further information regarding maximum chats.
 
 Status name | Color | Set by | Meaning | Notes  
 ---|---|---|---|---  
@@ -59,7 +59,7 @@ Missed Call | Purple | System | If using Deltacast, this status will show after 
 Missed Chat | Grey | System | If using Deltacast, this status will show after an agent misses a set amount of chats. | See [Call Multicast and deltacast](https://docs.cloud.google.com/contact-center/ccai-platform/docs/routing#multicast_and_deltacast) for more details.  
 Unresponsive | Lime | System | A system status an agent is put into if our system registers more than x (a configurable number) consecutive `skipped` calls. | This status is indicative of an agent unable to receive calls, due to the hardware, software, networks, or combination of these factors.  
 Wrap-up | Purple | System/Agent | Calls and chats won't be routed to agents. This status is either system-set based on automatic wrap-up settings, or can be selected manually by the agent. | Wrap-up status set manually shows the same in reports as when agents are placed in Wrap-up automatically. To differentiate, we suggest creating a custom status for Wrap up called "Manual Wrap-up" or "Excess Wrap-up" and train agents to use this instead when using the status manually.  
-Wrap-up Exceeded | Light Grey | System | Calls and chats won't be routed to agents. | This status is system-set and cannot be selected by a manager or agent. Once it is on, the transition from _wrap-up_ status to _wrap-up exceeded_ is automatic.  
+Wrap-up Exceeded | Light Grey | System | Calls and chats won't be routed to agents. | This status is system-set and cannot be selected by a manager or agent. Once it is on, the transition from _wrap-up_ status to **Wrap-up Exceeded** is automatic.  
 In-call | Light Blue | System | Agents are automatically placed in this status when on a call | Agents cannot log out during this status  
 In-chat | Indigo | System | Agents are automatically placed in this status when in a chat | Agents cannot log out during this status  
 Offline | Grey | System/Agent | When an agent logs out or the Timeout limit is met, an agent will be considered offline |   
@@ -253,17 +253,19 @@ When this setting is enabled, agents can transfer a call or chat to another agen
 
 ## Agent status lists
 
-You can use agent status lists to set custom agent statuses for queues and teams. This grants customers the flexibility to choose which statuses the members of specific queues and teams can have access to by assigning a list of custom statuses to them. The agents of these queues and teams will not be able to see any other statuses (except the default statuses and system list) in the status selectors of their call and chat adapters.
+You can use agent status lists to set custom agent statuses for queues and teams. This grants customers the flexibility to choose which statuses the members of specific queues and teams can have access to by assigning a list of custom statuses to them. The agents of these queues and teams won't be able to see any other statuses (except the default statuses and system list) in the status selectors of their call and chat adapters.
 
 **Note:** Only custom statuses and optional default statuses can be added to an agent status list. The System List is available by default to all agents. See [Default Statuses](https://support.ujet.co/hc/en-us/articles/115006056888-Agent-Statuses#UUID-a2e1f3f5-588e-6e7c-b23f-be7b751ed630_section-idm234692142583864).
 
 ### Creating, editing and deleting an agent status list
 
+The next sections discuss how to create, edit, and delete an agent status list.
+
 #### Create
 
 To create an agent status list, follow these steps:
 
-  1. Go to **Settings > Operation Management > Agent Status > Manage Agent Statuses.**
+  1. Go to **Settings** > **Operation Management** > **Agent Status** > **Manage Agent Statuses**.
 
   2. Select **Agent Status Lists**.
 
@@ -285,7 +287,7 @@ To create an agent status list, follow these steps:
 
   8. Select **Add agent status**.
 
-  9. A drop-down menu appears from which you can multi-select all statuses you wish to assign to this list.
+  9. A drop-down menu appears from which you can multi-select all statuses you want to assign to this list.
 
   10. When all statuses are chosen, select **Add**.
 
@@ -669,32 +671,51 @@ You can follow a similar workflow using the agent desktop.
 
 ## Wrap-up exceeded status
 
-Wrap-up Exceeded is a system-set status that lets you transition agents into a _Wrap-up Exceeded_ Status once they have gone beyond a wrap-up threshold time and have cleared all ongoing sessions. When an agents transitions to _Wrap-up Exceeded_ status, an agent-level notification appears.
+Wrap-up Exceeded is a system-set status that lets you transition agents into a **Wrap-up Exceeded** status once they have gone beyond a wrap-up threshold time and have cleared all ongoing sessions. When an agent transitions to **Wrap-up Exceeded** status, an agent-level notification appears.
 
 For more information, see [Agent Statuses](https://docs.cloud.google.com/contact-center/ccai-platform/docs/agent-status).
 
-**Note:** This status is only available when disposition codes/ notes are enabled.
+**Note:** Wrap-up Exceeded requires **Automatic wrap-up** to be enabled for the applicable channel (inbound calls, outbound calls, or chats). Disposition codes and notes aren't required.
 
 ### Enable Wrap-up Exceeded
 
-  1. In the CCAI Platform portal, go to **Settings Operation Management** > **Wrap-up**.
+You can turn on Wrap-up Exceeded for your whole company or configure it for individual queues. If a queue doesn't have its own setting, it inherits the setting from its parent queue. If no parent queue setting is configured, it inherits the company-level setting. Configure the setting at a parent queue to apply it to child queues, or at a leaf queue to set it for that queue.
 
-  2. Turn on the _Wrap-up Exceeded_ status.
+  1. In the CCAI Platform portal, go to **Settings** > **Operation Management** > **Wrap-up**.
+
+  2. Turn on the **Wrap-up Exceeded** status.
+
+  3. Click **Save Wrap-Up**.
 
 
 
 
-### Agent Status Transition Examples
+### Turn on Wrap-up Exceeded for a queue
 
-The following are common scenarios from the agent's perspective demonstrating how the _Wrap-up Exceeded_ status transitions based on the adapter activity.
+  1. Open the settings for the parent queue or leaf queue you want to configure.
 
-The _Wrap-up Exceeded_ status is impacted by the following configuration considerations:
+  2. Go to **Wrap-up Settings**.
 
-  * The _Wrap-up Exceeded_ status functions as a single configuration for calls and chats. Once enabled, agents can transition to _Wrap-up Exceeded_ after a call or chat session.
+  3. Select **Configure**.
 
-  * Once the agent exceeds wrap-up time on a communication, and have cleared all ongoing sessions, they transition into _Wrap-up Exceeded_ status. While in this status, or when _Wrap-up Exceeded_ is their next status, the agent cannot receive new communication and won't be able to manually change their next status. However, the agent is not taken away from the wrap-up screen and still can enter disposition codes/ notes. See **Scenarios 2** and **3** for examples.
+  4. Click **Save**.
 
-  * Once the agent is in _Wrap-up Exceeded_ status and is not handling any calls or chats, they can switch to their next status and still can enter disposition codes/notes, depending on configuration.
+
+
+
+For more information, see [Queue-level wrap-up settings](https://docs.cloud.google.com/contact-center/ccai-platform/docs/queue-level-wrap-up-settings).
+
+### Agent status transition examples
+
+The following are common scenarios from the agent's perspective demonstrating how the Wrap-up Exceeded status transitions based on the adapter activity.
+
+The **Wrap-up Exceeded** status is impacted by the following configuration considerations:
+
+  * The **Wrap-up Exceeded** status functions as a single configuration for calls and chats. Once enabled, agents can transition to Wrap-up Exceeded after a call or chat session.
+
+  * Once the agent exceeds wrap-up time on a communication and has cleared all ongoing sessions, they transition into **Wrap-up Exceeded** status. While in this status, or when Wrap-up Exceeded is their next status, the agent can't receive new communications or manually change their next status. However, the agent stays on the wrap-up screen and can still enter disposition codes and notes. See Scenarios 2 and 3 for examples.
+
+  * Once the agent is in Wrap-up Exceeded status and isn't handling any calls or chats, they can switch to their next status and can still enter disposition codes and notes, depending on configuration.
 
 
 
@@ -703,15 +724,15 @@ The _Wrap-up Exceeded_ status is impacted by the following configuration conside
 
   1. An active call ends and goes to the wrap-up screen.
 
-  2. The agent status moves from _In-call_ to _Wrap-up_.
+  2. The agent status moves from **In-call** to **Wrap-up**.
 
   3. The agent exceeds the wrap-up time.
 
-  4. The agent is moved to _Wrap-up Exceeded_ status, where the agent can still work on the wrap-up screen.
+  4. The agent is moved to **Wrap-up Exceeded** status, where the agent can still work on the wrap-up screen.
 
   5. The agent completes the wrap-up work in the notes and disposition screen, then clicks **Save**.
 
-  6. The agent stays in the _Wrap-up Exceeded_ status and the wrap-up screen closes.
+  6. The agent stays in the **Wrap-up Exceeded** status and the wrap-up screen closes.
 
   7. The agent selects a new status.
 
@@ -724,25 +745,25 @@ The _Wrap-up Exceeded_ status is impacted by the following configuration conside
 
   1. There are two active chats: one chat ends and goes to the wrap-up screen (Chat A), and the second chat (Chat B) is still ongoing.
 
-  2. The agent status stays in _In-chat_ status (Chat A wrap-up is in progress, Chat B is in progress).
+  2. The agent status stays in **In-chat** status (Chat A wrap-up is in progress, Chat B is in progress).
 
   3. The agent exceeds wrap-up time on Chat A.
 
-  4. A Wrap-up Exceeded banner displays on the call and agent adapter since Chat A Wrap-up exceeded and Chat B is in progress. This alerts the agent that the next status is _Wrap-up Exceeded_.
+  4. A **Wrap-up Exceeded** banner displays on the call and agent adapter since Chat A Wrap-up exceeded and Chat B is in progress. This alerts the agent that the next status is **Wrap-up Exceeded**.
 
-  5. The agent stays in _In-chat_ status (the agent is still working on Chat B). The agent still can work on the wrap-up screen of Chat A.
+  5. The agent stays in **In-chat** status (the agent is still working on Chat B). The agent can work on the wrap-up screen of Chat A.
 
   6. The agent finishes Chat B and goes to wrap-up for Chat B.
 
-  7. The agent stays in the _In-chat_ status.
+  7. The agent stays in the **In-chat** status.
 
   8. The agent exceeds the wrap-up time on Chat B.
 
-  9. The agent is moved to the _Wrap-up Exceeded_ status, where the agent can still work on the wrap-up for both chats (A and B). The agent still can't move into a new status while they are working on the wrap-up.
+  9. The agent is moved to the **Wrap-up Exceeded** status, where the agent can still work on the wrap-up for both chats (A and B). The agent can't move into a new status while they are working on the wrap-up.
 
   10. The agent completes the wrap-up work and clicks **Save & Close** on both chats.
 
-  11. The agent stays in _Wrap-up Exceeded_ status (no communications are active or in wrap-up state).
+  11. The agent stays in **Wrap-up Exceeded** status (no communications are active or in wrap-up state).
 
   12. The agent chooses a new status.
 
@@ -755,21 +776,21 @@ The _Wrap-up Exceeded_ status is impacted by the following configuration conside
 
   1. There is an active call and an active chat. The agent finishes the call, and the chat is still in progress (active).
 
-  2. The agent status changes from _In-call_ to _Wrap-up_ status.
+  2. The agent status changes from **In-call** to **Wrap-up** status.
 
   3. The agent exceeds call wrap-up time.
 
-  4. The agent stays in _Wrap-up_ status because there is still an active chat in progress.
+  4. The agent stays in **Wrap-up** status because there is still an active chat in progress.
 
-A Wrap-up Exceeded banner displays on the call and agent adapter, which alerts the agent that the next status is _Wrap-up Exceeded_.
+A **Wrap-up Exceeded** banner displays on the call and agent adapter, which alerts the agent that the next status is **Wrap-up Exceeded**.
 
   5. The agent finishes call wrap-up and clicks **Save** on the wrap-up screen.
 
-  6. The agent moves from _Wrap-up_ status to _In-chat_ status, because there is still an active chat in progress.
+  6. The agent moves from **Wrap-up** status to **In-chat** status, because there is still an active chat in progress.
 
   7. The agent finishes the chat wrap-up in the chat allotted wrap-up time.
 
-  8. The agent moves from _In-chat_ status to _Wrap-up Exceeded_ status since the prior call wrap-up time was exceeded.
+  8. The agent moves from **In-chat** status to **Wrap-up Exceeded** status since the prior call wrap-up time was exceeded.
 
   9. The agent chooses a new status.
 
@@ -780,22 +801,23 @@ A Wrap-up Exceeded banner displays on the call and agent adapter, which alerts t
 
 ### Reporting
 
-Wrap-up Exceeded can be found in the following standard reports:
+**Wrap-up Exceeded** can be found in the following standard reports:
 
-**Agents & Teams**
+  * **Agents and teams**
 
-  * Interactions Summary by Agent Report
+    * **Interactions summary by agent report**
 
-    * Wrap-up Exceeded: (Count) The total number of times the agent goes into _Wrap-up Exceeded_ status.
-  * Agent Activity Summary Report
+      * **Wrap-up Exceeded** : (Count) The total number of times the agent goes into **Wrap-up Exceeded** status.
+    * **Agent activity summary report**
 
-    * Total Exceeded Wrap-up (Calls/Chats) - The total time the agent(s) was in _Wrap-up Exceeded_ status. This is calculated as the time from when the wrap-up timer elapses to when the agent submits the wrap-up.
-  * Individual Call or Chat History Report
+      * **Total Wrap-up Exceeded Time** : The total time the agent spent in **Wrap-up Exceeded** status.
+    * **Individual call and chat history report**
 
-    * Wrap-up Exceeded: Indicates whether a wrap-up exceeded status occurred. This formats as a True or False.
-  * Activity Timeline Report
+      * **Wrap-up Exceeded** : Indicates whether a **Wrap-up Exceeded** status occurred. This formats as a `True` or `False`.
+    * **Activity timeline report**
 
-    * _Wrap-up Exceeded_ appears as a status under **Activity log**.
+    * **Wrap-up Exceeded** appears as a status under **Activity log**.
+
 
 
 
@@ -803,6 +825,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-06 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-06 UTC."],[],[]] 

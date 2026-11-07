@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/custom-container-requirements/
 title: Custom container requirements for inference \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-06T10:44:58.170055+00:00
+fetched_at: 2026-11-07T08:25:24.019598+00:00
 ---
 
 # Custom container requirements for inference  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation
@@ -148,11 +148,23 @@ If the model server implements multiple inference routes, using invoke API to ac
 
 You must push your container image to [Artifact Registry](https://docs.cloud.google.com/artifact-registry/docs/overview) in order to use it with Agent Platform. Learn how to [push a container image to Artifact Registry](https://docs.cloud.google.com/artifact-registry/docs/docker/pushing-and-pulling).
 
-In particular, you must push the container image to a repository that meets the following location and permissions requirements.
+In particular, your container image and repository must meet the following location, URI format, and permissions requirements.
 
 ### Location
 
 When you use Artifact Registry, the repository must use [a region](https://docs.cloud.google.com/artifact-registry/docs/repo-locations) that matches the [locational endpoint](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/locations) where you plan to create a `Model`. For example, if you plan to create a `Model` on the `us-central1-aiplatform.googleapis.com` endpoint, the full name of your container image must start with `us-central1-docker.pkg.dev/`. Don't use a multi-regional repository for your container image.
+
+### Image URI format
+
+When you create a `Model`, specify [`containerSpec.imageUri`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/ModelContainerSpec#FIELDS.image_uri) in one of the following formats:
+
+  * **By digest** : `LOCATION-docker.pkg.dev/PROJECT_ID/REPOSITORY/IMAGE@sha256:DIGEST`
+  * **By tag** : `LOCATION-docker.pkg.dev/PROJECT_ID/REPOSITORY/IMAGE:TAG`
+  * **Without a tag or digest** (defaults to `:latest`): `LOCATION-docker.pkg.dev/PROJECT_ID/REPOSITORY/IMAGE`
+
+
+
+Don't include both a tag and a digest in the same URI (for example, `IMAGE:TAG@sha256:DIGEST`). Agent Platform rejects image URIs that combine a tag and a digest during model upload.
 
 ### Permissions
 
@@ -240,6 +252,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-05 UTC.
+Last updated 2026-11-07 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-05 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-07 UTC."],[],[]] 

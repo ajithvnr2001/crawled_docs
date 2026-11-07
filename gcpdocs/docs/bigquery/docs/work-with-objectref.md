@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/work-with-objectref/
 title: Work with ObjectRef values \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T05:44:25.970156+00:00
+fetched_at: 2026-11-07T08:29:44.699955+00:00
 ---
 
 # Work with ObjectRef values  |  BigQuery  |  Google Cloud Documentation
@@ -144,7 +144,7 @@ To use delegated access, your data administrator must follow these steps to set 
     3. Grant the service account the [`storage.objects.get`](https://docs.cloud.google.com/storage/docs/access-control/iam-permissions#objects) permission for reads, or the [`storage.objects.create`](https://docs.cloud.google.com/storage/docs/access-control/iam-permissions#objects) permission for writes, in either the project or the Cloud Storage buckets. You can grant these permissions with the [Storage Object Viewer](https://docs.cloud.google.com/storage/docs/access-control/iam-roles#storage.objectViewer) or [Storage Object User](https://docs.cloud.google.com/storage/docs/access-control/iam-roles#storage.objectUser) roles.
   * **Per-user setup**. The data administrator must grant users the [`bigquery.objectRefs.read`](https://docs.cloud.google.com/bigquery/docs/access-control#bigquery.objectRefs.read) permission for reads, or the [`bigquery.objectRefs.write`](https://docs.cloud.google.com/bigquery/docs/access-control#bigquery.objectRefs.write) permission for writes, to the BigQuery connection. You can grant these permissions with the [BigQuery ObjectRef Reader](https://docs.cloud.google.com/bigquery/docs/access-control#bigquery.objectRefReader) or [BigQuery ObjectRef Admin](https://docs.cloud.google.com/bigquery/docs/access-control#bigquery.objectRefAdmin) roles.
 
-
+**Caution:** The `bigquery.objectRefs.read` and `bigquery.objectRefs.write` permissions apply to the connection, not to individual tables or rows. Because these permissions are designed to grant connection-level access to any Cloud Storage object that the connection's service account can access (for example, through `OBJ.MAKE_REF`, `OBJ.LIST`, and `OBJ.GET_ACCESS_URL`), do not use them with [row-level access policies](https://docs.cloud.google.com/bigquery/docs/row-level-security-intro). To generate signed URLs for an [object table](https://docs.cloud.google.com/bigquery/docs/object-table-introduction) with row-level access policies, query the object table with the [`EXTERNAL_OBJECT_TRANSFORM`](https://docs.cloud.google.com/bigquery/docs/object-table-introduction#signed_urls) function instead of using `bigquery.objectRefs.read` on the connection.
 
 For example, if a user passes `ObjectRef` values that have an authorizer to an `AI.GENERATE` function, then the function verifies that the user has the `bigquery.objectRefs.read` permission, and then reads the objects by using the connection's service account. If the user or the service account has insufficient permissions, then the function writes a `"permission denied"` error to the `status` column in the result.
 
@@ -177,7 +177,7 @@ Because the `ref` column of an [object table](https://docs.cloud.google.com/bigq
 Consider the following best practices when you decide whether to use direct or delegated access:
 
   * Use _direct access_ for a small team operating in a single project for both data storage and analysis. The data administrator uses Identity and Access Management to grant users access to BigQuery data and Cloud Storage data. Users can create `ObjectRef` values on demand without an authorizer to analyze objects by using their own credentials.
-  * Use _delegated access_ for a large team operating across multiple projects, especially when data storage and analysis are decoupled. The data administrator can set up connections and create `ObjectRef` values for analysis ahead of time with a connection as their authorizer. This approach works with object tables or by using `OBJ.MAKE_REF` on a list of URIs. Then, the data administrator can share the table storing the `ObjectRef` values with analysts. The analysts don't need to access the original bucket to analyze the objects.
+  * Use _delegated access_ for a large team operating across multiple projects, especially when data storage and analysis are decoupled. The data administrator can set up connections and create `ObjectRef` values for analysis ahead of time with a connection as their authorizer. This approach works with object tables or by using `OBJ.MAKE_REF` on a list of URIs. Then, the data administrator can share the table storing the `ObjectRef` values with analysts. The analysts don't need to access the original bucket to analyze the objects. Because delegated access grants access to all objects that the connection's service account can reach regardless of [row-level access policies](https://docs.cloud.google.com/bigquery/docs/row-level-security-intro) on object tables or standard tables, scope each connection's Cloud Storage permissions to only the buckets or managed folders that its users are authorized to access.
 
 
 
@@ -225,6 +225,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-27 UTC.
+Last updated 2026-11-06 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-06 UTC."],[],[]] 

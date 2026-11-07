@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/ai-hypercomputer/docs/tutorials/tpu/serve-qwen3-coder-gke-v6e-multi-host-torchtpu/
 title: Serve Qwen3-Coder-30B-A3B on GKE with multi-host SGLang TorchTPU and PD disaggregation on TPU v6e accelerators \u00a0|\u00a0 AI Hypercomputer \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T05:36:27.687097+00:00
+fetched_at: 2026-11-07T08:32:14.445820+00:00
 ---
 
 # Serve Qwen3-Coder-30B-A3B on GKE with multi-host SGLang TorchTPU and PD disaggregation on TPU v6e accelerators  |  AI Hypercomputer  |  Google Cloud Documentation
@@ -439,8 +439,8 @@ Alternatively, create a file named `qwen3-coder-30b-multihost-disagg-v6e-2x4.yam
                          path: /health
                          port: 8000
                        periodSeconds: 10
-                       timeoutSeconds: 5
-                       failureThreshold: 3
+                       timeoutSeconds: 10
+                       failureThreshold: 6
                      volumeMounts:
                        - name: model-cache
                          mountPath: /data
@@ -601,8 +601,8 @@ Alternatively, create a file named `qwen3-coder-30b-multihost-disagg-v6e-2x4.yam
                          path: /health
                          port: 8000
                        periodSeconds: 10
-                       timeoutSeconds: 5
-                       failureThreshold: 3
+                       timeoutSeconds: 10
+                       failureThreshold: 6
                      volumeMounts:
                        - name: model-cache
                          mountPath: /data
@@ -736,20 +736,23 @@ When all Pods are ready, the output is similar to the following:
          sglang-tpu-prefill-0-1           1/1     Running   0          40m
          
 
-  4. Monitor the prefill and decode leader Pod logs until startup has completed:
+  4. Wait for the prefill, decode, and router workloads to become ready:
          
-         kubectl logs -f -l role=leader --prefix=true &
-         LOG_PID=$!
-         kubectl wait --for=condition=Ready --timeout=3600s pod -l role=leader
-         kill "${LOG_PID}" 2>/dev/null || true
+         kubectl wait --for=condition=Available --timeout=5400s \
+           lws/sglang-tpu-prefill lws/sglang-tpu-decode deployment/sglang-router
 
-Initial model download, weight loading, and compilation take approximately seven to ten minutes on the first run.
+This command blocks in your terminal until all Pods pass their readiness checks. Initial model download, weight loading, and compilation take approximately seven to ten minutes on the first run. To monitor the Pod startup logs in real time while you wait, open another terminal session and run the following command:
+         
+         kubectl logs -f -l 'role in (leader,worker)' --prefix=true
+         
 
 If you're using preemptible capacity such as Spot capacity or Flex-start VMs, it might take longer after node pool creation for your TPU slice nodes to be created, and they might be preempted during workload runs. For more information, see [Preemptible VM instances](https://docs.cloud.google.com/compute/docs/instances/preemptible#preemption). To check whether your TPU slice nodes have been created, see [Check the node's status and conditions](https://docs.cloud.google.com/kubernetes-engine/docs/troubleshooting/node-notready#check-node-status-conditions).
 
-Wait until both the prefill and decode leader Pod logs output the following message and `kubectl get pods` shows `1/1` in the `READY` column for all Pods:
+When the server is ready to accept inference requests, the `kubectl wait` command in your first terminal exits with the following output:
          
-         The server is fired up and ready to roll!
+         leaderworkerset.leaderworkerset.x-k8s.io/sglang-tpu-prefill condition met
+         leaderworkerset.leaderworkerset.x-k8s.io/sglang-tpu-decode condition met
+         deployment.apps/sglang-router condition met
          
 
   5. Open a second terminal session and forward local port `8000` to `sglang-service`:
@@ -766,76 +769,6 @@ Leave port forwarding running in this terminal session.
 Return to your first terminal session and send a chat completion request to the `/v1/chat/completions` endpoint exposed by the SGLang router:
     
     
-    
-    
-    
-    
-    
-    
-      
-      
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-      
-      
-      
-      
-    
-    
-    
-    
-    
-    
-    
-      
-        
-      
-      
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-      
-    
-    
-    
-    
-    
-    
-    
-    
-    
-      
-    
-    
-    
-    
-      
-    
-    
-    
-      
-    
-    
     curl -s -X POST http://localhost:8000/v1/chat/completions \
       -H "Content-Type: application/json" \
       -d '{
@@ -846,8 +779,6 @@ Return to your first terminal session and send a chat completion request to the 
         "max_tokens": 60,
         "temperature": 0.0
       }'
-
-`
 
 ## Run a benchmark workload
 
@@ -878,11 +809,14 @@ After the benchmark has completed, look for output that contains metrics such as
 
 To avoid incurring additional ongoing charges to your Google Cloud account for the resources used in this tutorial, delete the following resources:
 
-  1. Delete the SGLang prefill, decode, and router workloads:
+  1. To stop the `kubectl port-forward` process, in your second terminal session, press `Control+C` (or `Command+C` on macOS).
+
+  2. Return to your first terminal session and delete the SGLang prefill, decode, and router workloads and the `hf-secret` Secret:
          
          kubectl delete -f qwen3-coder-30b-multihost-disagg-v6e-2x4.yaml --ignore-not-found
+         kubectl delete secret hf-secret --ignore-not-found
 
-  2. Delete the TPU v6e node pools and the GKE cluster:
+  3. Delete the TPU v6e node pools and the GKE cluster:
          
          gcloud container node-pools delete tpu-v6e-pool-0 \
              --cluster="${CLUSTER_NAME}" \
@@ -916,6 +850,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-03 UTC.
+Last updated 2026-11-06 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-06 UTC."],[],[]] 

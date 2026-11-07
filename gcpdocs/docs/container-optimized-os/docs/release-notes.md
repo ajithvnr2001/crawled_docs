@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/container-optimized-os/docs/release-notes/
 title: Container-Optimized OS release notes \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-06T08:21:05.467430+00:00
+fetched_at: 2026-11-07T08:23:08.354137+00:00
 ---
 
 # Container-Optimized OS release notes  |  Google Cloud Documentation
@@ -102,7 +102,7 @@ Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["
 
 
 
-[ ![Google Developers](https://www.gstatic.com/devrel-devsite/prod/veed85ba0e3651062c793a40796e84fb34afbf8489308d45f92d5448e587e3f03/clouddocs/images/lockup-google-for-developers.svg)](https://developers.google.com/)
+[ ![Google Developers](https://www.gstatic.com/devrel-devsite/prod/v0bdbebc1f01a38de21004f32be4e375582bd633675ce8e19f11ee677174d47b4/clouddocs/images/lockup-google-for-developers.svg)](https://developers.google.com/)
 
   * [ Android ](https://developer.android.com/)
   * [ Chrome ](https://developer.chrome.com/)

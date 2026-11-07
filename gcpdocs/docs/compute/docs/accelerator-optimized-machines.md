@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/compute/docs/accelerator-optimized-machines/
 title: GPU machines in accelerator-optimized machine family \u00a0|\u00a0 Compute Engine \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-05T11:11:08.536090+00:00
+fetched_at: 2026-11-07T08:32:25.809152+00:00
 ---
 
 # GPU machines in accelerator-optimized machine family  |  Compute Engine  |  Google Cloud Documentation
@@ -23,7 +23,7 @@ Send feedback
 
 This document describes the Compute Engine instances that have pre-attached NVIDIA GPUs in the accelerator-optimized machine family. These instances are designed specifically for artificial intelligence (AI), machine learning (ML), high performance computing (HPC), and graphics-intensive applications.
 
-The accelerator-optimized machine family includes the following machine series: A4X Max, A4X, A4, A3, A2, G4, and G2. Each machine type within a series has a specific model and number of NVIDIA GPUs attached. You can also attach [some GPU models](https://docs.cloud.google.com/compute/docs/gpus/create-gpu-vm-general-purpose#overview) to N1 general-purpose machine types.
+The accelerator-optimized machine family includes the following machine series: A5X, A4X Max, A4X, A4, A3, A2, G4, and G2. Each machine type within a series has a specific model and number of NVIDIA GPUs attached. You can also attach [some GPU models](https://docs.cloud.google.com/compute/docs/gpus/create-gpu-vm-general-purpose#overview) to N1 general-purpose machine types.
 
 For information about accelerator-optimized instances with attached TPUs, see [TPU machines in accelerator-optimized machine family](https://docs.cloud.google.com/compute/docs/tpus/tpu-machines).
 
@@ -33,6 +33,7 @@ The following table summarizes the hardware specifications, machine series mappi
 
 GPU model | Machine series | Architecture | GPU memory and bandwidth | GPUs per compute instance | Max network bandwidth | Local SSD | Interconnect | NVIDIA RTX Virtual Workstation (vWS) support  
 ---|---|---|---|---|---|---|---|---  
+NVIDIA Vera Rubin | [A5X](https://docs.cloud.google.com/compute/docs/accelerator-optimized-machines#a5x-instances) | Rubin | 288 GB HBM4 (22 TBps) | 4 (NVL72) | 7,200 Gbps | 48,000 GiB | NVLink Full Mesh (3,600 GBps) | No  
 NVIDIA GB300 | [A4X Max](https://docs.cloud.google.com/compute/docs/accelerator-optimized-machines#a4x-vms) | Blackwell Ultra | 279 GB HBM3e (8 TBps) | 4 (NVL72) | 3,600 Gbps | 12,000 GiB | NVLink Full Mesh (1,800 GBps) | No  
 NVIDIA GB200 | [A4X](https://docs.cloud.google.com/compute/docs/accelerator-optimized-machines#a4x-vms) | Blackwell | 186 GB HBM3e (8 TBps) | 4 (NVL72) | 2,000 Gbps | 12,000 GiB | NVLink Full Mesh (1,800 GBps) | No  
 NVIDIA B200 | [A4](https://docs.cloud.google.com/compute/docs/accelerator-optimized-machines#a4-vms) | Blackwell | 180 GB HBM3e (8 TBps) | 8 | 3,600 Gbps | 12,000 GiB | NVLink Full Mesh (1,800 GBps) | No  
@@ -52,8 +53,9 @@ The following section provides the recommended machine series based on your GPU 
 
 ### AI/ML training
 
-  * **Frontier foundation models and mixture-of-experts (MoE)** : pre-training large transformer models, multimodal architectures, and [mixture-of-experts (MoE)](https://en.wikipedia.org/wiki/Mixture_of_experts) networks requires high [Tensor Core](https://www.nvidia.com/en-us/data-center/tensor-cores/) throughput, large [High Bandwidth Memory (HBM)](https://en.wikipedia.org/wiki/High_Bandwidth_Memory) capacities (up to 279 GB per GPU), and ultra-high-speed [NVLink](https://www.nvidia.com/en-us/data-center/nvlink/) interconnect bandwidth (up to 1,800 GBps) to minimize multi-node synchronization latency. Recommended machine series:
+  * **Frontier foundation models and mixture-of-experts (MoE)** : pre-training large transformer models, multimodal architectures, and [mixture-of-experts (MoE)](https://en.wikipedia.org/wiki/Mixture_of_experts) networks requires high [Tensor Core](https://www.nvidia.com/en-us/data-center/tensor-cores/) throughput, large [High Bandwidth Memory (HBM)](https://en.wikipedia.org/wiki/High_Bandwidth_Memory) capacities (up to 288 GB per GPU), and high-speed [NVLink](https://www.nvidia.com/en-us/data-center/nvlink/) interconnect bandwidth (up to 3,600 GBps) to minimize multi-node synchronization latency. Recommended machine series:
 
+    * [A5X](https://docs.cloud.google.com/compute/docs/accelerator-optimized-machines#a5x-instances) (NVIDIA Vera Rubin)
     * [A4X Max](https://docs.cloud.google.com/compute/docs/accelerator-optimized-machines#a4x-vms) (NVIDIA GB300)
     * [A4X](https://docs.cloud.google.com/compute/docs/accelerator-optimized-machines#a4x-vms) (NVIDIA GB200)
     * [A4](https://docs.cloud.google.com/compute/docs/accelerator-optimized-machines#a4-vms) (NVIDIA B200)
@@ -75,8 +77,10 @@ For more information, see [Recommendations for fine-tuning models](https://docs.
 
 ### AI/ML inference
 
-  * **Large model inference (more than 70 billion parameters)** : serving [large language models (LLMs)](https://en.wikipedia.org/wiki/Large_language_model) benefits from high [High Bandwidth Memory (HBM3e)](https://en.wikipedia.org/wiki/High_Bandwidth_Memory) capacity (141–186 GB per GPU) to fit model weights across fewer GPUs, reducing inter-chip communication overhead. Recommended machine series:
+  * **Large model inference (more than 70 billion parameters)** : serving [large language models (LLMs)](https://en.wikipedia.org/wiki/Large_language_model) benefits from high [High Bandwidth Memory (HBM)](https://en.wikipedia.org/wiki/High_Bandwidth_Memory) capacity (141–288 GB per GPU) to fit model weights across fewer GPUs, reducing inter-chip communication overhead. Recommended machine series:
 
+    * [A5X](https://docs.cloud.google.com/compute/docs/accelerator-optimized-machines#a5x-instances) (NVIDIA Vera Rubin)
+    * [A4X Max](https://docs.cloud.google.com/compute/docs/accelerator-optimized-machines#a4x-vms) (NVIDIA GB300)
     * [A4X](https://docs.cloud.google.com/compute/docs/accelerator-optimized-machines#a4x-vms) (NVIDIA GB200)
     * [A4](https://docs.cloud.google.com/compute/docs/accelerator-optimized-machines#a4-vms) (NVIDIA B200)
     * [A3 Ultra](https://docs.cloud.google.com/compute/docs/accelerator-optimized-machines#a3-vms) (NVIDIA H200)
@@ -108,6 +112,7 @@ For more information, see [Recommendations for serving inference](https://docs.c
 
   * **Scientific simulation and modeling** : applications in [molecular dynamics](https://en.wikipedia.org/wiki/Molecular_dynamics) (such as [GROMACS](https://www.gromacs.org/) and [AMBER](https://ambermd.org/)), [computational fluid dynamics (CFD)](https://en.wikipedia.org/wiki/Computational_fluid_dynamics), quantum chemistry, astrophysics, and weather forecasting require high 64-bit double-precision (FP64) floating-point performance and high memory bandwidth. Recommended machine series:
 
+    * [A5X](https://docs.cloud.google.com/compute/docs/accelerator-optimized-machines#a5x-instances) (NVIDIA Vera Rubin)
     * [A4X](https://docs.cloud.google.com/compute/docs/accelerator-optimized-machines#a4x-vms) (NVIDIA GB200)
     * [A4](https://docs.cloud.google.com/compute/docs/accelerator-optimized-machines#a4-vms) (NVIDIA B200)
     * [A3](https://docs.cloud.google.com/compute/docs/accelerator-optimized-machines#a3-vms) (NVIDIA H100)
@@ -117,6 +122,139 @@ For more information, see [Recommendations for HPC](https://docs.cloud.google.co
 
 
 
+
+## The A5X machine series
+
+**Caution:** The [Compute Engine Service Level Agreement (SLA)](https://cloud.google.com/compute/sla) doesn't apply to the A5X machine series.
+
+The A5X machine series runs on an exascale platform based on [NVIDIA's Vera Rubin NVL72 rack-scale architecture](https://www.nvidia.com/en-us/data-center/vera-rubin-nvl72/) and is optimized for large-scale ML training, inference for reasoning models, Mixture of Experts (MoE) workloads, and HPC tasks. A5X is available only as [bare metal instances](https://docs.cloud.google.com/compute/docs/instances/bare-metal-instances), which provide direct access to the host server's CPU and memory, without Compute Engine's hypervisor in the middle.
+
+All machine types in the A5X series have two sockets with 88-core NVIDIA Vera CPUs. These CPUs connect to four NVIDIA Rubin GPUs with fast chip-to-chip ([NVLink-C2C](https://www.nvidia.com/en-us/data-center/nvlink-c2c/)) communication, creating a unified, coherent memory space across the CPUs and GPUs.
+
+### NVLink domain
+
+The A5X machine series is built on NVIDIA's NVL72 rack-scale architecture, which uses NVLink domains to enable large-scale, high-performance GPU computing. An NVLink domain is a group of interconnected NVIDIA NVSwitch chips and the GPUs that connect to them, forming a high-speed network fabric that enables direct and fast communication between GPUs. For the A5X machine type, a single NVL72 (NVLink) domain consists of up to 18 instances and 72 GPUs.
+
+### A5X features
+
+A5X bare metal instances provide the following features:
+
+  * **GPU acceleration with NVIDIA Vera Rubin superchips** : A5X instances have NVIDIA Vera Rubin superchips automatically attached. These superchips feature NVIDIA Rubin GPUs, offering 288 GB of HBM4 memory per GPU, or 1,152 GB per instance, and up to 20.7 TB of total GPU memory per NVL72 domain.
+
+  * **Enhanced networking with RoCE** : For A5X instances, Remote Direct Memory Access (RDMA) over Converged Ethernet (RoCE) increases network performance by combining eight NVIDIA ConnectX-9 (CX-9) SuperNICs, with two per GPU, and Google's high-bandwidth, low-latency [Virgo network](https://cloud.google.com/blog/products/networking/introducing-virgo-megascale-data-center-fabric), which features [eight-way rail-alignment](https://docs.cloud.google.com/compute/docs/gpus/gpu-network-bandwidth#multi-layer-arch). This configuration delivers up to 6,400 Gbps of GPU-to-GPU bandwidth, which is optimal for demanding large-scale training, reasoning, and HPC workloads. The Virgo network provides a non-blocking scale-out fabric with a mesh topology that connects instances within and across buildings. It scales clusters up to 80,000 Vera Rubin GPUs within a single site and up to 960,000 GPUs across multiple sites.
+
+For storage and management networking, each instance also has two 400 Gbps Titanium NICs that provide up to 800 Gbps of combined bandwidth. These NICs use the Infrastructure Data Path Function (IDPF) network interface.
+
+  * **CPU platform** : The A5X machine type uses the NVIDIA Vera CPU platform, with two 88-core sockets providing 176 vCPUs across 176 physical CPU cores and 1,440 GB of instance memory. For more details about the platform, see [CPU platforms](https://docs.cloud.google.com/compute/docs/cpu-platforms).
+
+  * **NVLink scalability** : Multi-node NVLink 6 scales up to 72 GPUs in a single domain and provides bidirectional GPU NVLink bandwidth of 3,600 GBps per GPU.
+
+  * **Disk support** : A5X instances include Local SSD disks for fast scratch storage to feed data into GPUs and prevent I/O bottlenecks. Each A5X instance automatically includes 48,000 GiB of PCIe Gen6 NVMe Local SSD storage across four 12,000 GiB partitions.
+
+For durable storage, you can attach up to 512 TiB of Hyperdisk storage. For more information about disk types, see [Choose a disk type](https://docs.cloud.google.com/compute/docs/disks).
+
+  * **Dense allocation and topology-aware scheduling** : The A5X machine type supports requesting blocks and subblocks of densely allocated capacity. Compute Engine allocates your host machines physically close to each other. It provisions them as blocks of resources and interconnects them with a high bandwidth and low latency Virgo network fabric to minimize network hops and optimize for low latency. Additionally, for A5X instances, you can view topology information at the host, subblock, block, and cluster levels to optimize job placement.
+
+
+
+
+### Pricing and consumption options for A5X instances
+
+A5X instances support the following consumption and discount options:
+
+  * [Future reservations for capacity blocks](https://docs.cloud.google.com/ai-hypercomputer/docs/reserve-capacity)
+  * Resource-based committed use discounts (CUDs)
+
+
+
+Google Cloud bills A5X instances for their attached GPUs, predefined vCPUs, memory, and bundled Local SSD disks. Google Cloud bills Hyperdisk and network usage separately from machine type pricing. For more information, see [Pricing and consumption options](https://docs.cloud.google.com/compute/docs/accelerator-optimized-machines#pricing-and-provisioning) and [Accelerator-optimized machine type family pricing](https://cloud.google.com/compute/vm-instance-pricing#accelerator-optimized).
+
+### A5X machine type (NVIDIA Vera Rubin)
+
+[A5X accelerator-optimized](https://docs.cloud.google.com/compute/docs/accelerator-optimized-machines#a5x-instances) machine types use NVIDIA Vera Rubin superchips and are ideal for foundation model training, reasoning, and serving. A5X machine types are available as [bare metal instances](https://docs.cloud.google.com/compute/docs/instances/bare-metal-instances). 
+
+A5X is an exascale platform based on [NVIDIA Vera Rubin NVL72](https://www.nvidia.com/en-us/data-center/vera-rubin-nvl72/). Each machine has two sockets with NVIDIA Vera CPUs. These CPUs connect to four NVIDIA Rubin GPUs with fast chip-to-chip ([NVLink-C2C](https://www.nvidia.com/en-us/data-center/nvlink-c2c/)) communication. For information about machine type limitations, see [A5X limitations](https://docs.cloud.google.com/compute/docs/accelerator-optimized-machines#a5x-limitations). 
+
+**Note:** To get started with A5X instances, contact your account team to [reserve capacity](https://docs.cloud.google.com/ai-hypercomputer/docs/reserve-capacity) and get instructions to create instances and clusters. Machine type | vCPU count | Instance memory (GB) | Attached Local SSD (GiB) | Physical NIC count | Maximum network bandwidth (Gbps) | NVIDIA Rubin GPU count | GPU memory (GB HBM4)  
+---|---|---|---|---|---|---|---  
+`a5x-highgpu-4g-metal` | 176 | 1,440 | 48,000 | 10 | 7,200 | 4 | 1,152  
+  
+#### A5X machine type notes
+
+The following notes apply to the preceding table:
+
+  * **vCPU count** : for A5X bare metal instances, the vCPU count of 176 represents the 176 physical CPU cores across two 88-core sockets on the NVIDIA Vera [CPU platform](https://docs.cloud.google.com/compute/docs/cpu-platforms).
+  * **Maximum network bandwidth** : maximum egress bandwidth can't exceed the number given. Actual egress bandwidth depends on the destination IP address and other factors. For more information about network bandwidth, see [Network bandwidth](https://docs.cloud.google.com/compute/docs/network-bandwidth).
+  * **GPU memory** : GPU memory is the memory on a GPU device that stores temporary data. It's separate from the instance's memory and handles the higher bandwidth demands of your graphics-intensive workloads.
+
+
+
+### A5X limitations
+
+The following limitations apply to A5X instances:
+
+**Caution:** The [ Compute Engine Service Level Agreement (SLA)](https://cloud.google.com/compute/sla) doesn't apply to the A5X machine series.
+
+  * You can only request capacity that uses the [supported consumption options](https://docs.cloud.google.com/compute/docs/accelerator-optimized-machines#pricing-and-provisioning).
+  * You don't receive [sustained use discounts](https://docs.cloud.google.com/compute/docs/sustained-use-discounts) or [flexible committed use](https://docs.cloud.google.com/compute/docs/instances/committed-use-discounts-overview#spend_based) discounts for instances that use this machine type.
+  * You can only create instances in certain [regions and zones](https://docs.cloud.google.com/compute/docs/regions-zones/gpu-regions-zones#view-using-table).
+  * You can't use Persistent Disk (regional or zonal). You can only use [Google Cloud Hyperdisk](https://docs.cloud.google.com/compute/docs/disks/hyperdisks).
+  * This machine type is available only on the [NVIDIA Vera platform](https://docs.cloud.google.com/compute/docs/cpu-platforms#arm_processors).
+  * You can't change the machine type of an A5X instance. To switch to or from this machine type, you must create a new instance.
+  * You can't run Windows operating systems on this machine type. For a list of supported Linux operating systems, review the [supported operating systems for GPU instances](https://docs.cloud.google.com/compute/docs/images/os-details#gpu-support).
+  * You can't update the machine firmware, such as the IDPF network interface, NVIDIA ConnectX-9 SuperNIC, or Local SSD firmware, on A5X instances.
+  * A5X instances don't support the following features: 
+    * [Sole-tenancy](https://docs.cloud.google.com/compute/docs/nodes/sole-tenant-nodes)
+    * [Spot VMs](https://docs.cloud.google.com/compute/docs/instances/spot)
+    * [Flex-start VMs](https://docs.cloud.google.com/compute/docs/instances/about-flex-start-vms)
+  * You can't attach Hyperdisk ML disks created before February 4, 2026, to A5X instances.
+
+
+
+### Supported disk types for A5X instances
+
+A5X instances can use the following block storage types:
+
+  * Hyperdisk Balanced (`hyperdisk-balanced`): the only disk type supported for the boot disk
+  * Hyperdisk Balanced High Availability (`hyperdisk-balanced-high-availability`)
+  * Hyperdisk Throughput (`hyperdisk-throughput`)
+  * Hyperdisk ML (`hyperdisk-ml`)
+  * Hyperdisk Extreme (`hyperdisk-extreme`)
+  * Local SSD: four 12,000 GiB Local SSD disks come pre-attached to each A5X instance
+
+
+
+The following table lists the maximum number of disks supported per instance:
+
+Machine types | All Hyperdisk | Hyperdisk Balanced | Hyperdisk Balanced High Availability | Hyperdisk Throughput | Hyperdisk ML | Hyperdisk Extreme | Attached Local SSD  
+---|---|---|---|---|---|---|---  
+`a5x-highgpu-4g-metal` | 32 | 32 | 32 | 32 | 32 | 8 | 4  
+  
+The following note applies to the preceding table:
+
+  * **Disk pricing** : Google Cloud charges for Hyperdisk usage separately from [machine type pricing](https://cloud.google.com/compute/vm-instance-pricing). For disk pricing, see [Hyperdisk pricing](https://cloud.google.com/compute/disks-image-pricing#persistentdisk).
+
+
+
+#### Disk and capacity limits
+
+You can attach a mixture of different Hyperdisk types to an instance, but the maximum total disk capacity (in TiB) across all disk types can't exceed 512 TiB for all Hyperdisks. 
+
+For details about the capacity limits, see [ Hyperdisk size and attachment limits](https://docs.cloud.google.com/compute/docs/disks/hyperdisk-perf-limits#limits-instance).
+
+### Maintenance experience for A5X instances
+
+During the [lifecycle of a Compute Engine instance](https://docs.cloud.google.com/compute/docs/instances/instance-lifecycle), the host machine that your instance runs on undergoes multiple _host events_. A host event can include the regular maintenance of Compute Engine infrastructure, or in rare cases, a host error. Compute Engine also applies some non-disruptive lightweight upgrades for the hypervisor and network in the background.
+
+The following table describes the host maintenance features for A5X machine types:
+
+Machine type | Number of GPUs | Typical scheduled maintenance event frequency | [Maintenance behavior](https://docs.cloud.google.com/compute/docs/instances/setting-vm-host-options#available_host_maintenance_properties) | Advanced notification for scheduled maintenance | On-demand maintenance | Simulate maintenance  
+---|---|---|---|---|---|---  
+A5X | 4 | Minimum of 90 days | Terminates with [ Local SSD data persistence](https://docs.cloud.google.com/compute/docs/instances/host-maintenance-overview#disk-persistence) | 90 days | Yes | No  
+  
+The maintenance frequencies shown in the previous table are approximations, not guarantees. Compute Engine might occasionally perform maintenance more frequently.
+
+For more information about host maintenance in AI Hypercomputer, see [Understand host maintenance](https://docs.cloud.google.com/ai-hypercomputer/docs/manage/host-events#review) in the AI Hypercomputer documentation.
 
 ## The A4X Max and A4X machine series
 
@@ -1347,6 +1485,7 @@ The following table summarizes the availability of each consumption option by ma
 
 **Note:** Before you create and submit a future reservation request for a supported GPU machine type, you must contact your [account team](https://cloud.google.com/tam) or the [sales team](https://cloud.google.com/contact) to discuss your request. Otherwise, Google Cloud is likely to decline it.Machine type (GPU model) | On-demand | [Spot](https://docs.cloud.google.com/compute/docs/instances/spot) | [Flex-start](https://docs.cloud.google.com/compute/docs/instances/about-flex-start-vms) | [On-demand reservations](https://docs.cloud.google.com/compute/docs/instances/reservations-overview) | [Future reservations](https://docs.cloud.google.com/compute/docs/instances/future-reservations-overview) | [Future reservations in calendar mode](https://docs.cloud.google.com/compute/docs/instances/future-reservations-calendar-mode-overview) | [Future reservations for capacity blocks](https://docs.cloud.google.com/ai-hypercomputer/docs/reserve-capacity)  
 ---|---|---|---|---|---|---|---  
+A5X (Vera Rubin) | No | No | No | No | No | No | Yes  
 A4X Max (GB300) and A4X (GB200) | No | No | No | No | No | No | Yes  
 A4 (B200) | No | Yes | Yes | No | No | Yes | Yes  
 A3 Ultra (H200) | No | Yes | Yes | No | No | Yes | Yes  
@@ -1373,6 +1512,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-03 UTC.
+Last updated 2026-11-06 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-06 UTC."],[],[]] 

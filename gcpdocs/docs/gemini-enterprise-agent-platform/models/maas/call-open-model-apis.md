@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/maas/call-open-model-apis/
 title: Call MaaS APIs for open models \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-06T10:42:14.907669+00:00
+fetched_at: 2026-11-07T08:25:08.222758+00:00
 ---
 
 # Call MaaS APIs for open models  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation
@@ -29,7 +29,7 @@ This page shows how to make streaming and non-streaming calls to open models tha
 
 ## Before you begin
 
-To use open models with Gemini Enterprise Agent Platform, you must perform the following steps. The Agent Platform API (`aiplatform.googleapis.com`) must be enabled to use Gemini Enterprise Agent Platform. If you already have an existing project with the Agent Platform API enabled, you can use that project instead of creating a new project.
+To use open models with Gemini Enterprise Agent Platform, you must perform the following steps. The Agent Platform API (`aiplatform.googleapis.com`) and the Cloud Commerce Consumer Procurement API (`cloudcommerceconsumerprocurement.googleapis.com`) must be enabled to use open models on Gemini Enterprise Agent Platform. If you already have an existing project with these APIs enabled, you can use that project instead of creating a new project.
 
   1. Sign in to your Google Cloud account. If you're new to Google Cloud, [ create an account](https://console.cloud.google.com/freetrial) to evaluate how our products perform in real-world scenarios. New customers also get $300 in free credits to run, test, and deploy workloads. 
   2. In the Google Cloud console, on the project selector page, select or create a Google Cloud project.
@@ -41,17 +41,19 @@ To use open models with Gemini Enterprise Agent Platform, you must perform the f
 
 [Go to project selector](https://console.cloud.google.com/projectselector2/home/dashboard)
 
-  3. [Verify that billing is enabled for your Google Cloud project](https://docs.cloud.google.com/billing/docs/how-to/verify-billing-enabled#confirm_billing_is_enabled_on_a_project). 
+  3. If you're using an existing project for this guide, verify that you have the permissions required to complete this guide. If you created a new project, then you already have the required permissions. 
 
-  4. Enable the Gemini Enterprise Agent Platform API, if it is not already enabled. 
+  4. [Verify that billing is enabled for your Google Cloud project](https://docs.cloud.google.com/billing/docs/how-to/verify-billing-enabled#confirm_billing_is_enabled_on_a_project). 
+
+  5. Enable the Gemini Enterprise Agent Platform and Cloud Commerce Consumer Procurement APIs, if any are not already enabled. 
 
 **Roles required to enable APIs**
 
 To enable APIs, you need the `serviceusage.services.enable` permission. If you created the project, then you likely already have this permission through the Owner role (`roles/owner`). Otherwise, you can get this permission through the Service Usage Admin role (`roles/serviceusage.serviceUsageAdmin`). [Learn how to grant roles](https://docs.cloud.google.com/iam/docs/granting-changing-revoking-access). 
 
-[Enable the API](https://console.cloud.google.com/apis/enableflow?apiid=aiplatform.googleapis.com)
+[Enable the APIs](https://console.cloud.google.com/apis/enableflow?apiid=aiplatform.googleapis.com,cloudcommerceconsumerprocurement.googleapis.com)
 
-  5. In the Google Cloud console, on the project selector page, select or create a Google Cloud project.
+  6. In the Google Cloud console, on the project selector page, select or create a Google Cloud project.
 
 **Roles required to select or create a project**
 
@@ -60,22 +62,39 @@ To enable APIs, you need the `serviceusage.services.enable` permission. If you c
 
 [Go to project selector](https://console.cloud.google.com/projectselector2/home/dashboard)
 
-  6. [Verify that billing is enabled for your Google Cloud project](https://docs.cloud.google.com/billing/docs/how-to/verify-billing-enabled#confirm_billing_is_enabled_on_a_project). 
+  7. If you're using an existing project for this guide, verify that you have the permissions required to complete this guide. If you created a new project, then you already have the required permissions. 
 
-  7. Enable the Gemini Enterprise Agent Platform API, if it is not already enabled. 
+  8. [Verify that billing is enabled for your Google Cloud project](https://docs.cloud.google.com/billing/docs/how-to/verify-billing-enabled#confirm_billing_is_enabled_on_a_project). 
+
+  9. Enable the Gemini Enterprise Agent Platform and Cloud Commerce Consumer Procurement APIs, if any are not already enabled. 
 
 **Roles required to enable APIs**
 
 To enable APIs, you need the `serviceusage.services.enable` permission. If you created the project, then you likely already have this permission through the Owner role (`roles/owner`). Otherwise, you can get this permission through the Service Usage Admin role (`roles/serviceusage.serviceUsageAdmin`). [Learn how to grant roles](https://docs.cloud.google.com/iam/docs/granting-changing-revoking-access). 
 
-[Enable the API](https://console.cloud.google.com/apis/enableflow?apiid=aiplatform.googleapis.com)
+[Enable the APIs](https://console.cloud.google.com/apis/enableflow?apiid=aiplatform.googleapis.com,cloudcommerceconsumerprocurement.googleapis.com)
 
-  8. Go to the Model Garden model card for the model you want to use, then click **Enable** to enable the model for use in your project. 
+  10. Go to the Model Garden model card for the model you want to use, then click **Enable** to enable the model for use in your project. 
 
 [Go to Model Garden](https://console.cloud.google.com/agent-platform/model-garden)
 
 
 
+
+### Required roles
+
+To get the permissions that you need to enable and use open models, ask your administrator to grant you the following IAM roles on your project: 
+
+  * [Agent Platform User ](https://docs.cloud.google.com/iam/docs/roles-permissions/aiplatform#aiplatform.user) (`roles/aiplatform.user`)
+  * [Consumer Procurement Entitlement Manager ](https://docs.cloud.google.com/iam/docs/roles-permissions/consumerprocurement#consumerprocurement.entitlementManager) (`roles/consumerprocurement.entitlementManager`)
+
+
+
+For more information about granting roles, see [Manage access to projects, folders, and organizations](https://docs.cloud.google.com/iam/docs/granting-changing-revoking-access). 
+
+You might also be able to get the required permissions through [custom roles](https://docs.cloud.google.com/iam/docs/creating-custom-roles) or other [predefined roles](https://docs.cloud.google.com/iam/docs/roles-overview#predefined). 
+
+For more information about granting permissions and configuring organization policies for open models, see [Grant user access to open models](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/maas/grant-access-open-models).
 
 ## Make a streaming call to an open model
 
@@ -102,7 +121,7 @@ Before running this sample, make sure to set the `OPENAI_BASE_URL` environment v
     for chunk in stream:
         print(chunk.choices[0].delta.content or "", end="")
 
-  * MODEL: The model name you want to use, for example `deepseek-ai/deepseek-v3.1-maas`.
+  * MODEL: The model name you want to use, for example `openai/gpt-oss-120b-maas`.
   * ROLE: The role associated with a message. You can specify a `user` or an `assistant`. The first message must use the `user` role. The models operate with alternating `user` and `assistant` turns. If the final message uses the `assistant` role, then the response content continues immediately from the content in that message. You can use this to constrain part of the model's response.
   * CONTENT: The content, such as text, of the `user` or `assistant` message.
   * MAX_OUTPUT_TOKENS: Maximum number of tokens that can be generated in the response. A token is approximately four characters. 100 tokens correspond to roughly 60-80 words. 
@@ -118,8 +137,8 @@ After you set up your environment, you can use REST to test a text prompt. The f
 
 Before using any of the request data, make the following replacements: 
 
-  * LOCATION: A region that supports open models.
-  * MODEL: The model name you want to use, for example `deepseek-ai/deepseek-v2`.
+  * PROJECT_ID: Your Google Cloud project ID.
+  * MODEL: The model name you want to use, for example `openai/gpt-oss-120b-maas`.
   * ROLE: The role associated with a message. You can specify a `user` or an `assistant`. The first message must use the `user` role. The models operate with alternating `user` and `assistant` turns. If the final message uses the `assistant` role, then the response content continues immediately from the content in that message. You can use this to constrain part of the model's response.
   * CONTENT: The content, such as text, of the `user` or `assistant` message.
   * MAX_OUTPUT_TOKENS: Maximum number of tokens that can be generated in the response. A token is approximately four characters. 100 tokens correspond to roughly 60-80 words. 
@@ -133,7 +152,7 @@ Specify a lower value for shorter responses and a higher value for potentially l
 HTTP method and URL: 
     
     
-    POST https://LOCATION-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/endpoints/openapi/chat/completions
+    POST https://aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/global/endpoints/openapi/chat/completions
 
 Request JSON body: 
     
@@ -164,7 +183,7 @@ Save the request body in a file named `request.json`, and execute the following 
          -H "Authorization: Bearer $(gcloud auth print-access-token)" \  
          -H "Content-Type: application/json; charset=utf-8" \  
          -d @request.json \  
-         "https://LOCATION-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/endpoints/openapi/chat/completions"
+         "https://aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/global/endpoints/openapi/chat/completions"
 
 #### PowerShell
 
@@ -181,7 +200,7 @@ Save the request body in a file named `request.json`, and execute the following 
         -Headers $headers `  
         -ContentType: "application/json; charset=utf-8" `  
         -InFile request.json `  
-        -Uri "https://LOCATION-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/endpoints/openapi/chat/completions" | Select-Object -Expand Content
+        -Uri "https://aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/global/endpoints/openapi/chat/completions" | Select-Object -Expand Content
 
 You should receive a JSON response similar to the following.
 
@@ -257,7 +276,7 @@ Before running this sample, make sure to set the `OPENAI_BASE_URL` environment v
     )
     print(completion.choices[0].message)
 
-  * MODEL: The model name you want to use, for example `deepseek-ai/deepseek-v3.1-maas`.
+  * MODEL: The model name you want to use, for example `openai/gpt-oss-120b-maas`.
   * ROLE: The role associated with a message. You can specify a `user` or an `assistant`. The first message must use the `user` role. The models operate with alternating `user` and `assistant` turns. If the final message uses the `assistant` role, then the response content continues immediately from the content in that message. You can use this to constrain part of the model's response.
   * CONTENT: The content, such as text, of the `user` or `assistant` message.
   * MAX_OUTPUT_TOKENS: Maximum number of tokens that can be generated in the response. A token is approximately four characters. 100 tokens correspond to roughly 60-80 words. 
@@ -273,8 +292,8 @@ After you set up your environment, you can use REST to test a text prompt. The f
 
 Before using any of the request data, make the following replacements: 
 
-  * LOCATION: A region that supports open models.
-  * MODEL: The model name you want to use, for example `deepseek-ai/deepseek-v2`.
+  * PROJECT_ID: Your Google Cloud project ID.
+  * MODEL: The model name you want to use, for example `openai/gpt-oss-120b-maas`.
   * ROLE: The role associated with a message. You can specify a `user` or an `assistant`. The first message must use the `user` role. The models operate with alternating `user` and `assistant` turns. If the final message uses the `assistant` role, then the response content continues immediately from the content in that message. You can use this to constrain part of the model's response.
   * CONTENT: The content, such as text, of the `user` or `assistant` message.
   * MAX_OUTPUT_TOKENS: Maximum number of tokens that can be generated in the response. A token is approximately four characters. 100 tokens correspond to roughly 60-80 words. 
@@ -288,7 +307,7 @@ Specify a lower value for shorter responses and a higher value for potentially l
 HTTP method and URL: 
     
     
-    POST https://LOCATION-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/endpoints/openapi/chat/completions
+    POST https://aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/global/endpoints/openapi/chat/completions
 
 Request JSON body: 
     
@@ -319,7 +338,7 @@ Save the request body in a file named `request.json`, and execute the following 
          -H "Authorization: Bearer $(gcloud auth print-access-token)" \  
          -H "Content-Type: application/json; charset=utf-8" \  
          -d @request.json \  
-         "https://LOCATION-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/endpoints/openapi/chat/completions"
+         "https://aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/global/endpoints/openapi/chat/completions"
 
 #### PowerShell
 
@@ -336,7 +355,7 @@ Save the request body in a file named `request.json`, and execute the following 
         -Headers $headers `  
         -ContentType: "application/json; charset=utf-8" `  
         -InFile request.json `  
-        -Uri "https://LOCATION-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/endpoints/openapi/chat/completions" | Select-Object -Expand Content
+        -Uri "https://aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/global/endpoints/openapi/chat/completions" | Select-Object -Expand Content
 
 You should receive a JSON response similar to the following.
 
@@ -400,6 +419,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-05 UTC.
+Last updated 2026-11-07 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-05 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-07 UTC."],[],[]] 

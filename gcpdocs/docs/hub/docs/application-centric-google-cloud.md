@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/hub/docs/application-centric-google-cloud/
 title: Application-centric Google Cloud \u00a0|\u00a0 Cloud Hub \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T18:16:14.443659+00:00
+fetched_at: 2026-11-07T08:24:45.924676+00:00
 ---
 
 # Application-centric Google Cloud  |  Cloud Hub  |  Google Cloud Documentation
@@ -21,9 +21,15 @@ Send feedback
 
 #  Application-centric Google Cloud Stay organized with collections  Save and categorize content based on your preferences. 
 
-This document provides an overview of Application-centric Google Cloud, a unified way to design, deploy, and manage your applications and resources across multiple Google Cloud projects.
+Application-centric Google Cloud lets you group your resources as registered applications so that you can design, deploy, and govern them consistently across Google Cloud projects.
 
-When Google Cloud resources are spread across projects, tracking application health, performance, security, and cost can be complex. Instead of tracking resources individually, group and manage related resources as registered applications. This lets you:
+## Application definition
+
+An application is a logical grouping of [components](https://docs.cloud.google.com/hub/docs/key-concepts#component), such as services and workloads, that work together to provide business functionality. For example, the following three-tier web application includes a Cloud Run frontend, a Cloud Run backend, and a Cloud SQL database:
+
+![An example three-tier application](https://docs.cloud.google.com/static/application-design-center/images/three-tier-application.png)
+
+Grouping your resources helps you to do the following:
 
   * **Deploy consistently** : Use templates to design, deploy, and update applications.
   * **Strengthen governance** : Set ownership and policies at the application level.
@@ -32,12 +38,6 @@ When Google Cloud resources are spread across projects, tracking application hea
   * **Use AI assistance** : Use Gemini Cloud Assist to design, cost optimize, and troubleshoot.
 
 
-
-## Application definition
-
-An application is a logical grouping of [components](https://docs.cloud.google.com/hub/docs/key-concepts#component), such as services and workloads, that work together to provide business functionality. For example, the following three-tier web application includes a Cloud Run frontend, a Cloud Run backend, and a Cloud SQL database:
-
-![An example three-tier application](https://docs.cloud.google.com/static/application-design-center/images/three-tier-application.png)
 
 ## Core features and integrations
 
@@ -130,6 +130,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-07 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-07 UTC."],[],[]] 

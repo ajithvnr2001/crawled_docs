@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/agent-registry/data-model/
 title: Agent Registry data model \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-30T08:40:12.126091+00:00
+fetched_at: 2026-11-07T08:29:38.329906+00:00
 ---
 
 # Agent Registry data model  |  Google Cloud Documentation
@@ -22,6 +22,8 @@ Send feedback
 #  Agent Registry data model Stay organized with collections  Save and categorize content based on your preferences. 
 
 Agent Registry organizes your AI ecosystem into standardized resources so that you can register, discover, and govern agents, MCP servers, endpoints, and skills across a single project or a [management boundary](https://docs.cloud.google.com/agent-registry/boundaries-and-topology). Understanding how Agent Registry separates writable `Service` resources from read-only discovery resources, scopes resources across projects, and supports automatic and manual registration helps you design and govern your registry.
+
+To get started, see [Set up Agent Registry](https://docs.cloud.google.com/agent-registry/setup). For more information about the Agent Registry API, see the [API reference documentation](https://docs.cloud.google.com/agent-registry/apis).
 
 ## Agentic components
 
@@ -68,7 +70,7 @@ These flag pairs are mutually exclusive; specifying flags from more than one pai
 
 Standalone [skills](https://docs.cloud.google.com/agent-registry/skills-architecture) don't use separate `Service` resources. Instead, you register, version, and query skills directly using top-level `Skill` resources, child `SkillRevision` resources, and `Publisher` resources.
 
-To get started, see [Set up Agent Registry](https://docs.cloud.google.com/agent-registry/setup). For more information about the Agent Registry API, see the [API reference documentation](https://docs.cloud.google.com/agent-registry/apis).
+Optional customer-managed encryption key (CMEK) settings for skills in a location are configured using the `SkillEncryptionSpec` resource. Security issues detected during skill scanning are exposed as read-only `Finding` resources. For more information, see [Configure CMEK for skills](https://docs.cloud.google.com/agent-registry/register-skills#configure-cmek) and [Scan skills for security issues](https://docs.cloud.google.com/agent-registry/scan-skills).
 
 ## Cross-project data model
 
@@ -85,7 +87,7 @@ Resource category | Scope in a management boundary | Description
 **Auto-discovered resources** | Aggregated from member projects | Agents and MCP servers automatically discovered in member projects are aggregated into the management project view when you list them or search for them in a location on the management project. When you view, list, or search for an agent or MCP server, you can specify either the management project ID or the member project ID in the request. The [resource name](https://docs.cloud.google.com/agent-registry/identity-and-identifiers#resource-names) preserves the ID that Agent Registry assigns to the component and uses the project specified in the request.  
 **Manually registered resources** | Scoped to the project where they are created | Custom agents, external MCP servers, and endpoints manually registered as `Service` resources are scoped to the project in which they are created. Create them in the management project to make them visible across the management boundary, or in a member project to keep them visible only within that single project.  
 **Bindings** | Scoped to the project where they are created | `Binding` resources are scoped to the project in which they are created. Create them in the management project for boundary-wide visibility, or in a member project for single-project visibility.  
-**Standalone skills and publishers** | Scoped to the project where they are created | Custom standalone `Skill`, `SkillRevision`, and `Publisher` resources are scoped to the project in which they are created and aren't aggregated from member projects into the management project. Google-managed standalone skills are discoverable across all projects automatically when you set up Agent Registry.  
+**Standalone skills and publishers** | Scoped to the project where they are created | Custom standalone `Skill`, `SkillRevision`, `Publisher`, `SkillEncryptionSpec`, and `Finding` resources are scoped to the project in which they are created and aren't aggregated from member projects into the management project. Google-managed standalone skills are discoverable across all projects automatically when you set up Agent Registry.  
 **AI applications** | Scoped to the project where they are created | Read-only `AiApplication` resources and their linked component views are scoped to the project and location where the application was created.  
   
 ## Supported products and components
@@ -145,6 +147,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-29 UTC.
+Last updated 2026-11-06 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-06 UTC."],[],[]] 

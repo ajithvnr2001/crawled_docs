@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/looker/docs/release-notes/
 title: Looker release notes \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T05:47:19.960122+00:00
+fetched_at: 2026-11-07T08:29:58.532382+00:00
 ---
 
 # Looker release notes  |  Google Cloud Documentation
@@ -26,6 +26,167 @@ This page documents production updates for both Looker (original) and Looker (Go
 You can see the latest product updates for all of Google Cloud on the [ Google Cloud](https://docs.cloud.google.com/release-notes) page, browse and filter all release notes in the [Google Cloud console](https://console.cloud.google.com/release-notes), or programmatically access release notes in [BigQuery](https://console.cloud.google.com/bigquery?p=bigquery-public-data&d=google_cloud_release_notes&t=release_notes&page=table). 
 
 To get the latest product updates delivered to you, add the URL of this page to your [feed reader](https://wikipedia.org/wiki/Comparison_of_feed_aggregators), or add the [feed URL](https://docs.cloud.google.com/feeds/looker-release-notes.xml) directly. 
+
+## November 06, 2026
+
+Announcement
+
+**Looker 26.24** will roll out to Looker (original) instances on the following schedule:
+
+  * Expected deployment start: **Sunday, November 8, 2026**
+  * Expected final deployment and download available: **Tuesday, December 8, 2026**
+
+
+
+Looker 26.24 is expected to include the following changes, features, and fixes.
+
+The Looker 26.24 rollout for Looker (Google Cloud core) will be announced separately.
+
+Looker (Google Cloud core) and Looker (original) changes
+
+Feature
+
+The [filters as tiles](https://docs.cloud.google.com/looker/docs/filters-user-defined-dashboards#filters_as_tiles) feature is now generally available.
+
+Fixed
+
+An issue has been fixed where custom tooltips in KPI visualizations didn't apply the visualization's **Value Format** and **Comparison Value Format** settings. This feature now performs as expected.
+
+Fixed
+
+An issue has been fixed where custom tooltips in KPI visualizations didn't respect the configured left, center, or right alignment setting. This feature now performs as expected.
+
+Fixed
+
+An issue has been fixed where the custom tooltip editor prevented the saving of and rejected comparison Liquid variables (`comparison_value`, `comparison_rendered_value`, `comparison.value`, and `comparison.rendered`) for KPI visualizations. This feature now performs as expected.
+
+Fixed
+
+An issue has been fixed where expanding a long tile note on a KPI visualization could cause the note to overlap the KPI value, comparison, and sparkline. Long expanded notes now scroll within half of the tile.
+
+Fixed
+
+An issue has been fixed where scheduled deliveries to Google Sheets created duplicate spreadsheets instead of overwriting existing spreadsheets when filenames contained spaces, and scheduled deliveries to Google Drive replaced spaces in filenames with underscores. This feature now performs as expected.
+
+Fixed
+
+An issue has been fixed where scheduled deliveries could fail if the schedule owner had Development Mode enabled and lacked `develop` permission on the schedule's model. This feature now performs as expected.
+
+Fixed
+
+An issue has been fixed where screen readers didn't announce the filter name or label for Yes/No filters and group filter controls on dashboards. This feature now performs as expected.
+
+Fixed
+
+An issue has been fixed where switching a database connection from default credentials to OAuth authentication could retain stale configuration fields and cause connection failures. Connections that were switched to OAuth before this update must be re-saved once on the **Admin > Connections** page to clear stale persistent derived table (PDT) overrides.
+
+Fixed
+
+An issue has been fixed where Databricks OAuth refresh tokens were treated as expired after seven days on the client side even when a longer token lifetime was configured in Databricks. This feature now performs as expected.
+
+Fixed
+
+An issue has been fixed where creating a visual modeling canvas on a project-scoped connection failed unless advanced connection governance was enabled. This feature now performs as expected.
+
+Fixed
+
+An issue has been fixed where updating roles for an Admin user who used the API could fail with an error. This feature now performs as expected.
+
+Fixed
+
+An issue has been fixed where passing malformed dashboard filter attributes to the `dashboard_filters` API endpoints could cause an `HTTP 500` error instead of returning an `HTTP 422 Unprocessable Entity` response. This feature now performs as expected.
+
+Fixed
+
+An issue has been fixed where model set matching treated underscores in model names as wildcards, which could grant self-service access to connections that were linked to similarly named models. This feature now performs as expected.
+
+Fixed
+
+An issue has been fixed where dashboard tag list filters and their drop-down menus resized horizontally when multiple values were selected. This feature now performs as expected.
+
+Fixed
+
+An issue has been fixed where the `GET` `/auth` endpoint returned an `HTTP 500 Internal Server Error` instead of an `HTTP 400 Bad Request` response when the endpoint received a malformed `redirect_uri` parameter. This feature now performs as expected.
+
+Fixed
+
+An issue has been fixed where the data upload file picker could fail to accept XLS files. This feature now performs as expected.
+
+Fixed
+
+An issue has been fixed where sending a `POST /api/token` request without a `Content-Type` header resulted in an `HTTP 500` error. This feature now performs as expected.
+
+Fixed
+
+An issue has been fixed where multi-select filter drop-down menus could immediately reopen after being closed. This feature now performs as expected.
+
+Fixed
+
+An issue has been fixed where **Show Percent of Previous** arrows and labels overlapped bars instead of appearing between them on column charts that use the Modern visualization theme, custom **Group Spacing** settings, or unevenly spaced dates. This feature now performs as expected.
+
+Fixed
+
+Time zone settings have been updated so that scheduled job triggers and table calculation time zone evaluations reflect recent regional daylight saving time (DST) changes.
+
+Fixed
+
+An issue has been fixed where a non-admin user could delete another user's undeployed development project through the API. This feature now performs as expected.
+
+Fixed
+
+An issue has been fixed where Sankey charts that were created with **Chart Config Override** could fail with errors such as `requires exactly two dimensions` or `cyclical data is not supported`. This feature now performs as expected.
+
+Fixed
+
+An issue has been fixed where favoriting or unfavoriting a dashboard or Look updated its last-accessed timestamp and erroneously removed the item from the **Unused Content** list. This feature now performs as expected.
+
+Fixed
+
+An issue has been fixed where screen readers didn't announce individual data points on charts with 200 or more data points per series. This feature now performs as expected.
+
+Fixed
+
+An issue has been fixed where updating legacy Marketplace plugins could fail with a timeout error on instances with large Git repositories. This feature now performs as expected.
+
+Fixed
+
+An issue has been fixed where switching **Series Positioning** from **Stacked** to **Overlay** or **Grouped** on an area, a column, or a bar chart didn't update the chart rendering. This feature now performs as expected.
+
+Fixed
+
+An issue has been fixed where scheduled deliveries to Slack, Google Drive, Cloud Storage, Microsoft Azure, and Dropbox could deliver corrupted single-column dashboard PDF files and unformatted Workflow Agent HTML files. This feature now performs as expected.
+
+Fixed
+
+Roles in the identity provider (IdP) group role mapping drop-down menu are now sorted alphabetically and searchable on the SAML and OIDC configuration pages.
+
+Fixed
+
+An issue has been fixed where hyperlink tooltips inside dashboard tile notes couldn't be clicked. This feature now performs as expected.
+
+Fixed
+
+An issue has been fixed where numeric parameter filters without an `allowed_values` property were misclassified as tier filters in the dashboard filter editor, which exposed invalid operator options and cleared default values. This feature now performs as expected.
+
+Fixed
+
+An issue has been fixed in the System Activity **Conversational Analytics** dashboard where the **Conversations by Type** and **Weekly Conversations** tiles incorrectly counted workflow agent runs as dashboard conversations. This feature now performs as expected.
+
+Fixed
+
+An issue has been fixed where editing a Conversational Analytics agent could overwrite its **Code Interpreter** setting, fail to immediately update active conversations, or allow **Code Interpreter** to remain active when disabled at the instance level. This feature now performs as expected.
+
+Fixed
+
+An issue has been fixed in the System Activity **Conversational Analytics** dashboard where filtering by the **Agent** filter on the **Engagement** tab returned no results for agents on user-defined dashboards. This feature now performs as expected.
+
+Fixed
+
+In the System Activity **Conversational Analytics** dashboard, the **Top Agents** and **Agents Not Used in Last 30 Days** tiles on the **Engagement** tab now display the agent name alongside the Agent ID.
+
+Fixed
+
+An issue has been fixed in the System Activity **Conversational Analytics** dashboard where clicking a dashboard Agent ID on the **Engagement** tab linked to a nonexistent standalone agent page (returning an `HTTP 404` error) instead of the parent dashboard. This feature now performs as expected.
 
 ## October 30, 2026
 
@@ -387,7 +548,7 @@ Conversational Analytics preview features can still be enabled selectively under
 
 Feature
 
-Conversational Analytics data agents for both [user-defined dashboards](https://docs.cloud.google.com/looker/docs/conversational-analytics-looker-data-agents-dashboards) and [LookML dashboards](https://docs.cloud.google.com/looker/docs/release-notes/looker/docs/conversational-analytics-looker-data-agents-lookml-dashboards) are now generally available.
+Conversational Analytics data agents for both [user-defined dashboards](https://docs.cloud.google.com/looker/docs/conversational-analytics-looker-data-agents-dashboards) and [LookML dashboards](https://docs.cloud.google.com/looker/docs/conversational-analytics-looker-data-agents-lookml-dashboards) are now generally available.
 
 (**Note** : This item was added on October 14, 2026.)
 
@@ -10221,6 +10382,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-06 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-06 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/vpc/docs/multiple-interfaces-concepts/
 title: Multiple network interfaces \u00a0|\u00a0 Virtual Private Cloud \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-06T10:05:30.998484+00:00
+fetched_at: 2026-11-07T08:32:26.301916+00:00
 ---
 
 # Multiple network interfaces  |  Virtual Private Cloud  |  Google Cloud Documentation
@@ -323,9 +323,9 @@ For most machine types, the maximum number of network interfaces that you can at
 
 The following are machine-specific exceptions:
 
-  * Most Compute Engine bare metal instances support only a single vNIC. However, select bare metal machine types support multiple vNICs, such as Z4M. For information about the number of supported network interfaces for Z4M instances, see [Create a Cloud RDMA-enabled instance](https://docs.cloud.google.com/compute/docs/instances/create-vm-with-rdma#create-vm-with-rdma).
+  * Most Compute Engine bare metal instances support only a single vNIC. However, select bare metal machine types support multiple vNICs, such as Z4M, A4X MAX, and A5X. For information about the number of supported network interfaces for bare metal instances, see [Create a Cloud RDMA-enabled instance](https://docs.cloud.google.com/compute/docs/instances/create-vm-with-rdma#create-vm-with-rdma).
 
-  * The maximum number of vNICs is different for some accelerator optimized machine types, such as A3, A4, and A4X. For more information, see [Accelerator-optimized machine family](https://docs.cloud.google.com/compute/docs/accelerator-optimized-machines).
+  * The maximum number of vNICs is different for some accelerator-optimized machine types, such as A3, A4, A4X, A4X Max, and A5X. For more information, see [Accelerator-optimized machine family](https://docs.cloud.google.com/compute/docs/accelerator-optimized-machines).
 
 
 

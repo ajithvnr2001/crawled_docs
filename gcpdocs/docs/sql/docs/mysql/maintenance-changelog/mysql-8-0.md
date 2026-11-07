@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sql/docs/mysql/maintenance-changelog/mysql-8-0/
 title: MySQL 8.0 maintenance changelog \u00a0|\u00a0 Cloud SQL for MySQL \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-06T10:28:22.910284+00:00
+fetched_at: 2026-11-07T08:32:33.370052+00:00
 ---
 
 # MySQL 8.0 maintenance changelog  |  Cloud SQL for MySQL  |  Google Cloud Documentation
@@ -33,6 +33,16 @@ To learn more about maintenance updates, see [Maintenance updates on Cloud SQL i
 For MySQL 8.0, maintenance updates are sometimes released on new database minor versions. To benefit from these updates, you might need to upgrade to a newer minor version. For more information, see [minor version upgrades](https://docs.cloud.google.com/sql/docs/mysql/upgrade-minor-db-version).
 
 To get the latest maintenance changes delivered to you, add the following URL to your feed reader: `https://docs.cloud.google.com/feeds/cloud-sql-mysql-8-0-maintenance-changelog.xml`.
+
+## MYSQL_8_0_[18, 26, 27, 28, 30, 31, 32, 33, 34, 35, 36, 37, 39, 40, 41, 42, 43, 44, 45, 46].R20261013.02_04
+
+**Date released** | **Release type** | **Database minor version**  
+---|---|---  
+Roll-out in progress | Automatic Maintenance | MySQL 8.0.18, MySQL 8.0.26, MySQL 8.0.27, MySQL 8.0.28, MySQL 8.0.30, MySQL 8.0.31, MySQL 8.0.32, MySQL 8.0.33, MySQL 8.0.34, MySQL 8.0.35, MySQL 8.0.36, MySQL 8.0.37, MySQL 8.0.39, MySQL 8.0.40, MySQL 8.0.41, MySQL 8.0.42, MySQL 8.0.43, MySQL 8.0.44, MySQL 8.0.45, MySQL 8.0.46  
+  
+### Security patches
+
+To be updated. 
 
 ## MYSQL_8_0_[18, 26, 27, 28, 30, 31, 32, 33, 34, 35, 36, 37, 39, 40, 41, 42, 43, 44, 45, 46].R20260726.00_36
 
@@ -2422,6 +2432,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-03 UTC.
+Last updated 2026-11-06 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-06 UTC."],[],[]] 

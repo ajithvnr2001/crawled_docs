@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/distributed-cloud/sandbox/latest/services/ocr/
 title: Try out Optical Character Recognition (OCR) \u00a0|\u00a0 Google Distributed Cloud Sandbox \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T21:08:24.805992+00:00
+fetched_at: 2026-11-07T08:29:29.985722+00:00
 ---
 
 # Try out Optical Character Recognition (OCR)  |  Google Distributed Cloud Sandbox  |  Google Cloud Documentation
@@ -21,9 +21,9 @@ Send feedback
 
 #  Try out Optical Character Recognition (OCR) Stay organized with collections  Save and categorize content based on your preferences. 
 
-This guide walks you through the process of running an Optical Character Recognition (OCR) test using Google's Vertex AI Vision service.
+Optical Character Recognition (OCR) with the Cloud Vision API lets you extract printed and handwritten text from images. In this tutorial, you containerize a Python client that runs OCR on an image and deploy it as a job in Google Distributed Cloud (GDC) Sandbox.
 
-Before trying this sample, follow the Python setup instructions in the [Vertex AI quickstart using client libraries](https://docs.cloud.google.com/vertex-ai/docs/start/client-libraries). For more information, see the [Vertex AI Python API reference documentation](https://docs.cloud.google.com/python/docs/reference/aiplatform/latest).
+To run this workload, you need an active Google Cloud project with the Cloud Vision API enabled, a valid API key, and access to your GDC Sandbox instance and Harbor container registry. Before trying this sample, follow the Python setup instructions in the [Vertex AI quickstart using client libraries](https://docs.cloud.google.com/vertex-ai/docs/start/client-libraries). For more information, see [Using Vertex AI](https://docs.cloud.google.com/distributed-cloud/sandbox/latest/services/vertex-ai#setup) and the [Vertex AI Python API reference documentation](https://docs.cloud.google.com/python/docs/reference/aiplatform/latest).
 
   1. Create a python file `ocr_test.py`. Replace the `image_uri_to_test` value with the URI of a source image, as shown:
          
@@ -173,6 +173,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-07 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-07 UTC."],[],[]] 

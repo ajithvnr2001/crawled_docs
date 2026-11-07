@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/ai-hypercomputer/docs/monitor/
 title: Monitor Compute Engine instances and Slurm clusters \u00a0|\u00a0 AI Hypercomputer \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T23:31:53.318784+00:00
+fetched_at: 2026-11-07T08:32:30.867709+00:00
 ---
 
 # Monitor Compute Engine instances and Slurm clusters  |  AI Hypercomputer  |  Google Cloud Documentation
@@ -23,7 +23,7 @@ Send feedback
 
 [ Clustered GPUs ](https://docs.cloud.google.com/ai-hypercomputer/docs/evaluate-clustered-gpus)
 
-This document explains how to use [Cloud Monitoring dashboards](https://docs.cloud.google.com/monitoring/dashboards) to monitor A4X Max, A4X, A4, A3 Ultra, and A3 Mega instances that you created by using reservation-bound capacity. Using these dashboards helps you identify and troubleshoot performance bottlenecks in your standalone Compute Engine instances or Slurm clusters, minimizing downtime in your workloads.
+This document explains how to use [Cloud Monitoring dashboards](https://docs.cloud.google.com/monitoring/dashboards) to monitor A5X, A4X Max, A4X, A4, A3 Ultra, and A3 Mega instances that you created by using reservation-bound capacity. Using these dashboards helps you identify and troubleshoot performance bottlenecks in your standalone Compute Engine instances or Slurm clusters, minimizing downtime in your workloads.
 
 By creating custom dashboards or using prebuilt Monitoring dashboards, you can monitor the following:
 
@@ -69,14 +69,14 @@ When you use the Google Cloud console to access Google Cloud services and APIs, 
 
     * The compute instances must be created as either standalone Compute Engine instances or as part of a Slurm cluster.
     * The compute instances must have been created by using reservation-bound capacity.
-    * The compute instances must use the A4X Max, A4X, A4, A3 Ultra, or A3 Mega [machine series](https://docs.cloud.google.com/ai-hypercomputer/docs/understand-gpus). 
+    * The compute instances must use the A5X, A4X Max, A4X, A4, A3 Ultra, or A3 Mega [machine series](https://docs.cloud.google.com/ai-hypercomputer/docs/understand-gpus). 
       * However, straggler detection also supports virtual machine (VM) instances that use the A3 Mega machine series.
-**Caution:** Although metrics might appear for other machine series than A4X Max, A4X, A4, A3 Ultra, or A3 Mega, those metrics might be incorrect.
+**Caution:** Although metrics might appear for other machine series than A5X, A4X Max, A4X, A4, A3 Ultra, or A3 Mega, those metrics might be incorrect.
   * **Known issues for infrastructure metrics:**
     * Some compute instances might not display `GPU Power Consumption` metrics.
     * Some compute instances might not display `GPU Temperature` or `GPU Thermal Margin` metrics, or they might display `NaN` instead of metrics.
     * Metrics might not appear in the Google Cloud console for up to seven minutes after they're collected.
-    * You might see incorrect metrics for machine series other than A4X Max, A4X, A4, A3 Ultra, or A3 Mega.
+    * You might see incorrect metrics for machine series other than A5X, A4X Max, A4X, A4, A3 Ultra, or A3 Mega.
 
 
 
@@ -172,8 +172,8 @@ To monitor the health of your GPUs, use the following metrics:
 
 Name | Metric type | Supported machine series | Description  
 ---|---|---|---  
-Machine Status | `machine/machine_status` | A4X Max, A4X, A4, A3 Ultra, or A3 Mega | Whether the machine that the compute instance uses is healthy, or the machine is unhealthy and requires repair.  
-NVSwitch Status | `instance/gpu/nvswitch_status` | A4X Max, A4X, A4, A3 Ultra, or A3 Mega | Whether an [NVLink Switch](https://www.nvidia.com/en-gb/data-center/nvlink/) on an NVIDIA GPU attached to a compute instance is encountering issues.   
+Machine Status | `machine/machine_status` | A5X, A4X Max, A4X, A4, A3 Ultra, or A3 Mega | Whether the machine that the compute instance uses is healthy, or the machine is unhealthy and requires repair.  
+NVSwitch Status | `instance/gpu/nvswitch_status` | A5X, A4X Max, A4X, A4, A3 Ultra, or A3 Mega | Whether an [NVLink Switch](https://www.nvidia.com/en-gb/data-center/nvlink/) on an NVIDIA GPU attached to a compute instance is encountering issues.   
 VM Infra Health | `instance/gpu/infra_health` | A4X, A4, A3 Ultra, or A3 Mega |  The health of the cluster, block, sub-block, and host on which your compute instances are running. If this metric shows that a compute instance's infrastructure is unhealthy, then the metric also describes the issue.  
 VM Failure Prediction Score | `instance/gpu/failure_prediction_score` | A4X, A4, A3 Ultra, or A3 Mega |  The likelihood that the host on which the compute instance runs degrades in the next five hours. The value can be between `0.0` and `1.0`. The closer the value remains to `1.0` for a consistent period of time, the more likely the compute instance will degrade. In that case, we recommend that you move the job to a different compute instance and, if you encounter issues with the compute instance, then report its host as faulty.   
   
@@ -183,11 +183,11 @@ To monitor the performance of your GPUs, use the following metrics:
 
 Name | Metric type | Supported machine series | Description  
 ---|---|---|---  
-Accumulated Context Utilization | `instance/gpu/accumulated_context_utilization_seconds` | A4X Max, A4X, A4, A3 Ultra, or A3 Mega | The total time, in seconds, that the GPU is busy processing a workload.  
-GPU Power Consumption | `instance/gpu/power_consumption` | A4X Max, A4X, A4, A3 Ultra, or A3 Mega | The power in watts (W) and in decimal values that is consumed on individual GPUs on the host. For compute instances with multiple GPUs attached, the metric provides the power consumption separately for each GPU on the host.   
-SM Utilization | `instance/gpu/sm_utilization` | A4X Max, A4X, A4, A3 Ultra, or A3 Mega | A non-zero value indicates that the streaming multiprocessors (SMs) on your GPUs are actively being used.  
-GPU Temperature | `instance/gpu/temperature` | A4X Max, A4X, A4, A3 Ultra, or A3 Mega | The temperature in Celsius (℃) and in decimal values of individual GPUs on the host. For compute instances with multiple GPUs attached, the metric provides the temperature separately for each GPU on the host.   
-GPU Thermal Margin | `instance/gpu/tlimit` | A4X Max, A4X, A4, A3 Ultra, or A3 Mega | The thermal headroom in Celsius (℃) and in decimal values that individual GPUs have before they need to slow down due to high temperature. For compute instances with multiple GPUs attached, the metric provides the thermal headroom separately for each GPU on the host.   
+Accumulated Context Utilization | `instance/gpu/accumulated_context_utilization_seconds` | A5X, A4X Max, A4X, A4, A3 Ultra, or A3 Mega | The total time, in seconds, that the GPU is busy processing a workload.  
+GPU Power Consumption | `instance/gpu/power_consumption` | A5X, A4X Max, A4X, A4, A3 Ultra, or A3 Mega | The power in watts (W) and in decimal values that is consumed on individual GPUs on the host. For compute instances with multiple GPUs attached, the metric provides the power consumption separately for each GPU on the host.   
+SM Utilization | `instance/gpu/sm_utilization` | A5X, A4X Max, A4X, A4, A3 Ultra, or A3 Mega | A non-zero value indicates that the streaming multiprocessors (SMs) on your GPUs are actively being used.  
+GPU Temperature | `instance/gpu/temperature` | A5X, A4X Max, A4X, A4, A3 Ultra, or A3 Mega | The temperature in Celsius (℃) and in decimal values of individual GPUs on the host. For compute instances with multiple GPUs attached, the metric provides the temperature separately for each GPU on the host.   
+GPU Thermal Margin | `instance/gpu/tlimit` | A5X, A4X Max, A4X, A4, A3 Ultra, or A3 Mega | The thermal headroom in Celsius (℃) and in decimal values that individual GPUs have before they need to slow down due to high temperature. For compute instances with multiple GPUs attached, the metric provides the thermal headroom separately for each GPU on the host.   
   
 #### GPU network performance metrics
 
@@ -200,7 +200,7 @@ Network RTT | `instance/gpu/network_rtt` | A4X, A4, A3 Ultra, or A3 Mega | The r
 Network Traffic at Inter-Block | `instance/gpu/network/inter_block_tx` | A4X, A4, A3 Ultra, or A3 Mega | The number of bytes of network traffic among blocks.  
 Network Traffic at Inter-Sub-block | `instance/gpu/network/inter_subblock_tx` | A4X, A4, A3 Ultra, or A3 Mega | The number of bytes of network traffic among sub-blocks.  
 Network Traffic at Intra-Sub-block | `instance/gpu/network/intra_subblock_tx` | A4X, A4, A3 Ultra, or A3 Mega | The number of bytes of network traffic within a single sub-block.  
-NVLink Active Speed | `instance/gpu/nvlink_active_speed` | A4X Max, A4X, A4, A3 Ultra, or A3 Mega | The current access link port speed, in GBps.  
+NVLink Active Speed | `instance/gpu/nvlink_active_speed` | A5X, A4X Max, A4X, A4, A3 Ultra, or A3 Mega | The current access link port speed, in GBps.  
 Throughput Rx Bytes | `instance/gpu/throughput_rx_bytes` | A4X, A4, A3 Ultra, or A3 Mega | The number of bytes received from network traffic.  
 Throughput Tx Bytes | `instance/gpu/throughput_tx_bytes` | A4X, A4, A3 Ultra, or A3 Mega | The number of bytes transmitted to network traffic.  
   
@@ -305,10 +305,10 @@ To monitor the errors that your GPUs encounter and that might force your compute
 
 Name | Metric type | Supported machine series | Description  
 ---|---|---|---  
-NVLink runtime error | `instance/gpu/nvlink_runtime_error` | A4X Max or A4X | Whether an NVLink runtime error occurred.  
-Uncorrectable DRAM ECC errors | `instance/gpu/dram_uncorrectable_ecc_error_count` | A4X Max or A4X | The number of uncorrectable error-correcting codes (ECCs) in a GPU dynamic random access memory (DRAM).  
-Uncorrectable DRAM row remapping count | `instance/gpu/dram_uncorrectable_row_remapping_count` | A4X Max or A4X | The number of row remappings from uncorrectable errors in GPU DRAMs.   
-Uncorrectable DRAM row remapping failed | `instance/gpu/dram_row_remapping_failed` | A4X Max or A4X | Whether a row remapping in GPU DRAMs has failed due to one of the following issues:   
+NVLink runtime error | `instance/gpu/nvlink_runtime_error` | A5X, A4X Max, or A4X | Whether an NVLink runtime error occurred.  
+Uncorrectable DRAM ECC errors | `instance/gpu/dram_uncorrectable_ecc_error_count` | A5X, A4X Max, or A4X | The number of uncorrectable error-correcting codes (ECCs) in a GPU dynamic random access memory (DRAM).  
+Uncorrectable DRAM row remapping count | `instance/gpu/dram_uncorrectable_row_remapping_count` | A5X, A4X Max, or A4X | The number of row remappings from uncorrectable errors in GPU DRAMs.   
+Uncorrectable DRAM row remapping failed | `instance/gpu/dram_row_remapping_failed` | A5X, A4X Max, or A4X | Whether a row remapping in GPU DRAMs has failed due to one of the following issues:   
 
 
   * A remapping attempt on a memory bank failed because the memory bank already has eight uncorrectable error rows remapped. 
@@ -316,8 +316,8 @@ Uncorrectable DRAM row remapping failed | `instance/gpu/dram_row_remapping_faile
   * A remapping attempt failed because 512 total remappings have occurred.
 
   
-Uncorrectable PCIe errors | `instance/gpu/pcie_fatal_error_count` | A4X Max or A4X | The number of uncorrectable peripheral component interconnect express (PCIe) errors.  
-Uncorrectable cache ECC errors | `instance/gpu/cache_uncorrectable_ecc_error_count` | A4X Max or A4X | The number of uncorrectable ECCs in cache memory.  
+Uncorrectable PCIe errors | `instance/gpu/pcie_fatal_error_count` | A5X, A4X Max, or A4X | The number of uncorrectable peripheral component interconnect express (PCIe) errors.  
+Uncorrectable cache ECC errors | `instance/gpu/cache_uncorrectable_ecc_error_count` | A5X, A4X Max, or A4X | The number of uncorrectable ECCs in cache memory.  
   
 ### VM termination monitoring
 
@@ -441,7 +441,7 @@ To detect and diagnose unresponsive workloads for your compute instances, use th
 
 Name | Metric type | Supported machine series | Description  
 ---|---|---|---  
-Unresponsive workload events detected by using NCCL telemetry | `instance/gpu/nccl_hang` | A4X Max, A4X, A4 and A3 Ultra | The number of detected unresponsive workload events, as a time series.  
+Unresponsive workload events detected by using NCCL telemetry | `instance/gpu/nccl_hang` | A5X, A4X Max, A4X, A4, and A3 Ultra | The number of detected unresponsive workload events, as a time series.  
   
 #### Enable unresponsive workload detection
 
@@ -661,6 +661,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-04 UTC.
+Last updated 2026-11-06 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-06 UTC."],[],[]] 

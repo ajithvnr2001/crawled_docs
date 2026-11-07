@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/maas/capabilities/function-calling/
 title: Function calling for open models \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-06T10:43:14.867602+00:00
+fetched_at: 2026-11-07T08:25:00.231500+00:00
 ---
 
 # Function calling for open models  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation
@@ -24,6 +24,75 @@ Send feedback
 Function calling lets you define custom functions and provide LLMs with the capability to call them to retrieve real-time information or interact with external systems like SQL databases or customer service tools.
 
 For more conceptual information about function calling, see [Introduction to function calling](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tools/function-calling).
+
+## Before you begin
+
+To use open models with Gemini Enterprise Agent Platform, you must perform the following steps. The Agent Platform API (`aiplatform.googleapis.com`) and the Cloud Commerce Consumer Procurement API (`cloudcommerceconsumerprocurement.googleapis.com`) must be enabled to use open models on Gemini Enterprise Agent Platform. If you already have an existing project with these APIs enabled, you can use that project instead of creating a new project.
+
+  1. Sign in to your Google Cloud account. If you're new to Google Cloud, [ create an account](https://console.cloud.google.com/freetrial) to evaluate how our products perform in real-world scenarios. New customers also get $300 in free credits to run, test, and deploy workloads. 
+  2. In the Google Cloud console, on the project selector page, select or create a Google Cloud project.
+
+**Roles required to select or create a project**
+
+     * **Select a project** : Selecting a project doesn't require a specific IAM role—you can select any project that you've been granted a role on. 
+     * **Create a project** : To create a project, you need the Project Creator role (`roles/resourcemanager.projectCreator`), which contains the `resourcemanager.projects.create` permission. [Learn how to grant roles](https://docs.cloud.google.com/iam/docs/granting-changing-revoking-access). 
+
+[Go to project selector](https://console.cloud.google.com/projectselector2/home/dashboard)
+
+  3. If you're using an existing project for this guide, verify that you have the permissions required to complete this guide. If you created a new project, then you already have the required permissions. 
+
+  4. [Verify that billing is enabled for your Google Cloud project](https://docs.cloud.google.com/billing/docs/how-to/verify-billing-enabled#confirm_billing_is_enabled_on_a_project). 
+
+  5. Enable the Gemini Enterprise Agent Platform and Cloud Commerce Consumer Procurement APIs, if any are not already enabled. 
+
+**Roles required to enable APIs**
+
+To enable APIs, you need the `serviceusage.services.enable` permission. If you created the project, then you likely already have this permission through the Owner role (`roles/owner`). Otherwise, you can get this permission through the Service Usage Admin role (`roles/serviceusage.serviceUsageAdmin`). [Learn how to grant roles](https://docs.cloud.google.com/iam/docs/granting-changing-revoking-access). 
+
+[Enable the APIs](https://console.cloud.google.com/apis/enableflow?apiid=aiplatform.googleapis.com,cloudcommerceconsumerprocurement.googleapis.com)
+
+  6. In the Google Cloud console, on the project selector page, select or create a Google Cloud project.
+
+**Roles required to select or create a project**
+
+     * **Select a project** : Selecting a project doesn't require a specific IAM role—you can select any project that you've been granted a role on. 
+     * **Create a project** : To create a project, you need the Project Creator role (`roles/resourcemanager.projectCreator`), which contains the `resourcemanager.projects.create` permission. [Learn how to grant roles](https://docs.cloud.google.com/iam/docs/granting-changing-revoking-access). 
+
+[Go to project selector](https://console.cloud.google.com/projectselector2/home/dashboard)
+
+  7. If you're using an existing project for this guide, verify that you have the permissions required to complete this guide. If you created a new project, then you already have the required permissions. 
+
+  8. [Verify that billing is enabled for your Google Cloud project](https://docs.cloud.google.com/billing/docs/how-to/verify-billing-enabled#confirm_billing_is_enabled_on_a_project). 
+
+  9. Enable the Gemini Enterprise Agent Platform and Cloud Commerce Consumer Procurement APIs, if any are not already enabled. 
+
+**Roles required to enable APIs**
+
+To enable APIs, you need the `serviceusage.services.enable` permission. If you created the project, then you likely already have this permission through the Owner role (`roles/owner`). Otherwise, you can get this permission through the Service Usage Admin role (`roles/serviceusage.serviceUsageAdmin`). [Learn how to grant roles](https://docs.cloud.google.com/iam/docs/granting-changing-revoking-access). 
+
+[Enable the APIs](https://console.cloud.google.com/apis/enableflow?apiid=aiplatform.googleapis.com,cloudcommerceconsumerprocurement.googleapis.com)
+
+  10. Go to the Model Garden model card for the model you want to use, then click **Enable** to enable the model for use in your project. 
+
+[Go to Model Garden](https://console.cloud.google.com/agent-platform/model-garden)
+
+
+
+
+### Required roles
+
+To get the permissions that you need to enable and use open models, ask your administrator to grant you the following IAM roles on your project: 
+
+  * [Agent Platform User ](https://docs.cloud.google.com/iam/docs/roles-permissions/aiplatform#aiplatform.user) (`roles/aiplatform.user`)
+  * [Consumer Procurement Entitlement Manager ](https://docs.cloud.google.com/iam/docs/roles-permissions/consumerprocurement#consumerprocurement.entitlementManager) (`roles/consumerprocurement.entitlementManager`)
+
+
+
+For more information about granting roles, see [Manage access to projects, folders, and organizations](https://docs.cloud.google.com/iam/docs/granting-changing-revoking-access). 
+
+You might also be able to get the required permissions through [custom roles](https://docs.cloud.google.com/iam/docs/creating-custom-roles) or other [predefined roles](https://docs.cloud.google.com/iam/docs/roles-overview#predefined). 
+
+For more information about granting permissions and configuring organization policies for open models, see [Grant user access to open models](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/maas/grant-access-open-models).
 
 ## Use function calling
 
@@ -59,7 +128,7 @@ Before running this sample, make sure to set the `OPENAI_BASE_URL` environment v
       tool_choice="auto",
     )
 
-  * MODEL: The model name you want to use, for example `qwen/qwen3-next-80b-a3b-instruct-maas`.
+  * MODEL: The model name you want to use, for example `zai-org/glm-5.2-maas`.
   * CONTENT: The user prompt to send to the model.
   * FUNCTION_NAME: The name of the function to call.
   * FUNCTION_DESCRIPTION: A description of the function.
@@ -70,11 +139,12 @@ Before running this sample, make sure to set the `OPENAI_BASE_URL` environment v
 
 ### REST
 
+After you set up your environment, you can use REST to test a text prompt. The following sample sends a request to the publisher model endpoint. 
+
 Before using any of the request data, make the following replacements: 
 
   * PROJECT_ID: Your Google Cloud project ID.
-  * LOCATION: A region that supports open models.
-  * MODEL: The model name you want to use, for example `qwen/qwen3-next-80b-a3b-instruct-maas`.
+  * MODEL: The model name you want to use, for example `zai-org/glm-5.2-maas`.
   * CONTENT: The user prompt to send to the model.
   * FUNCTION_NAME: The name of the function to call.
   * FUNCTION_DESCRIPTION: A description of the function.
@@ -86,7 +156,7 @@ Before using any of the request data, make the following replacements:
 HTTP method and URL: 
     
     
-    POST https://LOCATION-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/endpoints/openapi/chat/completions
+    POST https://aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/global/endpoints/openapi/chat/completions
 
 Request JSON body: 
     
@@ -126,7 +196,7 @@ Save the request body in a file named `request.json`, and execute the following 
          -H "Authorization: Bearer $(gcloud auth print-access-token)" \  
          -H "Content-Type: application/json; charset=utf-8" \  
          -d @request.json \  
-         "https://LOCATION-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/endpoints/openapi/chat/completions"
+         "https://aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/global/endpoints/openapi/chat/completions"
 
 #### PowerShell
 
@@ -143,7 +213,7 @@ Save the request body in a file named `request.json`, and execute the following 
         -Headers $headers `  
         -ContentType: "application/json; charset=utf-8" `  
         -InFile request.json `  
-        -Uri "https://LOCATION-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/endpoints/openapi/chat/completions" | Select-Object -Expand Content
+        -Uri "https://aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/global/endpoints/openapi/chat/completions" | Select-Object -Expand Content
 
 You should receive a successful status code (2xx) and an empty response.
 
@@ -158,7 +228,7 @@ The following is the complete output you could expect after using the `get_curre
     client = OpenAI()
     
     response = client.chat.completions.create(
-      model="qwen/qwen3-next-80b-a3b-instruct-maas",
+      model="zai-org/glm-5.2-maas",
       messages=[
         {
           "role": "user",
@@ -212,9 +282,9 @@ The following is the complete output you could expect after using the `get_curre
     curl -X POST \
     -H "Authorization: Bearer $(gcloud auth print-access-token)" \
     -H "Content-Type: application/json" \
-    https://us-central1-aiplatform.googleapis.com/v1/projects/sample-project/locations/us-central1/endpoints/openapi/chat/completions -d \
+    https://aiplatform.googleapis.com/v1/projects/sample-project/locations/global/endpoints/openapi/chat/completions -d \
     '{
-      "model": "qwen/qwen3-next-80b-a3b-instruct-maas",
+      "model": "zai-org/glm-5.2-maas",
       "messages": [
         {
           "role": "user",
@@ -282,7 +352,7 @@ After receiving the information retrieved through the calling the external `get_
      ],
      "created": 1750450289,
      "id": "2025-06-20|13:11:29.240295-07|6.230.75.101|-987540014",
-     "model": "qwen/qwen3-next-80b-a3b-instruct-maas",
+     "model": "zai-org/glm-5.2-maas",
      "object": "chat.completion",
      "system_fingerprint": "",
      "usage": {
@@ -306,7 +376,7 @@ DeepSeek models don't perform as well on function calling if you use a system pr
 
 ### OpenAI
 
-When using `openai/gpt-oss-120b-instruct-maas` and `openai/gpt-oss-20b-instruct-maas`, place your tool definitions in the system prompt for optimal performance. For example:
+When using `openai/gpt-oss-120b-maas`, place your tool definitions in the system prompt for optimal performance. For example:
     
     
     {"messages": [
@@ -315,11 +385,7 @@ When using `openai/gpt-oss-120b-instruct-maas` and `openai/gpt-oss-20b-instruct-
         ...
     ]}
 
-These models don't support `tool_choice = 'required'` or named tool calling.
-
-### Qwen
-
-Qwen models perform best when `tool_choice` is explicitly set to `auto` or `none`. If `tool_choice` is unset, the model might not perform as well.
+This model doesn't support `tool_choice = 'required'` or named tool calling.
 
 ## What's next
 
@@ -333,6 +399,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-05 UTC.
+Last updated 2026-11-07 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-05 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-07 UTC."],[],[]] 

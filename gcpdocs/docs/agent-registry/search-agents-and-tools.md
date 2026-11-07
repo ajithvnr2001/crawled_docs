@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/agent-registry/search-agents-and-tools/
 title: Search for agents, tools, and skills \u00a0|\u00a0 Agent Registry \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-30T08:40:10.196485+00:00
+fetched_at: 2026-11-07T08:29:38.760782+00:00
 ---
 
 # Search for agents, tools, and skills  |  Agent Registry  |  Google Cloud Documentation
@@ -39,7 +39,14 @@ Search queries evaluate agent, MCP server, and skill capability descriptions, to
 
 ### Required roles
 
-To get the permissions that you need to search for agents, tools, and skills in Agent Registry, ask your administrator to grant you the [Agent Registry API Viewer ](https://docs.cloud.google.com/iam/docs/roles-permissions/agentregistry#agentregistry.viewer) (`roles/agentregistry.viewer`) IAM role on the [governance project](https://docs.cloud.google.com/agent-registry/overview#governance-project) where Agent Registry is enabled. For more information about granting roles, see [Manage access to projects, folders, and organizations](https://docs.cloud.google.com/iam/docs/granting-changing-revoking-access). 
+To get the permissions that you need to search for agents, tools, and skills in Agent Registry, ask your administrator to grant you the following IAM roles on the [governance project](https://docs.cloud.google.com/agent-registry/overview#governance-project) where Agent Registry is enabled: 
+
+  * Search for agents, tools, and skills: [Agent Registry API Viewer ](https://docs.cloud.google.com/iam/docs/roles-permissions/agentregistry#agentregistry.viewer) (`roles/agentregistry.viewer`) 
+  * Search for and view standalone skills: [Agent Registry User ](https://docs.cloud.google.com/iam/docs/roles-permissions/agentregistry#agentregistry.user) (`roles/agentregistry.user`) 
+
+
+
+For more information about granting roles, see [Manage access to projects, folders, and organizations](https://docs.cloud.google.com/iam/docs/granting-changing-revoking-access). 
 
 You might also be able to get the required permissions through [custom roles](https://docs.cloud.google.com/iam/docs/creating-custom-roles) or other [predefined roles](https://docs.cloud.google.com/iam/docs/roles-overview#predefined). 
 
@@ -223,13 +230,11 @@ When you search from the management project:
 
 ## Search for standalone skills
 
-**Preview**
-
-This product or feature is subject to the "Pre-GA Offerings Terms" in the General Service Terms section of the [Service Specific Terms](https://docs.cloud.google.com/terms/service-terms#1). Pre-GA products and features are available "as is" and might have limited support. For more information, see the [launch stage descriptions](https://cloud.google.com/products/#product-launch-stages). 
-
 You can search for standalone [skills](https://docs.cloud.google.com/agent-registry/skills-architecture) registered in Agent Registry. This feature lets you discover reusable capabilities to attach to your agents.
 
 When you search for skills, you search for the default [skill revision](https://docs.cloud.google.com/agent-registry/skills-architecture#skill-revision). To update the default revision of a skill, see [Update skill metadata or default revision](https://docs.cloud.google.com/agent-registry/manage-skills#update-skill).
+
+Agent Registry filters skill search results based on your Identity and Access Management (IAM) permissions. A search request returns only the skills for which you have the `agentregistry.skills.get` permission, whether granted at the project level or through a [resource-level IAM policy on the skill](https://docs.cloud.google.com/agent-registry/manage-skills#manage-skill-access).
 
 ### Search modes
 
@@ -255,10 +260,15 @@ Field name | Case behavior | Prefix search | All-fields search | Description
 `frontmatter.description` | Case insensitive | No | No | The description of the skill defined in the front matter of the `SKILL.md` file.  
 `frontmatter.compatibility` | Case insensitive | No | No | The compatibility of the skill defined in the front matter of the `SKILL.md` file.  
 `frontmatter.license` | Case insensitive | No | No | The license of the skill defined in the front matter of the `SKILL.md` file.  
+`frontmatter.allowed_tools` | Case insensitive | No | No | The allowed tools of the skill defined in the front matter of the `SKILL.md` file.  
+`frontmatter.metadata.KEY` | Case insensitive | No | No | A custom metadata key-value entry defined in `metadata` in the front matter of the `SKILL.md` file. Supports the `:` operator in search queries and exact matches (`=` and `!=`) in filters.  
+`state` | Case insensitive | No | No | The current [lifecycle state](https://docs.cloud.google.com/agent-registry/skills-architecture#lifecycle) of the skill, such as `ACTIVE`, `DRAFT`, `DISABLED`, `DEPRECATED`, or `DECOMMISSIONED`. This field is only available in filters and supports exact matches (`=` and `!=`).  
+`targetState` | Case insensitive | No | No | The target [lifecycle state](https://docs.cloud.google.com/agent-registry/skills-architecture#lifecycle) of the skill, such as `ACTIVE`, `DRAFT`, `DISABLED`, `DEPRECATED`, or `DECOMMISSIONED`. This field is only available in filters and supports exact matches (`=` and `!=`).  
+`defaultRevisionFindingCount` | Not applicable | No | No | The number of [security findings](https://docs.cloud.google.com/agent-registry/scan-skills) detected in the skill's default revision. This field is only available in filters and supports exact matches (`=` and `!=`) and range operators (`<`, `<=`, `>`, and `>=`), such as `defaultRevisionFindingCount = 0` or `defaultRevisionFindingCount > 0`.  
 `createTime` | Not applicable | No | No | The timestamp when the skill was created. This field is only available in filters. Supports range operators, such as `<`, `>`, and exact matches.  
 `updateTime` | Not applicable | No | No | The timestamp when the skill was last updated. This field is only available in filters. Supports range operators, such as `<`, `>`, and exact matches.  
   
-To search for skills, provide a query string using the `--query` flag in gcloud CLI or the `searchString` parameter in the REST API. You can use the following syntax elements in your search requests:
+To search for skills, provide a query string using the `--query` flag in gcloud CLI or the `searchString` field in the request body of the REST API. You can use the following syntax elements in your search requests:
 
   * **Boolean operators** : include `AND`, `OR`, or `NOT` operators to chain requirements.
   * **Field-specific filters** : target a field using the `:` operator, for example, `displayName:database`.
@@ -272,10 +282,10 @@ Search for skills that have a specific display name prefix and description keywo
 
 ###  gcloud 
 
-Run the [`gcloud alpha agent-registry skills search`](https://docs.cloud.google.com/sdk/gcloud/reference/alpha/agent-registry/skills/search) command with `--search-type=keyword`:
+Run the [`gcloud agent-registry skills search`](https://docs.cloud.google.com/sdk/gcloud/reference/agent-registry/skills/search) command with `--search-type=keyword`:
     
     
-    gcloud alpha agent-registry skills search \
+    gcloud agent-registry skills search \
         --project=PROJECT_ID \
         --location=REGION \
         --query="displayName:cloud-* AND description:database" \
@@ -291,14 +301,17 @@ Replace the following:
 
 ###  REST 
 
-Send a `GET` request to the [`skills:search`](https://docs.cloud.google.com/agent-registry/reference/rest/v1alpha/projects.locations.skills/search) endpoint with `searchString` and `searchType=KEYWORD`:
+Send a `POST` request to the [`skills:search`](https://docs.cloud.google.com/agent-registry/reference/rest/v1/projects.locations.skills/search) endpoint with the `searchString` and `searchType` fields in the request body:
     
     
-    curl -G -X GET \
+    curl -X POST \
         -H "Authorization: Bearer $(gcloud auth print-access-token)" \
-        --data-urlencode "searchString=displayName:cloud-* AND description:database" \
-        --data-urlencode "searchType=KEYWORD" \
-        "https://agentregistry.googleapis.com/v1alpha/projects/PROJECT_ID/locations/REGION/skills:search"
+        -H "Content-Type: application/json" \
+        -d '{
+          "searchString": "displayName:cloud-* AND description:database",
+          "searchType": "KEYWORD"
+        }' \
+        "https://agentregistry.googleapis.com/v1/projects/PROJECT_ID/locations/REGION/skills:search"
     
 
 Replace the following:
@@ -314,10 +327,10 @@ Find skills related to managing relational databases by using semantic search:
 
 ###  gcloud 
 
-Run the [`gcloud alpha agent-registry skills search`](https://docs.cloud.google.com/sdk/gcloud/reference/alpha/agent-registry/skills/search) command with `--search-type=semantic`:
+Run the [`gcloud agent-registry skills search`](https://docs.cloud.google.com/sdk/gcloud/reference/agent-registry/skills/search) command with `--search-type=semantic`:
     
     
-    gcloud alpha agent-registry skills search \
+    gcloud agent-registry skills search \
         --project=PROJECT_ID \
         --location=REGION \
         --query="manage and configure relational databases" \
@@ -333,14 +346,17 @@ Replace the following:
 
 ###  REST 
 
-Send a `GET` request to the [`skills:search`](https://docs.cloud.google.com/agent-registry/reference/rest/v1alpha/projects.locations.skills/search) endpoint with `searchString` and `searchType=SEMANTIC`:
+Send a `POST` request to the [`skills:search`](https://docs.cloud.google.com/agent-registry/reference/rest/v1/projects.locations.skills/search) endpoint with the `searchString` and `searchType` fields in the request body:
     
     
-    curl -G -X GET \
+    curl -X POST \
         -H "Authorization: Bearer $(gcloud auth print-access-token)" \
-        --data-urlencode "searchString=manage and configure relational databases" \
-        --data-urlencode "searchType=SEMANTIC" \
-        "https://agentregistry.googleapis.com/v1alpha/projects/PROJECT_ID/locations/REGION/skills:search"
+        -H "Content-Type: application/json" \
+        -d '{
+          "searchString": "manage and configure relational databases",
+          "searchType": "SEMANTIC"
+        }' \
+        "https://agentregistry.googleapis.com/v1/projects/PROJECT_ID/locations/REGION/skills:search"
     
 
 Replace the following:
@@ -359,7 +375,7 @@ Google-managed skills are discoverable from any project. For a list of available
 You can also discover any component in Agent Registry, including registered [endpoints](https://docs.cloud.google.com/agent-registry/register-endpoints), by listing its collection and filtering on structured metadata fields:
 
   * **Discover endpoints** : because `Endpoint` resources don't support `:search` queries, you discover them by browsing the **Endpoints** tab in the Google Cloud console, running `gcloud agent-registry endpoints list --filter`, or calling the [`endpoints.list`](https://docs.cloud.google.com/agent-registry/reference/rest/v1/projects.locations.endpoints/list) REST method. For complete instructions, see [Manage and discover endpoints](https://docs.cloud.google.com/agent-registry/manage-endpoints#discover-endpoints).
-  * **Filter agents, MCP servers, and skills** : when you know a component's [registry identifier](https://docs.cloud.google.com/agent-registry/identity-and-identifiers#registry-identifiers) (URN), display name, or attribute, filter the collection in the Google Cloud console or pass `--filter` to `gcloud agent-registry agents list`, `gcloud agent-registry mcp-servers list`, or `gcloud alpha agent-registry skills list`. For details, see [Manage agents](https://docs.cloud.google.com/agent-registry/manage-agents), [Manage MCP servers and tools](https://docs.cloud.google.com/agent-registry/manage-mcp-tools), and [Manage skills](https://docs.cloud.google.com/agent-registry/manage-skills).
+  * **Filter agents, MCP servers, and skills** : when you know a component's [registry identifier](https://docs.cloud.google.com/agent-registry/identity-and-identifiers#registry-identifiers) (URN), display name, or attribute, filter the collection in the Google Cloud console or pass `--filter` to `gcloud agent-registry agents list`, `gcloud agent-registry mcp-servers list`, or `gcloud agent-registry skills list`. For details, see [Manage agents](https://docs.cloud.google.com/agent-registry/manage-agents), [Manage MCP servers and tools](https://docs.cloud.google.com/agent-registry/manage-mcp-tools), and [Manage skills](https://docs.cloud.google.com/agent-registry/manage-skills).
 
 
 
@@ -367,6 +383,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-29 UTC.
+Last updated 2026-11-06 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-06 UTC."],[],[]] 

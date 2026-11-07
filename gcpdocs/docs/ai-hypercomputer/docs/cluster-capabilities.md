@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/ai-hypercomputer/docs/cluster-capabilities/
 title: Cluster management capabilities \u00a0|\u00a0 AI Hypercomputer \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T18:26:28.699574+00:00
+fetched_at: 2026-11-07T08:32:28.092094+00:00
 ---
 
 # Cluster management capabilities  |  AI Hypercomputer  |  Google Cloud Documentation
@@ -43,7 +43,7 @@ The following table summarizes the machine series supported in AI Hypercomputer:
 
 Category | Machine series | Supports cluster management  
 ---|---|---  
-Clustered GPUs | [A4X Max](https://docs.cloud.google.com/ai-hypercomputer/docs/evaluate-clustered-gpus#a4x), [A4X](https://docs.cloud.google.com/ai-hypercomputer/docs/evaluate-clustered-gpus#a4x), [A4](https://docs.cloud.google.com/ai-hypercomputer/docs/evaluate-clustered-gpus#a4), [A3 Ultra](https://docs.cloud.google.com/ai-hypercomputer/docs/evaluate-clustered-gpus#a3-ultra), [A3 Mega](https://docs.cloud.google.com/ai-hypercomputer/docs/evaluate-clustered-gpus#a3-mega), [A3 High](https://docs.cloud.google.com/ai-hypercomputer/docs/evaluate-clustered-gpus#a3-high) | Yes  
+Clustered GPUs | [A5X](https://docs.cloud.google.com/ai-hypercomputer/docs/evaluate-clustered-gpus#a5x), [A4X Max](https://docs.cloud.google.com/ai-hypercomputer/docs/evaluate-clustered-gpus#a4x), [A4X](https://docs.cloud.google.com/ai-hypercomputer/docs/evaluate-clustered-gpus#a4x), [A4](https://docs.cloud.google.com/ai-hypercomputer/docs/evaluate-clustered-gpus#a4), [A3 Ultra](https://docs.cloud.google.com/ai-hypercomputer/docs/evaluate-clustered-gpus#a3-ultra), [A3 Mega](https://docs.cloud.google.com/ai-hypercomputer/docs/evaluate-clustered-gpus#a3-mega), [A3 High](https://docs.cloud.google.com/ai-hypercomputer/docs/evaluate-clustered-gpus#a3-high) | Yes  
 General GPUs | [A3 Edge](https://docs.cloud.google.com/ai-hypercomputer/docs/evaluate-general-gpus#a3-edge), [A2](https://docs.cloud.google.com/ai-hypercomputer/docs/evaluate-general-gpus#a2), [G2](https://docs.cloud.google.com/ai-hypercomputer/docs/evaluate-general-gpus#g2), [G4](https://docs.cloud.google.com/ai-hypercomputer/docs/evaluate-general-gpus#g4), [N1](https://docs.cloud.google.com/ai-hypercomputer/docs/evaluate-general-gpus#n1) | No  
   
 For more information about each machine series, see [About GPU accelerators](https://docs.cloud.google.com/ai-hypercomputer/docs/understand-gpus).
@@ -176,6 +176,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-06 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-06 UTC."],[],[]] 

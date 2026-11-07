@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/ai-hypercomputer/docs/create/review-configurations/
 title: Review compute instance and cluster configurations \u00a0|\u00a0 AI Hypercomputer \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T18:54:45.914030+00:00
+fetched_at: 2026-11-07T08:32:29.595176+00:00
 ---
 
 # Review compute instance and cluster configurations  |  AI Hypercomputer  |  Google Cloud Documentation
@@ -168,7 +168,7 @@ If you use the reservation-bound provisioning model when creating clustered GPU 
 
 ## Reservation operational mode
 
-**Important:** A4X Max, A4X, A4, and A3 Ultra are the only GPU machine series that support reservation operational mode.
+**Important:** A5X, A4X Max, A4X, A4, and A3 Ultra are the only GPU machine series that support reservation operational mode.
 
 If you use the reservation-bound provisioning model, then the machine type that you reserve determines the _reservation operational mode_ for your reserved capacity. Each mode defines how to respond to host errors or faulty host reports, as well as your level of visibility and control over the reservation's infrastructure.
 
@@ -206,7 +206,7 @@ The managed mode has the following characteristics:
 
 ### All capacity mode
 
-**Important:** A4X Max and A4X are the only GPU machine series that support all capacity mode.
+**Important:** A5X, A4X Max, and A4X are the only GPU machine series that support all capacity mode.
 
 In all capacity mode, you are responsible for managing a compute instance recovery process. You must manually start maintenance after host errors or faulty host reports. Unlike the managed mode, you can also view and start maintenance for your reservation sub-blocks. These features give you full, granular control over the maintenance and recovery process for your instances.
 
@@ -225,7 +225,7 @@ The all capacity mode has the following characteristics:
 
 ## Maintenance scheduling types
 
-**Important:** A4X Max, A4X, A4, and A3 Ultra are the only GPU machine series that support maintenance scheduling.
+**Important:** A5X, A4X Max, A4X, A4, and A3 Ultra are the only GPU machine series that support maintenance scheduling.
 
 If you use the reservation-bound provisioning model, then Cluster Director provides options for scheduling host maintenance for the running compute instances in your cluster. When you reserve capacity, you can specify whether to group instances and have synchronized maintenance scheduling (_grouped_), or the instances can be loosely coupled and have independent maintenance scheduling (_independent_).
 
@@ -258,6 +258,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-06 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-06 UTC."],[],[]] 

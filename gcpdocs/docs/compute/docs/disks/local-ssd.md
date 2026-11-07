@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/compute/docs/disks/local-ssd/
 title: About Local SSD disks \u00a0|\u00a0 Compute Engine \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-05T11:08:55.225020+00:00
+fetched_at: 2026-11-07T08:32:18.421218+00:00
 ---
 
 # About Local SSD disks  |  Compute Engine  |  Google Cloud Documentation
@@ -66,7 +66,7 @@ Local SSD disks come in two types:
     * Storage-optimized: [Z4D](https://docs.cloud.google.com/compute/docs/storage-optimized-machines#z4d_series), [Z4M](https://docs.cloud.google.com/compute/docs/storage-optimized-machines#z4m_series), and [Z3](https://docs.cloud.google.com/compute/docs/storage-optimized-machines#z3_series) machine series
     * Compute-optimized: [H4D](https://docs.cloud.google.com/compute/docs/compute-optimized-machines#h4d_series) machine series
     * Network-optimized: [C4N](https://docs.cloud.google.com/compute/docs/network-optimized-machines#c4n_series)
-    * Accelerator-optimized [A4X Max and A4X](https://docs.cloud.google.com/compute/docs/accelerator-optimized-machines#a4x-vms) and [G4](https://docs.cloud.google.com/compute/docs/accelerator-optimized-machines#g4-series) machine series
+    * Accelerator-optimized: [A5X](https://docs.cloud.google.com/compute/docs/accelerator-optimized-machines#a5x-instances), [A4X Max and A4X](https://docs.cloud.google.com/compute/docs/accelerator-optimized-machines#a4x-vms), and [G4](https://docs.cloud.google.com/compute/docs/accelerator-optimized-machines#g4-series) machine series
 
 Titanium SSD disks are directly attached to the compute instances inside their host server.
 
@@ -313,9 +313,9 @@ If Compute Engine can't recover an instance's Local SSD data, the instance resta
 
 You can use Local SSD disks with the following machine series.
 
-**Note:** You can only use Local SSD disks with a [bare metal instance](https://docs.cloud.google.com/compute/docs/instances/bare-metal-instances) if the machine type name contains both `metal` and `lssd`.
+**Note:** You can use Local SSD disks with a [bare metal instance](https://docs.cloud.google.com/compute/docs/instances/bare-metal-instances) only if the machine type name contains both `metal` and `lssd`, or if the instance is an A5X or A4X Max bare metal instance, which automatically includes Local SSD disks.
 
-[A2](https://docs.cloud.google.com/compute/docs/accelerator-optimized-machines#a2-vms)[A3 (H100)](https://docs.cloud.google.com/compute/docs/gpus#h100-gpus)[A3 (H200)](https://docs.cloud.google.com/compute/docs/gpus#h200-gpus)[A4](https://docs.cloud.google.com/compute/docs/accelerator-optimized-machines#a4-vms)[A4X](https://docs.cloud.google.com/compute/docs/accelerator-optimized-machines#a4x-vms)[A4X Max](https://docs.cloud.google.com/compute/docs/accelerator-optimized-machines#a4x-vms)[C2](https://docs.cloud.google.com/compute/docs/compute-optimized-machines#c2_machine_types)[C2D](https://docs.cloud.google.com/compute/docs/compute-optimized-machines#c2d_machine_types)[C3](https://docs.cloud.google.com/compute/docs/general-purpose-machines#c3_series)[C3D](https://docs.cloud.google.com/compute/docs/general-purpose-machines#c3d_machine_types)[C4](https://docs.cloud.google.com/compute/docs/general-purpose-machines#c4_series)[C4A](https://docs.cloud.google.com/compute/docs/general-purpose-machines#c4a_series)[C4D](https://docs.cloud.google.com/compute/docs/general-purpose-machines#c4d_series)[C4N](https://docs.cloud.google.com/compute/docs/network-optimized-machines#c4n_series)[E2](https://docs.cloud.google.com/compute/docs/general-purpose-machines#e2_machine_types)[G2](https://docs.cloud.google.com/compute/docs/accelerator-optimized-machines#g2-vms)[G4](https://docs.cloud.google.com/compute/docs/accelerator-optimized-machines#g4-series)[H3](https://docs.cloud.google.com/compute/docs/compute-optimized-machines#h3_series)[H4D](https://docs.cloud.google.com/compute/docs/compute-optimized-machines#h4d_series)[M1](https://docs.cloud.google.com/compute/docs/memory-optimized-machines#m1_machine_types)[M2](https://docs.cloud.google.com/compute/docs/memory-optimized-machines#m2_machine_types)[M3](https://docs.cloud.google.com/compute/docs/memory-optimized-machines#m3_machine_types)[M4](https://docs.cloud.google.com/compute/docs/memory-optimized-machines#m4_machine_types)[M4N](https://docs.cloud.google.com/compute/docs/network-optimized-machines#m4n_series)[N1](https://docs.cloud.google.com/compute/docs/general-purpose-machines#n1_machines)[N1+GPU](https://docs.cloud.google.com/compute/docs/gpus)[N2](https://docs.cloud.google.com/compute/docs/general-purpose-machines#n2_series)[N2D](https://docs.cloud.google.com/compute/docs/general-purpose-machines#n2d_machines)[N4](https://docs.cloud.google.com/compute/docs/general-purpose-machines#n4_series)[N4A](https://docs.cloud.google.com/compute/docs/general-purpose-machines#n4a_series)[N4D](https://docs.cloud.google.com/compute/docs/general-purpose-machines#n4d_series)[T2A](https://docs.cloud.google.com/compute/docs/general-purpose-machines#t2a_machines)[T2D](https://docs.cloud.google.com/compute/docs/general-purpose-machines#t2d_machines)[TPU v2](https://docs.cloud.google.com/tpu/docs/v2)[TPU v3](https://docs.cloud.google.com/tpu/docs/v3)[TPU v4](https://docs.cloud.google.com/tpu/docs/v4)[TPU v5e](https://docs.cloud.google.com/tpu/docs/v5e)[TPU v5p](https://docs.cloud.google.com/tpu/docs/v5p)[TPU v6e](https://docs.cloud.google.com/tpu/docs/v6e)[TPU7x](https://docs.cloud.google.com/tpu/docs/tpu7x)[X4](https://docs.cloud.google.com/compute/docs/memory-optimized-machines#x4_series)[X5](https://docs.cloud.google.com/compute/docs/memory-optimized-machines#x5_series)[Z3](https://docs.cloud.google.com/compute/docs/storage-optimized-machines#z3_series)[Z4D](https://docs.cloud.google.com/compute/docs/storage-optimized-machines#z4d_series)[Z4M](https://docs.cloud.google.com/compute/docs/storage-optimized-machines#z4m_series)
+[A2](https://docs.cloud.google.com/compute/docs/accelerator-optimized-machines#a2-vms)[A3 (H100)](https://docs.cloud.google.com/compute/docs/gpus#h100-gpus)[A3 (H200)](https://docs.cloud.google.com/compute/docs/gpus#h200-gpus)[A4](https://docs.cloud.google.com/compute/docs/accelerator-optimized-machines#a4-vms)[A4X](https://docs.cloud.google.com/compute/docs/accelerator-optimized-machines#a4x-vms)[A4X Max](https://docs.cloud.google.com/compute/docs/accelerator-optimized-machines#a4x-vms)[A5X](https://docs.cloud.google.com/compute/docs/accelerator-optimized-machines#a5x-instances)[C2](https://docs.cloud.google.com/compute/docs/compute-optimized-machines#c2_machine_types)[C2D](https://docs.cloud.google.com/compute/docs/compute-optimized-machines#c2d_machine_types)[C3](https://docs.cloud.google.com/compute/docs/general-purpose-machines#c3_series)[C3D](https://docs.cloud.google.com/compute/docs/general-purpose-machines#c3d_machine_types)[C4](https://docs.cloud.google.com/compute/docs/general-purpose-machines#c4_series)[C4A](https://docs.cloud.google.com/compute/docs/general-purpose-machines#c4a_series)[C4D](https://docs.cloud.google.com/compute/docs/general-purpose-machines#c4d_series)[C4N](https://docs.cloud.google.com/compute/docs/network-optimized-machines#c4n_series)[E2](https://docs.cloud.google.com/compute/docs/general-purpose-machines#e2_machine_types)[G2](https://docs.cloud.google.com/compute/docs/accelerator-optimized-machines#g2-vms)[G4](https://docs.cloud.google.com/compute/docs/accelerator-optimized-machines#g4-series)[H3](https://docs.cloud.google.com/compute/docs/compute-optimized-machines#h3_series)[H4D](https://docs.cloud.google.com/compute/docs/compute-optimized-machines#h4d_series)[M1](https://docs.cloud.google.com/compute/docs/memory-optimized-machines#m1_machine_types)[M2](https://docs.cloud.google.com/compute/docs/memory-optimized-machines#m2_machine_types)[M3](https://docs.cloud.google.com/compute/docs/memory-optimized-machines#m3_machine_types)[M4](https://docs.cloud.google.com/compute/docs/memory-optimized-machines#m4_machine_types)[M4N](https://docs.cloud.google.com/compute/docs/network-optimized-machines#m4n_series)[N1](https://docs.cloud.google.com/compute/docs/general-purpose-machines#n1_machines)[N1+GPU](https://docs.cloud.google.com/compute/docs/gpus)[N2](https://docs.cloud.google.com/compute/docs/general-purpose-machines#n2_series)[N2D](https://docs.cloud.google.com/compute/docs/general-purpose-machines#n2d_machines)[N4](https://docs.cloud.google.com/compute/docs/general-purpose-machines#n4_series)[N4A](https://docs.cloud.google.com/compute/docs/general-purpose-machines#n4a_series)[N4D](https://docs.cloud.google.com/compute/docs/general-purpose-machines#n4d_series)[T2A](https://docs.cloud.google.com/compute/docs/general-purpose-machines#t2a_machines)[T2D](https://docs.cloud.google.com/compute/docs/general-purpose-machines#t2d_machines)[TPU v2](https://docs.cloud.google.com/tpu/docs/v2)[TPU v3](https://docs.cloud.google.com/tpu/docs/v3)[TPU v4](https://docs.cloud.google.com/tpu/docs/v4)[TPU v5e](https://docs.cloud.google.com/tpu/docs/v5e)[TPU v5p](https://docs.cloud.google.com/tpu/docs/v5p)[TPU v6e](https://docs.cloud.google.com/tpu/docs/v6e)[TPU7x](https://docs.cloud.google.com/tpu/docs/tpu7x)[X4](https://docs.cloud.google.com/compute/docs/memory-optimized-machines#x4_series)[X5](https://docs.cloud.google.com/compute/docs/memory-optimized-machines#x5_series)[Z3](https://docs.cloud.google.com/compute/docs/storage-optimized-machines#z3_series)[Z4D](https://docs.cloud.google.com/compute/docs/storage-optimized-machines#z4d_series)[Z4M](https://docs.cloud.google.com/compute/docs/storage-optimized-machines#z4m_series)
 
 Select a machine series to display its support for Local SSD.
 
@@ -327,6 +327,7 @@ Machine series | Local SSD support
 [A4](https://docs.cloud.google.com/compute/docs/accelerator-optimized-machines#a4-vms) |   
 [A4X](https://docs.cloud.google.com/compute/docs/accelerator-optimized-machines#a4x-vms) |   
 [A4X Max](https://docs.cloud.google.com/compute/docs/accelerator-optimized-machines#a4x-vms) |   
+[A5X](https://docs.cloud.google.com/compute/docs/accelerator-optimized-machines#a5x-instances) |   
 [C2](https://docs.cloud.google.com/compute/docs/compute-optimized-machines#c2_machine_types) |   
 [C2D](https://docs.cloud.google.com/compute/docs/compute-optimized-machines#c2d_machine_types) |   
 [C3](https://docs.cloud.google.com/compute/docs/general-purpose-machines#c3_series) |   
@@ -416,7 +417,8 @@ The size of each individual Local SSD disk varies by machine series, as follows:
 
 Machine series or type | Local or Titanium SSD disk size  
 ---|---  
-A4X, A4X Max bare metal | 3,000 GiB  
+A5X bare metal instances | 12,000 GiB  
+A4X VM instances, A4X Max bare metal instances | 3,000 GiB  
 Z3 VM instances | 3,000 GiB  
 Z3 bare metal instances | 6,000 GiB  
 Z4D VM instances | 3,500 GiB  
@@ -429,8 +431,10 @@ All others | 375 GiB
 The following table lists the machine types that come with Local SSD disks by default. The table also shows the number of these disks that are attached when you create the instance.
 
 Machine type | Number of Local SSD disks  
-automatically attached per instance | A4X Max  
+automatically attached per instance | A5X  
 ---  
+`a5x-highgpu-4g-metal` | 4  
+A4X Max  
 `a4x-maxgpu-4g-metal` | 4  
 A4X  
 `a4x-highgpu-4g` | 4  
@@ -754,6 +758,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-04 UTC.
+Last updated 2026-11-06 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-06 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/compute/docs/networking/using-idpf/
 title: Using the IDPF network interface \u00a0|\u00a0 Compute Engine \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T23:09:57.387195+00:00
+fetched_at: 2026-11-07T08:32:27.449967+00:00
 ---
 
 # Using the IDPF network interface  |  Compute Engine  |  Google Cloud Documentation
@@ -21,7 +21,7 @@ Send feedback
 
 #  Using the IDPF network interface Stay organized with collections  Save and categorize content based on your preferences. 
 
-Bare metal instances available with machine series such as C3 and X4 use [Infrastructure Data Plane Function (IDPF)](https://docs.kernel.org/next/networking/device_drivers/ethernet/intel/idpf.html), which is a standardized, multi-vendor PCIe network data plane function device. IDPF is a physical device. The IDPF driver is included in the kernel of Linux operating system (OS) images.
+Bare metal instances available with machine series such as C3 and X4 use [Infrastructure Data Path Function (IDPF)](https://docs.kernel.org/next/networking/device_drivers/ethernet/intel/idpf.html), which is a standardized, multi-vendor PCIe network data plane function device. IDPF is a physical device. The IDPF driver is included in the kernel of Linux operating system (OS) images.
 
 ## Before you begin
 
@@ -71,11 +71,16 @@ Similar to gVNIC, the following features are supported with IDPF:
 
 ## Limitations of the IDPF network interface
 
-When using the IDPF network interface, note the following limitations:
+When using the IDPF network interface (vNIC), note the following limitations:
 
-  * Only a single NIC is supported for the instance. You can't create a compute instance with multiple NICs.
-  * IDPF only supports the default queue allocation with 16 [Receive and transmit queues (RX/TX)](https://docs.cloud.google.com/compute/docs/network-bandwidth#rx-tx) per NIC.
-  * If you use [DPDK](https://docs.cloud.google.com/compute/docs/networking/use-dpdk) with a bare metal instance, DPDK replaces the IDPF as the driver for the physical NIC. The DPDK application must forward packets to the kernel, such as through a [TAP interface](https://wikipedia.org/wiki/TUN/TAP).
+  * For most bare metal machine types, only a single vNIC is supported for the instance, meaning you can't create a bare metal instance with multiple network interfaces. The exceptions are as follows: 
+    * A5X and A4X Max bare metal: Up to 2 IDPF network interfaces, plus the MRDMA network interfaces for GPU networking
+    * Z4D bare metal: Up to 2 IDPF network interfaces
+    * Z4M bare metal: Up to 2 IDPF network interfaces, and up to 2 IRDMA network interfaces
+  * IDPF supports a default queue allocation of 16 [receive and transmit queues (RX/TX)](https://docs.cloud.google.com/compute/docs/network-bandwidth#rx-tx) per NIC, with the following exceptions: 
+    * A5X and A4X Max bare metal: 64 queues per IDPF NIC by default
+    * Z4D and Z4M bare metal: Up to 64 queues per IDPF NIC
+  * If you use [DPDK](https://docs.cloud.google.com/compute/docs/networking/use-dpdk) with a bare metal instance that supports only one vNIC, then DPDK replaces the IDPF as the driver for the physical NIC. The DPDK application must forward packets to the kernel, such as through a [TAP interface](https://wikipedia.org/wiki/TUN/TAP).
 
 
 
@@ -332,6 +337,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-06 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-06 UTC."],[],[]] 

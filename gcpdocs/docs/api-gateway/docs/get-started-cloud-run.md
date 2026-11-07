@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/api-gateway/docs/get-started-cloud-run/
 title: Getting started with API Gateway and Cloud Run \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T23:09:47.476204+00:00
+fetched_at: 2026-11-07T08:32:39.503931+00:00
 ---
 
 # Getting started with API Gateway and Cloud Run  |  Google Cloud Documentation
@@ -205,7 +205,7 @@ If the `jwt_audience` field is not present, the `x-google-backend` extension def
 
      * In the `title` field, replace API_ID with the name of your API and replace optional-string with a brief description of your choosing. If your API does not already exist, the command to create the API Config will also create the API with the name you specify. The value of the `title` field is used when minting API keys that grant access to this API. See [API ID requirements](https://docs.cloud.google.com/api-gateway/docs/creating-api#api_id_requirements) for API naming guidelines.
      * In the `address` field, replace APP_URL with the actual URL of your Cloud Run service (the full path of the called API). For example: `https://hello-687541448612.us-central1.run.app`.
-**Note** : If you plan to use the [deterministic URL](https://docs.cloud.google.com/run/docs/triggering/https-request#deterministic) to version your Cloud Run service backend, you must specify the [`jwtAudience`](https://docs.cloud.google.com/api-gateway/docs/oasv3-extensions#backend_object) field under `address` in the `x-google-api-management` section. The value of the `jwtAudience` field should be the Cloud Run service hostname. For example: 
+**Note** : If you plan to use the [deterministic URL](https://docs.cloud.google.com/run/docs/triggering/https-request#deterministic) to version your Cloud Run service backend, you must specify the [`jwtAudience`](https://docs.cloud.google.com/api-gateway/docs/oasv3-extensions#backends_object) field alongside `address` in the backend definition under `x-google-api-management.backends`. Set the `jwtAudience` field to the Cloud Run service hostname. For example: 
     
     ...
       x-google-api-management:
@@ -332,6 +332,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-06 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-06 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/stackdriver/docs/observability/storage-manage/
 title: List buckets and manage observability datasets \u00a0|\u00a0 Google Cloud Observability \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-03T09:42:33.764598+00:00
+fetched_at: 2026-11-07T08:30:39.315208+00:00
 ---
 
 # List buckets and manage observability datasets  |  Google Cloud Observability  |  Google Cloud Documentation
@@ -20,9 +20,9 @@ Send feedback
 
 #  List buckets and manage observability datasets Stay organized with collections  Save and categorize content based on your preferences. 
 
-You can use the Observability API or the Google Cloud CLI to view observability buckets, datasets, views, and links, and to create BigQuery links to analyze stored data with SQL. To create links, you can also use Terraform.
+You can use the Observability API or the Google Cloud CLI to list your observability buckets, datasets, views, and links, and to create BigQuery links to analyze stored data with SQL. To create links, you can also use Terraform.
 
-This page describes how to manage Observability API resources. For information about log and metric storage or the trace data format, see [Telemetry storage overview](https://docs.cloud.google.com/stackdriver/docs/observability/storage-overview) and [Trace schema](https://docs.cloud.google.com/stackdriver/docs/reference/telemetry/trace-schema).
+observability datasets store your trace data. For information about log and metric storage or the trace data format, see [Telemetry storage overview](https://docs.cloud.google.com/stackdriver/docs/observability/storage-overview) and [Trace schema](https://docs.cloud.google.com/stackdriver/docs/reference/telemetry/trace-schema).
 
 ## Before you begin
 
@@ -703,9 +703,7 @@ If you encounter permission errors when creating a linked dataset, then see [Tro
 ## What's next
 
   * [View and analyze telemetry](https://docs.cloud.google.com/stackdriver/docs/observability/query-and-view-overview)
-
   * [Set defaults for observability buckets](https://docs.cloud.google.com/stackdriver/docs/observability/set-defaults-for-observability-buckets): Configure a default storage location and a default customer-managed encryption key (CMEK) for your observability buckets.
-
 
 
 
@@ -713,6 +711,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-02 UTC.
+Last updated 2026-11-06 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-02 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-06 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/docs/compute-area/gpus/
 title: Understand GPUs \u00a0|\u00a0 Compute \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T22:50:55.360036+00:00
+fetched_at: 2026-11-07T08:29:45.610308+00:00
 ---
 
 # Understand GPUs  |  Compute  |  Google Cloud Documentation
@@ -51,6 +51,7 @@ The following table summarizes the hardware specifications, machine series mappi
 
 GPU model | Machine series | Architecture | GPU memory and bandwidth | GPUs per compute instance | Max network bandwidth | Local SSD | Interconnect | NVIDIA RTX Virtual Workstation (vWS) support  
 ---|---|---|---|---|---|---|---|---  
+NVIDIA Vera Rubin | [A5X](https://docs.cloud.google.com/compute/docs/accelerator-optimized-machines#a5x-instances) | Rubin | 288 GB HBM4 (22 TBps) | 4 (NVL72) | 7,200 Gbps | 48,000 GiB | NVLink Full Mesh (3,600 GBps) | No  
 NVIDIA GB300 | [A4X Max](https://docs.cloud.google.com/compute/docs/accelerator-optimized-machines#a4x-vms) | Blackwell Ultra | 279 GB HBM3e (8 TBps) | 4 (NVL72) | 3,600 Gbps | 12,000 GiB | NVLink Full Mesh (1,800 GBps) | No  
 NVIDIA GB200 | [A4X](https://docs.cloud.google.com/compute/docs/accelerator-optimized-machines#a4x-vms) | Blackwell | 186 GB HBM3e (8 TBps) | 4 (NVL72) | 2,000 Gbps | 12,000 GiB | NVLink Full Mesh (1,800 GBps) | No  
 NVIDIA B200 | [A4](https://docs.cloud.google.com/compute/docs/accelerator-optimized-machines#a4-vms) | Blackwell | 180 GB HBM3e (8 TBps) | 8 | 3,600 Gbps | 12,000 GiB | NVLink Full Mesh (1,800 GBps) | No  
@@ -74,8 +75,9 @@ GPUs accelerate diverse computational workloads across AI, visual computing, and
 
 ### AI/ML training
 
-  * **Frontier foundation models and mixture-of-experts (MoE)** : pre-training large transformer models, multimodal architectures, and [mixture-of-experts (MoE)](https://en.wikipedia.org/wiki/Mixture_of_experts) networks requires high [Tensor Core](https://www.nvidia.com/en-us/data-center/tensor-cores/) throughput, large [High Bandwidth Memory (HBM)](https://en.wikipedia.org/wiki/High_Bandwidth_Memory) capacities (up to 279 GB per GPU), and ultra-high-speed [NVLink](https://www.nvidia.com/en-us/data-center/nvlink/) interconnect bandwidth (up to 1,800 GBps) to minimize multi-node synchronization latency. Recommended machine series:
+  * **Frontier foundation models and mixture-of-experts (MoE)** : pre-training large transformer models, multimodal architectures, and [mixture-of-experts (MoE)](https://en.wikipedia.org/wiki/Mixture_of_experts) networks requires high [Tensor Core](https://www.nvidia.com/en-us/data-center/tensor-cores/) throughput, large [High Bandwidth Memory (HBM)](https://en.wikipedia.org/wiki/High_Bandwidth_Memory) capacities (up to 288 GB per GPU), and high-speed [NVLink](https://www.nvidia.com/en-us/data-center/nvlink/) interconnect bandwidth (up to 3,600 GBps) to minimize multi-node synchronization latency. Recommended machine series:
 
+    * [A5X](https://docs.cloud.google.com/compute/docs/accelerator-optimized-machines#a5x-instances) (NVIDIA Vera Rubin)
     * [A4X Max](https://docs.cloud.google.com/compute/docs/accelerator-optimized-machines#a4x-vms) (NVIDIA GB300)
     * [A4X](https://docs.cloud.google.com/compute/docs/accelerator-optimized-machines#a4x-vms) (NVIDIA GB200)
     * [A4](https://docs.cloud.google.com/compute/docs/accelerator-optimized-machines#a4-vms) (NVIDIA B200)
@@ -97,8 +99,10 @@ For more information, see [Recommendations for fine-tuning models](https://docs.
 
 ### AI/ML inference
 
-  * **Large model inference (more than 70 billion parameters)** : serving [large language models (LLMs)](https://en.wikipedia.org/wiki/Large_language_model) benefits from high [High Bandwidth Memory (HBM3e)](https://en.wikipedia.org/wiki/High_Bandwidth_Memory) capacity (141–186 GB per GPU) to fit model weights across fewer GPUs, reducing inter-chip communication overhead. Recommended machine series:
+  * **Large model inference (more than 70 billion parameters)** : serving [large language models (LLMs)](https://en.wikipedia.org/wiki/Large_language_model) benefits from high [High Bandwidth Memory (HBM)](https://en.wikipedia.org/wiki/High_Bandwidth_Memory) capacity (141–288 GB per GPU) to fit model weights across fewer GPUs, reducing inter-chip communication overhead. Recommended machine series:
 
+    * [A5X](https://docs.cloud.google.com/compute/docs/accelerator-optimized-machines#a5x-instances) (NVIDIA Vera Rubin)
+    * [A4X Max](https://docs.cloud.google.com/compute/docs/accelerator-optimized-machines#a4x-vms) (NVIDIA GB300)
     * [A4X](https://docs.cloud.google.com/compute/docs/accelerator-optimized-machines#a4x-vms) (NVIDIA GB200)
     * [A4](https://docs.cloud.google.com/compute/docs/accelerator-optimized-machines#a4-vms) (NVIDIA B200)
     * [A3 Ultra](https://docs.cloud.google.com/compute/docs/accelerator-optimized-machines#a3-vms) (NVIDIA H200)
@@ -130,6 +134,7 @@ For more information, see [Recommendations for serving inference](https://docs.c
 
   * **Scientific simulation and modeling** : applications in [molecular dynamics](https://en.wikipedia.org/wiki/Molecular_dynamics) (such as [GROMACS](https://www.gromacs.org/) and [AMBER](https://ambermd.org/)), [computational fluid dynamics (CFD)](https://en.wikipedia.org/wiki/Computational_fluid_dynamics), quantum chemistry, astrophysics, and weather forecasting require high 64-bit double-precision (FP64) floating-point performance and high memory bandwidth. Recommended machine series:
 
+    * [A5X](https://docs.cloud.google.com/compute/docs/accelerator-optimized-machines#a5x-instances) (NVIDIA Vera Rubin)
     * [A4X](https://docs.cloud.google.com/compute/docs/accelerator-optimized-machines#a4x-vms) (NVIDIA GB200)
     * [A4](https://docs.cloud.google.com/compute/docs/accelerator-optimized-machines#a4-vms) (NVIDIA B200)
     * [A3](https://docs.cloud.google.com/compute/docs/accelerator-optimized-machines#a3-vms) (NVIDIA H100)
@@ -209,6 +214,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-06 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-06 UTC."],[],[]] 

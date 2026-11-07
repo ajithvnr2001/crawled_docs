@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sensitive-data-protection/docs/infotypes-reference/
 title: InfoType detector reference \u00a0|\u00a0 Sensitive Data Protection \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-06T10:26:25.162418+00:00
+fetched_at: 2026-11-07T08:29:47.229381+00:00
 ---
 
 # InfoType detector reference  |  Sensitive Data Protection  |  Google Cloud Documentation
@@ -40,6 +40,7 @@ Name | Description
 `FINANCIAL_ID` | A general infoType that represents private financial ID numbers for an individual.   
 `DOCUMENT_TYPE/LEGAL/BRIEF` | A legal brief is a document advocating a particular outcome of the case, presenting supporting points, law interpretations, and recommendations.   
 `FRANCE_DRIVERS_LICENSE_NUMBER` | A French driver's license number.   
+`DOCUMENT_TYPE/R&D/SOURCE_CODE/YAML` | YAML source.   
 `MEXICO_CURP_NUMBER` | The Mexico Clave Única de Registro de Población (CURP) number, or Unique Population Registry Code or Personal Identification Code number. This is an 18-character state-issued identification number assigned by the Mexican government to citizens or residents of Mexico and used for taxpayer identification.   
 `ORGANIZATION_NAME` | A name of a chain store, business or organization. Note: Not recommended for use during latency sensitive operations.   
 `DOD_ID_NUMBER` | A Department of Defense ID number uniquely identifies a person associated with the US Department of Defense.   
@@ -182,6 +183,7 @@ Name | Description
 `IMAGE_TYPE/CONTEXT/VIOLENCE` | A finding of this type indicates that an image contains violent or gory content either real or fictionalized. Violent content might include imagery related to death, serious injury, or harm to an individual or group of individuals or animals.   
 `AUSTRALIA_PASSPORT` | An Australian passport number.   
 `CREDIT_CARD_EXPIRATION_DATE` | Indicates when a credit or debit card will expire.   
+`DOCUMENT_TYPE/R&D/SOURCE_CODE/XML` | XML source.   
 `PERU_DNI_NUMBER` | A Peruvian Documento Nacional de Identidad (DNI), or national identity card, is used as the main identity document for citizens.   
 `COLOMBIA_CDC_NUMBER` | A Colombian Cédula de Ciudadanía (CDC), or citizenship card, is used as the main identity document for citizens.   
 `GENERIC_ID` | Alphanumeric and special character strings that may be personally identifying but do not belong to a well-defined category, such as user IDs or medical record numbers.   
@@ -282,6 +284,7 @@ Name | Description
 `GERMANY_TAXPAYER_IDENTIFICATION_NUMBER` | An 11-digit German taxpayer identification number assigned to both natural-born and other legal residents of Germany for the purposes of recording tax payments.   
 `CANADA_BC_PHN` | The British Columbia Personal Health Number (PHN) is issued to citizens, permanent residents, temporary workers, students, and other individuals who are entitled to health care coverage in the Province of British Columbia.   
 `BELARUS_PASSPORT` | A Belarusian passport number.   
+`DOCUMENT_TYPE/R&D/SOURCE_CODE/MARKDOWN` | Markdown formatted text.   
 `KOREA_DRIVERS_LICENSE_NUMBER` | A Korean driver's license number.   
 `GCP_API_KEY` | Google Cloud API key. Simple encrypted string that can be used when calling certain Google Cloud APIs that don't need to access private user data.   
 `ISRAEL_IDENTITY_CARD_NUMBER` | Israel identity card number is issued to all Israeli citizens at birth by the Ministry of the Interior. Temporary residents are assigned a number when they receive temporary resident status.   
@@ -317,6 +320,8 @@ SPII
 `FRANCE_DRIVERS_LICENSE_NUMBER` |  FRANCE  |  |  GOVERNMENT_ID  
 PII  
 SPII  
+|  ANY_LOCATION   
+`DOCUMENT_TYPE/R&D/SOURCE_CODE/YAML` |  GLOBAL  |  |  DOCUMENT  
 |  ANY_LOCATION   
 `MEXICO_CURP_NUMBER` |  MEXICO  |  |  GOVERNMENT_ID  
 PII  
@@ -902,6 +907,8 @@ SPII
 |  PII  
 SPII  
 |  ANY_LOCATION   
+`DOCUMENT_TYPE/R&D/SOURCE_CODE/XML` |  GLOBAL  |  |  DOCUMENT  
+|  ANY_LOCATION   
 `PERU_DNI_NUMBER` |  PERU  |  |  GOVERNMENT_ID  
 PII  
 SPII  
@@ -1281,6 +1288,8 @@ SPII
 PII  
 SPII  
 |  ANY_LOCATION   
+`DOCUMENT_TYPE/R&D/SOURCE_CODE/MARKDOWN` |  GLOBAL  |  |  DOCUMENT  
+|  ANY_LOCATION   
 `KOREA_DRIVERS_LICENSE_NUMBER` |  KOREA  |  |  GOVERNMENT_ID  
 PII  
 SPII  
@@ -1356,6 +1365,7 @@ Name | Sensitivity score
 `FINANCIAL_ID` | SENSITIVITY_HIGH  
 `DOCUMENT_TYPE/LEGAL/BRIEF` | SENSITIVITY_MODERATE  
 `FRANCE_DRIVERS_LICENSE_NUMBER` | SENSITIVITY_HIGH  
+`DOCUMENT_TYPE/R&D/SOURCE_CODE/YAML` | SENSITIVITY_MODERATE  
 `MEXICO_CURP_NUMBER` | SENSITIVITY_HIGH  
 `ORGANIZATION_NAME` | SENSITIVITY_LOW  
 `DOD_ID_NUMBER` | SENSITIVITY_HIGH  
@@ -1498,6 +1508,7 @@ Name | Sensitivity score
 `IMAGE_TYPE/CONTEXT/VIOLENCE` | SENSITIVITY_HIGH  
 `AUSTRALIA_PASSPORT` | SENSITIVITY_HIGH  
 `CREDIT_CARD_EXPIRATION_DATE` | SENSITIVITY_HIGH  
+`DOCUMENT_TYPE/R&D/SOURCE_CODE/XML` | SENSITIVITY_MODERATE  
 `PERU_DNI_NUMBER` | SENSITIVITY_HIGH  
 `COLOMBIA_CDC_NUMBER` | SENSITIVITY_HIGH  
 `GENERIC_ID` | SENSITIVITY_MODERATE  
@@ -1598,6 +1609,7 @@ Name | Sensitivity score
 `GERMANY_TAXPAYER_IDENTIFICATION_NUMBER` | SENSITIVITY_HIGH  
 `CANADA_BC_PHN` | SENSITIVITY_HIGH  
 `BELARUS_PASSPORT` | SENSITIVITY_HIGH  
+`DOCUMENT_TYPE/R&D/SOURCE_CODE/MARKDOWN` | SENSITIVITY_MODERATE  
 `KOREA_DRIVERS_LICENSE_NUMBER` | SENSITIVITY_HIGH  
 `GCP_API_KEY` | SENSITIVITY_HIGH  
 `ISRAEL_IDENTITY_CARD_NUMBER` | SENSITIVITY_HIGH  
@@ -1670,6 +1682,7 @@ To help with document risk assessment and policy enforcement, Sensitive Data Pro
   * `DOCUMENT_TYPE/R&D/SOURCE_CODE/JAVA`
   * `DOCUMENT_TYPE/R&D/SOURCE_CODE/JAVASCRIPT`
   * `DOCUMENT_TYPE/R&D/SOURCE_CODE/JSON`
+  * `DOCUMENT_TYPE/R&D/SOURCE_CODE/MARKDOWN`
   * `DOCUMENT_TYPE/R&D/SOURCE_CODE/PHP`
   * `DOCUMENT_TYPE/R&D/SOURCE_CODE/POWERSHELL`
   * `DOCUMENT_TYPE/R&D/SOURCE_CODE/PYTHON`
@@ -1677,6 +1690,8 @@ To help with document risk assessment and policy enforcement, Sensitive Data Pro
   * `DOCUMENT_TYPE/R&D/SOURCE_CODE/SHELL`
   * `DOCUMENT_TYPE/R&D/SOURCE_CODE/SQL`
   * `DOCUMENT_TYPE/R&D/SOURCE_CODE/TYPESCRIPT`
+  * `DOCUMENT_TYPE/R&D/SOURCE_CODE/XML`
+  * `DOCUMENT_TYPE/R&D/SOURCE_CODE/YAML`
   * `DOCUMENT_TYPE/R&D/SYSTEM_LOG`
 
 
@@ -1759,6 +1774,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-03 UTC.
+Last updated 2026-11-06 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-06 UTC."],[],[]] 

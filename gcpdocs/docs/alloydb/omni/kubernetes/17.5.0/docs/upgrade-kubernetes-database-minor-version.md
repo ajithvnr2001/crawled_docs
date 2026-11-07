@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/omni/kubernetes/17.5.0/docs/upgrade-kubernetes-database-minor-version/
 title: Perform a minor database version upgrade for AlloyDB Omni on Kubernetes \u00a0|\u00a0 AlloyDB Omni for Kubernetes: 17.5.0 \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T00:33:24.877951+00:00
+fetched_at: 2026-11-07T08:29:36.929973+00:00
 ---
 
 # Perform a minor database version upgrade for AlloyDB Omni on Kubernetes  |  AlloyDB Omni for Kubernetes: 17.5.0  |  Google Cloud Documentation
@@ -54,7 +54,7 @@ To perform a minor database version upgrade, there are two options:
 
 This process ensures minimal downtime during the upgrade.
 
-  * Simultaneous upgrade: The simultaneous upgrade method is [generally available](https://cloud.google.com/products#product-launch-stages) (GA). For all other circumstances, the AlloyDB Omni operator upgrades all instances simultaneously. This means you will experience downtime during the upgrade.
+  * Simultaneous upgrade: The simultaneous upgrade method is [generally available](https://cloud.google.com/products#product-launch-stages) (GA). For all other circumstances, the AlloyDB Omni operator upgrades all instances simultaneously. Your instances experience downtime during the upgrade.
 
 
 
@@ -63,7 +63,7 @@ This process ensures minimal downtime during the upgrade.
 
 For low downtime upgrades, one standby instance is unavailable at any given time. To ensure that your database cluster doesn't reach zero Recovery Point Objective (RPO) and doesn't risk losing data, your database cluster must have one primary instance and at least two standby instances.
 
-## Before your begin
+## Before you begin
 
   * If your cluster is HA and the AlloyDB Omni version is older than 15.7.1, follow the steps listed in [Update the database clusters](https://docs.cloud.google.com/alloydb/omni/kubernetes/17.5.0/docs/upgrade-kubernetes-operator-version#update-clusters) before following this minor version upgrade process.
   * Identify a low traffic period where you can perform the minor version upgrade.
@@ -90,7 +90,7 @@ Replace the following variable:
 
 To upgrade your 17.5.0 version, update the `databaseVersion` and the `controlPlaneAgentsVersion` fields in the cluster's manifest file, and then re-apply the file.
 
-The following is the beginning of a manifest file that specifies version 17.5.0 for `databaseVersion` and version 1.6.3 for `controlPlaneAgentsVersion`:
+The following is the beginning of a manifest file that specifies version 17.5.0 for `databaseVersion` and version 1.6.4 for `controlPlaneAgentsVersion`:
     
     
     apiVersion: alloydbomni.dbadmin.goog/v1
@@ -110,7 +110,7 @@ The following is the beginning of a manifest file that specifies version 17.5.0 
 Replace the following variable:
 
   * `DB_CLUSTER_NAME`: the name of your database cluster. It's the same database cluster name that you provided when you created it. For more information, see [Install AlloyDB Omni on Kubernetes](https://docs.cloud.google.com/alloydb/omni/kubernetes/17.5.0/docs/deploy-kubernetes#create).
-  * `DB_VERSION`: the version of the database you are upgrading to.
+  * `DB_VERSION`: the version of the database that you're upgrading to.
   * `CONTROL_PLANE_AGENTS_VERSION`: the version of the control plane agents.
   * `OS_TYPE`: Optional. The base operating system for the database image. Valid values are `Debian` and `UBI9`. If you don't specify this, the operator automatically sets it to `Debian` if `databaseVersion` is less than `16.9.0`, and to `UBI9` if `databaseVersion` is `16.9.0` or later.
 
@@ -204,6 +204,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-27 UTC.
+Last updated 2026-11-06 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-06 UTC."],[],[]] 

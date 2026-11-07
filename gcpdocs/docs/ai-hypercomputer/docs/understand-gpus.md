@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/ai-hypercomputer/docs/understand-gpus/
 title: About GPU accelerators \u00a0|\u00a0 AI Hypercomputer \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T18:55:11.137368+00:00
+fetched_at: 2026-11-07T08:32:24.524836+00:00
 ---
 
 # About GPU accelerators  |  AI Hypercomputer  |  Google Cloud Documentation
@@ -48,7 +48,8 @@ Clustered GPUs are managed as a single, tightly coupled system of thousands of i
 
 Clustered GPUs include the following machine series:
 
-  * **[A4X Max (NVIDIA GB300)](https://docs.cloud.google.com/ai-hypercomputer/docs/evaluate-clustered-gpus#a4x-max-machine)** : designed for bare-metal exascale training and high performance computing, featuring NVIDIA GB300 Grace Blackwell Ultra Superchips.
+  * **[A5X (NVIDIA Vera Rubin)](https://docs.cloud.google.com/ai-hypercomputer/docs/evaluate-clustered-gpus#a5x)** : designed for exascale training of foundation models, inference for reasoning models, and high performance computing on bare metal, featuring NVIDIA Vera Rubin superchips.
+  * **[A4X Max (NVIDIA GB300)](https://docs.cloud.google.com/ai-hypercomputer/docs/evaluate-clustered-gpus#a4x-max-machine)** : designed for bare-metal exascale training and high performance computing, featuring NVIDIA GB300 Grace Blackwell Ultra superchips.
   * **[A4X (NVIDIA GB200)](https://docs.cloud.google.com/ai-hypercomputer/docs/evaluate-clustered-gpus#a4x-machine) and [A4 (NVIDIA B200)](https://docs.cloud.google.com/ai-hypercomputer/docs/evaluate-clustered-gpus#a4)**: designed for foundation model training and exascale foundation model training.
   * **[A3 Ultra (NVIDIA H200), A3 Mega (NVIDIA H100), and A3 High with 8 (NVIDIA H100) GPUs](https://docs.cloud.google.com/ai-hypercomputer/docs/evaluate-clustered-gpus#a3)** : optimized for large-scale distributed training and multi-host inference involving massive data tables.
 
@@ -74,6 +75,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-06 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-06 UTC."],[],[]] 

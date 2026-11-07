@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/graph-overview/
 title: Introduction to BigQuery Graph \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T05:44:23.174351+00:00
+fetched_at: 2026-11-07T08:32:19.748401+00:00
 ---
 
 # Introduction to BigQuery Graph  |  Google Cloud Documentation
@@ -91,11 +91,7 @@ The following tutorials show how to use BigQuery Graph in different scenarios:
 
 ## Pricing
 
-BigQuery Graph uses the BigQuery capacity-based [pricing model](https://cloud.google.com/bigquery/pricing) to ensure that you only pay for what you use across compute and storage.
-
-### Compute
-
-To run GQL queries, you must have a [reservation](https://docs.cloud.google.com/bigquery/docs/reservations-workload-management) that uses the [Enterprise or Enterprise Plus edition](https://docs.cloud.google.com/bigquery/docs/editions-intro). If you use on-demand pricing, you can call the `GRAPH_EXPAND` function to run SQL queries on your graph. Graph queries use [BigQuery capacity compute pricing](https://cloud.google.com/bigquery/pricing#capacity-compute-pricing) measured in slots.
+To run GQL queries, you must use on-demand pricing or have a [reservation](https://docs.cloud.google.com/bigquery/docs/reservations-workload-management) that uses the [Enterprise or Enterprise Plus edition](https://docs.cloud.google.com/bigquery/docs/editions-intro).
 
 ### Storage
 
@@ -116,6 +112,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-27 UTC.
+Last updated 2026-11-06 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-06 UTC."],[],[]] 

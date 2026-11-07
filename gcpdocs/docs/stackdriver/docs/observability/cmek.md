@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/stackdriver/docs/observability/cmek/
 title: Support for CMEKs \u00a0|\u00a0 Google Cloud Observability \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-03T09:42:41.864357+00:00
+fetched_at: 2026-11-07T08:30:13.083033+00:00
 ---
 
 # Support for CMEKs  |  Google Cloud Observability  |  Google Cloud Documentation
@@ -51,7 +51,7 @@ You can create organization policies that apply at the organization, folder, or 
 
 Google Cloud Observability provides default settings for observability buckets, which are applied to a project, folder, or organization. These default settings work together with your organization policies to make sure that new observability buckets are in the location you prefer and use the encryption model you specify.
 
-For organizations, folders, and projects, default settings for observability buckets let you configure the following:
+For organizations, folders, and projects, _default settings for observability buckets_ let you configure the following:
 
   * A default storage location.
   * For each location, a default Cloud Key Management Service key.
@@ -69,7 +69,12 @@ There are two different ways the system uses default settings:
 
 Because the parent of an observability bucket is always a project, when you create a bucket, the system first searches for project-level default settings. If those don't exist, then the system searches the parent's ancestors for default settings. For example, if you define default settings for a folder, then those settings apply to descendants of the folder, except those descendants that have default settings configured.
 
-For more information, see [Set defaults for observability buckets](https://docs.cloud.google.com/stackdriver/docs/observability/set-defaults-for-observability-buckets). 
+For more information, see the following: 
+
+  * [Set defaults for observability buckets](https://docs.cloud.google.com/stackdriver/docs/observability/set-defaults-for-observability-buckets).
+  * [Remediate data residency and CMEK requirements](https://docs.cloud.google.com/stackdriver/docs/observability/reprovision-observability-bucket).
+
+
 
 ## How organization policies and default settings interact
 
@@ -110,7 +115,12 @@ Yes | Yes | To identify a key for encryption, the system first determines whethe
   
 ## Limitations
 
-When the system creates an observability bucket, it either uses Google-default encryption or encrypts the data with a CMEK. After the bucket exists, you can update the CMEK. For more information, see [Update observability buckets](https://docs.cloud.google.com/stackdriver/docs/observability/update-observability-buckets).
+When the system creates an observability bucket, it either uses Google-default encryption or encrypts the data with a CMEK. After the bucket exists, you can do the following:
+
+  * Modify the display name, description, or the CMEK. For information, see [update observability buckets](https://docs.cloud.google.com/stackdriver/docs/observability/update-observability-buckets).
+  * Retroactively apply a Cloud Key Management Service key to an observability bucket or change a bucket's location. For more information, see [Remediate data residency and CMEK requirements](https://docs.cloud.google.com/stackdriver/docs/observability/reprovision-observability-bucket).
+
+
 
 ## What's next
 
@@ -125,6 +135,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-02 UTC.
+Last updated 2026-11-06 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-02 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-06 UTC."],[],[]] 

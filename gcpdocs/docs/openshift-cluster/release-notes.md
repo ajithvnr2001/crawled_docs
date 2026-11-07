@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/openshift-cluster/release-notes/
 title: Cluster Services for OpenShift release notes \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T21:39:55.115359+00:00
+fetched_at: 2026-11-07T08:23:05.696272+00:00
 ---
 
 # Cluster Services for OpenShift release notes  |  Google Cloud Documentation
@@ -13,6 +13,7 @@ fetched_at: 2026-10-27T21:39:55.115359+00:00
   * [ Documentation ](https://docs.cloud.google.com/docs)
   * [ Compute ](https://docs.cloud.google.com/docs/compute-area)
   * [ Cluster Services for OpenShift ](https://docs.cloud.google.com/openshift-cluster)
+  * [ Resources ](https://docs.cloud.google.com/openshift-cluster/resources)
 
 
 
@@ -28,7 +29,7 @@ You can see the latest product updates for all of Google Cloud on the [ Google C
 
 Feature
 
-**Preview:** You can automate cluster configuration validation for self-managed OpenShift clusters that run on Google Cloud. For more information, see [Automatic configuration validation](https://docs.cloud.google.com/openshift-cluster/config-validation).
+**Preview:** You can automate cluster configuration validation for self-managed OpenShift clusters that run on Google Cloud. For more information, see [Automate cluster configuration validation](https://docs.cloud.google.com/openshift-cluster/automate-cluster-config-validation).
 
 ## March 25, 2026
 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/compute/docs/regions-zones/
 title: Regions and zones \u00a0|\u00a0 Compute Engine \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-05T10:22:03.228056+00:00
+fetched_at: 2026-11-07T08:32:25.033587+00:00
 ---
 
 # Regions and zones  |  Compute Engine  |  Google Cloud Documentation
@@ -152,7 +152,7 @@ For zonal availability of bare metal machine types, see [Regional availability o
 
 The following table lists the available regions and zones for Compute Engine, along with the geographic location, supported machine series, processors, Confidential VM and GPU options, and low-carbon status for each zone:
 
-APACNorth AmericaSouth AmericaEuropeMiddle EastAfricaA4X Max (NVIDIA GB300 Ultra Superchips)A4X (NVIDIA GB200 Superchips) {# Trailing hair space added to exclude A4X Max # } A4 (NVIDIA B200)A3 (NVIDIA H200/H100)A2 (NVIDIA A100)C4C4AC4DC4NC3C3DC2C2DE2G4 (NVIDIA RTX PRO 6000)G2 (NVIDIA L4)H4DH3M4NM4M3M2M1N4AN4DN4N2N2DN1T2DT2AX5X4Z4DZ4MZ3Intel Ivy BridgeIntel Sandy BridgeIntel HaswellIntel BroadwellIntel SkylakeIntel Cascade LakeIntel Ice LakeIntel Sapphire RapidsIntel Emerald RapidsIntel Granite RapidsAMD EPYC MilanAMD EPYC GenoaAMD EPYC TurinAmpere Altra ArmGoogle AxionNVIDIA GraceGPUsAMD SEV AMD SEV-SNPIntel TDXNVIDIA Confidential Computing
+APACNorth AmericaSouth AmericaEuropeMiddle EastAfricaA5X (NVIDIA Vera Rubin superchips)A4X Max (NVIDIA GB300 Ultra superchips)A4X (NVIDIA GB200 superchips) {# Trailing hair space added to exclude A4X Max # } A4 (NVIDIA B200)A3 (NVIDIA H200/H100)A2 (NVIDIA A100)C4C4AC4DC4NC3C3DC2C2DE2G4 (NVIDIA RTX PRO 6000)G2 (NVIDIA L4)H4DH3M4NM4M3M2M1N4AN4DN4N2N2DN1T2DT2AX5X4Z4DZ4MZ3Intel Ivy BridgeIntel Sandy BridgeIntel HaswellIntel BroadwellIntel SkylakeIntel Cascade LakeIntel Ice LakeIntel Sapphire RapidsIntel Emerald RapidsIntel Granite RapidsAMD EPYC MilanAMD EPYC GenoaAMD EPYC TurinAmpere Altra ArmGoogle AxionNVIDIA GraceGPUsAMD SEV AMD SEV-SNPIntel TDXNVIDIA Confidential Computing
 
 Clear all
 
@@ -2604,7 +2604,7 @@ Available Compute Engine regions and zones Zones | Location | Machine types | CP
 | ![leaf icon](https://cloud.google.com/sustainability/region-carbon/gleaf.svg)[Low CO2](https://cloud.google.com/sustainability/region-carbon#region-picker)  
 `us-west1-b` | The Dalles, Oregon, North America | 
 
-  * A2, A3
+  * A2, A3, A5X
   * C2 , C2D, C3 , C3D, C4 , C4D, C4N
   * E2
   * G2, G4
@@ -2859,6 +2859,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-28 UTC.
+Last updated 2026-11-06 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-06 UTC."],[],[]] 

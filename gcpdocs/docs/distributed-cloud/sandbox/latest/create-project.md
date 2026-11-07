@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/distributed-cloud/sandbox/latest/create-project/
 title: Create your first project \u00a0|\u00a0 Google Distributed Cloud Sandbox \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T21:06:12.390417+00:00
+fetched_at: 2026-11-07T08:29:29.797027+00:00
 ---
 
 # Create your first project  |  Google Distributed Cloud Sandbox  |  Google Cloud Documentation
@@ -21,7 +21,9 @@ Send feedback
 
 #  Create your first project Stay organized with collections  Save and categorize content based on your preferences. 
 
-This page describes how to create a project. To learn more about projects, see [Project overview](https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdch/platform/pa-user/project-management) in the Google Distributed Cloud air-gapped documentation.
+A project is the fundamental organizational unit for your resources in Google Distributed Cloud (GDC) Sandbox, providing a boundary for managing resource lifecycles, access permissions, and policies. In this document, you create your first project and assign user roles so you can begin deploying containers and virtual machines.
+
+To learn more about projects, see [Project overview](https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdch/platform/pa-user/project-management) in the Google Distributed Cloud air-gapped documentation.
 
 ## Sign in as Platform Admin
 
@@ -99,6 +101,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-07 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-07 UTC."],[],[]] 

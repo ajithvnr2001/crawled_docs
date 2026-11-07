@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/developer-connect/docs/connect-secure-source-manager/
 title: Connect to Secure Source Manager \u00a0|\u00a0 Developer Connect \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T22:08:50.076276+00:00
+fetched_at: 2026-11-07T08:29:54.330101+00:00
 ---
 
 # Connect to Secure Source Manager  |  Developer Connect  |  Google Cloud Documentation
@@ -95,7 +95,7 @@ To enable APIs, you need the `serviceusage.services.enable` permission. If you c
 To get the permissions that you need to create connections and links, ask your administrator to grant you the following IAM roles: 
 
   * To create a connection and link to a repository: [](https://docs.cloud.google.com/iam/docs/roles-permissions/developerconnect#developerconnect.admin)[Developer Connect Admin](https://docs.cloud.google.com/iam/docs/understanding-roles#developerconnect.admin) (`roles/developerconnect.admin`) on on the project where you want to create Developer Connect resources. 
-  * To grant permissions to the Developer Connect service agent: [](https://docs.cloud.google.com/iam/docs/roles-permissions/resourcemanager#resourcemanager.projectIamAdmin)[Project IAM Admin](https://docs.cloud.google.com/iam/docs/understanding-roles#resourcemanager.projectIamAdmin) (`roles/resourcemanager.projectIamAdmin`) on on the project where Secure Source Manager is running. 
+  * To grant permissions to the Developer Connect service agent: [You must be granted the ](https://docs.cloud.google.com/iam/docs/roles-permissions/resourcemanager#resourcemanager.projectIamAdmin)[Project IAM Admin](https://docs.cloud.google.com/iam/docs/understanding-roles#resourcemanager.projectIamAdmin) (`roles/resourcemanager.projectIamAdmin`) on on the project where Secure Source Manager is running. 
 
 
 
@@ -257,6 +257,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-06 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-06 UTC."],[],[]] 

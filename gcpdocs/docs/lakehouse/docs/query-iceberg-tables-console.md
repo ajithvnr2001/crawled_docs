@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/lakehouse/docs/query-iceberg-tables-console/
 title: Quickstart: Create and query an Iceberg table in Lakehouse using the Google Cloud console \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T23:38:04.506300+00:00
+fetched_at: 2026-11-07T08:30:03.794218+00:00
 ---
 
 # Quickstart: Create and query an Iceberg table in Lakehouse using the Google Cloud console  |  Google Cloud Documentation
@@ -157,15 +157,15 @@ Create a multiple-bucket catalog in the Lakehouse runtime catalog for your Apach
 
 [Go to Lakehouse](https://console.cloud.google.com/biglake)
 
-  2. Click **Create catalog** and select **Lakehouse runtime catalog**.
+  2. Click **Create catalog** , and then select **Lakehouse runtime catalog**.
 
-  3. In the **Catalog details** section, configure the following settings:
+  3. In the **Catalog type and source** section, configure the following settings:
 
      * **Catalog type** : Select **Iceberg Rest Catalog**.
      * **Lakehouse catalog bucket options** : Select **Multiple bucket catalog**.
      * **Default Catalog Cloud Storage path** : Click **Browse** , select the bucket that you created, and click **Select**.
      * **Catalog ID** : Enter `quickstart_catalog`.
-     * **Primary location** : Select **Multi-region** , and then select **US (multiple regions in United States)**.
+     * **Primary location** : Select **Multi-region** , and then select **US (multiple regions in United States)**. The **Jurisdiction** field is automatically populated based on the bucket.
   4. Click **Continue** , and then in the **Data paths** section, click **Continue**.
 
   5. In the **Authentication method** section, select **Credential vending mode**.
@@ -176,7 +176,7 @@ With credential vending, the catalog securely issues temporary, table-scoped sto
 
 Your catalog is created and the **Catalog details** page opens.
 
-  7. Under **Authentication method** , click **Set bucket permissions** , and then in the dialog, click **Confirm**.
+  7. Under **Authentication method** , click **Set bucket permissions** (or **Set permissions for buckets** if your catalog spans multiple buckets), and then in the dialog, click **Confirm**.
 
 This step grants the catalog's service account the required permissions on your Cloud Storage bucket to vend temporary credentials.
 
@@ -189,7 +189,7 @@ Now that you have a catalog, use the **Lakehouse** page in the Google Cloud cons
 
 ### Create a namespace
 
-  1. On the **Catalog Details** page for `quickstart_catalog`, click add_box **Create namespace**.
+  1. On the **Catalog details** page for `quickstart_catalog`, click **Create namespace**.
 
   2. In the **Namespace name** field, enter `quickstart_namespace`.
 
@@ -202,21 +202,21 @@ Now that you have a catalog, use the **Lakehouse** page in the Google Cloud cons
 
 ### Create an Iceberg table
 
-  1. On the **Catalog Details** page, click `quickstart_namespace`.
+  1. On the **Catalog details** page, click `quickstart_namespace`.
 
-The **Namespace Details** page opens.
+The **Namespace details** page opens.
 
-  2. Click add_box **Create Table**.
+  2. Click **Create Table**.
 
-  3. In the **Create Table** pane, configure the following settings:
+  3. In the **Create table** pane, configure the following settings:
 
      * **Table format** : Verify that **Iceberg** is selected.
      * **Table name** : Enter `quickstart_table`.
      * **Location** : Leave the default Cloud Storage path.
   4. Under **Schema** , click **Add field** twice to add two columns to the table:
 
-     * For the first field, enter `id` in the **Field name** field, and select **INTEGER** from the **Type** menu.
-     * For the second field, enter `name` in the **Field name** field, and select **STRING** from the **Type** menu.
+     * For the first field, in the **Field name** field, enter `id`, and from the **Type** menu, select **INTEGER**.
+     * For the second field, in the **Field name** field, enter `name`, and from the **Type** menu, select **STRING**.
   5. Under **Properties** , find the predefined `gcp.biglake.bigquery-dml.enabled` property and change its **Value** from `false` to `true`. Leave `gcp.biglake.table-management.enabled` set to `false`.
 
 Setting `gcp.biglake.bigquery-dml.enabled` to `true` lets you modify data in the Iceberg table using BigQuery DML statements such as `INSERT`, `UPDATE`, `DELETE`, and `MERGE`. For more information, see [Configure table options](https://docs.cloud.google.com/lakehouse/docs/table-options).
@@ -236,36 +236,32 @@ With `quickstart_table` created and BigQuery DML enabled, you can insert, update
 
 [Go to BigQuery](https://console.cloud.google.com/bigquery)
 
-  2. In the query editor, click add_box **SQL query**.
+  2. In the query editor, click **SQL query**.
 
-  3. Insert three rows of sample data:
+  3. To insert sample data, enter the following statement into the query editor, and then click **Run** :
          
          INSERT INTO `PROJECT_ID.quickstart_catalog.quickstart_namespace.quickstart_table` (id, name)
          VALUES (1, 'one'), (2, 'two'), (3, 'three');
 
-Click **Run**. When the `INSERT` statement completes, BigQuery writes the Parquet data files to your Cloud Storage bucket and commits a new Iceberg snapshot to the Lakehouse runtime catalog.
+When the `INSERT` statement completes, BigQuery writes the Parquet data files to your Cloud Storage bucket and commits a new Iceberg snapshot to the Lakehouse runtime catalog.
 
-  4. Modify a row in the table:
+  4. To modify a row in the table, enter the following statement into the query editor, and then click **Run** :
          
          UPDATE `PROJECT_ID.quickstart_catalog.quickstart_namespace.quickstart_table`
          SET name = 'updated'
          WHERE id = 1;
 
-Click **Run**.
-
-  5. Delete a row from the table:
+  5. To delete a row from the table, enter the following statement into the query editor, and then click **Run** :
          
          DELETE FROM `PROJECT_ID.quickstart_catalog.quickstart_namespace.quickstart_table`
          WHERE id = 3;
 
-Click **Run**.
-
-  6. Query the table to verify your changes:
+  6. To query the table and verify your changes, enter the following statement into the query editor, and then click **Run** :
          
          SELECT * FROM `PROJECT_ID.quickstart_catalog.quickstart_namespace.quickstart_table`
          ORDER BY id;
 
-Click **Run**. The **Query results** pane shows the remaining two rows, including the updated value for `id = 1`:
+The **Query results** pane shows the remaining two rows, including the updated value for `id = 1`:
          
          +----+---------+
          | id | name    |
@@ -291,27 +287,27 @@ To avoid incurring unnecessary charges to your Google Cloud account, delete the 
   2. Delete the table from your catalog:
 
      1. Click `quickstart_catalog`, and then click `quickstart_namespace`.
-     2. In the **Namespace details** table, in the row for `quickstart_table`, click more_vert **More > Delete**.
-     3. Enter `DELETE` to confirm and click **Delete**.
+     2. In the row for `quickstart_table`, click more_vert **Actions > Delete**.
+     3. In the confirmation dialog, enter `delete` to confirm, and then click **Delete**.
   3. Delete the namespace from your catalog:
 
      1. Return to the **Catalog details** page for `quickstart_catalog`.
      2. In the row for `quickstart_namespace`, click more_vert **More namespace actions > Delete**.
-     3. Enter `DELETE` to confirm and click **Delete**.
+     3. In the confirmation dialog, enter `delete` to confirm, and then click **Delete**.
   4. Delete your catalog:
 
      1. Return to the **Lakehouse** page.
      2. In the row for `quickstart_catalog`, click more_vert **More catalog actions > Delete**.
-     3. Enter `DELETE` to confirm and click **Delete**.
+     3. In the confirmation dialog, enter `delete` to confirm, and then click **Delete**.
   5. Delete your Cloud Storage bucket and all its contents:
 
      1. Go to the Cloud Storage **Buckets** page.
 
 [Go to Buckets](https://console.cloud.google.com/storage/browser)
 
-     2. Select the checkbox next to the bucket that you created for this quickstart and click **Delete**.
+     2. Select the checkbox next to the bucket that you created for this quickstart, and then click **Delete**.
 
-     3. Enter `DELETE` to confirm and click **Delete**.
+     3. In the confirmation dialog, enter `DELETE` to confirm, and then click **Delete**.
 
 
 
@@ -331,6 +327,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-06 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-06 UTC."],[],[]] 

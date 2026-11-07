@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/agent-registry/quotas/
 title: Quotas and system limits \u00a0|\u00a0 Agent Registry \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-30T08:40:09.601005+00:00
+fetched_at: 2026-11-07T08:29:38.642559+00:00
 ---
 
 # Quotas and system limits  |  Agent Registry  |  Google Cloud Documentation
@@ -59,8 +59,8 @@ Maximum MCP servers per project | 100 (Global and per region)
 Maximum endpoints per project | 100 (Global and per region)  
 Maximum bindings per project | 100 (Global and per region)  
 Maximum A2A skills per project | 100 (Global and per region)  
-Maximum standalone skills per project | 100 (Global and per region)  
-Maximum skill revisions per skill | 100 (Global and per region)  
+Maximum standalone skills per project per location | 100 (Global, multi-regions, and per region)  
+Maximum skill revisions per project per location, shared across all skills in the location | 500 (Global, multi-regions, and per region)  
   
 ## Rate quotas
 
@@ -71,6 +71,8 @@ Quota | Value
 Aggregate API requests across global and regional methods | 12,000 per minute per project (200 QPS)  
 Global API requests | 1,200 per minute per project (20 QPS)  
 Regional API requests | 1,200 per minute per project per region (20 QPS)  
+Create, update, and delete requests for skills and skill revisions | 120 per minute per project per location (2 QPS. Global, multi-regions, and per region)  
+Get, list, and search requests for skills and skill revisions | 1,200 per minute per project per location (20 QPS. Global, multi-regions, and per region)  
   
 ## System limits
 
@@ -82,9 +84,9 @@ Display name length | 63 characters (services and bindings); 128 characters (ski
 Description length | 2,048 characters  
 Agent specification content size | 10 KB  
 MCP server specification content size | 10 KB  
-Maximum compressed skill payload size (ZIP) | 500 KB  
-Maximum total uncompressed skill payload size | 10 MB  
-Maximum individual uncompressed file size in skill payload | 1 MB  
+Maximum compressed skill payload size (ZIP) | 1 MB  
+Maximum total uncompressed skill payload size for scanned skills | 10 MB, enforced when [scanning](https://docs.cloud.google.com/agent-registry/scan-skills#payload-size-constraints) is enabled  
+Maximum individual uncompressed file size in skill payload for scanned skills | 1 MB, enforced when [scanning](https://docs.cloud.google.com/agent-registry/scan-skills#payload-size-constraints) is enabled  
 Maximum A2A skills or tools per service | 100  
 Maximum pagination size | 100  
 Maximum member projects per management project for cross-project rollup | 10,000  
@@ -137,6 +139,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-29 UTC.
+Last updated 2026-11-06 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-06 UTC."],[],[]] 

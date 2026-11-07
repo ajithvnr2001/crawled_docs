@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/agent-registry/concepts/
 title: Key concepts \u00a0|\u00a0 Agent Registry \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-30T08:40:13.323927+00:00
+fetched_at: 2026-11-07T08:29:39.881343+00:00
 ---
 
 # Key concepts  |  Agent Registry  |  Google Cloud Documentation
@@ -79,6 +79,12 @@ Discovery in Agent Registry focuses on consumption discovery, which identifies t
 
 A target URL, typically a REST API, accessed by an agent. In Agent Registry, a registered endpoint is represented as a read-only `Endpoint` discovery resource, letting you centrally govern which external services an agent can access.
 
+## Finding
+
+A detected security issue, such as an instruction vulnerability or an exposed secret, associated with a skill revision in Agent Registry, represented as a read-only `Finding` resource. A finding reports the severity, finding class (`VULNERABILITY` or `SECRET`), affected files, line numbers, and a description of the issue.
+
+For more information, see [Scan skills for security issues](https://docs.cloud.google.com/agent-registry/scan-skills).
+
 ## Governance project
 
 The Google Cloud project where you [enable the Agent Registry API](https://docs.cloud.google.com/agent-registry/setup) to centrally catalog, discover, and govern your agentic components. In a cross-project management boundary, your management project serves as the central governance project for the boundary. For more information about single-project and cross-project configurations, see [Define the governance project for a central registry](https://docs.cloud.google.com/agent-registry/overview#governance-project).
@@ -125,10 +131,6 @@ A program that implements the [Model Context Protocol (MCP)](https://docs.cloud.
 
 ## Publisher
 
-**Preview**
-
-This product or feature is subject to the "Pre-GA Offerings Terms" in the General Service Terms section of the [Service Specific Terms](https://docs.cloud.google.com/terms/service-terms#1). Pre-GA products and features are available "as is" and might have limited support. For more information, see the [launch stage descriptions](https://cloud.google.com/products/#product-launch-stages). 
-
 An entity that creates and registers a skill, represented as a `Publisher` resource in Agent Registry. A publisher establishes the ownership and [skill identifier](https://docs.cloud.google.com/agent-registry/identity-and-identifiers#skill-identifiers) syntax for a skill.
 
 Google-managed skills use service domains. Manually created skills are automatically scoped to the `private` publisher with a `private-` prefix.
@@ -168,15 +170,11 @@ You create, update, or delete a `Service` resource to register, update metadata 
 
 ## Skill
 
-**Preview**
-
-This product or feature is subject to the "Pre-GA Offerings Terms" in the General Service Terms section of the [Service Specific Terms](https://docs.cloud.google.com/terms/service-terms#1). Pre-GA products and features are available "as is" and might have limited support. For more information, see the [launch stage descriptions](https://cloud.google.com/products/#product-launch-stages). 
-
 _Compare withA2A skill._
 
 A standalone package registered as a top-level `Skill` resource in Agent Registry that extends the capabilities of an agent by providing specific instructions and optional scripts to complete a task. A skill contains a `SKILL.md` instruction file, optional scripts, and metadata assets.
 
-A skill is identified by a [skill identifier](https://docs.cloud.google.com/agent-registry/identity-and-identifiers#skill-identifiers) scoped by a publisher and a standard [resource name](https://docs.cloud.google.com/agent-registry/identity-and-identifiers#resource-names). Each skill maintains a default revision pointer and has one or more versioned snapshots, each represented as a skill revision.
+A skill is identified by a [skill identifier](https://docs.cloud.google.com/agent-registry/identity-and-identifiers#skill-identifiers) scoped by a publisher and a standard [resource name](https://docs.cloud.google.com/agent-registry/identity-and-identifiers#resource-names). Each skill maintains a [default revision](https://docs.cloud.google.com/agent-registry/manage-skills#update-skill) pointer and has one or more versioned snapshots, each represented as a skill revision.
 
 For architecture, packaging, and lifecycle details, see [Skills architecture](https://docs.cloud.google.com/agent-registry/skills-architecture).
 
@@ -194,6 +192,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-29 UTC.
+Last updated 2026-11-06 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-06 UTC."],[],[]] 

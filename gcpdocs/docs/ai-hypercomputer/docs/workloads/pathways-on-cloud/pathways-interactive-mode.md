@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/ai-hypercomputer/docs/workloads/pathways-on-cloud/pathways-interactive-mode/
 title: Run an interactive workload with Pathways \u00a0|\u00a0 AI Hypercomputer \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-06T08:36:19.156327+00:00
+fetched_at: 2026-11-07T08:30:03.237308+00:00
 ---
 
 # Run an interactive workload with Pathways  |  AI Hypercomputer  |  Google Cloud Documentation
@@ -21,11 +21,40 @@ Send feedback
 
 #  Run an interactive workload with Pathways Stay organized with collections  Save and categorize content based on your preferences. 
 
-Pathways interactive workloads are remote JAX workloads that run outside of the Google Kubernetes Engine (GKE) cluster's Pathways controller components, for example, on a VM. Unlike batch workloads, when an interactive workload finishes, it doesn't shut down the Pathways cluster components, which remain available for connections from other JAX clients. This document uses a Jupyter notebook as an example to demonstrate interactive workloads.
+Pathways interactive workloads are remote JAX workloads that run outside of the cluster's Pathways controller components, for example, on a VM. Unlike batch workloads, when an interactive workload finishes, it doesn't shut down the Pathways cluster components, which remain available for connections from other JAX clients. This document uses a Jupyter notebook as an example to demonstrate interactive workloads. You can run interactive workloads with Pathways on a Google Kubernetes Engine (GKE) cluster or on a Cluster Director cluster with Slurm.
+
+This page has instructions for both platforms. In each section, select the **GKE** or **Cluster Director** tab.
 
 Using the [IFRT](https://github.com/openxla/xla/blob/main/xla/python/ifrt/README.md) interface, JAX users send commands to a Pathways cluster. JAX code, whether executed from a terminal, notebook, or any Python-compatible environment, can interact with Pathways resources.
 
 ## Before you begin
+
+  * Select the tab for how you plan to use the samples on this page:
+
+### gcloud
+
+In the Google Cloud console, activate Cloud Shell.
+
+[Activate Cloud Shell](https://console.cloud.google.com/?cloudshell=true)
+
+At the bottom of the Google Cloud console, a [Cloud Shell](https://docs.cloud.google.com/shell/docs/how-cloud-shell-works) session starts and displays a command-line prompt. Cloud Shell is a shell environment with the Google Cloud CLI already installed and with values already set for your current project. It can take a few seconds for the session to initialize. 
+
+### REST
+
+To use the REST API samples on this page in a local development environment, you use the credentials you provide to the gcloud CLI. 
+
+[Install](https://docs.cloud.google.com/sdk/docs/install) the Google Cloud CLI. 
+
+If you're using an external identity provider (IdP), you must first [ sign in to the gcloud CLI with your federated identity](https://docs.cloud.google.com/iam/docs/workforce-log-in-gcloud). 
+
+For more information, see [Authenticate for using REST](https://docs.cloud.google.com/docs/authentication/rest) in the Google Cloud authentication documentation. 
+
+
+
+
+## Before you begin
+
+###  GKE 
 
 Complete the following prerequisites:
 
@@ -38,7 +67,20 @@ Complete the following prerequisites:
 
 
 
+###  Cluster Director 
+
+Complete the following prerequisites:
+
+  * [Create a Cluster Director cluster and set up the Pathways environment](https://docs.cloud.google.com/ai-hypercomputer/docs/workloads/pathways-on-cloud/create-cluster-director-cluster).
+  * [Install the gcloud CLI](https://docs.cloud.google.com/sdk/docs/install).
+  * Verify that you have SSH access to the cluster's login node.
+  * Install Python 3 with the `venv` module on the host that runs the JAX client. On Debian and Ubuntu, install the `python3-venv` package.
+
+
+
 ## Run Pathways in interactive mode
+
+###  GKE 
 
   1. Set the following environment variables:
          
@@ -92,11 +134,64 @@ The `gcluster job submit` command looks for a CPU node pool named `cpu-np` or `p
 
 At this point, your JAX workload can connect to the IFRT proxy server.
 
+###  Cluster Director 
+
+  1. Connect to the cluster's login node:
+         
+         gcloud compute ssh CLUSTER_ID-login-001 \
+             --project=PROJECT_ID \
+             --zone=ZONE \
+             --tunnel-through-iap
+
+Replace the following:
+
+     * `CLUSTER_ID`: the name of your Cluster Director cluster.
+     * `PROJECT_ID`: your Google Cloud project ID.
+     * `ZONE`: the zone where your cluster is located.
+  2. Set the following environment variables:
+         
+         export SLICE_SHAPE=TOPOLOGY
+         export MAX_SLICES=NUM_SLICES
+         export MIN_SLICES=NUM_SLICES
+         export GCS_BUCKET=gs://BUCKET_NAME
+
+Replace the following:
+
+     * `TOPOLOGY`: the TPU topology of each slice—for example, `2x4`. It must match the topology of your TPU nodeset.
+     * `NUM_SLICES`: the number of TPU slices. Set `MIN_SLICES` and `MAX_SLICES` to the same value so that the Pathways cluster is ready only when all slices are running.
+     * `BUCKET_NAME`: an existing Cloud Storage bucket for Pathways artifacts.
+
+If your TPU partition isn't the cluster's default partition, also set `PARTITION` to its name.
+
+  3. Start the Pathways cluster in headless mode:
+         
+         cd ~/pathways
+         sbatch start_pathways.sh
+         
+
+  4. Wait until the service log, `pathways-service-JOB_ID.out` (where `JOB_ID` is the Slurm job ID), shows output similar to the following:
+         
+         Pathways Runtime Service is READY!
+          Discovery file    : /home/USER/pathways/cluster.env
+          IFRT Proxy Target : grpc://RM_IP:29000
+         
+
+`RM_IP` is the internal IP address of the proxy server. The file `~/pathways/cluster.env` contains the same address.
+
+
+
+
+At this point, your JAX workload can connect to the IFRT proxy server.
+
 ## Connect to the Pathways cluster in interactive mode
 
 You can connect to the Pathways cluster with or without port forwarding. Use one of the following sections to connect to the Pathways cluster.
 
+On Cluster Director, the JAX client must use the same JAX version as the Pathways server, `0.11.1`.
+
 ### Connect by using port forwarding
+
+###  GKE 
 
 From any host with access to your cluster's control plane, forward local port `29000` to the Pathways head Pod to access the proxy server:
     
@@ -147,7 +242,46 @@ The output is similar to the following:
     2024-11-13 21:38:51.267523: W external/xla/xla/python/ifrt_proxy/client/grpc_client.cc:63] IFRT proxy server disconnected: CANCELLED: Cancelled
     
 
+###  Cluster Director 
+
+From any host that can SSH to the cluster's login node, such as your workstation or a VM outside the cluster's subnet, forward the proxy port through the login node:
+    
+    
+    gcloud compute ssh CLUSTER_ID-login-001 \
+        --project=PROJECT_ID \
+        --zone=ZONE \
+        --tunnel-through-iap \
+        -- -N -L 29000:RM_IP:29000
+
+**Note:** If you run the gcloud CLI on a Compute Engine VM with its default service account, the VM needs the `cloud-platform` access scope, or `gcloud compute ssh` fails with `insufficient authentication scopes`. Alternatively, run `gcloud auth login` on the VM to use your own account.
+
+On the same host, open a new terminal window. Set the `JAX_PLATFORMS` and `JAX_BACKEND_TARGET` environment variables, and run a Python script that imports `pathwaysutils` and `jax`. The host has no route to `RM_IP`, so the client connects to the local end of the tunnel, `127.0.0.1:29000`:
+    
+    
+    python3 -m venv .venv
+    source .venv/bin/activate
+    pip install pathwaysutils jax==0.11.1
+    
+    JAX_PLATFORMS=proxy JAX_BACKEND_TARGET=grpc://127.0.0.1:29000 python -c 'import pathwaysutils; import jax; import pprint; pathwaysutils.initialize(); pprint.pprint(jax.devices())'
+    
+
+The output is similar to the following:
+    
+    
+    [device(288,TPU_DEVICE,coords=[0,0,0,0],logical_task=0,slice=0,default_mem=device,mem_spaces=3),
+     device(289,TPU_DEVICE,coords=[1,0,0,0],logical_task=0,slice=0,default_mem=device,mem_spaces=3),
+     ...
+     device(313,TPU_DEVICE,coords=[1,3,0,0],logical_task=1,slice=1,default_mem=device,mem_spaces=3)]
+    W1029 22:52:22.897483    2361 grpc_client.cc:91] IFRT proxy server disconnected: CANCELLED: Stream removed (CANCELLED)
+    
+
+The `IFRT proxy server disconnected` warning appears when the script exits and closes its connection. It's expected.
+
+**Note:** Each JAX call goes through the SSH tunnel. Use port forwarding to verify connectivity. For notebooks, run the JAX client in the cluster's subnet.
+
 ### Connect from hosts in the VPC without using port forwarding
+
+###  GKE 
 
 If you don't want to use port forwarding, you can connect to the Pathways cluster by using Cloud DNS or an internal load balancer.
 
@@ -292,7 +426,20 @@ The output is similar to the following:
 
 **Note:** Your IP addresses differ from the addresses shown in the preceding command and output examples.
 
+###  Cluster Director 
+
+Hosts in the cluster's subnet, such as a Compute Engine VM, can connect to the proxy server directly. Cluster Director's firewall allows traffic from the cluster's subnet, but not from other subnets of the same VPC network:
+    
+    
+    JAX_PLATFORMS=proxy JAX_BACKEND_TARGET=grpc://RM_IP:29000 python -c 'import pathwaysutils; import jax; import pprint; pathwaysutils.initialize(); pprint.pprint(jax.devices())'
+
+Replace `RM_IP` with the IFRT proxy address from the service log.
+
+**Note:** The IFRT proxy server doesn't authenticate clients. Any host that can reach `RM_IP:29000` can use the Pathways cluster.
+
 ## Jupyter notebooks
+
+###  GKE 
 
 You can create a Jupyter notebook by using Vertex AI, or you can create a self-hosted Jupyter notebook.
 
@@ -363,7 +510,37 @@ The following YAML manifest shows how to create a self-hosted Jupyter notebook i
 
 The `hostNetwork: true` field lets the JAX client in the notebook complete the Application Layer Transport Security (ALTS) handshake with the Pathways proxy server. Without this field, the connection fails on node pools that use Workload Identity Federation for GKE. The `dnsPolicy: ClusterFirstWithHostNet` field lets the notebook resolve in-cluster DNS names, such as the name of the Pathways head Pod. For more information, see [Troubleshoot Pathways on Cloud](https://docs.cloud.google.com/ai-hypercomputer/docs/workloads/pathways-on-cloud/troubleshooting-pathways).
 
+###  Cluster Director 
+
+You can run a Jupyter notebook on an existing Compute Engine VM in the cluster's subnet, or you can create a self-hosted Jupyter notebook on the cluster's login node. In both cases, the notebook connects to the proxy server without port forwarding.
+
+**Use an existing VM in the cluster's subnet**
+
+On the VM, install JupyterLab in a virtual environment and start it:
+    
+    
+    python3 -m venv .venv
+    source .venv/bin/activate
+    pip install jupyterlab pathwaysutils jax==0.11.1
+    jupyter lab --no-browser --port=8888
+    
+
+**Create a self-hosted Jupyter notebook instance**
+
+On the cluster's login node, install JupyterLab and start it. Create the virtual environment in your home directory with the cluster's Python. The login node's system Python is too old for current JAX releases, so `pip` can't find `jax==0.11.1` there:
+    
+    
+    cd ~
+    /home/pathways/venv/bin/python -m venv .venv
+    source .venv/bin/activate
+    pip install jupyterlab pathwaysutils jax==0.11.1
+    source ~/pathways/cluster.env
+    jupyter lab --no-browser --port=8888
+    
+
 ### Connect to the notebook instance
+
+###  GKE 
 
 Connect to the notebook from your local machine by using port forwarding:
 
@@ -378,8 +555,8 @@ Connect to the notebook from your local machine by using port forwarding:
     
     
     MAIN_POD=$(kubectl get pods \
-      --selector=batch.kubernetes.io/job-name=WORKLOAD \
-      --output=jsonpath='{.items[0].metadata.name}')
+        --selector=batch.kubernetes.io/job-name=WORKLOAD \
+        --output=jsonpath='{.items[0].metadata.name}')
     kubectl port-forward pod/${MAIN_POD} 8888:8888
 
 In your local browser, go to `http://localhost:8888?token=TOKEN`. Replace `TOKEN` with the token from the Jupyter notebook container's logs:
@@ -397,6 +574,19 @@ The output is similar to the following:
 
 `NODE_NAME` is the hostname of the GKE node that runs the notebook Pod (for example, `gke-my-cluster-cpu-np-1a2b3c4d-ef56`).
 
+###  Cluster Director 
+
+For a notebook on a VM or on the login node, connect from your local machine by using port forwarding to that host. For example, for the login node:
+    
+    
+    gcloud compute ssh CLUSTER_ID-login-001 \
+        --project=PROJECT_ID \
+        --zone=ZONE \
+        --tunnel-through-iap \
+        -- -N -L 8888:localhost:8888
+
+In your local browser, go to `http://localhost:8888?token=TOKEN`. Replace `TOKEN` with the token that JupyterLab printed when it started.
+
 ### Notebook connectivity to the Pathways cluster
 
   1. From within JupyterLab, create a new Python 3 notebook.
@@ -406,7 +596,7 @@ The output is similar to the following:
 
 In the notebook, add a cell to install `pathwaysutils`, set `JAX_PLATFORMS` to `proxy`, and set `JAX_BACKEND_TARGET` to `grpc://PROXY_ADDRESS:29000`:
 
-**Note:** The value for `PROXY_ADDRESS` depends on the connection option that you chose in Connect to the Pathways cluster in interactive mode.
+**Note:** The value for `PROXY_ADDRESS` depends on the connection option that you chose in Connect to the Pathways cluster in interactive mode. On Cluster Director, install `jax==0.11.1` in the same cell. On a self-hosted notebook that you started after `source ~/pathways/cluster.env`, the variables are already set.
     
     
     !pip install pathwaysutils
@@ -415,7 +605,7 @@ In the notebook, add a cell to install `pathwaysutils`, set `JAX_PLATFORMS` to `
       # Replace your proxy address in the following line:
     %env JAX_BACKEND_TARGET=grpc://PROXY_ADDRESS:29000
 
-Replace `PROXY_ADDRESS` with the host or IP address of your Pathways proxy server from Connect to the Pathways cluster in interactive mode (for example, `127.0.0.1`, the Cloud DNS hostname, or the internal load balancer IP address). If you deployed a self-hosted notebook by using `kubectl`, replace `PROXY_ADDRESS` with the in-cluster DNS name of the Pathways head Pod, so that the `JAX_BACKEND_TARGET` value is `grpc://WORKLOAD-pathways-head-0-0.WORKLOAD:29000`.
+Replace `PROXY_ADDRESS` with the host or IP address of your Pathways proxy server from Connect to the Pathways cluster in interactive mode (for example, `127.0.0.1`, the Cloud DNS hostname, or the internal load balancer IP address). On Cluster Director, use `127.0.0.1` if you use port forwarding, or the IFRT proxy address from the service log. If you deployed a self-hosted notebook by using `kubectl`, replace `PROXY_ADDRESS` with the in-cluster DNS name of the Pathways head Pod, so that the `JAX_BACKEND_TARGET` value is `grpc://WORKLOAD-pathways-head-0-0.WORKLOAD:29000`.
 
 Add a second cell to verify connectivity and print the devices in the Pathways cluster:
     
@@ -433,7 +623,7 @@ The number of JAX devices listed matches the number of TPU chips and the number 
 
 ### Add your code to a notebook
 
-Add your own JAX code and execute it interactively on the TPUs in the Pathways cluster. The following code shows how to perform computations across two slices from a single notebook. To run the complete example, create your Pathways workload with at least two slices by setting `WORKLOAD_NODEPOOL_COUNT` to `2` or more. With one slice, `slice1_devices` is empty, and the last part of the example fails with a `ValueError`:
+Add your own JAX code and execute it interactively on the TPUs in the Pathways cluster. The following code shows how to perform computations across two slices from a single notebook. To run the complete example, create your Pathways workload with at least two slices by setting `WORKLOAD_NODEPOOL_COUNT` to `2` or more. On Cluster Director, set `MIN_SLICES` and `MAX_SLICES` to `2` or more. With one slice, `slice1_devices` is empty, and the last part of the example fails with a `ValueError`:
     
     
     import jax
@@ -470,22 +660,37 @@ Add your own JAX code and execute it interactively on the TPUs in the Pathways c
 
 ## Delete your Pathways interactive workload
 
+###  GKE 
+
 ### Cluster Toolkit
     
     
     gcluster job cancel WORKLOAD \
-      --cluster=CLUSTER \
-      --project=PROJECT_ID \
-      --location=ZONE
+        --cluster=CLUSTER \
+        --project=PROJECT_ID \
+        --location=ZONE
 
 ### kubectl
     
     
     kubectl delete job WORKLOAD
 
+###  Cluster Director 
+
+On the cluster's login node, cancel the Pathways service job:
+    
+    
+    scancel -u ${USER} -n pathways-service
+    
+
+This command also cancels the Pathways worker jobs. The TPU VMs are static nodes, so they keep running and become available to other Slurm jobs.
+
+If you run into problems, see [Troubleshoot Pathways on Cloud](https://docs.cloud.google.com/ai-hypercomputer/docs/workloads/pathways-on-cloud/troubleshooting-pathways#debugging-common).
+
 ## What's next
 
   * [Create a GKE cluster with Pathways](https://docs.cloud.google.com/ai-hypercomputer/docs/workloads/pathways-on-cloud/create-gke-cluster)
+  * [Create a Cluster Director cluster with Pathways](https://docs.cloud.google.com/ai-hypercomputer/docs/workloads/pathways-on-cloud/create-cluster-director-cluster)
   * [Run a batch workload with Pathways](https://docs.cloud.google.com/ai-hypercomputer/docs/workloads/pathways-on-cloud/batch-workload)
   * [Port JAX workloads to Pathways](https://docs.cloud.google.com/ai-hypercomputer/docs/workloads/pathways-on-cloud/porting-jax-workloads)
   * [Resilient training with Pathways](https://docs.cloud.google.com/ai-hypercomputer/docs/workloads/pathways-on-cloud/resilient-training)

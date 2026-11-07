@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/agent-registry/setup/
 title: Set up Agent Registry \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-30T08:40:09.335726+00:00
+fetched_at: 2026-11-07T08:29:39.948437+00:00
 ---
 
 # Set up Agent Registry  |  Google Cloud Documentation
@@ -146,10 +146,10 @@ To view and manage resources in Agent Registry, you must grant users the appropr
 
 Grant your users one or more of the following Agent Registry roles:
 
-  * **Agent Registry API Viewer** (`roles/agentregistry.viewer`): view and search agents, MCP servers, tools, standalone skills, skill revisions, publishers, endpoints, and bindings.
+  * **Agent Registry API Viewer** (`roles/agentregistry.viewer`): view and search agents, MCP servers, tools, standalone skills, skill revisions, publishers, skill encryption specifications, endpoints, and bindings.
   * **Agent Registry API Editor** (`roles/agentregistry.editor`): view and edit Agent Registry resources, including registering, updating, and deleting agents, MCP servers, tools, endpoints, standalone skills, and skill revisions.
-  * **Agent Registry API Admin** (`roles/agentregistry.admin`): perform all actions on Agent Registry resources, including registering and managing agents, MCP servers, tools, endpoints, standalone skills, skill revisions, bindings, and skill IAM policies.
-  * **Agent Registry User** (`roles/agentregistry.user`): view all Agent Registry resources, and create, update, and delete standalone skills and skill revisions without edit access to agents, MCP servers, or endpoints.
+  * **Agent Registry API Admin** (`roles/agentregistry.admin`): perform all actions on Agent Registry resources, including registering and managing agents, MCP servers, tools, endpoints, standalone skills, skill revisions, security findings, skill encryption specifications, bindings, and skill IAM policies.
+  * **Agent Registry User** (`roles/agentregistry.user`): view all Agent Registry resources, and create, update, and delete standalone skills, skill revisions, and security scan settings, without edit access to agents, MCP servers, or endpoints.
 
 
 
@@ -205,6 +205,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-29 UTC.
+Last updated 2026-11-06 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-06 UTC."],[],[]] 

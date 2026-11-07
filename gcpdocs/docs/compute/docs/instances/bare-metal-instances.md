@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/compute/docs/instances/bare-metal-instances/
 title: Bare metal instances \u00a0|\u00a0 Compute Engine \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T23:06:33.758237+00:00
+fetched_at: 2026-11-07T08:32:21.807803+00:00
 ---
 
 # Bare metal instances  |  Compute Engine  |  Google Cloud Documentation
@@ -58,6 +58,7 @@ Feature | VM instances | Bare metal instances
 Network interface | VirtIO is the default interface type for [first and second generation](https://docs.cloud.google.com/compute/docs/machine-resource#vm_terminology) machine series and gVNIC is supported with some second generation machine series. GVNIC is required by third generation and later machine series.  | [Intel IDPF LAN PF device driver](https://docs.cloud.google.com/compute/docs/networking/using-idpf). Bare metal instances don't run a hypervisor and don't support gVNIC or VirtIO.  
 Multiple network interfaces | Each VM can have up to 10 network interfaces. | 
 
+  * A5X bare metal instances come with 10 physical NICs and A4X Max bare metal instances come with six physical NICs.
   * Z4M bare metal instances come with two physical NICs and support up to 10 network interfaces per instance.
   * All other bare metal instances have a single network interface. You can use Dynamic Network Interfaces to configure additional network interfaces. For more information about using multiple network interfaces with a bare metal instance, see [Multiple network interfaces](https://docs.cloud.google.com/vpc/docs/multiple-interfaces-concepts). 
 
@@ -70,7 +71,7 @@ Disk interface |
 | Only NVMe.  
 Attached disks | VM instances can use standard Persistent Disk, Hyperdisk storage, and Local SSD. | Bare metal instances don't support Persistent Disk.  
 Windows OS support | VM instances support Windows images. | Bare metal instances don't provide support for Windows images.  
-Virtual Trusted Platform Module (vTPM) | Features such as Secure Boot, vTPM-enabled Measured Boot, and other Shielded VM features are available. | vTPM features aren't available with bare metal instances with the exception of A4X Max and C4A bare metal.  
+Virtual Trusted Platform Module (vTPM) | Features such as Secure Boot, vTPM-enabled Measured Boot, and other Shielded VM features are available. | vTPM features aren't available for bare metal instances, except for A5X, A4X Max, and C4A.  
 On host maintenance | VM instances support live migration. | The maintenance behavior must be set to `TERMINATE`. Live migration is not feasible. Bare metal instances with attached Local SSD disks can be set to `RESTART IN PLACE` to preserve the Local SSD disk data.  
 CPU utilization monitoring | Available using hypervisor metrics. | CPU utilization monitoring isn't available. If you install the Ops Agent, you can instead use the metric `OS Reported CPU %`.   
   
@@ -78,13 +79,17 @@ CPU utilization monitoring | Available using hypervisor metrics. | CPU utilizati
 
 You can create a bare metal instance using machine types from the following machine series.
 
+### A5X machine series
+
+[A5X](https://docs.cloud.google.com/compute/docs/accelerator-optimized-machines#a5x-instances) bare metal instances use NVIDIA Vera Rubin superchips. The A5X machine series offers one bare metal machine type, `a5x-highgpu-4g-metal`, which comes with 176 vCPUs and 1,440 GB of memory.
+
+A5X uses NVIDIA Vera CPUs with Armv9.2 Olympus cores, which connect to four NVIDIA Rubin GPUs. A5X bare metal instances support vTPM. You can attach Hyperdisk Balanced, Hyperdisk Balanced High Availability, Hyperdisk Extreme, Hyperdisk ML, and Hyperdisk Throughput disks to A5X bare metal instances. Each A5X bare metal instance automatically includes 48,000 GiB of Local SSD storage across four 12,000 GiB partitions. A5X bare metal instances offer up to 7,200 Gbps of network bandwidth across eight NVIDIA ConnectX-9 SuperNICs and two Titanium Infrastructure Data Path Function (IDPF) network interfaces.
+
+The A5X machine series is part of the [accelerator-optimized machine family](https://docs.cloud.google.com/compute/docs/accelerator-optimized-machines), which supports artificial intelligence (AI), machine learning (ML), and high performance computing (HPC) workloads.
+
 ### A4X Max machine series
 
-[A4X Max](https://docs.cloud.google.com/compute/docs/accelerator-optimized-machines#a4x-vms) bare metal instances are powered by NVIDIA GB300 Grace Blackwell Ultra Superchips. The A4X Max machine series offers one bare metal machine type:
-
-  * `a4x-maxgpu-4g-metal` comes with 144 vCPUs and 960 GB of memory.
-
-
+[A4X Max](https://docs.cloud.google.com/compute/docs/accelerator-optimized-machines#a4x-vms) bare metal instances are powered by NVIDIA GB300 Grace Blackwell Ultra superchips. The A4X Max machine series offers one bare metal machine type, `a4x-maxgpu-4g-metal`, which comes with 144 vCPUs and 960 GB of memory.
 
 A4X Max uses NVIDIA Grace CPUs with Arm Neoverse V2 cores, which are connected to four NVIDIA B300 Blackwell GPUs. You can attach Hyperdisk Balanced, Hyperdisk Extreme, Hyperdisk ML, and Hyperdisk Throughput disks to A4X Max bare metal instances. 12,000 GB of Local SSD storage is automatically attached to A4X Max bare metal instances. A4X Max bare metal instances offer up to 3,600 Gbps of network bandwidth.
 
@@ -220,9 +225,7 @@ The following sortable table shows the regional availability of bare metal insta
 
 Machine type names that include an asterisk (`*`) symbol represent machine types either with or without Titanium SSD disks attached. For example, `c4-standard-288-*-metal` represents both the `c4-standard-288-metal` and `c4-standard-288-lssd-metal` machine types.
 
-For information about the regional availability of A4X Max bare metal instances, see [GPU locations](https://docs.cloud.google.com/compute/docs/regions-zones/gpu-regions-zones).
-
-APACNorth AmericaSouth AmericaEuropeMiddle EastAfricaA4X MaxC4 C4AC4DC3X4X5Z3Z4DZ4M
+APACNorth AmericaSouth AmericaEuropeMiddle EastAfricaA5XA4X MaxC4 C4AC4DC3X4X5Z3Z4DZ4M
 
 Clear all
 
@@ -424,7 +427,7 @@ For X4 and X5, contact sales team
 `c4-standard-288-*-metal`  
 `c4-highmem-288-*-metal`  
 `z3-highmem-192-highlssd-metal`  
-`us-east1-d` | Moncks Corner, South Carolina, North America | C3, C4 | `c3-highcpu-192-metal`  
+`us-east1-d` | Moncks Corner, South Carolina, North America | C3, C4  | `c3-highcpu-192-metal`  
 `c3-standard-192-metal`  
 `c3-highmem-192-metal`  
 `c4-standard-288-*-metal`  
@@ -477,15 +480,20 @@ For X4 and X5, contact sales team
 `z4m-highmem-192-metal`  
 `us-south1-a` | Dallas, Texas, North America | C4, Z3 | `c4-highmem-288-*-metal`  
 `z3-highmem-192-highlssd-metal`  
-`us-south1-b` | Dallas, Texas, North America | C4 | `c4-highmem-288-*-metal`  
+`us-south1-b` | Dallas, Texas, North America | C4  | `c4-highmem-288-*-metal`  
 `us-south1-c` | Dallas, Texas, North America | N/A | N/A  
-`us-west1-a`  
-`us-west1-b` | The Dalles, Oregon, North America | C3, C4 | `c3-highcpu-192-metal`  
+`us-west1-a` | The Dalles, Oregon, North America | C3, C4  | `c3-highcpu-192-metal`  
 `c3-standard-192-metal`  
 `c3-highmem-192-metal`  
 `c4-highmem-288-*-metal`  
 `c4-standard-288-*-metal`  
-`us-west1-c` | The Dalles, Oregon, North America | C4 | `c4-highmem-288-*-metal`  
+`us-west1-b` | The Dalles, Oregon, North America | A5X, C3, C4  | `a5x-highgpu-4g-metal`  
+`c3-highcpu-192-metal`  
+`c3-standard-192-metal`  
+`c3-highmem-192-metal`  
+`c4-highmem-288-*-metal`  
+`c4-standard-288-*-metal`  
+`us-west1-c` | The Dalles, Oregon, North America | C4  | `c4-highmem-288-*-metal`  
 `c4-standard-288-*-metal`  
 `us-west2-a` | Los Angeles, California, North America | Z3 | `z3-highmem-192-highlssd-metal`  
 `us-west2-b`  
@@ -510,6 +518,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-06 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-06 UTC."],[],[]] 

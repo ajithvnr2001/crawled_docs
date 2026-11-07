@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/ai-hypercomputer/docs/networking-services/
 title: Network services for deployments \u00a0|\u00a0 AI Hypercomputer \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T18:56:12.866497+00:00
+fetched_at: 2026-11-07T08:32:30.936653+00:00
 ---
 
 # Network services for deployments  |  AI Hypercomputer  |  Google Cloud Documentation
@@ -67,7 +67,7 @@ The network components configured by the blueprint for Clustered GPU Slurm deplo
 
 You can use Compute Engine to create standalone VMs, bulk compute instances, and managed instance groups (MIGs). The specific network requirements depend on the infrastructure model of the machine type:
 
-  * **Clustered GPUs** : these machine series (A4X Max, A4X, A4, A3 Ultra, A3 Mega, and A3 High with 8 GPUs) require a multi-VPC network configuration to separate general host-to-host traffic from high-bandwidth GPU-to-GPU communication.
+  * **Clustered GPUs** : these machine series (A5X, A4X Max, A4X, A4, A3 Ultra, A3 Mega, and A3 High with 8 GPUs) generally require a multi-VPC network configuration to separate general host-to-host traffic from high-bandwidth GPU-to-GPU communication. For A5X, A4X Max, and A4X deployments within a single sub-block, the RDMA VPC network is optional because the multi-node NVLink fabric handles GPU-to-GPU communication.
   * **General GPUs** : these machine series (G2, G4, A2, and N1 with T4 or V100) use a single-VPC architecture over gVNIC interfaces for all communication. A3 Edge is an exception that requires four data VPCs and GPUDirect-TCPX.
 
 
@@ -86,6 +86,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-06 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-06 UTC."],[],[]] 

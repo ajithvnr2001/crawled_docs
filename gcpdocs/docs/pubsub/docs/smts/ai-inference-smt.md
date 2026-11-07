@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/pubsub/docs/smts/ai-inference-smt/
 title: AI Inference SMT \u00a0|\u00a0 Pub/Sub \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T01:39:51.406136+00:00
+fetched_at: 2026-11-07T08:30:01.056929+00:00
 ---
 
 # AI Inference SMT  |  Pub/Sub  |  Google Cloud Documentation
@@ -435,12 +435,6 @@ Model| API called
 `google/gemini-2.0-flash-001` | Chat Completions API  
 `meta/llama-4-maverick-17b-128e-instruct-maas` | Chat Completions API  
 `meta/llama-4-scout-17b-16e-instruct-maas` | Chat Completions API  
-`meta/llama-3.3-70b-instruct-maas` | Chat Completions API  
-`deepseek-ai/deepseek-r1-0528-maas` | Chat Completions API  
-`deepseek-ai/deepseek-v3.1-maas` | Chat Completions API  
-`qwen/qwen3-235b-a22b-instruct-2507-maas` | Chat Completions API  
-`qwen/qwen3-coder-480b-a35b-instruct-maas` | Chat Completions API  
-`openai/gpt-oss-20b-maas` | Chat Completions API  
 `openai/gpt-oss-120b-maas` | Chat Completions API  
 `google/text-multilingual-embedding-002` | `rawPredict`  
 `google/text-embedding-005` | `rawPredict`  
@@ -480,22 +474,12 @@ Model| API called
 
 The AI Inference SMT doesn't support the following MaaS models. Many of these models have self-deployed versions available that you can use instead.
 
-  * `deepseek-ai/deepseek-ocr-maas`
-  * `deepseek-ai/deepseek-v3.2-maas`
   * `google/gemini-embedding-2-preview`
   * `google/lyria-002`
   * `google/lyria-3-clip-preview`
   * `google/lyria-3-pro-preview`
   * `google/veo-3.1-fast-generate-001`
   * `google/veo-3.1-generate-001`
-  * `intfloat/multilingual-e5-large-instruct-maas`
-  * `intfloat/multilingual-e5-small-instruct-maas`
-  * `minimaxai/minimax-m2-maas`
-  * `moonshotai/kimi-k2-thinking-maas`
-  * `qwen/qwen3-next-80b-a3b-instruct-maas`
-  * `qwen/qwen3-next-80b-a3b-thinking-maas`
-  * `zai-org/glm-4.7-maas`
-  * `zai-org/glm-5-maas`
 
 
 
@@ -565,6 +549,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-06 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-06 UTC."],[],[]] 

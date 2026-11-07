@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/colab-data-apps/
 title: Use Data Apps in BigQuery and Data Studio \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T05:41:53.361321+00:00
+fetched_at: 2026-11-07T08:29:47.583090+00:00
 ---
 
 # Use Data Apps in BigQuery and Data Studio  |  Google Cloud Documentation
@@ -110,7 +110,7 @@ Data Apps are subject to the following limitations:
 
 The components you can add to your Data Apps are derived from the underlying notebook. If you're working with an existing notebook, you can add any of its existing cells to your Data Apps.
 
-You can add to Data Apps any supported [cell types](https://docs.cloud.google.com/bigquery/docs/create-notebooks#cells) that you can create in a Colab notebook, including SQL cells, code cells, text cells, and visualization cells. You can create cell types manually, or you can use the [Colab Data Science Agent](https://docs.cloud.google.com/bigquery/docs/colab-data-science-agent) or [Gemini](https://docs.cloud.google.com/bigquery/docs/gemini-overview) to generate cells for you.
+You can add to Data Apps any supported cell types that you can create in a [Colab notebook](https://docs.cloud.google.com/bigquery/docs/create-notebooks), including SQL cells, code cells, text cells, and visualization cells. You can create cell types manually, or you can use the [Colab Data Science Agent](https://docs.cloud.google.com/bigquery/docs/colab-data-science-agent) or [Gemini](https://docs.cloud.google.com/bigquery/docs/gemini-overview) to generate cells for you.
 
 For information on adding different cell types to notebooks, see the following tutorials:
 
@@ -273,6 +273,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-27 UTC.
+Last updated 2026-11-06 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-06 UTC."],[],[]] 

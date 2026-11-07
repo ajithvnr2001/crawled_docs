@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/iam/docs/federated-identity-architectures/
 title: Architecture patterns for identity federation \u00a0|\u00a0 Identity and Access Management (IAM) \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-06T08:23:58.604573+00:00
+fetched_at: 2026-11-07T08:32:27.853592+00:00
 ---
 
 # Architecture patterns for identity federation  |  Identity and Access Management (IAM)  |  Google Cloud Documentation

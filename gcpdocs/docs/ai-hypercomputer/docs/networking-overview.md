@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/ai-hypercomputer/docs/networking-overview/
 title: GPU networking overview \u00a0|\u00a0 AI Hypercomputer \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T18:56:07.469794+00:00
+fetched_at: 2026-11-07T08:32:31.500894+00:00
 ---
 
 # GPU networking overview  |  AI Hypercomputer  |  Google Cloud Documentation
@@ -62,8 +62,9 @@ A networking stack is a collection of software protocols, drivers, and layers th
 
 Networking stack | Description | GPU machine type  
 ---|---|---  
-GPUDirect RDMA | Enables a direct path for data exchange between a GPU and another device. For A4X Max and A4X instances, this networking stack uses RoCE. For more information, see [Cluster configuration options with GPUDirect RDMA](https://docs.cloud.google.com/ai-hypercomputer/docs/create/gke-create-a4-a3-ultra#cluster-configuration-options). | 
+GPUDirect RDMA | Enables a direct path for data exchange between a GPU and another device. For A5X, A4X Max, and A4X instances, this networking stack uses RoCE. For more information, see [Cluster configuration options with GPUDirect RDMA](https://docs.cloud.google.com/ai-hypercomputer/docs/create/gke-create-a4-a3-ultra#cluster-configuration-options). | 
 
+  * [A5X (with attached NVIDIA Vera Rubin Superchips)](https://docs.cloud.google.com/compute/docs/gpus#vera-rubin-gpus)
   * [A4X Max (with attached GB300 superchips)](https://docs.cloud.google.com/compute/docs/gpus#gb300-gpus)
   * [A4X (with attached GB200 superchips)](https://docs.cloud.google.com/compute/docs/gpus#gb200-gpus)
   * [A4 (with attached NVIDIA B200 GPUs)](https://docs.cloud.google.com/compute/docs/gpus#b200-gpus)
@@ -96,7 +97,7 @@ Multi-GPU instances require different network configurations for communication w
 
 A separate network path (sometimes also referred to as the _North-South network_ or _Frontend network_) handles all communication with the compute instance. This traffic includes disk access, intra-VM communication, internet access, access to Cloud Storage, host-level management, and communication with other Google Cloud services.
 
-To manage this traffic, the GPU machine types use the Google Virtual NIC (gVNIC) configuration over Google Titanium NICs. Titanium NICs offload network processing tasks from the CPU, freeing the CPU to focus on your workloads. This separation helps ensure that general-purpose host traffic and dedicated GPU-to-GPU traffic use different physical interfaces, preventing them from competing for the same system resources.
+To manage this traffic, GPU machine types use the Google Virtual NIC (gVNIC) or, for A5X and A4X Max bare metal instances, the Intel Infrastructure Data Path Function (IDPF) network interface over Google Titanium NICs. Titanium NICs offload network processing tasks from the CPU, freeing the CPU to focus on your workloads. This separation helps ensure that general-purpose host traffic and dedicated GPU-to-GPU traffic use different physical interfaces, preventing them from competing for the same system resources.
 
 ## Multi-VPC environment
 
@@ -106,7 +107,7 @@ High-performance accelerator machines feature a specialized hardware design that
 
 The specific multi-VPC configuration depends on the GPU machine type and its networking stack:
 
-  * **A4X Max, A4X, A4, and A3 Ultra with GPUDirect RDMA:** These machines are backed by two physical NICs: one that supports general-purpose traffic and one that supports RDMA traffic. Instance vNICs that map to the general-purpose physical NIC (the `nic0` interface and an additional network interface) are attached to regular VPC networks. RDMA vNICs that map to the RDMA-capable physical NIC are attached to a separate VPC network with an RDMA network profile to leverage GPUDirect RDMA. In total, these machine types require three VPC networks. To learn how to set up this network infrastructure, see [Create VPCs and subnets](https://docs.cloud.google.com/ai-hypercomputer/docs/create/gke-create-a4-a3-ultra#create-vpcs-and-subnets).
+  * **A5X, A4X Max, A4X, A4, and A3 Ultra with GPUDirect RDMA:** These machines are backed by two types of physical NICs: one that supports general-purpose traffic and one that supports RDMA traffic. Network interfaces that map to the general-purpose physical NIC (the `nic0` interface and an additional network interface) are attached to regular VPC networks. RDMA network interfaces that map to the RDMA-capable physical NIC are attached to a separate VPC network with an RDMA network profile to use GPUDirect RDMA. In total, these machine types use up to three VPC networks. For A5X, A4X Max, and A4X deployments within a single sub-block, the multi-node NVLink fabric handles GPU-to-GPU communication, so the RDMA VPC network is optional. To learn how to set up this network infrastructure, see [Create VPCs and subnets](https://docs.cloud.google.com/ai-hypercomputer/docs/create/gke-create-a4-a3-ultra#create-vpcs-and-subnets).
 
   * **A3 Mega with GPUDirect-TCPXO:** These machines require eight separate VPCs for the GPU NICs, which are dedicated to high-bandwidth communication. For detailed steps on how to complete this configuration, see [Create VPCs and subnets](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/gpu-bandwidth-gpudirect-tcpx#gpudirect-tcpxo).
 
@@ -150,6 +151,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-06 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-06 UTC."],[],[]] 

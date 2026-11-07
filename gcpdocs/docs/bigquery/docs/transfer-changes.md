@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/transfer-changes/
 title: BigQuery Data Transfer Service data source change log \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T05:53:29.416801+00:00
+fetched_at: 2026-11-07T08:29:57.218951+00:00
 ---
 
 # BigQuery Data Transfer Service data source change log  |  Google Cloud Documentation
@@ -583,6 +583,23 @@ You can continue to use the deprecated data type mapping in the transfer configu
 
 Starting September 16, 2026, all transfer configurations will use the updated data type mapping by default. Support for the deprecated data type mapping will end on March 16, 2027.
 
+## Shopify
+
+The BigQuery Data Transfer Service for Shopify connector periodically updates to adapt to new changes introduced by Shopify.
+
+The following sections outline the changes organized by release date.
+
+### January 31, 2027
+
+On January 31, 2027, the [Shopify connector](https://docs.cloud.google.com/bigquery/docs/shopify-transfer) is no longer supporting the following fields from the following dataset schemas:
+
+  * The `legacyMode` field from the `DeliveryProfile` dataset schema
+  * The `permitSkuSharing` field from the `FulfillmentService` dataset schema
+
+
+
+These changes are in response to changes to the Shopify API. Starting January 31, 2027, all transfer configurations will no longer support these fields.
+
 ## YouTube Reporting API
 
 The BigQuery Data Transfer Service for YouTube Content Owner connector and YouTube Channel connector periodically updates to support new reports introduced by [YouTube Reporting API](https://developers.google.com/youtube/reporting) and deprecate old reports.
@@ -653,6 +670,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-30 UTC.
+Last updated 2026-11-06 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-06 UTC."],[],[]] 

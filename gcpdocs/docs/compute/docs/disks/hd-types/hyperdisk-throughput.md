@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/compute/docs/disks/hd-types/hyperdisk-throughput/
 title: About Hyperdisk Throughput \u00a0|\u00a0 Compute Engine \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-05T11:08:41.453448+00:00
+fetched_at: 2026-11-07T08:32:18.843124+00:00
 ---
 
 # About Hyperdisk Throughput  |  Compute Engine  |  Google Cloud Documentation
@@ -42,10 +42,11 @@ Hyperdisk Throughput is a good fit for the following use cases:
 
 ## Machine series support
 
-You can use Hyperdisk Throughput with the following machine series. You can't use Hyperdisk Throughput on bare metal instances, with the exception of C4D and A4X Max bare metal instances.
+You can use Hyperdisk Throughput with the following machine series. You can't use Hyperdisk Throughput on bare metal instances, with the exception of A5X, A4X Max, and C4D bare metal instances.
 
   * [A3 (H100)](https://docs.cloud.google.com/compute/docs/gpus#h100-gpus)
   * [A4X Max](https://docs.cloud.google.com/compute/docs/accelerator-optimized-machines#a4x-vms)
+  * [A5X](https://docs.cloud.google.com/compute/docs/accelerator-optimized-machines#a5x-instances)
   * [C3](https://docs.cloud.google.com/compute/docs/general-purpose-machines#c3_series)
   * [C3D](https://docs.cloud.google.com/compute/docs/general-purpose-machines#c3d_machine_types)
   * [C4](https://docs.cloud.google.com/compute/docs/general-purpose-machines#c4_series)
@@ -157,6 +158,8 @@ A3 (A3+H100)
 `a3-*-8g` | 12,000 | 3,000  
 A4X Max   
 `a4x-maxgpu-4g-metal` | 40,000 | 10,000  
+A5X 1,2  
+`a5x-highgpu-4g-metal`1,2 | 64,000 | 16,000  
 C3   
 `c3-*-4` | 960 | 240  
 `c3-*-8` | 3,200 | 800  
@@ -406,6 +409,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-04 UTC.
+Last updated 2026-11-06 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-06 UTC."],[],[]] 

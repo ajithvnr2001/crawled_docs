@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/graph-measures/
 title: Work with measures \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T05:43:15.566118+00:00
+fetched_at: 2026-11-07T08:32:24.329957+00:00
 ---
 
 # Work with measures  |  BigQuery  |  Google Cloud Documentation
@@ -52,7 +52,7 @@ Measures define their aggregation in reference to the `KEY` of the node or edge 
 
 You can't reference a property defined by a measure in a GQL query. Instead, you access measures by calling the [`GRAPH_EXPAND` TVF](https://docs.cloud.google.com/bigquery/docs/reference/standard-sql/graph-sql-queries#graph_expand) to query a relational representation of your graph. By default, `GRAPH_EXPAND` returns a flattened table representation of your graph with one column per property. You can also specify `flatten_results => FALSE` to return a hierarchical table with nested `STRUCT` columns. If your graph contains multiple root node tables, you can specify the `start_node` argument to choose which root table to traverse.
 
-This function doesn't accept all types of graphs. For more information about which graphs form valid input, see the [input limitations](https://docs.cloud.google.com/bigquery/docs/reference/standard-sql/graph-sql-queries#input_limitations). To run GQL queries, you must have a [reservation](https://docs.cloud.google.com/bigquery/docs/reservations-workload-management) that uses the [Enterprise or Enterprise Plus edition](https://docs.cloud.google.com/bigquery/docs/editions-intro). If you use on-demand pricing, you can call the `GRAPH_EXPAND` function to run SQL queries on your graph.
+This function doesn't accept all types of graphs. For more information about which graphs form valid input, see the [input limitations](https://docs.cloud.google.com/bigquery/docs/reference/standard-sql/graph-sql-queries#input_limitations). To run GQL queries, you must use on-demand pricing or have a [reservation](https://docs.cloud.google.com/bigquery/docs/reservations-workload-management) that uses the [Enterprise or Enterprise Plus edition](https://docs.cloud.google.com/bigquery/docs/editions-intro).
 
 You can call the [`AGG` function](https://docs.cloud.google.com/bigquery/docs/reference/standard-sql/aggregate_functions#agg) on output from the `GRAPH_EXPAND` TVF to aggregate the properties according to the aggregation defined in the measure.
 
@@ -494,6 +494,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-27 UTC.
+Last updated 2026-11-06 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-06 UTC."],[],[]] 

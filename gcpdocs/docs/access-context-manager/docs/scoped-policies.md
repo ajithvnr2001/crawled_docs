@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/access-context-manager/docs/scoped-policies/
 title: Scoped policies \u00a0|\u00a0 Access Context Manager \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T00:01:55.703819+00:00
+fetched_at: 2026-11-07T08:32:17.407201+00:00
 ---
 
 # Scoped policies  |  Access Context Manager  |  Google Cloud Documentation
@@ -32,8 +32,6 @@ When you delegate administration of a scoped policy, the delegated administrator
 ## Scoped policies management
 
 As an organization-level Access Context Manager administrator, you can create, modify, and delete scoped policies. You can specify Identity and Access Management (IAM) bindings on Access Context Manager policy directly, and allow further delegation of Access Context Manager policy administration to other users in the organization. A scoped policy administrator can configure service perimeters and access levels in policies. However, a scoped policy administrator cannot create a new policy or change the scope of the policy to apply to another folder or project.
-
-**Warning:** If an organization-level access policy doesn't exist for your organization, scoped policies that you create at the folder or project-level will not operate.
 
 Here is a sequence of how administrators manage the scoped policies:
 
@@ -86,6 +84,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-06 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-06 UTC."],[],[]] 

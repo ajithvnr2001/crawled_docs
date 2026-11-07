@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/compute/docs/instances/about-reservation-bound-instances/
 title: About instances that use the reservation-bound model \u00a0|\u00a0 Compute Engine \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T23:05:43.807906+00:00
+fetched_at: 2026-11-07T08:32:15.999338+00:00
 ---
 
 # About instances that use the reservation-bound model  |  Compute Engine  |  Google Cloud Documentation
@@ -44,7 +44,7 @@ To use the reservation-bound provisioning model to create compute instances, you
 
   * To reserve up to 80 A4, A3 Ultra, A3 Mega, A3 High with 8 GPUs, or A3 Edge instances, up to 256 H4D instances, or up to 1,024 TPU7x, TPU v6e, or TPU v5p chips for up to 90 days, use [future reservation requests in calendar mode](https://docs.cloud.google.com/compute/docs/instances/future-reservations-calendar-mode-overview).
 
-  * To reserve A4X Max, A4X, A4, A3 Ultra, A3 Mega, A3 High with 8 GPUs, A3 Edge, H4D, TPU7x, TPU v6e, or TPU v5p instances for any duration or quantity, use [future reservations for capacity blocks](https://docs.cloud.google.com/compute/docs/instances/choose-reservation-type#reserve-capacity-aihc).
+  * To reserve A5X, A4X Max, A4X, A4, A3 Ultra, A3 Mega, A3 High with 8 GPUs, A3 Edge, H4D, TPU7x, TPU v6e, or TPU v5p instances for any duration or quantity, use [future reservations for capacity blocks](https://docs.cloud.google.com/compute/docs/instances/choose-reservation-type#reserve-capacity-aihc).
 
 
 
@@ -94,7 +94,12 @@ When you create a compute instance by using the reservation-bound provisioning m
 
 To create compute instances by using the reservation-bound provisioning model, you must use one of the following machine series or TPU versions:
 
-  * GPUs:
+  * **High performance computing (HPC) machine series** :
+
+    * H4D
+  * **GPU machine series** :
+
+    * A5X
 
     * A4X Max
 
@@ -110,17 +115,14 @@ To create compute instances by using the reservation-bound provisioning model, y
 
     * A3 Edge
 
-To inquire about using other GPU machine series with the reservation-bound provisioning model, contact your [account team](https://cloud.google.com/tam) or the [sales team](https://cloud.google.com/contact).
-
-  * TPU versions:
+**Note:** To inquire about using other GPU machine series with the reservation-bound provisioning model, contact your [account team](https://cloud.google.com/tam) or the [sales team](https://cloud.google.com/contact).
+  * **TPU versions** :
 
     * TPU7x
 
-    * v6e
+    * TPU v6e
 
-    * v5p
-
-  * H4D
+    * TPU v5p
 
 
 
@@ -141,6 +143,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-06 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-06 UTC."],[],[]] 

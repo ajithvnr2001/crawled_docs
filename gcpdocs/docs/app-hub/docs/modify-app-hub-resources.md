@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/app-hub/docs/modify-app-hub-resources/
 title: Manage services and workloads \u00a0|\u00a0 App Hub \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T16:20:42.957496+00:00
+fetched_at: 2026-11-07T08:24:44.206227+00:00
 ---
 
 # Manage services and workloads  |  App Hub  |  Google Cloud Documentation
@@ -21,6 +21,12 @@ Send feedback
 
 #  Manage services and workloads Stay organized with collections  Save and categorize content based on your preferences. 
 
+App Hub lets you manage directly registered and discovered services and workloads so you can keep your application metadata accurate. As your infrastructure changes, you can view component details, update attributes, or unregister components from an application.
+
+For applications deployed from a [template](https://docs.cloud.google.com/app-hub/docs/key-concepts#template), update components in [Application Design Center](https://docs.cloud.google.com/application-design-center/docs/overview).
+
+## Overview
+
 When you [choose your application setup model](https://docs.cloud.google.com/app-hub/docs/set-up-app-hub), you define an [application management boundary](https://docs.cloud.google.com/app-hub/docs/key-concepts#app-mgmt-boundary) for your App Hub applications in a [management project](https://docs.cloud.google.com/app-hub/docs/key-concepts#mgmt-project). You can then register services and workloads in applications inside this boundary. For recommended use cases to introduce application management practices, see [Prepare for application lifecycle management](https://docs.cloud.google.com/app-hub/docs/prepare-for-app-lifecycle-management).
 
 To avoid configuration drift and maintain a clear source of truth, we recommend that you manage your application components in the environment where they were originally defined:
@@ -35,8 +41,6 @@ To avoid configuration drift and maintain a clear source of truth, we recommend 
 
 
 
-
-This page describes how to manage services and workloads that are discovered or registered directly within App Hub. You can perform these actions using either the Google Cloud console or the Google Cloud CLI. For applications deployed from a [template](https://docs.cloud.google.com/app-hub/docs/key-concepts#template), see [Application Design Center](https://docs.cloud.google.com/application-design-center/docs/overview) documentation.
 
 ## Before you begin
 
@@ -465,6 +469,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-07 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-07 UTC."],[],[]] 

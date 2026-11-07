@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/request-response-logging/
 title: Log and share requests and responses \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-06T08:23:26.811807+00:00
+fetched_at: 2026-11-07T08:24:53.384879+00:00
 ---
 
 # Log and share requests and responses  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation
@@ -59,20 +59,20 @@ This method can be used to create or update a `PublisherModelConfig`.
     
     
     # Specify the preview version of GenerativeModel
-    import [vertexai](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest)
+    import [vertexai](https://docs.cloud.google.com/python/docs/reference/vertexai/latest)
     from vertexai.preview.generative_models import(
-        [GenerativeModel](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest/vertexai.preview.generative_models.GenerativeModel.html),
+        [GenerativeModel](https://docs.cloud.google.com/python/docs/reference/vertexai/latest/vertexai.preview.generative_models.GenerativeModel.html),
         )
     
     PROJECT_ID = "PROJECT_ID"
     LOCATION = "LOCATION"
     
-    [vertexai](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest).init(project=PROJECT_ID, location=LOCATION)
+    [vertexai](https://docs.cloud.google.com/python/docs/reference/vertexai/latest).init(project=PROJECT_ID, location=LOCATION)
     
     publisher_model = GenerativeModel("gemini-2.5-flash")
     
     # Set logging configuration
-    publisher_model.[set_request_response_logging_config](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest/vertexai.preview.generative_models.GenerativeModel.html#vertexai_preview_generative_models_GenerativeModel_set_request_response_logging_config)(
+    publisher_model.[set_request_response_logging_config](https://docs.cloud.google.com/python/docs/reference/vertexai/latest/vertexai.preview.generative_models.GenerativeModel.html#vertexai_preview_generative_models_GenerativeModel_set_request_response_logging_config)(
         enabled=True,
         sampling_rate=1.0,
         bigquery_destination="bq://PROJECT_ID.DATASET_NAME.TABLE_NAME",
@@ -234,7 +234,7 @@ You should receive a JSON response similar to the following:
     }
     
 
-If request-response logging hasn't been configured for the model in the specified location, the request returns a `404 NOT_FOUND` error. This error indicates that no `PublisherModelConfig` resource exists and that request-response logging is in its default disabled state. If request-response logging was previously configured and then disabled, the response returns `"enabled": false` in the `loggingConfig` field.
+If request-response logging hasn't been configured for the model in the specified location, the request returns a `404 NOT_FOUND` error. This error indicates that no `PublisherModelConfig` resource exists and that request-response logging is in its default disabled state. If request-response logging was previously configured and then disabled, the response returns `"enabled": false` in the `loggingConfig` field. If request-response log sharing with a MaaS partner is configured for the model, the response also includes the `dataSharingEnabledProvider` field (see Sharing requests and responses with MaaS partners).
 
 ### Disable logging
 
@@ -244,20 +244,20 @@ Disable request-response logging for the foundation model by using the REST API 
     
     
     # Specify the preview version of GenerativeModel
-    import [vertexai](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest)
+    import [vertexai](https://docs.cloud.google.com/python/docs/reference/vertexai/latest)
     from vertexai.preview.generative_models import(
-        [GenerativeModel](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest/vertexai.preview.generative_models.GenerativeModel.html),
+        [GenerativeModel](https://docs.cloud.google.com/python/docs/reference/vertexai/latest/vertexai.preview.generative_models.GenerativeModel.html),
         )
     
     PROJECT_ID = "PROJECT_ID"
     LOCATION = "LOCATION"
     
-    [vertexai](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest).init(project=PROJECT_ID, location=LOCATION)
+    [vertexai](https://docs.cloud.google.com/python/docs/reference/vertexai/latest).init(project=PROJECT_ID, location=LOCATION)
     
     publisher_model = GenerativeModel("gemini-2.5-flash")
     
     # Disable logging
-    publisher_model.[set_request_response_logging_config](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest/vertexai.preview.generative_models.GenerativeModel.html#vertexai_preview_generative_models_GenerativeModel_set_request_response_logging_config)(
+    publisher_model.[set_request_response_logging_config](https://docs.cloud.google.com/python/docs/reference/vertexai/latest/vertexai.preview.generative_models.GenerativeModel.html#vertexai_preview_generative_models_GenerativeModel_set_request_response_logging_config)(
         enabled=False,
         sampling_rate=1.0,
         bigquery_destination="bq://PROJECT_ID.DATASET_NAME.TABLE_NAME"
@@ -359,20 +359,20 @@ This method can be used to update the request-response logging configuration for
     
     
     # Specify the preview version of GenerativeModel
-    import [vertexai](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest)
+    import [vertexai](https://docs.cloud.google.com/python/docs/reference/vertexai/latest)
     from vertexai.preview.generative_models import(
-        [GenerativeModel](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest/vertexai.preview.generative_models.GenerativeModel.html),
+        [GenerativeModel](https://docs.cloud.google.com/python/docs/reference/vertexai/latest/vertexai.preview.generative_models.GenerativeModel.html),
         )
     
     PROJECT_ID = "PROJECT_ID"
     LOCATION = "LOCATION"
     
-    [vertexai](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest).init(project=PROJECT_ID, location=LOCATION)
+    [vertexai](https://docs.cloud.google.com/python/docs/reference/vertexai/latest).init(project=PROJECT_ID, location=LOCATION)
     
     tuned_model = GenerativeModel(f"projects/{PROJECT_ID}/locations/{LOCATION}/endpoints/ENDPOINT_ID")
     
     # Set logging configuration
-    tuned_model.[set_request_response_logging_config](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest/vertexai.preview.generative_models.GenerativeModel.html#vertexai_preview_generative_models_GenerativeModel_set_request_response_logging_config)(
+    tuned_model.[set_request_response_logging_config](https://docs.cloud.google.com/python/docs/reference/vertexai/latest/vertexai.preview.generative_models.GenerativeModel.html#vertexai_preview_generative_models_GenerativeModel_set_request_response_logging_config)(
         enabled=True,
         sampling_rate=1.0,
         bigquery_destination=f"bq://{PROJECT_ID}.DATASET_NAME.TABLE_NAME",
@@ -489,20 +489,20 @@ Disable the request-response logging configuration for the endpoint.
     
     
     # Specify the preview version of GenerativeModel
-    import [vertexai](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest)
+    import [vertexai](https://docs.cloud.google.com/python/docs/reference/vertexai/latest)
     from vertexai.preview.generative_models import(
-        [GenerativeModel](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest/vertexai.preview.generative_models.GenerativeModel.html),
+        [GenerativeModel](https://docs.cloud.google.com/python/docs/reference/vertexai/latest/vertexai.preview.generative_models.GenerativeModel.html),
         )
     
     PROJECT_ID = "PROJECT_ID"
     LOCATION = "LOCATION"
     
-    [vertexai](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest).init(project=PROJECT_ID, location=LOCATION)
+    [vertexai](https://docs.cloud.google.com/python/docs/reference/vertexai/latest).init(project=PROJECT_ID, location=LOCATION)
     
     tuned_model = GenerativeModel(f"projects/{PROJECT_ID}/locations/{LOCATION}/endpoints/ENDPOINT_ID")
     
     # Disable logging
-    tuned_model.[set_request_response_logging_config](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest/vertexai.preview.generative_models.GenerativeModel.html#vertexai_preview_generative_models_GenerativeModel_set_request_response_logging_config)(
+    tuned_model.[set_request_response_logging_config](https://docs.cloud.google.com/python/docs/reference/vertexai/latest/vertexai.preview.generative_models.GenerativeModel.html#vertexai_preview_generative_models_GenerativeModel_set_request_response_logging_config)(
         enabled=False,
         sampling_rate=1.0,
         bigquery_destination="bq://PROJECT_ID.DATASET_NAME.TABLE_NAME"
@@ -579,7 +579,7 @@ VPC Service Controls protected projects are prevented from sharing data with Maa
 
 ### Enable data sharing
 
-Do the following:
+To enable request-response log sharing for a foundation model, use `setPublisherModelConfig` to set the `dataSharingEnabledProvider` field of the `PublisherModelConfig` resource to the uppercase name of the model's publisher (for example, `ANTHROPIC`):
 
 ###  REST API 
 
@@ -587,13 +587,13 @@ Before using any of the request data, make the following replacements:
 
   * ENDPOINT_PREFIX: the appropriate prefix for the model endpoint location. Use the following values: 
     * For the `global` endpoint, use `aiplatform`. 
-    * For multi-region endpoints like `us` or `eu`, use `aiplatform.LOCATION.rep`
+    * For multi-region endpoints like `us` or `eu`, use `aiplatform.LOCATION.rep`. 
     * For regional endpoints like `us-central1`, use `LOCATION-aiplatform`. 
   * PROJECT_ID: Your project ID. 
   * LOCATION: The location of the model endpoint. For example, `global`, `us`, `eu`, or `us-central1`. 
   * PUBLISHER: The model publisher's name, in lowercase. For example, `anthropic`. 
   * MODEL: The foundation model name. For example, `claude-fable-5`. 
-  * MAAS_PARTNER: The model publisher's name, in uppercase. The MaaS Partner must be the uppercase version of the `MODEL`, described above. For example, `ANTHROPIC`. 
+  * MAAS_PARTNER: To enable sharing, set this field to the model publisher's name, in uppercase. The MaaS Partner must be the uppercase version of the `PUBLISHER` of the `MODEL`. For example, `ANTHROPIC`. Setting this field to `MODEL_PROVIDER_UNSPECIFIED` disables data sharing. 
 
 
 
@@ -607,7 +607,7 @@ Request JSON body:
     
     {
       "publisherModelConfig": {
-        "dataSharingEnabledProvider": "ANTHROPIC"
+        "dataSharingEnabledProvider": "MAAS_PARTNER"
       }
     }
     
@@ -648,7 +648,7 @@ You should receive a successful status code (2xx) and an empty response.
 
 ### Get sharing config
 
-Do the following:
+Get the data sharing configuration for the foundation model by using `fetchPublisherModelConfig`. This is the same API method used to get the logging configuration for base foundation models and returns the complete `PublisherModelConfig` resource:
 
 ###  REST API 
 
@@ -656,7 +656,7 @@ Before using any of the request data, make the following replacements:
 
   * ENDPOINT_PREFIX: the appropriate prefix for the model endpoint location. Use the following values: 
     * For the `global` endpoint, use `aiplatform`. 
-    * For multi-region endpoints like `us` or `eu`, use `aiplatform.LOCATION.rep`
+    * For multi-region endpoints like `us` or `eu`, use `aiplatform.LOCATION.rep`. 
     * For regional endpoints like `us-central1`, use `LOCATION-aiplatform`. 
   * PROJECT_ID: Your project ID. 
   * LOCATION: The location of the model endpoint. For example, `global`, `us`, `eu`, or `us-central1`. 
@@ -707,9 +707,18 @@ You should receive a JSON response similar to the following:
     }
     
 
+The response contains the following fields:
+
+  * `loggingConfig`: The request-response logging configuration for BigQuery. If request-response logging isn't configured, this object is empty (`{}`). For details about the fields in `loggingConfig`, see Enable request-response logging and Get logging configuration. 
+  * `dataSharingEnabledProvider`: The MaaS partner for which request-response log sharing is enabled, such as `ANTHROPIC`. If data sharing is disabled, this field is set to `MODEL_PROVIDER_UNSPECIFIED` or omitted from the response. 
+
+
+
+If neither request-response logging nor data sharing has been configured for the model in the specified location, the request returns a `404 NOT_FOUND` error, which indicates that no `PublisherModelConfig` resource exists and both settings are in their default disabled state.
+
 ### Disable data sharing
 
-Do the following:
+To disable request-response log sharing for a foundation model, use `setPublisherModelConfig` to set `dataSharingEnabledProvider` to `MODEL_PROVIDER_UNSPECIFIED` (any valid provider value other than the uppercase name of the model's publisher disables data sharing for that model):
 
 ###  REST API 
 
@@ -717,7 +726,7 @@ Before using any of the request data, make the following replacements:
 
   * ENDPOINT_PREFIX: the appropriate prefix for the model endpoint location. Use the following values: 
     * For the `global` endpoint, use `aiplatform`. 
-    * For multi-region endpoints like `us` or `eu`, use `aiplatform.LOCATION.rep`
+    * For multi-region endpoints like `us` or `eu`, use `aiplatform.LOCATION.rep`. 
     * For regional endpoints like `us-central1`, use `LOCATION-aiplatform`. 
   * PROJECT_ID: Your project ID. 
   * LOCATION: The location of the model endpoint. For example, `global`, `us`, `eu`, or `us-central1`. 
@@ -852,6 +861,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-05 UTC.
+Last updated 2026-11-07 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-05 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-07 UTC."],[],[]] 

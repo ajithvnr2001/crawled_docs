@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/ai-hypercomputer/docs/nccl/overview/
 title: Optimize cluster networking by using NCCL/gIB \u00a0|\u00a0 AI Hypercomputer \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T18:56:06.895823+00:00
+fetched_at: 2026-11-07T08:32:29.513268+00:00
 ---
 
 # Optimize cluster networking by using NCCL/gIB  |  AI Hypercomputer  |  Google Cloud Documentation
@@ -25,7 +25,7 @@ Send feedback
 
 Modern machine learning frameworks often use the [NVIDIA Collective Communications Library (NCCL)](https://developer.nvidia.com/nccl) for GPU-to-GPU communication primitives.
 
-Google's enhanced version of NCCL is called NCCL/gIB and is available on Google Cloud's A3 Ultra, A4, and A4X VMs. NCCL/gIB is often more performant than upstream NCCL on Google infrastructure. Because NCCL performance can impact overall workload performance, we recommend that you use NCCL/gIB.
+Google's enhanced version of NCCL is called NCCL/gIB and is available on Google Cloud's A5X, A4X Max, A4X, A4, and A3 Ultra instances. NCCL/gIB is often more performant than upstream NCCL on Google infrastructure. Because NCCL performance can affect overall workload performance, we recommend that you use NCCL/gIB.
 
 NCCL/gIB contains Google-specific features and optimizations such as the following:
 
@@ -69,8 +69,9 @@ Before you run NCCL tests, you must [install NCCL/gIB](https://docs.cloud.google
 To run NCCL/gIB tests on your cluster, choose the page from the following list that best meets your requirements:
 
   * [Use gIB NCCL plugins in NVIDIA NGC containers](https://docs.cloud.google.com/ai-hypercomputer/docs/nccl/ngc-containers)
-  * [Run NCCL tests on Compute Engine VMs](https://docs.cloud.google.com/ai-hypercomputer/docs/nccl/test-vms)
+  * [Run NCCL tests on Compute Engine instances](https://docs.cloud.google.com/ai-hypercomputer/docs/nccl/test-vms)
   * [Run NCCL on GKE clusters that use Cluster Toolkit](https://docs.cloud.google.com/ai-hypercomputer/docs/nccl/test-gke)
+  * [Run NCCL on GKE clusters that use A4X Max](https://docs.cloud.google.com/ai-hypercomputer/docs/nccl/test-gke-custom-a4x-max)
   * [Run NCCL on GKE clusters that use A4X](https://docs.cloud.google.com/ai-hypercomputer/docs/nccl/test-gke-custom-a4x)
   * [Run NCCL on GKE clusters that use A4 or A3 Ultra](https://docs.cloud.google.com/ai-hypercomputer/docs/nccl/test-gke-custom)
   * [Run NCCL tests on Slurm clusters](https://docs.cloud.google.com/ai-hypercomputer/docs/nccl/test-slurm)
@@ -78,12 +79,14 @@ To run NCCL/gIB tests on your cluster, choose the page from the following list t
 
 
 
-To learn how to address any issues with your cluster after you have run your tests, see [Collect and understand NCCL/gIB logs for troubleshooting](https://docs.cloud.google.com/ai-hypercomputer/docs/nccl/collect-and-understand).
+For directions on how to run NCCL/gIB on GKE clusters that use A5X, contact your Google Cloud representative.
+
+To learn how to address any issues with your cluster after you've run your tests, see [Collect and understand NCCL/gIB logs for troubleshooting](https://docs.cloud.google.com/ai-hypercomputer/docs/nccl/collect-and-understand).
 
 Send feedback 
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-06 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-06 UTC."],[],[]] 

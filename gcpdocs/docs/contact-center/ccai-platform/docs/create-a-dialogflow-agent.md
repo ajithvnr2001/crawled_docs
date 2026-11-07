@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/contact-center/ccai-platform/docs/create-a-dialogflow-agent/
 title: Create and integrate Dialogflow agents \u00a0|\u00a0 Google Cloud Contact Center as a Service \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T23:26:37.218307+00:00
+fetched_at: 2026-11-07T08:32:44.607210+00:00
 ---
 
 # Create and integrate Dialogflow agents  |  Google Cloud Contact Center as a Service  |  Google Cloud Documentation
@@ -69,6 +69,8 @@ After you've made a virtual agent, to onboard it into the CCAI Platform portal, 
 For additional information, read about [Agent Assist conversation profiles](https://docs.cloud.google.com/agent-assist/docs/conversation-profile).
 
 Conversation profiles provide the ability to use [Dialogflow CX versions and environments](https://docs.cloud.google.com/dialogflow/cx/docs/concept/version). Environments are isolated spaces where you can deploy different versions of your Dialogflow CX agent. This lets you manage and test multiple versions of your virtual agent in a controlled way.
+
+**Note:** When bidirectional streaming (`useBidiStreaming`) is enabled on a conversation profile, conversations use the `BidiStreamingAnalyzeContent` method, and the conversation profile determines the language rather than the CCAI Platform queue. When a conversation uses the `StreamingAnalyzeContent` method (the default), CCAI Platform sets the language in the `StreamingAnalyzeContentRequest` message based on the queue language.
 
 ## Create a service account and key
 
@@ -198,6 +200,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-06 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-06 UTC."],[],[]] 

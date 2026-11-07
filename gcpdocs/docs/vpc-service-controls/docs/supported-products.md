@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/vpc-service-controls/docs/supported-products/
 title: Supported products and limitations \u00a0|\u00a0 VPC Service Controls \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T06:01:39.945251+00:00
+fetched_at: 2026-11-07T08:32:55.228916+00:00
 ---
 
 # Supported products and limitations  |  VPC Service Controls  |  Google Cloud Documentation
@@ -3008,6 +3008,15 @@ For more information, see [Configure VPC Service Controls for Audit Manager](htt
 **Details** |  The API for App Optimize API can be protected by VPC Service Controls and the product can be used normally inside service perimeters.  For more information about App Optimize API, refer to the [product documentation](https://docs.cloud.google.com/app-optimize).   
 **Limitations** |  The App Optimize API integration with VPC Service Controls has no known limitations.   
   
+###  [Service Management](https://docs.cloud.google.com/service-infrastructure/docs/service-management/getting-started)
+
+|  |  **Status** |  **GA**. This product integration is fully supported by VPC Service Controls.   
+---|---  
+**Protect with perimeters?** |  **Yes.** You can configure your perimeters to protect this service.   
+**Service name** |  `servicemanagement.googleapis.com`  
+**Details** |  The API for Service Management can be protected by VPC Service Controls and the product can be used normally inside service perimeters.  For more information about Service Management, refer to the [product documentation](https://docs.cloud.google.com/service-infrastructure/docs/service-management/getting-started).   
+**Limitations** |  The Service Management integration with VPC Service Controls has no known limitations.   
+  
 For more information, read about [supported and unsupported services](https://docs.cloud.google.com/vpc-service-controls/docs/troubleshooting#services). 
 
 ## Manage access to unsupported services
@@ -3207,7 +3216,7 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-30 UTC.
+Last updated 2026-11-06 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-06 UTC."],[],[]] 
   *[VPC]: Virtual Private Cloud

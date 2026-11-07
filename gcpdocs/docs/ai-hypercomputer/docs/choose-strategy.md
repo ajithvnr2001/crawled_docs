@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/ai-hypercomputer/docs/choose-strategy/
 title: Choose between general GPUs and clustered GPUs \u00a0|\u00a0 AI Hypercomputer \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T18:24:33.620478+00:00
+fetched_at: 2026-11-07T08:32:28.287456+00:00
 ---
 
 # Choose between general GPUs and clustered GPUs  |  AI Hypercomputer  |  Google Cloud Documentation
@@ -68,7 +68,7 @@ The following sections outline the accelerators and consumption options that we 
 
 ### Recommended accelerators
 
-To pre-train foundation models on Google Cloud, we recommend that you use **A4X Max** (NVIDIA GB300), **A4X** (NVIDIA GB200), **A4** (NVIDIA B200), **A3 Ultra** (NVIDIA H200 141GB), **A3 Mega** (NVIDIA H100 80GB), or **A3 High** (NVIDIA H100 80GB) accelerator-optimized machine types, and use an orchestrator to deploy the cluster.
+To pre-train foundation models on Google Cloud, we recommend that you use **A5X** (NVIDIA Vera Rubin), **A4X Max** (NVIDIA GB300), **A4X** (NVIDIA GB200), **A4** (NVIDIA B200), **A3 Ultra** (NVIDIA H200 141GB), **A3 Mega** (NVIDIA H100 80GB), or **A3 High** (NVIDIA H100 80GB) accelerator-optimized machine types, and use an orchestrator to deploy the cluster.
 
 To deploy these clusters of accelerators, we also recommend that you use [Cluster Director](https://docs.cloud.google.com/cluster-director/docs/overview) or [Cluster Toolkit](https://docs.cloud.google.com/cluster-toolkit/docs/overview). For more information, see the respective cluster deployment guide for your machine type of choice in the following table.
 
@@ -77,6 +77,7 @@ Workloads | Recommendations | Cluster deployment guide
 | Machine type | Orchestrator |   
 Pre-training foundation models | 
 
+  * **A5X** (NVIDIA Vera Rubin)
   * **A4X Max** (NVIDIA GB300)
   * **A4X** (NVIDIA GB200)
   * **A4** (NVIDIA B200)
@@ -163,13 +164,14 @@ The recommended accelerators for inference depend on whether you're performing m
 
 #### Recommended accelerators (multi-host)
 
-To perform multi-host frontier or large model inference on Google Cloud, use an **A4X Max** (NVIDIA GB300), **A4X** (NVIDIA GB200), **A4** (NVIDIA B200), **A3 Ultra** (NVIDIA H200 141GB), **A3 Mega** (NVIDIA H100 80GB), or **A3 High** (NVIDIA H100 80GB) accelerator-optimized machine types, and deploy the machine by using an orchestrator. To deploy these clusters of accelerators, we also recommend that you use [Cluster Director](https://docs.cloud.google.com/cluster-director/docs/overview) or [ Cluster Toolkit](https://docs.cloud.google.com/cluster-toolkit/docs/overview). The table provides links to cluster deployment guides for each recommended machine type.
+To perform multi-host frontier or large model inference on Google Cloud, use **A5X** (NVIDIA Vera Rubin), **A4X Max** (NVIDIA GB300), **A4X** (NVIDIA GB200), **A4** (NVIDIA B200), **A3 Ultra** (NVIDIA H200 141GB), **A3 Mega** (NVIDIA H100 80GB), or **A3 High** (NVIDIA H100 80GB) accelerator-optimized machine types, and deploy the instances by using an orchestrator. To deploy these clusters of accelerators, we also recommend that you use [Cluster Director](https://docs.cloud.google.com/cluster-director/docs/overview) or [Cluster Toolkit](https://docs.cloud.google.com/cluster-toolkit/docs/overview). The table provides links to cluster deployment guides for each recommended machine type.
 
 Workloads | Recommendations | Cluster deployment guide  
 ---|---|---  
 | Machine type | Orchestrator |   
 Multi-host frontier inference | 
 
+  * **A5X** (NVIDIA Vera Rubin)
   * **A4X Max** (NVIDIA GB300)
   * **A4X** (NVIDIA GB200)
   * **A4** (NVIDIA B200)
@@ -257,14 +259,14 @@ The following table summarizes the recommended accelerators and consumption opti
 Resource | Recommendation  
 ---|---  
 Model pre-training  
-Machine family | Use one of the following accelerator-optimized machine types: **A4X Max** (NVIDIA GB300), **A4X** (NVIDIA GB200), **A4** (NVIDIA B200), **A3 Ultra** (NVIDIA H200 141GB), **A3 Mega** (NVIDIA H100 80GB), or **A3 High** (NVIDIA H100 80GB)  
-Consumption option | 'Use standard future reservations  
+Machine family | Use one of the following accelerator-optimized machine types: **A5X** (NVIDIA Vera Rubin), **A4X Max** (NVIDIA GB300), **A4X** (NVIDIA GB200), **A4** (NVIDIA B200), **A3 Ultra** (NVIDIA H200 141GB), **A3 Mega** (NVIDIA H100 80GB), or **A3 High** (NVIDIA H100 80GB)  
+Consumption option | Use standard future reservations for capacity blocks (for A5X, A4X Max, and A4X) or standard future reservations  
 Model fine-tuning  
 Machine family | Use **A3 Ultra** (NVIDIA H200 141GB), **A3 Mega** (NVIDIA H100 80GB), or **A3 High** (NVIDIA H100 80GB) accelerator-optimized machine types  
 Consumption option | 'Use standard future reservations  
 Inference  
-Machine family | Use one of the following machine types: **A4X Max** (NVIDIA GB300), **A4X** (NVIDIA GB200), **A4** (NVIDIA B200), **A3 Ultra** (NVIDIA H200 141GB), **A3 Mega** (NVIDIA H100 80GB), **A3 High** (NVIDIA H100 80GB), **A3 Edge** (NVIDIA H100 80GB), **A2** (NVIDIA A100), **G4** (NVIDIA RTX PRO 6000), **G2** (NVIDIA L4), or **N1** (NVIDIA T4 or V100)  
-Consumption option | Use reservations, on-demand, or Spot  
+Machine family | Use one of the following machine types: **A5X** (NVIDIA Vera Rubin), **A4X Max** (NVIDIA GB300), **A4X** (NVIDIA GB200), **A4** (NVIDIA B200), **A3 Ultra** (NVIDIA H200 141GB), **A3 Mega** (NVIDIA H100 80GB), **A3 High** (NVIDIA H100 80GB), **A3 Edge** (NVIDIA H100 80GB), **A2** (NVIDIA A100), **G4** (NVIDIA RTX PRO 6000), **G2** (NVIDIA L4), or **N1** (NVIDIA T4 or V100)  
+Consumption option | Use reservations, on-demand, or Spot (except A5X, A4X Max, and A4X, which don't support Spot or on-demand)  
 ML for small or medium-sized models  
 Machine family | Use one of the following machine types: **A3 Edge** (NVIDIA H100 80GB), **A2** (NVIDIA A100), **G4** (NVIDIA RTX PRO 6000), **G2** (NVIDIA L4), or **N1** (NVIDIA T4 or V100)  
 Consumption option | Use on-demand, Spot, or standard reservations  
@@ -284,6 +286,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-06 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-06 UTC."],[],[]] 

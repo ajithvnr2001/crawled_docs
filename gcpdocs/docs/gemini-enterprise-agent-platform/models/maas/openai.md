@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/maas/openai/
 title: OpenAI models \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-06T10:42:37.828781+00:00
+fetched_at: 2026-11-07T08:27:35.431129+00:00
 ---
 
 # OpenAI models  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation
@@ -33,20 +33,11 @@ The 120B model achieves near-parity with OpenAI o4-mini on core reasoning benchm
 
 [ Go to the gpt-oss 120B model card ](https://console.cloud.google.com/agent-platform/publishers/openai/model-garden/gpt-oss-120b-maas)
 
-### gpt-oss 20B
-
-OpenAI gpt-oss 20B is a 20B open-weight language model released under the Apache 2.0 license. It is well-suited for reasoning and function calling use cases. The model is optimized for deployment on consumer hardware. 
-
-The 20B model delivers similar results to OpenAI o3-mini on common benchmarks and can run on edge devices with 16GB of memory, making it ideal for on-device use cases, local inference, or rapid iteration without costly infrastructure. 
-
-[ Go to the gpt-oss 20B model card ](https://console.cloud.google.com/agent-platform/publishers/openai/model-garden/gpt-oss-20b-maas)
-
 ## Use OpenAI models
 
 For managed models, you can use curl commands to send requests to the Gemini Enterprise Agent Platform endpoint using the following model names: 
 
   * For gpt-oss 120B, use `gpt-oss-120b-maas`
-  * For gpt-oss 20B, use `gpt-oss-20b-maas`
 
 
 
@@ -73,11 +64,6 @@ gpt-oss 120B |
   * `global`
 
   
-gpt-oss 20B | 
-
-  * `us-central1`
-
-  
   
 ## What's next
 
@@ -87,6 +73,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-05 UTC.
+Last updated 2026-11-07 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-05 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-07 UTC."],[],[]] 

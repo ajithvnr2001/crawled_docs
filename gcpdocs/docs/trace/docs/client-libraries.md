@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/trace/docs/client-libraries/
 title: Client libraries \u00a0|\u00a0 Cloud Trace \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-05T00:17:40.084952+00:00
+fetched_at: 2026-11-07T08:29:42.730540+00:00
 ---
 
 # Client libraries  |  Cloud Trace  |  Google Cloud Documentation
@@ -56,11 +56,13 @@ GitHub: [`googleapis/google-cloud-trace`](https://github.com/googleapis/google-c
 
   * ASP.NET:
 
+**Note:** We recommend that you use OpenTelemetry for .NET. For more information, see the [.NET SDK](https://opentelemetry.io/docs/languages/dotnet/).
     * Library: [`Google.Cloud.Diagnostics.AspNet`](https://googleapis.dev/dotnet/Google.Cloud.Diagnostics.AspNet/latest/index.html)
     * NuGet package: [`Google.Cloud.Diagnostics.AspNet`](https://www.nuget.org/packages/Google.Cloud.Diagnostics.AspNet/)
     * GitHub: [`Google.Cloud.Diagnostics.AspNet version 4.0.0`](https://github.com/googleapis/google-cloud-dotnet/releases/tag/Google.Cloud.Diagnostics.AspNet-4.0.0)
   * ASP.NET Core:
 
+**Note:** We recommend that you use OpenTelemetry for .NET. For more information, see the [.NET SDK](https://opentelemetry.io/docs/languages/dotnet/).
     * Libraries: [`Google.Cloud.Diagnostics.AspNetCore3`](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.Diagnostics.AspNetCore3/latest) and [`Google.Cloud.Diagnostics.AspNetCore`](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.Diagnostics.AspNetCore/latest)
     * NuGet packages: [`Google.Cloud.Diagnostics.AspNetCore3`](https://www.nuget.org/packages/Google.Cloud.Diagnostics.AspNetCore3/) and [`Google.Cloud.Diagnostics.AspNetCore`](https://www.nuget.org/packages/Google.Cloud.Diagnostics.AspNetCore/)
     * GitHub: [`googleapis/google-cloud-dotnet`](https://github.com/googleapis/google-cloud-dotnet)
@@ -71,6 +73,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-04 UTC.
+Last updated 2026-11-06 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-06 UTC."],[],[]] 

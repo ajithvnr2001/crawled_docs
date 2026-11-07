@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/autoscaling/
 title: Scale inference nodes by using autoscaling \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-06T10:45:46.279761+00:00
+fetched_at: 2026-11-07T08:28:16.362897+00:00
 ---
 
 # Scale inference nodes by using autoscaling  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation
@@ -33,9 +33,9 @@ By default, the deployment operation is only considered successful if the number
 
 You can modify the default deployment behavior by setting `dedicatedResources.requiredReplicaCount` to a value that is less than `dedicatedResources.minReplicaCount`. In this case, when the number of inference nodes reaches `dedicatedResources.requiredReplicaCount`, the deployment operation is marked as successful, even though it is not yet complete. Deployment continues until `dedicatedResources.minReplicaCount` is reached. If `dedicatedResources.minReplicaCount` isn't reached before the deployment request time, the operation is still successful, but an error message for the failed replicas is returned in `DeployedModel.status.message`.
 
-Quota for _Custom model serving_ is calculated based on your [deployed model's](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/deployment#scaling) real-time usage of compute resources. If the sum of `maxReplicaCount` for all the deployments in your project is more than your project's quota, some deployments may fail to autoscale due to quota being exhausted.
+Quota for _Custom model serving_ is reserved based on the `dedicatedResources.maxReplicaCount` value of each [deployed model](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/deployment#scaling) in your project and region, rather than the number of active replicas. Billing is based on the active replicas that are running. If the sum of `maxReplicaCount` across all deployments in your project and region exceeds your project's serving quota, deploying a new model or increasing `maxReplicaCount` fails with a quota error.
 
-Endpoints are scaled up and down per machine, but quota is calculated per CPU or GPU. For example, if your model is deployed to `a2-highgpu-2g` machine type, each active replica counts as 24 CPUs and 2 GPUs against your project's quota. For more information, see [Quota and limits](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/quotas#serving).
+Endpoints scale up and down per machine, and serving quota is calculated per CPU and GPU. For example, if you deploy a model using the `a2-highgpu-2g` machine type (24 vCPUs and 2 GPUs per replica) with `maxReplicaCount` set to `5`, the deployment reserves 120 CPUs and 10 GPUs against your project's quota even when fewer replicas are active. To release reserved quota without undeploying the model, lower `maxReplicaCount` by calling [`mutateDeployedModel`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.endpoints/mutateDeployedModel). For more information, see [Quotas and limits](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/quotas#serving).
 
 The inference nodes for batch inference don't automatically scale. Agent Platform uses [`BatchDedicatedResources.startingReplicaCount`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.batchPredictionJobs#BatchDedicatedResources) and ignores `BatchDedicatedResources.maxReplicaCount`.
 
@@ -55,11 +55,11 @@ The following autoscaling metrics are supported:
   * **vLLM GPU KV cache usage percentage** ([Preview](https://cloud.google.com/products#product-launch-stages))(`prometheus.googleapis.com/vertex_vllm_gpu_cache_usage_perc`): Scales based on vLLM metrics for GPU KV cache usage percentage. Its unit is GPU KV cache usage percentage per replica. The target value is a percentage (0-100). This metric is disabled by default.
   * **vLLM number of requests waiting** ([Preview](https://cloud.google.com/products#product-launch-stages))(`prometheus.googleapis.com/vertex_vllm_num_requests_waiting`): Scales based on vLLM metrics for number of requests waiting. Its unit is number of requests waiting per replica. The target value is an integer. This metric is disabled by default.
   * **Request count** (`aiplatform.googleapis.com/prediction/online/request_count`): Scales based on the number of requests. Its unit is requests per minute per replica. The target value is an integer. This metric is disabled by default.
-  * **Pub/Sub Queue Size** ([Preview](https://cloud.google.com/products#product-launch-stages), no Google Cloud CLI support) (`pubsub.googleapis.com/subscription/num_undelivered_messages`): Scales based on the number of undelivered messages of a Pub/Sub subscription. Its unit is undelivered messages per replica. The target value is an integer. This metric is disabled by default.
+  * **Pub/Sub Queue Size** ([Preview](https://cloud.google.com/products#product-launch-stages), `v1beta1` API only; no Google Cloud CLI support) (`pubsub.googleapis.com/subscription/num_undelivered_messages`): Scales based on the number of undelivered messages of a Pub/Sub subscription. Its unit is undelivered messages per replica. The target value is an integer. This metric is disabled by default.
 
 
 
-When configuring autoscaling, use METRIC_NAME for the metric identifier and TARGET_THRESHOLD for the target value.
+When configuring autoscaling, use METRIC_NAME for the metric identifier and TARGET_THRESHOLD for the target value. Specify the exact metric identifier shown in the preceding list; other metrics exported to Cloud Monitoring aren't supported as autoscaling targets. For `prometheus.googleapis.com/*` metrics, omit the `/gauge` metric-type suffix that appears in Monitoring (for example, specify `prometheus.googleapis.com/vertex_vllm_num_requests_waiting`, not `prometheus.googleapis.com/vertex_vllm_num_requests_waiting/gauge`).
 
 #### Configure autoscaling during deployment
 
@@ -91,7 +91,7 @@ Before using any of the command data, make the following replacements:
   * **ACCELERATOR_COUNT** : Optional. The number of accelerators to attach to each machine.
   * **MIN_REPLICA_COUNT** : The minimum number of replicas for autoscaling.
   * **MAX_REPLICA_COUNT** : The maximum number of replicas for autoscaling.
-  * **METRIC_NAME_GCLOUD** : The identifier of the autoscaling metric.
+  * **METRIC_NAME** : The identifier of the autoscaling metric.
   * **TARGET_THRESHOLD** : The target value for the specified metric.
 
 
@@ -107,7 +107,7 @@ Before using any of the command data, make the following replacements:
         --accelerator-count=ACCELERATOR_COUNT \
         --min-replica-count=MIN_REPLICA_COUNT \
         --max-replica-count=MAX_REPLICA_COUNT \
-        --autoscaling-metric-specs=METRIC_NAME_GCLOUD=TARGET_THRESHOLD
+        --autoscaling-metric-specs=METRIC_NAME=TARGET_THRESHOLD
     
 
 ###  REST 
@@ -163,22 +163,30 @@ Request JSON body:
     }
     
 
-For Pub/Sub Queue Size metrics based autoscaling ([Preview](https://cloud.google.com/products#product-launch-stages)), additional Pub/Sub subscription information is needed:
+For Pub/Sub Queue Size autoscaling ([Preview](https://cloud.google.com/products#product-launch-stages)), use the [`v1beta1` `projects.locations.endpoints.deployModel`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.endpoints/deployModel) method, because [`monitoredResourceLabels`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/DedicatedResources#AutoscalingMetricSpec) is supported only in the `v1beta1` API. Make the following additional replacements:
 
   * **PUBSUB_SUBSCRIPTION_PROJECT_ID** : The project ID of the Pub/Sub subscription.
   * **PUBSUB_SUBSCRIPTION_ID** : The ID of the Pub/Sub subscription. This field has a maximum length of 63 characters.
 
 
+
+HTTP method and URL:
+    
+    
+    POST https://LOCATION-aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/LOCATION/endpoints/ENDPOINT_ID:deployModel
+    
+
+In the request JSON body, configure `autoscalingMetricSpecs` as follows:
     
     
           "autoscalingMetricSpecs": [
             {
-              "metricName": "METRIC_NAME",
+              "metricName": "pubsub.googleapis.com/subscription/num_undelivered_messages",
               "target": TARGET_THRESHOLD,
               "monitoredResourceLabels": {
                 "project_id": "PUBSUB_SUBSCRIPTION_PROJECT_ID",
                 "subscription_id": "PUBSUB_SUBSCRIPTION_ID"
-              },
+              }
             }
           ]
     
@@ -312,7 +320,7 @@ Before using any of the request data, make the following replacements:
 HTTP method and URL:
     
     
-    PATCH https://LOCATION-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/endpoints/ENDPOINT_ID:mutateDeployedModel
+    POST https://LOCATION-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/endpoints/ENDPOINT_ID:mutateDeployedModel
     
 
 Request JSON body:
@@ -342,22 +350,30 @@ Request JSON body:
     }
     
 
-For Pub/Sub Queue Size metrics based autoscaling ([Preview](https://cloud.google.com/products#product-launch-stages)), additional Pub/Sub subscription information is needed:
+For Pub/Sub Queue Size autoscaling ([Preview](https://cloud.google.com/products#product-launch-stages)), use the [`v1beta1` `projects.locations.endpoints.mutateDeployedModel`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.endpoints/mutateDeployedModel) method, because [`monitoredResourceLabels`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/DedicatedResources#AutoscalingMetricSpec) is supported only in the `v1beta1` API. Make the following additional replacements:
 
   * **PUBSUB_SUBSCRIPTION_PROJECT_ID** : The project ID of the Pub/Sub subscription.
-  * **PUBSUB_SUBSCRIPTION_ID** : The ID of the Pub/Sub subscription.
+  * **PUBSUB_SUBSCRIPTION_ID** : The ID of the Pub/Sub subscription. This field has a maximum length of 63 characters.
 
 
+
+HTTP method and URL:
+    
+    
+    POST https://LOCATION-aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/LOCATION/endpoints/ENDPOINT_ID:mutateDeployedModel
+    
+
+In the request JSON body, configure `autoscalingMetricSpecs` as follows:
     
     
           "autoscalingMetricSpecs": [
             {
-              "metricName": "METRIC_NAME",
+              "metricName": "pubsub.googleapis.com/subscription/num_undelivered_messages",
               "target": TARGET_THRESHOLD,
               "monitoredResourceLabels": {
                 "project_id": "PUBSUB_SUBSCRIPTION_PROJECT_ID",
                 "subscription_id": "PUBSUB_SUBSCRIPTION_ID"
-              },
+              }
             }
           ]
     
@@ -722,6 +738,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-05 UTC.
+Last updated 2026-11-07 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-05 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-07 UTC."],[],[]] 

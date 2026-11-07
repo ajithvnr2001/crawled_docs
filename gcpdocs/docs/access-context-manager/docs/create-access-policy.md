@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/access-context-manager/docs/create-access-policy/
 title: Create an access policy \u00a0|\u00a0 Access Context Manager \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T01:28:51.437165+00:00
+fetched_at: 2026-11-07T08:32:16.749062+00:00
 ---
 
 # Create an access policy  |  Access Context Manager  |  Google Cloud Documentation
@@ -95,9 +95,7 @@ If successful, the response body for the call contains an [`Operation`](https://
 
 ## Create a scoped access policy and delegate the policy
 
-Only VPC Service Controls supports creating a scoped access policy. You must continue to use organization-level policies for Google Cloud services, such as Identity-Aware Proxy (IAP).
-
-**Warning:** If an organization-level access policy doesn't exist for your organization, scoped policies that you create at the folder or project-level will not operate.
+Only VPC Service Controls lets you create a scoped access policy. You must continue to use organization-level policies for Google Cloud services, such as Identity-Aware Proxy (IAP).
 
 ###  Console 
 
@@ -133,7 +131,7 @@ The scoped access policy name can have a maximum length of 50 characters, must s
 
        1. In the **Scopes** pane, click **Add folder**.
 
-       2. In the **Add folders** dialog, select that folders's checkbox.
+       2. In the **Add folders** dialog, select that folder's checkbox.
 
        3. Click **Done**. The added folder appears in the **Scopes** section.
 
@@ -143,7 +141,7 @@ The scoped access policy name can have a maximum length of 50 characters, must s
 
      1. In the **Principals** pane, click **Add principals**.
 
-     2. In the **Add principals** dialog, select a principal, such as a user name or service account.
+     2. In the **Add principals** dialog, select a principal, such as a username or service account.
 
      3. Select the role that you want to associate with the principal, such as editor and read roles.
 
@@ -241,14 +239,14 @@ Where:
      * IAM_POLICY is a collection of bindings. A binding binds one or more members, or principals, to a single role. Principals can be user accounts, service accounts, Google groups, and domains. A role is a named list of permissions; each role can be an IAM predefined role or a user-created custom role.
   2. Create the access policy by calling [`accessPolicies.setIamPolicy`](https://docs.cloud.google.com/access-context-manager/docs/reference/rest/v1/accessPolicies/setIamPolicy).
 
-When the operation completes, the response body contains the [`accessPolicy`](https://docs.cloud.google.com/access-context-manager/docs/reference/rest/v1/accessPolicies). The `name` field contains the resource name: `accessPolicy`/`POLICY_ID`
+When the operation completes, the response body contains the [`accessPolicy`](https://docs.cloud.google.com/access-context-manager/docs/reference/rest/v1/accessPolicies). The `name` field contains the resource name: `accessPolicy/POLICY_ID`
 
      1. To set the IAM policy, use the following endpoint:
     
     POST https://accesscontextmanager.googleapis.com/v1/accessPolicies/POLICY_ID:setIamPolicy
     
 
-Replace `POLICY_ID` with the policy ID from that was returned from `accessPolicies.create`.
+Replace `POLICY_ID` with the policy ID that was returned from `accessPolicies.create`.
 
 The request body must contain the IAM policy to set.
 
@@ -269,6 +267,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-06 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-06 UTC."],[],[]] 

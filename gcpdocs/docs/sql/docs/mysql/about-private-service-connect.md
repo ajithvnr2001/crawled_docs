@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sql/docs/mysql/about-private-service-connect/
 title: Overview of Private Service Connect in Cloud SQL \u00a0|\u00a0 Cloud SQL for MySQL \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-06T10:24:48.907206+00:00
+fetched_at: 2026-11-07T08:29:32.943407+00:00
 ---
 
 # Overview of Private Service Connect in Cloud SQL  |  Cloud SQL for MySQL  |  Google Cloud Documentation
@@ -130,7 +130,7 @@ To learn how to use the NCC hub to propagate Private Service Connect endpoints t
 
 ## Private Service Connect backend
 
-You can use [_Private Service Connect backends_](https://docs.cloud.google.com/vpc/docs/private-service-connect#backends) as an alternative to [_Private Service Connect endpoints_](https://docs.cloud.google.com/vpc/docs/private-service-connect#endpoints), to access Cloud SQL instances. For ease of use, we recommend connecting to your Cloud SQL instances using Private Service Connect endpoints. For additional control and visibility, you can connect using Private Service Connect backends.
+You can use [_Private Service Connect backends_](https://docs.cloud.google.com/vpc/docs/private-service-connect#backends) as an alternative to [_Private Service Connect endpoints_](https://docs.cloud.google.com/vpc/docs/private-service-connect#endpoints) to access Cloud SQL instances. For ease of use, we recommend connecting to your Cloud SQL instances using Private Service Connect endpoints. Compared to Private Service Connect endpoints, Private Service Connect backends offer additional traffic management, security, and observability capabilities, such as logging each connection. For more information, see [Private Service Connect backends](https://docs.cloud.google.com/vpc/docs/private-service-connect-backends).
 
 To use Private Service Connect backends, you must set up the following resources for each serving port on which you want to access a given Cloud SQL instance:
 
@@ -142,6 +142,8 @@ The supported serving ports for MySQL are as follows:
   * TCP port 3307 for connections through [Cloud SQL Auth Proxy](https://docs.cloud.google.com/sql/docs/mysql/sql-proxy). 
 
 
+
+For step-by-step instructions on configuring a Private Service Connect backend, see [Create a Private Service Connect backend](https://docs.cloud.google.com/sql/docs/mysql/configure-private-service-connect#create-psc-backend).
 
 ## Private Service Connect outbound connections
 
@@ -185,6 +187,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-03 UTC.
+Last updated 2026-11-06 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-06 UTC."],[],[]] 

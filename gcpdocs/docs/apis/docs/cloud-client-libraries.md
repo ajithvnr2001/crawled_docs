@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/apis/docs/cloud-client-libraries/
 title: Cloud Client Libraries \u00a0|\u00a0 Google Cloud SDK \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T23:45:06.153070+00:00
+fetched_at: 2026-11-07T08:31:00.349779+00:00
 ---
 
 # Cloud Client Libraries  |  Google Cloud SDK  |  Google Cloud Documentation
@@ -35,6 +35,11 @@ The following table provides links to get you started with Cloud Client Librarie
 
 Google Cloud Client Library | Installation and reference  
 ---|---  
+Dart | 
+
+  * [GitHub repo](https://github.com/googleapis/google-cloud-dart)
+
+  
 Go | 
 
   * [GitHub repo](https://github.com/googleapis/google-cloud-go)
@@ -127,6 +132,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-04 UTC.
+Last updated 2026-11-06 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-06 UTC."],[],[]] 

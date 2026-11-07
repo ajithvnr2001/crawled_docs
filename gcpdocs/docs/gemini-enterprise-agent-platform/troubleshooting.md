@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/troubleshooting/
 title: Troubleshoot Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-06T10:42:24.249760+00:00
+fetched_at: 2026-11-07T08:24:49.752406+00:00
 ---
 
 # Troubleshoot Gemini Enterprise Agent Platform  |  Google Cloud Documentation
@@ -48,39 +48,43 @@ Errors that appear intermittently, or that started without a change on your side
 
 ## Error catalog
 
-Find the error you received in the following table. If your error isn't listed, use the troubleshooting guides for the task you were trying to complete.
+Find the error you received in the following table. Errors with a status code are listed first, in numerical order, followed by the rest in alphabetical order. If your error isn't listed, use the troubleshooting guides for the task you were trying to complete.
 
 Status code or message | Resolution  
 ---|---  
-`ImportError: cannot import name 'reasoning_engines'`, `ImportError: cannot import name 'agent_engines'` | [Outdated version of the Agent Platform SDK for Python](https://docs.cloud.google.com/gemini-enterprise-agent-platform/troubleshooting/runtime-setup#outdated-vertex-sdk-errors)  
-`401` `Context-Aware Access requirements are not met`, `401` `Request had invalid authentication credentials` | [401 authorization errors](https://docs.cloud.google.com/gemini-enterprise-agent-platform/troubleshooting/runtime-setup#401-errors)  
-`ValueError: Cannot get the Candidate text` | [Content generation errors](https://docs.cloud.google.com/gemini-enterprise-agent-platform/troubleshooting/agent-creation#content-generation-errors)  
+`400`, `FAILED_PRECONDITION`, `REASONING_ENGINE_A2A_NOT_CONFIGURED` | [A2A methods not defined](https://docs.cloud.google.com/gemini-enterprise-agent-platform/troubleshooting/agent-usage#a2a-not-configured)  
+`400`, `FAILED_PRECONDITION`, `REASONING_ENGINE_NO_RUNNING_INSTANCES` | [Agent has no running instances](https://docs.cloud.google.com/gemini-enterprise-agent-platform/troubleshooting/agent-usage#no-running-instances)  
+`400`, `INVALID_ARGUMENT`, `REASONING_ENGINE_BUILD_FAILED` | [Container image build failed](https://docs.cloud.google.com/gemini-enterprise-agent-platform/troubleshooting/agent-deployment#build-failed)  
 `400`, `INVALID_ARGUMENT`, `REASONING_ENGINE_CONTAINER_FAILED_TO_START` | [Container failed to start](https://docs.cloud.google.com/gemini-enterprise-agent-platform/troubleshooting/agent-deployment#container-failed-to-start)  
-`failed to start and cannot serve traffic`, on your first custom container (BYOC) deployment in a region | [BYOC first-time creation error](https://docs.cloud.google.com/gemini-enterprise-agent-platform/troubleshooting/agent-creation#byoc-first-creation-error)  
-`failed to start and cannot serve traffic` or `Request is prohibited by organization's policy`, inside a VPC Service Controls perimeter | [VPC-SC violation errors](https://docs.cloud.google.com/gemini-enterprise-agent-platform/troubleshooting/agent-deployment#vpc-sc-violation-errors)  
+`400`, `INVALID_ARGUMENT`, `REASONING_ENGINE_SECRET_ACCESS_DENIED`, `referenced by spec.deployment_spec.secret_env` | [Secret Manager access errors](https://docs.cloud.google.com/gemini-enterprise-agent-platform/troubleshooting/agent-deployment#secret-access-errors)  
+`InvalidArgument: 400 Provided filter is not valid` | [Error when filtering the list of agents](https://docs.cloud.google.com/gemini-enterprise-agent-platform/troubleshooting/managing-deployed-agents#filter-agents-errors)  
+`401` `Context-Aware Access requirements are not met`, `401` `Request had invalid authentication credentials` | [401 authorization errors](https://docs.cloud.google.com/gemini-enterprise-agent-platform/troubleshooting/runtime-setup#401-errors)  
+`403 Forbidden` on an outbound request | [403 Forbidden errors](https://docs.cloud.google.com/gemini-enterprise-agent-platform/troubleshooting/troubleshoot-agent-gateway#confirm-egress-error)  
+`403`, `PERMISSION_DENIED`, `REASONING_ENGINE_NOT_ACTIVE` | [Agent isn't active](https://docs.cloud.google.com/gemini-enterprise-agent-platform/troubleshooting/agent-usage#agent-not-active)  
+`404`, `NOT_FOUND`, `REASONING_ENGINE_NOT_FOUND` | [Agent not found](https://docs.cloud.google.com/gemini-enterprise-agent-platform/troubleshooting/agent-usage#agent-not-found)  
+`NotFound: 404 Can not copy from "gs://..."` | [Cloud Storage bucket subdirectory isn't created](https://docs.cloud.google.com/gemini-enterprise-agent-platform/troubleshooting/agent-deployment#storage-bucket-subdirectory-errors)  
 `429`, `RESOURCE_EXHAUSTED` | [API rate limit or quota exceeded](https://docs.cloud.google.com/gemini-enterprise-agent-platform/troubleshooting/agent-deployment#error-429)  
 `429`, `RESOURCE_EXHAUSTED`, `at capacity` | [Region temporarily at capacity](https://docs.cloud.google.com/gemini-enterprise-agent-platform/troubleshooting/agent-deployment#region-capacity)  
 `429`, `RESOURCE_EXHAUSTED`, `max_instances` | [Maximum instances exceed regional limit](https://docs.cloud.google.com/gemini-enterprise-agent-platform/troubleshooting/agent-deployment#max-instances-limit)  
-`500`, `INTERNAL`, `REASONING_ENGINE_PROVISIONING_FAILED` | [Environment provisioning failed](https://docs.cloud.google.com/gemini-enterprise-agent-platform/troubleshooting/agent-deployment#provisioning-failed)  
-`Reasoning Engine Execution failed` | [Reasoning Engine Execution failed](https://docs.cloud.google.com/gemini-enterprise-agent-platform/troubleshooting/agent-usage#execution-failed)  
-`PermissionDenied` when you query an agent  | [`PermissionDenied` error when querying your agent](https://docs.cloud.google.com/gemini-enterprise-agent-platform/troubleshooting/agent-usage#permission-denied)  
-Empty list from `.operation_schemas()` | [Operation schemas is empty](https://docs.cloud.google.com/gemini-enterprise-agent-platform/troubleshooting/agent-usage#operation-schemas-empty)  
 `500` internal server error from a prebuilt template | [Prebuilt template errors](https://docs.cloud.google.com/gemini-enterprise-agent-platform/troubleshooting/agent-deployment#prebuilt-template-errors)  
-`cloudpickle` or `pydantic` version conflicts when serializing your agent | [Serialization errors](https://docs.cloud.google.com/gemini-enterprise-agent-platform/troubleshooting/agent-deployment#serialization-errors)  
-`NotFound: 404 Can not copy from "gs://..."` | [Cloud Storage bucket subdirectory isn't created](https://docs.cloud.google.com/gemini-enterprise-agent-platform/troubleshooting/agent-deployment#storage-bucket-subdirectory-errors)  
-`iam.serviceAccounts.actAs` denied, metadata server unavailable | [Custom service account errors](https://docs.cloud.google.com/gemini-enterprise-agent-platform/troubleshooting/agent-deployment#custom-service-account-errors)  
-`400`, `INVALID_ARGUMENT`, `REASONING_ENGINE_SECRET_ACCESS_DENIED`, `referenced by spec.deployment_spec.secret_env` | [Secret Manager access errors](https://docs.cloud.google.com/gemini-enterprise-agent-platform/troubleshooting/agent-deployment#secret-access-errors)  
-`400`, `INVALID_ARGUMENT`, `REASONING_ENGINE_BUILD_FAILED` | [Container image build failed](https://docs.cloud.google.com/gemini-enterprise-agent-platform/troubleshooting/agent-deployment#build-failed)  
+`500`, `INTERNAL`, `REASONING_ENGINE_PROVISIONING_FAILED` | [Environment provisioning failed](https://docs.cloud.google.com/gemini-enterprise-agent-platform/troubleshooting/agent-deployment#provisioning-failed)  
 `504`, `DEADLINE_EXCEEDED`, `REASONING_ENGINE_BUILD_TIMEOUT` | [Container image build timed out](https://docs.cloud.google.com/gemini-enterprise-agent-platform/troubleshooting/agent-deployment#build-timeout)  
 `504`, `DEADLINE_EXCEEDED`, `REASONING_ENGINE_CONTAINER_START_TIMEOUT` | [Container didn't start in time](https://docs.cloud.google.com/gemini-enterprise-agent-platform/troubleshooting/agent-deployment#container-start-timeout)  
-`InvalidArgument: 400 Provided filter is not valid` | [Error when filtering the list of agents](https://docs.cloud.google.com/gemini-enterprise-agent-platform/troubleshooting/managing-deployed-agents#filter-agents-errors)  
-`google.api_core.exceptions.Unknown: None`, `Failed to convert project number to project ID`, during startup | [Errors during Agent Runtime startup](https://docs.cloud.google.com/gemini-enterprise-agent-platform/troubleshooting/troubleshoot-agent-gateway#bootstrap-errors)  
-`403 Forbidden` on an outbound request | [403 Forbidden errors](https://docs.cloud.google.com/gemini-enterprise-agent-platform/troubleshooting/troubleshoot-agent-gateway#confirm-egress-error)  
 Certificate verification failures reaching a self-signed or private CA destination  | [Self-signed or private CA destinations fail to connect](https://docs.cloud.google.com/gemini-enterprise-agent-platform/troubleshooting/troubleshoot-agent-gateway#self-signed-ca-fail)  
-TLS handshake failures from a custom container (BYOC) agent | [Agent deployed with custom container (BYOC) fails to connect](https://docs.cloud.google.com/gemini-enterprise-agent-platform/troubleshooting/troubleshoot-agent-gateway#byoc-ca-fail)  
-Sandbox creation failures | [Sandbox creation issues](https://docs.cloud.google.com/gemini-enterprise-agent-platform/troubleshooting/code-execution#sandbox-creation-issues)  
+`cloudpickle` or `pydantic` version conflicts when serializing your agent | [Serialization errors](https://docs.cloud.google.com/gemini-enterprise-agent-platform/troubleshooting/agent-deployment#serialization-errors)  
 Code execution times out, file I/O failures in a sandbox | [Code execution issues](https://docs.cloud.google.com/gemini-enterprise-agent-platform/troubleshooting/code-execution#code-execution-issues)  
+Empty list from `.operation_schemas()` | [Operation schemas is empty](https://docs.cloud.google.com/gemini-enterprise-agent-platform/troubleshooting/agent-usage#operation-schemas-empty)  
+`failed to start and cannot serve traffic` or `Request is prohibited by organization's policy`, inside a VPC Service Controls perimeter | [VPC-SC violation errors](https://docs.cloud.google.com/gemini-enterprise-agent-platform/troubleshooting/agent-deployment#vpc-sc-violation-errors)  
+`failed to start and cannot serve traffic`, on your first custom container (BYOC) deployment in a region | [BYOC first-time creation error](https://docs.cloud.google.com/gemini-enterprise-agent-platform/troubleshooting/agent-creation#byoc-first-creation-error)  
+`google.api_core.exceptions.Unknown: None`, `Failed to convert project number to project ID`, during startup | [Errors during Agent Runtime startup](https://docs.cloud.google.com/gemini-enterprise-agent-platform/troubleshooting/troubleshoot-agent-gateway#bootstrap-errors)  
+`iam.serviceAccounts.actAs` denied, metadata server unavailable | [Custom service account errors](https://docs.cloud.google.com/gemini-enterprise-agent-platform/troubleshooting/agent-deployment#custom-service-account-errors)  
+`ImportError: cannot import name 'reasoning_engines'`, `ImportError: cannot import name 'agent_engines'` | [Outdated version of the Agent Platform SDK for Python](https://docs.cloud.google.com/gemini-enterprise-agent-platform/troubleshooting/runtime-setup#outdated-vertex-sdk-errors)  
+`PermissionDenied` when you query an agent  | [`PermissionDenied` error when querying your agent](https://docs.cloud.google.com/gemini-enterprise-agent-platform/troubleshooting/agent-usage#permission-denied)  
+`Reasoning Engine Execution failed` | [Reasoning Engine Execution failed](https://docs.cloud.google.com/gemini-enterprise-agent-platform/troubleshooting/agent-usage#execution-failed)  
 `RuntimeError: Failed to generate memory`, or no memories returned after a session | [No memories were generated](https://docs.cloud.google.com/gemini-enterprise-agent-platform/troubleshooting/memory-bank#no-memories-generated)  
+Sandbox creation failures | [Sandbox creation issues](https://docs.cloud.google.com/gemini-enterprise-agent-platform/troubleshooting/code-execution#sandbox-creation-issues)  
+TLS handshake failures from a custom container (BYOC) agent | [Agent deployed with custom container (BYOC) fails to connect](https://docs.cloud.google.com/gemini-enterprise-agent-platform/troubleshooting/troubleshoot-agent-gateway#byoc-ca-fail)  
+`ValueError: Cannot get the Candidate text` | [Content generation errors](https://docs.cloud.google.com/gemini-enterprise-agent-platform/troubleshooting/agent-creation#content-generation-errors)  
 **Note:** If your error isn't listed in the table, use the troubleshooting guides, and report the error through Get support.
 
 ## Troubleshooting guides
@@ -115,6 +119,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-05 UTC.
+Last updated 2026-11-07 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-05 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-07 UTC."],[],[]] 

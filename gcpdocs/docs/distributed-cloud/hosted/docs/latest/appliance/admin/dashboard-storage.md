@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/appliance/admin/dashboard-storage/
 title: Configure the dashboard storage \u00a0|\u00a0 Google Distributed Cloud Hosted Appliance \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T17:06:54.161800+00:00
+fetched_at: 2026-11-07T08:29:46.378748+00:00
 ---
 
 # Configure the dashboard storage  |  Google Distributed Cloud Hosted Appliance  |  Google Cloud Documentation
@@ -23,9 +23,9 @@ Send feedback
 
 #  Configure the dashboard storage Stay organized with collections  Save and categorize content based on your preferences. 
 
-This document contains instructions to configure the storage size for dashboards using the `ObservabilityPipeline` custom resource. The instructions override the default values for the project namespace.
+The `ObservabilityPipeline` custom resource lets you configure the storage size for system monitoring dashboards in Google Distributed Cloud (GDC) air-gapped appliance. Modifying this custom resource overrides the default dashboard storage values for your project namespace.
 
-The Observability pipeline of Google Distributed Cloud (GDC) air-gapped appliance manages the deployment and configuration of Observability stack components. The `ObservabilityPipeline` custom resource lets you reach the API of the Observability pipeline and configure the Observability service for your deployments. This custom resource includes customized settings for dashboards used in system monitoring.
+The Observability pipeline manages the deployment and configuration of Observability stack components. Through the `ObservabilityPipeline` custom resource, you can access the Observability pipeline API to customize monitoring service settings for your deployments.
 
 ## Before you begin
 
@@ -109,6 +109,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-06 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-06 UTC."],[],[]] 

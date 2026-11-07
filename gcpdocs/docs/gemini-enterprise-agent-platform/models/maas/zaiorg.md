@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/maas/zaiorg/
 title: GLM models \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-06T10:43:12.097983+00:00
+fetched_at: 2026-11-07T08:25:58.490458+00:00
 ---
 
 # GLM models  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation
@@ -25,18 +25,6 @@ GLM models on Gemini Enterprise Agent Platform offer fully managed and serverles
 
 You can stream your responses to reduce the end-user latency perception. A streamed response uses _server-sent events_ (SSE) to incrementally stream the response.
 
-### GLM 4.7
-
-GLM 4.7 is a model from GLM designed for core or vibe coding, tool use, and complex reasoning. 
-
-[ Go to the GLM 4.7 model card ](https://console.cloud.google.com/agent-platform/publishers/zai-org/model-garden/glm-4.7-maas)
-
-### GLM 5
-
-GLM 5 is a model from GLM targeting complex systems engineering and long-horizon agentic tasks. 
-
-[ Go to the GLM 5 model card ](https://console.cloud.google.com/agent-platform/publishers/zai-org/model-garden/glm-5-maas)
-
 ### GLM 5.2
 
 GLM 5.2 is a model from GLM built for long-horizon agentic and coding tasks, with a 1M-token context window. 
@@ -47,8 +35,6 @@ GLM 5.2 is a model from GLM built for long-horizon agentic and coding tasks, wit
 
 For managed models, you can use curl commands to send requests to the Gemini Enterprise Agent Platform endpoint using the following model names: 
 
-  * For GLM 4.7, use `glm-4.7-maas`
-  * For GLM 5, use `glm-5-maas`
   * For GLM 5.2, use `glm-5.2-maas`
 
 
@@ -71,16 +57,6 @@ GLM models are available in the following regions:
 
 Model | Regions  
 ---|---  
-GLM 4.7 | 
-
-  * `global`
-
-  
-GLM 5 | 
-
-  * `global`
-
-  
 GLM 5.2 | 
 
   * `global`
@@ -95,6 +71,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-05 UTC.
+Last updated 2026-11-07 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-05 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-07 UTC."],[],[]] 

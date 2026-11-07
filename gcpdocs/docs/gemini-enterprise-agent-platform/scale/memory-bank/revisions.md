@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/memory-bank/revisions/
 title: Memory revisions \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-06T10:42:26.434732+00:00
+fetched_at: 2026-11-07T08:27:12.753500+00:00
 ---
 
 # Memory revisions  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation
@@ -21,7 +21,7 @@ Send feedback
 
 #  Memory revisions Stay organized with collections  Save and categorize content based on your preferences. 
 
-Memory Bank automatically maintains a version history of your memories through memory revision resources. Each time a memory is created or modified, a new immutable revision is saved, providing transparency into how information evolves and what was extracted at each step.
+Agent Platform Memory Bank automatically maintains a version history of your memories through memory revision resources. Each time a memory is created or modified, a new immutable revision is saved, providing transparency into how information evolves and what was extracted at each step.
 
 This document explains the lifecycle of memories and their revisions, and describes operations such as listing, getting, and rolling back revisions.
 
@@ -200,6 +200,34 @@ This section describes how you can inspect memory revisions and roll back a memo
 
 ### List revisions
 
+You can inspect memory revisions in the Google Cloud console or with the Agent Platform SDK.
+
+###  Console 
+
+Viewing memory revisions in the Google Cloud console requires the `aiplatform.memoryRevisions.list` permission (included in `roles/aiplatform.memoryViewer` and `roles/aiplatform.memoryUser`) and isn't available in express mode.
+
+  1. Open your instance in the Google Cloud console:
+
+     * **Standalone Memory Bank instance** : Go to the Agent Platform **Memory Bank** page and click your instance.
+
+[Go to Memory Bank](https://console.cloud.google.com/agent-platform/memory-bank)
+
+     * **Deployed agent on Agent Runtime** : Go to the Agent Platform **Deployments** page and click your agent.
+
+[Go to Deployments](https://console.cloud.google.com/agent-platform/runtimes)
+
+  2. Open the **Memories** tab:
+
+     * **Unstructured memories** : On a memory row, click the **more actions** menu (more_vert) > **View revisions**.
+     * **Structured profiles** (standalone instances): Select **Structured** , choose a complete scope, click **View** on a profile row to open **Memory details** , and click **View revisions** for a memory fact.
+
+The revisions panel lists each revision's **Created** , **Expires** , **Fact** , and **Context** fields.
+
+
+
+
+###  Agent Platform SDK 
+
 Use `ListMemoryRevisions` to return all memory revisions belonging to a memory.
     
     
@@ -212,7 +240,7 @@ Replace the following:
 
 
 
-When generating memories, you can provide revision labels which are applied to the affiliated revisions. Labels are arbitrary key-value pairs. For example, you can label revisions with an ID of the data source used to generate the memory and then filter revisions by this label:
+When generating memories, you can provide revision labels that are applied to the affiliated revisions. Labels are arbitrary key-value pairs. For example, you can label revisions with an ID of the data source used to generate the memory and then filter revisions by this label:
     
     
     response = client.memory_banks.memories.generate(
@@ -295,7 +323,7 @@ If you want to undo a change to a memory made by `GenerateMemories`, roll back t
 
 Memory revisions are enabled by default. You can disable memory revisions either for all requests to your Memory Bank instance or for each individual request. If memory revisions are disabled, a memory revision isn't created when the memory is mutated.
 
-You can disable memory revisions for all requests to your Memory Bank instance when you set up the instance:
+You can turn off memory revisions for all requests to your Memory Bank instance in the Google Cloud console (under **Configuration** > **Retention** , or **Service configuration** > **Memory bank** for deployed agents) or with the Agent Platform SDK:
     
     
     memory_bank = client.memory_banks.create(
@@ -344,7 +372,7 @@ You can disable memory revisions on a request level when you send the request:
 
 Memory revisions are not persisted forever. You must either set the revisions' expiration or use the default expiration. The default time to live (TTL) is 365 days. You can configure the expiration either for all requests to your Memory Bank instance or for each individual request. Once a memory revision has expired, it is not available for inspection or rollbacks.
 
-You can configure TTL for all requests to your Memory Bank instance when you set up the instance:
+You can configure revision history TTL for all requests to your Memory Bank instance in the Google Cloud console (under **Configuration** > **Retention** , or **Service configuration** > **Memory bank** for deployed agents) or with the Agent Platform SDK:
     
     
     client.memory_banks.create(
@@ -412,6 +440,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-05 UTC.
+Last updated 2026-11-07 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-05 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-07 UTC."],[],[]] 

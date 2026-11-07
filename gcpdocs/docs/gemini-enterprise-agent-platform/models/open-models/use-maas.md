@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/open-models/use-maas/
 title: Use open models using Model as a Service (MaaS) \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-06T10:45:28.463871+00:00
+fetched_at: 2026-11-07T08:26:08.264734+00:00
 ---
 
 # Use open models using Model as a Service (MaaS)  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation
@@ -41,7 +41,7 @@ Before you can use a MaaS model, you must enable its API. To do this, go to the 
 
 ## Call the model using the Google Gen AI SDK for Python
 
-The following example calls the Llama 3.3 model using the Google Gen AI SDK for Python.
+The following example calls the Llama 4 Maverick model using the Google Gen AI SDK for Python.
     
     
     from google import genai
@@ -49,7 +49,7 @@ The following example calls the Llama 3.3 model using the Google Gen AI SDK for 
     
     PROJECT_ID="PROJECT_ID"
     LOCATION="LOCATION"
-    MODEL="meta/llama-3.3-70b-instruct-maas"  # The model ID from Model Garden with "API Service"
+    MODEL="meta/llama-4-maverick-17b-128e-instruct-maas"  # The model ID from Model Garden with "API Service"
     
     # Define the prompt to send to the model.
     prompt = "What is the distance between earth and moon?"
@@ -101,6 +101,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-05 UTC.
+Last updated 2026-11-07 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-05 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-07 UTC."],[],[]] 

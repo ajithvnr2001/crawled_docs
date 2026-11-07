@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini/data-agents/conversational-analytics-api/build-agent-sdk/
 title: Build a data agent using the Python SDK \u00a0|\u00a0 Conversational Analytics API \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-06T08:23:45.123308+00:00
+fetched_at: 2026-11-07T08:29:59.205691+00:00
 ---
 
 # Build a data agent using the Python SDK  |  Conversational Analytics API  |  Google Cloud Documentation
@@ -107,20 +107,6 @@ The following sections show how to define the connection details for your agent'
 
 The following code examples show how to define the details for a connection to a Looker Explore with either API keys or an access token. You can connect up to five Looker Explores at a time with the Conversational Analytics API.
 
-When you connect to a Looker data source, note the following:
-
-  * You can query any included Explore in a conversation.
-  * An agent can only query one Explore at a time. It is not possible to perform queries across multiple Explores simultaneously.
-  * An agent can query multiple Explores in the same conversation.
-  * An agent can query multiple Explores in a conversation that includes questions with multiple parts, or in conversations that include follow-up questions.
-
-For example: A user connects two Explores, one called `cat-explore` and one called `dog-explore`. The user inputs the question "What's greater: the count of cats or the count of dogs?" This would create two queries: one to count the number of cats in `cat-explore` and one to count the number of dogs in `dog-explore`. The agent compares the numbers from both queries after completing both queries.
-
-
-
-
-The following sample code defines a connection to multiple Looker Explores. To improve agent performance, you can optionally provide golden queries as structured context for your Explores. For more information, see [Define data agent context for Looker data sources](https://docs.cloud.google.com/gemini/data-agents/conversational-analytics-api/data-agent-authored-context-looker).
-
 ### API keys
 
 You can establish a connection with a Looker instance with generated Looker API keys, as described in [Authenticate and connect to a data source](https://docs.cloud.google.com/gemini/data-agents/conversational-analytics-api/authentication#looker-api-keys).
@@ -205,19 +191,15 @@ Replace the sample values as follows:
 
 
 
+For more information about connecting to Looker Explores, including the required roles, see [Connect to Looker](https://docs.cloud.google.com/gemini/data-agents/conversational-analytics-api/connect-looker).
+
 ### Connect to BigQuery data
 
-With the Conversational Analytics API, there are no hard limits on the number of BigQuery tables that you can connect to. However, connecting to a large number of tables can reduce accuracy or cause you to exceed the model's input token limit.
-
-**Note:** Queries that require complex joins across multiple tables might result in less accurate responses.
-
-The following sections show how to connect to BigQuery data by using table references, graph references, or both.
+The following sections show how to connect to BigQuery data by using table references, graph references, or both. For more information about connecting to tables and graphs, including required roles, see [Connect to BigQuery](https://docs.cloud.google.com/gemini/data-agents/conversational-analytics-api/connect-bigquery).
 
 #### Connect to BigQuery tables
 
-The following sample code defines a connection to multiple BigQuery tables and includes examples of optional structured context fields. To improve agent performance, you can optionally provide structured context for your BigQuery tables, such as table and column descriptions, synonyms, tags, example queries, and user-defined functions. For more information, see [Define data agent context for BigQuery data sources](https://docs.cloud.google.com/gemini/data-agents/conversational-analytics-api/data-agent-authored-context-bq).
-
-**Important:** Make sure you have the necessary Identity and Access Management (IAM) permissions to query any BigQuery tables that you specify.
+The following sample code defines a connection to multiple BigQuery tables and includes examples of optional structured context fields.
     
     
     bigquery_table_reference_1 = geminidataanalytics.BigQueryTableReference()

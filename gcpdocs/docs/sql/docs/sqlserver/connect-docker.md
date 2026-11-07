@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sql/docs/sqlserver/connect-docker/
 title: Connecting SQL Server client using the Cloud SQL Auth Proxy Docker image \u00a0|\u00a0 Cloud SQL for SQL Server \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-06T10:25:52.043153+00:00
+fetched_at: 2026-11-07T08:29:47.648256+00:00
 ---
 
 # Connecting SQL Server client using the Cloud SQL Auth Proxy Docker image  |  Cloud SQL for SQL Server  |  Google Cloud Documentation
@@ -23,7 +23,7 @@ Send feedback
 
 [MySQL](https://docs.cloud.google.com/sql/docs/mysql/connect-docker "View this page for the MySQL database engine") | [PostgreSQL](https://docs.cloud.google.com/sql/docs/postgres/connect-docker "View this page for the PostgreSQL database engine") | SQL Server
 
-This page describes how to connect a sqlcmd client to your Cloud SQL instance, from a client machine running Linux or Compute Engine Linux instance, using the Cloud SQL Auth Proxy Docker image.
+This page describes how to connect a sqlcmd client to your Cloud SQL instance, from a client machine running Linux or a Compute Engine Linux instance, using the Cloud SQL Auth Proxy Docker image.
 
 ## Before you begin
 
@@ -35,6 +35,19 @@ You must have:
   * Configured a database user on your Cloud SQL instance. [Learn more](https://docs.cloud.google.com/sql/docs/sqlserver/users).
 
 
+
+### Required roles
+
+To get the permissions that you need to connect to a Cloud SQL instance using the Cloud SQL Auth Proxy Docker image, ask your administrator to grant you the following IAM roles on your project: 
+
+  * To connect using the Cloud SQL Auth Proxy: [Cloud SQL Client ](https://docs.cloud.google.com/iam/docs/roles-permissions/cloudsql#cloudsql.client) (`roles/cloudsql.client`) 
+  * If you use IAM database authentication: [Cloud SQL Instance User ](https://docs.cloud.google.com/iam/docs/roles-permissions/cloudsql#cloudsql.instanceUser) (`roles/cloudsql.instanceUser`) 
+
+
+
+For more information about granting roles, see [Manage access to projects, folders, and organizations](https://docs.cloud.google.com/iam/docs/granting-changing-revoking-access). 
+
+You might also be able to get the required permissions through [custom roles](https://docs.cloud.google.com/iam/docs/creating-custom-roles) or other [predefined roles](https://docs.cloud.google.com/iam/docs/roles-overview#predefined). 
 
 ## Connect a sqlcmd client using the Cloud SQL Auth Proxy Docker image
 
@@ -53,18 +66,13 @@ To enable APIs, you need the `serviceusage.services.enable` permission. If you c
             
             gcloud compute instances describe [GCE_INSTANCE_NAME]
 
-     2. Verify the scopes enabled on the instance. 
+     2. Verify the [service account](https://docs.cloud.google.com/compute/docs/access/service-accounts) and access scopes configured on the instance: 
+        * Ensure that the service account attached to the VM has the **Cloud SQL Client** (`roles/cloudsql.client`) predefined Identity and Access Management (IAM) role to connect using the Cloud SQL Auth Proxy or the Cloud SQL Admin API. If you use IAM database authentication, also grant the **Cloud SQL Instance User** (`roles/cloudsql.instanceUser`) role. For more information about predefined roles, see Required roles.
+        * Ensure that the VM access scope is set to `cloud-platform` (`https://www.googleapis.com/auth/cloud-platform`, or **Allow full access to all Cloud APIs** in the Google Cloud console). Access scopes are a legacy method for specifying authorization for a VM and only set the maximum OAuth authorization scope for requests. Manage access control through predefined IAM roles instead of access scopes.
 
-Authenticating using scopes requires both of the following scopes: 
+If your Compute Engine instance doesn't have the required service account roles or access scope, you can update the instance. For more information about changing the service account and access scopes on a VM, see [ Change the attached service account](https://docs.cloud.google.com/compute/docs/instances/change-service-account#changeserviceaccountandscopes) in the Compute Engine documentation. 
 
-        * `https://www.googleapis.com/auth/sqlservice.admin`
-        * `https://www.googleapis.com/auth/devstorage.read_write`
-
-Alternatively, the `https://www.googleapis.com/auth/cloud-platform` scope enables all Google Cloud Platform APIs.
-
-If your Compute Engine instance does not have the proper scopes, you can update the instance to include them. For more information, see [ the Compute Engine documentation](https://docs.cloud.google.com/compute/docs/access/create-enable-service-accounts-for-instances#changeserviceaccountandscopes). 
-
-     3. Open a terminal connection to the instance, using the instructions at [ Connecting to Linux Instances](https://docs.cloud.google.com/compute/docs/instances/connecting-to-instance). 
+     3. Open a terminal connection to the instance, using the instructions at [ Connecting to Linux instances](https://docs.cloud.google.com/compute/docs/instances/connecting-to-instance). 
   3. Install the sqlcmd client on the Compute Engine instance or client machine, if it is not already installed. 
 
 ### Debian/Ubuntu
@@ -94,12 +102,9 @@ If you are using a [ container-optimized](https://docs.cloud.google.com/compute/
          
          docker pull gcr.io/cloud-sql-connectors/cloud-sql-proxy:2.27.0
 
-  6. If you are running the Cloud SQL Auth Proxy Docker image on a local machine (not a Compute Engine instance), or your Compute Engine instance does not have the proper scopes, create a Google Cloud Platform service account. If you are connecting from Compute Engine, make sure your VM has the proper `scope` to connect using the Cloud SQL Admin API. 
-
-[ Configure the service account](https://docs.cloud.google.com/compute/docs/access/create-enable-service-accounts-for-instances#changeserviceaccountandscopes) to have either of the following access scopes: 
-
-     * https://www.googleapis.com/auth/sqlservice.admin
-     * https://www.googleapis.com/auth/cloud-platform
+  6. If you are running the Cloud SQL Auth Proxy Docker image on a local machine (not a Compute Engine instance), or if the service account attached to your Compute Engine instance doesn't have the required IAM roles and access scope, create a Google Cloud service account. **Note:** If you are connecting from a Compute Engine VM, we recommend that you use the [service account attached to the VM](https://docs.cloud.google.com/compute/docs/access/service-accounts) instead of a service account key file: 
+     * Grant the attached service account the **Cloud SQL Client** (`roles/cloudsql.client`) predefined IAM role to connect using the Cloud SQL Auth Proxy or the Cloud SQL Admin API, and the **Cloud SQL Instance User** (`roles/cloudsql.instanceUser`) role if you use IAM database authentication. For more information about predefined roles, see [Cloud SQL IAM roles](https://docs.cloud.google.com/sql/docs/sqlserver/iam-roles).
+     * Set the VM access scope to `cloud-platform` (`https://www.googleapis.com/auth/cloud-platform`, or **Allow full access to all Cloud APIs** in the Google Cloud console) and use IAM roles to control permissions. Access scopes are a legacy method for specifying authorization for a VM and only set the maximum OAuth authorization scope. To update an existing VM, see [Change the attached service account](https://docs.cloud.google.com/compute/docs/instances/change-service-account#changeserviceaccountandscopes).
      1. In the Google Cloud console, go to the **Service accounts** page. 
 
 [Go to Service accounts](https://console.cloud.google.com/iam-admin/serviceaccounts/)
@@ -113,7 +118,7 @@ If you are using a [ container-optimized](https://docs.cloud.google.com/compute/
         * **Cloud SQL > Cloud SQL Editor**
         * **Cloud SQL > Cloud SQL Admin**
 
-**Note:** To create a service account with the required permissions, you must have `resourcemanager.projects.setIamPolicy` permission. This permission is included in the Project Owner, Project IAM Admin, and Organization Administrator roles.  
+**Note:** To create a service account with the required permissions, you must have the `resourcemanager.projects.setIamPolicy` permission. This permission is included in the Project Owner, Project IAM Admin, and Organization Administrator roles.  
 You must also have enabled the Cloud SQL Admin API. If you are using the legacy project roles (Viewer, Editor, Owner), the service account must have at least the Editor role.
 
      7. Click **Done** to finish creating the service account.
@@ -129,7 +134,7 @@ You provide the path to the key file as "PATH_TO_KEY_FILE" when you start the Cl
 
 [Go to Cloud SQL Instances](https://console.cloud.google.com/sql/instances)
 
-  8. Select the instance to open its _Instance details_ page and copy the **Instance connection name**. 
+  8. Select the instance to open its **Instance details** page and copy the **Instance connection name**. 
 
 For example: `myproject:us-central1:myinstance`.
 
@@ -186,6 +191,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-03 UTC.
+Last updated 2026-11-06 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-06 UTC."],[],[]] 

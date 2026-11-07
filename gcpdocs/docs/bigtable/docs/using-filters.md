@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigtable/docs/using-filters/
 title: Use filters \u00a0|\u00a0 Bigtable \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-06T13:05:55.683912+00:00
+fetched_at: 2026-11-07T08:32:57.142955+00:00
 ---
 
 # Use filters  |  Bigtable  |  Google Cloud Documentation
@@ -46,7 +46,7 @@ The examples on this page assume that you're storing time-series data for smartp
 _row key_ | connected_cell | connected_wifi | os_build | data_plan_01gb | data_plan_05gb | data_plan_10gb  
 phone#4c410523#20190501  | 1 | 1 | PQ2A.190405.003 | true@time minus one hour  
   
-False @time | true |   
+false@time | true |   
 phone#4c410523#20190502  | 1 | 1 | PQ2A.190405.004 |  | true |   
 phone#4c410523#20190505  | 0 | 1 | PQ2A.190406.000 |  | true |   
 phone#5c10102#20190501 | 1 | 1 | PQ2A.190401.002 |  |  | true  
@@ -65,6 +65,8 @@ This section describes the filters that you can use to retrieve rows in a table.
 #### Row sample
 
 This filter lets you retrieve a random sample of rows within a given range. Based on a probability that you specify, the filter chooses at random whether the output row should be the same as the input row or whether it should be omitted from the results.
+
+For example, if your table has millions of phone records and you want to inspect a representative subset without reading every row, you can use a row sample filter.
 
 ### Go
 
@@ -296,6 +298,8 @@ This optimization only occurs under the following conditions:
 
 If your regular expression can't be resolved to a literal prefix—for example, if it begins with a wildcard or searches for a substring, Bigtable requires a full table scan.
 
+The following code samples use the regular expression `.*#20190501$` to retrieve phone records from May 1, 2019, across all devices. When applied to the example dataset, this filter returns all cells for the two matching rows: `phone#4c410523#20190501` and `phone#5c10102#20190501`.
+
 ### Go
 
 To learn how to install and use the client library for Bigtable, see [Bigtable client libraries](https://docs.cloud.google.com/bigtable/docs/reference/libraries). 
@@ -521,6 +525,15 @@ This section describes the filters that you can use to retrieve cells in a table
 This filter limits the number of cells in each column that are included in the output row. When this filter is applied, each output row includes the _N_ most recent cells from each column and omits all other cells from that column.
 
 If you are also using an interleave filter and the interleave filter produces duplicate copies of a cell, each copy counts towards the limit.
+
+This filter is useful when columns store a history of timestamped values, such as changes to a device's data plan, and you only want to read the most recent values. The following code samples limit each column to its two most recent cells. The example dataset returns the following cells, while omitting any older cells if more than two existed:
+
+  * Both timestamped cells (`false@time` and `true@time minus one hour`) in the `cell_plan:data_plan_01gb` column for row `phone#4c410523#20190501`
+
+  * The single cell in each of the other populated columns
+
+
+
 
 ### Go
 
@@ -1085,6 +1098,8 @@ A column in a row can contain multiple cells. Each cell contains a value for the
 
 Using this filter in combination with an offset filter is useful for pagination if you need to [read a large row](https://docs.cloud.google.com/bigtable/docs/reads#large-rows).
 
+The following code samples limit each output row to its first two cells—for example, to retrieve the first page of cells when paginating through a row. When applied to the example dataset, this filter returns the first two cells for each of the five rows. To retrieve the next page of cells, pair this filter with a cells per row offset filter.
+
 ### Go
 
 To learn how to install and use the client library for Bigtable, see [Bigtable client libraries](https://docs.cloud.google.com/bigtable/docs/reference/libraries). 
@@ -1308,6 +1323,8 @@ A column in a row can contain multiple cells. Each cell contains a value for the
 
 If you are also using an interleave filter, and the interleave filter produces duplicate copies of a cell, each copy counts towards the offset.
 
+The following code samples use an offset of `2` to skip the first two cells in each row—for example, to retrieve the next page of cells after reading the first two cells with a cells per row limit filter. When applied to the example dataset, this filter skips the first two cells and returns all remaining cells for each of the five rows.
+
 ### Go
 
 To learn how to install and use the client library for Bigtable, see [Bigtable client libraries](https://docs.cloud.google.com/bigtable/docs/reference/libraries). 
@@ -1529,6 +1546,8 @@ This filter includes cells in the output row only if the column family for a cel
 The regular expression must use [RE2 syntax](https://github.com/google/re2/wiki/Syntax). The regular expression must not contain the `:` character, even if the character is not used as a literal. Because column families cannot contain newline characters, you can use either `.` or `\C` as the wildcard expression.
 
 **Note:** This filter lets you filter on the _column family_ , which is the name for a group of columns. To filter on the _column qualifier_ , which is a unique name within a column family, use the column qualifier regular expression filter.
+
+For example, if you want to read device summary statistics without retrieving data plan columns, you can filter for the `stats_summary` column family. The following code samples use the regular expression `stats_.*$`, which returns all cells in the `stats_summary` column family for all five rows in the example dataset and omits all cells in `cell_plan`.
 
 ### Go
 
@@ -1754,6 +1773,8 @@ The regular expression must use [RE2 syntax](https://github.com/google/re2/wiki/
 
 **Note:** This filter lets you filter on the _column qualifier_ , which is a unique name within a column family. To filter on the _column family_ , which is the name for a group of columns, use the column family regular expression filter.**Note:** If a column qualifier is used in more than one column family, all columns with that column qualifier are returned. To target a specific column qualifier, use a chain filter.
 
+For example, if you only want to check cellular and Wi-Fi connectivity for each device, you can filter for column qualifiers that begin with `connected_`. The following code samples use the regular expression `connected_.*$`, which returns only the `connected_cell` and `connected_wifi` cells for each of the five rows in the example dataset and omits `os_build` and all `cell_plan` columns.
+
 ### Go
 
 To learn how to install and use the client library for Bigtable, see [Bigtable client libraries](https://docs.cloud.google.com/bigtable/docs/reference/libraries). 
@@ -1976,6 +1997,8 @@ To authenticate to Bigtable, set up Application Default Credentials. For more in
 #### Column range
 
 This filter includes cells in the output row only if they are in a specific column family, and only if their column qualifiers are within a specific range. You specify the range by providing a start qualifier and an end qualifier.
+
+The following code samples filter the `cell_plan` column family for column qualifiers from `data_plan_01gb` (inclusive) to `data_plan_10gb` (exclusive)—for example, to check which records use the 1 GB or 5 GB data plans. In the example dataset, this filter returns the `data_plan_01gb` and `data_plan_05gb` cells for the three `phone#4c410523` rows. Because the two `phone#5c10102` rows only have `cell_plan` values in `data_plan_10gb`, those rows have no matching cells and aren't returned.
 
 ### Go
 
@@ -2226,6 +2249,7 @@ This filter includes cells in the output row only if their values are within a s
 
 
 
+The following code samples filter for cell values between `PQ2A.190405` and `PQ2A.190406` to find records with OS builds in that range. In the example dataset, this filter returns only the `stats_summary:os_build` cell for `phone#4c410523#20190501` and `phone#4c410523#20190502`, omitting all other cells and the remaining three rows whose `os_build` values fall outside the range.
 
 ### Go
 
@@ -2467,6 +2491,8 @@ This filter includes cells in the output row only if the value of the cell match
 
 The regular expression must use [RE2 syntax](https://github.com/google/re2/wiki/Syntax). Because values can contain arbitrary bytes, including newline characters, you should use `\C` as the wildcard expression in most cases. The `.` expression does not match newline characters.
 
+The following code samples use the regular expression `PQ2A.*$` to match cell values that start with `PQ2A`—for example, to retrieve OS build versions in the `PQ2A` release family. When applied to the example dataset, this filter returns only the `stats_summary:os_build` cell for each of the five rows and omits all other cells.
+
 ### Go
 
 To learn how to install and use the client library for Bigtable, see [Bigtable client libraries](https://docs.cloud.google.com/bigtable/docs/reference/libraries). 
@@ -2693,6 +2719,7 @@ This filter includes cells in the output row only if their timestamps are within
 
 
 
+The following code samples filter for cells written an hour ago or earlier. In the example dataset, where all other cells are written at `@time`, this filter returns only the `true@time minus one hour` cell in the `cell_plan:data_plan_01gb` column for row `phone#4c410523#20190501`.
 
 ### Go
 
@@ -2957,6 +2984,8 @@ This filter removes all of the cells from the output row.
 
 If you are using an interleave filter, you can combine the block all filter with the chain filter to temporarily disable part of the interleave.
 
+The following code samples apply a block all filter to a read request. When run against the example dataset, this filter removes all cells from all five rows and returns an empty response.
+
 ### Go
 
 To learn how to install and use the client library for Bigtable, see [Bigtable client libraries](https://docs.cloud.google.com/bigtable/docs/reference/libraries). 
@@ -3155,6 +3184,8 @@ To authenticate to Bigtable, set up Application Default Credentials. For more in
 This filter includes all of the input row's cells in the output row. It is equivalent to a read with no filter.
 
 The pass all filter can be useful if you are composing multiple filters, and you need to output cells in some cases but not others.
+
+The following code samples apply a pass all filter to a read request. When run against the example dataset, this filter returns every cell across all five rows in the table, including both timestamped cells in `cell_plan:data_plan_01gb` for row `phone#4c410523#20190501`.
 
 ### Go
 
@@ -3379,6 +3410,8 @@ Each label must be no longer than 15 characters. In addition, each label must ma
 
 Each cell can have only one label. As a result, a chain of filters can include the apply label filter only once.
 
+The following code samples apply the label `labelled` to cells read from the table. When run against the example dataset, this filter returns all cells across all five rows with the `labelled` metadata label attached to each cell.
+
 ### Go
 
 This client library does not support this filter.
@@ -3570,6 +3603,8 @@ To authenticate to Bigtable, set up Application Default Credentials. For more in
 #### Strip value
 
 This filter replaces the value of each cell with an empty string. Use this filter when you only need to count the number of rows or cells that match your criteria, rather than retrieving all of the data from those rows or cells.
+
+The following code samples apply a strip value filter to retrieve cell metadata without transferring cell values. When run against the example dataset, this filter returns all cells across all five rows with their row keys, column families, column qualifiers, and timestamps intact, but replaces every cell value, such as `1`, `PQ2A.190405.003`, or `true`, with an empty string.
 
 ### Go
 
@@ -3776,6 +3811,8 @@ This filter applies a series of filters, in order, to each output row. A chain f
 Each filter in the chain sees only the output of the previous filter. For example, if you chain two filters, and the first filter removes half of the cells from the output row, the second filter does not have access to the cells that were removed.
 
 In other words, the order of the filters is important. If you change the order of chained filters, you might get different data in your output rows.
+
+For example, if you want to check only the most recent data plan settings for each record without reading `stats_summary` columns, you can chain a cells per column limit filter of `1` with a column family regex filter for `cell_plan`. In the example dataset, the following code samples omit all `stats_summary` cells and return only the newest cell for each populated `cell_plan` column. For row `phone#4c410523#20190501`, the older `true@time minus one hour` cell in `data_plan_01gb` is omitted, returning only the `false@time` cell in `data_plan_01gb` and the cell in `data_plan_05gb`, while the other four rows each return their single `cell_plan` cell.
 
 ### Go
 
@@ -4028,6 +4065,8 @@ This filter sends the input row through multiple component filters, generating a
 Interleaves can cause cells to be duplicated in the output row. For example, if your interleave includes two filters, and both filters include a specific cell in their temporary output rows, the final output row will include two copies of that cell.
 
 If the component filters output multiple cells that all have the same column family, column qualifier, and timestamp, the final output row will group all of those cells together in an unspecified order.
+
+For example, if you want to read each device's OS build version along with any data plan cells that are set to `true` in a single request, you can combine those two criteria in an interleave filter. The following code samples interleave a value regex filter for `true` with a column qualifier regex filter for `os_build`. When applied to the example dataset, this filter returns the `stats_summary:os_build` cell and all `cell_plan` cells whose value is `true` for each of the five rows, omitting the `false@time` cell in `cell_plan:data_plan_01gb` for `phone#4c410523#20190501` and the `connected_cell` and `connected_wifi` columns.
 
 ### Go
 
@@ -4288,6 +4327,8 @@ The predicate filter's output row is used only to choose between the true and fa
 The predicate filter is not executed atomically with the true or false filter. In other words, the data in the input row can change between the time when the predicate filter is executed and the time when the true or false filter is executed. This behavior can lead to inconsistent or unexpected results.
 
 When you use the condition filter, you can omit the true or false filter. Omitting a filter is the same as specifying the block all filter. If the predicate filter chooses a condition that you omitted, the output row will be empty.
+
+The following code samples use a predicate filter that chains a column qualifier regex filter for `data_plan_10gb` with a value regex filter for `true` to check whether a record has an active 10 GB data plan. In the example dataset, rows `phone#5c10102#20190501` and `phone#5c10102#20190502` match the predicate, so the true filter applies the label `passed-filter` to all cells in those two rows. The three `phone#4c410523` rows don't have a matching cell in `data_plan_10gb`, so the false filter applies the label `filtered-out` to all cells in those rows.
 
 ### Go
 

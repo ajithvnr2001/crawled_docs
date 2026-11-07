@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini/enterprise/docs/manage-web-app-features/
 title: Manage web app features \u00a0|\u00a0 Gemini Enterprise \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-06T10:23:37.029901+00:00
+fetched_at: 2026-11-07T08:29:42.412280+00:00
 ---
 
 # Manage web app features  |  Gemini Enterprise  |  Google Cloud Documentation
@@ -122,10 +122,14 @@ To turn on or turn off a Gemini model in the web app, follow these steps:
 
   4. Go to the **Gemini model availability** section.
 
-  5. Click the toggle for the Gemini model that you want to turn on or turn off.
+  5. Click the toggle for the Gemini model that you want to turn on or off.
 
-If you turn on a model in an unsupported in-country region, confirm the warning dialog to route traffic to the `global` endpoint.
+Depending on your region and policies, consider the following constraints:
 
+     * If you turn on a model not supported in your app's region, confirm the warning dialog to route traffic to the `global` endpoint.
+     * If your project's [resource locations organization policy](https://docs.cloud.google.com/resource-manager/docs/organization-policy/defining-locations) restricts the `global` location: 
+       * Models that are not supported in your app's region cannot be turned on, and their toggles are disabled.
+       * If an unsupported model is already turned on, a warning appears below the toggle. To keep traffic within your app's region, turn off the model.
   6. Click **Save**.
 
 
@@ -222,6 +226,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-05 UTC.
+Last updated 2026-11-06 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-05 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-06 UTC."],[],[]] 

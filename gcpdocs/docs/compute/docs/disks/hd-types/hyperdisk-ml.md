@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/compute/docs/disks/hd-types/hyperdisk-ml/
 title: About Hyperdisk ML \u00a0|\u00a0 Compute Engine \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-05T11:08:42.220779+00:00
+fetched_at: 2026-11-07T08:32:20.079194+00:00
 ---
 
 # About Hyperdisk ML  |  Compute Engine  |  Google Cloud Documentation
@@ -51,6 +51,7 @@ You can use Hyperdisk ML with the following machine series:
   * [A4](https://docs.cloud.google.com/compute/docs/accelerator-optimized-machines#a4-vms)
   * [A4X](https://docs.cloud.google.com/compute/docs/accelerator-optimized-machines#a4x-vms)
   * [A4X Max](https://docs.cloud.google.com/compute/docs/accelerator-optimized-machines#a4x-vms)
+  * [A5X](https://docs.cloud.google.com/compute/docs/accelerator-optimized-machines#a5x-instances)
   * [C3](https://docs.cloud.google.com/compute/docs/general-purpose-machines#c3_series)
   * [C3D](https://docs.cloud.google.com/compute/docs/general-purpose-machines#c3d_machine_types)
   * [C4](https://docs.cloud.google.com/compute/docs/general-purpose-machines#c4_series)
@@ -154,7 +155,7 @@ This section lists the maximum performance that Hyperdisk ML volumes can achieve
 
 The provisioned throughput for a Hyperdisk ML volume is shared between each instance the volume is attached to, up to the maximum limit for the machine type that's listed in the following table. If a Hyperdisk ML volume's provisioned performance is higher than an instance's performance limit, the volume can achieve its provisioned performance only if it is attached to multiple instances.
 
-For example, suppose you have a Hyperdisk ML volume provisioned with 500,000 MiB/s of throughput and you want to attach the volume to `a3-ultragpu-8` instances. A single `a3-ultragpu-8` instance can't acheieve more than 4,000 MiB/s of throughput. Therefore, to achieve the volume's provisioned throughput, you must attach the volume to at least 125 (500,000/4,000) `a3-ultragpu-8` instances. On the other hand, for the `a2-highgpu-1g` machine type, you would need 272 instances. 
+For example, suppose you have a Hyperdisk ML volume provisioned with 500,000 MiB/s of throughput and you want to attach the volume to `a3-ultragpu-8` instances. A single `a3-ultragpu-8` instance can't achieve more than 4,000 MiB/s of throughput. Therefore, to achieve the volume's provisioned throughput, you must attach the volume to at least 125 (500,000/4,000) `a3-ultragpu-8` instances. On the other hand, for the `a2-highgpu-1g` machine type, you would need 272 instances. 
 
 **Important:** Hyperdisk performance is half-duplex, so the IOPS and throughput limits are shared between read and write operations. This means that if a machine type has a 50,000 IOPS limit, then the sum of the reads and writes every second can't exceed 50,000. To reach the IOPS limits, you must use an I/O size of 4 KB. Maximum throughput limits require an I/O size of at least 256 KB. 
 
@@ -179,6 +180,8 @@ A4X 1
 `a4x-highgpu-4g`1 | 200,000 | 12,500  
 A4X Max 1  
 `a4x-maxgpu-4g-metal`1 | 200,000 | 12,500  
+A5X 1,2  
+`a5x-highgpu-4g-metal`1,2 | 256,000 | 16,000  
 C3   
 `c3-*-4` | 6,400 | 400  
 `c3-*-8` | 12,800 | 800  
@@ -402,6 +405,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-04 UTC.
+Last updated 2026-11-06 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-06 UTC."],[],[]] 

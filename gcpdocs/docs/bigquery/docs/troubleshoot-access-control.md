@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/troubleshoot-access-control/
 title: Troubleshoot access control issues \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-06T10:21:43.590257+00:00
+fetched_at: 2026-11-07T08:29:49.460587+00:00
 ---
 
 # Troubleshoot access control issues  |  BigQuery  |  Google Cloud Documentation
@@ -189,7 +189,7 @@ To modify a view without breaking authorization, [update the view's SQL query](h
 
   * **Service account impersonation.** If a request using service account impersonation fails with `Permission 'iam.serviceAccounts.getAccessToken' denied`, grant the calling principal `roles/iam.serviceAccountTokenCreator` on the target service account.
 
-  * **Column-level security (policy tags) and row-level security.** If a query or DML statement fails with `Requires fineGrainedGet permission on the read columns` or `User does not have permission to access data protected by policy tag`, grant the principal the Data Catalog [Fine-Grained Reader](https://docs.cloud.google.com/bigquery/docs/column-level-security#fine_grained_reader) (`roles/datacatalog.categoryFineGrainedReader`) role on the policy tag, or exclude the protected columns from your `SELECT` list. See [Insufficient column-level access control permissions](https://docs.cloud.google.com/bigquery/docs/troubleshoot-queries#column-dml). If the table uses [row-level security](https://docs.cloud.google.com/bigquery/docs/row-level-security-intro), review its active row-level access policies in the Google Cloud console or by running `bq ls --row_access_policies`. See [List table row-level access policies](https://docs.cloud.google.com/bigquery/docs/managing-row-level-security#list_table_row-level_access_policies).
+  * **Column-level security (policy tags) and row-level security.** If a query or DML statement fails with `Requires fineGrainedGet permission on the read columns` or `User does not have permission to access data protected by policy tag`, grant the principal the Data Catalog [Fine-Grained Reader](https://docs.cloud.google.com/bigquery/docs/column-level-security#fine_grained_reader) (`roles/datacatalog.categoryFineGrainedReader`) role on the policy tag, or exclude the protected columns from your `SELECT` list. See [Insufficient column-level access control permissions](https://docs.cloud.google.com/bigquery/docs/troubleshoot-queries#column-dml). If the table uses [row-level security](https://docs.cloud.google.com/bigquery/docs/row-level-security-intro), review its active row-level access policies in the Google Cloud console or by running `bq ls --row_access_policies`. See [List table row-level access policies](https://docs.cloud.google.com/bigquery/docs/managing-row-level-security#list-policy).
 
   * **IAM and metadata propagation delays.** Newly granted IAM roles and dataset ACL updates are eventually consistent and typically take a few minutes to propagate across caches. If a permission was just granted, wait a few minutes and retry the request.
 
@@ -458,6 +458,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-05 UTC.
+Last updated 2026-11-06 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-05 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-06 UTC."],[],[]] 

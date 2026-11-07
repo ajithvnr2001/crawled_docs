@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/compute/docs/instances/arm-on-compute/
 title: Arm instances on Compute \u00a0|\u00a0 Compute Engine \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-05T00:04:44.729976+00:00
+fetched_at: 2026-11-07T08:32:23.234207+00:00
 ---
 
 # Arm instances on Compute  |  Compute Engine  |  Google Cloud Documentation
@@ -21,11 +21,13 @@ Send feedback
 
 #  Arm instances on Compute Stay organized with collections  Save and categorize content based on your preferences. 
 
-Google Cloud offers a range of Arm powered servers in Compute Engine through the N4A, C4A, and A4X machine series. Arm architecture is optimized for power efficiency, and as a result can yield better price for performance.
+Google Cloud offers a range of Arm powered servers in Compute Engine through the N4A, C4A, A5X, A4X Max, and A4X machine series. Arm architecture is optimized for power efficiency, and as a result can yield better price for performance.
 
 Arm processors are common in standard servers due to their power efficiency as compared to x86 servers. Mobile phones and laptops are examples of devices that run on an Arm processor. With an Arm CPU's reduced instruction set, fewer instructions equals greater performance speed with lower battery and power consumption.
 
-N4A uses Google's Axion Arm processor with the Neoverse N3 processor. C4A uses the Axion Arm processor based on the Arm Neoverse V2 processor. The Neoverse V2 is the first V-series CPU to have Armv9 performance, power, and security enhancements. It is designed for high performance computing, machine learning, and general-purpose cloud computing. Consider using N4A or C4A general-purpose Arm instances for any of the following purposes:
+N4A uses Google's Axion Arm processor with the Neoverse N3 processor. C4A uses the Axion Arm processor based on the Arm Neoverse V2 processor. The Neoverse V2 is the first V-series CPU to have Armv9 performance, power, and security enhancements. It is designed for high performance computing, machine learning, and general-purpose cloud computing.
+
+Consider using N4A or C4A general-purpose Arm instances for any of the following purposes:
 
   * Run compute-intensive workloads that require the ability to scale usage quickly when needed.
   * Optimize for price-performance on Arm-compatible workloads.
@@ -35,26 +37,35 @@ N4A uses Google's Axion Arm processor with the Neoverse N3 processor. C4A uses t
 
 
 
-To use GPUs with an Arm-based CPU, choose either the A4X Max or A4X machine series, which runs on the NVIDIA rack scale architecture. Instances in these machine series have attached NVIDIA Grace Blackwell Superchips. These machine series are optimized for massively parallelized Compute Unified Device Architecture (CUDA) compute workloads, such as machine learning (ML) and high performance computing (HPC).
+To use GPUs with an Arm-based CPU, choose the A5X, A4X Max, or A4X machine series, which run on the NVIDIA rack-scale architecture. Instances in these machine series have attached NVIDIA Vera Rubin or NVIDIA Grace Blackwell superchips. These machine series are optimized for massively parallelized Compute Unified Device Architecture (CUDA) compute workloads.
 
-## A4X Max and A4X machine series
+Consider using A5X, A4X Max, or A4X accelerator-optimized machine series for any of the following purposes:
 
-**Caution:** The [Compute Engine Service Level Agreement (SLA)](https://cloud.google.com/compute/sla) doesn't apply to the A4X Max and A4X machine series.
-
-The [A4X Max and A4X machine series](https://docs.cloud.google.com/compute/docs/accelerator-optimized-machines#a4x_series) have both Arm-based CPUs and attached GPUs. Both machine types in this series have two sockets with NVIDIA Grace Arm CPUs connected to four GPUs with fast chip-to-chip (NVLink C2C) communication.
-
-  * **A4X Max** : offers machine types with up to 144 vCPUs and 960 GB of memory. It uses NVIDIA GB300 Superchips, which have B300 GPUs that offer 279 GB memory per GPU. A4X Max is available as a bare metal instance in the `a4x-maxgpu-4g-metal` machine type.
-  * **A4X** : offers machine types that have up to 140 vCPUs and 884 GB of memory. It uses NVIDIA GB200 Superchips, which have B200 GPUs that offer 186 GB memory per GPU. A4X is available in the `a4x-highgpu-4g` machine type.
+  * Machine learning (ML)
+  * High performance computing (HPC)
+  * Massively-parallel workloads
 
 
 
-### Storage options for A4X Max and A4X instances
+## A5X, A4X Max, and A4X machine series
 
-A4X Max and A4X can be used with Google Cloud Hyperdisk attached storage and comes with 12,000 GiB of [Local SSD](https://docs.cloud.google.com/compute/docs/disks/local-ssd). Compute Engine automatically attaches the Local SSD disks to your instances during instance creation.
+**Caution:** The [Compute Engine Service Level Agreement (SLA)](https://cloud.google.com/compute/sla) doesn't apply to the A5X, A4X Max, and A4X machine series.
+
+The [A5X](https://docs.cloud.google.com/compute/docs/accelerator-optimized-machines#a5x-instances) and [A4X Max and A4X](https://docs.cloud.google.com/compute/docs/accelerator-optimized-machines#a4x-vms) machine series have both Arm-based CPUs and attached GPUs. Each machine type in these series has two sockets with NVIDIA Arm CPUs connected to four GPUs with fast chip-to-chip (NVLink-C2C) communication.
+
+  * **A5X** : offers bare metal instances with 176 vCPUs and 1,440 GB of memory. It uses NVIDIA Vera Rubin superchips, which have two 88-core NVIDIA Vera Armv9.2 CPUs (176 cores total) and four NVIDIA Rubin GPUs that offer 288 GB of High Bandwidth Memory (HBM4) per GPU, for a total of 1,152 GB of GPU memory. A5X is available as a bare metal instance in the `a5x-highgpu-4g-metal` machine type.
+  * **A4X Max** : offers machine types with up to 144 vCPUs and 960 GB of memory. It uses NVIDIA GB300 superchips, which have B300 GPUs that offer 279 GB memory per GPU. A4X Max is available as a bare metal instance in the `a4x-maxgpu-4g-metal` machine type.
+  * **A4X** : offers machine types that have up to 140 vCPUs and 884 GB of memory. It uses NVIDIA GB200 superchips, which have B200 GPUs that offer 186 GB memory per GPU. A4X is available in the `a4x-highgpu-4g` machine type.
+
+
+
+### Storage options for A5X, A4X Max, and A4X instances
+
+A5X, A4X Max, and A4X instances support Google Cloud Hyperdisk attached storage. A5X instances include 48,000 GiB of [Local SSD](https://docs.cloud.google.com/compute/docs/disks/local-ssd) storage, and A4X Max and A4X instances include 12,000 GiB. Compute Engine automatically attaches the Local SSD disks to your instances during instance creation.
 
 ### OS images
 
-A4X Max and A4X instances support public Arm-based [OS images](https://docs.cloud.google.com/compute/docs/images/os-details). You can also [create custom images](https://docs.cloud.google.com/compute/docs/images/create-custom) using a public Arm-based OS image.
+A5X, A4X Max, and A4X instances support public Arm-based [OS images](https://docs.cloud.google.com/compute/docs/images/os-details). You can also [create custom images](https://docs.cloud.google.com/compute/docs/images/create-custom) by using a public Arm-based OS image.
 
 ## N4A machine series
 
@@ -113,7 +124,7 @@ The C4A machine series is an excellent choice for a wide range of scale-out and 
 
 ## What's next
 
-  * Review the specifications and features of the [A4X Max and A4X machine series](https://docs.cloud.google.com/compute/docs/accelerator-optimized-machines#a4x_series).
+  * Review the specifications and features of the [A5X](https://docs.cloud.google.com/compute/docs/accelerator-optimized-machines#a5x-instances) and [A4X Max and A4X](https://docs.cloud.google.com/compute/docs/accelerator-optimized-machines#a4x-vms) machine series.
   * Review the specifications for the [N4A machine series](https://docs.cloud.google.com/compute/docs/general-purpose-machines#n4a_series).
   * Review the specifications for the [C4A machine series](https://docs.cloud.google.com/compute/docs/general-purpose-machines#c4a_series).
   * Learn about available [CPU platforms](https://docs.cloud.google.com/compute/docs/cpu-platforms) for Google Cloud.
@@ -125,6 +136,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-04 UTC.
+Last updated 2026-11-06 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-06 UTC."],[],[]] 

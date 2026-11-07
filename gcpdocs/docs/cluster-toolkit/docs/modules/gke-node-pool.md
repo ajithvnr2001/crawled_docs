@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/cluster-toolkit/docs/modules/gke-node-pool/
 title: Create a Google Kubernetes node pool \u00a0|\u00a0 Cluster Toolkit \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-01T05:38:52.664981+00:00
+fetched_at: 2026-11-07T08:32:51.602283+00:00
 ---
 
 # Create a Google Kubernetes node pool  |  Cluster Toolkit  |  Google Cloud Documentation
@@ -259,6 +259,71 @@ To use a shared reservation, you must explicitly specify the owner project of th
         project: shared_reservation_owner_project_id
     
 
+### Pin node pools to reservation sub-blocks
+
+Reservations that use a dense allocation model, such as future reservations for capacity blocks and future reservations in calendar mode, are divided into [blocks and sub-blocks](https://docs.cloud.google.com/ai-hypercomputer/docs/terminology). A sub-block is a group of hosts that share a high-bandwidth interconnect, such as one NVLink domain. To keep each node pool within one sub-block, you can create multiple node pools from a single `gke-node-pool` module and pin each node pool to its own sub-block.
+
+Before you pin node pools to sub-blocks, verify that your `gke-node-pool` module's `settings` block meets the following requirements:
+
+  * **Reservation type is set to`SPECIFIC_RESERVATION`:** Set the `consume_reservation_type` field to `SPECIFIC_RESERVATION` and include only one entry in the `specific_reservations` field. Set the `name` field to only the reservation name, not the path of a block or sub-block.
+  * **Matching node pool count:** If you manually specify the `reservation_subblocks` field, then the value in the `num_node_pools` field must equal the number of entries in the `reservation_subblocks` field.
+  * **Set IAM permissions:** To let the `gcluster` CLI propose sub-blocks, you must have the `compute.reservationBlocks.list` and `compute.reservationSubBlocks.list` permissions on the project that owns the reservation, such as the Compute Viewer (`roles/compute.viewer`) role. For a shared reservation, set the `project` field in the `specific_reservations` field to the owner project ID. If the `reservation_subblocks` field already contains all entries, then you don't need these permissions.
+
+
+
+To pin node pools to sub-blocks, set the following fields in the `settings` block of the module:
+
+  * `num_node_pools`: the number of node pools to create, with one node pool for each sub-block.
+  * `pin_to_subblocks`: a boolean value that specifies whether the `gcluster` CLI chooses the sub-blocks. To let the `gcluster` CLI choose the sub-blocks, set this field to `true`.
+  * `reservation_subblocks`: a map of keys to paths of reservation sub-blocks. We recommend that you reference a variable in your deployment file so that the `gcluster` CLI can save the map to your deployment file.
+
+
+
+The following example creates three node pools of 18 nodes each, with one node pool in each of the three sub-blocks:
+    
+    
+    vars:
+      reservation_subblocks: {}   # gcluster automatically populates this map on the first deployment
+    deployment_groups:
+    - group: primary
+      modules:
+      - id: gpu-sb
+        source: modules/compute/gke-node-pool
+        use: [gke_cluster]
+        settings:
+          name: gpu-sb
+          machine_type: a4x-highgpu-4g
+          zones: [us-central1-a]
+          num_node_pools: 3
+          static_node_count: 18
+          reservation_affinity:
+            consume_reservation_type: SPECIFIC_RESERVATION
+            specific_reservations:
+            - name: my-reservation
+              pin_to_subblocks: true
+              reservation_subblocks: $(vars.reservation_subblocks)
+    
+
+**Important:** Keep the `name` field in the `settings` block short (8 characters or fewer). Each node pool is named `NAME-KEY`, where `NAME` is the value of the `name` field (such as `gpu-sb`) and `KEY` is the key in the `reservation_subblocks` map (such as `02-0001`). If `NAME-KEY` exceeds 16 characters, then GKE truncates the node pool prefix in the names of the compute instances and instance templates, which can make node pools difficult to distinguish.
+
+When you run the [`gcluster deploy`](https://docs.cloud.google.com/cluster-toolkit/docs/reference/gcluster-deploy) or [`gcluster create`](https://docs.cloud.google.com/cluster-toolkit/docs/reference/gcluster-create) command, the `gcluster` CLI checks the `reservation_subblocks` map and, depending on the number of entries, does one of the following:
+
+  * **Fewer entries than specified in the`num_node_pools` field:** If the map is empty or has fewer entries than the value of the `num_node_pools` field, then the `gcluster` CLI lists the sub-blocks of the reservation and proposes available sub-blocks. The `gcluster` CLI proposes `HEALTHY` sub-blocks first, and proposes `DEGRADED` sub-blocks with a warning only if there are not enough `HEALTHY` sub-blocks available. After you confirm the proposed sub-blocks, the `gcluster` CLI saves the updated map to your deployment file and keeps a backup of the previous file.
+  * **More entries than specified in the`num_node_pools` field:** If the map has more entries than the value of the `num_node_pools` field, then the `gcluster` CLI proposes to remove the extra entries, and the next deployment deletes the node pools for the removed entries.
+  * **Equal entries to the value specified in the`num_node_pools` field:** If the map already has the number of entries that is specified in the `num_node_pools` field, then the `gcluster` CLI uses the map without prompting you for confirmation to proceed.
+
+
+
+Each node pool is named `NAME-BLOCK_NAME-SUBBLOCK_NAME`, such as `gpu-sb-02-0001`, where `NAME` is the value of the `name` field, `BLOCK_NAME` is the block number, and `SUBBLOCK_NAME` is the sub-block number. Because each node pool is identified by its key in the `reservation_subblocks` map, if you add or remove an entry, then the `gcluster` CLI creates or deletes only that node pool. If you change the sub-block for an entry, then the `gcluster` CLI recreates only that node pool.
+
+To choose the sub-blocks yourself, omit the `pin_to_subblocks` field or set the field to `false`, and set the `reservation_subblocks` field to a map of your choice:
+    
+    
+    reservation_subblocks:
+      "01-0001": my-reservation/reservationBlocks/my-reservation-block-0001/reservationSubBlocks/my-reservation-block-0001-subblock-0001
+      "01-0002": my-reservation/reservationBlocks/my-reservation-block-0001/reservationSubBlocks/my-reservation-block-0001-subblock-0002
+    
+
 ## What's next
 
   * To learn how to submit jobs to this node pool, see [Create a Google Kubernetes job template](https://docs.cloud.google.com/cluster-toolkit/docs/modules/gke-job-template).
@@ -270,6 +335,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-30 UTC.
+Last updated 2026-11-06 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-06 UTC."],[],[]] 

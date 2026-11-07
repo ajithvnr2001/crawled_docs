@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/compute/docs/gpus/gpu-network-bandwidth/
 title: Networking and GPU machines \u00a0|\u00a0 Compute Engine \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T23:07:26.689415+00:00
+fetched_at: 2026-11-07T08:32:27.692496+00:00
 ---
 
 # Networking and GPU machines  |  Compute Engine  |  Google Cloud Documentation
@@ -21,7 +21,7 @@ Send feedback
 
 #  Networking and GPU machines Stay organized with collections  Save and categorize content based on your preferences. 
 
-This document outlines the network bandwidth capabilities and configurations for Compute Engine instances with attached GPUs. Learn about the maximum network bandwidth, Network Interface Card (NIC) arrangements, and recommended VPC network setups for various GPU machine types, including the A4X Max, A4X, A4, A3, A2, G4, G2, and N1 series. Understanding these configurations can help you optimize performance for your distributed workloads on Compute Engine.
+This document outlines the network bandwidth capabilities and configurations for Compute Engine instances with attached GPUs. Learn about the maximum network bandwidth, Network Interface Card (NIC) arrangements, and recommended VPC network setups for various GPU machine types, including the A5X, A4X Max, A4X, A4, A3, A2, G4, G2, and N1 series. Understanding these configurations can help you optimize performance for your distributed workloads on Compute Engine.
 
 ## Overview
 
@@ -29,18 +29,19 @@ The following table provides a general comparison of networking capabilities acr
 
 Machine type | GPU model | Max total bandwidth | GPU to GPU networking technology  
 ---|---|---|---  
-**A4X Max** | NVIDIA GB300 Ultra Superchips | 3,600 Gbps | GPUDirect RDMA  
-**A4X** | NVIDIA GB200 Superchips | 2,000 Gbps | GPUDirect RDMA  
-**A4** | NVIDIA B200 | 3,600 Gbps | GPUDirect RDMA  
-**A3 Ultra** | NVIDIA H200 | 3,600 Gbps | GPUDirect RDMA  
-**A3 Mega** | NVIDIA H100 80GB | 1,800 Gbps | GPUDirect-TCPXO  
-**A3 High** | NVIDIA H100 80GB | 1,000 Gbps | GPUDirect-TCPX  
-**A3 Edge** | NVIDIA H100 80GB | 600 Gbps | GPUDirect-TCPX  
-**G4** | NVIDIA RTX PRO 6000 | 400 Gbps | N/A  
-**A2 Standard and A2 Ultra** | NVIDIA A100 40GB, NVIDIA A100 80GB | 100 Gbps | N/A  
-**G2** | NVIDIA L4 | 100 Gbps | N/A  
-**N1** | NVIDIA T4, NVIDIA V100 | 100 Gbps | N/A  
-**N1** | NVIDIA P4 | 32 Gbps | N/A  
+A5X | NVIDIA Vera Rubin superchips | 7,200 Gbps | GPUDirect RDMA  
+A4X Max | NVIDIA GB300 Ultra superchips | 3,600 Gbps | GPUDirect RDMA  
+A4X | NVIDIA GB200 superchips | 2,000 Gbps | GPUDirect RDMA  
+A4 | NVIDIA B200 | 3,600 Gbps | GPUDirect RDMA  
+A3 Ultra | NVIDIA H200 | 3,600 Gbps | GPUDirect RDMA  
+A3 Mega | NVIDIA H100 80GB | 1,800 Gbps | GPUDirect-TCPXO  
+A3 High | NVIDIA H100 80GB | 1,000 Gbps | GPUDirect-TCPX  
+A3 Edge | NVIDIA H100 80GB | 600 Gbps | GPUDirect-TCPX  
+G4 | NVIDIA RTX PRO 6000 | 400 Gbps | N/A  
+A2 Standard and A2 Ultra | NVIDIA A100 40GB, NVIDIA A100 80GB | 100 Gbps | N/A  
+G2 | NVIDIA L4 | 100 Gbps | N/A  
+N1 (T4, V100) | NVIDIA T4, NVIDIA V100 | 100 Gbps | N/A  
+N1 (P4) | NVIDIA P4 | 32 Gbps | N/A  
   
 ### GPUDirect RDMA and MRDMA functions
 
@@ -48,10 +49,10 @@ On certain accelerator-optimized machine types, Google Cloud uses MRDMA as the n
 
 **GPUDirect RDMA** is an NVIDIA technology that enables a network interface card (NIC) to directly access GPU memory over PCIe, bypassing host CPU and system memory. This peer-to-peer communication between NIC and GPU significantly reduces latency for inter-node GPU-to-GPU communication.
 
-**MRDMA** is the network interface implementation used on A4X Max, A4X, A4, and A3 Ultra machine types to provide GPUDirect RDMA capabilities. MRDMA is based on NVIDIA ConnectX NICs and is deployed in one of the following ways:
+**MRDMA** is the network interface implementation used on A5X, A4X Max, A4X, A4, and A3 Ultra machine types to provide GPUDirect RDMA capabilities. MRDMA is based on NVIDIA ConnectX NICs and is deployed in one of the following ways:
 
   * **MRDMA Virtual Functions (VFs)** : used in A3 Ultra, A4, and A4X series.
-  * **MRDMA Physical Functions (PFs)** : used in the A4X Max series.
+  * **MRDMA Physical Functions (PFs)** : used in the A5X and A4X Max series.
 
 
 
@@ -61,28 +62,29 @@ The A4X, A4, and A3 Ultra machine types implement high-performance GPU-to-GPU ne
 
 With MRDMA VFs, standard physical port counters (such as those ending in `_phy`) appear in `ethtool -S` output but won't update during network activity. This is a characteristic of the MRDMA VF architecture. To accurately track network performance on these interfaces, review the entries for the **vPort Counter Table** instead of the **Physical Port Counter Table**.
 
-The A4X Max machine type uses MRDMA PFs. Unlike the MRDMA VF-based machine types, A4X Max supports the full range of physical port counters for GPU networking.
+The A5X and A4X Max machine types use MRDMA PFs. Unlike the MRDMA VF-based machine types, A5X and A4X Max support the full range of physical port counters for GPU networking.
 
 ## Review networking concepts for GPU machine types
 
 Use the following section to review the network arrangement and bandwidth speed for each GPU machine type.
 
-### A4X Max and A4X machine types
+### A5X, A4X Max, and A4X machine types
 
-The A4X Max and A4X machine series, which are both based on the NVIDIA Blackwell architecture, are designed for demanding, large-scale, distributed AI workloads. The primary differentiator between the two is their attached accelerators and networking hardware, as outlined in the following table:
+The A5X, A4X Max, and A4X machine series are designed for demanding, large-scale, distributed AI workloads. The primary differentiator among these series is their attached accelerators and networking hardware, as outlined in the following table:
 
-| A4X Max machine series | A4X machine series  
----|---|---  
-Attached hardware | NVIDIA GB300 Ultra Superchips | NVIDIA GB200 Superchips  
-GPU-to-GPU networking | 4 NVIDIA ConnectX-8 (CX-8) SuperNICs that provide 3,200 Gbps bandwidth in an 8-way rail-aligned topology | 4 NVIDIA ConnectX-7 (CX-7) NICs that provide 1,600 Gbps bandwidth in a 4-way rail-aligned topology  
-GPU-to-GPU networking implementation | 8 MRDMA Physical Functions (PFs) configured as 2 PFs per NIC | 4 MRDMA Virtual Functions (VFs) configured as 1 VF per NIC  
-General purpose networking | 2 Titanium smart NICs that provide 400 Gbps bandwidth | 2 Titanium smart NICs that provide 400 Gbps bandwidth  
-Total maximum network bandwidth | 3,600 Gbps | 2,000 Gbps  
+Feature | A5X machine series | A4X Max machine series | A4X machine series  
+---|---|---|---  
+Attached hardware | NVIDIA Vera Rubin superchips | NVIDIA GB300 Ultra superchips | NVIDIA GB200 superchips  
+GPU-to-GPU networking | 8 NVIDIA ConnectX-9 (CX-9) SuperNICs that provide 6,400 Gbps bandwidth in a rail-aligned, 8-plane topology: each GPU has two 800 Gbps NICs, each split into four 200 Gbps ports, and the eight ports of each GPU connect to eight separate network planes | 4 NVIDIA ConnectX-8 (CX-8) SuperNICs that provide 3,200 Gbps bandwidth in an 8-way rail-aligned topology | 4 NVIDIA ConnectX-7 (CX-7) NICs that provide 1,600 Gbps bandwidth in a 4-way rail-aligned topology  
+GPU-to-GPU networking implementation | 32 MRDMA Physical Functions (PFs) configured as 4 PFs per NIC | 8 MRDMA Physical Functions (PFs) configured as 2 PFs per NIC | 4 MRDMA Virtual Functions (VFs) configured as 1 VF per NIC  
+Host networking (Titanium) | 2 Titanium smart NICs that provide 800 Gbps bandwidth | 2 Titanium smart NICs that provide 400 Gbps bandwidth | 2 Titanium smart NICs that provide 400 Gbps bandwidth  
+Total maximum network bandwidth | 7,200 Gbps | 3,600 Gbps | 2,000 Gbps  
   
 #### Multi-layered networking architecture
 
-A4X Max and A4X compute instances use a multi-layered, hierarchical networking architecture with a rail-aligned design to optimize performance for various communication types. In this topology, instances connect across multiple independent network planes, called rails.
+A5X, A4X Max, and A4X compute instances use a multi-layered, hierarchical networking architecture with a rail-aligned design to optimize performance for various communication types. In this topology, instances connect across multiple independent network planes, called rails.
 
+  * A5X instances use a rail-aligned, 8-plane topology: each GPU has two 800 Gbps CX-9 SuperNICs, each split into four 200 Gbps ports, and the eight ports of each GPU connect to eight separate network planes.
   * A4X Max instances use an 8-way rail-aligned topology where each of the four 800 Gbps ConnectX-8 NICs connects to two separate 400 Gbps rails.
   * A4X instances use a 4-way rail-aligned topology where each of the four ConnectX-7 NICs connects to a separate rail.
 
@@ -90,45 +92,73 @@ A4X Max and A4X compute instances use a multi-layered, hierarchical networking a
 
 The networking layers for these machine types are as follows:
 
-  * **Intra-node and Intra-subblock communication (NVLink)** : A high-speed NVLink fabric interconnects GPUs for high-bandwidth, low-latency communication. This fabric connects all the GPUs within a single instance and extends across a subblock, which consists of 18 A4X Max or A4X instances (a total of 72 GPUs). This allows all 72 GPUs in a subblock to communicate as if they were in a single, large-scale GPU server.
+  * **Intra-node and Intra-subblock communication (NVLink)** : A high-speed NVLink fabric interconnects GPUs for high-bandwidth, low-latency communication. This fabric connects all the GPUs within a single instance and extends across a subblock, which consists of 18 A5X, A4X Max, or A4X instances (a total of 72 GPUs). This allows all 72 GPUs in a subblock to communicate as if they were in a single, large-scale GPU server.
 
   * **Inter-subblock communication (ConnectX NICs with RoCE)** : to scale workloads beyond a single subblock, these machines use NVIDIA ConnectX NICs. These NICs use RDMA over Converged Ethernet (RoCE) to provide high-bandwidth, low-latency communication between subblocks, to let you build large-scale training clusters with thousands of GPUs.
 
-  * **General-purpose networking (Titanium Smart NICs)** : in addition to the specialized GPU networks, each instance has two Titanium smart NICs, providing a combined 400 Gbps of bandwidth for general networking tasks. This includes traffic for storage, management, and connecting to other Google Cloud services or the public internet.
+  * **Host networking (Titanium Smart NICs)** : in addition to the specialized GPU networks, each instance has two host network interfaces, providing a combined 800 Gbps of bandwidth on A5X instances or 400 Gbps of bandwidth on A4X Max and A4X instances. The host network interfaces are used for storage, management, and connecting to other Google Cloud services or the public internet.
 
 
 
+
+##### A5X architecture
+
+The A5X architecture uses NVIDIA Vera Rubin superchips. Each instance provides eight 800 Gbps NVIDIA ConnectX-9 (CX-9) SuperNICs, two per GPU. Each SuperNIC has four 200 Gbps ports and appears to the instance as four MRDMA PFs, for 32 MRDMA PFs and 6,400 Gbps of GPU-to-GPU bandwidth. Each instance also includes two 400 Gbps Titanium smart NICs that provide 800 Gbps of host networking bandwidth.
 
 ##### A4X Max architecture
 
-The A4X Max architecture is built around NVIDIA GB300 Ultra Superchips. A key feature of this design is the direct connection of the four 800 Gbps NVIDIA ConnectX-8 (CX-8) SuperNICs to the GPUs. Each ConnectX-8 is a dual-port NIC, that is exposed to the instance as two Physical Functions (PFs). These NICs are part of an 8-way rail-aligned network topology where each NIC connects to two separate 400 Gbps rails. This direct path enables RDMA, providing high bandwidth and low latency for GPU-to-GPU communication across different subblocks. These Compute Engine instances also include high-performance local SSDs that are attached to the ConnectX-8 NICs, bypassing the PCIe bus for faster data access.
+The A4X Max architecture is built around NVIDIA GB300 Ultra superchips. A key feature of this design is the direct connection of the four 800 Gbps NVIDIA ConnectX-8 (CX-8) SuperNICs to the GPUs. Each ConnectX-8 is a dual-port NIC, that is exposed to the instance as two Physical Functions (PFs). These NICs are part of an 8-way rail-aligned network topology where each NIC connects to two separate 400 Gbps rails. This direct path enables RDMA, providing high bandwidth and low latency for GPU-to-GPU communication across different subblocks. These Compute Engine instances also include high-performance local SSDs that are attached to the ConnectX-8 NICs, bypassing the PCIe bus for faster data access.
 
 [ ![Network architecture for A4X Max showing four NICs for GPU
       communication and two Titanium NICs for general networking.](https://docs.cloud.google.com/compute/images/gpus/a4x-max-networking.png)](https://docs.cloud.google.com/compute/images/gpus/a4x-max-networking.png) Figure 1. Network architecture for a single A4X Max host
 
 ##### A4X architecture
 
-The A4X architecture uses NVIDIA GB200 Superchips. In this configuration, the four NVIDIA ConnectX-7 (CX-7) NICs are connected to the host CPU. This setup provides high-performance networking for GPU-to-GPU communication between subblocks.
+The A4X architecture uses NVIDIA GB200 superchips. In this configuration, the four NVIDIA ConnectX-7 (CX-7) NICs are connected to the host CPU. This setup provides high-performance networking for GPU-to-GPU communication between subblocks.
 
 [ ![Network architecture for A4X showing four NICs for GPU
       communication and two Titanium NICs for general networking.](https://docs.cloud.google.com/compute/images/gpus/a4x-networking.png)](https://docs.cloud.google.com/compute/images/gpus/a4x-networking.png) Figure 2. Network architecture for a single A4X host
 
-#### A4X Max and A4X Virtual Private Cloud (VPC) network configuration
+#### A5X, A4X Max, and A4X Virtual Private Cloud (VPC) network configuration
 
 To use the full networking capabilities of these machine types, you need to create and attach VPC networks to your instances. To use all available NICs, you must create VPC networks as follows:
 
-  * **Two regular VPC networks** for the Titanium Smart NICs.
+  * **Two regular VPC networks** for the Titanium Smart NICs. For A5X, these VPC networks support IPv4, IPv6, and [Bring Your Own IP (BYOIP)](https://docs.cloud.google.com/vpc/docs/bring-your-own-ip) addresses. However, BYOIP external IPv6 subnet ranges are supported only for VM instances.
 
-    * For A4X Max, these VPC networks use the [Intel IDPF LAN PF device driver](https://docs.cloud.google.com/compute/docs/networking/using-idpf).
+    * For A5X and A4X Max, these VPC networks use the [Intel IDPF LAN PF device driver](https://docs.cloud.google.com/compute/docs/networking/using-idpf).
     * For A4X, these VPC networks use the [Google Virtual NIC (gVNIC)](https://docs.cloud.google.com/compute/docs/networking/using-gvnic) network interface.
-  * **One VPC network with the RoCE network profile** is required for the ConnectX NICs when you create clusters of multiple A4X Max or A4X subblocks. The [RoCE VPC network](https://docs.cloud.google.com/vpc/docs/rdma-network-profiles) must have one subnet for each network rail. This means eight subnets for A4X Max instances and four subnets for A4X instances. If you use a single subblock, you can omit this VPC network because the multi-node NVLink fabric handles direct GPU-to-GPU communication.
+  * **One VPC network with a[RoCE network profile](https://docs.cloud.google.com/vpc/docs/rdma-network-profiles)** is required for the ConnectX NICs when you create clusters of multiple A5X, A4X Max, or A4X subblocks. If you use a single subblock, you can omit this VPC network because the multi-node NVLink fabric handles direct GPU-to-GPU communication.
+
+    * For A5X and A4X Max bare metal instances, create a [RoCE VPC network for bare metal instances (`roce-metal`)](https://docs.cloud.google.com/vpc/docs/rdma-network-profiles#roce-metal-supported-features), which automatically provides a single IPv6-only subnet for all MRDMA network interfaces (32 on A5X, 8 on A4X Max).
+    * For A4X VM instances, create a [RoCE VPC network for VM instances (`roce`)](https://docs.cloud.google.com/vpc/docs/rdma-network-profiles#roce-supported-features), and then manually create four IPv4-only subnets in that network, one subnet for each network rail.
 
 
 
+To set up these networks in the AI Hypercomputer documentation, see the following guides:
 
-To set up these networks, see [Create VPC networks](https://docs.cloud.google.com/ai-hypercomputer/docs/create/create-vm-a4x#setup-network) in the AI Hypercomputer documentation.
+  * For A5X instances, contact your account team to [reserve capacity](https://docs.cloud.google.com/ai-hypercomputer/docs/reserve-capacity) and get instructions to create instances and clusters.
+  * For A4X Max instances, see [Create VPC networks for A4X Max](https://docs.cloud.google.com/ai-hypercomputer/docs/create/create-a4xmax-instance#setup-network).
+  * For A4X instances, see [Create VPC networks for A4X](https://docs.cloud.google.com/ai-hypercomputer/docs/create/create-vm-a4x#setup-network).
 
-#### A4X Max and A4X machine types
+
+
+#### A5X, A4X Max, and A4X machine types
+
+###  A5X 
+
+**Note:** To get started with A5X instances, contact your account team to [reserve capacity](https://docs.cloud.google.com/ai-hypercomputer/docs/reserve-capacity) and get instructions to create instances and clusters. 
+
+Machine type | vCPU count | Instance memory (GB) | Attached Local SSD (GiB) | Physical NIC count | Maximum network bandwidth (Gbps) | NVIDIA Rubin GPU count | GPU memory (GB HBM4)  
+---|---|---|---|---|---|---|---  
+`a5x-highgpu-4g-metal` | 176 | 1,440 | 48,000 | 10 | 7,200 | 4 | 1,152  
+  
+The following notes apply to the preceding table:
+
+  * **vCPU count** : for A5X bare metal instances, the vCPU count of 176 represents the 176 physical CPU cores across two 88-core sockets on the NVIDIA Vera [CPU platform](https://docs.cloud.google.com/compute/docs/cpu-platforms).
+  * **Maximum network bandwidth** : maximum egress bandwidth can't exceed the number given. Actual egress bandwidth depends on the destination IP address and other factors. For more information about network bandwidth, see [Network bandwidth](https://docs.cloud.google.com/compute/docs/network-bandwidth).
+  * **GPU memory** : GPU memory is the memory on a GPU device that stores temporary data. It's separate from the instance's memory and handles the higher bandwidth demands of your graphics-intensive workloads.
+
+
 
 ###  A4X Max 
 
@@ -399,6 +429,7 @@ For GPU machine types, we recommend the following MTU settings for your VPC netw
 ---|---  
 | Regular VPC network | RoCE VPC network  
   
+  * A5X
   * A4X Max
   * A4X
   * A4
@@ -456,6 +487,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-06 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-06 UTC."],[],[]] 

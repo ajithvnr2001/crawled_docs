@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/compute/docs/networking/network-overview/
 title: Networking overview for VMs \u00a0|\u00a0 Compute Engine \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T23:04:00.007373+00:00
+fetched_at: 2026-11-07T08:32:27.263412+00:00
 ---
 
 # Networking overview for VMs  |  Compute Engine  |  Google Cloud Documentation
@@ -46,7 +46,7 @@ Every compute instance in a VPC network has a default virtual network interface 
 
 Multiple network interfaces enable you to create configurations in which an instance connects directly to several VPC networks. Multiple network interfaces are useful when applications running in an instance require traffic separation, such as separation of data plane traffic from management plane traffic. For more information about using multiple network interfaces, see [Multiple network interfaces](https://docs.cloud.google.com/vpc/docs/multiple-interfaces-concepts).
 
-Multiple vNICs aren't supported with bare metal instances. Additionally, you can only add vNICs to an instance during instance creation. With [Dynamic Network Interfaces](https://docs.cloud.google.com/vpc/docs/multiple-interfaces-concepts#dynamic-nics), you can create VLAN-based network subinterfaces for each exposed vNIC, which lets you scale the number of network interfaces and VPC network connections. You can add or remove Dynamic Network Interfaces without having to restart or recreate the compute instance. For more information about Dynamic NIC, see [Create VMs with multiple network interfaces](https://docs.cloud.google.com/vpc/docs/create-use-multiple-interfaces).
+Bare metal instances, except for A4X Max, A5X, Z4D, and Z4M, don't support multiple vNICs. Additionally, you can only add vNICs to an instance during instance creation. With [Dynamic Network Interfaces](https://docs.cloud.google.com/vpc/docs/multiple-interfaces-concepts#dynamic-nics), you can create VLAN-based network subinterfaces for each exposed vNIC, which lets you scale the number of network interfaces and VPC network connections. You can add or remove Dynamic Network Interfaces without having to restart or recreate the compute instance. For more information about Dynamic NIC, see [Create VMs with multiple network interfaces](https://docs.cloud.google.com/vpc/docs/create-use-multiple-interfaces).
 
 When you configure the vNIC for a compute instance, you can specify the type of network driver to use with the interface.
 
@@ -191,6 +191,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-06 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-06 UTC."],[],[]] 

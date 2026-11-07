@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/iam/docs/federated-identity-supported-services/
 title: Identity federation: products and limitations \u00a0|\u00a0 Identity and Access Management (IAM) \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-06T08:23:59.995604+00:00
+fetched_at: 2026-11-07T08:32:29.126005+00:00
 ---
 
 # Identity federation: products and limitations  |  Identity and Access Management (IAM)  |  Google Cloud Documentation

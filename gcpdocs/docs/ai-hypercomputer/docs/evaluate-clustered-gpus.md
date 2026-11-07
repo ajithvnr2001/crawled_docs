@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/ai-hypercomputer/docs/evaluate-clustered-gpus/
 title: Clustered GPUs overview \u00a0|\u00a0 AI Hypercomputer \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T18:58:09.294624+00:00
+fetched_at: 2026-11-07T08:32:24.434494+00:00
 ---
 
 # Clustered GPUs overview  |  AI Hypercomputer  |  Google Cloud Documentation
@@ -39,13 +39,35 @@ Clustered GPUs let teams deploy and scale thousands of interconnected accelerato
 
 ## Clustered GPU families and technical specifications
 
-Review the workloads and hardware specifications for the premium Clustered GPU machine series in these tables. For exascale training, use the A4X or A3 Ultra series.
+Review the workloads and hardware specifications for the premium Clustered GPU machine series in these tables. For exascale training, use the A5X, A4X Max, A4X, or A3 Ultra series.
+
+### A5X series
+
+**Caution:** The [Compute Engine Service Level Agreement (SLA)](https://cloud.google.com/compute/sla) doesn't apply to the A5X machine series.
+
+If you're training large-scale foundation models, running inference for reasoning models, or executing complex high performance computing (HPC) simulations on bare metal, then use the A5X machine series. This series features NVIDIA Vera Rubin superchips to handle high computational and memory demands.
+
+A5X machine types use NVIDIA Vera Rubin superchips and are ideal for foundation model training, reasoning, and serving. A5X machine types are available as [bare metal instances](https://docs.cloud.google.com/compute/docs/instances/bare-metal-instances). 
+
+A5X is an exascale platform based on [NVIDIA Vera Rubin NVL72](https://www.nvidia.com/en-us/data-center/vera-rubin-nvl72/). Each machine has two sockets with NVIDIA Vera CPUs. These CPUs connect to four NVIDIA Rubin GPUs with fast chip-to-chip ([NVLink-C2C](https://www.nvidia.com/en-us/data-center/nvlink-c2c/)) communication. For information about machine type limitations, see [A5X limitations](https://docs.cloud.google.com/compute/docs/accelerator-optimized-machines#a5x-limitations). 
+
+**Note:** To get started with A5X instances, contact your account team to [reserve capacity](https://docs.cloud.google.com/ai-hypercomputer/docs/reserve-capacity) and get instructions to create instances and clusters. Machine type | vCPU count | Instance memory (GB) | Attached Local SSD (GiB) | Physical NIC count | Maximum network bandwidth (Gbps) | NVIDIA Rubin GPU count | GPU memory (GB HBM4)  
+---|---|---|---|---|---|---|---  
+`a5x-highgpu-4g-metal` | 176 | 1,440 | 48,000 | 10 | 7,200 | 4 | 1,152  
+  
+The following notes apply to the preceding table:
+
+  * **vCPU count** : for A5X bare metal instances, the vCPU count of 176 represents the 176 physical CPU cores across two 88-core sockets on the NVIDIA Vera [CPU platform](https://docs.cloud.google.com/compute/docs/cpu-platforms).
+  * **Maximum network bandwidth** : maximum egress bandwidth can't exceed the number given. Actual egress bandwidth depends on the destination IP address and other factors. For more information about network bandwidth, see [Network bandwidth](https://docs.cloud.google.com/compute/docs/network-bandwidth).
+  * **GPU memory** : GPU memory is the memory on a GPU device that stores temporary data. It's separate from the instance's memory and handles the higher bandwidth demands of your graphics-intensive workloads.
+
+
 
 ### A4X Max and A4X series
 
 **Caution:** The [Compute Engine Service Level Agreement (SLA)](https://cloud.google.com/compute/sla) doesn't apply to the A4X Max and A4X machine series.
 
-If you are training massive exascale foundation models or running highly complex, bare-metal high performance computing (HPC) simulations, use the A4X Max or A4X machine series. These series feature NVIDIA GB300 Grace Blackwell Ultra Superchips to handle extreme computational and memory demands.
+If you are training massive exascale foundation models or running highly complex, bare-metal high performance computing (HPC) simulations, use the A4X Max or A4X machine series. These series feature NVIDIA GB300 Grace Blackwell Ultra superchips to handle extreme computational and memory demands.
 
 #### A4X Max (Bare metal)
 
@@ -165,6 +187,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-06 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-06 UTC."],[],[]] 

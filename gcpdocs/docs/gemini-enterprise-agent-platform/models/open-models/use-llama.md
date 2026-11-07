@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/open-models/use-llama/
 title: Self-deployed Llama models \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-06T10:42:36.977605+00:00
+fetched_at: 2026-11-07T08:25:25.663257+00:00
 ---
 
 # Self-deployed Llama models  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation
@@ -30,13 +30,13 @@ For more information, see the [Llama 4](https://console.cloud.google.com/agent-p
 
 ### Llama 4 Maverick
 
-Llama 4 Maverick is the largest and most capable Llama 4 model, offering industry-leading capabilities on coding, reasoning, and image benchmarks. It features 17 billion active parameters out of 400 billion total parameters with 128 experts. Llama 4 Maverick uses alternating dense and MoE layers, where each token activates a shared expert plus one of the 128 routed experts. You can use the model as a pretrained (PT) model or instruction-tuned (IT) model with FP8 support. The model is pretrained on 200 languages and optimized for high-quality chat interactions through a refined post-training pipeline.
+Llama 4 Maverick is the largest Llama 4 model and offers coding, reasoning, and image capabilities. It features 17 billion active parameters out of 400 billion total parameters with 128 experts. Llama 4 Maverick uses alternating dense and MoE layers, where each token activates a shared expert plus one of the 128 routed experts. When self-deploying from Model Garden, you can deploy the pretrained model (`llama-4-maverick-17b-128e`), the instruction-tuned model in BF16 precision (`llama-4-maverick-17b-128e-instruct`), or the instruction-tuned model with FP8 quantization (`llama-4-maverick-17b-128e-instruct-fp8`). The managed MaaS endpoint (`llama-4-maverick-17b-128e-instruct-maas`) serves the instruction-tuned model in fixed FP8 precision. The model is pretrained on 200 languages and optimized for chat interactions through a post-training pipeline.
 
-Llama 4 Maverick is multimodal and has a 1M context length. It is suited for advanced image captioning, analysis, precise image understanding, visual Q&A, creative text generation, general-purpose AI assistants, and sophisticated chatbots requiring top-tier intelligence and image understanding.
+Llama 4 Maverick is multimodal and has a 1M token context length. It is suited for image captioning, visual analysis, visual question answering, creative text generation, general-purpose AI assistants, and complex chat applications.
 
 ### Llama 4 Scout
 
-Llama 4 Scout delivers state-of-the-art results for its size class with a large 10 million token context window, outperforming previous Llama generations and other open and proprietary models on several benchmarks. It features 17 billion active parameters out of the 109 billion total parameters with 16 experts and is available as a pretrained (PT) or instruction-tuned (IT) model. Llama 4 Scout is suited for retrieval tasks within long contexts and tasks that demand reasoning over large amounts of information, such as summarizing multiple large documents, analyzing extensive user interaction logs for personalization and reasoning across large codebases.
+Llama 4 Scout is a high-efficiency MoE model with a 10 million token context window. It features 17 billion active parameters out of 109 billion total parameters with 16 experts. When self-deploying from Model Garden, you can deploy the pretrained model (`llama-4-scout-17b-16e`) or the instruction-tuned model (`llama-4-scout-17b-16e-instruct`). The managed MaaS endpoint (`llama-4-scout-17b-16e-instruct-maas`) serves the instruction-tuned model in fixed FP8 precision. Llama 4 Scout is suited for retrieval tasks within long contexts and tasks that demand reasoning over large amounts of information, such as summarizing multiple large documents, analyzing extensive user interaction logs for personalization, and reasoning across large codebases.
 
 ## Llama 3.3
 
@@ -67,7 +67,7 @@ When using the 11B and 90B, there are no restriction when you send text-only pro
 
 ## Llama 3.1
 
-Llama 3.1 collection of multilingual large language models (LLMs) is a collection of pre-trained and instruction-tuned generative models in 8B, 70B and 405B sizes (text in/text out). The Llama 3.1 instruction tuned text-only models (8B, 70B, 405B) are optimized for multilingual dialogue use cases and outperform many of the available open source and closed chat models on common industry benchmarks.
+Llama 3.1 collection of multilingual large language models (LLMs) is a collection of pre-trained and instruction-tuned generative models in 8B, 70B and 405B sizes (text input and output). The Llama 3.1 instruction tuned text-only models (8B, 70B, 405B) are optimized for multilingual dialogue use cases and outperform many of the available open source and closed chat models on common industry benchmarks.
 
 For more information, see the [Llama 3.1](https://console.cloud.google.com/agent-platform/publishers/meta/model-garden/llama3_1) model card in Model Garden.
 
@@ -103,6 +103,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-05 UTC.
+Last updated 2026-11-07 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-05 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-07 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/compute/docs/network-bandwidth/
 title: Network bandwidth \u00a0|\u00a0 Compute Engine \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-06T10:23:21.466209+00:00
+fetched_at: 2026-11-07T08:32:26.706600+00:00
 ---
 
 # Network bandwidth  |  Compute Engine  |  Google Cloud Documentation
@@ -91,6 +91,7 @@ a VPC network |
     * X4, M4, A2, and G2 instances support egress bandwidth limits up to 100 Gbps.
     * X5 instances support egress bandwidth limits up to 200 Gbps.
     * G4 instances support egress bandwidth limits up to 400 Gbps.
+    * A5X instances support egress bandwidth limits up to 7,200 Gbps.
     * A4X Max instances support egress bandwidth limits up to 3,600 Gbps.
     * A4X instances support egress bandwidth limits up to 2,000 Gbps.
     * A4 and A3 instances support egress bandwidth limits up to 3,600 Gbps.
@@ -115,6 +116,7 @@ a VPC network |
       * For Z4M instances: 50 Gbps total for instances with 192 vCPUs and up to 25 Gbps total for instances with 96 vCPUs or fewer, depending on the machine type size.
       * For Z4D instances: 50 Gbps total for instances with 384 vCPUs and up to 25 Gbps total for instances with 192 vCPUs or fewer, depending on the machine type size.
       * For G4 instances: 25 Gbps total for machine types with 48 or more vCPUs, and 7 Gbps total for machine types with fewer than 48 vCPUs.
+      * For A5X instances: 25 Gbps per physical NIC
       * For machine series that support multiple physical NICs, such as A3, A4, A4X, and A4X Max instances: 7 Gbps per NIC
       * For all other machine series: 7 Gbps total
   * For other factors, definitions, and caveats, see Egress to destinations outside of a VPC network.
@@ -270,6 +272,7 @@ From the perspective of a sending instance and for destination IP addresses _out
       * For Z4D and Z4M instances: 7 Gbps total for machine types with fewer than 48 vCPUs, and up to 25 Gbps per physical NIC for machine types with 48 or more vCPUs
       * For G4 instances: 7 Gbps total for machine types with fewer than 48 vCPUs, and 25 Gbps total for machine types with 48 or more vCPUs
       * For H4D and H3 instances: 1 Gbps
+      * For A5X instances: 25 Gbps per physical NIC
       * For machine series that support multiple physical NICs, such as A3, A4, A4X, and A4X Max instances: 7 Gbps per physical NIC
       * For all other machine series: 7 Gbps
 **Note:** Maximum egress bandwidth can be achieved when the packet size matches the default MTU value of 1,460 bytes. As the packet size decreases, the maximum achievable bandwidth also declines due to limitations on the number of packets per second that the compute instance can handle.
@@ -388,9 +391,10 @@ Unless you explicitly assign queue counts for NICs, you can model the algorithm 
 
 Compute instance configuration | Maximum queue count per vNIC | Maximum queue count per instance  
 ---|---|---  
-Bare metal instances | 16 | 16  
-Network-optimized C4N and M4N instances | 64 | The number of vCPUs  
-Storage-optimized Z4D and Z4M instances (including bare metal machine types) | 16 | The number of vCPUs  
+Bare metal instances (excluding A5X, A4X Max, Z4D, and Z4M) | 16 | 16  
+Accelerator-optimized A5X and A4X Max bare metal instances (IDPF NICs) | 64 | The number of vCPUs  
+Network-optimized C4N and M4N and M4N instances | 64 | The number of vCPUs  
+Storage-optimized Z4D and Z4M instances (including bare metal machine types) | 64 (default is 16) | The number of vCPUs  
 C4 instances with 2 vCPUs | 1 | 2  
 C4 instances with 4 vCPUs | 2 | 8  
 H4D instances with Cloud RDMA | 16 | 16, or 32 if using Cloud RDMA  
@@ -451,7 +455,7 @@ The number of custom queues you specify must adhere to the following rules:
       * [TPU instances](https://docs.cloud.google.com/tpu/docs/managing-tpus-compute) have a maximum queue count of 32.
       * C2, C2D, N2, or N2D instances with Tier_1 networking enabled have a maximum queue count of 32 per NIC.
     * Using [IRDMA](https://docs.cloud.google.com/compute/docs/networking/using-irdma), the maximum queue count is 8.
-    * Using an [IDPF](https://docs.cloud.google.com/compute/docs/networking/using-idpf) network interface, the maximum queue count is 16, except for Z4D and Z4M bare metal instances, which have a maximum queue count of 64.
+    * Using an [IDPF](https://docs.cloud.google.com/compute/docs/networking/using-idpf) network interface, the maximum queue count is 16, except for A5X, A4X Max, Z4D, and Z4M bare metal instances, which have a maximum queue count of 64.
     * The following [Confidential VM](https://docs.cloud.google.com/confidential-computing/confidential-vm/docs/confidential-vm-overview) configurations have a maximum queue count of `8`:
 
       * AMD SEV on C2D and N2D machine types
@@ -694,6 +698,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-05 UTC.
+Last updated 2026-11-06 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-05 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-06 UTC."],[],[]] 

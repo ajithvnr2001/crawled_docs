@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sql/docs/sqlserver/connect-compute-engine/
 title: Connect from Compute Engine \u00a0|\u00a0 Cloud SQL for SQL Server \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-06T10:24:51.507096+00:00
+fetched_at: 2026-11-07T08:29:47.957873+00:00
 ---
 
 # Connect from Compute Engine  |  Cloud SQL for SQL Server  |  Google Cloud Documentation
@@ -32,16 +32,24 @@ You can use private IP, public IP, the Cloud SQL Auth Proxy, or the Cloud SQL Au
 
 ## Before you begin
 
-This task does not include instructions for setting up your Compute Engine instance. If you need help with creating and configuring a Compute Engine instance, see the [Compute Engine documentation](https://docs.cloud.google.com/compute/docs/instances/create-start-instance).
+This task doesn't include instructions for setting up your Compute Engine instance. If you need help with creating and configuring a Compute Engine instance, see the [Compute Engine documentation](https://docs.cloud.google.com/compute/docs/instances/create-start-instance).
 
-Ensure your Compute Engine VM has the proper `scope` to connect using the Cloud SQL Admin API. 
+### Required roles
 
-[Configure the service account](https://docs.cloud.google.com/compute/docs/access/create-enable-service-accounts-for-instances#changeserviceaccountandscopes) to have either of the following access scopes: 
+To ensure that the service account attached to your Compute Engine instance has the necessary permissions to connect to a Cloud SQL instance from Compute Engine, ask your administrator to grant the following IAM roles to the service account attached to your Compute Engine instance on your project: 
 
-  * https://www.googleapis.com/auth/sqlservice.admin
-  * https://www.googleapis.com/auth/cloud-platform
+**Important:** You must grant these roles to the service account attached to your Compute Engine instance, _not_ to your user account. Failure to grant the roles to the correct principal might result in permission errors. 
+
+  * To connect using the Cloud SQL Auth Proxy, Cloud SQL Language Connectors, or the Cloud SQL Admin API: [Cloud SQL Client ](https://docs.cloud.google.com/iam/docs/roles-permissions/cloudsql#cloudsql.client) (`roles/cloudsql.client`) 
+  * If you use IAM database authentication: [Cloud SQL Instance User ](https://docs.cloud.google.com/iam/docs/roles-permissions/cloudsql#cloudsql.instanceUser) (`roles/cloudsql.instanceUser`) 
 
 
+
+For more information about granting roles, see [Manage access to projects, folders, and organizations](https://docs.cloud.google.com/iam/docs/granting-changing-revoking-access). 
+
+Your administrator might also be able to give the service account attached to your Compute Engine instance the required permissions through [custom roles](https://docs.cloud.google.com/iam/docs/creating-custom-roles) or other [predefined roles](https://docs.cloud.google.com/iam/docs/roles-overview#predefined). 
+
+Set the Compute Engine VM access scope to `cloud-platform` (`https://www.googleapis.com/auth/cloud-platform`, or **Allow full access to all Cloud APIs** in the Google Cloud console). Access scopes are a legacy method for specifying authorization for a VM and only set the maximum OAuth authorization scope for requests. Manage access control through predefined IAM roles instead of access scopes. To update an existing VM, see [Change the attached service account](https://docs.cloud.google.com/compute/docs/instances/change-service-account#changeserviceaccountandscopes).
 
 If your Compute Engine VM or VPC network restricts outbound traffic, make sure your firewall rules allow outgoing TCP connections on the required destination ports:
 
@@ -103,7 +111,7 @@ You can find the private IP address on the [Cloud SQL instances page](https://co
 
 **To connect using public IP:**
 
-### 1\. Add a static IPv4 IP address to the Compute Engine instance, if it does not already have one.
+### 1\. Add a static IPv4 IP address to the Compute Engine instance, if it doesn't already have one.
 
 You cannot connect to Compute Engine using IPv6. For information about adding a static IP address, see [ Reserving a new static external IP address](https://docs.cloud.google.com/compute/docs/configure-instance-ip-addresses#reserve_new_static) in the Compute Engine documentation. 
 
@@ -172,12 +180,10 @@ To enable APIs, you need the `serviceusage.services.enable` permission. If you c
 
 ### 2\. Create a service account.
 
-**Note:** If your Compute Engine instance has either the **Full API access** or **Cloud SQL Admin API** scope, you can skip this step; you do not need to provide a certificate file when you start the Cloud SQL Auth Proxy.If you are connecting from Compute Engine, make sure your VM has the proper `scope` to connect using the Cloud SQL Admin API. 
+**Note:** If the [service account attached to your Compute Engine instance](https://docs.cloud.google.com/compute/docs/access/service-accounts) already has the **Cloud SQL Client** (`roles/cloudsql.client`) IAM role and the instance has the `cloud-platform` (**Allow full access to all Cloud APIs**) access scope, you can skip this step. You don't need to provide a service account key file when you start the Cloud SQL Auth Proxy.**Note:** If you are connecting from a Compute Engine VM, we recommend that you use the [service account attached to the VM](https://docs.cloud.google.com/compute/docs/access/service-accounts) instead of a service account key file: 
 
-[ Configure the service account](https://docs.cloud.google.com/compute/docs/access/create-enable-service-accounts-for-instances#changeserviceaccountandscopes) to have either of the following access scopes: 
-
-  * https://www.googleapis.com/auth/sqlservice.admin
-  * https://www.googleapis.com/auth/cloud-platform
+  * Grant the attached service account the **Cloud SQL Client** (`roles/cloudsql.client`) predefined IAM role to connect using the Cloud SQL Auth Proxy or the Cloud SQL Admin API, and the **Cloud SQL Instance User** (`roles/cloudsql.instanceUser`) role if you use IAM database authentication. For more information about predefined roles, see [Cloud SQL IAM roles](https://docs.cloud.google.com/sql/docs/sqlserver/iam-roles).
+  * Set the VM access scope to `cloud-platform` (`https://www.googleapis.com/auth/cloud-platform`, or **Allow full access to all Cloud APIs** in the Google Cloud console) and use IAM roles to control permissions. Access scopes are a legacy method for specifying authorization for a VM and only set the maximum OAuth authorization scope. To update an existing VM, see [Change the attached service account](https://docs.cloud.google.com/compute/docs/instances/change-service-account#changeserviceaccountandscopes).
 
 
 
@@ -194,7 +200,7 @@ To enable APIs, you need the `serviceusage.services.enable` permission. If you c
      * **Cloud SQL > Cloud SQL Editor**
      * **Cloud SQL > Cloud SQL Admin**
 
-**Note:** To create a service account with the required permissions, you must have `resourcemanager.projects.setIamPolicy` permission. This permission is included in the Project Owner, Project IAM Admin, and Organization Administrator roles.  
+**Note:** To create a service account with the required permissions, you must have the `resourcemanager.projects.setIamPolicy` permission. This permission is included in the Project Owner, Project IAM Admin, and Organization Administrator roles.  
 You must also have enabled the Cloud SQL Admin API. If you are using the legacy project roles (Viewer, Editor, Owner), the service account must have at least the Editor role.
 
   7. Click **Done** to finish creating the service account.
@@ -207,7 +213,7 @@ The private key file is downloaded to your machine. You can move it to another l
 
 
 
-If the Compute Engine instance is in a different project than the Cloud SQL instance, ensure that its service account has the proper permissions in the project that contains the Cloud SQL instance: 
+If the Compute Engine instance is in a different project from the Cloud SQL instance, ensure that its service account has the proper permissions in the project that contains the Cloud SQL instance: 
 
   1. Go to the Compute Engine instances listing in the Google Cloud console.
 
@@ -244,8 +250,8 @@ You now see the service account listed with the specified role.
 
 Use the appropriate instructions, depending on the instance's operating system: 
 
-  * For Linux, see [ Connecting to Linux Instances](https://docs.cloud.google.com/compute/docs/instances/connecting-to-instance#gcetools). 
-  * For Windows, see [ Connecting to Windows Instances](https://docs.cloud.google.com/compute/docs/instances/connecting-to-windows).
+  * For Linux, see [ Connecting to Linux instances](https://docs.cloud.google.com/compute/docs/instances/connecting-to-instance#gcetools).
+  * For Windows, see [ Connecting to Windows instances](https://docs.cloud.google.com/compute/docs/instances/connecting-to-windows).
 
 
 
@@ -334,7 +340,7 @@ For other operating systems not included here, you can [compile the Cloud SQL Au
 
 ### 6\. Start the Cloud SQL Auth Proxy.
 
-**Note:** If your Compute Engine instance has either the **Full API access** or **Cloud SQL Admin API** scope, you do not need to provide a certificate file when you start the Cloud SQL Auth Proxy.
+**Note:** If the [service account attached to your Compute Engine instance](https://docs.cloud.google.com/compute/docs/access/service-accounts) has the **Cloud SQL Client** (`roles/cloudsql.client`) IAM role and the instance has the `cloud-platform` (**Allow full access to all Cloud APIs**) access scope, you don't need to provide a service account key file when you start the Cloud SQL Auth Proxy.
 
 You can start the Cloud SQL Auth Proxy using TCP sockets or the Cloud SQL Auth Proxy Docker image. The Cloud SQL Auth Proxy binary connects to one or more Cloud SQL instances specified on the command line, and opens a local connection as a TCP socket. Other applications and services, such as your application code or database management client tools, can connect to Cloud SQL instances through that TCP socket connection. 
 
@@ -437,6 +443,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-03 UTC.
+Last updated 2026-11-06 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-06 UTC."],[],[]] 

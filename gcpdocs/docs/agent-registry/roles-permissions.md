@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/agent-registry/roles-permissions/
 title: Roles and permissions \u00a0|\u00a0 Agent Registry \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-05T00:18:51.442126+00:00
+fetched_at: 2026-11-07T08:29:38.260099+00:00
 ---
 
 # Roles and permissions  |  Agent Registry  |  Google Cloud Documentation
@@ -31,10 +31,12 @@ The following table describes Agent Registry IAM roles and their typical respons
 
 **Caution:** Grant the **Agent Registry API Admin** (`roles/agentregistry.admin`) or **Agent Registry API Editor** (`roles/agentregistry.editor`) roles only to trusted administrators who manage the registry. Avoid granting these roles directly to agents. These roles contain permissions to create, delete, and update services, including modifying critical agent metadata and [tool annotations](https://modelcontextprotocol.io/specification/latest/schema#toolannotations) such as `readOnlyHint` or `destructiveHint`. Malicious changes to metadata and annotations can cause unintended and destructive consequences when an orchestrator uses the modified tool. Additionally, an agent with these permissions can explicitly enroll a malicious external agent into the registry.**Role** | **Description** | **Purpose**  
 ---|---|---  
-**Agent Registry API Admin** (`roles/agentregistry.admin`) |  Full access to all Agent Registry resources, including agents, MCP servers, tools, endpoints, standalone skills, skill revisions, bindings, and skill IAM policies. | 
+**Agent Registry API Admin** (`roles/agentregistry.admin`) |  Full access to all Agent Registry resources, including agents, MCP servers, tools, endpoints, standalone skills, skill revisions, security findings, skill encryption specifications, bindings, and skill IAM policies. | 
 
   * Register and manage agents, MCP servers, tools, and endpoints.
   * Create, update, and delete standalone skills and skill revisions.
+  * View and list security findings for skill revisions.
+  * Configure customer-managed encryption keys (CMEK) for skills.
   * Create and manage bindings and skill IAM policies.
 
   
@@ -45,16 +47,16 @@ The following table describes Agent Registry IAM roles and their typical respons
   * Create, update, and delete standalone skills and skill revisions.
 
   
-**Agent Registry API Viewer** (`roles/agentregistry.viewer`) |  Read-only access to view and search agents, MCP servers, tools, standalone skills, skill revisions, publishers, endpoints, and bindings. | 
+**Agent Registry API Viewer** (`roles/agentregistry.viewer`) |  Read-only access to view and search agents, MCP servers, tools, standalone skills, skill revisions, publishers, skill encryption specifications, endpoints, and bindings. | 
 
   * Discover available agents, MCP servers, and tools.
-  * View A2A skills, standalone skills, skill revisions, publishers, endpoints, and bindings for integration.
+  * View A2A skills, standalone skills, skill revisions, publishers, skill encryption specifications, endpoints, and bindings for integration.
 
   
-**Agent Registry User** (`roles/agentregistry.user`) |  Read-only access to Agent Registry resources, plus access to create, update, and delete standalone skills and skill revisions. | 
+**Agent Registry User** (`roles/agentregistry.user`) |  Read-only access to Agent Registry resources, plus access to create, update, and delete standalone skills, skill revisions, and scanning settings. | 
 
   * Create, update, and delete standalone skills and skill revisions without edit access to agents, MCP servers, or endpoints.
-  * Keep version control for skill revisions and centrally manage active states of skills.
+  * Keep version control for skill revisions, configure automated security scanning, and centrally manage active states of skills.
 
   
   
@@ -271,6 +273,7 @@ Agent Registry roles govern who can manage and discover resources in the registr
 
   * **Egress access permissions** : to authorize an agent to route traffic to a registered agent, MCP server, or endpoint, grant the [**IAP-secured Egressor** (`roles/iap.egressor`)](https://docs.cloud.google.com/iam/docs/roles-permissions/iap#iap.egressor) role to the [agent principal](https://docs.cloud.google.com/agent-registry/identity-and-identifiers#agent-principals) on the target resource.
   * **Policy administration permissions** : to configure IAP web IAM policies on registered resources, you must obtain the [IAP Policy Admin (`roles/iap.admin`)](https://docs.cloud.google.com/iam/docs/roles-permissions/iap#iap.admin) role on the governance project hosting the registry.
+  * **Access control on standalone skills** : to control who can view or update a standalone skill without granting project-wide access, configure a resource-level IAM policy on the `Skill` resource, or use [IAM Conditions](https://docs.cloud.google.com/iam/docs/conditions-overview) on project-level bindings. For instructions, see [Manage access to a skill](https://docs.cloud.google.com/agent-registry/manage-skills#manage-skill-access).
 
 
 
@@ -280,6 +283,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-03 UTC.
+Last updated 2026-11-06 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-06 UTC."],[],[]] 

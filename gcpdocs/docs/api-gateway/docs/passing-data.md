@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/api-gateway/docs/passing-data/
 title: Pass data to and from the backend service \u00a0|\u00a0 API Gateway \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T23:18:15.391550+00:00
+fetched_at: 2026-11-07T08:32:38.684342+00:00
 ---
 
 # Pass data to and from the backend service  |  API Gateway  |  Google Cloud Documentation
@@ -87,10 +87,10 @@ In these examples:
 
 **Note** : If you plan to use the [deterministic URL](https://docs.cloud.google.com/run/docs/triggering/https-request#deterministic) to version your Cloud Run service backend, you must specify one of the following: 
 
-  * Open API 2.0: [`jwt_audience`](https://docs.cloud.google.com/api-gateway/docs/oasv2-extensions#jwt_audience_disable_auth) field under `address` in the `x-google-backend` section
-  * Open API 3.0: [`jwtAudience`](https://docs.cloud.google.com/api-gateway/docs/oasv3-extensions#backend_object) field under `address` in the `x-google-api-management` section
+  * OpenAPI 2.0: [`jwt_audience`](https://docs.cloud.google.com/api-gateway/docs/oasv2-extensions#jwt_audience_disable_auth) field alongside `address` in the `x-google-backend` section
+  * OpenAPI 3.x: [`jwtAudience`](https://docs.cloud.google.com/api-gateway/docs/oasv3-extensions#backends_object) field alongside `address` in the backend definition under `x-google-api-management.backends`
 
-The value of the `jwt_audience` or `jwtAudience` field should be the Cloud Run service hostname. For example, for OpenAPI 2.0: 
+Set the `jwt_audience` or `jwtAudience` field to the Cloud Run service hostname. For example, for OpenAPI 2.0: 
     
     
     ...
@@ -180,6 +180,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-06 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-06 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/memory-bank/fetch-memories/
 title: Fetch memories \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-06T10:43:44.832050+00:00
+fetched_at: 2026-11-07T08:26:42.902041+00:00
 ---
 
 # Fetch memories  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation
@@ -21,9 +21,9 @@ Send feedback
 
 #  Fetch memories Stay organized with collections  Save and categorize content based on your preferences. 
 
-Memory Bank lets you retrieve stored memories using different operations depending on your needs. You can fetch a single memory, list all memories, or perform scope-based retrieval with similarity search. 
+Agent Platform Memory Bank lets you retrieve stored memories using different operations depending on your needs. You can fetch a single memory, list and filter memories, or perform scope-based retrieval with similarity search. 
 
-This document explains how to use these fetch operations using the Agent Platform SDK.
+This document explains how to fetch and inspect memories in the Google Cloud console or with the Agent Platform SDK.
 
 If you use the Agent Development Kit (ADK), your agent can automatically orchestrate these calls for you. See [Quickstart with ADK](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/memory-bank/adk-quickstart).
 
@@ -39,7 +39,7 @@ You have the following options to fetch generated memories:
 
   * Retrieve memories: Using the Agent Platform SDK, retrieve memories using scope-based memory retrieval. Retrieve memories using similarity search or all memories within the scope.
 
-  * List memories: List memories using the Agent Platform SDK.
+  * List memories: List and filter memories in the Google Cloud console or with the Agent Platform SDK.
 
 
 
@@ -170,9 +170,37 @@ Replace the following:
 
 ### List memories
 
+You can list and inspect memories in the Google Cloud console or with the Agent Platform SDK.
+
+###  Console 
+
+To view and filter memories in the Google Cloud console (requires `aiplatform.memories.list`, included in `roles/aiplatform.memoryViewer` and `roles/aiplatform.memoryUser`):
+
+  1. Open your instance in the Google Cloud console:
+
+     * **Standalone Memory Bank instance** : Go to the Agent Platform **Memory Bank** page and click your instance.
+
+[Go to Memory Bank](https://console.cloud.google.com/agent-platform/memory-bank)
+
+     * **Deployed agent on Agent Runtime** : Go to the Agent Platform **Deployments** page and click your agent.
+
+[Go to Deployments](https://console.cloud.google.com/agent-platform/runtimes)
+
+  2. Open the **Memories** tab. By default, the **Unstructured** view displays a table of memories (**Scope** , **Resource Name** , **Fact** , **Created** , and **Updated**).
+
+  3. Optional: Filter or manage memories:
+
+     * **Filter by scope** : Type a `key:value` pair (such as `user_id:123`) in the filter bar, or click a scope chip in any row.
+     * **View structured profiles** : Switch to **Structured** and select a complete scope, or apply a scope filter in **Unstructured** and click **Search structured memories**. For details, see [Memory Profiles](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/memory-bank/profiles#inspect-profiles).
+     * **Edit, inspect revisions, or delete** : Click the **more actions** menu (more_vert) on a memory row and select **Edit** , **View revisions** , or **Delete**.
+
+
+
+###  Agent Platform SDK 
+
 **Warning:** Calling `list()` on a `ListMemories` response triggers automatic pagination across all pages. For large collections, use `response.page` directly to fetch items one page at a time and prevent unexpected calls.
 
-Use `ListMemories` to memories from your Memory Bank without scope-based filtering. For scope-based retrieval, use `RetrieveMemories` instead. `ListMemories` is not recommended for low-latency retrieval.
+Use `ListMemories` to list memories from your Memory Bank without scope-based filtering. For scope-based retrieval, use `RetrieveMemories` instead. `ListMemories` isn't recommended for low-latency retrieval.
     
     
     pager = client.memory_banks.memories.list(name=memory_bank.name)
@@ -361,6 +389,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-05 UTC.
+Last updated 2026-11-07 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-05 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-07 UTC."],[],[]] 

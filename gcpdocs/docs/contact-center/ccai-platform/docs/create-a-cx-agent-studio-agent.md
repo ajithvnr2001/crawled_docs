@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/contact-center/ccai-platform/docs/create-a-cx-agent-studio-agent/
 title: Create and integrate Customer Experience Agent Studio agents \u00a0|\u00a0 Google Cloud Contact Center as a Service \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T23:27:18.158142+00:00
+fetched_at: 2026-11-07T08:32:44.168710+00:00
 ---
 
 # Create and integrate Customer Experience Agent Studio agents  |  Google Cloud Contact Center as a Service  |  Google Cloud Documentation
@@ -29,7 +29,9 @@ For information about creating a Customer Experience Agent Studio virtual agent,
 
 ## Create conversation profile for CX Agent Studio virtual agents
 
-For information about how to create a conversation profile for your CX Agent Studio agent, see [Connect an agent application to a new conversation profile](https://docs.cloud.google.com/customer-engagement-ai/conversational-agents/ps/deploy/ccaas#connect_an_agent_application_to_a_new_conversation_profile)
+For information about how to create a conversation profile for your CX Agent Studio agent, see [Connect an agent application to a new conversation profile](https://docs.cloud.google.com/gemini-enterprise-cx/cx-agent-studio/deploy/ccaas#connect_an_agent_application_to_a_new_conversation_profile).
+
+**Note:** When a conversation uses the `BidiStreamingAnalyzeContent` method, CCAI Platform doesn't pass the queue language in the request. For CX Agent Studio agents, the conversation language is determined by the agent's language settings (make sure your conversation profile language matches). By contrast, when a conversation uses the `StreamingAnalyzeContent` method, CCAI Platform sets the language in the `StreamingAnalyzeContentRequest` message based on the queue language.
 
 ## Create a service account and key
 
@@ -113,7 +115,7 @@ The **Add a virtual agent platform** dialog appears.
 
 **Note:** You can use the same service account key file used earlier for the existing virtual agent. You don't need any new credentials in general. However, it's recommended to **generate new service account keys to avoid dealing with expired/deactivated keys**.
 
-Virtual agents onboarded using CX Agent Studio will use the `StreamingAnalyzeContent` API that will best support DTMF inputs and future virtual agent upgrades.
+Virtual agents onboarded using CX Agent Studio use the `BidiStreamingAnalyzeContent` method, which requires bidirectional streaming (`useBidiStreaming`) to be enabled on the conversation profile.
 
 ## Virtual agent platform statuses
 
@@ -136,6 +138,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-06 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-06 UTC."],[],[]] 

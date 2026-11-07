@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/compute/docs/disks/hd-types/hyperdisk-extreme/
 title: About Hyperdisk Extreme \u00a0|\u00a0 Compute Engine \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-05T11:08:42.437543+00:00
+fetched_at: 2026-11-07T08:32:20.897764+00:00
 ---
 
 # About Hyperdisk Extreme  |  Compute Engine  |  Google Cloud Documentation
@@ -46,6 +46,7 @@ You can use Hyperdisk Extreme with the following machine series:
   * [A4](https://docs.cloud.google.com/compute/docs/accelerator-optimized-machines#a4-vms)
   * [A4X](https://docs.cloud.google.com/compute/docs/accelerator-optimized-machines#a4x-vms)
   * [A4X Max](https://docs.cloud.google.com/compute/docs/accelerator-optimized-machines#a4x-vms)
+  * [A5X](https://docs.cloud.google.com/compute/docs/accelerator-optimized-machines#a5x-instances)
   * [C3](https://docs.cloud.google.com/compute/docs/general-purpose-machines#c3_series)
   * [C3D](https://docs.cloud.google.com/compute/docs/general-purpose-machines#c3d_machine_types)
   * [C4](https://docs.cloud.google.com/compute/docs/general-purpose-machines#c4_series)
@@ -173,6 +174,8 @@ A4X 2
 `a4x-highgpu-4g`2 | 500,000 | 12,500  
 A4X Max 2  
 `a4x-maxgpu-4g-metal`2 | 500,000 | 12,500  
+A5X 2,3  
+`a5x-highgpu-4g-metal`2,3 | 2,000,000 | 16,000  
 C3 1  
 `c3-*-88`1 | 350,000 | 5,000  
 `c3-*-176`1 | 500,000 | 10,000  
@@ -318,6 +321,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-04 UTC.
+Last updated 2026-11-06 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-06 UTC."],[],[]] 

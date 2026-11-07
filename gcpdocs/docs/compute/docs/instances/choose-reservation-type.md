@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/compute/docs/instances/choose-reservation-type/
 title: Choose a reservation type \u00a0|\u00a0 Compute Engine \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T23:07:52.329816+00:00
+fetched_at: 2026-11-07T08:32:15.387045+00:00
 ---
 
 # Choose a reservation type  |  Compute Engine  |  Google Cloud Documentation
@@ -154,13 +154,13 @@ With future reservations for capacity blocks, you can request to reserve vCPUs, 
 
 
 
-To consume the reservations at the start of your reservation period, create GPU, TPU, or H4D instances that match the properties of the reservations and by using the [reservation-bound provisioning model](https://docs.cloud.google.com/compute/docs/instances/provisioning-models). At the end of the reservation period, Compute Engine deletes the reservation, and stops or deletes any compute instances that consume the reservation based on the [termination action](https://docs.cloud.google.com/compute/docs/instances/limit-vm-runtime) that you for the compute instances.
+To consume the reservations at the start of your reservation period, create GPU, TPU, or H4D instances that match the properties of the reservations and by using the [reservation-bound provisioning model](https://docs.cloud.google.com/compute/docs/instances/provisioning-models). At the end of the reservation period, Compute Engine deletes the reservation, and stops or deletes any compute instances that consume the reservation based on the [termination action](https://docs.cloud.google.com/compute/docs/instances/limit-vm-runtime) that you specify for the compute instances.
 
 For more information, see any of the following documents:
 
   * **For GPU instances** :
 
-    * To reserve capacity for A4X Max, A4X, A4, A3 Ultra, A3 Mega, A3 High (8 GPUs), or A3 Edge instances to create compute instances or cluster in Cluster Toolkit, Compute Engine, or Google Kubernetes Engine (GKE), see [Reserve capacity through your account team](https://docs.cloud.google.com/ai-hypercomputer/docs/reserve-capacity) in the AI Hypercomputer documentation.
+    * To reserve capacity for A5X, A4X Max, A4X, A4, A3 Ultra, A3 Mega, A3 High (8 GPUs), or A3 Edge instances to create compute instances or clusters in Cluster Toolkit, Compute Engine, or Google Kubernetes Engine (GKE), see [Reserve capacity through your account team](https://docs.cloud.google.com/ai-hypercomputer/docs/reserve-capacity) in the AI Hypercomputer documentation.
 
     * To reserve capacity for A4X, A4, A3 Ultra, or A3 Mega instances to create clusters in Cluster Director, see [Reserve capacity through your account team](https://docs.cloud.google.com/cluster-director/docs/reserve-capacity) in the Cluster Director documentation.
 
@@ -179,7 +179,7 @@ To identify the reservation type that fits your workload, compare technical capa
 
 | On-demand reservations | Future reservations | Future reservations in calendar mode | Future reservations for capacity blocks  
 ---|---|---|---|---  
-**Supported machine series** | All machine families (except A4X Max, A4X, A4, A3 Ultra, A3 High with less than 8 GPUs, TPU7x, TPU v6e, and TPU v5p) | A3 Mega*, A3 High (with 8 GPUs)*, A3 Edge*, C4, C4A, C4D, C4N, C3, C3D, G4*, H4D*, H3, M4, M4N, M3, N4, N4A, N4D, X5, X4, Z4D, Z4M*, and Z3 | A4, A3 Ultra, A3 Mega, A3 High (8 GPUs), A3 Edge, H4D, TPU7x, TPU v6e, and TPU v5p | A4X Max, A4X, A4, A3 Ultra, A3 Mega, A3 High (8 GPUs), A3 Edge, H4D, TPU7x, TPU v6e, and TPU v5p  
+**Supported machine series** | All machine families (except A5X, A4X Max, A4X, A4, A3 Ultra, A3 High with less than 8 GPUs, TPU7x, TPU v6e, and TPU v5p) | A3 Mega*, A3 High (with 8 GPUs)*, A3 Edge*, C4, C4A, C4D, C4N, C3, C3D, G4*, H4D*, H3, M4, M4N, M3, N4, N4A, N4D, X5, X4, Z4D, Z4M*, and Z3 | A4, A3 Ultra, A3 Mega, A3 High (8 GPUs), A3 Edge, H4D, TPU7x, TPU v6e, and TPU v5p | A5X, A4X Max, A4X, A4, A3 Ultra, A3 Mega, A3 High (8 GPUs), A3 Edge, H4D, TPU7x, TPU v6e, and TPU v5p  
 **[Custom machine types](https://docs.cloud.google.com/compute/docs/general-purpose-machines#custom_machine_types)** | Yes | Yes | No | No  
 **Storage reservations** | No | No | No | Optional ([Hyperdisk pool](https://docs.cloud.google.com/compute/docs/disks/pools))  
 **Maximum number of compute instances per request** | 1,000‡ | No limit# | 80 for GPU instances, 256 for H4D instances, and 1,024 for TPU chips | No limit#  
@@ -204,6 +204,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-06 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-06 UTC."],[],[]] 

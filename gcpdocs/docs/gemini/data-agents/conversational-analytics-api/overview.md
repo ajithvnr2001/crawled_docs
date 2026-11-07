@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini/data-agents/conversational-analytics-api/overview/
 title: Build data agents and chat with your data \u00a0|\u00a0 Conversational Analytics API \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T16:24:38.828935+00:00
+fetched_at: 2026-11-07T08:29:59.831691+00:00
 ---
 
 # Build data agents and chat with your data  |  Conversational Analytics API  |  Google Cloud Documentation
@@ -53,6 +53,8 @@ Before you use the API or the examples, complete the following steps:
   * [Enable the Conversational Analytics API](https://docs.cloud.google.com/gemini/data-agents/conversational-analytics-api/enable-the-api): Describes prerequisites to enable the Conversational Analytics API.
   * [Access control with IAM](https://docs.cloud.google.com/gemini/data-agents/conversational-analytics-api/access-control): Describes how to use Identity and Access Management to share and manage access to data agents.
   * [Authenticate and connect to a data source](https://docs.cloud.google.com/gemini/data-agents/conversational-analytics-api/authentication): Provides instructions for authenticating to the API and configuring connections to your BigQuery, Lakehouse, Looker, Data Studio, and database data sources (AlloyDB, GoogleSQL for Spanner, Cloud SQL for MySQL, and Cloud SQL for PostgreSQL).
+  * [Connect to BigQuery](https://docs.cloud.google.com/gemini/data-agents/conversational-analytics-api/connect-bigquery): Describes the required roles and how to connect a data agent to BigQuery tables and graphs.
+  * [Connect to Looker](https://docs.cloud.google.com/gemini/data-agents/conversational-analytics-api/connect-looker): Describes how to connect a data agent to Looker Explores and authenticate to your Looker instance.
   * [Customer-managed encryption keys (CMEK)](https://docs.cloud.google.com/gemini/data-agents/conversational-analytics-api/cmek): Describes how to use your own encryption keys in Cloud Key Management Service to protect data agents and conversations.
   * [Organization policy constraints](https://docs.cloud.google.com/gemini/data-agents/conversational-analytics-api/organization-policies): Describes how to use predefined organization policy constraints to control resources at the organization, folder, or project level.
 
@@ -148,6 +150,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-06 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-06 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/app-lifecycle-manager/flags/flags-experimentation/
 title: Configure experimentation and A/B testing using feature flags \u00a0|\u00a0 App Lifecycle Manager \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-03T09:54:44.839032+00:00
+fetched_at: 2026-11-07T08:29:44.527248+00:00
 ---
 
 # Configure experimentation and A/B testing using feature flags  |  App Lifecycle Manager  |  Google Cloud Documentation
@@ -89,7 +89,10 @@ To configure an experimental feature flag:
   3. In your backend service, initialize the OpenFeature SDK and inject the `userID` into the evaluation context. Use the `BooleanValueDetails` (or equivalent for your language) method to retrieve the `variantID` (string) in your application. This lets you switch your backend logic based on the descriptive name rather than only a boolean value.
          
          // 1. Prepare evaluation context
-         evalCtx := map[string]any{"userID": currentUser.ID}
+         evalCtx := openfeature.NewEvaluationContext(
+             currentUser.ID,
+             map[string]any{"userID": currentUser.ID},
+         )
          
          // 2. Fetch evaluation details to get the variant name
          details, err := client.BooleanValueDetails(ctx, "search-algo-test", false, evalCtx)
@@ -130,6 +133,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-02 UTC.
+Last updated 2026-11-06 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-02 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-06 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/organization-policy/reference/custom-constraint-supported-services/
 title: Services that support custom constraints \u00a0|\u00a0 Organization Policy \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T23:32:28.534053+00:00
+fetched_at: 2026-11-07T08:29:39.815032+00:00
 ---
 
 # Services that support custom constraints  |  Organization Policy  |  Google Cloud Documentation
@@ -38,11 +38,7 @@ Access Context Manager  |  ` [ accesscontextmanager.googleapis.com/AccessLevel ]
 ` [ accesscontextmanager.googleapis.com/AuthorizedOrgsDesc ](https://docs.cloud.google.com/access-context-manager/docs/custom-constraints) ` |  GA   
 ` [ accesscontextmanager.googleapis.com/ServicePerimeter ](https://docs.cloud.google.com/access-context-manager/docs/custom-constraints) ` |  GA   
 Agent Identity API  |  ` [ agentidentity.googleapis.com/AuthProvider ](https://docs.cloud.google.com/iam/docs/agent-identity-custom-constraints) ` |  Preview   
-AI Commerce Search API  |  ` [ retail.googleapis.com/AttributesConfig ](https://docs.cloud.google.com/gemini-enterprise-cx/ai-commerce-search/custom-constraints) ` |  Preview   
-` [ retail.googleapis.com/Catalog ](https://docs.cloud.google.com/gemini-enterprise-cx/ai-commerce-search/custom-constraints) ` |  Preview   
-` [ retail.googleapis.com/Control ](https://docs.cloud.google.com/gemini-enterprise-cx/ai-commerce-search/custom-constraints) ` |  Preview   
-` [ retail.googleapis.com/Product ](https://docs.cloud.google.com/gemini-enterprise-cx/ai-commerce-search/custom-constraints) ` |  Preview   
-` [ retail.googleapis.com/ServingConfig ](https://docs.cloud.google.com/gemini-enterprise-cx/ai-commerce-search/custom-constraints) ` |  Preview   
+Agent Registry  |  ` [ agentregistry.googleapis.com/Skill ](https://docs.cloud.google.com/agent-registry/scan-skills#org-policy) ` |  GA   
 AI Platform Training  |  ` [ aiplatform.googleapis.com/CustomJob ](https://docs.cloud.google.com/vertex-ai/docs/training/custom-constraints) ` |  GA   
 ` [ aiplatform.googleapis.com/HyperparameterTuningJob ](https://docs.cloud.google.com/vertex-ai/docs/training/custom-constraints) ` |  GA   
 ` [ aiplatform.googleapis.com/NasJob ](https://docs.cloud.google.com/vertex-ai/docs/training/custom-constraints) ` |  GA   
@@ -66,6 +62,7 @@ Backup for GKE  |  ` [ gkebackup.googleapis.com/Backup ](https://docs.cloud.goog
 ` [ gkebackup.googleapis.com/Restore ](https://docs.cloud.google.com/kubernetes-engine/docs/add-on/backup-for-gke/how-to/create-custom-constraints) ` |  GA   
 ` [ gkebackup.googleapis.com/RestorePlan ](https://docs.cloud.google.com/kubernetes-engine/docs/add-on/backup-for-gke/how-to/create-custom-constraints) ` |  GA   
 BigQuery  |  ` [ bigquery.googleapis.com/Dataset ](https://docs.cloud.google.com/bigquery/docs/custom-constraints) ` |  GA   
+` [ bigquery.googleapis.com/Model ](https://docs.cloud.google.com/bigquery/docs/custom-constraints) ` |  Preview   
 ` [ bigquery.googleapis.com/Routine ](https://docs.cloud.google.com/bigquery/docs/custom-constraints) ` |  Preview   
 ` [ bigquery.googleapis.com/RowAccessPolicy ](https://docs.cloud.google.com/bigquery/docs/custom-constraints) ` |  Preview   
 ` [ bigquery.googleapis.com/Table ](https://docs.cloud.google.com/bigquery/docs/custom-constraints) ` |  Preview   
@@ -382,6 +379,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-04 UTC.
+Last updated 2026-11-06 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-06 UTC."],[],[]] 

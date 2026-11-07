@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sql/docs/postgres/backup-recovery/restore/
 title: Restore an instance overview \u00a0|\u00a0 Cloud SQL for PostgreSQL \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-06T10:28:34.066555+00:00
+fetched_at: 2026-11-07T08:29:33.055086+00:00
 ---
 
 # Restore an instance overview  |  Cloud SQL for PostgreSQL  |  Google Cloud Documentation
@@ -39,7 +39,7 @@ When performing a restore on an instance, consider the following:
   * The restore operation restarts the instance.
   * After you restore from a backup, the target instance's backup configurations are set to default values. If your source instance had custom backup configurations or was using enhanced backups, then you'll need to update the backup configurations after restore is complete.
 
-
+**Important:** When restoring a backup to an existing instance, the target instance must have at least as much compute and memory resources (vCPU and RAM) as the source instance from which the backup was created. Restoring a backup to an instance with significantly fewer resources can cause the restore operation to fail because of resource constraints during database startup and recovery. You might see errors like `database failed to start after multiple retries`.
 
 ## Restore using a backup
 
@@ -227,6 +227,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-03 UTC.
+Last updated 2026-11-06 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-06 UTC."],[],[]] 

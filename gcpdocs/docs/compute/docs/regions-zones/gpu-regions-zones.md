@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/compute/docs/regions-zones/gpu-regions-zones/
 title: GPU locations \u00a0|\u00a0 Compute Engine \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-05T00:19:31.811152+00:00
+fetched_at: 2026-11-07T08:32:26.018512+00:00
 ---
 
 # GPU locations  |  Compute Engine  |  Google Cloud Documentation
@@ -49,7 +49,7 @@ In addition to standard zones, GPUs are available in AI zones. These Google Clou
 
 The following sortable table lets you select different options to see where GPU resources are available. You can search by location, GPU machine type, or a combination of these. In the **Select a GPU machine type** list, the machine types that have NVIDIA GPUs automatically attached show the GPU type in brackets.
 
-**Note:** Some GPU machine types have limited availability. For more information, see Limited availability regions and zones. APACNorth AmericaSouth AmericaEuropeMiddle EastAfricaAI zoneStandardA4X Max (NVIDIA GB300 Ultra Superchips)A4X (NVIDIA GB200 Superchips)A4 (NVIDIA B200)A3 Ultra (NVIDIA H200)A3 Mega (NVIDIA H100)A3 High (NVIDIA H100)A3 Edge (NVIDIA H100)A2 Ultra (NVIDIA A100 80GB)A2 Standard (NVIDIA A100 40GB)G4 (NVIDIA RTX PRO 6000)G4 (Fractional GPU) (NVIDIA RTX PRO 6000)G2 (NVIDIA L4)N1 with NVIDIA T4N1 with NVIDIA V100N1 with NVIDIA P4Clear all
+**Note:** Some GPU machine types have limited availability. For more information, see Limited availability regions and zones. APACNorth AmericaSouth AmericaEuropeMiddle EastAfricaAI zoneStandardA5X (NVIDIA Vera Rubin superchips)A4X Max (NVIDIA GB300 Ultra superchips)A4X (NVIDIA GB200 superchips)A4 (NVIDIA B200)A3 Ultra (NVIDIA H200)A3 Mega (NVIDIA H100)A3 High (NVIDIA H100)A3 Edge (NVIDIA H100)A2 Ultra (NVIDIA A100 80GB)A2 Standard (NVIDIA A100 40GB)G4 (NVIDIA RTX PRO 6000)G4 (Fractional GPU) (NVIDIA RTX PRO 6000)G2 (NVIDIA L4)N1 with NVIDIA T4N1 with NVIDIA V100N1 with NVIDIA P4Clear all
 
 Zone | Location | Zone type | GPU machine type  
 ---|---|---|---  
@@ -361,7 +361,8 @@ Zone | Location | Zone type | GPU machine type
 • N1+T4  
 • N1+V100  
   
-`us-west1-b` |  The Dalles, Oregon, North America  |  Standard |  • A3 Mega  
+`us-west1-b` |  The Dalles, Oregon, North America  |  Standard |  • A5X  
+• A3 Mega  
 • A3 High  
 • A2 Standard  
 • G4  
@@ -464,6 +465,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-03 UTC.
+Last updated 2026-11-06 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-06 UTC."],[],[]] 

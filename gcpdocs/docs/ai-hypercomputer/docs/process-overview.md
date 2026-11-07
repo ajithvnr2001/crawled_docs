@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/ai-hypercomputer/docs/process-overview/
 title: Plan and create your AI infrastructure \u00a0|\u00a0 AI Hypercomputer \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T18:27:49.233239+00:00
+fetched_at: 2026-11-07T08:32:28.498617+00:00
 ---
 
 # Plan and create your AI infrastructure  |  AI Hypercomputer  |  Google Cloud Documentation
@@ -58,14 +58,14 @@ To match your workload to the recommended machine type, use this table:
 
 GPU type | Workload or use case | Recommended machine types  
 ---|---|---  
-**Clustered GPU** | Pre-training foundation models and inference across multiple hosts | **A4X Max** (NVIDIA GB300)*, **A4X** (NVIDIA GB200)*  
+**Clustered GPU** | Pre-training foundation models and inference across multiple hosts | **A5X** (NVIDIA Vera Rubin)*, **A4X Max** (NVIDIA GB300)*, **A4X** (NVIDIA GB200)*  
 Large model training, fine-tuning, and inference | **A4** (NVIDIA B200), **A3 Ultra** (NVIDIA H200 141GB)  
 Mainstream model inference and fine-tuning | **A3 Mega** (NVIDIA H100 80GB), **A3 High** (NVIDIA H100 80GB)  
 **General GPU** | High-throughput edge serving and inference | **A3 Edge** (NVIDIA H100 80GB)  
 High-performance single-node serving and small-scale fine-tuning | **A2** (NVIDIA A100)  
 Cost-optimized entry-level inference | **G4** (NVIDIA RTX PRO 6000), **N1** (NVIDIA T4 or V100)  
 Mainstream inference, RAG, and small-to-medium model training | **G2** (NVIDIA L4)  
-**Caution:** *The [Compute Engine Service Level Agreement (SLA)](https://cloud.google.com/compute/sla) doesn't apply to the A4X Max and A4X machine series.
+**Caution:** *The [Compute Engine Service Level Agreement (SLA)](https://cloud.google.com/compute/sla) doesn't apply to the A5X, A4X Max, and A4X machine series.
 
 For detailed information about each machine series, see [About GPU accelerators](https://docs.cloud.google.com/ai-hypercomputer/docs/understand-gpus).
 
@@ -81,17 +81,17 @@ Consumption option | Available for | Best for | How to request
   
 **Tip:** To increase your chances of obtaining general GPU capacity, use Flex-start or Spot.  
 **Standard reservations and standard future reservations** | All [general GPUs](https://docs.cloud.google.com/ai-hypercomputer/docs/understand-gpus). | Workloads that require assured capacity either immediately (standard reservations) or for a specific future date (standard future reservations). | Create an on-demand reservation or a future reservation request. For instructions, see [Reserve capacity](https://docs.cloud.google.com/ai-hypercomputer/docs/reserve-capacity).  
-**Flex-start** | All [GPU machine types](https://docs.cloud.google.com/ai-hypercomputer/docs/understand-gpus) except for A4X Max and A4X. | Workloads that require short-lived, dense clusters that last up to seven days. Offers dense resource allocation and up to a 53% discount on supported machine types; otherwise, standard on-demand rates apply. | Create a request by using Compute Engine, Cluster Director, Cluster Toolkit, or GKE. Resources are provisioned as soon as they become available (start time isn't immediate). For instructions, see [Obtain capacity](https://docs.cloud.google.com/ai-hypercomputer/docs/obtain-capacity).  
-**Spot** | All [GPU machine types](https://docs.cloud.google.com/ai-hypercomputer/docs/understand-gpus) except A4X Max and A4X. | Workloads that are fault-tolerant, batch, or short-lived. Offers the deepest discount (between 61% and 90%), but compute resources can be preempted at any time. | Create instances or node pools immediately by using the Spot provisioning model. For instructions, see [Obtain capacity](https://docs.cloud.google.com/ai-hypercomputer/docs/obtain-capacity).  
+**Flex-start** | All [GPU machine types](https://docs.cloud.google.com/ai-hypercomputer/docs/understand-gpus) except for A5X, A4X Max, and A4X. | Workloads that require short-lived, dense clusters that last up to seven days. Offers dense resource allocation and up to a 53% discount on supported machine types; otherwise, standard on-demand rates apply. | Create a request by using Compute Engine, Cluster Director, Cluster Toolkit, or GKE. Resources are provisioned as soon as they become available (start time isn't immediate). For instructions, see [Obtain capacity](https://docs.cloud.google.com/ai-hypercomputer/docs/obtain-capacity).  
+**Spot** | All [GPU machine types](https://docs.cloud.google.com/ai-hypercomputer/docs/understand-gpus) except A5X, A4X Max, and A4X. | Workloads that are fault-tolerant, batch, or short-lived. Offers the deepest discount (between 61% and 90%), but compute resources can be preempted at any time. | Create instances or node pools immediately by using the Spot provisioning model. For instructions, see [Obtain capacity](https://docs.cloud.google.com/ai-hypercomputer/docs/obtain-capacity).  
   
 #### Consumption options for clustered GPUs
 
 Consumption option | Available for | Best for | How to request  
 ---|---|---|---  
 **Future reservations for capacity blocks** | All [clustered GPUs](https://docs.cloud.google.com/ai-hypercomputer/docs/understand-gpus) and A3 Edge machine types. | Workloads that require stability for an extended period of time, such as pre-training foundation models or foundation model inference across multiple hosts. This reservation method offers dense resource allocation and an optional Hyperdisk pool, as well as discounts for vCPUs, memory, GPUs, Local SSD disks, and Hyperdisk pools if you reserve resources for 365 days or more. | Request resources through your Google account team for a future date and time, and for a duration of 90 days or more.  
-**Future reservations in calendar mode** | All [clustered GPUs](https://docs.cloud.google.com/ai-hypercomputer/docs/understand-gpus) except for A4X Max and A4X. | Workloads that run for up to 90 days and require stability, such as pre-training or fine-tuning models. Offers dense resource allocation and up to a 53% discount. | Create a self-service reservation request for a future date and time; Google Cloud must approve the request. For instructions, see [Reserve capacity](https://docs.cloud.google.com/ai-hypercomputer/docs/reserve-capacity).  
-**Flex-start** | All [GPU machine types](https://docs.cloud.google.com/ai-hypercomputer/docs/understand-gpus) except for A4X Max and A4X. | Workloads that require short-lived, dense clusters that last up to seven days. Offers dense resource allocation and up to a 53% discount on supported machine types; otherwise, standard on-demand rates apply. | Create a request by using Compute Engine, Cluster Director, Cluster Toolkit, or GKE. Resources are provisioned as soon as they become available (start time isn't immediate). For instructions, see [Obtain capacity](https://docs.cloud.google.com/ai-hypercomputer/docs/obtain-capacity).  
-**Spot** | All [GPU machine types](https://docs.cloud.google.com/ai-hypercomputer/docs/understand-gpus) except A4X Max and A4X. | Workloads that are fault-tolerant, batch, or short-lived. Offers the deepest discount (between 61% and 90%), but compute resources can be preempted at any time. | Create instances or node pools immediately by using the Spot provisioning model. For instructions, see [Obtain capacity](https://docs.cloud.google.com/ai-hypercomputer/docs/obtain-capacity).  
+**Future reservations in calendar mode** | All [clustered GPUs](https://docs.cloud.google.com/ai-hypercomputer/docs/understand-gpus) except for A5X, A4X Max, and A4X. | Workloads that run for up to 90 days and require stability, such as pre-training or fine-tuning models. Offers dense resource allocation and up to a 53% discount. | Create a self-service reservation request for a future date and time; Google Cloud must approve the request. For instructions, see [Reserve capacity](https://docs.cloud.google.com/ai-hypercomputer/docs/reserve-capacity).  
+**Flex-start** | All [GPU machine types](https://docs.cloud.google.com/ai-hypercomputer/docs/understand-gpus) except for A5X, A4X Max, and A4X. | Workloads that require short-lived, dense clusters that last up to seven days. Offers dense resource allocation and up to a 53% discount on supported machine types; otherwise, standard on-demand rates apply. | Create a request by using Compute Engine, Cluster Director, Cluster Toolkit, or GKE. Resources are provisioned as soon as they become available (start time isn't immediate). For instructions, see [Obtain capacity](https://docs.cloud.google.com/ai-hypercomputer/docs/obtain-capacity).  
+**Spot** | All [GPU machine types](https://docs.cloud.google.com/ai-hypercomputer/docs/understand-gpus) except A5X, A4X Max, and A4X. | Workloads that are fault-tolerant, batch, or short-lived. Offers the deepest discount (between 61% and 90%), but compute resources can be preempted at any time. | Create instances or node pools immediately by using the Spot provisioning model. For instructions, see [Obtain capacity](https://docs.cloud.google.com/ai-hypercomputer/docs/obtain-capacity).  
   
 ### Choose a deployment option
 
@@ -183,6 +183,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-06 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-06 UTC."],[],[]] 

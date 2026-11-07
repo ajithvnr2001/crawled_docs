@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/ai-hypercomputer/docs/workloads/pathways-on-cloud/troubleshooting-pathways/
 title: Troubleshoot Pathways on Cloud \u00a0|\u00a0 AI Hypercomputer \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-06T05:53:22.707611+00:00
+fetched_at: 2026-11-07T08:30:04.430076+00:00
 ---
 
 # Troubleshoot Pathways on Cloud  |  AI Hypercomputer  |  Google Cloud Documentation
@@ -129,6 +129,13 @@ The Pathways scripts write logs to the shared file system:
   * The Pathways service job writes `pathways-service-SERVICE_JOB_ID.out` and `pathways-service-SERVICE_JOB_ID.err` in the directory where you ran `sbatch`, for example, `~/pathways`.
   * The Pathways resource manager, IFRT proxy server, and TPU workers write to `~/pathways/service_SERVICE_JOB_ID/logs`, including `rm.log`, `proxy.log`, and one `slice-*.out` and `slice-*.err` file per worker task.
   * The example MaxText workload writes its log to `maxtext-llama31-JOB_ID.err`.
+
+
+
+Replace the following:
+
+  * `SERVICE_JOB_ID`: the Slurm job ID of the Pathways service job, which `sbatch start_pathways.sh` prints.
+  * `JOB_ID`: the Slurm job ID of the MaxText job, which `sbatch run_maxtext.sh` prints.
 
 
 
@@ -503,7 +510,7 @@ The model doesn't fit in TPU memory. Use `2x4` or `4x4` slices, or set `REDUCED_
 
 **The MaxText job stays pending**
 
-The CPU node doesn't have the 8 CPUs and 96 GB of memory that `run_maxtext.sh` requests, in addition to what the Pathways service uses. To fix this issue, increase the CPU and memory capacity (or the number of nodes) in your `cpu` partition, or reduce the resource request in `run_maxtext.sh`.
+The CPU node doesn't have the 8 CPUs and 160 GB of memory that `run_maxtext.sh` requests, in addition to the 4 CPUs and 80 GB of memory that the Pathways service uses. Both jobs fit together on an `n2-highmem-32` node. To fix this issue, increase the CPU and memory capacity (or the number of nodes) in your `cpu` partition, or reduce the resource request in `run_maxtext.sh`.
 
 **Not able to connect to the IFRT proxy server**
 
@@ -531,7 +538,7 @@ The client's `jax` or `pathwaysutils` version doesn't match the Pathways server.
 
 **A computation fails with`DATA_LOSS` and `PlacementDataLoss`**
 
-The computation used a device on a slice that isn't running. Check that `MIN_SLICES` equals `MAX_SLICES`, and that every worker task is running:
+The computation used a device on a slice that isn't running—for example, because the slice was preempted. The IFRT proxy server stays connected while Slurm requeues the slice. Check whether every worker task is running, and run the computation again after the slice is back:
     
     
     squeue -u ${USER} -n pw-slice

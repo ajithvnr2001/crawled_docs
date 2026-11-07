@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/agent-registry/review-publishers/
 title: Review skill publisher details \u00a0|\u00a0 Agent Registry \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-30T08:40:09.664429+00:00
+fetched_at: 2026-11-07T08:29:42.924696+00:00
 ---
 
 # Review skill publisher details  |  Agent Registry  |  Google Cloud Documentation
@@ -20,10 +20,6 @@ fetched_at: 2026-10-30T08:40:09.664429+00:00
 Send feedback 
 
 #  Review skill publisher details Stay organized with collections  Save and categorize content based on your preferences. 
-
-**Preview**
-
-This product or feature is subject to the "Pre-GA Offerings Terms" in the General Service Terms section of the [Service Specific Terms](https://docs.cloud.google.com/terms/service-terms#1). Pre-GA products and features are available "as is" and might have limited support. For more information, see the [launch stage descriptions](https://cloud.google.com/products/#product-launch-stages). 
 
 In Agent Registry, publishers let you verify the authority behind registered standalone skills to help prevent unauthorized use of publisher names. Each [publisher](https://docs.cloud.google.com/agent-registry/skills-architecture#publishers) establishes the verified domain or ID prefix for [skill identifiers](https://docs.cloud.google.com/agent-registry/identity-and-identifiers#skill-identifiers), such as `cloud.google.com` for Google-managed skills or `private-` for manually registered skills.
 
@@ -75,10 +71,10 @@ You can list all publishers configured in your location:
 
 ###  gcloud 
 
-To list all verified publishers in a location, run the [`gcloud alpha agent-registry publishers list`](https://docs.cloud.google.com/sdk/gcloud/reference/alpha/agent-registry/publishers/list) command:
+To list all verified publishers in a location, run the [`gcloud agent-registry publishers list`](https://docs.cloud.google.com/sdk/gcloud/reference/agent-registry/publishers/list) command:
     
     
-    gcloud alpha agent-registry publishers list \
+    gcloud agent-registry publishers list \
         --project=PROJECT_ID \
         --location=LOCATION
     
@@ -95,7 +91,7 @@ Replace the following:
     
     curl -X GET \
         -H "Authorization: Bearer $(gcloud auth print-access-token)" \
-        "https://agentregistry.googleapis.com/v1alpha/projects/PROJECT_ID/locations/LOCATION/publishers"
+        "https://agentregistry.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/publishers"
     
 
 Replace the following:
@@ -126,10 +122,10 @@ Use this skill identifier field to find a specific publisher's assets. For examp
 
 ###  gcloud 
 
-To view details for a specific publisher, run the [`gcloud alpha agent-registry publishers describe`](https://docs.cloud.google.com/sdk/gcloud/reference/alpha/agent-registry/publishers/describe) command:
+To view details for a specific publisher, run the [`gcloud agent-registry publishers describe`](https://docs.cloud.google.com/sdk/gcloud/reference/agent-registry/publishers/describe) command:
     
     
-    gcloud alpha agent-registry publishers describe PUBLISHER_ID \
+    gcloud agent-registry publishers describe PUBLISHER_ID \
         --project=PROJECT_ID \
         --location=LOCATION
     
@@ -147,7 +143,7 @@ Replace the following:
     
     curl -X GET \
         -H "Authorization: Bearer $(gcloud auth print-access-token)" \
-        "https://agentregistry.googleapis.com/v1alpha/projects/PROJECT_ID/locations/LOCATION/publishers/PUBLISHER_ID"
+        "https://agentregistry.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/publishers/PUBLISHER_ID"
     
 
 Replace the following:
@@ -168,6 +164,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-29 UTC.
+Last updated 2026-11-06 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-06 UTC."],[],[]] 

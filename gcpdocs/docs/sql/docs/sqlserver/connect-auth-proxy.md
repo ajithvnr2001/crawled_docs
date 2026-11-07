@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sql/docs/sqlserver/connect-auth-proxy/
 title: Connect using the Cloud SQL Auth Proxy \u00a0|\u00a0 Cloud SQL for SQL Server \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-06T10:41:20.032044+00:00
+fetched_at: 2026-11-07T08:29:49.848537+00:00
 ---
 
 # Connect using the Cloud SQL Auth Proxy  |  Cloud SQL for SQL Server  |  Google Cloud Documentation
@@ -655,12 +655,10 @@ If the Cloud SQL Auth Proxy cannot find credentials in any of the places covered
 
 ### Create a service account
 
-If you are connecting from Compute Engine, make sure your VM has the proper `scope` to connect using the Cloud SQL Admin API. 
+**Note:** If you are connecting from a Compute Engine VM, we recommend that you use the [service account attached to the VM](https://docs.cloud.google.com/compute/docs/access/service-accounts) instead of a service account key file: 
 
-[ Configure the service account](https://docs.cloud.google.com/compute/docs/access/create-enable-service-accounts-for-instances#changeserviceaccountandscopes) to have either of the following access scopes: 
-
-  * https://www.googleapis.com/auth/sqlservice.admin
-  * https://www.googleapis.com/auth/cloud-platform
+  * Grant the attached service account the **Cloud SQL Client** (`roles/cloudsql.client`) predefined IAM role to connect using the Cloud SQL Auth Proxy or the Cloud SQL Admin API, and the **Cloud SQL Instance User** (`roles/cloudsql.instanceUser`) role if you use IAM database authentication. For more information about predefined roles, see [Cloud SQL IAM roles](https://docs.cloud.google.com/sql/docs/sqlserver/iam-roles).
+  * Set the VM access scope to `cloud-platform` (`https://www.googleapis.com/auth/cloud-platform`, or **Allow full access to all Cloud APIs** in the Google Cloud console) and use IAM roles to control permissions. Access scopes are a legacy method for specifying authorization for a VM and only set the maximum OAuth authorization scope. To update an existing VM, see [Change the attached service account](https://docs.cloud.google.com/compute/docs/instances/change-service-account#changeserviceaccountandscopes).
 
 
 
@@ -677,7 +675,7 @@ If you are connecting from Compute Engine, make sure your VM has the proper `sco
      * **Cloud SQL > Cloud SQL Editor**
      * **Cloud SQL > Cloud SQL Admin**
 
-**Note:** To create a service account with the required permissions, you must have `resourcemanager.projects.setIamPolicy` permission. This permission is included in the Project Owner, Project IAM Admin, and Organization Administrator roles.  
+**Note:** To create a service account with the required permissions, you must have the `resourcemanager.projects.setIamPolicy` permission. This permission is included in the Project Owner, Project IAM Admin, and Organization Administrator roles.  
 You must also have enabled the Cloud SQL Admin API. If you are using the legacy project roles (Viewer, Editor, Owner), the service account must have at least the Editor role.
 
   7. Click **Done** to finish creating the service account.
@@ -1051,6 +1049,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-03 UTC.
+Last updated 2026-11-06 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-06 UTC."],[],[]] 

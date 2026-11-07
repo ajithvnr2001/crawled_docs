@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/organization-policy/reference/rest/v2/folders.policies
 title: REST Resource: folders.policies \u00a0|\u00a0 Organization Policy \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-13T16:00:39.024806+00:00
+fetched_at: 2026-11-07T08:29:47.335130+00:00
 ---
 
 # REST Resource: folders.policies  |  Organization Policy  |  Google Cloud Documentation
@@ -124,14 +124,15 @@ JSON representation
         object
       },
     
-      // Union field kind can be only one of the following:
+      // The following is a list of mutually exclusive fields. At most one of the
+      // fields will be set in a response:
       "values": {
         object ([StringValues](https://docs.cloud.google.com/organization-policy/reference/rest/v2/folders.policies#Policy.StringValues))
       },
       "allowAll": boolean,
       "denyAll": boolean,
       "enforce": boolean
-      // End of list of possible types for union field kind.
+      // End of mutually exclusive fields.
     }  
   
 Fields  
@@ -164,11 +165,12 @@ For example: `resource.hasTagKeyId('tagKeys/123456789012')`
     }
       
   
-Union field `kind`.`kind` can be only one of the following:  
+The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:  
 `values` |  `object (`[StringValues](https://docs.cloud.google.com/organization-policy/reference/rest/v2/folders.policies#Policy.StringValues)`)` List of values to be used for this policy rule. This field can be set only in policies for list constraints.  
 `allowAll` |  `boolean` Setting this to true means that all values are allowed. This field can be set only in policies for list constraints.  
 `denyAll` |  `boolean` Setting this to true means that all values are denied. This field can be set only in policies for list constraints.  
 `enforce` |  `boolean` If `true`, then the policy is enforced. If `false`, then any configuration is acceptable. This field can be set in policies for boolean constraints, custom constraints and managed constraints.  
+End of mutually exclusive fields.  
   
 ### StringValues
 
@@ -308,6 +310,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-07-22 UTC.
+Last updated 2026-11-06 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-07-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-06 UTC."],[],[]] 

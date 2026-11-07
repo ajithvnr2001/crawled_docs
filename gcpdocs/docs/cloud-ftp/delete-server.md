@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/cloud-ftp/delete-server/
 title: Delete an SFTP server \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T05:39:39.852492+00:00
+fetched_at: 2026-11-07T08:29:52.421150+00:00
 ---
 
 # Delete an SFTP server  |  Google Cloud Documentation
@@ -31,13 +31,39 @@ This document shows how to delete an SFTP server.
 
 ### Required roles
 
-To get the permission that you need to delete an SFTP server, ask your administrator to grant you the [Cloud FTP Admin ](https://docs.cloud.google.com/iam/docs/roles-permissions/ftp#ftp.admin) (`roles/ftp.admin`) IAM role on your project. For more information about granting roles, see [Manage access to projects, folders, and organizations](https://docs.cloud.google.com/iam/docs/granting-changing-revoking-access). 
+To get the permissions that you need to delete an SFTP server, ask your administrator to grant you the [Cloud FTP Admin ](https://docs.cloud.google.com/iam/docs/roles-permissions/ftp#ftp.admin) (`roles/ftp.admin`) IAM role on your project. For more information about granting roles, see [Manage access to projects, folders, and organizations](https://docs.cloud.google.com/iam/docs/granting-changing-revoking-access). 
 
-This predefined role contains the `ftp.servers.delete` permission, which is required to delete an SFTP server. 
+This predefined role contains the permissions required to delete an SFTP server. To see the exact permissions that are required, expand the **Required permissions** section: 
 
-You might also be able to get this permission with [custom roles](https://docs.cloud.google.com/iam/docs/creating-custom-roles) or other [predefined roles](https://docs.cloud.google.com/iam/docs/roles-overview#predefined). 
+#### Required permissions
+
+The following permissions are required to delete an SFTP server:
+
+  * `ftp.servers.delete`
+  * If you use the Google Cloud console to do this task: 
+    * `ftp.servers.list`
+    * `ftp.servers.get`
+
+
+
+You might also be able to get these permissions with [custom roles](https://docs.cloud.google.com/iam/docs/creating-custom-roles) or other [predefined roles](https://docs.cloud.google.com/iam/docs/roles-overview#predefined). 
 
 ## Delete a server
+
+###  Console 
+
+  1. In the Google Cloud console, go to the **Cloud FTP** page. 
+
+[Go to Cloud FTP](https://console.cloud.google.com/transfer/ftp-servers)
+
+  2. Click the server ID.
+
+  3. Click **Delete**.
+
+  4. In the confirmation dialog, enter `delete`. Then, click **Delete**.
+
+
+
 
 ###  gcloud 
 
@@ -441,6 +467,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-06 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-06 UTC."],[],[]] 

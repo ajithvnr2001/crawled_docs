@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/omni/kubernetes/16.8.0/docs/cross-data-center-replication/work-with-cross-data-center-replication/
 title: Work with cross-data-center replication \u00a0|\u00a0 AlloyDB Omni for Kubernetes: 16.8.0 \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T18:57:36.943642+00:00
+fetched_at: 2026-11-07T08:32:38.966178+00:00
 ---
 
 # Work with cross-data-center replication  |  AlloyDB Omni for Kubernetes: 16.8.0  |  Google Cloud Documentation
@@ -48,7 +48,22 @@ Select a documentation version: 16.8.0keyboard_arrow_down
   * [ 15.7.0 ](https://docs.cloud.google.com/alloydb/omni/kubernetes/15.7.0/docs/cross-data-center-replication/work-with-cross-data-center-replication)
   * [ 15.5.5 ](https://docs.cloud.google.com/alloydb/omni/kubernetes/15.5.5/docs/cross-data-center-replication/work-with-cross-data-center-replication)
 
-This page describes how to use cross-data-center replication by creating and working with secondary database clusters in Kubernetes. For a conceptual overview of cross-data-center replication, see [About cross-data-center replication](/alloydb/omni/kubernetes/16.8.0/docs/cross-data-center-replication/about-cross-data-center-replication). ## Before you begin {: #before-you-begin } \- Make sure you have reliable and low latency network connectivity between the primary and secondary data centers, which is crucial for cross-data-center replication to function effectively. \- [Install](/alloydb/omni/kubernetes/16.8.0/docs/deploy-kubernetes) the latest version of AlloyDB Omni operator to deploy AlloyDB Omni on a Kubernetes cluster in the primary data center and a Kubernetes cluster in the secondary data center. Cross-data-center replication is supported in AlloyDB Omni operator version 1.5.0 or higher. \- [Create an AlloyDB Omni database cluster](/alloydb/omni/kubernetes/16.8.0/docs/deploy-kubernetes#create) on the Kubernetes cluster in the primary data center. \- Make sure the primary and standby database servers in your primary database cluster have adequate Write-Ahead Logging (WAL) space that can accommodate the WAL files required for replication to the secondary cluster. Any data which has not yet been replicated to the secondary cluster is stored in the primary cluster as WAL files, so depending on the connection speed between the primary and secondary clusters you may need additional disk space for this purpose. ## Create a secondary database cluster {: #secondary-db-cluster-instance } To create an AlloyDB Omni secondary database cluster and enable replication from your primary database cluster, follow these steps: 
+This page describes how to use cross-data-center replication by creating and working with secondary database clusters in Kubernetes. 
+
+For a conceptual overview of cross-data-center replication, see [About cross-data-center replication](https://docs.cloud.google.com/alloydb/omni/kubernetes/16.8.0/docs/cross-data-center-replication/about-cross-data-center-replication).
+
+## Before you begin
+
+  * Make sure you have reliable and low latency network connectivity between the primary and secondary data centers, which is crucial for cross-data-center replication to function effectively.
+  * [Install](https://docs.cloud.google.com/alloydb/omni/kubernetes/16.8.0/docs/deploy-kubernetes) the latest version of AlloyDB Omni operator to deploy AlloyDB Omni on a Kubernetes cluster in the primary data center and a Kubernetes cluster in the secondary data center. Cross-data-center replication is supported in AlloyDB Omni operator version 1.5.0 or higher.
+  * [Create an AlloyDB Omni database cluster](https://docs.cloud.google.com/alloydb/omni/kubernetes/16.8.0/docs/deploy-kubernetes#create) on the Kubernetes cluster in the primary data center.
+  * Make sure the primary and standby database servers in your primary database cluster have adequate Write-Ahead Logging (WAL) space that can accommodate the WAL files required for replication to the secondary cluster. Any data which has not yet been replicated to the secondary cluster is stored in the primary cluster as WAL files, so depending on the connection speed between the primary and secondary clusters you may need additional disk space for this purpose.
+
+
+
+## Create a secondary database cluster
+
+To create an AlloyDB Omni secondary database cluster and enable replication from your primary database cluster, follow these steps: 
 
   1. Ensure external connectivity is enabled on your AlloyDB Omni primary database cluster. If external connectivity is not enabled, add the following to the spec section of the database cluster manifest:
          
@@ -337,6 +352,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-06 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-06 UTC."],[],[]] 

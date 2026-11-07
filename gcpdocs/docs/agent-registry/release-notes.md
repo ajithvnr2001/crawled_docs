@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/agent-registry/release-notes/
 title: Agent Registry release notes \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T05:58:34.343876+00:00
+fetched_at: 2026-11-07T08:29:41.194433+00:00
 ---
 
 # Agent Registry release notes  |  Google Cloud Documentation
@@ -26,6 +26,22 @@ This page documents production updates to Agent Registry. Check this page for an
 You can see the latest product updates for all of Google Cloud on the [ Google Cloud](https://docs.cloud.google.com/release-notes) page, browse and filter all release notes in the [Google Cloud console](https://console.cloud.google.com/release-notes), or programmatically access release notes in [BigQuery](https://console.cloud.google.com/bigquery?p=bigquery-public-data&d=google_cloud_release_notes&t=release_notes&page=table). 
 
 To get the latest product updates delivered to you, add the URL of this page to your [feed reader](https://wikipedia.org/wiki/Comparison_of_feed_aggregators), or add the [feed URL](https://docs.cloud.google.com/feeds/agent-registry-release-notes.xml) directly. 
+
+## November 06, 2026
+
+Feature
+
+Skill security scanning and governance in Agent Registry are available. You can automatically scan standalone skill revisions for security issues, review `Finding` resources, enforce scanning policies across your organization using custom Organization Policy constraints, and grant least-privilege skill management access.
+
+You can also protect skill payloads at rest with customer-managed encryption keys (CMEK) ([Preview](https://cloud.google.com/products#product-launch-stages)).
+
+For more information, see [Scan skills for security issues](https://docs.cloud.google.com/agent-registry/scan-skills), [Configure CMEK for skills](https://docs.cloud.google.com/agent-registry/register-skills#configure-cmek), and [Agent Registry roles and permissions](https://docs.cloud.google.com/agent-registry/roles-permissions).
+
+Feature
+
+Standalone skills in Agent Registry are [generally available (GA)](https://cloud.google.com/products#product-launch-stages). You can register, version, search, and govern standalone `Skill` resources, immutable `SkillRevision` packages, and verified `Publisher` details.
+
+For more information, see [Skills architecture](https://docs.cloud.google.com/agent-registry/skills-architecture), [Register skills](https://docs.cloud.google.com/agent-registry/register-skills), and [Manage skills](https://docs.cloud.google.com/agent-registry/manage-skills).
 
 ## October 30, 2026
 
