@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/vue/webmcp/
 title: WebMCP
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T10:46:45.462001+00:00
+fetched_at: 2026-11-07T09:53:53.295527+00:00
 ---
 
 # WebMCP

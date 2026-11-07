@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/vue/shared-state/streaming/
 title: State Streaming
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T10:46:46.843727+00:00
+fetched_at: 2026-11-07T09:53:53.482871+00:00
 ---
 
 # State Streaming

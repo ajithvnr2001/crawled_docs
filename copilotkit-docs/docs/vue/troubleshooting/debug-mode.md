@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/vue/troubleshooting/debug-mode/
 title: Debug Mode
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T10:46:47.025032+00:00
+fetched_at: 2026-11-07T09:53:53.155829+00:00
 ---
 
 # Debug Mode

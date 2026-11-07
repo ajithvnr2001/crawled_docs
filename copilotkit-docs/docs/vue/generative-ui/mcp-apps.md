@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/vue/generative-ui/mcp-apps/
 title: MCP Apps
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T10:46:57.075406+00:00
+fetched_at: 2026-11-07T09:53:59.238000+00:00
 ---
 
 # MCP Apps

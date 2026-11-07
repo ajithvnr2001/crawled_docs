@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/vue/prebuilt-components/
 title: Prebuilt Components
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T10:46:50.820999+00:00
+fetched_at: 2026-11-07T09:53:55.499151+00:00
 ---
 
 # Prebuilt Components

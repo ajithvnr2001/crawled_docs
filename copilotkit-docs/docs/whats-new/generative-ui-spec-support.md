@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/whats-new/generative-ui-spec-support/
 title: Generative UI Spec Support
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T10:46:45.183632+00:00
+fetched_at: 2026-11-07T09:53:51.844593+00:00
 ---
 
 # Generative UI Spec Support

@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/vue/intelligence/self-hosting/
 title: Self-host CopilotKit Intelligence
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T10:46:53.260851+00:00
+fetched_at: 2026-11-07T09:53:56.397652+00:00
 ---
 
 # Self-host CopilotKit Intelligence

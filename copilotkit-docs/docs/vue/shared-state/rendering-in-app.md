@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/vue/shared-state/rendering-in-app/
 title: Render agent state in your app
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T10:46:46.968162+00:00
+fetched_at: 2026-11-07T09:53:55.200368+00:00
 ---
 
 # Render agent state in your app

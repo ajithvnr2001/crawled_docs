@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/vue/intelligence/learned-skills/
 title: Skill delivery
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T10:46:55.403697+00:00
+fetched_at: 2026-11-07T09:53:57.646898+00:00
 ---
 
 # Skill delivery
@@ -177,7 +177,7 @@ Set the container and revision in code below, **or** omit those parameters and u
     import { BuiltInAgent } from "@copilotkit/runtime/v2";
     
     const agent = new BuiltInAgent({
-      model: "openai/gpt-4o",
+      model: "openai/gpt-6-luna",
       prompt: "Follow the application's support policy.",
       learnedSkills: {
         // Set these here, or omit them to use environment variables (linked above).
@@ -213,7 +213,7 @@ Set the container and revision in code below, **or** omit those parameters and u
       },
       factory: ({ input, abortSignal, learnedSkills }) =>
         streamText({
-          model: openai("gpt-4o"),
+          model: openai("gpt-6-luna"),
           system: [
             "Follow the application's support policy.",
             learnedSkills.catalog,
@@ -354,7 +354,7 @@ Set the container and revision in code below, **or** omit those parameters and u
       new Agent({
         id: "support",
         name: "Support",
-        model: "openai/gpt-4.1",
+        model: "openai/gpt-6-luna",
         instructions: "Follow the application's support policy.",
         inputProcessors: [skills],
         tools: { ...skills.tools },
@@ -458,7 +458,7 @@ BuiltInAgent accepts the list inside `learnedSkills`:
     
     
     const agent = new BuiltInAgent({
-      model: "openai/gpt-4o",
+      model: "openai/gpt-6-luna",
       learnedSkills: {
         containers: [
           { id: "support", revision: "revision-123" },

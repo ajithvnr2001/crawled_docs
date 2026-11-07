@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/vue/frontend-tools/
 title: Frontend Tools
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T10:46:57.124590+00:00
+fetched_at: 2026-11-07T09:53:59.345535+00:00
 ---
 
 # Frontend Tools

@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/vue/intelligence/channels/
 title: Channels
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T10:46:54.899755+00:00
+fetched_at: 2026-11-07T09:53:57.688574+00:00
 ---
 
 # Channels

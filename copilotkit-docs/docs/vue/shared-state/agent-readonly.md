@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/vue/shared-state/agent-readonly/
 title: Agent Read-Only Context
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T10:46:46.790871+00:00
+fetched_at: 2026-11-07T09:53:55.044448+00:00
 ---
 
 # Agent Read-Only Context

@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/vue/intelligence/self-hosting-ecs/
 title: Self-host Intelligence on AWS ECS/Fargate
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T10:46:53.359626+00:00
+fetched_at: 2026-11-07T09:53:57.305669+00:00
 ---
 
 # Self-host Intelligence on AWS ECS/Fargate

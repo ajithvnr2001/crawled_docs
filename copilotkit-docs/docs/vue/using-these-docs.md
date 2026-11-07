@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/vue/using-these-docs/
 title: Vue: Using these docs
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T10:46:45.136907+00:00
+fetched_at: 2026-11-07T09:53:52.811386+00:00
 ---
 
 # Vue: Using these docs

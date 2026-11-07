@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/vue/intelligence/trajectories-reference/
 title: Trajectories API reference
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T10:46:51.181945+00:00
+fetched_at: 2026-11-07T09:53:56.270091+00:00
 ---
 
 # Trajectories API reference

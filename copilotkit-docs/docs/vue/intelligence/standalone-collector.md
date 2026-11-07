@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/vue/intelligence/standalone-collector/
 title: Standalone collector
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T10:46:51.236365+00:00
+fetched_at: 2026-11-07T09:53:56.308275+00:00
 ---
 
 # Standalone collector

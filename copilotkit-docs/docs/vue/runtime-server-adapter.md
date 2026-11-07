@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/vue/runtime-server-adapter/
 title: Deploy to any runtime
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T10:46:49.527303+00:00
+fetched_at: 2026-11-07T09:53:55.435681+00:00
 ---
 
 # Deploy to any runtime
@@ -152,7 +152,7 @@ If your platform supports the Fetch API natively (Bun, Deno, Cloudflare Workers,
     // 1. Create the runtime with your agent(s)
     const runtime = new CopilotRuntime({
       agents: {
-        default: new BuiltInAgent({ model: "openai/gpt-4o-mini" }),
+        default: new BuiltInAgent({ model: "openai/gpt-6-luna" }),
       },
     });
     
@@ -180,7 +180,7 @@ server.ts
     // Configure the runtime with your agent(s)
     const runtime = new CopilotRuntime({
       agents: {
-        default: new BuiltInAgent({ model: "openai/gpt-4o-mini" }),
+        default: new BuiltInAgent({ model: "openai/gpt-6-luna" }),
       },
     });
     
@@ -201,7 +201,7 @@ server.ts
     
     const runtime = new CopilotRuntime({
       agents: {
-        default: new BuiltInAgent({ model: "openai/gpt-4o-mini" }),
+        default: new BuiltInAgent({ model: "openai/gpt-6-luna" }),
       },
     });
     
@@ -222,7 +222,7 @@ server.ts
     
     const runtime = new CopilotRuntime({
       agents: {
-        default: new BuiltInAgent({ model: "openai/gpt-4o-mini" }),
+        default: new BuiltInAgent({ model: "openai/gpt-6-luna" }),
       },
     });
     
@@ -262,7 +262,7 @@ server.ts
     
     const runtime = new CopilotRuntime({
       agents: {
-        default: new BuiltInAgent({ model: "openai/gpt-4o-mini" }),
+        default: new BuiltInAgent({ model: "openai/gpt-6-luna" }),
       },
     });
     
@@ -282,7 +282,7 @@ server.ts
     
     const runtime = new CopilotRuntime({
       agents: {
-        default: new BuiltInAgent({ model: "openai/gpt-4o-mini" }),
+        default: new BuiltInAgent({ model: "openai/gpt-6-luna" }),
       },
     });
     
@@ -303,7 +303,7 @@ server.ts
     
     const runtime = new CopilotRuntime({
       agents: {
-        default: new BuiltInAgent({ model: "openai/gpt-4o-mini" }),
+        default: new BuiltInAgent({ model: "openai/gpt-6-luna" }),
       },
     });
     
@@ -338,7 +338,7 @@ Workers do not allow random values in global scope, and an agent generates a thr
     
     const runtime = new CopilotRuntime({
       agents: () => ({
-        default: new BuiltInAgent({ model: "openai/gpt-4o-mini" }),
+        default: new BuiltInAgent({ model: "openai/gpt-6-luna" }),
       }),
     });
 
@@ -357,7 +357,7 @@ src/index.ts
       async fetch(request: Request, env: Env): Promise<Response> {
         const runtime = new CopilotRuntime({
           agents: {
-            default: new BuiltInAgent({ model: "openai/gpt-4o-mini" }),
+            default: new BuiltInAgent({ model: "openai/gpt-6-luna" }),
           },
         });
     
@@ -385,7 +385,7 @@ src/index.ts
       async fetch(request: Request, env: Env): Promise<Response> {
         const runtime = new CopilotRuntime({
           agents: {
-            default: new BuiltInAgent({ model: "openai/gpt-4o-mini" }),
+            default: new BuiltInAgent({ model: "openai/gpt-6-luna" }),
           },
         });
     
@@ -418,7 +418,7 @@ src/index.ts
         if (url.pathname.startsWith("/api/copilotkit")) {
           const runtime = new CopilotRuntime({
             agents: {
-              default: new BuiltInAgent({ model: "openai/gpt-4o-mini" }),
+              default: new BuiltInAgent({ model: "openai/gpt-6-luna" }),
             },
           });
     
@@ -451,7 +451,7 @@ app/api/copilotkit/[...path]/route.ts
     
     const runtime = new CopilotRuntime({
       agents: {
-        default: new BuiltInAgent({ model: "openai/gpt-4o-mini" }),
+        default: new BuiltInAgent({ model: "openai/gpt-6-luna" }),
       },
     });
     
@@ -470,7 +470,7 @@ app/api/copilotkit/[[...slug]]/route.ts
     
     const runtime = new CopilotRuntime({
       agents: {
-        default: new BuiltInAgent({ model: "openai/gpt-4o-mini" }),
+        default: new BuiltInAgent({ model: "openai/gpt-6-luna" }),
       },
     });
     
@@ -501,7 +501,7 @@ app/routes/api.copilotkit.$.ts
     
     const runtime = new CopilotRuntime({
       agents: {
-        default: new BuiltInAgent({ model: "openai/gpt-4o-mini" }),
+        default: new BuiltInAgent({ model: "openai/gpt-6-luna" }),
       },
     });
     
@@ -530,7 +530,7 @@ app/routes/api.copilotkit.ts
     
     const runtime = new CopilotRuntime({
       agents: {
-        default: new BuiltInAgent({ model: "openai/gpt-4o-mini" }),
+        default: new BuiltInAgent({ model: "openai/gpt-6-luna" }),
       },
     });
     
@@ -561,7 +561,7 @@ app/routes/api/copilotkit/$.ts
     
     const runtime = new CopilotRuntime({
       agents: {
-        default: new BuiltInAgent({ model: "openai/gpt-4o-mini" }),
+        default: new BuiltInAgent({ model: "openai/gpt-6-luna" }),
       },
     });
     
@@ -588,7 +588,7 @@ app/routes/api/copilotkit.ts
     
     const runtime = new CopilotRuntime({
       agents: {
-        default: new BuiltInAgent({ model: "openai/gpt-4o-mini" }),
+        default: new BuiltInAgent({ model: "openai/gpt-6-luna" }),
       },
     });
     
@@ -620,7 +620,7 @@ server.ts
     
     const runtime = new CopilotRuntime({
       agents: {
-        default: new BuiltInAgent({ model: "openai/gpt-4o-mini" }),
+        default: new BuiltInAgent({ model: "openai/gpt-6-luna" }),
       },
     });
     
@@ -645,7 +645,7 @@ server.ts
     
     const runtime = new CopilotRuntime({
       agents: {
-        default: new BuiltInAgent({ model: "openai/gpt-4o-mini" }),
+        default: new BuiltInAgent({ model: "openai/gpt-6-luna" }),
       },
     });
     
@@ -669,7 +669,7 @@ server.ts
     
     const runtime = new CopilotRuntime({
       agents: {
-        default: new BuiltInAgent({ model: "openai/gpt-4o-mini" }),
+        default: new BuiltInAgent({ model: "openai/gpt-6-luna" }),
       },
     });
     
@@ -727,7 +727,7 @@ server.ts
     
     const runtime = new CopilotRuntime({
       agents: {
-        default: new BuiltInAgent({ model: "openai/gpt-4o-mini" }),
+        default: new BuiltInAgent({ model: "openai/gpt-6-luna" }),
       },
     });
     
@@ -755,7 +755,7 @@ server.ts
     
     const runtime = new CopilotRuntime({
       agents: {
-        default: new BuiltInAgent({ model: "openai/gpt-4o-mini" }),
+        default: new BuiltInAgent({ model: "openai/gpt-6-luna" }),
       },
     });
     
@@ -784,7 +784,7 @@ server.ts
     
     const runtime = new CopilotRuntime({
       agents: {
-        default: new BuiltInAgent({ model: "openai/gpt-4o-mini" }),
+        default: new BuiltInAgent({ model: "openai/gpt-6-luna" }),
       },
     });
     
@@ -842,7 +842,7 @@ server.ts
     
     const runtime = new CopilotRuntime({
       agents: {
-        default: new BuiltInAgent({ model: "openai/gpt-4o-mini" }),
+        default: new BuiltInAgent({ model: "openai/gpt-6-luna" }),
       },
     });
     
@@ -866,7 +866,7 @@ server.ts
     
     const runtime = new CopilotRuntime({
       agents: {
-        default: new BuiltInAgent({ model: "openai/gpt-4o-mini" }),
+        default: new BuiltInAgent({ model: "openai/gpt-6-luna" }),
       },
     });
     
@@ -891,7 +891,7 @@ server.ts
     
     const runtime = new CopilotRuntime({
       agents: {
-        default: new BuiltInAgent({ model: "openai/gpt-4o-mini" }),
+        default: new BuiltInAgent({ model: "openai/gpt-6-luna" }),
       },
     });
     
@@ -925,7 +925,7 @@ server.ts
     
     const runtime = new CopilotRuntime({
       agents: {
-        default: new BuiltInAgent({ model: "openai/gpt-4o-mini" }),
+        default: new BuiltInAgent({ model: "openai/gpt-6-luna" }),
       },
     });
     
@@ -944,7 +944,7 @@ server.ts
     
     const runtime = new CopilotRuntime({
       agents: {
-        default: new BuiltInAgent({ model: "openai/gpt-4o-mini" }),
+        default: new BuiltInAgent({ model: "openai/gpt-6-luna" }),
       },
     });
     
@@ -968,7 +968,7 @@ server.ts
     
     const runtime = new CopilotRuntime({
       agents: {
-        default: new BuiltInAgent({ model: "openai/gpt-4o-mini" }),
+        default: new BuiltInAgent({ model: "openai/gpt-6-luna" }),
       },
     });
     

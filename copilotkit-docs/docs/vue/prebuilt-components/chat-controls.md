@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/vue/prebuilt-components/chat-controls/
 title: Open, close, and feedback
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T10:46:49.275768+00:00
+fetched_at: 2026-11-07T09:53:55.532833+00:00
 ---
 
 # Open, close, and feedback
