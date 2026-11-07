@@ -1,4 +1,5 @@
 {
+ "https://www.canva.dev/docs/apps/api/": "https://www.canva.dev/docs/apps/api/latest/",
  "https://www.canva.dev/docs/apps/content-publisher/": "https://www.canva.dev/docs/apps/intents/content-publisher/",
  "https://www.canva.dev/docs/apps/design-editor/": "https://www.canva.dev/docs/apps/intents/design-editor/",
  "https://www.canva.dev/docs/apps/examples/app-element-children/": "https://www.canva.dev/docs/apps/feature-examples/app-element-children/",
