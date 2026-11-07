@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/kubernetes-engine/docs/samples/container-custom-metrics-direct-horizontal-pod-autoscaler/
 title: Custom metrics exporter HPA \u00a0|\u00a0 Google Kubernetes Engine (GKE) \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-01T05:44:30.142296+00:00
+fetched_at: 2026-11-07T05:45:13.756658+00:00
 ---
 
 # Custom metrics exporter HPA  |  Google Kubernetes Engine (GKE)  |  Google Cloud Documentation

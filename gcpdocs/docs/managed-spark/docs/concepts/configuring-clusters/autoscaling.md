@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/managed-spark/docs/concepts/configuring-clusters/autoscaling/
 title: Autoscale clusters \u00a0|\u00a0 Managed Service for Apache Spark \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-06T11:11:43.575280+00:00
+fetched_at: 2026-11-07T05:46:32.544574+00:00
 ---
 
 # Autoscale clusters  |  Managed Service for Apache Spark  |  Google Cloud Documentation
@@ -61,7 +61,7 @@ Autoscaling is **not** recommended with/for:
 
   * **Idle Clusters:** Autoscaling is not recommended for the purpose of scaling a cluster down to minimum size when the cluster is idle. Since creating a new cluster is as fast as resizing one, consider deleting idle clusters and recreating them instead. The following tools support this "ephemeral" model:
 
-Use Managed Service for Apache Spark [Workflows](https://docs.cloud.google.com/managed-spark/docs/concepts/workflows/overview) to schedule a set of jobs on a dedicated cluster, and then delete the cluster when the jobs are finished. For more advanced orchestration, use [Cloud Composer](https://docs.cloud.google.com/composer/docs), which is based on [Apache Airflow](https://airflow.apache.org/).
+Use Managed Service for Apache Spark [Workflows](https://docs.cloud.google.com/managed-spark/docs/concepts/workflows/overview) to schedule a set of jobs on a dedicated cluster, and then delete the cluster when the jobs are finished. For more advanced orchestration, use [Cloud Composer](https://docs.cloud.google.com/composer/docs), which is based on [Apache Airflow](https://airflow.apache.org/). 
 
 For clusters that process ad-hoc queries or externally scheduled workloads, use [Cluster Scheduled Deletion](https://docs.cloud.google.com/managed-spark/docs/concepts/configuring-clusters/scheduled-deletion) to delete the cluster after a specified idle period or duration, or at a specific time.
 
@@ -681,6 +681,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-06 UTC.
+Last updated 2026-11-07 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-06 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-07 UTC."],[],[]] 

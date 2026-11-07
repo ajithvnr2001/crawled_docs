@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/lakehouse/docs/query-table/
 title: Query a table \u00a0|\u00a0 Lakehouse \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T06:14:02.205217+00:00
+fetched_at: 2026-11-07T05:51:26.919212+00:00
 ---
 
 # Query a table  |  Lakehouse  |  Google Cloud Documentation
@@ -93,21 +93,17 @@ Select all data from the table:
 
 ###  BigQuery 
 
-To query Apache Iceberg tables in the Lakehouse runtime catalog from BigQuery, use the four-part table name in your query with the following format: `PROJECT_NAME.CATALOG_ID.NAMESPACE_OR_SCHEMA_NAME.TABLE_NAME`.
+To query Apache Iceberg tables in the Lakehouse runtime catalog from BigQuery, use the four-part table name in your query with the following format: `PROJECT_ID.CATALOG_ID.NAMESPACE_OR_SCHEMA_NAME.TABLE_NAME`.
     
     
-    SELECT * FROM `PROJECT_NAME.CATALOG_ID.NAMESPACE_OR_SCHEMA_NAME.TABLE_NAME`;
+    SELECT * FROM `PROJECT_ID.CATALOG_ID.NAMESPACE_OR_SCHEMA_NAME.TABLE_NAME`;
     
 
-Replace the following values:
+Replace the following:
 
-  * `PROJECT_NAME`: the Google Cloud project that owns the catalog in the Lakehouse runtime catalog. The selected Google Cloud project in the Google Cloud console is billed for the query.
+  * `PROJECT_ID`: the ID of the Google Cloud project that owns the catalog in the Lakehouse runtime catalog. The selected Google Cloud project in the Google Cloud console is billed for the query.
 
-  * `CATALOG_ID`: the ID of the Lakehouse runtime catalog catalog specified when the catalog was created. This identifier is used as the catalog name in BigQuery queries.
-
-This identifier is also the name of your Cloud Storage bucket.
-
-For example, if you created your bucket to store your catalog and named it `iceberg-bucket`, both your catalog name and bucket name are `iceberg-bucket`. This is used later when you query your catalog in BigQuery, using the P.C.N.T syntax. For example, `my-project.catalog_id.quickstart_namespace.quickstart_table`.
+  * `CATALOG_ID`: the ID of the Lakehouse runtime catalog catalog specified when the catalog was created. This identifier is used as the catalog name in BigQuery queries. For multiple-bucket catalogs, this identifier is the custom catalog name you specified. For single-bucket catalogs, this identifier matches the name of your Cloud Storage bucket.
 
   * `NAMESPACE_OR_SCHEMA_NAME`: the table namespace if using Spark or table schema name if using Trino.
 
@@ -184,6 +180,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-29 UTC.
+Last updated 2026-11-06 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-06 UTC."],[],[]] 

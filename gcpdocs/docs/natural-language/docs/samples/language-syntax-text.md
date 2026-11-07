@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/natural-language/docs/samples/language-syntax-text/
 title: Analyze syntax of a string \u00a0|\u00a0 Cloud Natural Language API \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T21:05:03.121832+00:00
+fetched_at: 2026-11-07T05:49:12.825706+00:00
 ---
 
 # Analyze syntax of a string  |  Cloud Natural Language API  |  Google Cloud Documentation

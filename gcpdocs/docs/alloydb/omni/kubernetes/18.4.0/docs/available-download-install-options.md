@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/omni/kubernetes/18.4.0/docs/available-download-install-options/
 title: Available AlloyDB Omni download and installation options \u00a0|\u00a0 AlloyDB Omni using the container orchestrator: 18.4.0 \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T19:16:55.713914+00:00
+fetched_at: 2026-11-07T05:50:35.245354+00:00
 ---
 
 # Available AlloyDB Omni download and installation options  |  AlloyDB Omni using the container orchestrator: 18.4.0  |  Google Cloud Documentation
@@ -69,6 +69,7 @@ This page describes options for downloading and installing AlloyDB Omni.
 **Kubernetes Operator with Helm chart** | [Install AlloyDB Omni on Kubernetes](https://docs.cloud.google.com/alloydb/omni/kubernetes/18.4.0/docs/deploy-kubernetes) | Bring-your-own Kubernetes container environment—for example, on-premises, public clouds, GKE, Amazon EKS, and Azure AKS.  
 **Red Hat Package Manager (RPM)** | [Sign up to request access](https://forms.gle/zxuHekMtV67Bw9Av9).Once approved, download using your operating system's package manager. | Run in a non-containerized VM or bare metal environment. You can install directly on Red Hat Enterprise Linux (RHEL) 9 or Rocky Linux 9. For more information, see [AlloyDB Omni using RPM overview](https://docs.cloud.google.com/alloydb/omni/linux/current/docs/overview).  
 **The RPM orchestrator** | [Sign up to request access](https://forms.gle/zxuHekMtV67Bw9Av9) | Use this deployment option if your organization has significant investments in virtual machine (VM) infrastructure and established operational practices built around tools like Ansible. For more information, see the [RPM orchestrator deployment overview](https://docs.cloud.google.com/alloydb/omni/redhat-orchestrator/18.4.0/docs/overview). To unlock additional features, including support for PostgreSQL version 18 and the AlloyDB Omni standalone user interface, sign up using the [AlloyDB Omni sign-up form](https://docs.google.com/forms/d/e/1FAIpQLSep1HzCiseWXq_0oTPs9wOTVWQuH2yAK225SbggvvuqWzMPjQ/viewform).  
+**macOS installer package** | [Install AlloyDB Omni with the macOS installer](https://docs.cloud.google.com/alloydb/omni/mac/current/docs/quickstart) | Run locally on an Apple Silicon Mac (`arm64`) for non-production development, testing, and AI application prototyping. For more information, see the [AlloyDB Omni on macOS overview](https://docs.cloud.google.com/alloydb/omni/mac/current/docs/overview).  
 **web UI (Docker image)** |  Container registry: `gcr.io/alloydb-omni/alloydbomni-ui:latest` For installation guides, see the following:
 
   * [Install the web UI using containers](https://docs.cloud.google.com/alloydb/omni/containers/current/docs/install-web-ui)
@@ -86,15 +87,12 @@ This page describes options for downloading and installing AlloyDB Omni.
 
   * [Install AlloyDB Omni on Kubernetes](https://docs.cloud.google.com/alloydb/omni/kubernetes/18.4.0/docs/deploy-kubernetes).
 
-
-  * [Install the web UI](https://docs.cloud.google.com/alloydb/omni/kubernetes/18.4.0/docs/install-web-ui).
-
-
+* [Install the web UI](https://docs.cloud.google.com/alloydb/omni/kubernetes/18.4.0/docs/install-web-ui). 
 
 Send feedback 
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-27 UTC.
+Last updated 2026-11-07 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-07 UTC."],[],[]] 

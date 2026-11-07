@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/logging/docs/samples/logging-quickstart/
 title: Logging quickstart \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-06T13:54:21.571867+00:00
+fetched_at: 2026-11-07T05:44:18.983403+00:00
 ---
 
 # Logging quickstart  |  Google Cloud Documentation

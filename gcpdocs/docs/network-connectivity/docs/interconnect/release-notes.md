@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/network-connectivity/docs/interconnect/release-notes/
 title: Cloud Interconnect release notes \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T19:39:50.669633+00:00
+fetched_at: 2026-11-07T05:51:43.060021+00:00
 ---
 
 # Cloud Interconnect release notes  |  Google Cloud Documentation
@@ -32,7 +32,7 @@ To get the latest product updates delivered to you, add the URL of this page to 
 
 Feature
 
-[Network Connectivity Center (NCC)](https://docs.cloud.google.com/network-connectivity/docs/network-connectivity-center/concepts/overview) support for [Partner Cross-Cloud Interconnect for Amazon Web Services (AWS)](https://docs.cloud.google.com/network-connectivity/docs/interconnect/concepts/partner-cci-for-aws-overview) is [Generally Available](https://cloud.google.com/products#product-launch-stages).
+[Network Connectivity Center (NCC)](https://docs.cloud.google.com/network-connectivity/docs/network-connectivity-center/concepts/overview) support for [Partner Cross-Cloud Interconnect for Amazon Web Services (AWS)](https://docs.cloud.google.com/network-connectivity/docs/interconnect/concepts/partner-cci-for-csp-overview) is [Generally Available](https://cloud.google.com/products#product-launch-stages).
 
 ## July 27, 2026
 
@@ -81,7 +81,7 @@ Partner Cross-Cloud Interconnect for Amazon Web Services (AWS) with VPC Network 
 
 Network Connectivity Center (NCC) support for Partner Cross-Cloud Interconnect for Amazon Web Services (AWS) is available in [Preview](https://cloud.google.com/products#product-launch-stages).
 
-For more information, see [Partner Cross-Cloud Interconnect for AWS overview](https://docs.cloud.google.com/network-connectivity/docs/interconnect/concepts/partner-cci-for-aws-overview). For available locations, see [Choose a paired location](https://docs.cloud.google.com/network-connectivity/docs/interconnect/how-to/partner-cci-for-aws/paired-locations).
+For more information, see [Partner Cross-Cloud Interconnect for for managed cloud partners overview](https://docs.cloud.google.com/network-connectivity/docs/interconnect/concepts/partner-cci-for-csp-overview). For available locations, see [Choose a paired location](https://docs.cloud.google.com/network-connectivity/docs/interconnect/how-to/partner-cci-for-csp/paired-locations).
 
 ## March 03, 2026
 

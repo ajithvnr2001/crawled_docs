@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/kubernetes-engine/docs/how-to/gpus/
 title: Run GPUs in GKE Standard node pools \u00a0|\u00a0 GKE AI/ML \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T23:31:33.578754+00:00
+fetched_at: 2026-11-07T05:44:36.214484+00:00
 ---
 
 # Run GPUs in GKE Standard node pools  |  GKE AI/ML  |  Google Cloud Documentation
@@ -71,6 +71,7 @@ By default, Free Trial accounts don't receive GPU quota.
 
   * **Machine series** : The GPU type you can use depends on the machine series, as follows:
 
+    * [A5X machine series](https://docs.cloud.google.com/compute/docs/accelerator-optimized-machines#a5x-instances): Vera Rubin NVL72 GPUs (bare metal instances only).
     * [A4X Max machine series](https://docs.cloud.google.com/compute/docs/accelerator-optimized-machines#a4x-vms): GB300 GPUs.
     * [A4X machine series](https://docs.cloud.google.com/compute/docs/accelerator-optimized-machines#a4x-vms): GB200 GPUs.
     * [A4 machine series](https://docs.cloud.google.com/compute/docs/accelerator-optimized-machines#a4-vms): B200 GPUs.
@@ -82,7 +83,7 @@ By default, Free Trial accounts don't receive GPU quota.
 
 You should ensure that you have enough quota in your project for the machine series that corresponds to your selected GPU type and quantity.
 
-  * **GKE versions** : You must use specific GKE versions for certain machine series and shapes:
+  * **GKE versions** : You must use specific GKE versions for certain machine series and shapes: 
 
     * **[Accelerator-optimized A series](https://docs.cloud.google.com/compute/docs/gpus#gpu-models)** : See the respective cluster creation guides for version requirements.
     * **G4 machine series with Standard mode** :
@@ -125,6 +126,7 @@ Before you use GPUs on GKE, keep in mind the following limitations:
   * GPU nodes can't be [live migrated](https://docs.cloud.google.com/compute/docs/instances/live-migration#gpusmaintenance) during maintenance events.
   * **Machine series** : The GPU type you can use depends on the machine series, as follows:
 
+    * [A5X machine series](https://docs.cloud.google.com/compute/docs/accelerator-optimized-machines#a5x-instances): Vera Rubin NVL72 GPUs (bare metal instances only).
     * [A4X Max machine series](https://docs.cloud.google.com/compute/docs/accelerator-optimized-machines#a4x-vms): GB300 GPUs.
     * [A4X machine series](https://docs.cloud.google.com/compute/docs/accelerator-optimized-machines#a4x-vms): GB200 GPUs.
     * [A4 machine series](https://docs.cloud.google.com/compute/docs/accelerator-optimized-machines#a4-vms): B200 GPUs.
@@ -915,6 +917,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-04 UTC.
+Last updated 2026-11-07 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-07 UTC."],[],[]] 

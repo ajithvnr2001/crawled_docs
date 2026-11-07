@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/kubernetes-engine/docs/samples/container-helloapp-deployment/
 title: Hello app deployment \u00a0|\u00a0 Google Kubernetes Engine (GKE) \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-01T05:44:29.156457+00:00
+fetched_at: 2026-11-07T05:45:32.637072+00:00
 ---
 
 # Hello app deployment  |  Google Kubernetes Engine (GKE)  |  Google Cloud Documentation

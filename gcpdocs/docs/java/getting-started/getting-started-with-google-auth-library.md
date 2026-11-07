@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/java/getting-started/getting-started-with-google-auth-library/
 title: Get started with Google Auth Library \u00a0|\u00a0 Java \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-06T10:22:00.253896+00:00
+fetched_at: 2026-11-07T05:45:06.069665+00:00
 ---
 
 # Get started with Google Auth Library  |  Java  |  Google Cloud Documentation
@@ -145,9 +145,9 @@ Add this to your dependencies if using SBT:
 
 ## Auth Library Logging
 
-The Java Auth Library recommends logging using [client library debug logging](https://docs.cloud.google.com/java/docs/troubleshooting.md#client_library_debug_logging_slf4j). Debug logging will hash sensitive tokens (e.g. access_token, refresh_token, etc) and the values will be masked. Logging with `java.util.logging` is disabled in the Auth Library to prevent leaking of sensitive tokens.
+The Java Auth Library recommends logging using [client library debug logging](https://docs.cloud.google.com/java/docs/troubleshooting#client_library_debug_logging_slf4j). Debug logging will hash sensitive tokens (e.g. access_token, refresh_token, etc) and the values will be masked. Logging with `java.util.logging` is disabled in the Auth Library to prevent leaking of sensitive tokens.
 
-Client debug logging functionality is [opt-in](https://docs.cloud.google.com/java/docs/troubleshooting.md#enable_logging_with_an_environment_variable) and requires [setup](https://docs.cloud.google.com/java/docs/troubleshooting#prerequisite).
+Client debug logging functionality is [opt-in](https://docs.cloud.google.com/java/docs/troubleshooting#enable_logging_with_an_environment_variable) and requires [setup](https://docs.cloud.google.com/java/docs/troubleshooting#prerequisite).
 
 Debug Logging can log the following based on log level:
 
@@ -1359,6 +1359,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-05 UTC.
+Last updated 2026-11-06 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-05 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-06 UTC."],[],[]] 

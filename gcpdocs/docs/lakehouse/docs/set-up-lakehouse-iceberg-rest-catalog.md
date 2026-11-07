@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/lakehouse/docs/set-up-lakehouse-iceberg-rest-catalog/
 title: Set up the Apache Iceberg REST catalog endpoint \u00a0|\u00a0 Lakehouse \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-03T09:41:54.247070+00:00
+fetched_at: 2026-11-07T05:50:53.072795+00:00
 ---
 
 # Set up the Apache Iceberg REST catalog endpoint  |  Lakehouse  |  Google Cloud Documentation
@@ -174,7 +174,7 @@ This configuration lets your catalog associate multiple buckets and lets you nam
 
 [Go to Lakehouse](https://console.cloud.google.com/biglake)
 
-  2. Click **Create catalog**.
+  2. Click **Create catalog** , and then select **Lakehouse runtime catalog**.
 
   3. For **Catalog type** , select **Iceberg Rest Catalog**.
 
@@ -184,11 +184,11 @@ This configuration lets your catalog associate multiple buckets and lets you nam
 
   6. For **Catalog ID** , enter a custom name for your catalog.
 
-  7. For **Primary location** , select a location. The location must be near the regions of the main bucket.
+  7. For **Primary location** , select a location. The location must be near the regions of the main bucket. The **Jurisdiction** field is automatically populated based on the bucket.
 
   8. Click **Continue**.
 
-  9. In the **Data paths** step, add additional Cloud Storage paths if needed.
+  9. In the **Data paths** step, if you want to add additional Cloud Storage paths, click **Add path** and enter or browse for a path in the **Select a Cloud Storage path** field.
 
   10. Click **Continue**.
 
@@ -196,26 +196,27 @@ This configuration lets your catalog associate multiple buckets and lets you nam
 
   12. Click **Create**.
 
-Your catalog is created and the **Catalog details** page opens.
+Your catalog is created, and the **Catalog details** page opens.
 
   13. If you selected **Credential vending mode** , perform the following additional steps:
 
-     1. Under **Authentication method** , click **Set bucket permissions**.
+     1. Under **Authentication method** , click **Set bucket permissions** (or **Set permissions for buckets** if your catalog uses more than one bucket).
      2. In the dialog, click **Confirm**.
 
 
 
 #### Create a single-bucket catalog
 
-**Caution:** Using the single-bucket configuration is highly discouraged for new projects. This configuration restricts your catalog to a single bucket and locks the catalog name to the bucket name. 
+**Caution:** Avoid using the single-bucket configuration for new projects. This configuration restricts your catalog to a single bucket and locks the catalog name to the bucket name. 
 
-  1. For **Catalog type** , select **Iceberg Rest Catalog**.
-  2. For **Lakehouse runtime catalog bucket options** , select **Single bucket catalog**.
-  3. For **Default Catalog Cloud Storage path** , enter or browse for the Cloud Storage path to use with your catalog. (For a single-bucket catalog, you can only have one catalog per bucket, and the catalog name matches the bucket name).
-  4. Click **Continue**.
-  5. For **Authentication method** , select **End-user credentials** or **Credential vending mode**.
-  6. Click **Create**.
-  7. If you selected **Credential vending mode** , perform the following additional steps: 
+  1. On the **Lakehouse** page, click **Create catalog** , and then select **Lakehouse runtime catalog**.
+  2. For **Catalog type** , select **Iceberg Rest Catalog**.
+  3. For **Lakehouse catalog bucket options** , select **Single bucket catalog**.
+  4. For **Default Catalog Cloud Storage bucket** , enter or browse for the Cloud Storage bucket to use with your catalog. For a single-bucket catalog, you can only have one catalog per bucket, and the catalog name matches the bucket name.
+  5. Click **Continue**.
+  6. For **Authentication method** , select **End-user credentials** or **Credential vending mode**.
+  7. Click **Create**.
+  8. If you selected **Credential vending mode** , perform the following additional steps: 
      1. Under **Authentication method** , click **Set bucket permissions**.
      2. In the dialog, click **Confirm**.
 
@@ -679,21 +680,25 @@ After you configure your client, create a namespace or schema to organize your t
 
 ###  Console 
 
-  1. In the Google Cloud console, go to **Lakehouse**.
+  1. In the Google Cloud console, go to the **Lakehouse** page.
 
 [Go to Lakehouse](https://console.cloud.google.com/biglake)
 
-  2. Select an existing catalog or create one if you do not have one.
+  2. Select an existing catalog, or create one if you don't have one.
 
-  3. In the menu bar, click **\+ Create namespace**.
+  3. On the **Catalog details** page, click **Create namespace**.
 
   4. For **Namespace name** , enter a unique name for your namespace.
 
-  5. For **Location** , specify the path to associate with your namespace:
+  5. For **Location** , specify the Cloud Storage path to associate with your namespace:
 
-     * **Multiple-bucket** (recommended): You can set any custom location as long as it is under a location allowed by the catalog (`default_location` or `restricted_locations`). If you do not specify a location, the namespace is created under the catalog's default location (for example, `gs://{path-to-default-location}/{namespace_name}`).
+     * **Multiple-bucket** (recommended): You can set any custom location as long as it is under a location allowed by the catalog (`default_location` or `restricted_locations`). If you don't specify a location, the namespace is created under the catalog's default location (for example, `gs://{path-to-default-location}/{namespace_name}`).
      * **Single-bucket** : The namespace location is automatically inherited from the catalog's single bucket.
-  6. Click **Create**.
+  6. Optional: For **Owner** , enter or update the namespace owner. By default, this field is populated with your username.
+
+  7. Optional: Under **Properties** , click **Add property** and enter a **Key** and **Value** to add custom metadata properties to the namespace.
+
+  8. Click **Create**.
 
 
 
@@ -742,6 +747,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-02 UTC.
+Last updated 2026-11-05 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-02 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-05 UTC."],[],[]] 

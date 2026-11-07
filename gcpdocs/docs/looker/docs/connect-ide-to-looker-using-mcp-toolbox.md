@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/looker/docs/connect-ide-to-looker-using-mcp-toolbox/
 title: Use the MCP Toolbox for Databases \u00a0|\u00a0 Looker \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T23:16:57.031451+00:00
+fetched_at: 2026-11-07T05:49:55.256308+00:00
 ---
 
 # Use the MCP Toolbox for Databases  |  Looker  |  Google Cloud Documentation
@@ -596,6 +596,8 @@ Choose the connection method that's based on your authentication choice:
 
 Your AI tool is now connected to Looker using MCP. Try asking your AI assistant to list models, Explores, dimensions, and measures. You can also run a query by retrieving the SQL for a query or running a saved Look.
 
+**Note:** The set of available tools in the Looker-managed MCP server is subject to change as tools are optimized for performance and security.
+
 The following tools are available to the LLM:
 
 ### Looker Model and Query Tools
@@ -660,6 +662,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-05 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-05 UTC."],[],[]] 

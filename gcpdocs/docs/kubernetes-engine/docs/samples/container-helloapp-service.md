@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/kubernetes-engine/docs/samples/container-helloapp-service/
 title: Hello app service \u00a0|\u00a0 Google Kubernetes Engine (GKE) \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-01T05:43:09.851232+00:00
+fetched_at: 2026-11-07T05:45:34.620092+00:00
 ---
 
 # Hello app service  |  Google Kubernetes Engine (GKE)  |  Google Cloud Documentation

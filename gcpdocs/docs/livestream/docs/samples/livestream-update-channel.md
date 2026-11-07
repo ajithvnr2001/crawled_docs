@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/livestream/docs/samples/livestream-update-channel/
 title: Update a channel \u00a0|\u00a0 Live Stream API \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T22:34:40.503872+00:00
+fetched_at: 2026-11-07T05:51:09.777692+00:00
 ---
 
 # Update a channel  |  Live Stream API  |  Google Cloud Documentation

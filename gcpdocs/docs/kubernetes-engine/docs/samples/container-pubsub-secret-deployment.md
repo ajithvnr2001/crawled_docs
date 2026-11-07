@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/kubernetes-engine/docs/samples/container-pubsub-secret-deployment/
 title: Pub/Sub deployment with credentials \u00a0|\u00a0 Google Kubernetes Engine (GKE) \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-01T05:43:08.939325+00:00
+fetched_at: 2026-11-07T05:45:46.830964+00:00
 ---
 
 # Pub/Sub deployment with credentials  |  Google Kubernetes Engine (GKE)  |  Google Cloud Documentation

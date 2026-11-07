@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/looker/docs/looker-core-locations/
 title: Looker (Google Cloud core) locations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-05T10:53:30.077477+00:00
+fetched_at: 2026-11-07T05:51:00.638940+00:00
 ---
 
 # Looker (Google Cloud core) locations  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/logging/docs/samples/logging-update-sink/
 title: Update a sink \u00a0|\u00a0 Cloud Logging \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-01T05:36:07.021332+00:00
+fetched_at: 2026-11-07T05:44:16.312824+00:00
 ---
 
 # Update a sink  |  Cloud Logging  |  Google Cloud Documentation

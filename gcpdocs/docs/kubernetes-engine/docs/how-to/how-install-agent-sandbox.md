@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/kubernetes-engine/docs/how-to/how-install-agent-sandbox/
 title: Install Agent Sandbox on GKE \u00a0|\u00a0 GKE AI/ML \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T23:12:22.498123+00:00
+fetched_at: 2026-11-07T05:43:10.463396+00:00
 ---
 
 # Install Agent Sandbox on GKE  |  GKE AI/ML  |  Google Cloud Documentation
@@ -292,6 +292,68 @@ You deploy the router in the `agent-sandbox-system` namespace. By default, the n
 
 This router configuration is for development and testing. For production settings, such as TLS, replica counts, and network policies for the router, see the [Sandbox Router deployment README](https://github.com/kubernetes-sigs/agent-sandbox/blob/v1.0.6/sandbox-router/deploy/README.md).
 
+## Export controller metrics (optional)
+
+The Agent Sandbox controller exports Prometheus metrics at the `/metrics` path on the `metrics` port (port 8080). To collect these metrics by using Google Cloud Managed Service for Prometheus and to query them in Cloud Monitoring, apply a PodMonitoring custom resource.
+
+GKE enables managed collection by default on Autopilot clusters that run GKE version 1.25 or later and on Standard clusters that run GKE version 1.27 or later. If your cluster doesn't have managed collection enabled, see [Enable managed collection manually](https://docs.cloud.google.com/stackdriver/docs/managed-prometheus/setup-managed#enable-mgdcoll-gke-manual).
+
+Because Prometheus counters and histograms don't record activity that occurred before collection started, apply the PodMonitoring resource after you install the controller so that Cloud Monitoring captures early cluster and Sandbox resource events.
+
+  1. In Cloud Shell, create a file named `agent-sandbox-monitoring.yaml` with the following content:
+         
+         apiVersion: monitoring.googleapis.com/v1
+         kind: PodMonitoring
+         metadata:
+           name: agent-sandbox-controller
+           namespace: agent-sandbox-system
+         spec:
+           selector:
+             matchLabels:
+               app: agent-sandbox-controller
+           endpoints:
+           - port: metrics
+             path: /metrics
+             interval: 30s
+         
+
+**Note:** If you installed Agent Sandbox by using Helm, replace `app: agent-sandbox-controller` with `app.kubernetes.io/name: agent-sandbox` in the `spec.selector.matchLabels` field. If you installed the Helm chart in a custom namespace, also set the `metadata.namespace` field to that namespace (a PodMonitoring resource must be in the same namespace as the controller Pods).
+  2. Apply the manifest:
+         
+         kubectl apply -f agent-sandbox-monitoring.yaml
+         
+
+
+
+
+After you apply the PodMonitoring resource, Google Cloud Managed Service for Prometheus scrapes the controller metrics every 30 seconds. You can query these metrics with PromQL in Cloud Monitoring by using [Metrics Explorer](https://docs.cloud.google.com/monitoring/charts/metrics-explorer).
+
+In Cloud Monitoring, Google Cloud Managed Service for Prometheus reserves the `namespace` label for the namespace of the scraped controller Pod (`agent-sandbox-system`). For metrics that define their own `namespace` label, Google Cloud Managed Service for Prometheus renames the metric label to `exported_namespace`. To filter or group metrics by the Sandbox resource's namespace, use the `exported_namespace` label. For more information, see [Reserved labels](https://docs.cloud.google.com/stackdriver/docs/managed-prometheus/setup-managed#reserved-labels).
+
+For example, you can query the following metrics:
+
+  * `agent_sandbox_build_info`: build information about the controller, such as the Git commit and version.
+
+  * `agent_sandboxes`: the point-in-time number of Sandbox resources in the cluster. This metric has labels for readiness, expiration, launch type, owner, creator, template, and the Sandbox resource's namespace (`exported_namespace`). For example, the following PromQL query groups Sandbox resources by namespace and readiness:
+        
+        sum by (exported_namespace, ready_condition) (agent_sandboxes)
+        
+
+  * `agent_sandbox_claim_controller_startup_latency_ms`: a histogram that measures the latency in milliseconds from when the controller first observes a SandboxClaim resource until the claim reaches the `Ready` status. Because this metric is a Prometheus histogram, querying the base metric name returns no data directly. You must query its `_bucket`, `_sum`, or `_count` series. For example, the following PromQL query calculates the 95th percentile startup latency over a five-minute rate window:
+        
+        histogram_quantile(
+          0.95,
+          sum by (le) (
+            rate(agent_sandbox_claim_controller_startup_latency_ms_bucket[5m])
+          )
+        )
+        
+
+
+**Note:** The controller exports the `agent_sandboxes` and `agent_sandbox_claim_controller_startup_latency_ms` metrics only after you create Sandbox and SandboxClaim resources in Deploy a sandboxed environment.
+
+For more information about exported metrics and the optional components that they depend on, see the [Controller Metrics Reference](https://agent-sandbox.sigs.k8s.io/docs/metrics/).
+
 ## Deploy a sandboxed environment
 
 To deploy a sandboxed environment, define a SandboxTemplate resource and keep pre-warmed Sandbox resources ready by using a SandboxWarmPool resource. You can then request a Sandbox resource from this warm pool by using a SandboxClaim resource. Alternatively, you can create a Sandbox resource directly, but this approach doesn't support warm pools.
@@ -545,6 +607,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-04 UTC.
+Last updated 2026-11-07 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-07 UTC."],[],[]] 

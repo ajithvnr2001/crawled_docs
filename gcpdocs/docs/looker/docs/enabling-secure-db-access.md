@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/looker/docs/enabling-secure-db-access/
 title: Enabling secure database access \u00a0|\u00a0 Looker \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T22:34:32.139483+00:00
+fetched_at: 2026-11-07T05:51:31.276518+00:00
 ---
 
 # Enabling secure database access  |  Looker  |  Google Cloud Documentation

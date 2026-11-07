@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/managed-spark/docs/release-notes/
 title: Managed Service for Apache Spark release notes \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-06T11:25:56.281165+00:00
+fetched_at: 2026-11-07T05:53:10.022264+00:00
 ---
 
 # Managed Service for Apache Spark release notes  |  Google Cloud Documentation
@@ -30,6 +30,39 @@ These release notes include announcements of new and updated Managed Service for
 You can see the latest product updates for all of Google Cloud on the [ Google Cloud](https://docs.cloud.google.com/release-notes) page, browse and filter all release notes in the [Google Cloud console](https://console.cloud.google.com/release-notes), or programmatically access release notes in [BigQuery](https://console.cloud.google.com/bigquery?p=bigquery-public-data&d=google_cloud_release_notes&t=release_notes&page=table). 
 
 To get the latest product updates delivered to you, add the URL of this page to your [feed reader](https://wikipedia.org/wiki/Comparison_of_feed_aggregators), or add the [feed URL](https://docs.cloud.google.com/feeds/managed-spark-release-notes.xml) directly. 
+
+## November 02, 2026
+
+Announcement
+
+New **Serverless Spark** [runtime versions](https://docs.cloud.google.com/managed-spark/docs/concepts/versioning/serverless-spark-component-versions):
+
+  * 1.2.90
+  * 2.2.90
+  * 2.3.43
+
+
+
+Announcement
+
+New [**Managed Service for Apache Spark** (formerly Dataproc on Compute Engine) subminor cluster image versions](https://docs.cloud.google.com/managed-spark/docs/concepts/versioning/image-version-lists#supported-dataproc-image-versions):
+
+  * 2.1.121-debian11, 2.1.121-rocky8, 2.1.121-ubuntu20, 2.1.121-ubuntu20-arm
+  * 2.2.89-debian12, 2.2.89-rocky9, 2.2.89-ubuntu22, 2.2.89-ubuntu22-arm
+  * 2.3.38-debian12, 2.3.38-ml-ubuntu22, 2.3.38-rocky9, 2.3.38-ubuntu22, 2.3.38-ubuntu22-arm
+  * 3.0.4-debian13, 3.0.4-ml-ubuntu24, 3.0.4-rocky9, 3.0.4-ubuntu24
+
+
+
+Key updates in these image versions include:
+
+  * **AlloyDB Connector:** Added support for the AlloyDB Connector (`ALLOYDB_CONNECTOR`) in `2.3` images.
+
+
+
+Fixed
+
+**Managed Service for Apache Spark** (formerly Dataproc on Compute Engine) and **Serverless Spark** : Included a fix for the eMudhra CVE in all latest image versions (2.1, 2.2, 2.3, 3.0) and Serverless Spark runtime versions (1.2, 2.2, 2.3).
 
 ## October 12, 2026
 
@@ -11461,6 +11494,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-06 UTC.
+Last updated 2026-11-07 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-06 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-07 UTC."],[],[]] 

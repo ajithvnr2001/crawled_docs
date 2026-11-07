@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/kubernetes-engine/docs/tutorials/reducing-costs-by-scaling-down-gke-off-hours/
 title: Reducing costs by scaling down GKE clusters during off-peak hours \u00a0|\u00a0 Kubernetes Engine \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T22:57:32.498213+00:00
+fetched_at: 2026-11-07T05:44:53.680193+00:00
 ---
 
 # Reducing costs by scaling down GKE clusters during off-peak hours  |  Kubernetes Engine  |  Google Cloud Documentation

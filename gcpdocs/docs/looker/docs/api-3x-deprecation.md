@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/looker/docs/api-3x-deprecation/
 title: Looker API 3.x Deprecation \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-14T12:44:23.629124+00:00
+fetched_at: 2026-11-07T05:51:32.381209+00:00
 ---
 
 # Looker API 3.x Deprecation  |  Google Cloud Documentation

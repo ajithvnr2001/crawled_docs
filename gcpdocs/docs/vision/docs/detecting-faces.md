@@ -1,11 +1,11 @@
 ---
 url: https://docs.cloud.google.com/vision/docs/detecting-faces/
-title: Detect faces \u00a0|\u00a0 Cloud Vision API \u00a0|\u00a0 Google Cloud Documentation
+title: Detect faces and facial attributes in images \u00a0|\u00a0 Cloud Vision API \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T05:49:58.483433+00:00
+fetched_at: 2026-11-07T05:46:13.186788+00:00
 ---
 
-# Detect faces  |  Cloud Vision API  |  Google Cloud Documentation
+# Detect faces and facial attributes in images  |  Cloud Vision API  |  Google Cloud Documentation
 
 > Source: https://docs.cloud.google.com/vision/docs/detecting-faces/
 
@@ -19,11 +19,11 @@ fetched_at: 2026-10-28T05:49:58.483433+00:00
 
 Send feedback 
 
-#  Detect faces Stay organized with collections  Save and categorize content based on your preferences. 
+#  Detect faces and facial attributes in images Stay organized with collections  Save and categorize content based on your preferences. 
 
-**Face Detection** detects multiple faces within an image along with the associated key facial attributes such as `wearing headwear`.
+The Cloud Vision API lets you detect multiple faces within an image along with associated key facial attributes, such as headwear or facial landmarks. Use Cloud Vision for computer vision tasks and image analysis that requires you to identify these general facial aspects.
 
-**Specific individual[Facial Recognition](https://en.wikipedia.org/wiki/Facial_recognition_system) is not supported.**
+[Facial recognition](https://en.wikipedia.org/wiki/Facial_recognition_system) technology, which is distinct from facial detection, identifies or verifies a specific individual from an image against a database of known people. The Cloud Vision API doesn't support facial recognition or individual identification.
 
 **Note:** The Vision API now supports offline **asynchronous batch image annotation** for all features. This asynchronous request supports up to 2000 image files and returns response JSON files that are stored in your Cloud Storage bucket. For more information about this feature, refer to [Offline batch image annotation](https://docs.cloud.google.com/vision/docs/batch). 
 
@@ -99,7 +99,7 @@ To enable APIs, you need the `serviceusage.services.enable` permission. If you c
 
 
 
-### Detect Faces in a local image
+### Detect faces in a local image
 
 You can use the Vision API to perform feature detection on a local image file.
 
@@ -1382,7 +1382,7 @@ To authenticate to Vision, set up Application Default Credentials. For more info
 
 **Ruby** : Please follow the [Ruby setup instructions](https://docs.cloud.google.com/vision/docs/libraries) on the client libraries page and then visit the [Vision reference documentation for Ruby.](https://googleapis.dev/ruby/google-cloud-vision/latest/Google/Cloud/Vision.html)
 
-### Detect Faces in a remote image
+### Detect faces in a remote image
 
 You can use the Vision API to perform feature detection on a remote image file that is located in Cloud Storage or on the Web. To send a remote file request, specify the file's Web URL or Cloud Storage URI in the request body. 
 
@@ -2644,7 +2644,7 @@ To authenticate to Vision, set up Application Default Credentials. For more info
 
 ### gcloud
 
-To perform face detection, use the [`gcloud ml vision detect-faces`](https://docs.cloud.google.com/sdk/gcloud/reference/ml/vision/detect-text) command as shown in the following example:
+To perform face detection, use the [`gcloud ml vision detect-faces`](https://docs.cloud.google.com/sdk/gcloud/reference/ml/vision/detect-faces) command:
     
     
     gcloud ml vision detect-faces gs://cloud-samples-data/vision/face/faces.jpeg
@@ -2657,9 +2657,9 @@ To perform face detection, use the [`gcloud ml vision detect-faces`](https://doc
 
 **Ruby** : Please follow the [Ruby setup instructions](https://docs.cloud.google.com/vision/docs/libraries) on the client libraries page and then visit the [Vision reference documentation for Ruby.](https://googleapis.dev/ruby/google-cloud-vision/latest/Google/Cloud/Vision.html)
 
-## Try it
+## Try face detection
 
-Try face detection below. You can use the image specified already (`gs://cloud-samples-data/vision/face/faces.jpeg`) or specify your own image in its place. Send the request by selecting **Execute**.
+Try face detection using the following web application. You can use the provided image (`gs://cloud-samples-data/vision/face/faces.jpeg`) or specify your own Cloud Storage image. Send the request by clicking **Execute**.
 
 **Request body:**
     
@@ -2699,6 +2699,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-07 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-07 UTC."],[],[]] 

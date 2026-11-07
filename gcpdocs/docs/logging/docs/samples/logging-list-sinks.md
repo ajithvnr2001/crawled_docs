@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/logging/docs/samples/logging-list-sinks/
 title: List sinks \u00a0|\u00a0 Cloud Logging \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-01T05:36:12.939103+00:00
+fetched_at: 2026-11-07T05:44:16.520925+00:00
 ---
 
 # List sinks  |  Cloud Logging  |  Google Cloud Documentation

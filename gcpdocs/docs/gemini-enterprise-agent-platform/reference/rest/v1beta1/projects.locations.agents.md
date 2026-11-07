@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.agents
 title: REST Resource: projects.locations.agents \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-14T16:33:51.475028+00:00
+fetched_at: 2026-11-07T05:43:40.891647+00:00
 ---
 
 # REST Resource: projects.locations.agents  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation
@@ -74,14 +74,16 @@ Fields
   
 `type` `string` Required. The type of the tool. Supported types:
 
-  * `code_execution`
+  * `audio_generation`
   * `endpoint`
-  * `filesystem`
   * `google_search`
+  * `imageGeneration`
   * `mcp_server`
+  * `speech_generation`
   * `url_context`
+  * `videoGeneration`
 
-| `name` `string` Optional. The tool's Google Cloud resource name, used to resolve the tool. Applicable when `type` is `mcp_server` or `endpoint` (a tool registered in Agent Registry), for example `projects/{project}/locations/{location}/.../mcpServers/{id}` or `projects/{project}/locations/{location}/.../endpoints/{id}`. | `url` `string` Optional. Fallback for the tool's runtime reference, consumed by `agents.create` to create the downstream AI App. Applicable when `type` is `mcp_server` or `endpoint`, and optional: the Agent service derives the runtime reference from `name` via Agent Registry (`GetMcpServer` / `GetEndpoint`), and reads this only when that lookup yields none. | `headers` `map (key: string, value: string)` Optional. The headers for the MCP server, such as for authentication. Only applicable when `type` is `mcp_server`. | JSON representation  
+| `name` `string` Optional. The tool's Google Cloud resource name, used to resolve the tool. Applicable when `type` is `mcp_server` or `endpoint` (a tool registered in Agent Registry), for example `projects/{project}/locations/{location}/.../mcpServers/{id}` or `projects/{project}/locations/{location}/.../endpoints/{id}`. | `url` `string` Optional. The runtime reference is resolved from `name` via Agent Registry (`GetMcpServer` / `GetEndpoint`), so this is not required. | `headers` `map (key: string, value: string)` Optional. Not used; the tool is resolved from `name` via Agent Registry. | JSON representation  
 ---  
       
     
@@ -123,6 +125,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-09-26 UTC.
+Last updated 2026-11-07 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-09-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-07 UTC."],[],[]] 

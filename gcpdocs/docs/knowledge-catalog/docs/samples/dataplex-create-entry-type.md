@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/knowledge-catalog/docs/samples/dataplex-create-entry-type/
 title: Create entry type \u00a0|\u00a0 Knowledge Catalog \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T20:46:44.436945+00:00
+fetched_at: 2026-11-07T05:46:06.002242+00:00
 ---
 
 # Create entry type  |  Knowledge Catalog  |  Google Cloud Documentation

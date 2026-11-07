@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/lakehouse/docs/use-iceberg-v3-binary-deletion-vectors/
 title: Use binary deletion vectors in Iceberg V3 tables \u00a0|\u00a0 Lakehouse \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-01T05:45:08.476999+00:00
+fetched_at: 2026-11-07T05:50:56.824879+00:00
 ---
 
 # Use binary deletion vectors in Iceberg V3 tables  |  Lakehouse  |  Google Cloud Documentation
@@ -108,7 +108,7 @@ The following configuration enables the necessary Iceberg extensions and sets up
 Replace the following:
 
   * `CATALOG_NAME`: the name of your Apache Iceberg REST catalog endpoint.
-  * `WAREHOUSE_PATH`: the URI of the Cloud Storage folder where your data warehouse is stored, starting with `gs://`.
+  * `WAREHOUSE_PATH`: the path to your warehouse. For multiple-bucket catalogs, use `bl://projects/PROJECT_ID/catalogs/CATALOG_ID`, where `CATALOG_ID` is your catalog ID. For single-bucket catalogs, use `gs://CLOUD_STORAGE_BUCKET_NAME`, where `CLOUD_STORAGE_BUCKET_NAME` is your Cloud Storage bucket name.
   * `PROJECT_ID`: your Google Cloud project ID.
 
 
@@ -250,6 +250,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-27 UTC.
+Last updated 2026-11-06 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-06 UTC."],[],[]] 

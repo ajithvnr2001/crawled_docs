@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/knowledge-catalog/docs/samples/dataplex-create-entry-group/
 title: Create entry group \u00a0|\u00a0 Knowledge Catalog \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T20:46:00.737468+00:00
+fetched_at: 2026-11-07T05:45:33.490557+00:00
 ---
 
 # Create entry group  |  Knowledge Catalog  |  Google Cloud Documentation

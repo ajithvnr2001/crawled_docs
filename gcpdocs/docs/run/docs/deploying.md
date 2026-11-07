@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/run/docs/deploying/
 title: Deploy container images to Cloud Run services \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T05:50:08.655997+00:00
+fetched_at: 2026-11-07T05:51:38.003925+00:00
 ---
 
 # Deploy container images to Cloud Run services  |  Google Cloud Documentation
@@ -21,11 +21,9 @@ Send feedback
 
 #  Deploy container images to Cloud Run services Stay organized with collections  Save and categorize content based on your preferences. 
 
-This page describes how to deploy container images to a new Cloud Run service or to a new revision of an existing Cloud Run service.
+Cloud Run lets you run scalable containerized apps through container image deployments. When you deploy a container image to run a new service or a new revision of an existing service, Cloud Run imports the container image. Cloud Run keeps this copy while a serving revision uses it, so new Cloud Run instances start without pulling the image from your container repository.
 
-The container image is imported by Cloud Run when deployed. Cloud Run keeps this copy of the container image as long as it is used by a serving revision. Container images are not pulled from their container repository when a new Cloud Run instance is started.
-
-For an example walkthrough of deploying a new service, see [Deploy a sample container quickstart](https://docs.cloud.google.com/run/docs/quickstarts/deploy-container).
+For a guided walkthrough of deploying a new service, see the [Deploy a sample container quickstart](https://docs.cloud.google.com/run/docs/quickstarts/deploy-container).
 
 ## Before you start
 
@@ -1078,6 +1076,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-30 UTC.
+Last updated 2026-11-07 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-07 UTC."],[],[]] 

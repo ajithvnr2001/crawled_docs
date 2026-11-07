@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini/enterprise/docs/locations/
 title: Data residency for Gemini Enterprise Standard and Plus Editions and Gemini Notebook Enterprise \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T05:40:25.277680+00:00
+fetched_at: 2026-11-07T05:51:24.786039+00:00
 ---
 
 # Data residency for Gemini Enterprise Standard and Plus Editions and Gemini Notebook Enterprise  |  Google Cloud Documentation
@@ -326,6 +326,8 @@ Feature | US/EU multi-regions | In-country regions (CA, IN, JP, SG, UK) | Notes
 
 |  Skills that users create or upload on the **Skills** page are stored in Gemini Enterprise storage in your app's location. Google-managed skills are delivered as part of the service and aren't copied into your storage. Each user's settings for these skills, such as whether a skill is installed or turned on, are stored in your app's location.  Skill availability in a chat conversation depends on the selected model. For more information about managing skills, see [Manage skills](https://docs.cloud.google.com/gemini/enterprise/docs/manage-skills).   
   
+If you turn on a Gemini model that isn't supported in your app's location, traffic for that model is routed to the `global` endpoint, which doesn't support regional data residency. If the [resource locations organization policy](https://docs.cloud.google.com/resource-manager/docs/organization-policy/defining-locations) for your project doesn't allow the `global` location, you can't turn on these models in the Google Cloud console. For more information, see [Turn on or turn off a Gemini model](https://docs.cloud.google.com/gemini/enterprise/docs/manage-web-app-features#turn-on-gemini-model).
+
 ### Gemini Notebook Enterprise limitations
 
 The following features of Gemini Notebook Enterprise are supported globally but may have limitations for certain multi-regions and in-country regions:
@@ -422,6 +424,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-30 UTC.
+Last updated 2026-11-07 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-07 UTC."],[],[]] 

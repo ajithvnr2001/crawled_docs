@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/kubernetes-engine/docs/best-practices/machine-learning/inference/
 title: Overview of inference best practices on GKE \u00a0|\u00a0 GKE AI/ML \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-01T05:43:59.027878+00:00
+fetched_at: 2026-11-07T05:45:23.926782+00:00
 ---
 
 # Overview of inference best practices on GKE  |  GKE AI/ML  |  Google Cloud Documentation
@@ -158,7 +158,7 @@ NVIDIA B200 | A4 | Future-proof option for demanding models that fit on a single
 TPU v4 | - | Offers a good balance between cost and performance.  
 TPU v5p | - | A high-performance option for demanding workloads.  
 Multi-host large model inference | NVIDIA H200 | A3 Ultra | Suitable for large, memory-intensive models (up to 1,128 GB total memory).  
-NVIDIA B200 / GB200 | A4 / A4X | For the most demanding, compute-intensive, and network-bound workloads. A4X machines use Arm-based CPUs, which may require workload refactoring (code changes beyond a simple container rebuild) if your workload uses x86-specific features or optimizations.  
+NVIDIA B200 / GB200 / GB300 / Vera Rubin NVL72 | A4 / A4X / A4X Max / A5X | For the most demanding, compute-intensive, and network-bound workloads. A4X, A4X Max, and A5X machines use Arm-based CPUs, which might require workload refactoring (code changes beyond a simple container rebuild) if your workload uses x86-specific features or optimizations.  
 TPU v5e | - | Optimized for cost-efficiency and performance for medium-to-large LLM serving.  
 TPU v5p | - | A high-performance option for multi-host inference that requires large-scale parallelization.  
 TPU v6e | - | Optimized for transformer, text-to-image, and CNN serving.  
@@ -169,7 +169,7 @@ Imagine you need to deploy a model that requires 260 GB of total accelerator mem
 
 Based on memory requirements alone, you can exclude NVIDIA L4 GPUs, as the largest G2 machine offers a maximum of 192 GB of accelerator memory. Additionally, because L4 GPUs don't support high-speed, low-latency connectivity between accelerators, distributing the workload across multiple nodes is not a viable option for achieving the desired performance.
 
-If you want to avoid refactoring your x86-64 workloads (that is, having to modify your code so that it can run on a different type of processor), you would also exclude NVIDIA GB200 and GB300 accelerators, which use Arm-based CPUs.
+If you want to avoid refactoring your x86-64 workloads (that is, having to modify your code so that it can run on a different type of processor), you would also exclude NVIDIA GB200, GB300, and Vera Rubin NVL72 accelerators, which use Arm-based CPUs.
 
 This leaves you with the following options:
 
@@ -531,6 +531,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-30 UTC.
+Last updated 2026-11-07 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-07 UTC."],[],[]] 

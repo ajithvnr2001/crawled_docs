@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/natural-language/docs/samples/language-entities-text/
 title: Analyze entities in a string \u00a0|\u00a0 Cloud Natural Language API \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T21:05:14.340715+00:00
+fetched_at: 2026-11-07T05:49:09.107716+00:00
 ---
 
 # Analyze entities in a string  |  Cloud Natural Language API  |  Google Cloud Documentation
@@ -159,11 +159,13 @@ To authenticate to Natural Language, set up Application Default Credentials. For
             printf('Name: %s' . PHP_EOL, $entity->getName());
             printf('Type: %s' . PHP_EOL, EntityType::name($entity->getType()));
             printf('Salience: %s' . PHP_EOL, $entity->getSalience());
-            if ($entity->getMetadata()->offsetExists('wikipedia_url')) {
-                printf('Wikipedia URL: %s' . PHP_EOL, $entity->getMetadata()->offsetGet('wikipedia_url'));
+            /** @var array<string, string> $metadata */
+            $metadata = $entity->getMetadata();
+            if (isset($metadata['wikipedia_url'])) {
+                printf('Wikipedia URL: %s' . PHP_EOL, $metadata['wikipedia_url']);
             }
-            if ($entity->getMetadata()->offsetExists('mid')) {
-                printf('Knowledge Graph MID: %s' . PHP_EOL, $entity->getMetadata()->offsetGet('mid'));
+            if (isset($metadata['mid'])) {
+                printf('Knowledge Graph MID: %s' . PHP_EOL, $metadata['mid']);
             }
             printf(PHP_EOL);
         }

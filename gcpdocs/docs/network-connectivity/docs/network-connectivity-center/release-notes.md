@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/network-connectivity/docs/network-connectivity-center/release-notes/
 title: Network Connectivity Center release notes \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T19:39:50.543435+00:00
+fetched_at: 2026-11-07T05:51:41.914154+00:00
 ---
 
 # Network Connectivity Center release notes  |  Google Cloud Documentation
@@ -48,9 +48,9 @@ Network Connectivity Center supports [site-to-site data transfer](https://docs.c
 
 Feature
 
-[Network Connectivity Center (NCC)](https://docs.cloud.google.com/network-connectivity/docs/network-connectivity-center/concepts/overview) support for [Partner Cross-Cloud Interconnect for Amazon Web Services (AWS)](https://docs.cloud.google.com/network-connectivity/docs/interconnect/concepts/partner-cci-for-aws-overview) is [Generally Available](https://cloud.google.com/products#product-launch-stages).
+[Network Connectivity Center (NCC)](https://docs.cloud.google.com/network-connectivity/docs/network-connectivity-center/concepts/overview) support for [Partner Cross-Cloud Interconnect for Amazon Web Services (AWS)](https://docs.cloud.google.com/network-connectivity/docs/interconnect/concepts/partner-cci-for-csp-overview) is [Generally Available](https://cloud.google.com/products#product-launch-stages).
 
-Billing for [Partner Cross-Cloud Interconnect for Amazon Web Services (AWS)](https://docs.cloud.google.com/network-connectivity/docs/interconnect/concepts/partner-cci-for-aws-overview) is going to commence over the next 30 days following General Availability. For the most current billing information, see [Network Connectivity Center pricing](https://cloud.google.com/network-connectivity/pricing).
+Billing for [Partner Cross-Cloud Interconnect](https://docs.cloud.google.com/network-connectivity/docs/interconnect/concepts/partner-cci-for-csp-overview) is going to commence over the next 30 days following General Availability. For the most current billing information, see [Network Connectivity Center pricing](https://cloud.google.com/network-connectivity/pricing).
 
 ## September 10, 2026
 

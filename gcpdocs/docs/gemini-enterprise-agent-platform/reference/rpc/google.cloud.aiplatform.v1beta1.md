@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1
 title: Package google.cloud.aiplatform.v1beta1 \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-13T13:48:39.601267+00:00
+fetched_at: 2026-11-07T05:43:51.339121+00:00
 ---
 
 # Package google.cloud.aiplatform.v1beta1  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation
@@ -9268,7 +9268,14 @@ Authorization scopes
   * `https://www.googleapis.com/auth/cloud-platform`
   * `https://www.googleapis.com/auth/aiplatform`
 
-For more information, see the [Authentication Overview](https://docs.cloud.google.com/docs/authentication#authorization-gcp).  
+For more information, see the [Authentication Overview](https://docs.cloud.google.com/docs/authentication#authorization-gcp).
+
+IAM Permissions
+     Requires the following [IAM](https://cloud.google.com/iam/docs) permission on the `parent` resource:
+
+  * `aiplatform.ragCorpora.update`
+
+For more information, see the [IAM documentation](https://cloud.google.com/iam/docs).  
 BatchCreateRagMetadata  
 ---  
 ` rpc BatchCreateRagMetadata(`[BatchCreateRagMetadataRequest](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.BatchCreateRagMetadataRequest)`) returns (`[Operation](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.longrunning#google.longrunning.Operation)`) ` Batch Create one or more RagMetadatas
@@ -9279,7 +9286,14 @@ Authorization scopes
   * `https://www.googleapis.com/auth/cloud-platform`
   * `https://www.googleapis.com/auth/aiplatform`
 
-For more information, see the [Authentication Overview](https://docs.cloud.google.com/docs/authentication#authorization-gcp).  
+For more information, see the [Authentication Overview](https://docs.cloud.google.com/docs/authentication#authorization-gcp).
+
+IAM Permissions
+     Requires the following [IAM](https://cloud.google.com/iam/docs) permission on the `parent` resource:
+
+  * `aiplatform.ragFiles.upload`
+
+For more information, see the [IAM documentation](https://cloud.google.com/iam/docs).  
 BatchDeleteRagDataSchemas  
 ---  
 ` rpc BatchDeleteRagDataSchemas(`[BatchDeleteRagDataSchemasRequest](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.BatchDeleteRagDataSchemasRequest)`) returns (`[Operation](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.longrunning#google.longrunning.Operation)`) ` Batch Deletes one or more RagDataSchemas
@@ -9290,7 +9304,14 @@ Authorization scopes
   * `https://www.googleapis.com/auth/cloud-platform`
   * `https://www.googleapis.com/auth/aiplatform`
 
-For more information, see the [Authentication Overview](https://docs.cloud.google.com/docs/authentication#authorization-gcp).  
+For more information, see the [Authentication Overview](https://docs.cloud.google.com/docs/authentication#authorization-gcp).
+
+IAM Permissions
+     Requires the following [IAM](https://cloud.google.com/iam/docs) permission on the `parent` resource:
+
+  * `aiplatform.ragCorpora.delete`
+
+For more information, see the [IAM documentation](https://cloud.google.com/iam/docs).  
 BatchDeleteRagMetadata  
 ---  
 ` rpc BatchDeleteRagMetadata(`[BatchDeleteRagMetadataRequest](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.BatchDeleteRagMetadataRequest)`) returns (`[Operation](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.longrunning#google.longrunning.Operation)`) ` Batch Deletes one or more RagMetadata.
@@ -9301,7 +9322,14 @@ Authorization scopes
   * `https://www.googleapis.com/auth/cloud-platform`
   * `https://www.googleapis.com/auth/aiplatform`
 
-For more information, see the [Authentication Overview](https://docs.cloud.google.com/docs/authentication#authorization-gcp).  
+For more information, see the [Authentication Overview](https://docs.cloud.google.com/docs/authentication#authorization-gcp).
+
+IAM Permissions
+     Requires the following [IAM](https://cloud.google.com/iam/docs) permission on the `parent` resource:
+
+  * `aiplatform.ragFiles.delete`
+
+For more information, see the [IAM documentation](https://cloud.google.com/iam/docs).  
 CreateRagCorpus  
 ---  
 ` rpc CreateRagCorpus(`[CreateRagCorpusRequest](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.CreateRagCorpusRequest)`) returns (`[Operation](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.longrunning#google.longrunning.Operation)`) ` Creates a RagCorpus.
@@ -9330,7 +9358,14 @@ Authorization scopes
   * `https://www.googleapis.com/auth/cloud-platform`
   * `https://www.googleapis.com/auth/aiplatform`
 
-For more information, see the [Authentication Overview](https://docs.cloud.google.com/docs/authentication#authorization-gcp).  
+For more information, see the [Authentication Overview](https://docs.cloud.google.com/docs/authentication#authorization-gcp).
+
+IAM Permissions
+     Requires the following [IAM](https://cloud.google.com/iam/docs) permission on the `parent` resource:
+
+  * `aiplatform.ragCorpora.update`
+
+For more information, see the [IAM documentation](https://cloud.google.com/iam/docs).  
 CreateRagMetadata  
 ---  
 ` rpc CreateRagMetadata(`[CreateRagMetadataRequest](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.CreateRagMetadataRequest)`) returns (`[RagMetadata](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.RagMetadata)`) ` Creates a RagMetadata.
@@ -9341,7 +9376,14 @@ Authorization scopes
   * `https://www.googleapis.com/auth/cloud-platform`
   * `https://www.googleapis.com/auth/aiplatform`
 
-For more information, see the [Authentication Overview](https://docs.cloud.google.com/docs/authentication#authorization-gcp).  
+For more information, see the [Authentication Overview](https://docs.cloud.google.com/docs/authentication#authorization-gcp).
+
+IAM Permissions
+     Requires the following [IAM](https://cloud.google.com/iam/docs) permission on the `parent` resource:
+
+  * `aiplatform.ragFiles.upload`
+
+For more information, see the [IAM documentation](https://cloud.google.com/iam/docs).  
 DeleteRagCorpus  
 ---  
 ` rpc DeleteRagCorpus(`[DeleteRagCorpusRequest](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.DeleteRagCorpusRequest)`) returns (`[Operation](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.longrunning#google.longrunning.Operation)`) ` Deletes a RagCorpus.
@@ -9522,7 +9564,14 @@ Authorization scopes
   * `https://www.googleapis.com/auth/cloud-platform`
   * `https://www.googleapis.com/auth/aiplatform`
 
-For more information, see the [Authentication Overview](https://docs.cloud.google.com/docs/authentication#authorization-gcp).  
+For more information, see the [Authentication Overview](https://docs.cloud.google.com/docs/authentication#authorization-gcp).
+
+IAM Permissions
+     Requires the following [IAM](https://cloud.google.com/iam/docs) permission on the `parent` resource:
+
+  * `aiplatform.ragCorpora.get`
+
+For more information, see the [IAM documentation](https://cloud.google.com/iam/docs).  
 ListRagFiles  
 ---  
 ` rpc ListRagFiles(`[ListRagFilesRequest](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.ListRagFilesRequest)`) returns (`[ListRagFilesResponse](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.ListRagFilesResponse)`) ` Lists RagFiles in a RagCorpus.
@@ -9551,7 +9600,14 @@ Authorization scopes
   * `https://www.googleapis.com/auth/cloud-platform`
   * `https://www.googleapis.com/auth/aiplatform`
 
-For more information, see the [Authentication Overview](https://docs.cloud.google.com/docs/authentication#authorization-gcp).  
+For more information, see the [Authentication Overview](https://docs.cloud.google.com/docs/authentication#authorization-gcp).
+
+IAM Permissions
+     Requires the following [IAM](https://cloud.google.com/iam/docs) permission on the `parent` resource:
+
+  * `aiplatform.ragFiles.get`
+
+For more information, see the [IAM documentation](https://cloud.google.com/iam/docs).  
 UpdateRagCorpus  
 ---  
 ` rpc UpdateRagCorpus(`[UpdateRagCorpusRequest](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.UpdateRagCorpusRequest)`) returns (`[Operation](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.longrunning#google.longrunning.Operation)`) ` Updates a RagCorpus.
@@ -10139,17 +10195,19 @@ Fields
 ---  
 `type` |  `string` Required. The type of the tool. Supported types:
 
-  * `code_execution`
+  * `audio_generation`
   * `endpoint`
-  * `filesystem`
   * `google_search`
+  * `image_generation`
   * `mcp_server`
+  * `speech_generation`
   * `url_context`
+  * `video_generation`
 
   
 `name` |  `string` Optional. The tool's Google Cloud resource name, used to resolve the tool. Applicable when `type` is `mcp_server` or `endpoint` (a tool registered in Agent Registry), for example `projects/{project}/locations/{location}/.../mcpServers/{id}` or `projects/{project}/locations/{location}/.../endpoints/{id}`.  
-`url` |  `string` Optional. Fallback for the tool's runtime reference, consumed by `CreateAgent` to create the downstream AI App. Applicable when `type` is `mcp_server` or `endpoint`, and optional: the Agent service derives the runtime reference from `name` via Agent Registry (`GetMcpServer` / `GetEndpoint`), and reads this only when that lookup yields none.  
-`headers` |  `map<string, string>` Optional. The headers for the MCP server, such as for authentication. Only applicable when `type` is `mcp_server`.  
+`url` |  `string` Optional. The runtime reference is resolved from `name` via Agent Registry (`GetMcpServer` / `GetEndpoint`), so this is not required.  
+`headers` |  `map<string, string>` Optional. Not used; the tool is resolved from `name` via Agent Registry.  
   
 ## AggregationOutput
 
@@ -23188,7 +23246,7 @@ Fields
 `create_time` |  `[Timestamp](https://protobuf.dev/reference/protobuf/google.protobuf/#timestamp)` Output only. Timestamp when the OnlineEvaluator was created.  
 `update_time` |  `[Timestamp](https://protobuf.dev/reference/protobuf/google.protobuf/#timestamp)` Output only. Timestamp when the OnlineEvaluator was last updated.  
 `display_name` |  `string` Optional. Human-readable name for the OnlineEvaluator.The name doesn't have to be unique.The name can consist of any UTF-8 characters. The maximum length is `63` characters. If the display name exceeds max characters, an `INVALID_ARGUMENT` error is returned.  
-Union field `data_source`. Required. The data source used to query samples for evaluations. More data sources will be supported in the future.The data source type is immutable once set. Within `cloud_observability`, `log_view` and `trace_view` can be updated; the `eval_scope` and `convention` are immutable. Within `bigquery_agent_analytics`, `result_table` can be updated; `source_table` and `scope` are immutable. `data_source` can be only one of the following:  
+Union field `data_source`. Required. The data source used to query samples for evaluations. More data sources will be supported in the future.The data source type is immutable once set. Within `cloud_observability`, `log_view` and `trace_view` can be updated; the `eval_scope` and `convention` are immutable. Within `bigquery_agent_analytics`, `result_table` can be updated; `source_table`, `scope` and `multi_turn_config` are immutable. `data_source` can be only one of the following:  
 `cloud_observability` |  `[CloudObservability](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1#google.cloud.aiplatform.v1beta1.OnlineEvaluator.CloudObservability)` Data source for the OnlineEvaluator, based on Google Cloud Observability stack (Cloud Trace & Cloud Logging).  
   
 ## CloudObservability
@@ -31452,6 +31510,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-09 UTC.
+Last updated 2026-11-07 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-09 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-07 UTC."],[],[]] 

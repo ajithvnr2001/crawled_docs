@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/kubernetes-engine/docs/integrations/ai-infra/
 title: AI/ML orchestration on GKE documentation \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T23:41:31.116674+00:00
+fetched_at: 2026-11-07T05:49:17.036905+00:00
 ---
 
 # AI/ML orchestration on GKE documentation  |  Google Cloud Documentation
@@ -92,7 +92,7 @@ info
 
 info 
 
-### Train AI models at scale
+### Serve training and inference workloads
 
   * Quickstart 
 
@@ -102,22 +102,6 @@ info
 
 [ Train a model with GPUs on GKE Autopilot mode ](https://docs.cloud.google.com/kubernetes-engine/docs/quickstarts/train-model-gpus-autopilot)
 
-  * Tutorial 
-
-[ Train a model with PyTorch, Ray, and GKE on GPUs ](https://docs.cloud.google.com/kubernetes-engine/docs/add-on/ray-on-gke/tutorials/train-model-ray-pytorch)
-
-  * Tutorial 
-
-[ Train an LLM using JAX, Ray Train, and TPU Trillium on GKE ](https://docs.cloud.google.com/kubernetes-engine/docs/tutorials/distributed-training-tpu)
-
-  * Tutorial 
-
-[ Multislice and Elastic Training on TPUs using Ray Train on GKE ](https://docs.cloud.google.com/kubernetes-engine/docs/tutorials/multi-slice-training-ray)
-
-  * Quickstart 
-
-[ Train Llama2 with Megatron-LM on A3 Mega virtual machines ](https://docs.cloud.google.com/kubernetes-engine/docs/quickstarts/training-megatron-llama-workload)
-
   * How-to 
 
 [ Train large-scale machine learning models on GKE with multi-tier checkpointing ](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/machine-learning/training/multi-tier-checkpointing)
@@ -125,13 +109,6 @@ info
   * Tutorial 
 
 [ Optimize GKE resource utilization for mixed AI/ML training and inference workloads ](https://docs.cloud.google.com/kubernetes-engine/docs/tutorials/mixed-workloads)
-
-
-
-
-info 
-
-### Serve AI models for Inference
 
   * Best practice 
 
@@ -149,29 +126,56 @@ info
 
 [ Analyze model serving performance and costs with GKE Inference Quickstart ](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/machine-learning/inference/inference-quickstart)
 
-  * Quickstart 
-
-[ Serve open LLMs on GKE with a pre-configured architecture using Terraform ](https://docs.cloud.google.com/kubernetes-engine/docs/tutorials/serve-open-models-terraform)
-
-  * Tutorial 
-
-[ Serve LLMs like Deepseek-R1 671B or Llama 3.1 405B on GKE ](https://docs.cloud.google.com/kubernetes-engine/docs/tutorials/serve-multihost-gpu)
-
-  * Tutorial 
-
-[ Serve Gemma using GPUs on GKE with vLLM ](https://docs.cloud.google.com/kubernetes-engine/docs/tutorials/serve-gemma-gpu-vllm)
-
-  * Tutorial 
-
-[ Serve an LLM using TPU Trillium on GKE with vLLM ](https://docs.cloud.google.com/kubernetes-engine/docs/tutorials/serve-vllm-tpu)
-
-  * Tutorial 
-
-[ Serve an LLM with multi-cluster Ray Serve and Inference Gateway ](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/serve-multi-cluster-ray-inference-gateway)
-
   * Tutorial 
 
 [ Discover more tutorials for model inference on GKE ](https://docs.cloud.google.com/kubernetes-engine/docs/concepts/machine-learning/inference#examples)
+
+
+
+
+info 
+
+### Serve agentic workloads
+
+  * Concept 
+
+[ Plan an architecture for AI agent workloads on GKE ](https://docs.cloud.google.com/kubernetes-engine/docs/concepts/machine-learning/agent-workloads)
+
+  * Concept 
+
+[ About Agent Substrate on GKE ](https://docs.cloud.google.com/kubernetes-engine/ai-ml/about-agent-substrate)
+
+  * How-to 
+
+[ Install Agent Substrate on GKE ](https://docs.cloud.google.com/kubernetes-engine/ai-ml/install-overview-substrate)
+
+  * Best practice 
+
+[ Design your infrastructure for Agent Substrate on GKE ](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/design-substrate-infrastructure)
+
+  * How-to 
+
+[ Install Agent Sandbox on GKE ](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/how-install-agent-sandbox)
+
+  * Tutorial 
+
+[ Isolate AI code execution with Agent Sandbox on GKE ](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/agent-sandbox)
+
+  * Concept 
+
+[ Choose storage for AI agentic workloads ](https://docs.cloud.google.com/kubernetes-engine/docs/concepts/machine-learning/agent-sandbox-storage)
+
+  * How-to 
+
+[ Manage Agent Sandbox on GKE storage ](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/agent-sandbox-storage)
+
+  * How-to 
+
+[ Save and restore Agent Sandbox on GKE environments ](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/agent-sandbox-pod-snapshots)
+
+  * Concept 
+
+[ About Agent Identity for GKE ](https://docs.cloud.google.com/kubernetes-engine/security/about-agent-identity)
 
 
 
@@ -185,36 +189,6 @@ Use cases
 Code samples
 
 Explore self-paced training, use cases, reference architectures, and code samples with examples of how to use and connect Google Cloud services. 
-
-Concept 
-
-Training and tutorials
-
-###  [ Plan an architecture for AI agent workloads on GKE ](https://docs.cloud.google.com/kubernetes-engine/docs/concepts/machine-learning/agent-workloads)
-
-Learn how to design an execution architecture for AI agent workloads on GKE. 
-
-Agentic AI Agent Substrate Agent Sandbox
-
-Best practice 
-
-Training and tutorials
-
-###  [ Design your infrastructure for Agent Substrate on GKE ](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/design-substrate-infrastructure)
-
-Learn how to right-size GKE cluster components for Agent Substrate, configure automated node provisioning, and plan for cluster maintenance and upgrades. 
-
-Agentic AI Agent Substrate
-
-Concept 
-
-Training and tutorials
-
-###  [ About Agent Substrate on GKE ](https://docs.cloud.google.com/kubernetes-engine/ai-ml/about-agent-substrate)
-
-Learn about how to use Agent Substrate on GKE to run agentic workloads at scale on Kubernetes clusters. 
-
-Agentic AI Agent Substrate
 
 Reference architecture 
 
@@ -235,36 +209,6 @@ Training and tutorials
 Learn how to use Managed Lustre to optimize performance for AI and ML workloads on GKE. 
 
 AI/ML Inference AI/ML Training Storage
-
-Tutorial 
-
-Training and tutorials
-
-###  [ Isolate AI code execution with Agent Sandbox on GKE ](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/agent-sandbox)
-
-Learn how to install and run the Agent Sandbox controller on GKE, and deploy a sandboxed environment on the cluster for testing untrusted shell commands. 
-
-Tutorial Agent Sandbox Agentic AI
-
-Concept 
-
-Training and tutorials
-
-###  [ Choose storage for AI agentic workloads ](https://docs.cloud.google.com/kubernetes-engine/docs/concepts/machine-learning/agent-sandbox-storage)
-
-Learn how to choose storage options for AI agentic workloads on Agent Sandbox on GKE. 
-
-Agent Sandbox Agentic AI Storage
-
-Tutorial 
-
-Training and tutorials
-
-###  [ Manage Agent Sandbox on GKE storage ](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/agent-sandbox-storage)
-
-Learn how to implement storage for Agent Sandbox on GKE for different data lifecycle patterns. 
-
-Tutorial Agent Sandbox Agentic AI Storage
 
 Tutorial 
 
@@ -295,6 +239,86 @@ Training and tutorials
 Learn how to deploy and manage a containerized agentic AI application on GKE, using the Agent Development Kit (ADK) and Agent Platform for scalable inference with Gemini 2.0 Flash. 
 
 Tutorial AI/ML Inference Agentic AI
+
+Tutorial 
+
+Training and tutorials
+
+###  [ Train a model with PyTorch, Ray, and GKE on GPUs ](https://docs.cloud.google.com/kubernetes-engine/docs/add-on/ray-on-gke/tutorials/train-model-ray-pytorch)
+
+Learn how to use GKE to train a model with Ray and PyTorch on GPUs. 
+
+Tutorial AI/ML Training Ray GPUs
+
+Tutorial 
+
+Training and tutorials
+
+###  [ Train an LLM using JAX, Ray Train, and TPU Trillium on GKE ](https://docs.cloud.google.com/kubernetes-engine/docs/tutorials/distributed-training-tpu)
+
+Learn how to train an LLM on GKE using JAX, MaxText, Ray Train, and TPUs. 
+
+Tutorial AI/ML Training Ray TPUs
+
+Tutorial 
+
+Training and tutorials
+
+###  [ Multislice and Elastic Training on TPUs using Ray Train on GKE ](https://docs.cloud.google.com/kubernetes-engine/docs/tutorials/multi-slice-training-ray)
+
+Learn how to run Multislice and elastic training workloads on TPUs using Ray Train on GKE. 
+
+Tutorial AI/ML Training Ray TPUs
+
+Quickstart 
+
+Training and tutorials
+
+###  [ Serve open LLMs on GKE with a pre-configured architecture using Terraform ](https://docs.cloud.google.com/kubernetes-engine/docs/tutorials/serve-open-models-terraform)
+
+Learn how to deploy and serve open LLMs on GKE for inference using a pre-configured architecture with Terraform. 
+
+Quickstart AI/ML Inference GPUs
+
+Tutorial 
+
+Training and tutorials
+
+###  [ Serve LLMs like Deepseek-R1 671B or Llama 3.1 405B on GKE ](https://docs.cloud.google.com/kubernetes-engine/docs/tutorials/serve-multihost-gpu)
+
+Learn how to serve LLMs, such as DeepSeek-R1 671B and Llama 3.1 405B, on multi-host GPUs in GKE using vLLM and LeaderWorkerSet (LWS). 
+
+Tutorial AI/ML Inference GPUs
+
+Tutorial 
+
+Training and tutorials
+
+###  [ Serve Gemma using GPUs on GKE with vLLM ](https://docs.cloud.google.com/kubernetes-engine/docs/tutorials/serve-gemma-gpu-vllm)
+
+Learn how to serve Gemma open models using GPUs on GKE with vLLM. 
+
+Tutorial AI/ML Inference GPUs
+
+Tutorial 
+
+Training and tutorials
+
+###  [ Serve an LLM using TPU Trillium on GKE with vLLM ](https://docs.cloud.google.com/kubernetes-engine/docs/tutorials/serve-vllm-tpu)
+
+Learn how to serve an LLM using TPU Trillium on GKE with vLLM. 
+
+Tutorial AI/ML Inference TPUs
+
+Tutorial 
+
+Training and tutorials
+
+###  [ Serve an LLM with multi-cluster Ray Serve and Inference Gateway ](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/serve-multi-cluster-ray-inference-gateway)
+
+Learn how to configure multi-cluster model serving with Ray Serve and GKE Inference Gateway. 
+
+Tutorial AI/ML Inference Ray
 
 Tutorial 
 
@@ -834,6 +858,6 @@ View reference architectures and solutions for deploying accelerated workloads o
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-04 UTC.
+Last updated 2026-11-06 UTC.
 
-[[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 
+[[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-06 UTC."],[],[]] 

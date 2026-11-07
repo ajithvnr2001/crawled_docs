@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/looker/docs/configuring-deliveries/
 title: Configuring content deliveries for Looker users \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-05T10:30:24.097146+00:00
+fetched_at: 2026-11-07T05:49:58.319988+00:00
 ---
 
 # Configuring content deliveries for Looker users  |  Google Cloud Documentation

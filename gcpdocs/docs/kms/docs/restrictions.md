@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/kms/docs/restrictions/
 title: Restrictions on Cloud KMS \u00a0|\u00a0 Cloud Key Management Service \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-30T09:01:49.556280+00:00
+fetched_at: 2026-11-07T05:44:54.065898+00:00
 ---
 
 # Restrictions on Cloud KMS  |  Cloud Key Management Service  |  Google Cloud Documentation
@@ -43,6 +43,7 @@ You can use Cloud KMS in any country where Google Cloud services are supported.
 
 The following topics provide information about restrictions when Cloud KMS is integrated with other Google Cloud services.
 
+  * [Agent Registry](https://docs.cloud.google.com/agent-registry/skills-architecture#cmek-limitations)
   * [Backup and DR Service](https://docs.cloud.google.com/backup-disaster-recovery/docs/concepts/cmek#limitations)
   * [Backup for GKE](https://docs.cloud.google.com/kubernetes-engine/docs/add-on/backup-for-gke/concepts/about-cmek#usage_considerations_and_limitations)
   * [BigQuery](https://docs.cloud.google.com/bigquery/docs/customer-managed-encryption#limitations)
@@ -61,6 +62,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-27 UTC.
+Last updated 2026-11-06 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-06 UTC."],[],[]] 
