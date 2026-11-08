@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/apigee/docs/hybrid/v1.17/customize-services/
 title: Manage runtime plane components \u00a0|\u00a0 Apigee \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T00:19:29.246697+00:00
+fetched_at: 2026-11-08T05:42:37.467149+00:00
 ---
 
 # Manage runtime plane components  |  Apigee  |  Google Cloud Documentation
@@ -121,7 +121,7 @@ Dry run:
 
      * ENV_RELEASE_NAME is the name with which you previously installed the `apigee-env` chart. In hybrid v1.10, it is usually `apigee-env-ENV_NAME`. In Hybrid v1.11 and newer it is usually ENV_NAME.
      * ENV_NAME is the name of the environment you are upgrading.
-     * OVERRIDES_FILE is your new overrides file for v.1.17.1
+     * OVERRIDES_FILE is your new overrides file for v.1.17.3
   5. Upgrade the chart:
     
     helm upgrade ENV_RELEASE_NAME apigee-env/ \
@@ -202,7 +202,7 @@ The following code shows the default configuration for the `mart` component as f
       revision: blue
       image:
         url: "gcr.io/apigee-release/hybrid/apigee-mart-server"
-        tag: "1.17.1"
+        tag: "1.17.3"
         pullPolicy: IfNotPresent
       resources:
         requests:
@@ -330,6 +330,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-07 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-07 UTC."],[],[]] 

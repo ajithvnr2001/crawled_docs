@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/access-context-manager/docs/release-notes/
 title: Access Context Manager release notes \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-06T05:53:22.011227+00:00
+fetched_at: 2026-11-08T05:39:39.928259+00:00
 ---
 
 # Access Context Manager release notes  |  Google Cloud Documentation
@@ -106,6 +106,54 @@ General Availability release of [Ingress and egress rules](https://docs.cloud.go
 Feature
 
 Access levels now support checking the [Storage encryption](https://docs.cloud.google.com/access-context-manager/docs/access-level-attributes#storage-encryption) (`allowedEncryptionStatuses`), [Require admin approval](https://docs.cloud.google.com/access-context-manager/docs/access-level-attributes#require-admin-approval) (`requireAdminApproval`) and [Require corp owned device](https://docs.cloud.google.com/access-context-manager/docs/access-level-attributes#require-corp-owned-device) (`requireCorpOwned`) attributes of requests originating from [mobile devices](https://docs.cloud.google.com/access-context-manager/docs/use-mobile-devices).
+
+## June 30, 2020
+
+Feature
+
+General availability of dry run mode for service perimeters.
+
+This release introduces dry run configurations for your service perimeters, allowing you to test changes to perimeters before enforcing the changes. For more information, read about [dry run mode](https://docs.cloud.google.com/vpc-service-controls/docs/dry-run-mode).
+
+## June 11, 2020
+
+Feature
+
+General availability of the Access Context Manager Bulk API.
+
+Use the Access Context Manager Bulk API to replace all of your organization's access levels in one operation. For more information, see [Making bulk changes to access levels](https://docs.cloud.google.com/access-context-manager/docs/bulk-operations).
+
+## June 01, 2020
+
+Feature
+
+General availability of custom access levels.
+
+[Custom access levels](https://docs.cloud.google.com/access-context-manager/docs/custom-access-levels) provide a way to use Common Expression Language to craft custom conditions. [Create custom access levels](https://docs.cloud.google.com/access-context-manager/docs/create-custom-access-level) using the `gcloud` command line tool, the Access Context Manager API, and in the Google Cloud Console using the Advanced Mode for configuring access levels.
+
+## April 03, 2020
+
+Feature
+
+Beta release of the Access Context Manager Bulk API.
+
+The Access Context Manager Bulk API can be used for operations such as replacing all of your organization's access levels. For more information, see [Making bulk changes to access levels](https://docs.cloud.google.com/access-context-manager/docs/bulk-operations).
+
+## February 25, 2020
+
+Feature
+
+Access Context Manager support for mobile devices has entered Beta. You can now [create access levels that target iOS and Android devices](https://docs.cloud.google.com/access-context-manager/docs/use-mobile-devices).
+
+Currently, the **[OS policy](https://docs.cloud.google.com/access-context-manager/docs/access-level-attributes#os-policy)** and **[Require screen lock](https://docs.cloud.google.com/access-context-manager/docs/access-level-attributes#require-screen-lock)** device attributes are supported for use with iOS and Android devices.
+
+To take advantage of the new feature, your organization must use Google Workspace [basic mobile device management](https://support.google.com/a/answer/7400753).
+
+## January 06, 2020
+
+Deprecated
+
+The Access Context Manager v1beta API is being deprecated in July 2020.
 
 ## October 07, 2019
 

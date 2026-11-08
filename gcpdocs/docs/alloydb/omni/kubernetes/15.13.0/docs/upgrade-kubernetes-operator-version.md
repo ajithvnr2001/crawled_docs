@@ -1,11 +1,11 @@
 ---
 url: https://docs.cloud.google.com/alloydb/omni/kubernetes/15.13.0/docs/upgrade-kubernetes-operator-version/
-title: Upgrade your AlloyDB Omni Kubernetes operator to version 1.6.3 \u00a0|\u00a0 AlloyDB Omni for Kubernetes: 15.13.0 \u00a0|\u00a0 Google Cloud Documentation
+title: Upgrade your AlloyDB Omni Kubernetes operator to version 1.6.4 \u00a0|\u00a0 AlloyDB Omni for Kubernetes: 15.13.0 \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T18:26:12.176895+00:00
+fetched_at: 2026-11-08T05:48:00.153539+00:00
 ---
 
-# Upgrade your AlloyDB Omni Kubernetes operator to version 1.6.3  |  AlloyDB Omni for Kubernetes: 15.13.0  |  Google Cloud Documentation
+# Upgrade your AlloyDB Omni Kubernetes operator to version 1.6.4  |  AlloyDB Omni for Kubernetes: 15.13.0  |  Google Cloud Documentation
 
 > Source: https://docs.cloud.google.com/alloydb/omni/kubernetes/15.13.0/docs/upgrade-kubernetes-operator-version/
 
@@ -21,7 +21,7 @@ This page documents AlloyDB Omni version **15.13.0** using the **Kubernetes** de
 
 Send feedback 
 
-#  Upgrade your AlloyDB Omni Kubernetes operator to version 1.6.3 Stay organized with collections  Save and categorize content based on your preferences. 
+#  Upgrade your AlloyDB Omni Kubernetes operator to version 1.6.4 Stay organized with collections  Save and categorize content based on your preferences. 
 
 Select a documentation version: 15.13.0keyboard_arrow_down
 
@@ -121,7 +121,7 @@ To upgrade the AlloyDB Omni operator, follow these steps:
          export OPERATOR_VERSION=OPERATOR_VERSION
          export HELM_PATH=$OPERATOR_VERSION/alloydbomni-operator-$OPERATOR_VERSION.tgz
 
-Replace `OPERATOR_VERSION` with the version of the AlloyDB Omni operator that you're upgrading to—for example, `1.6.3`.
+Replace `OPERATOR_VERSION` with the version of the AlloyDB Omni operator that you're upgrading to—for example, `1.6.4`.
 
   2. Download the latest AlloyDB Omni operator:
          
@@ -178,7 +178,7 @@ To update the `dbCluster`, complete the following steps:
      1. To disable HA, re-apply the manifest.
   2. Update the `databaseVersion` and the `controlPlaneAgentsVersion` versions in the cluster's manifest, and re-apply the manifest.
 
-The following is part of a manifest file that specifies version 15.13.0 of `databaseVersion` and version 1.6.3 of `controlPlaneAgentsVersion`:
+The following is part of a manifest file that specifies version 15.13.0 of `databaseVersion` and version 1.6.4 of `controlPlaneAgentsVersion`:
          
          apiVersion: alloydbomni.dbadmin.goog/v1
          kind: DBCluster
@@ -187,7 +187,7 @@ The following is part of a manifest file that specifies version 15.13.0 of `data
            namespace: NAMESPACE
          spec:
            **databaseVersion : "15.13.0"**
-           **controlPlaneAgentsVersion : "1.6.3"**
+           **controlPlaneAgentsVersion : "1.6.4"**
          ...
          
 
@@ -222,6 +222,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-07 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-07 UTC."],[],[]] 

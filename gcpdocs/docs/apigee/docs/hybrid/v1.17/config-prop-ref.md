@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/apigee/docs/hybrid/v1.17/config-prop-ref/
 title: Configuration property reference \u00a0|\u00a0 Apigee \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T16:45:49.712738+00:00
+fetched_at: 2026-11-08T05:41:05.990437+00:00
 ---
 
 # Configuration property reference  |  Apigee  |  Google Cloud Documentation
@@ -120,7 +120,7 @@ as:
     
     containers:
     - name: apigee-udca
-      image: private-docker-host.example.com/apigee-udca:1.17.1
+      image: private-docker-host.example.com/apigee-udca:1.17.3
       imagePullPolicy: IfNotPresent
 
 **Note:** Prior to Apigee hybrid version 1.14.2, third party components had a unique to the version of the image from the third-party vendor. For example: 
@@ -129,7 +129,7 @@ as:
     ## an example of internal component vs 3rd party
     containers:
       - name: apigee-udca
-        image: private-docker-host.example.com/apigee-udca:1.17.1
+        image: private-docker-host.example.com/apigee-udca:1.17.3
         imagePullPolicy: IfNotPresent
     
       containers:
@@ -180,7 +180,7 @@ The other components will follow a similar pattern. Use `[apigee-pull-push](http
 `multiOrgCluster` | Advanced | **Introduced in version:** 1.10.0 **Default value:** `false` **Chart:** `apigee-telemetry` For multi-org clusters, this property enables the organization's metrics to be exported to the project listed in the `gcp.projectID` property. Apply this setting in the overrides file for each organization in a multi-org cluster. For more information, see [Adding multiple hybrid orgs to a cluster](https://docs.cloud.google.com/apigee/docs/hybrid/v1.17/multi-org).   
 `namespace` | Basic | **Introduced in version:** 1.0.0 **Default value:** `apigee` **Chart:** `apigee-datastore`, `apigee-env`, `apigee-ingress-manager`, `apigee-operator`, `apigee-org`, `apigee-redis`, `apigee-telemetry`, `apigee-virtualhost` The namespace of your Kubernetes cluster where the Apigee components will be installed.  
 `org` | Basic |  **Introduced in version:** 1.0.0 **Default value:** None **Chart:** `apigee-operator`, `apigee-telemetry`, `apigee-org`, `apigee-env`, `apigee-virtualhost` **Required** The hybrid-enabled organization that was provisioned for you by Apigee during the hybrid installation. An organization is the top-level container in Apigee. It contains all your API proxies and related resources. If the value is empty, you must update it with your org name once you have created it.  
-`revision` | Advanced | **Introduced in version:** 1.0.0 **Default value:** `"1171"` (Your Apigee hybrid version without periods. For example for version 1.12.0, the default value is `"1120"`.) **Chart:** `apigee-operator` Apigee hybrid supports rolling Kubernetes updates, which allow deployment updates to take place with zero downtime by incrementally updating Pod instances with new ones.  When updating certain YAML overrides that result in underlying Kubernetes `PodTemplateSpec` change, the `revision` override property must also be changed in the customer's `override.yaml`. This is required for the underlying Kubernetes _ApigeeDeployment_ (AD) controller to conduct a safe rolling update of from the previous version to the new version. You can use any lowercase text value, eg: `blue`, `a`, `1.0.0` **Note:**`revision` can accept only lowercase alpha characters, numbers, and punctuation. When the `revision` property is changed and applied, a rolling update will occur for all components  Changes to properties of the following objects require an update to `revision`: 
+`revision` | Advanced | **Introduced in version:** 1.0.0 **Default value:** `"1173"` (Your Apigee hybrid version without periods. For example for version 1.12.0, the default value is `"1120"`.) **Chart:** `apigee-operator` Apigee hybrid supports rolling Kubernetes updates, which allow deployment updates to take place with zero downtime by incrementally updating Pod instances with new ones.  When updating certain YAML overrides that result in underlying Kubernetes `PodTemplateSpec` change, the `revision` override property must also be changed in the customer's `override.yaml`. This is required for the underlying Kubernetes _ApigeeDeployment_ (AD) controller to conduct a safe rolling update of from the previous version to the new version. You can use any lowercase text value, eg: `blue`, `a`, `1.0.0` **Note:**`revision` can accept only lowercase alpha characters, numbers, and punctuation. When the `revision` property is changed and applied, a rolling update will occur for all components  Changes to properties of the following objects require an update to `revision`: 
 
   * nodeSelector
   * envs
@@ -232,7 +232,7 @@ Property | Type | Description
   * `Always`: Always pull the image, regardless of whether it exists already.
 
 For more information, see [Updating images](https://kubernetes.io/docs/concepts/containers/images/#updating-images).  
-`ao.image.tag` | Advanced | **Introduced in version:** 1.2.0 **Default value:** `1.17.1` **Chart:** `apigee-operator`, `apigee-ingress-manager` The version label for this service's Docker image.  
+`ao.image.tag` | Advanced | **Introduced in version:** 1.2.0 **Default value:** `1.17.3` **Chart:** `apigee-operator`, `apigee-ingress-manager` The version label for this service's Docker image.  
 `ao.image.url` | Advanced | **Introduced in version:** 1.2.0 **Default value:** None **Chart:** `apigee-operator`, `apigee-ingress-manager` The location of the Docker image for this service. Use `[apigee-pull-push](https://docs.cloud.google.com/apigee/docs/hybrid/v1.17/apigee-pull-push) --list` to see the current repository URL for this component. **Tip:** Consider using `hub` to set a private repository URL for all components instead of configuring them individually.  
 `ao.resources.limits.cpu` | Advanced | **Introduced in version:** 1.2.0 **Default value:** `250m` **Chart:** `apigee-operator`, `apigee-ingress-manager` The CPU limit for the resource in a Kubernetes container, in millicores.  
 `ao.resources.limits.memory` | Advanced | **Introduced in version:** 1.2.0 **Default value:** `256Mi` **Chart:** `apigee-operator`, `apigee-ingress-manager` The memory limit for the resource in a Kubernetes container, in mebibytes.  
@@ -273,7 +273,7 @@ Property | Type | Description
   * `Always`: Always pull the image, regardless of whether it exists already.
 
 For more information, see [Updating images](https://kubernetes.io/docs/concepts/containers/images/#updating-images).  
-`apigeeIngressGateway.image.tag` | Advanced | **Introduced in version:** 1.11.0 **Default value:** `1.17.1` **Chart:** `apigee-org` The version label for this service's Docker image.  
+`apigeeIngressGateway.image.tag` | Advanced | **Introduced in version:** 1.11.0 **Default value:** `1.17.3` **Chart:** `apigee-org` The version label for this service's Docker image.  
 `apigeeIngressGateway.image.url` | Advanced | **Introduced in version:** 1.11.0 **Default value:** None **Chart:** `apigee-org` The location of the Docker image for this service. Use `[apigee-pull-push](https://docs.cloud.google.com/apigee/docs/hybrid/v1.17/apigee-pull-push) --list` to see the current repository URL for this component. **Tip:** Consider using `hub` to set a private repository URL for all components instead of configuring them individually.  
 `apigeeIngressGateway.nodeSelector.key` | Advanced | **Introduced in version:** 1.11.0 **Default value:** None **Chart:** `apigee-org` **Required** Node selector label key used to target dedicated Kubernetes nodes for ingress gateway services. See [ Configuring dedicated node pools](https://docs.cloud.google.com/apigee/docs/hybrid/v1.17/configure-dedicated-nodes).  
 `apigeeIngressGateway.nodeSelector.value` | Advanced | **Introduced in version:** 1.11.0 **Default value:** None **Chart:** `apigee-org` Optional node selector label value used to target dedicated Kubernetes nodes for ingress gateway services and override the `nodeSelector.apigeeData` settings. See nodeSelector.  
@@ -333,7 +333,7 @@ Property | Type | Description
   * `Always`: Always pull the image, regardless of whether it exists already.
 
 For more information, see [Updating images](https://kubernetes.io/docs/concepts/containers/images/#updating-images).  
-`cassandra.auth.image.tag` | Advanced | **Introduced in version:** 1.0.0 **Default value:** `1.17.1` **Chart:** `apigee-datastore`, `apigee-org` The version label for this service's Docker image.  
+`cassandra.auth.image.tag` | Advanced | **Introduced in version:** 1.0.0 **Default value:** `1.17.3` **Chart:** `apigee-datastore`, `apigee-org` The version label for this service's Docker image.  
 `cassandra.auth.image.url` | Advanced | **Introduced in version:** 1.0.0 **Default value:** None **Chart:** `apigee-datastore`, `apigee-org` The location of the Docker image for this service. Use `[apigee-pull-push](https://docs.cloud.google.com/apigee/docs/hybrid/v1.17/apigee-pull-push) --list` to see the current repository URL for this component. **Tip:** Consider using `hub` to set a private repository URL for all components instead of configuring them individually.  
 `cassandra.auth.jmx.password` | Basic | **Introduced in version:** 1.4.0 **Default value:** `iloveapis123` **Chart:** `apigee-datastore` **Required** Password for the Cassandra JMX operations user. Used to authenticate and communicate with the Cassandra JMX interface.  
 `cassandra.auth.jmx.username` | Basic | **Introduced in version:** 1.4.0 **Default value:** `jmxuser` **Chart:** `apigee-datastore` **Required** Username for the Cassandra JMX operations user. Used to authenticate and communicate with the Cassandra JMX interface.  
@@ -393,7 +393,7 @@ See [Enabling Workload Identity Federation on GKE](https://docs.cloud.google.com
   * `Always`: Always pull the image, regardless of whether it exists already.
 
 For more information, see [Updating images](https://kubernetes.io/docs/concepts/containers/images/#updating-images).  
-`cassandra.backup.image.tag` | Advanced | **Introduced in version:** 1.0.0 **Default value:** `1.17.1` **Chart:** `apigee-datastore` The version label for this service's Docker image.  
+`cassandra.backup.image.tag` | Advanced | **Introduced in version:** 1.0.0 **Default value:** `1.17.3` **Chart:** `apigee-datastore` The version label for this service's Docker image.  
 `cassandra.backup.image.url` | Advanced | **Introduced in version:** 1.0.0 **Default value:** None **Chart:** `apigee-datastore` The location of the Docker image for this service. Use `[apigee-pull-push](https://docs.cloud.google.com/apigee/docs/hybrid/v1.17/apigee-pull-push) --list` to see the current repository URL for this component. **Tip:** Consider using `hub` to set a private repository URL for all components instead of configuring them individually.  
 `cassandra.backup.keyfile` | Advanced | **Introduced in version:** 1.3.0 **Default value:** None **Chart:** `apigee-datastore` **Required if backup is enabled and`cassandra.backup.cloudProvider` is set to `HYBRID`.** The path on your local file system to the SSH private key file.  
 `cassandra.backup.schedule` | Advanced | **Introduced in version:** 1.0.0 **Default value:** `0 2 * * *` **Chart:** `apigee-datastore` The schedule for the backup cron job. See [Cassandra backup and recovery](https://docs.cloud.google.com/apigee/docs/hybrid/v1.17/backup-recovery). | `cassandra.backup.server` | Advanced | **Introduced in version:** 1.3.0 **Default value:** None **Chart:** `apigee-datastore` **Required if backup is enabled and`cassandra.backup.cloudProvider` is set to `HYBRID`.** The IP address of your remote SSH backup server.  
@@ -426,7 +426,7 @@ For more information, see [Updating images](https://kubernetes.io/docs/concepts/
   * `Always`: Always pull the image, regardless of whether it exists already.
 
 For more information, see [Updating images](https://kubernetes.io/docs/concepts/containers/images/#updating-images).  
-`cassandra.image.tag` | Advanced | **Introduced in version:** 1.0.0 **Default value:** `1.17.1` **Chart:** `apigee-datastore` The version label for this service's Docker image.  
+`cassandra.image.tag` | Advanced | **Introduced in version:** 1.0.0 **Default value:** `1.17.3` **Chart:** `apigee-datastore` The version label for this service's Docker image.  
 `cassandra.image.url` | Advanced | **Introduced in version:** 1.0.0 **Default value:** None **Chart:** `apigee-datastore` The location of the Docker image for this service. Use `[apigee-pull-push](https://docs.cloud.google.com/apigee/docs/hybrid/v1.17/apigee-pull-push) --list` to see the current repository URL for this component. **Tip:** Consider using `hub` to set a private repository URL for all components instead of configuring them individually.  
 `cassandra.maxHeapSize` | Advanced | **Introduced in version:** 1.0.0 **Default value:** `512M` **Chart:** `apigee-datastore` The upper limit of JVM system memory available for Cassandra operations, in megabytes.   
 `cassandra.multiRegionSeedHost` | Basic | **Introduced in version:** 1.0.0 **Default value:** None **Chart:** `apigee-datastore` IP address of an existing Cassandra cluster used to expand the existing cluster to a new region. See [Configure the multi-region seed host](https://docs.cloud.google.com/apigee/docs/hybrid/v1.17/multi-region#configure-the-multi-region-seed-host).   
@@ -504,7 +504,7 @@ See [Enabling Workload Identity Federationon GKE](https://docs.cloud.google.com/
   * `Always`: Always pull the image, regardless of whether it exists already.
 
 For more information, see [Updating images](https://kubernetes.io/docs/concepts/containers/images/#updating-images).  
-`cassandra.restore.image.tag` | Advanced | **Introduced in version:** 1.0.0 **Default value:** `1.17.1` **Chart:** `apigee-datastore` The version label for this service's Docker image.  
+`cassandra.restore.image.tag` | Advanced | **Introduced in version:** 1.0.0 **Default value:** `1.17.3` **Chart:** `apigee-datastore` The version label for this service's Docker image.  
 `cassandra.restore.image.url` | Advanced | **Introduced in version:** 1.0.0 **Default value:** None **Chart:** `apigee-datastore` The location of the Docker image for this service. Use `[apigee-pull-push](https://docs.cloud.google.com/apigee/docs/hybrid/v1.17/apigee-pull-push) --list` to see the current repository URL for this component. **Tip:** Consider using `hub` to set a private repository URL for all components instead of configuring them individually.  
 `cassandra.restore.serviceAccountPath` | Advanced | **Introduced in version:** 1.0.0 **Default value:** None **Chart:** `apigee-datastore` Path to a [Google Service Account](https://cloud.google.com/iam/docs/service-account-overview) key file that has the **Storage Object Admin** (`roles/storage.objectAdmin`) role. This Google Service Account will be used to download backup archives from a specified `cassandra.restore.dbStorageBucket`. **If restore is enabled and`cassandra.restore.cloudProvider` is set to `GCP`, one of the following is required to ensure Apigee Hybrid can access the Google Cloud Storage bucket to download backup archives for restoration:**
 
@@ -596,7 +596,7 @@ See [Enabling Workload Identity on GKE](https://docs.cloud.google.com/apigee/doc
   * `Always`: Always pull the image, regardless of whether it exists already.
 
 For more information, see [Updating images](https://kubernetes.io/docs/concepts/containers/images/#updating-images).  
-`connectAgent.image.tag` | Advanced | **Introduced in version:** 1.2.0 **Default value:** `1.17.1` **Chart:** `apigee-org` The version label for this service's Docker image.  
+`connectAgent.image.tag` | Advanced | **Introduced in version:** 1.2.0 **Default value:** `1.17.3` **Chart:** `apigee-org` The version label for this service's Docker image.  
 `connectAgent.image.url` | Advanced | **Introduced in version:** 1.2.0 **Default value:** None **Chart:** `apigee-org` The location of the Docker image for this service. Use `[apigee-pull-push](https://docs.cloud.google.com/apigee/docs/hybrid/v1.17/apigee-pull-push) --list` to see the current repository URL for this component. **Tip:** Consider using `hub` to set a private repository URL for all components instead of configuring them individually.  
 `connectAgent.podDisruptionBudget.minAvailable` | Advanced |  **Introduced in version:** 1.17.0 **Default value:** None **Chart:** `apigee-org` The minimum number of Apigee Connect agent pods that must stay available during a voluntary disruption, for example during a node pool upgrade or a node drain. This field sets the `minAvailable` field of the [PodDisruptionBudget](https://kubernetes.io/docs/concepts/workloads/pods/disruptions/) for these pods. It takes either an integer number of pods (`1`) or a percentage string (`"50%"`). `minAvailable` and `maxUnavailable` are mutually exclusive; set only one. Setting both at once is rejected by the Apigee operator. If you set neither field, the Apigee operator still generates a PodDisruptionBudget for these pods, using `maxUnavailable: 1` by default. For example, in `overrides.yaml`:
     
@@ -852,7 +852,7 @@ Property | Type | Description
   * `Always`: Always pull the image, regardless of whether it exists already.
 
 For more information, see [Updating images](https://kubernetes.io/docs/concepts/containers/images/#updating-images).  
-`guardrails.image.tag` | Advanced | **Introduced in version:** 1.16.0 **Default value:** `1.17.1` **Chart:** `apigee-org` The version label for this service's Docker image.  
+`guardrails.image.tag` | Advanced | **Introduced in version:** 1.16.0 **Default value:** `1.17.3` **Chart:** `apigee-org` The version label for this service's Docker image.  
 `guardrails.image.url` | Advanced | **Introduced in version:** 1.16.0 **Default value:** None **Chart:** `apigee-org` The location of the Docker image for this service. Use `[apigee-pull-push](https://docs.cloud.google.com/apigee/docs/hybrid/v1.17/apigee-pull-push) --list` to see the current repository URL for this component. **Tip:** Consider using `hub` to set a private repository URL for all components instead of configuring them individually.  
 `guardrails.gsa` | Advanced | **Introduced in version:** 1.16.0 **Default value:** None **Chart:** `apigee-operator` The email address of the `apigee-guardrails` Google IAM service account (GSA) to associate with the corresponding Kubernetes service account when enabling Workload Identity on GKE clusters. Set this when you have set `gcp.workloadIdentity.enabled` to `true`. GSA email addresses typically have the format of:
     
@@ -1061,7 +1061,7 @@ To remove the user agent requirement, use the following:
   * `Always`: Always pull the image, regardless of whether it exists already.
 
 For more information, see [Updating images](https://kubernetes.io/docs/concepts/containers/images/#updating-images).  
-`istiod.image.tag` | Advanced | **Introduced in version:** 1.8.0 **Default value:** `1.17.1` **Chart:** `apigee-ingress-manager` The version label for this service's Docker image.  
+`istiod.image.tag` | Advanced | **Introduced in version:** 1.8.0 **Default value:** `1.17.3` **Chart:** `apigee-ingress-manager` The version label for this service's Docker image.  
 `istiod.image.url` | Advanced | **Introduced in version:** 1.8.0 **Default value:** None **Chart:** `apigee-ingress-manager` The location of the Docker image for this service. Use `[apigee-pull-push](https://docs.cloud.google.com/apigee/docs/hybrid/v1.17/apigee-pull-push) --list` to see the current repository URL for this component. **Tip:** Consider using `hub` to set a private repository URL for all components instead of configuring them individually.  
 `istiod.tolerations.effect` | Advanced | **Introduced in version:** 1.10.1 **Default value:** None **Chart:** `apigee-ingress-manager` Required to use the [Taints and Tolerations feature of Kubernetes](https://kubernetes.io/docs/concepts/scheduling-eviction/taint-and-toleration/).  `effect` specifies the effect that matching a toleration with a taint will have. Values for `effect` can be:
 
@@ -1105,7 +1105,7 @@ Property | Type | Description
   * `Always`: Always pull the image, regardless of whether it exists already.
 
 For more information, see [Updating images](https://kubernetes.io/docs/concepts/containers/images/#updating-images).  
-`kubeRBACProxy.image.tag` | Advanced | **Introduced in version:** `1.2.0` **Default value:** `1.17.1` **Chart:** `apigee-operator`, `apigee-ingress-manager` The version label for this service's Docker image.  
+`kubeRBACProxy.image.tag` | Advanced | **Introduced in version:** `1.2.0` **Default value:** `1.17.3` **Chart:** `apigee-operator`, `apigee-ingress-manager` The version label for this service's Docker image.  
 `kubeRBACProxy.image.url` | Advanced | **Introduced in version:** 1.2.0 **Default value:** None **Chart:** `apigee-operator`, `apigee-ingress-manager` The location of the Docker image for this service. Use `[apigee-pull-push](https://docs.cloud.google.com/apigee/docs/hybrid/v1.17/apigee-pull-push) --list` to see the current repository URL for this component. **Tip:** Consider using `hub` to set a private repository URL for all components instead of configuring them individually.  
 `kubeRBACProxy.resources.limits.cpu` | Advanced | **Introduced in version:** 1.11.0 **Default value:** `500m` **Chart:** `apigee-operator`, `apigee-ingress-manager` The CPU limit for the resource in a Kubernetes container, in millicores.  
 `kubeRBACProxy.resources.limits.memory` | Advanced | **Introduced in version:** 1.11.0 **Default value:** `128Mi` **Chart:** `apigee-operator`, `apigee-ingress-manager` The memory limit for the resource in a Kubernetes container, in mebibytes.  
@@ -1166,7 +1166,7 @@ See [Enabling Workload Identity on GKE](https://docs.cloud.google.com/apigee/doc
   * `Always`: Always pull the image, regardless of whether it exists already.
 
 For more information, see [Updating images](https://kubernetes.io/docs/concepts/containers/images/#updating-images).  
-`logger.image.tag` | Advanced | **Introduced in version:** 1.0.0 **Default value:** `1.17.1` **Chart:** `apigee-telemetry` The version label for this service's Docker image.  
+`logger.image.tag` | Advanced | **Introduced in version:** 1.0.0 **Default value:** `1.17.3` **Chart:** `apigee-telemetry` The version label for this service's Docker image.  
 `logger.image.url` | Advanced | **Introduced in version:** 1.0.0 **Default value:** None **Chart:** `apigee-telemetry` The location of the Docker image for this service. Use `[apigee-pull-push](https://docs.cloud.google.com/apigee/docs/hybrid/v1.17/apigee-pull-push) --list` to see the current repository URL for this component. **Tip:** Consider using `hub` to set a private repository URL for all components instead of configuring them individually.  
 `logger.livenessProbe.failureThreshold` | Advanced | **Introduced in version:** 1.0.0 **Default value:** `3` **Chart:** `apigee-telemetry` The number of times Kubernetes will verify that liveness probes have failed before restarting the container. The minimum value is 1.  
 `logger.livenessProbe.initialDelaySeconds` | Advanced | **Introduced in version:** 1.0.0 **Default value:** `0` **Chart:** `apigee-telemetry` The number of seconds after a container is started before a liveness probe is initiated.  
@@ -1233,7 +1233,7 @@ See [Enabling Workload Identity on GKE](https://docs.cloud.google.com/apigee/doc
   * `Always`: Always pull the image, regardless of whether it exists already.
 
 For more information, see [Updating images](https://kubernetes.io/docs/concepts/containers/images/#updating-images).  
-`mart.image.tag` | Advanced | **Introduced in version:** 1.0.0 **Default value:** `1.17.1` **Chart:** `apigee-org`, `apigee-env` The version label for this service's Docker image.  
+`mart.image.tag` | Advanced | **Introduced in version:** 1.0.0 **Default value:** `1.17.3` **Chart:** `apigee-org`, `apigee-env` The version label for this service's Docker image.  
 `mart.image.url` | Advanced | **Introduced in version:** 1.0.0 **Default value:** None **Chart:** `apigee-org`, `apigee-env` The location of the Docker image for this service. Use `[apigee-pull-push](https://docs.cloud.google.com/apigee/docs/hybrid/v1.17/apigee-pull-push) --list` to see the current repository URL for this component. **Tip:** Consider using `hub` to set a private repository URL for all components instead of configuring them individually.  
 `mart.initCheckCF.resources.requests.cpu` | Advanced | **Introduced in version:** 1.0.0 **Default value:** `10m` **Chart:** `apigee-org` The amount of CPU resources allocated to the initialization check of the Cloud Foundry process.  
 `mart.livenessProbe.failureThreshold` | Advanced | **Introduced in version:** 1.0.0 **Default value:** `12` **Chart:** `apigee-org` The number of times Kubernetes will verify that liveness probes have failed before restarting the container. The minimum value is 1.  
@@ -1329,7 +1329,7 @@ See [Enable Model Context Protocol (MCP) in Apigee hybrid](https://docs.cloud.go
   * `Always`: Always pull the image, regardless of whether it exists already.
 
 For more information, see [Updating images](https://kubernetes.io/docs/concepts/containers/images/#updating-images).  
-`mcpServer.image.tag` | Advanced | **Introduced in version:** 1.17.0 **Default value:** `1.17.1` **Chart:** `apigee-org` The version label for the Docker image of the MCP data plane container.  
+`mcpServer.image.tag` | Advanced | **Introduced in version:** 1.17.0 **Default value:** `1.17.3` **Chart:** `apigee-org` The version label for the Docker image of the MCP data plane container.  
 `mcpServer.image.url` | Advanced | **Introduced in version:** 1.17.0 **Default value:** None **Chart:** `apigee-org` The location of the Docker image for the MCP data plane container (`apigee-envoy-dataplane`). Use `[apigee-pull-push](https://docs.cloud.google.com/apigee/docs/hybrid/v1.17/apigee-pull-push) --list` to see the current repository URL for this component. **Tip:** Consider using `hub` to set a private repository URL for all components instead of configuring them individually.  
 `mcpServer.nodeSelector` | Advanced | **Introduced in version:** 1.17.0 **Default value:** None **Chart:** `apigee-org` **Not applied in version 1.17.0.** The `apigee-org` chart declares this property but does not use it. MCP pods run on the runtime node pool that `nodeSelector.apigeeRuntime.key` and `nodeSelector.apigeeRuntime.value` select. To control where MCP pods run, set those properties. See [Configuring dedicated node pools](https://docs.cloud.google.com/apigee/docs/hybrid/v1.17/configure-dedicated-nodes).  
 `mcpServer.podDisruptionBudget.maxUnavailable` | Advanced |  **Introduced in version:** 1.17.0 **Default value:** None **Chart:** `apigee-org` The maximum number of MCP pods that can be unavailable during a voluntary disruption, such as during a node pool upgrade or a node drain. This field sets the `maxUnavailable` field of the [PodDisruptionBudget](https://kubernetes.io/docs/concepts/workloads/pods/disruptions/) for these pods. It takes either an integer number of pods (`1`) or a percentage string (`"50%"`). `maxUnavailable` and `minAvailable` are mutually exclusive; set only one. The Apigee operator rejects setting both fields at the same time. If you set neither field, the Apigee operator still generates a PodDisruptionBudget for these pods, using `maxUnavailable: 1` by default. For example, in `overrides.yaml`:
@@ -1361,7 +1361,7 @@ For more information, see [Updating images](https://kubernetes.io/docs/concepts/
   * `Always`: Always pull the image, regardless of whether it exists already.
 
 For more information, see [Updating images](https://kubernetes.io/docs/concepts/containers/images/#updating-images).  
-`mcpServer.sidecar.image.tag` | Advanced | **Introduced in version:** 1.17.0 **Default value:** `1.17.1` **Chart:** `apigee-org` The version label for the Docker image of the MCP sidecar container.  
+`mcpServer.sidecar.image.tag` | Advanced | **Introduced in version:** 1.17.0 **Default value:** `1.17.3` **Chart:** `apigee-org` The version label for the Docker image of the MCP sidecar container.  
 `mcpServer.sidecar.image.url` | Advanced | **Introduced in version:** 1.17.0 **Default value:** None **Chart:** `apigee-org` The location of the Docker image for the MCP sidecar container (`apigee-watcher`). The MCP sidecar fetches MCP configuration from the Apigee control plane. Use `[apigee-pull-push](https://docs.cloud.google.com/apigee/docs/hybrid/v1.17/apigee-pull-push) --list` to see the current repository URL for this component. **Tip:** Consider using `hub` to set a private repository URL for all components instead of configuring them individually.  
 `mcpServer.sidecar.resources.limits.cpu` | Advanced | **Introduced in version:** 1.17.0 **Default value:** `500m` **Chart:** `apigee-org` The CPU limit for the MCP sidecar container, in millicores.  
 `mcpServer.sidecar.resources.limits.memory` | Advanced | **Introduced in version:** 1.17.0 **Default value:** `512Mi` **Chart:** `apigee-org` The memory limit for the MCP sidecar container, in mebibytes.  
@@ -1403,7 +1403,7 @@ Property | Type | Description
   * `Always`: Always pull the image, regardless of whether it exists already.
 
 For more information, see [Updating images](https://kubernetes.io/docs/concepts/containers/images/#updating-images).  
-`metrics.adapter.image.tag` | Advanced | **Introduced in version:** 1.8.1 **Default value:** `1.17.1` **Chart:** `apigee-telemetry` The version label for this service's Docker image.  
+`metrics.adapter.image.tag` | Advanced | **Introduced in version:** 1.8.1 **Default value:** `1.17.3` **Chart:** `apigee-telemetry` The version label for this service's Docker image.  
 `metrics.adapter.image.url` | Advanced | **Introduced in version:** 1.8.1 **Default value:** None **Chart:** `apigee-telemetry` The location of the Docker image for this service. Use `[apigee-pull-push](https://docs.cloud.google.com/apigee/docs/hybrid/v1.17/apigee-pull-push) --list` to see the current repository URL for this component. **Tip:** Consider using `hub` to set a private repository URL for all components instead of configuring them individually.  
 `metrics.adapter.podDisruptionBudget.minAvailable` | Advanced |  **Introduced in version:** 1.17.0 **Default value:** None **Chart:** `apigee-telemetry` The minimum number of metrics adapter pods that must stay available during a voluntary disruption, for example during a node pool upgrade or a node drain. This field sets the `minAvailable` field of the [PodDisruptionBudget](https://kubernetes.io/docs/concepts/workloads/pods/disruptions/) for these pods. It takes either an integer number of pods (`1`) or a percentage string (`"50%"`). `minAvailable` and `maxUnavailable` are mutually exclusive; set only one. Setting both at once is rejected by the Apigee operator. If you set neither field, the Apigee operator still generates a PodDisruptionBudget for these pods, using `maxUnavailable: 1` by default. For example, in `overrides.yaml`:
     
@@ -1503,7 +1503,7 @@ Use `envVars: HTTP_PROXY`, `envVars: HTTPS_PROXY`, or `envVars: NO_PROXY` option
   * `Always`: Always pull the image, regardless of whether it exists already.
 
 For more information, see [Use a private image repository with Apigee hybrid ](https://docs.cloud.google.com/apigee/docs/hybrid/v1.17/container-images).  
-`metrics.collector.image.tag` | Basic | **Introduced in version:** 1.12.0 **Default value:** `1.17.1` **Chart:** `apigee-telemetry` The version label for this service's Docker image.  
+`metrics.collector.image.tag` | Basic | **Introduced in version:** 1.12.0 **Default value:** `1.17.3` **Chart:** `apigee-telemetry` The version label for this service's Docker image.  
 `metrics.collector.image.url` | Basic | **Introduced in version:** 1.12.0 **Default value:** None **Chart:** `apigee-telemetry` The location of the Docker image for this service. Use `[apigee-pull-push](https://docs.cloud.google.com/apigee/docs/hybrid/v1.17/apigee-pull-push) --list` to see the current repository URL for this component. **Tip:** Consider using `hub` to set a private repository URL for all components instead of configuring them individually.  
 `metrics.collector.podDisruptionBudget.minAvailable` | Advanced |  **Introduced in version:** 1.17.0 **Default value:** None **Chart:** `apigee-telemetry` The minimum number of metrics collector pods that must stay available during a voluntary disruption, for example during a node pool upgrade or a node drain. This field sets the `minAvailable` field of the [PodDisruptionBudget](https://kubernetes.io/docs/concepts/workloads/pods/disruptions/) for these pods. It takes either an integer number of pods (`1`) or a percentage string (`"50%"`). `minAvailable` and `maxUnavailable` are mutually exclusive; set only one. Setting both at once is rejected by the Apigee operator. If you set neither field, the Apigee operator still generates a PodDisruptionBudget for these pods. Because the collector runs as a DaemonSet, that default sets `minAvailable` to 80% of the collector pods (rounded down) instead of using `maxUnavailable: 1`. For example, in `overrides.yaml`:
     
@@ -1562,7 +1562,7 @@ See [Enabling Workload Identity on GKE](https://docs.cloud.google.com/apigee/doc
   * `Always`: Always pull the image, regardless of whether it exists already.
 
 For more information, see [Updating images](https://kubernetes.io/docs/concepts/containers/images/#updating-images).  
-`metrics.prometheus.image.tag` | Advanced | **Introduced in version:** 1.0.0 **Default value:** `1.17.1` **Chart:** `apigee-telemetry` The version label for this service's Docker image.  
+`metrics.prometheus.image.tag` | Advanced | **Introduced in version:** 1.0.0 **Default value:** `1.17.3` **Chart:** `apigee-telemetry` The version label for this service's Docker image.  
 `metrics.prometheus.image.url` | Advanced | **Introduced in version:** 1.0.0 **Default value:** None **Chart:** `apigee-telemetry` The location of the Docker image for this service. Use `[apigee-pull-push](https://docs.cloud.google.com/apigee/docs/hybrid/v1.17/apigee-pull-push) --list` to see the current repository URL for this component. **Tip:** Consider using `hub` to set a private repository URL for all components instead of configuring them individually.  
 `metrics.prometheus.livenessProbe.failureThreshold` | Advanced | **Introduced in version:** 1.0.0 **Default value:** `6` **Chart:** `apigee-telemetry` The number of times Kubernetes will verify that liveness probes have failed before restarting the container. The minimum value is 1.  
 `metrics.prometheus.livenessProbe.periodSeconds` | Advanced | **Introduced in version:** 1.0.0 **Default value:** `5` **Chart:** `apigee-telemetry` Determines how often to perform a liveness probe, in seconds. The minimum value is 1.  
@@ -1618,7 +1618,7 @@ For more information, see [Updating images](https://kubernetes.io/docs/concepts/
   * `Always`: Always pull the policy, even if it already exists For more information, see [ Updating images](https://kubernetes.io/docs/concepts/containers/images/#updating-images).
 
   
-`metrics.sdSidecar.image.tag` | Advanced | **Introduced in version:** 1.0.0 **Default value:** `1.17.1` **Chart:** `apigee-telemetry` The version label for this service's Docker image.  
+`metrics.sdSidecar.image.tag` | Advanced | **Introduced in version:** 1.0.0 **Default value:** `1.17.3` **Chart:** `apigee-telemetry` The version label for this service's Docker image.  
 `metrics.sdSidecar.image.url` | Advanced | **Introduced in version:** 1.0.0 **Default value:** None **Chart:** `apigee-telemetry` The location of the Docker image for this service. Use `[apigee-pull-push](https://docs.cloud.google.com/apigee/docs/hybrid/v1.17/apigee-pull-push) --list` to see the current repository URL for this component. **Tip:** Consider using `hub` to set a private repository URL for all components instead of configuring them individually.  
 `metrics.serviceAccountPath` | Basic | **Introduced in version:** 1.0.0 **Default value:** None **Chart:** `apigee-telemetry` One of either `serviceAccountPath` or `serviceAccountRef` is required. Path to Google Service Account key file with **Monitoring Metric Writer** role.   
 `metrics.serviceAccountRef` | Basic | **Introduced in version:** 1.2.0 **Default value:** None **Chart:** `apigee-telemetry` One of either `serviceAccountPath` or `serviceAccountRef` is required. A kubernetes secret reference to a Google Service Account key file. See [Storing service account keys in Kubernetes secrets](https://docs.cloud.google.com/apigee/docs/hybrid/v1.17/storing-sa-keys-in-k8s-secrets).   
@@ -1695,7 +1695,7 @@ See [Enabling Workload Identity on GKE](https://docs.cloud.google.com/apigee/doc
   * `Always`: Always pull the image, regardless of whether it exists already.
 
 For more information, see [Updating images](https://kubernetes.io/docs/concepts/containers/images/#updating-images).  
-`mintTaskScheduler.image.tag` | Advanced | **Introduced in version:** 1.7.0 **Default value:** `1.17.1` **Chart:** `apigee-org` The version label for this service's Docker image.  
+`mintTaskScheduler.image.tag` | Advanced | **Introduced in version:** 1.7.0 **Default value:** `1.17.3` **Chart:** `apigee-org` The version label for this service's Docker image.  
 `mintTaskScheduler.image.url` | Advanced | **Introduced in version:** 1.7.0 **Default value:** None **Chart:** `apigee-org` The location of the Docker image for this service. Use `[apigee-pull-push](https://docs.cloud.google.com/apigee/docs/hybrid/v1.17/apigee-pull-push) --list` to see the current repository URL for this component. **Tip:** Consider using `hub` to set a private repository URL for all components instead of configuring them individually.  
 `mintTaskScheduler.resources.limits.cpu` | Advanced | **Introduced in version:** 1.1.0 **Default value:** `2000m` **Chart:** `apigee-org` The CPU limit for the resource in a Kubernetes container, in millicores.  
 `mintTaskScheduler.resources.limits.memory` | Advanced | **Introduced in version:** 1.1.0 **Default value:** `4Gi` **Chart:** `apigee-org` The memory limit for the resource in a Kubernetes container, in mebibytes.  
@@ -1773,7 +1773,7 @@ See also:
   * `Always`: Always pull the image, regardless of whether it exists already.
 
 For more information, see [Updating images](https://kubernetes.io/docs/concepts/containers/images/#updating-images).  
-`redis.envoy.image.tag` | Advanced | **Introduced in version:** 1.6.0 **Default value:** `1.17.1` **Chart:** `apigee-redis` The version label for this service's Docker image.  
+`redis.envoy.image.tag` | Advanced | **Introduced in version:** 1.6.0 **Default value:** `1.17.3` **Chart:** `apigee-redis` The version label for this service's Docker image.  
 `redis.envoy.image.url` | Advanced | **Introduced in version:** 1.6.0 **Default value:** None **Chart:** `apigee-redis` The location of the Docker image for this service. Use `[apigee-pull-push](https://docs.cloud.google.com/apigee/docs/hybrid/v1.17/apigee-pull-push) --list` to see the current repository URL for this component. **Tip:** Consider using `hub` to set a private repository URL for all components instead of configuring them individually.  
 `redis.envoy.podDisruptionBudget.minAvailable` | Advanced |  **Introduced in version:** 1.17.0 **Default value:** None **Chart:** `apigee-redis` The minimum number of Redis Envoy pods that must stay available during a voluntary disruption, for example during a node pool upgrade or a node drain. This field sets the `minAvailable` field of the [PodDisruptionBudget](https://kubernetes.io/docs/concepts/workloads/pods/disruptions/) for these pods. It takes either an integer number of pods (`1`) or a percentage string (`"50%"`). `minAvailable` and `maxUnavailable` are mutually exclusive; set only one. Setting both at once is rejected by the Apigee operator. If you set neither field, the Apigee operator still generates a PodDisruptionBudget for these pods, using `maxUnavailable: 1` by default. For example, in `overrides.yaml`:
     
@@ -1797,7 +1797,7 @@ For more information, see [Updating images](https://kubernetes.io/docs/concepts/
   * `Always`: Always pull the image, regardless of whether it exists already.
 
 For more information, see [Updating images](https://kubernetes.io/docs/concepts/containers/images/#updating-images).  
-`redis.image.tag` | Advanced | **Introduced in version:** 1.6.0 **Default value:** `1.17.1` **Chart:** `apigee-redis` The version label for this service's Docker image.  
+`redis.image.tag` | Advanced | **Introduced in version:** 1.6.0 **Default value:** `1.17.3` **Chart:** `apigee-redis` The version label for this service's Docker image.  
 `redis.image.url` | Advanced | **Introduced in version:** 1.6.0 **Default value:** None **Chart:** `apigee-redis` The location of the Docker image for this service. Use `[apigee-pull-push](https://docs.cloud.google.com/apigee/docs/hybrid/v1.17/apigee-pull-push) --list` to see the current repository URL for this component. **Tip:** Consider using `hub` to set a private repository URL for all components instead of configuring them individually.  
 `redis.replicaCount` | Basic | **Introduced in version:** 1.6.0 **Default value:** `2` **Chart:** `apigee-redis` Redis is a replicated storage. This property specifies the number of Redis nodes employed as a [StatefulSet](https://kubernetes.io/docs/concepts/workloads/controllers/statefulset/).  
 `redis.resources.requests.cpu` | Advanced | **Introduced in version:** 1.6.0 **Default value:** `500m` **Chart:** `apigee-redis` The CPU needed for normal operation of the resource in a Kubernetes container, in millicores. Apigee recommends a value from `500m` to `1000m`. With 0.5 cores, a Redis node can typically handle 10K QPS. With 1.0 core, it can typically handle 20K QPS. CPU request resources above 1000m are not helpful in most cases.  
@@ -1864,7 +1864,7 @@ For more information, see [Updating images](https://kubernetes.io/docs/concepts/
 `runtime.hpaMetrics.serverMainTaskWaitTime` | Advanced | **Introduced in version:** 1.7.0 **Default value:** 400M **Chart:** `apigee-env` The desired average wait time (in ms) of processing queue in runtime instances for proxy requests at the http layer.  
 `runtime.hpaMetrics.serverNioTaskWaitTime` | Advanced | **Introduced in version:** 1.7.0 **Default value:** 400M **Chart:** `apigee-env` The desired average wait time (in ms) of processing queue in runtime instances for proxy requests to process policies.  
 `runtime.hpaMetrics.targetCPUUtilizationPercentage` | Advanced | **Introduced in version:** 1.7.0 **Default value:** 75 **Chart:** `apigee-env` The desired CPU utilization percentage across all runtime instances.  
-`runtime.image.tag` | Advanced | **Introduced in version:** 1.0.0 **Default value:** `1.17.1` **Chart:** `apigee-env` The version label for this service's Docker image.  
+`runtime.image.tag` | Advanced | **Introduced in version:** 1.0.0 **Default value:** `1.17.3` **Chart:** `apigee-env` The version label for this service's Docker image.  
 `runtime.image.url` | Advanced | **Introduced in version:** 1.0.0 **Default value:** None **Chart:** `apigee-env` The location of the Docker image for this service. Use `[apigee-pull-push](https://docs.cloud.google.com/apigee/docs/hybrid/v1.17/apigee-pull-push) --list` to see the current repository URL for this component. **Tip:** Consider using `hub` to set a private repository URL for all components instead of configuring them individually.  
 `runtime.livenessProbe.failureThreshold` | Advanced | **Introduced in version:** 1.0.0 **Default value:** `2` **Chart:** `apigee-env` The number of times Kubernetes will verify that liveness probes have failed before restarting the container. The minimum value is 1.  
 `runtime.livenessProbe.initialDelaySeconds` | Advanced | **Introduced in version:** 1.0.0 **Default value:** `60` **Chart:** `apigee-env` The number of seconds after a container is started before a liveness probe is initiated.  
@@ -1962,7 +1962,7 @@ Property | Type | Description
   * `Always`: Always pull the image, regardless of whether it exists already.
 
 For more information, see [Updating images](https://kubernetes.io/docs/concepts/containers/images/#updating-images).  
-`synchronizer.image.tag` | Advanced | **Introduced in version:** 1.0.0 **Default value:** `1.17.1` **Chart:** `apigee-env` The version label for this service's Docker image.  
+`synchronizer.image.tag` | Advanced | **Introduced in version:** 1.0.0 **Default value:** `1.17.3` **Chart:** `apigee-env` The version label for this service's Docker image.  
 `synchronizer.image.url` | Advanced | **Introduced in version:** 1.0.0 **Default value:** None **Chart:** `apigee-env` The location of the Docker image for this service. Use `[apigee-pull-push](https://docs.cloud.google.com/apigee/docs/hybrid/v1.17/apigee-pull-push) --list` to see the current repository URL for this component. **Tip:** Consider using `hub` to set a private repository URL for all components instead of configuring them individually.  
 `synchronizer.livenessProbe.failureThreshold` | Advanced | **Introduced in version:** 1.0.0 **Default value:** `2` **Chart:** `apigee-env` The number of times Kubernetes will verify that liveness probes have failed before restarting the container. The minimum value is 1.  
 `synchronizer.livenessProbe.initialDelaySeconds` | Advanced | **Introduced in version:** 1.0.0 **Default value:** `0` **Chart:** `apigee-env` The number of seconds after a container is started before a liveness probe is initiated.  
@@ -2203,7 +2203,7 @@ See [Enabling Workload Identity on GKE](https://docs.cloud.google.com/apigee/doc
   * `Always`: Always pull the image, regardless of whether it exists already.
 
 For more information, see [Updating images](https://kubernetes.io/docs/concepts/containers/images/#updating-images).  
-`watcher.image.tag` | Advanced | **Introduced in version:** 1.4.0 **Default value:** `1.17.1` **Chart:** `apigee-org` The version label for this service's Docker image.  
+`watcher.image.tag` | Advanced | **Introduced in version:** 1.4.0 **Default value:** `1.17.3` **Chart:** `apigee-org` The version label for this service's Docker image.  
 `watcher.image.url` | Advanced | **Introduced in version:** 1.4.0 **Default value:** None **Chart:** `apigee-org` The location of the Docker image for this service. Use `[apigee-pull-push](https://docs.cloud.google.com/apigee/docs/hybrid/v1.17/apigee-pull-push) --list` to see the current repository URL for this component. **Tip:** Consider using `hub` to set a private repository URL for all components instead of configuring them individually.  
 `watcher.podDisruptionBudget.minAvailable` | Advanced |  **Introduced in version:** 1.17.0 **Default value:** None **Chart:** `apigee-org` The minimum number of watcher pods that must stay available during a voluntary disruption, such as a node pool upgrade or node drain. This field sets the `minAvailable` field of the [PodDisruptionBudget](https://kubernetes.io/docs/concepts/workloads/pods/disruptions/) for these pods. It takes either an integer number of pods (`0`) or a percentage string (`"50%"`). Because Apigee hybrid runs a single watcher pod (`watcher.replicaCountMax: 1`), setting `minAvailable` to `1` or a non-zero percentage prevents voluntary pod evictions during node drains. `minAvailable` and `maxUnavailable` are mutually exclusive; set only one. The Apigee operator rejects setting both at once. If you set neither field, the Apigee operator still generates a PodDisruptionBudget for these pods, using `maxUnavailable: 1` by default. For example, in `overrides.yaml`:
     
@@ -2246,9 +2246,9 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-07 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-07 UTC."],[],[]] 
   *[KMS]: Key Management Service
   *[KVM]: Key Value Map
   *[JVM]: Java Virtual Machine

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/omni/kubernetes/15.13.0/docs/choose-compatible-versions/
 title: Choose compatible Kubernetes operator and database cluster versions \u00a0|\u00a0 AlloyDB Omni for Kubernetes: 15.13.0 \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T00:32:54.035606+00:00
+fetched_at: 2026-11-08T05:41:54.379833+00:00
 ---
 
 # Choose compatible Kubernetes operator and database cluster versions  |  AlloyDB Omni for Kubernetes: 15.13.0  |  Google Cloud Documentation
@@ -46,11 +46,11 @@ Select a documentation version: 15.13.0keyboard_arrow_down
   * [ 15.12.0 ](https://docs.cloud.google.com/alloydb/omni/kubernetes/15.12.0/docs/choose-compatible-versions)
   * [ 15.7.1 ](https://docs.cloud.google.com/alloydb/omni/kubernetes/15.7.1/docs/choose-compatible-versions)
 
-Each version of the AlloyDB Omni Kubernetes operator is compatible with specific database clusters. A database cluster is comprised of two components: 
+Each version of the AlloyDB Omni Kubernetes operator is compatible with specific database clusters. A database cluster consists of two components: 
 
-  * **AlloyDB Omni database** : the database used with AlloyDB Omni Kubernetes operator. The current AlloyDB Omni database version for PostgreSQL 15 is 15.13.0.
+  * **AlloyDB Omni database** : The database used with the AlloyDB Omni Kubernetes operator. The current AlloyDB Omni database version for PostgreSQL 15 is 15.13.0.
 
-  * **Control plane agents** : each database cluster uses multiple control plane agents. Each control plane agent in a database cluster is the same version. Use the `controlPlaneAgentsVersion` parameter in the manifest file to specify the version of the control plane agents. The current control plane agents version is 1.6.3.
+  * **Control plane agents** : Each database cluster uses multiple control plane agents. Each control plane agent in a database cluster is the same version. Use the `controlPlaneAgentsVersion` parameter in the manifest file to specify the version of the control plane agents. The current control plane agent version is 1.6.4.
 
 
 
@@ -61,12 +61,19 @@ To learn how to upgrade the AlloyDB Omni Kubernetes operator, see [Upgrade your 
 
 The following table lists the supported AlloyDB Omni Kubernetes operator versions and their compatible and recommended database cluster versions:
 
-AlloyDB Omni Kubernetes operator version | Database cluster components  
+AlloyDB Omni Kubernetes operator version |  Database cluster components   
 ---|---  
-Database version | Control plane agents versions  
-**1.6.3 (recommended)** | **17.5.0** | 1.6.0, 1.6.1, 1.6.2, **1.6.3 (recommended)**  
-**16.9.0** | 1.6.0, 1.6.1, 1.6.2, **1.6.3 (recommended)**  
-**15.13.0** | 1.6.0, 1.6.1, 1.6.2, **1.6.3 (recommended)**  
+Database version | Control plane agent versions  
+**1.6.4 (recommended)** | **17.5.0** | 1.6.0, 1.6.1, 1.6.2, 1.6.3, **1.6.4 (recommended)**  
+**16.9.0** | 1.6.0, 1.6.1, 1.6.2, 1.6.3, **1.6.4 (recommended)**  
+**15.18.1** | **1.6.4 (recommended)**  
+15.13.0 | 1.6.0, 1.6.1, 1.6.2, 1.6.3, **1.6.4 (recommended)**  
+16.8.0 | 1.5.0  
+15.12.0 | 1.5.0  
+15.7.1 | 1.4.0, 1.4.1  
+1.6.3 | 17.5.0 | 1.6.0, 1.6.1, 1.6.2, 1.6.3  
+16.9.0 | 1.6.0, 1.6.1, 1.6.2, 1.6.3  
+15.13.0 | 1.6.0, 1.6.1, 1.6.2, 1.6.3  
 16.8.0 | 1.5.0  
 15.12.0 | 1.5.0  
 15.7.1 | 1.4.0, 1.4.1  
@@ -101,6 +108,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-27 UTC.
+Last updated 2026-11-07 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-07 UTC."],[],[]] 

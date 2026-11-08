@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/agent-registry/register-endpoints/
 title: Register endpoints \u00a0|\u00a0 Agent Registry \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T23:31:42.533664+00:00
+fetched_at: 2026-11-08T05:38:52.911640+00:00
 ---
 
 # Register endpoints  |  Agent Registry  |  Google Cloud Documentation

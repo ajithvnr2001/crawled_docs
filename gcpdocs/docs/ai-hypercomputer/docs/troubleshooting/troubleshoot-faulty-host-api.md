@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/ai-hypercomputer/docs/troubleshooting/troubleshoot-faulty-host-api/
 title: Troubleshoot report faulty host API errors \u00a0|\u00a0 AI Hypercomputer \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T18:55:21.448079+00:00
+fetched_at: 2026-11-08T05:46:41.952637+00:00
 ---
 
 # Troubleshoot report faulty host API errors  |  AI Hypercomputer  |  Google Cloud Documentation
@@ -51,7 +51,7 @@ This error occurs when you report a compute instance that was created without us
     INSTANCES_WITHOUT_RESERVATION_NOT_SUPPORTED
     
 
-**Resolution** : Verify that you created the compute instance by using the [reservation-bound provisioning model](https://docs.cloud.google.com/ai-hypercomputer/docs/consumption-models). To report a faulty host for an A4X Max, A4X, A4, A3 Ultra, A3 Mega, and A3 High (8 GPUs) instance that uses the flex-start or spot provisioning model, contact your account team.
+**Resolution** : Verify that you created the compute instance by using the [reservation-bound provisioning model](https://docs.cloud.google.com/ai-hypercomputer/docs/consumption-models). To report a faulty host for an A5X, A4X Max, A4X, A4, A3 Ultra, A3 Mega, and A3 High (8 GPUs) instance that uses the flex-start or spot provisioning model, contact your account team.
 
 ### Duplicate faulty host report operations
 
@@ -87,7 +87,7 @@ This error occurs when the compute instance uses an unsupported machine type.
     MACHINE_TYPE_NOT_SUPPORTED
     
 
-**Resolution** : The report faulty host API supports only A4X Max, A4X, A4, A3 Ultra, A3 Mega, and A3 High (8 GPUs) machine types.
+**Resolution** : The report faulty host API supports only A5X, A4X Max, A4X, A4, A3 Ultra, A3 Mega, and A3 High (8 GPUs) machine types.
 
 ### Rate limit exceeded
 
@@ -115,6 +115,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-06 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-06 UTC."],[],[]] 

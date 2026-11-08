@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/apigee/docs/release-notes/
 title: Apigee all release notes \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-07T08:23:16.365912+00:00
+fetched_at: 2026-11-08T05:40:05.810080+00:00
 ---
 
 # Apigee all release notes  |  Google Cloud Documentation
@@ -16819,6 +16819,19 @@ Apigee now supports CMEK for the control plane. If you have specific compliance 
 
 ## December 07, 2023
 
+**Apigee Integrated Portal**
+
+Announcement
+
+On December 7, 2023 we released an updated version of Apigee integrated portal.
+
+Fixed
+
+Bug ID | Description  
+---|---  
+313803133 | Fixed an issue where switching API spec pages in the public developer portal resulted in an error.  
+310865440 | Fixed an issue where updating the documentation of a CatalogItem could timeout.  
+  
 **Apigee X**
 
 Announcement
@@ -17432,6 +17445,24 @@ This addresses the following vulnerabilities:
   
 ## November 10, 2023
 
+**Apigee Integrated Portal**
+
+Announcement
+
+On November 10, 2023 we released an updated version of Apigee integrated portal.
+
+Feature
+
+This release includes the public preview of integrated portal APIs which allow you to manage your integrated portal APIs and reference documentation using API calls. 
+
+The catalog items list view now uses pagination when making requests to the portals service, examples have been added to **Publishing your APIs** , and new reference documentation is available:
+
+  * [Publishing your APIs](https://docs.cloud.google.com/apigee/docs/api-platform/publish/portal/publish-apis)
+  * [API categories reference documentation](https://docs.cloud.google.com/apigee/docs/reference/apis/apigee/rest/v1/organizations.sites.apicategories)
+  * [API documents reference documentation](https://docs.cloud.google.com/apigee/docs/reference/apis/apigee/rest/v1/organizations.sites.apidocs)
+
+
+
 **Apigee X**
 
 Feature
@@ -17448,6 +17479,22 @@ Deprecated
 
 As of November 10, 2023, Configurable API Proxies (preview) is no longer available. For more information, see [Configurable API Proxies (preview) deprecation](https://docs.cloud.google.com/apigee/docs/deprecations/configurable-proxies).
 
+## November 08, 2023
+
+**Apigee Integrated Portal**
+
+Announcement
+
+On November 8, 2023 we released an updated version of Apigee integrated portal.
+
+Fixed
+
+Bug ID | Description  
+---|---  
+305287906 | Fixed links to an API product from the **API details** , **User account details** , or **Team details** page in the Apigee UI.  
+307600672 | Fixed issue where the name of the documentation was not populated in the **Documentation** column on the Apigee UI, **API catalog** page.  
+307599975 | Improved pagination through large API catalogs on the Apigee UI, **API catalog** page.  
+  
 ## November 03, 2023
 
 **Apigee X**
@@ -17484,6 +17531,27 @@ The Security scores page in the Apigee UI has been renamed to the [Risk assessme
 
 ## October 26, 2023
 
+**Apigee Integrated Portal**
+
+Announcement
+
+On October 26, 2023 we released an updated version of Apigee integrated portal.
+
+Fixed
+
+Bug ID | Description  
+---|---  
+5400261 | Improve confirmation dialog text when user clicks the button to revoke an app key from the portal UI.  
+  
+This dialog is displayed when you:  
+
+
+  1. Select **Apps** from the user account drop-down in the portal.
+  2. Click an app. 
+  3. Click the **Revoke** button in the **API Keys** row.
+
+  
+  
 **Apigee UI**
 
 Change
@@ -17743,6 +17811,14 @@ Advanced API Security's new [Security Actions](https://cloud.google.com/apigee/d
 
 
 **Note:** At the present time, Security Actions is only available for Apigee, but not for Apigee hybrid.
+
+## October 05, 2023
+
+**Apigee Integrated Portal**
+
+Announcement
+
+On October 5, 2023 we released an updated version of Apigee integrated portal. This release includes general improvements to performance and availability.
 
 ## September 29, 2023
 
@@ -20781,6 +20857,20 @@ Issue
 
 **Known issue:** [260324159 - API proxies and shared flows deployed by customers could take around 20 to 30 minutes to deploy in the runtime plane.](https://docs.cloud.google.com/apigee/docs/release/known-issues#260324159)
 
+## November 14, 2022
+
+**Apigee Monetization**
+
+Announcement
+
+On November 14, 2022 we released an updated version of the Apigee Monetization software.
+
+Feature
+
+**Added support for a new recurring fees**
+
+Apigee X now supports optional recurring fees charged to API developers. For more information on fees, see [Understanding billing](https://docs.cloud.google.com/apigee/docs/api-platform/monetization/overview#understanding-billing).
+
 ## November 10, 2022
 
 **Apigee Integrated Portal**
@@ -20798,6 +20888,18 @@ Bug ID | Description
 182687440 | Updated the file filter for icon upload so you can choose and upload `.ico` files.  
 153886771 | Fixed an issue with identity provider configuration where SAML certificate data would not correctly render after initial upload.  
   
+**Apigee Monetization**
+
+Announcement
+
+On November 10, 2022 we released an updated version of the Apigee Monetization software.
+
+Feature
+
+**Added support for a new setup fee**
+
+Apigee X now supports an optional setup fee charged to new API developers. For more information on fees, see [Understanding billing](https://docs.cloud.google.com/apigee/docs/api-platform/monetization/overview#understanding-billing).
+
 ## November 04, 2022
 
 **Apigee Integration**
@@ -21615,6 +21717,16 @@ Starting with this release, Apigee Integrations is available in an Apigee Eval o
 
 ## June 21, 2022
 
+**Apigee Integrated Portal**
+
+Announcement
+
+On June 21, we released an updated version of Apigee integrated portal.
+
+Feature
+
+Added the ability to sort by **Name** and **Created** fields in the [**Apps**](https://docs.apigee.com/api-platform/publish/portal/portal-interact#register-apps) and [**Teams**](https://docs.apigee.com/api-platform/publish/portal/portal-interact#teams) tables. Click the column heading to sort.
+
 **Apigee UI**
 
 Announcement
@@ -21643,6 +21755,25 @@ Announcement
 On June 21, 2022, we released an updated version of Apigee X (1-8-0-apigee-18).
 
 **Note:** Rollouts of this release will begin today and may take four or more business days to be completed across all Google Cloud zones. Your instances may not have the features and fixes available until the rollout is complete.
+
+## June 14, 2022
+
+**Apigee Integrated Portal**
+
+Announcement
+
+On June 14, we released an updated version of Apigee integrated portal.
+
+Feature
+
+Use a GraphQL schema to publish your APIs to an integrated portal. 
+
+For details, see: 
+
+  * [What is GraphQL schema](https://docs.cloud.google.com/apigee/docs/api-platform/publish/api-design-overview#what-graphql)
+  * [GraphQL Explorer](https://docs.cloud.google.com/apigee/docs/api-platform/publish/portal/publish-apis#graphql)
+
+
 
 ## June 02, 2022
 
@@ -21768,6 +21899,24 @@ On May 18, 2022, we released an updated version of the Apigee UI.
 
 ## May 11, 2022
 
+**Apigee Integrated Portal**
+
+Fixed
+
+**Bug ID** | **Description**  
+---|---  
+228603948 | Fixed an issue that prevented users from editing custom fields for account creation and signup.  
+228339667 | Documentation now reflects support for the [STARTTLS SMTP authorization type](https://docs.apigee.com/api-platform/publish/portal/configure-email).  
+227511014 | Fixed an issue that prevented V1 Portals from being upgraded to V2.  
+224991572 | Improvements to the **Get Started** documentation bundled with a new portal. Create a new portal and then click **Get Started** to see the new content.  
+220980189 | Fixed issue with publishing API Products on a Portal when the organization has over 1,000 API Products.  
+218320618 | Page descriptions are now limited to 1,000 characters. Page content is now limited to 1 MB.  
+210651558 | Fixed issue where adding a new API Product subscription to an App would remove all scopes on the Apps credentials.  
+  
+Announcement
+
+On May 11, 2022 we released an updated version of the Apigee Integrated Portal software.
+
 **Apigee hybrid**
 
 v1.6.7
@@ -21837,6 +21986,39 @@ Bug ID | Description
   
 ## May 04, 2022
 
+**Apigee Integrated Portal**
+
+Announcement
+
+On May 4, 2022 we released an updated version of the Apigee Integrated Portal software.
+
+Feature
+
+Emails from `portal-sso` will either be the email address of the sender that the user sets up in the custom `smtp` settings, or it will be `no-reply@google.com`, instead of the human-readable name `orgname-portalname`. **[This screenshot](https://docs.cloud.google.com/static/apigee/docs/api-platform/images/portals-email-example.png)** illustrates emails sent from `portal-sso` in `e2e`. It shows one email with custom `smtp` settings (`tsnow-custom-smtp`) and one email with the default settings (`no-reply`).
+
+Feature
+
+Error messages for rejected logins for an inactive user are now more informative to the user.
+
+Fixed
+
+**Bug ID** | **Description**  
+---|---  
+220993729 | Portal SSO showed the Apigee domain when hovering over footer links in third-party web pages.  
+220188030 | Reset password was not working for LDAP configurations.  
+214146121 | An authentication issue with Apigee SSO has been fixed.  
+204952689 | Fixed miscellaneous logback error.  
+194469693 | Enabled SAML config error so that it is visible.  
+194053231 | Added server-side validation for the `password` field. If the password is non-compliant, the response is `422:Unprocessable Entity`.  
+190609332 | Improved error output for failures while enabling SSO for Apigee  
+157131343 | Added support for the parenthesis `()` and plus `+` characters for built-in IDP custom fields. Other special characters will continue to be blocked due to security reasons.  
+  
+Security
+
+**ID** | **Description**  
+---|---  
+200604177 | Upgraded jQuery and Bootstrap  
+  
 **Apigee UI**
 
 Announcement
@@ -22051,6 +22233,22 @@ Deprecated
 
 **"Apigee Deployer" role deprecated and replaced by "Apigee Environment Admin"** The environment role "Apigee Deployer" has been deprecated, and replaced by "Apigee Environment Admin". (Implemented in Apigee X, December 2, 2022)
 
+## April 05, 2022
+
+**Apigee Integrated Portal**
+
+Announcement
+
+On April 5, 2022 we released an updated version of the Apigee Integrated Portal software.
+
+Fixed
+
+Bug ID | Description  
+---|---  
+**220377670** | **Fixed an issue that prevented users from uploading svg and ico files.**  
+**217600695** | **Menus will scroll when they don't fit on the page.**  
+**174476355** | **When adding a custom registration field in the`accounts-authentication` UI for creating/editing a portal, the allowed characters for a custom field has been limited to letters, numbers, and spaces.**  
+  
 ## March 31, 2022
 
 **Apigee X**
@@ -22765,6 +22963,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-07 UTC.
+Last updated 2026-11-08 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-07 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-08 UTC."],[],[]] 

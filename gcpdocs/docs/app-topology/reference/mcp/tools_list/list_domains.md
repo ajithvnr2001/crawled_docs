@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/app-topology/reference/mcp/tools_list/list_domains/
 title: MCP Tools Reference: apptopology.googleapis.com \u00a0|\u00a0 App Topology \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-14T10:28:15.108343+00:00
+fetched_at: 2026-11-08T05:39:37.779476+00:00
 ---
 
 # MCP Tools Reference: apptopology.googleapis.com  |  App Topology  |  Google Cloud Documentation

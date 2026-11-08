@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/agent-registry/manual-registration/
 title: Use manual registration for agents \u00a0|\u00a0 Agent Registry \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T23:31:43.095381+00:00
+fetched_at: 2026-11-08T05:38:50.624665+00:00
 ---
 
 # Use manual registration for agents  |  Agent Registry  |  Google Cloud Documentation

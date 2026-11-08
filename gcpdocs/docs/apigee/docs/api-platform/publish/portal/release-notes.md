@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/apigee/docs/api-platform/publish/portal/release-notes/
 title: Apigee Integrated Portal release notes \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-06T05:53:16.120124+00:00
+fetched_at: 2026-11-08T05:46:35.784143+00:00
 ---
 
 # Apigee Integrated Portal release notes  |  Google Cloud Documentation
@@ -341,6 +341,78 @@ Announcement
 
 On January 22, 2024 we released an updated version of Apigee integrated portal.
 
+## December 07, 2023
+
+Announcement
+
+On December 7, 2023 we released an updated version of Apigee integrated portal.
+
+Fixed
+
+Bug ID | Description  
+---|---  
+313803133 | Fixed an issue where switching API spec pages in the public developer portal resulted in an error.  
+310865440 | Fixed an issue where updating the documentation of a CatalogItem could timeout.  
+  
+## November 10, 2023
+
+Announcement
+
+On November 10, 2023 we released an updated version of Apigee integrated portal.
+
+Feature
+
+This release includes the public preview of integrated portal APIs which allow you to manage your integrated portal APIs and reference documentation using API calls. 
+
+The catalog items list view now uses pagination when making requests to the portals service, examples have been added to **Publishing your APIs** , and new reference documentation is available:
+
+  * [Publishing your APIs](https://docs.cloud.google.com/apigee/docs/api-platform/publish/portal/publish-apis)
+  * [API categories reference documentation](https://docs.cloud.google.com/apigee/docs/reference/apis/apigee/rest/v1/organizations.sites.apicategories)
+  * [API documents reference documentation](https://docs.cloud.google.com/apigee/docs/reference/apis/apigee/rest/v1/organizations.sites.apidocs)
+
+
+
+## November 08, 2023
+
+Announcement
+
+On November 8, 2023 we released an updated version of Apigee integrated portal.
+
+Fixed
+
+Bug ID | Description  
+---|---  
+305287906 | Fixed links to an API product from the **API details** , **User account details** , or **Team details** page in the Apigee UI.  
+307600672 | Fixed issue where the name of the documentation was not populated in the **Documentation** column on the Apigee UI, **API catalog** page.  
+307599975 | Improved pagination through large API catalogs on the Apigee UI, **API catalog** page.  
+  
+## October 26, 2023
+
+Announcement
+
+On October 26, 2023 we released an updated version of Apigee integrated portal.
+
+Fixed
+
+Bug ID | Description  
+---|---  
+5400261 | Improve confirmation dialog text when user clicks the button to revoke an app key from the portal UI.  
+  
+This dialog is displayed when you:  
+
+
+  1. Select **Apps** from the user account drop-down in the portal.
+  2. Click an app. 
+  3. Click the **Revoke** button in the **API Keys** row.
+
+  
+  
+## October 05, 2023
+
+Announcement
+
+On October 5, 2023 we released an updated version of Apigee integrated portal. This release includes general improvements to performance and availability.
+
 ## September 07, 2023
 
 Announcement
@@ -467,6 +539,98 @@ Bug ID | Description
 237412458 | Fixed an issue where some SMTP settings were not migrated to an upgraded portal.  
 235634994 | Implemented a minor security fix to block content spoofing in the API search page.  
 233407912 | When creating a new App key for products that have been set to manual approval, but have already been approved, the new key will "auto" approve and not have to go through the approval process again.  
+  
+## June 21, 2022
+
+Announcement
+
+On June 21, we released an updated version of Apigee integrated portal.
+
+Feature
+
+Added the ability to sort by **Name** and **Created** fields in the [**Apps**](https://docs.apigee.com/api-platform/publish/portal/portal-interact#register-apps) and [**Teams**](https://docs.apigee.com/api-platform/publish/portal/portal-interact#teams) tables. Click the column heading to sort.
+
+## June 14, 2022
+
+Announcement
+
+On June 14, we released an updated version of Apigee integrated portal.
+
+Feature
+
+Use a GraphQL schema to publish your APIs to an integrated portal. 
+
+For details, see: 
+
+  * [What is GraphQL schema](https://docs.cloud.google.com/apigee/docs/api-platform/publish/api-design-overview#what-graphql)
+  * [GraphQL Explorer](https://docs.cloud.google.com/apigee/docs/api-platform/publish/portal/publish-apis#graphql)
+
+
+
+## May 11, 2022
+
+Fixed
+
+**Bug ID** | **Description**  
+---|---  
+228603948 | Fixed an issue that prevented users from editing custom fields for account creation and signup.  
+228339667 | Documentation now reflects support for the [STARTTLS SMTP authorization type](https://docs.apigee.com/api-platform/publish/portal/configure-email).  
+227511014 | Fixed an issue that prevented V1 Portals from being upgraded to V2.  
+224991572 | Improvements to the **Get Started** documentation bundled with a new portal. Create a new portal and then click **Get Started** to see the new content.  
+220980189 | Fixed issue with publishing API Products on a Portal when the organization has over 1,000 API Products.  
+218320618 | Page descriptions are now limited to 1,000 characters. Page content is now limited to 1 MB.  
+210651558 | Fixed issue where adding a new API Product subscription to an App would remove all scopes on the Apps credentials.  
+  
+Announcement
+
+On May 11, 2022 we released an updated version of the Apigee Integrated Portal software.
+
+## May 04, 2022
+
+Announcement
+
+On May 4, 2022 we released an updated version of the Apigee Integrated Portal software.
+
+Feature
+
+Emails from `portal-sso` will either be the email address of the sender that the user sets up in the custom `smtp` settings, or it will be `no-reply@google.com`, instead of the human-readable name `orgname-portalname`. **[This screenshot](https://docs.cloud.google.com/static/apigee/docs/api-platform/images/portals-email-example.png)** illustrates emails sent from `portal-sso` in `e2e`. It shows one email with custom `smtp` settings (`tsnow-custom-smtp`) and one email with the default settings (`no-reply`).
+
+Feature
+
+Error messages for rejected logins for an inactive user are now more informative to the user.
+
+Fixed
+
+**Bug ID** | **Description**  
+---|---  
+220993729 | Portal SSO showed the Apigee domain when hovering over footer links in third-party web pages.  
+220188030 | Reset password was not working for LDAP configurations.  
+214146121 | An authentication issue with Apigee SSO has been fixed.  
+204952689 | Fixed miscellaneous logback error.  
+194469693 | Enabled SAML config error so that it is visible.  
+194053231 | Added server-side validation for the `password` field. If the password is non-compliant, the response is `422:Unprocessable Entity`.  
+190609332 | Improved error output for failures while enabling SSO for Apigee  
+157131343 | Added support for the parenthesis `()` and plus `+` characters for built-in IDP custom fields. Other special characters will continue to be blocked due to security reasons.  
+  
+Security
+
+**ID** | **Description**  
+---|---  
+200604177 | Upgraded jQuery and Bootstrap  
+  
+## April 05, 2022
+
+Announcement
+
+On April 5, 2022 we released an updated version of the Apigee Integrated Portal software.
+
+Fixed
+
+Bug ID | Description  
+---|---  
+**220377670** | **Fixed an issue that prevented users from uploading svg and ico files.**  
+**217600695** | **Menus will scroll when they don't fit on the page.**  
+**174476355** | **When adding a custom registration field in the`accounts-authentication` UI for creating/editing a portal, the allowed characters for a custom field has been limited to letters, numbers, and spaces.**  
   
 ## February 24, 2022
 

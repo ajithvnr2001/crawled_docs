@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/apigee/docs/api-platform/monetization/release-notes/
 title: Apigee Monetization release notes \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-06T05:53:15.564141+00:00
+fetched_at: 2026-11-08T05:39:36.979731+00:00
 ---
 
 # Apigee Monetization release notes  |  Google Cloud Documentation
@@ -89,6 +89,30 @@ For information, see [Manage Rate Plans](https://docs.cloud.google.com/apigee/do
 Feature
 
 Monetization now supports data residency. Data residency meets compliance and regulatory requirements by allowing you to specify the geographic locations (regions) where Monetization data is stored. For more information, see [Introduction to data residency](https://docs.cloud.google.com/apigee/docs/api-platform/get-started/drz-concepts).
+
+## November 14, 2022
+
+Announcement
+
+On November 14, 2022 we released an updated version of the Apigee Monetization software.
+
+Feature
+
+**Added support for a new recurring fees**
+
+Apigee X now supports optional recurring fees charged to API developers. For more information on fees, see [Understanding billing](https://docs.cloud.google.com/apigee/docs/api-platform/monetization/overview#understanding-billing).
+
+## November 10, 2022
+
+Announcement
+
+On November 10, 2022 we released an updated version of the Apigee Monetization software.
+
+Feature
+
+**Added support for a new setup fee**
+
+Apigee X now supports an optional setup fee charged to new API developers. For more information on fees, see [Understanding billing](https://docs.cloud.google.com/apigee/docs/api-platform/monetization/overview#understanding-billing).
 
 ## May 18, 2022
 

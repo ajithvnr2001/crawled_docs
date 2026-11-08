@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/agent-registry/quickstart-register-agent/
 title: Quickstart: Register an agent \u00a0|\u00a0 Agent Registry \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-30T08:40:11.042519+00:00
+fetched_at: 2026-11-08T05:38:51.808494+00:00
 ---
 
 # Quickstart: Register an agent  |  Agent Registry  |  Google Cloud Documentation

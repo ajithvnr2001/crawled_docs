@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/apigee/docs/hybrid/v1.17/storing-cassandra-secrets-in-vault/
 title: Storing Cassandra secrets in Hashicorp Vault \u00a0|\u00a0 Apigee \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T23:25:29.511982+00:00
+fetched_at: 2026-11-08T05:40:59.161674+00:00
 ---
 
 # Storing Cassandra secrets in Hashicorp Vault  |  Apigee  |  Google Cloud Documentation
@@ -233,7 +233,7 @@ Check that the variable was populated with the list:
 
 ### Install CSI driver and Vault provider
 
-Apigee hybrid v1.17.1 supports the following Helm chart versions: 
+Apigee hybrid v1.17.3 supports the following Helm chart versions: 
 
 **Software** | **Version**  
 ---|---  
@@ -471,7 +471,7 @@ This command returns the certificate name. For example: `apigee-cassandra-user-s
            spec:
              containers:
              - name: CASSANDRA_CLIENT_NAME
-               image: "gcr.io/apigee-release/hybrid/apigee-hybrid-cassandra-client:1.17.1"
+               image: "gcr.io/apigee-release/hybrid/apigee-hybrid-cassandra-client:1.17.3"
                imagePullPolicy: Always
                command:
                - sleep
@@ -536,6 +536,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-07 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-07 UTC."],[],[]] 

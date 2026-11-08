@@ -1,11 +1,11 @@
 ---
 url: https://docs.cloud.google.com/alloydb/omni/kubernetes/17.5.0/docs/upgrade-kubernetes-database-major-version/
-title: Upgrade to AlloyDB Omni version 17.5.0 on 1.6.3 \u00a0|\u00a0 AlloyDB Omni for Kubernetes: 17.5.0 \u00a0|\u00a0 Google Cloud Documentation
+title: Upgrade to AlloyDB Omni version 17.5.0 on 1.6.4 \u00a0|\u00a0 AlloyDB Omni for Kubernetes: 17.5.0 \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T00:33:14.889793+00:00
+fetched_at: 2026-11-08T05:45:54.970476+00:00
 ---
 
-# Upgrade to AlloyDB Omni version 17.5.0 on 1.6.3  |  AlloyDB Omni for Kubernetes: 17.5.0  |  Google Cloud Documentation
+# Upgrade to AlloyDB Omni version 17.5.0 on 1.6.4  |  AlloyDB Omni for Kubernetes: 17.5.0  |  Google Cloud Documentation
 
 > Source: https://docs.cloud.google.com/alloydb/omni/kubernetes/17.5.0/docs/upgrade-kubernetes-database-major-version/
 
@@ -21,7 +21,7 @@ This page documents AlloyDB Omni version **17.5.0** using the **Kubernetes** dep
 
 Send feedback 
 
-#  Upgrade to AlloyDB Omni version 17.5.0 on 1.6.3 Stay organized with collections  Save and categorize content based on your preferences. 
+#  Upgrade to AlloyDB Omni version 17.5.0 on 1.6.4 Stay organized with collections  Save and categorize content based on your preferences. 
 
 Select a documentation version: 17.5.0keyboard_arrow_down
 
@@ -50,7 +50,7 @@ This page describes how to perform a major version upgrade to AlloyDB Omni versi
 
 ## Before you begin
 
-  * Verify your AlloyDB Omni Kubernetes operator version is `1.6.3`. To upgrade your AlloyDB Omni operator version, see [Migrate to the latest AlloyDB Omni Kubernetes operator version](https://docs.cloud.google.com/alloydb/omni/kubernetes/17.5.0/docs/upgrade-kubernetes-operator-version).
+  * Verify your AlloyDB Omni Kubernetes operator version is `1.6.4`. To upgrade your AlloyDB Omni operator version, see [Migrate to the latest AlloyDB Omni Kubernetes operator version](https://docs.cloud.google.com/alloydb/omni/kubernetes/17.5.0/docs/upgrade-kubernetes-operator-version).
 
   * Verify you have at least 5GB of free disk space.
 
@@ -79,7 +79,7 @@ You can find a script that performs the manual upgrade steps in the [AlloyDB Omn
 To use the upgrade script, download the script and run the following command:
     
     
-    ./MVU.sh 17.5.0 1.6.3 NAME NAMESPACE
+    ./MVU.sh 17.5.0 1.6.4 NAME NAMESPACE
     
 
 Replace the following variables:
@@ -167,9 +167,9 @@ Replace the following variables:
 
      * `POD_NAME`: the name of your pod.
      * `NAMESPACE`: the namespace for your database cluster.
-  7. Patch your database cluster to version `17.5.0` and your control plane agents (CPA) to `1.6.3`.
+  7. Patch your database cluster to version `17.5.0` and your control plane agents (CPA) to `1.6.4`.
          
-         kubectl patch dbclusters.alloydbomni.dbadmin.goog NAME -n NAMESPACE --type=merge -p '{"spec":{"databaseVersion":"17.5.0","controlPlaneAgentsVersion":"1.6.3","databaseImageOSType":"UBI9"}}'
+         kubectl patch dbclusters.alloydbomni.dbadmin.goog NAME -n NAMESPACE --type=merge -p '{"spec":{"databaseVersion":"17.5.0","controlPlaneAgentsVersion":"1.6.4","databaseImageOSType":"UBI9"}}'
          
 
 Replace the following variables:
@@ -288,6 +288,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-27 UTC.
+Last updated 2026-11-07 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-07 UTC."],[],[]] 

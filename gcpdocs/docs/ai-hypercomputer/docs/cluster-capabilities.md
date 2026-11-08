@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/ai-hypercomputer/docs/cluster-capabilities/
 title: Cluster management capabilities \u00a0|\u00a0 AI Hypercomputer \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-07T08:32:28.092094+00:00
+fetched_at: 2026-11-08T05:50:43.187781+00:00
 ---
 
 # Cluster management capabilities  |  AI Hypercomputer  |  Google Cloud Documentation
@@ -23,7 +23,7 @@ Send feedback
 
 [ Clustered GPUs ](https://docs.cloud.google.com/ai-hypercomputer/docs/evaluate-clustered-gpus)
 
-Clustered GPUs, such as [A4X Max](https://docs.cloud.google.com/ai-hypercomputer/docs/evaluate-clustered-gpus#a4x-max-machine), [A4X](https://docs.cloud.google.com/ai-hypercomputer/docs/evaluate-clustered-gpus#a4x-machine), [A4](https://docs.cloud.google.com/ai-hypercomputer/docs/evaluate-clustered-gpus#a4-machine), [A3 Ultra](https://docs.cloud.google.com/ai-hypercomputer/docs/evaluate-clustered-gpus#a3-ultra), [A3 Mega](https://docs.cloud.google.com/ai-hypercomputer/docs/evaluate-clustered-gpus#a3-mega), and [A3 High (8 GPUs)](https://docs.cloud.google.com/ai-hypercomputer/docs/evaluate-clustered-gpus#a3-high) machine series, are designed to enable you to run large-scale artificial intelligence (AI) and machine learning (ML) clusters and provide the following cluster management capabilities:
+Clustered GPUs, such as [A5X](https://docs.cloud.google.com/ai-hypercomputer/docs/evaluate-clustered-gpus#a5x), [A4X Max](https://docs.cloud.google.com/ai-hypercomputer/docs/evaluate-clustered-gpus#a4x-max-machine), [A4X](https://docs.cloud.google.com/ai-hypercomputer/docs/evaluate-clustered-gpus#a4x-machine), [A4](https://docs.cloud.google.com/ai-hypercomputer/docs/evaluate-clustered-gpus#a4-machine), [A3 Ultra](https://docs.cloud.google.com/ai-hypercomputer/docs/evaluate-clustered-gpus#a3-ultra), [A3 Mega](https://docs.cloud.google.com/ai-hypercomputer/docs/evaluate-clustered-gpus#a3-mega), and [A3 High (8 GPUs)](https://docs.cloud.google.com/ai-hypercomputer/docs/evaluate-clustered-gpus#a3-high) machine series, are designed to enable you to run large-scale artificial intelligence (AI) and machine learning (ML) clusters and provide the following cluster management capabilities:
 
   * Clustered GPU infrastructure colocation
   * Cluster topology-aware placement
@@ -60,7 +60,7 @@ Most cluster management capabilities are only supported for _reservation-bound c
 
 ## Clustered GPU infrastructure colocation
 
-When you use clustered GPUs, such as A4X Max, A4X, A4, A3 Ultra, A3 Mega, and A3 High (8 GPUs), you can request [host machines](https://docs.cloud.google.com/ai-hypercomputer/docs/terminology#node) that Compute Engine provisions as close together as possible. These machines offer the following features:
+When you use clustered GPUs, such as A5X, A4X Max, A4X, A4, A3 Ultra, A3 Mega, and A3 High (8 GPUs), you can request [host machines](https://docs.cloud.google.com/ai-hypercomputer/docs/terminology#node) that Compute Engine provisions as close together as possible. These machines offer the following features:
 
   * Compute Engine provisions the machines as [blocks of resources](https://docs.cloud.google.com/ai-hypercomputer/docs/terminology#block).
 

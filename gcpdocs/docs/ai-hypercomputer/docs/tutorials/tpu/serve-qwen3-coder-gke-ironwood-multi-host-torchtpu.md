@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/ai-hypercomputer/docs/tutorials/tpu/serve-qwen3-coder-gke-ironwood-multi-host-torchtpu/
 title: Serve Qwen3-Coder-480B on GKE with multi-host SGLang TorchTPU and PD disaggregation on TPU7x accelerators \u00a0|\u00a0 AI Hypercomputer \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-05T00:19:36.364740+00:00
+fetched_at: 2026-11-08T05:43:48.301732+00:00
 ---
 
 # Serve Qwen3-Coder-480B on GKE with multi-host SGLang TorchTPU and PD disaggregation on TPU7x accelerators  |  AI Hypercomputer  |  Google Cloud Documentation
@@ -113,12 +113,12 @@ Ensure that your [Compute Engine default service account](https://docs.cloud.goo
 Export the environment variables that you use throughout this tutorial:
     
     
-    export CLUSTER_NAME="YOUR_CLUSTER_NAME"
-    export PROJECT_ID="YOUR_PROJECT_ID"
-    export REGION="YOUR_REGION"
-    export ZONE="YOUR_ZONE"
-    export RESERVATION="YOUR_RESERVATION_NAME"
-    export HF_TOKEN="YOUR_HF_TOKEN"
+    export CLUSTER_NAME="YOUR_CLUSTER_NAME" # <= 40 chars; start with a-z; only a-z, 0-9, -
+    export PROJECT_ID="YOUR_PROJECT_ID" # Your Google Cloud project ID
+    export REGION="YOUR_REGION" # for example, us-central1
+    export ZONE="YOUR_ZONE" # for example, us-central1-c
+    export RESERVATION="YOUR_RESERVATION_NAME" # TPU7x reservation name (if using a reservation)
+    export HF_TOKEN="YOUR_HF_TOKEN" # Hugging Face access token
     export SGLANG_IMAGE="lmsysorg/sglang:v0.1.0-tpu"
 
 Replace the following:
@@ -670,10 +670,8 @@ When all Pods are ready, the output is similar to the following:
 
   4. Monitor the prefill and decode leader Pod logs until startup completes:
          
-         kubectl logs -f -l role=leader --prefix=true &
-         LOG_PID=$!
-         kubectl wait --for=condition=Ready --timeout=3600s pod -l role=leader
-         kill "${LOG_PID}" 2>/dev/null || true
+         kubectl wait --for=condition=Available --timeout=5400s \
+           lws/sglang-tpu-prefill lws/sglang-tpu-decode deployment/sglang-router
 
 Initial model download, weight loading, and compilation take approximately 15 to 30 minutes on the first run.
 
@@ -732,6 +730,7 @@ To avoid incurring additional ongoing charges to your Google Cloud account for t
   1. Delete the SGLang prefill, decode, and router workloads:
          
          kubectl delete -f qwen3-coder-480b-multihost-disagg-v7x.yaml --ignore-not-found
+         kubectl delete secret hf-secret --ignore-not-found
 
   2. Delete the TPU7x node pools, the workload placement policy, and the GKE cluster:
          
@@ -772,6 +771,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-03 UTC.
+Last updated 2026-11-07 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-07 UTC."],[],[]] 
