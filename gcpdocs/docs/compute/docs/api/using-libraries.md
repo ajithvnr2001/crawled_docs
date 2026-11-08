@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/compute/docs/api/using-libraries/
 title: Using client libraries \u00a0|\u00a0 Compute Engine \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T23:09:31.382131+00:00
+fetched_at: 2026-11-08T08:48:20.977702+00:00
 ---
 
 # Using client libraries  |  Compute Engine  |  Google Cloud Documentation
@@ -382,7 +382,7 @@ When you create a virtual machine (VM) instance, you must also attach a boot dis
         string $zone,
         string $instanceName,
         string $machineType = 'n1-standard-1',
-        string $sourceImage = 'projects/debian-cloud/global/images/family/debian-11',
+        string $sourceImage = 'projects/debian-cloud/global/images/family/debian-13',
         string $networkName = 'global/networks/default'
     ) {
         // Set the machine type using the specified zone.
@@ -3432,6 +3432,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-07 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-07 UTC."],[],[]] 

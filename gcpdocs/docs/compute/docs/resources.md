@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/compute/docs/resources/
 title: Resources \u00a0|\u00a0 Compute Engine \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T16:44:32.855958+00:00
+fetched_at: 2026-11-08T09:09:15.629723+00:00
 ---
 
 # Resources  |  Compute Engine  |  Google Cloud Documentation

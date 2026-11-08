@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/functions/docs/samples/functions-cloudevent-tips-retry/
 title: Toggle retries for Cloud Functions \u00a0|\u00a0 Cloud Run functions \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T16:25:27.979720+00:00
+fetched_at: 2026-11-08T08:37:07.223872+00:00
 ---
 
 # Toggle retries for Cloud Functions  |  Cloud Run functions  |  Google Cloud Documentation

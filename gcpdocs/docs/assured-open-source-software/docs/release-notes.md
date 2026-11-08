@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/assured-open-source-software/docs/release-notes/
 title: Assured OSS release notes \u00a0|\u00a0 Assured Open Source Software \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T00:40:14.380295+00:00
+fetched_at: 2026-11-08T09:15:45.716261+00:00
 ---
 
 # Assured OSS release notes  |  Assured Open Source Software  |  Google Cloud Documentation
@@ -26,6 +26,14 @@ This page documents production updates to Assured OSS. You can periodically chec
 You can see the latest product updates for all of Google Cloud on the [ Google Cloud](https://docs.cloud.google.com/release-notes) page, browse and filter all release notes in the [Google Cloud console](https://console.cloud.google.com/release-notes), or programmatically access release notes in [BigQuery](https://console.cloud.google.com/bigquery?p=bigquery-public-data&d=google_cloud_release_notes&t=release_notes&page=table). 
 
 To get the latest product updates delivered to you, add the URL of this page to your [feed reader](https://wikipedia.org/wiki/Comparison_of_feed_aggregators), or add the [feed URL](https://docs.cloud.google.com/feeds/assured-open-source-software-release-notes.xml) directly. 
+
+## November 06, 2026
+
+Feature
+
+The Assured Open Source Software Premium tier supports [Google Cloud regions and multi-regions](https://docs.cloud.google.com/security-command-center/docs/integrate-aoss-with-scc#supported-regions) for remote (or proxy) Artifact Registry repositories.
+
+For the list of supported regions, see [Supported regions](https://docs.cloud.google.com/security-command-center/docs/integrate-aoss-with-scc#supported-regions).
 
 ## August 03, 2026
 

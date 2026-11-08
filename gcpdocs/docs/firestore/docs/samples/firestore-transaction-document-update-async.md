@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/firestore/docs/samples/firestore-transaction-document-update-async/
 title: Updating a Firestore document in a transaction (async) \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T23:46:04.340126+00:00
+fetched_at: 2026-11-08T08:37:12.600752+00:00
 ---
 
 # Updating a Firestore document in a transaction (async)  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/omni/kubernetes/15.13.0/docs/ai/register-model-endpoint/
 title: Register and call remote AI models in AlloyDB Omni \u00a0|\u00a0 AlloyDB Omni for Kubernetes: 15.13.0 \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T05:48:05.348706+00:00
+fetched_at: 2026-11-08T08:57:08.413772+00:00
 ---
 
 # Register and call remote AI models in AlloyDB Omni  |  AlloyDB Omni for Kubernetes: 15.13.0  |  Google Cloud Documentation

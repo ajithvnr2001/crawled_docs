@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/omni/kubernetes/18.3.0/docs/ai/solr-search/
 title: Access Apache Solr data from AlloyDB Omni \u00a0|\u00a0 AlloyDB Omni using the container orchestrator: 18.3.0 \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T05:51:07.431767+00:00
+fetched_at: 2026-11-08T09:15:28.722327+00:00
 ---
 
 # Access Apache Solr data from AlloyDB Omni  |  AlloyDB Omni using the container orchestrator: 18.3.0  |  Google Cloud Documentation

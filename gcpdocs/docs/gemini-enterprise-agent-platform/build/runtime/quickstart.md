@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/runtime/quickstart/
 title: Quickstart: Develop and deploy agents on Agent Runtime \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-06T08:23:24.889220+00:00
+fetched_at: 2026-11-08T08:35:50.998772+00:00
 ---
 
 # Quickstart: Develop and deploy agents on Agent Runtime  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation
@@ -145,9 +145,9 @@ Run the following command:
 
 ###  Google Cloud project 
             
-            import [vertexai](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest)
+            import [vertexai](https://docs.cloud.google.com/python/docs/reference/vertexai/latest)
             
-            [vertexai](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest).init(
+            [vertexai](https://docs.cloud.google.com/python/docs/reference/vertexai/latest).init(
                 project="PROJECT_ID",               # Your project ID.
                 location="LOCATION",                # Your cloud region.
             )
@@ -163,9 +163,9 @@ Where:
 
 ###  Google Cloud project 
             
-            import [vertexai](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest)
+            import [vertexai](https://docs.cloud.google.com/python/docs/reference/vertexai/latest)
             
-            client = [vertexai](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest).Client(
+            client = [vertexai](https://docs.cloud.google.com/python/docs/reference/vertexai/latest).Client(
                 project="PROJECT_ID",               # Your project ID.
                 location="LOCATION",                # Your cloud region.
             )

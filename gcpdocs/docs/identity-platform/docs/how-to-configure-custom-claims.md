@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/identity-platform/docs/how-to-configure-custom-claims/
 title: Configure custom claims on users \u00a0|\u00a0 Identity Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-06T08:21:10.003420+00:00
+fetched_at: 2026-11-08T08:27:46.614569+00:00
 ---
 
 # Configure custom claims on users  |  Identity Platform  |  Google Cloud Documentation
@@ -53,7 +53,7 @@ To preserve security, set custom claims using the Admin SDK on your server:
          // The new custom claims will propagate to the user's ID token the
          // next time a new one is issued.
          
-         [FirebaseAuthSnippets.java](https://github.com/firebase/firebase-admin-java/blob/c37e514e0bc899066dff4d8ef2aa895a04568ee0/src/test/java/com/google/firebase/snippets/FirebaseAuthSnippets.java#L157-L162)
+         [FirebaseAuthSnippets.java](https://github.com/firebase/firebase-admin-java/blob/919714aab5300560f6e8fcbeeb46bbf94df46ca8/src/test/java/com/google/firebase/snippets/FirebaseAuthSnippets.java#L157-L162)
 
 ###  Python 
          
@@ -62,7 +62,7 @@ To preserve security, set custom claims using the Admin SDK on your server:
          # The new custom claims will propagate to the user's ID token the
          # next time a new one is issued.
          
-         [index.py](https://github.com/firebase/firebase-admin-python/blob/00e0754146a2051d98952f5928c7e2f2c2ed695a/snippets/auth/index.py#L282-L285)
+         [index.py](https://github.com/firebase/firebase-admin-python/blob/6bafd5a7a452d33b38119c71217716361078a555/snippets/auth/index.py#L282-L285)
 
 ###  Go 
          
@@ -94,7 +94,7 @@ To preserve security, set custom claims using the Admin SDK on your server:
          // The new custom claims will propagate to the user's ID token the
          // next time a new one is issued.
          
-         [FirebaseAuthSnippets.cs](https://github.com/firebase/firebase-admin-dotnet/blob/d46549cc22df6f6238d7f74ecb56baf3a40825c9/FirebaseAdmin/FirebaseAdmin.Snippets/FirebaseAuthSnippets.cs#L527-L534)
+         [FirebaseAuthSnippets.cs](https://github.com/firebase/firebase-admin-dotnet/blob/e9421ffb1608d3c77e74d384214e3658c2e45c8e/FirebaseAdmin/FirebaseAdmin.Snippets/FirebaseAuthSnippets.cs#L527-L534)
 
   3. Validate the custom claim the next time it's sent to your server:
 
@@ -119,7 +119,7 @@ To preserve security, set custom claims using the Admin SDK on your server:
            // Allow access to requested admin resource.
          }
          
-         [FirebaseAuthSnippets.java](https://github.com/firebase/firebase-admin-java/blob/c37e514e0bc899066dff4d8ef2aa895a04568ee0/src/test/java/com/google/firebase/snippets/FirebaseAuthSnippets.java#L167-L171)
+         [FirebaseAuthSnippets.java](https://github.com/firebase/firebase-admin-java/blob/919714aab5300560f6e8fcbeeb46bbf94df46ca8/src/test/java/com/google/firebase/snippets/FirebaseAuthSnippets.java#L167-L171)
 
 ###  Python 
          
@@ -129,7 +129,7 @@ To preserve security, set custom claims using the Admin SDK on your server:
              # Allow access to requested admin resource.
              pass
          
-         [index.py](https://github.com/firebase/firebase-admin-python/blob/00e0754146a2051d98952f5928c7e2f2c2ed695a/snippets/auth/index.py#L290-L294)
+         [index.py](https://github.com/firebase/firebase-admin-python/blob/6bafd5a7a452d33b38119c71217716361078a555/snippets/auth/index.py#L290-L294)
 
 ###  Go 
          
@@ -162,7 +162,7 @@ To preserve security, set custom claims using the Admin SDK on your server:
          }
          
          
-         [FirebaseAuthSnippets.cs](https://github.com/firebase/firebase-admin-dotnet/blob/d46549cc22df6f6238d7f74ecb56baf3a40825c9/FirebaseAdmin/FirebaseAdmin.Snippets/FirebaseAuthSnippets.cs#L539-L549)
+         [FirebaseAuthSnippets.cs](https://github.com/firebase/firebase-admin-dotnet/blob/e9421ffb1608d3c77e74d384214e3658c2e45c8e/FirebaseAdmin/FirebaseAdmin.Snippets/FirebaseAuthSnippets.cs#L539-L549)
 
   4. To determine what custom claims are present for a user:
 
@@ -184,7 +184,7 @@ To preserve security, set custom claims using the Admin SDK on your server:
          UserRecord user = FirebaseAuth.getInstance().getUser(uid);
          System.out.println(user.getCustomClaims().get("admin"));
          
-         [FirebaseAuthSnippets.java](https://github.com/firebase/firebase-admin-java/blob/c37e514e0bc899066dff4d8ef2aa895a04568ee0/src/test/java/com/google/firebase/snippets/FirebaseAuthSnippets.java#L175-L177)
+         [FirebaseAuthSnippets.java](https://github.com/firebase/firebase-admin-java/blob/919714aab5300560f6e8fcbeeb46bbf94df46ca8/src/test/java/com/google/firebase/snippets/FirebaseAuthSnippets.java#L175-L177)
 
 ###  Python 
          
@@ -193,7 +193,7 @@ To preserve security, set custom claims using the Admin SDK on your server:
          # The claims can be accessed on the user record.
          print(user.custom_claims.get('admin'))
          
-         [index.py](https://github.com/firebase/firebase-admin-python/blob/00e0754146a2051d98952f5928c7e2f2c2ed695a/snippets/auth/index.py#L298-L301)
+         [index.py](https://github.com/firebase/firebase-admin-python/blob/6bafd5a7a452d33b38119c71217716361078a555/snippets/auth/index.py#L298-L301)
 
 ###  Go 
          
@@ -217,7 +217,7 @@ To preserve security, set custom claims using the Admin SDK on your server:
          UserRecord user = await FirebaseAuth.DefaultInstance.GetUserAsync(uid);
          Console.WriteLine(user.CustomClaims["admin"]);
          
-         [FirebaseAuthSnippets.cs](https://github.com/firebase/firebase-admin-dotnet/blob/d46549cc22df6f6238d7f74ecb56baf3a40825c9/FirebaseAdmin/FirebaseAdmin.Snippets/FirebaseAuthSnippets.cs#L553-L555)
+         [FirebaseAuthSnippets.cs](https://github.com/firebase/firebase-admin-dotnet/blob/e9421ffb1608d3c77e74d384214e3658c2e45c8e/FirebaseAdmin/FirebaseAdmin.Snippets/FirebaseAuthSnippets.cs#L553-L555)
 
 
 

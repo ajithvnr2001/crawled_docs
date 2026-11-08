@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/firestore/docs/samples/firestore-solution-sharded-counter-custom-type-async/
 title: Create custom shard and counter types for Firestore distributed counters (async) \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T23:46:08.048881+00:00
+fetched_at: 2026-11-08T08:37:14.076784+00:00
 ---
 
 # Create custom shard and counter types for Firestore distributed counters (async)  |  Google Cloud Documentation

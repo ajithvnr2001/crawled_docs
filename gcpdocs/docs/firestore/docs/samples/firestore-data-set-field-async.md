@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/firestore/docs/samples/firestore-data-set-field-async/
 title: Update a Firestore document field (async) \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T23:45:49.608881+00:00
+fetched_at: 2026-11-08T08:36:08.547889+00:00
 ---
 
 # Update a Firestore document field (async)  |  Google Cloud Documentation

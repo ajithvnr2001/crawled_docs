@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/assured-workloads/docs/manage-cloud-controls/
 title: Manage cloud controls in Assured Workloads and Audit Manager \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T05:38:49.300633+00:00
+fetched_at: 2026-11-08T08:26:20.817841+00:00
 ---
 
 # Manage cloud controls in Assured Workloads and Audit Manager  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/samples/bigquery-extract-table-json/
 title: Export a table to a JSON file \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-06T05:52:28.231022+00:00
+fetched_at: 2026-11-08T08:46:57.296367+00:00
 ---
 
 # Export a table to a JSON file  |  BigQuery  |  Google Cloud Documentation

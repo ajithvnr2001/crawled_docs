@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/omni/containers/15.7.1/docs/configure-disk-cache/
 title: Accelerate database performance using disk cache \u00a0|\u00a0 AlloyDB Omni for containers: 15.7.1 \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-06T05:53:21.888337+00:00
+fetched_at: 2026-11-08T09:20:12.540600+00:00
 ---
 
 # Accelerate database performance using disk cache  |  AlloyDB Omni for containers: 15.7.1  |  Google Cloud Documentation
@@ -67,8 +67,8 @@ The following steps demonstrate using `lvm` and `ext4` on a Ubuntu Compute Engin
 
   1. Create a volume group from all available physical devices:
          
-         nvme_prefix=&quot;STORAGE_PREFIX"
-           nvme_list=$(ls "$nvme_prefix";*)
+         nvme_prefix="STORAGE_PREFIX"
+           nvme_list=$(ls "$nvme_prefix"*)
            sudo vgcreate VOLUME_GROUP ${nvme_list}
 
 Replace the following:
@@ -177,7 +177,7 @@ To enable AlloyDB Omni disk cache for your database, set the appropriate Grand U
   2. To set the value of the parameters, use the following commands inside the AlloyDB Omni database:
          
          alter system set omni_disk_cache_enabled=on;
-                 alter system set omni_disk_cache_directory=&#39;/CACHE_DIRECTORY_PATH_INSIDE_CONTAINER';
+                 alter system set omni_disk_cache_directory='/CACHE_DIRECTORY_PATH_INSIDE_CONTAINER';
                
 
   3. By default, AlloyDB Omni uses all available space in the file system. You can override the default value using the `omni_disk_cache_file_size` parameter if needed.
@@ -228,6 +228,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-28 UTC.
+Last updated 2026-11-07 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-07 UTC."],[],[]] 

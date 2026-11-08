@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/forecasting-overview/
 title: Forecasting overview \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T05:38:40.185445+00:00
+fetched_at: 2026-11-08T08:24:52.153182+00:00
 ---
 
 # Forecasting overview  |  BigQuery  |  Google Cloud Documentation

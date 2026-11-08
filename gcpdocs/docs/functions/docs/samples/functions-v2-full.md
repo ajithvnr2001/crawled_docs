@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/functions/docs/samples/functions-v2-full/
 title: Deploy Cloud Function 2nd gen with Pub/Sub trigger using Terraform \u00a0|\u00a0 Cloud Run functions \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T16:52:46.042106+00:00
+fetched_at: 2026-11-08T08:36:24.920654+00:00
 ---
 
 # Deploy Cloud Function 2nd gen with Pub/Sub trigger using Terraform  |  Cloud Run functions  |  Google Cloud Documentation

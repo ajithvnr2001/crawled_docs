@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/omni/linux/18.1.1/docs/switchover-failover/
 title: Switchover and failover with the pglogical replication \u00a0|\u00a0 AlloyDB Omni using RPM: 18.1.1 \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T05:39:46.344252+00:00
+fetched_at: 2026-11-08T09:16:42.971162+00:00
 ---
 
 # Switchover and failover with the pglogical replication  |  AlloyDB Omni using RPM: 18.1.1  |  Google Cloud Documentation

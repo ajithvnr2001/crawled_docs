@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/omni/kubernetes/18.3.0/docs/ai/create-ivf-index/
 title: Create an IVF index \u00a0|\u00a0 AlloyDB Omni using the container orchestrator: 18.3.0 \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T05:51:11.568864+00:00
+fetched_at: 2026-11-08T09:11:27.933277+00:00
 ---
 
 # Create an IVF index  |  AlloyDB Omni using the container orchestrator: 18.3.0  |  Google Cloud Documentation

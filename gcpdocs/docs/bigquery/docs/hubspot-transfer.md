@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/hubspot-transfer/
 title: Load HubSpot data into BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T05:38:45.382318+00:00
+fetched_at: 2026-11-08T08:24:47.874677+00:00
 ---
 
 # Load HubSpot data into BigQuery  |  Google Cloud Documentation

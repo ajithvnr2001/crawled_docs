@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/samples/bigqueryreservation-reservationservice-iampolicy-get/
 title: Get the IAM policy for a reservation \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T10:08:35.074647+00:00
+fetched_at: 2026-11-08T08:25:32.264957+00:00
 ---
 
 # Get the IAM policy for a reservation  |  BigQuery  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/appengine/migration-center/standard/migrate-to-second-gen/go-differences/
 title: Migrate from Go 1.11 to the latest Go runtime \u00a0|\u00a0 App Engine migration center \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T05:38:55.535220+00:00
+fetched_at: 2026-11-08T08:26:20.910252+00:00
 ---
 
 # Migrate from Go 1.11 to the latest Go runtime  |  App Engine migration center  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini/enterprise/docs/release-notes/
 title: Gemini Enterprise release notes \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-07T08:29:33.912298+00:00
+fetched_at: 2026-11-08T08:36:33.074647+00:00
 ---
 
 # Gemini Enterprise release notes  |  Google Cloud Documentation
@@ -40,6 +40,20 @@ Bundled Gemini Code Assist entitlements for existing Gemini Enterprise Standard 
 To transition your developer workflows, agentic coding assistance is available through Google Antigravity, which is included in Gemini Enterprise editions.
 
 For more information, see the [Gemini Code Assist sunset page](https://docs.cloud.google.com/gemini/docs/codeassist/sunset).
+
+Feature
+
+**Gemini Enterprise: Video generation upgrades to Omni 1.2 Flash**
+
+[Gemini Omni 1.2 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/omni-1-2-flash) is generally available (GA) and replaces Veo 3.1 for video generation in the `global` region. Omni 1.2 Flash improves clarity and instruction following.
+
+To use video generation, an administrator must turn on the **Enable video generation** setting. For more information, see:
+
+  * [Generate a video](https://docs.cloud.google.com/gemini/enterprise/docs/assistant-analyze#generate_a_video)
+  * [Manage web app features](https://docs.cloud.google.com/gemini/enterprise/docs/manage-web-app-features)
+  * [Gemini Enterprise limitations](https://docs.cloud.google.com/gemini/enterprise/docs/locations#product-limitations)
+
+
 
 Breaking
 

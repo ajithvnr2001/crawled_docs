@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/omni/kubernetes/16.11.0/docs/configure-load-balancer-k8s/
 title: Configure a load balancer for AlloyDB Omni on Kubernetes \u00a0|\u00a0 AlloyDB Omni using the container orchestrator: 16.11.0 \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-07T08:29:29.255438+00:00
+fetched_at: 2026-11-08T09:18:53.419441+00:00
 ---
 
 # Configure a load balancer for AlloyDB Omni on Kubernetes  |  AlloyDB Omni using the container orchestrator: 16.11.0  |  Google Cloud Documentation

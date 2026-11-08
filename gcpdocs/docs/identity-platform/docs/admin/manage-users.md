@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/identity-platform/docs/admin/manage-users/
 title: Managing users programmatically \u00a0|\u00a0 Identity Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-05T11:08:39.376692+00:00
+fetched_at: 2026-11-08T08:29:16.889755+00:00
 ---
 
 # Managing users programmatically  |  Identity Platform  |  Google Cloud Documentation
@@ -55,7 +55,7 @@ The primary way to identify a user is by their `uid`:
     // See the UserRecord reference doc for the contents of userRecord.
     System.out.println("Successfully fetched user data: " + userRecord.getUid());
     
-    [FirebaseAuthSnippets.java](https://github.com/firebase/firebase-admin-java/blob/c37e514e0bc899066dff4d8ef2aa895a04568ee0/src/test/java/com/google/firebase/snippets/FirebaseAuthSnippets.java#L77-L79)
+    [FirebaseAuthSnippets.java](https://github.com/firebase/firebase-admin-java/blob/919714aab5300560f6e8fcbeeb46bbf94df46ca8/src/test/java/com/google/firebase/snippets/FirebaseAuthSnippets.java#L77-L79)
 
 ### Python
     
@@ -65,7 +65,7 @@ The primary way to identify a user is by their `uid`:
     user = auth.get_user(uid)
     print(f'Successfully fetched user data: {user.uid}')
     
-    [index.py](https://github.com/firebase/firebase-admin-python/blob/ae0a284127609272957c594af7c8a6179d87d1d4/snippets/auth/index.py#L183-L186)
+    [index.py](https://github.com/firebase/firebase-admin-python/blob/6bafd5a7a452d33b38119c71217716361078a555/snippets/auth/index.py#L183-L186)
 
 ### Go
     
@@ -91,7 +91,7 @@ The primary way to identify a user is by their `uid`:
     // See the UserRecord reference doc for the contents of userRecord.
     Console.WriteLine($"Successfully fetched user data: {userRecord.Uid}");
     
-    [FirebaseAuthSnippets.cs](https://github.com/firebase/firebase-admin-dotnet/blob/d46549cc22df6f6238d7f74ecb56baf3a40825c9/FirebaseAdmin/FirebaseAdmin.Snippets/FirebaseAuthSnippets.cs#L70-L72)
+    [FirebaseAuthSnippets.cs](https://github.com/firebase/firebase-admin-dotnet/blob/e9421ffb1608d3c77e74d384214e3658c2e45c8e/FirebaseAdmin/FirebaseAdmin.Snippets/FirebaseAuthSnippets.cs#L70-L72)
 
 ### Getting a user by email
 
@@ -119,7 +119,7 @@ You can also get a user using their email:
     // See the UserRecord reference doc for the contents of userRecord.
     System.out.println("Successfully fetched user data: " + userRecord.getEmail());
     
-    [FirebaseAuthSnippets.java](https://github.com/firebase/firebase-admin-java/blob/c37e514e0bc899066dff4d8ef2aa895a04568ee0/src/test/java/com/google/firebase/snippets/FirebaseAuthSnippets.java#L85-L87)
+    [FirebaseAuthSnippets.java](https://github.com/firebase/firebase-admin-java/blob/919714aab5300560f6e8fcbeeb46bbf94df46ca8/src/test/java/com/google/firebase/snippets/FirebaseAuthSnippets.java#L85-L87)
 
 ### Python
     
@@ -129,7 +129,7 @@ You can also get a user using their email:
     user = auth.get_user_by_email(email)
     print(f'Successfully fetched user data: {user.uid}')
     
-    [index.py](https://github.com/firebase/firebase-admin-python/blob/ae0a284127609272957c594af7c8a6179d87d1d4/snippets/auth/index.py#L192-L195)
+    [index.py](https://github.com/firebase/firebase-admin-python/blob/6bafd5a7a452d33b38119c71217716361078a555/snippets/auth/index.py#L192-L195)
 
 ### Go
     
@@ -149,7 +149,7 @@ You can also get a user using their email:
     // See the UserRecord reference doc for the contents of userRecord.
     Console.WriteLine($"Successfully fetched user data: {userRecord.Uid}");
     
-    [FirebaseAuthSnippets.cs](https://github.com/firebase/firebase-admin-dotnet/blob/d46549cc22df6f6238d7f74ecb56baf3a40825c9/FirebaseAdmin/FirebaseAdmin.Snippets/FirebaseAuthSnippets.cs#L79-L81)
+    [FirebaseAuthSnippets.cs](https://github.com/firebase/firebase-admin-dotnet/blob/e9421ffb1608d3c77e74d384214e3658c2e45c8e/FirebaseAdmin/FirebaseAdmin.Snippets/FirebaseAuthSnippets.cs#L79-L81)
 
 Note that you can only search using primary emails, not provider-specific emails. For example, if a Facebook account with the email `facebookUser@example.com` is linked to an existing user with the email `user@example.com`, calling `getUserByEmail("facebookUser@example.com")` will yield no results. Calling `getUserByEmail("user@example.com")` will return the expected user.
 
@@ -186,7 +186,7 @@ If a user has a phone number, you can look them up using it:
     // See the UserRecord reference doc for the contents of userRecord.
     System.out.println("Successfully fetched user data: " + userRecord.getPhoneNumber());
     
-    [FirebaseAuthSnippets.java](https://github.com/firebase/firebase-admin-java/blob/c37e514e0bc899066dff4d8ef2aa895a04568ee0/src/test/java/com/google/firebase/snippets/FirebaseAuthSnippets.java#L94-L96)
+    [FirebaseAuthSnippets.java](https://github.com/firebase/firebase-admin-java/blob/919714aab5300560f6e8fcbeeb46bbf94df46ca8/src/test/java/com/google/firebase/snippets/FirebaseAuthSnippets.java#L94-L96)
 
 ### Python
     
@@ -196,7 +196,7 @@ If a user has a phone number, you can look them up using it:
     user = auth.get_user_by_phone_number(phone)
     print(f'Successfully fetched user data: {user.uid}')
     
-    [index.py](https://github.com/firebase/firebase-admin-python/blob/ae0a284127609272957c594af7c8a6179d87d1d4/snippets/auth/index.py#L221-L224)
+    [index.py](https://github.com/firebase/firebase-admin-python/blob/6bafd5a7a452d33b38119c71217716361078a555/snippets/auth/index.py#L221-L224)
 
 ### Go
     
@@ -216,7 +216,7 @@ If a user has a phone number, you can look them up using it:
     // See the UserRecord reference doc for the contents of userRecord.
     Console.WriteLine($"Successfully fetched user data: {userRecord.Uid}");
     
-    [FirebaseAuthSnippets.cs](https://github.com/firebase/firebase-admin-dotnet/blob/d46549cc22df6f6238d7f74ecb56baf3a40825c9/FirebaseAdmin/FirebaseAdmin.Snippets/FirebaseAuthSnippets.cs#L88-L90)
+    [FirebaseAuthSnippets.cs](https://github.com/firebase/firebase-admin-dotnet/blob/e9421ffb1608d3c77e74d384214e3658c2e45c8e/FirebaseAdmin/FirebaseAdmin.Snippets/FirebaseAuthSnippets.cs#L88-L90)
 
 ### Bulk retrieve user data
 
@@ -290,7 +290,7 @@ You can also retrieve a list of users based on identifiers that you provide. You
     for uid in result.not_found:
         print(uid)
     
-    [index.py](https://github.com/firebase/firebase-admin-python/blob/ae0a284127609272957c594af7c8a6179d87d1d4/snippets/auth/index.py#L200-L215)
+    [index.py](https://github.com/firebase/firebase-admin-python/blob/6bafd5a7a452d33b38119c71217716361078a555/snippets/auth/index.py#L200-L215)
 
 ### Go
     
@@ -342,7 +342,7 @@ You can also retrieve a list of users based on identifiers that you provide. You
     }
     
     
-    [FirebaseAuthSnippets.cs](https://github.com/firebase/firebase-admin-dotnet/blob/d46549cc22df6f6238d7f74ecb56baf3a40825c9/FirebaseAdmin/FirebaseAdmin.Snippets/FirebaseAuthSnippets.cs#L97-L117)
+    [FirebaseAuthSnippets.cs](https://github.com/firebase/firebase-admin-dotnet/blob/e9421ffb1608d3c77e74d384214e3658c2e45c8e/FirebaseAdmin/FirebaseAdmin.Snippets/FirebaseAuthSnippets.cs#L97-L117)
 
 This method returns a list the same size as the input list, with each entry containing either the corresponding `UserRecord` or an error, indicating why that identifier was not able to be looked up.
 
@@ -394,7 +394,7 @@ The code below shows how to list all users:
       System.out.println("User: " + user.getUid());
     }
     
-    [FirebaseAuthSnippets.java](https://github.com/firebase/firebase-admin-java/blob/c37e514e0bc899066dff4d8ef2aa895a04568ee0/src/test/java/com/google/firebase/snippets/FirebaseAuthSnippets.java#L211-L225)
+    [FirebaseAuthSnippets.java](https://github.com/firebase/firebase-admin-java/blob/919714aab5300560f6e8fcbeeb46bbf94df46ca8/src/test/java/com/google/firebase/snippets/FirebaseAuthSnippets.java#L211-L225)
 
 ### Python
     
@@ -412,7 +412,7 @@ The code below shows how to list all users:
     for user in auth.list_users().iterate_all():
         print('User: ' + user.uid)
     
-    [index.py](https://github.com/firebase/firebase-admin-python/blob/ae0a284127609272957c594af7c8a6179d87d1d4/snippets/auth/index.py#L330-L341)
+    [index.py](https://github.com/firebase/firebase-admin-python/blob/6bafd5a7a452d33b38119c71217716361078a555/snippets/auth/index.py#L330-L341)
 
 ### Go
     
@@ -475,7 +475,7 @@ The code below shows how to list all users:
     }
     
     
-    [FirebaseAuthSnippets.cs](https://github.com/firebase/firebase-admin-dotnet/blob/d46549cc22df6f6238d7f74ecb56baf3a40825c9/FirebaseAdmin/FirebaseAdmin.Snippets/FirebaseAuthSnippets.cs#L500-L520)
+    [FirebaseAuthSnippets.cs](https://github.com/firebase/firebase-admin-dotnet/blob/e9421ffb1608d3c77e74d384214e3658c2e45c8e/FirebaseAdmin/FirebaseAdmin.Snippets/FirebaseAuthSnippets.cs#L500-L520)
 
 Users are returned in batches, ordered by their `uid`. Each batch of results contains a list of users, and a next page token used to fetch the next batch. When all users have been listed, no `pageToken` is returned.
 
@@ -540,7 +540,7 @@ To create a new user:
     UserRecord userRecord = FirebaseAuth.getInstance().createUser(request);
     System.out.println("Successfully created new user: " + userRecord.getUid());
     
-    [FirebaseAuthSnippets.java](https://github.com/firebase/firebase-admin-java/blob/c37e514e0bc899066dff4d8ef2aa895a04568ee0/src/test/java/com/google/firebase/snippets/FirebaseAuthSnippets.java#L112-L122)
+    [FirebaseAuthSnippets.java](https://github.com/firebase/firebase-admin-java/blob/919714aab5300560f6e8fcbeeb46bbf94df46ca8/src/test/java/com/google/firebase/snippets/FirebaseAuthSnippets.java#L112-L122)
 
 ### Python
     
@@ -555,7 +555,7 @@ To create a new user:
         disabled=False)
     print(f'Sucessfully created new user: {user.uid}')
     
-    [index.py](https://github.com/firebase/firebase-admin-python/blob/ae0a284127609272957c594af7c8a6179d87d1d4/snippets/auth/index.py#L229-L237)
+    [index.py](https://github.com/firebase/firebase-admin-python/blob/6bafd5a7a452d33b38119c71217716361078a555/snippets/auth/index.py#L229-L237)
 
 ### Go
     
@@ -593,7 +593,7 @@ To create a new user:
     // See the UserRecord reference doc for the contents of userRecord.
     Console.WriteLine($"Successfully created new user: {userRecord.Uid}");
     
-    [FirebaseAuthSnippets.cs](https://github.com/firebase/firebase-admin-dotnet/blob/d46549cc22df6f6238d7f74ecb56baf3a40825c9/FirebaseAdmin/FirebaseAdmin.Snippets/FirebaseAuthSnippets.cs#L124-L136)
+    [FirebaseAuthSnippets.cs](https://github.com/firebase/firebase-admin-dotnet/blob/e9421ffb1608d3c77e74d384214e3658c2e45c8e/FirebaseAdmin/FirebaseAdmin.Snippets/FirebaseAuthSnippets.cs#L124-L136)
 
 You can set any of the properties below on a new user. All properties are optional.
 
@@ -648,7 +648,7 @@ Property | Type | Description
     UserRecord userRecord = FirebaseAuth.getInstance().updateUser(request);
     System.out.println("Successfully updated user: " + userRecord.getUid());
     
-    [FirebaseAuthSnippets.java](https://github.com/firebase/firebase-admin-java/blob/c37e514e0bc899066dff4d8ef2aa895a04568ee0/src/test/java/com/google/firebase/snippets/FirebaseAuthSnippets.java#L140-L150)
+    [FirebaseAuthSnippets.java](https://github.com/firebase/firebase-admin-java/blob/919714aab5300560f6e8fcbeeb46bbf94df46ca8/src/test/java/com/google/firebase/snippets/FirebaseAuthSnippets.java#L140-L150)
 
 ### Python
     
@@ -664,7 +664,7 @@ Property | Type | Description
         disabled=True)
     print(f'Sucessfully updated user: {user.uid}')
     
-    [index.py](https://github.com/firebase/firebase-admin-python/blob/ae0a284127609272957c594af7c8a6179d87d1d4/snippets/auth/index.py#L250-L259)
+    [index.py](https://github.com/firebase/firebase-admin-python/blob/6bafd5a7a452d33b38119c71217716361078a555/snippets/auth/index.py#L250-L259)
 
 ### Go
     
@@ -703,7 +703,7 @@ Property | Type | Description
     // See the UserRecord reference doc for the contents of userRecord.
     Console.WriteLine($"Successfully updated user: {userRecord.Uid}");
     
-    [FirebaseAuthSnippets.cs](https://github.com/firebase/firebase-admin-dotnet/blob/d46549cc22df6f6238d7f74ecb56baf3a40825c9/FirebaseAdmin/FirebaseAdmin.Snippets/FirebaseAuthSnippets.cs#L451-L464)
+    [FirebaseAuthSnippets.cs](https://github.com/firebase/firebase-admin-dotnet/blob/e9421ffb1608d3c77e74d384214e3658c2e45c8e/FirebaseAdmin/FirebaseAdmin.Snippets/FirebaseAuthSnippets.cs#L451-L464)
 
 You can update any of the user properties below. All properties are optional. If a property is not specified, its value will remain unchanged.
 
@@ -741,7 +741,7 @@ You can delete a user with their `uid`:
     FirebaseAuth.getInstance().deleteUser(uid);
     System.out.println("Successfully deleted user.");
     
-    [FirebaseAuthSnippets.java](https://github.com/firebase/firebase-admin-java/blob/c37e514e0bc899066dff4d8ef2aa895a04568ee0/src/test/java/com/google/firebase/snippets/FirebaseAuthSnippets.java#L231-L232)
+    [FirebaseAuthSnippets.java](https://github.com/firebase/firebase-admin-java/blob/919714aab5300560f6e8fcbeeb46bbf94df46ca8/src/test/java/com/google/firebase/snippets/FirebaseAuthSnippets.java#L231-L232)
 
 ### Python
     
@@ -749,7 +749,7 @@ You can delete a user with their `uid`:
     auth.delete_user(uid)
     print('Successfully deleted user')
     
-    [index.py](https://github.com/firebase/firebase-admin-python/blob/ae0a284127609272957c594af7c8a6179d87d1d4/snippets/auth/index.py#L264-L265)
+    [index.py](https://github.com/firebase/firebase-admin-python/blob/6bafd5a7a452d33b38119c71217716361078a555/snippets/auth/index.py#L264-L265)
 
 ### Go
     
@@ -768,7 +768,7 @@ You can delete a user with their `uid`:
     await FirebaseAuth.DefaultInstance.DeleteUserAsync(uid);
     Console.WriteLine("Successfully deleted user.");
     
-    [FirebaseAuthSnippets.cs](https://github.com/firebase/firebase-admin-dotnet/blob/d46549cc22df6f6238d7f74ecb56baf3a40825c9/FirebaseAdmin/FirebaseAdmin.Snippets/FirebaseAuthSnippets.cs#L471-L472)
+    [FirebaseAuthSnippets.cs](https://github.com/firebase/firebase-admin-dotnet/blob/e9421ffb1608d3c77e74d384214e3658c2e45c8e/FirebaseAdmin/FirebaseAdmin.Snippets/FirebaseAuthSnippets.cs#L471-L472)
 
 ### Delete Multiple Users
 
@@ -818,7 +818,7 @@ You can also delete multiple users at once:
     for err in result.errors:
         print(f'error #{result.index}, reason: {result.reason}')
     
-    [index.py](https://github.com/firebase/firebase-admin-python/blob/ae0a284127609272957c594af7c8a6179d87d1d4/snippets/auth/index.py#L270-L277)
+    [index.py](https://github.com/firebase/firebase-admin-python/blob/6bafd5a7a452d33b38119c71217716361078a555/snippets/auth/index.py#L270-L277)
 
 ### Go
     
@@ -855,7 +855,7 @@ You can also delete multiple users at once:
     }
     
     
-    [FirebaseAuthSnippets.cs](https://github.com/firebase/firebase-admin-dotnet/blob/d46549cc22df6f6238d7f74ecb56baf3a40825c9/FirebaseAdmin/FirebaseAdmin.Snippets/FirebaseAuthSnippets.cs#L479-L493)
+    [FirebaseAuthSnippets.cs](https://github.com/firebase/firebase-admin-dotnet/blob/e9421ffb1608d3c77e74d384214e3658c2e45c8e/FirebaseAdmin/FirebaseAdmin.Snippets/FirebaseAuthSnippets.cs#L479-L493)
 
 The delete users method returns a list of failures for the users that were unable to be deleted.
 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chronicle/docs/yara-l/expressions/
 title: Expressions, operators, and other constructs \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T10:09:28.501185+00:00
+fetched_at: 2026-11-08T09:12:46.438304+00:00
 ---
 
 # Expressions, operators, and other constructs  |  Google Security Operations  |  Google Cloud Documentation
@@ -84,7 +84,7 @@ Some function expressions return a boolean value, which can be used as an indivi
 
 ### Reference list or data table
 
-You can use reference lists or data tables in the `events` or `outcome` sections. See [Reference lists](https://docs.cloud.google.com/chronicle/docs/reference/reference-lists.md) and [Use data tables](https://docs.cloud.google.com/chronicle/docs/investigation/data-tables) for more information on reference list and data table behavior and syntax.
+You can use reference lists or data tables in the `events` or `outcome` sections. See [Reference lists](https://docs.cloud.google.com/chronicle/docs/reference/reference-lists) and [Use data tables](https://docs.cloud.google.com/chronicle/docs/investigation/data-tables) for more information on reference list and data table behavior and syntax.
 
 #### Example: Syntax for reference lists
 
@@ -645,6 +645,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-28 UTC.
+Last updated 2026-11-06 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-06 UTC."],[],[]] 

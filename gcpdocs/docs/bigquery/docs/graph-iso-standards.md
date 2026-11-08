@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/graph-iso-standards/
 title: BigQuery Graph and ISO standards \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T05:38:47.011248+00:00
+fetched_at: 2026-11-08T08:25:20.674188+00:00
 ---
 
 # BigQuery Graph and ISO standards  |  Google Cloud Documentation

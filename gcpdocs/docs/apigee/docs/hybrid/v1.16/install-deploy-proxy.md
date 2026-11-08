@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/apigee/docs/hybrid/v1.16/install-deploy-proxy/
 title: Step 2: Deploy an API proxy \u00a0|\u00a0 Apigee \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T05:47:15.356313+00:00
+fetched_at: 2026-11-08T08:55:47.457250+00:00
 ---
 
 # Step 2: Deploy an API proxy  |  Apigee  |  Google Cloud Documentation

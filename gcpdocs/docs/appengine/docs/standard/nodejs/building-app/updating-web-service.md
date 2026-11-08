@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/appengine/docs/standard/nodejs/building-app/updating-web-service/
 title: Update your web service \u00a0|\u00a0 App Engine standard environment \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T05:39:00.007645+00:00
+fetched_at: 2026-11-08T08:26:24.596379+00:00
 ---
 
 # Update your web service  |  App Engine standard environment  |  Google Cloud Documentation

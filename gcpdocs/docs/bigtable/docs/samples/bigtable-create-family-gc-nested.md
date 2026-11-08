@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigtable/docs/samples/bigtable-create-family-gc-nested/
 title: Nested garbage-collection policy \u00a0|\u00a0 Bigtable \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-06T12:44:54.057603+00:00
+fetched_at: 2026-11-08T08:24:56.277257+00:00
 ---
 
 # Nested garbage-collection policy  |  Bigtable  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/firestore/docs/samples/firestore-data-set-id-specified/
 title: Add a Firestore document \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T23:46:12.456243+00:00
+fetched_at: 2026-11-08T08:36:07.476144+00:00
 ---
 
 # Add a Firestore document  |  Google Cloud Documentation

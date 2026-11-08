@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/samples/bigquerystorage-bigqueryread-readsession-create/
 title: Create a BigQuery read session \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T10:08:34.212491+00:00
+fetched_at: 2026-11-08T08:24:56.988585+00:00
 ---
 
 # Create a BigQuery read session  |  Google Cloud Documentation

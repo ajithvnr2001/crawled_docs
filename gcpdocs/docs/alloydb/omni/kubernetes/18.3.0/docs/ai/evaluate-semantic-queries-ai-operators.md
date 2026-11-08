@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/omni/kubernetes/18.3.0/docs/ai/evaluate-semantic-queries-ai-operators/
 title: Perform intelligent SQL queries using AI functions \u00a0|\u00a0 AlloyDB Omni using the container orchestrator: 18.3.0 \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T05:51:11.199958+00:00
+fetched_at: 2026-11-08T09:13:50.228121+00:00
 ---
 
 # Perform intelligent SQL queries using AI functions  |  AlloyDB Omni using the container orchestrator: 18.3.0  |  Google Cloud Documentation

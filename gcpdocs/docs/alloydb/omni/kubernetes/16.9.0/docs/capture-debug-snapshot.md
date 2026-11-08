@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/omni/kubernetes/16.9.0/docs/capture-debug-snapshot/
 title: Capture a debug snapshot \u00a0|\u00a0 AlloyDB Omni for Kubernetes: 16.9.0 \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T05:51:28.980089+00:00
+fetched_at: 2026-11-08T09:15:25.443958+00:00
 ---
 
 # Capture a debug snapshot  |  AlloyDB Omni for Kubernetes: 16.9.0  |  Google Cloud Documentation

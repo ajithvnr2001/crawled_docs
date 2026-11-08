@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/appengine/migration-center/standard/python/migrate-app-identity/
 title: Migrating App Identity to OIDC ID Tokens \u00a0|\u00a0 App Engine migration center \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T05:38:55.651050+00:00
+fetched_at: 2026-11-08T08:26:17.590252+00:00
 ---
 
 # Migrating App Identity to OIDC ID Tokens  |  App Engine migration center  |  Google Cloud Documentation

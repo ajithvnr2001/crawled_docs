@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/compute/docs/disks/async-pd/failover-failback/
 title: Failover and failback asynchronous disks \u00a0|\u00a0 Compute Engine \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-06T12:03:58.019370+00:00
+fetched_at: 2026-11-08T09:10:29.611339+00:00
 ---
 
 # Failover and failback asynchronous disks  |  Compute Engine  |  Google Cloud Documentation

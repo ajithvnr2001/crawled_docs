@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/cluster-toolkit/docs/release-notes/
 title: Cluster Toolkit release notes \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-01T05:38:47.539984+00:00
+fetched_at: 2026-11-08T09:16:25.731671+00:00
 ---
 
 # Cluster Toolkit release notes  |  Google Cloud Documentation
@@ -24,6 +24,38 @@ Send feedback
 This page documents production updates to Cluster Toolkit. Check this page for announcements about new or updated features, bug fixes, known issues, and deprecated functionality. 
 
 You can see the latest product updates for all of Google Cloud on the [ Google Cloud](https://docs.cloud.google.com/release-notes) page, browse and filter all release notes in the [Google Cloud console](https://console.cloud.google.com/release-notes), or programmatically access release notes in [BigQuery](https://console.cloud.google.com/bigquery?p=bigquery-public-data&d=google_cloud_release_notes&t=release_notes&page=table). 
+
+## November 03, 2026
+
+v1.108.0
+
+Feature
+
+Cluster Toolkit v1.108.0 is available. This release lets you pin node pools to reservation sub-blocks in the [`gke-node-pool` module](https://docs.cloud.google.com/cluster-toolkit/docs/modules/gke-node-pool), adds Slurm support for Cloud TPU v5e, v5p, and v6e, and introduces the `gcluster explain` command to inspect blueprints and modules.
+
+This release also exposes the `wait_for_pods_ready` configuration for Kueue in the [`kubectl-apply` module](https://docs.cloud.google.com/cluster-toolkit/docs/modules/kubectl-apply) and sets the `recovery_timeout` field to `0s` by default for [Pathways workloads](https://docs.cloud.google.com/cluster-toolkit/docs/deploy/gke/run-workloads-pathways).
+
+Additionally, this release suppresses configuration drift for clusters and node pools in the `ignore_changes` argument of the `lifecycle` block for Google Kubernetes Engine (GKE), and upgrades the network modules for the Cloud Foundation Toolkit (CFT) to version 18.3 and later.
+
+This update also checks credentials for Artifact Registry and Docker only when a [job submission](https://docs.cloud.google.com/cluster-toolkit/docs/reference/gcluster-job-submit) uses Crane to build container images.
+
+For more information, see the [release announcement on GitHub](https://github.com/GoogleCloudPlatform/cluster-toolkit/discussions/6622).
+
+## October 19, 2026
+
+v1.107.0
+
+Feature
+
+Cluster Toolkit v1.107.0 is available. This release adds the `random_name_suffix` variable to the [`resource-policy` module](https://docs.cloud.google.com/cluster-toolkit/docs/modules/resource-policy) so that you can optionally omit the random hexadecimal suffix from the names of resource policies.
+
+This release also upgrades Slurm to version 26.05.4 and updates image families to include CUDA 13.2.2 and NVIDIA driver version 595 for H4D, A3 Ultra, A4, and A4X blueprints.
+
+Additionally, this release enforces context timeouts to prevent unresponsive commands in the [`gcluster` CLI](https://docs.cloud.google.com/cluster-toolkit/docs/reference/gcluster), and pins `kubectl` calls and the dynamic client to the configured `kubeconfig` context for operations on GKE.
+
+This update also resolves slice shorthands for Cloud TPU, unifies placement policies across GPU and TPU machine types when you [submit jobs](https://docs.cloud.google.com/cluster-toolkit/docs/reference/gcluster-job-submit), and waits for Pods to start before the [`gcluster job logs` command](https://docs.cloud.google.com/cluster-toolkit/docs/reference/gcluster-job-logs) fetches logs.
+
+For more information, see the [release announcement on GitHub](https://github.com/GoogleCloudPlatform/cluster-toolkit/discussions/6516).
 
 ## October 13, 2026
 
@@ -569,6 +601,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-30 UTC.
+Last updated 2026-11-06 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-06 UTC."],[],[]] 

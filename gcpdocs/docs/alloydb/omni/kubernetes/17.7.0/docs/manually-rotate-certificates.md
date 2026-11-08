@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/omni/kubernetes/17.7.0/docs/manually-rotate-certificates/
 title: Manually rotate certificates \u00a0|\u00a0 AlloyDB Omni using the container orchestrator: 17.7.0 \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T05:50:54.637810+00:00
+fetched_at: 2026-11-08T09:00:00.635833+00:00
 ---
 
 # Manually rotate certificates  |  AlloyDB Omni using the container orchestrator: 17.7.0  |  Google Cloud Documentation

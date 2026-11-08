@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/generative-ai-app-builder/docs/samples/genappbuilder-purge-documents/
 title: Purge documents from a data store \u00a0|\u00a0 Agent Search \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T18:16:52.421069+00:00
+fetched_at: 2026-11-08T08:34:39.993768+00:00
 ---
 
 # Purge documents from a data store  |  Agent Search  |  Google Cloud Documentation

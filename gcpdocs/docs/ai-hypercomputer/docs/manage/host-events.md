@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/ai-hypercomputer/docs/manage/host-events/
 title: Manage host events across compute instances \u00a0|\u00a0 AI Hypercomputer \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-06T05:53:22.821744+00:00
+fetched_at: 2026-11-08T08:26:36.362173+00:00
 ---
 
 # Manage host events across compute instances  |  AI Hypercomputer  |  Google Cloud Documentation
@@ -23,7 +23,7 @@ Send feedback
 
 [ Clustered GPUs ](https://docs.cloud.google.com/ai-hypercomputer/docs/evaluate-clustered-gpus) [ General GPUs ](https://docs.cloud.google.com/ai-hypercomputer/docs/evaluate-general-gpus)
 
-This document explains how to monitor, plan for, and perform scheduled maintenance on [Clustered GPU](https://docs.cloud.google.com/ai-hypercomputer/docs/evaluate-clustered-gpus) (A4X Max, A4X, A4, A3 Ultra, A3 Mega, and A3 High (8 GPUs)) and [General GPU](https://docs.cloud.google.com/ai-hypercomputer/docs/evaluate-general-gpus) instances. When you proactively manage upcoming [maintenance host events](https://docs.cloud.google.com/compute/docs/instances/host-maintenance-overview) on your Compute Engine instances, you can minimize disruptions and maintain optimal performance.
+This document explains how to monitor, plan for, and perform scheduled maintenance on [Clustered GPU](https://docs.cloud.google.com/ai-hypercomputer/docs/evaluate-clustered-gpus) (A5X, A4X Max, A4X, A4, A3 Ultra, A3 Mega, and A3 High (8 GPUs)) and [General GPU](https://docs.cloud.google.com/ai-hypercomputer/docs/evaluate-general-gpus) instances. When you proactively manage upcoming [maintenance host events](https://docs.cloud.google.com/compute/docs/instances/host-maintenance-overview) on your Compute Engine instances, you can minimize disruptions and maintain optimal performance.
 
 For more options for maintaining your infrastructure, see the following:
 
@@ -112,6 +112,7 @@ The following table describes the host maintenance features for accelerator-opti
 
 Machine type | Typical scheduled maintenance event frequency | [Maintenance behavior](https://docs.cloud.google.com/compute/docs/instances/setting-vm-host-options#available_host_maintenance_properties) | Advanced notification for scheduled maintenance | Advanced notifications for emergency maintenance | On-demand maintenance | Simulate maintenance  
 ---|---|---|---|---|---|---  
+A5X | Minimum of 90 days | Terminates with [ Local SSD data persistence](https://docs.cloud.google.com/compute/docs/instances/host-maintenance-overview#disk-persistence) | 90 days | If you [ enable emergency notifications](https://docs.cloud.google.com/ai-hypercomputer/docs/manage/host-events-reservations#emergency-notifications), then 7 days. Otherwise, a few hours.  | Yes | No  
 A4X Max and A4X | Minimum of 90 days | Stop and restart (with [Local SSD data persistence](https://docs.cloud.google.com/compute/docs/instances/host-maintenance-overview#disk-persistence))  | 90 days | If you [ enable emergency notifications](https://docs.cloud.google.com/ai-hypercomputer/docs/manage/host-events-reservations#emergency-notifications), then 7 days. Otherwise, a few hours.  | Yes | No  
 A4 | Minimum of 90 days | Stop and restart (with [Local SSD data persistence](https://docs.cloud.google.com/compute/docs/instances/host-maintenance-overview#disk-persistence))  | 90 days | If you [ enable emergency notifications](https://docs.cloud.google.com/ai-hypercomputer/docs/manage/host-events-reservations#emergency-notifications), then 7 days. Otherwise, a few hours.  | Yes | No  
 A3 Ultra | Minimum of 90 days | Stop and restart (with [Local SSD data persistence](https://docs.cloud.google.com/compute/docs/instances/host-maintenance-overview#disk-persistence))  | 90 days | If you [ enable emergency notifications](https://docs.cloud.google.com/ai-hypercomputer/docs/manage/host-events-reservations#emergency-notifications), then 7 days. Otherwise, a few hours.  | Yes | No  

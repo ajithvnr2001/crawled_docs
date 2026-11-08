@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/omni/kubernetes/15.12.0/docs/ai/measure-vector-query-recall/
 title: Measure vector query recall \u00a0|\u00a0 AlloyDB Omni for Kubernetes: 15.12.0 \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T05:51:40.150735+00:00
+fetched_at: 2026-11-08T09:15:11.151534+00:00
 ---
 
 # Measure vector query recall  |  AlloyDB Omni for Kubernetes: 15.12.0  |  Google Cloud Documentation

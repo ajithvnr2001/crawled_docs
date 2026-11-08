@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/compute/docs/samples/compute-create-egress-rule-windows-activation/
 title: Create a firewall rule for Windows activation host \u00a0|\u00a0 Compute Engine \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T23:11:24.587159+00:00
+fetched_at: 2026-11-08T08:48:30.034182+00:00
 ---
 
 # Create a firewall rule for Windows activation host  |  Compute Engine  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/data-studio/treemap-reference/
 title: Treemap reference \u00a0|\u00a0 Data Studio \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T00:01:52.210148+00:00
+fetched_at: 2026-11-08T09:07:39.165786+00:00
 ---
 
 # Treemap reference  |  Data Studio  |  Google Cloud Documentation

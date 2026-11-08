@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/omni/containers/16.9.0/docs/high-availability/overview/
 title: High availability and data resilience \u00a0|\u00a0 AlloyDB Omni for containers: 16.9.0 \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T05:51:43.120893+00:00
+fetched_at: 2026-11-08T09:11:02.323088+00:00
 ---
 
 # High availability and data resilience  |  AlloyDB Omni for containers: 16.9.0  |  Google Cloud Documentation

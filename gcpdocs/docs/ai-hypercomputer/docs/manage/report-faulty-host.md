@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/ai-hypercomputer/docs/manage/report-faulty-host/
 title: Report faulty host \u00a0|\u00a0 AI Hypercomputer \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T23:32:02.562158+00:00
+fetched_at: 2026-11-08T08:26:41.407738+00:00
 ---
 
 # Report faulty host  |  AI Hypercomputer  |  Google Cloud Documentation
@@ -23,7 +23,7 @@ Send feedback
 
 [ Clustered GPUs ](https://docs.cloud.google.com/ai-hypercomputer/docs/evaluate-clustered-gpus)
 
-If an A4X Max, A4X, A4, A3 Ultra, A3 Mega, and A3 High (8 GPUs) instance experiences hardware issues that you can't resolve on your own—such as slower performance or consistently high GPU temperatures—you can report its host as faulty to minimize downtime for your workload.
+If an A5X, A4X Max, A4X, A4, A3 Ultra, A3 Mega, and A3 High (8 GPUs) instance experiences hardware issues that you can't resolve on your own—such as slower performance or consistently high GPU temperatures—you can report its host as faulty to minimize downtime for your workload.
 
 This document describes how to report a faulty host and track the repair status for Slurm clusters and other clusters that use Compute Engine instances. To report faulty hosts in a Google Kubernetes Engine (GKE) cluster, instead see [Report faulty hosts through GKE](https://docs.cloud.google.com/ai-hypercomputer/docs/manage/manage-gke-clusters#report-faulty-hosts-how-to).
 
@@ -37,7 +37,7 @@ When you report a faulty host, the following limitations apply:
 
     * The compute instance is running.
 
-    * The compute instance uses an A4X Max, A4X, A4, A3 Ultra, A3 Mega, and A3 High (8 GPUs) machine type.
+    * The compute instance uses an A5X, A4X Max, A4X, A4, A3 Ultra, A3 Mega, and A3 High (8 GPUs) machine type.
 
     * The compute instance uses the standard, flex-start, or reservation-bound provisioning model.
 
@@ -360,6 +360,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-04 UTC.
+Last updated 2026-11-06 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-06 UTC."],[],[]] 

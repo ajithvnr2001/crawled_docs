@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/appengine/docs/standard/python3/building-app/authenticating-users/
 title: Authenticate users with Firebase \u00a0|\u00a0 App Engine standard environment \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T07:54:47.646543+00:00
+fetched_at: 2026-11-08T08:21:51.892062+00:00
 ---
 
 # Authenticate users with Firebase  |  App Engine standard environment  |  Google Cloud Documentation
@@ -149,6 +149,8 @@ To use the Firebase ID token:
 
   1. Retrieve, verify, and decrypt the token in the `root` method of your `main.py` file:
          
+         import os
+         
          from flask import Flask, render_template, request
          from google.auth.transport import requests
          from google.cloud import [datastore](https://docs.cloud.google.com/python/docs/reference/datastore/latest)
@@ -171,7 +173,9 @@ To use the Firebase ID token:
                      # session store (see for instance
                      # http://flask.pocoo.org/docs/1.0/quickstart/#sessions).
                      claims = google.oauth2.id_token.verify_firebase_token(
-                         id_token, firebase_request_adapter
+                         id_token,
+                         firebase_request_adapter,
+                         audience=os.environ.[get](https://docs.cloud.google.com/python/docs/reference/datastore/latest/google.cloud.datastore.client.Client.html#google_cloud_datastore_client_Client_get)("GOOGLE_CLOUD_PROJECT"),
                      )
                  except ValueError as exc:
                      # This will be raised if the token is expired or any other
@@ -254,6 +258,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-02 UTC.
+Last updated 2026-11-07 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-02 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-07 UTC."],[],[]] 

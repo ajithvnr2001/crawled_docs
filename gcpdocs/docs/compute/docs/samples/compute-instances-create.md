@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/compute/docs/samples/compute-instances-create/
 title: Create a VM instance \u00a0|\u00a0 Compute Engine \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T05:38:27.800528+00:00
+fetched_at: 2026-11-08T08:49:46.738709+00:00
 ---
 
 # Create a VM instance  |  Compute Engine  |  Google Cloud Documentation
@@ -380,7 +380,7 @@ To authenticate to Compute Engine, set up Application Default Credentials. For m
         string $zone,
         string $instanceName,
         string $machineType = 'n1-standard-1',
-        string $sourceImage = 'projects/debian-cloud/global/images/family/debian-11',
+        string $sourceImage = 'projects/debian-cloud/global/images/family/debian-13',
         string $networkName = 'global/networks/default'
     ) {
         // Set the machine type using the specified zone.

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/compute/vm-manager/docs/apis/
 title: APIs and references \u00a0|\u00a0 VM Manager \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T23:05:22.726982+00:00
+fetched_at: 2026-11-08T08:48:59.915827+00:00
 ---
 
 # APIs and references  |  VM Manager  |  Google Cloud Documentation

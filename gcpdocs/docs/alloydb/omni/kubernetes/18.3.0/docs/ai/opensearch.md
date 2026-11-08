@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/omni/kubernetes/18.3.0/docs/ai/opensearch/
 title: Access OpenSearch data from AlloyDB Omni \u00a0|\u00a0 AlloyDB Omni using the container orchestrator: 18.3.0 \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T05:51:08.132089+00:00
+fetched_at: 2026-11-08T09:11:28.317943+00:00
 ---
 
 # Access OpenSearch data from AlloyDB Omni  |  AlloyDB Omni using the container orchestrator: 18.3.0  |  Google Cloud Documentation

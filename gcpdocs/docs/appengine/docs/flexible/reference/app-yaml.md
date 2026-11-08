@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/appengine/docs/flexible/reference/app-yaml/
 title: app.yaml Configuration File \u00a0|\u00a0 App Engine flexible environment \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T05:48:26.623077+00:00
+fetched_at: 2026-11-08T08:58:57.008838+00:00
 ---
 
 # app.yaml Configuration File  |  App Engine flexible environment  |  Google Cloud Documentation

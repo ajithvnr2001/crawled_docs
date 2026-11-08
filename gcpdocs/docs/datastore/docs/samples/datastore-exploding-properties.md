@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/datastore/docs/samples/datastore-exploding-properties/
 title: Exploding indexes \u00a0|\u00a0 Firestore in Datastore mode \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T22:58:31.193557+00:00
+fetched_at: 2026-11-08T09:09:04.964244+00:00
 ---
 
 # Exploding indexes  |  Firestore in Datastore mode  |  Google Cloud Documentation

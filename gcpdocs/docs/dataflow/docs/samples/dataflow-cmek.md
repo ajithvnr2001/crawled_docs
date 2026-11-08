@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/dataflow/docs/samples/dataflow-cmek/
 title: Use customer-managed encryption keys \u00a0|\u00a0 Cloud Dataflow \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T18:58:49.896596+00:00
+fetched_at: 2026-11-08T09:09:13.274421+00:00
 ---
 
 # Use customer-managed encryption keys  |  Cloud Dataflow  |  Google Cloud Documentation

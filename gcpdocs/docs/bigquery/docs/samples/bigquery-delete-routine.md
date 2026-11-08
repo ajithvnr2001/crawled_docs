@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/samples/bigquery-delete-routine/
 title: Delete a routine \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T05:42:01.915537+00:00
+fetched_at: 2026-11-08T08:47:15.140072+00:00
 ---
 
 # Delete a routine  |  BigQuery  |  Google Cloud Documentation

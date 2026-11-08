@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/platform/pa-user/data-exfiltration/
 title: Egress Control \u00a0|\u00a0 Google Distributed Cloud air-gapped \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T17:29:43.908616+00:00
+fetched_at: 2026-11-08T09:12:40.227210+00:00
 ---
 
 # Egress Control  |  Google Distributed Cloud air-gapped  |  Google Cloud Documentation
@@ -50,7 +50,9 @@ To enforce the no-egress traffic policy, follow these steps when creating a proj
 
 ###  API 
 
-To explicitly enforce the no-egress traffic policy when creating a project using the API, add the label to the project metadata and set it to `"false"`.
+By default, the no-egress traffic policy is enforced when you create a project. To enforce the no-egress traffic policy by using the API, ensure that the project metadata doesn't contain the `networking.gdc.goog/enable-default-egress-allow-to-outside-the-org` label. If the label is already present, remove it.
+
+**Caution:** Don't add the `networking.gdc.goog/enable-default-egress-allow-to-outside-the-org` label to enforce the no-egress traffic policy. The system checks only for the presence of this label key and ignores its value. Setting it to any value, including `"false"`, disables the no-egress traffic policy and allows default outbound traffic outside the organization.
     
     
     apiVersion: resourcemanager.global.gdc.goog/v1
@@ -58,8 +60,6 @@ To explicitly enforce the no-egress traffic policy when creating a project using
     metadata:
       name: PROJECT_NAME
       namespace: platform
-      labels:
-        networking.gdc.goog/enable-default-egress-allow-to-outside-the-org: "false"
     
 
 ## Allow egress traffic
@@ -95,7 +95,7 @@ Work through the following steps to allow egress traffic for a project:
 
 ###  API 
 
-To allow egress traffic, ensure that the `networking.gdc.goog/enable-default-egress-allow-to-outside-the-org` label exists on the project and is set to `"true"`.
+To allow egress traffic, add the `networking.gdc.goog/enable-default-egress-allow-to-outside-the-org: "true"` label to the project metadata. The presence of this label key disables the default no-egress traffic policy, and the system ignores the label value.
     
     
     apiVersion: resourcemanager.global.gdc.goog/v1
@@ -113,6 +113,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-06 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-06 UTC."],[],[]] 

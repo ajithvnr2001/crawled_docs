@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/compute/docs/gpus/create-gpu-vm-bulk/
 title: Create GPU VMs in bulk \u00a0|\u00a0 Compute Engine \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T23:06:53.989834+00:00
+fetched_at: 2026-11-08T09:10:12.365300+00:00
 ---
 
 # Create GPU VMs in bulk  |  Compute Engine  |  Google Cloud Documentation
@@ -109,9 +109,11 @@ Some machine types support [NVIDIA RTX Virtual Workstations (vWS)](https://www.n
 AI and ML workloads | Graphics and visualization | Other GPU workloads  
 **Accelerator-optimized A series machine types** are designed for high performance computing (HPC), artificial intelligence (AI), and machine learning (ML) workloads. The later generation A series are ideal for pre-training and fine-tuning foundation models that involves large clusters of accelerators, while the A2 series can be used for training smaller models and single host inference. For these machine types, the GPU model is automatically attached to the instance. |  **Accelerator-optimized G series machine types** are designed for workloads such as NVIDIA Omniverse simulation workloads, graphics-intensive applications, video transcoding, and virtual desktops. These machine types support [NVIDIA RTX Virtual Workstations (vWS)](https://www.nvidia.com/en-us/design-visualization/virtual-workstation/). The G series can also be used for training smaller models and for single-host inference. For these machine types, the GPU model is automatically attached to the instance. |  For N1 general-purpose machine types, except for the N1 shared-core (`f1-micro` and `g1-small`), you can attach a select set of GPU models. Some of these GPU models also support NVIDIA RTX Virtual Workstations (vWS).  
   
-  * [A4X Max](https://docs.cloud.google.com/compute/docs/accelerator-optimized-machines#a4x-vms) (NVIDIA GB300 Ultra Superchips)   
+  * [A5X](https://docs.cloud.google.com/compute/docs/accelerator-optimized-machines#a5x-instances) (NVIDIA Vera Rubin superchips)   
+(`nvidia-vr200`)
+  * [A4X Max](https://docs.cloud.google.com/compute/docs/accelerator-optimized-machines#a4x-vms) (NVIDIA GB300 Ultra superchips)   
 (`nvidia-gb300`)
-  * [A4X](https://docs.cloud.google.com/compute/docs/accelerator-optimized-machines#a4x-vms) (NVIDIA GB200 Superchips)   
+  * [A4X](https://docs.cloud.google.com/compute/docs/accelerator-optimized-machines#a4x-vms) (NVIDIA GB200 superchips)   
 (`nvidia-gb200`)
   * [A4](https://docs.cloud.google.com/compute/docs/accelerator-optimized-machines#a4-vms) (NVIDIA B200)   
 (`nvidia-b200`)
@@ -586,6 +588,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-06 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-06 UTC."],[],[]] 

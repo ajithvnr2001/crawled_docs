@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/samples/bigqueryreservation-reservationservice-reservation-delete/
 title: Delete a BigQuery reservation \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T10:08:53.516649+00:00
+fetched_at: 2026-11-08T08:25:33.949111+00:00
 ---
 
 # Delete a BigQuery reservation  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-cx/agent-assist/tutorials/
 title: Tutorials \u00a0|\u00a0 Agent Assist \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T16:30:37.155547+00:00
+fetched_at: 2026-11-08T08:35:13.161010+00:00
 ---
 
 # Tutorials  |  Agent Assist  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/compute/docs/samples/compute-instances-create-from-image/
 title: Create a Debian 10 VM instance from a public image \u00a0|\u00a0 Compute Engine \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T07:49:06.015457+00:00
+fetched_at: 2026-11-08T08:48:22.591274+00:00
 ---
 
 # Create a Debian 10 VM instance from a public image  |  Compute Engine  |  Google Cloud Documentation

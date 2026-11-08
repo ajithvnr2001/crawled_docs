@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/omni/kubernetes/18.3.0/docs/samples/
 title: AlloyDB Omni on Kubernetes Configuration Samples \u00a0|\u00a0 AlloyDB Omni using the container orchestrator: 18.3.0 \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T05:51:59.458863+00:00
+fetched_at: 2026-11-08T09:13:17.451024+00:00
 ---
 
 # AlloyDB Omni on Kubernetes Configuration Samples  |  AlloyDB Omni using the container orchestrator: 18.3.0  |  Google Cloud Documentation

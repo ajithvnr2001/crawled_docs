@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/omni/linux/current/docs/ai/perform-vector-search/
 title: Perform vector search in AlloyDB Omni \u00a0|\u00a0 AlloyDB Omni using RPM: Current (18.4.0) \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T05:39:55.944331+00:00
+fetched_at: 2026-11-08T09:15:16.702201+00:00
 ---
 
 # Perform vector search in AlloyDB Omni  |  AlloyDB Omni using RPM: Current (18.4.0)  |  Google Cloud Documentation

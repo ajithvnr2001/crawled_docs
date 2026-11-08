@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/ai-hypercomputer/docs/manage/manage-gke-clusters/
 title: Manage AI-optimized GKE clusters \u00a0|\u00a0 AI Hypercomputer \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T23:32:01.801823+00:00
+fetched_at: 2026-11-08T08:26:40.308368+00:00
 ---
 
 # Manage AI-optimized GKE clusters  |  AI Hypercomputer  |  Google Cloud Documentation
@@ -23,7 +23,7 @@ Send feedback
 
 [ Clustered GPUs ](https://docs.cloud.google.com/ai-hypercomputer/docs/evaluate-clustered-gpus)
 
-This page shows you how to manage AI-optimized Google Kubernetes Engine (GKE) clusters of A4X Max, A4X, A4, A3 Ultra, A3 Mega, and A3 High (8 GPUs) machines, including the following common events relevant to GKE clusters and AI workloads:
+This page shows you how to manage AI-optimized Google Kubernetes Engine (GKE) clusters of A5X, A4X Max, A4X, A4, A3 Ultra, A3 Mega, and A3 High (8 GPUs) machines, including the following common events relevant to GKE clusters and AI workloads:
 
   * Host maintenance
   * Cluster upgrades
@@ -144,7 +144,7 @@ After this, the node will be ready to serve workloads again.
 To report a faulty host, your GKE node must meet the following requirements:
 
   * You must be running GKE patch version 1.32.3-gke.1057001 or later.
-  * You must be running one of the following [GPU machine types](https://docs.cloud.google.com/compute/docs/gpus): A4X Max, A4X, A4, A3 Ultra, A3 Mega, and A3 High (8 GPUs).
+  * You must be running one of the following [GPU machine types](https://docs.cloud.google.com/compute/docs/gpus): A5X, A4X Max, A4X, A4, A3 Ultra, A3 Mega, and A3 High (8 GPUs).
   * You must be running your GKE nodes on a compute instance that is [reservation-bound](https://docs.cloud.google.com/ai-hypercomputer/docs/consumption-models).
   * Your GKE node must be in a `RUNNING` state. If you try to report a faulty host after deleting the compute instance, an error message is returned, and the host machine won't be marked as faulty.
   * You might be rate-limited on the number of calls to this API per reservation per month based on an evaluation of the health of your blocks. Rate-limits don't apply if your reservation uses the [_all capacity_ reservation operational mode](https://docs.cloud.google.com/ai-hypercomputer/docs/create/review-configurations#reservation-operational-mode).
@@ -285,6 +285,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-04 UTC.
+Last updated 2026-11-06 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-06 UTC."],[],[]] 

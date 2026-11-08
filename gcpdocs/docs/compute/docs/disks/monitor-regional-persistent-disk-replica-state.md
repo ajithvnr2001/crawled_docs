@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/compute/docs/disks/monitor-regional-persistent-disk-replica-state/
 title: Monitor replica states and replication status for regional disks \u00a0|\u00a0 Compute Engine \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T23:07:38.903054+00:00
+fetched_at: 2026-11-08T08:49:10.467354+00:00
 ---
 
 # Monitor replica states and replication status for regional disks  |  Compute Engine  |  Google Cloud Documentation
@@ -21,7 +21,7 @@ Send feedback
 
 #  Monitor replica states and replication status for regional disks Stay organized with collections  Save and categorize content based on your preferences. 
 
-Compute Engine maintains copies of each [regional](https://docs.cloud.google.com/compute/docs/disks/about-regional-persistent-disk) disk in two Google Cloud zones. Each copy is called a zonal replica. When you write data to your disk, Compute Engine synchronously replicates that data to both replicas to ensure high availability (HA). At any given time, the **disk replication status** of the regional disk tells you about the ability of a disk to synchronously write to both replicas. The disk's replication status is determined by the **replica states** of the disk's zonal replicas. The replica state for a zone is tells you the state of an individual zonal replica in comparison to the latest data on the disk. If a zonal replica contains the latest disk data, then that replica is considered to be _synced_ with the latest disk data. If both zonal replicas are synced, then your Regional Persistent Disk or Hyperdisk Balanced High Availability disk is considered to be _fully replicated_.
+Compute Engine maintains copies of each [regional](https://docs.cloud.google.com/compute/docs/disks/about-regional-persistent-disk) disk in two Google Cloud zones. Each copy is called a zonal replica. When you write data to your disk, Compute Engine synchronously replicates that data to both replicas to ensure high availability (HA). At any given time, the **disk replication status** of the regional disk tells you about the ability of a disk to synchronously write to both replicas. The disk's replication status is determined by the **replica states** of the disk's zonal replicas. The replica state for a zone tells you the state of an individual zonal replica in comparison to the latest data on the disk. If a zonal replica contains the latest disk data, then that replica is considered to be _synced_ with the latest disk data. If both zonal replicas are synced, then your Regional Persistent Disk or Hyperdisk Balanced High Availability disk is considered to be _fully replicated_.
 
 This document explains how you can monitor the replica states of your regional disks and their disk replication status over a period of time. You can use this document to do the following:
 
@@ -215,7 +215,7 @@ For example, to view the replica state data for a specific disk, do the followin
      7. In the **Aggregation** menu, select **Mean by replica_zone**.
      8. Select the time period for which you want to see the data.
 
-The dashboard displays the data about the average `synced` status for your disk's replicas over the specified time period. Multiple this data by 100 to determine the percentage of the time for which the replicas were synced. If the value for the average value shows as `1` for that time period, then the replica was always up to date with the latest data. An average value that is less than `1` indicates that the replica was not synced at some point of time during the specified time period.
+The dashboard displays the data about the average `synced` status for your disk's replicas over the specified time period. Multiply this data by 100 to determine the percentage of the time for which the replicas were synced. If the value for the average value shows as `1` for that time period, then the replica was always up to date with the latest data. An average value that is less than `1` indicates that the replica was not synced at some point of time during the specified time period.
 
 For more information about grouping and alignment, see [Choose how to display charted data](https://docs.cloud.google.com/monitoring/charts/metrics-selector#select_display).
 
@@ -338,6 +338,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-06 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-06 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/omni/kubernetes/17.10.0/docs/columnar-engine/maintain-content-freshness/
 title: Maintain freshness of in-memory column store data \u00a0|\u00a0 AlloyDB Omni using the container orchestrator: 17.10.0 \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T05:51:23.524437+00:00
+fetched_at: 2026-11-08T09:15:19.528606+00:00
 ---
 
 # Maintain freshness of in-memory column store data  |  AlloyDB Omni using the container orchestrator: 17.10.0  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/firestore/docs/samples/firestore-data-set-from-custom-type/
 title: Add a Firestore document using a custom type \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T23:45:50.000837+00:00
+fetched_at: 2026-11-08T08:36:08.684281+00:00
 ---
 
 # Add a Firestore document using a custom type  |  Google Cloud Documentation

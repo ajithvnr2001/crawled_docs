@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/samples/bigquery-pandas-public-data-sandbox/
 title: Download public table data to DataFrame from the sandbox \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T07:55:13.077208+00:00
+fetched_at: 2026-11-08T08:21:57.980432+00:00
 ---
 
 # Download public table data to DataFrame from the sandbox  |  BigQuery  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/anthos/clusters/docs/bare-metal/1.8/try/
 title: Concepts \u00a0|\u00a0 Anthos on bare metal \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T00:20:47.875949+00:00
+fetched_at: 2026-11-08T09:20:19.981413+00:00
 ---
 
 # Concepts  |  Anthos on bare metal  |  Google Cloud Documentation

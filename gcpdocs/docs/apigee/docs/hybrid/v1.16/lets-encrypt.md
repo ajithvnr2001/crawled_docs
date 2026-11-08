@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/apigee/docs/hybrid/v1.16/lets-encrypt/
 title: Obtain TLS certificates: An example \u00a0|\u00a0 Apigee \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T05:47:07.504549+00:00
+fetched_at: 2026-11-08T08:54:50.715908+00:00
 ---
 
 # Obtain TLS certificates: An example  |  Apigee  |  Google Cloud Documentation

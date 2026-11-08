@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/appengine/docs/standard/go/building-app/
 title: Build a Go app on App Engine \u00a0|\u00a0 App Engine standard environment \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T05:38:53.455744+00:00
+fetched_at: 2026-11-08T08:26:23.586674+00:00
 ---
 
 # Build a Go app on App Engine  |  App Engine standard environment  |  Google Cloud Documentation

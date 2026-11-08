@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/carbon-footprint/docs/release-notes/
 title: Carbon Footprint release notes \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T00:26:50.291945+00:00
+fetched_at: 2026-11-08T09:18:16.122270+00:00
 ---
 
 # Carbon Footprint release notes  |  Google Cloud Documentation
@@ -431,12 +431,6 @@ We've renamed the Carbon Footprint export table from `carbon_footprint_export` t
 Change
 
 Updated carbon model to version 5
-
-## April 26, 2022
-
-Change
-
-Viewing and exporting carbon footprint data now requires the `billing.accounts.getCarbonInformation` [IAM permission](https://docs.cloud.google.com/carbon-footprint/docs/iam). This permission is part of the _Carbon Footprint Viewer_ (`roles/billing.carbonViewer`) and _Billing Account Viewer_ (`roles/billing.viewer`) [IAM roles](https://docs.cloud.google.com/carbon-footprint/docs/iam).
 
 ## March 31, 2022
 

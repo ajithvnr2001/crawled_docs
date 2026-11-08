@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/batch/docs/samples/batch-get-job/
 title: Describe a job \u00a0|\u00a0 Batch \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T23:00:30.417586+00:00
+fetched_at: 2026-11-08T08:22:16.433416+00:00
 ---
 
 # Describe a job  |  Batch  |  Google Cloud Documentation

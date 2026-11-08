@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/firestore/docs/samples/firestore-query-filter-eq-string-async/
 title: Query a Firestore collection with a string eq filter (async) \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T23:45:44.027575+00:00
+fetched_at: 2026-11-08T08:37:28.241753+00:00
 ---
 
 # Query a Firestore collection with a string eq filter (async)  |  Google Cloud Documentation

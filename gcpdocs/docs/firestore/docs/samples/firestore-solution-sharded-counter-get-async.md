@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/firestore/docs/samples/firestore-solution-sharded-counter-get-async/
 title: Getting a Firestore document while using shards (async) \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T23:46:04.006340+00:00
+fetched_at: 2026-11-08T08:37:13.992819+00:00
 ---
 
 # Getting a Firestore document while using shards (async)  |  Google Cloud Documentation

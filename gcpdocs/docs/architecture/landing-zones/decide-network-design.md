@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/architecture/landing-zones/decide-network-design/
 title: Decide the network design for your Google Cloud landing zone \u00a0|\u00a0 Cloud Architecture Center \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T23:04:01.055876+00:00
+fetched_at: 2026-11-08T08:26:21.638716+00:00
 ---
 
 # Decide the network design for your Google Cloud landing zone  |  Cloud Architecture Center  |  Google Cloud Documentation

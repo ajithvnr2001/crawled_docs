@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/omni/kubernetes/17.7.0/docs/upgrade-kubernetes-overview/
 title: Kubernetes upgrade overview \u00a0|\u00a0 AlloyDB Omni using the container orchestrator: 17.7.0 \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T05:50:51.407946+00:00
+fetched_at: 2026-11-08T09:13:37.456388+00:00
 ---
 
 # Kubernetes upgrade overview  |  AlloyDB Omni using the container orchestrator: 17.7.0  |  Google Cloud Documentation

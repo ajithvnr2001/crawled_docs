@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/omni/kubernetes/18.3.0/docs/columnar-engine/manage-content-manually/
 title: Manage column store content manually \u00a0|\u00a0 AlloyDB Omni using the container orchestrator: 18.3.0 \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T05:51:05.816815+00:00
+fetched_at: 2026-11-08T09:15:12.833461+00:00
 ---
 
 # Manage column store content manually  |  AlloyDB Omni using the container orchestrator: 18.3.0  |  Google Cloud Documentation

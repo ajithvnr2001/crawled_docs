@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/datastore/docs/samples/datastore-run-query/
 title: Run query \u00a0|\u00a0 Firestore in Datastore mode \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T17:02:05.146844+00:00
+fetched_at: 2026-11-08T09:09:10.817139+00:00
 ---
 
 # Run query  |  Firestore in Datastore mode  |  Google Cloud Documentation

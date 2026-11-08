@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/omni/kubernetes/15.7.0/docs/high-availability/setup/
 title: Create a high availability setup \u00a0|\u00a0 AlloyDB Omni for Kubernetes: 15.7.0 \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T05:48:48.973194+00:00
+fetched_at: 2026-11-08T08:58:04.216560+00:00
 ---
 
 # Create a high availability setup  |  AlloyDB Omni for Kubernetes: 15.7.0  |  Google Cloud Documentation

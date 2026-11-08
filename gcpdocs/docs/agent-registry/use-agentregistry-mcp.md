@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/agent-registry/use-agentregistry-mcp/
 title: Use the Agent Registry MCP server \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T05:50:44.049776+00:00
+fetched_at: 2026-11-08T08:27:19.703479+00:00
 ---
 
 # Use the Agent Registry MCP server  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/ai-hypercomputer/docs/placement-policy-and-workload-policy/
 title: Compact placement policy and workload policy overview \u00a0|\u00a0 AI Hypercomputer \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T05:50:37.353921+00:00
+fetched_at: 2026-11-08T08:52:33.265507+00:00
 ---
 
 # Compact placement policy and workload policy overview  |  AI Hypercomputer  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigtable/docs/samples/bigtable-check-family-exists/
 title: Check if a column family exists \u00a0|\u00a0 Bigtable \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-06T12:45:35.529326+00:00
+fetched_at: 2026-11-08T08:22:25.650479+00:00
 ---
 
 # Check if a column family exists  |  Bigtable  |  Google Cloud Documentation

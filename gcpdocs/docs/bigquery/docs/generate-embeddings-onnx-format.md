@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/generate-embeddings-onnx-format/
 title: Generate embeddings with transformer models in ONNX format \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T05:38:41.512663+00:00
+fetched_at: 2026-11-08T08:23:25.560684+00:00
 ---
 
 # Generate embeddings with transformer models in ONNX format  |  BigQuery  |  Google Cloud Documentation

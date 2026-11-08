@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/omni/kubernetes/16.11.0/docs/ai/work-with-embeddings/
 title: Generate embeddings \u00a0|\u00a0 AlloyDB Omni using the container orchestrator: 16.11.0 \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T05:49:05.097257+00:00
+fetched_at: 2026-11-08T08:58:01.093710+00:00
 ---
 
 # Generate embeddings  |  AlloyDB Omni using the container orchestrator: 16.11.0  |  Google Cloud Documentation

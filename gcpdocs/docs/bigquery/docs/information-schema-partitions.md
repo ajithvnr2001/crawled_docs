@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/information-schema-partitions/
 title: PARTITIONS view \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T05:38:42.156469+00:00
+fetched_at: 2026-11-08T08:25:39.867577+00:00
 ---
 
 # PARTITIONS view  |  BigQuery  |  Google Cloud Documentation

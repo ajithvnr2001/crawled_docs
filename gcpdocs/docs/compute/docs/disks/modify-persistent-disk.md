@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/compute/docs/disks/modify-persistent-disk/
 title: Modify a Persistent Disk or Google Cloud Hyperdisk's settings \u00a0|\u00a0 Compute Engine \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T23:07:42.909726+00:00
+fetched_at: 2026-11-08T08:49:23.122377+00:00
 ---
 
 # Modify a Persistent Disk or Google Cloud Hyperdisk's settings  |  Compute Engine  |  Google Cloud Documentation
@@ -66,7 +66,7 @@ To change a Persistent Disk volume (the source disk) to another Persistent Disk 
        2. [Attach the new disk to the instance](https://docs.cloud.google.com/compute/docs/disks/attach-disks).
   5. [Start the instance](https://docs.cloud.google.com/compute/docs/instances/stop-start-instance#restart-vm).
 
-  6. Verify that new disk works as expected.
+  6. Verify that the new disk works as expected.
 
   7. After you test the new disk, you can [delete the snapshot](https://docs.cloud.google.com/compute/docs/disks/manage-snapshots#delete_a_snapshot) and [delete the source disk](https://docs.cloud.google.com/compute/docs/samples/compute-disk-delete). You continue to incur charges for the source disk and snapshot until you delete them.
 
@@ -617,6 +617,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-07 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-07 UTC."],[],[]] 

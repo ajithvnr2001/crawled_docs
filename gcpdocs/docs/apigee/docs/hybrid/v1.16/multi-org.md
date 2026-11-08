@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/apigee/docs/hybrid/v1.16/multi-org/
 title: Adding multiple hybrid orgs to a cluster \u00a0|\u00a0 Apigee \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T05:46:59.079522+00:00
+fetched_at: 2026-11-08T08:55:35.165130+00:00
 ---
 
 # Adding multiple hybrid orgs to a cluster  |  Apigee  |  Google Cloud Documentation

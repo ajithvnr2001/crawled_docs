@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/appengine/migration-center/standard/python/migrate-outbound-requests/
 title: Migrating outbound requests \u00a0|\u00a0 App Engine migration center \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T05:38:55.441789+00:00
+fetched_at: 2026-11-08T08:26:17.777219+00:00
 ---
 
 # Migrating outbound requests  |  App Engine migration center  |  Google Cloud Documentation

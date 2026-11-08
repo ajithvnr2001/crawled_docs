@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/apigee/docs/hybrid/v1.16/automated-issue-surfacing/
 title: Automated issue surfacing \u00a0|\u00a0 Apigee \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T05:50:29.781428+00:00
+fetched_at: 2026-11-08T09:11:05.344130+00:00
 ---
 
 # Automated issue surfacing  |  Apigee  |  Google Cloud Documentation

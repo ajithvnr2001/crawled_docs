@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/datastore/docs/samples/datastore-insert/
 title: Insert \u00a0|\u00a0 Firestore in Datastore mode \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T22:59:12.831578+00:00
+fetched_at: 2026-11-08T09:08:32.580108+00:00
 ---
 
 # Insert  |  Firestore in Datastore mode  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/apigee/docs/hybrid/v1.16/cassandra-production/
 title: Configure Cassandra for production \u00a0|\u00a0 Apigee \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T05:50:24.733371+00:00
+fetched_at: 2026-11-08T09:13:36.593494+00:00
 ---
 
 # Configure Cassandra for production  |  Apigee  |  Google Cloud Documentation

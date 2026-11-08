@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/dialogflow/es/docs/tutorials/sequences/create-intent-with-parameters/
 title: Creating the sequence flow intents \u00a0|\u00a0 Dialogflow ES \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T08:24:19.415167+00:00
+fetched_at: 2026-11-08T09:07:10.736358+00:00
 ---
 
 # Creating the sequence flow intents  |  Dialogflow ES  |  Google Cloud Documentation

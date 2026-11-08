@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/compute/docs/samples/compute-run-shutdown-scripts-parent-tag/
 title: Create a Compute Engine instance with shutdown scripts \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T05:40:17.922759+00:00
+fetched_at: 2026-11-08T08:49:20.600768+00:00
 ---
 
 # Create a Compute Engine instance with shutdown scripts  |  Google Cloud Documentation

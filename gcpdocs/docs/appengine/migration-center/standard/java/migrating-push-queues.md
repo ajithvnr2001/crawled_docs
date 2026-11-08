@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/appengine/migration-center/standard/java/migrating-push-queues/
 title: Migrate push queues to Cloud Tasks (Java) \u00a0|\u00a0 App Engine migration center \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T05:38:56.411708+00:00
+fetched_at: 2026-11-08T08:26:21.513116+00:00
 ---
 
 # Migrate push queues to Cloud Tasks (Java)  |  App Engine migration center  |  Google Cloud Documentation

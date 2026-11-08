@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/agent-registry/register-custom-adk-agents/
 title: Register a custom ADK agent \u00a0|\u00a0 Agent Registry \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-30T08:40:12.555597+00:00
+fetched_at: 2026-11-08T09:18:09.467244+00:00
 ---
 
 # Register a custom ADK agent  |  Agent Registry  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/omni/containers/16.9.0/docs/columnar-engine/configure/
 title: Configure the columnar engine in AlloyDB Omni \u00a0|\u00a0 AlloyDB Omni for containers: 16.9.0 \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T05:51:45.621516+00:00
+fetched_at: 2026-11-08T09:13:09.109217+00:00
 ---
 
 # Configure the columnar engine in AlloyDB Omni  |  AlloyDB Omni for containers: 16.9.0  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/samples/bigquery-load-table-dataframe/
 title: Load data from DataFrame \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T05:43:10.737469+00:00
+fetched_at: 2026-11-08T08:25:04.966846+00:00
 ---
 
 # Load data from DataFrame  |  BigQuery  |  Google Cloud Documentation

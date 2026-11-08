@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/omni/kubernetes/15.7.1/docs/clone-omni-barman/
 title: Restore an AlloyDB Omni cluster using Barman \u00a0|\u00a0 AlloyDB Omni for Kubernetes: 15.7.1 \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T05:49:41.613072+00:00
+fetched_at: 2026-11-08T09:00:45.570945+00:00
 ---
 
 # Restore an AlloyDB Omni cluster using Barman  |  AlloyDB Omni for Kubernetes: 15.7.1  |  Google Cloud Documentation

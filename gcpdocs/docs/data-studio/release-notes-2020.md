@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/data-studio/release-notes-2020/
 title: Release notes (2020) \u00a0|\u00a0 Data Studio \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T16:31:33.424870+00:00
+fetched_at: 2026-11-08T09:14:47.047407+00:00
 ---
 
 # Release notes (2020)  |  Data Studio  |  Google Cloud Documentation

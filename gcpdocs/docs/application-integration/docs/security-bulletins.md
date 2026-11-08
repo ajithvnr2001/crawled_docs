@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/application-integration/docs/security-bulletins/
 title: Security bulletins \u00a0|\u00a0 Application Integration \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T09:56:46.376210+00:00
+fetched_at: 2026-11-08T08:25:34.308281+00:00
 ---
 
 # Security bulletins  |  Application Integration  |  Google Cloud Documentation
@@ -45,7 +45,7 @@ An authenticated user could use a maliciously crafted serialized object to execu
 
 **Published:** 2026-10-14
 
-**Updated:** 2026-10-24
+**Updated:** 2026-11-05
 
 ### Description
 
@@ -55,7 +55,13 @@ An Incorrect Authorization vulnerability in the `AuthConfig` validation and inte
 
 #### What should I do?
 
-No customer action is required to resolve this vulnerability. This vulnerability was patched on August 27, 2026. To improve security against authorization vulnerabilities, starting October 15, 2026, Application Integration requires the `iam.serviceAccounts.actAs` permission on the run-as service account for any new integrations. Existing integrations and their new versions are unaffected.For more information, see [Prepare for upcoming authorization changes](https://docs.cloud.google.com/application-integration/docs/prepare-for-authorization-changes).
+No customer action is required to resolve this vulnerability. This vulnerability was patched on August 27, 2026. To improve security against authorization vulnerabilities, Application Integration has updated its publishing and testing requirements:
+
+  * **All integrations:** Require the `iam.serviceAccounts.actAs` permission on the run-as service account.
+  * **Integrations created on or after Oct 15, 2026:** Must have a run-as service account to use scheduled or event triggers.
+  * **Existing integrations created before Oct 15, 2026:** Will also require a run-as service account for scheduled or event triggers starting **January 15, 2027 (UTC)**.
+
+For more information, see [Prepare for upcoming authorization changes](https://docs.cloud.google.com/application-integration/docs/prepare-for-authorization-changes).
 
 #### What vulnerabilities are being addressed?
 
@@ -129,6 +135,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-28 UTC.
+Last updated 2026-11-05 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-05 UTC."],[],[]] 

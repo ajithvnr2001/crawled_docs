@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/time-series-anomaly-detection-tutorial/
 title: Perform anomaly detection with a multivariate time-series forecasting model \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T05:38:33.998557+00:00
+fetched_at: 2026-11-08T08:24:57.891254+00:00
 ---
 
 # Perform anomaly detection with a multivariate time-series forecasting model  |  BigQuery  |  Google Cloud Documentation

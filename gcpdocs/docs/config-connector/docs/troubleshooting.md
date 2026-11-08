@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/config-connector/docs/troubleshooting/
 title: Troubleshoot Config Connector \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T23:27:53.410223+00:00
+fetched_at: 2026-11-08T08:51:25.031757+00:00
 ---
 
 # Troubleshoot Config Connector  |  Google Cloud Documentation
@@ -115,6 +115,7 @@ Use the following table to help troubleshoot your issue based on the type of sym
 
   * Resource keeps updating every 5-15 mins
   * Reconciliation fails or loops due to automatic field updates
+  * Frequent retry attempts on failing resources exhaust API quotas
   * Resource has no status
   * KNV2005: syncer excessively updating resource
   * Resource deleted by Config Connector
@@ -208,6 +209,30 @@ To resolve this issue, migrate the resource from the `Merge` behavior to the `Ab
   2. Follow the steps in [Migrate resources from `Merge` to `Absent`](https://docs.cloud.google.com/config-connector/docs/concepts/ignore-unspecified-fields#migrate-from-merge-to-absent) to abandon the Kubernetes resource and re-acquire it with the updated YAML manifest.
 
 
+
+### Frequent retry attempts on failing resources exhaust API quotas
+
+This issue occurs when resources experience persistent reconciliation failures, such as when a resource depends on a missing external Google Cloud resource or has an invalid configuration.
+
+#### Symptom
+
+A Config Connector resource is in an `UpdateFailed` or `DependencyNotFound` status, and repeated reconciliation retries generate excessive Google Cloud API traffic or exhaust Google Cloud API quotas.
+
+#### Cause
+
+When reconciliation fails, Config Connector retries the resource by using exponential backoff with a default maximum delay of 2 minutes.
+
+#### Resolution
+
+For resources managed by [direct controllers](https://docs.cloud.google.com/config-connector/docs/concepts/controller-types) in Config Connector version 1.160.0 and later, configure the [`cnrm.cloud.google.com/backoff-max-delay-in-seconds` annotation](https://docs.cloud.google.com/config-connector/docs/concepts/reconciliation#configuring-exponential-backoff) to increase the maximum retry delay, or set the annotation to `"0"` to stop automatic retries.
+
+Resources managed by [Terraform-based or DCL-based controllers](https://docs.cloud.google.com/config-connector/docs/concepts/controller-types) don't support this annotation. To reduce retries for these resources, try the following options in order:
+
+  1. If a direct controller is available for the resource, switch to the direct controller and use the annotation.
+  2. Fix the underlying failure.
+  3. As a last resort, temporarily remove the resource from management by setting the `cnrm.cloud.google.com/deletion-policy: "abandon"` annotation and deleting the Kubernetes object. Alternatively, set `spec.actuationMode: Paused` on the `ConfigConnectorContext`.
+
+**Caution:** Setting `spec.actuationMode: Paused` on the `ConfigConnectorContext` pauses actuation for all resources in the namespace, not only the failing one.
 
 ### Resource has no status
 
@@ -923,6 +948,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-30 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 

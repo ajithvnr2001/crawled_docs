@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/omni/kubernetes/17.10.0/docs/database-users/overview/
 title: AlloyDB Omni user role overview \u00a0|\u00a0 AlloyDB Omni using the container orchestrator: 17.10.0 \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T05:51:22.666455+00:00
+fetched_at: 2026-11-08T09:15:11.654446+00:00
 ---
 
 # AlloyDB Omni user role overview  |  AlloyDB Omni using the container orchestrator: 17.10.0  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/compute/docs/disks/analyze-iops-hyperdisk/
 title: Analyze the provisioned IOPS and throughput for Hyperdisk volumes \u00a0|\u00a0 Compute Engine \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T23:06:30.490973+00:00
+fetched_at: 2026-11-08T09:10:32.619257+00:00
 ---
 
 # Analyze the provisioned IOPS and throughput for Hyperdisk volumes  |  Compute Engine  |  Google Cloud Documentation
@@ -156,7 +156,7 @@ To view performance metrics for your VMs, use the Cloud Monitoring observability
 
        * **CPU Utilization.** The percent of CPU used by the VM.
 
-       * **Network Traffic.** The average rate of bytes sent and received in one minute intervals.
+       * **Network Traffic.** The average rate of bytes sent and received in one-minute intervals.
 
        * **Disk Throughput.** The average rate of bytes written to and read from disks.
 
@@ -166,11 +166,11 @@ To view performance metrics for your VMs, use the Cloud Monitoring observability
 
        * **Operations (IOPS).** The average rate of I/O read and write operations to the disk in one-minute time periods.
 
-       * **IOPS by Storage Type** The average rate of I/O operations to the disk in one-minute time periods, grouped by the storage type and device type.
+       * **IOPS by Storage Type.** The average rate of I/O operations to the disk in one-minute time periods, grouped by the storage type and device type.
 
-       * **Throughput (MB/s)** The average rate of bytes written to and read from the VM's disks in one-minute time periods.
+       * **Throughput (MB/s).** The average rate of bytes written to and read from the VM's disks in one-minute time periods.
 
-       * **Throughput by Storage Type** The average rate of bytes written to and read from the VM's disks in one-minute time periods, grouped by the storage type and device type.
+       * **Throughput by Storage Type.** The average rate of bytes written to and read from the VM's disks in one-minute time periods, grouped by the storage type and device type.
 
        * **I/O Size Avg.** The average size of I/O read and write operations to disks. Small (4 to 16 KiB) random I/O operations are usually limited by IOPS and sequential or large (256 KiB-1 MiB) I/O operations are usually limited by throughput.
 
@@ -235,6 +235,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-06 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-06 UTC."],[],[]] 

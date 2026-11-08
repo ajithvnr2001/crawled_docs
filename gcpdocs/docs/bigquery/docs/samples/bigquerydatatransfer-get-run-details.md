@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/samples/bigquerydatatransfer-get-run-details/
 title: Get a transfer run \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T05:46:38.882053+00:00
+fetched_at: 2026-11-08T08:24:47.374148+00:00
 ---
 
 # Get a transfer run  |  BigQuery  |  Google Cloud Documentation

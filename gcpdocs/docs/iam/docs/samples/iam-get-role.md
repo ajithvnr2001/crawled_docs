@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/iam/docs/samples/iam-get-role/
 title: Get a role \u00a0|\u00a0 Identity and Access Management (IAM) \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T23:44:19.994288+00:00
+fetched_at: 2026-11-08T08:29:30.568218+00:00
 ---
 
 # Get a role  |  Identity and Access Management (IAM)  |  Google Cloud Documentation

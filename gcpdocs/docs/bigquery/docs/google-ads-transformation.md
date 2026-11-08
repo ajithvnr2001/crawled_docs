@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/google-ads-transformation/
 title: Google Ads report transformation \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T05:43:57.347549+00:00
+fetched_at: 2026-11-08T08:50:49.822430+00:00
 ---
 
 # Google Ads report transformation  |  BigQuery  |  Google Cloud Documentation
@@ -35,61 +35,101 @@ The following sections categorize report transformations based on report types a
 
 The following reports focus on high-level account performance, bidding strategies, and budget management.
 
-AdWords reports (deprecated) | BigQuery AdWords tables | Google Ads tables | Google Ads API resources (v25.0.0) | BigQuery views  
----|---|---|---|---  
-[Account Performance Report](https://developers.google.com/adwords/api/docs/appendix/reports/account-performance-report) |  p_Customer_customer_id  
-p_HourlyAccountConversionStats_customer_id  
-p_AccountConversionStats_customer_id  
-p_HourlyAccountStats_customer_id  
-p_AccountNonClickStats_customer_id  
-p_AccountBasicStats_customer_id  
-p_AccountStats_customer_id |  p_ads_Customer_customer_id  
+#### Account performance report
+
+Google Ads API resource (v25.0.0):
+    [Customer](https://developers.google.com/google-ads/api/fields/v25/customer)
+Google Ads tables:
+     p_ads_Customer_customer_id  
 p_ads_HourlyAccountConversionStats_customer_id  
 p_ads_AccountConversionStats_customer_id  
 p_ads_HourlyAccountStats_customer_id  
 p_ads_AccountNonClickStats_customer_id  
 p_ads_AccountBasicStats_customer_id  
-p_ads_AccountStats_customer_id | [Customer](https://developers.google.com/google-ads/api/fields/v25/customer) |  Customer_customer_id  
+p_ads_AccountStats_customer_id
+BigQuery views:
+     Customer_customer_id  
 HourlyAccountConversionStats_customer_id  
 AccountConversionStats_customer_id  
 HourlyAccountStats_customer_id  
 AccountNonClickStats_customer_id  
 AccountBasicStats_customer_id  
-AccountStats_customer_id  
-[Bid Goal Performance Report](https://developers.google.com/adwords/api/docs/appendix/reports/bid-goal-performance-report) |  p_BidGoal_customer_id  
-p_BidGoalStats_customer_id  
-p_HourlyBidGoalStats_customer_id  
-p_BidGoalConversionStats_customer_id |  p_ads_BidGoal_customer_id  
+AccountStats_customer_id
+AdWords report (deprecated):
+    [Account Performance Report](https://developers.google.com/adwords/api/docs/appendix/reports/account-performance-report)
+BigQuery AdWords tables (deprecated):
+     p_Customer_customer_id  
+p_HourlyAccountConversionStats_customer_id  
+p_AccountConversionStats_customer_id  
+p_HourlyAccountStats_customer_id  
+p_AccountNonClickStats_customer_id  
+p_AccountBasicStats_customer_id  
+p_AccountStats_customer_id
+
+#### Bid goal performance report
+
+Google Ads API resource (v25.0.0):
+    [Bidding Strategy](https://developers.google.com/google-ads/api/fields/v25/bidding_strategy)
+Google Ads tables:
+     p_ads_BidGoal_customer_id  
 p_ads_BidGoalStats_customer_id  
 p_ads_HourlyBidGoalStats_customer_id  
-p_ads_BidGoalConversionStats_customer_id | [Bidding Strategy](https://developers.google.com/google-ads/api/fields/v25/bidding_strategy) |  BidGoal_customer_id  
+p_ads_BidGoalConversionStats_customer_id
+BigQuery views:
+     BidGoal_customer_id  
 BidGoalStats_customer_id  
 HourlyBidGoalStats_customer_id  
-BidGoalConversionStats_customer_id  
-[Budget Performance Report](https://developers.google.com/adwords/api/docs/appendix/reports/budget-performance-report) |  p_Budget_customer_id  
-p_BudgetStats_customer_id |  p_ads_Budget_customer_id  
-p_ads_BudgetStats_customer_id | [Campaign Budget](https://developers.google.com/google-ads/api/fields/v25/campaign_budget) |  Budget_customer_id  
-BudgetStats_customer_id  
-  
+BidGoalConversionStats_customer_id
+AdWords report (deprecated):
+    [Bid Goal Performance Report](https://developers.google.com/adwords/api/docs/appendix/reports/bid-goal-performance-report)
+BigQuery AdWords tables (deprecated):
+     p_BidGoal_customer_id  
+p_BidGoalStats_customer_id  
+p_HourlyBidGoalStats_customer_id  
+p_BidGoalConversionStats_customer_id
+
+#### Budget performance report
+
+Google Ads API resource (v25.0.0):
+    [Campaign Budget](https://developers.google.com/google-ads/api/fields/v25/campaign_budget)
+Google Ads tables:
+     p_ads_Budget_customer_id  
+p_ads_BudgetStats_customer_id
+BigQuery views:
+     Budget_customer_id  
+BudgetStats_customer_id
+AdWords report (deprecated):
+    [Budget Performance Report](https://developers.google.com/adwords/api/docs/appendix/reports/budget-performance-report)
+BigQuery AdWords tables (deprecated):
+     p_Budget_customer_id  
+p_BudgetStats_customer_id
+
 ### Campaign reports
 
 The following reports contain metrics for campaign-level performance and location-based targeting.
 
-AdWords reports (deprecated) | BigQuery AdWords tables | Google Ads tables | Google Ads API resources (v25.0.0) | BigQuery views  
----|---|---|---|---  
-[Campaign Location Target Report](https://developers.google.com/adwords/api/docs/appendix/reports/campaign-location-target-report) |  p_CampaignLocationTargetStats_customer_id  
-p_LocationBasedCampaignCriterion_customer_id |  p_ads_CampaignLocationTargetStats_customer_id  
-p_ads_LocationBasedCampaignCriterion_customer_id | [Location View](https://developers.google.com/google-ads/api/fields/v25/location_view) |  CampaignLocationTargetStats_customer_id  
-LocationBasedCampaignCriterion_customer_id  
-[Campaign Performance Report](https://developers.google.com/adwords/api/docs/appendix/reports/campaign-performance-report) |  p_Campaign_customer_id  
-p_CampaignBasicStats_customer_id  
-p_CampaignConversionStats_customer_id  
-p_CampaignCrossDeviceStats_customer_id  
-p_HourlyCampaignConversionStats_customer_id  
-p_CampaignStats_customer_id  
-p_HourlyCampaignStats_customer_id  
-p_CampaignCrossDeviceConversionStats_customer_id  
-p_CampaignCookieStats_customer_id |  p_ads_Campaign_customer_id  
+#### Campaign location target report
+
+Google Ads API resource (v25.0.0):
+    [Location View](https://developers.google.com/google-ads/api/fields/v25/location_view)
+Google Ads tables:
+     p_ads_CampaignLocationTargetStats_customer_id  
+p_ads_LocationBasedCampaignCriterion_customer_id
+BigQuery views:
+     CampaignLocationTargetStats_customer_id  
+LocationBasedCampaignCriterion_customer_id
+AdWords report (deprecated):
+    [Campaign Location Target Report](https://developers.google.com/adwords/api/docs/appendix/reports/campaign-location-target-report)
+BigQuery AdWords tables (deprecated):
+     p_CampaignLocationTargetStats_customer_id  
+p_LocationBasedCampaignCriterion_customer_id
+
+#### Campaign performance report
+
+Google Ads API resource (v25.0.0):
+    [Campaign](https://developers.google.com/google-ads/api/fields/v25/campaign)
+Google Ads tables:
+     p_ads_Campaign_customer_id  
 p_ads_CampaignBasicStats_customer_id  
 p_ads_CampaignConversionStats_customer_id  
 p_ads_CampaignCrossDeviceStats_customer_id  
@@ -97,7 +137,9 @@ p_ads_HourlyCampaignConversionStats_customer_id
 p_ads_CampaignStats_customer_id  
 p_ads_HourlyCampaignStats_customer_id  
 p_ads_CampaignCrossDeviceConversionStats_customer_id  
-p_ads_CampaignCookieStats_customer_id | [Campaign](https://developers.google.com/google-ads/api/fields/v25/campaign) |  Campaign_customer_id  
+p_ads_CampaignCookieStats_customer_id
+BigQuery views:
+     Campaign_customer_id  
 CampaignBasicStats_customer_id  
 CampaignConversionStats_customer_id  
 CampaignCrossDeviceStats_customer_id  
@@ -105,247 +147,476 @@ HourlyCampaignConversionStats_customer_id
 CampaignStats_customer_id  
 HourlyCampaignStats_customer_id  
 CampaignCrossDeviceConversionStats_customer_id  
-CampaignCookieStats_customer_id  
-  
+CampaignCookieStats_customer_id
+AdWords report (deprecated):
+    [Campaign Performance Report](https://developers.google.com/adwords/api/docs/appendix/reports/campaign-performance-report)
+BigQuery AdWords tables (deprecated):
+     p_Campaign_customer_id  
+p_CampaignBasicStats_customer_id  
+p_CampaignConversionStats_customer_id  
+p_CampaignCrossDeviceStats_customer_id  
+p_HourlyCampaignConversionStats_customer_id  
+p_CampaignStats_customer_id  
+p_HourlyCampaignStats_customer_id  
+p_CampaignCrossDeviceConversionStats_customer_id  
+p_CampaignCookieStats_customer_id
+
 ### Ad group reports
 
 The following reports focus on metrics at the ad group level.
 
-AdWords reports (deprecated) | BigQuery AdWords tables | Google Ads tables | Google Ads API resources (v25.0.0) | BigQuery views  
----|---|---|---|---  
-[Adgroup Performance Report](https://developers.google.com/adwords/api/docs/appendix/reports/adgroup-performance-report) |  p_AdGroupStats_customer_id  
-p_AdGroupBasicStats_customer_id  
-p_AdGroupCrossDeviceStats_customer_id  
-p_HourlyAdGroupConversionStats_customer_id  
-p_HourlyAdGroupStats_customer_id  
-p_AdGroupConversionStats_customer_id  
-p_AdGroupCrossDeviceConversionStats_customer_id  
-p_AdGroup_customer_id |  p_ads_AdGroupStats_customer_id  
+#### Ad group performance report
+
+Google Ads API resource (v25.0.0):
+    [Ad Group](https://developers.google.com/google-ads/api/fields/v25/ad_group)
+Google Ads tables:
+     p_ads_AdGroupStats_customer_id  
 p_ads_AdGroupBasicStats_customer_id  
 p_ads_AdGroupCrossDeviceStats_customer_id  
 p_ads_HourlyAdGroupConversionStats_customer_id  
 p_ads_HourlyAdGroupStats_customer_id  
 p_ads_AdGroupConversionStats_customer_id  
 p_ads_AdGroupCrossDeviceConversionStats_customer_id  
-p_ads_AdGroup_customer_id | [Ad Group](https://developers.google.com/google-ads/api/fields/v25/ad_group) |  AdGroupStats_customer_id  
+p_ads_AdGroup_customer_id
+BigQuery views:
+     AdGroupStats_customer_id  
 AdGroupBasicStats_customer_id  
 AdGroupCrossDeviceStats_customer_id  
 HourlyAdGroupConversionStats_customer_id  
 HourlyAdGroupStats_customer_id  
 AdGroupConversionStats_customer_id  
 AdGroupCrossDeviceConversionStats_customer_id  
-AdGroup_customer_id  
-  
+AdGroup_customer_id
+AdWords report (deprecated):
+    [Adgroup Performance Report](https://developers.google.com/adwords/api/docs/appendix/reports/adgroup-performance-report)
+BigQuery AdWords tables (deprecated):
+     p_AdGroupStats_customer_id  
+p_AdGroupBasicStats_customer_id  
+p_AdGroupCrossDeviceStats_customer_id  
+p_HourlyAdGroupConversionStats_customer_id  
+p_HourlyAdGroupStats_customer_id  
+p_AdGroupConversionStats_customer_id  
+p_AdGroupCrossDeviceConversionStats_customer_id  
+p_AdGroup_customer_id
+
 ### Ad reports
 
 The following reports are for individual ad performance.
 
-AdWords reports (deprecated) | BigQuery AdWords tables | Google Ads tables | Google Ads API resources (v25.0.0) | BigQuery views  
----|---|---|---|---  
-[Ad Performance Report](https://developers.google.com/adwords/api/docs/appendix/reports/ad-performance-report) |  p_AdBasicStats_customer_id  
-p_AdCrossDeviceStats_customer_id  
-p_AdConversionStats_customer_id  
-p_AdStats_customer_id  
-p_AdCrossDeviceConversionStats_customer_id  
-p_Ad_customer_id |  p_ads_AdBasicStats_customer_id  
+#### Ad performance report
+
+Google Ads API resource (v25.0.0):
+    [Ad Group Ad](https://developers.google.com/google-ads/api/fields/v25/ad_group_ad)
+Google Ads tables:
+     p_ads_AdBasicStats_customer_id  
 p_ads_AdCrossDeviceStats_customer_id  
 p_ads_AdConversionStats_customer_id  
 p_ads_AdStats_customer_id  
 p_ads_AdCrossDeviceConversionStats_customer_id  
-p_ads_Ad_customer_id | [Ad Group Ad](https://developers.google.com/google-ads/api/fields/v25/ad_group_ad) |  AdBasicStats_customer_id  
+p_ads_Ad_customer_id
+BigQuery views:
+     AdBasicStats_customer_id  
 AdCrossDeviceStats_customer_id  
 AdConversionStats_customer_id  
 AdStats_customer_id  
 AdCrossDeviceConversionStats_customer_id  
-Ad_customer_id  
-  
+Ad_customer_id
+AdWords report (deprecated):
+    [Ad Performance Report](https://developers.google.com/adwords/api/docs/appendix/reports/ad-performance-report)
+BigQuery AdWords tables (deprecated):
+     p_AdBasicStats_customer_id  
+p_AdCrossDeviceStats_customer_id  
+p_AdConversionStats_customer_id  
+p_AdStats_customer_id  
+p_AdCrossDeviceConversionStats_customer_id  
+p_Ad_customer_id
+
 ### Demographics reports
 
 The following reports include performance data broken down by user demographic characteristics.
 
-AdWords reports (deprecated) | BigQuery AdWords tables | Google Ads tables | Google Ads API resources (v25.0.0) | BigQuery views  
----|---|---|---|---  
-[Age Range Performance Report](https://developers.google.com/adwords/api/docs/appendix/reports/age-range-performance-report) |  p_AgeRange_customer_id  
-p_AgeRangeBasicStats_customer_id  
-p_AgeRangeStats_customer_id  
-p_AgeRangeConversionStats_customer_id  
-p_AgeRangeNonClickStats_customer_id |  p_ads_AgeRange_customer_id  
+#### Age range performance report
+
+Google Ads API resource (v25.0.0):
+    [Age Range View](https://developers.google.com/google-ads/api/fields/v25/age_range_view)
+Google Ads tables:
+     p_ads_AgeRange_customer_id  
 p_ads_AgeRangeBasicStats_customer_id  
 p_ads_AgeRangeStats_customer_id  
 p_ads_AgeRangeConversionStats_customer_id  
-p_ads_AgeRangeNonClickStats_customer_id | [Age Range View](https://developers.google.com/google-ads/api/fields/v25/age_range_view) |  AgeRange_customer_id  
+p_ads_AgeRangeNonClickStats_customer_id
+BigQuery views:
+     AgeRange_customer_id  
 AgeRangeBasicStats_customer_id  
 AgeRangeStats_customer_id  
 AgeRangeConversionStats_customer_id  
-AgeRangeNonClickStats_customer_id  
-[Gender Performance Report](https://developers.google.com/adwords/api/docs/appendix/reports/gender-performance-report) |  p_Gender_customer_id  
-p_GenderBasicStats_customer_id  
-p_GenderStats_customer_id  
-p_GenderConversionStats_customer_id  
-p_GenderNonClickStats_customer_id |  p_ads_Gender_customer_id  
+AgeRangeNonClickStats_customer_id
+AdWords report (deprecated):
+    [Age Range Performance Report](https://developers.google.com/adwords/api/docs/appendix/reports/age-range-performance-report)
+BigQuery AdWords tables (deprecated):
+     p_AgeRange_customer_id  
+p_AgeRangeBasicStats_customer_id  
+p_AgeRangeStats_customer_id  
+p_AgeRangeConversionStats_customer_id  
+p_AgeRangeNonClickStats_customer_id
+
+#### Gender performance report
+
+Google Ads API resource (v25.0.0):
+    [Gender View](https://developers.google.com/google-ads/api/fields/v25/gender_view)
+Google Ads tables:
+     p_ads_Gender_customer_id  
 p_ads_GenderBasicStats_customer_id  
 p_ads_GenderStats_customer_id  
 p_ads_GenderConversionStats_customer_id  
-p_ads_GenderNonClickStats_customer_id | [Gender View](https://developers.google.com/google-ads/api/fields/v25/gender_view) |  Gender_customer_id  
+p_ads_GenderNonClickStats_customer_id
+BigQuery views:
+     Gender_customer_id  
 GenderBasicStats_customer_id  
 GenderStats_customer_id  
 GenderConversionStats_customer_id  
-GenderNonClickStats_customer_id  
-[Parental Status Performance Report](https://developers.google.com/adwords/api/docs/appendix/reports/parental-status-performance-report) |  p_ParentalStatus_customer_id  
-p_ParentalStatusBasicStats_customer_id  
-p_ParentalStatusStats_customer_id  
-p_ParentalStatusConversionStats_customer_id  
-p_ParentalStatusNonClickStats_customer_id |  p_ads_ParentalStatus_customer_id  
+GenderNonClickStats_customer_id
+AdWords report (deprecated):
+    [Gender Performance Report](https://developers.google.com/adwords/api/docs/appendix/reports/gender-performance-report)
+BigQuery AdWords tables (deprecated):
+     p_Gender_customer_id  
+p_GenderBasicStats_customer_id  
+p_GenderStats_customer_id  
+p_GenderConversionStats_customer_id  
+p_GenderNonClickStats_customer_id
+
+#### Parental status performance report
+
+Google Ads API resource (v25.0.0):
+    [Parental Status View](https://developers.google.com/google-ads/api/fields/v25/parental_status_view)
+Google Ads tables:
+     p_ads_ParentalStatus_customer_id  
 p_ads_ParentalStatusBasicStats_customer_id  
 p_ads_ParentalStatusStats_customer_id  
 p_ads_ParentalStatusConversionStats_customer_id  
-p_ads_ParentalStatusNonClickStats_customer_id | [Parental Status View](https://developers.google.com/google-ads/api/fields/v25/parental_status_view) |  ParentalStatus_customer_id  
+p_ads_ParentalStatusNonClickStats_customer_id
+BigQuery views:
+     ParentalStatus_customer_id  
 ParentalStatusBasicStats_customer_id  
 ParentalStatusStats_customer_id  
 ParentalStatusConversionStats_customer_id  
-ParentalStatusNonClickStats_customer_id  
-  
+ParentalStatusNonClickStats_customer_id
+AdWords report (deprecated):
+    [Parental Status Performance Report](https://developers.google.com/adwords/api/docs/appendix/reports/parental-status-performance-report)
+BigQuery AdWords tables (deprecated):
+     p_ParentalStatus_customer_id  
+p_ParentalStatusBasicStats_customer_id  
+p_ParentalStatusStats_customer_id  
+p_ParentalStatusConversionStats_customer_id  
+p_ParentalStatusNonClickStats_customer_id
+
 ### Keywords and search reports
 
 The following reports cover keyword performance, search terms, and combined paid and organic query data.
 
-AdWords reports (deprecated) | BigQuery AdWords tables | Google Ads tables | Google Ads API resources (v25.0.0) | BigQuery views  
----|---|---|---|---  
-[Keywords Performance Report](https://developers.google.com/adwords/api/docs/appendix/reports/keywords-performance-report) |  p_Keyword_customer_id  
-p_KeywordBasicStats_customer_id  
-p_KeywordCrossDeviceStats_customer_id  
-p_KeywordStats_customer_id  
-p_KeywordCrossDeviceConversionStats_customer_id  
-p_KeywordConversionStats_customer_id |  p_ads_Keyword_customer_id  
+#### Keywords performance report
+
+Google Ads API resource (v25.0.0):
+    [Keyword View](https://developers.google.com/google-ads/api/fields/v25/keyword_view)
+Google Ads tables:
+     p_ads_Keyword_customer_id  
 p_ads_KeywordBasicStats_customer_id  
 p_ads_KeywordCrossDeviceStats_customer_id  
 p_ads_KeywordStats_customer_id  
 p_ads_KeywordCrossDeviceConversionStats_customer_id  
-p_ads_KeywordConversionStats_customer_id | [Keyword View](https://developers.google.com/google-ads/api/fields/v25/keyword_view) |  Keyword_customer_id  
+p_ads_KeywordConversionStats_customer_id
+BigQuery views:
+     Keyword_customer_id  
 KeywordBasicStats_customer_id  
 KeywordCrossDeviceStats_customer_id  
 KeywordStats_customer_id  
 KeywordCrossDeviceConversionStats_customer_id  
-KeywordConversionStats_customer_id  
-[Paid Organic Query Report](https://developers.google.com/adwords/api/docs/appendix/reports/paid-organic-query-report) |  p_PaidOrganicStats_customer_id |  p_ads_PaidOrganicStats_customer_id | [Paid Organic Search Term View](https://developers.google.com/google-ads/api/fields/v25/paid_organic_search_term_view) |  PaidOrganicStats_customer_id  
-[Search Query Performance Report](https://developers.google.com/adwords/api/docs/appendix/reports/search-query-performance-report) |  p_SearchQueryStats_customer_id  
-p_SearchQueryConversionStats_customer_id |  p_ads_SearchQueryStats_customer_id  
-p_ads_SearchQueryConversionStats_customer_id | [Search Term View](https://developers.google.com/google-ads/api/fields/v25/search_term_view) |  SearchQueryStats_customer_id  
-SearchQueryConversionStats_customer_id  
-  
+KeywordConversionStats_customer_id
+AdWords report (deprecated):
+    [Keywords Performance Report](https://developers.google.com/adwords/api/docs/appendix/reports/keywords-performance-report)
+BigQuery AdWords tables (deprecated):
+     p_Keyword_customer_id  
+p_KeywordBasicStats_customer_id  
+p_KeywordCrossDeviceStats_customer_id  
+p_KeywordStats_customer_id  
+p_KeywordCrossDeviceConversionStats_customer_id  
+p_KeywordConversionStats_customer_id
+
+#### Paid organic query report
+
+Google Ads API resource (v25.0.0):
+    [Paid Organic Search Term View](https://developers.google.com/google-ads/api/fields/v25/paid_organic_search_term_view)
+Google Ads table:
+     p_ads_PaidOrganicStats_customer_id
+BigQuery view:
+     PaidOrganicStats_customer_id
+AdWords report (deprecated):
+    [Paid Organic Query Report](https://developers.google.com/adwords/api/docs/appendix/reports/paid-organic-query-report)
+BigQuery AdWords table (deprecated):
+     p_PaidOrganicStats_customer_id
+
+#### Search query performance report
+
+Google Ads API resource (v25.0.0):
+    [Search Term View](https://developers.google.com/google-ads/api/fields/v25/search_term_view)
+Google Ads tables:
+     p_ads_SearchQueryStats_customer_id  
+p_ads_SearchQueryConversionStats_customer_id
+BigQuery views:
+     SearchQueryStats_customer_id  
+SearchQueryConversionStats_customer_id
+AdWords report (deprecated):
+    [Search Query Performance Report](https://developers.google.com/adwords/api/docs/appendix/reports/search-query-performance-report)
+BigQuery AdWords tables (deprecated):
+     p_SearchQueryStats_customer_id  
+p_SearchQueryConversionStats_customer_id
+
 ### Audience and targeting reports
 
 The following reports are related to audience views, criteria, and managed placements.
 
-AdWords reports (deprecated) | BigQuery AdWords tables | Google Ads tables | Google Ads API resources (v25.0.0) | BigQuery views  
----|---|---|---|---  
-[Audience Performance Report](https://developers.google.com/adwords/api/docs/appendix/reports/audience-performance-report) |  p_Audience_customer_id  
-p_AudienceConversionStats_customer_id  
-p_AudienceNonClickStats_customer_id  
-p_AudienceBasicStats_customer_id  
-p_AudienceStats_customer_id |  `NULL`  
-`NULL`  
-`NULL`  
-`NULL`  
-`NULL` | [Ad Group Audience View](https://developers.google.com/google-ads/api/fields/v25/ad_group_audience_view)  
-[Campaign Audience View](https://developers.google.com/google-ads/api/fields/v25/campaign_audience_view) |  Audience_customer_id  
+#### Audience performance report
+
+Google Ads API resources (v25.0.0):
+    [Ad Group Audience View](https://developers.google.com/google-ads/api/fields/v25/ad_group_audience_view)  
+[Campaign Audience View](https://developers.google.com/google-ads/api/fields/v25/campaign_audience_view)
+Google Ads tables:
+    `NULL`
+BigQuery views:
+     Audience_customer_id  
 AudienceConversionStats_customer_id  
 AudienceNonClickStats_customer_id  
 AudienceBasicStats_customer_id  
-AudienceStats_customer_id  
-[Criteria Performance Report](https://developers.google.com/adwords/api/docs/appendix/reports/criteria-performance-report) |  p_Criteria_customer_id  
-p_CriteriaBasicStats_customer_id  
-p_CriteriaStats_customer_id  
-p_CriteriaConversionStats_customer_id  
-p_CriteriaNonClickStats_customer_id |  `NULL`  
-`NULL`  
-`NULL`  
-`NULL`  
-`NULL` |  |  Criteria_customer_id  
+AudienceStats_customer_id
+AdWords report (deprecated):
+    [Audience Performance Report](https://developers.google.com/adwords/api/docs/appendix/reports/audience-performance-report)
+BigQuery AdWords tables (deprecated):
+     p_Audience_customer_id  
+p_AudienceConversionStats_customer_id  
+p_AudienceNonClickStats_customer_id  
+p_AudienceBasicStats_customer_id  
+p_AudienceStats_customer_id
+
+#### Criteria performance report
+
+Google Ads API resource (v25.0.0):
+    None
+Google Ads tables:
+    `NULL`
+BigQuery views:
+     Criteria_customer_id  
 CriteriaBasicStats_customer_id  
 CriteriaStats_customer_id  
 CriteriaConversionStats_customer_id  
-CriteriaNonClickStats_customer_id  
-[Placement Performance Report](https://developers.google.com/adwords/api/docs/appendix/reports/placement-performance-report) |  p_PlacementBasicStats_customer_id  
-p_PlacementNonClickStats_customer_id  
-p_PlacementStats_customer_id  
-p_Placement_customer_id  
-p_PlacementConversionStats_customer_id |  p_ads_PlacementBasicStats_customer_id  
+CriteriaNonClickStats_customer_id
+AdWords report (deprecated):
+    [Criteria Performance Report](https://developers.google.com/adwords/api/docs/appendix/reports/criteria-performance-report)
+BigQuery AdWords tables (deprecated):
+     p_Criteria_customer_id  
+p_CriteriaBasicStats_customer_id  
+p_CriteriaStats_customer_id  
+p_CriteriaConversionStats_customer_id  
+p_CriteriaNonClickStats_customer_id
+
+#### Placement performance report
+
+Google Ads API resource (v25.0.0):
+    [Managed Placement View](https://developers.google.com/google-ads/api/fields/v25/managed_placement_view)
+Google Ads tables:
+     p_ads_PlacementBasicStats_customer_id  
 p_ads_PlacementNonClickStats_customer_id  
 p_ads_PlacementStats_customer_id  
 p_ads_Placement_customer_id  
-p_ads_PlacementConversionStats_customer_id | [Managed Placement View](https://developers.google.com/google-ads/api/fields/v25/managed_placement_view) |  PlacementBasicStats_customer_id  
+p_ads_PlacementConversionStats_customer_id
+BigQuery views:
+     PlacementBasicStats_customer_id  
 PlacementNonClickStats_customer_id  
 PlacementStats_customer_id  
 Placement_customer_id  
-PlacementConversionStats_customer_id  
-  
+PlacementConversionStats_customer_id
+AdWords report (deprecated):
+    [Placement Performance Report](https://developers.google.com/adwords/api/docs/appendix/reports/placement-performance-report)
+BigQuery AdWords tables (deprecated):
+     p_PlacementBasicStats_customer_id  
+p_PlacementNonClickStats_customer_id  
+p_PlacementStats_customer_id  
+p_Placement_customer_id  
+p_PlacementConversionStats_customer_id
+
 ### Shopping and video reports
 
 The following reports focus on specialized campaign channels.
 
-AdWords reports (deprecated) | BigQuery AdWords tables | Google Ads tables | Google Ads API resources (v25.0.0) | BigQuery views  
----|---|---|---|---  
-[Shopping Performance Report](https://developers.google.com/adwords/api/docs/appendix/reports/shopping-performance-report) |  p_ShoppingProductConversionStats_customer_id  
-p_ShoppingProductStats_customer_id |  p_ads_ShoppingProductConversionStats_customer_id  
-p_ads_ShoppingProductStats_customer_id | [Shopping Performance View](https://developers.google.com/google-ads/api/fields/v25/shopping_performance_view) |  ShoppingProductConversionStats_customer_id  
-ShoppingProductStats_customer_id  
-[Video Performance Report](https://developers.google.com/adwords/api/docs/appendix/reports/video-performance-report) |  p_VideoBasicStats_customer_id  
-p_VideoConversionStats_customer_id  
-p_VideoStats_customer_id  
-p_Video_customer_id  
-p_VideoNonClickStats_customer_id |  p_ads_VideoBasicStats_customer_id  
+#### Shopping performance report
+
+Google Ads API resource (v25.0.0):
+    [Shopping Performance View](https://developers.google.com/google-ads/api/fields/v25/shopping_performance_view)
+Google Ads tables:
+     p_ads_ShoppingProductConversionStats_customer_id  
+p_ads_ShoppingProductStats_customer_id
+BigQuery views:
+     ShoppingProductConversionStats_customer_id  
+ShoppingProductStats_customer_id
+AdWords report (deprecated):
+    [Shopping Performance Report](https://developers.google.com/adwords/api/docs/appendix/reports/shopping-performance-report)
+BigQuery AdWords tables (deprecated):
+     p_ShoppingProductConversionStats_customer_id  
+p_ShoppingProductStats_customer_id
+
+#### Video performance report
+
+Google Ads API resource (v25.0.0):
+    [Video](https://developers.google.com/google-ads/api/fields/v25/video)
+Google Ads tables:
+     p_ads_VideoBasicStats_customer_id  
 p_ads_VideoConversionStats_customer_id  
 p_ads_VideoStats_customer_id  
 p_ads_Video_customer_id  
-p_ads_VideoNonClickStats_customer_id | [Video](https://developers.google.com/google-ads/api/fields/v25/video) |  VideoBasicStats_customer_id  
+p_ads_VideoNonClickStats_customer_id
+BigQuery views:
+     VideoBasicStats_customer_id  
 VideoConversionStats_customer_id  
 VideoStats_customer_id  
 Video_customer_id  
-VideoNonClickStats_customer_id  
-  
+VideoNonClickStats_customer_id
+AdWords report (deprecated):
+    [Video Performance Report](https://developers.google.com/adwords/api/docs/appendix/reports/video-performance-report)
+BigQuery AdWords tables (deprecated):
+     p_VideoBasicStats_customer_id  
+p_VideoConversionStats_customer_id  
+p_VideoStats_customer_id  
+p_Video_customer_id  
+p_VideoNonClickStats_customer_id
+
 ### Geography and click reports
 
 The following reports present detailed metrics on user geography and click-level data.
 
-AdWords reports (deprecated) | BigQuery AdWords tables | Google Ads tables | Google Ads API resources (v25.0.0) | BigQuery views  
----|---|---|---|---  
-[Click Performance Report](https://developers.google.com/adwords/api/docs/appendix/reports/click-performance-report) |  p_ClickStats_customer_id |  p_ads_ClickStats_customer_id | [Click View](https://developers.google.com/google-ads/api/fields/v25/click_view) |  ClickStats_customer_id  
-[Geo Performance Report](https://developers.google.com/adwords/api/docs/appendix/reports/geo-performance-report) |  p_GeoConversionStats_customer_id  
-p_GeoStats_customer_id |  p_ads_GeoConversionStats_customer_id  
-p_ads_GeoStats_customer_id | [Geographic View](https://developers.google.com/google-ads/api/fields/v25/geographic_view) |  GeoConversionStats_customer_id  
-GeoStats_customer_id  
-  
+#### Click performance report
+
+Google Ads API resource (v25.0.0):
+    [Click View](https://developers.google.com/google-ads/api/fields/v25/click_view)
+Google Ads table:
+     p_ads_ClickStats_customer_id
+BigQuery view:
+     ClickStats_customer_id
+AdWords report (deprecated):
+    [Click Performance Report](https://developers.google.com/adwords/api/docs/appendix/reports/click-performance-report)
+BigQuery AdWords table (deprecated):
+     p_ClickStats_customer_id
+
+#### Geo performance report
+
+Google Ads API resource (v25.0.0):
+    [Geographic View](https://developers.google.com/google-ads/api/fields/v25/geographic_view)
+Google Ads tables:
+     p_ads_GeoConversionStats_customer_id  
+p_ads_GeoStats_customer_id
+BigQuery views:
+     GeoConversionStats_customer_id  
+GeoStats_customer_id
+AdWords report (deprecated):
+    [Geo Performance Report](https://developers.google.com/adwords/api/docs/appendix/reports/geo-performance-report)
+BigQuery AdWords tables (deprecated):
+     p_GeoConversionStats_customer_id  
+p_GeoStats_customer_id
+
 ### Attribute and label tables
 
 The following tables provide mapping information for attribute settings and label assignments, such as CampaignLabel, AdGroupLabel, and AdGroupBidModifier.
 
-Google Ads tables | Google Ads API resources (v25.0.0)  
----|---  
-AdGroupBidModifier | [Ad Group Bid Modifier](https://developers.google.com/google-ads/api/fields/v25/ad_group_bid_modifier)  
-AdGroupAdLabel | [Ad Group Ad Label](https://developers.google.com/google-ads/api/fields/v25/ad_group_ad_label)  
-CampaignLabel | [Campaign Label](https://developers.google.com/google-ads/api/fields/v25/campaign_label)  
-CampaignCriterion | [Campaign Criterion](https://developers.google.com/google-ads/api/fields/v25/campaign_criterion)  
-AdGroupLabel | [Ad Group Label](https://developers.google.com/google-ads/api/fields/v25/ad_group_label)  
-AdGroupAudience  
+#### Ad group bid modifier
+
+Google Ads API resource (v25.0.0):
+    [Ad Group Bid Modifier](https://developers.google.com/google-ads/api/fields/v25/ad_group_bid_modifier)
+Google Ads table:
+    AdGroupBidModifier
+
+#### Ad group ad label
+
+Google Ads API resource (v25.0.0):
+    [Ad Group Ad Label](https://developers.google.com/google-ads/api/fields/v25/ad_group_ad_label)
+Google Ads table:
+    AdGroupAdLabel
+
+#### Campaign label
+
+Google Ads API resource (v25.0.0):
+    [Campaign Label](https://developers.google.com/google-ads/api/fields/v25/campaign_label)
+Google Ads table:
+    CampaignLabel
+
+#### Campaign criterion
+
+Google Ads API resource (v25.0.0):
+    [Campaign Criterion](https://developers.google.com/google-ads/api/fields/v25/campaign_criterion)
+Google Ads table:
+    CampaignCriterion
+
+#### Ad group label
+
+Google Ads API resource (v25.0.0):
+    [Ad Group Label](https://developers.google.com/google-ads/api/fields/v25/ad_group_label)
+Google Ads table:
+    AdGroupLabel
+
+#### Ad group audience
+
+Google Ads API resource (v25.0.0):
+    [Ad Group Audience View](https://developers.google.com/google-ads/api/fields/v25/ad_group_audience_view)
+Google Ads tables:
+     AdGroupAudience  
 AdGroupAudienceStats  
 AdGroupAudienceConversionStats  
 AdGroupAudienceNonClickStats  
-AdGroupAudienceBasicStats  | [Ad Group Audience View](https://developers.google.com/google-ads/api/fields/v25/ad_group_audience_view)  
-  
+AdGroupAudienceBasicStats 
+
 ### Performance Max (PMax) tables
 
 The following tables are dedicated to Performance Max assets and signals, such as AssetGroup and CampaignAssetStats.
 
-Google Ads tables | Google Ads API resources (v25.0.0)  
----|---  
-Assets (available if [Pmax](https://developers.google.com/google-ads/api/docs/performance-max/overview) data is enabled)  | [Assets](https://developers.google.com/google-ads/api/fields/v25/asset)  
-AssetGroup (available if [Pmax](https://developers.google.com/google-ads/api/docs/performance-max/overview) data is enabled)  | [Asset Groups](https://developers.google.com/google-ads/api/fields/v25/asset_group)  
-AssetGroupAsset (available if [Pmax](https://developers.google.com/google-ads/api/docs/performance-max/overview) data is enabled)  | [Asset Group Assets](https://developers.google.com/google-ads/api/fields/v25/asset_group_asset)  
-AssetGroupSignal (available if [Pmax](https://developers.google.com/google-ads/api/docs/performance-max/overview) data is enabled)  | [Asset Group Signal](https://developers.google.com/google-ads/api/fields/v25/asset_group_signal)  
-AssetGroupProductGroupStats (available if [Pmax](https://developers.google.com/google-ads/api/docs/performance-max/overview) data is enabled)  | [AssetGroupProductGroupStats](https://developers.google.com/google-ads/api/fields/v25/asset_group_product_group_view)  
-CampaignAssetStats (available if [Pmax](https://developers.google.com/google-ads/api/docs/performance-max/overview) data is enabled)  | [CampaignAssetStats](https://developers.google.com/google-ads/api/fields/v25/campaign_asset)  
-  
+#### Assets
+
+Google Ads API resource (v25.0.0):
+    [Assets](https://developers.google.com/google-ads/api/fields/v25/asset)
+Google Ads table:
+    Assets (available if [Pmax](https://developers.google.com/google-ads/api/docs/performance-max/overview) data is enabled)
+
+#### Asset groups
+
+Google Ads API resource (v25.0.0):
+    [Asset Groups](https://developers.google.com/google-ads/api/fields/v25/asset_group)
+Google Ads table:
+    AssetGroup (available if [Pmax](https://developers.google.com/google-ads/api/docs/performance-max/overview) data is enabled)
+
+#### Asset group assets
+
+Google Ads API resource (v25.0.0):
+    [Asset Group Assets](https://developers.google.com/google-ads/api/fields/v25/asset_group_asset)
+Google Ads table:
+    AssetGroupAsset (available if [Pmax](https://developers.google.com/google-ads/api/docs/performance-max/overview) data is enabled)
+
+#### Asset group signal
+
+Google Ads API resource (v25.0.0):
+    [Asset Group Signal](https://developers.google.com/google-ads/api/fields/v25/asset_group_signal)
+Google Ads table:
+    AssetGroupSignal (available if [Pmax](https://developers.google.com/google-ads/api/docs/performance-max/overview) data is enabled)
+
+#### Asset group product group stats
+
+Google Ads API resource (v25.0.0):
+    [AssetGroupProductGroupStats](https://developers.google.com/google-ads/api/fields/v25/asset_group_product_group_view)
+Google Ads table:
+    AssetGroupProductGroupStats (available if [Pmax](https://developers.google.com/google-ads/api/docs/performance-max/overview) data is enabled)
+
+#### Campaign asset stats
+
+Google Ads API resource (v25.0.0):
+    [CampaignAssetStats](https://developers.google.com/google-ads/api/fields/v25/campaign_asset)
+Google Ads table:
+    CampaignAssetStats (available if [Pmax](https://developers.google.com/google-ads/api/docs/performance-max/overview) data is enabled)
+
 ## Column mapping for Google Ads reports
 
 The BigQuery tables created by a Google Ads transfer consist of the following columns (fields):
@@ -3853,6 +4124,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-27 UTC.
+Last updated 2026-11-07 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-07 UTC."],[],[]] 

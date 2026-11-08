@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/ai-hypercomputer/docs/manage/instance-topology/
 title: View topology of a compute instance \u00a0|\u00a0 AI Hypercomputer \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T18:57:14.700867+00:00
+fetched_at: 2026-11-08T08:26:40.704276+00:00
 ---
 
 # View topology of a compute instance  |  AI Hypercomputer  |  Google Cloud Documentation
@@ -25,9 +25,9 @@ Send feedback
 
 This document explains how to view the physical location, also known as _topology_ , of your Compute Engine instances in a zone. To view the topology of a cluster in Cluster Director, see [View cluster topology](https://docs.cloud.google.com/cluster-director/docs/monitor/view-topology).
 
-After you create A4X Max, A4X, A4, A3 Ultra, A3 Mega, and A3 High (8 GPUs) instances or compute instances that specify a compact placement policy or a workload policy, you can view the physical location of your compute instances in relation to each other. When you know the proximity of your compute instances, you can adjust your application or workload design to run latency-sensitive jobs on the compute instances that are closest to each other. For all other types of compute instances, you can see the ID of the host that they run on after you [expose the host ID](https://docs.cloud.google.com/compute/docs/instances/view-instance-topology#expose-host-id).
+After you create A5X, A4X Max, A4X, A4, A3 Ultra, A3 Mega, and A3 High (8 GPUs) instances or compute instances that specify a compact placement policy or a workload policy, you can view the physical location of your compute instances in relation to each other. When you know the proximity of your compute instances, you can adjust your application or workload design to run latency-sensitive jobs on the compute instances that are closest to each other. For all other types of compute instances, you can see the ID of the host that they run on after you [expose the host ID](https://docs.cloud.google.com/compute/docs/instances/view-instance-topology#expose-host-id).
 
-**Note:** If you created your A4X Max, A4X, A4, A3 Ultra, A3 Mega, and A3 High (8 GPUs) instances in a reservation, then you can view the topology of your reserved resources. For example, when you view the details of a single reserved block, you can view the name and sub-block for all the compute instances that run in the block. For more information about the topology of a reservation, see [View the topology of a reservation](https://docs.cloud.google.com/ai-hypercomputer/docs/view-reserved-capacity#view-capacity-topology).
+**Note:** If you created your A5X, A4X Max, A4X, A4, A3 Ultra, A3 Mega, and A3 High (8 GPUs) instances in a reservation, then you can view the topology of your reserved resources. For example, when you view the details of a single reserved block, you can view the name and sub-block for all the compute instances that run in the block. For more information about the topology of a reservation, see [View the topology of a reservation](https://docs.cloud.google.com/ai-hypercomputer/docs/view-reserved-capacity#view-capacity-topology).
 
 ## Before you begin
 
@@ -346,6 +346,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-06 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-06 UTC."],[],[]] 

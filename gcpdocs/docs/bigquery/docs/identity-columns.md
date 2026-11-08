@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/identity-columns/
 title: Specify an identity column \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T05:38:45.154706+00:00
+fetched_at: 2026-11-08T08:24:04.916510+00:00
 ---
 
 # Specify an identity column  |  BigQuery  |  Google Cloud Documentation

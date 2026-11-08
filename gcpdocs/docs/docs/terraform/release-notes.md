@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/docs/terraform/release-notes/
 title: Terraform on Google Cloud release notes \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-06T05:49:59.518216+00:00
+fetched_at: 2026-11-08T09:11:55.885634+00:00
 ---
 
 # Terraform on Google Cloud release notes  |  Google Cloud Documentation
@@ -30,6 +30,29 @@ For `gcloud terraform` releases, see the [Google Cloud SDK release notes](https:
 You can see the latest product updates for all of Google Cloud on the [ Google Cloud](https://docs.cloud.google.com/release-notes) page, browse and filter all release notes in the [Google Cloud console](https://console.cloud.google.com/release-notes), or programmatically access release notes in [BigQuery](https://console.cloud.google.com/bigquery?p=bigquery-public-data&d=google_cloud_release_notes&t=release_notes&page=table). 
 
 To get the latest product updates delivered to you, add the URL of this page to your [feed reader](https://wikipedia.org/wiki/Comparison_of_feed_aggregators), or add the [feed URL](https://docs.cloud.google.com/feeds/terraform-release-notes.xml) directly. 
+
+## September 16, 2024
+
+Change
+
+Multiple Terraform samples added to [BigQuery](https://docs.cloud.google.com/bigquery/docs/introduction) documentation. For example, see the Terraform tabs on the following pages:
+
+  * [Tag tables and datasets](https://docs.cloud.google.com/bigquery/docs/tags)
+  * [Creating and managing tags](https://docs.cloud.google.com/resource-manager/docs/tags/tags-creating-and-managing)
+
+
+
+## September 18, 2023
+
+Change
+
+Multiple Terraform samples added to [Looker documentation](https://docs.cloud.google.com/looker/docs/looker-core). For example, see the Terraform tabs on the following pages:
+
+  * [Enable CMEK for Looker (Google Cloud core)](https://docs.cloud.google.com/looker/docs/looker-core-cmek)
+  * [Create a Looker (Google Cloud core) instance](https://docs.cloud.google.com/looker/docs/looker-core-instance-create)
+  * [Looker (Google Cloud core) overview](https://docs.cloud.google.com/looker/docs/looker-core-overview)
+
+
 
 ## February 23, 2023
 

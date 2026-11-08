@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/apigee/docs/hybrid/v1.16/configure-dedicated-nodes/
 title: Configuring dedicated node pools \u00a0|\u00a0 Apigee \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T05:50:18.413356+00:00
+fetched_at: 2026-11-08T09:11:48.467862+00:00
 ---
 
 # Configuring dedicated node pools  |  Apigee  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/document-warehouse/docs/release-notes/
 title: Document AI Warehouse release notes \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T23:56:54.862972+00:00
+fetched_at: 2026-11-08T09:11:55.229387+00:00
 ---
 
 # Document AI Warehouse release notes  |  Google Cloud Documentation
@@ -107,72 +107,6 @@ Feature
 
 Datetime properties filtering is supported in the Document AI Warehouse UI.
 
-## March 29, 2023
-
-Feature
-
-Allow users to upload and view TIFF file types in the UI.
-
-## March 28, 2023
-
-Feature
-
-[BigQuery Connector](https://docs.cloud.google.com/document-warehouse/docs/bq-connector) (preview): Supports batch exports of document metadata into BigQuery, which enables users to do data analysis, create reports and dashboards. For example, data visualization using BI dashboards.
-
-Feature
-
-DocAI Warehouse Pipelines (preview):
-
-  * [Cloud-storage-ingest pipelines](https://docs.cloud.google.com/document-warehouse/docs/gcs-ingest-pipeline)
-
-  * [Export-to-Workbench pipeline](https://docs.cloud.google.com/document-warehouse/docs/export-to-cdw-pipeline)
-
-  * [Process-with-DocAI pipeline](https://docs.cloud.google.com/document-warehouse/docs/process-with-docai-pipeline)
-
-
-
-
-## March 22, 2023
-
-Feature
-
-Policy Engine: 
-
-  * Modify RuleSet APIs logic to auto-populate RuleId field during create RuleSet call and allow Rules update using existing RuleId 
-  * Publish action messages by default will include Schema name, Document name, RuleSet name, Rule Id, Action Id and trigger type information.
-
-
-
-## February 23, 2023
-
-Feature
-
-TIFF file UI rendering support: when calling GetDocument API for a TIFF file, the API will return a converted PNG image inside cloud_ai_document field.
-
-Change
-
-Users do not need to grant the Cloud Storage roles to the Document AI Warehouse service account during the provisioning process.
-
-## January 31, 2023
-
-Feature
-
-Add field to mark raw document file type as TIFF
-
-Feature
-
-Document table filter and text search state are synced with the URL to allow users to easily save and share filter settings.
-
-## January 09, 2023
-
-Fixed
-
-Fix the exception thrown when customers type a non-existent project number.
-
-Feature
-
-Allow users to set Project ACLs with conditions based on document schema ID or property name.
-
 ## December 20, 2022
 
 Change
@@ -267,6 +201,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-07 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-07 UTC."],[],[]] 

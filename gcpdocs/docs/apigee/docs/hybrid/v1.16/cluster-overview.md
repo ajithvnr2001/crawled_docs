@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/apigee/docs/hybrid/v1.16/cluster-overview/
 title: Minimum cluster configurations \u00a0|\u00a0 Apigee \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T05:50:20.497104+00:00
+fetched_at: 2026-11-08T09:01:18.265964+00:00
 ---
 
 # Minimum cluster configurations  |  Apigee  |  Google Cloud Documentation

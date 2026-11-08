@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/ai-hypercomputer/docs/create/create-mig-with-g4/
 title: Create an AI-optimized G4 MIG \u00a0|\u00a0 AI Hypercomputer \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T05:50:41.267202+00:00
+fetched_at: 2026-11-08T09:13:54.448200+00:00
 ---
 
 # Create an AI-optimized G4 MIG  |  AI Hypercomputer  |  Google Cloud Documentation

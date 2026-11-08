@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/dns/docs/release-notes/
 title: Cloud DNS release notes \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T17:45:48.254127+00:00
+fetched_at: 2026-11-08T09:12:06.906602+00:00
 ---
 
 # Cloud DNS release notes  |  Google Cloud Documentation
@@ -75,9 +75,9 @@ Risks associated with not making these changes include the following:
 
 Feature
 
-Outbound Endpoints for Cloud DNS is available in [Preview](https://cloud.google.com/products#product-launch-stages).
+Outbound endpoints for Cloud DNS are available in [Preview](https://cloud.google.com/products#product-launch-stages).
 
-Attach Outbound Endpoints to forwarding zones or server policies to enable direct DNS query forwarding from VPC networks to external and on-premises DNS resolvers using private IP addresses. For more information, see [Outbound Endpoints overview](https://docs.cloud.google.com/dns/docs/outbound-endpoints-overview).
+Attach outbound endpoints to forwarding zones or server policies to enable direct DNS query forwarding from VPC networks to external and on-premises DNS resolvers using private IP addresses. For more information, see [Outbound endpoints overview](https://docs.cloud.google.com/dns/docs/outbound-endpoints-overview).
 
 ## March 15, 2026
 

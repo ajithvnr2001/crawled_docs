@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/firestore/docs/samples/firestore-data-get-as-custom-type-async/
 title: Get a Firestore document using custom types (async) \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T23:44:57.942329+00:00
+fetched_at: 2026-11-08T08:36:11.888698+00:00
 ---
 
 # Get a Firestore document using custom types (async)  |  Google Cloud Documentation

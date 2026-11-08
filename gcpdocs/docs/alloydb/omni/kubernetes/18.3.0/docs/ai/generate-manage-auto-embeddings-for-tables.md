@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/omni/kubernetes/18.3.0/docs/ai/generate-manage-auto-embeddings-for-tables/
 title: Generate and manage auto vector embeddings for large tables \u00a0|\u00a0 AlloyDB Omni using the container orchestrator: 18.3.0 \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T05:51:10.632966+00:00
+fetched_at: 2026-11-08T09:15:30.129159+00:00
 ---
 
 # Generate and manage auto vector embeddings for large tables  |  AlloyDB Omni using the container orchestrator: 18.3.0  |  Google Cloud Documentation

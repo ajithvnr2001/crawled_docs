@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/samples/bigquerystorage-append-rows-raw-proto2/
 title: Append rows with a static protocol buffer \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T05:47:21.605872+00:00
+fetched_at: 2026-11-08T08:24:28.024970+00:00
 ---
 
 # Append rows with a static protocol buffer  |  BigQuery  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/information-schema-assignments/
 title: ASSIGNMENTS view \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T05:38:44.285411+00:00
+fetched_at: 2026-11-08T08:25:27.514453+00:00
 ---
 
 # ASSIGNMENTS view  |  BigQuery  |  Google Cloud Documentation

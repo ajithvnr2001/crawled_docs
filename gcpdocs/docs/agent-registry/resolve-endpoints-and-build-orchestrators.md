@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/agent-registry/resolve-endpoints-and-build-orchestrators/
 title: Resolve endpoints and build orchestrators \u00a0|\u00a0 Agent Registry \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-30T08:40:11.931725+00:00
+fetched_at: 2026-11-08T09:18:48.722335+00:00
 ---
 
 # Resolve endpoints and build orchestrators  |  Agent Registry  |  Google Cloud Documentation

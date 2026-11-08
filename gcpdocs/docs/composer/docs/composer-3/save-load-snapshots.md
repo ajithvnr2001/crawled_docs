@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/composer/docs/composer-3/save-load-snapshots/
 title: Save and load environment snapshots \u00a0|\u00a0 Managed Service for Apache Airflow \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-06T05:52:30.620983+00:00
+fetched_at: 2026-11-08T09:10:01.413094+00:00
 ---
 
 # Save and load environment snapshots  |  Managed Service for Apache Airflow  |  Google Cloud Documentation
@@ -185,7 +185,7 @@ To save a snapshot of your environment, run:
     gcloud composer environments snapshots save \
       ENVIRONMENT_NAME \
       --location LOCATION \
-      --snapshot-location &quot;SNAPSHOTS_FOLDER"
+      --snapshot-location "SNAPSHOTS_FOLDER"
     
 
 Replace:
@@ -300,7 +300,7 @@ The name of the folder lists the ID of your project, environment's location and 
     gcloud composer environments snapshots load \
       DESTINATION_ENVIRONMENT_NAME \
       --location LOCATION \
-      --snapshot-path &quot;SNAPSHOT_PATH"
+      --snapshot-path "SNAPSHOT_PATH"
     
 
 Replace:
@@ -335,7 +335,7 @@ This field is optional. If you omit this field, Managed Airflow installs PyPI pa
     
     
     {
-      "snapshotPath": &quot;SNAPSHOT_PATH"
+      "snapshotPath": "SNAPSHOT_PATH"
     }
     
 
@@ -376,6 +376,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-07 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-07 UTC."],[],[]] 

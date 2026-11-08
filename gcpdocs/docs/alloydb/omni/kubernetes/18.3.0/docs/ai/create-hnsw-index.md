@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/omni/kubernetes/18.3.0/docs/ai/create-hnsw-index/
 title: Create a HNSW index \u00a0|\u00a0 AlloyDB Omni using the container orchestrator: 18.3.0 \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T05:51:11.282423+00:00
+fetched_at: 2026-11-08T09:11:30.422347+00:00
 ---
 
 # Create a HNSW index  |  AlloyDB Omni using the container orchestrator: 18.3.0  |  Google Cloud Documentation

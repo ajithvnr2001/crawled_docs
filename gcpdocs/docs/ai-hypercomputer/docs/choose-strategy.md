@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/ai-hypercomputer/docs/choose-strategy/
 title: Choose between general GPUs and clustered GPUs \u00a0|\u00a0 AI Hypercomputer \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T05:50:43.451874+00:00
+fetched_at: 2026-11-08T09:13:52.917480+00:00
 ---
 
 # Choose between general GPUs and clustered GPUs  |  AI Hypercomputer  |  Google Cloud Documentation

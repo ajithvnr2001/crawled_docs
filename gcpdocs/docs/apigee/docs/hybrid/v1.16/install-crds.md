@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/apigee/docs/hybrid/v1.16/install-crds/
 title: Step 10: Install the Apigee hybrid CRDs \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T05:47:18.123432+00:00
+fetched_at: 2026-11-08T08:55:23.330801+00:00
 ---
 
 # Step 10: Install the Apigee hybrid CRDs  |  Google Cloud Documentation

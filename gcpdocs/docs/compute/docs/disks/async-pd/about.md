@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/compute/docs/disks/async-pd/about/
 title: About Asynchronous Replication \u00a0|\u00a0 Compute Engine \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-06T12:03:58.958530+00:00
+fetched_at: 2026-11-08T08:46:39.563673+00:00
 ---
 
 # About Asynchronous Replication  |  Compute Engine  |  Google Cloud Documentation

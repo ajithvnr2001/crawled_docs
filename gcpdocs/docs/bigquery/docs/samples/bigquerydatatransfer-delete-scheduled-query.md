@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/samples/bigquerydatatransfer-delete-scheduled-query/
 title: Delete a scheduled query \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T05:44:54.654799+00:00
+fetched_at: 2026-11-08T08:24:51.019012+00:00
 ---
 
 # Delete a scheduled query  |  BigQuery  |  Google Cloud Documentation

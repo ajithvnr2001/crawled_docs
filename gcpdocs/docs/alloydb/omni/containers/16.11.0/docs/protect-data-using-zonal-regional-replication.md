@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/omni/containers/16.11.0/docs/protect-data-using-zonal-regional-replication/
 title: Protect your data with zonal and regional replication \u00a0|\u00a0 AlloyDB Omni using containers: 16.11.0 \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T05:49:32.685680+00:00
+fetched_at: 2026-11-08T09:01:21.207559+00:00
 ---
 
 # Protect your data with zonal and regional replication  |  AlloyDB Omni using containers: 16.11.0  |  Google Cloud Documentation

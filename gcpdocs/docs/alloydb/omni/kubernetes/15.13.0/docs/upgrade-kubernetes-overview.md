@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/omni/kubernetes/15.13.0/docs/upgrade-kubernetes-overview/
 title: Kubernetes upgrade overview \u00a0|\u00a0 AlloyDB Omni for Kubernetes: 15.13.0 \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T05:48:00.603532+00:00
+fetched_at: 2026-11-08T08:54:15.669852+00:00
 ---
 
 # Kubernetes upgrade overview  |  AlloyDB Omni for Kubernetes: 15.13.0  |  Google Cloud Documentation

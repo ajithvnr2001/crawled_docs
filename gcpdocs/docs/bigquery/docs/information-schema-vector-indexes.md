@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/information-schema-vector-indexes/
 title: VECTOR_INDEXES view \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T05:38:40.816989+00:00
+fetched_at: 2026-11-08T08:24:45.845543+00:00
 ---
 
 # VECTOR_INDEXES view  |  BigQuery  |  Google Cloud Documentation

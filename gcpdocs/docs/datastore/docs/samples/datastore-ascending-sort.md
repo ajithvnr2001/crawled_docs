@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/datastore/docs/samples/datastore-ascending-sort/
 title: Ascending sort \u00a0|\u00a0 Firestore in Datastore mode \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T22:58:23.201482+00:00
+fetched_at: 2026-11-08T09:08:50.303912+00:00
 ---
 
 # Ascending sort  |  Firestore in Datastore mode  |  Google Cloud Documentation

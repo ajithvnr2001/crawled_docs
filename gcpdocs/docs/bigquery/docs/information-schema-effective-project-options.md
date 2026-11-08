@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/information-schema-effective-project-options/
 title: EFFECTIVE_PROJECT_OPTIONS view \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T05:38:42.514983+00:00
+fetched_at: 2026-11-08T08:24:01.023420+00:00
 ---
 
 # EFFECTIVE_PROJECT_OPTIONS view  |  BigQuery  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/apigee/docs/hybrid/v1.16/metrics-enable/
 title: Configure metrics collection \u00a0|\u00a0 Apigee \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T05:47:06.561219+00:00
+fetched_at: 2026-11-08T08:54:48.260669+00:00
 ---
 
 # Configure metrics collection  |  Apigee  |  Google Cloud Documentation

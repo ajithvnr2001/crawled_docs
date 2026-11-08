@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/omni/kubernetes/16.9.0/docs/columnar-engine/overview/
 title: Columnar engine overview \u00a0|\u00a0 AlloyDB Omni for Kubernetes: 16.9.0 \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T05:48:38.771090+00:00
+fetched_at: 2026-11-08T08:58:14.700246+00:00
 ---
 
 # Columnar engine overview  |  AlloyDB Omni for Kubernetes: 16.9.0  |  Google Cloud Documentation

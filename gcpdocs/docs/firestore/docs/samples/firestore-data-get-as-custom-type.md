@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/firestore/docs/samples/firestore-data-get-as-custom-type/
 title: Get a Firestore document using custom types \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T23:46:10.240567+00:00
+fetched_at: 2026-11-08T08:36:11.695231+00:00
 ---
 
 # Get a Firestore document using custom types  |  Google Cloud Documentation

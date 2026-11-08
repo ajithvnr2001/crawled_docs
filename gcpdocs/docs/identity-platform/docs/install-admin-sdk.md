@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/identity-platform/docs/install-admin-sdk/
 title: Installing the Admin SDK \u00a0|\u00a0 Identity Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-06T08:21:12.770559+00:00
+fetched_at: 2026-11-08T08:27:46.750878+00:00
 ---
 
 # Installing the Admin SDK  |  Identity Platform  |  Google Cloud Documentation
@@ -227,14 +227,14 @@ Add the following code to your server app to initialize the Admin SDK using the 
     
     FirebaseApp.initializeApp();
     
-    [FirebaseAppSnippets.java](https://github.com/firebase/firebase-admin-java/blob/c37e514e0bc899066dff4d8ef2aa895a04568ee0/src/test/java/com/google/firebase/snippets/FirebaseAppSnippets.java#L71-L71)
+    [FirebaseAppSnippets.java](https://github.com/firebase/firebase-admin-java/blob/919714aab5300560f6e8fcbeeb46bbf94df46ca8/src/test/java/com/google/firebase/snippets/FirebaseAppSnippets.java#L71-L71)
 
 ### Python
     
     
     default_app = firebase_admin.initialize_app()
     
-    [index.py](https://github.com/firebase/firebase-admin-python/blob/00e0754146a2051d98952f5928c7e2f2c2ed695a/snippets/auth/index.py#L45-L45)
+    [index.py](https://github.com/firebase/firebase-admin-python/blob/6bafd5a7a452d33b38119c71217716361078a555/snippets/auth/index.py#L45-L45)
 
 ### Go
     
@@ -252,7 +252,7 @@ Add the following code to your server app to initialize the Admin SDK using the 
     FirebaseApp.Create();
     
     
-    [FirebaseAppSnippets.cs](https://github.com/firebase/firebase-admin-dotnet/blob/d46549cc22df6f6238d7f74ecb56baf3a40825c9/FirebaseAdmin/FirebaseAdmin.Snippets/FirebaseAppSnippets.cs#L69-L69)
+    [FirebaseAppSnippets.cs](https://github.com/firebase/firebase-admin-dotnet/blob/e9421ffb1608d3c77e74d384214e3658c2e45c8e/FirebaseAdmin/FirebaseAdmin.Snippets/FirebaseAppSnippets.cs#L69-L69)
 
 ## Initializing the SDK with a service account key file
 
@@ -280,7 +280,7 @@ You can also manually specify a service account key file:
     
     FirebaseApp.initializeApp(options);
     
-    [FirebaseAppSnippets.java](https://github.com/firebase/firebase-admin-java/blob/c37e514e0bc899066dff4d8ef2aa895a04568ee0/src/test/java/com/google/firebase/snippets/FirebaseAppSnippets.java#L34-L41)
+    [FirebaseAppSnippets.java](https://github.com/firebase/firebase-admin-java/blob/919714aab5300560f6e8fcbeeb46bbf94df46ca8/src/test/java/com/google/firebase/snippets/FirebaseAppSnippets.java#L34-L41)
 
 ### Python
     
@@ -292,7 +292,7 @@ You can also manually specify a service account key file:
     cred = credentials.Certificate('path/to/serviceAccountKey.json')
     default_app = firebase_admin.initialize_app(cred)
     
-    [index.py](https://github.com/firebase/firebase-admin-python/blob/00e0754146a2051d98952f5928c7e2f2c2ed695a/snippets/auth/index.py#L34-L39)
+    [index.py](https://github.com/firebase/firebase-admin-python/blob/6bafd5a7a452d33b38119c71217716361078a555/snippets/auth/index.py#L34-L39)
 
 ### Go
     
@@ -314,7 +314,7 @@ You can also manually specify a service account key file:
     });
     
     
-    [FirebaseAppSnippets.cs](https://github.com/firebase/firebase-admin-dotnet/blob/d46549cc22df6f6238d7f74ecb56baf3a40825c9/FirebaseAdmin/FirebaseAdmin.Snippets/FirebaseAppSnippets.cs#L28-L31)
+    [FirebaseAppSnippets.cs](https://github.com/firebase/firebase-admin-dotnet/blob/e9421ffb1608d3c77e74d384214e3658c2e45c8e/FirebaseAdmin/FirebaseAdmin.Snippets/FirebaseAppSnippets.cs#L28-L31)
 
 ## Initializing multiple apps
 
@@ -356,7 +356,7 @@ Typically, you'll only want to initialize a single, default app. However, you ca
     FirebaseAuth otherAuth = FirebaseAuth.getInstance(otherApp);
     FirebaseDatabase otherDatabase = FirebaseDatabase.getInstance(otherApp);
     
-    [FirebaseAppSnippets.java](https://github.com/firebase/firebase-admin-java/blob/c37e514e0bc899066dff4d8ef2aa895a04568ee0/src/test/java/com/google/firebase/snippets/FirebaseAppSnippets.java#L105-L120)
+    [FirebaseAppSnippets.java](https://github.com/firebase/firebase-admin-java/blob/919714aab5300560f6e8fcbeeb46bbf94df46ca8/src/test/java/com/google/firebase/snippets/FirebaseAppSnippets.java#L105-L120)
 
 ### Python
     
@@ -376,7 +376,7 @@ Typically, you'll only want to initialize a single, default app. However, you ca
     # Use the `app` argument to retrieve the other app's services
     # auth.create_custom_token(..., app=other_app)
     
-    [index.py](https://github.com/firebase/firebase-admin-python/blob/00e0754146a2051d98952f5928c7e2f2c2ed695a/snippets/auth/index.py#L85-L98)
+    [index.py](https://github.com/firebase/firebase-admin-python/blob/6bafd5a7a452d33b38119c71217716361078a555/snippets/auth/index.py#L85-L98)
 
 ### Go
     
@@ -427,7 +427,7 @@ Typically, you'll only want to initialize a single, default app. However, you ca
     var otherAuth = FirebaseAuth.GetAuth(otherApp);
     
     
-    [FirebaseAppSnippets.cs](https://github.com/firebase/firebase-admin-dotnet/blob/d46549cc22df6f6238d7f74ecb56baf3a40825c9/FirebaseAdmin/FirebaseAdmin.Snippets/FirebaseAppSnippets.cs#L103-L116)
+    [FirebaseAppSnippets.cs](https://github.com/firebase/firebase-admin-dotnet/blob/e9421ffb1608d3c77e74d384214e3658c2e45c8e/FirebaseAdmin/FirebaseAdmin.Snippets/FirebaseAppSnippets.cs#L103-L116)
 
 ## Setting scopes
 

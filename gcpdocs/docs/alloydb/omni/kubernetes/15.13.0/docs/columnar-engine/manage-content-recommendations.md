@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/omni/kubernetes/15.13.0/docs/columnar-engine/manage-content-recommendations/
 title: Manage column store content using auto-columnarization \u00a0|\u00a0 AlloyDB Omni for Kubernetes: 15.13.0 \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T05:48:03.626363+00:00
+fetched_at: 2026-11-08T08:56:35.262107+00:00
 ---
 
 # Manage column store content using auto-columnarization  |  AlloyDB Omni for Kubernetes: 15.13.0  |  Google Cloud Documentation

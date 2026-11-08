@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/omni/kubernetes/18.3.0/docs/ai/scann-vector-query-perf-overview/
 title: ScaNN vector query performance overview \u00a0|\u00a0 AlloyDB Omni using the container orchestrator: 18.3.0 \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T05:51:07.512854+00:00
+fetched_at: 2026-11-08T09:12:55.151572+00:00
 ---
 
 # ScaNN vector query performance overview  |  AlloyDB Omni using the container orchestrator: 18.3.0  |  Google Cloud Documentation

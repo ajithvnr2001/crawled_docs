@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/release-notes/
 title: Gemini Enterprise Agent Platform release notes \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-07T08:29:53.825794+00:00
+fetched_at: 2026-11-08T08:35:04.219341+00:00
 ---
 
 # Gemini Enterprise Agent Platform release notes  |  Google Cloud Documentation
@@ -94,6 +94,12 @@ This release introduces updates to CodeMender:
 For more information, see the [CodeMender documentation](https://docs.cloud.google.com/gemini-enterprise-agent-platform/agents/codemender).
 
 ## November 04, 2026
+
+Feature
+
+**Provisioned Throughput support for supervised fine-tuned models (GA)**
+
+Provisioned Throughput [support for supervised fine-tuned models](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/provisioned-throughput/supported-models#supervised-fine-tuned-model-support) is [generally available](https://cloud.google.com/products#product-launch-stages). Burndown rates for fine-tuned model inference can include a premium that's directly proportional to the model's fine-tuned inference pricing premium.
 
 Feature
 

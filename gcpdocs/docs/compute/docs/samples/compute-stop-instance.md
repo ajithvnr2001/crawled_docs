@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/compute/docs/samples/compute-stop-instance/
 title: Stop a VM instance \u00a0|\u00a0 Compute Engine \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T23:31:08.833479+00:00
+fetched_at: 2026-11-08T08:48:26.356036+00:00
 ---
 
 # Stop a VM instance  |  Compute Engine  |  Google Cloud Documentation

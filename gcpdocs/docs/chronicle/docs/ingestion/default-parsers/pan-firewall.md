@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/pan-firewall/
 title: Collect Palo Alto Networks firewall logs \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T10:04:43.124278+00:00
+fetched_at: 2026-11-08T08:22:05.324857+00:00
 ---
 
 # Collect Palo Alto Networks firewall logs  |  Google Security Operations  |  Google Cloud Documentation
@@ -44,7 +44,7 @@ Select the following section that matches your architecture:
 
 ### Overview
 
-This document describes how you can configure syslog and a Google SecOps forwarder to collect Palo Alto Networks firewall logs. This document also explains how Palo Alto Networks firewall log fields map to Google SecOps Unified Data Model (UDM) fields. For an overview about Google SecOps data ingestion, see [Data ingestion to Google SecOps](https://docs.cloud.google.com/chronicle/docs/data-ingestion-flow.md). An ingestion label identifies the parser which normalizes raw log data to structured UDM format. The information in this document applies to the parser with the PAN_FIREWALL ingestion label.
+This document describes how you can configure syslog and a Google SecOps forwarder to collect Palo Alto Networks firewall logs. This document also explains how Palo Alto Networks firewall log fields map to Google SecOps Unified Data Model (UDM) fields. For an overview about Google SecOps data ingestion, see [Data ingestion to Google SecOps](https://docs.cloud.google.com/chronicle/docs/data-ingestion-flow). An ingestion label identifies the parser which normalizes raw log data to structured UDM format. The information in this document applies to the parser with the PAN_FIREWALL ingestion label.
 
 ### Before you begin
 
@@ -99,7 +99,7 @@ To configure syslog and the Google SecOps forwarder, complete the following step
   1. To monitor CSV logs, configure the syslog server profile. For more information, see [Configure the syslog server profile](https://docs.paloaltonetworks.com/pan-os/10-1/pan-os-admin/monitoring/use-syslog-for-monitoring/configure-syslog-monitoring.html). When you configure the syslog server profile, specify "Default" as the custom log format.
   2. To monitor CEF logs, configure the Palo Alto Networks firewall to forward CEF logs. For more information, [download the PAN-OS CEF Integration guide PDF](https://docs.paloaltonetworks.com/content/dam/techdocs/en_US/pdf/cef/pan-os-10-0-cef-configuration-guide.pdf) and see the "Configuration of Palo Alto Networks NGFW to output CEF events" section.
   3. To monitor LEEF logs, configure the syslog server profile. For more information, see [Custom log forwarding in LEEF format](https://knowledgebase.paloaltonetworks.com/KCSArticleDetail?id=kA10g000000ClEcCAK).
-  4. Configure the Google SecOps forwarder to send logs to Google Security Operations. For more information, see [Installing and configuring the forwarder on Linux](https://docs.cloud.google.com/chronicle/docs/install/forwarder-linux.md). The following is an example of a Google SecOps forwarder configuration:
+  4. Configure the Google SecOps forwarder to send logs to Google Security Operations. For more information, see [Installing and configuring the forwarder on Linux](https://docs.cloud.google.com/chronicle/docs/install/forwarder-linux). The following is an example of a Google SecOps forwarder configuration:
          
          - syslog:
                common:
@@ -3237,6 +3237,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-28 UTC.
+Last updated 2026-11-06 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-06 UTC."],[],[]] 

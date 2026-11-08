@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/omni/kubernetes/16.9.0/docs/install-with-alloydb-ai/
 title: Install AlloyDB AI in AlloyDB Omni \u00a0|\u00a0 AlloyDB Omni for Kubernetes: 16.9.0 \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T05:51:27.356558+00:00
+fetched_at: 2026-11-08T09:15:10.312487+00:00
 ---
 
 # Install AlloyDB AI in AlloyDB Omni  |  AlloyDB Omni for Kubernetes: 16.9.0  |  Google Cloud Documentation

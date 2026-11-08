@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/apigee/docs/hybrid/v1.16/multi-region/
 title: Multi-region deployment \u00a0|\u00a0 Apigee \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T05:46:58.722086+00:00
+fetched_at: 2026-11-08T08:56:04.389371+00:00
 ---
 
 # Multi-region deployment  |  Apigee  |  Google Cloud Documentation

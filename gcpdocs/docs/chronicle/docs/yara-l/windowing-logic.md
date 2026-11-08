@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chronicle/docs/yara-l/windowing-logic/
 title: Apply YARA-L 2.0 windowing logic \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T09:57:40.948870+00:00
+fetched_at: 2026-11-08T09:12:44.899147+00:00
 ---
 
 # Apply YARA-L 2.0 windowing logic  |  Google Security Operations  |  Google Cloud Documentation

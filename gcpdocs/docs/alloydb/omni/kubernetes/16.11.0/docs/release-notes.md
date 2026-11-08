@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/omni/kubernetes/16.11.0/docs/release-notes/
 title: AlloyDB Omni (Container orchestrator) version 16.11.0 release notes \u00a0|\u00a0 AlloyDB Omni using the container orchestrator: 16.11.0 \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-02T05:42:46.848966+00:00
+fetched_at: 2026-11-08T09:20:01.406059+00:00
 ---
 
 # AlloyDB Omni (Container orchestrator) version 16.11.0 release notes  |  AlloyDB Omni using the container orchestrator: 16.11.0  |  Google Cloud Documentation
@@ -29,6 +29,38 @@ This page contains release notes for features and updates to AlloyDB Omni.
 You can see the latest product updates for all of Google Cloud on the [ Google Cloud](https://docs.cloud.google.com/release-notes) page, browse and filter all release notes in the [Google Cloud console](https://console.cloud.google.com/release-notes), or programmatically access release notes in [BigQuery](https://console.cloud.google.com/bigquery?p=bigquery-public-data&d=google_cloud_release_notes&t=release_notes&page=table). 
 
 To get the latest product updates delivered to you, add the URL of this page to your [feed reader](https://wikipedia.org/wiki/Comparison_of_feed_aggregators), or add the [feed URL](https://docs.cloud.google.com/feeds/alloydbomni-release-notes.xml) directly. 
+
+## November 05, 2026
+
+Announcement
+
+The [AlloyDB Omni Kubernetes operator](https://docs.cloud.google.com/alloydb/omni/kubernetes/current/docs/deploy-kubernetes) version 1.6.4 is generally available ([GA](https://docs.cloud.google.com/products#product-launch-stages)) and adds support for AlloyDB Omni version 15.18.1 for PostgreSQL 15 clusters.
+
+To get all the bug fixes and updates in this release, use operator 1.6.4 with database version 15.18.1.
+
+For information about how to upgrade an existing PostgreSQL 15 cluster to database version 15.18.1, see [Upgrade the AlloyDB Omni Kubernetes operator](https://docs.cloud.google.com/alloydb/omni/kubernetes/15.13.0/docs/upgrade-kubernetes-operator-version) and [Perform a minor database version upgrade](https://docs.cloud.google.com/alloydb/omni/kubernetes/15.13.0/docs/upgrade-kubernetes-database-minor-version).
+
+Fixed
+
+Fixed an issue where the health check prober might report a false failure status because it kept using cached client connections after an operator client certificate expired or was revoked. For more information, see [Mitigate operator client certificate expiration in operator versions earlier than 1.8.2](https://docs.cloud.google.com/alloydb/omni/kubernetes/current/docs/manage-certificates-kubernetes-operator#mitigate-operator-client-certificate-expiration).
+
+Fixed
+
+Fixed an issue where audit logger pipe file descriptors might leak when the database restarted with `pgaudit` enabled. The leak left orphaned logger processes that might cause out-of-memory (OOM) conditions.
+
+This fix is available only for PostgreSQL 15 clusters running database version 15.18.1 on operator 1.6.4. For more information, see [Perform a minor database version upgrade](https://docs.cloud.google.com/alloydb/omni/kubernetes/15.13.0/docs/upgrade-kubernetes-database-minor-version).
+
+Fixed
+
+Updated the `tzdata` version `2026e` time zone data in AlloyDB Omni version 15.18.1 to incorporate the 2026 IANA daylight saving time rules.
+
+This update is available only for PostgreSQL 15 clusters running database version 15.18.1 on operator 1.6.4. If your database uses an affected time zone, see [Update timestamps and indexes after you upgrade to 15.18.1](https://docs.cloud.google.com/alloydb/omni/kubernetes/15.13.0/docs/upgrade-kubernetes-database-minor-version#update-timezone-data).
+
+Security
+
+Removed the distrusted `emSign ECC Root CA - G3` and `AAA Certificate Services` root certificate authority (CA) certificates from the operating system trust store in AlloyDB Omni version 15.18.1. The trust store now uses `ca-certificates` version `20250419~deb12u2`. For details, see security bulletin [GCP-2026-071](https://docs.cloud.google.com/support/bulletins#gcp-2026-071).
+
+This update is available only for PostgreSQL 15 clusters running database version 15.18.1 on operator 1.6.4. For more information, see [Perform a minor database version upgrade](https://docs.cloud.google.com/alloydb/omni/kubernetes/15.13.0/docs/upgrade-kubernetes-database-minor-version).
 
 ## October 30, 2026
 
@@ -845,6 +877,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-07 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-07 UTC."],[],[]] 

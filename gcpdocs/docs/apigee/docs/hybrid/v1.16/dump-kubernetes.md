@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/apigee/docs/hybrid/v1.16/dump-kubernetes/
 title: dump_kubernetes \u00a0|\u00a0 Apigee \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T05:50:13.671952+00:00
+fetched_at: 2026-11-08T09:12:49.823219+00:00
 ---
 
 # dump_kubernetes  |  Apigee  |  Google Cloud Documentation

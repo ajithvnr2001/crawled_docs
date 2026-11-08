@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/omni/kubernetes/15.7.0/docs/high-availability/test/
 title: Test your high availability setup \u00a0|\u00a0 AlloyDB Omni for Kubernetes: 15.7.0 \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T05:48:49.585054+00:00
+fetched_at: 2026-11-08T08:58:37.232521+00:00
 ---
 
 # Test your high availability setup  |  AlloyDB Omni for Kubernetes: 15.7.0  |  Google Cloud Documentation

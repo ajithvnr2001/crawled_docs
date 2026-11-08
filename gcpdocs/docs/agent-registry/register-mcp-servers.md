@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/agent-registry/register-mcp-servers/
 title: Register MCP servers \u00a0|\u00a0 Agent Registry \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T23:31:42.725359+00:00
+fetched_at: 2026-11-08T09:18:48.405322+00:00
 ---
 
 # Register MCP servers  |  Agent Registry  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/datastore/docs/samples/datastore-merged-index-tag-queries/
 title: Example datastore merged index tag queries \u00a0|\u00a0 Firestore in Datastore mode \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T22:58:22.230443+00:00
+fetched_at: 2026-11-08T09:09:00.121459+00:00
 ---
 
 # Example datastore merged index tag queries  |  Firestore in Datastore mode  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/datastore/docs/samples/datastore-multi-sort/
 title: Multiple sort \u00a0|\u00a0 Firestore in Datastore mode \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T22:59:11.788837+00:00
+fetched_at: 2026-11-08T09:08:24.708524+00:00
 ---
 
 # Multiple sort  |  Firestore in Datastore mode  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/backup-disaster-recovery/docs/customconstraints/
 title: Custom organization policy integration \u00a0|\u00a0 Backup and DR \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T05:38:48.754215+00:00
+fetched_at: 2026-11-08T08:25:55.125360+00:00
 ---
 
 # Custom organization policy integration  |  Backup and DR  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/appengine/migration-center/standard/python/migrating-push-queues/
 title: Migrate push queues to Cloud Tasks (Python) \u00a0|\u00a0 App Engine migration center \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T05:38:55.838550+00:00
+fetched_at: 2026-11-08T08:26:19.530534+00:00
 ---
 
 # Migrate push queues to Cloud Tasks (Python)  |  App Engine migration center  |  Google Cloud Documentation

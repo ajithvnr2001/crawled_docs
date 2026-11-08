@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/firestore/docs/samples/firestore-data-set-server-timestamp/
 title: Update a Firestore document Timestamp \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T23:46:10.987619+00:00
+fetched_at: 2026-11-08T08:37:33.406547+00:00
 ---
 
 # Update a Firestore document Timestamp  |  Google Cloud Documentation

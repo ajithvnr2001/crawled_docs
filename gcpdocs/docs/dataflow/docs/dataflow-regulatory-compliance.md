@@ -1,42 +1,13 @@
 ---
 url: https://docs.cloud.google.com/dataflow/docs/dataflow-regulatory-compliance/
 title: Regulatory support in Dataflow \u00a0|\u00a0 Google Cloud Documentation
-method: crawl4ai+scrapegraph (scrapling: scrapling status 429)
-fetched_at: 2026-10-27T17:01:29.472240+00:00
+method: scrapling+scrapegraph
+fetched_at: 2026-11-08T09:08:27.783597+00:00
 ---
 
 # Regulatory support in Dataflow  |  Google Cloud Documentation
 
 > Source: https://docs.cloud.google.com/dataflow/docs/dataflow-regulatory-compliance/
-
-[ Skip to main content ](https://docs.cloud.google.com/dataflow/docs/dataflow-regulatory-compliance/#main-content)
-[ ![Google Cloud Documentation](https://www.gstatic.com/devrel-devsite/prod/v5a0f9ff8b593048661361a49e11ab98a8b1ac025e19e60e6189f2b56796f8a43/clouddocs/images/lockup_full_color.svg) ](https://docs.cloud.google.com/)
-`/`
-[ Console ](https://console.cloud.google.com/)
-  * [English](https://docs.cloud.google.com/dataflow/docs/dataflow-regulatory-compliance/)
-  * [Deutsch](https://docs.cloud.google.com/dataflow/docs/dataflow-regulatory-compliance/?hl=de)
-  * [Español – América Latina](https://docs.cloud.google.com/dataflow/docs/dataflow-regulatory-compliance/?hl=es-419)
-  * [Français](https://docs.cloud.google.com/dataflow/docs/dataflow-regulatory-compliance/?hl=fr)
-  * [Indonesia](https://docs.cloud.google.com/dataflow/docs/dataflow-regulatory-compliance/?hl=id)
-  * [Italiano](https://docs.cloud.google.com/dataflow/docs/dataflow-regulatory-compliance/?hl=it)
-  * [Português – Brasil](https://docs.cloud.google.com/dataflow/docs/dataflow-regulatory-compliance/?hl=pt-br)
-  * [עברית](https://docs.cloud.google.com/dataflow/docs/dataflow-regulatory-compliance/?hl=he)
-  * [中文 – 简体](https://docs.cloud.google.com/dataflow/docs/dataflow-regulatory-compliance/?hl=zh-cn)
-  * [中文 – 繁體](https://docs.cloud.google.com/dataflow/docs/dataflow-regulatory-compliance/?hl=zh-tw)
-  * [日本語](https://docs.cloud.google.com/dataflow/docs/dataflow-regulatory-compliance/?hl=ja)
-  * [한국어](https://docs.cloud.google.com/dataflow/docs/dataflow-regulatory-compliance/?hl=ko)
-
-
-[ Sign in ](https://docs.cloud.google.com/_d/signin?continue=https%3A%2F%2Fdocs.cloud.google.com%2Fdataflow%2Fdocs%2Fdataflow-regulatory-compliance%2F&prompt=select_account)
-[ ![](https://docs.cloud.google.com/_static/clouddocs/images/icons/categories/data-analytics-color.svg) ](https://docs.cloud.google.com/dataflow/docs)
-  * [ Cloud Dataflow ](https://docs.cloud.google.com/dataflow/docs)
-
-
-[Start free](https://console.cloud.google.com/freetrial)
-  * On this page
-  * [Data Boundary for ITAR](https://docs.cloud.google.com/dataflow/docs/dataflow-regulatory-compliance/#data-boundary-for-itar)
-  * [What's next](https://docs.cloud.google.com/dataflow/docs/dataflow-regulatory-compliance/#whats_next)
-
 
   * [ Home ](https://docs.cloud.google.com/)
   * [ Documentation ](https://docs.cloud.google.com/docs)
@@ -45,32 +16,29 @@ fetched_at: 2026-10-27T17:01:29.472240+00:00
   * [ Resources ](https://docs.cloud.google.com/dataflow/docs/resources)
 
 
-Was this helpful?
-Send feedback 
-#  Regulatory support in Dataflow Stay organized with collections  Save and categorize content based on your preferences.
-  * On this page
-  * [Data Boundary for ITAR](https://docs.cloud.google.com/dataflow/docs/dataflow-regulatory-compliance/#data-boundary-for-itar)
-  * [What's next](https://docs.cloud.google.com/dataflow/docs/dataflow-regulatory-compliance/#whats_next)
 
+Send feedback 
+
+#  Regulatory support in Dataflow Stay organized with collections  Save and categorize content based on your preferences. 
 
 This document describes the features, configurations and APIs in Dataflow that align with the controls for supported control packages. This document assumes that you're using [Assured Workloads](https://docs.cloud.google.com/assured-workloads/docs/overview).
-Show All Data Boundary for ITAR
-Select an optionFilter by control package
-  * Show All
-  * Data Boundary for ITAR
 
+Show AllData Boundary for ITAR  
   
-|  |  
-| --- |  
-| 
-##  Data Boundary for ITAR
+---  
+  
+## Data Boundary for ITAR
+
 ### Supported services
-The following table lists the Dataflow APIs and versions that meet the requirements of Data Boundary for ITAR.  
- | Service  | Version  | Status  |  
-| --- | --- | --- |  
-| dataflow.googleapis.com  | v1beta3  |  SUPPORTED   |  
+
+The following table lists the Dataflow APIs and versions that meet the requirements of Data Boundary for ITAR. | Service | Version | Status  
+---|---|---  
+dataflow.googleapis.com | v1beta3 |  SUPPORTED   
+  
 ### Compliance supported regions
+
 Dataflow is available for Data Boundary for ITAR in the following Google Cloud regions:
+
   * us-central1
   * us-east1
   * us-east4
@@ -90,11 +58,15 @@ Dataflow is available for Data Boundary for ITAR in the following Google Cloud r
   * us-west4
 
 
+
 ### Fields not intended for Sensitive data
-The following table provides an illustrative list of field categories and specific fields that aren't suitable for sensitive information. To maintain compliance, avoid placing protected data in these fields. For a complete list, contact your Google Cloud representative.  
-| Category  | Fields  |  
-| --- | --- |  
-| Job configuration - environment and worker settings  | 
+
+The following table provides an illustrative list of field categories and specific fields that aren't suitable for sensitive information. To maintain compliance, avoid placing protected data in these fields. For a complete list, contact your Google Cloud representative.
+
+Category | Fields  
+---|---  
+Job configuration - environment and worker settings | 
+
   * `job.environment.workerPools.diskType`
   * `job.environment.workerPools.machineType`
   * `job.environment.workerPools.network`
@@ -102,8 +74,9 @@ The following table provides an illustrative list of field categories and specif
   * `job.environment.workerPools.zone`
   * `job.environment.workerZone`
 
- |  
-| Job configuration - general  | 
+  
+Job configuration - general | 
+
   * `job.createdFromSnapshotId`
   * `job.id`
   * `job.replaceJobId`
@@ -111,8 +84,9 @@ The following table provides an illustrative list of field categories and specif
   * `jobName`
   * `replaceJobId`
 
- |  
-| Job configuration - logging and monitoring  | 
+  
+Job configuration - logging and monitoring | 
+
   * `job.environment.workerPools.taskrunnerSettings.logDir`
   * `job.environment.workerPools.taskrunnerSettings.logUploadLocation`
   * `workItemStatuses.metricUpdates.name.context.key`
@@ -120,8 +94,9 @@ The following table provides an illustrative list of field categories and specif
   * `workerMessages.perWorkerMetrics.perStepNamespaceMetrics.metricsNamespace`
   * `workerMessages.workerHealthReport.msg`
 
- |  
-| Job configuration - metadata and labels  | 
+  
+Job configuration - metadata and labels | 
+
   * `job.environment.workerPools.metadata.key`
   * `job.jobMetadata.userDisplayProperties.key`
   * `job.labels.key`
@@ -129,8 +104,9 @@ The following table provides an illustrative list of field categories and specif
   * `launchParameter.environment.additionalUserLabels.key`
   * `workerMessages.labels.key`
 
- |  
-| Job configuration - pipeline and transform details  | 
+  
+Job configuration - pipeline and transform details | 
+
   * `job.pipelineDescription.displayData.namespace`
   * `job.pipelineDescription.executionPipelineStage.name`
   * `job.pipelineDescription.originalPipelineTransform.displayData.label`
@@ -138,8 +114,9 @@ The following table provides an illustrative list of field categories and specif
   * `job.pipelineDescription.originalPipelineTransform.id`
   * `job.pipelineDescription.originalPipelineTransform.name`
 
- |  
-| Job configuration - sdk and version information  | 
+  
+Job configuration - sdk and version information | 
+
   * `job.environment.sdkPipelineOptions.fields.key`
   * `job.environment.version.fields.key`
   * `job.environment.workerPools.sdkHarnessContainerImages.containerImage`
@@ -147,8 +124,9 @@ The following table provides an illustrative list of field categories and specif
   * `launchParameter.containerSpec.image`
   * `launchParameter.containerSpec.sdkInfo.version`
 
- |  
-| Job configuration - service accounts and credentials  | 
+  
+Job configuration - service accounts and credentials | 
+
   * `job.environment.serviceAccountEmail`
   * `job.environment.serviceKmsKeyName`
   * `job.environment.workerPools.taskrunnerSettings.oauthScopes`
@@ -156,8 +134,9 @@ The following table provides an illustrative list of field categories and specif
   * `launchParameter.environment.kmsKeyName`
   * `launchParameter.environment.serviceAccountEmail`
 
- |  
-| Job configuration - storage and data locations  | 
+  
+Job configuration - storage and data locations | 
+
   * `gcsPath`
   * `job.environment.tempStoragePrefix`
   * `job.environment.workerPools.taskrunnerSettings.tempStoragePrefix`
@@ -165,8 +144,9 @@ The following table provides an illustrative list of field categories and specif
   * `job.tempFiles`
   * `launchParameter.environment.stagingLocation`
 
- |  
-| Job configuration - taskrunner and worker settings  | 
+  
+Job configuration - taskrunner and worker settings | 
+
   * `job.environment.workerPools.taskrunnerSettings.harnessCommand`
   * `job.environment.workerPools.taskrunnerSettings.languageHint`
   * `job.environment.workerPools.taskrunnerSettings.parallelWorkerSettings.baseUrl`
@@ -174,8 +154,9 @@ The following table provides an illustrative list of field categories and specif
   * `job.environment.workerPools.taskrunnerSettings.vmId`
   * `job.environment.workerPools.taskrunnerSettings.workflowFileName`
 
- |  
-| Project and resource identification  | 
+  
+Project and resource identification | 
+
   * `componentId`
   * `jobId`
   * `location`
@@ -183,15 +164,20 @@ The following table provides an illustrative list of field categories and specif
   * `projectId`
   * `snapshotId`
 
- |  
   
- |  
+  
+  
+  
 ## What's next
+
   * Learn more about [compliance in Google Cloud](https://cloud.google.com/compliance).
 
 
-Was this helpful?
+
 Send feedback 
+
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
-Last updated 2026-10-26 UTC.
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+
+Last updated 2026-11-07 UTC.
+
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-07 UTC."],[],[]] 

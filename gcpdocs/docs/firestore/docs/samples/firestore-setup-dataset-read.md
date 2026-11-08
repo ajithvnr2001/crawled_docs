@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/firestore/docs/samples/firestore-setup-dataset-read/
 title: Getting Firestore documents from a collection \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T23:45:56.413919+00:00
+fetched_at: 2026-11-08T08:37:14.876303+00:00
 ---
 
 # Getting Firestore documents from a collection  |  Google Cloud Documentation

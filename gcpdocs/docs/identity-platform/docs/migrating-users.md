@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/identity-platform/docs/migrating-users/
 title: Migrating users from an existing app \u00a0|\u00a0 Identity Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-06T08:21:13.366662+00:00
+fetched_at: 2026-11-08T08:27:47.714261+00:00
 ---
 
 # Migrating users from an existing app  |  Identity Platform  |  Google Cloud Documentation
@@ -102,7 +102,7 @@ HMAC hashing algorithms include `HMAC_MD5`, `HMAC_SHA1`, `HMAC_SHA256` and `HMAC
       System.out.println("Error importing users: " + e.getMessage());
     }
     
-    [FirebaseAuthSnippets.java](https://github.com/firebase/firebase-admin-java/blob/c37e514e0bc899066dff4d8ef2aa895a04568ee0/src/test/java/com/google/firebase/snippets/FirebaseAuthSnippets.java#L476-L493)
+    [FirebaseAuthSnippets.java](https://github.com/firebase/firebase-admin-java/blob/919714aab5300560f6e8fcbeeb46bbf94df46ca8/src/test/java/com/google/firebase/snippets/FirebaseAuthSnippets.java#L476-L493)
 
 ### Python
     
@@ -124,7 +124,7 @@ HMAC hashing algorithms include `HMAC_MD5`, `HMAC_SHA1`, `HMAC_SHA256` and `HMAC
     except exceptions.FirebaseError as error:
         print('Error importing users:', error)
     
-    [index.py](https://github.com/firebase/firebase-admin-python/blob/00e0754146a2051d98952f5928c7e2f2c2ed695a/snippets/auth/index.py#L490-L505)
+    [index.py](https://github.com/firebase/firebase-admin-python/blob/6bafd5a7a452d33b38119c71217716361078a555/snippets/auth/index.py#L490-L505)
 
 ### Go
     
@@ -208,7 +208,7 @@ MD5, SHA and PBKDF hashing algorithms include `MD5`, `SHA1`, `SHA256`, `SHA512`,
       System.out.println("Error importing users: " + e.getMessage());
     }
     
-    [FirebaseAuthSnippets.java](https://github.com/firebase/firebase-admin-java/blob/c37e514e0bc899066dff4d8ef2aa895a04568ee0/src/test/java/com/google/firebase/snippets/FirebaseAuthSnippets.java#L499-L516)
+    [FirebaseAuthSnippets.java](https://github.com/firebase/firebase-admin-java/blob/919714aab5300560f6e8fcbeeb46bbf94df46ca8/src/test/java/com/google/firebase/snippets/FirebaseAuthSnippets.java#L499-L516)
 
 ### Python
     
@@ -230,7 +230,7 @@ MD5, SHA and PBKDF hashing algorithms include `MD5`, `SHA1`, `SHA256`, `SHA512`,
     except exceptions.FirebaseError as error:
         print('Error importing users:', error)
     
-    [index.py](https://github.com/firebase/firebase-admin-python/blob/00e0754146a2051d98952f5928c7e2f2c2ed695a/snippets/auth/index.py#L510-L525)
+    [index.py](https://github.com/firebase/firebase-admin-python/blob/6bafd5a7a452d33b38119c71217716361078a555/snippets/auth/index.py#L510-L525)
 
 ### Go
     
@@ -328,7 +328,7 @@ The Admin SDK supports the standard `SCRYPT` algorithm as well as an [internal m
       System.out.println("Error importing users: " + e.getMessage());
     }
     
-    [FirebaseAuthSnippets.java](https://github.com/firebase/firebase-admin-java/blob/c37e514e0bc899066dff4d8ef2aa895a04568ee0/src/test/java/com/google/firebase/snippets/FirebaseAuthSnippets.java#L522-L542)
+    [FirebaseAuthSnippets.java](https://github.com/firebase/firebase-admin-java/blob/919714aab5300560f6e8fcbeeb46bbf94df46ca8/src/test/java/com/google/firebase/snippets/FirebaseAuthSnippets.java#L522-L542)
 
 ### Python
     
@@ -351,7 +351,7 @@ The Admin SDK supports the standard `SCRYPT` algorithm as well as an [internal m
     except exceptions.FirebaseError as error:
         print('Error importing users:', error)
     
-    [index.py](https://github.com/firebase/firebase-admin-python/blob/00e0754146a2051d98952f5928c7e2f2c2ed695a/snippets/auth/index.py#L530-L546)
+    [index.py](https://github.com/firebase/firebase-admin-python/blob/6bafd5a7a452d33b38119c71217716361078a555/snippets/auth/index.py#L530-L546)
 
 ### Go
     
@@ -474,7 +474,7 @@ In your code, you'll need to supply the following:
       System.out.println("Error importing users: " + e.getMessage());
     }
     
-    [FirebaseAuthSnippets.java](https://github.com/firebase/firebase-admin-java/blob/c37e514e0bc899066dff4d8ef2aa895a04568ee0/src/test/java/com/google/firebase/snippets/FirebaseAuthSnippets.java#L568-L590)
+    [FirebaseAuthSnippets.java](https://github.com/firebase/firebase-admin-java/blob/919714aab5300560f6e8fcbeeb46bbf94df46ca8/src/test/java/com/google/firebase/snippets/FirebaseAuthSnippets.java#L568-L590)
 
 ### Python
     
@@ -503,7 +503,7 @@ In your code, you'll need to supply the following:
     except exceptions.FirebaseError as error:
         print('Error importing users:', error)
     
-    [index.py](https://github.com/firebase/firebase-admin-python/blob/00e0754146a2051d98952f5928c7e2f2c2ed695a/snippets/auth/index.py#L571-L593)
+    [index.py](https://github.com/firebase/firebase-admin-python/blob/6bafd5a7a452d33b38119c71217716361078a555/snippets/auth/index.py#L571-L593)
 
 ### Go
     
@@ -603,7 +603,7 @@ No additional parameters or password salts are required for `BCRYPT` hashed pass
       System.out.println("Error importing users: " + e.getMessage());
     }
     
-    [FirebaseAuthSnippets.java](https://github.com/firebase/firebase-admin-java/blob/c37e514e0bc899066dff4d8ef2aa895a04568ee0/src/test/java/com/google/firebase/snippets/FirebaseAuthSnippets.java#L548-L562)
+    [FirebaseAuthSnippets.java](https://github.com/firebase/firebase-admin-java/blob/919714aab5300560f6e8fcbeeb46bbf94df46ca8/src/test/java/com/google/firebase/snippets/FirebaseAuthSnippets.java#L548-L562)
 
 ### Python
     
@@ -625,7 +625,7 @@ No additional parameters or password salts are required for `BCRYPT` hashed pass
     except exceptions.FirebaseError as error:
         print('Error importing users:', error)
     
-    [index.py](https://github.com/firebase/firebase-admin-python/blob/00e0754146a2051d98952f5928c7e2f2c2ed695a/snippets/auth/index.py#L551-L566)
+    [index.py](https://github.com/firebase/firebase-admin-python/blob/6bafd5a7a452d33b38119c71217716361078a555/snippets/auth/index.py#L551-L566)
 
 ### Go
     
@@ -717,7 +717,7 @@ If your users authenticate with an external identity provider using OAuth, SAML,
       System.out.println("Error importing users: " + e.getMessage());
     }
     
-    [FirebaseAuthSnippets.java](https://github.com/firebase/firebase-admin-java/blob/c37e514e0bc899066dff4d8ef2aa895a04568ee0/src/test/java/com/google/firebase/snippets/FirebaseAuthSnippets.java#L625-L648)
+    [FirebaseAuthSnippets.java](https://github.com/firebase/firebase-admin-java/blob/919714aab5300560f6e8fcbeeb46bbf94df46ca8/src/test/java/com/google/firebase/snippets/FirebaseAuthSnippets.java#L625-L648)
 
 ### Python
     
@@ -749,7 +749,7 @@ If your users authenticate with an external identity provider using OAuth, SAML,
     except exceptions.FirebaseError as error:
         print('Error importing users:', error)
     
-    [index.py](https://github.com/firebase/firebase-admin-python/blob/00e0754146a2051d98952f5928c7e2f2c2ed695a/snippets/auth/index.py#L598-L623)
+    [index.py](https://github.com/firebase/firebase-admin-python/blob/6bafd5a7a452d33b38119c71217716361078a555/snippets/auth/index.py#L598-L623)
 
 ### Go
     

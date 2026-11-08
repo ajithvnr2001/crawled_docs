@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/compute/docs/disks/add-local-ssd/
 title: Add a Local SSD disk to your compute instance \u00a0|\u00a0 Compute Engine \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T23:31:12.139339+00:00
+fetched_at: 2026-11-08T08:49:08.427698+00:00
 ---
 
 # Add a Local SSD disk to your compute instance  |  Compute Engine  |  Google Cloud Documentation
@@ -26,7 +26,7 @@ Local SSD disks are designed for temporary storage use cases such as caches or s
 For [third generation machine series](https://docs.cloud.google.com/compute/docs/machine-resource#vm_terminology) and later that support Local SSD disks (excluding G4 and M3), Compute Engine automatically attaches a specific number of Local SSD disks when you create your instance. These machine series offer Local SSD storage in the following ways:
 
   * **H4D, C4, C4A, C4D, C4N, C3, and C3D** : For these machine series, Local SSD storage is available only with the machine types that end in `-lssd`, such as `c3-standard-88-lssd`.
-  * **Z4D, Z4M, Z3, A4X Max, A4X, A4, A3, and A2 Ultra machine series** : For these machine series, every machine type comes with Local SSD storage.
+  * **Z4D, Z4M, Z3, A5X, A4X Max, A4X, A4, A3, and A2 Ultra machine series** : For these machine series, every machine type comes with Local SSD storage.
 
 
 
@@ -162,7 +162,7 @@ You can create a compute instance with Local SSD storage using the [Google Cloud
   4. Select a series from the **Series** list, then choose the machine type.
 
      * For H4D, C4, C4A, C4D, C4N, C3, and C3D, choose a machine type that ends in `-lssd`.
-     * For Z4D, Z4M, Z3, A4X Max, A4X, A4, A3, and A2 Ultra, every machine type comes with Local SSD storage.
+     * For Z4D, Z4M, Z3, A5X, A4X Max, A4X, A4, A3, and A2 Ultra, every machine type comes with Local SSD storage.
      * For G4, M3, or first and second generation machine series, after selecting the machine type, do the following: 
        1. Expand the **Advanced options** section.
        2. Expand **Disks** , click **Add Local SSD** , and do the following: 
@@ -178,7 +178,7 @@ You can create a compute instance with Local SSD storage using the [Google Cloud
 
 ###  gcloud 
 
-  * For the Z4D, Z4M, Z3, A4X Max, A4X, A4, A3, and A2 Ultra machine series, to create a compute instance with attached Local SSD disks, create an instance that uses any of the available machine types for that series by following the instructions to [create an instance](https://docs.cloud.google.com/compute/docs/instances/create-start-instance).
+  * For the Z4D, Z4M, Z3, A5X, A4X Max, A4X, A4, A3, and A2 Ultra machine series, to create a compute instance with attached Local SSD disks, create an instance that uses any of the available machine types for that series by following the instructions to [create an instance](https://docs.cloud.google.com/compute/docs/instances/create-start-instance).
 
   * For the H4D, C4, C4A, C4D, C4N, C3, and C3D machine series, to create a compute instance with attached Local SSD disks, follow the instructions to [create an instance](https://docs.cloud.google.com/compute/docs/instances/create-start-instance), and specify a machine type that ends in `-lssd`.
 
@@ -861,7 +861,7 @@ To authenticate to Compute Engine, set up Application Default Credentials. For m
 
 Use the [`instances.insert method`](https://docs.cloud.google.com/compute/docs/reference/rest/v1/instances/insert) to create a compute instance from an image family or from a specific version of an operating system image.
 
-  * For the Z4D, Z4M, Z3, A4X Max, A4X, A4, A3, and A2 Ultra machine series, to create a compute instance that has attached Local SSD disks, create an instance that uses any of the available machine types for that series.
+  * For the Z4D, Z4M, Z3, A5X, A4X Max, A4X, A4, A3, and A2 Ultra machine series, to create a compute instance that has attached Local SSD disks, create an instance that uses any of the available machine types for that series.
   * For the H4D, C4, C4A, C4D, C4N, C3, and C3D machine series, to create a compute instance that has attached Local SSD disks, specify an instance type that ends in `-lssd`.
 
 Here is a sample request payload that creates a C3 instance with an Ubuntu boot disk and two Local SSD disks:
@@ -1054,7 +1054,7 @@ If you create a snapshot from the boot disk of this instance and use it to creat
 
 Use the Windows [Disk Management tool](https://technet.microsoft.com/en-us/library/dd163549.aspx) to format and mount a Local SSD disk on a Windows instance.
 
-  1. [Connect to the instance](https://docs.cloud.google.com/compute/docs/instances/connecting-to-windows) through RDP. For this example, go to the [VM instances page](https://console.cloud.google.com/compute/instances) and click the **RDP** button next the instance that has the Local SSD disks attached. After you enter your username and password, a window opens with the desktop interface for your server.
+  1. [Connect to the instance](https://docs.cloud.google.com/compute/docs/instances/connecting-to-windows) through RDP. For this example, go to the [VM instances page](https://console.cloud.google.com/compute/instances) and click the **RDP** button next to the instance that has the Local SSD disks attached. After you enter your username and password, a window opens with the desktop interface for your server.
 
   2. Right-click the Windows Start button and select **Disk Management**.
 
@@ -1232,7 +1232,7 @@ If you create a snapshot from the boot disk of this instance and use it to creat
 
 Use the Windows [Disk Management tool](https://technet.microsoft.com/en-us/library/dd163549.aspx) to format and mount an array of Local SSD disks on a Windows instance.
 
-  1. [Connect to the instance](https://docs.cloud.google.com/compute/docs/instances/connecting-to-windows) through RDP. For this example, go to the [VM instances page](https://console.cloud.google.com/compute/instances) and click the **RDP** button next the instance that has the Local SSD disks attached. After you enter your username and password, a window opens with the desktop interface for your server.
+  1. [Connect to the instance](https://docs.cloud.google.com/compute/docs/instances/connecting-to-windows) through RDP. For this example, go to the [VM instances page](https://console.cloud.google.com/compute/instances) and click the **RDP** button next to the instance that has the Local SSD disks attached. After you enter your username and password, a window opens with the desktop interface for your server.
 
   2. Right-click the Windows Start button and select **Disk Management**.
 
@@ -1274,6 +1274,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-07 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-07 UTC."],[],[]] 

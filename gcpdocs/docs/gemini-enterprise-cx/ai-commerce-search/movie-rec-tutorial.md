@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-cx/ai-commerce-search/movie-rec-tutorial/
 title: Create personalized movie recommendations \u00a0|\u00a0 AI Commerce Search in Gemini Enterprise for Customer Experience \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T23:24:07.044611+00:00
+fetched_at: 2026-11-08T08:35:44.166184+00:00
 ---
 
 # Create personalized movie recommendations  |  AI Commerce Search in Gemini Enterprise for Customer Experience  |  Google Cloud Documentation

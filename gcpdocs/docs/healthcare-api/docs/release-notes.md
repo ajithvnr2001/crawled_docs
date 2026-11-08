@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/healthcare-api/docs/release-notes/
 title: Cloud Healthcare API release notes \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T23:22:38.585328+00:00
+fetched_at: 2026-11-08T08:32:59.816133+00:00
 ---
 
 # Cloud Healthcare API release notes  |  Google Cloud Documentation
@@ -26,6 +26,14 @@ This page documents production updates to Cloud Healthcare API. Check this page 
 You can see the latest product updates for all of Google Cloud on the [ Google Cloud](https://docs.cloud.google.com/release-notes) page, browse and filter all release notes in the [Google Cloud console](https://console.cloud.google.com/release-notes), or programmatically access release notes in [BigQuery](https://console.cloud.google.com/bigquery?p=bigquery-public-data&d=google_cloud_release_notes&t=release_notes&page=table). 
 
 To get the latest product updates delivered to you, add the URL of this page to your [feed reader](https://wikipedia.org/wiki/Comparison_of_feed_aggregators), or add the [feed URL](https://docs.cloud.google.com/feeds/healthcare-release-notes.xml) directly. 
+
+## October 19, 2026
+
+v1
+
+Feature
+
+**General availability:** Redacting burnt-in text in DICOM images using custom regular expressions (`customRegexes` in [`ImageConfig`](https://docs.cloud.google.com/healthcare-api/docs/reference/rest/v1/projects.locations.datasets.fhirStores#ImageConfig)) is now generally available (GA) in Cloud Healthcare API `v1`. You can specify custom regular expression patterns (`pattern`) and optional capturing group indexes (`groupIndexes`, a maximum of three for each pattern) in [`projects.locations.datasets.deidentify`](https://docs.cloud.google.com/healthcare-api/docs/reference/rest/v1/projects.locations.datasets/deidentify) and [`projects.locations.datasets.dicomStores.deidentify`](https://docs.cloud.google.com/healthcare-api/docs/reference/rest/v1/projects.locations.datasets.dicomStores/deidentify) when `textRedactionMode` is set to `REDACT_SENSITIVE_TEXT`. For more information, see [Redacting burnt-in text using custom regular expressions](https://docs.cloud.google.com/healthcare-api/docs/how-tos/dicom-deidentify#redacting-burnt-in-text-using-custom-regular-expressions).
 
 ## October 01, 2026
 
@@ -1708,6 +1716,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-07 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-07 UTC."],[],[]] 

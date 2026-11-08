@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/omni/kubernetes/15.5.4/docs/run-connect/
 title: Run and connect to AlloyDB Omni \u00a0|\u00a0 AlloyDB Omni for Kubernetes: 15.5.4 \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T05:47:53.538229+00:00
+fetched_at: 2026-11-08T08:57:14.784272+00:00
 ---
 
 # Run and connect to AlloyDB Omni  |  AlloyDB Omni for Kubernetes: 15.5.4  |  Google Cloud Documentation

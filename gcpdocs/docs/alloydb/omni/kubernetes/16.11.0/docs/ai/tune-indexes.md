@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/omni/kubernetes/16.11.0/docs/ai/tune-indexes/
 title: Tune vector query performance in AlloyDB Omni \u00a0|\u00a0 AlloyDB Omni using the container orchestrator: 16.11.0 \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T05:49:05.182340+00:00
+fetched_at: 2026-11-08T08:57:52.217018+00:00
 ---
 
 # Tune vector query performance in AlloyDB Omni  |  AlloyDB Omni using the container orchestrator: 16.11.0  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/healthcare-api/docs/samples/healthcare-dataset-get-iam-policy/
 title: Get IAM policy \u00a0|\u00a0 Cloud Healthcare API \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T16:28:31.390000+00:00
+fetched_at: 2026-11-08T08:29:00.237421+00:00
 ---
 
 # Get IAM policy  |  Cloud Healthcare API  |  Google Cloud Documentation

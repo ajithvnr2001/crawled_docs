@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/blockchain-node-engine/docs/release-notes/
 title: Blockchain Node Engine release notes \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T00:26:50.017522+00:00
+fetched_at: 2026-11-08T09:18:16.923014+00:00
 ---
 
 # Blockchain Node Engine release notes  |  Google Cloud Documentation
@@ -53,88 +53,6 @@ rss_feed Subscribe:
 You can see the latest product updates for all of Google Cloud on the [ Google Cloud](https://docs.cloud.google.com/release-notes) page, browse and filter all release notes in the [Google Cloud console](https://console.cloud.google.com/release-notes), or programmatically access release notes in [BigQuery](https://console.cloud.google.com/bigquery?p=bigquery-public-data&d=google_cloud_release_notes&t=release_notes&page=table). 
 
 To get the latest product updates delivered to you, add the URL of this page to your [feed reader](https://wikipedia.org/wiki/Comparison_of_feed_aggregators), or add the [feed URL](https://docs.cloud.google.com/feeds/blockchain-node-engine-release-notes.xml) directly. 
-
-## December 15, 2026
-
-Announcement
-
-**Complete Deprecation of Blockchain Node Engine**
-
-Blockchain Node Engine and Blockchain RPC will be shut down on December 15, 2026.
-
-  * Existing nodes and endpoints will be deleted on this date.
-
-  * Workloads depending on these resources will fail after this date.
-
-  * Ensure all workloads have been migrated to our partner, [**Quicknode**](https://www.quicknode.com/gcp-node-migration), before the shutdown to prevent service failure.
-
-
-
-
-For more information, see the [migration guide](https://docs.cloud.google.com/blockchain-node-engine/docs/migrate-to-quicknode).
-
-## June 15, 2026
-
-Announcement
-
-**Limited support for Blockchain Node Engine**
-
-Starting June 15, 2026, Blockchain Node Engine will enter a period of limited support.
-
-  * New node creation in Blockchain Node Engine and provisioning of new Blockchain RPC endpoints will be disabled.
-
-  * Existing nodes and endpoints will continue to function and receive critical updates until the final shutdown date.
-
-  * We recommend migrating your workloads to our partner, [**Quicknode**](https://www.quicknode.com/gcp-node-migration), to avoid service disruption.
-
-
-
-
-For more information, see the [migration guide](https://docs.cloud.google.com/blockchain-node-engine/docs/migrate-to-quicknode).
-
-## March 19, 2024
-
-Announcement
-
-On March 19, 2024, Blockchain Node Engine upgraded all mainnet Polygon nodes in preparation for the Napoli (PIP-33) Hardfork.
-
-## March 12, 2024
-
-Announcement
-
-On March 12, 2024, Blockchain Node Engine upgraded all mainnet Ethereum nodes in preparation for the Dencun Hardfork.
-
-## February 01, 2024
-
-Announcement
-
-On February 1, 2024, Blockchain Node Engine upgraded all Ethereum Holesky nodes in preparation for the Dencun Hardfork.
-
-## January 30, 2024
-
-Announcement
-
-On January 30, 2024, Blockchain Node Engine upgraded all Ethereum Sepolia nodes in preparation for the Dencun Hardfork.
-
-## January 16, 2024
-
-Announcement
-
-On January 16, 2024, Blockchain Node Engine upgraded all Ethereum Goerli nodes in preparation for the Dencun Hardfork.
-
-## December 18, 2023
-
-Feature
-
-Blockchain Node Engine is now integrated with VPC Service Controls. This integration offers enhanced access control options for admins at the organization level.
-
-This integration is still in Preview and is ready for broader testing and use, but is not fully supported for production environments.
-
-## November 08, 2023
-
-Announcement
-
-On November 8, 2023 Blockchain Node Engine released a limited preview version of the software. This release adds the [Solana blockchain](https://docs.cloud.google.com/blockchain-node-engine/docs/create-node-solana) node option. Access to the user interface and APIs is limited to specific customers until GA release.
 
 ## September 21, 2023
 

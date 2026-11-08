@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/apigee/docs/hybrid/v1.16/install-create-cluster/
 title: Step 1: Create a cluster \u00a0|\u00a0 Apigee \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T05:47:18.786201+00:00
+fetched_at: 2026-11-08T08:54:49.648511+00:00
 ---
 
 # Step 1: Create a cluster  |  Apigee  |  Google Cloud Documentation

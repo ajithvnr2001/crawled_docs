@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/appengine/docs/standard/java-gen2/specifying-dependencies/
 title: Specifying dependencies \u00a0|\u00a0 App Engine standard environment \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T05:39:01.093656+00:00
+fetched_at: 2026-11-08T08:26:23.289445+00:00
 ---
 
 # Specifying dependencies  |  App Engine standard environment  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/omni/kubernetes/15.12.0/docs/ai/filtered-vector-search-overview/
 title: Filtered vector search in AlloyDB Omni overview \u00a0|\u00a0 AlloyDB Omni for Kubernetes: 15.12.0 \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T05:51:40.396970+00:00
+fetched_at: 2026-11-08T09:15:20.804433+00:00
 ---
 
 # Filtered vector search in AlloyDB Omni overview  |  AlloyDB Omni for Kubernetes: 15.12.0  |  Google Cloud Documentation

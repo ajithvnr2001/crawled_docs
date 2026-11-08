@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigtable/docs/samples/bigtable-create-family-gc-union/
 title: Union garbage-collection policy \u00a0|\u00a0 Bigtable \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-06T13:05:40.930659+00:00
+fetched_at: 2026-11-08T08:24:24.327031+00:00
 ---
 
 # Union garbage-collection policy  |  Bigtable  |  Google Cloud Documentation

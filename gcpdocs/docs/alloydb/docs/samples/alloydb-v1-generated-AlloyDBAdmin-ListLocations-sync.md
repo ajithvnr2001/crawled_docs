@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/docs/samples/alloydb-v1-generated-AlloyDBAdmin-ListLocations-sync/
 title: List available locations \u00a0|\u00a0 AlloyDB for PostgreSQL \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-05T00:18:18.647930+00:00
+fetched_at: 2026-11-08T08:27:19.178440+00:00
 ---
 
 # List available locations  |  AlloyDB for PostgreSQL  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/hadoop-metadata/
 title: Extracting metadata from Apache Hive for migration \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T05:38:46.021303+00:00
+fetched_at: 2026-11-08T08:25:52.714456+00:00
 ---
 
 # Extracting metadata from Apache Hive for migration  |  BigQuery  |  Google Cloud Documentation

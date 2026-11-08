@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/datastore/docs/samples/datastore-composite-filter/
 title: Composite filter \u00a0|\u00a0 Firestore in Datastore mode \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T22:58:50.873647+00:00
+fetched_at: 2026-11-08T09:08:09.209700+00:00
 ---
 
 # Composite filter  |  Firestore in Datastore mode  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/admin-intro/
 title: Introduction to BigQuery administration \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T05:38:33.693807+00:00
+fetched_at: 2026-11-08T08:25:07.769822+00:00
 ---
 
 # Introduction to BigQuery administration  |  Google Cloud Documentation

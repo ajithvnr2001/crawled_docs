@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/samples/bigquery-query-external-sheets-temp/
 title: Query Sheets with a temporary table \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T05:44:15.460467+00:00
+fetched_at: 2026-11-08T08:21:46.630233+00:00
 ---
 
 # Query Sheets with a temporary table  |  BigQuery  |  Google Cloud Documentation

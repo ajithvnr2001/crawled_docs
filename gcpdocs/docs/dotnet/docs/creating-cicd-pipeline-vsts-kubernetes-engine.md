@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/dotnet/docs/creating-cicd-pipeline-vsts-kubernetes-engine/
 title: Creating a CI/CD pipeline with Azure Pipelines and Google Kubernetes Engine \u00a0|\u00a0 .NET \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T20:54:24.421425+00:00
+fetched_at: 2026-11-08T08:37:54.642007+00:00
 ---
 
 # Creating a CI/CD pipeline with Azure Pipelines and Google Kubernetes Engine  |  .NET  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/compute/docs/disks/async-pd/performance/
 title: Review Asynchronous Replication performance \u00a0|\u00a0 Compute Engine \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-06T12:03:58.175678+00:00
+fetched_at: 2026-11-08T08:47:21.173839+00:00
 ---
 
 # Review Asynchronous Replication performance  |  Compute Engine  |  Google Cloud Documentation

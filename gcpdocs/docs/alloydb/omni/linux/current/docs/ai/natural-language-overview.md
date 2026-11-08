@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/omni/linux/current/docs/ai/natural-language-overview/
 title: AlloyDB AI natural language overview \u00a0|\u00a0 AlloyDB Omni using RPM: Current (18.4.0) \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T05:38:56.744884+00:00
+fetched_at: 2026-11-08T09:15:53.648679+00:00
 ---
 
 # AlloyDB AI natural language overview  |  AlloyDB Omni using RPM: Current (18.4.0)  |  Google Cloud Documentation

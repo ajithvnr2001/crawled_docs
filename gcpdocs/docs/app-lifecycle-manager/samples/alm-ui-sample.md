@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/app-lifecycle-manager/samples/alm-ui-sample/
 title: UI sample \u00a0|\u00a0 App Lifecycle Manager \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T05:46:15.701780+00:00
+fetched_at: 2026-11-08T08:52:53.731323+00:00
 ---
 
 # UI sample  |  App Lifecycle Manager  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/gemini-analyze-data/
 title: Analyze data with Gemini assistance \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T05:38:40.345985+00:00
+fetched_at: 2026-11-08T08:23:26.467968+00:00
 ---
 
 # Analyze data with Gemini assistance  |  BigQuery  |  Google Cloud Documentation

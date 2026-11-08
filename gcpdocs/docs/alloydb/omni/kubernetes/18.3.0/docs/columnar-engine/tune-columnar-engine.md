@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/omni/kubernetes/18.3.0/docs/columnar-engine/tune-columnar-engine/
 title: Tune the columnar engine for AlloyDB Omni \u00a0|\u00a0 AlloyDB Omni using the container orchestrator: 18.3.0 \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T05:51:04.555728+00:00
+fetched_at: 2026-11-08T09:13:50.905947+00:00
 ---
 
 # Tune the columnar engine for AlloyDB Omni  |  AlloyDB Omni using the container orchestrator: 18.3.0  |  Google Cloud Documentation

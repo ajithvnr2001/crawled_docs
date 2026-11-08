@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/samples/bigquery-load-table-gcs-avro-truncate/
 title: Load an Avro file to replace a table \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T05:43:17.386094+00:00
+fetched_at: 2026-11-08T08:22:49.030011+00:00
 ---
 
 # Load an Avro file to replace a table  |  BigQuery  |  Google Cloud Documentation

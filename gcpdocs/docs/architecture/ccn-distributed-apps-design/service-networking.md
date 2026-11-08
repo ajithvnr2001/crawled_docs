@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/architecture/ccn-distributed-apps-design/service-networking/
 title: Service networking for distributed applications in Cross-Cloud Network \u00a0|\u00a0 Cloud Architecture Center \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T23:30:29.150742+00:00
+fetched_at: 2026-11-08T08:22:47.047055+00:00
 ---
 
 # Service networking for distributed applications in Cross-Cloud Network  |  Cloud Architecture Center  |  Google Cloud Documentation

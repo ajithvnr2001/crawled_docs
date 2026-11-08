@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/samples/bigquery-grant-view-access/
 title: Grant view access \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T05:42:02.126952+00:00
+fetched_at: 2026-11-08T08:22:53.859434+00:00
 ---
 
 # Grant view access  |  BigQuery  |  Google Cloud Documentation

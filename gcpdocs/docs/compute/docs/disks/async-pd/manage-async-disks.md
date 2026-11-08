@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/compute/docs/disks/async-pd/manage-async-disks/
 title: Manage disks that use Asynchronous Replication \u00a0|\u00a0 Compute Engine \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-06T12:03:57.855863+00:00
+fetched_at: 2026-11-08T09:10:18.691570+00:00
 ---
 
 # Manage disks that use Asynchronous Replication  |  Compute Engine  |  Google Cloud Documentation

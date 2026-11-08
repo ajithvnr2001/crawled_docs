@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chronicle/docs/soar/monitor-and-report/soar-dashboards/dashboard-overview/
 title: Legacy SOAR dashboards overview \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T10:05:19.269592+00:00
+fetched_at: 2026-11-08T08:24:01.279066+00:00
 ---
 
 # Legacy SOAR dashboards overview  |  Google Security Operations  |  Google Cloud Documentation

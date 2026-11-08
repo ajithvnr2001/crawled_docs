@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/samples/bigquerydatatransfer-create-youtubechannel-transfer/
 title: Load data from YouTube Channel reports \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T05:45:26.674664+00:00
+fetched_at: 2026-11-08T08:25:06.783293+00:00
 ---
 
 # Load data from YouTube Channel reports  |  BigQuery  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/backup-disaster-recovery/docs/cloud-console/backup-vault-create/
 title: Create and manage a backup vault in the Google Cloud console \u00a0|\u00a0 Backup and DR \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T05:38:48.389629+00:00
+fetched_at: 2026-11-08T08:26:17.691087+00:00
 ---
 
 # Create and manage a backup vault in the Google Cloud console  |  Backup and DR  |  Google Cloud Documentation

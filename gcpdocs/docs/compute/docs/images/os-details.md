@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/compute/docs/images/os-details/
 title: Operating system details \u00a0|\u00a0 Compute Engine \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-05T11:11:11.526022+00:00
+fetched_at: 2026-11-08T09:16:44.863058+00:00
 ---
 
 # Operating system details  |  Compute Engine  |  Google Cloud Documentation
@@ -105,19 +105,19 @@ OS version | Image project | Image family | [Machine series](https://docs.cloud.
   * x86: `almalinux-10`
   * Arm: `almalinux-10-arm64`
 
-| All except A4X Max, A4X, A4, G4, A3 Ultra | GA | May 2035  
+| All except A5X, A4X Max, A4X, A4, G4, A3 Ultra | GA | May 2035  
 [AlmaLinux 9](https://wiki.almalinux.org/release-notes/#almalinux-os-9) | `almalinux-cloud` | 
 
   * x86: `almalinux-9`
   * Arm: `almalinux-9-arm64`
 
-| All except A4X Max, A4X, A4, G4, A3 Ultra | GA | May 2032  
+| All except A5X, A4X Max, A4X, A4, G4, A3 Ultra | GA | May 2032  
 [AlmaLinux 8](https://wiki.almalinux.org/release-notes/#almalinux-os-8) | `almalinux-cloud` | 
 
   * x86: `almalinux-8`
   * Arm: `almalinux-8-arm64`
 
-| All except A4X Max, A4X, A4, G4, A3 Ultra, X4 | GA | May 2029  
+| All except A5X, A4X Max, A4X, A4, G4, A3 Ultra, X4 | GA | May 2029  
   
 ### Interfaces
 
@@ -161,11 +161,11 @@ N1+GPU denotes support for NVIDIA T4, V100, or P4 GPUs running on a general-purp
 
 For more information about GPU requirements and recommended OSes, see [choosing an OS for instances with attached GPUs](https://docs.cloud.google.com/compute/docs/gpus/create-vm-with-gpus#choose_an_operating_system).
 
-OS version | [A4X Max (GB300)](https://docs.cloud.google.com/compute/docs/gpus#gb300-gpus) | [A4X (GB200)](https://docs.cloud.google.com/compute/docs/gpus#gb200-gpus) | [A4 (B200)](https://docs.cloud.google.com/compute/docs/gpus#b200-gpus) | [A3 (H200)](https://docs.cloud.google.com/compute/docs/gpus#h200-gpus) | [A3 (H100)](https://docs.cloud.google.com/compute/docs/gpus#h100-gpus) | [A2 (A100)](https://docs.cloud.google.com/compute/docs/gpus#a100-gpus) | [G4 (RTX PRO 6000)](https://docs.cloud.google.com/compute/docs/gpus#rtx-6000-gpus) | [G2 (L4)](https://docs.cloud.google.com/compute/docs/gpus#l4-gpus) | [N1+GPU](https://docs.cloud.google.com/compute/docs/gpus#nvidia_gpus_for_compute_workloads)  
----|---|---|---|---|---|---|---|---|---  
-[AlmaLinux 10](https://wiki.almalinux.org/release-notes/#almalinux-os-10) | No | No | No | Yes | Yes | Yes | No | Yes | Yes  
-[AlmaLinux 9](https://wiki.almalinux.org/release-notes/#almalinux-os-9) | No | No | No | Yes | Yes | Yes | No | Yes | Yes  
-[AlmaLinux 8](https://wiki.almalinux.org/release-notes/#almalinux-os-8) | No | No | No | Yes | Yes | Yes | No | Yes | Yes  
+OS version | [A5X (Vera Rubin)](https://docs.cloud.google.com/compute/docs/gpus#vera-rubin-gpus) | [A4X Max (GB300)](https://docs.cloud.google.com/compute/docs/gpus#gb300-gpus) | [A4X (GB200)](https://docs.cloud.google.com/compute/docs/gpus#gb200-gpus) | [A4 (B200)](https://docs.cloud.google.com/compute/docs/gpus#b200-gpus) | [A3 (H200)](https://docs.cloud.google.com/compute/docs/gpus#h200-gpus) | [A3 (H100)](https://docs.cloud.google.com/compute/docs/gpus#h100-gpus) | [A2 (A100)](https://docs.cloud.google.com/compute/docs/gpus#a100-gpus) | [G4 (RTX PRO 6000)](https://docs.cloud.google.com/compute/docs/gpus#rtx-6000-gpus) | [G2 (L4)](https://docs.cloud.google.com/compute/docs/gpus#l4-gpus) | [N1+GPU](https://docs.cloud.google.com/compute/docs/gpus#nvidia_gpus_for_compute_workloads)  
+---|---|---|---|---|---|---|---|---|---|---  
+[AlmaLinux 10](https://wiki.almalinux.org/release-notes/#almalinux-os-10) | No | No | No | No | Yes | Yes | Yes | No | Yes | Yes  
+[AlmaLinux 9](https://wiki.almalinux.org/release-notes/#almalinux-os-9) | No | No | No | No | Yes | Yes | Yes | No | Yes | Yes  
+[AlmaLinux 8](https://wiki.almalinux.org/release-notes/#almalinux-os-8) | No | No | No | No | Yes | Yes | Yes | No | Yes | Yes  
   
 ### VM Manager
 
@@ -278,13 +278,13 @@ OS version | Image project | Image family | [Machine series](https://docs.cloud.
   * x86: `centos-stream-10`
   * Arm: `centos-stream-10-arm64`
 
-| All except A4X Max, A4X, A4, and G4 | GA | January 1, 2030  
+| All except A5X, A4X Max, A4X, A4, and G4 | GA | January 1, 2030  
 [CentOS Stream 9](https://www.centos.org/stream9/) | `centos-cloud` | 
 
   * x86: `centos-stream-9`
   * Arm: `centos-stream-9-arm64`
 
-| All except A4X Max, A4X, A4, and G4 | GA | May 31, 2027  
+| All except A5X, A4X Max, A4X, A4, and G4 | GA | May 31, 2027  
   
 ### Interfaces
 
@@ -328,10 +328,10 @@ N1+GPU denotes support for NVIDIA T4, V100, or P4 GPUs running on a general-purp
 
 For more information about GPU requirements and recommended OSes, see [choosing an OS for instances with attached GPUs](https://docs.cloud.google.com/compute/docs/gpus/create-vm-with-gpus#choose_an_operating_system).
 
-OS version | [A4X Max (GB300)](https://docs.cloud.google.com/compute/docs/gpus#gb300-gpus) | [A4X (GB200)](https://docs.cloud.google.com/compute/docs/gpus#gb200-gpus) | [A4 (B200)](https://docs.cloud.google.com/compute/docs/gpus#b200-gpus) | [A3 (H200)](https://docs.cloud.google.com/compute/docs/gpus#h200-gpus) | [A3 (H100)](https://docs.cloud.google.com/compute/docs/gpus#h100-gpus) | [A2 (A100)](https://docs.cloud.google.com/compute/docs/gpus#a100-gpus) | [G4 (RTX PRO 6000)](https://docs.cloud.google.com/compute/docs/gpus#rtx-6000-gpus) | [G2 (L4)](https://docs.cloud.google.com/compute/docs/gpus#l4-gpus) | [N1+GPU](https://docs.cloud.google.com/compute/docs/gpus#nvidia_gpus_for_compute_workloads)  
----|---|---|---|---|---|---|---|---|---  
-[CentOS Stream 10](https://www.centos.org/centos10/) | No | No | No | Yes | Yes | Yes | No | Yes | Yes  
-[CentOS Stream 9](https://www.centos.org/stream9/) | No | No | No | Yes | Yes | Yes | No | Yes | Yes  
+OS version | [A5X (Vera Rubin)](https://docs.cloud.google.com/compute/docs/gpus#vera-rubin-gpus) | [A4X Max (GB300)](https://docs.cloud.google.com/compute/docs/gpus#gb300-gpus) | [A4X (GB200)](https://docs.cloud.google.com/compute/docs/gpus#gb200-gpus) | [A4 (B200)](https://docs.cloud.google.com/compute/docs/gpus#b200-gpus) | [A3 (H200)](https://docs.cloud.google.com/compute/docs/gpus#h200-gpus) | [A3 (H100)](https://docs.cloud.google.com/compute/docs/gpus#h100-gpus) | [A2 (A100)](https://docs.cloud.google.com/compute/docs/gpus#a100-gpus) | [G4 (RTX PRO 6000)](https://docs.cloud.google.com/compute/docs/gpus#rtx-6000-gpus) | [G2 (L4)](https://docs.cloud.google.com/compute/docs/gpus#l4-gpus) | [N1+GPU](https://docs.cloud.google.com/compute/docs/gpus#nvidia_gpus_for_compute_workloads)  
+---|---|---|---|---|---|---|---|---|---|---  
+[CentOS Stream 10](https://www.centos.org/centos10/) | No | No | No | No | Yes | Yes | Yes | No | Yes | Yes  
+[CentOS Stream 9](https://www.centos.org/stream9/) | No | No | No | No | Yes | Yes | Yes | No | Yes | Yes  
   
 ### VM Manager
 
@@ -421,12 +421,12 @@ N1+GPU denotes support for NVIDIA T4, V100, or P4 GPUs running on a general-purp
 
 For more information about GPU requirements and recommended OSes, see [choosing an OS for instances with attached GPUs](https://docs.cloud.google.com/compute/docs/gpus/create-vm-with-gpus#choose_an_operating_system).
 
-OS version | [A4X Max (GB300)](https://docs.cloud.google.com/compute/docs/gpus#gb300-gpus) | [A4X (GB200)](https://docs.cloud.google.com/compute/docs/gpus#gb200-gpus) | [A4 (B200)](https://docs.cloud.google.com/compute/docs/gpus#b200-gpus) | [A3 (H200)](https://docs.cloud.google.com/compute/docs/gpus#h200-gpus) | [A3 (H100)](https://docs.cloud.google.com/compute/docs/gpus#h100-gpus) | [A2 (A100)](https://docs.cloud.google.com/compute/docs/gpus#a100-gpus) | [G4 (RTX PRO 6000)](https://docs.cloud.google.com/compute/docs/gpus#rtx-6000-gpus) | [G2 (L4)](https://docs.cloud.google.com/compute/docs/gpus#l4-gpus) | [N1+GPU](https://docs.cloud.google.com/compute/docs/gpus#nvidia_gpus_for_compute_workloads)  
----|---|---|---|---|---|---|---|---|---  
-CentOS Stream 8  | No | No | No | No | Yes | Yes | No | Yes | Yes  
-CentOS 8  | No | No | No | No | No | Yes | No | No | Yes  
-CentOS 7  | No | No | No | No | Yes | Yes | No | Yes | Yes  
-CentOS 6  | No | No | No | No | No | No | No | No | Yes  
+OS version | [A5X (Vera Rubin)](https://docs.cloud.google.com/compute/docs/gpus#vera-rubin-gpus) | [A4X Max (GB300)](https://docs.cloud.google.com/compute/docs/gpus#gb300-gpus) | [A4X (GB200)](https://docs.cloud.google.com/compute/docs/gpus#gb200-gpus) | [A4 (B200)](https://docs.cloud.google.com/compute/docs/gpus#b200-gpus) | [A3 (H200)](https://docs.cloud.google.com/compute/docs/gpus#h200-gpus) | [A3 (H100)](https://docs.cloud.google.com/compute/docs/gpus#h100-gpus) | [A2 (A100)](https://docs.cloud.google.com/compute/docs/gpus#a100-gpus) | [G4 (RTX PRO 6000)](https://docs.cloud.google.com/compute/docs/gpus#rtx-6000-gpus) | [G2 (L4)](https://docs.cloud.google.com/compute/docs/gpus#l4-gpus) | [N1+GPU](https://docs.cloud.google.com/compute/docs/gpus#nvidia_gpus_for_compute_workloads)  
+---|---|---|---|---|---|---|---|---|---|---  
+CentOS Stream 8  | No | No | No | No | No | Yes | Yes | No | Yes | Yes  
+CentOS 8  | No | No | No | No | No | No | Yes | No | No | Yes  
+CentOS 7  | No | No | No | No | No | Yes | Yes | No | Yes | Yes  
+CentOS 6  | No | No | No | No | No | No | No | No | No | Yes  
   
 ### VM Manager
 
@@ -501,25 +501,25 @@ COS 129 LTS  | `cos-cloud` |
   * x86: `cos-129-lts`
   * Arm: `cos-arm64-129-lts`
 
-| All | GA | March 2028  
+| All except A5X | GA | March 2028  
 COS 125 LTS  | `cos-cloud` | 
 
   * x86: `cos-125-lts`
   * Arm: `cos-arm64-125-lts`
 
-| All | GA | September 2027  
+| All except A5X | GA | September 2027  
 COS 121 LTS  | `cos-cloud` | 
 
   * x86: `cos-121-lts`
   * Arm: `cos-arm64-121-lts`
 
-| All except A4X Max | GA | March 2027  
+| All except A5X, A4X Max | GA | March 2027  
 COS 117 LTS  | `cos-cloud` | 
 
   * x86: `cos-117-lts`
   * Arm: `cos-arm64-117-lts`
 
-| All except A4X Max, G4 | GA | September 2026  
+| All except A5X, A4X Max, G4 | GA | September 2026  
   
 ### Interfaces
 
@@ -571,13 +571,13 @@ N1+GPU denotes support for NVIDIA T4, V100, or P4 GPUs running on a general-purp
 
 For more information about GPU requirements and recommended OSes, see [choosing an OS for instances with attached GPUs](https://docs.cloud.google.com/compute/docs/gpus/create-vm-with-gpus#choose_an_operating_system).
 
-OS version | [A4X Max (GB300)](https://docs.cloud.google.com/compute/docs/gpus#gb300-gpus) | [A4X (GB200)](https://docs.cloud.google.com/compute/docs/gpus#gb200-gpus) | [A4 (B200)](https://docs.cloud.google.com/compute/docs/gpus#b200-gpus) | [A3 (H200)](https://docs.cloud.google.com/compute/docs/gpus#h200-gpus) | [A3 (H100)](https://docs.cloud.google.com/compute/docs/gpus#h100-gpus) | [A2 (A100)](https://docs.cloud.google.com/compute/docs/gpus#a100-gpus) | [G4 (RTX PRO 6000)](https://docs.cloud.google.com/compute/docs/gpus#rtx-6000-gpus) | [G2 (L4)](https://docs.cloud.google.com/compute/docs/gpus#l4-gpus) | [N1+GPU](https://docs.cloud.google.com/compute/docs/gpus#nvidia_gpus_for_compute_workloads)  
----|---|---|---|---|---|---|---|---|---  
-COS 133 LTS  | Yes | Yes | Yes | Yes | Yes | Yes | Yes | Yes | Yes  
-COS 129 LTS  | Yes | Yes | Yes | Yes | Yes | Yes | Yes | Yes | Yes  
-COS 125 LTS  | Yes | Yes | Yes | Yes | Yes | Yes | Yes | Yes | Yes  
-COS 121 LTS  | No | Yes | Yes | Yes | Yes | Yes | Yes | Yes | Yes  
-COS 117 LTS  | No | Yes | Yes | Yes | Yes | Yes | No | Yes | Yes  
+OS version | [A5X (Vera Rubin)](https://docs.cloud.google.com/compute/docs/gpus#vera-rubin-gpus) | [A4X Max (GB300)](https://docs.cloud.google.com/compute/docs/gpus#gb300-gpus) | [A4X (GB200)](https://docs.cloud.google.com/compute/docs/gpus#gb200-gpus) | [A4 (B200)](https://docs.cloud.google.com/compute/docs/gpus#b200-gpus) | [A3 (H200)](https://docs.cloud.google.com/compute/docs/gpus#h200-gpus) | [A3 (H100)](https://docs.cloud.google.com/compute/docs/gpus#h100-gpus) | [A2 (A100)](https://docs.cloud.google.com/compute/docs/gpus#a100-gpus) | [G4 (RTX PRO 6000)](https://docs.cloud.google.com/compute/docs/gpus#rtx-6000-gpus) | [G2 (L4)](https://docs.cloud.google.com/compute/docs/gpus#l4-gpus) | [N1+GPU](https://docs.cloud.google.com/compute/docs/gpus#nvidia_gpus_for_compute_workloads)  
+---|---|---|---|---|---|---|---|---|---|---  
+COS 133 LTS  | Yes | Yes | Yes | Yes | Yes | Yes | Yes | Yes | Yes | Yes  
+COS 129 LTS  | No | Yes | Yes | Yes | Yes | Yes | Yes | Yes | Yes | Yes  
+COS 125 LTS  | No | Yes | Yes | Yes | Yes | Yes | Yes | Yes | Yes | Yes  
+COS 121 LTS  | No | No | Yes | Yes | Yes | Yes | Yes | Yes | Yes | Yes  
+COS 117 LTS  | No | No | Yes | Yes | Yes | Yes | Yes | No | Yes | Yes  
   
 ### VM Manager
 
@@ -626,19 +626,19 @@ COS 113 LTS  | `cos-cloud` |
   * x86: `cos-113-lts`
   * Arm: `cos-arm64-113-lts`
 
-| All except A4X, G4, G2 | EOS | April 2026  
+| All except A5X, A4X Max, A4X, G4, G2 | EOS | April 2026  
 COS 109 LTS  | `cos-cloud` | 
 
   * x86: `cos-109-lts`
   * Arm: `cos-arm64-109-lts`
 
-| All except A4X, G4, G2, X4, C4A-metal | EOL | September 2025  
+| All except A5X, A4X Max, A4X, G4, G2, X4, C4A-metal | EOL | September 2025  
 COS 105 LTS  | `cos-cloud` | 
 
   * x86: `cos-105-lts`
   * Arm: `cos-arm64-105-lts`
 
-| All except A4, G2, X4, C3-metal, C4A-metal | EOS | March 2025  
+| All except A5X, A4X Max, A4X, A4, G2, X4, C3-metal, C4A-metal | EOS | March 2025  
 COS 101 LTS  | `cos-cloud` | 
 
   * x86: `cos-101-lts`
@@ -692,12 +692,12 @@ N1+GPU denotes support for NVIDIA T4, V100, or P4 GPUs running on a general-purp
 
 For more information about GPU requirements and recommended OSes, see [choosing an OS for instances with attached GPUs](https://docs.cloud.google.com/compute/docs/gpus/create-vm-with-gpus#choose_an_operating_system).
 
-OS version | [A4X Max (GB300)](https://docs.cloud.google.com/compute/docs/gpus#gb300-gpus) | [A4X (GB200)](https://docs.cloud.google.com/compute/docs/gpus#gb200-gpus) | [A4 (B200)](https://docs.cloud.google.com/compute/docs/gpus#b200-gpus) | [A3 (H200)](https://docs.cloud.google.com/compute/docs/gpus#h200-gpus) | [A3 (H100)](https://docs.cloud.google.com/compute/docs/gpus#h100-gpus) | [A2 (A100)](https://docs.cloud.google.com/compute/docs/gpus#a100-gpus) | [G4 (RTX PRO 6000)](https://docs.cloud.google.com/compute/docs/gpus#rtx-6000-gpus) | [G2 (L4)](https://docs.cloud.google.com/compute/docs/gpus#l4-gpus) | [N1+GPU](https://docs.cloud.google.com/compute/docs/gpus#nvidia_gpus_for_compute_workloads)  
----|---|---|---|---|---|---|---|---|---  
-COS 113 LTS  | No | No | Yes | Yes | Yes | Yes | No | No | Yes  
-COS 109 LTS  | No | No | Yes | Yes | Yes | Yes | No | No | Yes  
-COS 105 LTS  | No | No | No | Yes | Yes | Yes | No | No | Yes  
-COS 101 LTS  | No | No | No | No | Yes | Yes | No | No | Yes  
+OS version | [A5X (Vera Rubin)](https://docs.cloud.google.com/compute/docs/gpus#vera-rubin-gpus) | [A4X Max (GB300)](https://docs.cloud.google.com/compute/docs/gpus#gb300-gpus) | [A4X (GB200)](https://docs.cloud.google.com/compute/docs/gpus#gb200-gpus) | [A4 (B200)](https://docs.cloud.google.com/compute/docs/gpus#b200-gpus) | [A3 (H200)](https://docs.cloud.google.com/compute/docs/gpus#h200-gpus) | [A3 (H100)](https://docs.cloud.google.com/compute/docs/gpus#h100-gpus) | [A2 (A100)](https://docs.cloud.google.com/compute/docs/gpus#a100-gpus) | [G4 (RTX PRO 6000)](https://docs.cloud.google.com/compute/docs/gpus#rtx-6000-gpus) | [G2 (L4)](https://docs.cloud.google.com/compute/docs/gpus#l4-gpus) | [N1+GPU](https://docs.cloud.google.com/compute/docs/gpus#nvidia_gpus_for_compute_workloads)  
+---|---|---|---|---|---|---|---|---|---|---  
+COS 113 LTS  | No | No | No | Yes | Yes | Yes | Yes | No | No | Yes  
+COS 109 LTS  | No | No | No | Yes | Yes | Yes | Yes | No | No | Yes  
+COS 105 LTS  | No | No | No | No | Yes | Yes | Yes | No | No | Yes  
+COS 101 LTS  | No | No | No | No | No | Yes | Yes | No | No | Yes  
   
 ### VM Manager
 
@@ -818,13 +818,13 @@ Debian 13  | `debian-cloud` |
   * x86: `debian-13`
   * Arm: `debian-13-arm64`
 
-| All except A4X Max, A4X, C4D-metal, Z4D-metal | GA | June 30, 2030  
+| All except A5X, A4X Max, A4X, C4D-metal, Z4D-metal | GA | June 30, 2030  
 Debian 12  | `debian-cloud` | 
 
   * x86: `debian-12`
   * Arm: `debian-12-arm64`
 
-| All except A4X Max, A4X, X4, C4D-metal, C4-metal, C3-metal, Z4D-metal, Z3-metal | GA | June 30, 2028  
+| All except A5X, A4X Max, A4X, X4, C4D-metal, C4-metal, C3-metal, Z4D-metal, Z3-metal | GA | June 30, 2028  
   
 ### Interfaces
 
@@ -864,10 +864,10 @@ N1+GPU denotes support for NVIDIA T4, V100, or P4 GPUs running on a general-purp
 
 For more information about GPU requirements and recommended OSes, see [choosing an OS for instances with attached GPUs](https://docs.cloud.google.com/compute/docs/gpus/create-vm-with-gpus#choose_an_operating_system).
 
-OS version | [A4X Max (GB300)](https://docs.cloud.google.com/compute/docs/gpus#gb300-gpus) | [A4X (GB200)](https://docs.cloud.google.com/compute/docs/gpus#gb200-gpus) | [A4 (B200)](https://docs.cloud.google.com/compute/docs/gpus#b200-gpus) | [A3 (H200)](https://docs.cloud.google.com/compute/docs/gpus#h200-gpus) | [A3 (H100)](https://docs.cloud.google.com/compute/docs/gpus#h100-gpus) | [A2 (A100)](https://docs.cloud.google.com/compute/docs/gpus#a100-gpus) | [G4 (RTX PRO 6000)](https://docs.cloud.google.com/compute/docs/gpus#rtx-6000-gpus) | [G2 (L4)](https://docs.cloud.google.com/compute/docs/gpus#l4-gpus) | [N1+GPU](https://docs.cloud.google.com/compute/docs/gpus#nvidia_gpus_for_compute_workloads)  
----|---|---|---|---|---|---|---|---|---  
-Debian 13  | No | No | Yes | Yes | Yes | Yes | Yes | Yes | Yes  
-Debian 12  | No | No | Yes | Yes | Yes | Yes | Yes | Yes | Yes  
+OS version | [A5X (Vera Rubin)](https://docs.cloud.google.com/compute/docs/gpus#vera-rubin-gpus) | [A4X Max (GB300)](https://docs.cloud.google.com/compute/docs/gpus#gb300-gpus) | [A4X (GB200)](https://docs.cloud.google.com/compute/docs/gpus#gb200-gpus) | [A4 (B200)](https://docs.cloud.google.com/compute/docs/gpus#b200-gpus) | [A3 (H200)](https://docs.cloud.google.com/compute/docs/gpus#h200-gpus) | [A3 (H100)](https://docs.cloud.google.com/compute/docs/gpus#h100-gpus) | [A2 (A100)](https://docs.cloud.google.com/compute/docs/gpus#a100-gpus) | [G4 (RTX PRO 6000)](https://docs.cloud.google.com/compute/docs/gpus#rtx-6000-gpus) | [G2 (L4)](https://docs.cloud.google.com/compute/docs/gpus#l4-gpus) | [N1+GPU](https://docs.cloud.google.com/compute/docs/gpus#nvidia_gpus_for_compute_workloads)  
+---|---|---|---|---|---|---|---|---|---|---  
+Debian 13  | No | No | No | Yes | Yes | Yes | Yes | Yes | Yes | Yes  
+Debian 12  | No | No | No | Yes | Yes | Yes | Yes | Yes | Yes | Yes  
   
 ### VM Manager
 
@@ -902,7 +902,7 @@ The following section summarizes feature support for versions of this OS that ar
 
 OS version | Image project | Image family | [Machine series](https://docs.cloud.google.com/compute/docs/machine-resource#recommendations_for_machine_types) | [Lifecycle stage](https://docs.cloud.google.com/compute/docs/images/os-image-lifecycle#lifecycle-stages) | EOS and image deprecation date  
 ---|---|---|---|---|---  
-Debian 11  | `debian-cloud` | x86: `debian-11` | All except A4X Max, A4X, G4, A4, A3 Ultra, C4-metal, C4A, C4D-metal, C3-metal, X4, N4A, Z4D-metal, Z3-metal | EOS | August 31, 2026  
+Debian 11  | `debian-cloud` | x86: `debian-11` | All except A5X, A4X Max, A4X, G4, A4, A3 Ultra, C4-metal, C4A, C4D-metal, C3-metal, X4, N4A, Z4D-metal, Z3-metal | EOS | August 31, 2026  
 Debian 11 Arm  | `debian-cloud` | Arm: `debian-11-arm64` | Only T2A | EOS | August 15, 2024  
 Debian 10  | `debian-cloud` | x86: `debian-10` | Only A2, A3, C2, C2D, E2, G2, M1, M2, N1, N2, N2D, T2D | EOS | [June 30, 2024](https://www.debian.org/News/2024/20240615)  
   
@@ -948,11 +948,11 @@ N1+GPU denotes support for NVIDIA T4, V100, or P4 GPUs running on a general-purp
 
 For more information about GPU requirements and recommended OSes, see [choosing an OS for instances with attached GPUs](https://docs.cloud.google.com/compute/docs/gpus/create-vm-with-gpus#choose_an_operating_system).
 
-OS version | [A4X Max (GB300)](https://docs.cloud.google.com/compute/docs/gpus#gb300-gpus) | [A4X (GB200)](https://docs.cloud.google.com/compute/docs/gpus#gb200-gpus) | [A4 (B200)](https://docs.cloud.google.com/compute/docs/gpus#b200-gpus) | [A3 (H200)](https://docs.cloud.google.com/compute/docs/gpus#h200-gpus) | [A3 (H100)](https://docs.cloud.google.com/compute/docs/gpus#h100-gpus) | [A2 (A100)](https://docs.cloud.google.com/compute/docs/gpus#a100-gpus) | [G4 (RTX PRO 6000)](https://docs.cloud.google.com/compute/docs/gpus#rtx-6000-gpus) | [G2 (L4)](https://docs.cloud.google.com/compute/docs/gpus#l4-gpus) | [N1+GPU](https://docs.cloud.google.com/compute/docs/gpus#nvidia_gpus_for_compute_workloads)  
----|---|---|---|---|---|---|---|---|---  
-Debian 11  | No | No | No | Yes | Yes | Yes | No | Yes | Yes  
-Debian 11 Arm  | No | No | No | No | No | No | No | No | No  
-Debian 10  | No | No | No | No | Yes | Yes | No | Yes | Yes  
+OS version | [A5X (Vera Rubin)](https://docs.cloud.google.com/compute/docs/gpus#vera-rubin-gpus) | [A4X Max (GB300)](https://docs.cloud.google.com/compute/docs/gpus#gb300-gpus) | [A4X (GB200)](https://docs.cloud.google.com/compute/docs/gpus#gb200-gpus) | [A4 (B200)](https://docs.cloud.google.com/compute/docs/gpus#b200-gpus) | [A3 (H200)](https://docs.cloud.google.com/compute/docs/gpus#h200-gpus) | [A3 (H100)](https://docs.cloud.google.com/compute/docs/gpus#h100-gpus) | [A2 (A100)](https://docs.cloud.google.com/compute/docs/gpus#a100-gpus) | [G4 (RTX PRO 6000)](https://docs.cloud.google.com/compute/docs/gpus#rtx-6000-gpus) | [G2 (L4)](https://docs.cloud.google.com/compute/docs/gpus#l4-gpus) | [N1+GPU](https://docs.cloud.google.com/compute/docs/gpus#nvidia_gpus_for_compute_workloads)  
+---|---|---|---|---|---|---|---|---|---|---  
+Debian 11  | No | No | No | No | Yes | Yes | Yes | No | Yes | Yes  
+Debian 11 Arm  | No | No | No | No | No | No | No | No | No | No  
+Debian 10  | No | No | No | No | No | Yes | Yes | No | Yes | Yes  
   
 ### VM Manager
 
@@ -1071,11 +1071,11 @@ N1+GPU denotes support for NVIDIA T4, V100, or P4 GPUs running on a general-purp
 
 For more information about GPU requirements and recommended OSes, see [choosing an OS for instances with attached GPUs](https://docs.cloud.google.com/compute/docs/gpus/create-vm-with-gpus#choose_an_operating_system).
 
-OS version | [A4X Max (GB300)](https://docs.cloud.google.com/compute/docs/gpus#gb300-gpus) | [A4X (GB200)](https://docs.cloud.google.com/compute/docs/gpus#gb200-gpus) | [A4 (B200)](https://docs.cloud.google.com/compute/docs/gpus#b200-gpus) | [A3 (H200)](https://docs.cloud.google.com/compute/docs/gpus#h200-gpus) | [A3 (H100)](https://docs.cloud.google.com/compute/docs/gpus#h100-gpus) | [A2 (A100)](https://docs.cloud.google.com/compute/docs/gpus#a100-gpus) | [G2 (L4)](https://docs.cloud.google.com/compute/docs/gpus#l4-gpus) | [G4 (RTX PRO 6000)](https://docs.cloud.google.com/compute/docs/gpus#rtx-6000-gpus) | [N1+GPU](https://docs.cloud.google.com/compute/docs/gpus#nvidia_gpus_for_compute_workloads)  
----|---|---|---|---|---|---|---|---|---  
-Fedora CoreOS Stable  | No | No | No | No | No | No | No | No | No  
-Fedora CoreOS Testing  | No | No | No | No | No | No | No | No | No  
-Fedora CoreOS Next  | No | No | No | No | No | No | No | No | No  
+OS version | [A5X (Vera Rubin)](https://docs.cloud.google.com/compute/docs/gpus#vera-rubin-gpus) | [A4X Max (GB300)](https://docs.cloud.google.com/compute/docs/gpus#gb300-gpus) | [A4X (GB200)](https://docs.cloud.google.com/compute/docs/gpus#gb200-gpus) | [A4 (B200)](https://docs.cloud.google.com/compute/docs/gpus#b200-gpus) | [A3 (H200)](https://docs.cloud.google.com/compute/docs/gpus#h200-gpus) | [A3 (H100)](https://docs.cloud.google.com/compute/docs/gpus#h100-gpus) | [A2 (A100)](https://docs.cloud.google.com/compute/docs/gpus#a100-gpus) | [G2 (L4)](https://docs.cloud.google.com/compute/docs/gpus#l4-gpus) | [G4 (RTX PRO 6000)](https://docs.cloud.google.com/compute/docs/gpus#rtx-6000-gpus) | [N1+GPU](https://docs.cloud.google.com/compute/docs/gpus#nvidia_gpus_for_compute_workloads)  
+---|---|---|---|---|---|---|---|---|---|---  
+Fedora CoreOS Stable  | No | No | No | No | No | No | No | No | No | No  
+Fedora CoreOS Testing  | No | No | No | No | No | No | No | No | No | No  
+Fedora CoreOS Next  | No | No | No | No | No | No | No | No | No | No  
   
 ### VM Manager
 
@@ -1260,11 +1260,11 @@ Oracle Linux images use the [Unbreakable Enterprise Kernel (UEK)](https://docs.o
 
 For more information about GPU requirements and recommended OSes, see [choosing an OS for instances with attached GPUs](https://docs.cloud.google.com/compute/docs/gpus/create-vm-with-gpus#choose_an_operating_system).
 
-OS version | [A4X Max (GB300)](https://docs.cloud.google.com/compute/docs/gpus#gb300-gpus) | [A4X (GB200)](https://docs.cloud.google.com/compute/docs/gpus#gb200-gpus) | [A4 (B200)](https://docs.cloud.google.com/compute/docs/gpus#b200-gpus) | [A3 (H200)](https://docs.cloud.google.com/compute/docs/gpus#h200-gpus) | [A3 (H100)](https://docs.cloud.google.com/compute/docs/gpus#h100-gpus) | [A2 (A100)](https://docs.cloud.google.com/compute/docs/gpus#a100-gpus) | [G4 (RTX PRO 6000)](https://docs.cloud.google.com/compute/docs/gpus#rtx-6000-gpus) | [G2 (L4)](https://docs.cloud.google.com/compute/docs/gpus#l4-gpus) | [N1+GPU](https://docs.cloud.google.com/compute/docs/gpus#nvidia_gpus_for_compute_workloads)  
----|---|---|---|---|---|---|---|---|---  
-[Oracle Linux 10](https://docs.oracle.com/en/operating-systems/oracle-linux/10/) | No | No | No | No | No | No | No | No | No  
-[Oracle Linux 9](https://docs.oracle.com/en/operating-systems/oracle-linux/9/) | No | No | No | No | No | No | No | No | No  
-[Oracle Linux 8](https://docs.oracle.com/en/operating-systems/oracle-linux/8/) | No | No | No | No | No | No | No | No | No  
+OS version | [A5X (Vera Rubin)](https://docs.cloud.google.com/compute/docs/gpus#vera-rubin-gpus) | [A4X Max (GB300)](https://docs.cloud.google.com/compute/docs/gpus#gb300-gpus) | [A4X (GB200)](https://docs.cloud.google.com/compute/docs/gpus#gb200-gpus) | [A4 (B200)](https://docs.cloud.google.com/compute/docs/gpus#b200-gpus) | [A3 (H200)](https://docs.cloud.google.com/compute/docs/gpus#h200-gpus) | [A3 (H100)](https://docs.cloud.google.com/compute/docs/gpus#h100-gpus) | [A2 (A100)](https://docs.cloud.google.com/compute/docs/gpus#a100-gpus) | [G4 (RTX PRO 6000)](https://docs.cloud.google.com/compute/docs/gpus#rtx-6000-gpus) | [G2 (L4)](https://docs.cloud.google.com/compute/docs/gpus#l4-gpus) | [N1+GPU](https://docs.cloud.google.com/compute/docs/gpus#nvidia_gpus_for_compute_workloads)  
+---|---|---|---|---|---|---|---|---|---|---  
+[Oracle Linux 10](https://docs.oracle.com/en/operating-systems/oracle-linux/10/) | No | No | No | No | No | No | No | No | No | No  
+[Oracle Linux 9](https://docs.oracle.com/en/operating-systems/oracle-linux/9/) | No | No | No | No | No | No | No | No | No | No  
+[Oracle Linux 8](https://docs.oracle.com/en/operating-systems/oracle-linux/8/) | No | No | No | No | No | No | No | No | No | No  
   
 ### VM Manager
 
@@ -1447,7 +1447,7 @@ OS version | Image project | Image family | [Machine series](https://docs.cloud.
   * x86 (LVM3): `rhel-10-lvm`
   * Arm (LVM3): `rhel-10-lvm-arm64`
 
-| All except A4X Max, A4X, A4, G4, X5 | GA | May 2035  
+| All except A5X, A4X Max, A4X, A4, G4, X5 | GA | May 2035  
 [RHEL 9](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/9/) | `rhel-cloud` | 
 
   * x86: `rhel-9`
@@ -1455,7 +1455,7 @@ OS version | Image project | Image family | [Machine series](https://docs.cloud.
   * x86 (LVM3): `rhel-9-lvm`
   * Arm (LVM3): `rhel-9-lvm-arm64`
 
-| All except A4X Max, A4X, A4, G4 | GA | May 2032  
+| All except A5X, A4X Max, A4X, A4, G4 | GA | May 2032  
 [RHEL 8](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/) | `rhel-cloud` | 
 
   * x86: `rhel-8`
@@ -1463,15 +1463,15 @@ OS version | Image project | Image family | [Machine series](https://docs.cloud.
   * x86 (LVM3): `rhel-8-lvm`
   * Arm (LVM3): `rhel-8-lvm-arm64`
 
-| All except A4X Max, A4X, A4, G4, N4A, X4, X5, C4A-metal | GA | May 2029  
-[RHEL 10.2 for SAP](https://access.redhat.com/support/policy/updates/errata#Update_Services_for_SAP_Solutions) | `rhel-sap-cloud` | x86: `rhel-10-2-sap-ha` | All except A4X, A4, G4, T2A, N4A, C4A, X5 | GA | May 2030  
-[RHEL 10.0 for SAP](https://access.redhat.com/support/policy/updates/errata#Update_Services_for_SAP_Solutions) | `rhel-sap-cloud` | x86: `rhel-10-0-sap-ha` | All except A4X, A4, G4, T2A, N4A, C4A, X5 | GA | May 2029  
-[RHEL 9.8 for SAP](https://access.redhat.com/support/policy/updates/errata#Update_Services_for_SAP_Solutions) | `rhel-sap-cloud` | x86: `rhel-9-8-sap-ha` | All except A4X, A4, G4, T2A, N4A, C4A, X5 | GA | May 2030  
-[RHEL 9.6 for SAP](https://access.redhat.com/support/policy/updates/errata#Update_Services_for_SAP_Solutions) | `rhel-sap-cloud` | x86: `rhel-9-6-sap-ha` | All except A4X, A4, G4, T2A, N4A, C4A | GA | May 2029  
-[RHEL 9.4 for SAP](https://access.redhat.com/support/policy/updates/errata#Update_Services_for_SAP_Solutions) | `rhel-sap-cloud` | x86: `rhel-9-4-sap-ha` | All except A4X Max, A4X, A4, G4, T2A, N4A, C4A | GA | April 2028  
-[RHEL 9.2 for SAP](https://access.redhat.com/support/policy/updates/errata#Update_Services_for_SAP_Solutions) | `rhel-sap-cloud` | x86: `rhel-9-2-sap-ha` | All except A4X Max, A4X, A4, G4, T2A, X5, X4, N4A, C4A, C4D-metal, C4-metal, C3-metal, Z4D-metal and Z3-metal | GA | May 2027  
-[RHEL 8.10 for SAP](https://access.redhat.com/support/policy/updates/errata#Update_Services_for_SAP_Solutions) | `rhel-sap-cloud` | x86: `rhel-8-10-sap-ha` | All except A4X Max, A4X, A4, G4, T2A, N4A, C4A, C4N, X5 | GA | May 2029  
-[RHEL 8.8 for SAP](https://access.redhat.com/support/policy/updates/errata#Update_Services_for_SAP_Solutions) | `rhel-sap-cloud` | x86: `rhel-8-8-sap-ha` | All except A4X Max, A4X, A4, G4, T2A, X5, X4, N4A, C4A, C4N, C4D-metal, C4-metal, C3-metal, Z4D-metal and Z3-metal | GA | May 2027  
+| All except A5X, A4X Max, A4X, A4, G4, N4A, X4, X5, C4A-metal | GA | May 2029  
+[RHEL 10.2 for SAP](https://access.redhat.com/support/policy/updates/errata#Update_Services_for_SAP_Solutions) | `rhel-sap-cloud` | x86: `rhel-10-2-sap-ha` | All except A5X, A4X Max, A4X, A4, G4, T2A, N4A, C4A, X5 | GA | May 2030  
+[RHEL 10.0 for SAP](https://access.redhat.com/support/policy/updates/errata#Update_Services_for_SAP_Solutions) | `rhel-sap-cloud` | x86: `rhel-10-0-sap-ha` | All except A5X, A4X Max, A4X, A4, G4, T2A, N4A, C4A, X5 | GA | May 2029  
+[RHEL 9.8 for SAP](https://access.redhat.com/support/policy/updates/errata#Update_Services_for_SAP_Solutions) | `rhel-sap-cloud` | x86: `rhel-9-8-sap-ha` | All except A5X, A4X Max, A4X, A4, G4, T2A, N4A, C4A, X5 | GA | May 2030  
+[RHEL 9.6 for SAP](https://access.redhat.com/support/policy/updates/errata#Update_Services_for_SAP_Solutions) | `rhel-sap-cloud` | x86: `rhel-9-6-sap-ha` | All except A5X, A4X Max, A4X, A4, G4, T2A, N4A, C4A | GA | May 2029  
+[RHEL 9.4 for SAP](https://access.redhat.com/support/policy/updates/errata#Update_Services_for_SAP_Solutions) | `rhel-sap-cloud` | x86: `rhel-9-4-sap-ha` | All except A5X, A4X Max, A4X, A4, G4, T2A, N4A, C4A | GA | April 2028  
+[RHEL 9.2 for SAP](https://access.redhat.com/support/policy/updates/errata#Update_Services_for_SAP_Solutions) | `rhel-sap-cloud` | x86: `rhel-9-2-sap-ha` | All except A5X, A4X Max, A4X, A4, G4, T2A, X5, X4, N4A, C4A, C4D-metal, C4-metal, C3-metal, Z4D-metal and Z3-metal | GA | May 2027  
+[RHEL 8.10 for SAP](https://access.redhat.com/support/policy/updates/errata#Update_Services_for_SAP_Solutions) | `rhel-sap-cloud` | x86: `rhel-8-10-sap-ha` | All except A5X, A4X Max, A4X, A4, G4, T2A, N4A, C4A, C4N, X5 | GA | May 2029  
+[RHEL 8.8 for SAP](https://access.redhat.com/support/policy/updates/errata#Update_Services_for_SAP_Solutions) | `rhel-sap-cloud` | x86: `rhel-8-8-sap-ha` | All except A4X Max, A4X, A4, G4, T2A, X5, X4, N4A, C4A, C4N, C4D-metal, C4-metal, C3-metal, and Z3-metal | GA | May 2027  
 [RHEL 10.2 EUS](https://access.redhat.com/articles/rhel-eus) | `rhel-cloud` | 
 
   * x86: `rhel-10-2-eus`
@@ -1479,7 +1479,7 @@ OS version | Image project | Image family | [Machine series](https://docs.cloud.
   * x86 (LVM3): `rhel-10-2-eus-lvm`
   * Arm (LVM3): `rhel-10-2-eus-lvm-arm64`
 
-| All except A4X Max, A4X, A4, G4, X5 | GA | May 2028  
+| All except A5X, A4X Max, A4X, A4, G4, X5 | GA | May 2028  
 [RHEL 10.2 EUS with out-of-tree gVNIC driver](https://access.redhat.com/articles/rhel-eus) | `rhel-cloud` | 
 
   * x86: `rhel-10-2-eus-oot-gve`
@@ -1493,7 +1493,7 @@ OS version | Image project | Image family | [Machine series](https://docs.cloud.
   * x86 (LVM3): `rhel-10-0-eus-lvm`
   * Arm (LVM3): `rhel-10-0-eus-lvm-arm64`
 
-| All except A4X Max, A4X, A4, G4, X5 | GA | May 2027  
+| All except A5X, A4X Max, A4X, A4, G4, X5 | GA | May 2027  
 [RHEL 9.8 EUS](https://access.redhat.com/articles/rhel-eus) | `rhel-cloud` | 
 
   * x86: `rhel-9-8-eus`
@@ -1501,7 +1501,7 @@ OS version | Image project | Image family | [Machine series](https://docs.cloud.
   * x86 (LVM3): `rhel-9-8-eus-lvm`
   * Arm (LVM3): `rhel-9-8-eus-lvm-arm64`
 
-| All except A4X Max, A4X, A4, G4, X5 | GA | May 2028  
+| All except A5X, A4X Max, A4X, A4, G4, X5 | GA | May 2028  
 [RHEL 9.6 EUS](https://access.redhat.com/articles/rhel-eus) | `rhel-cloud` | 
 
   * x86: `rhel-9-6-eus`
@@ -1509,7 +1509,7 @@ OS version | Image project | Image family | [Machine series](https://docs.cloud.
   * x86 (LVM3): `rhel-9-6-eus-lvm`
   * Arm (LVM3): `rhel-9-6-eus-lvm-arm64`
 
-| All except A4X Max, A4X, A4, G4, X5 | GA | May 2027  
+| All except A5X, A4X Max, A4X, A4, G4, X5 | GA | May 2027  
   
 1**EOS** : End of support.
 
@@ -1621,24 +1621,24 @@ N1+GPU denotes support for NVIDIA T4, V100, or P4 GPUs running on a general-purp
 
 For more information about GPU requirements and recommended OSes, see [choosing an OS for instances with attached GPUs](https://docs.cloud.google.com/compute/docs/gpus/create-vm-with-gpus#choose_an_operating_system).
 
-OS version | [A4X Max (GB300)](https://docs.cloud.google.com/compute/docs/gpus#gb300-gpus) | [A4X (GB200)](https://docs.cloud.google.com/compute/docs/gpus#gb200-gpus) | [A4 (B200)](https://docs.cloud.google.com/compute/docs/gpus#b200-gpus) | [A3 (H200)](https://docs.cloud.google.com/compute/docs/gpus#h200-gpus) | [A3 (H100)](https://docs.cloud.google.com/compute/docs/gpus#h100-gpus) | [A2 (A100)](https://docs.cloud.google.com/compute/docs/gpus#a100-gpus) | [G4 (RTX PRO 6000)](https://docs.cloud.google.com/compute/docs/gpus#rtx-6000-gpus) | [G2 (L4)](https://docs.cloud.google.com/compute/docs/gpus#l4-gpus) | [N1+GPU](https://docs.cloud.google.com/compute/docs/gpus#nvidia_gpus_for_compute_workloads)  
----|---|---|---|---|---|---|---|---|---  
-[RHEL 10](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/10/) | No | No | No | Yes | Yes | Yes | No | Yes | Yes  
-[RHEL 9](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/9/) | No | No | No | Yes | Yes | Yes | No | Yes | Yes  
-[RHEL 8](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/) | No | No | No | Yes | Yes | Yes | No | Yes | Yes  
-[RHEL 10.2 for SAP](https://access.redhat.com/support/policy/updates/errata#Update_Services_for_SAP_Solutions) | No | No | No | Yes | Yes | Yes | No | Yes | Yes  
-[RHEL 10.0 for SAP](https://access.redhat.com/support/policy/updates/errata#Update_Services_for_SAP_Solutions) | No | No | No | Yes | Yes | Yes | No | Yes | Yes  
-[RHEL 9.8 for SAP](https://access.redhat.com/support/policy/updates/errata#Update_Services_for_SAP_Solutions) | No | No | No | Yes | Yes | Yes | No | Yes | Yes  
-[RHEL 9.6 for SAP](https://access.redhat.com/support/policy/updates/errata#Update_Services_for_SAP_Solutions) | No | No | No | Yes | Yes | Yes | No | Yes | Yes  
-[RHEL 9.4 for SAP](https://access.redhat.com/support/policy/updates/errata#Update_Services_for_SAP_Solutions) | No | No | No | Yes | Yes | Yes | No | Yes | Yes  
-[RHEL 9.2 for SAP](https://access.redhat.com/support/policy/updates/errata#Update_Services_for_SAP_Solutions) | No | No | No | Yes | Yes | Yes | No | Yes | Yes  
-[RHEL 8.10 for SAP](https://access.redhat.com/support/policy/updates/errata#Update_Services_for_SAP_Solutions) | No | No | No | Yes | Yes | Yes | No | Yes | Yes  
-[RHEL 8.8 for SAP](https://access.redhat.com/support/policy/updates/errata#Update_Services_for_SAP_Solutions) | No | No | No | Yes | Yes | Yes | No | Yes | Yes  
-[RHEL 10.2 EUS](https://access.redhat.com/articles/rhel-eus) | No | No | No | Yes | Yes | Yes | No | Yes | Yes  
-[RHEL 10.2 EUS with out-of-tree gVNIC driver](https://access.redhat.com/articles/rhel-eus) | No | No | No | No | No | No | No | No | No  
-[RHEL 10.0 EUS](https://access.redhat.com/articles/rhel-eus) | No | No | No | Yes | Yes | Yes | No | Yes | Yes  
-[RHEL 9.8 EUS](https://access.redhat.com/articles/rhel-eus) | No | No | No | Yes | Yes | Yes | No | Yes | Yes  
-[RHEL 9.6 EUS](https://access.redhat.com/articles/rhel-eus) | No | No | No | Yes | Yes | Yes | No | Yes | Yes  
+OS version | [A5X (Vera Rubin)](https://docs.cloud.google.com/compute/docs/gpus#vera-rubin-gpus) | [A4X Max (GB300)](https://docs.cloud.google.com/compute/docs/gpus#gb300-gpus) | [A4X (GB200)](https://docs.cloud.google.com/compute/docs/gpus#gb200-gpus) | [A4 (B200)](https://docs.cloud.google.com/compute/docs/gpus#b200-gpus) | [A3 (H200)](https://docs.cloud.google.com/compute/docs/gpus#h200-gpus) | [A3 (H100)](https://docs.cloud.google.com/compute/docs/gpus#h100-gpus) | [A2 (A100)](https://docs.cloud.google.com/compute/docs/gpus#a100-gpus) | [G4 (RTX PRO 6000)](https://docs.cloud.google.com/compute/docs/gpus#rtx-6000-gpus) | [G2 (L4)](https://docs.cloud.google.com/compute/docs/gpus#l4-gpus) | [N1+GPU](https://docs.cloud.google.com/compute/docs/gpus#nvidia_gpus_for_compute_workloads)  
+---|---|---|---|---|---|---|---|---|---|---  
+[RHEL 10](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/10/) | No | No | No | No | Yes | Yes | Yes | No | Yes | Yes  
+[RHEL 9](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/9/) | No | No | No | No | Yes | Yes | Yes | No | Yes | Yes  
+[RHEL 8](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/) | No | No | No | No | Yes | Yes | Yes | No | Yes | Yes  
+[RHEL 10.2 for SAP](https://access.redhat.com/support/policy/updates/errata#Update_Services_for_SAP_Solutions) | No | No | No | No | Yes | Yes | Yes | No | Yes | Yes  
+[RHEL 10.0 for SAP](https://access.redhat.com/support/policy/updates/errata#Update_Services_for_SAP_Solutions) | No | No | No | No | Yes | Yes | Yes | No | Yes | Yes  
+[RHEL 9.8 for SAP](https://access.redhat.com/support/policy/updates/errata#Update_Services_for_SAP_Solutions) | No | No | No | No | Yes | Yes | Yes | No | Yes | Yes  
+[RHEL 9.6 for SAP](https://access.redhat.com/support/policy/updates/errata#Update_Services_for_SAP_Solutions) | No | No | No | No | Yes | Yes | Yes | No | Yes | Yes  
+[RHEL 9.4 for SAP](https://access.redhat.com/support/policy/updates/errata#Update_Services_for_SAP_Solutions) | No | No | No | No | Yes | Yes | Yes | No | Yes | Yes  
+[RHEL 9.2 for SAP](https://access.redhat.com/support/policy/updates/errata#Update_Services_for_SAP_Solutions) | No | No | No | No | Yes | Yes | Yes | No | Yes | Yes  
+[RHEL 8.10 for SAP](https://access.redhat.com/support/policy/updates/errata#Update_Services_for_SAP_Solutions) | No | No | No | No | Yes | Yes | Yes | No | Yes | Yes  
+[RHEL 8.8 for SAP](https://access.redhat.com/support/policy/updates/errata#Update_Services_for_SAP_Solutions) | No | No | No | No | Yes | Yes | Yes | No | Yes | Yes  
+[RHEL 10.2 EUS](https://access.redhat.com/articles/rhel-eus) | No | No | No | No | Yes | Yes | Yes | No | Yes | Yes  
+[RHEL 10.2 EUS with out-of-tree gVNIC driver](https://access.redhat.com/articles/rhel-eus) | No | No | No | No | No | No | No | No | No | No  
+[RHEL 10.0 EUS](https://access.redhat.com/articles/rhel-eus) | No | No | No | No | Yes | Yes | Yes | No | Yes | Yes  
+[RHEL 9.8 EUS](https://access.redhat.com/articles/rhel-eus) | No | No | No | No | Yes | Yes | Yes | No | Yes | Yes  
+[RHEL 9.6 EUS](https://access.redhat.com/articles/rhel-eus) | No | No | No | No | Yes | Yes | Yes | No | Yes | Yes  
   
 ### VM Manager
 
@@ -1853,16 +1853,16 @@ N1+GPU denotes support for NVIDIA T4, V100, or P4 GPUs running on a general-purp
 
 For more information about GPU requirements and recommended OSes, see [choosing an OS for instances with attached GPUs](https://docs.cloud.google.com/compute/docs/gpus/create-vm-with-gpus#choose_an_operating_system).
 
-OS version | [A4X Max (GB300)](https://docs.cloud.google.com/compute/docs/gpus#gb300-gpus) | [A4X (GB200)](https://docs.cloud.google.com/compute/docs/gpus#gb200-gpus) | [A4 (B200)](https://docs.cloud.google.com/compute/docs/gpus#b200-gpus) | [A3 (H200)](https://docs.cloud.google.com/compute/docs/gpus#h200-gpus) | [A3 (H100)](https://docs.cloud.google.com/compute/docs/gpus#h100-gpus) | [A2 (A100)](https://docs.cloud.google.com/compute/docs/gpus#a100-gpus) | [G4 (RTX PRO 6000)](https://docs.cloud.google.com/compute/docs/gpus#rtx-6000-gpus) | [G2 (L4)](https://docs.cloud.google.com/compute/docs/gpus#l4-gpus) | [N1+GPU](https://docs.cloud.google.com/compute/docs/gpus#nvidia_gpus_for_compute_workloads)  
----|---|---|---|---|---|---|---|---|---  
-[RHEL 7](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/) | No | No | No | No | Yes | Yes | No | Yes | Yes  
-[RHEL 6](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/6) | No | No | No | No | No | No | No | No | Yes  
-[RHEL 9.0 for SAP](https://access.redhat.com/support/policy/updates/errata#Update_Services_for_SAP_Solutions) | No | No | No | Yes | Yes | Yes | No | Yes | Yes  
-[RHEL 8.6 for SAP](https://access.redhat.com/support/policy/updates/errata#Update_Services_for_SAP_Solutions) | No | No | No | Yes | Yes | Yes | No | Yes | Yes  
-[RHEL 8.4 for SAP](https://access.redhat.com/support/policy/updates/errata#Update_Services_for_SAP_Solutions) | No | No | No | Yes | Yes | Yes | No | Yes | Yes  
-[RHEL 8.2 for SAP](https://access.redhat.com/support/policy/updates/errata#Update_Services_for_SAP_Solutions) | No | No | No | No | Yes | Yes | No | Yes | Yes  
-[RHEL 7.9 for SAP](https://access.redhat.com/articles/3751271) | No | No | No | No | Yes | Yes | No | Yes | Yes  
-[RHEL 9.4 EUS](https://access.redhat.com/articles/rhel-eus) | No | No | No | Yes | Yes | Yes | No | Yes | Yes  
+OS version | [A5X (Vera Rubin)](https://docs.cloud.google.com/compute/docs/gpus#vera-rubin-gpus) | [A4X Max (GB300)](https://docs.cloud.google.com/compute/docs/gpus#gb300-gpus) | [A4X (GB200)](https://docs.cloud.google.com/compute/docs/gpus#gb200-gpus) | [A4 (B200)](https://docs.cloud.google.com/compute/docs/gpus#b200-gpus) | [A3 (H200)](https://docs.cloud.google.com/compute/docs/gpus#h200-gpus) | [A3 (H100)](https://docs.cloud.google.com/compute/docs/gpus#h100-gpus) | [A2 (A100)](https://docs.cloud.google.com/compute/docs/gpus#a100-gpus) | [G4 (RTX PRO 6000)](https://docs.cloud.google.com/compute/docs/gpus#rtx-6000-gpus) | [G2 (L4)](https://docs.cloud.google.com/compute/docs/gpus#l4-gpus) | [N1+GPU](https://docs.cloud.google.com/compute/docs/gpus#nvidia_gpus_for_compute_workloads)  
+---|---|---|---|---|---|---|---|---|---|---  
+[RHEL 7](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/) | No | No | No | No | No | Yes | Yes | No | Yes | Yes  
+[RHEL 6](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/6) | No | No | No | No | No | No | No | No | No | Yes  
+[RHEL 9.0 for SAP](https://access.redhat.com/support/policy/updates/errata#Update_Services_for_SAP_Solutions) | No | No | No | No | Yes | Yes | Yes | No | Yes | Yes  
+[RHEL 8.6 for SAP](https://access.redhat.com/support/policy/updates/errata#Update_Services_for_SAP_Solutions) | No | No | No | No | Yes | Yes | Yes | No | Yes | Yes  
+[RHEL 8.4 for SAP](https://access.redhat.com/support/policy/updates/errata#Update_Services_for_SAP_Solutions) | No | No | No | No | Yes | Yes | Yes | No | Yes | Yes  
+[RHEL 8.2 for SAP](https://access.redhat.com/support/policy/updates/errata#Update_Services_for_SAP_Solutions) | No | No | No | No | No | Yes | Yes | No | Yes | Yes  
+[RHEL 7.9 for SAP](https://access.redhat.com/articles/3751271) | No | No | No | No | No | Yes | Yes | No | Yes | Yes  
+[RHEL 9.4 EUS](https://access.redhat.com/articles/rhel-eus) | No | No | No | No | Yes | Yes | Yes | No | Yes | Yes  
   
 ### VM Manager
 
@@ -2049,13 +2049,13 @@ OS version | Image project | Image family | [Machine series](https://docs.cloud.
   * x86: `rocky-linux-10`
   * Arm: `rocky-linux-10-arm64`
 
-| All except A4X Max, A4X, A4, G4, A3 Ultra | GA | May 2035  
+| All except A5X, A4X Max, A4X, A4, G4, A3 Ultra | GA | May 2035  
 [Rocky Linux 10 optimized for Google Cloud](https://docs.ciq.com/rlc/ciq-sig-cloud-next/) | `rocky-linux-cloud` | 
 
   * x86: `rocky-linux-10-optimized-gcp`
   * Arm: `rocky-linux-10-optimized-gcp-arm64`
 
-| All except A4X Max, A4X, A4, G4, A3 Ultra | GA | May 2035  
+| All except A5X, A4X Max, A4X, A4, G4, A3 Ultra | GA | May 2035  
 [Rocky Linux 10 Accelerated with NVIDIA driver version 580](https://docs.ciq.com/rlc/ciq-sig-cloud-next/) | `rocky-linux-accelerator-cloud` | 
 
   * x86: `rocky-linux-10-optimized-gcp-nvidia-580`
@@ -2067,7 +2067,7 @@ OS version | Image project | Image family | [Machine series](https://docs.cloud.
   * x86: `rocky-linux-9`
   * Arm: `rocky-linux-9-arm64`
 
-| All except A4X Max, A4X, A4, G4, A3 Ultra | GA | May 2032  
+| All except A5X, A4X Max, A4X, A4, G4, A3 Ultra | GA | May 2032  
 [Rocky Linux 9 optimized for Google Cloud](https://docs.ciq.com/rlc/ciq-sig-cloud-next/) | `rocky-linux-cloud` | 
 
   * x86: `rocky-linux-9-optimized-gcp`
@@ -2080,13 +2080,13 @@ OS version | Image project | Image family | [Machine series](https://docs.cloud.
   * Arm: `rocky-linux-9-optimized-gcp-nvidia-580-arm64`
 
 | A4X, A4, A3 Ultra | GA | June 2028  
-[Rocky Linux 8](https://docs.rockylinux.org/release_notes) | `rocky-linux-cloud` | x86: `rocky-linux-8` | All except A4X Max, A4X, A4, G4, A3 Ultra, T2A, N4A, C4A, X4 | GA | May 2029  
+[Rocky Linux 8](https://docs.rockylinux.org/release_notes) | `rocky-linux-cloud` | x86: `rocky-linux-8` | All except A5X, A4X Max, A4X, A4, G4, A3 Ultra, T2A, N4A, C4A, X4 | GA | May 2029  
 [Rocky Linux 8 optimized for Google Cloud](https://docs.ciq.com/rlc/ciq-sig-cloud-next/) | `rocky-linux-cloud` | 
 
   * x86: `rocky-linux-8-optimized-gcp`
   * Arm: `rocky-linux-8-optimized-gcp-arm64`
 
-| All except A4X Max, A4X, A4, G4, A3 Ultra, X4 | GA | May 2029  
+| All except A5X, A4X Max, A4X, A4, G4, A3 Ultra, X4 | GA | May 2029  
 [Rocky Linux 8 Accelerated with NVIDIA driver version 580](https://docs.ciq.com/rlc/ciq-sig-cloud-next/) | `rocky-linux-accelerator-cloud` | 
 
   * x86: `rocky-linux-8-optimized-gcp-nvidia-580`
@@ -2167,17 +2167,17 @@ The Rocky Linux 8 and 9 Accelerated OS images are optimized for supporting your 
 
 For more information about GPU requirements and recommended OSes, see [choosing an OS for instances with attached GPUs](https://docs.cloud.google.com/compute/docs/gpus/create-vm-with-gpus#choose_an_operating_system).
 
-OS version | [A4X Max (GB300)](https://docs.cloud.google.com/compute/docs/gpus#gb300-gpus) | [A4X (GB200)](https://docs.cloud.google.com/compute/docs/gpus#gb200-gpus) | [A4 (B200)](https://docs.cloud.google.com/compute/docs/gpus#b200-gpus) | [A3 (H200)](https://docs.cloud.google.com/compute/docs/gpus#h200-gpus) | [A3 (H100)](https://docs.cloud.google.com/compute/docs/gpus#h100-gpus) | [A2 (A100)](https://docs.cloud.google.com/compute/docs/gpus#a100-gpus) | [G4 (RTX PRO 6000)](https://docs.cloud.google.com/compute/docs/gpus#rtx-6000-gpus) | [G2 (L4)](https://docs.cloud.google.com/compute/docs/gpus#l4-gpus) | [N1+GPU](https://docs.cloud.google.com/compute/docs/gpus#nvidia_gpus_for_compute_workloads)  
----|---|---|---|---|---|---|---|---|---  
-[Rocky Linux 10](https://docs.rockylinux.org/release_notes) | No | No | No | No | Yes | Yes | No | Yes | Yes  
-[Rocky Linux 10 optimized for Google Cloud](https://docs.ciq.com/rlc/ciq-sig-cloud-next/) | No | No | No | No | Yes | Yes | No | Yes | Yes  
-[Rocky Linux 10 Accelerated with NVIDIA driver version 580](https://docs.ciq.com/rlc/ciq-sig-cloud-next/) | No | Yes | Yes | Yes | No | No | No | No | No  
-[Rocky Linux 9](https://docs.rockylinux.org/release_notes) | No | No | No | No | Yes | Yes | No | Yes | Yes  
-[Rocky Linux 9 optimized for Google Cloud](https://docs.ciq.com/rlc/ciq-sig-cloud-next/) | No | No | No | No | Yes | Yes | No | Yes | Yes  
-[Rocky Linux 9 Accelerated with NVIDIA driver version 580](https://docs.ciq.com/rlc/ciq-sig-cloud-next/) | No | Yes | Yes | Yes | No | No | No | No | No  
-[Rocky Linux 8](https://docs.rockylinux.org/release_notes) | No | No | No | No | Yes | Yes | No | Yes | Yes  
-[Rocky Linux 8 optimized for Google Cloud](https://docs.ciq.com/rlc/ciq-sig-cloud-next/) | No | No | No | No | Yes | Yes | No | Yes | Yes  
-[Rocky Linux 8 Accelerated with NVIDIA driver version 580](https://docs.ciq.com/rlc/ciq-sig-cloud-next/) | No | Yes | Yes | Yes | No | No | No | No | No  
+OS version | [A5X (Vera Rubin)](https://docs.cloud.google.com/compute/docs/gpus#vera-rubin-gpus) | [A4X Max (GB300)](https://docs.cloud.google.com/compute/docs/gpus#gb300-gpus) | [A4X (GB200)](https://docs.cloud.google.com/compute/docs/gpus#gb200-gpus) | [A4 (B200)](https://docs.cloud.google.com/compute/docs/gpus#b200-gpus) | [A3 (H200)](https://docs.cloud.google.com/compute/docs/gpus#h200-gpus) | [A3 (H100)](https://docs.cloud.google.com/compute/docs/gpus#h100-gpus) | [A2 (A100)](https://docs.cloud.google.com/compute/docs/gpus#a100-gpus) | [G4 (RTX PRO 6000)](https://docs.cloud.google.com/compute/docs/gpus#rtx-6000-gpus) | [G2 (L4)](https://docs.cloud.google.com/compute/docs/gpus#l4-gpus) | [N1+GPU](https://docs.cloud.google.com/compute/docs/gpus#nvidia_gpus_for_compute_workloads)  
+---|---|---|---|---|---|---|---|---|---|---  
+[Rocky Linux 10](https://docs.rockylinux.org/release_notes) | No | No | No | No | No | Yes | Yes | No | Yes | Yes  
+[Rocky Linux 10 optimized for Google Cloud](https://docs.ciq.com/rlc/ciq-sig-cloud-next/) | No | No | No | No | No | Yes | Yes | No | Yes | Yes  
+[Rocky Linux 10 Accelerated with NVIDIA driver version 580](https://docs.ciq.com/rlc/ciq-sig-cloud-next/) | No | No | Yes | Yes | Yes | No | No | No | No | No  
+[Rocky Linux 9](https://docs.rockylinux.org/release_notes) | No | No | No | No | No | Yes | Yes | No | Yes | Yes  
+[Rocky Linux 9 optimized for Google Cloud](https://docs.ciq.com/rlc/ciq-sig-cloud-next/) | Yes | No | No | No | No | Yes | Yes | No | Yes | Yes  
+[Rocky Linux 9 Accelerated with NVIDIA driver version 580](https://docs.ciq.com/rlc/ciq-sig-cloud-next/) | No | No | Yes | Yes | Yes | No | No | No | No | No  
+[Rocky Linux 8](https://docs.rockylinux.org/release_notes) | No | No | No | No | No | Yes | Yes | No | Yes | Yes  
+[Rocky Linux 8 optimized for Google Cloud](https://docs.ciq.com/rlc/ciq-sig-cloud-next/) | No | No | No | No | No | Yes | Yes | No | Yes | Yes  
+[Rocky Linux 8 Accelerated with NVIDIA driver version 580](https://docs.ciq.com/rlc/ciq-sig-cloud-next/) | No | No | Yes | Yes | Yes | No | No | No | No | No  
   
 ### VM Manager
 
@@ -2314,12 +2314,12 @@ The Rocky Linux 8 and 9 Accelerated OS images are optimized for supporting your 
 
 For more information about GPU requirements and recommended OSes, see [choosing an OS for instances with attached GPUs](https://docs.cloud.google.com/compute/docs/gpus/create-vm-with-gpus#choose_an_operating_system).
 
-OS version | [A4X Max (GB300)](https://docs.cloud.google.com/compute/docs/gpus#gb300-gpus) | [A4X (GB200)](https://docs.cloud.google.com/compute/docs/gpus#gb200-gpus) | [A4 (B200)](https://docs.cloud.google.com/compute/docs/gpus#b200-gpus) | [A3 (H200)](https://docs.cloud.google.com/compute/docs/gpus#h200-gpus) | [A3 (H100)](https://docs.cloud.google.com/compute/docs/gpus#h100-gpus) | [A2 (A100)](https://docs.cloud.google.com/compute/docs/gpus#a100-gpus) | [G4 (RTX PRO 6000)](https://docs.cloud.google.com/compute/docs/gpus#rtx-6000-gpus) | [G2 (L4)](https://docs.cloud.google.com/compute/docs/gpus#l4-gpus) | [N1+GPU](https://docs.cloud.google.com/compute/docs/gpus#nvidia_gpus_for_compute_workloads)  
----|---|---|---|---|---|---|---|---|---  
-[Rocky Linux 9 Accelerated with NVIDIA driver version 570](https://docs.ciq.com/rlc/ciq-sig-cloud-next/) | No | Yes | Yes | Yes | No | No | No | No | No  
-[Rocky Linux 9 Accelerated with NVIDIA driver version 550](https://docs.ciq.com/rlc/ciq-sig-cloud-next/) | No | No | No | Yes | No | No | No | No | No  
-[Rocky Linux 8 Accelerated with NVIDIA driver version 570](https://docs.ciq.com/rlc/ciq-sig-cloud-next/) | No | No | Yes | Yes | No | No | No | No | No  
-[Rocky Linux 8 Accelerated with NVIDIA driver version 550](https://docs.ciq.com/rlc/ciq-sig-cloud-next/) | No | No | No | Yes | No | No | No | No | No  
+OS version | [A5X (Vera Rubin)](https://docs.cloud.google.com/compute/docs/gpus#vera-rubin-gpus) | [A4X Max (GB300)](https://docs.cloud.google.com/compute/docs/gpus#gb300-gpus) | [A4X (GB200)](https://docs.cloud.google.com/compute/docs/gpus#gb200-gpus) | [A4 (B200)](https://docs.cloud.google.com/compute/docs/gpus#b200-gpus) | [A3 (H200)](https://docs.cloud.google.com/compute/docs/gpus#h200-gpus) | [A3 (H100)](https://docs.cloud.google.com/compute/docs/gpus#h100-gpus) | [A2 (A100)](https://docs.cloud.google.com/compute/docs/gpus#a100-gpus) | [G4 (RTX PRO 6000)](https://docs.cloud.google.com/compute/docs/gpus#rtx-6000-gpus) | [G2 (L4)](https://docs.cloud.google.com/compute/docs/gpus#l4-gpus) | [N1+GPU](https://docs.cloud.google.com/compute/docs/gpus#nvidia_gpus_for_compute_workloads)  
+---|---|---|---|---|---|---|---|---|---|---  
+[Rocky Linux 9 Accelerated with NVIDIA driver version 570](https://docs.ciq.com/rlc/ciq-sig-cloud-next/) | No | No | Yes | Yes | Yes | No | No | No | No | No  
+[Rocky Linux 9 Accelerated with NVIDIA driver version 550](https://docs.ciq.com/rlc/ciq-sig-cloud-next/) | No | No | No | No | Yes | No | No | No | No | No  
+[Rocky Linux 8 Accelerated with NVIDIA driver version 570](https://docs.ciq.com/rlc/ciq-sig-cloud-next/) | No | No | No | Yes | Yes | No | No | No | No | No  
+[Rocky Linux 8 Accelerated with NVIDIA driver version 550](https://docs.ciq.com/rlc/ciq-sig-cloud-next/) | No | No | No | No | Yes | No | No | No | No | No  
   
 ### VM Manager
 
@@ -2590,27 +2590,27 @@ SLES 16.0  | `suse-cloud` |
   * x86: `sles-16-0-x86-64`
   * Arm: `sles-16-0-arm64`
 
-| All except A4X Max, A4X, A4, G4, X5 | GA | Dec 2030  
+| All except A5X, A4X Max, A4X, A4, G4, X5 | GA | Dec 2030  
 SLES 15 SP7  | `suse-cloud` | 
 
   * x86: `sles-15`
   * Arm: `sles-15-arm64`
 
-| All except A4X Max, A4X, A4, G4, X5 | GA | Jul 2034  
+| All except A5X, A4X Max, A4X, A4, G4, X5 | GA | Jul 2034  
 SLES 15 SP6  | `suse-cloud` | 
 
   * x86: `sles-15`
   * Arm: `sles-15-arm64`
 
-| All except A4X Max, A4X, A4, G4, X5 | GA | Dec 2028  
-SLES 16.0 for SAP  | `suse-sap-cloud` | x86: `sles-sap-16-0-x86-64` | All except A4X Max, A4X, A4, G4, T2A, N4A, C4A, X5 | GA | Nov 2030  
-SLES 15 SP7 for SAP  | `suse-sap-cloud` | x86: `sles-15-sp7-sap` | All except A4X Max, A4X, A4, G4, T2A, N4A, C4A, X5 | GA | Jul 2031  
-SLES 15 SP6 for SAP  | `suse-sap-cloud` | x86: `sles-15-sp6-sap` | All except A4X Max, A4X, A4, G4, T2A, N4A, C4A | GA | Dec 2028  
-SLES 15 SP5 for SAP  | `suse-sap-cloud` | x86: `sles-15-sp5-sap` | All except A4X Max, A4X, A4, G4, T2A, N4A, C4A | GA | Dec 2027  
-SLES 15 SP4 for SAP  | `suse-sap-cloud` | x86: `sles-15-sp4-sap` | All except A4X Max, A4X, A4, G4, T2A, N4A, C4A, X5 | GA | Dec 2026  
-SLES 15 SP5  | `suse-byos-cloud` | N/A | All except A4X Max, A4X, A4, C4N, G4, X5 | BYOS w/ LTSS1 | Dec 2027  
-SLES 15 SP4  | `suse-byos-cloud` | N/A | All except A4X Max, A4X, A4, G4, T2A, N4A, C4A, C4N, X5 | BYOS w/ LTSS1 | Dec 2026  
-SLES 12 SP5 for SAP  | `suse-sap-cloud` | x86: `sles-12-sp5-sap` | All except T2A, N4A, C4A, C4N, C4D-metal, C4-metal, C3-metal, H4D, A4, A4X, A4X Max, G4, G2, X4, X5, Z4D-metal, Z3-metal | BYOS w/ LTSS1 | Oct 2027  
+| All except A5X, A4X Max, A4X, A4, G4, X5 | GA | Dec 2028  
+SLES 16.0 for SAP  | `suse-sap-cloud` | x86: `sles-sap-16-0-x86-64` | All except A5X, A4X Max, A4X, A4, G4, T2A, N4A, C4A, X5 | GA | Nov 2030  
+SLES 15 SP7 for SAP  | `suse-sap-cloud` | x86: `sles-15-sp7-sap` | All except A5X, A4X Max, A4X, A4, G4, T2A, N4A, C4A, X5 | GA | Jul 2031  
+SLES 15 SP6 for SAP  | `suse-sap-cloud` | x86: `sles-15-sp6-sap` | All except A5X, A4X Max, A4X, A4, G4, T2A, N4A, C4A | GA | Dec 2028  
+SLES 15 SP5 for SAP  | `suse-sap-cloud` | x86: `sles-15-sp5-sap` | All except A5X, A4X Max, A4X, A4, G4, T2A, N4A, C4A | GA | Dec 2027  
+SLES 15 SP4 for SAP  | `suse-sap-cloud` | x86: `sles-15-sp4-sap` | All except A5X, A4X Max, A4X, A4, G4, T2A, N4A, C4A, X5 | GA | Dec 2026  
+SLES 15 SP5  | `suse-byos-cloud` | N/A | All except A5X, A4X Max, A4X, A4, C4N, G4, X5 | BYOS w/ LTSS1 | Dec 2027  
+SLES 15 SP4  | `suse-byos-cloud` | N/A | All except A5X, A4X Max, A4X, A4, G4, T2A, N4A, C4A, C4N, X5 | BYOS w/ LTSS1 | Dec 2026  
+SLES 12 SP5 for SAP  | `suse-sap-cloud` | x86: `sles-12-sp5-sap` | All except T2A, N4A, C4A, C4N, C4D-metal, C4-metal, C3-metal, H4D, A4, A4X, A4X Max, G4, G2, X4, X5, Z3-metal | BYOS w/ LTSS1 | Oct 2027  
   
 1**BYOS with LTSS** : Support for this operating system is only offered through the [Long Term Service Pack Support (LTSS)](https://www.suse.com/products/long-term-service-pack-support/) that is available when using BYOS licenses from SUSE.
 
@@ -2697,19 +2697,19 @@ N1+GPU denotes support for NVIDIA T4, V100, or P4 GPUs running on a general-purp
 
 For more information about GPU requirements and recommended OSes, see [choosing an OS for instances with attached GPUs](https://docs.cloud.google.com/compute/docs/gpus/create-vm-with-gpus#choose_an_operating_system).
 
-OS version | [A4X (GB200)](https://docs.cloud.google.com/compute/docs/gpus#gb200-gpus) | [A4 (B200)](https://docs.cloud.google.com/compute/docs/gpus#b200-gpus) | [A3 (H200)](https://docs.cloud.google.com/compute/docs/gpus#h200-gpus) | [A3 (H100)](https://docs.cloud.google.com/compute/docs/gpus#h100-gpus) | [A2 (A100)](https://docs.cloud.google.com/compute/docs/gpus#a100-gpus) | [G4 (RTX PRO 6000)](https://docs.cloud.google.com/compute/docs/gpus#rtx-6000-gpus) | [G2 (L4)](https://docs.cloud.google.com/compute/docs/gpus#l4-gpus) | [N1+GPU](https://docs.cloud.google.com/compute/docs/gpus#nvidia_gpus_for_compute_workloads)  
----|---|---|---|---|---|---|---|---  
-SLES 16.0  | No | No | Yes | Yes | Yes | No | Yes | Yes  
-SLES 15 SP7  | No | No | Yes | Yes | Yes | No | Yes | Yes  
-SLES 15 SP6  | No | No | Yes | Yes | Yes | No | Yes | Yes  
-SLES 16.0 for SAP  | No | No | Yes | Yes | Yes | No | Yes | Yes  
-SLES 15 SP7 for SAP  | No | No | Yes | Yes | Yes | No | Yes | Yes  
-SLES 15 SP6 for SAP  | No | No | Yes | Yes | Yes | No | Yes | Yes  
-SLES 15 SP5 for SAP  | No | No | Yes | Yes | Yes | No | Yes | Yes  
-SLES 15 SP4 for SAP  | No | No | Yes | Yes | Yes | No | Yes | Yes  
-SLES 15 SP5  | No | No | Yes | Yes | Yes | No | Yes | Yes  
-SLES 15 SP4  | No | No | Yes | Yes | Yes | No | Yes | Yes  
-SLES 12 SP5 for SAP  | No | No | Yes | Yes | Yes | No | No | Yes  
+OS version | [A5X (Vera Rubin)](https://docs.cloud.google.com/compute/docs/gpus#vera-rubin-gpus) | [A4X Max (GB300)](https://docs.cloud.google.com/compute/docs/gpus#gb300-gpus) | [A4X (GB200)](https://docs.cloud.google.com/compute/docs/gpus#gb200-gpus) | [A4 (B200)](https://docs.cloud.google.com/compute/docs/gpus#b200-gpus) | [A3 (H200)](https://docs.cloud.google.com/compute/docs/gpus#h200-gpus) | [A3 (H100)](https://docs.cloud.google.com/compute/docs/gpus#h100-gpus) | [A2 (A100)](https://docs.cloud.google.com/compute/docs/gpus#a100-gpus) | [G4 (RTX PRO 6000)](https://docs.cloud.google.com/compute/docs/gpus#rtx-6000-gpus) | [G2 (L4)](https://docs.cloud.google.com/compute/docs/gpus#l4-gpus) | [N1+GPU](https://docs.cloud.google.com/compute/docs/gpus#nvidia_gpus_for_compute_workloads)  
+---|---|---|---|---|---|---|---|---|---|---  
+SLES 16.0  | No | No | No | No | Yes | Yes | Yes | No | Yes | Yes  
+SLES 15 SP7  | No | No | No | No | Yes | Yes | Yes | No | Yes | Yes  
+SLES 15 SP6  | No | No | No | No | Yes | Yes | Yes | No | Yes | Yes  
+SLES 16.0 for SAP  | No | No | No | No | Yes | Yes | Yes | No | Yes | Yes  
+SLES 15 SP7 for SAP  | No | No | No | No | Yes | Yes | Yes | No | Yes | Yes  
+SLES 15 SP6 for SAP  | No | No | No | No | Yes | Yes | Yes | No | Yes | Yes  
+SLES 15 SP5 for SAP  | No | No | No | No | Yes | Yes | Yes | No | Yes | Yes  
+SLES 15 SP4 for SAP  | No | No | No | No | Yes | Yes | Yes | No | Yes | Yes  
+SLES 15 SP5  | No | No | No | No | Yes | Yes | Yes | No | Yes | Yes  
+SLES 15 SP4  | No | No | No | No | Yes | Yes | Yes | No | Yes | Yes  
+SLES 12 SP5 for SAP  | No | No | No | No | Yes | Yes | Yes | No | No | Yes  
   
 ### VM Manager
 
@@ -2784,11 +2784,11 @@ The following section summarizes feature support for versions of this OS that ar
 
 OS version | Image project | Image family | [Machine series](https://docs.cloud.google.com/compute/docs/machine-resource#recommendations_for_machine_types) | [Lifecycle stage](https://docs.cloud.google.com/compute/docs/images/os-image-lifecycle#lifecycle-stages) | EOS and image deprecation date  
 ---|---|---|---|---|---  
-SLES 15 SP3  | `suse-byos-cloud` | N/A | All except A4X Max, A4X, A4, G4, T2A, N4A, C4A, C4D-metal, C4-metal, C3-metal, X4, X5, Z4D-metal, Z3-metal | EOL | Dec 2025  
-SLES 15 SP2  | `suse-byos-cloud` | N/A | All except A4X Max, A4X, A4, G4, T2A, N4A, C4A, C4D-metal, C4-metal, C3-metal, X4, X5, Z4D-metal, Z3-metal | EOL | Dec 2024  
-SLES 12 SP5  | `suse-cloud` | x86: `sles-12` | All except A4X Max, A4X, A4, G2, T2A, N4A, C4A, C4N, C4D-metal, C4-metal, C3-metal, X5, X4, Z4D-metal, Z3-metal | EOL | Oct 2024  
-SLES 15 SP3 for SAP  | `suse-byos-cloud` | N/A | All except A4X Max, A4X, A4, G4, T2A, N4A, C4A, C4D-metal, C4-metal, C3-metal, X4, X5, Z4D-metal, Z3-metal | EOL | Dec 2025  
-SLES 15 SP2 for SAP  | `suse-byos-cloud` | N/A | All except A4X Max, A4X, A4, T2A, N4A, C4A-metal, C4D-metal, C4-metal, C3-metal, X5, X4, Z4D-metal, Z3-metal | EOL | Dec 2024  
+SLES 15 SP3  | `suse-byos-cloud` | N/A | All except A5X, A4X Max, A4X, A4, G4, T2A, N4A, C4A, C4D-metal, C4-metal, C3-metal, X4, X5, Z4D-metal, Z3-metal | EOL | Dec 2025  
+SLES 15 SP2  | `suse-byos-cloud` | N/A | All except A4X Max, A4X, A4, G4, T2A, N4A, C4A, C4D-metal, C4-metal, C3-metal, X4, X5, Z3-metal | EOL | Dec 2024  
+SLES 12 SP5  | `suse-cloud` | x86: `sles-12` | All except A4X Max, A4X, A4, G2, T2A, N4A, C4A, C4N, C4D-metal, C4-metal, C3-metal, X5, X4, Z3-metal | EOL | Oct 2024  
+SLES 15 SP3 for SAP  | `suse-byos-cloud` | N/A | All except A4X Max, A4X, A4, G4, T2A, N4A, C4A, C4D-metal, C4-metal, C3-metal, X4, X5, Z3-metal | EOL | Dec 2025  
+SLES 15 SP2 for SAP  | `suse-byos-cloud` | N/A | All except A4X Max, A4X, A4, T2A, N4A, C4A-metal, C4D-metal, C4-metal, C3-metal, X5, X4, Z3-metal | EOL | Dec 2024  
 SLES 15 SP1  | `suse-byos-cloud` | N/A | Only A2, A3, C2, C2D, C3, C3D, E2, G2, H3, M1, M2, N1, N2, N2D, T2D | EOS | Jan 2024  
 SLES 12 SP4  | `suse-byos-cloud` | N/A | Only A2, C2, C2D, C3, E2, M1, M2, N1, N2, N2D, T2D | EOS | June 2023  
 SLES 15 SP1 for SAP  | `suse-sap-cloud` | x86: `sles-15-sp1-sap` | Only A2, A3, C2, C2D, C3, C3D, E2, G2, H3, M1, M2, N1, N2, N2D, T2D | EOS | Jan 2024  
@@ -2871,17 +2871,17 @@ N1+GPU denotes support for NVIDIA T4, V100, or P4 GPUs running on a general-purp
 
 For more information about GPU requirements and recommended OSes, see [choosing an OS for instances with attached GPUs](https://docs.cloud.google.com/compute/docs/gpus/create-vm-with-gpus#choose_an_operating_system).
 
-OS version | [A4X Max (GB300)](https://docs.cloud.google.com/compute/docs/gpus#gb300-gpus) | [A4X (GB200)](https://docs.cloud.google.com/compute/docs/gpus#gb200-gpus) | [A4 (B200)](https://docs.cloud.google.com/compute/docs/gpus#b200-gpus) | [A3 (H200)](https://docs.cloud.google.com/compute/docs/gpus#h200-gpus) | [A3 (H100)](https://docs.cloud.google.com/compute/docs/gpus#h100-gpus) | [A2 (A100)](https://docs.cloud.google.com/compute/docs/gpus#a100-gpus) | [G4 (RTX PRO 6000)](https://docs.cloud.google.com/compute/docs/gpus#rtx-6000-gpus) | [G2 (L4)](https://docs.cloud.google.com/compute/docs/gpus#l4-gpus) | [N1+GPU](https://docs.cloud.google.com/compute/docs/gpus#nvidia_gpus_for_compute_workloads)  
----|---|---|---|---|---|---|---|---|---  
-SLES 15 SP3  | No | No | No | Yes | Yes | Yes | No | Yes | Yes  
-SLES 15 SP2  | No | No | No | Yes | Yes | Yes | No | Yes | Yes  
-SLES 12 SP5  | No | No | No | Yes | Yes | Yes | No | No | Yes  
-SLES 15 SP3 for SAP  | No | No | No | Yes | Yes | Yes | No | Yes | Yes  
-SLES 15 SP2 for SAP  | No | No | No | Yes | Yes | Yes | No | Yes | Yes  
-SLES 15 SP1  | No | No | No | No | Yes | Yes | No | Yes | Yes  
-SLES 12 SP4  | No | No | No | No | Yes | Yes | No | No | Yes  
-SLES 15 SP1 for SAP  | No | No | No | No | Yes | Yes | No | Yes | Yes  
-SLES 12 SP4 for SAP  | No | No | No | No | Yes | Yes | No | No | Yes  
+OS version | [A5X (Vera Rubin)](https://docs.cloud.google.com/compute/docs/gpus#vera-rubin-gpus) | [A4X Max (GB300)](https://docs.cloud.google.com/compute/docs/gpus#gb300-gpus) | [A4X (GB200)](https://docs.cloud.google.com/compute/docs/gpus#gb200-gpus) | [A4 (B200)](https://docs.cloud.google.com/compute/docs/gpus#b200-gpus) | [A3 (H200)](https://docs.cloud.google.com/compute/docs/gpus#h200-gpus) | [A3 (H100)](https://docs.cloud.google.com/compute/docs/gpus#h100-gpus) | [A2 (A100)](https://docs.cloud.google.com/compute/docs/gpus#a100-gpus) | [G4 (RTX PRO 6000)](https://docs.cloud.google.com/compute/docs/gpus#rtx-6000-gpus) | [G2 (L4)](https://docs.cloud.google.com/compute/docs/gpus#l4-gpus) | [N1+GPU](https://docs.cloud.google.com/compute/docs/gpus#nvidia_gpus_for_compute_workloads)  
+---|---|---|---|---|---|---|---|---|---|---  
+SLES 15 SP3  | No | No | No | No | Yes | Yes | Yes | No | Yes | Yes  
+SLES 15 SP2  | No | No | No | No | Yes | Yes | Yes | No | Yes | Yes  
+SLES 12 SP5  | No | No | No | No | Yes | Yes | Yes | No | No | Yes  
+SLES 15 SP3 for SAP  | No | No | No | No | Yes | Yes | Yes | No | Yes | Yes  
+SLES 15 SP2 for SAP  | No | No | No | No | Yes | Yes | Yes | No | Yes | Yes  
+SLES 15 SP1  | No | No | No | No | No | Yes | Yes | No | Yes | Yes  
+SLES 12 SP4  | No | No | No | No | No | Yes | Yes | No | No | Yes  
+SLES 15 SP1 for SAP  | No | No | No | No | No | Yes | Yes | No | Yes | Yes  
+SLES 12 SP4 for SAP  | No | No | No | No | No | Yes | Yes | No | No | Yes  
   
 ### VM Manager
 
@@ -3025,7 +3025,7 @@ OS version | Image project | Image family | [Machine series](https://docs.cloud.
   * x86: `ubuntu-2604-lts-amd64`
   * Arm: `ubuntu-2604-lts-arm64`
 
-| All except A4X Max, A4X, A4, A3 Ultra | GA | April 2031 (ESM April 2036)  
+| All except A5X, A4X Max, A4X, A4, A3 Ultra | GA | April 2031 (ESM April 2036)  
 [Ubuntu 24.04 LTS](https://wiki.ubuntu.com/NobleNumbat/ReleaseNotes) | `ubuntu-os-cloud` | 
 
   * x86: `ubuntu-2404-lts-amd64`
@@ -3044,7 +3044,7 @@ OS version | Image project | Image family | [Machine series](https://docs.cloud.
   * x86: `ubuntu-2204-lts`
   * Arm: `ubuntu-2204-lts-arm64`
 
-| All except A4X Max, A4X, A4, A3 Ultra | GA | April 2027 (ESM April 2032)  
+| All except A5X, A4X Max, A4X, A4, A3 Ultra | GA | April 2027 (ESM April 2032)  
 [Ubuntu 22.04 LTS Accelerated with NVIDIA driver version 580](https://wiki.ubuntu.com/JammyJellyfish/ReleaseNotes) | `ubuntu-os-accelerator-images` | 
 
   * x86: `ubuntu-accelerator-2204-amd64-with-nvidia-580`
@@ -3122,15 +3122,15 @@ The Ubuntu 22.04 and 24.04 LTS Accelerated OS images are optimized for supportin
 
 For more information about GPU requirements and recommended OSes, see [ choosing an OS for instances with attached GPUs](https://docs.cloud.google.com/compute/docs/gpus/create-vm-with-gpus#choose_an_operating_system).
 
-OS version | [A4X Max (GB300)](https://docs.cloud.google.com/compute/docs/gpus#gb300-gpus) | [A4X (GB200)](https://docs.cloud.google.com/compute/docs/gpus#gb200-gpus) | [A4 (B200)](https://docs.cloud.google.com/compute/docs/gpus#b200-gpus) | [A3 (H200)](https://docs.cloud.google.com/compute/docs/gpus#h200-gpus) | [A3 (H100)](https://docs.cloud.google.com/compute/docs/gpus#h100-gpus) | [A2 (A100)](https://docs.cloud.google.com/compute/docs/gpus#a100-gpus) | [G4 (RTX PRO 6000)](https://docs.cloud.google.com/compute/docs/gpus#rtx-6000-gpus) | [G2 (L4)](https://docs.cloud.google.com/compute/docs/gpus#l4-gpus) | [N1+GPU](https://docs.cloud.google.com/compute/docs/gpus#nvidia_gpus_for_compute_workloads)  
----|---|---|---|---|---|---|---|---|---  
-[Ubuntu 26.04 LTS](https://documentation.ubuntu.com/release-notes/26.04) | No | No | No | No | Yes | Yes | Yes | Yes | Yes  
-[Ubuntu 24.04 LTS](https://wiki.ubuntu.com/NobleNumbat/ReleaseNotes) | No | No | No | No | Yes | Yes | Yes | Yes | Yes  
-[Ubuntu 24.04 LTS Accelerated with NVIDIA driver version 580](https://wiki.ubuntu.com/NobleNumbat/ReleaseNotes) | No | Yes | Yes | Yes | No | No | No | No | No  
-[Ubuntu 24.04 LTS optimized for TPUs](https://wiki.ubuntu.com/NobleNumbat/ReleaseNotes) | N/A | N/A | N/A | N/A | N/A | N/A | N/A | N/A | N/A  
-[Ubuntu 22.04 LTS](https://wiki.ubuntu.com/JammyJellyfish/ReleaseNotes) | No | No | No | No | Yes | Yes | Yes | Yes | Yes  
-[Ubuntu 22.04 LTS Accelerated with NVIDIA driver version 580](https://wiki.ubuntu.com/JammyJellyfish/ReleaseNotes) | No | Yes | Yes | Yes | No | No | No | No | No  
-[Ubuntu 22.04 LTS optimized for TPUs](https://wiki.ubuntu.com/JammyJellyfish/ReleaseNotes) | N/A | N/A | N/A | N/A | N/A | N/A | N/A | N/A | N/A  
+OS version | [A5X (Vera Rubin)](https://docs.cloud.google.com/compute/docs/gpus#vera-rubin-gpus) | [A4X Max (GB300)](https://docs.cloud.google.com/compute/docs/gpus#gb300-gpus) | [A4X (GB200)](https://docs.cloud.google.com/compute/docs/gpus#gb200-gpus) | [A4 (B200)](https://docs.cloud.google.com/compute/docs/gpus#b200-gpus) | [A3 (H200)](https://docs.cloud.google.com/compute/docs/gpus#h200-gpus) | [A3 (H100)](https://docs.cloud.google.com/compute/docs/gpus#h100-gpus) | [A2 (A100)](https://docs.cloud.google.com/compute/docs/gpus#a100-gpus) | [G4 (RTX PRO 6000)](https://docs.cloud.google.com/compute/docs/gpus#rtx-6000-gpus) | [G2 (L4)](https://docs.cloud.google.com/compute/docs/gpus#l4-gpus) | [N1+GPU](https://docs.cloud.google.com/compute/docs/gpus#nvidia_gpus_for_compute_workloads)  
+---|---|---|---|---|---|---|---|---|---|---  
+[Ubuntu 26.04 LTS](https://documentation.ubuntu.com/release-notes/26.04) | No | No | No | No | No | Yes | Yes | Yes | Yes | Yes  
+[Ubuntu 24.04 LTS](https://wiki.ubuntu.com/NobleNumbat/ReleaseNotes) | Yes | No | No | No | No | Yes | Yes | Yes | Yes | Yes  
+[Ubuntu 24.04 LTS Accelerated with NVIDIA driver version 580](https://wiki.ubuntu.com/NobleNumbat/ReleaseNotes) | No | No | Yes | Yes | Yes | No | No | No | No | No  
+[Ubuntu 24.04 LTS optimized for TPUs](https://wiki.ubuntu.com/NobleNumbat/ReleaseNotes) | N/A | N/A | N/A | N/A | N/A | N/A | N/A | N/A | N/A | N/A  
+[Ubuntu 22.04 LTS](https://wiki.ubuntu.com/JammyJellyfish/ReleaseNotes) | No | No | No | No | No | Yes | Yes | Yes | Yes | Yes  
+[Ubuntu 22.04 LTS Accelerated with NVIDIA driver version 580](https://wiki.ubuntu.com/JammyJellyfish/ReleaseNotes) | No | No | Yes | Yes | Yes | No | No | No | No | No  
+[Ubuntu 22.04 LTS optimized for TPUs](https://wiki.ubuntu.com/JammyJellyfish/ReleaseNotes) | N/A | N/A | N/A | N/A | N/A | N/A | N/A | N/A | N/A | N/A  
   
 ### VM Manager
 
@@ -3214,7 +3214,7 @@ OS version | Image project | Image family | [Machine series](https://docs.cloud.
   * x86: `ubuntu-2004-lts`
   * Arm: `ubuntu-2004-lts-arm64`
 
-| All except A4X Max, A4X, A4, G4, A3 Ultra | EOL | May 2025 (ESM May 2030)  
+| All except A5X, A4X Max, A4X, A4, G4, A3 Ultra | EOL | May 2025 (ESM May 2030)  
 Ubuntu 18.04 LTS  | `ubuntu-os-cloud` | 
 
   * x86: `ubuntu-1804-lts`
@@ -3297,16 +3297,16 @@ The Ubuntu 22.04 and 24.04 LTS Accelerated OS images are optimized for supportin
 
 For more information about GPU requirements and recommended OSes, see [ choosing an OS for instances with attached GPUs](https://docs.cloud.google.com/compute/docs/gpus/create-vm-with-gpus#choose_an_operating_system).
 
-OS version | [A4X Max (GB300)](https://docs.cloud.google.com/compute/docs/gpus#gb300-gpus) | [A4X (GB200)](https://docs.cloud.google.com/compute/docs/gpus#gb200-gpus) | [A4 (B200)](https://docs.cloud.google.com/compute/docs/gpus#b200-gpus) | [A3 (H200)](https://docs.cloud.google.com/compute/docs/gpus#h200-gpus) | [A3 (H100)](https://docs.cloud.google.com/compute/docs/gpus#h100-gpus) | [A2 (A100)](https://docs.cloud.google.com/compute/docs/gpus#a100-gpus) | [G4 (RTX PRO 6000)](https://docs.cloud.google.com/compute/docs/gpus#rtx-6000-gpus) | [G2 (L4)](https://docs.cloud.google.com/compute/docs/gpus#l4-gpus) | [N1+GPU](https://docs.cloud.google.com/compute/docs/gpus#nvidia_gpus_for_compute_workloads)  
----|---|---|---|---|---|---|---|---|---  
-[Ubuntu 24.04 LTS Accelerated with NVIDIA driver version 570](https://wiki.ubuntu.com/NobleNumbat/ReleaseNotes) | No | Yes | Yes | Yes | No | No | No | No | No  
-[Ubuntu 24.04 LTS Accelerated with NVIDIA driver version 550](https://wiki.ubuntu.com/NobleNumbat/ReleaseNotes) | No | No | No | Yes | No | No | No | No | No  
-[Ubuntu 22.04 LTS Accelerated with NVIDIA driver version 570](https://wiki.ubuntu.com/JammyJellyfish/ReleaseNotes) | No | Yes | Yes | Yes | No | No | No | No | No  
-[Ubuntu 22.04 LTS Accelerated with NVIDIA driver version 550](https://wiki.ubuntu.com/JammyJellyfish/ReleaseNotes) | No | No | No | Yes | No | No | No | No | No  
-[Ubuntu 20.04 LTS](https://wiki.ubuntu.com/FocalFossa/ReleaseNotes) | No | No | No | No | Yes | Yes | No | Yes | Yes  
-Ubuntu 18.04 LTS  | No | No | No | No | Yes | Yes | No | Yes | Yes  
-Ubuntu 16.04 LTS  | No | No | No | No | No | Yes | No | No | Yes  
-Ubuntu 14.04 LTS  | No | No | No | No | No | No | No | No | Yes  
+OS version | [A5X (Vera Rubin)](https://docs.cloud.google.com/compute/docs/gpus#vera-rubin-gpus) | [A4X Max (GB300)](https://docs.cloud.google.com/compute/docs/gpus#gb300-gpus) | [A4X (GB200)](https://docs.cloud.google.com/compute/docs/gpus#gb200-gpus) | [A4 (B200)](https://docs.cloud.google.com/compute/docs/gpus#b200-gpus) | [A3 (H200)](https://docs.cloud.google.com/compute/docs/gpus#h200-gpus) | [A3 (H100)](https://docs.cloud.google.com/compute/docs/gpus#h100-gpus) | [A2 (A100)](https://docs.cloud.google.com/compute/docs/gpus#a100-gpus) | [G4 (RTX PRO 6000)](https://docs.cloud.google.com/compute/docs/gpus#rtx-6000-gpus) | [G2 (L4)](https://docs.cloud.google.com/compute/docs/gpus#l4-gpus) | [N1+GPU](https://docs.cloud.google.com/compute/docs/gpus#nvidia_gpus_for_compute_workloads)  
+---|---|---|---|---|---|---|---|---|---|---  
+[Ubuntu 24.04 LTS Accelerated with NVIDIA driver version 570](https://wiki.ubuntu.com/NobleNumbat/ReleaseNotes) | No | No | Yes | Yes | Yes | No | No | No | No | No  
+[Ubuntu 24.04 LTS Accelerated with NVIDIA driver version 550](https://wiki.ubuntu.com/NobleNumbat/ReleaseNotes) | No | No | No | No | Yes | No | No | No | No | No  
+[Ubuntu 22.04 LTS Accelerated with NVIDIA driver version 570](https://wiki.ubuntu.com/JammyJellyfish/ReleaseNotes) | No | No | Yes | Yes | Yes | No | No | No | No | No  
+[Ubuntu 22.04 LTS Accelerated with NVIDIA driver version 550](https://wiki.ubuntu.com/JammyJellyfish/ReleaseNotes) | No | No | No | No | Yes | No | No | No | No | No  
+[Ubuntu 20.04 LTS](https://wiki.ubuntu.com/FocalFossa/ReleaseNotes) | No | No | No | No | No | Yes | Yes | No | Yes | Yes  
+Ubuntu 18.04 LTS  | No | No | No | No | No | Yes | Yes | No | Yes | Yes  
+Ubuntu 16.04 LTS  | No | No | No | No | No | No | Yes | No | No | Yes  
+Ubuntu 14.04 LTS  | No | No | No | No | No | No | No | No | No | Yes  
   
 ### VM Manager
 
@@ -3444,31 +3444,31 @@ OS version | Image project | Image family | [Machine series](https://docs.cloud.
   * x86: `ubuntu-pro-2604-lts-amd64`
   * Arm: `ubuntu-pro-2604-lts-arm64`
 
-| All except A4X Max, A4X, A4 | GA | April 2036  
+| All except A5X, A4X Max, A4X, A4 | GA | April 2036  
 [Ubuntu Pro 24.04 LTS](https://wiki.ubuntu.com/NobleNumbat/ReleaseNotes) | `ubuntu-os-pro-cloud` | 
 
   * x86: `ubuntu-pro-2404-lts-amd64`
   * Arm: `ubuntu-pro-2404-lts-arm64`
 
-| All except A4X Max, A4X, A4 | GA | April 2034  
+| All except A5X, A4X Max, A4X, A4 | GA | April 2034  
 [Ubuntu Pro 22.04 LTS](https://wiki.ubuntu.com/JammyJellyfish/ReleaseNotes) | `ubuntu-os-pro-cloud` | 
 
   * x86: `ubuntu-pro-2204-lts`
   * Arm: `ubuntu-pro-2204-lts-arm64`
 
-| All except A4X Max, A4X, A4 | GA | April 2032  
+| All except A5X, A4X Max, A4X, A4 | GA | April 2032  
 [Ubuntu Pro 20.04 LTS](https://wiki.ubuntu.com/FocalFossa/ReleaseNotes) | `ubuntu-os-pro-cloud` | 
 
   * x86: `ubuntu-pro-2004-lts`
   * Arm: `ubuntu-pro-2004-lts-arm64`
 
-| All except A4X Max, A4X, A4, G4 | GA | April 2030  
+| All except A5X, A4X Max, A4X, A4, G4 | GA | April 2030  
 [Ubuntu Pro 18.04 LTS](https://wiki.ubuntu.com/BionicBeaver/ReleaseNotes) | `ubuntu-os-pro-cloud` | 
 
   * x86: `ubuntu-pro-1804-lts`
   * Arm: `ubuntu-pro-1804-lts-arm64`
 
-| All except A4X Max, A4X, A4, G4, C4-metal, C4A, C4A-metal, C3-metal, C4D-metal, X4, Z3-metal | GA | April 2028  
+| All except A5X, A4X Max, A4X, A4, G4, C4-metal, C4A, C4A-metal, C3-metal, C4D-metal, X4, Z3-metal | GA | April 2028  
   
 ### Interfaces
 
@@ -3527,13 +3527,13 @@ N1+GPU denotes support for NVIDIA T4, V100, or P4 GPUs running on a general-purp
 
 For more information about GPU requirements and recommended OSes, see [choosing an OS for instances with attached GPUs](https://docs.cloud.google.com/compute/docs/gpus/create-vm-with-gpus#choose_an_operating_system).
 
-OS version | [A4X Max (GB300)](https://docs.cloud.google.com/compute/docs/gpus#gb300-gpus) | [A4X (GB200)](https://docs.cloud.google.com/compute/docs/gpus#gb200-gpus) | [A4 (B200)](https://docs.cloud.google.com/compute/docs/gpus#b200-gpus) | [A3 (H200)](https://docs.cloud.google.com/compute/docs/gpus#h200-gpus) | [A3 (H100)](https://docs.cloud.google.com/compute/docs/gpus#h100-gpus) | [A2 (A100)](https://docs.cloud.google.com/compute/docs/gpus#a100-gpus) | [G4 (RTX PRO 6000)](https://docs.cloud.google.com/compute/docs/gpus#rtx-6000-gpus) | [G2 (L4)](https://docs.cloud.google.com/compute/docs/gpus#l4-gpus) | [N1+GPU](https://docs.cloud.google.com/compute/docs/gpus#nvidia_gpus_for_compute_workloads)  
----|---|---|---|---|---|---|---|---|---  
-[Ubuntu Pro 26.04 LTS](https://documentation.ubuntu.com/release-notes/26.04) | No | No | No | Yes | Yes | Yes | Yes | Yes | Yes  
-[Ubuntu Pro 24.04 LTS](https://wiki.ubuntu.com/NobleNumbat/ReleaseNotes) | No | No | No | Yes | Yes | Yes | Yes | Yes | Yes  
-[Ubuntu Pro 22.04 LTS](https://wiki.ubuntu.com/JammyJellyfish/ReleaseNotes) | No | No | No | Yes | Yes | Yes | Yes | Yes | Yes  
-[Ubuntu Pro 20.04 LTS](https://wiki.ubuntu.com/FocalFossa/ReleaseNotes) | No | No | No | Yes | Yes | Yes | No | Yes | Yes  
-[Ubuntu Pro 18.04 LTS](https://wiki.ubuntu.com/BionicBeaver/ReleaseNotes) | No | No | No | Yes | Yes | Yes | No | Yes | Yes  
+OS version | [A5X (Vera Rubin)](https://docs.cloud.google.com/compute/docs/gpus#vera-rubin-gpus) | [A4X Max (GB300)](https://docs.cloud.google.com/compute/docs/gpus#gb300-gpus) | [A4X (GB200)](https://docs.cloud.google.com/compute/docs/gpus#gb200-gpus) | [A4 (B200)](https://docs.cloud.google.com/compute/docs/gpus#b200-gpus) | [A3 (H200)](https://docs.cloud.google.com/compute/docs/gpus#h200-gpus) | [A3 (H100)](https://docs.cloud.google.com/compute/docs/gpus#h100-gpus) | [A2 (A100)](https://docs.cloud.google.com/compute/docs/gpus#a100-gpus) | [G4 (RTX PRO 6000)](https://docs.cloud.google.com/compute/docs/gpus#rtx-6000-gpus) | [G2 (L4)](https://docs.cloud.google.com/compute/docs/gpus#l4-gpus) | [N1+GPU](https://docs.cloud.google.com/compute/docs/gpus#nvidia_gpus_for_compute_workloads)  
+---|---|---|---|---|---|---|---|---|---|---  
+[Ubuntu Pro 26.04 LTS](https://documentation.ubuntu.com/release-notes/26.04) | No | No | No | No | Yes | Yes | Yes | Yes | Yes | Yes  
+[Ubuntu Pro 24.04 LTS](https://wiki.ubuntu.com/NobleNumbat/ReleaseNotes) | No | No | No | No | Yes | Yes | Yes | Yes | Yes | Yes  
+[Ubuntu Pro 22.04 LTS](https://wiki.ubuntu.com/JammyJellyfish/ReleaseNotes) | No | No | No | No | Yes | Yes | Yes | Yes | Yes | Yes  
+[Ubuntu Pro 20.04 LTS](https://wiki.ubuntu.com/FocalFossa/ReleaseNotes) | No | No | No | No | Yes | Yes | Yes | No | Yes | Yes  
+[Ubuntu Pro 18.04 LTS](https://wiki.ubuntu.com/BionicBeaver/ReleaseNotes) | No | No | No | No | Yes | Yes | Yes | No | Yes | Yes  
   
 ### VM Manager
 
@@ -3579,7 +3579,7 @@ For information about upgrading from Ubuntu LTS to Ubuntu Pro, see [Upgrade from
 
 OS version | Image project | Image family | [Machine series](https://docs.cloud.google.com/compute/docs/machine-resource#recommendations_for_machine_types) | [Lifecycle stage](https://docs.cloud.google.com/compute/docs/images/os-image-lifecycle#lifecycle-stages) | EOS and image deprecation date  
 ---|---|---|---|---|---  
-[Ubuntu Pro 16.04 LTS](https://wiki.ubuntu.com/XenialXerus/ReleaseNotes) | `ubuntu-os-pro-cloud` | x86: `ubuntu-pro-1604-lts` | All except A4X Max, A4X, A4, G4, T2A, C4A, C3-metal, C4-metal, C4D-metal, C4N, X4, Z3-metal | EOS | April 2026  
+[Ubuntu Pro 16.04 LTS](https://wiki.ubuntu.com/XenialXerus/ReleaseNotes) | `ubuntu-os-pro-cloud` | x86: `ubuntu-pro-1604-lts` | All except A5X, A4X Max, A4X, A4, G4, T2A, C4A, C3-metal, C4-metal, C4D-metal, C4N, X4, Z3-metal | EOS | April 2026  
   
 ### Interfaces
 
@@ -3622,9 +3622,9 @@ N1+GPU denotes support for NVIDIA T4, V100, or P4 GPUs running on a general-purp
 
 For more information about GPU requirements and recommended OSes, see [choosing an OS for instances with attached GPUs](https://docs.cloud.google.com/compute/docs/gpus/create-vm-with-gpus#choose_an_operating_system).
 
-OS version | [A4X Max (GB300)](https://docs.cloud.google.com/compute/docs/gpus#gb300-gpus) | [A4X (GB200)](https://docs.cloud.google.com/compute/docs/gpus#gb200-gpus) | [A4 (B200)](https://docs.cloud.google.com/compute/docs/gpus#b200-gpus) | [A3 (H200)](https://docs.cloud.google.com/compute/docs/gpus#h200-gpus) | [A3 (H100)](https://docs.cloud.google.com/compute/docs/gpus#h100-gpus) | [A2 (A100)](https://docs.cloud.google.com/compute/docs/gpus#a100-gpus) | [G4 (RTX PRO 6000)](https://docs.cloud.google.com/compute/docs/gpus#rtx-6000-gpus) | [G2 (L4)](https://docs.cloud.google.com/compute/docs/gpus#l4-gpus) | [N1+GPU](https://docs.cloud.google.com/compute/docs/gpus#nvidia_gpus_for_compute_workloads)  
----|---|---|---|---|---|---|---|---|---  
-[Ubuntu Pro 16.04 LTS](https://wiki.ubuntu.com/XenialXerus/ReleaseNotes) | No | No | No | Yes | Yes | Yes | No | Yes | Yes  
+OS version | [A5X (Vera Rubin)](https://docs.cloud.google.com/compute/docs/gpus#vera-rubin-gpus) | [A4X Max (GB300)](https://docs.cloud.google.com/compute/docs/gpus#gb300-gpus) | [A4X (GB200)](https://docs.cloud.google.com/compute/docs/gpus#gb200-gpus) | [A4 (B200)](https://docs.cloud.google.com/compute/docs/gpus#b200-gpus) | [A3 (H200)](https://docs.cloud.google.com/compute/docs/gpus#h200-gpus) | [A3 (H100)](https://docs.cloud.google.com/compute/docs/gpus#h100-gpus) | [A2 (A100)](https://docs.cloud.google.com/compute/docs/gpus#a100-gpus) | [G4 (RTX PRO 6000)](https://docs.cloud.google.com/compute/docs/gpus#rtx-6000-gpus) | [G2 (L4)](https://docs.cloud.google.com/compute/docs/gpus#l4-gpus) | [N1+GPU](https://docs.cloud.google.com/compute/docs/gpus#nvidia_gpus_for_compute_workloads)  
+---|---|---|---|---|---|---|---|---|---|---  
+[Ubuntu Pro 16.04 LTS](https://wiki.ubuntu.com/XenialXerus/ReleaseNotes) | No | No | No | No | Yes | Yes | Yes | No | Yes | Yes  
   
 ### VM Manager
 
@@ -3739,12 +3739,12 @@ N1+GPU denotes support for NVIDIA T4, V100, or P4 GPUs running on a general-purp
 
 For more information about GPU requirements and recommended OSes, see [choosing an OS for instances with attached GPUs](https://docs.cloud.google.com/compute/docs/gpus/create-vm-with-gpus#choose_an_operating_system).
 
-OS version | [A4X (GB200)](https://docs.cloud.google.com/compute/docs/gpus#gb200-gpus) | [A4 (B200)](https://docs.cloud.google.com/compute/docs/gpus#b200-gpus) | [A3 (H200)](https://docs.cloud.google.com/compute/docs/gpus#h200-gpus) | [A3 (H100)](https://docs.cloud.google.com/compute/docs/gpus#h100-gpus) | [A2 (A100)](https://docs.cloud.google.com/compute/docs/gpus#a100-gpus) | [G4 (RTX PRO 6000)](https://docs.cloud.google.com/compute/docs/gpus#rtx-6000-gpus) | [G2 (L4)](https://docs.cloud.google.com/compute/docs/gpus#l4-gpus) | [N1+GPU](https://docs.cloud.google.com/compute/docs/gpus#nvidia_gpus_for_compute_workloads)  
----|---|---|---|---|---|---|---|---  
-Windows 11 26h2 x64  | No | No | No | No | Yes | No | Yes | Yes  
-Windows 11 25h2 x64  | No | No | No | No | Yes | No | Yes | Yes  
-Windows 11 24h2 x64  | No | No | No | No | Yes | No | Yes | Yes  
-Windows 11 23h2 x64  | No | No | No | No | Yes | No | Yes | Yes  
+OS version | [A5X (Vera Rubin)](https://docs.cloud.google.com/compute/docs/gpus#vera-rubin-gpus) | [A4X Max (GB300)](https://docs.cloud.google.com/compute/docs/gpus#gb300-gpus) | [A4X (GB200)](https://docs.cloud.google.com/compute/docs/gpus#gb200-gpus) | [A4 (B200)](https://docs.cloud.google.com/compute/docs/gpus#b200-gpus) | [A3 (H200)](https://docs.cloud.google.com/compute/docs/gpus#h200-gpus) | [A3 (H100)](https://docs.cloud.google.com/compute/docs/gpus#h100-gpus) | [A2 (A100)](https://docs.cloud.google.com/compute/docs/gpus#a100-gpus) | [G4 (RTX PRO 6000)](https://docs.cloud.google.com/compute/docs/gpus#rtx-6000-gpus) | [G2 (L4)](https://docs.cloud.google.com/compute/docs/gpus#l4-gpus) | [N1+GPU](https://docs.cloud.google.com/compute/docs/gpus#nvidia_gpus_for_compute_workloads)  
+---|---|---|---|---|---|---|---|---|---|---  
+Windows 11 26h2 x64  | No | No | No | No | No | No | Yes | No | Yes | Yes  
+Windows 11 25h2 x64  | No | No | No | No | No | No | Yes | No | Yes | Yes  
+Windows 11 24h2 x64  | No | No | No | No | No | No | Yes | No | Yes | Yes  
+Windows 11 23h2 x64  | No | No | No | No | No | No | Yes | No | Yes | Yes  
   
 ### VM Manager
 
@@ -3870,16 +3870,16 @@ N1+GPU denotes support for NVIDIA T4, V100, or P4 GPUs running on a general-purp
 
 For more information about GPU requirements and recommended OSes, see [choosing an OS for instances with attached GPUs](https://docs.cloud.google.com/compute/docs/gpus/create-vm-with-gpus#choose_an_operating_system).
 
-OS version | [A4X Max (GB300)](https://docs.cloud.google.com/compute/docs/gpus#gb300-gpus) | [A4X (GB200)](https://docs.cloud.google.com/compute/docs/gpus#gb200-gpus) | [A4 (B200)](https://docs.cloud.google.com/compute/docs/gpus#b200-gpus) | [A3 (H200)](https://docs.cloud.google.com/compute/docs/gpus#h200-gpus) | [A3 (H100)](https://docs.cloud.google.com/compute/docs/gpus#h100-gpus) | [A2 (A100)](https://docs.cloud.google.com/compute/docs/gpus#a100-gpus) | [G4 (RTX PRO 6000)](https://docs.cloud.google.com/compute/docs/gpus#rtx-6000-gpus) | [G2 (L4)](https://docs.cloud.google.com/compute/docs/gpus#l4-gpus) | [N1+GPU](https://docs.cloud.google.com/compute/docs/gpus#nvidia_gpus_for_compute_workloads)  
----|---|---|---|---|---|---|---|---|---  
-Windows 11 22h2 x64  | No | No | No | No | No | Yes | No | Yes | Yes  
-Windows 11 21h2 x64  | No | No | No | No | No | Yes | No | Yes | Yes  
-Windows 10 22h2 x64  | No | No | No | No | No | Yes | No | Yes | Yes  
-Windows 10 22h2 x86  | No | No | No | No | No | Yes | No | Yes | Yes  
-Windows 10 21h2 x64  | No | No | No | No | No | Yes | No | Yes | Yes  
-Windows 10 21h2 x86  | No | No | No | No | No | Yes | No | No | Yes  
-Windows 8.1 x64  | No | No | No | No | No | Yes | No | No | Yes  
-Windows 8.1 x86  | No | No | No | No | No | No | No | No | Yes  
+OS version | [A5X (Vera Rubin)](https://docs.cloud.google.com/compute/docs/gpus#vera-rubin-gpus) | [A4X Max (GB300)](https://docs.cloud.google.com/compute/docs/gpus#gb300-gpus) | [A4X (GB200)](https://docs.cloud.google.com/compute/docs/gpus#gb200-gpus) | [A4 (B200)](https://docs.cloud.google.com/compute/docs/gpus#b200-gpus) | [A3 (H200)](https://docs.cloud.google.com/compute/docs/gpus#h200-gpus) | [A3 (H100)](https://docs.cloud.google.com/compute/docs/gpus#h100-gpus) | [A2 (A100)](https://docs.cloud.google.com/compute/docs/gpus#a100-gpus) | [G4 (RTX PRO 6000)](https://docs.cloud.google.com/compute/docs/gpus#rtx-6000-gpus) | [G2 (L4)](https://docs.cloud.google.com/compute/docs/gpus#l4-gpus) | [N1+GPU](https://docs.cloud.google.com/compute/docs/gpus#nvidia_gpus_for_compute_workloads)  
+---|---|---|---|---|---|---|---|---|---|---  
+Windows 11 22h2 x64  | No | No | No | No | No | No | Yes | No | Yes | Yes  
+Windows 11 21h2 x64  | No | No | No | No | No | No | Yes | No | Yes | Yes  
+Windows 10 22h2 x64  | No | No | No | No | No | No | Yes | No | Yes | Yes  
+Windows 10 22h2 x86  | No | No | No | No | No | No | Yes | No | Yes | Yes  
+Windows 10 21h2 x64  | No | No | No | No | No | No | Yes | No | Yes | Yes  
+Windows 10 21h2 x86  | No | No | No | No | No | No | Yes | No | No | Yes  
+Windows 8.1 x64  | No | No | No | No | No | No | Yes | No | No | Yes  
+Windows 8.1 x86  | No | No | No | No | No | No | No | No | No | Yes  
   
 ### VM Manager
 
@@ -4022,13 +4022,13 @@ The following section summarizes feature support for versions of this OS that ar
 OS version | Image project | Image family | [Machine series](https://docs.cloud.google.com/compute/docs/machine-resource#recommendations_for_machine_types) | [Lifecycle stage](https://docs.cloud.google.com/compute/docs/images/os-image-lifecycle#lifecycle-stages) 1 | EOS and image deprecation date  
 ---|---|---|---|---|---  
 Windows Server 2025  | `windows-cloud` | `windows-2025`  
-`windows-2025-core` | All except T2A, N4A, C4A, C4D-metal, C4-metal, C3-metal, Z4D-metal, Z3, A4X Max, A4X, A4, A3, X4 | GA | Oct 10, 2034  
+`windows-2025-core` | All except T2A, N4A, C4A, C4D-metal, C4-metal, C3-metal, Z4D-metal, Z3, A5X, A4X Max, A4X, A4, A3, X4 | GA | Oct 10, 2034  
 Windows Server 2022  | `windows-cloud` | `windows-2022`  
-`windows-2022-core` | All except T2A, N4A, C4A, C4-metal, C4D-metal, C3-metal, Z4D-metal, Z3, A4X Max, A4X, A4, A3, X4 | GA | Oct 14, 2031  
+`windows-2022-core` | All except T2A, N4A, C4A, C4-metal, C4D-metal, C3-metal, Z3, A4X Max, A4X, A4, A3, X4 | GA | Oct 14, 2031  
 Windows Server 2019  | `windows-cloud` | `windows-2019`  
-`windows-2019-core` | All except T2A, N4A, C4A, C4-metal, C4D-metal, C3-metal, Z4D-metal, Z3, A4X Max, A4X, A4, G4, A3, X4 | GA | Jan 9, 2029  
+`windows-2019-core` | All except T2A, N4A, C4A, C4-metal, C4D-metal, C3-metal, Z3, A4X Max, A4X, A4, G4, A3, X4 | GA | Jan 9, 2029  
 Windows Server 2016  | `windows-cloud` | `windows-2016`  
-`windows-2016-core` | All except T2A, N4A, C4A, C4-metal, C4D-metal, C3-metal, Z4D-metal, Z3, A4X Max, A4X, A4, A3, G4, G2, X4 | GA | Jan 12, 2027  
+`windows-2016-core` | All except T2A, N4A, C4A, C4-metal, C4D-metal, C3-metal, Z3, A4X Max, A4X, A4, A3, G4, G2, X4 | GA | Jan 12, 2027  
   
 1**Lifecycle stage** : Google Cloud Support typically coincides with Extended Support End Date. For information about the end of support (EOS) date for each of the operating systems in the previous table, see the [Microsoft Lifecycle Policy](https://support.microsoft.com/en-us/hub/4095338/microsoft-lifecycle-policy).
 
@@ -4087,12 +4087,12 @@ N1+GPU denotes support for NVIDIA T4, V100, or P4 GPUs running on a general-purp
 
 For more information about GPU requirements and recommended OSes, see [choosing an OS for instances with attached GPUs](https://docs.cloud.google.com/compute/docs/gpus/create-vm-with-gpus#choose_an_operating_system).
 
-OS version | [A4X Max (GB300)](https://docs.cloud.google.com/compute/docs/gpus#gb300-gpus) | [A4X (GB200)](https://docs.cloud.google.com/compute/docs/gpus#gb200-gpus) | [A4 (B200)](https://docs.cloud.google.com/compute/docs/gpus#b200-gpus) | [A3 (H200)](https://docs.cloud.google.com/compute/docs/gpus#h200-gpus) | [A3 (H100)](https://docs.cloud.google.com/compute/docs/gpus#h100-gpus) | [A2 (A100)](https://docs.cloud.google.com/compute/docs/gpus#a100-gpus) | [G4 (RTX PRO 6000)](https://docs.cloud.google.com/compute/docs/gpus#rtx-6000-gpus) | [G2 (L4)](https://docs.cloud.google.com/compute/docs/gpus#l4-gpus) | [N1+GPU](https://docs.cloud.google.com/compute/docs/gpus#nvidia_gpus_for_compute_workloads)  
----|---|---|---|---|---|---|---|---|---  
-Windows Server 2025  | No | No | No | No | No | Yes | Yes | Yes | Yes  
-Windows Server 2022  | No | No | No | No | No | Yes | Yes | Yes | Yes  
-Windows Server 2019  | No | No | No | No | No | Yes | No | Yes | Yes  
-Windows Server 2016  | No | No | No | No | No | Yes | No | No | Yes  
+OS version | [A5X (Vera Rubin)](https://docs.cloud.google.com/compute/docs/gpus#vera-rubin-gpus) | [A4X Max (GB300)](https://docs.cloud.google.com/compute/docs/gpus#gb300-gpus) | [A4X (GB200)](https://docs.cloud.google.com/compute/docs/gpus#gb200-gpus) | [A4 (B200)](https://docs.cloud.google.com/compute/docs/gpus#b200-gpus) | [A3 (H200)](https://docs.cloud.google.com/compute/docs/gpus#h200-gpus) | [A3 (H100)](https://docs.cloud.google.com/compute/docs/gpus#h100-gpus) | [A2 (A100)](https://docs.cloud.google.com/compute/docs/gpus#a100-gpus) | [G4 (RTX PRO 6000)](https://docs.cloud.google.com/compute/docs/gpus#rtx-6000-gpus) | [G2 (L4)](https://docs.cloud.google.com/compute/docs/gpus#l4-gpus) | [N1+GPU](https://docs.cloud.google.com/compute/docs/gpus#nvidia_gpus_for_compute_workloads)  
+---|---|---|---|---|---|---|---|---|---|---  
+Windows Server 2025  | No | No | No | No | No | No | Yes | Yes | Yes | Yes  
+Windows Server 2022  | No | No | No | No | No | No | Yes | Yes | Yes | Yes  
+Windows Server 2019  | No | No | No | No | No | No | Yes | No | Yes | Yes  
+Windows Server 2016  | No | No | No | No | No | No | Yes | No | No | Yes  
   
 ### VM Manager
 
@@ -4191,10 +4191,10 @@ N1+GPU denotes support for NVIDIA T4, V100, or P4 GPUs running on a general-purp
 
 For more information about GPU requirements and recommended OSes, see [choosing an OS for instances with attached GPUs](https://docs.cloud.google.com/compute/docs/gpus/create-vm-with-gpus#choose_an_operating_system).
 
-OS version | [A4X Max (GB300)](https://docs.cloud.google.com/compute/docs/gpus#gb300-gpus) | [A4X (GB200)](https://docs.cloud.google.com/compute/docs/gpus#gb200-gpus) | [A4 (B200)](https://docs.cloud.google.com/compute/docs/gpus#b200-gpus) | [A3 (H200)](https://docs.cloud.google.com/compute/docs/gpus#h200-gpus) | [A3 (H100)](https://docs.cloud.google.com/compute/docs/gpus#h100-gpus) | [A2 (A100)](https://docs.cloud.google.com/compute/docs/gpus#a100-gpus) | [G4 (RTX PRO 6000)](https://docs.cloud.google.com/compute/docs/gpus#rtx-6000-gpus) | [G2 (L4)](https://docs.cloud.google.com/compute/docs/gpus#l4-gpus) | [N1+GPU](https://docs.cloud.google.com/compute/docs/gpus#nvidia_gpus_for_compute_workloads)  
----|---|---|---|---|---|---|---|---|---  
-Windows Server 2012 R2  | No | No | No | No | No | No | No | No | Yes  
-Windows Server 2012  | No | No | No | No | No | No | No | No | Yes  
+OS version | [A5X (Vera Rubin)](https://docs.cloud.google.com/compute/docs/gpus#vera-rubin-gpus) | [A4X Max (GB300)](https://docs.cloud.google.com/compute/docs/gpus#gb300-gpus) | [A4X (GB200)](https://docs.cloud.google.com/compute/docs/gpus#gb200-gpus) | [A4 (B200)](https://docs.cloud.google.com/compute/docs/gpus#b200-gpus) | [A3 (H200)](https://docs.cloud.google.com/compute/docs/gpus#h200-gpus) | [A3 (H100)](https://docs.cloud.google.com/compute/docs/gpus#h100-gpus) | [A2 (A100)](https://docs.cloud.google.com/compute/docs/gpus#a100-gpus) | [G4 (RTX PRO 6000)](https://docs.cloud.google.com/compute/docs/gpus#rtx-6000-gpus) | [G2 (L4)](https://docs.cloud.google.com/compute/docs/gpus#l4-gpus) | [N1+GPU](https://docs.cloud.google.com/compute/docs/gpus#nvidia_gpus_for_compute_workloads)  
+---|---|---|---|---|---|---|---|---|---|---  
+Windows Server 2012 R2  | No | No | No | No | No | No | No | No | No | Yes  
+Windows Server 2012  | No | No | No | No | No | No | No | No | No | Yes  
   
 ### VM Manager
 
@@ -4226,6 +4226,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-03 UTC.
+Last updated 2026-11-06 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-06 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/apigee/docs/hybrid/v1.16/cert-manager-custom-namespace/
 title: Running cert-manager in a custom namespace \u00a0|\u00a0 Apigee \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T05:50:22.472225+00:00
+fetched_at: 2026-11-08T09:11:02.144298+00:00
 ---
 
 # Running cert-manager in a custom namespace  |  Apigee  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/samples/bigquery-dataframes-clustering-model/
 title: Create a clustering model with BigQuery DataFrames \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T05:42:06.777391+00:00
+fetched_at: 2026-11-08T08:46:32.013595+00:00
 ---
 
 # Create a clustering model with BigQuery DataFrames  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/generate-text-tutorial-gemma/
 title: Generate text by using a Gemma open model and the AI.GENERATE_TEXT function \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T05:38:39.541783+00:00
+fetched_at: 2026-11-08T08:24:13.888265+00:00
 ---
 
 # Generate text by using a Gemma open model and the AI.GENERATE_TEXT function  |  BigQuery  |  Google Cloud Documentation

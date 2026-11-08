@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/identity-platform/docs/managing-providers-programmatically/
 title: Managing SAML and OIDC providers programmatically \u00a0|\u00a0 Identity Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-06T08:21:15.533336+00:00
+fetched_at: 2026-11-08T08:27:46.942372+00:00
 ---
 
 # Managing SAML and OIDC providers programmatically  |  Identity Platform  |  Google Cloud Documentation
@@ -132,7 +132,7 @@ The following example demonstrates how to create a SAML provider configuration:
     
     print('Created new SAML provider:', saml.provider_id)
     
-    [index.py](https://github.com/firebase/firebase-admin-python/blob/00e0754146a2051d98952f5928c7e2f2c2ed695a/snippets/auth/index.py#L676-L689)
+    [index.py](https://github.com/firebase/firebase-admin-python/blob/6bafd5a7a452d33b38119c71217716361078a555/snippets/auth/index.py#L676-L689)
 
 ###  Java 
     
@@ -150,7 +150,7 @@ The following example demonstrates how to create a SAML provider configuration:
     SamlProviderConfig saml = FirebaseAuth.getInstance().createSamlProviderConfig(request);
     System.out.println("Created new SAML provider: " + saml.getProviderId());
     
-    [FirebaseAuthSnippets.java](https://github.com/firebase/firebase-admin-java/blob/c37e514e0bc899066dff4d8ef2aa895a04568ee0/src/test/java/com/google/firebase/snippets/FirebaseAuthSnippets.java#L724-L735)
+    [FirebaseAuthSnippets.java](https://github.com/firebase/firebase-admin-java/blob/919714aab5300560f6e8fcbeeb46bbf94df46ca8/src/test/java/com/google/firebase/snippets/FirebaseAuthSnippets.java#L724-L735)
 
 On completion, the method returns a [`SAMLAuthProviderConfig`](https://cloud.google.com/identity-platform/docs/reference/rest/v2/projects.inboundSamlConfigs) object for the newly created configuration.
 
@@ -203,7 +203,7 @@ The following example demonstrates how to modify a SAML provider configuration. 
     
     print('Updated SAML provider:', saml.provider_id)
     
-    [index.py](https://github.com/firebase/firebase-admin-python/blob/00e0754146a2051d98952f5928c7e2f2c2ed695a/snippets/auth/index.py#L694-L701)
+    [index.py](https://github.com/firebase/firebase-admin-python/blob/6bafd5a7a452d33b38119c71217716361078a555/snippets/auth/index.py#L694-L701)
 
 ###  Java 
     
@@ -215,7 +215,7 @@ The following example demonstrates how to modify a SAML provider configuration. 
     SamlProviderConfig saml = FirebaseAuth.getInstance().updateSamlProviderConfig(request);
     System.out.println("Updated SAML provider: " + saml.getProviderId());
     
-    [FirebaseAuthSnippets.java](https://github.com/firebase/firebase-admin-java/blob/c37e514e0bc899066dff4d8ef2aa895a04568ee0/src/test/java/com/google/firebase/snippets/FirebaseAuthSnippets.java#L741-L746)
+    [FirebaseAuthSnippets.java](https://github.com/firebase/firebase-admin-java/blob/919714aab5300560f6e8fcbeeb46bbf94df46ca8/src/test/java/com/google/firebase/snippets/FirebaseAuthSnippets.java#L741-L746)
 
 On completion, the method returns a [`SAMLAuthProviderConfig`](https://cloud.google.com/identity-platform/docs/reference/rest/v2/projects.inboundSamlConfigs) object for the updated configuration.
 
@@ -252,7 +252,7 @@ The primary way to identify a SAML configuration is using its provider ID. The f
     saml = auth.get_saml_provider_config('saml.myProvider')
     print(saml.display_name, saml.enabled)
     
-    [index.py](https://github.com/firebase/firebase-admin-python/blob/00e0754146a2051d98952f5928c7e2f2c2ed695a/snippets/auth/index.py#L706-L707)
+    [index.py](https://github.com/firebase/firebase-admin-python/blob/6bafd5a7a452d33b38119c71217716361078a555/snippets/auth/index.py#L706-L707)
 
 ###  Java 
     
@@ -260,7 +260,7 @@ The primary way to identify a SAML configuration is using its provider ID. The f
     SamlProviderConfig saml = FirebaseAuth.getInstance().getSamlProviderConfig("saml.myProvider");
     System.out.println(saml.getDisplayName() + ": " + saml.isEnabled());
     
-    [FirebaseAuthSnippets.java](https://github.com/firebase/firebase-admin-java/blob/c37e514e0bc899066dff4d8ef2aa895a04568ee0/src/test/java/com/google/firebase/snippets/FirebaseAuthSnippets.java#L752-L753)
+    [FirebaseAuthSnippets.java](https://github.com/firebase/firebase-admin-java/blob/919714aab5300560f6e8fcbeeb46bbf94df46ca8/src/test/java/com/google/firebase/snippets/FirebaseAuthSnippets.java#L752-L753)
 
 If a provider with the given ID exists, the method returns a [`SAMLAuthProviderConfig`](https://cloud.google.com/identity-platform/docs/reference/rest/v2/projects.inboundSamlConfigs) object.
 
@@ -292,14 +292,14 @@ The following example shows how to delete a SAML provider configuration:
     
     auth.delete_saml_provider_config('saml.myProvider')
     
-    [index.py](https://github.com/firebase/firebase-admin-python/blob/00e0754146a2051d98952f5928c7e2f2c2ed695a/snippets/auth/index.py#L712-L712)
+    [index.py](https://github.com/firebase/firebase-admin-python/blob/6bafd5a7a452d33b38119c71217716361078a555/snippets/auth/index.py#L712-L712)
 
 ###  Java 
     
     
     FirebaseAuth.getInstance().deleteSamlProviderConfig("saml.myProvider");
     
-    [FirebaseAuthSnippets.java](https://github.com/firebase/firebase-admin-java/blob/c37e514e0bc899066dff4d8ef2aa895a04568ee0/src/test/java/com/google/firebase/snippets/FirebaseAuthSnippets.java#L759-L759)
+    [FirebaseAuthSnippets.java](https://github.com/firebase/firebase-admin-java/blob/919714aab5300560f6e8fcbeeb46bbf94df46ca8/src/test/java/com/google/firebase/snippets/FirebaseAuthSnippets.java#L759-L759)
 
 ### Listing SAML provider configurations
 
@@ -345,7 +345,7 @@ The following example shows how to list existing SAML provider configurations:
     for saml in auth.list_saml_provider_configs('nextPageToken').iterate_all():
         print(saml.provider_id)
     
-    [index.py](https://github.com/firebase/firebase-admin-python/blob/00e0754146a2051d98952f5928c7e2f2c2ed695a/snippets/auth/index.py#L717-L718)
+    [index.py](https://github.com/firebase/firebase-admin-python/blob/6bafd5a7a452d33b38119c71217716361078a555/snippets/auth/index.py#L717-L718)
 
 ###  Java 
     
@@ -356,7 +356,7 @@ The following example shows how to list existing SAML provider configurations:
       System.out.println(config.getProviderId());
     }
     
-    [FirebaseAuthSnippets.java](https://github.com/firebase/firebase-admin-java/blob/c37e514e0bc899066dff4d8ef2aa895a04568ee0/src/test/java/com/google/firebase/snippets/FirebaseAuthSnippets.java#L765-L769)
+    [FirebaseAuthSnippets.java](https://github.com/firebase/firebase-admin-java/blob/919714aab5300560f6e8fcbeeb46bbf94df46ca8/src/test/java/com/google/firebase/snippets/FirebaseAuthSnippets.java#L765-L769)
 
 Each batch of results contains a list of provider configurations, and a next page token used to fetch the next batch. When all providers have been listed, no token is returned.
 
@@ -437,7 +437,7 @@ The following example demonstrates how to create an OIDC provider configuration 
     
     print('Created new OIDC provider:', oidc.provider_id)
     
-    [index.py](https://github.com/firebase/firebase-admin-python/blob/00e0754146a2051d98952f5928c7e2f2c2ed695a/snippets/auth/index.py#L723-L730)
+    [index.py](https://github.com/firebase/firebase-admin-python/blob/6bafd5a7a452d33b38119c71217716361078a555/snippets/auth/index.py#L723-L730)
 
 ###  Java 
     
@@ -451,7 +451,7 @@ The following example demonstrates how to create an OIDC provider configuration 
     OidcProviderConfig oidc = FirebaseAuth.getInstance().createOidcProviderConfig(request);
     System.out.println("Created new OIDC provider: " + oidc.getProviderId());
     
-    [FirebaseAuthSnippets.java](https://github.com/firebase/firebase-admin-java/blob/c37e514e0bc899066dff4d8ef2aa895a04568ee0/src/test/java/com/google/firebase/snippets/FirebaseAuthSnippets.java#L775-L782)
+    [FirebaseAuthSnippets.java](https://github.com/firebase/firebase-admin-java/blob/919714aab5300560f6e8fcbeeb46bbf94df46ca8/src/test/java/com/google/firebase/snippets/FirebaseAuthSnippets.java#L775-L782)
 
 On completion, the method returns an [`OIDCAuthProviderConfig`](https://docs.cloud.google.com/identity-platform/docs/reference/rest/v2/projects.oauthIdpConfigs) object for the newly created configuration.
 
@@ -507,7 +507,7 @@ The following example demonstrates how to modify an OIDC provider configuration.
     
     print('Updated OIDC provider:', oidc.provider_id)
     
-    [index.py](https://github.com/firebase/firebase-admin-python/blob/00e0754146a2051d98952f5928c7e2f2c2ed695a/snippets/auth/index.py#L735-L740)
+    [index.py](https://github.com/firebase/firebase-admin-python/blob/6bafd5a7a452d33b38119c71217716361078a555/snippets/auth/index.py#L735-L740)
 
 ###  Java 
     
@@ -521,7 +521,7 @@ The following example demonstrates how to modify an OIDC provider configuration.
     OidcProviderConfig oidc = FirebaseAuth.getInstance().updateOidcProviderConfig(request);
     System.out.println("Updated OIDC provider: " + oidc.getProviderId());
     
-    [FirebaseAuthSnippets.java](https://github.com/firebase/firebase-admin-java/blob/c37e514e0bc899066dff4d8ef2aa895a04568ee0/src/test/java/com/google/firebase/snippets/FirebaseAuthSnippets.java#L788-L795)
+    [FirebaseAuthSnippets.java](https://github.com/firebase/firebase-admin-java/blob/919714aab5300560f6e8fcbeeb46bbf94df46ca8/src/test/java/com/google/firebase/snippets/FirebaseAuthSnippets.java#L788-L795)
 
 On completion, the method returns an [`OIDCAuthProviderConfig`](https://docs.cloud.google.com/identity-platform/docs/reference/rest/v2/projects.oauthIdpConfigs) object for the updated configuration.
 
@@ -559,7 +559,7 @@ The primary way to identify an OIDC configuration is using its provider ID. The 
     
     print(oidc.display_name, oidc.enabled)
     
-    [index.py](https://github.com/firebase/firebase-admin-python/blob/00e0754146a2051d98952f5928c7e2f2c2ed695a/snippets/auth/index.py#L745-L747)
+    [index.py](https://github.com/firebase/firebase-admin-python/blob/6bafd5a7a452d33b38119c71217716361078a555/snippets/auth/index.py#L745-L747)
 
 ###  Java 
     
@@ -567,7 +567,7 @@ The primary way to identify an OIDC configuration is using its provider ID. The 
     OidcProviderConfig oidc = FirebaseAuth.getInstance().getOidcProviderConfig("oidc.myProvider");
     System.out.println(oidc.getDisplayName() + ": " + oidc.isEnabled());
     
-    [FirebaseAuthSnippets.java](https://github.com/firebase/firebase-admin-java/blob/c37e514e0bc899066dff4d8ef2aa895a04568ee0/src/test/java/com/google/firebase/snippets/FirebaseAuthSnippets.java#L801-L802)
+    [FirebaseAuthSnippets.java](https://github.com/firebase/firebase-admin-java/blob/919714aab5300560f6e8fcbeeb46bbf94df46ca8/src/test/java/com/google/firebase/snippets/FirebaseAuthSnippets.java#L801-L802)
 
 If a provider with the given ID exists, the method returns an [`OIDCAuthProviderConfig`](https://docs.cloud.google.com/identity-platform/docs/reference/rest/v2/projects.oauthIdpConfigs) object.
 
@@ -599,14 +599,14 @@ The following example demonstrates how to delete an OIDC provider configuration:
     
     auth.delete_oidc_provider_config('oidc.myProvider')
     
-    [index.py](https://github.com/firebase/firebase-admin-python/blob/00e0754146a2051d98952f5928c7e2f2c2ed695a/snippets/auth/index.py#L752-L752)
+    [index.py](https://github.com/firebase/firebase-admin-python/blob/6bafd5a7a452d33b38119c71217716361078a555/snippets/auth/index.py#L752-L752)
 
 ###  Java 
     
     
     FirebaseAuth.getInstance().deleteOidcProviderConfig("oidc.myProvider");
     
-    [FirebaseAuthSnippets.java](https://github.com/firebase/firebase-admin-java/blob/c37e514e0bc899066dff4d8ef2aa895a04568ee0/src/test/java/com/google/firebase/snippets/FirebaseAuthSnippets.java#L808-L808)
+    [FirebaseAuthSnippets.java](https://github.com/firebase/firebase-admin-java/blob/919714aab5300560f6e8fcbeeb46bbf94df46ca8/src/test/java/com/google/firebase/snippets/FirebaseAuthSnippets.java#L808-L808)
 
 ### Listing OIDC provider configurations
 
@@ -652,7 +652,7 @@ The following example shows how to list existing OIDC provider configurations:
     for oidc in auth.list_oidc_provider_configs('nextPageToken').iterate_all():
         print(oidc.provider_id)
     
-    [index.py](https://github.com/firebase/firebase-admin-python/blob/00e0754146a2051d98952f5928c7e2f2c2ed695a/snippets/auth/index.py#L757-L758)
+    [index.py](https://github.com/firebase/firebase-admin-python/blob/6bafd5a7a452d33b38119c71217716361078a555/snippets/auth/index.py#L757-L758)
 
 ###  Java 
     
@@ -663,7 +663,7 @@ The following example shows how to list existing OIDC provider configurations:
       System.out.println(oidc.getProviderId());
     }
     
-    [FirebaseAuthSnippets.java](https://github.com/firebase/firebase-admin-java/blob/c37e514e0bc899066dff4d8ef2aa895a04568ee0/src/test/java/com/google/firebase/snippets/FirebaseAuthSnippets.java#L814-L818)
+    [FirebaseAuthSnippets.java](https://github.com/firebase/firebase-admin-java/blob/919714aab5300560f6e8fcbeeb46bbf94df46ca8/src/test/java/com/google/firebase/snippets/FirebaseAuthSnippets.java#L814-L818)
 
 Each batch of results contains a list of provider configurations, and a next page token used to fetch the next batch. When all providers have been listed, no token is returned.
 

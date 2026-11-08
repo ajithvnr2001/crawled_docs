@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/data-studio/time-series-reference/
 title: Time series reference \u00a0|\u00a0 Data Studio \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T00:01:54.218427+00:00
+fetched_at: 2026-11-08T09:07:49.925788+00:00
 ---
 
 # Time series reference  |  Data Studio  |  Google Cloud Documentation

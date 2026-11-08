@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/compute/docs/disks/migrate-to-hyperdisk/
 title: Change the disk type \u00a0|\u00a0 Compute Engine \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-05T00:19:28.509130+00:00
+fetched_at: 2026-11-08T09:10:21.730685+00:00
 ---
 
 # Change the disk type  |  Compute Engine  |  Google Cloud Documentation
@@ -269,7 +269,7 @@ You can set the access mode for the following disk types:
 
 ## Change a zonal disk to a regional Hyperdisk
 
-To change an existing zonal disk to a regional Hyperdisk, you must create a new Hyperdisk Balanced High Availability volume from the source disk. This is because Hyperdisk Balanced High Availability is the only supported regional Hyperdisk.
+To change an existing zonal disk to a regional Hyperdisk, you must create a new Hyperdisk Balanced High Availability volume from the source disk. This is because Hyperdisk Balanced High Availability is the only supported regional Hyperdisk. If you have a Persistent Disk volume and you want to create a Hyperdisk Balanced High Availability volume, then you also need to use this method. For example, to upgrade your instance to a newer machine type that doesn't support Persistent Disk, use this method to create a Hyperdisk Balanced High Availability volume.
 
 How you create a [Hyperdisk Balanced High Availability volume](https://docs.cloud.google.com/compute/docs/disks/about-regional-persistent-disk) from a zonal disk depends on the zonal disk's type:
 
@@ -277,7 +277,7 @@ How you create a [Hyperdisk Balanced High Availability volume](https://docs.clou
 
   * For Hyperdisk ML, Hyperdisk Throughput, and Persistent Disk volumes, follow the instructions in this section.
 
-To create a Hyperdisk Balanced High Availability volume from the preceding disk types, you must create a Hyperdisk Balanced High Availability volume from the snapshot of the zonal disk.
+To create a Hyperdisk Balanced High Availability volume from the preceding disk types, you must create the volume from a snapshot of the disk.
 
 
 
@@ -445,6 +445,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-03 UTC.
+Last updated 2026-11-07 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-07 UTC."],[],[]] 

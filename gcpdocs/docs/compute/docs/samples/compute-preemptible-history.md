@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/compute/docs/samples/compute-preemptible-history/
 title: List preemption history of a Google Compute Engine instance \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T07:49:05.622184+00:00
+fetched_at: 2026-11-08T08:48:57.496923+00:00
 ---
 
 # List preemption history of a Google Compute Engine instance  |  Google Cloud Documentation
@@ -51,7 +51,7 @@ To authenticate to Compute Engine, set up Application Default Credentials. For m
     	// customFilter := "operationType=\"compute.instances.preempted\""
     
     	ctx := context.Background()
-    	operationsClient, err := compute.[NewZoneOperationsRESTClient](https://docs.cloud.google.com/go/docs/reference/cloud.google.com/go/compute/latest/apiv1.html#cloud_google_com_go_compute_apiv1_ZoneOperationsClient_NewZoneOperationsRESTClient)(ctx)
+    	operationsClient, err := compute.NewZoneOperationsRESTClient(ctx)
     	if err != nil {
     		return fmt.Errorf("NewZoneOperationsRESTClient: %w", err)
     	}
@@ -81,7 +81,7 @@ To authenticate to Compute Engine, set up Application Default Credentials. For m
     	it := operationsClient.List(ctx, req)
     	for {
     		operation, err := it.Next()
-    		if err == iterator.[Done](https://docs.cloud.google.com/go/docs/reference/cloud.google.com/go/compute/latest/apiv1.html#cloud_google_com_go_compute_apiv1_Operation_Done) {
+    		if err == iterator.Done {
     			break
     		}
     		if err != nil {
@@ -108,10 +108,10 @@ Before trying this sample, follow the Java setup instructions in the [Compute En
 To authenticate to Compute Engine, set up Application Default Credentials. For more information, see [Set up authentication for a local development environment](https://docs.cloud.google.com/docs/authentication/set-up-adc-local-dev-environment). 
     
     
-    import com.google.cloud.compute.v1.[ListZoneOperationsRequest](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.ListZoneOperationsRequest.html);
-    import com.google.cloud.compute.v1.[Operation](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.Operation.html);
-    import com.google.cloud.compute.v1.[ZoneOperationsClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.ZoneOperationsClient.html);
-    import com.google.cloud.compute.v1.[ZoneOperationsClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.ZoneOperationsClient.html).ListPagedResponse;
+    import com.google.cloud.compute.v1.ListZoneOperationsRequest;
+    import com.google.cloud.compute.v1.Operation;
+    import com.google.cloud.compute.v1.ZoneOperationsClient;
+    import com.google.cloud.compute.v1.ZoneOperationsClient.ListPagedResponse;
     import java.io.IOException;
     import java.time.Instant;
     import java.time.format.DateTimeFormatter;
@@ -140,8 +140,8 @@ To authenticate to Compute Engine, set up Application Default Credentials. For m
       public static ListPagedResponse listZoneOperations(String projectId, String zone, String filter)
           throws IOException {
     
-        try (Zone[ZoneOperationsClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.ZoneOperationsClient.html)eOperationsClient = Zone[ZoneOperationsClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.ZoneOperationsClient.html)ate()) {
-          List[ListZoneOperationsRequest](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.ListZoneOperationsRequest.html)uest = List[ListZoneOperationsRequest](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.ListZoneOperationsRequest.html)Builder()
+        try (ZoneOperationsClient zoneOperationsClient = ZoneOperationsClient.create()) {
+          ListZoneOperationsRequest request = ListZoneOperationsRequest.newBuilder()
               .setProject(projectId)
               .setZone(zone)
               .setFilter(filter)
@@ -170,7 +170,7 @@ To authenticate to Compute Engine, set up Application Default Credentials. For m
           filter = "operationType=\"compute.instances.preempted\"";
         }
     
-        for (Oper[Operation](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.Operation.html)ration : listZoneOperations(projectId, zone, filter).iterateAll()) {
+        for (Operation operation : listZoneOperations(projectId, zone, filter).iterateAll()) {
           targetLink = operation.getTargetLink();
           thisInstanceName = targetLink.substring(targetLink.lastIndexOf("/") + 1);
     
@@ -203,10 +203,10 @@ To authenticate to Compute Engine, set up Application Default Credentials. For m
     // const instanceName = 'YOUR_INSTANCE_NAME';
     // const customFilter = 'operationType="compute.instances.preempted"';
     
-    const compute = require('[@google-cloud/compute](https://docs.cloud.google.com/nodejs/docs/reference/compute/latest/overview.html)');
+    const compute = require('@google-cloud/compute');
     
     async function preemptionHistory() {
-      const zoneOperationsClient = new compute.[ZoneOperationsClient](https://docs.cloud.google.com/nodejs/docs/reference/compute/latest/overview.html)();
+      const zoneOperationsClient = new compute.ZoneOperationsClient();
     
       let filter;
     

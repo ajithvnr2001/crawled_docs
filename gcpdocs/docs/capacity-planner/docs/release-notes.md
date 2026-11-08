@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/capacity-planner/docs/release-notes/
 title: Capacity Planner release notes \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-02T05:41:30.558633+00:00
+fetched_at: 2026-11-08T09:18:16.013940+00:00
 ---
 
 # Capacity Planner release notes  |  Google Cloud Documentation
@@ -210,32 +210,6 @@ For more information, see the following pages:
   * [About Capacity Planner](https://cloud.google.com/capacity-planner/docs/about)
 
   * [Export usage and forecast data in Capacity Planner](https://cloud.google.com/capacity-planner/docs/export-data)
-
-  * [View actual and forecasted usage in Capacity Planner](https://cloud.google.com/capacity-planner/docs/view-data)
-
-
-
-
-## March 28, 2024
-
-Feature
-
-**Preview** : Capacity planner supports the following for data aggregated by organization ID:
-
-  * View and export the actual and forecasted usage data of the VMs and persistent disks in your organization.
-
-  * Generate gcloud CLI commands to create future reservation requests based on the actual or forecasted usage data of your VMs by organization.
-
-
-
-
-For more information, see the following pages:
-
-  * [About Capacity Planner](https://cloud.google.com/capacity-planner/docs/about)
-
-  * [Export usage and forecast data in Capacity Planner](https://cloud.google.com/capacity-planner/docs/export-data)
-
-  * [Reserve capacity from actual or forecasted usage](https://cloud.google.com/capacity-planner/docs/reserve-capacity)
 
   * [View actual and forecasted usage in Capacity Planner](https://cloud.google.com/capacity-planner/docs/view-data)
 

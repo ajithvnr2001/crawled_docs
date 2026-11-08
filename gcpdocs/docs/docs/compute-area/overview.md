@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/docs/compute-area/overview/
 title: Google compute overview \u00a0|\u00a0 Compute \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-06T12:03:57.559023+00:00
+fetched_at: 2026-11-08T09:12:32.012431+00:00
 ---
 
 # Google compute overview  |  Compute  |  Google Cloud Documentation

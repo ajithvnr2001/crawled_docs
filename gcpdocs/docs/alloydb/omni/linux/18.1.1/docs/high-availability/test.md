@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/omni/linux/18.1.1/docs/high-availability/test/
 title: Test your high availability setup \u00a0|\u00a0 AlloyDB Omni using RPM: 18.1.1 \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T05:39:01.192347+00:00
+fetched_at: 2026-11-08T09:17:00.031626+00:00
 ---
 
 # Test your high availability setup  |  AlloyDB Omni using RPM: 18.1.1  |  Google Cloud Documentation

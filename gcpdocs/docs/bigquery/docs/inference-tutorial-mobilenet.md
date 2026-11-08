@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/inference-tutorial-mobilenet/
 title: Tutorial: Run inference on an object table by using a feature vector model \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T05:38:44.745153+00:00
+fetched_at: 2026-11-08T08:24:03.512339+00:00
 ---
 
 # Tutorial: Run inference on an object table by using a feature vector model  |  BigQuery  |  Google Cloud Documentation

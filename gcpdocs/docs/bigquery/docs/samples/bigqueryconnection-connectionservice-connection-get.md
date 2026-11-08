@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/samples/bigqueryconnection-connectionservice-connection-get/
 title: Get connection metadata \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T05:41:43.424383+00:00
+fetched_at: 2026-11-08T08:24:08.621654+00:00
 ---
 
 # Get connection metadata  |  BigQuery  |  Google Cloud Documentation

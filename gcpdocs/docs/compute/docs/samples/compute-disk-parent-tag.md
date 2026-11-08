@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/compute/docs/samples/compute-disk-parent-tag/
 title: Create a Compute Engine instance with an attached disk \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T23:18:32.942084+00:00
+fetched_at: 2026-11-08T08:48:30.517610+00:00
 ---
 
 # Create a Compute Engine instance with an attached disk  |  Google Cloud Documentation

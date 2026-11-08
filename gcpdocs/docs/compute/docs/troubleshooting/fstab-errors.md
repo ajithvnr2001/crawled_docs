@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/compute/docs/troubleshooting/fstab-errors/
 title: Troubleshoot Linux VM boot issues due to fstab errors \u00a0|\u00a0 Compute Engine \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T23:31:55.316233+00:00
+fetched_at: 2026-11-08T08:49:19.908691+00:00
 ---
 
 # Troubleshoot Linux VM boot issues due to fstab errors  |  Compute Engine  |  Google Cloud Documentation
@@ -27,11 +27,11 @@ This document outlines multiple conditions where an incorrect fstab configuratio
 
 For other causes of boot failures, and to detect the cause automatically, see [Troubleshoot Linux Compute Engine instance boot issues](https://docs.cloud.google.com/compute/docs/troubleshooting/troubleshooting-linux-boot-issues).
 
-A few of the common issues with fstab misconfiguration are listed below:
+The following are some common issues with `fstab` file misconfiguration:
 
   * Syntax error in `fstab` configuration file
   * An incorrect UUID
-  * An entry exists for an unattached/unavailable device
+  * An entry exists for an unattached or unavailable device
   * Deprecated mount options like `nobarrier` for the xfs file system type in [SUSE](https://www.suse.com/c/xfs-nobarrier-option-is-now-more-than-deprecated) or [RHEL](https://access.redhat.com/solutions/5315771) images.
 
 
@@ -117,7 +117,7 @@ Use `man fstab` for more details about the fstab configuration and syntax.
 
   6. After successfully fixing the issue, the VM boot process should complete and the login prompt appears in the serial console.
 
-  7. Verify you can log in to the VM again using SSH.
+  7. Verify you can connect to the VM again using SSH.
 
 
 
@@ -149,7 +149,7 @@ Prerequisite: The `GRUB_TIMEOUT` parameter in the grub configuration file must b
 **Note:** The `rd.break` parameter works for RHEL, CENTOS, Oracle Linux, SUSE Operating Systems. This parameter isn't a persistent entry so no changes are required after boot. For Ubuntu 18.04, 20.04 and 22.04 LTS, you can add `systemd.unit=rescue.target` to boot into rescue mode which is similar to single user mode.
   7. Mount the root file system in read write mode.
 
-  8. Analyze, make necessary change and save `fstab` file. Use `man fstab` for more details about configuration and syntax. Use your favorite text editor to open the `fstab` file. In the below example, the vi editor is used.
+  8. Analyze, make necessary change and save `fstab` file. Use `man fstab` for more details about configuration and syntax. Use your favorite text editor to open the `fstab` file. In the following example, the vi editor is used.
          
          vi /etc/fstab
 
@@ -163,7 +163,7 @@ In this example, the device for `/distribution` is detached from the VM, so comm
 
   11. After successfully fixing the issue, the VM boot process should complete and you should see the login prompt in the serial console.
 
-  12. Verify you can log in to the VM using SSH.
+  12. Verify you can connect to the VM using SSH.
 
 
 
@@ -178,6 +178,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-04 UTC.
+Last updated 2026-11-06 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-06 UTC."],[],[]] 

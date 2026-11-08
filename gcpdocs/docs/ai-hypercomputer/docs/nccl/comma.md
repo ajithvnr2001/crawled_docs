@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/ai-hypercomputer/docs/nccl/comma/
 title: Overview \u00a0|\u00a0 AI Hypercomputer \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T18:57:16.713687+00:00
+fetched_at: 2026-11-08T08:26:37.436614+00:00
 ---
 
 # Overview  |  AI Hypercomputer  |  Google Cloud Documentation
@@ -29,7 +29,7 @@ For NCCL versions 2.23 and later, NVIDIA introduced the [NCCL profiler plugin AP
 
 ## Images that have CoMMA enabled
 
-For A4X Max, A4X, A4, A3 Ultra, A3 Mega, and A3 High (8 GPUs) machine types, CoMMA is installed and automatically enabled when you use any images that packages the gIB NCCL plugin. The following images contain the gIB NCCL plugin:
+For A5X, A4X Max, A4X, A4, A3 Ultra, A3 Mega, and A3 High (8 GPUs) machine types, CoMMA is installed and automatically enabled when you use any images that packages the gIB NCCL plugin. The following images contain the gIB NCCL plugin:
 
   * [Container-Optimized OS with containerd (cos_containerd)](https://docs.cloud.google.com/kubernetes-engine/docs/concepts/node-images#cos-variants) node images: Google Kubernetes Engine (GKE) uses these images for creating GKE Autopilot clusters. The CoMMA binaries are available in the `/home/kubernetes/bin/gib` directory.
   * [Deep learning Software Layer container images](https://docs.cloud.google.com/ai-hypercomputer/docs/images#dlsl-container-images): you use these images to deploy and configure AI and ML frameworks and libraries on GKE clusters.
@@ -74,6 +74,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-06 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-06 UTC."],[],[]] 

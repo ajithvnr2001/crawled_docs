@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/omni/kubernetes/15.7.1/docs/configure-omni/
 title: Set up AlloyDB Omni for production \u00a0|\u00a0 AlloyDB Omni for Kubernetes: 15.7.1 \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T05:49:40.584146+00:00
+fetched_at: 2026-11-08T09:01:02.539832+00:00
 ---
 
 # Set up AlloyDB Omni for production  |  AlloyDB Omni for Kubernetes: 15.7.1  |  Google Cloud Documentation

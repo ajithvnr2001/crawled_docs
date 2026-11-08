@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/functions/docs/samples/functions-cloudevent-firebase-remote-config/
 title: Firebase Remote Config Change Trigger \u00a0|\u00a0 Cloud Run functions \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T16:25:27.277913+00:00
+fetched_at: 2026-11-08T08:37:09.321021+00:00
 ---
 
 # Firebase Remote Config Change Trigger  |  Cloud Run functions  |  Google Cloud Documentation

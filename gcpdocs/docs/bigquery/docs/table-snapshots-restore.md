@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/table-snapshots-restore/
 title: Restore table snapshots \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T05:38:35.401357+00:00
+fetched_at: 2026-11-08T08:22:37.013733+00:00
 ---
 
 # Restore table snapshots  |  BigQuery  |  Google Cloud Documentation

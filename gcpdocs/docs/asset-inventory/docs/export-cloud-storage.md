@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/asset-inventory/docs/export-cloud-storage/
 title: Export asset metadata to Cloud Storage \u00a0|\u00a0 Cloud Asset Inventory \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T23:27:46.031113+00:00
+fetched_at: 2026-11-08T09:16:15.317722+00:00
 ---
 
 # Export asset metadata to Cloud Storage  |  Cloud Asset Inventory  |  Google Cloud Documentation
@@ -482,9 +482,9 @@ To authenticate to Cloud Asset Inventory, set up Application Default Credentials
     import com.google.cloud.asset.v1.[ExportAssetsRequest](https://docs.cloud.google.com/java/docs/reference/google-cloud-asset/latest/com.google.cloud.asset.v1.ExportAssetsRequest.html);
     import com.google.cloud.asset.v1.[ExportAssetsRequest](https://docs.cloud.google.com/java/docs/reference/google-cloud-asset/latest/com.google.cloud.asset.v1.ExportAssetsRequest.html).Builder;
     import com.google.cloud.asset.v1.[ExportAssetsResponse](https://docs.cloud.google.com/java/docs/reference/google-cloud-asset/latest/com.google.cloud.asset.v1.ExportAssetsResponse.html);
-    import com.google.cloud.asset.v1.[GcsDestination](https://docs.cloud.google.com/java/docs/reference/google-cloud-asset/latest/com.google.cloud.asset.v1.GcsDestination.html);
-    import com.google.cloud.asset.v1.[OutputConfig](https://docs.cloud.google.com/java/docs/reference/google-cloud-asset/latest/com.google.cloud.asset.v1.OutputConfig.html);
-    import com.google.cloud.asset.v1.[ProjectName](https://docs.cloud.google.com/java/docs/reference/google-cloud-asset/latest/com.google.cloud.asset.v1.ProjectName.html);
+    import com.google.cloud.asset.v1.[GcsDestination](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.GcsDestination.html);
+    import com.google.cloud.asset.v1.[OutputConfig](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.OutputConfig.html);
+    import com.google.cloud.asset.v1.[ProjectName](https://docs.cloud.google.com/java/docs/reference/google-cloud-accessapproval/latest/com.google.cloud.accessapproval.v1.ProjectName.html);
     import java.io.IOException;
     import java.util.Arrays;
     import java.util.concurrent.ExecutionException;
@@ -510,14 +510,14 @@ To authenticate to Cloud Asset Inventory, set up Application Default Credentials
               ExecutionException,
               TimeoutException {
         try ([AssetServiceClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-asset/latest/com.google.cloud.asset.v1.AssetServiceClient.html) client = [AssetServiceClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-asset/latest/com.google.cloud.asset.v1.AssetServiceClient.html).create()) {
-          [ProjectName](https://docs.cloud.google.com/java/docs/reference/google-cloud-asset/latest/com.google.cloud.asset.v1.ProjectName.html) parent = [ProjectName](https://docs.cloud.google.com/java/docs/reference/google-cloud-asset/latest/com.google.cloud.asset.v1.ProjectName.html).of(projectId);
-          [OutputConfig](https://docs.cloud.google.com/java/docs/reference/google-cloud-asset/latest/com.google.cloud.asset.v1.OutputConfig.html) outputConfig =
-              [OutputConfig](https://docs.cloud.google.com/java/docs/reference/google-cloud-asset/latest/com.google.cloud.asset.v1.OutputConfig.html).newBuilder()
-                  .setGcsDestination([GcsDestination](https://docs.cloud.google.com/java/docs/reference/google-cloud-asset/latest/com.google.cloud.asset.v1.GcsDestination.html).newBuilder().setUri(exportPath).build())
+          [ProjectName](https://docs.cloud.google.com/java/docs/reference/google-cloud-accessapproval/latest/com.google.cloud.accessapproval.v1.ProjectName.html) parent = [ProjectName](https://docs.cloud.google.com/java/docs/reference/google-cloud-accessapproval/latest/com.google.cloud.accessapproval.v1.ProjectName.html).of(projectId);
+          [OutputConfig](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.OutputConfig.html) outputConfig =
+              [OutputConfig](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.OutputConfig.html).newBuilder()
+                  .setGcsDestination([GcsDestination](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.GcsDestination.html).newBuilder().setUri(exportPath).build())
                   .build();
           Builder exportAssetsRequestBuilder =
               [ExportAssetsRequest](https://docs.cloud.google.com/java/docs/reference/google-cloud-asset/latest/com.google.cloud.asset.v1.ExportAssetsRequest.html).newBuilder()
-                  .setParent([parent](https://docs.cloud.google.com/java/docs/reference/google-cloud-firestore/latest/com.google.cloud.firestore.pipeline.expressions.Expression.html#com_google_cloud_firestore_pipeline_expressions_Expression_parent__).[toString](https://docs.cloud.google.com/java/docs/reference/google-cloud-asset/latest/com.google.cloud.asset.v1.ProjectName.html#com_google_cloud_asset_v1_ProjectName_toString__)())
+                  .setParent([parent](https://docs.cloud.google.com/java/docs/reference/google-cloud-firestore/latest/com.google.cloud.firestore.pipeline.expressions.Expression.html#com_google_cloud_firestore_pipeline_expressions_Expression_parent__).[toString](https://docs.cloud.google.com/java/docs/reference/google-cloud-accessapproval/latest/com.google.cloud.accessapproval.v1.ProjectName.html#com_google_cloud_accessapproval_v1_ProjectName_toString__)())
                   .setContentType(contentType)
                   .setOutputConfig(outputConfig);
           if (assetTypes.length > 0) {
@@ -781,6 +781,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-07 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-07 UTC."],[],[]] 

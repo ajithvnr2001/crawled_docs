@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/compute/docs/samples/compute-images-get-from-family/
 title: Get the newest image from a given family \u00a0|\u00a0 Compute Engine \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T23:11:09.288036+00:00
+fetched_at: 2026-11-08T08:49:14.814749+00:00
 ---
 
 # Get the newest image from a given family  |  Compute Engine  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/firestore/docs/samples/firestore-query-order-with-filter-async/
 title: Ordering a Firestore query with a filter (async) \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T23:46:14.780325+00:00
+fetched_at: 2026-11-08T08:37:15.853346+00:00
 ---
 
 # Ordering a Firestore query with a filter (async)  |  Google Cloud Documentation

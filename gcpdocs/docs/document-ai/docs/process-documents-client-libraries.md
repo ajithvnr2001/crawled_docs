@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/document-ai/docs/process-documents-client-libraries/
 title: Quickstart: Process documents by using client libraries \u00a0|\u00a0 Document AI \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T07:48:20.334162+00:00
+fetched_at: 2026-11-08T08:57:19.631098+00:00
 ---
 
 # Quickstart: Process documents by using client libraries  |  Document AI  |  Google Cloud Documentation
@@ -237,7 +237,7 @@ If you are using [Gradle](https://gradle.org/), add the following to your depend
 If you are using [sbt](https://www.scala-sbt.org/), add the following to your dependencies:
     
     
-    libraryDependencies += "com.google.cloud" % "google-cloud-document-ai" % "2.104.0"
+    libraryDependencies += "com.google.cloud" % "google-cloud-document-ai" % "2.105.0"
 
 If you're using Visual Studio Code or IntelliJ, you can add client libraries to your project using the following IDE plugins:
 

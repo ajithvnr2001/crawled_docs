@@ -1,11 +1,11 @@
 ---
 url: https://docs.cloud.google.com/compute/docs/disks/benchmark-hyperdisk-performance/
-title: Benchmark Hyperdisk performance \u00a0|\u00a0 Compute Engine \u00a0|\u00a0 Google Cloud Documentation
+title: Benchmark Google Cloud Hyperdisk performance \u00a0|\u00a0 Compute Engine \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T23:07:40.701577+00:00
+fetched_at: 2026-11-08T08:49:25.310834+00:00
 ---
 
-# Benchmark Hyperdisk performance  |  Compute Engine  |  Google Cloud Documentation
+# Benchmark Google Cloud Hyperdisk performance  |  Compute Engine  |  Google Cloud Documentation
 
 > Source: https://docs.cloud.google.com/compute/docs/disks/benchmark-hyperdisk-performance/
 
@@ -19,7 +19,7 @@ fetched_at: 2026-10-27T23:07:40.701577+00:00
 
 Send feedback 
 
-#  Benchmark Hyperdisk performance Stay organized with collections  Save and categorize content based on your preferences. 
+#  Benchmark Google Cloud Hyperdisk performance Stay organized with collections  Save and categorize content based on your preferences. 
 
 To benchmark [Google Cloud Hyperdisk performance](https://docs.cloud.google.com/compute/docs/disks/hyperdisks), use [Flexible I/O tester (FIO)](https://fio.readthedocs.io/) instead of other disk benchmarking tools such as [`dd`](https://en.wikipedia.org/wiki/Dd_\(Unix\)). By default, `dd` uses a very low I/O queue depth, so it is difficult to ensure that the benchmark is generating a sufficient number of bytes and I/O operations to accurately test disk performance.
 
@@ -314,7 +314,7 @@ In this example, we're testing Google Cloud Hyperdisk performance across three 2
 
 This section shows how to benchmark both read and write throughput for Hyperdisk Extreme disks.
 
-#### Preparation for testing
+#### Prepare for testing
 
 Before you begin benchmarking the performance of Hyperdisk Extreme disks attached to a C3 VM with 176 vCPUs, complete the following steps.
 
@@ -326,7 +326,7 @@ Before you begin benchmarking the performance of Hyperdisk Extreme disks attache
 
   2. Because the VM requires more than one disk to reach the highest performance levels, for simplicity, perform RAID 0 on all attached Hyperdisk volumes. This makes it easier for data to be evenly distributed across multiple Hyperdisk volumes.
 
-In this example, RAID 0 is performance on three Hyperdisk Extreme volumes attached to the C3 VM.
+In this example, RAID 0 is performed on three Hyperdisk Extreme volumes attached to the C3 VM.
          
          sudo mdadm --create /dev/md0 --level=0 --raid-devices=3 /dev/nvme0n2 /dev/nvme0n3 /dev/nvme0n4
          
@@ -750,6 +750,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-06 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-06 UTC."],[],[]] 

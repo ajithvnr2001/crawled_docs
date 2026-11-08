@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/compute/docs/samples/compute-resume-instance/
 title: Resume a suspended VM \u00a0|\u00a0 Compute Engine \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T05:39:40.730634+00:00
+fetched_at: 2026-11-08T08:49:46.394309+00:00
 ---
 
 # Resume a suspended VM  |  Compute Engine  |  Google Cloud Documentation

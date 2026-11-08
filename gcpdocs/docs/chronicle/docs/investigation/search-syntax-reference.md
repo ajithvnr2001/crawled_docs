@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chronicle/docs/investigation/search-syntax-reference/
 title: Understand search syntax \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T10:05:46.573178+00:00
+fetched_at: 2026-11-08T08:24:29.925307+00:00
 ---
 
 # Understand search syntax  |  Google Security Operations  |  Google Cloud Documentation

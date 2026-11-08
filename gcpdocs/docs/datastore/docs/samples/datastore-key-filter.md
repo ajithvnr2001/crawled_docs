@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/datastore/docs/samples/datastore-key-filter/
 title: Key filter \u00a0|\u00a0 Firestore in Datastore mode \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T22:58:19.237536+00:00
+fetched_at: 2026-11-08T09:09:06.507423+00:00
 ---
 
 # Key filter  |  Firestore in Datastore mode  |  Google Cloud Documentation

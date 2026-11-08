@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/omni/kubernetes/15.12.0/docs/optimize-database-performance-configure-kernel-kubernetes/
 title: Configure kernel parameters for AlloyDB Omni on Kubernetes \u00a0|\u00a0 AlloyDB Omni for Kubernetes: 15.12.0 \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T05:51:37.022868+00:00
+fetched_at: 2026-11-08T09:15:11.271223+00:00
 ---
 
 # Configure kernel parameters for AlloyDB Omni on Kubernetes  |  AlloyDB Omni for Kubernetes: 15.12.0  |  Google Cloud Documentation
