@@ -2,7 +2,7 @@
 url: https://docs.fish.audio/agents/deploy/protocol/
 title: Wire Protocol - Fish Audio
 method: scrapling+scrapegraph
-fetched_at: 2026-10-17T10:46:41.666290+00:00
+fetched_at: 2026-11-08T14:25:07.133835+00:00
 ---
 
 # Wire Protocol - Fish Audio
@@ -10,6 +10,8 @@ fetched_at: 2026-10-17T10:46:41.666290+00:00
 > Source: https://docs.fish.audio/agents/deploy/protocol/
 
 ## On this page
+
+Back to top
 
   * The protocol package
   * Connect to a session
@@ -239,7 +241,7 @@ session.ended
     { "type": "session.ended", "reason": "conversation_timeout" }
     
 
-Sent once, right before the server ends the call (before the agent leaves the room or the room is deleted), so a client learns the cause instead of inferring it from the disconnect. `reason` is `user_hangup` (the user hung up, or a backend ended the session through the API), `agent_hangup` (the agent hung up or the workflow reached an end node), `conversation_timeout` (the session reached its maximum duration), or `escalated` (the call was transferred to a human). The values match `end_reason` on the [session record](https://docs.fish.audio/agents/monitor/conversation-history#status-and-end-reason); treat the set as open, per the compatibility rules. A call that drops without this message has no announced reason: the SDKs report `connection_lost` once reconnection fails.
+Sent once, right before the server ends the call (before the agent leaves the room or the room is deleted), so a client learns the cause instead of inferring it from the disconnect. `reason` is `user_hangup` (the user hung up, or a backend ended the session through the API), `agent_hangup` (the agent hung up or the workflow reached an end node), `conversation_timeout` (the session reached its maximum duration), `escalated` (the call was transferred to a human), or `internal_error` (from 0.5.0: the runtime itself failed and closed the session, for example its process was stopped for exceeding its memory limit). The values match `end_reason` on the [session record](https://docs.fish.audio/agents/monitor/conversation-history#status-and-end-reason); treat the set as open, per the compatibility rules. A call that drops without this message has no announced reason: the SDKs report `connection_lost` once reconnection fails.
 
 ## 
 
