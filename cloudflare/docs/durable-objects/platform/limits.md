@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/durable-objects/platform/limits/
 title: Limits \u00b7 Cloudflare Durable Objects docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-30T08:19:26.857113+00:00
+fetched_at: 2026-11-08T08:45:33.943761+00:00
 ---
 
 # Limits · Cloudflare Durable Objects docs
@@ -18,7 +18,7 @@ fetched_at: 2026-10-30T08:19:26.857113+00:00
 
 # Limits
 
-Last updated Oct 29, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 7, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewSQLite-backed Durable Objects general limits SQL storage limitsKey-value backed Durable Objects general limitsOutbound HTTP request body sizeFrequently Asked Questions How much work can a single Durable Object do? How many Durable Objects can I create? Can I increase Durable Objects' CPU limit? What happens when a Durable Object exceeds its storage limit?Wall time limits by invocation type
 
@@ -33,8 +33,8 @@ Maximum Durable Object classes (per account) | 500 (Workers Paid) / 100 (Free) 1
 Storage per account | Unlimited (Workers Paid) / 5GB (Free) 2  
 Storage per class | Unlimited 3  
 Storage per Durable Object | 10 GB 3  
-Key size | Key and value combined cannot exceed 2 MB  
-Value size | Key and value combined cannot exceed 2 MB  
+Key size | Key and value combined cannot exceed 8 MB  
+Value size | Key and value combined cannot exceed 8 MB  
 WebSocket message size | 32 MiB (only for received messages)  
 CPU per request | 30 seconds (default) / configurable to 5 minutes of [active CPU time](https://developers.cloudflare.com/workers/platform/limits/#cpu-time) 4  
 Simultaneous outgoing connections/request | 6 (same as [Workers](https://developers.cloudflare.com/workers/platform/limits/#simultaneous-open-connections))  
@@ -47,7 +47,7 @@ SQL | Limit
 ---|---  
 Maximum number of columns per table | 100  
 Maximum number of rows per table | Unlimited (excluding per-object storage limits)  
-Maximum string, `BLOB` or table row size | 2 MB  
+Maximum string, `BLOB` or table row size | 8 MB  
 Maximum SQL statement length | 100 KB  
 Maximum bound parameters per query | 100  
 Maximum arguments per SQL function | 32  
