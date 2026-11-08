@@ -1,15 +1,17 @@
 ---
 url: https://docs.comfy.org/interface/app-mode/
-title: ComfyUI APP mode guide - ComfyUI
+title: ComfyUI APP Mode: Custom Input and Output Interfaces - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-17T10:50:59.700807+00:00
+fetched_at: 2026-11-08T14:09:45.920879+00:00
 ---
 
-# ComfyUI APP mode guide - ComfyUI
+# ComfyUI APP Mode: Custom Input and Output Interfaces - ComfyUI
 
 > Source: https://docs.comfy.org/interface/app-mode/
 
 ## On this page
+
+Back to top
 
   * Enter APP mode
   * Build an APP mode workflow
@@ -26,11 +28,11 @@ fetched_at: 2026-10-17T10:50:59.700807+00:00
 
 Feature components
 
-# ComfyUI APP mode guide
+# ComfyUI APP Mode: Custom Input and Output Interfaces
 
 Copy pageCopy page
 
-Learn how to build and use APP mode in ComfyUI to simplify workflow interaction by defining custom input/output interfaces.
+Turn a ComfyUI workflow into a form: choose which inputs and outputs people see, preview the result, set a default view, then save or share the workflow.
 
 Copy pageCopy page
 
@@ -178,26 +180,4 @@ YesNo
 
 [Suggest edits](https://github.com/comfy-org/docs/edit/main/interface/app-mode.mdx)[Raise issue](https://github.com/comfy-org/docs/issues/new?title=Issue%20on%20docs&body=Path:%20/interface/app-mode)
 
-[Templates - ComfyUI Built-in Workflow TemplatesPrevious](https://docs.comfy.org/interface/features/template)[Subgraph - Simplify your workflowNext](https://docs.comfy.org/interface/features/subgraph)
-
-⌘I
-
-[ComfyUI home page![light logo](https://mintcdn.com/dripart/WCFdTagRdhtvk9-o/logo/light.svg?fit=max&auto=format&n=WCFdTagRdhtvk9-o&q=85&s=ec112de87239058f5a931a7e4b594965)![dark logo](https://mintcdn.com/dripart/QzWbjSCBG7w61rR3/logo/dark.svg?fit=max&auto=format&n=QzWbjSCBG7w61rR3&q=85&s=62b4d879fb3aadbd7a468d1539032d6f)](https://docs.comfy.org/)
-
-[github](https://github.com/Comfy-Org/ComfyUI)[x](https://x.com/ComfyUI)[discord](https://discord.com/invite/comfyorg)[youtube](https://www.youtube.com/@comfyorg)
-
-Resources
-
-[installation](https://docs.comfy.org/installation/system_requirements)[Tutorials](https://docs.comfy.org/tutorials/basic/text-to-image)[Development](https://docs.comfy.org/development/overview)
-
-Products
-
-[Features](https://www.comfy.org/?utm_source=docs)[Gallery](https://www.comfy.org/gallery?utm_source=docs)[Download](https://www.comfy.org/download?utm_source=docs)
-
-Company
-
-[About](https://www.comfy.org/about?utm_source=docs)[Careers](https://www.comfy.org/careers?utm_source=docs)[Terms of Service](https://www.comfy.org/terms-of-service?utm_source=docs)[Privacy Policy](https://www.comfy.org/privacy-policy?utm_source=docs)
-
-[github](https://github.com/Comfy-Org/ComfyUI)[x](https://x.com/ComfyUI)[discord](https://discord.com/invite/comfyorg)[youtube](https://www.youtube.com/@comfyorg)
-
-[Powered byThis documentation is built and hosted on Mintlify, a developer documentation platform](https://www.mintlify.com?utm_campaign=poweredBy&utm_medium=referral&utm_source=dripart)
+[Workflow Templates](https://docs.comfy.org/interface/features/template)[Subgraph](https://docs.comfy.org/interface/features/subgraph)

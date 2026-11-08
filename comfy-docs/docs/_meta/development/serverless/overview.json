@@ -1,10 +1,7 @@
 {
   "url": "https://docs.comfy.org/development/serverless/overview/",
   "file": "development/serverless/overview.md",
-  "title": "Comfy API Deployment Guide - ComfyUI",
+  "title": "Comfy API Deployment: Builds, Releases, and Endpoints - ComfyUI",
   "method": "scrapling+scrapegraph",
-  "fetched_at": "2026-10-17T10:50:57.236258+00:00",
-  "html_len": 534111,
-  "md_len": 10728,
-  "depth": 0
+  "fetched_at": "2026-11-08T14:09:43.143759+00:00"
 }

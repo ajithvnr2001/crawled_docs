@@ -1,11 +1,11 @@
 ---
 url: https://docs.comfy.org/es/tutorials/partner-nodes/bria/background-removal/
-title: Eliminaci\u00f3n de fondo de Bria en ComfyUI - ComfyUI
+title: Bria en ComfyUI: eliminaci\u00f3n de fondo - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-26T14:03:46.381803+00:00
+fetched_at: 2026-11-08T14:09:46.015438+00:00
 ---
 
-# Eliminación de fondo de Bria en ComfyUI - ComfyUI
+# Bria en ComfyUI: eliminación de fondo - ComfyUI
 
 > Source: https://docs.comfy.org/es/tutorials/partner-nodes/bria/background-removal/
 
@@ -27,11 +27,11 @@ Volver arriba
 
 Bria
 
-# Eliminación de fondo de Bria en ComfyUI
+# Bria en ComfyUI: eliminación de fondo
 
 Copiar páginaCopiar página
 
-Aprende a usar los Nodos asociados de Bria en ComfyUI para eliminar el fondo de imágenes y videos, usar pantalla verde y reemplazar fondos.
+Elimina el fondo de imágenes y videos en ComfyUI con los Nodos asociados de Bria: eliminación guiada, video transparente, pantalla verde y reemplazo.
 
 Copiar páginaCopiar página
 

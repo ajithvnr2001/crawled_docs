@@ -1,7 +1,7 @@
 {
   "url": "https://docs.comfy.org/es/custom-nodes/js/context-menu-migration/",
   "file": "es/custom-nodes/js/context-menu-migration.md",
-  "title": "Gu\u00eda de migraci\u00f3n del men\u00fa contextual - ComfyUI",
+  "title": "Migrar a la API del men\u00fa contextual en ComfyUI: lienzo y nodos - ComfyUI",
   "method": "scrapling+scrapegraph",
-  "fetched_at": "2026-11-03T14:55:25.051883+00:00"
+  "fetched_at": "2026-11-08T14:09:44.581515+00:00"
 }

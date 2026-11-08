@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/es/development/comfy-router/headers/
 title: Encabezados de Comfy Router - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-26T14:02:54.159433+00:00
+fetched_at: 2026-11-08T14:09:44.448988+00:00
 ---
 
 # Encabezados de Comfy Router - ComfyUI
@@ -26,7 +26,7 @@ Referencia
 
 Copiar páginaCopiar página
 
-Encabezados de solicitud y respuesta de Comfy Router para cada modelo: autenticación, idempotencia, IDs de solicitud, límites de reintento y gasto.
+Encabezados de solicitud y respuesta de Comfy Router: autenticación, idempotencia, IDs de solicitud, buckets de error, ritmo de reintentos y límite de gasto.
 
 Copiar páginaCopiar página
 

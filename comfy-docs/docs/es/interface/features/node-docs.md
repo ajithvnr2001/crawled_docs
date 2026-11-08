@@ -1,11 +1,11 @@
 ---
 url: https://docs.comfy.org/es/interface/features/node-docs/
-title: Documentaci\u00f3n de nodos - Consulta la documentaci\u00f3n de cualquier nodo - ComfyUI
+title: Documentaci\u00f3n de nodos de ComfyUI: ayuda integrada para cualquier nodo - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-26T14:03:29.112588+00:00
+fetched_at: 2026-11-08T14:09:42.548679+00:00
 ---
 
-# Documentación de nodos - Consulta la documentación de cualquier nodo - ComfyUI
+# Documentación de nodos de ComfyUI: ayuda integrada para cualquier nodo - ComfyUI
 
 > Source: https://docs.comfy.org/es/interface/features/node-docs/
 
@@ -21,11 +21,11 @@ Volver arriba
 
 Componentes de funciones
 
-# Documentación de nodos - Consulta la documentación de cualquier nodo
+# Documentación de nodos de ComfyUI: ayuda integrada para cualquier nodo
 
 Copiar páginaCopiar página
 
-Aprende a acceder a la documentación integrada de los nodos en ComfyUI, incluidos los nodos integrados y los personalizados.
+Abre la documentación de cualquier nodo de ComfyUI desde la caja de herramientas o la pestaña Info, y añade docs a tus nodos personalizados.
 
 Copiar páginaCopiar página
 

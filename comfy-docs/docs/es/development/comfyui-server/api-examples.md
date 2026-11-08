@@ -1,11 +1,11 @@
 ---
 url: https://docs.comfy.org/es/development/comfyui-server/api-examples/
-title: Ejemplos de API - ComfyUI
+title: Ejemplos de la API de ComfyUI Server: HTTP, WebSocket e historial - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-11-03T14:55:27.189066+00:00
+fetched_at: 2026-11-08T14:09:42.975354+00:00
 ---
 
-# Ejemplos de API - ComfyUI
+# Ejemplos de la API de ComfyUI Server: HTTP, WebSocket e historial - ComfyUI
 
 > Source: https://docs.comfy.org/es/development/comfyui-server/api-examples/
 
@@ -22,11 +22,11 @@ Volver arriba
 
 Self-Hosted Server API
 
-# Ejemplos de API
+# Ejemplos de la API de ComfyUI Server: HTTP, WebSocket e historial
 
 Copiar páginaCopiar página
 
-Tres patrones comunes para llamar a la API de ComfyUI Server
+Tres patrones en Python para la API de ComfyUI Server: enviar sin esperar, supervisar con WebSocket e historial, y recibir imágenes en tiempo real.
 
 Copiar páginaCopiar página
 

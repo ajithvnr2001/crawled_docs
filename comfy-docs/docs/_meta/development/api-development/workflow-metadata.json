@@ -1,10 +1,7 @@
 {
   "url": "https://docs.comfy.org/development/api-development/workflow-metadata/",
   "file": "development/api-development/workflow-metadata.md",
-  "title": "Workflow Metadata - ComfyUI",
+  "title": "ComfyUI Workflow Metadata in Output Files - ComfyUI",
   "method": "scrapling+scrapegraph",
-  "fetched_at": "2026-10-17T10:49:42.507030+00:00",
-  "html_len": 461424,
-  "md_len": 7369,
-  "depth": 0
+  "fetched_at": "2026-11-08T14:09:43.706530+00:00"
 }

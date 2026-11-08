@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/es/development/serverless/overview/
 title: Gu\u00eda de despliegue de Comfy API - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-11-03T14:55:27.094740+00:00
+fetched_at: 2026-11-08T14:09:42.773916+00:00
 ---
 
 # Guía de despliegue de Comfy API - ComfyUI
@@ -32,7 +32,7 @@ API de Comfy
 
 Copiar páginaCopiar página
 
-Administra compilaciones, versiones, despliegues, escalado, facturación y solución de problemas de Comfy API.
+Despliega flujos de ComfyUI en endpoints GPU: Builds, versiones, regiones, escalado de workers, límites del espacio de trabajo y monitorización del despliegue.
 
 Copiar páginaCopiar página
 

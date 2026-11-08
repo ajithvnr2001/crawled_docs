@@ -1,15 +1,17 @@
 ---
 url: https://docs.comfy.org/development/comfyui-server/startup-flags/
-title: Startup Flags - ComfyUI
+title: ComfyUI Startup Flags: Command-Line Reference - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T11:54:46.857230+00:00
+fetched_at: 2026-11-08T14:09:44.157475+00:00
 ---
 
-# Startup Flags - ComfyUI
+# ComfyUI Startup Flags: Command-Line Reference - ComfyUI
 
 > Source: https://docs.comfy.org/development/comfyui-server/startup-flags/
 
 ## On this page
+
+Back to top
 
   * Network & Server
   * Directories
@@ -35,7 +37,7 @@ fetched_at: 2026-10-24T11:54:46.857230+00:00
 
 Self-Hosted Server API
 
-# Startup Flags
+# ComfyUI Startup Flags: Command-Line Reference
 
 Copy pageCopy page
 
@@ -400,6 +402,7 @@ Flag| Default| Description
 `--verbose` `[LEVEL] [FILE]`| `INFO`| Logging level. Choices: `DEBUG`, `DETAIL`, `INFO`, `WARNING`, `ERROR`, `CRITICAL`. `--verbose` alone sets `DEBUG`. Add a level followed by a file path to write that level to a file as well; the flag can be repeated to configure the console and file outputs together.  
 `--log-stdout`| disabled| Send normal process output to stdout instead of stderr.  
 `--dont-print-server`| disabled| Do not print server output to the console.  
+`--disable-product-tips`| disabled| Hide the console tips about Comfy-Org commercial products and deployments. Same as setting `COMFYUI_DISABLE_PRODUCT_TIPS=1`. Tips are also skipped with `CI`, `--dont-print-server`, or `--windows-standalone-build`.  
 `--multi-user`| disabled| Enable per-user storage.  
 `--quick-test-for-ci`| disabled| Quick startup test for CI. Exits immediately after initialization.  
   
@@ -413,4 +416,4 @@ YesNo
 
 [Suggest edits](https://github.com/comfy-org/docs/edit/main/development/comfyui-server/startup-flags.mdx)[Raise issue](https://github.com/comfy-org/docs/issues/new?title=Issue%20on%20docs&body=Path:%20/development/comfyui-server/startup-flags)
 
-[WebSocket messages](https://docs.comfy.org/development/comfyui-server/comms_messages)[Partner Node authentication](https://docs.comfy.org/development/comfyui-server/api-key-integration)
+[WebSocket messages](https://docs.comfy.org/development/comfyui-server/comms_messages)[API Key Integration](https://docs.comfy.org/development/comfyui-server/api-key-integration)

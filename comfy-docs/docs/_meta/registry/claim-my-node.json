@@ -1,10 +1,7 @@
 {
   "url": "https://docs.comfy.org/registry/claim-my-node/",
   "file": "registry/claim-my-node.md",
-  "title": "Claim My Node - ComfyUI",
+  "title": "Claim a Custom Node on the Comfy Registry - ComfyUI",
   "method": "scrapling+scrapegraph",
-  "fetched_at": "2026-10-17T10:51:12.401990+00:00",
-  "html_len": 408830,
-  "md_len": 6774,
-  "depth": 0
+  "fetched_at": "2026-11-08T14:09:48.089493+00:00"
 }

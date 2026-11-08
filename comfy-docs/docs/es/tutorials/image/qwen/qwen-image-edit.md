@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/es/tutorials/image/qwen/qwen-image-edit/
 title: Ejemplo de flujo de trabajo nativo de ComfyUI para Qwen-Image-Edit - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-11-03T14:55:30.333434+00:00
+fetched_at: 2026-11-08T14:09:45.207202+00:00
 ---
 
 # Ejemplo de flujo de trabajo nativo de ComfyUI para Qwen-Image-Edit - ComfyUI
@@ -30,7 +30,7 @@ Qwen
 
 Copiar páginaCopiar página
 
-Qwen-Image-Edit es la versión de edición de Qwen-Image, entrenada sobre el modelo de 20B, con edición precisa de texto y edición semántica y de apariencia.
+Qwen-Image-Edit es la versión de edición de Qwen-Image, un modelo de 20B con edición precisa de texto y edición semántica y de apariencia.
 
 Copiar páginaCopiar página
 

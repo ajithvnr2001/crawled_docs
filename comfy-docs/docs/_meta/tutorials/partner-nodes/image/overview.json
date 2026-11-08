@@ -1,10 +1,7 @@
 {
   "url": "https://docs.comfy.org/tutorials/partner-nodes/image/overview/",
   "file": "tutorials/partner-nodes/image/overview.md",
-  "title": "Image Models - ComfyUI",
+  "title": "Image Models in ComfyUI: Text-to-Image, Editing, and Upscaling - ComfyUI",
   "method": "scrapling+scrapegraph",
-  "fetched_at": "2026-10-17T10:51:32.044408+00:00",
-  "html_len": 565248,
-  "md_len": 10225,
-  "depth": 0
+  "fetched_at": "2026-11-08T14:09:47.555452+00:00"
 }

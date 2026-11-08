@@ -1,11 +1,11 @@
 ---
 url: https://docs.comfy.org/es/tutorials/audio/ace-step/ace-step-v1/
-title: Ejemplo nativo de ACE-Step en ComfyUI - ComfyUI
+title: ACE-Step 1.0 en ComfyUI: texto a m\u00fasica y edici\u00f3n de audio - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-11-03T14:55:29.208553+00:00
+fetched_at: 2026-11-08T14:09:46.635477+00:00
 ---
 
-# Ejemplo nativo de ACE-Step en ComfyUI - ComfyUI
+# ACE-Step 1.0 en ComfyUI: texto a música y edición de audio - ComfyUI
 
 > Source: https://docs.comfy.org/es/tutorials/audio/ace-step/ace-step-v1/
 
@@ -36,11 +36,11 @@ Volver arriba
 
 ACE-Step
 
-# Ejemplo nativo de ACE-Step en ComfyUI
+# ACE-Step 1.0 en ComfyUI: texto a música y edición de audio
 
 Copiar páginaCopiar página
 
-Generación de música con ACE-Step en ComfyUI: flujos de texto a música y edición musical con el modelo de código abierto Apache-2.0 de StepFun y ACE Studio.
+Genera música con el modelo ACE-Step 1.0 de 3.5B en ComfyUI a partir de etiquetas de estilo y letras, o edita una pista existente. Apache-2.0 y uso comercial.
 
 Copiar páginaCopiar página
 

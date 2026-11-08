@@ -1,11 +1,11 @@
 ---
 url: https://docs.comfy.org/es/tutorials/flux/flux-2-klein/
-title: Gu\u00eda de ComfyUI FLUX.2 Klein 4B - ComfyUI
+title: FLUX.2 Klein en ComfyUI: texto a imagen y edici\u00f3n r\u00e1pidos - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-11-03T14:55:30.017753+00:00
+fetched_at: 2026-11-08T14:09:46.126999+00:00
 ---
 
-# Guía de ComfyUI FLUX.2 Klein 4B - ComfyUI
+# FLUX.2 Klein en ComfyUI: texto a imagen y edición rápidos - ComfyUI
 
 > Source: https://docs.comfy.org/es/tutorials/flux/flux-2-klein/
 
@@ -29,11 +29,11 @@ Volver arriba
 
 FLUX
 
-# Guía de ComfyUI FLUX.2 Klein 4B
+# FLUX.2 Klein en ComfyUI: texto a imagen y edición rápidos
 
 Copiar páginaCopiar página
 
-Introducción rápida a FLUX.2 [klein] 4B y cómo ejecutar flujos de trabajo de texto a imagen y edición de imágenes en ComfyUI.
+Ejecuta FLUX.2 Klein 4B en ComfyUI para texto a imagen y edición con varias imágenes de referencia; la variante destilada tarda alrededor de un segundo.
 
 Copiar páginaCopiar página
 

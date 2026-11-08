@@ -1,11 +1,11 @@
 ---
 url: https://docs.comfy.org/es/tutorials/partner-nodes/tripo/tripo-3-1/
-title: Tripo 3.1: gu\u00eda oficial de generaci\u00f3n de recursos 3D de alto detalle en ComfyUI - ComfyUI
+title: Tripo 3.1 en ComfyUI: generaci\u00f3n de recursos 3D de alto detalle - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-26T14:03:56.043240+00:00
+fetched_at: 2026-11-08T14:09:45.367573+00:00
 ---
 
-# Tripo 3.1: guía oficial de generación de recursos 3D de alto detalle en ComfyUI - ComfyUI
+# Tripo 3.1 en ComfyUI: generación de recursos 3D de alto detalle - ComfyUI
 
 > Source: https://docs.comfy.org/es/tutorials/partner-nodes/tripo/tripo-3-1/
 
@@ -24,7 +24,7 @@ Volver arriba
 
 Tripo
 
-# Tripo 3.1: guía oficial de generación de recursos 3D de alto detalle en ComfyUI
+# Tripo 3.1 en ComfyUI: generación de recursos 3D de alto detalle
 
 Copiar páginaCopiar página
 

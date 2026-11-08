@@ -1,11 +1,11 @@
 ---
 url: https://docs.comfy.org/es/tutorials/utility/marigold-v2/
-title: Gu\u00eda de estimaci\u00f3n de profundidad, normales y albedo con Marigold V2 en ComfyUI - ComfyUI
+title: Marigold V2 en ComfyUI: profundidad, normales y albedo - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-11-03T14:55:32.677169+00:00
+fetched_at: 2026-11-08T14:09:44.943490+00:00
 ---
 
-# Guía de estimación de profundidad, normales y albedo con Marigold V2 en ComfyUI - ComfyUI
+# Marigold V2 en ComfyUI: profundidad, normales y albedo - ComfyUI
 
 > Source: https://docs.comfy.org/es/tutorials/utility/marigold-v2/
 
@@ -29,7 +29,7 @@ Volver arriba
 
 Depth & 3D
 
-# Guía de estimación de profundidad, normales y albedo con Marigold V2 en ComfyUI
+# Marigold V2 en ComfyUI: profundidad, normales y albedo
 
 Copiar páginaCopiar página
 

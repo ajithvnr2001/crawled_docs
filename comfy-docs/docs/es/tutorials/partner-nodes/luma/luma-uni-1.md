@@ -1,11 +1,11 @@
 ---
 url: https://docs.comfy.org/es/tutorials/partner-nodes/luma/luma-uni-1/
-title: Gu\u00eda de Luma Uni-1 - ComfyUI
+title: Luma Uni-1 en ComfyUI: flujos de creaci\u00f3n y edici\u00f3n de im\u00e1genes - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-11-03T14:55:31.761893+00:00
+fetched_at: 2026-11-08T14:09:47.443891+00:00
 ---
 
-# Guía de Luma Uni-1 - ComfyUI
+# Luma Uni-1 en ComfyUI: flujos de creación y edición de imágenes - ComfyUI
 
 > Source: https://docs.comfy.org/es/tutorials/partner-nodes/luma/luma-uni-1/
 
@@ -40,11 +40,11 @@ Volver arriba
 
 Luma
 
-# Guía de Luma Uni-1
+# Luma Uni-1 en ComfyUI: flujos de creación y edición de imágenes
 
 Copiar páginaCopiar página
 
-Usa los nodos asociados de Luma Uni-1 en ComfyUI para flujos de trabajo de imagen de Create y Modify.
+Genera imágenes nuevas o edita una existente con los nodos Luma Uni-1 en ComfyUI: modos Create y Modify, hasta 9 imágenes de referencia y nueve proporciones.
 
 Copiar páginaCopiar página
 

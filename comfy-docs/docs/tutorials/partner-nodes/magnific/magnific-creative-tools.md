@@ -1,15 +1,17 @@
 ---
 url: https://docs.comfy.org/tutorials/partner-nodes/magnific/magnific-creative-tools/
-title: Magnific Creative Tools | ComfyUI Partner Nodes - ComfyUI
+title: Magnific Creative Tools in ComfyUI: Style Transfer and Relighting - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-25T12:24:49.820940+00:00
+fetched_at: 2026-11-08T14:09:49.174428+00:00
 ---
 
-# Magnific Creative Tools | ComfyUI Partner Nodes - ComfyUI
+# Magnific Creative Tools in ComfyUI: Style Transfer and Relighting - ComfyUI
 
 > Source: https://docs.comfy.org/tutorials/partner-nodes/magnific/magnific-creative-tools/
 
 ## On this page
+
+Back to top
 
   * Key capabilities
   * Available workflows
@@ -21,11 +23,11 @@ fetched_at: 2026-10-25T12:24:49.820940+00:00
 
 Magnific
 
-# Magnific Creative Tools | ComfyUI Partner Nodes
+# Magnific Creative Tools in ComfyUI: Style Transfer and Relighting
 
 Copy pageCopy page
 
-Learn how to use Magnific Creative Tools in ComfyUI for Style Transfer, Relighting, and Skin Enhancement.
+Apply Magnific Style Transfer, Relight, and Skin Enhancer in ComfyUI to restyle an image, match new lighting, and retouch portraits.
 
 Copy pageCopy page
 

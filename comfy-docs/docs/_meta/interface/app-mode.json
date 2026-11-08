@@ -1,10 +1,7 @@
 {
   "url": "https://docs.comfy.org/interface/app-mode/",
   "file": "interface/app-mode.md",
-  "title": "ComfyUI APP mode guide - ComfyUI",
+  "title": "ComfyUI APP Mode: Custom Input and Output Interfaces - ComfyUI",
   "method": "scrapling+scrapegraph",
-  "fetched_at": "2026-10-17T10:50:59.701071+00:00",
-  "html_len": 561073,
-  "md_len": 10536,
-  "depth": 0
+  "fetched_at": "2026-11-08T14:09:45.921242+00:00"
 }

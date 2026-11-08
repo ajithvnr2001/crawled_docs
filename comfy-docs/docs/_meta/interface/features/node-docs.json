@@ -1,10 +1,7 @@
 {
   "url": "https://docs.comfy.org/interface/features/node-docs/",
   "file": "interface/features/node-docs.md",
-  "title": "Node docs - View documentation for any node - ComfyUI",
+  "title": "ComfyUI Node Docs: In-App Help for Any Node - ComfyUI",
   "method": "scrapling+scrapegraph",
-  "fetched_at": "2026-10-17T10:51:00.688591+00:00",
-  "html_len": 459442,
-  "md_len": 4249,
-  "depth": 0
+  "fetched_at": "2026-11-08T14:09:44.643923+00:00"
 }

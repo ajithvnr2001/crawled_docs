@@ -1,10 +1,7 @@
 {
   "url": "https://docs.comfy.org/tutorials/video/wan/wan-alpha/",
   "file": "tutorials/video/wan/wan-alpha.md",
-  "title": "Wan-Alpha Tutorial - ComfyUI",
+  "title": "Wan-Alpha in ComfyUI: Transparent Video Generation - ComfyUI",
   "method": "scrapling+scrapegraph",
-  "fetched_at": "2026-10-17T10:51:46.137142+00:00",
-  "html_len": 517433,
-  "md_len": 7018,
-  "depth": 0
+  "fetched_at": "2026-11-08T14:09:47.733820+00:00"
 }

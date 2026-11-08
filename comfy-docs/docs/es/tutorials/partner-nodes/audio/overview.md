@@ -1,11 +1,11 @@
 ---
 url: https://docs.comfy.org/es/tutorials/partner-nodes/audio/overview/
-title: Modelos de audio - ComfyUI
+title: Modelos de audio en ComfyUI: m\u00fasica, efectos y voz - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-26T14:03:45.546683+00:00
+fetched_at: 2026-11-08T14:09:45.643403+00:00
 ---
 
-# Modelos de audio - ComfyUI
+# Modelos de audio en ComfyUI: música, efectos y voz - ComfyUI
 
 > Source: https://docs.comfy.org/es/tutorials/partner-nodes/audio/overview/
 
@@ -24,11 +24,11 @@ Volver arriba
 
 Audio
 
-# Modelos de audio
+# Modelos de audio en ComfyUI: música, efectos y voz
 
 Copiar páginaCopiar página
 
-Elige el modelo de audio adecuado para tu caso: texto a audio, música, voz, efectos de sonido y video a música
+Compara los modelos de audio alojados en ComfyUI de ByteDance, Mirelo, Sonilo y VEED para texto a audio, video a música, efectos de sonido y limpieza de audio.
 
 Copiar páginaCopiar página
 

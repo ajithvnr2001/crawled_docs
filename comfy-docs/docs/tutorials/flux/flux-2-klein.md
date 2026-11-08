@@ -1,15 +1,17 @@
 ---
 url: https://docs.comfy.org/tutorials/flux/flux-2-klein/
-title: ComfyUI FLUX.2 Klein 4B Guide - ComfyUI
+title: FLUX.2 Klein in ComfyUI: Fast Text-to-Image and Editing - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-17T10:51:19.994779+00:00
+fetched_at: 2026-11-08T14:09:48.010412+00:00
 ---
 
-# ComfyUI FLUX.2 Klein 4B Guide - ComfyUI
+# FLUX.2 Klein in ComfyUI: Fast Text-to-Image and Editing - ComfyUI
 
 > Source: https://docs.comfy.org/tutorials/flux/flux-2-klein/
 
 ## On this page
+
+Back to top
 
   * About FLUX.2 [klein]
   * FLUX.2 Klein 4B Workflows
@@ -27,11 +29,11 @@ fetched_at: 2026-10-17T10:51:19.994779+00:00
 
 FLUX
 
-# ComfyUI FLUX.2 Klein 4B Guide
+# FLUX.2 Klein in ComfyUI: Fast Text-to-Image and Editing
 
 Copy pageCopy page
 
-A quick introduction to FLUX.2 [klein] 4B and how to run text-to-image and image editing workflows in ComfyUI.
+Run FLUX.2 Klein 4B in ComfyUI for text-to-image and multi-reference image editing, with a distilled variant that finishes in about one second.
 
 Copy pageCopy page
 
@@ -320,26 +322,4 @@ YesNo
 
 [Suggest edits](https://github.com/comfy-org/docs/edit/main/tutorials/flux/flux-2-klein.mdx)[Raise issue](https://github.com/comfy-org/docs/issues/new?title=Issue%20on%20docs&body=Path:%20/tutorials/flux/flux-2-klein)
 
-[FLUX.2 Dev in ComfyUI: Text-to-Image and Product MockupsPrevious](https://docs.comfy.org/tutorials/flux/flux-2-dev)[FLUX 3 Image Klein in ComfyUI: Text-to-Image and EditNext](https://docs.comfy.org/tutorials/flux/flux-3-klein)
-
-⌘I
-
-[ComfyUI home page![light logo](https://mintcdn.com/dripart/WCFdTagRdhtvk9-o/logo/light.svg?fit=max&auto=format&n=WCFdTagRdhtvk9-o&q=85&s=ec112de87239058f5a931a7e4b594965)![dark logo](https://mintcdn.com/dripart/QzWbjSCBG7w61rR3/logo/dark.svg?fit=max&auto=format&n=QzWbjSCBG7w61rR3&q=85&s=62b4d879fb3aadbd7a468d1539032d6f)](https://docs.comfy.org/)
-
-[github](https://github.com/Comfy-Org/ComfyUI)[x](https://x.com/ComfyUI)[discord](https://discord.com/invite/comfyorg)[youtube](https://www.youtube.com/@comfyorg)
-
-Resources
-
-[installation](https://docs.comfy.org/installation/system_requirements)[Tutorials](https://docs.comfy.org/tutorials/basic/text-to-image)[Development](https://docs.comfy.org/development/overview)
-
-Products
-
-[Features](https://www.comfy.org/?utm_source=docs)[Gallery](https://www.comfy.org/gallery?utm_source=docs)[Download](https://www.comfy.org/download?utm_source=docs)
-
-Company
-
-[About](https://www.comfy.org/about?utm_source=docs)[Careers](https://www.comfy.org/careers?utm_source=docs)[Terms of Service](https://www.comfy.org/terms-of-service?utm_source=docs)[Privacy Policy](https://www.comfy.org/privacy-policy?utm_source=docs)
-
-[github](https://github.com/Comfy-Org/ComfyUI)[x](https://x.com/ComfyUI)[discord](https://discord.com/invite/comfyorg)[youtube](https://www.youtube.com/@comfyorg)
-
-[Powered byThis documentation is built and hosted on Mintlify, a developer documentation platform](https://www.mintlify.com?utm_campaign=poweredBy&utm_medium=referral&utm_source=dripart)
+[FLUX.2 Dev](https://docs.comfy.org/tutorials/flux/flux-2-dev)[FLUX.1 Krea Dev](https://docs.comfy.org/tutorials/flux/flux1-krea-dev)

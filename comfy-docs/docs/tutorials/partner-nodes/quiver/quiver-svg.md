@@ -1,15 +1,17 @@
 ---
 url: https://docs.comfy.org/tutorials/partner-nodes/quiver/quiver-svg/
-title: Quiver SVG | ComfyUI Partner Nodes - ComfyUI
+title: Quiver SVG in ComfyUI: Text-to-SVG and Image-to-SVG - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-25T12:24:50.341622+00:00
+fetched_at: 2026-11-08T14:09:49.412505+00:00
 ---
 
-# Quiver SVG | ComfyUI Partner Nodes - ComfyUI
+# Quiver SVG in ComfyUI: Text-to-SVG and Image-to-SVG - ComfyUI
 
 > Source: https://docs.comfy.org/tutorials/partner-nodes/quiver/quiver-svg/
 
 ## On this page
+
+Back to top
 
   * Key capabilities
   * Available workflows
@@ -20,11 +22,11 @@ fetched_at: 2026-10-25T12:24:50.341622+00:00
 
 Quiver
 
-# Quiver SVG | ComfyUI Partner Nodes
+# Quiver SVG in ComfyUI: Text-to-SVG and Image-to-SVG
 
 Copy pageCopy page
 
-Learn how to use Quiver SVG in ComfyUI for Text-to-SVG and Image-to-SVG vector graphics generation.
+Create editable SVG vector graphics in ComfyUI: describe an icon, logo, or illustration to generate it, or trace a PNG or JPG into scalable paths.
 
 Copy pageCopy page
 

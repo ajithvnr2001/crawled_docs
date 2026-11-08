@@ -1,11 +1,11 @@
 ---
 url: https://docs.comfy.org/es/interface/appearance/
-title: Personalizar la apariencia de ComfyUI - ComfyUI
+title: Apariencia de ComfyUI: temas y CSS personalizado - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-26T14:03:28.455026+00:00
+fetched_at: 2026-11-08T14:09:44.360895+00:00
 ---
 
-# Personalizar la apariencia de ComfyUI - ComfyUI
+# Apariencia de ComfyUI: temas y CSS personalizado - ComfyUI
 
 > Source: https://docs.comfy.org/es/interface/appearance/
 
@@ -41,11 +41,11 @@ Volver arriba
 
 Configuraciones de ComfyUI
 
-# Personalizar la apariencia de ComfyUI
+# Apariencia de ComfyUI: temas y CSS personalizado
 
 Copiar páginaCopiar página
 
-Aprende a personalizar la apariencia de ComfyUI con paletas de colores y opciones avanzadas de CSS
+Cambia los temas de ComfyUI con la paleta integrada, importa y exporta el JSON del tema y amplía la interfaz con el archivo user.css.
 
 Copiar páginaCopiar página
 

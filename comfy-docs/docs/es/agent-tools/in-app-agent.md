@@ -1,11 +1,11 @@
 ---
 url: https://docs.comfy.org/es/agent-tools/in-app-agent/
-title: Comfy Agent - ComfyUI
+title: Comfy Agent: crea y ejecuta flujos de trabajo de ComfyUI por chat - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-26T14:01:22.264230+00:00
+fetched_at: 2026-11-08T14:09:44.726116+00:00
 ---
 
-# Comfy Agent - ComfyUI
+# Comfy Agent: crea y ejecuta flujos de trabajo de ComfyUI por chat - ComfyUI
 
 > Source: https://docs.comfy.org/es/agent-tools/in-app-agent/
 
@@ -34,7 +34,7 @@ Volver arriba
 
 Comfy Agent
 
-# Comfy Agent
+# Comfy Agent: crea y ejecuta flujos de trabajo de ComfyUI por chat
 
 Copiar páginaCopiar página
 

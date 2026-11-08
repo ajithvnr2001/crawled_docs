@@ -1,7 +1,7 @@
 {
   "url": "https://docs.comfy.org/es/custom-nodes/backend/lazy_evaluation/",
   "file": "es/custom-nodes/backend/lazy_evaluation.md",
-  "title": "Evaluaci\u00f3n diferida - ComfyUI",
+  "title": "Evaluaci\u00f3n diferida en nodos personalizados de ComfyUI - ComfyUI",
   "method": "scrapling+scrapegraph",
-  "fetched_at": "2026-11-03T14:55:23.663269+00:00"
+  "fetched_at": "2026-11-08T14:09:44.022036+00:00"
 }

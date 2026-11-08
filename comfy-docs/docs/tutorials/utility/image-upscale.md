@@ -1,11 +1,11 @@
 ---
 url: https://docs.comfy.org/tutorials/utility/image-upscale/
-title: Image upscaling in ComfyUI - ComfyUI
+title: Image Upscaling in ComfyUI: Local Models and Partner Nodes - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-26T14:04:09.728082+00:00
+fetched_at: 2026-11-08T14:09:48.928860+00:00
 ---
 
-# Image upscaling in ComfyUI - ComfyUI
+# Image Upscaling in ComfyUI: Local Models and Partner Nodes - ComfyUI
 
 > Source: https://docs.comfy.org/tutorials/utility/image-upscale/
 
@@ -35,11 +35,11 @@ Back to top
 
 Upscale & Restore
 
-# Image upscaling in ComfyUI
+# Image Upscaling in ComfyUI: Local Models and Partner Nodes
 
 Copy pageCopy page
 
-Learn how to upscale images in ComfyUI using local models and partner nodes for different use cases
+Upscale images in ComfyUI with local ESRGAN or Z-Image-Turbo upscalers, or SeedVR2, Topaz, HitPaw, and Magnific Precise and Creative partner nodes.
 
 Copy pageCopy page
 

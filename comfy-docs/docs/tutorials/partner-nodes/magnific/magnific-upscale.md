@@ -1,15 +1,17 @@
 ---
 url: https://docs.comfy.org/tutorials/partner-nodes/magnific/magnific-upscale/
-title: Magnific Upscale | ComfyUI Partner Nodes - ComfyUI
+title: Magnific Upscale in ComfyUI: Precise and Creative Image Upscaling - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-25T12:24:49.863354+00:00
+fetched_at: 2026-11-08T14:09:49.099880+00:00
 ---
 
-# Magnific Upscale | ComfyUI Partner Nodes - ComfyUI
+# Magnific Upscale in ComfyUI: Precise and Creative Image Upscaling - ComfyUI
 
 > Source: https://docs.comfy.org/tutorials/partner-nodes/magnific/magnific-upscale/
 
 ## On this page
+
+Back to top
 
   * Key capabilities
   * Available workflows
@@ -20,11 +22,11 @@ fetched_at: 2026-10-25T12:24:49.863354+00:00
 
 Magnific
 
-# Magnific Upscale | ComfyUI Partner Nodes
+# Magnific Upscale in ComfyUI: Precise and Creative Image Upscaling
 
 Copy pageCopy page
 
-Learn how to use Magnific Upscale in ComfyUI for Precise and Creative image upscaling up to 16x magnification.
+Enlarge images in ComfyUI with Magnific Precise mode for faithful detail, or Creative mode for up to 16x magnification, with a Creativity slider for new detail.
 
 Copy pageCopy page
 

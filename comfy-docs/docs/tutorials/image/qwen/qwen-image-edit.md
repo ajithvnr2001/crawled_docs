@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/tutorials/image/qwen/qwen-image-edit/
 title: Qwen-Image-Edit ComfyUI Native Workflow Example - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-26T14:04:09.817474+00:00
+fetched_at: 2026-11-08T14:09:48.420729+00:00
 ---
 
 # Qwen-Image-Edit ComfyUI Native Workflow Example - ComfyUI
@@ -30,7 +30,7 @@ Qwen
 
 Copy pageCopy page
 
-Qwen-Image-Edit is the image editing version of Qwen-Image, further trained based on the 20B model, supporting precise text editing and dual semantic/appearance editing capabilities.
+Qwen-Image-Edit is the image editing version of Qwen-Image, a 20B model that supports precise text editing plus semantic and appearance editing.
 
 Copy pageCopy page
 

@@ -1,11 +1,11 @@
 ---
 url: https://docs.comfy.org/es/interface/app-mode/
-title: Modo aplicaci\u00f3n de ComfyUI: crea y comparte flujos de trabajo - ComfyUI
+title: Modo APP de ComfyUI: interfaces de entrada y salida personalizadas - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-26T14:03:28.353686+00:00
+fetched_at: 2026-11-08T14:09:41.556061+00:00
 ---
 
-# Modo aplicación de ComfyUI: crea y comparte flujos de trabajo - ComfyUI
+# Modo APP de ComfyUI: interfaces de entrada y salida personalizadas - ComfyUI
 
 > Source: https://docs.comfy.org/es/interface/app-mode/
 
@@ -28,11 +28,11 @@ Volver arriba
 
 Componentes de funciones
 
-# Modo aplicación de ComfyUI: crea y comparte flujos de trabajo
+# Modo APP de ComfyUI: interfaces de entrada y salida personalizadas
 
 Copiar páginaCopiar página
 
-Aprende a crear y usar el modo aplicación de ComfyUI: define entradas y salidas personalizadas para simplificar el uso del flujo.
+Convierte un flujo de ComfyUI en un formulario: elige las entradas y salidas visibles, previsualiza, define una vista predeterminada y guárdalo o compártelo.
 
 Copiar páginaCopiar página
 

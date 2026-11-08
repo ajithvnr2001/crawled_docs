@@ -1,15 +1,17 @@
 ---
 url: https://docs.comfy.org/tutorials/partner-nodes/elevenlabs/eleven-multilingual-v2/
-title: ElevenLabs Text-to-Speech \u2014 Multilingual v2 / v3 / Flash v2.5 - ComfyUI
+title: ElevenLabs Text to Speech in ComfyUI: v3, Multilingual v2, Flash v2.5 - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-25T12:24:49.387841+00:00
+fetched_at: 2026-11-08T14:09:49.241359+00:00
 ---
 
-# ElevenLabs Text-to-Speech — Multilingual v2 / v3 / Flash v2.5 - ComfyUI
+# ElevenLabs Text to Speech in ComfyUI: v3, Multilingual v2, Flash v2.5 - ComfyUI
 
 > Source: https://docs.comfy.org/tutorials/partner-nodes/elevenlabs/eleven-multilingual-v2/
 
 ## On this page
+
+Back to top
 
   * Key capabilities
   * Available workflows
@@ -18,11 +20,11 @@ fetched_at: 2026-10-25T12:24:49.387841+00:00
 
 ElevenLabs
 
-# ElevenLabs Text-to-Speech — Multilingual v2 / v3 / Flash v2.5
+# ElevenLabs Text to Speech in ComfyUI: v3, Multilingual v2, Flash v2.5
 
 Copy pageCopy page
 
-Generate lifelike, emotionally expressive speech from text using ElevenLabs’ TTS models in ComfyUI.
+Generate expressive speech in ComfyUI with ElevenLabs: Eleven v3 for emotional delivery, Multilingual v2 across 29 languages, and Flash v2.5 for low latency.
 
 Copy pageCopy page
 

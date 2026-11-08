@@ -1,11 +1,11 @@
 ---
 url: https://docs.comfy.org/es/registry/publishing/
-title: Publicar nodos - ComfyUI
+title: Publicar nodos personalizados en Comfy Registry - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-26T14:03:38.741501+00:00
+fetched_at: 2026-11-08T14:09:43.910464+00:00
 ---
 
-# Publicar nodos - ComfyUI
+# Publicar nodos personalizados en Comfy Registry - ComfyUI
 
 > Source: https://docs.comfy.org/es/registry/publishing/
 
@@ -27,7 +27,7 @@ Volver arriba
 
 Package & Publish
 
-# Publicar nodos
+# Publicar nodos personalizados en Comfy Registry
 
 Copiar páginaCopiar página
 
@@ -213,4 +213,4 @@ SíNo
 
 [Sugerir cambios](https://github.com/comfy-org/docs/edit/main/es/registry/publishing.mdx)[Reportar problema](https://github.com/comfy-org/docs/issues/new?title=Issue%20on%20docs&body=Path:%20/es/registry/publishing)
 
-[Descripción general del Registry](https://docs.comfy.org/es/registry/overview)[Reclamar mi nodo](https://docs.comfy.org/es/registry/claim-my-node)
+[Descripción general del Registry](https://docs.comfy.org/es/registry/overview)[Reclamar nodo](https://docs.comfy.org/es/registry/claim-my-node)

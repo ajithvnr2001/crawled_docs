@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/tutorials/partner-nodes/bria/background-removal/
 title: Bria Background Removal in ComfyUI - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-17T10:51:26.331730+00:00
+fetched_at: 2026-11-08T14:09:48.182607+00:00
 ---
 
 # Bria Background Removal in ComfyUI - ComfyUI
@@ -11,9 +11,12 @@ fetched_at: 2026-10-17T10:51:26.331730+00:00
 
 ## On this page
 
+Back to top
+
   * What Bria Background Removal is good at
   * Example outputs
     * Bria: Remove Image Background
+    * Bria: Guided Remove Background
   * Video Background Processing
     * Bria: Remove Video Background
     * Bria: Remove Video Background (Transparent)
@@ -28,11 +31,11 @@ Bria
 
 Copy pageCopy page
 
-Learn how to use Bria Partner Nodes in ComfyUI for image and video background removal, green screen, and background replacement.
+Remove backgrounds from images and video in ComfyUI with Bria Partner Nodes, including guided removal, transparent video, green screen, and replacement.
 
 Copy pageCopy page
 
-Bria’s AI background processing models are now available in ComfyUI through Partner Nodes. This page covers **Image Background Removal** , **Video Background Removal** , **Transparent Video Background** , **Video Green Screen** , and **Video Background Replacement**.
+Bria’s AI background processing models are now available in ComfyUI through Partner Nodes. This page covers **Image Background Removal** , **Guided Image Background Removal** , **Video Background Removal** , **Transparent Video Background** , **Video Green Screen** , and **Video Background Replacement**.
 
 ## 
 
@@ -41,6 +44,7 @@ Bria’s AI background processing models are now available in ComfyUI through Pa
 What Bria Background Removal is good at
 
   * **Image background removal** : Automatically removes an image’s background and returns the result with a transparent background
+  * **Guided image background removal** : Keeps the subject a prompt describes and removes the rest, so one subject can be cut out of a busy scene instead of keeping everything that is not background
   * **Video background removal** : Replaces a video’s background with a solid color of your choice, or outputs the video with transparency
   * **Video green screen** : Applies a professional chroma-key green or blue screen effect, with presets including broadcast_green, chroma_green, and blue_screen
   * **Video background replacement** : Replaces a video’s background with a custom image or another video
@@ -104,6 +108,30 @@ Download JSON or search “Bria: Remove Image Background” in Template Library
 `LoadImage` node 26 · `denim_girl.png`
 
 ![Input image](https://raw.githubusercontent.com/Comfy-Org/workflow_templates/main/input/denim_girl.png)![Bria: Remove Image Background example output](https://raw.githubusercontent.com/Comfy-Org/workflow_templates/main/output/utility_bria_remove_image_background.png)
+
+### 
+
+​
+
+Bria: Guided Remove Background
+
+Remove an image’s background while keeping what a prompt describes. Instead of keeping everything that is not background, the node narrows the cutout to the subject you name, which is how one person or object comes out of a busy scene intact. The original pixels come back at full resolution with a new alpha channel. ![Bria: Guided Remove Background workflow preview](https://raw.githubusercontent.com/Comfy-Org/workflow_templates/main/templates/api_bria_guided_remove_background-1.webp)
+
+## Run on Comfy Cloud
+
+Open in Comfy Cloud
+
+## Download Workflow
+
+Download JSON or search “Bria: Guided Background Removal” in Template Library
+
+**Input materials** Upload this file to the matching `LoadImage` node:
+
+## bria_guided_person.png
+
+Load into the `LoadImage` node
+
+The `prompt` names what stays, for example `the man in the blue shirt` or `only the shoes`. A prompt that matches nothing returns a fully transparent image. `moderation` on exposes separate visual input and output toggles; off skips them. For a plain cutout with no guidance, use **Bria: Remove Image Background** above.
 
 ## 
 
@@ -213,26 +241,4 @@ YesNo
 
 [Suggest edits](https://github.com/comfy-org/docs/edit/main/tutorials/partner-nodes/bria/background-removal.mdx)[Raise issue](https://github.com/comfy-org/docs/issues/new?title=Issue%20on%20docs&body=Path:%20/tutorials/partner-nodes/bria/background-removal)
 
-[Beeble SwitchX in ComfyUI: Relighting and Environment EditingPrevious](https://docs.comfy.org/tutorials/partner-nodes/beeble/beeble-switchx)[Bria FIBO in ComfyUI: JSON-Prompt Image Editing and OutpaintingNext](https://docs.comfy.org/tutorials/partner-nodes/bria/fibo)
-
-⌘I
-
-[ComfyUI home page![light logo](https://mintcdn.com/dripart/WCFdTagRdhtvk9-o/logo/light.svg?fit=max&auto=format&n=WCFdTagRdhtvk9-o&q=85&s=ec112de87239058f5a931a7e4b594965)![dark logo](https://mintcdn.com/dripart/QzWbjSCBG7w61rR3/logo/dark.svg?fit=max&auto=format&n=QzWbjSCBG7w61rR3&q=85&s=62b4d879fb3aadbd7a468d1539032d6f)](https://docs.comfy.org/)
-
-[github](https://github.com/Comfy-Org/ComfyUI)[x](https://x.com/ComfyUI)[discord](https://discord.com/invite/comfyorg)[youtube](https://www.youtube.com/@comfyorg)
-
-Resources
-
-[installation](https://docs.comfy.org/installation/system_requirements)[Tutorials](https://docs.comfy.org/tutorials/basic/text-to-image)[Development](https://docs.comfy.org/development/overview)
-
-Products
-
-[Features](https://www.comfy.org/?utm_source=docs)[Gallery](https://www.comfy.org/gallery?utm_source=docs)[Download](https://www.comfy.org/download?utm_source=docs)
-
-Company
-
-[About](https://www.comfy.org/about?utm_source=docs)[Careers](https://www.comfy.org/careers?utm_source=docs)[Terms of Service](https://www.comfy.org/terms-of-service?utm_source=docs)[Privacy Policy](https://www.comfy.org/privacy-policy?utm_source=docs)
-
-[github](https://github.com/Comfy-Org/ComfyUI)[x](https://x.com/ComfyUI)[discord](https://discord.com/invite/comfyorg)[youtube](https://www.youtube.com/@comfyorg)
-
-[Powered byThis documentation is built and hosted on Mintlify, a developer documentation platform](https://www.mintlify.com?utm_campaign=poweredBy&utm_medium=referral&utm_source=dripart)
+[Image Editing](https://docs.comfy.org/tutorials/partner-nodes/bria/image-editing)[FIBO 2.0](https://docs.comfy.org/tutorials/partner-nodes/bria/fibo)

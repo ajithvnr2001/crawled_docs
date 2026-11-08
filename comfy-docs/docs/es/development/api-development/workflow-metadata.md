@@ -1,11 +1,11 @@
 ---
 url: https://docs.comfy.org/es/development/api-development/workflow-metadata/
-title: Metadatos de flujos de trabajo - ComfyUI
+title: Metadatos de flujos de trabajo en archivos de salida de ComfyUI - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-26T14:02:52.645752+00:00
+fetched_at: 2026-11-08T14:09:41.815474+00:00
 ---
 
-# Metadatos de flujos de trabajo - ComfyUI
+# Metadatos de flujos de trabajo en archivos de salida de ComfyUI - ComfyUI
 
 > Source: https://docs.comfy.org/es/development/api-development/workflow-metadata/
 
@@ -24,11 +24,11 @@ Volver arriba
 
 Ejecutar flujos de trabajo
 
-# Metadatos de flujos de trabajo
+# Metadatos de flujos de trabajo en archivos de salida de ComfyUI
 
 Copiar páginaCopiar página
 
-Aprende cómo ComfyUI incrusta flujos de trabajo en los archivos generados y cómo leer los metadatos incrustados
+Cómo ComfyUI incrusta el flujo de trabajo y el prompt de API en archivos PNG, WebP, MP4 y safetensors, cómo recuperar un flujo y cómo desactivarlo.
 
 Copiar páginaCopiar página
 

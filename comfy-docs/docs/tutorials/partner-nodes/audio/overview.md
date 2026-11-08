@@ -1,15 +1,17 @@
 ---
 url: https://docs.comfy.org/tutorials/partner-nodes/audio/overview/
-title: Audio Models - ComfyUI
+title: Audio Models in ComfyUI: Music, Sound Effects, and Speech - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T16:38:35.238282+00:00
+fetched_at: 2026-11-08T14:09:48.735286+00:00
 ---
 
-# Audio Models - ComfyUI
+# Audio Models in ComfyUI: Music, Sound Effects, and Speech - ComfyUI
 
 > Source: https://docs.comfy.org/tutorials/partner-nodes/audio/overview/
 
 ## On this page
+
+Back to top
 
   * Browse audio models
   * What you can do with audio models
@@ -22,11 +24,11 @@ fetched_at: 2026-10-23T16:38:35.238282+00:00
 
 Audio
 
-# Audio Models
+# Audio Models in ComfyUI: Music, Sound Effects, and Speech
 
 Copy pageCopy page
 
-Choose the right audio model for your use case: text-to-audio, music, speech, sound effects, and video-to-music
+Compare hosted audio models in ComfyUI from ByteDance, Mirelo, Sonilo, and VEED for text-to-audio, video-to-music, sound effects, and audio cleanup.
 
 Copy pageCopy page
 
@@ -116,4 +118,4 @@ YesNo
 
 [Suggest edits](https://github.com/comfy-org/docs/edit/main/tutorials/partner-nodes/audio/overview.mdx)[Raise issue](https://github.com/comfy-org/docs/issues/new?title=Issue%20on%20docs&body=Path:%20/tutorials/partner-nodes/audio/overview)
 
-[Model Generation](https://docs.comfy.org/tutorials/partner-nodes/tripo/model-generation)[Overview](https://docs.comfy.org/tutorials/partner-nodes/fishaudio/fish-audio)
+[Model Generation](https://docs.comfy.org/tutorials/partner-nodes/tripo/model-generation)[ElevenLabs](https://docs.comfy.org/tutorials/partner-nodes/elevenlabs/overview)

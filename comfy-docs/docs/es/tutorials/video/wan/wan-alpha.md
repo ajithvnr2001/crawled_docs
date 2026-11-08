@@ -1,11 +1,11 @@
 ---
 url: https://docs.comfy.org/es/tutorials/video/wan/wan-alpha/
-title: Tutorial de Wan-Alpha - ComfyUI
+title: Wan-Alpha en ComfyUI: generaci\u00f3n de v\u00eddeo con transparencia - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-26T14:04:00.699451+00:00
+fetched_at: 2026-11-08T14:09:47.211899+00:00
 ---
 
-# Tutorial de Wan-Alpha - ComfyUI
+# Wan-Alpha en ComfyUI: generación de vídeo con transparencia - ComfyUI
 
 > Source: https://docs.comfy.org/es/tutorials/video/wan/wan-alpha/
 
@@ -24,11 +24,11 @@ Volver arriba
 
 Wan2.1
 
-# Tutorial de Wan-Alpha
+# Wan-Alpha en ComfyUI: generación de vídeo con transparencia
 
 Copiar páginaCopiar página
 
-Aprende a generar videos con transparencia de canal alfa usando Wan-Alpha en ComfyUI
+Genera vídeos con transparencia de canal alfa en ComfyUI con Wan-Alpha, basado en Wan2.1-14B-T2V, para composición y efectos semitransparentes.
 
 Copiar páginaCopiar página
 

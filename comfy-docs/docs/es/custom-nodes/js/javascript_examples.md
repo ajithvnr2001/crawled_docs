@@ -1,11 +1,11 @@
 ---
 url: https://docs.comfy.org/es/custom-nodes/js/javascript_examples/
-title: Ejemplos anotados - ComfyUI
+title: Ejemplos de extensiones JavaScript de ComfyUI - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-11-03T14:55:24.258188+00:00
+fetched_at: 2026-11-08T14:09:42.195506+00:00
 ---
 
-# Ejemplos anotados - ComfyUI
+# Ejemplos de extensiones JavaScript de ComfyUI - ComfyUI
 
 > Source: https://docs.comfy.org/es/custom-nodes/js/javascript_examples/
 
@@ -26,11 +26,11 @@ Volver arriba
 
 JavaScript (UI)
 
-# Ejemplos anotados
+# Ejemplos de extensiones JavaScript de ComfyUI
 
 Copiar páginaCopiar página
 
-Explora ejemplos de JavaScript de Comfy para crear Nodos personalizados y Extensiones de UI. Fragmentos de código prácticos para interfaces web robustas.
+Ejemplos de JavaScript para nodos personalizados y extensiones de UI en ComfyUI: menús contextuales, submenús, eventos y hooks del flujo.
 
 Copiar páginaCopiar página
 
@@ -218,4 +218,4 @@ SíNo
 
 [Sugerir cambios](https://github.com/comfy-org/docs/edit/main/es/custom-nodes/js/javascript_examples.mdx)[Reportar problema](https://github.com/comfy-org/docs/issues/new?title=Issue%20on%20docs&body=Path:%20/es/custom-nodes/js/javascript_examples)
 
-[Subgrafos](https://docs.comfy.org/es/custom-nodes/js/subgraphs)[Soporte i18n](https://docs.comfy.org/es/custom-nodes/i18n)
+[API de puntero del lienzo](https://docs.comfy.org/es/custom-nodes/js/canvas-pointer-api)[Soporte i18n](https://docs.comfy.org/es/custom-nodes/i18n)

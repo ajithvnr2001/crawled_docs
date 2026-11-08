@@ -1,10 +1,7 @@
 {
   "url": "https://docs.comfy.org/community/contributing/",
   "file": "community/contributing.md",
-  "title": "Contributing - ComfyUI",
+  "title": "Contributing to ComfyUI: Workflows, Custom Nodes, and Docs - ComfyUI",
   "method": "scrapling+scrapegraph",
-  "fetched_at": "2026-10-17T10:49:35.376186+00:00",
-  "html_len": 351802,
-  "md_len": 3197,
-  "depth": 0
+  "fetched_at": "2026-11-08T14:09:42.381429+00:00"
 }

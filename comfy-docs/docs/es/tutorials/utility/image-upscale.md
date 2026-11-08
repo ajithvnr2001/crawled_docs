@@ -1,11 +1,11 @@
 ---
 url: https://docs.comfy.org/es/tutorials/utility/image-upscale/
-title: Ampliaci\u00f3n de im\u00e1genes en ComfyUI - ComfyUI
+title: Ampliaci\u00f3n de im\u00e1genes en ComfyUI: modelos locales y nodos asociados - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-26T14:03:57.980290+00:00
+fetched_at: 2026-11-08T14:09:47.320075+00:00
 ---
 
-# Ampliación de imágenes en ComfyUI - ComfyUI
+# Ampliación de imágenes en ComfyUI: modelos locales y nodos asociados - ComfyUI
 
 > Source: https://docs.comfy.org/es/tutorials/utility/image-upscale/
 
@@ -35,11 +35,11 @@ Volver arriba
 
 Upscale & Restore
 
-# Ampliación de imágenes en ComfyUI
+# Ampliación de imágenes en ComfyUI: modelos locales y nodos asociados
 
 Copiar páginaCopiar página
 
-Aprende a ampliar imágenes en ComfyUI con modelos locales y Nodos asociados según cada caso de uso
+Amplía imágenes en ComfyUI con los upscalers locales ESRGAN o Z-Image-Turbo, o con los nodos SeedVR2, Topaz, HitPaw y Magnific Precise o Creative.
 
 Copiar páginaCopiar página
 

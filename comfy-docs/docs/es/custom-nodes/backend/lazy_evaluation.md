@@ -1,11 +1,11 @@
 ---
 url: https://docs.comfy.org/es/custom-nodes/backend/lazy_evaluation/
-title: Evaluaci\u00f3n diferida - ComfyUI
+title: Evaluaci\u00f3n diferida en nodos personalizados de ComfyUI - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-11-03T14:55:23.662772+00:00
+fetched_at: 2026-11-08T14:09:44.021696+00:00
 ---
 
-# Evaluación diferida - ComfyUI
+# Evaluación diferida en nodos personalizados de ComfyUI - ComfyUI
 
 > Source: https://docs.comfy.org/es/custom-nodes/backend/lazy_evaluation/
 
@@ -25,11 +25,11 @@ Volver arriba
 
 Python (backend)
 
-# Evaluación diferida
+# Evaluación diferida en nodos personalizados de ComfyUI
 
 Copiar páginaCopiar página
 
-Aprende cómo funciona la evaluación diferida en ComfyUI (v0.2.0+): aplaza entradas, optimiza la VRAM y usa lazy: True en nodos personalizados.
+Aplaza la evaluación de entradas en nodos personalizados: marca entradas como lazy en INPUT_TYPES y devuelve solo las necesarias desde check_lazy_status.
 
 Copiar páginaCopiar página
 

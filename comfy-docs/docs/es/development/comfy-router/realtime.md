@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/es/development/comfy-router/realtime/
 title: Sesiones de voz en tiempo real con Comfy Router - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T15:15:40.769440+00:00
+fetched_at: 2026-11-08T14:09:43.558413+00:00
 ---
 
 # Sesiones de voz en tiempo real con Comfy Router - ComfyUI
@@ -32,7 +32,7 @@ Router API
 
 Copiar páginaCopiar página
 
-Abre una sesión WebSocket de voz en tiempo real de Grok Voice con Comfy Router: endpoint, autenticación, costo por segundo, límites, errores y códigos de cierre.
+Abre una sesión WebSocket de voz en tiempo real de Grok Voice con Comfy Router: endpoint, autenticación, costo por segundo, límites y códigos de cierre.
 
 Copiar páginaCopiar página
 

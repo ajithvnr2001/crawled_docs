@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/development/comfy-router/realtime/
 title: Comfy Router realtime voice sessions - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T13:26:42.977796+00:00
+fetched_at: 2026-11-08T14:09:43.365071+00:00
 ---
 
 # Comfy Router realtime voice sessions - ComfyUI
@@ -32,7 +32,7 @@ Router API
 
 Copy pageCopy page
 
-Open a Grok Voice realtime WebSocket session through Comfy Router: the endpoint, authentication, per-second pricing, session limits, and the errors and close codes you can get.
+Open a Grok Voice realtime WebSocket session through Comfy Router: endpoint, authentication, per-second pricing, session limits, and close codes.
 
 Copy pageCopy page
 

@@ -1,10 +1,7 @@
 {
   "url": "https://docs.comfy.org/custom-nodes/backend/snippets/",
   "file": "custom-nodes/backend/snippets.md",
-  "title": "Annotated Examples - ComfyUI",
+  "title": "ComfyUI Custom Node Python Snippets - ComfyUI",
   "method": "scrapling+scrapegraph",
-  "fetched_at": "2026-10-17T10:49:36.701674+00:00",
-  "html_len": 448981,
-  "md_len": 5430,
-  "depth": 0
+  "fetched_at": "2026-11-08T14:09:42.850558+00:00"
 }

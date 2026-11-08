@@ -1,11 +1,11 @@
 ---
 url: https://docs.comfy.org/es/tutorials/partner-nodes/pixverse/pixverse-video/
-title: PixVerse Video | Nodos asociados de ComfyUI - ComfyUI
+title: PixVerse Video en ComfyUI: texto a video e imagen a video - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-26T14:03:53.576242+00:00
+fetched_at: 2026-11-08T14:09:45.287584+00:00
 ---
 
-# PixVerse Video | Nodos asociados de ComfyUI - ComfyUI
+# PixVerse Video en ComfyUI: texto a video e imagen a video - ComfyUI
 
 > Source: https://docs.comfy.org/es/tutorials/partner-nodes/pixverse/pixverse-video/
 
@@ -23,11 +23,11 @@ Volver arriba
 
 PixVerse
 
-# PixVerse Video | Nodos asociados de ComfyUI
+# PixVerse Video en ComfyUI: texto a video e imagen a video
 
 Copiar páginaCopiar página
 
-Aprende a usar PixVerse Video en ComfyUI para generar texto a video, imagen a video y plantillas de imagen a video.
+Genera video en ComfyUI con PixVerse V5.6, V6, C1 y R1 desde un prompt o una imagen de referencia, o aplica una plantilla de movimiento para repetir resultados.
 
 Copiar páginaCopiar página
 

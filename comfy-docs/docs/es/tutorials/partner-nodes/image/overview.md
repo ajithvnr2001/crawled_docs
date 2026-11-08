@@ -1,11 +1,11 @@
 ---
 url: https://docs.comfy.org/es/tutorials/partner-nodes/image/overview/
-title: Modelos de imagen - ComfyUI
+title: Modelos de imagen en ComfyUI: texto a imagen, edici\u00f3n y ampliaci\u00f3n - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-26T14:03:50.932412+00:00
+fetched_at: 2026-11-08T14:09:45.746563+00:00
 ---
 
-# Modelos de imagen - ComfyUI
+# Modelos de imagen en ComfyUI: texto a imagen, edición y ampliación - ComfyUI
 
 > Source: https://docs.comfy.org/es/tutorials/partner-nodes/image/overview/
 
@@ -26,11 +26,11 @@ Volver arriba
 
 Imagen
 
-# Modelos de imagen
+# Modelos de imagen en ComfyUI: texto a imagen, edición y ampliación
 
 Copiar páginaCopiar página
 
-Elige el modelo de imagen adecuado para tu caso de uso: texto a imagen, edición, ampliación, eliminación de fondo y más
+Compara los modelos de imagen alojados en ComfyUI de Google, OpenAI, Qwen, ByteDance, Ideogram y Bria para texto a imagen, edición, ampliación y eliminación de fondo.
 
 Copiar páginaCopiar página
 
@@ -192,7 +192,7 @@ Si buscas la mejor calidad general a partir de un prompt de texto sencillo, empi
 
   * **FLUX.1 Kontext** (Black Forest Labs): generación de última generación con un fuerte apego al prompt; admite varias imágenes de entrada para editar con contexto
   * **FLUX 1.1 Pro Ultra** (Black Forest Labs): generación de gama alta dentro de la familia FLUX
-  * **GPT-Image-2 / GPT-Image-1** (OpenAI): texto a imagen y edición de imágenes potentes con una sola API
+  * **GPT-Image-2 / GPT-Image-1.5** (OpenAI): texto a imagen y edición de imágenes potentes con una sola API
   * **Qwen Image 3.0 Pro** (Qwen): generación rápida y de alta calidad de la familia Qwen de Alibaba
 
 
@@ -254,7 +254,7 @@ Ideogram| [Ideogram 4.0](https://docs.comfy.org/es/tutorials/partner-nodes/ideog
 Krea| [Krea 2 Texto a imagen](https://docs.comfy.org/es/tutorials/partner-nodes/krea/krea-2-t2i)  
 Luma| [Luma Uni-1](https://docs.comfy.org/es/tutorials/partner-nodes/luma/luma-uni-1), [Luma Texto a imagen](https://docs.comfy.org/es/tutorials/partner-nodes/luma/luma-text-to-image), [Luma Imagen a imagen](https://docs.comfy.org/es/tutorials/partner-nodes/luma/luma-image-to-image)  
 Meta| [Muse Image 1.0](https://docs.comfy.org/es/tutorials/partner-nodes/meta/muse-image)  
-OpenAI| [GPT-Image-2](https://docs.comfy.org/es/tutorials/partner-nodes/openai/gpt-image-2), [GPT-Image-1](https://docs.comfy.org/es/tutorials/partner-nodes/openai/gpt-image-1)  
+OpenAI| [GPT-Image-2](https://docs.comfy.org/es/tutorials/partner-nodes/openai/gpt-image-2), [GPT-Image-1.5](https://docs.comfy.org/es/tutorials/partner-nodes/openai/gpt-image-1)  
 Qwen| [Qwen Image 3.0 Pro](https://docs.comfy.org/es/tutorials/partner-nodes/qwen/qwen-image-3-0-pro)  
 Recraft| [Recraft V4](https://docs.comfy.org/es/tutorials/partner-nodes/recraft/recraft-v4), [Recraft Texto a imagen](https://docs.comfy.org/es/tutorials/partner-nodes/recraft/recraft-text-to-image)  
 Reve| [Reve Image](https://docs.comfy.org/es/tutorials/partner-nodes/reve/reve-image)  

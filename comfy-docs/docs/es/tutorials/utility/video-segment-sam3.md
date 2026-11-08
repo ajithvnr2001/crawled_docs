@@ -1,11 +1,11 @@
 ---
 url: https://docs.comfy.org/es/tutorials/utility/video-segment-sam3/
-title: SAM 3.1: Segment Anything en ComfyUI - ComfyUI
+title: SAM 3.1 en ComfyUI: segmentaci\u00f3n de im\u00e1genes y videos - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-26T14:03:58.507840+00:00
+fetched_at: 2026-11-08T14:09:47.126844+00:00
 ---
 
-# SAM 3.1: Segment Anything en ComfyUI - ComfyUI
+# SAM 3.1 en ComfyUI: segmentación de imágenes y videos - ComfyUI
 
 > Source: https://docs.comfy.org/es/tutorials/utility/video-segment-sam3/
 
@@ -26,11 +26,11 @@ Volver arriba
 
 Segmentation & Background
 
-# SAM 3.1: Segment Anything en ComfyUI
+# SAM 3.1 en ComfyUI: segmentación de imágenes y videos
 
 Copiar páginaCopiar página
 
-Aprende a usar el modelo SAM 3.1 de Meta en ComfyUI para segmentar objetos en imágenes y videos con prompts de texto
+Segmenta y sigue objetos en imágenes y videos en ComfyUI con SAM 3.1 de Meta, con prompts de texto, punto, caja o máscara, sin anotar cada fotograma.
 
 Copiar páginaCopiar página
 

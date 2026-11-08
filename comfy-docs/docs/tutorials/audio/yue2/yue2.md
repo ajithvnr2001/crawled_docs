@@ -1,15 +1,17 @@
 ---
 url: https://docs.comfy.org/tutorials/audio/yue2/yue2/
-title: ComfyUI YuE2 Music Generation Guide - ComfyUI
+title: YuE2 in ComfyUI: Full-Song Generation With Vocals - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T16:38:43.777296+00:00
+fetched_at: 2026-11-08T14:09:47.861416+00:00
 ---
 
-# ComfyUI YuE2 Music Generation Guide - ComfyUI
+# YuE2 in ComfyUI: Full-Song Generation With Vocals - ComfyUI
 
 > Source: https://docs.comfy.org/tutorials/audio/yue2/yue2/
 
 ## On this page
+
+Back to top
 
   * Text to Music
     * 1\. Steps to Run
@@ -29,7 +31,7 @@ fetched_at: 2026-10-23T16:38:43.777296+00:00
 
 YuE2
 
-# ComfyUI YuE2 Music Generation Guide
+# YuE2 in ComfyUI: Full-Song Generation With Vocals
 
 Copy pageCopy page
 

@@ -1,11 +1,11 @@
 ---
 url: https://docs.comfy.org/es/custom-nodes/backend/snippets/
-title: Ejemplos comentados - ComfyUI
+title: Fragmentos de Python para nodos de ComfyUI - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-11-02T16:54:34.071531+00:00
+fetched_at: 2026-11-08T14:09:44.238515+00:00
 ---
 
-# Ejemplos comentados - ComfyUI
+# Fragmentos de Python para nodos de ComfyUI - ComfyUI
 
 > Source: https://docs.comfy.org/es/custom-nodes/backend/snippets/
 
@@ -26,11 +26,11 @@ Volver arriba
 
 Python (backend)
 
-# Ejemplos comentados
+# Fragmentos de Python para nodos de ComfyUI
 
 Copiar páginaCopiar página
 
-Ejemplos de código comentados para nodos personalizados de ComfyUI: cargar y guardar imágenes, invertir máscaras, convertir formas de máscara, usar máscaras como capas de transparencia y crear ruido.
+Ejemplos de código para nodos personalizados de ComfyUI: cargar y guardar imágenes, invertir máscaras, convertir formas de máscara y crear ruido.
 
 Copiar páginaCopiar página
 
@@ -159,4 +159,4 @@ SíNo
 
 [Sugerir cambios](https://github.com/comfy-org/docs/edit/main/es/custom-nodes/backend/snippets.mdx)[Reportar problema](https://github.com/comfy-org/docs/issues/new?title=Issue%20on%20docs&body=Path:%20/es/custom-nodes/backend/snippets)
 
-[Tensores](https://docs.comfy.org/es/custom-nodes/backend/tensors)[Inversión del modelo de ejecución](https://docs.comfy.org/es/development/comfyui-server/execution_model_inversion_guide)
+[Tensores](https://docs.comfy.org/es/custom-nodes/backend/tensors)[Modelo de ejecución](https://docs.comfy.org/es/development/comfyui-server/execution_model_inversion_guide)

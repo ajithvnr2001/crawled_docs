@@ -1,10 +1,7 @@
 {
   "url": "https://docs.comfy.org/tutorials/partner-nodes/luma/luma-uni-1/",
   "file": "tutorials/partner-nodes/luma/luma-uni-1.md",
-  "title": "Luma Uni-1 Guide - ComfyUI",
+  "title": "Luma Uni-1 in ComfyUI: Create and Modify Image Workflows - ComfyUI",
   "method": "scrapling+scrapegraph",
-  "fetched_at": "2026-10-17T10:51:34.576636+00:00",
-  "html_len": 602096,
-  "md_len": 12677,
-  "depth": 0
+  "fetched_at": "2026-11-08T14:09:48.291161+00:00"
 }

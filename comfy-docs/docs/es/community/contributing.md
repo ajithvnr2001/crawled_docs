@@ -1,11 +1,11 @@
 ---
 url: https://docs.comfy.org/es/community/contributing/
-title: Contribuir - ComfyUI
+title: Contribuir en ComfyUI: flujos de trabajo, nodos y documentaci\u00f3n - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-26T14:02:49.227098+00:00
+fetched_at: 2026-11-08T14:09:42.239377+00:00
 ---
 
-# Contribuir - ComfyUI
+# Contribuir en ComfyUI: flujos de trabajo, nodos y documentación - ComfyUI
 
 > Source: https://docs.comfy.org/es/community/contributing/
 
@@ -19,11 +19,11 @@ Volver arriba
 
 Community
 
-# Contribuir
+# Contribuir en ComfyUI: flujos de trabajo, nodos y documentación
 
 Copiar páginaCopiar página
 
-Aprende a contribuir a Comfy explorando los repositorios de la organización de GitHub, compartiendo flujos de trabajo o desarrollando nodos personalizados.
+Comparte un flujo de trabajo, publica un nodo personalizado en el Comfy Registry, mejora la documentación de nodos o reporta errores en el repositorio.
 
 Copiar páginaCopiar página
 

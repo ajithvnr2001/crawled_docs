@@ -1,11 +1,11 @@
 ---
 url: https://docs.comfy.org/es/tutorials/partner-nodes/kling/kling-3-0/
-title: Generaci\u00f3n de video e im\u00e1genes con Kling 3.0 en ComfyUI - ComfyUI
+title: Kling 3.0 en ComfyUI: generaci\u00f3n de video e im\u00e1genes - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-26T14:03:51.014423+00:00
+fetched_at: 2026-11-08T14:09:45.102163+00:00
 ---
 
-# Generación de video e imágenes con Kling 3.0 en ComfyUI - ComfyUI
+# Kling 3.0 en ComfyUI: generación de video e imágenes - ComfyUI
 
 > Source: https://docs.comfy.org/es/tutorials/partner-nodes/kling/kling-3-0/
 
@@ -28,11 +28,11 @@ Volver arriba
 
 Kling
 
-# Generación de video e imágenes con Kling 3.0 en ComfyUI
+# Kling 3.0 en ComfyUI: generación de video e imágenes
 
 Copiar páginaCopiar página
 
-Aprende a usar los modelos Kling 3.0 en ComfyUI para generar video multi-shot, mantener la consistencia del sujeto, audio multilingüe y texto nativo
+Ejecuta Kling 3.0 en ComfyUI para video multi-shot, primer y último fotograma y control de movimiento, más texto a imagen con Kling Image 3.0.
 
 Copiar páginaCopiar página
 

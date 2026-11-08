@@ -1,15 +1,17 @@
 ---
 url: https://docs.comfy.org/tutorials/partner-nodes/pixverse/pixverse-video/
-title: PixVerse Video | ComfyUI Partner Nodes - ComfyUI
+title: PixVerse Video in ComfyUI: Text-to-Video and Image-to-Video - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-25T12:24:50.488867+00:00
+fetched_at: 2026-11-08T14:09:49.338637+00:00
 ---
 
-# PixVerse Video | ComfyUI Partner Nodes - ComfyUI
+# PixVerse Video in ComfyUI: Text-to-Video and Image-to-Video - ComfyUI
 
 > Source: https://docs.comfy.org/tutorials/partner-nodes/pixverse/pixverse-video/
 
 ## On this page
+
+Back to top
 
   * Key capabilities
   * Available workflows
@@ -21,11 +23,11 @@ fetched_at: 2026-10-25T12:24:50.488867+00:00
 
 PixVerse
 
-# PixVerse Video | ComfyUI Partner Nodes
+# PixVerse Video in ComfyUI: Text-to-Video and Image-to-Video
 
 Copy pageCopy page
 
-Learn how to use PixVerse Video in ComfyUI for Text-to-Video, Image-to-Video, and Template Image-to-Video generation.
+Generate video in ComfyUI with PixVerse V5.6, V6, C1, and R1 from a prompt or a reference image, or apply a motion template for repeatable output.
 
 Copy pageCopy page
 
@@ -128,4 +130,4 @@ YesNo
 
 [Suggest edits](https://github.com/comfy-org/docs/edit/main/tutorials/partner-nodes/pixverse/pixverse-video.mdx)[Raise issue](https://github.com/comfy-org/docs/issues/new?title=Issue%20on%20docs&body=Path:%20/tutorials/partner-nodes/pixverse/pixverse-video)
 
-[PixVerse AI](https://docs.comfy.org/tutorials/partner-nodes/pixverse/overview)[Pruna P-Video-2](https://docs.comfy.org/tutorials/partner-nodes/pruna/p-video-2)
+[PixVerse AI](https://docs.comfy.org/tutorials/partner-nodes/pixverse/overview)[V6 and V6 Max](https://docs.comfy.org/tutorials/partner-nodes/pixverse/pixverse-v6)

@@ -1,11 +1,11 @@
 ---
 url: https://docs.comfy.org/es/tutorials/partner-nodes/video/overview/
-title: Modelos de video - ComfyUI
+title: Modelos de video en ComfyUI: texto, imagen y mejora - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-26T14:03:59.459559+00:00
+fetched_at: 2026-11-08T14:09:46.525625+00:00
 ---
 
-# Modelos de video - ComfyUI
+# Modelos de video en ComfyUI: texto, imagen y mejora - ComfyUI
 
 > Source: https://docs.comfy.org/es/tutorials/partner-nodes/video/overview/
 
@@ -26,11 +26,11 @@ Volver arriba
 
 Video
 
-# Modelos de video
+# Modelos de video en ComfyUI: texto, imagen y mejora
 
 Copiar páginaCopiar página
 
-Elige el modelo de video adecuado para tu caso de uso: texto a video, imagen a video, mejora de video y más
+Compara los modelos de video alojados en ComfyUI de ByteDance, Google, Kling, Runway, Topaz y Wan para texto a video, imagen a video y ampliación.
 
 Copiar páginaCopiar página
 

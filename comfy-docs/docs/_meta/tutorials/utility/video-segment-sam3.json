@@ -1,10 +1,7 @@
 {
   "url": "https://docs.comfy.org/tutorials/utility/video-segment-sam3/",
   "file": "tutorials/utility/video-segment-sam3.md",
-  "title": "SAM 3.1: Segment Anything in ComfyUI - ComfyUI",
+  "title": "SAM 3.1 in ComfyUI: Segment Anything in Images and Videos - ComfyUI",
   "method": "scrapling+scrapegraph",
-  "fetched_at": "2026-10-17T10:51:41.685664+00:00",
-  "html_len": 513226,
-  "md_len": 8812,
-  "depth": 0
+  "fetched_at": "2026-11-08T14:09:49.017189+00:00"
 }

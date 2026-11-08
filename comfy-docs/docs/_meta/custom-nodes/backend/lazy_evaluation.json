@@ -1,10 +1,7 @@
 {
   "url": "https://docs.comfy.org/custom-nodes/backend/lazy_evaluation/",
   "file": "custom-nodes/backend/lazy_evaluation.md",
-  "title": "Lazy Evaluation - ComfyUI",
+  "title": "ComfyUI Lazy Evaluation for Custom Nodes - ComfyUI",
   "method": "scrapling+scrapegraph",
-  "fetched_at": "2026-10-17T10:49:36.243548+00:00",
-  "html_len": 476503,
-  "md_len": 9115,
-  "depth": 0
+  "fetched_at": "2026-11-08T14:09:42.475883+00:00"
 }

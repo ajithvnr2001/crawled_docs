@@ -1,15 +1,17 @@
 ---
 url: https://docs.comfy.org/registry/publishing/
-title: Publishing Nodes - ComfyUI
+title: Publish Custom Nodes to the Comfy Registry - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-17T10:51:12.612043+00:00
+fetched_at: 2026-11-08T14:09:48.625043+00:00
 ---
 
-# Publishing Nodes - ComfyUI
+# Publish Custom Nodes to the Comfy Registry - ComfyUI
 
 > Source: https://docs.comfy.org/registry/publishing/
 
 ## On this page
+
+Back to top
 
   * Set up a Registry Account
     * Watch a Tutorial
@@ -25,11 +27,11 @@ fetched_at: 2026-10-17T10:51:12.612043+00:00
 
 Package & Publish
 
-# Publishing Nodes
+# Publish Custom Nodes to the Comfy Registry
 
 Copy pageCopy page
 
-Learn how to set up a Comfy Registry account, create a publisher, generate an API key, add metadata, and publish custom nodes via Comfy CLI or GitHub Actions.
+Set up a Comfy Registry account, create a publisher, generate an API key, add node metadata, and publish custom nodes with Comfy CLI or GitHub Actions.
 
 Copy pageCopy page
 
@@ -53,7 +55,7 @@ Watch a Tutorial
 
 Create a Publisher
 
-A publisher is an identity that can publish custom nodes to the registry. Every custom node needs to include a publisher identifier in the pyproject.toml [file](https://docs.comfy.org/registry/publishing/). Go to [Comfy Registry](https://registry.comfy.org), and create a publisher account. Your publisher id is globally unique, and cannot be changed later because it is used in the URL of your custom node. Your publisher id is found after the `@` symbol on your profile page. ![Hero Dark](https://mintcdn.com/dripart/NmGUk_QSXQXRVtZP/images/publisherid.png?fit=max&auto=format&n=NmGUk_QSXQXRVtZP&q=85&s=95e3271276938f1ec1226f172ffc020f)
+A publisher is an identity that can publish custom nodes to the registry. Every custom node needs to include a publisher identifier in the pyproject.toml [file](https://docs.comfy.org). Go to [Comfy Registry](https://registry.comfy.org), and create a publisher account. Your publisher id is globally unique, and cannot be changed later because it is used in the URL of your custom node. Your publisher id is found after the `@` symbol on your profile page. ![Hero Dark](https://mintcdn.com/dripart/NmGUk_QSXQXRVtZP/images/publisherid.png?fit=max&auto=format&n=NmGUk_QSXQXRVtZP&q=85&s=95e3271276938f1ec1226f172ffc020f)
 
 ### 
 
@@ -211,26 +213,4 @@ YesNo
 
 [Suggest edits](https://github.com/comfy-org/docs/edit/main/registry/publishing.mdx)[Raise issue](https://github.com/comfy-org/docs/issues/new?title=Issue%20on%20docs&body=Path:%20/registry/publishing)
 
-[Comfy Registry: publish and version custom nodesPrevious](https://docs.comfy.org/registry/overview)[Claim My NodeNext](https://docs.comfy.org/registry/claim-my-node)
-
-⌘I
-
-[ComfyUI home page![light logo](https://mintcdn.com/dripart/WCFdTagRdhtvk9-o/logo/light.svg?fit=max&auto=format&n=WCFdTagRdhtvk9-o&q=85&s=ec112de87239058f5a931a7e4b594965)![dark logo](https://mintcdn.com/dripart/QzWbjSCBG7w61rR3/logo/dark.svg?fit=max&auto=format&n=QzWbjSCBG7w61rR3&q=85&s=62b4d879fb3aadbd7a468d1539032d6f)](https://docs.comfy.org/)
-
-[github](https://github.com/Comfy-Org/ComfyUI)[x](https://x.com/ComfyUI)[discord](https://discord.com/invite/comfyorg)[youtube](https://www.youtube.com/@comfyorg)
-
-Resources
-
-[installation](https://docs.comfy.org/installation/system_requirements)[Tutorials](https://docs.comfy.org/tutorials/basic/text-to-image)[Development](https://docs.comfy.org/development/overview)
-
-Products
-
-[Features](https://www.comfy.org/?utm_source=docs)[Gallery](https://www.comfy.org/gallery?utm_source=docs)[Download](https://www.comfy.org/download?utm_source=docs)
-
-Company
-
-[About](https://www.comfy.org/about?utm_source=docs)[Careers](https://www.comfy.org/careers?utm_source=docs)[Terms of Service](https://www.comfy.org/terms-of-service?utm_source=docs)[Privacy Policy](https://www.comfy.org/privacy-policy?utm_source=docs)
-
-[github](https://github.com/Comfy-Org/ComfyUI)[x](https://x.com/ComfyUI)[discord](https://discord.com/invite/comfyorg)[youtube](https://www.youtube.com/@comfyorg)
-
-[Powered byThis documentation is built and hosted on Mintlify, a developer documentation platform](https://www.mintlify.com?utm_campaign=poweredBy&utm_medium=referral&utm_source=dripart)
+[Registry Overview](https://docs.comfy.org/registry/overview)[Claim a Node](https://docs.comfy.org/registry/claim-my-node)

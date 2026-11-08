@@ -1,10 +1,7 @@
 {
   "url": "https://docs.comfy.org/registry/publishing/",
   "file": "registry/publishing.md",
-  "title": "Publishing Nodes - ComfyUI",
+  "title": "Publish Custom Nodes to the Comfy Registry - ComfyUI",
   "method": "scrapling+scrapegraph",
-  "fetched_at": "2026-10-17T10:51:12.612353+00:00",
-  "html_len": 470376,
-  "md_len": 8424,
-  "depth": 0
+  "fetched_at": "2026-11-08T14:09:48.625434+00:00"
 }

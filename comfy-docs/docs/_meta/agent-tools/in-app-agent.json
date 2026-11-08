@@ -1,7 +1,7 @@
 {
   "url": "https://docs.comfy.org/agent-tools/in-app-agent/",
   "file": "agent-tools/in-app-agent.md",
-  "title": "Comfy Agent - ComfyUI",
+  "title": "Comfy Agent: Build and Run ComfyUI Workflows in Chat - ComfyUI",
   "method": "scrapling+scrapegraph",
-  "fetched_at": "2026-10-19T14:35:05.844997+00:00"
+  "fetched_at": "2026-11-08T14:09:43.452945+00:00"
 }

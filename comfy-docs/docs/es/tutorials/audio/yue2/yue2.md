@@ -1,11 +1,11 @@
 ---
 url: https://docs.comfy.org/es/tutorials/audio/yue2/yue2/
-title: Gu\u00eda de generaci\u00f3n de m\u00fasica con YuE2 en ComfyUI - ComfyUI
+title: YuE2 en ComfyUI: canciones completas con voces - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-11-03T14:55:28.229365+00:00
+fetched_at: 2026-11-08T14:09:44.825727+00:00
 ---
 
-# Guía de generación de música con YuE2 en ComfyUI - ComfyUI
+# YuE2 en ComfyUI: canciones completas con voces - ComfyUI
 
 > Source: https://docs.comfy.org/es/tutorials/audio/yue2/yue2/
 
@@ -31,7 +31,7 @@ Volver arriba
 
 YuE2
 
-# Guía de generación de música con YuE2 en ComfyUI
+# YuE2 en ComfyUI: canciones completas con voces
 
 Copiar páginaCopiar página
 

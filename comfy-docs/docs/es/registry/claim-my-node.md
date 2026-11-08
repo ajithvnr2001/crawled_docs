@@ -1,11 +1,11 @@
 ---
 url: https://docs.comfy.org/es/registry/claim-my-node/
-title: Reclamar mi nodo - ComfyUI
+title: Reclamar un nodo personalizado en el Comfy Registry - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-26T14:03:38.551918+00:00
+fetched_at: 2026-11-08T14:09:43.638140+00:00
 ---
 
-# Reclamar mi nodo - ComfyUI
+# Reclamar un nodo personalizado en el Comfy Registry - ComfyUI
 
 > Source: https://docs.comfy.org/es/registry/claim-my-node/
 
@@ -22,11 +22,11 @@ Volver arriba
 
 Package & Publish
 
-# Reclamar mi nodo
+# Reclamar un nodo personalizado en el Comfy Registry
 
 Copiar páginaCopiar página
 
-Aprende a reclamar nodos personalizados sin propietario migrados al Comfy Registry, con la configuración del publisher y la verificación de GitHub.
+Reclama la propiedad de nodos personalizados sin propietario migrados desde ComfyUI Manager, con la creación del publisher y la verificación en GitHub.
 
 Copiar páginaCopiar página
 
@@ -115,4 +115,4 @@ SíNo
 
 [Sugerir cambios](https://github.com/comfy-org/docs/edit/main/es/registry/claim-my-node.mdx)[Reportar problema](https://github.com/comfy-org/docs/issues/new?title=Issue%20on%20docs&body=Path:%20/es/registry/claim-my-node)
 
-[Publicar nodos](https://docs.comfy.org/es/registry/publishing)[Estándares de calidad y seguridad](https://docs.comfy.org/es/registry/standards)
+[Publicar nodos](https://docs.comfy.org/es/registry/publishing)[Calidad y seguridad](https://docs.comfy.org/es/registry/standards)

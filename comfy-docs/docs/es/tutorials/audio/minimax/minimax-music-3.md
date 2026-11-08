@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/es/tutorials/audio/minimax/minimax-music-3/
 title: MiniMax Music 3 en ComfyUI: generaci\u00f3n de m\u00fasica con IA - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-11-03T14:55:28.088670+00:00
+fetched_at: 2026-11-08T14:09:45.466108+00:00
 ---
 
 # MiniMax Music 3 en ComfyUI: generación de música con IA - ComfyUI
@@ -29,7 +29,7 @@ MiniMax Music 3
 
 Copiar páginaCopiar página
 
-Aprende a usar MiniMax Music 3 en ComfyUI para generar canciones completas de hasta 5 minutos a partir de un caption musical estructurado y una letra.
+Genera canciones de hasta 5 minutos en ComfyUI con MiniMax Music 3 de pesos abiertos, usando un caption estructurado y letras con etiquetas.
 
 Copiar páginaCopiar página
 

@@ -1,11 +1,11 @@
 ---
 url: https://docs.comfy.org/es/custom-nodes/js/context-menu-migration/
-title: Gu\u00eda de migraci\u00f3n del men\u00fa contextual - ComfyUI
+title: Migrar a la API del men\u00fa contextual en ComfyUI: lienzo y nodos - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-11-03T14:55:25.051420+00:00
+fetched_at: 2026-11-08T14:09:44.581162+00:00
 ---
 
-# Guía de migración del menú contextual - ComfyUI
+# Migrar a la API del menú contextual en ComfyUI: lienzo y nodos - ComfyUI
 
 > Source: https://docs.comfy.org/es/custom-nodes/js/context-menu-migration/
 
@@ -37,7 +37,7 @@ Volver arriba
 
 Migration Guides
 
-# Guía de migración del menú contextual
+# Migrar a la API del menú contextual en ComfyUI: lienzo y nodos
 
 Copiar páginaCopiar página
 
@@ -445,4 +445,4 @@ SíNo
 
 [Sugerir cambios](https://github.com/comfy-org/docs/edit/main/es/custom-nodes/js/context-menu-migration.mdx)[Reportar problema](https://github.com/comfy-org/docs/issues/new?title=Issue%20on%20docs&body=Path:%20/es/custom-nodes/js/context-menu-migration)
 
-[Migración a V3](https://docs.comfy.org/es/custom-nodes/v3_migration)[Reemplazo de nodos](https://docs.comfy.org/es/custom-nodes/backend/node-replacement)
+[Migración a V3](https://docs.comfy.org/es/custom-nodes/v3_migration)[Migración de ID de nodo](https://docs.comfy.org/es/custom-nodes/js/node-id-migration)
