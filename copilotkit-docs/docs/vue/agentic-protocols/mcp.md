@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/vue/agentic-protocols/mcp/
 title: MCP
 method: scrapling+scrapegraph
-fetched_at: 2026-11-05T10:41:56.031428+00:00
+fetched_at: 2026-11-08T10:07:32.322569+00:00
 ---
 
 # MCP
@@ -295,7 +295,7 @@ app/api/copilotkit/route.ts
     const runtime = new CopilotRuntime({
       agents: {
         default: new BuiltInAgent({
-          model: "openai/gpt-4o",
+          model: "openai/gpt-6-luna",
           mcpServers: [
             {
               type: "sse",

@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/tutorials/ai-todo-app/step-3-copilot-readable-state/
 title: CopilotKit: bring your agent into any app
 method: scrapling+scrapegraph
-fetched_at: 2026-11-05T10:42:02.162614+00:00
+fetched_at: 2026-11-08T10:07:33.443563+00:00
 ---
 
 # CopilotKit: bring your agent into any app

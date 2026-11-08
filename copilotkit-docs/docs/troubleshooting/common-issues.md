@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/troubleshooting/common-issues/
 title: Common Copilot Issues
 method: scrapling+scrapegraph
-fetched_at: 2026-11-05T10:42:06.120967+00:00
+fetched_at: 2026-11-08T10:07:35.174579+00:00
 ---
 
 # Common Copilot Issues

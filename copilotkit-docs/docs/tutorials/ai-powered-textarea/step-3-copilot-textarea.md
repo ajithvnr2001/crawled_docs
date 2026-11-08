@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/tutorials/ai-powered-textarea/step-3-copilot-textarea/
 title: CopilotKit: bring your agent into any app
 method: scrapling+scrapegraph
-fetched_at: 2026-11-05T10:42:02.233665+00:00
+fetched_at: 2026-11-08T10:07:34.053444+00:00
 ---
 
 # CopilotKit: bring your agent into any app

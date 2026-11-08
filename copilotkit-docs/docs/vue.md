@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/vue/
 title: Vue quickstart
 method: scrapling+scrapegraph
-fetched_at: 2026-11-05T10:41:58.551269+00:00
+fetched_at: 2026-11-08T10:07:33.189795+00:00
 ---
 
 # Vue quickstart
@@ -164,7 +164,7 @@ server.ts
     const runtime = new CopilotRuntime({
       agents: {
         default: new BuiltInAgent({
-          model: "openai:gpt-5-mini",
+          model: "openai:gpt-6-luna",
           prompt: "You are a helpful assistant for a Vue app.",
         }),
       },

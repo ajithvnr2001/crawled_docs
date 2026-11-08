@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/vue/backend/agent-runner/
 title: AgentRunner and persistence
 method: scrapling+scrapegraph
-fetched_at: 2026-11-05T10:41:55.677506+00:00
+fetched_at: 2026-11-08T10:07:32.205757+00:00
 ---
 
 # AgentRunner and persistence
@@ -159,7 +159,7 @@ app/api/copilotkit/[[...slug]]/route.ts
     import { CopilotRuntime, BuiltInAgent, InMemoryAgentRunner } from "@copilotkit/runtime/v2";
     
     const runtime = new CopilotRuntime({
-      agents: { default: new BuiltInAgent({ model: "openai/gpt-4o-mini" }) },
+      agents: { default: new BuiltInAgent({ model: "openai/gpt-6-luna" }) },
       // Explicit, but this is also the default if omitted:
       runner: new InMemoryAgentRunner(),
     });
@@ -186,7 +186,7 @@ app/api/copilotkit/[[...slug]]/route.ts
     import { CopilotRuntime, BuiltInAgent, InMemoryAgentRunner } from "@copilotkit/runtime/v2";
     
     const runtime = new CopilotRuntime({
-      agents: { default: new BuiltInAgent({ model: "openai/gpt-4o-mini" }) },
+      agents: { default: new BuiltInAgent({ model: "openai/gpt-6-luna" }) },
       runner: new InMemoryAgentRunner({
         maxThreads: 200,
         maxRunsPerThread: 50,
@@ -231,7 +231,7 @@ app/api/copilotkit/[[...slug]]/route.ts
     import { SqliteAgentRunner } from "@copilotkit/sqlite-runner";
     
     const runtime = new CopilotRuntime({
-      agents: { default: new BuiltInAgent({ model: "openai/gpt-4o-mini" }) },
+      agents: { default: new BuiltInAgent({ model: "openai/gpt-6-luna" }) },
       runner: new SqliteAgentRunner({ dbPath: "./data/threads.db" }),
     });
 

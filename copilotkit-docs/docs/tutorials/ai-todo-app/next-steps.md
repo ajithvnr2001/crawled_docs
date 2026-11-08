@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/tutorials/ai-todo-app/next-steps/
 title: CopilotKit: bring your agent into any app
 method: scrapling+scrapegraph
-fetched_at: 2026-11-05T10:42:02.450747+00:00
+fetched_at: 2026-11-08T10:07:34.167314+00:00
 ---
 
 # CopilotKit: bring your agent into any app

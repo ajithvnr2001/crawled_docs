@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/vue/deploy/aws-lambda/
 title: AWS Lambda
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T10:46:57.873093+00:00
+fetched_at: 2026-11-08T10:07:29.356930+00:00
 ---
 
 # AWS Lambda
@@ -145,7 +145,7 @@ src/handler.ts
     // Created once per container, reused across warm invocations.
     const runtime = new CopilotRuntime({
       agents: {
-        default: new BuiltInAgent({ model: "openai/gpt-4o-mini" }),
+        default: new BuiltInAgent({ model: "openai/gpt-6-luna" }),
       },
     });
     
@@ -437,7 +437,7 @@ src/handler.ts
     
     const runtime = new CopilotRuntime({
       agents: {
-        default: new BuiltInAgent({ model: "openai/gpt-4o-mini" }),
+        default: new BuiltInAgent({ model: "openai/gpt-6-luna" }),
       },
     });
     

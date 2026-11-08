@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/vue/backend/copilot-runtime/
 title: Copilot Runtime
 method: scrapling+scrapegraph
-fetched_at: 2026-11-05T10:41:55.801300+00:00
+fetched_at: 2026-11-08T10:07:31.641740+00:00
 ---
 
 # Copilot Runtime
@@ -253,7 +253,7 @@ app/api/copilotkit/[[...slug]]/route.ts
     const runtime = new CopilotRuntime({
       agents: {
         // Frontend components use this agent unless given another agentId.
-        default: new BuiltInAgent({ model: "openai:gpt-4.1" }),
+        default: new BuiltInAgent({ model: "openai:gpt-6-luna" }),
       },
     });
 

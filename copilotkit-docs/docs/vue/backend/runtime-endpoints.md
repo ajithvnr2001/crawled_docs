@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/vue/backend/runtime-endpoints/
 title: Runtime HTTP endpoints
 method: scrapling+scrapegraph
-fetched_at: 2026-11-05T10:41:52.411864+00:00
+fetched_at: 2026-11-08T10:07:31.921637+00:00
 ---
 
 # Runtime HTTP endpoints
@@ -396,7 +396,7 @@ app/api/copilotkit/route.ts (Express)
     import { createCopilotExpressHandler } from "@copilotkit/runtime/v2/express";
     
     const runtime = new CopilotRuntime({
-      agents: { default: new BuiltInAgent({ model: "openai/gpt-4o-mini" }) },
+      agents: { default: new BuiltInAgent({ model: "openai/gpt-6-luna" }) },
     });
     
     app.use(

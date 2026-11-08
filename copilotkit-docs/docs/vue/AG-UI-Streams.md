@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/vue/AG-UI-Streams/
 title: AG-UI Streams
 method: scrapling+scrapegraph
-fetched_at: 2026-11-05T10:41:58.322396+00:00
+fetched_at: 2026-11-08T10:07:33.242522+00:00
 ---
 
 # AG-UI Streams

@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/tutorials/multi-conversation-chat/
 title: CopilotKit: bring your agent into any app
 method: scrapling+scrapegraph
-fetched_at: 2026-11-05T10:41:58.466880+00:00
+fetched_at: 2026-11-08T10:07:33.370911+00:00
 ---
 
 # CopilotKit: bring your agent into any app

@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/vue/concepts/which-hook/
 title: Which Hook for Which Job
 method: scrapling+scrapegraph
-fetched_at: 2026-11-05T10:41:49.859377+00:00
+fetched_at: 2026-11-08T10:07:29.185072+00:00
 ---
 
 # Which Hook for Which Job

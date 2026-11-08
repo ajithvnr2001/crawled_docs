@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/vue/concepts/architecture/
 title: Architecture
 method: scrapling+scrapegraph
-fetched_at: 2026-11-05T10:41:52.095896+00:00
+fetched_at: 2026-11-08T10:07:29.500953+00:00
 ---
 
 # Architecture

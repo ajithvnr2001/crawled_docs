@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/vue/agentic-protocols/ag-ui/
 title: AG-UI
 method: scrapling+scrapegraph
-fetched_at: 2026-11-05T10:41:55.468723+00:00
+fetched_at: 2026-11-08T10:07:32.245975+00:00
 ---
 
 # AG-UI

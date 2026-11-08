@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/vue/deploy/langsmith/
 title: LangSmith Platform
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T10:46:57.326471+00:00
+fetched_at: 2026-11-08T10:07:29.252671+00:00
 ---
 
 # LangSmith Platform
