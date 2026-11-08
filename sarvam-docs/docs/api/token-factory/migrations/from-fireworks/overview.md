@@ -2,7 +2,7 @@
 url: https://docs.sarvam.ai/api/token-factory/migrations/from-fireworks/overview/
 title: Migrating from Fireworks AI: Overview | Sarvam API Docs
 method: scrapling+scrapegraph
-fetched_at: 2026-11-07T06:39:11.418624+00:00
+fetched_at: 2026-11-08T06:30:48.586074+00:00
 ---
 
 # Migrating from Fireworks AI: Overview | Sarvam API Docs
@@ -136,7 +136,7 @@ Sarvam’s `deepseekv4-pro` is the newer 0813 snapshot of DeepSeek V4 Pro, so ou
 
 Gemma 4 31B and DeepSeek V4 Pro need a dedicated deployment on Fireworks. On Sarvam, call them by model ID like any other model, with no deployment to create or manage.
 
-Model IDs are case-sensitive. An unknown ID returns `404 not_found_error`. [`GET /v2/models`](https://docs.sarvam.ai/api-reference/chat/models-v2) lists the available models. Models on [Provisioned Throughput](https://docs.sarvam.ai/api/token-factory/models#provisioned-throughput) need access for your organisation: without it, they return `400 invalid_request_error`, even though the list shows them. [Contact us](https://docs.sarvam.ai/api/getting-started/help) to request access.
+Model IDs are case-sensitive. An unknown ID returns `404 not_found_error`. [`GET /v2/models`](https://docs.sarvam.ai/api-reference/chat/models-v2) lists the available models. Models on [Provisioned Throughput](https://docs.sarvam.ai/api/token-factory/models#provisioned-throughput) need access for your organisation. Without it, `deepseekv4-pro` returns `400 invalid_request_error`; the other Provisioned Throughput models return `404 not_found_error` and aren’t listed until access is enabled. [Contact us](https://docs.sarvam.ai/api/getting-started/help) to request access.
 
 ## Models not on Sarvam
 
@@ -151,17 +151,20 @@ DeepSeek V4 Flash (any snapshot), DeepSeek V3.x| [`deepseekv4.1-flash-1017`](htt
 DeepSeek V4 Pro (April 2026 snapshot), DeepSeek R1| [`deepseekv4-pro`](https://docs.sarvam.ai/api/token-factory/models/deepseek-v4-pro)| Sarvam serves the newer 0813 snapshot.  
 Kimi K2, K2.5, K2.6, K2.7 Code, K2 Thinking| [`kimi-k3.1-pro`](https://docs.sarvam.ai/api/token-factory/models/kimi-k3.1-pro)| Newer Kimi generation, with a longer 1M context.  
 Gemma 3, Gemma 4 26B| [`gemma4`](https://docs.sarvam.ai/api/token-factory/models/gemma-4-31b)| Gemma 4 31B: image input, a 256K context window, and reasoning (off by default).  
+Qwen chat models| [`qwen38-27b`](https://docs.sarvam.ai/api/token-factory/models/qwen-3-8-27b)| Qwen 3.8 27B, on Provisioned Throughput: image input, a 256K context window, and reasoning you can turn off.  
   
-For other model families, such as Qwen, Llama, gpt-oss, or MiniMax, choose by what you need:
+For other model families, such as Llama, gpt-oss, or MiniMax, choose by what you need:
 
 If you need| Try on Sarvam  
 ---|---  
 Indian-language quality| [`sarvam-105b`](https://docs.sarvam.ai/api/token-factory/models/sarvam-105b)  
 The lowest cost| [`glm5.3-flash`](https://docs.sarvam.ai/api/token-factory/models/glm-5-3-flash)  
-Image input| [`glm5.3-flash`](https://docs.sarvam.ai/api/token-factory/models/glm-5-3-flash), [`kimi-k3.1-pro`](https://docs.sarvam.ai/api/token-factory/models/kimi-k3.1-pro), or [`gemma4`](https://docs.sarvam.ai/api/token-factory/models/gemma-4-31b)  
-Video input (short clips)| [`kimi-k3.1-pro`](https://docs.sarvam.ai/api/token-factory/models/kimi-k3.1-pro) (chat only)  
+Image input| [`glm5.3-flash`](https://docs.sarvam.ai/api/token-factory/models/glm-5-3-flash), [`kimi-k3.1-pro`](https://docs.sarvam.ai/api/token-factory/models/kimi-k3.1-pro), [`qwen38-27b`](https://docs.sarvam.ai/api/token-factory/models/qwen-3-8-27b), or [`gemma4`](https://docs.sarvam.ai/api/token-factory/models/gemma-4-31b)  
+Video input| [`kimi-k3.1-pro`](https://docs.sarvam.ai/api/token-factory/models/kimi-k3.1-pro) (chat only)  
 The hardest coding and agent tasks| [`glm5.3`](https://docs.sarvam.ai/api/token-factory/models/glm-5-3) or [`deepseekv4-pro`](https://docs.sarvam.ai/api/token-factory/models/deepseek-v4-pro)  
 Fast answers without reasoning| [`gemma4`](https://docs.sarvam.ai/api/token-factory/models/gemma-4-31b)  
+Yes/no, label, or score answers (routing, classification, moderation)| [`sarvam-prism`](https://docs.sarvam.ai/api/token-factory/models/sarvam-prism), or [`clef`](https://docs.sarvam.ai/api/token-factory/models/clef) for questions about images, on the [Decisions API](https://docs.sarvam.ai/api/token-factory/decisions-api)  
+Text embeddings for search and retrieval| [`embeddinggemma-2`](https://docs.sarvam.ai/api/token-factory/models/embeddinggemma-2) on `POST /v2/embeddings`  
   
 ## Media input and request size
 
@@ -170,7 +173,7 @@ Sarvam accepts images, audio, and video only as **inline base64 data URIs**. Rem
 Media| Models| Chat Completions| Responses  
 ---|---|---|---  
 Image| Models with image input, such as `gemma4`, `glm5.3-flash`, and `kimi-k3.1-pro`| `image_url` part| `input_image` part  
-Video| `kimi-k3.1-pro` (short clips)| `video_url` part| Not supported  
+Video| `kimi-k3.1-pro`| `video_url` part| Not supported  
       
     
     import base64
@@ -185,7 +188,7 @@ Video| `kimi-k3.1-pro` (short clips)| `video_url` part| Not supported
     
     video_part = {"type": "video_url", "video_url": {"url": data_uri("clip.mp4", "video/mp4")}}
 
-Request bodies, including base64 media, are limited to **40 MiB** on `kimi-k3.1-pro`, and **10 MiB** on other models. Larger requests return `413` with the limit in the message. Base64 adds about 33%, so about 30 MB of raw media fits in a 40 MiB request.
+Request bodies, including base64 media, are limited to **40 MiB** on `kimi-k3.1-pro`, **32 MiB** on `deepseekv4.1-flash-1017` and `deepseekv4.1-flash-1017-interactive`, and **10 MiB** on other models. Larger requests return `413` with the limit in the message. Base64 adds about 33%, so about 30 MB of raw media fits in a 40 MiB request.
 
 ## Errors and rate limits
 
@@ -292,6 +295,9 @@ YesNo
   * [DeepSeek V4.1 Flash 1017](https://docs.sarvam.ai/api/token-factory/models/deepseek-v4.1-flash-1017)
   * [DeepSeek V4 Pro](https://docs.sarvam.ai/api/token-factory/models/deepseek-v4-pro)
   * [Kimi K3.1 Pro](https://docs.sarvam.ai/api/token-factory/models/kimi-k3.1-pro)
+  * [Qwen 3.8 27B](https://docs.sarvam.ai/api/token-factory/models/qwen-3-8-27b)
+  * [Clef](https://docs.sarvam.ai/api/token-factory/models/clef)
+  * [EmbeddingGemma 2](https://docs.sarvam.ai/api/token-factory/models/embeddinggemma-2)
   * [Chat Completions](https://docs.sarvam.ai/api/token-factory/chat-completions)
   * [Responses API](https://docs.sarvam.ai/api/token-factory/responses-api)
   * [Decisions API](https://docs.sarvam.ai/api/token-factory/decisions-api)

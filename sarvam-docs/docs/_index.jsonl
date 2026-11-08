@@ -1123,7 +1123,7 @@
 {"url": "https://docs.sarvam.ai/changelog/2026/9/30/", "file": "changelog/2026/9/30.md", "title": "September 30, 2026 | Sarvam API Docs", "method": "scrapling+scrapegraph"}
 {"url": "https://docs.sarvam.ai/api/token-factory/models/sarvam-prism/", "file": "api/token-factory/models/sarvam-prism.md", "title": "Sarvam Prism | Sarvam API Docs", "method": "scrapling+scrapegraph"}
 {"url": "https://docs.sarvam.ai/api/token-factory/decisions-api/", "file": "api/token-factory/decisions-api.md", "title": "Decisions API | Sarvam API Docs", "method": "scrapling+scrapegraph"}
-{"url": "https://docs.sarvam.ai/api-reference/decisions/systemone/", "file": "api-reference/decisions/systemone.md", "title": "Decide (Sarvam Prism) | Sarvam API Docs", "method": "scrapling+scrapegraph"}
+{"url": "https://docs.sarvam.ai/api-reference/decisions/systemone/", "file": "api-reference/decisions/systemone.md", "title": "Decision API | Sarvam API Docs", "method": "scrapling+scrapegraph"}
 {"url": "https://www.sarvam.ai/blogs/sarvam-prism/", "file": "_subdomains/www.sarvam.ai/blogs/sarvam-prism.md", "title": "Sarvam Prism: a decision model built on Sarvam 105B | Sarvam AI", "method": "scrapling+scrapegraph"}
 {"url": "https://www.sarvam.ai/blogs/sarvam-hq-ids-mou/", "file": "_subdomains/www.sarvam.ai/blogs/sarvam-hq-ids-mou.md", "title": "Sarvam and Ministry of Defence sign AI MoU | Sarvam AI", "method": "scrapling+scrapegraph"}
 {"url": "https://www.sarvam.ai/blogs/knowledge-fabric-enterprise-agents/", "file": "_subdomains/www.sarvam.ai/blogs/knowledge-fabric-enterprise-agents.md", "title": "Knowledge fabric for enterprise AI agents | Sarvam AI", "method": "scrapling+scrapegraph"}
@@ -1148,3 +1148,9 @@
 {"url": "https://docs.sarvam.ai/doc-ai/how-to/digitise-a-document/", "file": "doc-ai/how-to/digitise-a-document.md", "title": "Digitise a document | Sarvam API Docs", "method": "scrapling+scrapegraph"}
 {"url": "https://docs.sarvam.ai/doc-ai/how-to/extract-fields-from-a-document/extract-structured-fields/", "file": "doc-ai/how-to/extract-fields-from-a-document/extract-structured-fields.md", "title": "Extract structured fields | Sarvam API Docs", "method": "scrapling+scrapegraph"}
 {"url": "https://docs.sarvam.ai/doc-ai/resources/faq/", "file": "doc-ai/resources/faq.md", "title": "FAQs | Sarvam API Docs", "method": "scrapling+scrapegraph"}
+{"url": "https://docs.sarvam.ai/doc-ai/llms.txt", "file": "doc-ai/llms.txt.md", "title": "https://docs.sarvam.ai/doc-ai/llms.txt", "method": "scrapling+scrapegraph"}
+{"url": "https://docs.sarvam.ai/changelog/2026/11/7/", "file": "changelog/2026/11/7.md", "title": "November 7, 2026 | Sarvam API Docs", "method": "scrapling+scrapegraph"}
+{"url": "https://docs.sarvam.ai/api/token-factory/models/clef/", "file": "api/token-factory/models/clef.md", "title": "Clef | Sarvam API Docs", "method": "scrapling+scrapegraph"}
+{"url": "https://docs.sarvam.ai/api/token-factory/models/qwen-3-8-27b/", "file": "api/token-factory/models/qwen-3-8-27b.md", "title": "Qwen 3.8 27B | Sarvam API Docs", "method": "scrapling+scrapegraph"}
+{"url": "https://docs.sarvam.ai/api/token-factory/models/embeddinggemma-2/", "file": "api/token-factory/models/embeddinggemma-2.md", "title": "EmbeddingGemma 2 | Sarvam API Docs", "method": "scrapling+scrapegraph"}
+{"url": "https://docs.sarvam.ai/doc-ai/", "file": "doc-ai.md", "title": "Welcome to Document AI | Sarvam API Docs", "method": "scrapling+scrapegraph"}

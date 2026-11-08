@@ -2,7 +2,7 @@
 url: https://docs.sarvam.ai/api/getting-started/welcome/
 title: Welcome to Model APIs Documentation | Sarvam API Docs
 method: scrapling+scrapegraph
-fetched_at: 2026-11-07T06:39:11.959017+00:00
+fetched_at: 2026-11-08T06:31:02.076472+00:00
 ---
 
 # Welcome to Model APIs Documentation | Sarvam API Docs
@@ -59,7 +59,7 @@ Model| Model ID| Best for
 [Gemma 4 31B](https://docs.sarvam.ai/api/token-factory/models/gemma-4-31b)| `gemma4`| Images and low-latency answers  
 [DeepSeek V4.1 Flash 1017](https://docs.sarvam.ai/api/token-factory/models/deepseek-v4.1-flash-1017)| `deepseekv4.1-flash-1017`| Long documents and cost-sensitive reasoning  
   
-[DeepSeek V4 Pro](https://docs.sarvam.ai/api/token-factory/models/deepseek-v4-pro) and [Kimi K3.1 Pro](https://docs.sarvam.ai/api/token-factory/models/kimi-k3.1-pro) are on [Provisioned Throughput](https://docs.sarvam.ai/api/token-factory/models#provisioned-throughput) and are enabled per organisation.
+[DeepSeek V4 Pro](https://docs.sarvam.ai/api/token-factory/models/deepseek-v4-pro), [Kimi K3.1 Pro](https://docs.sarvam.ai/api/token-factory/models/kimi-k3.1-pro), [Qwen 3.8 27B](https://docs.sarvam.ai/api/token-factory/models/qwen-3-8-27b), the [Clef](https://docs.sarvam.ai/api/token-factory/models/clef) decision model, and [EmbeddingGemma 2](https://docs.sarvam.ai/api/token-factory/models/embeddinggemma-2) text embeddings are on [Provisioned Throughput](https://docs.sarvam.ai/api/token-factory/models#provisioned-throughput) and are enabled per organisation.
 
 [Token Factory overviewWhat Token Factory is, and the two-line switch from the OpenAI SDK.](https://docs.sarvam.ai/api/token-factory)[Compare modelsContext windows, modalities, reasoning, and feature support side by side.](https://docs.sarvam.ai/api/token-factory/models)[Chat CompletionsStreaming, tool calling, reasoning, and structured output.](https://docs.sarvam.ai/api/token-factory/chat-completions)[Responses APIStateless responses with reasoning, structured output, and tool calling.](https://docs.sarvam.ai/api/token-factory/responses-api)
 
@@ -178,6 +178,9 @@ YesNo
   * [DeepSeek V4.1 Flash 1017](https://docs.sarvam.ai/api/token-factory/models/deepseek-v4.1-flash-1017)
   * [DeepSeek V4 Pro](https://docs.sarvam.ai/api/token-factory/models/deepseek-v4-pro)
   * [Kimi K3.1 Pro](https://docs.sarvam.ai/api/token-factory/models/kimi-k3.1-pro)
+  * [Qwen 3.8 27B](https://docs.sarvam.ai/api/token-factory/models/qwen-3-8-27b)
+  * [Clef](https://docs.sarvam.ai/api/token-factory/models/clef)
+  * [EmbeddingGemma 2](https://docs.sarvam.ai/api/token-factory/models/embeddinggemma-2)
   * [Chat Completions](https://docs.sarvam.ai/api/token-factory/chat-completions)
   * [Responses API](https://docs.sarvam.ai/api/token-factory/responses-api)
   * [Decisions API](https://docs.sarvam.ai/api/token-factory/decisions-api)

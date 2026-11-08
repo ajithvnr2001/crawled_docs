@@ -2,7 +2,7 @@
 url: https://docs.sarvam.ai/api-reference/translate-document/create-doc-translation/
 title: Create Document Translation Job | Sarvam API Docs
 method: scrapling+scrapegraph
-fetched_at: 2026-11-07T06:39:16.226483+00:00
+fetched_at: 2026-11-08T06:30:51.430769+00:00
 ---
 
 # Create Document Translation Job | Sarvam API Docs
@@ -313,7 +313,7 @@ YesNo
   * [Get Model V2](https://docs.sarvam.ai/api-reference/chat/model-v2)
   * [List Models V2](https://docs.sarvam.ai/api-reference/chat/models-v2)
   * [Create Response](https://docs.sarvam.ai/api-reference/responses/create)
-  * [Decide (Sarvam Prism)](https://docs.sarvam.ai/api-reference/decisions/systemone)
+  * [Decision API](https://docs.sarvam.ai/api-reference/decisions/systemone)
   * [Chat Completion V1](https://docs.sarvam.ai/api-reference/chat/chat-completions-v1)
   * [Create Dubbing Job](https://docs.sarvam.ai/api-reference/creative-agents-dubbing/create-dub)
   * [Start Job](https://docs.sarvam.ai/api-reference/creative-agents-dubbing/start-dub)

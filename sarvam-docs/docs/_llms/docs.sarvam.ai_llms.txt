@@ -43,7 +43,7 @@ structured data, all from the dashboard with no integration required.
 
 [Content Studio](/creative/studio-overview)
 
-[Doc Agents](/docai/getting-started/overview)
+[Document AI](/doc-ai/getting-started/overview)
 
 ## Explore the platform
 
@@ -57,7 +57,7 @@ Speech, text, chat, document intelligence, and document-to-document translation 
 
 Build, deploy, and monitor voice and chat agents. Bring your own telephony or rent a number from Sarvam.
 
-[Doc Agents](/docai/getting-started/overview)
+[Document AI](/doc-ai/getting-started/overview)
 
 Extract fields and parse documents (invoices, KYC, land deeds, handwritten manuscripts) into JSON, CSV, Markdown, or DOCX.
 
@@ -316,12 +316,12 @@ Community
   - [Overview](https://docs.sarvam.ai/voice-agents/overview.md)
   - [Quickstart](https://docs.sarvam.ai/voice-agents/quickstart.md)
   - [MCP Server](https://docs.sarvam.ai/voice-agents/mcp.md)
-- [Doc Agents](https://docs.sarvam.ai/docai/llms.txt): Extract & parse documents
-  - [Overview](https://docs.sarvam.ai/docai/getting-started/overview.md)
-  - [Extract structured fields](https://docs.sarvam.ai/docai/how-to/extract-fields-from-a-document/extract-structured-fields.md)
-  - [Extract as CSV/Excel](https://docs.sarvam.ai/docai/extract-as-csv-excel.md)
-  - [Create a reusable config](https://docs.sarvam.ai/docai/how-to/extract-fields-from-a-document/create-a-reusable-config.md)
-  - [Digitise a document](https://docs.sarvam.ai/docai/how-to/digitise-a-document.md)
+- [Document AI](https://docs.sarvam.ai/doc-ai/llms.txt): Extract & parse documents
+  - [Overview](https://docs.sarvam.ai/doc-ai/getting-started/overview.md)
+  - [Extract structured fields](https://docs.sarvam.ai/doc-ai/how-to/extract-fields-from-a-document/extract-structured-fields.md)
+  - [Extract as CSV/Excel](https://docs.sarvam.ai/doc-ai/extract-as-csv-excel.md)
+  - [Create a reusable config](https://docs.sarvam.ai/doc-ai/how-to/extract-fields-from-a-document/create-a-reusable-config.md)
+  - [Digitise a document](https://docs.sarvam.ai/doc-ai/how-to/digitise-a-document.md)
 - [Content Studio](https://docs.sarvam.ai/creative/llms.txt): Generate voice & media content
   - [Overview](https://docs.sarvam.ai/creative/studio-overview.md)
   - [Creating a Dub](https://docs.sarvam.ai/creative-dubbing-create.md)
@@ -341,8 +341,8 @@ Community
   - [Meta Prompt Guide](https://docs.sarvam.ai/api-reference/metaprompt.md)
   - [Introduction](https://docs.sarvam.ai/api-reference/conversations.md)
 - [Changelog](https://docs.sarvam.ai/changelog/llms.txt): Track API and product updates
+  - [November 7, 2026](https://docs.sarvam.ai/changelog/2026/11/7.md)
   - [November 6, 2026](https://docs.sarvam.ai/changelog/2026/11/6.md)
   - [November 3, 2026](https://docs.sarvam.ai/changelog/2026/11/3.md)
   - [October 31, 2026](https://docs.sarvam.ai/changelog/2026/10/31.md)
   - [October 30, 2026](https://docs.sarvam.ai/changelog/2026/10/30.md)
-  - [October 29, 2026](https://docs.sarvam.ai/changelog/2026/10/29.md)

@@ -2,7 +2,7 @@
 url: https://docs.sarvam.ai/api-reference/chat/chat-completions-v1/
 title: Chat Completion V1 | Sarvam API Docs
 method: scrapling+scrapegraph
-fetched_at: 2026-11-07T06:39:27.302536+00:00
+fetched_at: 2026-11-08T06:31:00.223897+00:00
 ---
 
 # Chat Completion V1 | Sarvam API Docs
@@ -157,7 +157,7 @@ reasoning_effortenum or nullOptionalDefaults to `medium`
 
 The effort to use for reasoning. Can be disabled by explicitly setting to None. Default is 'medium'.
 
-Allowed values:nonelowhighmax
+Allowed values:nonelowmediumhighmax
 
 max_tokensinteger or nullOptionalDefaults to `2048`
 
@@ -173,9 +173,9 @@ Up to 4 stop sequences (string or array). Generated text excludes the matched se
 
 Show 2 variants
 
-ninteger or nullOptional`1-128`Defaults to `1`
+ninteger or nullOptional`=1`Defaults to `1`
 
-How many chat completion choices to generate for each input message. Note that you will be charged based on the number of generated tokens across all of the choices. Keep `n` as `1` to minimize costs.
+Number of chat completion choices. Only `1` is supported (the default); values above `1` return `400 invalid_request_error`. Send separate requests for more completions.
 
 seedinteger or nullOptional`-9223372036854776000-9223372036854776000`
 
@@ -357,7 +357,7 @@ YesNo
   * [Get Model V2](https://docs.sarvam.ai/api-reference/chat/model-v2)
   * [List Models V2](https://docs.sarvam.ai/api-reference/chat/models-v2)
   * [Create Response](https://docs.sarvam.ai/api-reference/responses/create)
-  * [Decide (Sarvam Prism)](https://docs.sarvam.ai/api-reference/decisions/systemone)
+  * [Decision API](https://docs.sarvam.ai/api-reference/decisions/systemone)
   * [Chat Completion V1](https://docs.sarvam.ai/api-reference/chat/chat-completions-v1)
   * [Create Dubbing Job](https://docs.sarvam.ai/api-reference/creative-agents-dubbing/create-dub)
   * [Start Job](https://docs.sarvam.ai/api-reference/creative-agents-dubbing/start-dub)

@@ -2,7 +2,7 @@
 url: https://docs.sarvam.ai/api/token-factory/models/
 title: Open-Weight Models | Sarvam API Docs
 method: scrapling+scrapegraph
-fetched_at: 2026-11-07T06:39:11.099843+00:00
+fetched_at: 2026-11-08T06:31:00.802724+00:00
 ---
 
 # Open-Weight Models | Sarvam API Docs
@@ -37,9 +37,9 @@ This page is for Model APIs.
 
 Run leading **open-weight models** on Sarvam infrastructure through the same OpenAI-compatible `/v2` API, with your existing Sarvam API key and credits. Switching models is a one-line change to the `model` field.
 
-Sarvam 105B, Sarvam 105B Conversations, GLM-5.3, GLM-5.3 Flash, Gemma 4 31B, and DeepSeek V4.1 Flash 1017 are serverless: any API key can call them. DeepSeek V4 Pro and Kimi K3.1 Pro are on [Provisioned Throughput](https://docs.sarvam.ai/api/token-factory/models#provisioned-throughput) and are enabled per organisation.
+Sarvam 105B, Sarvam 105B Conversations, GLM-5.3, GLM-5.3 Flash, Gemma 4 31B, and DeepSeek V4.1 Flash 1017 are serverless: any API key can call them. DeepSeek V4 Pro, Kimi K3.1 Pro, Qwen 3.8 27B, Clef, and EmbeddingGemma 2 are on [Provisioned Throughput](https://docs.sarvam.ai/api/token-factory/models#provisioned-throughput) and are enabled per organisation.
 
-For classification, routing, or scoring, use [Sarvam Prism](https://docs.sarvam.ai/api/token-factory/models/sarvam-prism) on the [Decisions API](https://docs.sarvam.ai/api-reference/decisions/systemone). It returns a calibrated probability for every option instead of generated text, so it is not in the chat catalog below.
+For classification, routing, or scoring, use [Sarvam Prism](https://docs.sarvam.ai/api/token-factory/models/sarvam-prism), or [Clef](https://docs.sarvam.ai/api/token-factory/models/clef) for questions about images, on the [Decisions API](https://docs.sarvam.ai/api-reference/decisions/systemone). They return a calibrated probability for every option instead of generated text. For search and retrieval, [EmbeddingGemma 2](https://docs.sarvam.ai/api/token-factory/models/embeddinggemma-2) returns text embeddings on `POST /v2/embeddings`.
 
 ## Choose a model
 
@@ -51,7 +51,7 @@ AllServerlessProvisioned Throughput
 
 AcceptsImageVideo
 
-Showing 9 of 9 models
+Showing 12 of 12 models
 
 Sort by price
 
@@ -165,7 +165,7 @@ Input
     TextImage
 
 ₹ per 1M in / out
-    ₹25 / ₹105
+    ₹14 / ₹55
 
 [DeepSeek V4 Pro →](https://docs.sarvam.ai/api/token-factory/models/deepseek-v4-pro)Provisioned`deepseekv4-pro`Copy
 
@@ -197,11 +197,59 @@ Input
     TextImageVideo
 
 ₹ per 1M in / out
-    ₹250 / ₹1,350
+    ₹200 / ₹950
+
+[Qwen 3.8 27B →](https://docs.sarvam.ai/api/token-factory/models/qwen-3-8-27b)Provisioned`qwen38-27b`Copy
+
+Mid-size reasoning model with image input and tool calling.
+
+Context
+    256K
+
+Reasoning
+    On, can turn off
+
+Input
+    TextImage
+
+₹ per 1M in / out
+    ₹18 / ₹230
+
+[Clef →](https://docs.sarvam.ai/api/token-factory/models/clef)Provisioned`clef`Copy
+
+Calibrated yes/no, choice, and score answers about text and images.
+
+Context
+    64K
+
+Reasoning
+    No
+
+Input
+    TextImage
+
+₹ per 1M in / out
+    ₹20 / ₹0
+
+[EmbeddingGemma 2 →](https://docs.sarvam.ai/api/token-factory/models/embeddinggemma-2)Provisioned`embeddinggemma-2`Copy
+
+768-dimension text embeddings for search, retrieval, and clustering.
+
+Context
+    8K
+
+Reasoning
+    No
+
+Input
+    Text
+
+₹ per 1M in / out
+    ₹2 / ₹0
 
 Prices are in ₹ per 1M tokens; reasoning is billed as output. See [Pricing](https://docs.sarvam.ai/api/getting-started/pricing). Each model’s reasoning default, and how to turn it off, is under [Reasoning](https://docs.sarvam.ai/api/token-factory/models#reasoning).
 
-Every model supports tool calling, streaming, and structured output (`response_format`). Support for log probabilities, multiple choices (`n` > 1), and other parameters varies by model — see each model’s own Supported Parameters table, or [V2 feature support](https://docs.sarvam.ai/api/token-factory/chat-completions#v2-feature-support) for the full matrix.
+Every chat model supports tool calling, streaming, and structured output (`response_format`). Every model returns one completion per request: `n` > 1 returns `400`. Support for log probabilities and other parameters varies by model — see each model’s own Supported Parameters table, or [V2 feature support](https://docs.sarvam.ai/api/token-factory/chat-completions#v2-feature-support) for the full matrix.
 
 ###### All models as a table
 
@@ -218,11 +266,17 @@ Model| Context| Input| ₹ per 1M in / out
 [Gemma 4 31B](https://docs.sarvam.ai/api/token-factory/models/gemma-4-31b)  
 `gemma4`| 256K| Text, image| 35 / 90  
 [DeepSeek V4.1 Flash 1017](https://docs.sarvam.ai/api/token-factory/models/deepseek-v4.1-flash-1017)  
-`deepseekv4.1-flash-1017`| 1M| Text, image| 25 / 105  
+`deepseekv4.1-flash-1017`| 1M| Text, image| 14 / 55  
 [DeepSeek V4 Pro](https://docs.sarvam.ai/api/token-factory/models/deepseek-v4-pro) (Provisioned Throughput)  
 `deepseekv4-pro`| 1M| Text| 115 / 350  
 [Kimi K3.1 Pro](https://docs.sarvam.ai/api/token-factory/models/kimi-k3.1-pro) (Provisioned Throughput)  
-`kimi-k3.1-pro`| 1M| Text, image, video| 250 / 1,350  
+`kimi-k3.1-pro`| 1M| Text, image, video| 200 / 950  
+[Qwen 3.8 27B](https://docs.sarvam.ai/api/token-factory/models/qwen-3-8-27b) (Provisioned Throughput)  
+`qwen38-27b`| 256K| Text, image| 18 / 230  
+[Clef](https://docs.sarvam.ai/api/token-factory/models/clef) (Provisioned Throughput, Decisions API)  
+`clef`| 64K| Text, image| 20 / —  
+[EmbeddingGemma 2](https://docs.sarvam.ai/api/token-factory/models/embeddinggemma-2) (Provisioned Throughput, embeddings)  
+`embeddinggemma-2`| 8K| Text| 2 / —  
   
   * **Indian languages:** `sarvam-105b`, or `sarvam-105b-conversations` for voice agents
   * **Coding and agents:** `glm5.3`, the strongest reasoning
@@ -236,12 +290,29 @@ Model| Context| Input| ₹ per 1M in / out
 
 Token Factory models are offered in two ways:
 
-  * **Serverless** : any Sarvam API key can call the model, billed per token. Sarvam 105B, Sarvam 105B Conversations, GLM-5.3, GLM-5.3 Flash, Gemma 4 31B, and DeepSeek V4.1 Flash 1017 are serverless.
-  * **Provisioned Throughput** : capacity for the model is set up for your workload and enabled for your organisation, so every API key in it can call the model. [DeepSeek V4 Pro](https://docs.sarvam.ai/api/token-factory/models/deepseek-v4-pro) and [Kimi K3.1 Pro](https://docs.sarvam.ai/api/token-factory/models/kimi-k3.1-pro) are on Provisioned Throughput, on both Chat Completion V2 and Responses, at the per-token rates on [Pricing](https://docs.sarvam.ai/api/getting-started/pricing).
+  * **Serverless** : any Sarvam API key can call the model, billed per token. Sarvam 105B, Sarvam 105B Conversations, GLM-5.3, GLM-5.3 Flash, Gemma 4 31B, and DeepSeek V4.1 Flash 1017 (including its high-throughput [interactive variant](https://docs.sarvam.ai/api/token-factory/models/deepseek-v4.1-flash-1017#interactive-variant)) are serverless.
+  * **Provisioned Throughput** : capacity for the model is set up for your workload and enabled for your organisation, so every API key in it can call the model.
 
 
 
-To get access, [contact us](https://docs.sarvam.ai/api/getting-started/help) with the model you need and your expected volume. Without access, requests return `400 invalid_request_error` with the message “This model is currently in beta”, even though [`GET /v2/models`](https://docs.sarvam.ai/api-reference/chat/models-v2) lists the model.
+These models are on Provisioned Throughput:
+
+Model| API| Pricing  
+---|---|---  
+[DeepSeek V4 Pro](https://docs.sarvam.ai/api/token-factory/models/deepseek-v4-pro)| Chat Completion V2 and Responses| Per token, on [Pricing](https://docs.sarvam.ai/api/getting-started/pricing)  
+[Kimi K3.1 Pro](https://docs.sarvam.ai/api/token-factory/models/kimi-k3.1-pro)| Chat Completion V2 and Responses| Per token, on [Pricing](https://docs.sarvam.ai/api/getting-started/pricing)  
+[Qwen 3.8 27B](https://docs.sarvam.ai/api/token-factory/models/qwen-3-8-27b)| Chat Completion V2 and Responses| Per token, on [Pricing](https://docs.sarvam.ai/api/getting-started/pricing)  
+[Clef](https://docs.sarvam.ai/api/token-factory/models/clef)| [Decisions API](https://docs.sarvam.ai/api/token-factory/decisions-api)| Per input token, on [Pricing](https://docs.sarvam.ai/api/getting-started/pricing)  
+[EmbeddingGemma 2](https://docs.sarvam.ai/api/token-factory/models/embeddinggemma-2)| `POST /v2/embeddings`| Per input token, on [Pricing](https://docs.sarvam.ai/api/getting-started/pricing)  
+  
+To get access, [contact us](https://docs.sarvam.ai/api/getting-started/help) with the model you need and your expected volume. Without access:
+
+  * DeepSeek V4 Pro returns `400 invalid_request_error`: “This model runs on Provisioned Throughput and is not enabled for your organisation”. It is listed in [`GET /v2/models`](https://docs.sarvam.ai/api-reference/chat/models-v2) for every key.
+  * The other Provisioned Throughput models return `404 not_found_error`, the same as an unknown model, and aren’t listed in `GET /v2/models` until access is enabled.
+
+
+
+In `GET /v2/models`, each model has an `access` field: `"provisioned"` for Provisioned Throughput models and `"standard"` for serverless ones.
 
 ## Quickstart
 
@@ -289,7 +360,7 @@ Open-weight models are served on `POST /v2/chat/completions`. Pick your SDK:
     
         ],
     
-        max_tokens=1000,
+        max_tokens=4000,
     
     )
     
@@ -353,6 +424,7 @@ Model| Default effort| Turn thinking off
 `deepseekv4.1-flash-1017`| `high`| `reasoning_effort: "none"`  
 `deepseekv4-pro`| `high`| `reasoning_effort: "none"` or `thinking: {"type": "disabled"}`  
 `kimi-k3.1-pro`| `max`| Not supported; thinking is always on  
+`qwen38-27b`| On| `reasoning_effort: "none"` or `chat_template_kwargs: {"enable_thinking": false}`  
   
 Send `thinking` and `chat_template_kwargs` through `extra_body` in the SDKs. Accepted effort values are listed on each [model page](https://docs.sarvam.ai/api/token-factory/models).
 
@@ -366,7 +438,7 @@ Symptom| Likely cause| Fix
 ---|---|---  
 `403 invalid_api_key_error`| Missing or wrong key header| Check `api-subscription-key` or the Bearer token  
 `404 not_found_error`| Unknown or wrongly cased model ID| IDs are case-sensitive. List the served model IDs with [`GET /v2/models`](https://docs.sarvam.ai/api-reference/chat/models-v2)  
-`400` “This model is currently in beta”| Your organisation doesn’t have Provisioned Throughput access for this model| [Contact us](https://docs.sarvam.ai/api/getting-started/help) to request access  
+`400` “…not enabled for your organisation” on `deepseekv4-pro`, or `404` on another Provisioned Throughput model| Your organisation doesn’t have [Provisioned Throughput](https://docs.sarvam.ai/api/token-factory/models#provisioned-throughput) access for this model| [Contact us](https://docs.sarvam.ai/api/getting-started/help) to request access  
 Empty `content`, `finish_reason: "length"`| Reasoning used the token budget| Raise `max_tokens` or lower `reasoning_effort`  
 `400 invalid_request_error` on a specific parameter| Parameter unsupported by this model| Check the model’s own Supported Parameters table  
 `402 insufficient_quota_error`| No credits left| Add credits in the [dashboard](https://indus.sarvam.ai/billing?ref=docs)  
@@ -445,6 +517,9 @@ YesNo
       * [DeepSeek V4.1 Flash 1017](https://docs.sarvam.ai/api/token-factory/models/deepseek-v4.1-flash-1017)
       * [DeepSeek V4 Pro](https://docs.sarvam.ai/api/token-factory/models/deepseek-v4-pro)
       * [Kimi K3.1 Pro](https://docs.sarvam.ai/api/token-factory/models/kimi-k3.1-pro)
+      * [Qwen 3.8 27B](https://docs.sarvam.ai/api/token-factory/models/qwen-3-8-27b)
+      * [Clef](https://docs.sarvam.ai/api/token-factory/models/clef)
+      * [EmbeddingGemma 2](https://docs.sarvam.ai/api/token-factory/models/embeddinggemma-2)
 
     * [Chat Completions](https://docs.sarvam.ai/api/token-factory/chat-completions)
     * [Responses API](https://docs.sarvam.ai/api/token-factory/responses-api)
@@ -511,6 +586,9 @@ YesNo
   * [DeepSeek V4.1 Flash 1017](https://docs.sarvam.ai/api/token-factory/models/deepseek-v4.1-flash-1017)
   * [DeepSeek V4 Pro](https://docs.sarvam.ai/api/token-factory/models/deepseek-v4-pro)
   * [Kimi K3.1 Pro](https://docs.sarvam.ai/api/token-factory/models/kimi-k3.1-pro)
+  * [Qwen 3.8 27B](https://docs.sarvam.ai/api/token-factory/models/qwen-3-8-27b)
+  * [Clef](https://docs.sarvam.ai/api/token-factory/models/clef)
+  * [EmbeddingGemma 2](https://docs.sarvam.ai/api/token-factory/models/embeddinggemma-2)
   * [Chat Completions](https://docs.sarvam.ai/api/token-factory/chat-completions)
   * [Responses API](https://docs.sarvam.ai/api/token-factory/responses-api)
   * [Decisions API](https://docs.sarvam.ai/api/token-factory/decisions-api)

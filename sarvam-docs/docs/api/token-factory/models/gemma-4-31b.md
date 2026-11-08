@@ -2,7 +2,7 @@
 url: https://docs.sarvam.ai/api/token-factory/models/gemma-4-31b/
 title: Gemma 4 31B | Sarvam API Docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-30T06:37:14.446166+00:00
+fetched_at: 2026-11-08T06:31:02.396711+00:00
 ---
 
 # Gemma 4 31B | Sarvam API Docs
@@ -147,7 +147,7 @@ Tool calling (`tools`, `tool_choice`)| |
 `parallel_tool_calls: false` enforced| |   
 Structured output (`response_format` / `text.format`)| |   
 Log probabilities (`logprobs`, `top_logprobs`)| | `400`  
-Multiple choices (`n` > 1)| | `400`  
+Multiple choices (`n` > 1)| `400`| `400`  
 Reasoning control| `reasoning_effort`: `low`, `high`, or `max`; off when omitted| `reasoning.effort`: `low` or `high`; off when omitted  
   
 `400` is `invalid_request_error`. Images must be **base64 data URIs** in `image_url` content parts (remote URLs are rejected).
@@ -182,17 +182,22 @@ YesNo
     * [Talk to us](https://docs.sarvam.ai/api/getting-started/help)
   * [Token Factory (Open-Weight)](https://docs.sarvam.ai/api/token-factory)
     * [Models](https://docs.sarvam.ai/api/token-factory/models)
+      * [Sarvam 105B](https://docs.sarvam.ai/api/token-factory/models/sarvam-105b)
+      * [Sarvam 105B Conversations](https://docs.sarvam.ai/api/token-factory/models/sarvam-105b#conversational-variant "Sarvam 105B Conversations")
+      * [Sarvam Prism](https://docs.sarvam.ai/api/token-factory/models/sarvam-prism)
       * [GLM-5.3](https://docs.sarvam.ai/api/token-factory/models/glm-5-3)
       * [GLM-5.3 Flash](https://docs.sarvam.ai/api/token-factory/models/glm-5-3-flash)
       * [Gemma 4 31B](https://docs.sarvam.ai/api/token-factory/models/gemma-4-31b)
-      * [DeepSeek V4.1 Flash 1017Beta](https://docs.sarvam.ai/api/token-factory/models/deepseek-v4.1-flash-1017)
-      * [DeepSeek V4 ProBeta](https://docs.sarvam.ai/api/token-factory/models/deepseek-v4-pro)
-      * [Kimi K3Beta](https://docs.sarvam.ai/api/token-factory/models/kimi-k3)
-      * [MiMo V2.6 FlashBeta](https://docs.sarvam.ai/api/token-factory/models/mimo-v2.6-flash)
-      * [MiMo V2.6 ProBeta](https://docs.sarvam.ai/api/token-factory/models/mimo-v2.6-pro)
+      * [DeepSeek V4.1 Flash 1017](https://docs.sarvam.ai/api/token-factory/models/deepseek-v4.1-flash-1017)
+      * [DeepSeek V4 Pro](https://docs.sarvam.ai/api/token-factory/models/deepseek-v4-pro)
+      * [Kimi K3.1 Pro](https://docs.sarvam.ai/api/token-factory/models/kimi-k3.1-pro)
+      * [Qwen 3.8 27B](https://docs.sarvam.ai/api/token-factory/models/qwen-3-8-27b)
+      * [Clef](https://docs.sarvam.ai/api/token-factory/models/clef)
+      * [EmbeddingGemma 2](https://docs.sarvam.ai/api/token-factory/models/embeddinggemma-2)
 
     * [Chat Completions](https://docs.sarvam.ai/api/token-factory/chat-completions)
     * [Responses API](https://docs.sarvam.ai/api/token-factory/responses-api)
+    * [Decisions API](https://docs.sarvam.ai/api/token-factory/decisions-api)
     * How-to
 
     * Migration Guides
@@ -247,16 +252,20 @@ YesNo
   * [Talk to us](https://docs.sarvam.ai/api/getting-started/help)
   * [Token Factory (Open-Weight)](https://docs.sarvam.ai/api/token-factory)
   * [Models](https://docs.sarvam.ai/api/token-factory/models)
+  * [Sarvam 105B](https://docs.sarvam.ai/api/token-factory/models/sarvam-105b)
+  * [Sarvam Prism](https://docs.sarvam.ai/api/token-factory/models/sarvam-prism)
   * [GLM-5.3](https://docs.sarvam.ai/api/token-factory/models/glm-5-3)
   * [GLM-5.3 Flash](https://docs.sarvam.ai/api/token-factory/models/glm-5-3-flash)
   * [Gemma 4 31B](https://docs.sarvam.ai/api/token-factory/models/gemma-4-31b)
   * [DeepSeek V4.1 Flash 1017](https://docs.sarvam.ai/api/token-factory/models/deepseek-v4.1-flash-1017)
   * [DeepSeek V4 Pro](https://docs.sarvam.ai/api/token-factory/models/deepseek-v4-pro)
-  * [Kimi K3](https://docs.sarvam.ai/api/token-factory/models/kimi-k3)
-  * [MiMo V2.6 Flash](https://docs.sarvam.ai/api/token-factory/models/mimo-v2.6-flash)
-  * [MiMo V2.6 Pro](https://docs.sarvam.ai/api/token-factory/models/mimo-v2.6-pro)
+  * [Kimi K3.1 Pro](https://docs.sarvam.ai/api/token-factory/models/kimi-k3.1-pro)
+  * [Qwen 3.8 27B](https://docs.sarvam.ai/api/token-factory/models/qwen-3-8-27b)
+  * [Clef](https://docs.sarvam.ai/api/token-factory/models/clef)
+  * [EmbeddingGemma 2](https://docs.sarvam.ai/api/token-factory/models/embeddinggemma-2)
   * [Chat Completions](https://docs.sarvam.ai/api/token-factory/chat-completions)
   * [Responses API](https://docs.sarvam.ai/api/token-factory/responses-api)
+  * [Decisions API](https://docs.sarvam.ai/api/token-factory/decisions-api)
   * [List your chat messages](https://docs.sarvam.ai/api/token-factory/how-to/list-your-chat-messages)
   * [Control response randomness](https://docs.sarvam.ai/api/token-factory/how-to/control-response-randomness)
   * [Control response diversity](https://docs.sarvam.ai/api/token-factory/how-to/control-response-diversity)
@@ -276,7 +285,6 @@ YesNo
   * [Chat Completion](https://docs.sarvam.ai/api/token-factory/migrations/from-together/chat-completion)
   * [Saaras](https://docs.sarvam.ai/api/api-guides-tutorials/models/saaras)
   * [Bulbul](https://docs.sarvam.ai/api/api-guides-tutorials/models/bulbul)
-  * [Sarvam 105B](https://docs.sarvam.ai/api/api-guides-tutorials/models/sarvam-105b)
   * [Mayura](https://docs.sarvam.ai/api/api-guides-tutorials/models/mayura)
   * [Sarvam Translate](https://docs.sarvam.ai/api/api-guides-tutorials/models/sarvam-translate)
   * [Sarvam Vision](https://docs.sarvam.ai/api/api-guides-tutorials/models/sarvam-vision)
@@ -429,7 +437,7 @@ YesNo
 
   * [Model APIs](https://docs.sarvam.ai/api)
   * [Voice Agents](https://docs.sarvam.ai/voice-agents)
-  * [Doc Agents](https://docs.sarvam.ai/docai)
+  * [Document AI](https://docs.sarvam.ai/doc-ai)
   * [Content Studio](https://docs.sarvam.ai/creative)
   * [Cowork](https://docs.sarvam.ai/cowork)
   * [API Reference](https://docs.sarvam.ai/api-reference)

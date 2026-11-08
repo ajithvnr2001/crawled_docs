@@ -2,7 +2,7 @@
 url: https://docs.sarvam.ai/api/token-factory/migrations/from-fireworks/chat-completion/
 title: Migrating Chat Completion from Fireworks AI to Sarvam | Sarvam API Docs
 method: scrapling+scrapegraph
-fetched_at: 2026-11-07T06:39:13.521904+00:00
+fetched_at: 2026-11-08T06:31:00.942597+00:00
 ---
 
 # Migrating Chat Completion from Fireworks AI to Sarvam | Sarvam API Docs
@@ -108,8 +108,8 @@ Fireworks| Sarvam| Note
 ---|---|---  
 `reasoning_effort: "low"` / `"high"` / `"max"`| Same| Each model’s default is listed under [Reasoning](https://docs.sarvam.ai/api/token-factory/models#reasoning).  
 `reasoning_effort: "medium"` / `"xhigh"`| Use `"low"`, `"high"`, or `"max"`| Accepted on some models and returns `400` on others, such as `glm5.3`.  
-`reasoning_effort: "none"` or `false`| `reasoning_effort: "none"`| Turns thinking off on `deepseekv4-pro`. `kimi-k3.1-pro` and `glm5.3-flash` always think.  
-`reasoning_effort` as a token budget (`1024` or more)| Use an effort level| Integer budgets above `100` return `400`.  
+`reasoning_effort: "none"` or `false`| `reasoning_effort: "none"`| Turns thinking off on `sarvam-105b`, `deepseekv4.1-flash-1017`, `deepseekv4.1-flash-1017-interactive`, `deepseekv4-pro`, and `qwen38-27b`. `kimi-k3.1-pro`, `glm5.3`, and `glm5.3-flash` always think.  
+`reasoning_effort` as a token budget (`1024` or more)| Use an effort level| The effort must be a string such as `"high"`; any integer returns `400`.  
 `thinking: {"type": "disabled"}`| Same, via `extra_body`| Works on the models that can turn thinking off. To control depth, use `reasoning_effort`.  
 `reasoning_history`| Remove| To keep reasoning across turns, send the earlier assistant `reasoning_content` back in `messages`.  
 `choices[].message.reasoning_content`| Same| Also `delta.reasoning_content` when streaming.  
@@ -143,12 +143,12 @@ Fireworks| Sarvam| Note
 `tools`, `tool_choice`, `parallel_tool_calls`| Same| `tool_choice: "any"` is Fireworks-only; use `"required"`.  
 `response_format` (`json_object`, `json_schema`)| Same|   
 `logprobs`, `top_logprobs`| Same| `logprobs` must be `true` or `false`. Not supported on `glm5.3`.  
-`n`| Same| Supported on most models. `temperature` must be above `0` when `n` > 1.  
+`n`| Only `1`| `n` > 1 returns `400` on every model. Send one request per completion.  
 `prompt_cache_key`, `user`| Accepted, except `prompt_cache_key` on `gemma4`, which returns `400`| For multi-turn caching on `gemma4`, send the [`x-session-affinity`](https://docs.sarvam.ai/api/token-factory/chat-completions#session-affinity-for-multi-turn-conversations) header.  
 `service_tier: "priority"`, Fast routers| Not needed| Sarvam has a single tier per model.  
 `stream: true`| Same| Usage arrives in the final chunk.  
 `image_url` content parts| Same| Inline base64 data URIs only, on models with image input. See each [model page](https://docs.sarvam.ai/api/token-factory/models).  
-`video_url` content parts| Same, as a base64 data URI| On `kimi-k3.1-pro` (short clips). Sarvam doesn’t fetch video URLs.  
+`video_url` content parts| Same, as a base64 data URI| On `kimi-k3.1-pro`. Sarvam doesn’t fetch video URLs.  
   
 ## Responses API
 
@@ -328,6 +328,9 @@ YesNo
   * [DeepSeek V4.1 Flash 1017](https://docs.sarvam.ai/api/token-factory/models/deepseek-v4.1-flash-1017)
   * [DeepSeek V4 Pro](https://docs.sarvam.ai/api/token-factory/models/deepseek-v4-pro)
   * [Kimi K3.1 Pro](https://docs.sarvam.ai/api/token-factory/models/kimi-k3.1-pro)
+  * [Qwen 3.8 27B](https://docs.sarvam.ai/api/token-factory/models/qwen-3-8-27b)
+  * [Clef](https://docs.sarvam.ai/api/token-factory/models/clef)
+  * [EmbeddingGemma 2](https://docs.sarvam.ai/api/token-factory/models/embeddinggemma-2)
   * [Chat Completions](https://docs.sarvam.ai/api/token-factory/chat-completions)
   * [Responses API](https://docs.sarvam.ai/api/token-factory/responses-api)
   * [Decisions API](https://docs.sarvam.ai/api/token-factory/decisions-api)

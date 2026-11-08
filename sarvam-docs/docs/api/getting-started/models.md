@@ -2,7 +2,7 @@
 url: https://docs.sarvam.ai/api/getting-started/models/
 title: Models | Sarvam API Docs
 method: scrapling+scrapegraph
-fetched_at: 2026-11-07T06:39:12.590757+00:00
+fetched_at: 2026-11-08T06:31:01.860707+00:00
 ---
 
 # Models | Sarvam API Docs
@@ -67,7 +67,7 @@ Model| API| Description
 
 Token Factory models are available on **`/v2`** using the same Sarvam API key and credits.
 
-DeepSeek V4 Pro and Kimi K3.1 Pro are on **Provisioned Throughput** and are enabled per organisation. See [Provisioned Throughput](https://docs.sarvam.ai/api/token-factory/models#provisioned-throughput).
+DeepSeek V4 Pro, Kimi K3.1 Pro, Qwen 3.8 27B, Clef, and EmbeddingGemma 2 are on **Provisioned Throughput** and are enabled per organisation. See [Provisioned Throughput](https://docs.sarvam.ai/api/token-factory/models#provisioned-throughput).
 
 Model| Context window| Modality| Reasoning  
 ---|---|---|---  
@@ -80,6 +80,9 @@ Model| Context window| Modality| Reasoning
 [DeepSeek V4.1 Flash 1017](https://docs.sarvam.ai/api/token-factory/models/deepseek-v4.1-flash-1017)| 1,048,576 tokens| Text + image → text| Yes  
 [DeepSeek V4 Pro](https://docs.sarvam.ai/api/token-factory/models/deepseek-v4-pro)| 1,000,000 tokens| Text → text| Yes  
 [Kimi K3.1 Pro](https://docs.sarvam.ai/api/token-factory/models/kimi-k3.1-pro)| 1,048,576 tokens| Text + image + video → text| Yes  
+[Qwen 3.8 27B](https://docs.sarvam.ai/api/token-factory/models/qwen-3-8-27b)| 262,144 tokens| Text + image → text| Yes  
+[Clef](https://docs.sarvam.ai/api/token-factory/models/clef)| 65,536 tokens per request| Text + image → probabilities ([Decisions API](https://docs.sarvam.ai/api-reference/decisions/systemone))| No  
+[EmbeddingGemma 2](https://docs.sarvam.ai/api/token-factory/models/embeddinggemma-2)| 8,192 tokens per input| Text → 768-dimension embedding| No  
   
 [Compare the Token Factory models →](https://docs.sarvam.ai/api/token-factory/models)
 
@@ -107,6 +110,9 @@ Model| Languages| Status
 **DeepSeek V4.1 Flash 1017** (Chat LLM, [open-weight](https://docs.sarvam.ai/api/token-factory/models))| See the model page for language coverage| Serverless  
 **DeepSeek V4 Pro** (Chat LLM, [open-weight](https://docs.sarvam.ai/api/token-factory/models))| See the model page for language coverage| Provisioned Throughput  
 **Kimi K3.1 Pro** (Chat LLM, [open-weight](https://docs.sarvam.ai/api/token-factory/models))| See the model page for language coverage| Provisioned Throughput  
+**Qwen 3.8 27B** (Chat LLM, [open-weight](https://docs.sarvam.ai/api/token-factory/models))| Not published; test with your languages| Provisioned Throughput  
+**Clef** (Decision model, [open-weight](https://docs.sarvam.ai/api/token-factory/models))| Not published; test with your languages| Provisioned Throughput  
+**EmbeddingGemma 2** (Text embeddings, [open-weight](https://docs.sarvam.ai/api/token-factory/models))| Not published; test with your languages| Provisioned Throughput  
   
 ### 23-language set (Saaras v4, Sarvam Translate, Sarvam Vision)
 
@@ -249,6 +255,9 @@ YesNo
   * [DeepSeek V4.1 Flash 1017](https://docs.sarvam.ai/api/token-factory/models/deepseek-v4.1-flash-1017)
   * [DeepSeek V4 Pro](https://docs.sarvam.ai/api/token-factory/models/deepseek-v4-pro)
   * [Kimi K3.1 Pro](https://docs.sarvam.ai/api/token-factory/models/kimi-k3.1-pro)
+  * [Qwen 3.8 27B](https://docs.sarvam.ai/api/token-factory/models/qwen-3-8-27b)
+  * [Clef](https://docs.sarvam.ai/api/token-factory/models/clef)
+  * [EmbeddingGemma 2](https://docs.sarvam.ai/api/token-factory/models/embeddinggemma-2)
   * [Chat Completions](https://docs.sarvam.ai/api/token-factory/chat-completions)
   * [Responses API](https://docs.sarvam.ai/api/token-factory/responses-api)
   * [Decisions API](https://docs.sarvam.ai/api/token-factory/decisions-api)

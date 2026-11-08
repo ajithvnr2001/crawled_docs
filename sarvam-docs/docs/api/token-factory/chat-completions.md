@@ -2,7 +2,7 @@
 url: https://docs.sarvam.ai/api/token-factory/chat-completions/
 title: Chat Completion API | Sarvam API Docs
 method: scrapling+scrapegraph
-fetched_at: 2026-11-07T06:39:12.334460+00:00
+fetched_at: 2026-11-08T06:30:49.320059+00:00
 ---
 
 # Chat Completion API | Sarvam API Docs
@@ -183,30 +183,32 @@ PythoncURL
 
 ### V2 feature support
 
-Feature| `sarvam-105b`| `glm5.3`| `glm5.3-flash`| `gemma4`| `deepseekv4.1-flash-1017`| `deepseekv4-pro`| `kimi-k3.1-pro`  
----|---|---|---|---|---|---|---  
-Streaming| | | | | | |   
-Tool calling| | | | | | |   
-Structured output (`response_format`)| | | | | | |   
-Log probabilities| | `400`| | | | |   
-Multiple choices (`n` > 1)| | `400`| | | | |   
-`parallel_tool_calls: false` enforced| | | | | | |   
-Session affinity (`x-session-affinity`)| | | | | | |   
+Feature| `sarvam-105b`| `glm5.3`| `glm5.3-flash`| `gemma4`| `deepseekv4.1-flash-1017`| `deepseekv4-pro`| `kimi-k3.1-pro`| `qwen38-27b`  
+---|---|---|---|---|---|---|---|---  
+Streaming| | | | | | | |   
+Tool calling| | | | | | | |   
+Structured output (`response_format`)| | | | | | | |  with thinking off  
+Log probabilities| | `400`| | | | | `400`|   
+Multiple choices (`n` > 1)| `400`| `400`| `400`| `400`| `400`| `400`| `400`| `400`  
+`parallel_tool_calls: false` enforced| | | | | | | |   
+Session affinity (`x-session-affinity`)| | | | | | | |   
   
 ###### V2 behaviour notes
 
-  * **Turning thinking off:** `deepseekv4.1-flash-1017` and `deepseekv4-pro` accept `reasoning_effort: "none"`. `glm5.3`, `glm5.3-flash`, and `kimi-k3.1-pro` can’t turn thinking off. `gemma4` doesn’t think unless you set `reasoning_effort`.
-  * **`n` > 1** needs `temperature` above `0` on every model; `temperature: 0` returns `400`.
+  * **Turning thinking off:** `deepseekv4.1-flash-1017`, `deepseekv4.1-flash-1017-interactive`, `deepseekv4-pro`, and `qwen38-27b` accept `reasoning_effort: "none"`. `glm5.3`, `glm5.3-flash`, and `kimi-k3.1-pro` can’t turn thinking off. `gemma4` doesn’t think unless you set `reasoning_effort`.
+  * **One completion per request:** `n` must be `1` (or omitted) on every model; any higher value returns `400 invalid_request_error` (`'n' must be at most 1.`). Send separate requests for more completions.
   * **Model IDs are case-sensitive.** An unknown ID returns `404 not_found_error`.
   * **Auth failures return`403`**, not `401`, with `invalid_api_key_error`.
   * **Streaming is optional.** Omit `stream` (or set `false`) for one JSON response, `true` for server-sent events.
   * **Parallel tool calls:** `parallel_tool_calls: false` limits a turn to one tool call on every model. On the Responses API, `sarvam-105b` ignores it.
   * **`n` on Responses:** not supported on the open-weight models; sending it, even `n: 1`, returns `400 Unsupported parameter(s)`.
-  * **Log probabilities on Responses:** `glm5.3` and `gemma4` reject `logprobs`/`top_logprobs` with `400`. On the other models, send `top_logprobs` together with `include: ["message.output_text.logprobs"]`; without `include`, `output[].content[].logprobs` comes back empty.
-  * **Reasoning on Responses:** `deepseekv4.1-flash-1017`, `deepseekv4-pro`, and `kimi-k3.1-pro` accept `low`, `high`, `max`. `gemma4` accepts `low` or `high` and doesn’t reason when `reasoning` is omitted. `glm5.3` and `glm5.3-flash` accept only `low` or `high` (the string `"max"` returns `400`); omitting `reasoning` gives `max` on `glm5.3` and `high` on `glm5.3-flash`.
-  * **Reasoning budget:** reasoning tokens count against `max_tokens`. On Chat, `max_tokens` defaults to `2048` on `glm5.3` only; other models have no small default, so set it explicitly. Responses’ `max_output_tokens` has no default, so omitting it means unbounded generation.
-  * **`stop`:** on Chat, `sarvam-105b`, `glm5.3`, and `gemma4` take up to 4 sequences and return `400` for more; `glm5.3-flash` and `deepseekv4.1-flash-1017` accept more than 4. The open-weight models reject `stop` on the Responses API.
+  * **Log probabilities on Responses:** `glm5.3`, `gemma4`, and `kimi-k3.1-pro` reject `logprobs`/`top_logprobs` with `400`. On the other models, send `top_logprobs` together with `include: ["message.output_text.logprobs"]`; without `include`, `output[].content[].logprobs` comes back empty.
+  * **Reasoning on Responses:** `deepseekv4.1-flash-1017`, `deepseekv4.1-flash-1017-interactive`, and `deepseekv4-pro` accept `low`, `high`, `max`, and `none`; `kimi-k3.1-pro` accepts `low`, `medium`, `high`, `max`. `gemma4` accepts `low` or `high` and doesn’t reason when `reasoning` is omitted. `glm5.3` and `glm5.3-flash` accept only `low` or `high` (the string `"max"` returns `400`); omitting `reasoning` gives `max` on `glm5.3` and `high` on `glm5.3-flash`.
+  * **Reasoning budget:** reasoning tokens count against `max_tokens`. On Chat Completion V2, `max_tokens` defaults to `2048` on `glm5.3` only; other models have no small default, so set it explicitly. On the legacy `/v1/chat/completions`, `sarvam-105b` defaults to `2048`. Responses’ `max_output_tokens` has no default, so omitting it means unbounded generation.
+  * **`stop`:** on Chat, `sarvam-105b`, `glm5.3`, and `gemma4` take up to 4 sequences and return `400` for more; `glm5.3-flash`, `deepseekv4.1-flash-1017`, `deepseekv4.1-flash-1017-interactive`, `deepseekv4-pro`, `kimi-k3.1-pro`, and `qwen38-27b` accept more than 4. The open-weight models reject `stop` on the Responses API.
   * **Errors:** invalid JSON or types return `400` with `error.message`; overload returns `503` (retry with backoff).
+  * **Not in the table:** `deepseekv4.1-flash-1017-interactive` supports the same features as `deepseekv4.1-flash-1017`. See the [interactive variant](https://docs.sarvam.ai/api/token-factory/models/deepseek-v4.1-flash-1017#interactive-variant).
+  * **Structured output on`qwen38-27b`:** set `reasoning_effort: "none"`. With thinking on, the JSON lands in the reasoning trace and `content` is `null`.
   * Model-specific limits are listed under each [open-weight model guide](https://docs.sarvam.ai/api/token-factory/models).
 
 
@@ -965,10 +967,10 @@ Limit| Value
 ---|---  
 Context window| 128K tokens (`sarvam-105b`) / 32K tokens (`sarvam-105b-conversations`)  
 `max_tokens`| Starter 4096 / Pro 16384 / Business 128000  
-(reasoning tokens count toward completion tokens)  
+(reasoning tokens count toward completion tokens). Defaults to 2,048 when omitted  
 `temperature`| 0–2 (default 0.5 when reasoning is enabled, the default, and 0.2 when reasoning is disabled)  
 `top_p`| 0–1  
-`n` (completions per request)| 1–128  
+`n` (completions per request)| `1` only; higher values return `400`  
 `frequency_penalty` / `presence_penalty`| -2 to 2  
 `stop`| Up to 4 sequences  
 Rate limits| See [Rate Limits](https://docs.sarvam.ai/api/getting-started/pricing#rate-limits)  
@@ -979,7 +981,7 @@ Was this page helpful?
 
 YesNo
 
-[Previous](https://docs.sarvam.ai/api/token-factory/models/kimi-k3.1-pro)[Responses APINext](https://docs.sarvam.ai/api/token-factory/responses-api)[Built with](https://buildwithfern.com/?utm_source=others&utm_medium=organic&utm_campaign=fern_indocs_url&utm_content=book_demo&utm_term=docs.sarvam.ai)
+[Previous](https://docs.sarvam.ai/api/token-factory/models/embeddinggemma-2)[Responses APINext](https://docs.sarvam.ai/api/token-factory/responses-api)[Built with](https://buildwithfern.com/?utm_source=others&utm_medium=organic&utm_campaign=fern_indocs_url&utm_content=book_demo&utm_term=docs.sarvam.ai)
 
   * Getting Started
 
@@ -1056,6 +1058,9 @@ YesNo
   * [DeepSeek V4.1 Flash 1017](https://docs.sarvam.ai/api/token-factory/models/deepseek-v4.1-flash-1017)
   * [DeepSeek V4 Pro](https://docs.sarvam.ai/api/token-factory/models/deepseek-v4-pro)
   * [Kimi K3.1 Pro](https://docs.sarvam.ai/api/token-factory/models/kimi-k3.1-pro)
+  * [Qwen 3.8 27B](https://docs.sarvam.ai/api/token-factory/models/qwen-3-8-27b)
+  * [Clef](https://docs.sarvam.ai/api/token-factory/models/clef)
+  * [EmbeddingGemma 2](https://docs.sarvam.ai/api/token-factory/models/embeddinggemma-2)
   * [Chat Completions](https://docs.sarvam.ai/api/token-factory/chat-completions)
   * [Responses API](https://docs.sarvam.ai/api/token-factory/responses-api)
   * [Decisions API](https://docs.sarvam.ai/api/token-factory/decisions-api)

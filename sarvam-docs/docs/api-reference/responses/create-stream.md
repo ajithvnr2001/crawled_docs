@@ -2,7 +2,7 @@
 url: https://docs.sarvam.ai/api-reference/responses/create-stream/
 title: Create Response | Sarvam API Docs
 method: scrapling+scrapegraph
-fetched_at: 2026-11-07T06:39:19.331381+00:00
+fetched_at: 2026-11-08T06:30:54.133581+00:00
 ---
 
 # Create Response | Sarvam API Docs
@@ -54,7 +54,7 @@ Try it
 
 Generate a model reply in the OpenAI Responses format.
 
-**Models:** `sarvam-105b`, `glm5.3`, `gemma4`, `deepseekv4.1-flash-1017`, `glm5.3-flash`, `deepseekv4-pro`, `kimi-k3.1-pro` (ids are case-sensitive).
+**Models:** `sarvam-105b`, `sarvam-105b-conversations`, `glm5.3`, `gemma4`, `deepseekv4.1-flash-1017`, `glm5.3-flash`, `deepseekv4.1-flash-1017-interactive`, and, on Provisioned Throughput, `deepseekv4-pro`, `kimi-k3.1-pro`, `qwen38-27b` (ids are case-sensitive).
 
 **Each call is independent.** Send the full conversation in `input` every time — nothing is stored for you. Leave out `store` or set it to `false` (`true` returns **`400`**). You cannot load a past response by id (`GET /v2/responses/{id}` is always **`404`**).
 
@@ -85,16 +85,19 @@ modelenumRequired
 Model IDs accepted by `POST /v2/responses` (case-sensitive; unknown ids return `404`):
 
   * **`sarvam-105b`** — Sarvam flagship model.
+  * **`sarvam-105b-conversations`** — Sarvam 105B tuned for real-time dialogue.
   * **`glm5.3`** — 1,048,576-token context; reasoning in `output` as a `reasoning` item; flat function tools; max request size 10,485,760 bytes.
   * **`glm5.3-flash`** — long context, vision (inline base64 images), tools, and reasoning; `reasoning.effort` accepts `low` or `high` only, as on `glm5.3`.
   * **`gemma4`** — 262,144-token context, vision (inline base64 images), tools, and optional reasoning (`reasoning.effort` `low` or `high`).
-  * **`deepseekv4.1-flash-1017`** — long context, tools, and reasoning.
+  * **`deepseekv4.1-flash-1017`** — long context, vision (inline base64 images), tools, and reasoning.
+  * **`deepseekv4.1-flash-1017-interactive`** — same capabilities as `deepseekv4.1-flash-1017`, on a high-throughput deployment (more than 200 output tokens per second).
   * **`deepseekv4-pro`** (Provisioned Throughput) — long context, text input, tools, and reasoning (default `high`).
   * **`kimi-k3.1-pro`** (Provisioned Throughput) — long context, image input (inline base64; no video on this route), tools, and reasoning (always on).
+  * **`qwen38-27b`** (Provisioned Throughput) — 262,144-token context, image input (inline base64), tools, and reasoning (on by default).
 
 
 
-Show 7 enum values
+Show 10 enum values
 
 inputstring or list of objectsRequired
 
@@ -132,7 +135,7 @@ Show 2 variants
 
 reasoningobject or nullOptional
 
-Optional reasoning config for `glm5.3`, `glm5.3-flash`, `gemma4`, `deepseekv4.1-flash-1017`, `deepseekv4-pro`, `kimi-k3.1-pro`. **`effort`:** on `glm5.3` and `glm5.3-flash`, `low` or `high` only (the literal string `max` returns `400`; omitting it gives `max` on `glm5.3` and `high` on `glm5.3-flash`); on `deepseekv4.1-flash-1017`, `deepseekv4-pro`, and `kimi-k3.1-pro`, `low`, `high`, or `max` all work directly. The trace is in the reasoning item’s `content[0].text`; `summary` is filled only when `summary` is set. Optional **`summary`:** `auto` or `detailed`.
+Optional reasoning config for `glm5.3`, `glm5.3-flash`, `gemma4`, the DeepSeek models, `kimi-k3.1-pro`, and `qwen38-27b`. **`effort`:** on `glm5.3` and `glm5.3-flash`, `low` or `high` only (the literal string `max` returns `400`; omitting it gives `max` on `glm5.3` and `high` on `glm5.3-flash`); on `deepseekv4.1-flash-1017`, `deepseekv4.1-flash-1017-interactive`, and `deepseekv4-pro`, `low`, `high`, `max`, or `none` (thinking off); on `kimi-k3.1-pro`, `low`, `medium`, `high`, or `max` (thinking is always on); on `qwen38-27b`, `none` turns thinking off. The trace is in the reasoning item’s `content[0].text`; `summary` is filled only when `summary` is set. Optional **`summary`:** `auto` or `detailed`.
 
 Show 2 properties
 
@@ -196,6 +199,14 @@ max_tool_callsinteger or nullOptional
 
 `400 invalid_request_error` — not supported by any serving deployment, top-level or via `extra_body`.
 
+top_logprobsinteger or nullOptional`>=0`
+
+How many of the most likely tokens to return at each output position, with their log probabilities. Send it with `include: ["message.output_text.logprobs"]`; without `include`, `output[].content[].logprobs` comes back empty. `0` returns no logprobs. Supported on `sarvam-105b`, `glm5.3-flash`, `deepseekv4.1-flash-1017`, `deepseekv4.1-flash-1017-interactive`, `deepseekv4-pro`, and `qwen38-27b`; `glm5.3`, `gemma4`, and `kimi-k3.1-pro` return `400`.
+
+includelist of strings or nullOptional
+
+Extra data to add to the response. `message.output_text.logprobs` returns token log probabilities (use with `top_logprobs`); `reasoning.encrypted_content` is accepted. An unknown value returns `400`.
+
 ### Response
 
 typestring
@@ -211,6 +222,10 @@ Bad Request Error
 401
 
 Unauthorized Error
+
+402
+
+Payment Required Error
 
 403
 
@@ -330,7 +345,7 @@ YesNo
   * [Get Model V2](https://docs.sarvam.ai/api-reference/chat/model-v2)
   * [List Models V2](https://docs.sarvam.ai/api-reference/chat/models-v2)
   * [Create Response](https://docs.sarvam.ai/api-reference/responses/create)
-  * [Decide (Sarvam Prism)](https://docs.sarvam.ai/api-reference/decisions/systemone)
+  * [Decision API](https://docs.sarvam.ai/api-reference/decisions/systemone)
   * [Chat Completion V1](https://docs.sarvam.ai/api-reference/chat/chat-completions-v1)
   * [Create Dubbing Job](https://docs.sarvam.ai/api-reference/creative-agents-dubbing/create-dub)
   * [Start Job](https://docs.sarvam.ai/api-reference/creative-agents-dubbing/start-dub)

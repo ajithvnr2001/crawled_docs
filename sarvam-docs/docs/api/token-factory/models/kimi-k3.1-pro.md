@@ -2,7 +2,7 @@
 url: https://docs.sarvam.ai/api/token-factory/models/kimi-k3.1-pro
 title: Kimi K3.1 Pro | Sarvam API Docs
 method: scrapling+scrapegraph
-fetched_at: 2026-11-06T19:32:29.030796+00:00
+fetched_at: 2026-11-08T06:30:47.714584+00:00
 ---
 
 # Kimi K3.1 Pro | Sarvam API Docs
@@ -19,9 +19,8 @@ On this page
   * Supported parameters
   * Reasoning
   * Image input
-  * Video input (beta)
+  * Video input
   * Tool calling
-  * Multiple choices
   * Known limitations
   * Limits and errors
 
@@ -39,7 +38,7 @@ This page is for Model APIs.
 
 Kimi K3.1 Pro is a general-purpose [open-weight model](https://docs.sarvam.ai/api/token-factory/models) served on Sarvam infrastructure. It accepts **text, images, and video** and has a **1,048,576-token context window**.
 
-Kimi K3.1 Pro is available on **Provisioned Throughput** : capacity is set up for your workload and enabled for your organisation. Without access, requests return `400 invalid_request_error` (the message still reads “This model is currently in beta”). [Contact us](https://docs.sarvam.ai/api/getting-started/help) to request access. See [Provisioned Throughput](https://docs.sarvam.ai/api/token-factory/models#provisioned-throughput).
+Kimi K3.1 Pro is available on **Provisioned Throughput** : capacity is set up for your workload and enabled for your organisation. Without access, requests return `404 not_found_error` and the model isn’t listed in [`GET /v2/models`](https://docs.sarvam.ai/api-reference/chat/models-v2). [Contact us](https://docs.sarvam.ai/api/getting-started/help) to request access. See [Provisioned Throughput](https://docs.sarvam.ai/api/token-factory/models#provisioned-throughput).
 
 ## At a glance
 
@@ -48,11 +47,11 @@ Kimi K3.1 Pro is available on **Provisioned Throughput** : capacity is set up fo
 **Model ID**| `kimi-k3.1-pro`  
 **Best for**|  Agentic workflows and reasoning over images and video  
 **Context window**|  1,048,576 tokens  
-**Input → output**|  Text + image + video (beta, short clips only) → text  
-**Reasoning**|  Always on: **`low`** , **`high`** , or **`max`** (default). See [Reasoning](https://docs.sarvam.ai/api/token-factory/models/kimi-k3.1-pro#reasoning)  
+**Input → output**|  Text + image + video → text  
+**Reasoning**|  Always on: **`low`** , **`medium`** , **`high`** , or **`max`** (default). See [Reasoning](https://docs.sarvam.ai/api/token-factory/models/kimi-k3.1-pro#reasoning)  
 **Tool calling**|  Supported, including parallel tool calls  
 **APIs**| [`POST /v2/chat/completions`](https://docs.sarvam.ai/api-reference/chat/chat-completions-v2) and [`POST /v2/responses`](https://docs.sarvam.ai/api-reference/responses/create)  
-**Pricing**|  ₹250 input · ₹25 cached input · ₹1,350 output per 1M tokens; reasoning is billed as output ([Pricing](https://docs.sarvam.ai/api/getting-started/pricing))  
+**Pricing**|  ₹200 input · ₹20 cached input · ₹950 output per 1M tokens; reasoning is billed as output ([Pricing](https://docs.sarvam.ai/api/getting-started/pricing))  
   
 ## Key capabilities
 
@@ -62,7 +61,7 @@ Process up to 1,048,576 tokens across the prompt, reasoning, and generated outpu
 
 Image and video input
 
-Send base64 images and short base64 video clips alongside text.
+Send base64 images and base64 video clips alongside text.
 
 Reasoning
 
@@ -76,9 +75,9 @@ Structured output
 
 Constrain answers with `response_format` JSON schemas.
 
-Log probabilities
+Streaming
 
-Request `logprobs` and `top_logprobs`, and `n` > 1 choices.
+Receive reasoning and answer deltas as server-sent events.
 
 Moving from [OpenRouter](https://docs.sarvam.ai/api/token-factory/migrations/from-openrouter/overview), [Fireworks AI](https://docs.sarvam.ai/api/token-factory/migrations/from-fireworks/overview), or [Together AI](https://docs.sarvam.ai/api/token-factory/migrations/from-together/overview)? The migration guides map model IDs and request fields to Sarvam.
 
@@ -121,23 +120,23 @@ Parameter| Chat Completion V2| Responses
 ---|---|---  
 Streaming (`stream`)| |   
 Image input (base64)| `image_url`| `input_image`  
-Video input (base64, beta)| `video_url`, short clips only| `400`  
+Video input (base64)| `video_url`| `400`  
 Audio input| `400`| `400`  
 Tool calling (`tools`, `tool_choice`)| |   
 `parallel_tool_calls: false` enforced| |   
 Structured output (`response_format` / `text.format`)| |   
-Log probabilities (`logprobs`, `top_logprobs`)| |  send `top_logprobs` with `include: ["message.output_text.logprobs"]`; `logprobs: true` returns `400`  
-Multiple choices (`n` > 1)|  requires `temperature` > `0`| N/A — Responses has no `n`  
-Reasoning control| `reasoning_effort`: `low`, `high`, or `max` (default)| `reasoning.effort`: same values  
+Log probabilities (`logprobs`, `top_logprobs`)| `400`| `400`  
+Multiple choices (`n` > 1)| `400`| N/A — Responses has no `n`  
+`seed`| `400`; outputs are not reproducible| `400`  
+`top_k`, `min_p`| `400`| `400`  
+Reasoning control| `reasoning_effort`: `low`, `medium`, `high`, or `max` (default)| `reasoning.effort`: same values  
 Turn reasoning off|  always thinks|  always thinks  
   
-On `POST /v2/responses`, `logprobs` is only populated when the request includes `"include": ["message.output_text.logprobs"]`. Without it, `output[].content[].logprobs` is always an empty array even if `top_logprobs` is set. Verified against the live API on 2026-10-22.
-
 ## Reasoning
 
-Thinking is always on and can’t be turned off. Effort levels: `low`, `high`, `max` (default `max`). Set them with `reasoning_effort` on chat or `reasoning.effort` on Responses.
+Thinking is always on and can’t be turned off. Effort levels: `low`, `medium`, `high`, `max` (default `max`); `medium` runs as `high`. Set them with `reasoning_effort` on chat or `reasoning.effort` on Responses. `"none"`, `"minimal"`, and `"xhigh"` return `400`, and so does turning thinking off with `thinking` or `chat_template_kwargs`.
 
-Read the reasoning trace from `choices[].message.reasoning_content` on chat. On Responses, `output` starts with a `reasoning` item; read its `content[0].text` (`summary` is empty). Reasoning tokens are billed as output tokens and count against `max_tokens` / `max_output_tokens`.
+Read the reasoning trace from `choices[].message.reasoning_content` on chat. On Responses, `output` starts with a `reasoning` item; read its `content[0].text`. Its `summary` is empty unless you set `reasoning.summary`. Reasoning tokens are billed as output tokens and count against `max_tokens` / `max_output_tokens`.
 
 On Responses, when the model calls tools, `output` has one `reasoning` item followed by the `function_call` items for that turn (sometimes with a `message` item between them).
 
@@ -178,13 +177,13 @@ Send images **inline as base64 data URIs** in an `image_url` content part on cha
     
     )
 
-Images are resized to about 12.8 megapixels. Images above about 179 megapixels are rejected.
+Images are resized to about 12.8 megapixels, so any image at or above that size costs about 16,700 input tokens. Images above about 179 megapixels are rejected.
 
-## Video input (beta)
+## Video input
 
 Send a video **inline as a base64 data URI** in a `video_url` content part on Chat Completion V2. Remote video URLs return `400`, and the Responses API doesn’t accept video.
 
-Kimi K3.1 Pro understands only **very short clips** , about four frames. Longer clips can come back as blank or repeated frames, and the answer describes only part of the video. For longer videos, sample a few key frames and send them as images instead.
+The model follows what happens across the clip, in order. A 40-second clip with four scenes was described correctly in tests; for long videos, keep the request under the [request size limit](https://docs.sarvam.ai/api/token-factory/models/kimi-k3.1-pro#limits-and-errors) or sample key frames and send them as images.
     
     
     import base64
@@ -225,16 +224,11 @@ Audio input is not supported and returns `400`.
 
 Pass OpenAI-compatible `tools`. `tool_choice` accepts `"auto"`, `"none"`, `"required"`, or a named function (`{"type": "function", "function": {"name": "..."}}`). The model can return several tool calls in one turn; set `parallel_tool_calls: false` to get at most one.
 
-## Multiple choices
-
-`n` > 1 needs `temperature` greater than `0`. Sending `n` > 1 with `temperature: 0` returns `400`.
-
 ## Known limitations
 
-  * Video input is beta and reliable only for very short clips (see [Video input](https://docs.sarvam.ai/api/token-factory/models/kimi-k3.1-pro#video-input-beta)).
   * Reasoning and the final answer share the **`max_tokens`** / **`max_output_tokens`** budget.
-  * A `stop` string can match inside the thinking, which ends the response early with `content: null`. Use stop strings that won’t appear in reasoning.
-  * Set **`max_tokens`** explicitly. When it’s omitted, generation isn’t capped at a small default and long answers can run to tens of thousands of tokens.
+  * Log probabilities, `n` > 1, and `seed` are not supported.
+  * Set **`max_tokens`** explicitly to bound cost and latency.
 
 
 
@@ -248,7 +242,8 @@ Media URL| An image, audio, or video part uses an `http(s)` URL| `400 invalid_re
 Media count| More than 999 images or 999 videos in one request| `400 invalid_request_error`| Split the request.  
 Image size| Image above about 179 megapixels| `400 invalid_request_error`| Downscale the image.  
 Modality| Request includes audio input| `400 invalid_request_error`| Send text, image, or video input.  
-Choices| `n` > 1 with `temperature: 0`| `400 invalid_request_error`| Set `temperature` above `0`.  
+Choices| `n` > 1| `400 invalid_request_error`| Send one request per completion.  
+Unsupported field| `seed`, `logprobs`, `top_k`, `min_p`, or a `reasoning_effort` other than `low`, `medium`, `high`, `max`| `400 invalid_request_error`, naming the field| Remove the field or use a supported value.  
 Reasoning| Reasoning consumes the full `max_tokens` budget| `200` with `finish_reason: "length"`| Raise `max_tokens` or lower the reasoning effort.  
 Authentication| API key is missing or invalid| `403 invalid_api_key_error`| Check the `api-subscription-key` header.  
 Model| Model ID is unknown or unavailable| `404 not_found_error`| Check the spelling; model IDs are case-sensitive.  
@@ -260,7 +255,7 @@ Was this page helpful?
 
 YesNo
 
-[Previous](https://docs.sarvam.ai/api/token-factory/models/deepseek-v4-pro)[Chat Completion APINext](https://docs.sarvam.ai/api/token-factory/chat-completions)[Built with](https://buildwithfern.com/?utm_source=others&utm_medium=organic&utm_campaign=fern_indocs_url&utm_content=book_demo&utm_term=docs.sarvam.ai)
+[Previous](https://docs.sarvam.ai/api/token-factory/models/deepseek-v4-pro)[Qwen 3.8 27BNext](https://docs.sarvam.ai/api/token-factory/models/qwen-3-8-27b)[Built with](https://buildwithfern.com/?utm_source=others&utm_medium=organic&utm_campaign=fern_indocs_url&utm_content=book_demo&utm_term=docs.sarvam.ai)
 
   * Getting Started
 
@@ -280,6 +275,9 @@ YesNo
       * [DeepSeek V4.1 Flash 1017](https://docs.sarvam.ai/api/token-factory/models/deepseek-v4.1-flash-1017)
       * [DeepSeek V4 Pro](https://docs.sarvam.ai/api/token-factory/models/deepseek-v4-pro)
       * [Kimi K3.1 Pro](https://docs.sarvam.ai/api/token-factory/models/kimi-k3.1-pro)
+      * [Qwen 3.8 27B](https://docs.sarvam.ai/api/token-factory/models/qwen-3-8-27b)
+      * [Clef](https://docs.sarvam.ai/api/token-factory/models/clef)
+      * [EmbeddingGemma 2](https://docs.sarvam.ai/api/token-factory/models/embeddinggemma-2)
 
     * [Chat Completions](https://docs.sarvam.ai/api/token-factory/chat-completions)
     * [Responses API](https://docs.sarvam.ai/api/token-factory/responses-api)
@@ -346,6 +344,9 @@ YesNo
   * [DeepSeek V4.1 Flash 1017](https://docs.sarvam.ai/api/token-factory/models/deepseek-v4.1-flash-1017)
   * [DeepSeek V4 Pro](https://docs.sarvam.ai/api/token-factory/models/deepseek-v4-pro)
   * [Kimi K3.1 Pro](https://docs.sarvam.ai/api/token-factory/models/kimi-k3.1-pro)
+  * [Qwen 3.8 27B](https://docs.sarvam.ai/api/token-factory/models/qwen-3-8-27b)
+  * [Clef](https://docs.sarvam.ai/api/token-factory/models/clef)
+  * [EmbeddingGemma 2](https://docs.sarvam.ai/api/token-factory/models/embeddinggemma-2)
   * [Chat Completions](https://docs.sarvam.ai/api/token-factory/chat-completions)
   * [Responses API](https://docs.sarvam.ai/api/token-factory/responses-api)
   * [Decisions API](https://docs.sarvam.ai/api/token-factory/decisions-api)
@@ -520,7 +521,7 @@ YesNo
 
   * [Model APIs](https://docs.sarvam.ai/api)
   * [Voice Agents](https://docs.sarvam.ai/voice-agents)
-  * [Doc Agents](https://docs.sarvam.ai/docai)
+  * [Document AI](https://docs.sarvam.ai/doc-ai)
   * [Content Studio](https://docs.sarvam.ai/creative)
   * [Cowork](https://docs.sarvam.ai/cowork)
   * [API Reference](https://docs.sarvam.ai/api-reference)

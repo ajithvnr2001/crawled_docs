@@ -2,7 +2,7 @@
 url: https://docs.sarvam.ai/api-reference/chat/chat-completions-v2/
 title: Chat Completion V2 | Sarvam API Docs
 method: scrapling+scrapegraph
-fetched_at: 2026-11-07T06:39:26.826875+00:00
+fetched_at: 2026-11-08T06:31:00.419502+00:00
 ---
 
 # Chat Completion V2 | Sarvam API Docs
@@ -170,16 +170,19 @@ modelenumRequired
 Model IDs accepted by `POST /v2/chat/completions` (case-sensitive; unknown ids return `404`):
 
   * **`sarvam-105b`** — Sarvam flagship chat model.
+  * **`sarvam-105b-conversations`** — Sarvam 105B tuned for real-time dialogue and voice agents; 32,000-token context window.
   * **`glm5.3`** — 1,048,576-token context window; visible reasoning in `reasoning_content` (billed as completion tokens); tool calling; max request size 10,485,760 bytes; `n` must be `1`.
   * **`glm5.3-flash`** — 1,048,576-token context window, image input (inline base64), tool calling, and reasoning (on by default).
   * **`gemma4`** — 262,144-token context window, image input (inline base64), tool calling, and optional reasoning (`reasoning_effort`).
-  * **`deepseekv4.1-flash-1017`** — 1,048,576-token context window, tool calling, and reasoning.
+  * **`deepseekv4.1-flash-1017`** — 1,048,576-token context window, image input (inline base64), tool calling, and reasoning.
+  * **`deepseekv4.1-flash-1017-interactive`** — the same model on a high-throughput deployment: more than 200 output tokens per second, against about 80; same capabilities as `deepseekv4.1-flash-1017`.
   * **`deepseekv4-pro`** (Provisioned Throughput) — 1,000,000-token context window; text input only; tool calling; reasoning (default `high`; `none` turns it off).
-  * **`kimi-k3.1-pro`** (Provisioned Throughput) — 1,048,576-token context window; image input and short video clips (inline base64); tool calling; reasoning is always on (default `max`).
+  * **`kimi-k3.1-pro`** (Provisioned Throughput) — 1,048,576-token context window; image and video input (inline base64); tool calling; reasoning is always on (default `max`).
+  * **`qwen38-27b`** (Provisioned Throughput) — 262,144-token context window; image input (inline base64); tool calling; reasoning on by default (`none` turns it off).
 
 
 
-Show 7 enum values
+Show 10 enum values
 
 temperaturedouble or nullOptional`0-2`Defaults to `1`
 
@@ -191,9 +194,9 @@ Nucleus sampling: greater than `0` and at most `1`. On `glm5.3`, `top_p: 0` is r
 
 reasoning_effortenum or nullOptional
 
-On reasoning models (`glm5.3`, `glm5.3-flash`, `gemma4`, `deepseekv4.1-flash-1017`, `deepseekv4-pro`, `kimi-k3.1-pro`): **`low`** , **`high`** , or **`max`**. Default when omitted is **`max`** , except **`high`** on `glm5.3-flash`, `deepseekv4.1-flash-1017`, and `deepseekv4-pro`, and no reasoning on `gemma4`. **`none`** turns thinking off on `deepseekv4.1-flash-1017` and `deepseekv4-pro`. `kimi-k3.1-pro` always thinks. Trace in `message.reasoning_content`; billed as completion tokens and counts toward `max_tokens`. On `gemma4`, reasoning is off unless this is set (`low`, `high`, or `max`).
+On reasoning models: **`low`** , **`high`** , or **`max`** on every reasoning model, and **`medium`** on `sarvam-105b`, `deepseekv4.1-flash-1017`, `deepseekv4.1-flash-1017-interactive`, `deepseekv4-pro`, `kimi-k3.1-pro`, and `qwen38-27b` (`kimi-k3.1-pro` runs `medium` as `high`). Default when omitted is **`max`** on `glm5.3` and `kimi-k3.1-pro`, **`high`** on `glm5.3-flash`, `deepseekv4.1-flash-1017`, `deepseekv4.1-flash-1017-interactive`, and `deepseekv4-pro`, and no reasoning on `gemma4`; `qwen38-27b` thinks by default. **`none`** turns thinking off on `deepseekv4.1-flash-1017`, `deepseekv4.1-flash-1017-interactive`, `deepseekv4-pro`, and `qwen38-27b`. `kimi-k3.1-pro` always thinks: `none`, `minimal`, and `xhigh` return `400`. Trace in `message.reasoning_content`; billed as completion tokens and counts toward `max_tokens`. On `gemma4`, reasoning is off unless this is set (`low`, `high`, or `max`).
 
-Allowed values:nonelowhighmax
+Allowed values:nonelowmediumhighmax
 
 max_tokensinteger or nullOptional`>=1`Defaults to `2048`
 
@@ -209,9 +212,9 @@ Up to 4 stop sequences (string or array). Generated text excludes the matched se
 
 Show 2 variants
 
-ninteger or nullOptional`1-128`Defaults to `1`
+ninteger or nullOptional`=1`Defaults to `1`
 
-Number of chat completion choices to generate per request. You are billed for tokens across all choices. Default `1`. On `glm5.3`, only `n: 1` is accepted; higher values return `400 invalid_request_error`. `n` > 1 needs `temperature` greater than `0` on every model; `temperature: 0` returns `400`.
+Number of chat completion choices. Only `1` is supported (the default); values above `1` return `400 invalid_request_error`. Send separate requests for more completions.
 
 seedinteger or nullOptional`-9223372036854776000-9223372036854776000`
 
@@ -267,11 +270,11 @@ Show 1 property
 
 logprobsboolean or nullOptional
 
-If `true`, return log probabilities for output tokens (use with `top_logprobs`). Supported on **`sarvam-105b`** , **`gemma4`** , **`glm5.3-flash`** , **`deepseekv4.1-flash-1017`** , **`deepseekv4-pro`** , and **`kimi-k3.1-pro`**. Not supported on **`glm5.3`** (`400` if enabled).
+If `true`, return log probabilities for output tokens (use with `top_logprobs`). Supported on **`sarvam-105b`** , **`gemma4`** , **`glm5.3-flash`** , **`deepseekv4.1-flash-1017`** , **`deepseekv4.1-flash-1017-interactive`** , **`deepseekv4-pro`** , and **`qwen38-27b`**. Not supported on **`glm5.3`** or **`kimi-k3.1-pro`** (`400` if enabled).
 
 top_logprobsinteger or nullOptional
 
-How many top token log probabilities to return at each position. Takes effect only when `logprobs` is `true`; without it, some models ignore the field and others return **`400`**. Same model support as `logprobs`: works on `sarvam-105b`, `gemma4`, `glm5.3-flash`, `deepseekv4.1-flash-1017`, `deepseekv4-pro`, and `kimi-k3.1-pro`; on `glm5.3`, omit entirely — do not send `0`, since many SDKs add it by default.
+How many top token log probabilities to return at each position. Takes effect only when `logprobs` is `true`; without it, some models ignore the field and others return **`400`**. Same model support as `logprobs`: works on `sarvam-105b`, `gemma4`, `glm5.3-flash`, `deepseekv4.1-flash-1017`, `deepseekv4.1-flash-1017-interactive`, `deepseekv4-pro`, and `qwen38-27b`; on `glm5.3` and `kimi-k3.1-pro`, omit entirely — do not send `0`, since many SDKs add it by default.
 
 ### Response
 
@@ -318,6 +321,10 @@ Bad Request Error
 401
 
 Unauthorized Error
+
+402
+
+Payment Required Error
 
 403
 
@@ -444,7 +451,7 @@ YesNo
   * [Get Model V2](https://docs.sarvam.ai/api-reference/chat/model-v2)
   * [List Models V2](https://docs.sarvam.ai/api-reference/chat/models-v2)
   * [Create Response](https://docs.sarvam.ai/api-reference/responses/create)
-  * [Decide (Sarvam Prism)](https://docs.sarvam.ai/api-reference/decisions/systemone)
+  * [Decision API](https://docs.sarvam.ai/api-reference/decisions/systemone)
   * [Chat Completion V1](https://docs.sarvam.ai/api-reference/chat/chat-completions-v1)
   * [Create Dubbing Job](https://docs.sarvam.ai/api-reference/creative-agents-dubbing/create-dub)
   * [Start Job](https://docs.sarvam.ai/api-reference/creative-agents-dubbing/start-dub)

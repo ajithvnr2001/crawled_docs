@@ -2,7 +2,7 @@
 url: https://docs.sarvam.ai/api-reference/chat/model-v2/
 title: Get Model V2 | Sarvam API Docs
 method: scrapling+scrapegraph
-fetched_at: 2026-11-07T06:39:26.231332+00:00
+fetched_at: 2026-11-08T06:31:00.523212+00:00
 ---
 
 # Get Model V2 | Sarvam API Docs
@@ -92,6 +92,12 @@ createdinteger
 owned_bystring
 
 object"model"OptionalDefaults to `model`
+
+accessenumOptional
+
+How the model is offered. `"provisioned"`: Provisioned Throughput, enabled per organisation (without access, `deepseekv4-pro` returns `400` and the others return `404` and aren’t listed). `"standard"`: serverless, any API key can call it.
+
+Allowed values:standardprovisioned
 
 ### Errors
 
@@ -200,7 +206,7 @@ YesNo
   * [Get Model V2](https://docs.sarvam.ai/api-reference/chat/model-v2)
   * [List Models V2](https://docs.sarvam.ai/api-reference/chat/models-v2)
   * [Create Response](https://docs.sarvam.ai/api-reference/responses/create)
-  * [Decide (Sarvam Prism)](https://docs.sarvam.ai/api-reference/decisions/systemone)
+  * [Decision API](https://docs.sarvam.ai/api-reference/decisions/systemone)
   * [Chat Completion V1](https://docs.sarvam.ai/api-reference/chat/chat-completions-v1)
   * [Create Dubbing Job](https://docs.sarvam.ai/api-reference/creative-agents-dubbing/create-dub)
   * [Start Job](https://docs.sarvam.ai/api-reference/creative-agents-dubbing/start-dub)

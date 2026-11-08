@@ -2,7 +2,7 @@
 url: https://docs.sarvam.ai/api/token-factory/decisions-api/
 title: Decisions API | Sarvam API Docs
 method: scrapling+scrapegraph
-fetched_at: 2026-11-03T16:23:02.803403+00:00
+fetched_at: 2026-11-08T06:31:02.587685+00:00
 ---
 
 # Decisions API | Sarvam API Docs
@@ -42,7 +42,7 @@ The Decisions API answers typed questions about an input. You send a **state** (
 
 Use it wherever you would otherwise prompt a chat model to “answer yes or no” or “reply with one of these labels”: routing, triage, moderation, judging agent runs, and scoring.
 
-The Decisions API serves [Sarvam Prism](https://docs.sarvam.ai/api/token-factory/models/sarvam-prism) (`sarvam-prism`). The SDK examples need `sarvamai` 0.1.43 or later for Python (`pip install -U "sarvamai>=0.1.43"`) and `sarvamai` 1.1.15 or later for JavaScript (`npm install sarvamai@latest`).
+The Decisions API serves [Sarvam Prism](https://docs.sarvam.ai/api/token-factory/models/sarvam-prism) (`sarvam-prism`), and [Clef](https://docs.sarvam.ai/api/token-factory/models/clef) (`clef`), which also reads images, on Provisioned Throughput. The examples on this page use Sarvam Prism; Clef’s limits and rules are on [its page](https://docs.sarvam.ai/api/token-factory/models/clef#question-rules). The SDK examples need `sarvamai` 0.1.43 or later for Python (`pip install -U "sarvamai>=0.1.43"`) and `sarvamai` 1.1.15 or later for JavaScript (`npm install sarvamai@latest`).
 
 ## Make a decision
 
@@ -396,7 +396,7 @@ Set the threshold on the top probability (`noul`, or `probabilities[choice]`), n
 
 Parameter| Required| Description  
 ---|---|---  
-`model`| Yes| `sarvam-prism`. A request without `model` returns `400`; an unknown ID returns `404`.  
+`model`| Yes| `sarvam-prism` or `clef`. A request without `model` returns `400`; an unknown ID returns `404`.  
 `state`| Yes| A string, object, or array. An empty string is allowed; a missing or `null` state returns `422`. Never truncated.  
 `questions`| Yes| Map of your question ID to a question, at least one. There is no cap on the number of questions.  
   
@@ -413,13 +413,15 @@ Key| Required| Description
 The Decisions API returns probabilities only, so generation settings don’t apply:
 
   * `temperature`, `max_tokens`, `stream`, and other generation fields return `422`.
-  * Images are not supported. An image URL in `images` returns `400`; an inline image returns `422`.
+  * Images are not supported on Sarvam Prism. An image URL in `images` returns `400`; an inline image returns `422`. [Clef](https://docs.sarvam.ai/api/token-factory/models/clef#questions-about-images) accepts base64 images in `images`.
   * Any key in a question other than `type`, `instructions`, and `criteria` returns `422`, including misspellings such as `instruction`.
   * A `choice` outside 2–255 options or a `score` outside 2–10 levels returns `422`.
 
 
 
 ## Limits and billing
+
+These limits are for Sarvam Prism. For Clef, see [Clef limits](https://docs.sarvam.ai/api/token-factory/models/clef#limits).
 
   * **32,768 tokens per question** (state + that question’s instructions and options). If any one question is over, the whole request fails with `422` and names the question.
   * **60 seconds per request.** A longer request fails with `503 model_overloaded`; split very large batches of questions across several requests.
@@ -509,9 +511,10 @@ YesNo
   * [Gemma 4 31B](https://docs.sarvam.ai/api/token-factory/models/gemma-4-31b)
   * [DeepSeek V4.1 Flash 1017](https://docs.sarvam.ai/api/token-factory/models/deepseek-v4.1-flash-1017)
   * [DeepSeek V4 Pro](https://docs.sarvam.ai/api/token-factory/models/deepseek-v4-pro)
-  * [Kimi K3](https://docs.sarvam.ai/api/token-factory/models/kimi-k3)
-  * [MiMo V2.6 Flash](https://docs.sarvam.ai/api/token-factory/models/mimo-v2.6-flash)
-  * [MiMo V2.6 Pro](https://docs.sarvam.ai/api/token-factory/models/mimo-v2.6-pro)
+  * [Kimi K3.1 Pro](https://docs.sarvam.ai/api/token-factory/models/kimi-k3.1-pro)
+  * [Qwen 3.8 27B](https://docs.sarvam.ai/api/token-factory/models/qwen-3-8-27b)
+  * [Clef](https://docs.sarvam.ai/api/token-factory/models/clef)
+  * [EmbeddingGemma 2](https://docs.sarvam.ai/api/token-factory/models/embeddinggemma-2)
   * [Chat Completions](https://docs.sarvam.ai/api/token-factory/chat-completions)
   * [Responses API](https://docs.sarvam.ai/api/token-factory/responses-api)
   * [Decisions API](https://docs.sarvam.ai/api/token-factory/decisions-api)
@@ -686,7 +689,7 @@ YesNo
 
   * [Model APIs](https://docs.sarvam.ai/api)
   * [Voice Agents](https://docs.sarvam.ai/voice-agents)
-  * [Doc Agents](https://docs.sarvam.ai/docai)
+  * [Document AI](https://docs.sarvam.ai/doc-ai)
   * [Content Studio](https://docs.sarvam.ai/creative)
   * [Cowork](https://docs.sarvam.ai/cowork)
   * [API Reference](https://docs.sarvam.ai/api-reference)

@@ -2,7 +2,7 @@
 url: https://docs.sarvam.ai/api/token-factory/models/deepseek-v4.1-flash-1017
 title: DeepSeek V4.1 Flash 1017 | Sarvam API Docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-30T06:37:14.156701+00:00
+fetched_at: 2026-11-08T06:30:47.873178+00:00
 ---
 
 # DeepSeek V4.1 Flash 1017 | Sarvam API Docs
@@ -15,6 +15,7 @@ On this page
 
   * At a glance
   * Key capabilities
+  * Interactive variant
   * Quickstart
   * Supported parameters
   * Reasoning
@@ -30,28 +31,24 @@ Scroll to top
 
 # DeepSeek V4.1 Flash 1017
 
-Beta
-
 Ask a question|Copy page|[View as Markdown](https://docs.sarvam.ai/api/token-factory/models/deepseek-v4.1-flash-1017.md "View this page as plain text")|More actions
 
 This page is for Model APIs.
 
 DeepSeek V4.1 Flash 1017 is a general-purpose [open-weight model](https://docs.sarvam.ai/api/token-factory/models) served on Sarvam infrastructure. It accepts **text and image** input and has a **1,048,576-token context window**.
 
-DeepSeek V4.1 Flash 1017 is in **beta**. Its behaviour, limits, and availability may change before general availability. Beta models must be enabled for your API key; without access, requests return `400 invalid_request_error` (“This model is currently in beta”). [Contact us](https://docs.sarvam.ai/api/getting-started/help) to request access. See [Beta models](https://docs.sarvam.ai/api-reference/beta-apis).
-
 ## At a glance
 
 |   
 ---|---  
-**Model ID**| `deepseekv4.1-flash-1017`  
+**Model ID**| `deepseekv4.1-flash-1017` · [`deepseekv4.1-flash-1017-interactive`](https://docs.sarvam.ai/api/token-factory/models/deepseek-v4.1-flash-1017#interactive-variant) (high throughput)  
 **Best for**|  Long-document analysis and agentic workflows  
 **Context window**|  1,048,576 tokens  
 **Input → output**|  Text + image (inline only) → text  
 **Reasoning**| **`low`** , **`high`** (default when omitted), or **`max`** ; can be turned off. See [Reasoning](https://docs.sarvam.ai/api/token-factory/models/deepseek-v4.1-flash-1017#reasoning)  
 **Tool calling**|  Supported, including `tool_choice: "required"`  
 **APIs**| [`POST /v2/chat/completions`](https://docs.sarvam.ai/api-reference/chat/chat-completions-v2) and [`POST /v2/responses`](https://docs.sarvam.ai/api-reference/responses/create)  
-**Pricing**|  ₹25 input · ₹0.5 cached input · ₹105 output per 1M tokens; reasoning is billed as output ([Pricing](https://docs.sarvam.ai/api/getting-started/pricing))  
+**Pricing**|  ₹14 input · ₹0.25 cached input · ₹55 output per 1M tokens; reasoning is billed as output ([Pricing](https://docs.sarvam.ai/api/getting-started/pricing))  
   
 ## Key capabilities
 
@@ -77,6 +74,19 @@ Receive reasoning and final-answer deltas as server-sent events.
 
 Moving from [OpenRouter](https://docs.sarvam.ai/api/token-factory/migrations/from-openrouter/overview), [Fireworks AI](https://docs.sarvam.ai/api/token-factory/migrations/from-fireworks/overview), or [Together AI](https://docs.sarvam.ai/api/token-factory/migrations/from-together/overview)? The migration guides map model IDs and request fields to Sarvam.
 
+## Interactive variant
+
+Model ID **`deepseekv4.1-flash-1017-interactive`** is a **high-throughput** deployment of DeepSeek V4.1 Flash 1017. It generates **more than 200 output tokens per second** , against about 80 on `deepseekv4.1-flash-1017`, so long answers and streamed replies finish sooner. It accepts the same requests, inputs, and parameters as `deepseekv4.1-flash-1017`; only the model ID changes.
+
+Like the base model, the interactive variant is serverless: any API key can call it. One parameter differs: on Responses, the interactive variant accepts `top_k`, while `deepseekv4.1-flash-1017` returns `400` for it. Both accept `top_k` on Chat Completion V2.
+
+| `deepseekv4.1-flash-1017`| `deepseekv4.1-flash-1017-interactive`  
+---|---|---  
+**Best for**|  Long-document analysis and agentic workflows at the lowest price| Workloads that need faster output, such as long answers or streaming to users  
+**Access**|  Serverless: any API key| Serverless: any API key  
+**Output speed**|  About 80 tokens per second| More than 200 tokens per second  
+**Pricing** (per 1M tokens)| ₹14 input · ₹0.25 cached input · ₹55 output| ₹25 input · ₹0.5 cached input · ₹105 output  
+  
 ## Quickstart
 
 PythonJavaScriptcURL
@@ -123,8 +133,8 @@ Tool calling (`tools`, `tool_choice`)| |
 `parallel_tool_calls: false` enforced| |   
 Structured output (`response_format` / `text.format`)| |   
 Log probabilities (`logprobs`, `top_logprobs`)| |  send `top_logprobs` with `include: ["message.output_text.logprobs"]`; `logprobs: true` returns `400`  
-Multiple choices (`n` > 1)|  requires `temperature` > `0`| `400`  
-Reasoning control| `reasoning_effort`: `low`, `high` (default), or `max`, or an integer `1`–`100`| `reasoning.effort`: same values  
+Multiple choices (`n` > 1)| `400`| `400`  
+Reasoning control| `reasoning_effort`: `low`, `high` (default), or `max`| `reasoning.effort`: same values  
 Turn reasoning off| `reasoning_effort: "none"`| `reasoning.effort: "none"`  
   
 `400` is `invalid_request_error`.
@@ -142,7 +152,7 @@ This is different from GLM-5.3, where the Responses API rejects the literal stri
 
 Read the reasoning trace from `choices[].message.reasoning_content` on chat, or from the reasoning item’s `content[0].text` in `output` on Responses (`summary` is filled only when you set `reasoning.summary`). Reasoning tokens are billed as output tokens either way, and count against `max_tokens` on chat or `max_output_tokens` on Responses. Neither has a small default, so set them explicitly.
 
-To turn reasoning off, set `reasoning_effort: "none"` on chat or `reasoning.effort: "none"` on Responses. On chat, `thinking: {"type": "disabled"}` and `chat_template_kwargs: {"enable_thinking": false}` (through `extra_body` in the SDKs) also work. Integer effort values from `1` to `100` are accepted as well.
+To turn reasoning off, set `reasoning_effort: "none"` on chat or `reasoning.effort: "none"` on Responses. On chat, `thinking: {"type": "disabled"}` and `chat_template_kwargs: {"enable_thinking": false}` (through `extra_body` in the SDKs) also work. The effort must be a string: an integer returns `400` (“‘reasoning_effort’ must be a string.”).
 
 ## Image input
 
@@ -193,7 +203,7 @@ Area| Limit or condition| API response| Recommended action
 ---|---|---|---  
 Context| Prompt tokens plus `max_tokens` exceed 1,048,576| `400 invalid_request_error`| Shorten the prompt or reduce `max_tokens`.  
 Output| `max_tokens` exceeds 1,048,576| `400 invalid_request_error`| Set `max_tokens` within the context window.  
-Request size| Request body exceeds 10 MiB (10,485,760 bytes)| `413 invalid_request_error`, with the limit in the message| Reduce the request body; base64 images count toward the limit.  
+Request size| Request body exceeds 32 MiB (33,554,432 bytes), on both `deepseekv4.1-flash-1017` and `deepseekv4.1-flash-1017-interactive`| `413 invalid_request_error`, with the limit in the message| Reduce the request body; base64 images count toward the limit.  
 Image input| Image sent by URL instead of inline base64| `400 invalid_request_error`| Send the image as a base64 data URI.  
 Modality| Request includes audio or video input| `400 invalid_request_error`| Send text or inline image input.  
 Reasoning| Reasoning consumes the full `max_tokens` budget| `200` with `content: null` and `finish_reason: "length"`| Raise `max_tokens` or set `reasoning_effort: "none"`.  
@@ -219,17 +229,22 @@ YesNo
     * [Talk to us](https://docs.sarvam.ai/api/getting-started/help)
   * [Token Factory (Open-Weight)](https://docs.sarvam.ai/api/token-factory)
     * [Models](https://docs.sarvam.ai/api/token-factory/models)
+      * [Sarvam 105B](https://docs.sarvam.ai/api/token-factory/models/sarvam-105b)
+      * [Sarvam 105B Conversations](https://docs.sarvam.ai/api/token-factory/models/sarvam-105b#conversational-variant "Sarvam 105B Conversations")
+      * [Sarvam Prism](https://docs.sarvam.ai/api/token-factory/models/sarvam-prism)
       * [GLM-5.3](https://docs.sarvam.ai/api/token-factory/models/glm-5-3)
       * [GLM-5.3 Flash](https://docs.sarvam.ai/api/token-factory/models/glm-5-3-flash)
       * [Gemma 4 31B](https://docs.sarvam.ai/api/token-factory/models/gemma-4-31b)
-      * [DeepSeek V4.1 Flash 1017Beta](https://docs.sarvam.ai/api/token-factory/models/deepseek-v4.1-flash-1017)
-      * [DeepSeek V4 ProBeta](https://docs.sarvam.ai/api/token-factory/models/deepseek-v4-pro)
-      * [Kimi K3Beta](https://docs.sarvam.ai/api/token-factory/models/kimi-k3)
-      * [MiMo V2.6 FlashBeta](https://docs.sarvam.ai/api/token-factory/models/mimo-v2.6-flash)
-      * [MiMo V2.6 ProBeta](https://docs.sarvam.ai/api/token-factory/models/mimo-v2.6-pro)
+      * [DeepSeek V4.1 Flash 1017](https://docs.sarvam.ai/api/token-factory/models/deepseek-v4.1-flash-1017)
+      * [DeepSeek V4 Pro](https://docs.sarvam.ai/api/token-factory/models/deepseek-v4-pro)
+      * [Kimi K3.1 Pro](https://docs.sarvam.ai/api/token-factory/models/kimi-k3.1-pro)
+      * [Qwen 3.8 27B](https://docs.sarvam.ai/api/token-factory/models/qwen-3-8-27b)
+      * [Clef](https://docs.sarvam.ai/api/token-factory/models/clef)
+      * [EmbeddingGemma 2](https://docs.sarvam.ai/api/token-factory/models/embeddinggemma-2)
 
     * [Chat Completions](https://docs.sarvam.ai/api/token-factory/chat-completions)
     * [Responses API](https://docs.sarvam.ai/api/token-factory/responses-api)
+    * [Decisions API](https://docs.sarvam.ai/api/token-factory/decisions-api)
     * How-to
 
     * Migration Guides
@@ -284,16 +299,20 @@ YesNo
   * [Talk to us](https://docs.sarvam.ai/api/getting-started/help)
   * [Token Factory (Open-Weight)](https://docs.sarvam.ai/api/token-factory)
   * [Models](https://docs.sarvam.ai/api/token-factory/models)
+  * [Sarvam 105B](https://docs.sarvam.ai/api/token-factory/models/sarvam-105b)
+  * [Sarvam Prism](https://docs.sarvam.ai/api/token-factory/models/sarvam-prism)
   * [GLM-5.3](https://docs.sarvam.ai/api/token-factory/models/glm-5-3)
   * [GLM-5.3 Flash](https://docs.sarvam.ai/api/token-factory/models/glm-5-3-flash)
   * [Gemma 4 31B](https://docs.sarvam.ai/api/token-factory/models/gemma-4-31b)
   * [DeepSeek V4.1 Flash 1017](https://docs.sarvam.ai/api/token-factory/models/deepseek-v4.1-flash-1017)
   * [DeepSeek V4 Pro](https://docs.sarvam.ai/api/token-factory/models/deepseek-v4-pro)
-  * [Kimi K3](https://docs.sarvam.ai/api/token-factory/models/kimi-k3)
-  * [MiMo V2.6 Flash](https://docs.sarvam.ai/api/token-factory/models/mimo-v2.6-flash)
-  * [MiMo V2.6 Pro](https://docs.sarvam.ai/api/token-factory/models/mimo-v2.6-pro)
+  * [Kimi K3.1 Pro](https://docs.sarvam.ai/api/token-factory/models/kimi-k3.1-pro)
+  * [Qwen 3.8 27B](https://docs.sarvam.ai/api/token-factory/models/qwen-3-8-27b)
+  * [Clef](https://docs.sarvam.ai/api/token-factory/models/clef)
+  * [EmbeddingGemma 2](https://docs.sarvam.ai/api/token-factory/models/embeddinggemma-2)
   * [Chat Completions](https://docs.sarvam.ai/api/token-factory/chat-completions)
   * [Responses API](https://docs.sarvam.ai/api/token-factory/responses-api)
+  * [Decisions API](https://docs.sarvam.ai/api/token-factory/decisions-api)
   * [List your chat messages](https://docs.sarvam.ai/api/token-factory/how-to/list-your-chat-messages)
   * [Control response randomness](https://docs.sarvam.ai/api/token-factory/how-to/control-response-randomness)
   * [Control response diversity](https://docs.sarvam.ai/api/token-factory/how-to/control-response-diversity)
@@ -313,7 +332,6 @@ YesNo
   * [Chat Completion](https://docs.sarvam.ai/api/token-factory/migrations/from-together/chat-completion)
   * [Saaras](https://docs.sarvam.ai/api/api-guides-tutorials/models/saaras)
   * [Bulbul](https://docs.sarvam.ai/api/api-guides-tutorials/models/bulbul)
-  * [Sarvam 105B](https://docs.sarvam.ai/api/api-guides-tutorials/models/sarvam-105b)
   * [Mayura](https://docs.sarvam.ai/api/api-guides-tutorials/models/mayura)
   * [Sarvam Translate](https://docs.sarvam.ai/api/api-guides-tutorials/models/sarvam-translate)
   * [Sarvam Vision](https://docs.sarvam.ai/api/api-guides-tutorials/models/sarvam-vision)
@@ -466,7 +484,7 @@ YesNo
 
   * [Model APIs](https://docs.sarvam.ai/api)
   * [Voice Agents](https://docs.sarvam.ai/voice-agents)
-  * [Doc Agents](https://docs.sarvam.ai/docai)
+  * [Document AI](https://docs.sarvam.ai/doc-ai)
   * [Content Studio](https://docs.sarvam.ai/creative)
   * [Cowork](https://docs.sarvam.ai/cowork)
   * [API Reference](https://docs.sarvam.ai/api-reference)

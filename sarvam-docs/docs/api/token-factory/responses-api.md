@@ -2,7 +2,7 @@
 url: https://docs.sarvam.ai/api/token-factory/responses-api/
 title: Responses API | Sarvam API Docs
 method: scrapling+scrapegraph
-fetched_at: 2026-11-07T06:39:10.563502+00:00
+fetched_at: 2026-11-08T06:31:00.007253+00:00
 ---
 
 # Responses API | Sarvam API Docs
@@ -35,7 +35,7 @@ This page is for Model APIs.
 
 The Responses API provides an OpenAI-compatible interface for text generation, reasoning, structured output, and tool calling. **Streaming is optional** : the same pattern as [Chat Completion V2](https://docs.sarvam.ai/api-reference/chat/chat-completions-v2): omit `stream` or set it to `false` for one JSON response (default).
 
-The Responses API supports `sarvam-105b`, `glm5.3`, `glm5.3-flash`, `gemma4`, and `deepseekv4.1-flash-1017`, plus the [Provisioned Throughput models](https://docs.sarvam.ai/api/token-factory/models#provisioned-throughput) `deepseekv4-pro` and `kimi-k3.1-pro`.
+The Responses API supports `sarvam-105b`, `glm5.3`, `glm5.3-flash`, `gemma4`, `deepseekv4.1-flash-1017`, and `deepseekv4.1-flash-1017-interactive`, plus the [Provisioned Throughput models](https://docs.sarvam.ai/api/token-factory/models#provisioned-throughput) `deepseekv4-pro`, `kimi-k3.1-pro`, and `qwen38-27b`.
 
 Moving Responses API code from [OpenRouter](https://docs.sarvam.ai/api/token-factory/migrations/from-openrouter/responses-api) or [Fireworks AI](https://docs.sarvam.ai/api/token-factory/migrations/from-fireworks/responses-api)? See the Responses API migration guides.
 
@@ -130,9 +130,10 @@ Model| Accepted `reasoning.effort` values on this route
 ---|---  
 `glm5.3`, `glm5.3-flash`| `"low"` or `"high"` only; the literal string `"max"` returns `400`. Omitting the field gives `max` on `glm5.3` and `high` on `glm5.3-flash`.  
 `gemma4`| `"low"` or `"high"`. No reasoning when the field is omitted.  
-`deepseekv4.1-flash-1017`| `"low"`, `"high"`, or `"max"`, all three work directly, same as on chat. Default `high`. `"none"` turns thinking off.  
+`deepseekv4.1-flash-1017`, `deepseekv4.1-flash-1017-interactive`| `"low"`, `"high"`, or `"max"`, all three work directly, same as on chat. Default `high`. `"none"` turns thinking off.  
 `deepseekv4-pro`| `"low"`, `"high"`, or `"max"`; default `high`. `"none"` turns thinking off.  
-`kimi-k3.1-pro`| `"low"`, `"high"`, or `"max"`; default `max`. Thinking is always on.  
+`kimi-k3.1-pro`| `"low"`, `"medium"`, `"high"`, or `"max"`; default `max`, and `"medium"` runs as `"high"`. Thinking is always on: `"none"`, `"minimal"`, and `"xhigh"` return `400`.  
+`qwen38-27b`| Thinks by default; `"none"` turns thinking off. The other levels are accepted but don’t change the thinking.  
   
 **Chat trace:** `choices[].message.reasoning_content`.
 
@@ -153,7 +154,7 @@ Field| Default when omitted
 
 Parameter| Required| Description  
 ---|---|---  
-`model`| Yes| `sarvam-105b`, `glm5.3`, `glm5.3-flash`, `gemma4`, `deepseekv4.1-flash-1017`, `deepseekv4-pro`, or `kimi-k3.1-pro`.  
+`model`| Yes| `sarvam-105b`, `glm5.3`, `glm5.3-flash`, `gemma4`, `deepseekv4.1-flash-1017`, `deepseekv4.1-flash-1017-interactive`, `deepseekv4-pro`, `kimi-k3.1-pro`, or `qwen38-27b`.  
 `input`| Yes| A prompt string or the complete conversation as input items.  
 `stream`| No| Optional, omit or `false` for one JSON body (default **`false`** on `glm5.3`); `true` for named SSE events, same pattern as chat completions.  
 `max_output_tokens`| No| Cap on generated tokens including reasoning. **No default** : omitting it means unbounded generation. Always set this explicitly in production.  
@@ -257,6 +258,9 @@ YesNo
   * [DeepSeek V4.1 Flash 1017](https://docs.sarvam.ai/api/token-factory/models/deepseek-v4.1-flash-1017)
   * [DeepSeek V4 Pro](https://docs.sarvam.ai/api/token-factory/models/deepseek-v4-pro)
   * [Kimi K3.1 Pro](https://docs.sarvam.ai/api/token-factory/models/kimi-k3.1-pro)
+  * [Qwen 3.8 27B](https://docs.sarvam.ai/api/token-factory/models/qwen-3-8-27b)
+  * [Clef](https://docs.sarvam.ai/api/token-factory/models/clef)
+  * [EmbeddingGemma 2](https://docs.sarvam.ai/api/token-factory/models/embeddinggemma-2)
   * [Chat Completions](https://docs.sarvam.ai/api/token-factory/chat-completions)
   * [Responses API](https://docs.sarvam.ai/api/token-factory/responses-api)
   * [Decisions API](https://docs.sarvam.ai/api/token-factory/decisions-api)

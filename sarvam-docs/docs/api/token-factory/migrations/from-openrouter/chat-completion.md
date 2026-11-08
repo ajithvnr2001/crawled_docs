@@ -2,7 +2,7 @@
 url: https://docs.sarvam.ai/api/token-factory/migrations/from-openrouter/chat-completion/
 title: Migrating Chat Completion from OpenRouter to Sarvam | Sarvam API Docs
 method: scrapling+scrapegraph
-fetched_at: 2026-11-07T06:39:13.238280+00:00
+fetched_at: 2026-11-08T06:31:01.736463+00:00
 ---
 
 # Migrating Chat Completion from OpenRouter to Sarvam | Sarvam API Docs
@@ -112,7 +112,7 @@ OpenRouter| Sarvam| Note
 ---|---|---  
 `reasoning: {"effort": "low"}`| `reasoning_effort: "low"`| Sarvam uses the top-level field only; the `reasoning` object returns `400` on chat. Use `low`, `high`, or `max`.  
 `reasoning_effort` (top level)| `reasoning_effort`| Same field. `medium` is accepted on some models and returns `400` on others, such as `glm5.3`.  
-`reasoning: {"enabled": false}` or `effort: "none"`| `reasoning_effort: "none"`| Turns thinking off on `deepseekv4-pro`. `kimi-k3.1-pro` and `glm5.3-flash` always think. See [Reasoning](https://docs.sarvam.ai/api/token-factory/models#reasoning).  
+`reasoning: {"enabled": false}` or `effort: "none"`| `reasoning_effort: "none"`| Turns thinking off on `sarvam-105b`, `deepseekv4.1-flash-1017`, `deepseekv4.1-flash-1017-interactive`, `deepseekv4-pro`, and `qwen38-27b`. `kimi-k3.1-pro`, `glm5.3`, and `glm5.3-flash` always think. See [Reasoning](https://docs.sarvam.ai/api/token-factory/models#reasoning).  
 `reasoning: {"max_tokens": N}`| Not supported| Choose an effort level instead, and size `max_tokens` to cover reasoning plus the answer.  
 `reasoning: {"exclude": true}`| Not supported| Ignore `reasoning_content` in your code. Reasoning tokens are billed either way.  
 `include_reasoning: true`| Remove| Reasoning is always returned when the model thinks.  
@@ -148,11 +148,11 @@ OpenRouter| Sarvam| Note
 `tools`, `tool_choice`, `parallel_tool_calls`| Same| `parallel_tool_calls: false` is enforced on every model; see [V2 feature support](https://docs.sarvam.ai/api/token-factory/chat-completions#v2-feature-support).  
 `response_format` (`json_schema`, `json_object`)| Same|   
 `logprobs`, `top_logprobs`| Same| Supported on every model except `glm5.3`.  
-`n`| `n`| Supported on most models; OpenRouter doesn’t support it.  
+`n`| `n`| Only `1`; `n` > 1 returns `400` on every model, as on OpenRouter.  
 `top_k`, `repetition_penalty`| Same|   
 `stream: true`| Same| No `: OPENROUTER PROCESSING` keep-alive comments. Usage arrives in the final chunk.  
 `image_url` content parts| Same| Inline base64 data URIs only, on models with image input. See each [model page](https://docs.sarvam.ai/api/token-factory/models).  
-`video_url` content parts| Same, as a base64 data URI| On `kimi-k3.1-pro` (short clips). Sarvam doesn’t fetch video URLs.  
+`video_url` content parts| Same, as a base64 data URI| On `kimi-k3.1-pro`. Sarvam doesn’t fetch video URLs.  
 `usage.cost`| Not returned| Token counts are in `usage`. Check spend in the [dashboard](https://indus.sarvam.ai/billing?ref=docs).  
 `GET /api/v1/generation?id=`| Not available| Log the `id` and `usage` from each response yourself.  
   
@@ -331,6 +331,9 @@ YesNo
   * [DeepSeek V4.1 Flash 1017](https://docs.sarvam.ai/api/token-factory/models/deepseek-v4.1-flash-1017)
   * [DeepSeek V4 Pro](https://docs.sarvam.ai/api/token-factory/models/deepseek-v4-pro)
   * [Kimi K3.1 Pro](https://docs.sarvam.ai/api/token-factory/models/kimi-k3.1-pro)
+  * [Qwen 3.8 27B](https://docs.sarvam.ai/api/token-factory/models/qwen-3-8-27b)
+  * [Clef](https://docs.sarvam.ai/api/token-factory/models/clef)
+  * [EmbeddingGemma 2](https://docs.sarvam.ai/api/token-factory/models/embeddinggemma-2)
   * [Chat Completions](https://docs.sarvam.ai/api/token-factory/chat-completions)
   * [Responses API](https://docs.sarvam.ai/api/token-factory/responses-api)
   * [Decisions API](https://docs.sarvam.ai/api/token-factory/decisions-api)

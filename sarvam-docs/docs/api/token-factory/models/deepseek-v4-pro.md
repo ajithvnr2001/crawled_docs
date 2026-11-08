@@ -2,7 +2,7 @@
 url: https://docs.sarvam.ai/api/token-factory/models/deepseek-v4-pro/
 title: DeepSeek V4 Pro | Sarvam API Docs
 method: scrapling+scrapegraph
-fetched_at: 2026-11-07T06:39:10.706042+00:00
+fetched_at: 2026-11-08T06:30:47.476276+00:00
 ---
 
 # DeepSeek V4 Pro | Sarvam API Docs
@@ -36,7 +36,7 @@ This page is for Model APIs.
 
 DeepSeek V4 Pro is the larger model in the DeepSeek V4 family, served on Sarvam infrastructure as an [open-weight model](https://docs.sarvam.ai/api/token-factory/models). It supports text input and output with a **1,000,000-token context window**.
 
-DeepSeek V4 Pro is available on **Provisioned Throughput** : capacity is set up for your workload and enabled for your organisation. Without access, requests return `400 invalid_request_error` (the message still reads “This model is currently in beta”). [Contact us](https://docs.sarvam.ai/api/getting-started/help) to request access. See [Provisioned Throughput](https://docs.sarvam.ai/api/token-factory/models#provisioned-throughput).
+DeepSeek V4 Pro is available on **Provisioned Throughput** : capacity is set up for your workload and enabled for your organisation. Without access, requests return `400 invalid_request_error`: “This model runs on Provisioned Throughput and is not enabled for your organisation”. [Contact us](https://docs.sarvam.ai/api/getting-started/help) to request access. See [Provisioned Throughput](https://docs.sarvam.ai/api/token-factory/models#provisioned-throughput).
 
 ## At a glance
 
@@ -73,9 +73,9 @@ Log probabilities
 
 Request `logprobs` and `top_logprobs`.
 
-Multiple choices
+Streaming
 
-Generate `n` > 1 completions in one request.
+Receive reasoning and answer deltas as server-sent events.
 
 Moving from [OpenRouter](https://docs.sarvam.ai/api/token-factory/migrations/from-openrouter/overview), [Fireworks AI](https://docs.sarvam.ai/api/token-factory/migrations/from-fireworks/overview), or [Together AI](https://docs.sarvam.ai/api/token-factory/migrations/from-together/overview)? The migration guides map model IDs and request fields to Sarvam.
 
@@ -121,7 +121,7 @@ Tool calling (`tools`, `tool_choice`)| |
 `parallel_tool_calls: false` enforced| |   
 Structured output (`response_format` / `text.format`)| |   
 Log probabilities (`logprobs`, `top_logprobs`)| |  send `top_logprobs` with `include: ["message.output_text.logprobs"]`; `logprobs: true` returns `400`  
-Multiple choices (`n` > 1)| | N/A — Responses has no `n`  
+Multiple choices (`n` > 1)| `400`| N/A — Responses has no `n`  
 Reasoning control| `reasoning_effort`: `low`, `high` (default), `max`, or `none` to turn off| `reasoning.effort`: same values  
 Turn reasoning off| `reasoning_effort: "none"`| `reasoning.effort: "none"`  
   
@@ -153,7 +153,7 @@ Set the value with `reasoning_effort` on [Chat Completion V2](https://docs.sarva
     
     )
 
-Read the reasoning trace from `choices[].message.reasoning_content` on chat. On Responses, `output` starts with a `reasoning` item; read its `content[0].text` (`summary` is empty). Reasoning tokens are billed as output tokens and count against `max_tokens` / `max_output_tokens`.
+Read the reasoning trace from `choices[].message.reasoning_content` on chat. On Responses, `output` starts with a `reasoning` item; read its `content[0].text`. Its `summary` is empty unless you set `reasoning.summary`. Reasoning tokens are billed as output tokens and count against `max_tokens` / `max_output_tokens`.
 
 ## Tool calling
 
@@ -207,6 +207,9 @@ YesNo
       * [DeepSeek V4.1 Flash 1017](https://docs.sarvam.ai/api/token-factory/models/deepseek-v4.1-flash-1017)
       * [DeepSeek V4 Pro](https://docs.sarvam.ai/api/token-factory/models/deepseek-v4-pro)
       * [Kimi K3.1 Pro](https://docs.sarvam.ai/api/token-factory/models/kimi-k3.1-pro)
+      * [Qwen 3.8 27B](https://docs.sarvam.ai/api/token-factory/models/qwen-3-8-27b)
+      * [Clef](https://docs.sarvam.ai/api/token-factory/models/clef)
+      * [EmbeddingGemma 2](https://docs.sarvam.ai/api/token-factory/models/embeddinggemma-2)
 
     * [Chat Completions](https://docs.sarvam.ai/api/token-factory/chat-completions)
     * [Responses API](https://docs.sarvam.ai/api/token-factory/responses-api)
@@ -273,6 +276,9 @@ YesNo
   * [DeepSeek V4.1 Flash 1017](https://docs.sarvam.ai/api/token-factory/models/deepseek-v4.1-flash-1017)
   * [DeepSeek V4 Pro](https://docs.sarvam.ai/api/token-factory/models/deepseek-v4-pro)
   * [Kimi K3.1 Pro](https://docs.sarvam.ai/api/token-factory/models/kimi-k3.1-pro)
+  * [Qwen 3.8 27B](https://docs.sarvam.ai/api/token-factory/models/qwen-3-8-27b)
+  * [Clef](https://docs.sarvam.ai/api/token-factory/models/clef)
+  * [EmbeddingGemma 2](https://docs.sarvam.ai/api/token-factory/models/embeddinggemma-2)
   * [Chat Completions](https://docs.sarvam.ai/api/token-factory/chat-completions)
   * [Responses API](https://docs.sarvam.ai/api/token-factory/responses-api)
   * [Decisions API](https://docs.sarvam.ai/api/token-factory/decisions-api)

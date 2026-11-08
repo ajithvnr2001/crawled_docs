@@ -2,7 +2,7 @@
 url: https://docs.sarvam.ai/api/token-factory/migrations/from-openrouter/responses-api/
 title: Migrating the Responses API from OpenRouter to Sarvam | Sarvam API Docs
 method: scrapling+scrapegraph
-fetched_at: 2026-11-07T06:39:12.972195+00:00
+fetched_at: 2026-11-08T06:31:01.449721+00:00
 ---
 
 # Migrating the Responses API from OpenRouter to Sarvam | Sarvam API Docs
@@ -100,7 +100,7 @@ Both APIs are stateless: send the whole conversation in `input` on every call. C
 OpenRouter| Sarvam| Note  
 ---|---|---  
 `reasoning.effort`| `reasoning.effort`| `low`, `high`, or `max`. On `glm5.3` and `glm5.3-flash`, `"max"` returns `400`; omitting the field gives `max` on `glm5.3` and `high` on `glm5.3-flash`.  
-`reasoning.effort: "none"`| Same| Turns thinking off on `deepseekv4-pro`.  
+`reasoning.effort: "none"`| Same| Turns thinking off on `deepseekv4.1-flash-1017`, `deepseekv4.1-flash-1017-interactive`, `deepseekv4-pro`, and `qwen38-27b`.  
 `reasoning.max_tokens`, `reasoning.exclude`| Not supported| Choose an effort level, and size `max_output_tokens` for reasoning plus the answer.  
 `reasoning.summary`| Same| With `"auto"` or `"detailed"`, the reasoning item’s `summary` is filled.  
 Reasoning item in `output`| Same| Read the trace from the item’s `content[0].text`. `summary` is empty unless you set `reasoning.summary`.  
@@ -327,6 +327,9 @@ YesNo
   * [DeepSeek V4.1 Flash 1017](https://docs.sarvam.ai/api/token-factory/models/deepseek-v4.1-flash-1017)
   * [DeepSeek V4 Pro](https://docs.sarvam.ai/api/token-factory/models/deepseek-v4-pro)
   * [Kimi K3.1 Pro](https://docs.sarvam.ai/api/token-factory/models/kimi-k3.1-pro)
+  * [Qwen 3.8 27B](https://docs.sarvam.ai/api/token-factory/models/qwen-3-8-27b)
+  * [Clef](https://docs.sarvam.ai/api/token-factory/models/clef)
+  * [EmbeddingGemma 2](https://docs.sarvam.ai/api/token-factory/models/embeddinggemma-2)
   * [Chat Completions](https://docs.sarvam.ai/api/token-factory/chat-completions)
   * [Responses API](https://docs.sarvam.ai/api/token-factory/responses-api)
   * [Decisions API](https://docs.sarvam.ai/api/token-factory/decisions-api)
