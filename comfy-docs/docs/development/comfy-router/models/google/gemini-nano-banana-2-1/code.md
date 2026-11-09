@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/development/comfy-router/models/google/gemini-nano-banana-2-1/code/
 title: Use Gemini Nano Banana 2.1 with Comfy Router - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-17T10:50:09.276110+00:00
+fetched_at: 2026-11-09T17:17:46.382303+00:00
 ---
 
 # Use Gemini Nano Banana 2.1 with Comfy Router - ComfyUI
@@ -11,7 +11,10 @@ fetched_at: 2026-10-17T10:50:09.276110+00:00
 
 ## On this page
 
+Back to top
+
   * Quick start
+  * Serving providers
   * Schema
     * Input
     * Output
@@ -202,6 +205,19 @@ cURL
     curl https://api.comfy.org/v2/models/vertexai/gemini-nano-banana-2.1/requests/$REQUEST_ID \
       -H "X-API-Key: $COMFY_API_KEY"
     
+
+## 
+
+​
+
+Serving providers
+
+This model is served by Comfy Router directly unless the request names another provider. The providers below serve it too, on the same endpoint and with the same model ID, selected with the `model_provider` query parameter.
+
+  * **Comfy** (default): `POST https://api.comfy.org/v2/models/vertexai/gemini-nano-banana-2.1`
+  * **MiniMax** , as `minimax/minimax-nano-banana-2.1`: `POST https://api.comfy.org/v2/models/vertexai/gemini-nano-banana-2.1?model_provider=minimax`
+
+`strict_mode` defaults to false, so Router translates the native request body documented on this page into the provider’s own schema and translates the response back. See [`model_provider`, `strict_mode` and `fallback_provider`](https://docs.comfy.org/development/comfy-router/reference#post-v2modelsprovidermodel) in the API reference, and [Serving providers](https://docs.comfy.org/development/comfy-router/providers) for every model routed this way.
 
 ## 
 
@@ -1100,26 +1116,4 @@ YesNo
 
 [Suggest edits](https://github.com/comfy-org/docs/edit/main/development/comfy-router/models/google/gemini-nano-banana-2-1/code.mdx)[Raise issue](https://github.com/comfy-org/docs/issues/new?title=Issue%20on%20docs&body=Path:%20/development/comfy-router/models/google/gemini-nano-banana-2-1/code)
 
-[Use Gemini 3.8 Flash with Comfy RouterPrevious](https://docs.comfy.org/development/comfy-router/models/google/gemini-3-8-flash/code)[Use Google Gemini with Comfy RouterNext](https://docs.comfy.org/development/comfy-router/models/google/gemini/code)
-
-⌘I
-
-[ComfyUI home page![light logo](https://mintcdn.com/dripart/WCFdTagRdhtvk9-o/logo/light.svg?fit=max&auto=format&n=WCFdTagRdhtvk9-o&q=85&s=ec112de87239058f5a931a7e4b594965)![dark logo](https://mintcdn.com/dripart/QzWbjSCBG7w61rR3/logo/dark.svg?fit=max&auto=format&n=QzWbjSCBG7w61rR3&q=85&s=62b4d879fb3aadbd7a468d1539032d6f)](https://docs.comfy.org/)
-
-[github](https://github.com/Comfy-Org/ComfyUI)[x](https://x.com/ComfyUI)[discord](https://discord.com/invite/comfyorg)[youtube](https://www.youtube.com/@comfyorg)
-
-Resources
-
-[installation](https://docs.comfy.org/installation/system_requirements)[Tutorials](https://docs.comfy.org/tutorials/basic/text-to-image)[Development](https://docs.comfy.org/development/overview)
-
-Products
-
-[Features](https://www.comfy.org/?utm_source=docs)[Gallery](https://www.comfy.org/gallery?utm_source=docs)[Download](https://www.comfy.org/download?utm_source=docs)
-
-Company
-
-[About](https://www.comfy.org/about?utm_source=docs)[Careers](https://www.comfy.org/careers?utm_source=docs)[Terms of Service](https://www.comfy.org/terms-of-service?utm_source=docs)[Privacy Policy](https://www.comfy.org/privacy-policy?utm_source=docs)
-
-[github](https://github.com/Comfy-Org/ComfyUI)[x](https://x.com/ComfyUI)[discord](https://discord.com/invite/comfyorg)[youtube](https://www.youtube.com/@comfyorg)
-
-[Powered byThis documentation is built and hosted on Mintlify, a developer documentation platform](https://www.mintlify.com?utm_campaign=poweredBy&utm_medium=referral&utm_source=dripart)
+[Gemini 3.8 Flash](https://docs.comfy.org/development/comfy-router/models/google/gemini-3-8-flash/code)[Google Gemini](https://docs.comfy.org/development/comfy-router/models/google/gemini/code)

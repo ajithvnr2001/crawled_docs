@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/development/comfy-router/reference/
 title: Comfy Router API reference - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-11-02T16:54:40.319727+00:00
+fetched_at: 2026-11-09T17:17:41.416580+00:00
 ---
 
 # Comfy Router API reference - ComfyUI
@@ -159,6 +159,14 @@ The request is not allowed for this caller or model.Body: `RouterErrorResponse` 
 
 ​
 
+429
+
+RouterErrorResponse
+
+`rate_limited`: the per-caller request allowance is spent. Wait for `Retry-After` before sending the next request.Body: `RouterErrorResponse` — Headers: `X-Comfy-Error-Type`, `X-Comfy-Request-Id`, `Retry-After`
+
+​
+
 503
 
 RouterErrorResponse
@@ -242,6 +250,14 @@ The request is not allowed for this caller or model.Body: `RouterErrorResponse` 
 RouterErrorResponse
 
 The model ID was not found.Body: `RouterErrorResponse` — Headers: `X-Comfy-Error-Type`, `X-Comfy-Request-Id`
+
+​
+
+429
+
+RouterErrorResponse
+
+`rate_limited`: the per-caller request allowance is spent. Wait for `Retry-After` before sending the next request.Body: `RouterErrorResponse` — Headers: `X-Comfy-Error-Type`, `X-Comfy-Request-Id`, `Retry-After`
 
 ​
 
@@ -399,7 +415,7 @@ The request’s contents were rejected against the model’s schema.Body: `Route
 
 RouterErrorResponse
 
-Inspect `X-Comfy-Error-Type`: `concurrency_limit_exceeded` means reduce in-flight calls; `rate_limited` means wait for the allowance window.Body: `RouterErrorResponse` — Headers: `X-Comfy-Error-Type`, `X-Comfy-Request-Id`, `X-Committed-Spend-Limit`, `X-Committed-Spend-Current`, `X-Committed-Spend-Remaining`, `X-Model-Concurrency-Limit`, `X-Model-Concurrency-Current`, `X-Model-Concurrency-Remaining`
+Inspect `X-Comfy-Error-Type`: `concurrency_limit_exceeded` means reduce in-flight calls; `rate_limited` means wait for `Retry-After`.Body: `RouterErrorResponse` — Headers: `X-Comfy-Error-Type`, `X-Comfy-Request-Id`, `X-Committed-Spend-Limit`, `X-Committed-Spend-Current`, `X-Committed-Spend-Remaining`, `X-Model-Concurrency-Limit`, `X-Model-Concurrency-Current`, `X-Model-Concurrency-Remaining`, `Retry-After` (when `rate_limited`)
 
 ​
 
@@ -431,7 +447,7 @@ The request exceeded a deadline. Check the error type before retrying.Body: `Rou
 
 `POST /v2/models/{provider}/{model}/estimate`
 
-**Price a model call before running it, without running it.** Returns a pre-flight estimate, in US dollars, of what running this body on this model will cost, priced from the same rate card the run is billed against (a model billed the cost its vendor reports is estimated from the vendor’s published price list instead). It is an estimate, not the final charge: the settled charge in your workspace’s usage and billing records is what you pay. The body is validated against the model’s input schema first, as a default run (no `strict_mode`, no `reject_unknown_fields`) validates it, so a body that fails the model’s schema is the same `422` here as on the run; nothing is dispatched to a provider and nothing is charged. The answer is not a price lock: it is priced at the rates in force at `pricing_as_of`, and a run is charged at the rates in force when it is rated. While the feature is rolling out the route answers `403` with `error_type: not_enabled`; a model Router cannot run yet answers the same `403` with the run route’s own `detail`, so read `detail` to tell the two apart. **Parameters**
+**Price a model call before running it, without running it.** Returns a pre-flight estimate, in US dollars, of what running this body on this model will cost, priced at Comfy’s standard list price (a model billed the cost its vendor reports is estimated from the vendor’s published price list instead). It does not reflect contract or customer-specific rates: a workspace with negotiated pricing is quoted the list price and charged its contract rate, and `source: exact` then means exact at list price, not that workspace’s charge. It is an estimate, not the final charge: the settled charge in your workspace’s usage and billing records is what you pay. The body is validated against the model’s input schema first, as a default run (no `strict_mode`, no `reject_unknown_fields`) validates it, so a body that fails the model’s schema is the same `422` here as on the run; nothing is dispatched to a provider and nothing is charged. The answer is not a price lock: it is priced at the rates in force at `pricing_as_of`, and a run is charged at the rates in force when it is rated. If estimates are switched off for a deployment the route answers `403` with `error_type: not_enabled`; a model Router cannot run yet answers the same `403` with the run route’s own `detail`, so read `detail` to tell the two apart. The body is priced as Router would dispatch it: translated for the `model_provider` leg it names and retargeted to the operation it runs on, in the same order as the `estimate` on the queued submit’s `201`. That `estimate` is not a pre-flight price, though: it arrives only after the run is admitted and queued, and that run is charged unless it is cancelled before dispatch. **Parameters**
 
 ​
 
@@ -521,11 +537,27 @@ The estimate’s body was rejected against the model’s schema, or named a diff
 
 ​
 
+429
+
+RouterErrorResponse
+
+`rate_limited`: the per-caller request allowance is spent. Wait for `Retry-After` before sending the next request.Body: `RouterErrorResponse` — Headers: `X-Comfy-Error-Type`, `X-Comfy-Request-Id`, `Retry-After`
+
+​
+
 503
 
 RouterErrorResponse
 
 Router is temporarily unavailable. Retry with backoff.Body: `RouterErrorResponse` — Headers: `X-Comfy-Error-Type`, `X-Comfy-Request-Id`, `Retry-After` (capacity refusals only)
+
+​
+
+504
+
+RouterErrorResponse
+
+The request exceeded a deadline. Check the error type before retrying.Body: `RouterErrorResponse` — Headers: `X-Comfy-Error-Type`, `X-Comfy-Request-Id`
 
 ### 
 
@@ -612,6 +644,14 @@ The model ID was not found.Body: `RouterErrorResponse` — Headers: `X-Comfy-Err
 RouterErrorResponse
 
 Router could not complete the request.Body: `RouterErrorResponse` — Headers: `X-Comfy-Error-Type`, `X-Comfy-Request-Id`
+
+​
+
+429
+
+RouterErrorResponse
+
+`rate_limited`: the per-caller request allowance is spent. Wait for `Retry-After` before sending the next request.Body: `RouterErrorResponse` — Headers: `X-Comfy-Error-Type`, `X-Comfy-Request-Id`, `Retry-After`
 
 ​
 
@@ -761,7 +801,7 @@ The request’s contents were rejected against the model’s schema.Body: `Route
 
 RouterErrorResponse
 
-Inspect `X-Comfy-Error-Type`: `queue_backlog_full` means you already hold as many unfinished queued requests as you are allowed, so submit again once one of them finishes; `rate_limited` means wait for the allowance window.Body: `RouterErrorResponse` — Headers: `X-Comfy-Error-Type`, `X-Comfy-Request-Id`
+Inspect `X-Comfy-Error-Type`: `queue_backlog_full` means you already hold as many unfinished queued requests as you are allowed, so submit again once one of them finishes; `rate_limited` means wait the number of seconds in `Retry-After`.Body: `RouterErrorResponse` — Headers: `X-Comfy-Error-Type`, `X-Comfy-Request-Id`, `Retry-After` (when `rate_limited`)
 
 ​
 
@@ -770,6 +810,14 @@ Inspect `X-Comfy-Error-Type`: `queue_backlog_full` means you already hold as man
 RouterErrorResponse
 
 Router is temporarily unavailable. Retry with backoff.Body: `RouterErrorResponse` — Headers: `X-Comfy-Error-Type`, `X-Comfy-Request-Id`, `Retry-After` (capacity refusals only)
+
+​
+
+504
+
+RouterErrorResponse
+
+The request exceeded a deadline. Check the error type before retrying.Body: `RouterErrorResponse` — Headers: `X-Comfy-Error-Type`, `X-Comfy-Request-Id`
 
 ### 
 
@@ -858,6 +906,14 @@ The model ID was not found.Body: `RouterErrorResponse` — Headers: `X-Comfy-Err
 RouterErrorResponse
 
 A Router request-level failure - the request never reached the model, or failed for a reason the model itself did not report.Body: `RouterErrorResponse` — Headers: `X-Comfy-Error-Type`, `X-Comfy-Request-Id`
+
+​
+
+429
+
+RouterErrorResponse
+
+`rate_limited`: the per-caller request allowance is spent. Wait for `Retry-After` before sending the next request.Body: `RouterErrorResponse` — Headers: `X-Comfy-Error-Type`, `X-Comfy-Request-Id`, `Retry-After`
 
 ​
 
@@ -981,6 +1037,14 @@ The model ID was not found.Body: `RouterErrorResponse` — Headers: `X-Comfy-Err
 
 ​
 
+429
+
+RouterErrorResponse
+
+`rate_limited`: the per-caller request allowance is spent. Wait for `Retry-After` before sending the next request.Body: `RouterErrorResponse` — Headers: `X-Comfy-Error-Type`, `X-Comfy-Request-Id`, `Retry-After`
+
+​
+
 503
 
 RouterErrorResponse
@@ -1074,6 +1138,14 @@ The model ID was not found.Body: `RouterErrorResponse` — Headers: `X-Comfy-Err
 RouterErrorResponse
 
 A Router request-level failure - the request never reached the model, or failed for a reason the model itself did not report.Body: `RouterErrorResponse` — Headers: `X-Comfy-Error-Type`, `X-Comfy-Request-Id`
+
+​
+
+429
+
+RouterErrorResponse
+
+`rate_limited`: the per-caller request allowance is spent. Wait for `Retry-After` before sending the next request.Body: `RouterErrorResponse` — Headers: `X-Comfy-Error-Type`, `X-Comfy-Request-Id`, `Retry-After`
 
 ​
 
@@ -1204,6 +1276,14 @@ Retry-After
 integer
 
 Seconds to wait before polling this queued request again.Sent on: `200`, `202`
+
+​
+
+Retry-After
+
+integer
+
+Seconds to wait before sending another request after a `429` carrying `error_type: rate_limited`: the time until the caller’s per-minute request allowance has refilled enough to admit one more request.Sent on: `429`
 
 ​
 
@@ -1371,7 +1451,7 @@ The expensive-model calls the caller may still start; `0` on the `429`.
 
 Pre-flight cost estimates
 
-`POST /v2/models/{provider}/{model}/estimate` prices a body without running it, and a queued submit (`POST /v2/models/{provider}/{model}/requests`) returns the same `RouterCostEstimate` as `estimate` on its `201`. Both are priced from the rate card Comfy bills the run against, except a model billed the cost its vendor reports, which is `estimated` from the vendor’s published price list. Every figure either returns is an estimate, not the final charge: the settled charge in your workspace’s usage and billing records is final. A run on your own provider key is not billed by Comfy (see below). While the estimate is rolling out, the route answers `403` with `error_type: not_enabled` and the submit response omits `estimate`. The catalog still carries no prices. Read `source` before any amount. A missing figure never means free.
+`POST /v2/models/{provider}/{model}/estimate` prices a body without running it, and a queued submit (`POST /v2/models/{provider}/{model}/requests`) returns the same `RouterCostEstimate` as `estimate` on its `201`. Both are priced at Comfy’s standard list price, except a model billed the cost its vendor reports, which is `estimated` from the vendor’s published price list. Neither reflects contract or customer-specific rates: a workspace with negotiated pricing is quoted the list price and charged its contract rate, and `source: exact` then means exact at list price, not that workspace’s charge. Every figure either returns is an estimate, not the final charge: the settled charge in your workspace’s usage and billing records is final. A run on your own provider key is not billed by Comfy (see below). If estimates are switched off for a deployment, the route answers `403` with `error_type: not_enabled` and the submit response omits `estimate`. Both price the body as Router would dispatch it (translated for a `model_provider` leg, retargeted to the operation it runs on), but the submit’s `estimate` is not a pre-flight price: it arrives only after the run is admitted and queued, and that run is charged unless it is cancelled before dispatch. The catalog still carries no prices. Read `source` before any amount. A missing figure never means free.
 
 `source`| Carries| How to read it  
 ---|---|---  
@@ -1398,7 +1478,6 @@ Limits of the estimate. A `200` figure is not a promise that the run is accepted
   * `/estimate` takes no `strict_mode` or `reject_unknown_fields`, so it checks the model’s native contract only: a body a `strict_mode=true` run accepts in the alternate provider’s own schema can get a `422` here, and an undeclared top-level field a `reject_unknown_fields=true` run would refuse is priced here. An Anthropic Messages model is the exception: its schema allows undeclared fields, so a `reject_unknown_fields=true` run refuses none, and the estimate prices only the undeclared top-level fields `tools`, `tool_choice`, `temperature`, `top_p`, `top_k`, `stop_sequences`, `metadata`, `thinking` and an empty `mcp_servers`. Any other undeclared top-level field makes it answer `unknown` with `reason: not_quotable`.
   * `pricing_as_of` is when the rate card was fetched. An `estimated` quote taken from the vendor’s published price list carries the date that list was read. An `exact` or `estimated` quote whose billed quantity is predicted from a published vendor schedule carries that schedule’s read date when it is older than the card. When neither a card nor a schedule was read, it is when the estimate was answered. It is not a price lock: the run is charged at the rates in force when it is rated.
   * `/estimate` quotes the leg `model_provider` names, or the native provider. It takes no `fallback_provider` or `strict_mode` parameter. A synchronous run whose fallback retry lands on another provider is charged at that provider’s rate, which the estimate did not quote; `X-Comfy-Router-Fallback-Provider` on the run’s response says it happened. A queued submit has no fallback, so its `estimate` quotes the leg that runs.
-  * `/estimate` and a queued submit’s `estimate` can price slightly different documents for the same body on a `model_provider` leg, or for a body that runs on a sibling operation. The submit’s `estimate` is priced on the document the run sends.
   * `/estimate` always quotes the platform charge. A run on your own provider key is not billed by Comfy, but `/estimate` does not detect that and still returns a figure; only a queued submit answers `reason: byok`.
   * Dollars are rendered from unrounded cents, with up to 8 decimals, and a chargeable sub-cent `amount` is never shown as `0`. `credits` is `round(amount × 211, 2)`, the same conversion `X-Comfy-Credits-Used` applies to a charge, so `credits` can round to `0` for a very small non-zero price; budget on `amount` or `amount_cents`, not `credits`, when that matters. That header remains the post-hoc figure for a run; balances live on the Comfy platform.
 
@@ -1419,7 +1498,7 @@ Models| What is copied onto Comfy storage| Maximum Comfy-hosted URL lifetime
 `minimax/*`| the finished video| 12 hours  
 `xai/*`| every generated image, and the finished video| 24 hours  
   
-These lifetimes start when the URL is signed, not when you open it. Cached or replayed URLs can have less time remaining; replay does not renew them. An `Idempotency-Key` record can outlive the URLs it holds, so from an hour before such a URL expires a same-key retry is answered `409 invalid_input` instead of the recorded response; a response that was already that close to expiry when it was served stays replayable for 5 minutes. Download the asset promptly. Only the assets named in each row are copied: `byteplus/seedream-*` and `byteplus/seededit-*` images are not covered by the BytePlus video row. Copying is performed by the model’s native provider only. A run served by an alternate provider — `model_provider` naming one, or a native run whose fallback retry landed on one (disclosed by `X-Comfy-Router-Fallback-Provider`) — returns that provider’s own URLs, which follow the provider’s expiry and are not copied. `model_provider` values `default`, `comfy` and `comfyui` name no alternate provider, so those runs are native and copied as above, as is a `model_provider` run whose fallback retry landed back on the native provider. **Veo (`veo/*`) has a separate storage path.** In `response.videos[]`, read whichever member is present: `bytesBase64Encoded` contains the clip inline, while `gcsUri` contains a Comfy-signed HTTPS link when the environment is configured for direct provider writes to Comfy storage. That link is valid for 24 hours from the response. The latter case writes the asset directly rather than copying it, so Veo is not in the rehosting table. Other models return provider asset references or inline bytes. Provider URLs follow the provider’s expiry, which can be much shorter than the lifetimes above and is not specified by the Router contract. **Original BytePlus URLs (Seedance 2.x, opt-in).** For a workspace Comfy has opted in server-side, a Seedance 2.x result also carries BytePlus’s own URLs in `content.upstream_video_url` and `content.upstream_last_frame_url`, beside the copied ones, plus `content.upstream_expires_at`. There is no request parameter and no workspace is opted in by default. These URLs expire 24 hours after generation and are absent once BytePlus clears them; on Seedance 2.5 BytePlus caps each at 100 downloads, and Router’s own copy uses one. Each is a bearer credential for its object: anyone holding it can download the asset until it expires. Copying is best effort per asset. If one copy fails, that entry keeps its provider reference; the response can contain both Comfy and provider URLs, with no explicit per-asset copy-status field. The generation still succeeds and is charged. Do not infer every URL’s lifetime from one successfully rehosted asset. Whether a result is Comfy-hosted also decides whether a completed call can still be replayed from its `Idempotency-Key` record later; the `Idempotency-Key` parameter above says what a retry is answered with when it cannot be.
+These lifetimes start when the URL is signed, not when you open it. Cached or replayed URLs can have less time remaining; replay does not renew them. An `Idempotency-Key` record can outlive the URLs it holds, so from an hour before such a URL expires a same-key retry is answered `409 invalid_input` instead of the recorded response; a response that was already that close to expiry when it was served stays replayable for 5 minutes. Download the asset promptly. Only the assets named in each row are copied: `byteplus/seedream-*` and `byteplus/seededit-*` images are not covered by the BytePlus video row. Copying is performed by the model’s native provider only. A run served by an alternate provider — `model_provider` naming one, or a native run whose fallback retry landed on one (disclosed by `X-Comfy-Router-Fallback-Provider`) — returns that provider’s own URLs, which follow the provider’s expiry and are not copied. `model_provider` values `default`, `comfy` and `comfyui` name no alternate provider, so those runs are native and copied as above, as is a `model_provider` run whose fallback retry landed back on the native provider. **Veo (`veo/*`) has a separate storage path.** In `response.videos[]`, read whichever member is present: `bytesBase64Encoded` contains the clip inline, while `gcsUri` contains a Comfy-signed HTTPS link when the environment is configured for direct provider writes to Comfy storage. That link is valid for 24 hours from the response. The latter case writes the asset directly rather than copying it, so Veo is not in the rehosting table. Other models return provider asset references or inline bytes. Provider URLs follow the provider’s expiry, which can be much shorter than the lifetimes above and is not specified by the Router contract. **Original BytePlus URLs (Seedance 2.x, opt-in).** For a workspace Comfy has opted in server-side, a Seedance 2.x result also carries BytePlus’s own URLs in `content.upstream_video_url` and `content.upstream_last_frame_url`, beside the copied ones, plus `content.upstream_expires_at`. There is no request parameter and no workspace is opted in by default. These URLs expire 24 hours after generation and are absent once BytePlus clears them; on Seedance 2.5 BytePlus caps each at 100 downloads, and Router’s own copy uses one. Each is a bearer credential for its object: anyone holding it can download the asset until it expires. **Zero-data-retention workspaces.** For a workspace Comfy has configured for zero data retention, BytePlus results are not copied onto Comfy storage: the `byteplus/*` video row above does not apply, and `content.video_url` and `content.last_frame_url` are BytePlus’s own provider URLs, returned as BytePlus sent them. They are valid for 24 hours, and on Seedance 2.5 BytePlus limits each to 100 downloads, so download the asset promptly. Such a result is not replayed from its `Idempotency-Key` record. Copying is best effort per asset. If one copy fails, that entry keeps its provider reference; the response can contain both Comfy and provider URLs, with no explicit per-asset copy-status field. The generation still succeeds and is charged. Do not infer every URL’s lifetime from one successfully rehosted asset. Whether a result is Comfy-hosted also decides whether a completed call can still be replayed from its `Idempotency-Key` record later; the `Idempotency-Key` parameter above says what a retry is answered with when it cannot be.
 
 ## 
 
@@ -1483,7 +1562,7 @@ Whether a content-policy refusal is charged for this model. Treat an unknown val
 
 RouterCostEstimate
 
-A pre-flight estimate of what this call will cost, in US dollars, priced before dispatch from the same rate card the run is billed against (or, for a model billed the cost its vendor reports, estimated from the vendor’s published price list). It is not the final charge: the settled charge in your workspace’s usage and billing records is what you pay. `X-Comfy-Credits-Used`, reported after the run, is a rounded post-hoc figure, not a receipt. `source` says how much to trust the number: `exact` carries `amount`; `free` carries `amount` “0” (the rate card prices this request at zero); `estimated` carries `min_amount` and `max_amount` and no `amount`; `unknown` carries neither and a `reason`. Never read an absent `amount` as free. Not a price lock: see `pricing_as_of`. **Fields**
+A pre-flight estimate of what this call will cost, in US dollars, priced before dispatch at Comfy’s standard list price, or — for a model billed the cost its vendor reports — from the vendor’s published price list. For that vendor-reported case, `source: exact` is returned only for a small opted-in set of models, and only when the published price list fully determines the figure (every price-driving field was stated, or left at a default that cannot change it); every other vendor-reported quote is `estimated`, including some the list would fully determine. Either way the run is still billed the amount the vendor reports after it completes, never the quoted figure verbatim. It does not reflect contract or customer-specific rates: a workspace with negotiated pricing is quoted the list price and charged its contract rate, and `source: exact` then means exact at list price, not that workspace’s charge. It is not the final charge: the settled charge in your workspace’s usage and billing records is what you pay. `X-Comfy-Credits-Used`, reported after the run, is a rounded post-hoc figure, not a receipt. `source` says how much to trust the number: `exact` carries `amount`; `free` carries `amount` “0” (the rate card prices this request at zero); `estimated` carries `min_amount` and `max_amount` and no `amount`; `unknown` carries neither and a `reason`. Never read an absent `amount` as free. Not a price lock: see `pricing_as_of`. **Fields**
 
 ​
 
@@ -1633,7 +1712,7 @@ upstream_detail
 
 string
 
-A bounded, sanitized reason the model provider gave for rejecting the request, present only when `error_type` is `invalid_input` and `X-Comfy-Upstream-Status` is a provider `4xx` or `2xx` \- i.e. the provider refused the request as malformed and said why. Usually that status is a `4xx`; it is a `2xx` for a provider that reports a rejected generation inside a success envelope (a BytePlus failed-task poll is HTTP `200` with the reason in its body). Absent on every other failure, including provider `5xx`, transport failures, content-policy refusals and any refusal Router raised about itself. It mirrors the `X-Comfy-Upstream-Detail` header.
+A bounded, sanitized reason the model provider gave for rejecting the request, present only when `error_type` is `invalid_input` and `X-Comfy-Upstream-Status` is a provider `4xx` or `2xx` \- i.e. the provider refused the request as malformed and said why. Usually that status is a `4xx`; it is a `2xx` for a provider that reports a rejected generation inside a success envelope (a BytePlus failed-task poll is HTTP `200` with the reason in its body). Absent on every other failure, including provider `5xx`, transport failures, content-policy refusals and any refusal Router raised about itself. It mirrors the `X-Comfy-Upstream-Detail` header. The queued collect (`GET /v2/models/{provider}/{model}/requests/{request_id}`) of a run that ended `invalid_input` carries the same reason in this field on its first collect, which then deletes it from the request: a later collect normally answers the same `error_type` and `detail` without it, so read it from the first collect. That read sends neither header.
 
 ​
 

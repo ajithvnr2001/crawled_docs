@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/es/installation/comfyui_portable_windows/
 title: ComfyUI Portable para Windows - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-25T12:24:47.920039+00:00
+fetched_at: 2026-11-09T17:17:41.011431+00:00
 ---
 
 # ComfyUI Portable para Windows - ComfyUI
@@ -10,6 +10,8 @@ fetched_at: 2026-10-25T12:24:47.920039+00:00
 > Source: https://docs.comfy.org/es/installation/comfyui_portable_windows/
 
 ## En esta página
+
+Volver arriba
 
   * Descargar ComfyUI Portable
   * Agregar rutas de modelos adicionales
@@ -30,11 +32,11 @@ Local (autoalojado)
 
 Copiar páginaCopiar página
 
-Descarga y ejecuta ComfyUI Portable en Windows: un paquete independiente con Python integrado y compilaciones CUDA para GPU NVIDIA. Extrae el archivo comprimido y luego ejecuta ComfyUI.
+Descarga y ejecuta ComfyUI Portable en Windows: paquete independiente con Python y CUDA para GPU NVIDIA. Extrae el archivo y ejecútalo.
 
 Copiar páginaCopiar página
 
-**ComfyUI Portable** es una versión completa, autónoma y empaquetada de ComfyUI para Windows que integra un **Python (python_embeded)** independiente, requerido para que ComfyUI funcione. Solo necesitas extraerlo para usarlo. Esta sección de la guía te mostrará cómo instalar ComfyUI Portable.
+**ComfyUI Portable** es una versión completa, autónoma y empaquetada de ComfyUI para Windows que integra un **Python (python_embeded)** independiente, requerido para que ComfyUI funcione. Solo necesitas extraerlo para usarlo. Esta sección te muestra cómo instalar ComfyUI Portable.
 
 ## 
 
@@ -78,8 +80,8 @@ Descarga el archivo y extráelo con [7-ZIP](https://7-zip.org/). La estructura d
     ├── 📂ComfyUI                   // Programa principal de ComfyUI
     ├── 📂python_embeded            // Entorno Python independiente
     ├── 📂update                    // Scripts por lotes para actualizar la versión portable
+    ├── 📂advanced                  // Lanzadores adicionales: run_cpu.bat (solo CPU), run_nvidia_gpu_fast_fp16_accumulation.bat, run_nvidia_gpu_disable_api_nodes.bat
     ├── README_VERY_IMPORTANT.txt   // Instrucciones de uso de ComfyUI Portable en inglés
-    ├── run_cpu.bat                 // Haz doble clic para iniciar ComfyUI (solo CPU)
     └── run_nvidia_gpu.bat          // Haz doble clic para iniciar ComfyUI (GPU Nvidia)
     
 
@@ -103,7 +105,7 @@ Descarga el archivo y extráelo con [7-ZIP](https://7-zip.org/). La estructura d
     ├── 📂python_embeded            // Entorno Python independiente
     ├── 📂update                    // Scripts por lotes para actualizar la versión portable
     ├── README_VERY_IMPORTANT.txt   // Instrucciones de uso de ComfyUI Portable en inglés
-    ├── run_cpu.bat                 // Haz doble clic para iniciar ComfyUI (solo CPU)
+    ├── run_amd_gpu_enable_dynamic_vram.bat // Inicia con VRAM dinámica activada
     └── run_amd_gpu.bat             // Haz doble clic para iniciar ComfyUI (GPU AMD)
     
 
@@ -126,8 +128,6 @@ Descarga el archivo y extráelo con [7-ZIP](https://7-zip.org/). La estructura d
     ├── 📂ComfyUI                   // Programa principal de ComfyUI
     ├── 📂python_embeded            // Entorno Python independiente
     ├── 📂update                    // Scripts por lotes para actualizar la versión portable
-    ├── README_VERY_IMPORTANT.txt   // Instrucciones de uso de ComfyUI Portable en inglés
-    ├── run_cpu.bat                 // Haz doble clic para iniciar ComfyUI (solo CPU)
     └── run_intel_gpu.bat           // Haz doble clic para iniciar ComfyUI (GPU Intel)
     
 
@@ -358,7 +358,7 @@ Instrucciones adicionales de ComfyUI Portable
 
 1\. Actualizar ComfyUI Portable
 
-Puedes usar los comandos por lotes en la carpeta update para actualizar tu versión de ComfyUI Portable
+Puedes usar los scripts por lotes de la carpeta `update` para actualizar ComfyUI Portable
     
     
     ComfyUI_windows_portable
@@ -375,7 +375,7 @@ Puedes usar los comandos por lotes en la carpeta update para actualizar tu versi
 
 2\. Configurar el acceso a la red local para ComfyUI Portable
 
-Si tu ComfyUI se ejecuta en una red local y quieres que otros dispositivos accedan a ComfyUI, puedes modificar el archivo `.bat` correspondiente (por ejemplo, `run_nvidia_gpu.bat`, `run_amd_gpu.bat` o `run_cpu.bat`) con el Bloc de notas para completar la configuración. Esto se hace principalmente agregando `--listen` para especificar la dirección de escucha. A continuación tienes un ejemplo del comando del archivo `run_nvidia_gpu.bat` con el parámetro `--listen` agregado
+Si tu ComfyUI se ejecuta en una red local y quieres que otros dispositivos accedan a ComfyUI, puedes modificar el archivo `.bat` correspondiente (por ejemplo, `run_nvidia_gpu.bat`, `run_amd_gpu.bat` o `run_cpu.bat`, que en los paquetes NVIDIA nuevos está en `advanced\` y en los anteriores en la raíz) con el Bloc de notas para completar la configuración. Esto se hace principalmente agregando `--listen` para especificar la dirección de escucha. A continuación tienes un ejemplo del comando del archivo `run_nvidia_gpu.bat` con el parámetro `--listen` agregado
     
     
     .\python_embeded\python.exe -s ComfyUI\main.py --listen --windows-standalone-build
@@ -415,7 +415,7 @@ Después de instalar un paquete que requiere un indicador de inicio, agrega el i
     .\python_embeded\python.exe -s ComfyUI\main.py --<startup-flag> --windows-standalone-build
     
 
-Para obtener orientación detallada sobre cómo instalar las dependencias de nodos personalizados, consulta la [guía de dependencias de nodos personalizados](https://docs.comfy.org/basic-concepts/custom-nodes).
+Para obtener orientación detallada sobre cómo instalar las dependencias de nodos personalizados, consulta la [guía de dependencias de nodos personalizados](https://docs.comfy.org/es/basic-concepts/custom-nodes).
 
 ¿Esta página le ayudó?
 

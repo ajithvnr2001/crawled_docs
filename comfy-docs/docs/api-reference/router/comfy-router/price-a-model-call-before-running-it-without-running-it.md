@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/api-reference/router/comfy-router/price-a-model-call-before-running-it-without-running-it/
 title: Price a model call before running it, without running it. - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-11-01T14:08:59.976270+00:00
+fetched_at: 2026-11-09T17:17:43.464334+00:00
 ---
 
 # Price a model call before running it, without running it. - ComfyUI
@@ -148,7 +148,11 @@ cURL
 
 422
 
+429
+
 503
+
+504
     
     
     {
@@ -271,6 +275,36 @@ cURL
       },
       "credential_kind": "<string>"
     }
+    
+    
+    {
+      "detail": "<string>",
+      "error_type": "invalid_input",
+      "upstream_detail": "<string>",
+      "refusal_subject": "<string>",
+      "denied_reason": "<string>",
+      "billed_workspace": {
+        "type": "<string>",
+        "id": "<string>",
+        "rail": "<string>"
+      },
+      "credential_kind": "<string>"
+    }
+    
+    
+    {
+      "detail": "<string>",
+      "error_type": "invalid_input",
+      "upstream_detail": "<string>",
+      "refusal_subject": "<string>",
+      "denied_reason": "<string>",
+      "billed_workspace": {
+        "type": "<string>",
+        "id": "<string>",
+        "rail": "<string>"
+      },
+      "credential_kind": "<string>"
+    }
 
 Comfy Router
 
@@ -278,7 +312,7 @@ Comfy Router
 
 Copy pageCopy page
 
-Returns a pre-flight estimate, in US dollars, of what running this body on this model will cost, priced from the same rate card the run is billed against (a model billed the cost its vendor reports is estimated from the vendor’s published price list instead). It is an estimate, not the final charge: the settled charge in your workspace’s usage and billing records is what you pay. The body is validated against the model’s input schema first, as a default run (no `strict_mode`, no `reject_unknown_fields`) validates it, so a body that fails the model’s schema is the same `422` here as on the run; nothing is dispatched to a provider and nothing is charged. The answer is not a price lock: it is priced at the rates in force at `pricing_as_of`, and a run is charged at the rates in force when it is rated. While the feature is rolling out the route answers `403` with `error_type: not_enabled`.
+Returns a pre-flight estimate, in US dollars, of what running this body on this model will cost, priced at Comfy’s standard list price (a model billed the cost its vendor reports is estimated from the vendor’s published price list instead). It does not reflect contract or customer-specific rates: a workspace with negotiated pricing is quoted the list price and charged its contract rate, and `source: exact` then means exact at list price, not that workspace’s charge. It is an estimate, not the final charge: the settled charge in your workspace’s usage and billing records is what you pay. The body is validated against the model’s input schema first, as a default run (no `strict_mode`, no `reject_unknown_fields`) validates it, so a body that fails the model’s schema is the same `422` here as on the run; nothing is dispatched to a provider and nothing is charged. The answer is not a price lock: it is priced at the rates in force at `pricing_as_of`, and a run is charged at the rates in force when it is rated. If estimates are switched off for a deployment the route answers `403` with `error_type: not_enabled`; a model Router cannot run yet answers the same `403` with the run route’s own `detail`, so read `detail` to tell the two apart. The body is priced as Router would dispatch it: translated for the `model_provider` leg it names and retargeted to the operation it runs on, in the same order as the `estimate` on the queued submit’s `201`. That `estimate` is not a pre-flight price, though: it arrives only after the run is admitted and queued, and that run is charged unless it is cancelled before dispatch.
 
 Copy pageCopy page
 
@@ -445,7 +479,11 @@ cURL
 
 422
 
+429
+
 503
+
+504
     
     
     {
@@ -568,6 +606,36 @@ cURL
       },
       "credential_kind": "<string>"
     }
+    
+    
+    {
+      "detail": "<string>",
+      "error_type": "invalid_input",
+      "upstream_detail": "<string>",
+      "refusal_subject": "<string>",
+      "denied_reason": "<string>",
+      "billed_workspace": {
+        "type": "<string>",
+        "id": "<string>",
+        "rail": "<string>"
+      },
+      "credential_kind": "<string>"
+    }
+    
+    
+    {
+      "detail": "<string>",
+      "error_type": "invalid_input",
+      "upstream_detail": "<string>",
+      "refusal_subject": "<string>",
+      "denied_reason": "<string>",
+      "billed_workspace": {
+        "type": "<string>",
+        "id": "<string>",
+        "rail": "<string>"
+      },
+      "credential_kind": "<string>"
+    }
 
 #### Authorizations
 
@@ -649,7 +717,7 @@ application/json
 
 The quote. Read `source` before reading any amount: only `exact` and `free` carry `amount` (`free` as "0"), and an `unknown` quote carries a `reason` instead of a figure.
 
-A pre-flight estimate of what this call will cost, in US dollars, priced before dispatch from the same rate card the run is billed against (or, for a model billed the cost its vendor reports, estimated from the vendor's published price list). It is not the final charge: the settled charge in your workspace's usage and billing records is what you pay. `X-Comfy-Credits-Used`, reported after the run, is a rounded post-hoc figure, not a receipt. `source` says how much to trust the number: `exact` carries `amount`; `free` carries `amount` "0" (the rate card prices this request at zero); `estimated` carries `min_amount` and `max_amount` and no `amount`; `unknown` carries neither and a `reason`. Never read an absent `amount` as free. Not a price lock: see `pricing_as_of`.
+A pre-flight estimate of what this call will cost, in US dollars, priced before dispatch at Comfy's standard list price, or — for a model billed the cost its vendor reports — from the vendor's published price list. For that vendor-reported case, `source: exact` is returned only for a small opted-in set of models, and only when the published price list fully determines the figure (every price-driving field was stated, or left at a default that cannot change it); every other vendor-reported quote is `estimated`, including some the list would fully determine. Either way the run is still billed the amount the vendor reports after it completes, never the quoted figure verbatim. It does not reflect contract or customer-specific rates: a workspace with negotiated pricing is quoted the list price and charged its contract rate, and `source: exact` then means exact at list price, not that workspace's charge. It is not the final charge: the settled charge in your workspace's usage and billing records is what you pay. `X-Comfy-Credits-Used`, reported after the run, is a rounded post-hoc figure, not a receipt. `source` says how much to trust the number: `exact` carries `amount`; `free` carries `amount` "0" (the rate card prices this request at zero); `estimated` carries `min_amount` and `max_amount` and no `amount`; `unknown` carries neither and a `reason`. Never read an absent `amount` as free. Not a price lock: see `pricing_as_of`.
 
 ​
 

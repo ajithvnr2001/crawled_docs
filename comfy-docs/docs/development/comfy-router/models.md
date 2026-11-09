@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/development/comfy-router/models/
 title: Comfy Router models - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T13:26:44.490023+00:00
+fetched_at: 2026-11-09T17:17:44.136755+00:00
 ---
 
 # Comfy Router models - ComfyUI
@@ -42,6 +42,7 @@ Back to top
   * Qwen
   * Recraft
   * Runway
+  * Stability
   * Synclabs
   * Tencent
   * Veed
@@ -70,7 +71,7 @@ Every model below is served by the same route, `POST /v2/models/{provider}/{mode
 
 Find by output
 
-Video (76)
+Video (81)
 
   * [SwitchX](https://docs.comfy.org/development/comfy-router/models/beeble/switchx/code): `beeble/switchx`
   * [FLUX 3 Video](https://docs.comfy.org/development/comfy-router/models/black-forest-labs/flux-3-video/code): `bfl/flux-3-video`
@@ -91,10 +92,12 @@ Video (76)
   * [FLUX 3 Max](https://docs.comfy.org/development/comfy-router/models/fal/flux-3-max/code): `fal/flux-3-max`
   * [H3 Max Turbo](https://docs.comfy.org/development/comfy-router/models/fal/h3-max-turbo/code): `fal/h3-max-turbo`
   * [H3 Max](https://docs.comfy.org/development/comfy-router/models/fal/h3-max/code): `fal/h3-max`
+  * [Gemini Omni 1.2 Flash](https://docs.comfy.org/development/comfy-router/models/gemini-interactions/gemini-omni-1-2-flash/code): `gemini-interactions/gemini-omni-1.2-flash`
   * [Higgsfield Genjutsu Motion Transfer V1.0](https://docs.comfy.org/development/comfy-router/models/higgsfield/higgsfield-genjutsu-motion-transfer-v1-0/code): `higgsfield/higgsfield-genjutsu-motion-transfer-v1.0`
   * [Higgsfield Kling 3.4k](https://docs.comfy.org/development/comfy-router/models/higgsfield/higgsfield-kling-3-4k/code): `higgsfield/higgsfield-kling-3-4k`
   * [Higgsfield Kling 3 Pro](https://docs.comfy.org/development/comfy-router/models/higgsfield/higgsfield-kling-3-pro/code): `higgsfield/higgsfield-kling-3-pro`
   * [Kling 3.0 Turbo](https://docs.comfy.org/development/comfy-router/models/kling/kling-3-0-turbo/code): `kling/kling-3.0-turbo`
+  * [Kling 4.0](https://docs.comfy.org/development/comfy-router/models/kling/kling-4-0/code): `kling/kling-4.0`
   * [Kling V2.5 Turbo](https://docs.comfy.org/development/comfy-router/models/kling/kling-v2-5-turbo/code): `kling/kling-v2-5-turbo`
   * [Kling V2.6](https://docs.comfy.org/development/comfy-router/models/kling/kling-v2-6/code): `kling/kling-v2-6`
   * [Kling V3 Omni](https://docs.comfy.org/development/comfy-router/models/kling/kling-v3-omni/code): `kling/kling-v3-omni`
@@ -102,7 +105,6 @@ Video (76)
   * [Kling Video O1](https://docs.comfy.org/development/comfy-router/models/kling/kling-video-o1/code): `kling/kling-video-o1`
   * [Videos Avatar Image 2video](https://docs.comfy.org/development/comfy-router/models/kling/videos-avatar-image2video/code): `kling/videos-avatar-image2video`
   * [Videos Lip Sync](https://docs.comfy.org/development/comfy-router/models/kling/videos-lip-sync/code): `kling/videos-lip-sync`
-  * [Videos Video Extend](https://docs.comfy.org/development/comfy-router/models/kling/videos-video-extend/code): `kling/videos-video-extend`
   * [LTX 2.5 Fast](https://docs.comfy.org/development/comfy-router/models/ltx/ltx-2-5-fast/code): `ltx/ltx-2-5-fast`
   * [LTX 2.5 Pro](https://docs.comfy.org/development/comfy-router/models/ltx/ltx-2-5-pro/code): `ltx/ltx-2-5-pro`
   * [Ray 3.2](https://docs.comfy.org/development/comfy-router/models/luma_2/ray-3-2/code): `luma_2/ray-3.2`
@@ -112,6 +114,10 @@ Video (76)
   * [Video To Video](https://docs.comfy.org/development/comfy-router/models/moonvalley/video-to-video/code): `moonvalley/video-to-video`
   * [Pika 2.5 Image To Video](https://docs.comfy.org/development/comfy-router/models/pika/pika-2-5-image-to-video/code): `pika/pika-2.5-image-to-video`
   * [Pika 2.5 Text To Video](https://docs.comfy.org/development/comfy-router/models/pika/pika-2-5-text-to-video/code): `pika/pika-2.5-text-to-video`
+  * [Pika H3 Flex Image To Video](https://docs.comfy.org/development/comfy-router/models/pika/pika-h3-flex-image-to-video/code): `pika/pika-h3-flex-image-to-video`
+  * [Pika H3 Flex Reference To Video](https://docs.comfy.org/development/comfy-router/models/pika/pika-h3-flex-reference-to-video/code): `pika/pika-h3-flex-reference-to-video`
+  * [Pika H3 Flex Text To Video](https://docs.comfy.org/development/comfy-router/models/pika/pika-h3-flex-text-to-video/code): `pika/pika-h3-flex-text-to-video`
+  * [Pika Soundtrack](https://docs.comfy.org/development/comfy-router/models/pika/pika-soundtrack/code): `pika/pika-soundtrack`
   * [P Video 2](https://docs.comfy.org/development/comfy-router/models/pruna/p-video-2/code): `pruna/p-video-2`
   * [Aleph 2](https://docs.comfy.org/development/comfy-router/models/runway/aleph2/code): `runway/aleph2`
   * [Gen 4 Turbo](https://docs.comfy.org/development/comfy-router/models/runway/gen4-turbo/code): `runway/gen4_turbo`
@@ -151,7 +157,7 @@ Video (76)
 
 
 
-Image (91)
+Image (116)
 
   * [SwitchX](https://docs.comfy.org/development/comfy-router/models/beeble/switchx/code): `beeble/switchx`
   * [Erase V1](https://docs.comfy.org/development/comfy-router/models/black-forest-labs/erase-v1/code): `bfl/erase-v1`
@@ -216,6 +222,8 @@ Image (91)
   * [GPT Image 1.5](https://docs.comfy.org/development/comfy-router/models/openai/gpt-image-1-5/code): `openai/gpt-image-1.5`
   * [GPT Image 2.5 Flare](https://docs.comfy.org/development/comfy-router/models/openai/gpt-image-2-5-flare/code): `openai/gpt-image-2.5-flare`
   * [GPT Image 2.5 Sunburst](https://docs.comfy.org/development/comfy-router/models/openai/gpt-image-2-5-sunburst/code): `openai/gpt-image-2.5-sunburst`
+  * [GPT Image 2.6 Flare](https://docs.comfy.org/development/comfy-router/models/openai/gpt-image-2-6-flare/code): `openai/gpt-image-2.6-flare`
+  * [GPT Image 2.6 Sunburst](https://docs.comfy.org/development/comfy-router/models/openai/gpt-image-2-6-sunburst/code): `openai/gpt-image-2.6-sunburst`
   * [GPT Image 2](https://docs.comfy.org/development/comfy-router/models/openai/gpt-image-2/code): `openai/gpt-image-2`
   * [Qwen Image 3.0 Pro](https://docs.comfy.org/development/comfy-router/models/qwen/qwen-image-3-0-pro/code): `qwen/qwen-image-3.0-pro`
   * [Qwen Image 3.0](https://docs.comfy.org/development/comfy-router/models/qwen/qwen-image-3-0/code): `qwen/qwen-image-3.0`
@@ -236,6 +244,29 @@ Image (91)
   * [Recraft V4 Styles](https://docs.comfy.org/development/comfy-router/models/recraft/recraftv4-styles/code): `recraft/recraftv4_styles`
   * [Recraft V4](https://docs.comfy.org/development/comfy-router/models/recraft/recraftv4/code): `recraft/recraftv4`
   * [Gen 4 Image](https://docs.comfy.org/development/comfy-router/models/runway/gen4-image/code): `runway/gen4_image`
+  * [Control Sketch](https://docs.comfy.org/development/comfy-router/models/stability/control-sketch/code): `stability/control-sketch`
+  * [Control Structure](https://docs.comfy.org/development/comfy-router/models/stability/control-structure/code): `stability/control-structure`
+  * [Control Style Transfer](https://docs.comfy.org/development/comfy-router/models/stability/control-style-transfer/code): `stability/control-style-transfer`
+  * [Control Style](https://docs.comfy.org/development/comfy-router/models/stability/control-style/code): `stability/control-style`
+  * [Edit Erase](https://docs.comfy.org/development/comfy-router/models/stability/edit-erase/code): `stability/edit-erase`
+  * [Edit Inpaint](https://docs.comfy.org/development/comfy-router/models/stability/edit-inpaint/code): `stability/edit-inpaint`
+  * [Edit Outpaint](https://docs.comfy.org/development/comfy-router/models/stability/edit-outpaint/code): `stability/edit-outpaint`
+  * [Edit Remove Background](https://docs.comfy.org/development/comfy-router/models/stability/edit-remove-background/code): `stability/edit-remove-background`
+  * [Edit Replace Background And Relight](https://docs.comfy.org/development/comfy-router/models/stability/edit-replace-background-and-relight/code): `stability/edit-replace-background-and-relight`
+  * [Edit Search And Recolor](https://docs.comfy.org/development/comfy-router/models/stability/edit-search-and-recolor/code): `stability/edit-search-and-recolor`
+  * [Edit Search And Replace](https://docs.comfy.org/development/comfy-router/models/stability/edit-search-and-replace/code): `stability/edit-search-and-replace`
+  * [Generate Core](https://docs.comfy.org/development/comfy-router/models/stability/generate-core/code): `stability/generate-core`
+  * [Generate Ultra](https://docs.comfy.org/development/comfy-router/models/stability/generate-ultra/code): `stability/generate-ultra`
+  * [Sd3.5 Flash](https://docs.comfy.org/development/comfy-router/models/stability/sd3-5-flash/code): `stability/sd3.5-flash`
+  * [Sd3.5 Large Turbo](https://docs.comfy.org/development/comfy-router/models/stability/sd3-5-large-turbo/code): `stability/sd3.5-large-turbo`
+  * [Sd3.5 Large](https://docs.comfy.org/development/comfy-router/models/stability/sd3-5-large/code): `stability/sd3.5-large`
+  * [Sd3.5 Medium](https://docs.comfy.org/development/comfy-router/models/stability/sd3-5-medium/code): `stability/sd3.5-medium`
+  * [Sdxl 1.0 Image To Image](https://docs.comfy.org/development/comfy-router/models/stability/sdxl-1-0-image-to-image/code): `stability/sdxl-1.0-image-to-image`
+  * [Sdxl 1.0 Masking](https://docs.comfy.org/development/comfy-router/models/stability/sdxl-1-0-masking/code): `stability/sdxl-1.0-masking`
+  * [Sdxl 1.0 Text To Image](https://docs.comfy.org/development/comfy-router/models/stability/sdxl-1-0-text-to-image/code): `stability/sdxl-1.0-text-to-image`
+  * [Upscale Conservative](https://docs.comfy.org/development/comfy-router/models/stability/upscale-conservative/code): `stability/upscale-conservative`
+  * [Upscale Creative](https://docs.comfy.org/development/comfy-router/models/stability/upscale-creative/code): `stability/upscale-creative`
+  * [Upscale Fast](https://docs.comfy.org/development/comfy-router/models/stability/upscale-fast/code): `stability/upscale-fast`
   * [Wan 2.5 I2I Preview](https://docs.comfy.org/development/comfy-router/models/wan/wan2-5-i2i-preview/code): `wan/wan2.5-i2i-preview`
   * [Wan 2.5 T2I Preview](https://docs.comfy.org/development/comfy-router/models/wan/wan2-5-t2i-preview/code): `wan/wan2.5-t2i-preview`
   * [Seedvr 2](https://docs.comfy.org/development/comfy-router/models/wavespeed/seedvr2/code): `wavespeed/seedvr2`
@@ -247,7 +278,7 @@ Image (91)
 
 
 
-Audio (41)
+Audio (47)
 
   * [FLUX 3 Video](https://docs.comfy.org/development/comfy-router/models/black-forest-labs/flux-3-video/code): `bfl/flux-3-video`
   * [Dreamina Seedance 2.0 260128](https://docs.comfy.org/development/comfy-router/models/byteplus/dreamina-seedance-2-0-260128/code): `byteplus/dreamina-seedance-2-0-260128`
@@ -273,6 +304,12 @@ Audio (41)
   * [LTX 2.5 Fast](https://docs.comfy.org/development/comfy-router/models/ltx/ltx-2-5-fast/code): `ltx/ltx-2-5-fast`
   * [LTX 2.5 Pro](https://docs.comfy.org/development/comfy-router/models/ltx/ltx-2-5-pro/code): `ltx/ltx-2-5-pro`
   * [MiniMax H3](https://docs.comfy.org/development/comfy-router/models/minimax/minimax-h3/code): `minimax/minimax-h3`
+  * [Pika H3 Flex Image To Video](https://docs.comfy.org/development/comfy-router/models/pika/pika-h3-flex-image-to-video/code): `pika/pika-h3-flex-image-to-video`
+  * [Pika H3 Flex Reference To Video](https://docs.comfy.org/development/comfy-router/models/pika/pika-h3-flex-reference-to-video/code): `pika/pika-h3-flex-reference-to-video`
+  * [Pika H3 Flex Text To Video](https://docs.comfy.org/development/comfy-router/models/pika/pika-h3-flex-text-to-video/code): `pika/pika-h3-flex-text-to-video`
+  * [Pika Music](https://docs.comfy.org/development/comfy-router/models/pika/pika-music/code): `pika/pika-music`
+  * [Pika Sfx](https://docs.comfy.org/development/comfy-router/models/pika/pika-sfx/code): `pika/pika-sfx`
+  * [Pika Soundtrack](https://docs.comfy.org/development/comfy-router/models/pika/pika-soundtrack/code): `pika/pika-soundtrack`
   * [P Video 2](https://docs.comfy.org/development/comfy-router/models/pruna/p-video-2/code): `pruna/p-video-2`
   * [Clean Audio Video](https://docs.comfy.org/development/comfy-router/models/veed/clean-audio-video/code): `veed/clean-audio-video`
   * [Clean Audio](https://docs.comfy.org/development/comfy-router/models/veed/clean-audio/code): `veed/clean-audio`
@@ -293,7 +330,7 @@ Audio (41)
 
 
 
-3D (10)
+3D (12)
 
   * [Animations](https://docs.comfy.org/development/comfy-router/models/meshy/animations/code): `meshy/animations`
   * [Meshy 6](https://docs.comfy.org/development/comfy-router/models/meshy/meshy-6/code): `meshy/meshy-6`
@@ -301,6 +338,8 @@ Audio (41)
   * [Meshy 7](https://docs.comfy.org/development/comfy-router/models/meshy/meshy-7/code): `meshy/meshy-7`
   * [Remesh](https://docs.comfy.org/development/comfy-router/models/meshy/remesh/code): `meshy/remesh`
   * [Rigging](https://docs.comfy.org/development/comfy-router/models/meshy/rigging/code): `meshy/rigging`
+  * [Stable Fast 3D](https://docs.comfy.org/development/comfy-router/models/stability/stable-fast-3d/code): `stability/stable-fast-3d`
+  * [Stable Point Aware 3D](https://docs.comfy.org/development/comfy-router/models/stability/stable-point-aware-3d/code): `stability/stable-point-aware-3d`
   * [Hunyuan 3D Part](https://docs.comfy.org/development/comfy-router/models/tencent/hunyuan-3d-part/code): `tencent/hunyuan-3d-part`
   * [Hunyuan 3D Smart Topology](https://docs.comfy.org/development/comfy-router/models/tencent/hunyuan-3d-smart-topology/code): `tencent/hunyuan-3d-smart-topology`
   * [Hunyuan 3D Texture Edit](https://docs.comfy.org/development/comfy-router/models/tencent/hunyuan-3d-texture-edit/code): `tencent/hunyuan-3d-texture-edit`
@@ -308,7 +347,7 @@ Audio (41)
 
 
 
-Text (42)
+Text (45)
 
   * [Claude Fable 5.1](https://docs.comfy.org/development/comfy-router/models/anthropic/claude-fable-5-1/code): `anthropic/claude-fable-5-1`
   * [Claude Fable 5](https://docs.comfy.org/development/comfy-router/models/anthropic/claude-fable-5/code): `anthropic/claude-fable-5`
@@ -326,6 +365,7 @@ Text (42)
   * [Seed 2.0 Mini 260215](https://docs.comfy.org/development/comfy-router/models/byteplus/seed-2-0-mini-260215/code): `byteplus/seed-2-0-mini-260215`
   * [Seed 2.0 Pro 260328](https://docs.comfy.org/development/comfy-router/models/byteplus/seed-2-0-pro-260328/code): `byteplus/seed-2-0-pro-260328`
   * [Gemini Omni 1.1 Flash](https://docs.comfy.org/development/comfy-router/models/gemini-interactions/gemini-omni-1-1-flash/code): `gemini-interactions/gemini-omni-1.1-flash`
+  * [Gemini Omni 1.2 Flash](https://docs.comfy.org/development/comfy-router/models/gemini-interactions/gemini-omni-1-2-flash/code): `gemini-interactions/gemini-omni-1.2-flash`
   * [Gemini Omni Flash Preview](https://docs.comfy.org/development/comfy-router/models/gemini-interactions/gemini-omni-flash-preview/code): `gemini-interactions/gemini-omni-flash-preview`
   * [Gemini 2.5 Flash Image](https://docs.comfy.org/development/comfy-router/models/google/gemini-2-5-flash-image/code): `vertexai/gemini-2.5-flash-image`
   * [Gemini 3.1 Flash Lite](https://docs.comfy.org/development/comfy-router/models/google/gemini-3-1-flash-lite/code): `vertexai/gemini-3.1-flash-lite`
@@ -347,6 +387,8 @@ Text (42)
   * [GPT 5 Mini](https://docs.comfy.org/development/comfy-router/models/openai/gpt-5-mini/code): `openai/gpt-5-mini`
   * [GPT 5 Nano](https://docs.comfy.org/development/comfy-router/models/openai/gpt-5-nano/code): `openai/gpt-5-nano`
   * [GPT 5](https://docs.comfy.org/development/comfy-router/models/openai/gpt-5/code): `openai/gpt-5`
+  * [GPT 6.1 Sol](https://docs.comfy.org/development/comfy-router/models/openai/gpt-6-1-sol/code): `openai/gpt-6.1-sol`
+  * [GPT 6.1 Terra](https://docs.comfy.org/development/comfy-router/models/openai/gpt-6-1-terra/code): `openai/gpt-6.1-terra`
   * [GPT 6 Astra](https://docs.comfy.org/development/comfy-router/models/openai/gpt-6-astra/code): `openai/gpt-6-astra`
   * [GPT 6 Luna](https://docs.comfy.org/development/comfy-router/models/openai/gpt-6-luna/code): `openai/gpt-6-luna`
   * [GPT 6 Sol](https://docs.comfy.org/development/comfy-router/models/openai/gpt-6-sol/code): `openai/gpt-6-sol`
@@ -515,6 +557,7 @@ Gemini Interactions
 Model| ID| Input| Output  
 ---|---|---|---  
 [Gemini Omni 1.1 Flash](https://docs.comfy.org/development/comfy-router/models/gemini-interactions/gemini-omni-1-1-flash/code)| `gemini-interactions/gemini-omni-1.1-flash`| Text, Image, Audio, Video| Text + Image + Audio  
+[Gemini Omni 1.2 Flash](https://docs.comfy.org/development/comfy-router/models/gemini-interactions/gemini-omni-1-2-flash/code)| `gemini-interactions/gemini-omni-1.2-flash`| Text, Image, Audio, Video| Text + Video  
 [Gemini Omni Flash Preview](https://docs.comfy.org/development/comfy-router/models/gemini-interactions/gemini-omni-flash-preview/code)| `gemini-interactions/gemini-omni-flash-preview`| Text, Image, Audio, Video| Text + Image + Audio  
   
 ## 
@@ -579,6 +622,7 @@ Kling
 Model| ID| Input| Output  
 ---|---|---|---  
 [Kling 3.0 Turbo](https://docs.comfy.org/development/comfy-router/models/kling/kling-3-0-turbo/code)| `kling/kling-3.0-turbo`| Text| Video  
+[Kling 4.0](https://docs.comfy.org/development/comfy-router/models/kling/kling-4-0/code)| `kling/kling-4.0`| Text| Video  
 [Kling Image O1](https://docs.comfy.org/development/comfy-router/models/kling/kling-image-o1/code)| `kling/kling-image-o1`| Text, Image| Image  
 [Kling V2.5 Turbo](https://docs.comfy.org/development/comfy-router/models/kling/kling-v2-5-turbo/code)| `kling/kling-v2-5-turbo`| Text| Video  
 [Kling V2.6](https://docs.comfy.org/development/comfy-router/models/kling/kling-v2-6/code)| `kling/kling-v2-6`| Text| Video  
@@ -587,7 +631,6 @@ Model| ID| Input| Output
 [Kling Video O1](https://docs.comfy.org/development/comfy-router/models/kling/kling-video-o1/code)| `kling/kling-video-o1`| Text, Image, Video| Video  
 [Videos Avatar Image 2video](https://docs.comfy.org/development/comfy-router/models/kling/videos-avatar-image2video/code)| `kling/videos-avatar-image2video`| Image, Audio| Video  
 [Videos Lip Sync](https://docs.comfy.org/development/comfy-router/models/kling/videos-lip-sync/code)| `kling/videos-lip-sync`| Video, Audio| Video  
-[Videos Video Extend](https://docs.comfy.org/development/comfy-router/models/kling/videos-video-extend/code)| `kling/videos-video-extend`| Video, Text| Video  
   
 ## 
 
@@ -693,12 +736,16 @@ Model| ID| Input| Output
 [GPT 5 Mini](https://docs.comfy.org/development/comfy-router/models/openai/gpt-5-mini/code)| `openai/gpt-5-mini`| Text, Image| Text  
 [GPT 5 Nano](https://docs.comfy.org/development/comfy-router/models/openai/gpt-5-nano/code)| `openai/gpt-5-nano`| Text, Image| Text  
 [GPT 5](https://docs.comfy.org/development/comfy-router/models/openai/gpt-5/code)| `openai/gpt-5`| Text, Image| Text  
+[GPT 6.1 Sol](https://docs.comfy.org/development/comfy-router/models/openai/gpt-6-1-sol/code)| `openai/gpt-6.1-sol`| Text, Image| Text  
+[GPT 6.1 Terra](https://docs.comfy.org/development/comfy-router/models/openai/gpt-6-1-terra/code)| `openai/gpt-6.1-terra`| Text, Image| Text  
 [GPT 6 Astra](https://docs.comfy.org/development/comfy-router/models/openai/gpt-6-astra/code)| `openai/gpt-6-astra`| Text, Image| Text  
 [GPT 6 Luna](https://docs.comfy.org/development/comfy-router/models/openai/gpt-6-luna/code)| `openai/gpt-6-luna`| Text, Image| Text  
 [GPT 6 Sol](https://docs.comfy.org/development/comfy-router/models/openai/gpt-6-sol/code)| `openai/gpt-6-sol`| Text, Image| Text  
 [GPT Image 1.5](https://docs.comfy.org/development/comfy-router/models/openai/gpt-image-1-5/code)| `openai/gpt-image-1.5`| Text, Image| Image  
 [GPT Image 2.5 Flare](https://docs.comfy.org/development/comfy-router/models/openai/gpt-image-2-5-flare/code)| `openai/gpt-image-2.5-flare`| Text, Image| Image  
 [GPT Image 2.5 Sunburst](https://docs.comfy.org/development/comfy-router/models/openai/gpt-image-2-5-sunburst/code)| `openai/gpt-image-2.5-sunburst`| Text, Image| Image  
+[GPT Image 2.6 Flare](https://docs.comfy.org/development/comfy-router/models/openai/gpt-image-2-6-flare/code)| `openai/gpt-image-2.6-flare`| Text, Image| Image  
+[GPT Image 2.6 Sunburst](https://docs.comfy.org/development/comfy-router/models/openai/gpt-image-2-6-sunburst/code)| `openai/gpt-image-2.6-sunburst`| Text, Image| Image  
 [GPT Image 2](https://docs.comfy.org/development/comfy-router/models/openai/gpt-image-2/code)| `openai/gpt-image-2`| Text, Image| Image  
 [o3](https://docs.comfy.org/development/comfy-router/models/openai/o3/code)| `openai/o3`| Text, Image| Text  
   
@@ -722,6 +769,12 @@ Model| ID| Input| Output
 ---|---|---|---  
 [Pika 2.5 Image To Video](https://docs.comfy.org/development/comfy-router/models/pika/pika-2-5-image-to-video/code)| `pika/pika-2.5-image-to-video`| Text, Image| Video  
 [Pika 2.5 Text To Video](https://docs.comfy.org/development/comfy-router/models/pika/pika-2-5-text-to-video/code)| `pika/pika-2.5-text-to-video`| Text| Video  
+[Pika H3 Flex Image To Video](https://docs.comfy.org/development/comfy-router/models/pika/pika-h3-flex-image-to-video/code)| `pika/pika-h3-flex-image-to-video`| Text, Image| Video + Audio  
+[Pika H3 Flex Reference To Video](https://docs.comfy.org/development/comfy-router/models/pika/pika-h3-flex-reference-to-video/code)| `pika/pika-h3-flex-reference-to-video`| Text, Image, Video, Audio| Video + Audio  
+[Pika H3 Flex Text To Video](https://docs.comfy.org/development/comfy-router/models/pika/pika-h3-flex-text-to-video/code)| `pika/pika-h3-flex-text-to-video`| Text| Video + Audio  
+[Pika Music](https://docs.comfy.org/development/comfy-router/models/pika/pika-music/code)| `pika/pika-music`| Text, Audio| Audio  
+[Pika Sfx](https://docs.comfy.org/development/comfy-router/models/pika/pika-sfx/code)| `pika/pika-sfx`| Text| Audio  
+[Pika Soundtrack](https://docs.comfy.org/development/comfy-router/models/pika/pika-soundtrack/code)| `pika/pika-soundtrack`| Video, Text| Video + Audio  
   
 ## 
 
@@ -780,6 +833,40 @@ Model| ID| Input| Output
 [Aleph 2](https://docs.comfy.org/development/comfy-router/models/runway/aleph2/code)| `runway/aleph2`| Video, Text, Image| Video  
 [Gen 4 Image](https://docs.comfy.org/development/comfy-router/models/runway/gen4-image/code)| `runway/gen4_image`| Text, Image| Image  
 [Gen 4 Turbo](https://docs.comfy.org/development/comfy-router/models/runway/gen4-turbo/code)| `runway/gen4_turbo`| Image, Text| Video  
+  
+## 
+
+​
+
+Stability
+
+Model| ID| Input| Output  
+---|---|---|---  
+[Control Sketch](https://docs.comfy.org/development/comfy-router/models/stability/control-sketch/code)| `stability/control-sketch`| Text, Image| Image  
+[Control Structure](https://docs.comfy.org/development/comfy-router/models/stability/control-structure/code)| `stability/control-structure`| Text, Image| Image  
+[Control Style Transfer](https://docs.comfy.org/development/comfy-router/models/stability/control-style-transfer/code)| `stability/control-style-transfer`| Text, Image| Image  
+[Control Style](https://docs.comfy.org/development/comfy-router/models/stability/control-style/code)| `stability/control-style`| Text, Image| Image  
+[Edit Erase](https://docs.comfy.org/development/comfy-router/models/stability/edit-erase/code)| `stability/edit-erase`| Image| Image  
+[Edit Inpaint](https://docs.comfy.org/development/comfy-router/models/stability/edit-inpaint/code)| `stability/edit-inpaint`| Text, Image| Image  
+[Edit Outpaint](https://docs.comfy.org/development/comfy-router/models/stability/edit-outpaint/code)| `stability/edit-outpaint`| Text, Image| Image  
+[Edit Remove Background](https://docs.comfy.org/development/comfy-router/models/stability/edit-remove-background/code)| `stability/edit-remove-background`| Image| Image  
+[Edit Replace Background And Relight](https://docs.comfy.org/development/comfy-router/models/stability/edit-replace-background-and-relight/code)| `stability/edit-replace-background-and-relight`| Text, Image| Image  
+[Edit Search And Recolor](https://docs.comfy.org/development/comfy-router/models/stability/edit-search-and-recolor/code)| `stability/edit-search-and-recolor`| Text, Image| Image  
+[Edit Search And Replace](https://docs.comfy.org/development/comfy-router/models/stability/edit-search-and-replace/code)| `stability/edit-search-and-replace`| Text, Image| Image  
+[Generate Core](https://docs.comfy.org/development/comfy-router/models/stability/generate-core/code)| `stability/generate-core`| Text| Image  
+[Generate Ultra](https://docs.comfy.org/development/comfy-router/models/stability/generate-ultra/code)| `stability/generate-ultra`| Text, Image| Image  
+[Sd3.5 Flash](https://docs.comfy.org/development/comfy-router/models/stability/sd3-5-flash/code)| `stability/sd3.5-flash`| Text, Image| Image  
+[Sd3.5 Large Turbo](https://docs.comfy.org/development/comfy-router/models/stability/sd3-5-large-turbo/code)| `stability/sd3.5-large-turbo`| Text, Image| Image  
+[Sd3.5 Large](https://docs.comfy.org/development/comfy-router/models/stability/sd3-5-large/code)| `stability/sd3.5-large`| Text, Image| Image  
+[Sd3.5 Medium](https://docs.comfy.org/development/comfy-router/models/stability/sd3-5-medium/code)| `stability/sd3.5-medium`| Text, Image| Image  
+[Sdxl 1.0 Image To Image](https://docs.comfy.org/development/comfy-router/models/stability/sdxl-1-0-image-to-image/code)| `stability/sdxl-1.0-image-to-image`| Text, Image| Image  
+[Sdxl 1.0 Masking](https://docs.comfy.org/development/comfy-router/models/stability/sdxl-1-0-masking/code)| `stability/sdxl-1.0-masking`| Text, Image| Image  
+[Sdxl 1.0 Text To Image](https://docs.comfy.org/development/comfy-router/models/stability/sdxl-1-0-text-to-image/code)| `stability/sdxl-1.0-text-to-image`| Text| Image  
+[Stable Fast 3D](https://docs.comfy.org/development/comfy-router/models/stability/stable-fast-3d/code)| `stability/stable-fast-3d`| Image| 3D  
+[Stable Point Aware 3D](https://docs.comfy.org/development/comfy-router/models/stability/stable-point-aware-3d/code)| `stability/stable-point-aware-3d`| Image| 3D  
+[Upscale Conservative](https://docs.comfy.org/development/comfy-router/models/stability/upscale-conservative/code)| `stability/upscale-conservative`| Text, Image| Image  
+[Upscale Creative](https://docs.comfy.org/development/comfy-router/models/stability/upscale-creative/code)| `stability/upscale-creative`| Text, Image| Image  
+[Upscale Fast](https://docs.comfy.org/development/comfy-router/models/stability/upscale-fast/code)| `stability/upscale-fast`| Image| Image  
   
 ## 
 

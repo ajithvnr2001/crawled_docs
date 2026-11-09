@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/es/api-reference/router/comfy-router/collect-the-result-of-one-submitted-request/
 title: Collect the result of one submitted request. - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-11-01T14:08:59.055882+00:00
+fetched_at: 2026-11-09T17:17:41.728467+00:00
 ---
 
 # Collect the result of one submitted request. - ComfyUI
@@ -126,6 +126,8 @@ cURL
 
 410
 
+429
+
 503
 
 504
@@ -144,6 +146,21 @@ default
       "status": "IN_QUEUE",
       "queue_position": 3,
       "error_type": "invalid_input"
+    }
+    
+    
+    {
+      "detail": "<string>",
+      "error_type": "invalid_input",
+      "upstream_detail": "<string>",
+      "refusal_subject": "<string>",
+      "denied_reason": "<string>",
+      "billed_workspace": {
+        "type": "<string>",
+        "id": "<string>",
+        "rail": "<string>"
+      },
+      "credential_kind": "<string>"
     }
     
     
@@ -421,6 +438,8 @@ cURL
 
 410
 
+429
+
 503
 
 504
@@ -439,6 +458,21 @@ default
       "status": "IN_QUEUE",
       "queue_position": 3,
       "error_type": "invalid_input"
+    }
+    
+    
+    {
+      "detail": "<string>",
+      "error_type": "invalid_input",
+      "upstream_detail": "<string>",
+      "refusal_subject": "<string>",
+      "denied_reason": "<string>",
+      "billed_workspace": {
+        "type": "<string>",
+        "id": "<string>",
+        "rail": "<string>"
+      },
+      "credential_kind": "<string>"
     }
     
     

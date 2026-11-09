@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/development/comfy-router/models/kling/kling-v3/code/
 title: Use Kling V3 with Comfy Router - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T13:26:52.577746+00:00
+fetched_at: 2026-11-09T17:17:45.252404+00:00
 ---
 
 # Use Kling V3 with Comfy Router - ComfyUI
@@ -193,6 +193,9 @@ This model is served by Comfy Router directly unless the request names another p
   * **Comfy** (default): `POST https://api.comfy.org/v2/models/kling/kling-v3`
   * **Higgsfield** , as `higgsfield/higgsfield-kling-3-std`: `POST https://api.comfy.org/v2/models/kling/kling-v3?model_provider=higgsfield`
   * **Tencent** : `POST https://api.comfy.org/v2/models/kling/kling-v3?model_provider=tencent`
+    * Limits: 720P, silent; 3–15 seconds (default 5); aspect ratio 16:9, 9:16 or 1:1
+    * Rejected with `invalid_input`: `image`, `image_tail`, `sound: "on"`, `mode` other than `std` (e.g. `"pro"`), `multi_shot`, `multi_prompt`, `shot_type`
+    * Fallback: if Tencent fails, the request retries once on Kling (the default provider). Send `fallback_provider=false` to opt out. Rejected inputs and BYOK requests don’t fall back.
 
 `strict_mode` defaults to false, so Router translates the native request body documented on this page into the provider’s own schema and translates the response back. See [`model_provider`, `strict_mode` and `fallback_provider`](https://docs.comfy.org/development/comfy-router/reference#post-v2modelsprovidermodel) in the API reference, and [Serving providers](https://docs.comfy.org/development/comfy-router/providers) for every model routed this way.
 

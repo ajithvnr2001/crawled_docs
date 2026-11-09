@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/api-reference/router/comfy-router/submit-a-partner-model-run-to-the-queue-and-return-immediately/
 title: Submit a partner model run to the queue and return immediately. - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-11-01T14:09:00.238432+00:00
+fetched_at: 2026-11-09T17:17:43.127518+00:00
 ---
 
 # Submit a partner model run to the queue and return immediately. - ComfyUI
@@ -155,6 +155,8 @@ cURL
 429
 
 503
+
+504
     
     
     {
@@ -299,6 +301,21 @@ cURL
           "input": "<unknown>"
         }
       ]
+    }
+    
+    
+    {
+      "detail": "<string>",
+      "error_type": "invalid_input",
+      "upstream_detail": "<string>",
+      "refusal_subject": "<string>",
+      "denied_reason": "<string>",
+      "billed_workspace": {
+        "type": "<string>",
+        "id": "<string>",
+        "rail": "<string>"
+      },
+      "credential_kind": "<string>"
     }
     
     
@@ -511,6 +528,8 @@ cURL
 429
 
 503
+
+504
     
     
     {
@@ -655,6 +674,21 @@ cURL
           "input": "<unknown>"
         }
       ]
+    }
+    
+    
+    {
+      "detail": "<string>",
+      "error_type": "invalid_input",
+      "upstream_detail": "<string>",
+      "refusal_subject": "<string>",
+      "denied_reason": "<string>",
+      "billed_workspace": {
+        "type": "<string>",
+        "id": "<string>",
+        "rail": "<string>"
+      },
+      "credential_kind": "<string>"
     }
     
     

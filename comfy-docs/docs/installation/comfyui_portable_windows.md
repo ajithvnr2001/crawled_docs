@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/installation/comfyui_portable_windows/
 title: ComfyUI Portable for Windows - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-17T10:50:56.809981+00:00
+fetched_at: 2026-11-09T17:17:41.624402+00:00
 ---
 
 # ComfyUI Portable for Windows - ComfyUI
@@ -10,6 +10,8 @@ fetched_at: 2026-10-17T10:50:56.809981+00:00
 > Source: https://docs.comfy.org/installation/comfyui_portable_windows/
 
 ## On this page
+
+Back to top
 
   * Download ComfyUI Portable
   * Adding Extra Model Paths
@@ -78,8 +80,8 @@ Download the file and extract it with [7-ZIP](https://7-zip.org/). The extracted
     ├── 📂ComfyUI                   // ComfyUI main program
     ├── 📂python_embeded            // Independent Python environment
     ├── 📂update                    // Batch scripts for upgrading portable version
+    ├── 📂advanced                  // Extra launchers: run_cpu.bat (CPU only), run_nvidia_gpu_fast_fp16_accumulation.bat, run_nvidia_gpu_disable_api_nodes.bat
     ├── README_VERY_IMPORTANT.txt   // ComfyUI Portable usage instructions in English
-    ├── run_cpu.bat                 // Double click to start ComfyUI (CPU only)
     └── run_nvidia_gpu.bat          // Double click to start ComfyUI (Nvidia GPU)
     
 
@@ -103,7 +105,7 @@ Download the file and extract it with [7-ZIP](https://7-zip.org/). The extracted
     ├── 📂python_embeded            // Independent Python environment
     ├── 📂update                    // Batch scripts for upgrading portable version
     ├── README_VERY_IMPORTANT.txt   // ComfyUI Portable usage instructions in English
-    ├── run_cpu.bat                 // Double click to start ComfyUI (CPU only)
+    ├── run_amd_gpu_enable_dynamic_vram.bat // Launch with dynamic VRAM enabled
     └── run_amd_gpu.bat             // Double click to start ComfyUI (AMD GPU)
     
 
@@ -126,8 +128,6 @@ Download the file and extract it with [7-ZIP](https://7-zip.org/). The extracted
     ├── 📂ComfyUI                   // ComfyUI main program
     ├── 📂python_embeded            // Independent Python environment
     ├── 📂update                    // Batch scripts for upgrading portable version
-    ├── README_VERY_IMPORTANT.txt   // ComfyUI Portable usage instructions in English
-    ├── run_cpu.bat                 // Double click to start ComfyUI (CPU only)
     └── run_intel_gpu.bat           // Double click to start ComfyUI (Intel GPU)
     
 
@@ -375,7 +375,7 @@ You can use the batch commands in the update folder to upgrade your ComfyUI Port
 
 2\. Setting Up LAN Access for ComfyUI Portable
 
-If your ComfyUI is running on a local network and you want other devices to access ComfyUI, you can modify the corresponding `.bat` file (e.g. `run_nvidia_gpu.bat`, `run_amd_gpu.bat`, or `run_cpu.bat`) using Notepad to complete the configuration. This is mainly done by adding `--listen` to specify the listening address. Below is an example of the `run_nvidia_gpu.bat` file command with the `--listen` parameter added
+If your ComfyUI is running on a local network and you want other devices to access ComfyUI, you can modify the corresponding `.bat` file (e.g. `run_nvidia_gpu.bat`, `run_amd_gpu.bat`, or `run_cpu.bat`, which sits in `advanced\` on new NVIDIA packages and in the package root on older ones) using Notepad to complete the configuration. This is mainly done by adding `--listen` to specify the listening address. Below is an example of the `run_nvidia_gpu.bat` file command with the `--listen` parameter added
     
     
     .\python_embeded\python.exe -s ComfyUI\main.py --listen --windows-standalone-build
@@ -423,26 +423,4 @@ YesNo
 
 [Suggest edits](https://github.com/comfy-org/docs/edit/main/installation/comfyui_portable_windows.mdx)[Raise issue](https://github.com/comfy-org/docs/issues/new?title=Issue%20on%20docs&body=Path:%20/installation/comfyui_portable_windows)
 
-[Comfy Desktop FAQPrevious](https://docs.comfy.org/installation/desktop/faq)[Install ComfyUI Manually (Windows, macOS, Linux)Next](https://docs.comfy.org/installation/manual_install)
-
-⌘I
-
-[ComfyUI home page![light logo](https://mintcdn.com/dripart/WCFdTagRdhtvk9-o/logo/light.svg?fit=max&auto=format&n=WCFdTagRdhtvk9-o&q=85&s=ec112de87239058f5a931a7e4b594965)![dark logo](https://mintcdn.com/dripart/QzWbjSCBG7w61rR3/logo/dark.svg?fit=max&auto=format&n=QzWbjSCBG7w61rR3&q=85&s=62b4d879fb3aadbd7a468d1539032d6f)](https://docs.comfy.org/)
-
-[github](https://github.com/Comfy-Org/ComfyUI)[x](https://x.com/ComfyUI)[discord](https://discord.com/invite/comfyorg)[youtube](https://www.youtube.com/@comfyorg)
-
-Resources
-
-[installation](https://docs.comfy.org/installation/system_requirements)[Tutorials](https://docs.comfy.org/tutorials/basic/text-to-image)[Development](https://docs.comfy.org/development/overview)
-
-Products
-
-[Features](https://www.comfy.org/?utm_source=docs)[Gallery](https://www.comfy.org/gallery?utm_source=docs)[Download](https://www.comfy.org/download?utm_source=docs)
-
-Company
-
-[About](https://www.comfy.org/about?utm_source=docs)[Careers](https://www.comfy.org/careers?utm_source=docs)[Terms of Service](https://www.comfy.org/terms-of-service?utm_source=docs)[Privacy Policy](https://www.comfy.org/privacy-policy?utm_source=docs)
-
-[github](https://github.com/Comfy-Org/ComfyUI)[x](https://x.com/ComfyUI)[discord](https://discord.com/invite/comfyorg)[youtube](https://www.youtube.com/@comfyorg)
-
-[Powered byThis documentation is built and hosted on Mintlify, a developer documentation platform](https://www.mintlify.com?utm_campaign=poweredBy&utm_medium=referral&utm_source=dripart)
+[FAQ](https://docs.comfy.org/installation/desktop/faq)[Manual (Local)](https://docs.comfy.org/installation/manual_install)

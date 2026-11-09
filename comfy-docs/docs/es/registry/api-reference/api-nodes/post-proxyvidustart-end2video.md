@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/es/registry/api-reference/api-nodes/post-proxyvidustart-end2video/
 title: Post proxyvidustart end2video - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T14:09:52.783090+00:00
+fetched_at: 2026-11-09T17:17:37.261004+00:00
 ---
 
 # Post proxyvidustart end2video - ComfyUI

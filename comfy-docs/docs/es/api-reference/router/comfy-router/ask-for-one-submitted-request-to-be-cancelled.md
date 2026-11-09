@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/es/api-reference/router/comfy-router/ask-for-one-submitted-request-to-be-cancelled/
 title: Ask for one submitted request to be cancelled. - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-11-01T14:08:58.616694+00:00
+fetched_at: 2026-11-09T17:17:42.113673+00:00
 ---
 
 # Ask for one submitted request to be cancelled. - ComfyUI
@@ -124,6 +124,8 @@ cURL
 
 409
 
+429
+
 503
 
 default
@@ -198,6 +200,21 @@ default
     {
       "request_id": "6f1a1a6e-6a53-4a5f-9d3a-2b3b0a1f9c21",
       "status": "CANCELLATION_REQUESTED"
+    }
+    
+    
+    {
+      "detail": "<string>",
+      "error_type": "invalid_input",
+      "upstream_detail": "<string>",
+      "refusal_subject": "<string>",
+      "denied_reason": "<string>",
+      "billed_workspace": {
+        "type": "<string>",
+        "id": "<string>",
+        "rail": "<string>"
+      },
+      "credential_kind": "<string>"
     }
     
     
@@ -387,6 +404,8 @@ cURL
 
 409
 
+429
+
 503
 
 default
@@ -461,6 +480,21 @@ default
     {
       "request_id": "6f1a1a6e-6a53-4a5f-9d3a-2b3b0a1f9c21",
       "status": "CANCELLATION_REQUESTED"
+    }
+    
+    
+    {
+      "detail": "<string>",
+      "error_type": "invalid_input",
+      "upstream_detail": "<string>",
+      "refusal_subject": "<string>",
+      "denied_reason": "<string>",
+      "billed_workspace": {
+        "type": "<string>",
+        "id": "<string>",
+        "rail": "<string>"
+      },
+      "credential_kind": "<string>"
     }
     
     

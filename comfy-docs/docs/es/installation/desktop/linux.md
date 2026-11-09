@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/es/installation/desktop/linux/
 title: Comfy Desktop en Linux - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-25T12:24:48.290293+00:00
+fetched_at: 2026-11-09T17:17:32.853294+00:00
 ---
 
 # Comfy Desktop en Linux - ComfyUI
@@ -11,6 +11,8 @@ fetched_at: 2026-10-25T12:24:48.290293+00:00
 
 ## En esta página
 
+Volver arriba
+
   * Requisitos del sistema
   * Instalar el paquete oficial
   * Compilar y ejecutar desde el código fuente
@@ -18,6 +20,9 @@ fetched_at: 2026-10-25T12:24:48.290293+00:00
     * Clonar e instalar
     * Inicia la aplicación
   * Actualizar
+    * Instalaciones .deb
+    * AppImage
+    * Código fuente
   * Opcional: paquete local
   * Eliminar datos residuales
 
@@ -29,7 +34,7 @@ Instalación
 
 Copiar páginaCopiar página
 
-Instala Comfy Desktop en Linux usando los paquetes oficiales .deb o AppImage. Las compilaciones desde el código fuente requieren Ubuntu 22.04 o superior, x64 y Node.js v22 LTS.
+Instala Comfy Desktop en Linux con los paquetes .deb o AppImage. Compilar desde el código fuente requiere Ubuntu 22.04+, x64 y Node.js v22 LTS.
 
 Copiar páginaCopiar página
 
@@ -63,6 +68,18 @@ Descarga el paquete para Linux con el [enlace de descarga universal](https://dl.
     sudo apt install ./*.deb
     
 
+El paquete `.deb` instala Comfy Desktop en `/opt/Comfy Desktop` y, durante la instalación, añade una fuente APT del repositorio de paquetes de Comfy Desktop, así que las versiones posteriores llegan a través del gestor de paquetes del sistema. Consulta Actualizar. Cuando AppArmor está habilitado y su analizador acepta el perfil incluido (Ubuntu 24.04 y posteriores, donde se restringen los espacios de nombres de usuario sin privilegios), el paquete también instala un perfil de AppArmor para la aplicación en `/etc/apparmor.d/comfyui-desktop-2`. Por eso el sandbox de Electron funciona en esos sistemas sin opciones adicionales. Las distribuciones anteriores omiten el perfil porque su AppArmor no puede cargarlo y allí el sandbox funciona sin él. Donde los espacios de nombres de usuario sin privilegios no funcionan en absoluto, el paquete marca su binario auxiliar `chrome-sandbox` como setuid en su lugar. Para comprobar si el perfil se instaló:
+    
+    
+    ls /etc/apparmor.d/comfyui-desktop-2
+    
+
+Los scripts de instalación del paquete escriben el perfil cada vez que el paquete se instala o se actualiza. Si instalaste el `.deb` en Ubuntu 22.04 y luego actualizaste el sistema a 24.04, vuelve a ejecutar los scripts de instalación:
+    
+    
+    sudo apt reinstall comfyui-desktop-2
+    
+
 Para el AppImage:
     
     
@@ -70,7 +87,13 @@ Para el AppImage:
     ./*.AppImage
     
 
-Si la aplicación no logra iniciarse, es posible que tu distribución esté bloqueando el sandbox de Electron (Ubuntu 24.04+ restringe los espacios de nombres de usuario sin privilegios mediante AppArmor). En ese caso, reintenta con `--no-sandbox`. Ten en cuenta que esta marca desactiva el sandbox de Electron para todos los procesos, así que úsala solo cuando fallen los inicios con sandbox.
+El AppImage no ejecuta scripts de instalación del paquete, así que no añade ni el perfil de AppArmor ni la fuente APT. Al iniciarlo desde el menú de aplicaciones ya lleva `--no-sandbox`. Si ejecutas el archivo directamente y no arranca, es posible que tu distribución esté bloqueando el sandbox de Electron, así que añade la opción:
+    
+    
+    ./*.AppImage --no-sandbox
+    
+
+Esa opción desactiva el sandbox de Electron para todos los procesos, así que úsala solo cuando falle el inicio con sandbox.
 
 ## 
 
@@ -137,6 +160,37 @@ Una vez que la aplicación esté en ejecución, aprende a crear instancias, admi
 
 Actualizar
 
+Cómo se actualiza Comfy Desktop depende de cómo lo instalaste.
+
+### 
+
+​
+
+Instalaciones .deb
+
+Instalar el `.deb` también añade una fuente APT (`/etc/apt/sources.list.d/comfyui-desktop-2.sources`) y una entrada de unattended-upgrades para ella, así que las nuevas versiones llegan con las actualizaciones normales del sistema:
+    
+    
+    sudo apt update
+    sudo apt upgrade
+    
+
+No necesitas volver a descargar el `.deb` en cada versión. `sudo apt remove comfyui-desktop-2` deja la fuente APT en disco; `sudo apt purge comfyui-desktop-2` la elimina junto con la entrada de unattended-upgrades.
+
+### 
+
+​
+
+AppImage
+
+El AppImage se actualiza solo: Comfy Desktop descarga la nueva compilación y reemplaza el archivo `.AppImage` que ejecutaste, así que guárdalo en una carpeta donde tu cuenta pueda escribir. Si el archivo está en una ubicación de solo lectura, la actualización no puede reemplazarlo.
+
+### 
+
+​
+
+Código fuente
+
 No hay actualización automática dentro de la aplicación para una instalación desde el código fuente. Obtén el código más reciente y vuelve a iniciar la aplicación:
     
     
@@ -165,7 +219,12 @@ Los artefactos se generan en `dist/`. Si un AppImage falla porque Chromium no pu
 
 Eliminar datos residuales
 
-Detener el checkout de la fuente no elimina las instalaciones de ComfyUI ni los datos de la aplicación. Elimina estas carpetas solo si deseas una limpieza completa:
+Quitar la aplicación y borrar tus datos son dos pasos distintos. Desinstala primero la aplicación:
+
+  * **`.deb`** : `sudo apt remove comfyui-desktop-2`. La desinstalación también elimina el perfil de AppArmor en `/etc/apparmor.d/comfyui-desktop-2`. Usa `sudo apt purge comfyui-desktop-2` para quitar también la fuente APT y la entrada de unattended-upgrades.
+  * **AppImage** : elimina el archivo `.AppImage`.
+
+Ninguno de los dos toca tus instalaciones de ComfyUI ni los datos de la aplicación. Elimina estas carpetas solo si deseas una limpieza completa:
 
 Datos| Ubicación predeterminada| Descripción  
 ---|---|---  

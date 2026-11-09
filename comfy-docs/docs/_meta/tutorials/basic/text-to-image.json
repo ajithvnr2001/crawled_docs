@@ -3,8 +3,5 @@
   "file": "tutorials/basic/text-to-image.md",
   "title": "ComfyUI Text to Image Workflow - ComfyUI",
   "method": "scrapling+scrapegraph",
-  "fetched_at": "2026-10-17T10:51:18.295101+00:00",
-  "html_len": 641081,
-  "md_len": 16561,
-  "depth": 0
+  "fetched_at": "2026-11-09T17:17:45.989174+00:00"
 }

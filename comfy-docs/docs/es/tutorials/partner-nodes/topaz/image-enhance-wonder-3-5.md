@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/es/tutorials/partner-nodes/topaz/image-enhance-wonder-3-5/
 title: Topaz Image Enhance Wonder 3.5 - Mejora de im\u00e1genes con IA - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-26T14:03:55.745343+00:00
+fetched_at: 2026-11-09T17:17:41.511385+00:00
 ---
 
 # Topaz Image Enhance Wonder 3.5 - Mejora de imágenes con IA - ComfyUI
@@ -46,7 +46,7 @@ En qué destaca Topaz Image Enhance Wonder 3.5
   * **Intensidad ajustable** : Elige una intensidad de mejora baja, media o alta
   * **Salida flexible** : Conserva la relación de aspecto de la entrada y admite factores de upscale de 1x a 6x
 
-
+Wonder 4 tiene su propio flujo de trabajo y ajustes; consulta [Topaz Image Enhance Wonder 4](https://docs.comfy.org/es/tutorials/partner-nodes/topaz/image-enhance-wonder-4).
 
 ## 
 
@@ -123,7 +123,7 @@ Pasos para ejecutar
   1. **Carga una imagen** : sube o selecciona tu imagen de entrada en el nodo **LoadImage**
   2. **Selecciona el modelo** : mantén `Wonder 3.5` en el nodo **TopazImageEnhanceV2**
   3. **Elige la intensidad de mejora** : `low`, `medium` o `high`
-  4. **Configura el factor de escala** : de 1x a 6x
+  4. **Configura el tamaño de salida** : en el campo avanzado `output_width` u `output_height`, introduce un tamaño en píxeles de entre 1x y 6x el de la entrada (deja ambos en 0 para el tamaño original)
   5. **Haz clic en Queue** : pulsa `Ctrl+Enter` para generar
 
 
@@ -145,4 +145,4 @@ SíNo
 
 [Sugerir cambios](https://github.com/comfy-org/docs/edit/main/es/tutorials/partner-nodes/topaz/image-enhance-wonder-3-5.mdx)[Reportar problema](https://github.com/comfy-org/docs/issues/new?title=Issue%20on%20docs&body=Path:%20/es/tutorials/partner-nodes/topaz/image-enhance-wonder-3-5)
 
-[Topaz Labs](https://docs.comfy.org/es/tutorials/partner-nodes/topaz/overview)[Image Enhance Bloom 2](https://docs.comfy.org/es/tutorials/partner-nodes/topaz/image-enhance-bloom-2)
+[Topaz Labs](https://docs.comfy.org/es/tutorials/partner-nodes/topaz/overview)[Image Enhance Wonder 4](https://docs.comfy.org/es/tutorials/partner-nodes/topaz/image-enhance-wonder-4)

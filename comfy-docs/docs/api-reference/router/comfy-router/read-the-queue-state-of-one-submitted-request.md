@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/api-reference/router/comfy-router/read-the-queue-state-of-one-submitted-request/
 title: Read the queue state of one submitted request. - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-11-01T14:08:59.635840+00:00
+fetched_at: 2026-11-09T17:17:42.512342+00:00
 ---
 
 # Read the queue state of one submitted request. - ComfyUI
@@ -122,6 +122,8 @@ cURL
 
 410
 
+429
+
 503
 
 default
@@ -135,6 +137,21 @@ default
       "status": "IN_QUEUE",
       "queue_position": 3,
       "error_type": "invalid_input"
+    }
+    
+    
+    {
+      "detail": "<string>",
+      "error_type": "invalid_input",
+      "upstream_detail": "<string>",
+      "refusal_subject": "<string>",
+      "denied_reason": "<string>",
+      "billed_workspace": {
+        "type": "<string>",
+        "id": "<string>",
+        "rail": "<string>"
+      },
+      "credential_kind": "<string>"
     }
     
     
@@ -382,6 +399,8 @@ cURL
 
 410
 
+429
+
 503
 
 default
@@ -395,6 +414,21 @@ default
       "status": "IN_QUEUE",
       "queue_position": 3,
       "error_type": "invalid_input"
+    }
+    
+    
+    {
+      "detail": "<string>",
+      "error_type": "invalid_input",
+      "upstream_detail": "<string>",
+      "refusal_subject": "<string>",
+      "denied_reason": "<string>",
+      "billed_workspace": {
+        "type": "<string>",
+        "id": "<string>",
+        "rail": "<string>"
+      },
+      "credential_kind": "<string>"
     }
     
     
