@@ -2,7 +2,7 @@
 url: https://ai.google.dev/gemma/docs/embeddinggemma/fine-tuning-embeddinggemma-with-sentence-transformers/
 title: Fine-tune EmbeddingGemma 2 with Sentence Transformers
 method: scrapling+scrapegraph
-fetched_at: 2026-11-06T11:46:53.626440+00:00
+fetched_at: 2026-11-09T12:29:42.523075+00:00
 ---
 
 # Fine-tune EmbeddingGemma 2 with Sentence Transformers
@@ -28,9 +28,9 @@ Imagine your company, "Shibuya Financial", offers various complex financial prod
 Install `sentence-transformers`, `transformers`, and the multimedia libraries (`pillow`, `soundfile`, `torchcodec`) required for processing images, audio, and video. Sentence Transformers is a Python framework for using and training embedding and reranker models. For more details on the framework, see the [Sentence Transformers documentation](https://www.sbert.net/).
     
     
-    pip install -U sentence-transformers transformers
+    pip install -U sentence-transformers transformers pillow soundfile torchcodec
 
-## (Optional) Hugging Face Authenticatoin
+## (Optional) Hugging Face Authentication
 
 You need a valid Hugging Face Token to publish your model. If you are running inside a Google Colab, you can securely use your Hugging Face Token using the Colab secrets otherwise you can set the token as directly in the login method. Make sure your token has write access too, as you push your model to the Hub during training.
     
@@ -168,7 +168,7 @@ We fine-tune the model using `SentenceTransformerTrainer` and **`MultipleNegativ
         SentenceTransformerTrainer,
         SentenceTransformerTrainingArguments,
     )
-    from sentence_transformers.losses import MultipleNegativesRankingLoss
+    from sentence_transformers.sentence_transformer.losses import MultipleNegativesRankingLoss
     from transformers import TrainerCallback
     
     # Initialize contrastive ranking loss
@@ -181,7 +181,6 @@ We fine-tune the model using `SentenceTransformerTrainer` and **`MultipleNegativ
         num_train_epochs=5,
         per_device_train_batch_size=1,
         learning_rate=2e-5,
-        warmup_steps=0.1,                  # 10% warmup ratio
         logging_steps=train_dataset.num_rows,
         report_to="none",
     )
@@ -208,42 +207,40 @@ We fine-tune the model using `SentenceTransformerTrainer` and **`MultipleNegativ
     
     
     
-    /tmp/ipykernel_2017/3116461683.py:5: DeprecationWarning: Importing from 'sentence_transformers.losses' is deprecated and will be removed in a future version. Please use 'sentence_transformers.sentence_transformer.losses' instead.
-      from sentence_transformers.losses import MultipleNegativesRankingLoss
     Computing widget examples:   0%|          | 0/1 [00:00<?, ?example/s]
     
     
     
     --- Step 3 Evaluation ---
-    Document: Opening a NISA Account              -> 🤖 Score: 0.8502
-    Document: Opening a Regular Savings Account   -> 🤖 Score: 0.8348
-    Document: Home Loan Application Guide         -> 🤖 Score: 0.7903
+    Document: Opening a NISA Account              -> 🤖 Score: 0.8542
+    Document: Opening a Regular Savings Account   -> 🤖 Score: 0.8270
+    Document: Home Loan Application Guide         -> 🤖 Score: 0.7811
     
     --- Step 6 Evaluation ---
-    Document: Opening a NISA Account              -> 🤖 Score: 0.8316
-    Document: Opening a Regular Savings Account   -> 🤖 Score: 0.8050
-    Document: Home Loan Application Guide         -> 🤖 Score: 0.7470
+    Document: Opening a NISA Account              -> 🤖 Score: 0.8382
+    Document: Opening a Regular Savings Account   -> 🤖 Score: 0.8064
+    Document: Home Loan Application Guide         -> 🤖 Score: 0.7507
     
     --- Step 9 Evaluation ---
-    Document: Opening a NISA Account              -> 🤖 Score: 0.8194
-    Document: Opening a Regular Savings Account   -> 🤖 Score: 0.7886
-    Document: Home Loan Application Guide         -> 🤖 Score: 0.7239
+    Document: Opening a NISA Account              -> 🤖 Score: 0.8292
+    Document: Opening a Regular Savings Account   -> 🤖 Score: 0.7952
+    Document: Home Loan Application Guide         -> 🤖 Score: 0.7337
     
     --- Step 12 Evaluation ---
-    Document: Opening a NISA Account              -> 🤖 Score: 0.8153
-    Document: Opening a Regular Savings Account   -> 🤖 Score: 0.7821
-    Document: Home Loan Application Guide         -> 🤖 Score: 0.7148
+    Document: Opening a NISA Account              -> 🤖 Score: 0.8253
+    Document: Opening a Regular Savings Account   -> 🤖 Score: 0.7904
+    Document: Home Loan Application Guide         -> 🤖 Score: 0.7269
     
     --- Step 15 Evaluation ---
-    Document: Opening a NISA Account              -> 🤖 Score: 0.8139
-    Document: Opening a Regular Savings Account   -> 🤖 Score: 0.7808
-    Document: Home Loan Application Guide         -> 🤖 Score: 0.7128
+    Document: Opening a NISA Account              -> 🤖 Score: 0.8254
+    Document: Opening a Regular Savings Account   -> 🤖 Score: 0.7902
+    Document: Home Loan Application Guide         -> 🤖 Score: 0.7273
     Writing model shards:   0%|          | 0/1 [00:00<?, ?it/s]
     --- Step 15 Evaluation ---
-    Document: Opening a NISA Account              -> 🤖 Score: 0.8139
-    Document: Opening a Regular Savings Account   -> 🤖 Score: 0.7808
-    Document: Home Loan Application Guide         -> 🤖 Score: 0.7128
-    TrainOutput(global_step=15, training_loss=0.038343556722005206, metrics={'train_runtime': 32.0074, 'train_samples_per_second': 0.469, 'train_steps_per_second': 0.469, 'total_flos': 0.0, 'train_loss': 0.038343556722005206, 'epoch': 5.0})
+    Document: Opening a NISA Account              -> 🤖 Score: 0.8254
+    Document: Opening a Regular Savings Account   -> 🤖 Score: 0.7902
+    Document: Home Loan Application Guide         -> 🤖 Score: 0.7273
+    TrainOutput(global_step=15, training_loss=0.033247121175130206, metrics={'train_runtime': 61.8294, 'train_samples_per_second': 0.243, 'train_steps_per_second': 0.243, 'total_flos': 0.0, 'train_loss': 0.033247121175130206, 'epoch': 5.0})
     
 
 ## Evaluation After Fine-Tuning
@@ -257,18 +254,18 @@ Let's run our test query once more on the fine-tuned model and compare the resul
     
     
     Post-Training Scores (After Fine-Tuning):
-    Document: Opening a NISA Account              -> 🤖 Score: 0.8139
-    Document: Opening a Regular Savings Account   -> 🤖 Score: 0.7808
-    Document: Home Loan Application Guide         -> 🤖 Score: 0.7128
+    Document: Opening a NISA Account              -> 🤖 Score: 0.8254
+    Document: Opening a Regular Savings Account   -> 🤖 Score: 0.7902
+    Document: Home Loan Application Guide         -> 🤖 Score: 0.7273
     
 
 ### Results Comparison
 
 | Candidate Document | Relevance | Score (Before) | Score (After) | Separation Margin vs. Top Hit  
 ---|---|---|---|---  
-**Opening a NISA Account** | **Target Match** | `0.8552` | `0.8139` | —  
-**Opening a Regular Savings Account** | Hard Negative | `0.8463` | `0.7808` | **+0.0331** _(3.7x wider than 0.0089)_  
-**Home Loan Application Guide** | Unrelated Distractor | `0.8078` | `0.7128` | **+0.1011** _(2.1x wider than 0.0474)_  
+**Opening a NISA Account** | **Target Match** | `0.8552` | `0.8254` | —  
+**Opening a Regular Savings Account** | Hard Negative | `0.8463` | `0.7902` | **+0.0352** _(3.9x wider than 0.0091)_  
+**Home Loan Application Guide** | Unrelated Distractor | `0.8078` | `0.7273` | **+0.0981** _(2.2x wider than 0.0443)_  
   
 Even with just a few training steps, fine-tuning significantly increased the margin between the true match (**Opening a NISA Account**) and competing financial documents, making downstream search and RAG pipelines much more reliable.
 

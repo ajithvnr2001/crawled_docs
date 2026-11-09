@@ -2,7 +2,7 @@
 url: https://ai.google.dev/gemma/docs/embeddinggemma/fine-tuning-multimodal-embeddinggemma-with-sentence-transformers/
 title: Fine-tune Multimodal Embeddings with EmbeddingGemma 2 and Sentence Transformers
 method: scrapling+scrapegraph
-fetched_at: 2026-11-06T11:46:53.418999+00:00
+fetched_at: 2026-11-09T12:29:42.743078+00:00
 ---
 
 # Fine-tune Multimodal Embeddings with EmbeddingGemma 2 and Sentence Transformers
@@ -173,7 +173,7 @@ Our three candidate paintings are:
 
 ### Why Did the Baseline Query Misrank the Paintings?
 
-In the baseline evaluation above, searching for _"Show me an ink wash painting of Shin Yunbok."_ **misranks** the candidates: the base model assigns the highest similarity score to **Jeong Seon's *Inwangjesaekdo** * instead of the true match, **Shin Yunbok's *Dano Pungjeong** *. Note that the base model **does** retrieve the correct image out of the box when you provide a **descriptive caption** about the visual scene itself (such as _"Dano Pungjeong (Scenery on Dano Day)"_ or _"Seodang (Village School)"_ below). However, because an artist's name (_"Shin Yunbok"_) is domain metadata rather than a literal visual description of the scene, fine-tuning is needed to teach the model to associate each artist with their painting.
+In the baseline evaluation above, searching for _"Show me an ink wash painting of Shin Yunbok."_ **misranks** the candidates: the base model assigns the highest similarity score to **Jeong Seon's _Inwangjesaekdo_** instead of the true match, **Shin Yunbok's _Dano Pungjeong_**. Note that the base model **does** retrieve the correct image out of the box when you provide a **descriptive caption** about the visual scene itself (such as _"Dano Pungjeong (Scenery on Dano Day)"_ or _"Seodang (Village School)"_ below). However, because an artist's name (_"Shin Yunbok"_) is domain metadata rather than a literal visual description of the scene, fine-tuning is needed to teach the model to associate each artist with their painting.
     
     
     query_desc = "Dano Pungjeong (Scenery on Dano Day)"
@@ -356,7 +356,7 @@ Let's run our test query once more on the fine-tuned model and compare the post-
 
 ### What Changed After Fine-Tuning?
 
-Before fine-tuning, all three Joseon-dynasty paintings shared a similar traditional Korean ink-and-wash aesthetic, causing the base model to misrank **Jeong Seon's *Inwangjesaekdo** * above **Shin Yunbok's *Dano Pungjeong** * when queried for _"Show me an ink wash painting of Shin Yunbok."_ After just 5 epochs (15 steps) of contrastive fine-tuning on `(artist_name, positive_image, negative_image)` triplets:
+Before fine-tuning, all three Joseon-dynasty paintings shared a similar traditional Korean ink wash aesthetic, causing the base model to misrank **Jeong Seon's _Inwangjesaekdo_** above **Shin Yunbok's _Dano Pungjeong_** when queried for _"Show me an ink wash painting of Shin Yunbok."_ After just 5 epochs (15 steps) of contrastive fine-tuning on `(artist_name, positive_image, negative_image)` triplets:
 
   * Even though the training anchors only contained artist names (`"Shin Yunbok"`, `"Jeong Seon"`, `"Kim Hongdo"`), the model generalizes to the natural-language query _"Show me an ink wash painting of Shin Yunbok."_
   * **Shin Yunbok,_Dano Pungjeong_ (Scenery on Dano Day)** (`ink-wash-1.png`) rises from Rank #2 to Rank #1, already claiming the top rank after the very first epoch (Step 3).
