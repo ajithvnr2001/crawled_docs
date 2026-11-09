@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-cx/agent-assist/twilio-siprec/
 title: Twilio SIPREC integration \u00a0|\u00a0 Agent Assist \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T08:35:11.201140+00:00
+fetched_at: 2026-11-09T07:03:33.441515+00:00
 ---
 
 # Twilio SIPREC integration  |  Agent Assist  |  Google Cloud Documentation

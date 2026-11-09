@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/transcoder/docs/samples/transcoder-create-job-from-ad-hoc/
 title: Create a job using an ad-hoc configuration \u00a0|\u00a0 Transcoder API \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T05:46:25.261386+00:00
+fetched_at: 2026-11-09T05:48:39.119154+00:00
 ---
 
 # Create a job using an ad-hoc configuration  |  Transcoder API  |  Google Cloud Documentation

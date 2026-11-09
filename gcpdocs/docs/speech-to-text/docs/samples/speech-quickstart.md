@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/speech-to-text/docs/samples/speech-quickstart/
 title: Make an audio transcription request \u00a0|\u00a0 Cloud Speech-to-Text \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T08:56:35.942028+00:00
+fetched_at: 2026-11-09T05:54:25.192208+00:00
 ---
 
 # Make an audio transcription request  |  Cloud Speech-to-Text  |  Google Cloud Documentation

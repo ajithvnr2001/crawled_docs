@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/firestore/mongodb-compatibility/docs/create-databases/
 title: Create and manage databases \u00a0|\u00a0 Firestore with MongoDB compatibility \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T08:37:10.969137+00:00
+fetched_at: 2026-11-09T07:02:53.110101+00:00
 ---
 
 # Create and manage databases  |  Firestore with MongoDB compatibility  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/functions/docs/samples/functions-cloudevent-tips-infinite-retries/
 title: Avoid infinite retries in Cloud Functions \u00a0|\u00a0 Cloud Run functions \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T08:37:08.241051+00:00
+fetched_at: 2026-11-09T07:05:00.313145+00:00
 ---
 
 # Avoid infinite retries in Cloud Functions  |  Cloud Run functions  |  Google Cloud Documentation

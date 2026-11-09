@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sap/docs/sap-hana-os-support/
 title: OS support for SAP HANA on Google Cloud \u00a0|\u00a0 SAP on Google Cloud \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-06T10:41:42.613805+00:00
+fetched_at: 2026-11-09T06:57:18.502536+00:00
 ---
 
 # OS support for SAP HANA on Google Cloud  |  SAP on Google Cloud  |  Google Cloud Documentation

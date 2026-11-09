@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini/enterprise/notebooklm-enterprise/docs/cmek/
 title: Customer-managed encryption keys \u00a0|\u00a0 Gemini Notebook Enterprise \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T08:36:16.300111+00:00
+fetched_at: 2026-11-09T07:04:13.043230+00:00
 ---
 
 # Customer-managed encryption keys  |  Gemini Notebook Enterprise  |  Google Cloud Documentation

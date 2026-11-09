@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sensitive-data-protection/docs/samples/dlp-list-inspect-templates/
 title: List templates \u00a0|\u00a0 Sensitive Data Protection \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-06T10:27:43.803300+00:00
+fetched_at: 2026-11-09T05:44:03.253782+00:00
 ---
 
 # List templates  |  Sensitive Data Protection  |  Google Cloud Documentation

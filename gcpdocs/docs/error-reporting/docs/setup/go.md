@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/error-reporting/docs/setup/go/
 title: Instrument Go apps for Error Reporting \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T08:26:33.044631+00:00
+fetched_at: 2026-11-09T07:01:12.106319+00:00
 ---
 
 # Instrument Go apps for Error Reporting  |  Google Cloud Documentation

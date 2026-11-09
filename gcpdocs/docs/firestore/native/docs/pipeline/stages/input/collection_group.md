@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/firestore/native/docs/pipeline/stages/input/collection_group/
 title: Collection Group (Input Stage) \u00a0|\u00a0 Firestore in Native mode \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T08:36:59.182240+00:00
+fetched_at: 2026-11-09T07:02:24.033728+00:00
 ---
 
 # Collection Group (Input Stage)  |  Firestore in Native mode  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/looker/docs/looker-core-service-account/
 title: The Looker service account \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-07T05:50:57.288079+00:00
+fetched_at: 2026-11-09T07:00:54.224932+00:00
 ---
 
 # The Looker service account  |  Google Cloud Documentation

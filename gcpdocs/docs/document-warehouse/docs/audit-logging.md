@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/document-warehouse/docs/audit-logging/
 title: Document AI Warehouse audit logging \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T09:11:58.826209+00:00
+fetched_at: 2026-11-09T07:05:39.663028+00:00
 ---
 
 # Document AI Warehouse audit logging  |  Google Cloud Documentation

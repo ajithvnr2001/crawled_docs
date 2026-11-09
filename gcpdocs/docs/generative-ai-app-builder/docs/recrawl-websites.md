@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/generative-ai-app-builder/docs/recrawl-websites/
 title: Refresh web pages using automatic and manual refresh \u00a0|\u00a0 Agent Search \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T08:34:29.538872+00:00
+fetched_at: 2026-11-09T07:03:35.432750+00:00
 ---
 
 # Refresh web pages using automatic and manual refresh  |  Agent Search  |  Google Cloud Documentation

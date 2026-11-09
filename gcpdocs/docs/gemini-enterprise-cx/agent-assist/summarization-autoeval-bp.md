@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-cx/agent-assist/summarization-autoeval-bp/
 title: Summarization automatic evaluation \u00a0|\u00a0 Agent Assist \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T08:35:17.193099+00:00
+fetched_at: 2026-11-09T07:04:32.404560+00:00
 ---
 
 # Summarization automatic evaluation  |  Agent Assist  |  Google Cloud Documentation

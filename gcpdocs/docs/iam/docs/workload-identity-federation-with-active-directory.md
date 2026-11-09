@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/iam/docs/workload-identity-federation-with-active-directory/
 title: Configure Workload Identity Federation with Active Directory \u00a0|\u00a0 Identity and Access Management (IAM) \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T08:29:36.135227+00:00
+fetched_at: 2026-11-09T07:01:22.340496+00:00
 ---
 
 # Configure Workload Identity Federation with Active Directory  |  Identity and Access Management (IAM)  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/vision/docs/resources/
 title: Resources \u00a0|\u00a0 Cloud Vision API \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T05:48:53.017592+00:00
+fetched_at: 2026-11-09T05:47:21.607963+00:00
 ---
 
 # Resources  |  Cloud Vision API  |  Google Cloud Documentation

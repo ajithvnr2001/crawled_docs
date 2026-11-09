@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/firestore/native/docs/enterprise-indexing/
 title: Manage Enterprise edition indexes \u00a0|\u00a0 Firestore in Native mode \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T08:37:22.436895+00:00
+fetched_at: 2026-11-09T07:03:21.206638+00:00
 ---
 
 # Manage Enterprise edition indexes  |  Firestore in Native mode  |  Google Cloud Documentation

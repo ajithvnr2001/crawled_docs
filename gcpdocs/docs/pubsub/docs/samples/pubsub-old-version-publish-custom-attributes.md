@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/pubsub/docs/samples/pubsub-old-version-publish-custom-attributes/
 title: v1 Publish with custom attributes (DEPRECATED) \u00a0|\u00a0 Pub/Sub \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T01:39:43.398403+00:00
+fetched_at: 2026-11-09T07:00:24.909049+00:00
 ---
 
 # v1 Publish with custom attributes (DEPRECATED)  |  Pub/Sub  |  Google Cloud Documentation

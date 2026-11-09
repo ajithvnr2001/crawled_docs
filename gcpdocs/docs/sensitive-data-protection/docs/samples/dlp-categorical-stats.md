@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sensitive-data-protection/docs/samples/dlp-categorical-stats/
 title: Perform risk analysis \u00a0|\u00a0 Sensitive Data Protection \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-06T10:27:08.917618+00:00
+fetched_at: 2026-11-09T05:48:01.140720+00:00
 ---
 
 # Perform risk analysis  |  Sensitive Data Protection  |  Google Cloud Documentation

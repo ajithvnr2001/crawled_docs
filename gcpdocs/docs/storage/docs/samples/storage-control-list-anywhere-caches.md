@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/storage/docs/samples/storage-control-list-anywhere-caches/
 title: Storage Control List Anywhere Caches \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-02T05:40:36.758114+00:00
+fetched_at: 2026-11-09T05:49:06.500136+00:00
 ---
 
 # Storage Control List Anywhere Caches  |  Google Cloud Documentation

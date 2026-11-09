@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/vertex-ai/generative-ai/docs/samples/generativeaionvertexai-rag-retrieval-query/
 title: Return the response from the LLM \u00a0|\u00a0 Generative AI on Vertex AI \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T05:50:11.739770+00:00
+fetched_at: 2026-11-09T05:48:35.622565+00:00
 ---
 
 # Return the response from the LLM  |  Generative AI on Vertex AI  |  Google Cloud Documentation

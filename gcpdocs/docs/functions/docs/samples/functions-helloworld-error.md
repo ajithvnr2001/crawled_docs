@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/functions/docs/samples/functions-helloworld-error/
 title: Hello World error \u00a0|\u00a0 Cloud Run functions \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T08:36:35.483098+00:00
+fetched_at: 2026-11-09T07:02:57.802815+00:00
 ---
 
 # Hello World error  |  Cloud Run functions  |  Google Cloud Documentation

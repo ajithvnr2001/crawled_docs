@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/vertex-ai/generative-ai/docs/samples/googlegenaisdk-tools-func-def-with-txt/
 title: Generate Content using Pydantic Function Calling \u00a0|\u00a0 Generative AI on Vertex AI \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T05:46:51.858083+00:00
+fetched_at: 2026-11-09T05:49:10.958005+00:00
 ---
 
 # Generate Content using Pydantic Function Calling  |  Generative AI on Vertex AI  |  Google Cloud Documentation

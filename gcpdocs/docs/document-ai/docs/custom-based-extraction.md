@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/document-ai/docs/custom-based-extraction/
 title: Custom-based extraction \u00a0|\u00a0 Document AI \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T09:12:16.968418+00:00
+fetched_at: 2026-11-09T07:06:14.261306+00:00
 ---
 
 # Custom-based extraction  |  Document AI  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/workflows/docs/samples/workflows-http-post/
 title: Make an external HTTP POST request \u00a0|\u00a0 Workflows \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T05:47:11.252605+00:00
+fetched_at: 2026-11-09T05:48:23.353542+00:00
 ---
 
 # Make an external HTTP POST request  |  Workflows  |  Google Cloud Documentation

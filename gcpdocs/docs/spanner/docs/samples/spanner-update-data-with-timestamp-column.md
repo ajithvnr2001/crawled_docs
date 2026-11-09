@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/spanner/docs/samples/spanner-update-data-with-timestamp-column/
 title: Mutations update data with TIMESTAMP \u00a0|\u00a0 Spanner \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-06T10:38:07.495502+00:00
+fetched_at: 2026-11-09T05:52:51.441893+00:00
 ---
 
 # Mutations update data with TIMESTAMP  |  Spanner  |  Google Cloud Documentation

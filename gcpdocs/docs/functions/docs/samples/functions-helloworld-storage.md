@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/functions/docs/samples/functions-helloworld-storage/
 title: Cloud Storage (1st Gen) Hello World \u00a0|\u00a0 Cloud Run functions \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T08:36:30.475143+00:00
+fetched_at: 2026-11-09T07:03:25.050391+00:00
 ---
 
 # Cloud Storage (1st Gen) Hello World  |  Cloud Run functions  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/firestore/native/docs/langchain/
 title: Build LLM-powered applications using LangChain \u00a0|\u00a0 Firestore in Native mode \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T08:37:19.390054+00:00
+fetched_at: 2026-11-09T07:02:42.966825+00:00
 ---
 
 # Build LLM-powered applications using LangChain  |  Firestore in Native mode  |  Google Cloud Documentation

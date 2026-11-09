@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/spanner/docs/samples/spanner-query-with-int-parameter/
 title: Query with INT parameter \u00a0|\u00a0 Spanner \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-06T10:38:05.798327+00:00
+fetched_at: 2026-11-09T05:52:52.242563+00:00
 ---
 
 # Query with INT parameter  |  Spanner  |  Google Cloud Documentation

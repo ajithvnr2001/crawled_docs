@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/firestore/native/docs/manage-data/export-import/
 title: Exporting and importing data \u00a0|\u00a0 Firestore in Native mode \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T08:36:01.882716+00:00
+fetched_at: 2026-11-09T07:02:27.664852+00:00
 ---
 
 # Exporting and importing data  |  Firestore in Native mode  |  Google Cloud Documentation

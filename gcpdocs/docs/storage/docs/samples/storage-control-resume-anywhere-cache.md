@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/storage/docs/samples/storage-control-resume-anywhere-cache/
 title: Storage Control Resume Anywhere Cache \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-02T05:40:38.786496+00:00
+fetched_at: 2026-11-09T05:46:39.238175+00:00
 ---
 
 # Storage Control Resume Anywhere Cache  |  Google Cloud Documentation

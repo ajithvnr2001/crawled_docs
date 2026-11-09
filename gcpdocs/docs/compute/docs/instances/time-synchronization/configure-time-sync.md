@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/compute/docs/instances/time-synchronization/configure-time-sync/
 title: Configure accurate time for Compute Engine VMs \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T09:00:24.643114+00:00
+fetched_at: 2026-11-09T07:05:14.710751+00:00
 ---
 
 # Configure accurate time for Compute Engine VMs  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/firestore/docs/cuds/
 title: Committed use discounts \u00a0|\u00a0 Firestore \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T08:37:38.751653+00:00
+fetched_at: 2026-11-09T07:05:05.596467+00:00
 ---
 
 # Committed use discounts  |  Firestore  |  Google Cloud Documentation

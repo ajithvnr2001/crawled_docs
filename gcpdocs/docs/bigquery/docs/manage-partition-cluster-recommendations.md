@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/manage-partition-cluster-recommendations/
 title: Manage partition and cluster recommendations \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T09:11:27.221058+00:00
+fetched_at: 2026-11-09T07:05:56.464583+00:00
 ---
 
 # Manage partition and cluster recommendations  |  BigQuery  |  Google Cloud Documentation

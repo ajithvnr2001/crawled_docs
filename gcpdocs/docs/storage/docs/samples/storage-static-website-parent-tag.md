@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/storage/docs/samples/storage-static-website-parent-tag/
 title: Create a configured Cloud Storage bucket \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T06:01:27.547289+00:00
+fetched_at: 2026-11-09T05:45:43.749100+00:00
 ---
 
 # Create a configured Cloud Storage bucket  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/workflows/docs/samples/workflows-cloud-run-jobs-payload/
 title: Execute a Cloud Run job that processes event data saved in Cloud Storage \u00a0|\u00a0 Workflows \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T05:50:39.995893+00:00
+fetched_at: 2026-11-09T05:47:25.630956+00:00
 ---
 
 # Execute a Cloud Run job that processes event data saved in Cloud Storage  |  Workflows  |  Google Cloud Documentation

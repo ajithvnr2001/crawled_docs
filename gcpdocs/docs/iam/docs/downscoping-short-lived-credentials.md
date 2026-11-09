@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/iam/docs/downscoping-short-lived-credentials/
 title: Credential Access Boundaries for Cloud Storage \u00a0|\u00a0 Identity and Access Management (IAM) \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T08:30:39.790030+00:00
+fetched_at: 2026-11-09T07:01:09.003260+00:00
 ---
 
 # Credential Access Boundaries for Cloud Storage  |  Identity and Access Management (IAM)  |  Google Cloud Documentation

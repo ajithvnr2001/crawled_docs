@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/compute/docs/instance-groups/monitoring-managed-instance-health-state-changes/
 title: Monitor VM health state changes \u00a0|\u00a0 Compute Engine \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T09:00:38.755037+00:00
+fetched_at: 2026-11-09T07:05:22.603585+00:00
 ---
 
 # Monitor VM health state changes  |  Compute Engine  |  Google Cloud Documentation

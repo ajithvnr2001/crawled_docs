@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/vision/docs/samples/vision-face-detection-tutorial-send-request/
 title: Send a request for face detection \u00a0|\u00a0 Cloud Vision API \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-06T10:38:12.711167+00:00
+fetched_at: 2026-11-09T05:48:34.584889+00:00
 ---
 
 # Send a request for face detection  |  Cloud Vision API  |  Google Cloud Documentation
@@ -96,8 +96,16 @@ To authenticate to Vision, set up Application Default Credentials. For more info
     
     # annotate the image
     // $path = 'path/to/your/image.jpg'
-    $image = file_get_contents($path);
-    $response = $imageAnnotator->faceDetection($image);
+    $image = (new Image())
+        ->setContent(file_get_contents($path));
+    $feature = (new Feature())
+        ->setType(Type::FACE_DETECTION);
+    $request = (new AnnotateImageRequest())
+        ->setImage($image)
+        ->setFeatures([$feature]);
+    $batchRequest = (new BatchAnnotateImagesRequest())
+        ->setRequests([$request]);
+    $response = $imageAnnotator->batchAnnotateImages($batchRequest)->getResponses()[0];
     $faces = $response->getFaceAnnotations();
 
 ### Python

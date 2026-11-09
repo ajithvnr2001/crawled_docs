@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/appengine/docs/standard/ruby/configuring-your-app-with-app-yaml/
 title: Defining runtime settings \u00a0|\u00a0 App Engine standard environment \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T08:55:56.188514+00:00
+fetched_at: 2026-11-09T07:05:08.369664+00:00
 ---
 
 # Defining runtime settings  |  App Engine standard environment  |  Google Cloud Documentation

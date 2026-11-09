@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/endpoints/docs/frameworks/java/multiclass/
 title: Multiclass APIs \u00a0|\u00a0 Cloud Endpoints Frameworks for App Engine \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T08:37:49.134870+00:00
+fetched_at: 2026-11-09T07:05:04.813671+00:00
 ---
 
 # Multiclass APIs  |  Cloud Endpoints Frameworks for App Engine  |  Google Cloud Documentation

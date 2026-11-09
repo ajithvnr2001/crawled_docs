@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/security-command-center/docs/samples/securitycenter-group-all-findings/
 title: Group findings \u00a0|\u00a0 Security Command Center \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T10:56:20.208005+00:00
+fetched_at: 2026-11-09T05:51:11.047052+00:00
 ---
 
 # Group findings  |  Security Command Center  |  Google Cloud Documentation

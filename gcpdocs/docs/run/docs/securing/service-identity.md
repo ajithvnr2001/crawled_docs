@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/run/docs/securing/service-identity/
 title: Introduction to service identity \u00a0|\u00a0 Cloud Run \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T05:49:55.405472+00:00
+fetched_at: 2026-11-09T07:07:05.170731+00:00
 ---
 
 # Introduction to service identity  |  Cloud Run  |  Google Cloud Documentation
@@ -21,7 +21,9 @@ Send feedback
 
 #  Introduction to service identity Stay organized with collections  Save and categorize content based on your preferences. 
 
-This page describes the two Cloud Run identities and how the Cloud Client Libraries use the service identity to call Google Cloud APIs. Examples of Google Cloud products that have Cloud Client Libraries include Cloud Storage, Firestore, Cloud SQL, Pub/Sub, and Cloud Tasks. This page is for admins, operators, or developers who manage organization policies and user access, or anyone who would like to learn about such topics.
+Cloud Run service identities let your running workloads call Google Cloud APIs through Cloud Client Libraries using managed access tokens. Cloud Run separates access across two identities: a deployer account for managing resources and a service identity for runtime requests to Google Cloud services with Cloud Client Libraries, such as Cloud Storage, Firestore, Cloud SQL, Pub/Sub, and Cloud Tasks.
+
+This document is for administrators, operators, and developers who manage organization policies and user access for Cloud Run workloads.
 
 ## Cloud Run identities
 
@@ -175,6 +177,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-30 UTC.
+Last updated 2026-11-07 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-07 UTC."],[],[]] 

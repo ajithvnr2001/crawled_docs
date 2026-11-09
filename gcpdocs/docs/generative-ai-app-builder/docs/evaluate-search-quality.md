@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/generative-ai-app-builder/docs/evaluate-search-quality/
 title: Evaluate search quality \u00a0|\u00a0 Agent Search \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T08:34:55.923356+00:00
+fetched_at: 2026-11-09T07:04:28.651485+00:00
 ---
 
 # Evaluate search quality  |  Agent Search  |  Google Cloud Documentation

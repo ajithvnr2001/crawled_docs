@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/iam/docs/temporary-elevated-access/
 title: Temporary elevated access overview \u00a0|\u00a0 Identity and Access Management (IAM) \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T08:29:02.845042+00:00
+fetched_at: 2026-11-09T07:01:39.224984+00:00
 ---
 
 # Temporary elevated access overview  |  Identity and Access Management (IAM)  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sql/docs/postgres/samples/cloud-sql-postgres-instance-pvp/
 title: Create an instance with password policy enabled \u00a0|\u00a0 Cloud SQL for PostgreSQL \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-06T10:29:50.355498+00:00
+fetched_at: 2026-11-09T05:54:05.891512+00:00
 ---
 
 # Create an instance with password policy enabled  |  Cloud SQL for PostgreSQL  |  Google Cloud Documentation
@@ -27,7 +27,6 @@ This sample creates an instance with password policy enabled.
 For detailed documentation that includes this code sample, see the following: 
 
   * [Create instances](https://docs.cloud.google.com/sql/docs/postgres/create-instance)
-  * [View instance information](https://docs.cloud.google.com/sql/docs/postgres/instance-info)
 
 
 

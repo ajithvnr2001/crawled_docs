@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini/enterprise/docs/connectors/connect-people/
 title: Sync people data from Google Workspace \u00a0|\u00a0 Gemini Enterprise \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T08:36:43.950216+00:00
+fetched_at: 2026-11-09T07:05:00.088586+00:00
 ---
 
 # Sync people data from Google Workspace  |  Gemini Enterprise  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/pubsub/lite/docs/release-notes/
 title: Pub/Sub Lite Release Notes \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-03T09:52:48.721594+00:00
+fetched_at: 2026-11-09T07:00:43.969122+00:00
 ---
 
 # Pub/Sub Lite Release Notes  |  Google Cloud Documentation
@@ -112,6 +112,29 @@ The [Pub/Sub Lite Python client library](https://github.com/googleapis/python-pu
 Feature
 
 The [Pub/Sub Lite Go client library](https://pkg.go.dev/cloud.google.com/go/pubsublite) is now GA.
+
+## May 04, 2021
+
+Feature
+
+Pub/Sub Lite is now available in the following regions:
+
+  * Hong Kong (`asia-east2`)
+  * Tokyo (`asia-northeast1`)
+  * Osaka (`asia-northeast2`)
+  * Seoul (`asia-northeast3`)
+  * Mumbai (`asia-south1`)
+  * Jakarta (`asia-southeast2`)
+  * Warsaw (`europe-central2`)
+  * Montreal (`northamerica-northeast1`)
+  * Sao Paulo (`southamerica-east1`)
+  * Northern Virginia (`us-east4`)
+  * Salt Lake City (`us-west3`)
+  * Las Vegas (`us-west4`)
+
+
+
+For the full list of available regions, see [Pub/Sub Lite locations](https://docs.cloud.google.com/pubsub/lite/docs/locations).
 
 ## March 22, 2021
 

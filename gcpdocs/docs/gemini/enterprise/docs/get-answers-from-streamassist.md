@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini/enterprise/docs/get-answers-from-streamassist/
 title: Get search results from StreamAssist \u00a0|\u00a0 Gemini Enterprise \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T08:36:21.294605+00:00
+fetched_at: 2026-11-09T07:03:42.435631+00:00
 ---
 
 # Get search results from StreamAssist  |  Gemini Enterprise  |  Google Cloud Documentation

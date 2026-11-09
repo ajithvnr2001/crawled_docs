@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/container-optimized-os/docs/concepts/features-and-benefits/
 title: Container-Optimized OS Overview \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T09:15:44.809033+00:00
+fetched_at: 2026-11-09T07:05:08.434334+00:00
 ---
 
 # Container-Optimized OS Overview  |  Google Cloud Documentation

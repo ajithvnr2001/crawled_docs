@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/tpu/docs/queued-resources/
 title: Manage queued resources \u00a0|\u00a0 Cloud TPU \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T05:49:25.813288+00:00
+fetched_at: 2026-11-09T05:48:52.448318+00:00
 ---
 
 # Manage queued resources  |  Cloud TPU  |  Google Cloud Documentation
@@ -136,10 +136,10 @@ On-demand resources won't be preempted, but on-demand quota doesn't guarantee th
 To authenticate to Cloud TPU, set up Application Default Credentials. For more information, see [Set up authentication for a local development environment](https://docs.cloud.google.com/docs/authentication/set-up-adc-local-dev-environment). 
     
     
-    import com.google.cloud.tpu.v2alpha1.CreateQueuedResourceRequest;
-    import com.google.cloud.tpu.v2alpha1.Node;
-    import com.google.cloud.tpu.v2alpha1.QueuedResource;
-    import com.google.cloud.tpu.v2alpha1.TpuClient;
+    import com.google.cloud.tpu.v2.[CreateQueuedResourceRequest](https://docs.cloud.google.com/java/docs/reference/google-cloud-tpu/latest/com.google.cloud.tpu.v2.CreateQueuedResourceRequest.html);
+    import com.google.cloud.tpu.v2.[Node](https://docs.cloud.google.com/java/docs/reference/google-cloud-tpu/latest/com.google.cloud.tpu.v2.Node.html);
+    import com.google.cloud.tpu.v2.[QueuedResource](https://docs.cloud.google.com/java/docs/reference/google-cloud-tpu/latest/com.google.cloud.tpu.v2.QueuedResource.html);
+    import com.google.cloud.tpu.v2.[TpuClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-tpu/latest/com.google.cloud.tpu.v2.TpuClient.html);
     import java.io.IOException;
     import java.util.concurrent.ExecutionException;
     import java.util.concurrent.TimeUnit;
@@ -172,30 +172,30 @@ To authenticate to Cloud TPU, set up Application Default Credentials. For more i
       }
     
       // Creates a Queued Resource
-      public static QueuedResource createQueuedResource(String projectId, String zone,
+      public static [QueuedResource](https://docs.cloud.google.com/java/docs/reference/google-cloud-tpu/latest/com.google.cloud.tpu.v2.QueuedResource.html) createQueuedResource(String projectId, String zone,
           String queuedResourceId, String nodeName, String tpuType, String tpuSoftwareVersion)
               throws IOException, ExecutionException, InterruptedException, TimeoutException {
         String resource = String.format("projects/%s/locations/%s/queuedResources/%s",
                 projectId, zone, queuedResourceId);
         // Initialize client that will be used to send requests. This client only needs to be created
         // once, and can be reused for multiple requests.
-        try (TpuClient tpuClient = TpuClient.create()) {
+        try ([TpuClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-tpu/latest/com.google.cloud.tpu.v2.TpuClient.html) tpuClient = [TpuClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-tpu/latest/com.google.cloud.tpu.v2.TpuClient.html).create()) {
           String parent = String.format("projects/%s/locations/%s", projectId, zone);
-          Node node =
-              Node.newBuilder()
+          [Node](https://docs.cloud.google.com/java/docs/reference/google-cloud-tpu/latest/com.google.cloud.tpu.v2.Node.html) node =
+              [Node](https://docs.cloud.google.com/java/docs/reference/google-cloud-tpu/latest/com.google.cloud.tpu.v2.Node.html).newBuilder()
                   .setName(nodeName)
                   .setAcceleratorType(tpuType)
                   .setRuntimeVersion(tpuSoftwareVersion)
                   .setQueuedResource(resource)
                   .build();
     
-          QueuedResource queuedResource =
-              QueuedResource.newBuilder()
+          [QueuedResource](https://docs.cloud.google.com/java/docs/reference/google-cloud-tpu/latest/com.google.cloud.tpu.v2.QueuedResource.html) queuedResource =
+              [QueuedResource](https://docs.cloud.google.com/java/docs/reference/google-cloud-tpu/latest/com.google.cloud.tpu.v2.QueuedResource.html).newBuilder()
                   .setName(queuedResourceId)
-                  .setTpu(
-                      QueuedResource.Tpu.newBuilder()
-                          .addNodeSpec(
-                              QueuedResource.Tpu.NodeSpec.newBuilder()
+                  .[setTpu](https://docs.cloud.google.com/java/docs/reference/google-cloud-tpu/latest/com.google.cloud.tpu.v2.QueuedResource.Builder.html#com_google_cloud_tpu_v2_QueuedResource_Builder_setTpu_com_google_cloud_tpu_v2_QueuedResource_Tpu_)(
+                      [QueuedResource](https://docs.cloud.google.com/java/docs/reference/google-cloud-tpu/latest/com.google.cloud.tpu.v2.QueuedResource.html).Tpu.newBuilder()
+                          .[addNodeSpec](https://docs.cloud.google.com/java/docs/reference/google-cloud-tpu/latest/com.google.cloud.tpu.v2.QueuedResource.Tpu.Builder.html#com_google_cloud_tpu_v2_QueuedResource_Tpu_Builder_addNodeSpec_com_google_cloud_tpu_v2_QueuedResource_Tpu_NodeSpec_)(
+                              [QueuedResource](https://docs.cloud.google.com/java/docs/reference/google-cloud-tpu/latest/com.google.cloud.tpu.v2.QueuedResource.html).Tpu.NodeSpec.newBuilder()
                                   .setParent(parent)
                                   .setNode(node)
                                   .setNodeId(nodeName)
@@ -203,14 +203,14 @@ To authenticate to Cloud TPU, set up Application Default Credentials. For more i
                           .build())
                   .build();
     
-          CreateQueuedResourceRequest request =
-              CreateQueuedResourceRequest.newBuilder()
+          [CreateQueuedResourceRequest](https://docs.cloud.google.com/java/docs/reference/google-cloud-tpu/latest/com.google.cloud.tpu.v2.CreateQueuedResourceRequest.html) request =
+              [CreateQueuedResourceRequest](https://docs.cloud.google.com/java/docs/reference/google-cloud-tpu/latest/com.google.cloud.tpu.v2.CreateQueuedResourceRequest.html).newBuilder()
                   .setParent(parent)
-                  .setQueuedResourceId(queuedResourceId)
+                  .[setQueuedResourceId](https://docs.cloud.google.com/java/docs/reference/google-cloud-tpu/latest/com.google.cloud.tpu.v2.CreateQueuedResourceRequest.Builder.html#com_google_cloud_tpu_v2_CreateQueuedResourceRequest_Builder_setQueuedResourceId_java_lang_String_)(queuedResourceId)
                   .setQueuedResource(queuedResource)
                   .build();
     
-          return tpuClient.createQueuedResourceAsync(request).get(1, TimeUnit.MINUTES);
+          return tpuClient.[createQueuedResourceAsync](https://docs.cloud.google.com/java/docs/reference/google-cloud-tpu/latest/com.google.cloud.tpu.v2.TpuClient.html#com_google_cloud_tpu_v2_TpuClient_createQueuedResourceAsync__org_jspecify_annotations_Nullable_com_google_cloud_tpu_v2_LocationName_com_google_cloud_tpu_v2_QueuedResource_java_lang_String_)(request).get(1, TimeUnit.MINUTES);
         }
       }
     }
@@ -446,11 +446,11 @@ A [Spot VM](https://docs.cloud.google.com/tpu/docs/spot) is a resource that can 
 To authenticate to Cloud TPU, set up Application Default Credentials. For more information, see [Set up authentication for a local development environment](https://docs.cloud.google.com/docs/authentication/set-up-adc-local-dev-environment). 
     
     
-    import com.google.cloud.tpu.v2alpha1.CreateQueuedResourceRequest;
-    import com.google.cloud.tpu.v2alpha1.Node;
-    import com.google.cloud.tpu.v2alpha1.QueuedResource;
-    import com.google.cloud.tpu.v2alpha1.SchedulingConfig;
-    import com.google.cloud.tpu.v2alpha1.TpuClient;
+    import com.google.cloud.tpu.v2.[CreateQueuedResourceRequest](https://docs.cloud.google.com/java/docs/reference/google-cloud-tpu/latest/com.google.cloud.tpu.v2.CreateQueuedResourceRequest.html);
+    import com.google.cloud.tpu.v2.[Node](https://docs.cloud.google.com/java/docs/reference/google-cloud-tpu/latest/com.google.cloud.tpu.v2.Node.html);
+    import com.google.cloud.tpu.v2.[QueuedResource](https://docs.cloud.google.com/java/docs/reference/google-cloud-tpu/latest/com.google.cloud.tpu.v2.QueuedResource.html);
+    import com.google.cloud.tpu.v2.[SchedulingConfig](https://docs.cloud.google.com/java/docs/reference/google-cloud-tpu/latest/com.google.cloud.tpu.v2.SchedulingConfig.html);
+    import com.google.cloud.tpu.v2.[TpuClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-tpu/latest/com.google.cloud.tpu.v2.TpuClient.html);
     import java.io.IOException;
     import java.util.concurrent.ExecutionException;
     
@@ -481,36 +481,36 @@ To authenticate to Cloud TPU, set up Application Default Credentials. For more i
       }
     
       // Creates a Queued Resource with --preemptible flag.
-      public static QueuedResource createQueuedResource(
+      public static [QueuedResource](https://docs.cloud.google.com/java/docs/reference/google-cloud-tpu/latest/com.google.cloud.tpu.v2.QueuedResource.html) createQueuedResource(
           String projectId, String zone, String queuedResourceId,
           String nodeName, String tpuType, String tpuSoftwareVersion)
           throws IOException, ExecutionException, InterruptedException {
         // Initialize client that will be used to send requests. This client only needs to be created
         // once, and can be reused for multiple requests.
-        try (TpuClient tpuClient = TpuClient.create()) {
+        try ([TpuClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-tpu/latest/com.google.cloud.tpu.v2.TpuClient.html) tpuClient = [TpuClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-tpu/latest/com.google.cloud.tpu.v2.TpuClient.html).create()) {
           String parent = String.format("projects/%s/locations/%s", projectId, zone);
           String resourceName = String.format("projects/%s/locations/%s/queuedResources/%s",
                   projectId, zone, queuedResourceId);
-          SchedulingConfig schedulingConfig = SchedulingConfig.newBuilder()
-              .setPreemptible(true)
+          [SchedulingConfig](https://docs.cloud.google.com/java/docs/reference/google-cloud-tpu/latest/com.google.cloud.tpu.v2.SchedulingConfig.html) schedulingConfig = [SchedulingConfig](https://docs.cloud.google.com/java/docs/reference/google-cloud-tpu/latest/com.google.cloud.tpu.v2.SchedulingConfig.html).newBuilder()
+              .[setPreemptible](https://docs.cloud.google.com/java/docs/reference/google-cloud-tpu/latest/com.google.cloud.tpu.v2.SchedulingConfig.Builder.html#com_google_cloud_tpu_v2_SchedulingConfig_Builder_setPreemptible_boolean_)(true)
               .build();
     
-          Node node =
-              Node.newBuilder()
+          [Node](https://docs.cloud.google.com/java/docs/reference/google-cloud-tpu/latest/com.google.cloud.tpu.v2.Node.html) node =
+              [Node](https://docs.cloud.google.com/java/docs/reference/google-cloud-tpu/latest/com.google.cloud.tpu.v2.Node.html).newBuilder()
                   .setName(nodeName)
                   .setAcceleratorType(tpuType)
                   .setRuntimeVersion(tpuSoftwareVersion)
-                  .setSchedulingConfig(schedulingConfig)
+                  .[setSchedulingConfig](https://docs.cloud.google.com/java/docs/reference/google-cloud-tpu/latest/com.google.cloud.tpu.v2.Node.Builder.html#com_google_cloud_tpu_v2_Node_Builder_setSchedulingConfig_com_google_cloud_tpu_v2_SchedulingConfig_)(schedulingConfig)
                   .setQueuedResource(resourceName)
                   .build();
     
-          QueuedResource queuedResource =
-              QueuedResource.newBuilder()
+          [QueuedResource](https://docs.cloud.google.com/java/docs/reference/google-cloud-tpu/latest/com.google.cloud.tpu.v2.QueuedResource.html) queuedResource =
+              [QueuedResource](https://docs.cloud.google.com/java/docs/reference/google-cloud-tpu/latest/com.google.cloud.tpu.v2.QueuedResource.html).newBuilder()
                   .setName(queuedResourceId)
-                  .setTpu(
-                      QueuedResource.Tpu.newBuilder()
-                          .addNodeSpec(
-                              QueuedResource.Tpu.NodeSpec.newBuilder()
+                  .[setTpu](https://docs.cloud.google.com/java/docs/reference/google-cloud-tpu/latest/com.google.cloud.tpu.v2.QueuedResource.Builder.html#com_google_cloud_tpu_v2_QueuedResource_Builder_setTpu_com_google_cloud_tpu_v2_QueuedResource_Tpu_)(
+                      [QueuedResource](https://docs.cloud.google.com/java/docs/reference/google-cloud-tpu/latest/com.google.cloud.tpu.v2.QueuedResource.html).Tpu.newBuilder()
+                          .[addNodeSpec](https://docs.cloud.google.com/java/docs/reference/google-cloud-tpu/latest/com.google.cloud.tpu.v2.QueuedResource.Tpu.Builder.html#com_google_cloud_tpu_v2_QueuedResource_Tpu_Builder_addNodeSpec_com_google_cloud_tpu_v2_QueuedResource_Tpu_NodeSpec_)(
+                              [QueuedResource](https://docs.cloud.google.com/java/docs/reference/google-cloud-tpu/latest/com.google.cloud.tpu.v2.QueuedResource.html).Tpu.NodeSpec.newBuilder()
                                   .setParent(parent)
                                   .setNode(node)
                                   .setNodeId(nodeName)
@@ -518,14 +518,14 @@ To authenticate to Cloud TPU, set up Application Default Credentials. For more i
                           .build())
                   .build();
     
-          CreateQueuedResourceRequest request =
-              CreateQueuedResourceRequest.newBuilder()
+          [CreateQueuedResourceRequest](https://docs.cloud.google.com/java/docs/reference/google-cloud-tpu/latest/com.google.cloud.tpu.v2.CreateQueuedResourceRequest.html) request =
+              [CreateQueuedResourceRequest](https://docs.cloud.google.com/java/docs/reference/google-cloud-tpu/latest/com.google.cloud.tpu.v2.CreateQueuedResourceRequest.html).newBuilder()
                   .setParent(parent)
-                  .setQueuedResourceId(queuedResourceId)
+                  .[setQueuedResourceId](https://docs.cloud.google.com/java/docs/reference/google-cloud-tpu/latest/com.google.cloud.tpu.v2.CreateQueuedResourceRequest.Builder.html#com_google_cloud_tpu_v2_CreateQueuedResourceRequest_Builder_setQueuedResourceId_java_lang_String_)(queuedResourceId)
                   .setQueuedResource(queuedResource)
                   .build();
     
-          return tpuClient.createQueuedResourceAsync(request).get();
+          return tpuClient.[createQueuedResourceAsync](https://docs.cloud.google.com/java/docs/reference/google-cloud-tpu/latest/com.google.cloud.tpu.v2.TpuClient.html#com_google_cloud_tpu_v2_TpuClient_createQueuedResourceAsync__org_jspecify_annotations_Nullable_com_google_cloud_tpu_v2_LocationName_com_google_cloud_tpu_v2_QueuedResource_java_lang_String_)(request).get();
         }
       }
     }
@@ -747,10 +747,10 @@ The following example requests a v5p-32 to be allocated after six hours.
 To authenticate to Cloud TPU, set up Application Default Credentials. For more information, see [Set up authentication for a local development environment](https://docs.cloud.google.com/docs/authentication/set-up-adc-local-dev-environment). 
     
     
-    import com.google.cloud.tpu.v2alpha1.CreateQueuedResourceRequest;
-    import com.google.cloud.tpu.v2alpha1.Node;
-    import com.google.cloud.tpu.v2alpha1.QueuedResource;
-    import com.google.cloud.tpu.v2alpha1.TpuClient;
+    import com.google.cloud.tpu.v2.[CreateQueuedResourceRequest](https://docs.cloud.google.com/java/docs/reference/google-cloud-tpu/latest/com.google.cloud.tpu.v2.CreateQueuedResourceRequest.html);
+    import com.google.cloud.tpu.v2.[Node](https://docs.cloud.google.com/java/docs/reference/google-cloud-tpu/latest/com.google.cloud.tpu.v2.Node.html);
+    import com.google.cloud.tpu.v2.[QueuedResource](https://docs.cloud.google.com/java/docs/reference/google-cloud-tpu/latest/com.google.cloud.tpu.v2.QueuedResource.html);
+    import com.google.cloud.tpu.v2.[TpuClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-tpu/latest/com.google.cloud.tpu.v2.TpuClient.html);
     import com.google.protobuf.[Duration](https://docs.cloud.google.com/java/docs/reference/protobuf/latest/com.google.protobuf.Duration.html);
     import java.io.IOException;
     import java.util.concurrent.ExecutionException;
@@ -783,21 +783,21 @@ To authenticate to Cloud TPU, set up Application Default Credentials. For more i
       }
     
       // Creates a Queued Resource with time bound configuration.
-      public static QueuedResource createTimeBoundQueuedResource(
+      public static [QueuedResource](https://docs.cloud.google.com/java/docs/reference/google-cloud-tpu/latest/com.google.cloud.tpu.v2.QueuedResource.html) createTimeBoundQueuedResource(
           String projectId, String nodeId, String queuedResourceId,
           String zone, String acceleratorType, String runtimeVersion)
               throws IOException, ExecutionException, InterruptedException {
         // Initialize client that will be used to send requests. This client only needs to be created
         // once, and can be reused for multiple requests.
-        try (TpuClient tpuClient = TpuClient.create()) {
+        try ([TpuClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-tpu/latest/com.google.cloud.tpu.v2.TpuClient.html) tpuClient = [TpuClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-tpu/latest/com.google.cloud.tpu.v2.TpuClient.html).create()) {
           String parent = String.format("projects/%s/locations/%s", projectId, zone);
           // Create a Duration object representing 6 hours.
           [Duration](https://docs.cloud.google.com/java/docs/reference/protobuf/latest/com.google.protobuf.Duration.html) validAfterDuration = [Duration](https://docs.cloud.google.com/java/docs/reference/protobuf/latest/com.google.protobuf.Duration.html).newBuilder().setSeconds(6 * 3600).build();
           // You could also use timestamps like this:
           // Timestamp validAfterTime = Timestamps.parse("2024-10-14T09:00:00Z");
     
-          Node node =
-              Node.newBuilder()
+          [Node](https://docs.cloud.google.com/java/docs/reference/google-cloud-tpu/latest/com.google.cloud.tpu.v2.Node.html) node =
+              [Node](https://docs.cloud.google.com/java/docs/reference/google-cloud-tpu/latest/com.google.cloud.tpu.v2.Node.html).newBuilder()
                   .setName(nodeId)
                   .setAcceleratorType(acceleratorType)
                   .setRuntimeVersion(runtimeVersion)
@@ -807,33 +807,33 @@ To authenticate to Cloud TPU, set up Application Default Credentials. For more i
                           projectId, zone, queuedResourceId))
                   .build();
     
-          QueuedResource queuedResource =
-              QueuedResource.newBuilder()
+          [QueuedResource](https://docs.cloud.google.com/java/docs/reference/google-cloud-tpu/latest/com.google.cloud.tpu.v2.QueuedResource.html) queuedResource =
+              [QueuedResource](https://docs.cloud.google.com/java/docs/reference/google-cloud-tpu/latest/com.google.cloud.tpu.v2.QueuedResource.html).newBuilder()
                   .setName(queuedResourceId)
-                  .setTpu(
-                      QueuedResource.Tpu.newBuilder()
-                          .addNodeSpec(
-                              QueuedResource.Tpu.NodeSpec.newBuilder()
+                  .[setTpu](https://docs.cloud.google.com/java/docs/reference/google-cloud-tpu/latest/com.google.cloud.tpu.v2.QueuedResource.Builder.html#com_google_cloud_tpu_v2_QueuedResource_Builder_setTpu_com_google_cloud_tpu_v2_QueuedResource_Tpu_)(
+                      [QueuedResource](https://docs.cloud.google.com/java/docs/reference/google-cloud-tpu/latest/com.google.cloud.tpu.v2.QueuedResource.html).Tpu.newBuilder()
+                          .[addNodeSpec](https://docs.cloud.google.com/java/docs/reference/google-cloud-tpu/latest/com.google.cloud.tpu.v2.QueuedResource.Tpu.Builder.html#com_google_cloud_tpu_v2_QueuedResource_Tpu_Builder_addNodeSpec_com_google_cloud_tpu_v2_QueuedResource_Tpu_NodeSpec_)(
+                              [QueuedResource](https://docs.cloud.google.com/java/docs/reference/google-cloud-tpu/latest/com.google.cloud.tpu.v2.QueuedResource.html).Tpu.NodeSpec.newBuilder()
                                   .setParent(parent)
                                   .setNode(node)
                                   .setNodeId(nodeId)
                                   .build())
                           .build())
-                  .setQueueingPolicy(
-                      QueuedResource.QueueingPolicy.newBuilder()
-                          .setValidAfterDuration(validAfterDuration)
+                  .[setQueueingPolicy](https://docs.cloud.google.com/java/docs/reference/google-cloud-tpu/latest/com.google.cloud.tpu.v2.QueuedResource.Builder.html#com_google_cloud_tpu_v2_QueuedResource_Builder_setQueueingPolicy_com_google_cloud_tpu_v2_QueuedResource_QueueingPolicy_)(
+                      [QueuedResource](https://docs.cloud.google.com/java/docs/reference/google-cloud-tpu/latest/com.google.cloud.tpu.v2.QueuedResource.html).QueueingPolicy.newBuilder()
+                          .[setValidAfterDuration](https://docs.cloud.google.com/java/docs/reference/google-cloud-tpu/latest/com.google.cloud.tpu.v2.QueuedResource.QueueingPolicy.Builder.html#com_google_cloud_tpu_v2_QueuedResource_QueueingPolicy_Builder_setValidAfterDuration_com_google_protobuf_Duration_)(validAfterDuration)
                           // .setValidAfterTime(validAfterTime)
                           .build())
                   .build();
     
-          CreateQueuedResourceRequest request =
-              CreateQueuedResourceRequest.newBuilder()
+          [CreateQueuedResourceRequest](https://docs.cloud.google.com/java/docs/reference/google-cloud-tpu/latest/com.google.cloud.tpu.v2.CreateQueuedResourceRequest.html) request =
+              [CreateQueuedResourceRequest](https://docs.cloud.google.com/java/docs/reference/google-cloud-tpu/latest/com.google.cloud.tpu.v2.CreateQueuedResourceRequest.html).newBuilder()
                   .setParent(parent)
                   .setQueuedResource(queuedResource)
-                  .setQueuedResourceId(queuedResourceId)
+                  .[setQueuedResourceId](https://docs.cloud.google.com/java/docs/reference/google-cloud-tpu/latest/com.google.cloud.tpu.v2.CreateQueuedResourceRequest.Builder.html#com_google_cloud_tpu_v2_CreateQueuedResourceRequest_Builder_setQueuedResourceId_java_lang_String_)(queuedResourceId)
                   .build();
     
-          return tpuClient.createQueuedResourceAsync(request).get();
+          return tpuClient.[createQueuedResourceAsync](https://docs.cloud.google.com/java/docs/reference/google-cloud-tpu/latest/com.google.cloud.tpu.v2.TpuClient.html#com_google_cloud_tpu_v2_TpuClient_createQueuedResourceAsync__org_jspecify_annotations_Nullable_com_google_cloud_tpu_v2_LocationName_com_google_cloud_tpu_v2_QueuedResource_java_lang_String_)(request).get();
         }
       }
     }
@@ -1230,10 +1230,10 @@ When using `curl`, you must include the script code in the JSON content. The fol
 To authenticate to Cloud TPU, set up Application Default Credentials. For more information, see [Set up authentication for a local development environment](https://docs.cloud.google.com/docs/authentication/set-up-adc-local-dev-environment). 
     
     
-    import com.google.cloud.tpu.v2alpha1.CreateQueuedResourceRequest;
-    import com.google.cloud.tpu.v2alpha1.Node;
-    import com.google.cloud.tpu.v2alpha1.QueuedResource;
-    import com.google.cloud.tpu.v2alpha1.TpuClient;
+    import com.google.cloud.tpu.v2.[CreateQueuedResourceRequest](https://docs.cloud.google.com/java/docs/reference/google-cloud-tpu/latest/com.google.cloud.tpu.v2.CreateQueuedResourceRequest.html);
+    import com.google.cloud.tpu.v2.[Node](https://docs.cloud.google.com/java/docs/reference/google-cloud-tpu/latest/com.google.cloud.tpu.v2.Node.html);
+    import com.google.cloud.tpu.v2.[QueuedResource](https://docs.cloud.google.com/java/docs/reference/google-cloud-tpu/latest/com.google.cloud.tpu.v2.QueuedResource.html);
+    import com.google.cloud.tpu.v2.[TpuClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-tpu/latest/com.google.cloud.tpu.v2.TpuClient.html);
     import java.io.IOException;
     import java.util.HashMap;
     import java.util.Map;
@@ -1266,7 +1266,7 @@ To authenticate to Cloud TPU, set up Application Default Credentials. For more i
       }
     
       // Creates a Queued Resource with startup script.
-      public static QueuedResource createQueuedResource(
+      public static [QueuedResource](https://docs.cloud.google.com/java/docs/reference/google-cloud-tpu/latest/com.google.cloud.tpu.v2.QueuedResource.html) createQueuedResource(
           String projectId, String zone, String queuedResourceId,
           String nodeName, String tpuType, String tpuSoftwareVersion)
           throws IOException, ExecutionException, InterruptedException {
@@ -1279,23 +1279,23 @@ To authenticate to Cloud TPU, set up Application Default Credentials. For more i
                 projectId, zone, queuedResourceId);
         // Initialize client that will be used to send requests. This client only needs to be created
         // once, and can be reused for multiple requests.
-        try (TpuClient tpuClient = TpuClient.create()) {
-          Node node =
-              Node.newBuilder()
+        try ([TpuClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-tpu/latest/com.google.cloud.tpu.v2.TpuClient.html) tpuClient = [TpuClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-tpu/latest/com.google.cloud.tpu.v2.TpuClient.html).create()) {
+          [Node](https://docs.cloud.google.com/java/docs/reference/google-cloud-tpu/latest/com.google.cloud.tpu.v2.Node.html) node =
+              [Node](https://docs.cloud.google.com/java/docs/reference/google-cloud-tpu/latest/com.google.cloud.tpu.v2.Node.html).newBuilder()
                   .setName(nodeName)
                   .setAcceleratorType(tpuType)
                   .setRuntimeVersion(tpuSoftwareVersion)
                   .setQueuedResource(queuedResourceForTpu)
-                  .putAllMetadata(metadata)
+                  .[putAllMetadata](https://docs.cloud.google.com/java/docs/reference/google-cloud-tpu/latest/com.google.cloud.tpu.v2.Node.Builder.html#com_google_cloud_tpu_v2_Node_Builder_putAllMetadata_java_util_Map_java_lang_String_java_lang_String__)(metadata)
                   .build();
     
-          QueuedResource queuedResource =
-              QueuedResource.newBuilder()
+          [QueuedResource](https://docs.cloud.google.com/java/docs/reference/google-cloud-tpu/latest/com.google.cloud.tpu.v2.QueuedResource.html) queuedResource =
+              [QueuedResource](https://docs.cloud.google.com/java/docs/reference/google-cloud-tpu/latest/com.google.cloud.tpu.v2.QueuedResource.html).newBuilder()
                   .setName(queuedResourceId)
-                  .setTpu(
-                      QueuedResource.Tpu.newBuilder()
-                          .addNodeSpec(
-                              QueuedResource.Tpu.NodeSpec.newBuilder()
+                  .[setTpu](https://docs.cloud.google.com/java/docs/reference/google-cloud-tpu/latest/com.google.cloud.tpu.v2.QueuedResource.Builder.html#com_google_cloud_tpu_v2_QueuedResource_Builder_setTpu_com_google_cloud_tpu_v2_QueuedResource_Tpu_)(
+                      [QueuedResource](https://docs.cloud.google.com/java/docs/reference/google-cloud-tpu/latest/com.google.cloud.tpu.v2.QueuedResource.html).Tpu.newBuilder()
+                          .[addNodeSpec](https://docs.cloud.google.com/java/docs/reference/google-cloud-tpu/latest/com.google.cloud.tpu.v2.QueuedResource.Tpu.Builder.html#com_google_cloud_tpu_v2_QueuedResource_Tpu_Builder_addNodeSpec_com_google_cloud_tpu_v2_QueuedResource_Tpu_NodeSpec_)(
+                              [QueuedResource](https://docs.cloud.google.com/java/docs/reference/google-cloud-tpu/latest/com.google.cloud.tpu.v2.QueuedResource.html).Tpu.NodeSpec.newBuilder()
                                   .setParent(parent)
                                   .setNode(node)
                                   .setNodeId(nodeName)
@@ -1303,16 +1303,16 @@ To authenticate to Cloud TPU, set up Application Default Credentials. For more i
                           .build())
                   .build();
     
-          CreateQueuedResourceRequest request =
-              CreateQueuedResourceRequest.newBuilder()
+          [CreateQueuedResourceRequest](https://docs.cloud.google.com/java/docs/reference/google-cloud-tpu/latest/com.google.cloud.tpu.v2.CreateQueuedResourceRequest.html) request =
+              [CreateQueuedResourceRequest](https://docs.cloud.google.com/java/docs/reference/google-cloud-tpu/latest/com.google.cloud.tpu.v2.CreateQueuedResourceRequest.html).newBuilder()
                   .setParent(parent)
-                  .setQueuedResourceId(queuedResourceId)
+                  .[setQueuedResourceId](https://docs.cloud.google.com/java/docs/reference/google-cloud-tpu/latest/com.google.cloud.tpu.v2.CreateQueuedResourceRequest.Builder.html#com_google_cloud_tpu_v2_CreateQueuedResourceRequest_Builder_setQueuedResourceId_java_lang_String_)(queuedResourceId)
                   .setQueuedResource(queuedResource)
                   .build();
           // You can wait until TPU Node is READY,
           // and check its status using getTpuVm() from "tpu_vm_get" sample.
     
-          return tpuClient.createQueuedResourceAsync(request).get();
+          return tpuClient.[createQueuedResourceAsync](https://docs.cloud.google.com/java/docs/reference/google-cloud-tpu/latest/com.google.cloud.tpu.v2.TpuClient.html#com_google_cloud_tpu_v2_TpuClient_createQueuedResourceAsync__org_jspecify_annotations_Nullable_com_google_cloud_tpu_v2_LocationName_com_google_cloud_tpu_v2_QueuedResource_java_lang_String_)(request).get();
         }
       }
     }
@@ -1481,12 +1481,12 @@ To authenticate to Cloud TPU, set up Application Default Credentials. For more i
     
     
     import com.google.api.gax.retrying.[RetrySettings](https://docs.cloud.google.com/java/docs/reference/gax/latest/com.google.api.gax.retrying.RetrySettings.html);
-    import com.google.cloud.tpu.v2alpha1.CreateQueuedResourceRequest;
-    import com.google.cloud.tpu.v2alpha1.NetworkConfig;
-    import com.google.cloud.tpu.v2alpha1.Node;
-    import com.google.cloud.tpu.v2alpha1.QueuedResource;
-    import com.google.cloud.tpu.v2alpha1.TpuClient;
-    import com.google.cloud.tpu.v2alpha1.TpuSettings;
+    import com.google.cloud.tpu.v2.[CreateQueuedResourceRequest](https://docs.cloud.google.com/java/docs/reference/google-cloud-tpu/latest/com.google.cloud.tpu.v2.CreateQueuedResourceRequest.html);
+    import com.google.cloud.tpu.v2.[NetworkConfig](https://docs.cloud.google.com/java/docs/reference/google-cloud-tpu/latest/com.google.cloud.tpu.v2.NetworkConfig.html);
+    import com.google.cloud.tpu.v2.[Node](https://docs.cloud.google.com/java/docs/reference/google-cloud-tpu/latest/com.google.cloud.tpu.v2.Node.html);
+    import com.google.cloud.tpu.v2.[QueuedResource](https://docs.cloud.google.com/java/docs/reference/google-cloud-tpu/latest/com.google.cloud.tpu.v2.QueuedResource.html);
+    import com.google.cloud.tpu.v2.[TpuClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-tpu/latest/com.google.cloud.tpu.v2.TpuClient.html);
+    import com.google.cloud.tpu.v2.[TpuSettings](https://docs.cloud.google.com/java/docs/reference/google-cloud-tpu/latest/com.google.cloud.tpu.v2.TpuSettings.html);
     import java.io.IOException;
     import java.util.concurrent.ExecutionException;
     import org.threeten.bp.Duration;
@@ -1521,14 +1521,14 @@ To authenticate to Cloud TPU, set up Application Default Credentials. For more i
       }
     
       // Creates a Queued Resource with network configuration.
-      public static QueuedResource createQueuedResourceWithNetwork(
+      public static [QueuedResource](https://docs.cloud.google.com/java/docs/reference/google-cloud-tpu/latest/com.google.cloud.tpu.v2.QueuedResource.html) createQueuedResourceWithNetwork(
           String projectId, String zone, String queuedResourceId, String nodeName,
           String tpuType, String tpuSoftwareVersion, String networkName)
           throws IOException, ExecutionException, InterruptedException {
         // With these settings the client library handles the Operation's polling mechanism
         // and prevent CancellationException error
-        TpuSettings.Builder clientSettings =
-            TpuSettings.newBuilder();
+        [TpuSettings](https://docs.cloud.google.com/java/docs/reference/google-cloud-tpu/latest/com.google.cloud.tpu.v2.TpuSettings.html).Builder clientSettings =
+            [TpuSettings](https://docs.cloud.google.com/java/docs/reference/google-cloud-tpu/latest/com.google.cloud.tpu.v2.TpuSettings.html).newBuilder();
         clientSettings
             .createQueuedResourceSettings()
             .setRetrySettings(
@@ -1542,27 +1542,27 @@ To authenticate to Cloud TPU, set up Application Default Credentials. For more i
                     .build());
         // Initialize client that will be used to send requests. This client only needs to be created
         // once, and can be reused for multiple requests.
-        try (TpuClient tpuClient = TpuClient.create(clientSettings.build())) {
+        try ([TpuClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-tpu/latest/com.google.cloud.tpu.v2.TpuClient.html) tpuClient = [TpuClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-tpu/latest/com.google.cloud.tpu.v2.TpuClient.html).create(clientSettings.build())) {
           String parent = String.format("projects/%s/locations/%s", projectId, zone);
           String region = zone.substring(0, zone.length() - 2);
     
           // Specify the network and subnetwork that you want to connect your TPU to.
-          NetworkConfig networkConfig =
-              NetworkConfig.newBuilder()
-                  .setEnableExternalIps(true)
-                  .setNetwork(String.format("projects/%s/global/networks/%s", projectId, networkName))
-                  .setSubnetwork(
+          [NetworkConfig](https://docs.cloud.google.com/java/docs/reference/google-cloud-tpu/latest/com.google.cloud.tpu.v2.NetworkConfig.html) networkConfig =
+              [NetworkConfig](https://docs.cloud.google.com/java/docs/reference/google-cloud-tpu/latest/com.google.cloud.tpu.v2.NetworkConfig.html).newBuilder()
+                  .[setEnableExternalIps](https://docs.cloud.google.com/java/docs/reference/google-cloud-tpu/latest/com.google.cloud.tpu.v2.NetworkConfig.Builder.html#com_google_cloud_tpu_v2_NetworkConfig_Builder_setEnableExternalIps_boolean_)(true)
+                  .[setNetwork](https://docs.cloud.google.com/java/docs/reference/google-cloud-tpu/latest/com.google.cloud.tpu.v2.NetworkConfig.Builder.html#com_google_cloud_tpu_v2_NetworkConfig_Builder_setNetwork_java_lang_String_)(String.format("projects/%s/global/networks/%s", projectId, networkName))
+                  .[setSubnetwork](https://docs.cloud.google.com/java/docs/reference/google-cloud-tpu/latest/com.google.cloud.tpu.v2.NetworkConfig.Builder.html#com_google_cloud_tpu_v2_NetworkConfig_Builder_setSubnetwork_java_lang_String_)(
                       String.format(
                           "projects/%s/regions/%s/subnetworks/%s", projectId, region, networkName))
                   .build();
     
           // Create a node
-          Node node =
-              Node.newBuilder()
+          [Node](https://docs.cloud.google.com/java/docs/reference/google-cloud-tpu/latest/com.google.cloud.tpu.v2.Node.html) node =
+              [Node](https://docs.cloud.google.com/java/docs/reference/google-cloud-tpu/latest/com.google.cloud.tpu.v2.Node.html).newBuilder()
                   .setName(nodeName)
                   .setAcceleratorType(tpuType)
                   .setRuntimeVersion(tpuSoftwareVersion)
-                  .setNetworkConfig(networkConfig)
+                  .[setNetworkConfig](https://docs.cloud.google.com/java/docs/reference/google-cloud-tpu/latest/com.google.cloud.tpu.v2.Node.Builder.html#com_google_cloud_tpu_v2_Node_Builder_setNetworkConfig_com_google_cloud_tpu_v2_NetworkConfig_)(networkConfig)
                   .setQueuedResource(
                       String.format(
                           "projects/%s/locations/%s/queuedResources/%s",
@@ -1570,13 +1570,13 @@ To authenticate to Cloud TPU, set up Application Default Credentials. For more i
                   .build();
     
           // Create queued resource
-          QueuedResource queuedResource =
-              QueuedResource.newBuilder()
+          [QueuedResource](https://docs.cloud.google.com/java/docs/reference/google-cloud-tpu/latest/com.google.cloud.tpu.v2.QueuedResource.html) queuedResource =
+              [QueuedResource](https://docs.cloud.google.com/java/docs/reference/google-cloud-tpu/latest/com.google.cloud.tpu.v2.QueuedResource.html).newBuilder()
                   .setName(queuedResourceId)
-                  .setTpu(
-                      QueuedResource.Tpu.newBuilder()
-                          .addNodeSpec(
-                              QueuedResource.Tpu.NodeSpec.newBuilder()
+                  .[setTpu](https://docs.cloud.google.com/java/docs/reference/google-cloud-tpu/latest/com.google.cloud.tpu.v2.QueuedResource.Builder.html#com_google_cloud_tpu_v2_QueuedResource_Builder_setTpu_com_google_cloud_tpu_v2_QueuedResource_Tpu_)(
+                      [QueuedResource](https://docs.cloud.google.com/java/docs/reference/google-cloud-tpu/latest/com.google.cloud.tpu.v2.QueuedResource.html).Tpu.newBuilder()
+                          .[addNodeSpec](https://docs.cloud.google.com/java/docs/reference/google-cloud-tpu/latest/com.google.cloud.tpu.v2.QueuedResource.Tpu.Builder.html#com_google_cloud_tpu_v2_QueuedResource_Tpu_Builder_addNodeSpec_com_google_cloud_tpu_v2_QueuedResource_Tpu_NodeSpec_)(
+                              [QueuedResource](https://docs.cloud.google.com/java/docs/reference/google-cloud-tpu/latest/com.google.cloud.tpu.v2.QueuedResource.html).Tpu.NodeSpec.newBuilder()
                                   .setParent(parent)
                                   .setNode(node)
                                   .setNodeId(nodeName)
@@ -1584,17 +1584,17 @@ To authenticate to Cloud TPU, set up Application Default Credentials. For more i
                           .build())
                   .build();
     
-          CreateQueuedResourceRequest request =
-              CreateQueuedResourceRequest.newBuilder()
+          [CreateQueuedResourceRequest](https://docs.cloud.google.com/java/docs/reference/google-cloud-tpu/latest/com.google.cloud.tpu.v2.CreateQueuedResourceRequest.html) request =
+              [CreateQueuedResourceRequest](https://docs.cloud.google.com/java/docs/reference/google-cloud-tpu/latest/com.google.cloud.tpu.v2.CreateQueuedResourceRequest.html).newBuilder()
                   .setParent(parent)
                   .setQueuedResource(queuedResource)
-                  .setQueuedResourceId(queuedResourceId)
+                  .[setQueuedResourceId](https://docs.cloud.google.com/java/docs/reference/google-cloud-tpu/latest/com.google.cloud.tpu.v2.CreateQueuedResourceRequest.Builder.html#com_google_cloud_tpu_v2_CreateQueuedResourceRequest_Builder_setQueuedResourceId_java_lang_String_)(queuedResourceId)
                   .build();
     
           // You can wait until TPU Node is READY,
           // and check its status using getTpuVm() from "tpu_vm_get" sample.
     
-          return tpuClient.createQueuedResourceAsync(request).get();
+          return tpuClient.[createQueuedResourceAsync](https://docs.cloud.google.com/java/docs/reference/google-cloud-tpu/latest/com.google.cloud.tpu.v2.TpuClient.html#com_google_cloud_tpu_v2_TpuClient_createQueuedResourceAsync__org_jspecify_annotations_Nullable_com_google_cloud_tpu_v2_LocationName_com_google_cloud_tpu_v2_QueuedResource_java_lang_String_)(request).get();
         }
       }
     }
@@ -1719,9 +1719,9 @@ To authenticate to Cloud TPU, set up Application Default Credentials. For more i
     
     
     import com.google.api.gax.retrying.[RetrySettings](https://docs.cloud.google.com/java/docs/reference/gax/latest/com.google.api.gax.retrying.RetrySettings.html);
-    import com.google.cloud.tpu.v2alpha1.DeleteQueuedResourceRequest;
-    import com.google.cloud.tpu.v2alpha1.TpuClient;
-    import com.google.cloud.tpu.v2alpha1.TpuSettings;
+    import com.google.cloud.tpu.v2.[DeleteQueuedResourceRequest](https://docs.cloud.google.com/java/docs/reference/google-cloud-tpu/latest/com.google.cloud.tpu.v2.DeleteQueuedResourceRequest.html);
+    import com.google.cloud.tpu.v2.[TpuClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-tpu/latest/com.google.cloud.tpu.v2.TpuClient.html);
+    import com.google.cloud.tpu.v2.[TpuSettings](https://docs.cloud.google.com/java/docs/reference/google-cloud-tpu/latest/com.google.cloud.tpu.v2.TpuSettings.html);
     import java.io.IOException;
     import java.util.concurrent.ExecutionException;
     import org.threeten.bp.Duration;
@@ -1748,8 +1748,8 @@ To authenticate to Cloud TPU, set up Application Default Credentials. For more i
             projectId, zone, queuedResourceId);
         // With these settings the client library handles the Operation's polling mechanism
         // and prevent CancellationException error
-        TpuSettings.Builder clientSettings =
-            TpuSettings.newBuilder();
+        [TpuSettings](https://docs.cloud.google.com/java/docs/reference/google-cloud-tpu/latest/com.google.cloud.tpu.v2.TpuSettings.html).Builder clientSettings =
+            [TpuSettings](https://docs.cloud.google.com/java/docs/reference/google-cloud-tpu/latest/com.google.cloud.tpu.v2.TpuSettings.html).newBuilder();
         clientSettings
             .deleteQueuedResourceSettings()
             .setRetrySettings(
@@ -1764,12 +1764,12 @@ To authenticate to Cloud TPU, set up Application Default Credentials. For more i
     
         // Initialize client that will be used to send requests. This client only needs to be created
         // once, and can be reused for multiple requests.
-        try (TpuClient tpuClient = TpuClient.create(clientSettings.build())) {
-          DeleteQueuedResourceRequest request =
-              DeleteQueuedResourceRequest.newBuilder().setName(name).setForce(true).build();
+        try ([TpuClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-tpu/latest/com.google.cloud.tpu.v2.TpuClient.html) tpuClient = [TpuClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-tpu/latest/com.google.cloud.tpu.v2.TpuClient.html).create(clientSettings.build())) {
+          [DeleteQueuedResourceRequest](https://docs.cloud.google.com/java/docs/reference/google-cloud-tpu/latest/com.google.cloud.tpu.v2.DeleteQueuedResourceRequest.html) request =
+              [DeleteQueuedResourceRequest](https://docs.cloud.google.com/java/docs/reference/google-cloud-tpu/latest/com.google.cloud.tpu.v2.DeleteQueuedResourceRequest.html).newBuilder().setName(name).[setForce](https://docs.cloud.google.com/java/docs/reference/google-cloud-tpu/latest/com.google.cloud.tpu.v2.DeleteQueuedResourceRequest.Builder.html#com_google_cloud_tpu_v2_DeleteQueuedResourceRequest_Builder_setForce_boolean_)(true).build();
           // Waiting for updates in the library. Until then, the operation will complete successfully,
           // but the user will receive an error message with UnknownException and IllegalStateException.
-          tpuClient.deleteQueuedResourceAsync(request).get();
+          tpuClient.[deleteQueuedResourceAsync](https://docs.cloud.google.com/java/docs/reference/google-cloud-tpu/latest/com.google.cloud.tpu.v2.TpuClient.html#com_google_cloud_tpu_v2_TpuClient_deleteQueuedResourceAsync__org_jspecify_annotations_Nullable_com_google_cloud_tpu_v2_QueuedResourceName_)(request).get();
     
           System.out.printf("Deleted Queued Resource: %s\n", name);
         }
@@ -1962,8 +1962,8 @@ To authenticate to Cloud TPU, set up Application Default Credentials. For more i
 When you delete your TPU, the associated queued resource goes into the `SUSPENDING` state, then the `SUSPENDED` state. When your queued resource is in the `SUSPENDED` state, you can delete it:
     
     
-    import com.google.cloud.tpu.v2alpha1.DeleteQueuedResourceRequest;
-    import com.google.cloud.tpu.v2alpha1.TpuClient;
+    import com.google.cloud.tpu.v2.[DeleteQueuedResourceRequest](https://docs.cloud.google.com/java/docs/reference/google-cloud-tpu/latest/com.google.cloud.tpu.v2.DeleteQueuedResourceRequest.html);
+    import com.google.cloud.tpu.v2.[TpuClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-tpu/latest/com.google.cloud.tpu.v2.TpuClient.html);
     import java.io.IOException;
     import java.util.concurrent.ExecutionException;
     
@@ -1988,15 +1988,15 @@ When you delete your TPU, the associated queued resource goes into the `SUSPENDI
             projectId, zone, queuedResourceId);
         // Initialize client that will be used to send requests. This client only needs to be created
         // once, and can be reused for multiple requests.
-        try (TpuClient tpuClient = TpuClient.create()) {
+        try ([TpuClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-tpu/latest/com.google.cloud.tpu.v2.TpuClient.html) tpuClient = [TpuClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-tpu/latest/com.google.cloud.tpu.v2.TpuClient.html).create()) {
           // Before deleting the queued resource it is required to delete the TPU VM.
           // For more information about deleting TPU
           // see https://cloud.google.com/tpu/docs/managing-tpus-tpu-vm
     
-          DeleteQueuedResourceRequest request =
-                  DeleteQueuedResourceRequest.newBuilder().setName(name).build();
+          [DeleteQueuedResourceRequest](https://docs.cloud.google.com/java/docs/reference/google-cloud-tpu/latest/com.google.cloud.tpu.v2.DeleteQueuedResourceRequest.html) request =
+                  [DeleteQueuedResourceRequest](https://docs.cloud.google.com/java/docs/reference/google-cloud-tpu/latest/com.google.cloud.tpu.v2.DeleteQueuedResourceRequest.html).newBuilder().setName(name).build();
     
-          tpuClient.deleteQueuedResourceAsync(request).get();
+          tpuClient.[deleteQueuedResourceAsync](https://docs.cloud.google.com/java/docs/reference/google-cloud-tpu/latest/com.google.cloud.tpu.v2.TpuClient.html#com_google_cloud_tpu_v2_TpuClient_deleteQueuedResourceAsync__org_jspecify_annotations_Nullable_com_google_cloud_tpu_v2_QueuedResourceName_)(request).get();
         }
       }
     }
@@ -2101,9 +2101,9 @@ After your TPU has been provisioned, you can also view details about your queued
 To authenticate to Cloud TPU, set up Application Default Credentials. For more information, see [Set up authentication for a local development environment](https://docs.cloud.google.com/docs/authentication/set-up-adc-local-dev-environment). 
     
     
-    import com.google.cloud.tpu.v2alpha1.GetQueuedResourceRequest;
-    import com.google.cloud.tpu.v2alpha1.QueuedResource;
-    import com.google.cloud.tpu.v2alpha1.TpuClient;
+    import com.google.cloud.tpu.v2.[GetQueuedResourceRequest](https://docs.cloud.google.com/java/docs/reference/google-cloud-tpu/latest/com.google.cloud.tpu.v2.GetQueuedResourceRequest.html);
+    import com.google.cloud.tpu.v2.[QueuedResource](https://docs.cloud.google.com/java/docs/reference/google-cloud-tpu/latest/com.google.cloud.tpu.v2.QueuedResource.html);
+    import com.google.cloud.tpu.v2.[TpuClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-tpu/latest/com.google.cloud.tpu.v2.TpuClient.html);
     import java.io.IOException;
     
     public class GetQueuedResource {
@@ -2120,15 +2120,15 @@ To authenticate to Cloud TPU, set up Application Default Credentials. For more i
       }
     
       // Get a Queued Resource.
-      public static QueuedResource getQueuedResource(
+      public static [QueuedResource](https://docs.cloud.google.com/java/docs/reference/google-cloud-tpu/latest/com.google.cloud.tpu.v2.QueuedResource.html) getQueuedResource(
           String projectId, String zone, String queuedResourceId) throws IOException {
         String name = String.format("projects/%s/locations/%s/queuedResources/%s",
             projectId, zone, queuedResourceId);
         // Initialize client that will be used to send requests. This client only needs to be created
         // once, and can be reused for multiple requests.
-        try (TpuClient tpuClient = TpuClient.create()) {
-          GetQueuedResourceRequest request =
-              GetQueuedResourceRequest.newBuilder().setName(name).build();
+        try ([TpuClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-tpu/latest/com.google.cloud.tpu.v2.TpuClient.html) tpuClient = [TpuClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-tpu/latest/com.google.cloud.tpu.v2.TpuClient.html).create()) {
+          [GetQueuedResourceRequest](https://docs.cloud.google.com/java/docs/reference/google-cloud-tpu/latest/com.google.cloud.tpu.v2.GetQueuedResourceRequest.html) request =
+              [GetQueuedResourceRequest](https://docs.cloud.google.com/java/docs/reference/google-cloud-tpu/latest/com.google.cloud.tpu.v2.GetQueuedResourceRequest.html).newBuilder().setName(name).build();
     
           return tpuClient.getQueuedResource(request);
         }
@@ -2234,10 +2234,10 @@ List the queued resource requests in your project:
 To authenticate to Cloud TPU, set up Application Default Credentials. For more information, see [Set up authentication for a local development environment](https://docs.cloud.google.com/docs/authentication/set-up-adc-local-dev-environment). 
     
     
-    import com.google.cloud.tpu.v2alpha1.ListQueuedResourcesRequest;
-    import com.google.cloud.tpu.v2alpha1.QueuedResource;
-    import com.google.cloud.tpu.v2alpha1.TpuClient;
-    import com.google.cloud.tpu.v2alpha1.TpuClient.ListQueuedResourcesPage;
+    import com.google.cloud.tpu.v2.[ListQueuedResourcesRequest](https://docs.cloud.google.com/java/docs/reference/google-cloud-tpu/latest/com.google.cloud.tpu.v2.ListQueuedResourcesRequest.html);
+    import com.google.cloud.tpu.v2.[QueuedResource](https://docs.cloud.google.com/java/docs/reference/google-cloud-tpu/latest/com.google.cloud.tpu.v2.QueuedResource.html);
+    import com.google.cloud.tpu.v2.[TpuClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-tpu/latest/com.google.cloud.tpu.v2.TpuClient.html);
+    import com.google.cloud.tpu.v2.[TpuClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-tpu/latest/com.google.cloud.tpu.v2.TpuClient.html).[ListQueuedResourcesPage](https://docs.cloud.google.com/java/docs/reference/google-cloud-tpu/latest/com.google.cloud.tpu.v2.TpuClient.ListQueuedResourcesPage.html);
     import java.io.IOException;
     
     public class ListQueuedResources {
@@ -2252,17 +2252,17 @@ To authenticate to Cloud TPU, set up Application Default Credentials. For more i
       }
     
       // List Queued Resources.
-      public static ListQueuedResourcesPage listQueuedResources(
+      public static [ListQueuedResourcesPage](https://docs.cloud.google.com/java/docs/reference/google-cloud-tpu/latest/com.google.cloud.tpu.v2.TpuClient.ListQueuedResourcesPage.html) listQueuedResources(
           String projectId, String zone) throws IOException {
         String parent = String.format("projects/%s/locations/%s", projectId, zone);
         // Initialize client that will be used to send requests. This client only needs to be created
         // once, and can be reused for multiple requests.
-        try (TpuClient tpuClient = TpuClient.create()) {
-          ListQueuedResourcesRequest request =
-              ListQueuedResourcesRequest.newBuilder().setParent(parent).build();
-          ListQueuedResourcesPage response =  tpuClient.listQueuedResources(request).getPage();
+        try ([TpuClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-tpu/latest/com.google.cloud.tpu.v2.TpuClient.html) tpuClient = [TpuClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-tpu/latest/com.google.cloud.tpu.v2.TpuClient.html).create()) {
+          [ListQueuedResourcesRequest](https://docs.cloud.google.com/java/docs/reference/google-cloud-tpu/latest/com.google.cloud.tpu.v2.ListQueuedResourcesRequest.html) request =
+              [ListQueuedResourcesRequest](https://docs.cloud.google.com/java/docs/reference/google-cloud-tpu/latest/com.google.cloud.tpu.v2.ListQueuedResourcesRequest.html).newBuilder().setParent(parent).build();
+          [ListQueuedResourcesPage](https://docs.cloud.google.com/java/docs/reference/google-cloud-tpu/latest/com.google.cloud.tpu.v2.TpuClient.ListQueuedResourcesPage.html) response =  tpuClient.listQueuedResources(request).getPage();
     
-          for (QueuedResource queuedResource : response.iterateAll()) {
+          for ([QueuedResource](https://docs.cloud.google.com/java/docs/reference/google-cloud-tpu/latest/com.google.cloud.tpu.v2.QueuedResource.html) queuedResource : response.iterateAll()) {
             System.out.println(queuedResource.getName());
           }
           return response;
@@ -2296,6 +2296,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-07 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-07 UTC."],[],[]] 

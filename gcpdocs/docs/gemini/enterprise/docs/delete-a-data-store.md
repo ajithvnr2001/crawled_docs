@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini/enterprise/docs/delete-a-data-store/
 title: Delete a data store \u00a0|\u00a0 Gemini Enterprise \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T08:36:36.182233+00:00
+fetched_at: 2026-11-09T07:03:11.443804+00:00
 ---
 
 # Delete a data store  |  Gemini Enterprise  |  Google Cloud Documentation

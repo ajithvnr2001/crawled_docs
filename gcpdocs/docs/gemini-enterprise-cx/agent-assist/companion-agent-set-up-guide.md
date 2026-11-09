@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-cx/agent-assist/companion-agent-set-up-guide/
 title: Companion agent set up guide \u00a0|\u00a0 Agent Assist \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T08:35:40.376305+00:00
+fetched_at: 2026-11-09T07:03:32.393639+00:00
 ---
 
 # Companion agent set up guide  |  Agent Assist  |  Google Cloud Documentation

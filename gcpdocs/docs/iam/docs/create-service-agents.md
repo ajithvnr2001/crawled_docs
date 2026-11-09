@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/iam/docs/create-service-agents/
 title: Create and grant roles to service agents \u00a0|\u00a0 Identity and Access Management (IAM) \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T08:27:34.013959+00:00
+fetched_at: 2026-11-09T07:01:20.616579+00:00
 ---
 
 # Create and grant roles to service agents  |  Identity and Access Management (IAM)  |  Google Cloud Documentation

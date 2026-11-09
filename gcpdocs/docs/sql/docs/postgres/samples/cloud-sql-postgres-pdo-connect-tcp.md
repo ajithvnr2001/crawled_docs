@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sql/docs/postgres/samples/cloud-sql-postgres-pdo-connect-tcp/
 title: Create a TCP connection by using PHP \u00a0|\u00a0 Cloud SQL for PostgreSQL \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-06T10:28:24.044146+00:00
+fetched_at: 2026-11-09T05:54:39.664101+00:00
 ---
 
 # Create a TCP connection by using PHP  |  Cloud SQL for PostgreSQL  |  Google Cloud Documentation

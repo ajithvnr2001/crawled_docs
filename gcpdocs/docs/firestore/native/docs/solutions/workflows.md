@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/firestore/native/docs/solutions/workflows/
 title: Firestore connector for Workflows \u00a0|\u00a0 Firestore in Native mode \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T08:37:35.947286+00:00
+fetched_at: 2026-11-09T07:04:53.052998+00:00
 ---
 
 # Firestore connector for Workflows  |  Firestore in Native mode  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/talent-solution/job-search/docs/samples/job-discovery-filters-on-string-value-custom-attribute/
 title: Search by custom attribute (v3) \u00a0|\u00a0 Job Search \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T09:40:45.370965+00:00
+fetched_at: 2026-11-09T05:41:51.078617+00:00
 ---
 
 # Search by custom attribute (v3)  |  Job Search  |  Google Cloud Documentation

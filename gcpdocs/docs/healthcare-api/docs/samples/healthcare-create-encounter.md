@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/healthcare-api/docs/samples/healthcare-create-encounter/
 title: Create Encounter \u00a0|\u00a0 Cloud Healthcare API \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T08:29:00.429360+00:00
+fetched_at: 2026-11-09T07:01:52.245600+00:00
 ---
 
 # Create Encounter  |  Cloud Healthcare API  |  Google Cloud Documentation

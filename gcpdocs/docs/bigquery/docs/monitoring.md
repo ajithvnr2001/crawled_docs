@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/monitoring/
 title: Introduction to BigQuery monitoring \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T09:11:13.653879+00:00
+fetched_at: 2026-11-09T07:05:55.915290+00:00
 ---
 
 # Introduction to BigQuery monitoring  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sensitive-data-protection/docs/samples/dlp-list-jobs/
 title: List jobs \u00a0|\u00a0 Sensitive Data Protection \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-06T10:26:35.443793+00:00
+fetched_at: 2026-11-09T05:44:38.708631+00:00
 ---
 
 # List jobs  |  Sensitive Data Protection  |  Google Cloud Documentation

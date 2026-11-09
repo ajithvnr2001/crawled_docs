@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/generative-ai-app-builder/docs/update-schemas/
 title: Update a schema \u00a0|\u00a0 Agent Search \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T08:34:28.268697+00:00
+fetched_at: 2026-11-09T07:03:57.337532+00:00
 ---
 
 # Update a schema  |  Agent Search  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini/enterprise/docs/delete-datastores/
 title: Purge data from a first-party data store \u00a0|\u00a0 Gemini Enterprise \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T08:36:36.766739+00:00
+fetched_at: 2026-11-09T07:03:14.338210+00:00
 ---
 
 # Purge data from a first-party data store  |  Gemini Enterprise  |  Google Cloud Documentation

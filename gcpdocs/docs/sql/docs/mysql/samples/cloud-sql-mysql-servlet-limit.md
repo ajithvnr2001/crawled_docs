@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sql/docs/mysql/samples/cloud-sql-mysql-servlet-limit/
 title: Set connection pool and overflow limits when using HikariCP \u00a0|\u00a0 Cloud SQL for MySQL \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-06T10:28:28.399988+00:00
+fetched_at: 2026-11-09T06:56:33.003875+00:00
 ---
 
 # Set connection pool and overflow limits when using HikariCP  |  Cloud SQL for MySQL  |  Google Cloud Documentation

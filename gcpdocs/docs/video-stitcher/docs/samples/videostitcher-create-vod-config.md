@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/video-stitcher/docs/samples/videostitcher-create-vod-config/
 title: Create a VOD config \u00a0|\u00a0 Video Stitcher API \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-03T09:42:47.171097+00:00
+fetched_at: 2026-11-09T05:46:37.447135+00:00
 ---
 
 # Create a VOD config  |  Video Stitcher API  |  Google Cloud Documentation

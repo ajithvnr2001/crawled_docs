@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/vertex-ai/generative-ai/docs/samples/generativeaionvertexai-rag-list-corpora/
 title: List indexes in a project \u00a0|\u00a0 Generative AI on Vertex AI \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T05:48:42.237605+00:00
+fetched_at: 2026-11-09T05:48:38.408005+00:00
 ---
 
 # List indexes in a project  |  Generative AI on Vertex AI  |  Google Cloud Documentation

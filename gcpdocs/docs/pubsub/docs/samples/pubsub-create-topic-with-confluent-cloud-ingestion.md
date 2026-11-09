@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/pubsub/docs/samples/pubsub-create-topic-with-confluent-cloud-ingestion/
 title: Create topic with Confluent Cloud ingestion \u00a0|\u00a0 Pub/Sub \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T01:39:48.021407+00:00
+fetched_at: 2026-11-09T07:00:15.251085+00:00
 ---
 
 # Create topic with Confluent Cloud ingestion  |  Pub/Sub  |  Google Cloud Documentation

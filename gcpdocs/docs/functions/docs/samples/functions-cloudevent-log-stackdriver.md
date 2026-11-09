@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/functions/docs/samples/functions-cloudevent-log-stackdriver/
 title: Process Cloud Audit Logs with Cloud Functions \u00a0|\u00a0 Cloud Run functions \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T08:37:08.547948+00:00
+fetched_at: 2026-11-09T07:05:02.856048+00:00
 ---
 
 # Process Cloud Audit Logs with Cloud Functions  |  Cloud Run functions  |  Google Cloud Documentation

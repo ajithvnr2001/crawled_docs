@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/generative-ai-app-builder/docs/answer/
 title: Get answers and follow-ups \u00a0|\u00a0 Agent Search \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T08:35:07.095375+00:00
+fetched_at: 2026-11-09T07:04:44.318440+00:00
 ---
 
 # Get answers and follow-ups  |  Agent Search  |  Google Cloud Documentation

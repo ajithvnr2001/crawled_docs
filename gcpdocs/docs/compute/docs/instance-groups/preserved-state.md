@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/compute/docs/instance-groups/preserved-state/
 title: How some operations affect preserved state of managed instances \u00a0|\u00a0 Compute Engine \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T09:00:39.163738+00:00
+fetched_at: 2026-11-09T07:05:26.915499+00:00
 ---
 
 # How some operations affect preserved state of managed instances  |  Compute Engine  |  Google Cloud Documentation

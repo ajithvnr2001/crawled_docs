@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-cx/agent-assist/gemini-transcribe-live/
 title: Gemini transcribe live \u00a0|\u00a0 Agent Assist \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T08:35:37.255572+00:00
+fetched_at: 2026-11-09T07:04:25.368405+00:00
 ---
 
 # Gemini transcribe live  |  Agent Assist  |  Google Cloud Documentation

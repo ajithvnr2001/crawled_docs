@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/docs/security/compliance/restrict-endpoint-usage/
 title: Restrict endpoint usage \u00a0|\u00a0 Security \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T23:32:43.671848+00:00
+fetched_at: 2026-11-09T07:07:04.297236+00:00
 ---
 
 # Restrict endpoint usage  |  Security  |  Google Cloud Documentation
@@ -440,9 +440,35 @@ Chrome Enterprise Premium  |  Global API endpoints:
 
   
 |  None   
-BigLake  |  Global API endpoints: 
+Lakehouse  |  Global API endpoints: 
 
   * `biglake.googleapis.com`
+
+  
+Regional API endpoints: 
+
+  * `biglake.asia-south1.rep.googleapis.com`
+  * `biglake.asia-south2.rep.googleapis.com`
+  * `biglake.europe-west1.rep.googleapis.com`
+  * `biglake.europe-west10.rep.googleapis.com`
+  * `biglake.europe-west2.rep.googleapis.com`
+  * `biglake.europe-west3.rep.googleapis.com`
+  * `biglake.europe-west4.rep.googleapis.com`
+  * `biglake.europe-west6.rep.googleapis.com`
+  * `biglake.europe-west8.rep.googleapis.com`
+  * `biglake.europe-west9.rep.googleapis.com`
+  * `biglake.me-central2.rep.googleapis.com`
+  * `biglake.northamerica-northeast1.rep.googleapis.com`
+  * `biglake.northamerica-northeast2.rep.googleapis.com`
+  * `biglake.us-central1.rep.googleapis.com`
+  * `biglake.us-east1.rep.googleapis.com`
+  * `biglake.us-east4.rep.googleapis.com`
+  * `biglake.us-east5.rep.googleapis.com`
+  * `biglake.us-south1.rep.googleapis.com`
+  * `biglake.us-west1.rep.googleapis.com`
+  * `biglake.us-west2.rep.googleapis.com`
+  * `biglake.us-west3.rep.googleapis.com`
+  * `biglake.us-west4.rep.googleapis.com`
 
   
 |  None   

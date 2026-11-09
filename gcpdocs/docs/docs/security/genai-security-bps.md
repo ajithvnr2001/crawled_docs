@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/docs/security/genai-security-bps/
 title: Generative AI security best practices \u00a0|\u00a0 Security \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T09:11:51.626230+00:00
+fetched_at: 2026-11-09T07:05:59.619530+00:00
 ---
 
 # Generative AI security best practices  |  Security  |  Google Cloud Documentation

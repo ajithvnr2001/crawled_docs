@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/eventarc/standard/docs/run/route-trigger-cloud-audit-logs/
 title: Route audit log events to Cloud Run \u00a0|\u00a0 Eventarc Standard \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T08:37:43.922046+00:00
+fetched_at: 2026-11-09T07:04:52.850128+00:00
 ---
 
 # Route audit log events to Cloud Run  |  Eventarc Standard  |  Google Cloud Documentation

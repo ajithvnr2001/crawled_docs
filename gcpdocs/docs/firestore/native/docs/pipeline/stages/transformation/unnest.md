@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/firestore/native/docs/pipeline/stages/transformation/unnest/
 title: Unnest (Transformation Stage) \u00a0|\u00a0 Firestore in Native mode \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T08:36:53.087587+00:00
+fetched_at: 2026-11-09T07:03:03.059706+00:00
 ---
 
 # Unnest (Transformation Stage)  |  Firestore in Native mode  |  Google Cloud Documentation

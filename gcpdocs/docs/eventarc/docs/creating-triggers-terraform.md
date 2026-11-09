@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/eventarc/docs/creating-triggers-terraform/
 title: Create a trigger using Terraform \u00a0|\u00a0 Eventarc Standard \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T08:34:32.125737+00:00
+fetched_at: 2026-11-09T07:04:00.004491+00:00
 ---
 
 # Create a trigger using Terraform  |  Eventarc Standard  |  Google Cloud Documentation

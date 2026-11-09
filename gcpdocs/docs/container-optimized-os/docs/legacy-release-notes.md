@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/container-optimized-os/docs/legacy-release-notes/
 title: Container-Optimized OS Release Notes \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T09:15:43.758578+00:00
+fetched_at: 2026-11-09T07:05:06.377171+00:00
 ---
 
 # Container-Optimized OS Release Notes  |  Google Cloud Documentation

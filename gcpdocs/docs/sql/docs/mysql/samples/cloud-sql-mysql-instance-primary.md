@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sql/docs/mysql/samples/cloud-sql-mysql-instance-primary/
 title: Create a primary MySQL instance for replication \u00a0|\u00a0 Cloud SQL for MySQL \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-06T10:29:47.898486+00:00
+fetched_at: 2026-11-09T06:56:02.008262+00:00
 ---
 
 # Create a primary MySQL instance for replication  |  Cloud SQL for MySQL  |  Google Cloud Documentation

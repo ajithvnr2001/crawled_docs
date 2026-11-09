@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sql/docs/mysql/configure-dns/
 title: Configure DNS in Private Service Connect \u00a0|\u00a0 Cloud SQL for MySQL \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-06T10:25:19.414216+00:00
+fetched_at: 2026-11-09T05:53:37.523544+00:00
 ---
 
 # Configure DNS in Private Service Connect  |  Cloud SQL for MySQL  |  Google Cloud Documentation
@@ -260,53 +260,125 @@ These fields appear within the `pscAutoConnections` output field:
           }
         ]
 
-## Troubleshooting DNS automation
+## Troubleshoot DNS automation
 
 If the Cloud DNS API isn't enabled, or the Private Service Connect service connection policy is missing, or if there are backend errors during DNS record creation, then DNS automation can fail to create a per-instance DNS record or a global write endpoint DNS name.
 
-To troubleshoot and attempt to resolve these issues, reconcile the networking for DNS automation. Use the `curl` command to `PATCH` the Cloud SQL instance and specify one of the following query parameters:
+To troubleshoot and attempt to resolve these issues, reconcile the networking for DNS automation.
 
-  * **`reconcilePscNetworking`** : when you set the query parameter to `true`, Cloud SQL tries to restore any parts of DNS automation that aren't working. To attempt reconciliation, run the following command:
-        
-        curl -X PATCH \
-            -H "Authorization: Bearer $(gcloud auth application-default print-access-token)" \
-            -H "Content-Type: application/json" \
-            "https://sqladmin.googleapis.com/sql/v1beta4/projects/PROJECT_ID/instances/INSTANCE_NAME?reconcilePscNetworking=true" \
-            -d '{
-              "kind": "sql#instance",
-              "project": "PROJECT_ID",
-              "name": "INSTANCE_NAME",
-              "settings": {
-                "kind": "sql#settings"
-              }
-            }'
+### gcloud
 
-Replace the following: 
+#### Standard reconciliation
 
-    * PROJECT_ID: the ID of the Google Cloud project
-    * INSTANCE_NAME: the name of the Cloud SQL instance
+To restore any parts of DNS automation that aren't working without causing downtime, run the following command:
+    
+    
+    gcloud sql instances reconcile-networking INSTANCE_NAME \
+      --psc-dns
 
-This operation doesn't cause downtime.
+Replace the following:
 
-  * **`reconcilePscNetworkingForce`** : similar to `reconcilePscNetworking`, but when you set to true, Cloud SQL tries to restore all DNS automation settings at the cost of brief downtime of the existing DNS automation parts that are working. This can help in some cases where `reconcile-psc-networking` doesn't work.
-        
-        curl -X PATCH \
-            -H "Authorization: Bearer $(gcloud auth application-default print-access-token)" \
-            -H "Content-Type: application/json" \
-            "https://sqladmin.googleapis.com/sql/v1beta4/projects/PROJECT_ID/instances/INSTANCE_NAME?reconcilePscNetworkingForce=true" \
-            -d '{
-              "kind": "sql#instance",
-              "project": "PROJECT_ID",
-              "name": "INSTANCE_NAME",
-              "settings": {
-                "kind": "sql#settings"
-              }
-            }'
+  * INSTANCE_NAME: the name of the Cloud SQL instance.
 
-Replace the following: 
 
-    * PROJECT_ID: the ID of the Google Cloud project
-    * INSTANCE_NAME: the name of the Cloud SQL instance
+
+#### Reconcile specific consumer networks
+
+Optionally, you can specify consumer VPC networks to reconcile:
+    
+    
+    gcloud sql instances reconcile-networking INSTANCE_NAME \
+      --psc-dns \
+      --networks=projects/CONSUMER_PROJECT_ID/global/networks/CONSUMER_NETWORK_NAME
+
+Replace the following:
+
+  * CONSUMER_PROJECT_ID: the ID of the project that contains the consumer VPC network.
+  * CONSUMER_NETWORK_NAME: the name of the consumer VPC network.
+
+
+
+If you omit `--networks`, then Cloud SQL recreates DNS write endpoints for all consumer networks associated with the instance.
+
+#### Forced reconciliation
+
+To restore all DNS automation settings at the cost of brief downtime on the existing DNS automation parts that are working, run the following command:
+    
+    
+    gcloud sql instances reconcile-networking INSTANCE_NAME \
+      --psc-dns \
+      --force
+
+Replace the following:
+
+  * INSTANCE_NAME: the name of the Cloud SQL instance.
+
+
+
+### REST
+
+#### Standard reconciliation
+
+When you set `force` to `false`, Cloud SQL tries to restore any parts of DNS automation that aren't working. This operation doesn't cause downtime. To attempt reconciliation, run the following command:
+    
+    
+    curl -X POST \
+      -H "Authorization: Bearer $(gcloud auth application-default print-access-token)" \
+      -H "Content-Type: application/json" \
+      "https://sqladmin.googleapis.com/v1/projects/PROJECT_ID/instances/INSTANCE_NAME:reconcileNetworking" \
+      -d '{
+        "pscDns": {
+          "force": false
+        }
+      }'
+
+Replace the following:
+
+  * PROJECT_ID: the ID of the Google Cloud project.
+  * INSTANCE_NAME: the name of the Cloud SQL instance.
+
+
+
+#### Reconcile specific consumer networks
+
+Optionally, you can specify consumer VPC networks to reconcile by including the `networks` array inside `pscDns`:
+    
+    
+    "pscDns": {
+      "force": false,
+      "networks": [
+        "projects/CONSUMER_PROJECT_ID/global/networks/CONSUMER_NETWORK_NAME"
+      ]
+    }
+
+Replace the following:
+
+  * CONSUMER_PROJECT_ID: the ID of the project that contains the consumer VPC network.
+  * CONSUMER_NETWORK_NAME: the name of the consumer VPC network.
+
+
+
+If you omit `networks`, then Cloud SQL recreates DNS write endpoints for all consumer networks associated with the instance.
+
+#### Forced reconciliation
+
+When you set `force` to `true`, Cloud SQL tries to restore all DNS automation settings at the cost of brief downtime on the existing DNS automation parts that are working. This can help in cases where standard reconciliation doesn't resolve the issue. To attempt forced reconciliation, run the following command:
+    
+    
+    curl -X POST \
+      -H "Authorization: Bearer $(gcloud auth application-default print-access-token)" \
+      -H "Content-Type: application/json" \
+      "https://sqladmin.googleapis.com/v1/projects/PROJECT_ID/instances/INSTANCE_NAME:reconcileNetworking" \
+      -d '{
+        "pscDns": {
+          "force": true
+        }
+      }'
+
+Replace the following:
+
+  * PROJECT_ID: the ID of the Google Cloud project.
+  * INSTANCE_NAME: the name of the Cloud SQL instance.
 
 
 
@@ -621,6 +693,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-03 UTC.
+Last updated 2026-11-07 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-07 UTC."],[],[]] 

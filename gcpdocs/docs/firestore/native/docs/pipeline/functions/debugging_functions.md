@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/firestore/native/docs/pipeline/functions/debugging_functions/
 title: Debugging Functions Reference \u00a0|\u00a0 Firestore in Native mode \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T08:35:57.884223+00:00
+fetched_at: 2026-11-09T07:02:32.341755+00:00
 ---
 
 # Debugging Functions Reference  |  Firestore in Native mode  |  Google Cloud Documentation

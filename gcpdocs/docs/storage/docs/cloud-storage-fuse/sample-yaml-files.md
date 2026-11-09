@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/storage/docs/cloud-storage-fuse/sample-yaml-files/
 title: Optimize performance with pre-configured GKE YAML files \u00a0|\u00a0 Cloud Storage \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-06T10:31:49.546971+00:00
+fetched_at: 2026-11-09T05:45:58.502001+00:00
 ---
 
 # Optimize performance with pre-configured GKE YAML files  |  Cloud Storage  |  Google Cloud Documentation

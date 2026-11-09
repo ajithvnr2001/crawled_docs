@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/endpoint-verification/docs/device-information/
 title: Device attributes collected by Endpoint Verification \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T08:37:52.798413+00:00
+fetched_at: 2026-11-09T07:04:05.207579+00:00
 ---
 
 # Device attributes collected by Endpoint Verification  |  Google Cloud Documentation

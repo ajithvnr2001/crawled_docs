@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-cx/agent-assist/aaforsalesforce-voice-five9/
 title: Agent Assist for Salesforce voice integration with Five9 Fusion \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T08:35:27.937611+00:00
+fetched_at: 2026-11-09T07:04:40.749930+00:00
 ---
 
 # Agent Assist for Salesforce voice integration with Five9 Fusion  |  Google Cloud Documentation

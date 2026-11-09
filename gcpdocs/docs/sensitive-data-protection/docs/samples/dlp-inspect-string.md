@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sensitive-data-protection/docs/samples/dlp-inspect-string/
 title: Inspect a string \u00a0|\u00a0 Sensitive Data Protection \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-06T10:26:33.734763+00:00
+fetched_at: 2026-11-09T05:44:25.478913+00:00
 ---
 
 # Inspect a string  |  Sensitive Data Protection  |  Google Cloud Documentation
@@ -498,7 +498,7 @@ To authenticate to Sensitive Data Protection, set up Application Default Credent
     
     require "google/cloud/dlp"
     
-    dlp = Google::Cloud::[Dlp](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-dlp/latest/Google-Cloud-Dlp.html).[dlp_service](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-dlp/latest/Google-Cloud-Dlp.html)
+    dlp = Google::Cloud::[Dlp](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-dlp-v2/latest/Google-Cloud-Dlp.html).[dlp_service](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-dlp/latest/Google-Cloud-Dlp.html)
     inspect_config = {
       # The types of information to match
       info_types:     [{ name: "PERSON_NAME" }, { name: "US_STATE" }],

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/data-fusion/docs/how-to/pass-runtime-args-in-replication/
 title: Pass a runtime argument to a Replication job \u00a0|\u00a0 Cloud Data Fusion \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T09:14:53.050873+00:00
+fetched_at: 2026-11-09T07:06:06.163502+00:00
 ---
 
 # Pass a runtime argument to a Replication job  |  Cloud Data Fusion  |  Google Cloud Documentation

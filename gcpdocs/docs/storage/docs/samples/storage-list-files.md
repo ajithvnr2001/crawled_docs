@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/storage/docs/samples/storage-list-files/
 title: List the objects in a bucket \u00a0|\u00a0 Cloud Storage \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-02T05:40:20.969852+00:00
+fetched_at: 2026-11-09T05:46:09.053641+00:00
 ---
 
 # List the objects in a bucket  |  Cloud Storage  |  Google Cloud Documentation

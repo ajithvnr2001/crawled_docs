@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/workflows/docs/schedule-workflow/
 title: Schedule a workflow using Cloud Scheduler \u00a0|\u00a0 Workflows \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-06T10:38:40.579656+00:00
+fetched_at: 2026-11-09T05:49:54.833002+00:00
 ---
 
 # Schedule a workflow using Cloud Scheduler  |  Workflows  |  Google Cloud Documentation
@@ -120,11 +120,11 @@ The Cloud Scheduler job is now listed on the **Triggers** tab of the **Workflow 
      1. Open a terminal and enter the following command:
             
             gcloud scheduler jobs create http JOB_NAME \
-                --schedule=&quot;FREQUENCY" \
+                --schedule="FREQUENCY" \
                 --uri="https://workflowexecutions.googleapis.com/v1/projects/PROJECT_ID/locations/REGION_NAME/workflows/WORKFLOW_NAME/executions" \
-                --message-body="{\"argument\&quot;: \"DOUBLE_ESCAPED_JSON_STRING\"}" \
-                --time-zone="TIME_ZONE&quot; \
-                --oiam.gserviceaccount.comauth-service-account-email="SERVICE_ACCOUNT_NAME@PROJECT_ID."
+                --message-body="{\"argument\": \"DOUBLE_ESCAPED_JSON_STRING\"}" \
+                --time-zone="TIME_ZONE" \
+                --oauth-service-account-email="SERVICE_ACCOUNT_NAME@PROJECT_ID.iam.gserviceaccount.com"
 
 Replace the following:
 

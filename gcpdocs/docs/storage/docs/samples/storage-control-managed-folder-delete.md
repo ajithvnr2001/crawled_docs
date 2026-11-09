@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/storage/docs/samples/storage-control-managed-folder-delete/
 title: Storage Control delete a managed folder \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-02T05:40:51.882547+00:00
+fetched_at: 2026-11-09T05:48:31.448563+00:00
 ---
 
 # Storage Control delete a managed folder  |  Google Cloud Documentation

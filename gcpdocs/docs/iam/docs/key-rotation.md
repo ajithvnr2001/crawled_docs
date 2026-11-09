@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/iam/docs/key-rotation/
 title: Service account key rotation \u00a0|\u00a0 Identity and Access Management (IAM) \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T08:30:37.184650+00:00
+fetched_at: 2026-11-09T07:01:14.641197+00:00
 ---
 
 # Service account key rotation  |  Identity and Access Management (IAM)  |  Google Cloud Documentation

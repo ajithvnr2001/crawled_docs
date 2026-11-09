@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-cx/ai-commerce-search/manage-user-events/
 title: Manage user events \u00a0|\u00a0 AI Commerce Search in Gemini Enterprise for Customer Experience \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T08:35:43.622286+00:00
+fetched_at: 2026-11-09T07:04:07.128358+00:00
 ---
 
 # Manage user events  |  AI Commerce Search in Gemini Enterprise for Customer Experience  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/firestore/native/docs/pipeline/stages/input/collection/
 title: Collection (Input Stage) \u00a0|\u00a0 Firestore in Native mode \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T08:36:59.014782+00:00
+fetched_at: 2026-11-09T07:02:36.486254+00:00
 ---
 
 # Collection (Input Stage)  |  Firestore in Native mode  |  Google Cloud Documentation

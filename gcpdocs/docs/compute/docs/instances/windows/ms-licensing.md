@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/compute/docs/instances/windows/ms-licensing/
 title: Microsoft Licensing on Google Cloud \u00a0|\u00a0 Compute Engine \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T09:00:22.670063+00:00
+fetched_at: 2026-11-09T07:05:19.644478+00:00
 ---
 
 # Microsoft Licensing on Google Cloud  |  Compute Engine  |  Google Cloud Documentation

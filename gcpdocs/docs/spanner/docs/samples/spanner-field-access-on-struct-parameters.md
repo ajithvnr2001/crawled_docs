@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/spanner/docs/samples/spanner-field-access-on-struct-parameters/
 title: Field access on a STRUCT \u00a0|\u00a0 Spanner \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-06T10:30:00.889283+00:00
+fetched_at: 2026-11-09T05:43:32.287552+00:00
 ---
 
 # Field access on a STRUCT  |  Spanner  |  Google Cloud Documentation

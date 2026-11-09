@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/compute/docs/instance-groups/limit-vm-runtime-in-migs/
 title: Limit the run time of VMs in a MIG \u00a0|\u00a0 Compute Engine \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T09:00:40.599460+00:00
+fetched_at: 2026-11-09T07:05:27.454952+00:00
 ---
 
 # Limit the run time of VMs in a MIG  |  Compute Engine  |  Google Cloud Documentation

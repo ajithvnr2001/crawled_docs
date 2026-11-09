@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-cx/agent-assist/genesys-cloud-app/
 title: Deploy the Genesys Cloud application server \u00a0|\u00a0 Agent Assist \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T08:35:36.649937+00:00
+fetched_at: 2026-11-09T07:04:26.292978+00:00
 ---
 
 # Deploy the Genesys Cloud application server  |  Agent Assist  |  Google Cloud Documentation

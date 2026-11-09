@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/get-online-predictions/
 title: Get online inferences from a custom trained model \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T08:35:00.792601+00:00
+fetched_at: 2026-11-09T07:04:48.901737+00:00
 ---
 
 # Get online inferences from a custom trained model  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-cx/agent-assist/concepts/
 title: Concepts \u00a0|\u00a0 Agent Assist \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T08:35:40.761158+00:00
+fetched_at: 2026-11-09T07:03:59.022485+00:00
 ---
 
 # Concepts  |  Agent Assist  |  Google Cloud Documentation

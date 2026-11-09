@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sensitive-data-protection/docs/samples/dlp-create-inspect-template/
 title: Create an inspection template \u00a0|\u00a0 Sensitive Data Protection \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-06T10:25:46.079221+00:00
+fetched_at: 2026-11-09T05:48:25.690378+00:00
 ---
 
 # Create an inspection template  |  Sensitive Data Protection  |  Google Cloud Documentation

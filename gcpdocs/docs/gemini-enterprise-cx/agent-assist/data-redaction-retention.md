@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-cx/agent-assist/data-redaction-retention/
 title: Data redaction and retention \u00a0|\u00a0 Agent Assist \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T08:35:39.618039+00:00
+fetched_at: 2026-11-09T07:04:01.502580+00:00
 ---
 
 # Data redaction and retention  |  Agent Assist  |  Google Cloud Documentation

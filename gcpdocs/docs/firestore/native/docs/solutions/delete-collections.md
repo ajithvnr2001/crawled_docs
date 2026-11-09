@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/firestore/native/docs/solutions/delete-collections/
 title: Delete data with a callable Cloud Function \u00a0|\u00a0 Firestore in Native mode \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T08:37:37.824174+00:00
+fetched_at: 2026-11-09T07:04:59.745992+00:00
 ---
 
 # Delete data with a callable Cloud Function  |  Firestore in Native mode  |  Google Cloud Documentation

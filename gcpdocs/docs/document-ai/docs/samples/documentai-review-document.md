@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/document-ai/docs/samples/documentai-review-document/
 title: Request Human Review of a document \u00a0|\u00a0 Document AI \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T09:11:58.150183+00:00
+fetched_at: 2026-11-09T07:06:15.516164+00:00
 ---
 
 # Request Human Review of a document  |  Document AI  |  Google Cloud Documentation

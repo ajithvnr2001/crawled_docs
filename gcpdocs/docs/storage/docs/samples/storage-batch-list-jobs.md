@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/storage/docs/samples/storage-batch-list-jobs/
 title: Storage Batch List Jobs \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T06:01:09.724421+00:00
+fetched_at: 2026-11-09T05:49:07.978305+00:00
 ---
 
 # Storage Batch List Jobs  |  Google Cloud Documentation

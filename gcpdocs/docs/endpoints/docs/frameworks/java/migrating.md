@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/endpoints/docs/frameworks/java/migrating/
 title: Migrating to Cloud Endpoints Frameworks version 2.0 for App Engine \u00a0|\u00a0 Cloud Endpoints Frameworks for App Engine \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T08:37:49.534772+00:00
+fetched_at: 2026-11-09T07:04:45.683551+00:00
 ---
 
 # Migrating to Cloud Endpoints Frameworks version 2.0 for App Engine  |  Cloud Endpoints Frameworks for App Engine  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/compute/docs/instances/sql-server/adding-sql-server-license/
 title: Add a SQL Server license to an existing Windows server \u00a0|\u00a0 Compute Engine \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T09:00:29.972713+00:00
+fetched_at: 2026-11-09T07:05:28.710833+00:00
 ---
 
 # Add a SQL Server license to an existing Windows server  |  Compute Engine  |  Google Cloud Documentation

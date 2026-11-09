@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sql/docs/mysql/samples/cloud-sql-mysql-sqlalchemy-lifetime/
 title: Set the connection duration when using SQLAlchemy \u00a0|\u00a0 Cloud SQL for MySQL \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-06T10:29:37.231995+00:00
+fetched_at: 2026-11-09T06:56:33.350601+00:00
 ---
 
 # Set the connection duration when using SQLAlchemy  |  Cloud SQL for MySQL  |  Google Cloud Documentation

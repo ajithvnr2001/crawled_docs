@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/firestore/native/docs/query-data/query-cursors/
 title: Paginate data with query cursors \u00a0|\u00a0 Firestore in Native mode \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T08:36:48.806872+00:00
+fetched_at: 2026-11-09T07:02:45.673556+00:00
 ---
 
 # Paginate data with query cursors  |  Firestore in Native mode  |  Google Cloud Documentation

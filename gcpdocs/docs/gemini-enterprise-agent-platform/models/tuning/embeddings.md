@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/embeddings/
 title: Tune text embeddings \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T08:35:01.093285+00:00
+fetched_at: 2026-11-09T07:04:51.111874+00:00
 ---
 
 # Tune text embeddings  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation

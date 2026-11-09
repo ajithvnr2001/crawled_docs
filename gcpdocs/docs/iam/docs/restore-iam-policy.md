@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/iam/docs/restore-iam-policy/
 title: Restore a previous version of an IAM allow policy \u00a0|\u00a0 Identity and Access Management (IAM) \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T08:29:08.872458+00:00
+fetched_at: 2026-11-09T07:01:36.942034+00:00
 ---
 
 # Restore a previous version of an IAM allow policy  |  Identity and Access Management (IAM)  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/firestore/mongodb-compatibility/docs/cmek/
 title: Customer-managed encryption keys (CMEK) \u00a0|\u00a0 Firestore with MongoDB compatibility \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T08:37:11.283489+00:00
+fetched_at: 2026-11-09T07:03:20.322873+00:00
 ---
 
 # Customer-managed encryption keys (CMEK)  |  Firestore with MongoDB compatibility  |  Google Cloud Documentation

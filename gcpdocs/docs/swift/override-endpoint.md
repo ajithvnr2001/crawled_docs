@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/swift/override-endpoint/
 title: Override the default endpoint \u00a0|\u00a0 Swift \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-06T13:46:25.892793+00:00
+fetched_at: 2026-11-09T05:44:40.020960+00:00
 ---
 
 # Override the default endpoint  |  Swift  |  Google Cloud Documentation
@@ -46,9 +46,10 @@ In this example, you configure the client library to use Secret Manager [regiona
 
   3. Initialize a client and override the endpoint to use a regional endpoint: 
          
-         let client = try SecretManagerServiceClient(ClientOptions().with {
-           $0.endpoint = "https://secretmanager.\(region).rep.googleapis.com"
-         })
+         let client = try SecretManagerServiceClient(
+           ClientOptions().with {
+             $0.endpoint = "https://secretmanager.\(region).rep.googleapis.com"
+           })
 
   4. Use the client to retrieve the list of secrets in a region and iterate over the results: 
          
@@ -71,9 +72,10 @@ The following example shows the complete code for this guide:
     import GoogleCloudSecretManagerV1
     
     func sample(projectId: String, region: String) async throws {
-      let client = try SecretManagerServiceClient(ClientOptions().with {
-        $0.endpoint = "https://secretmanager.\(region).rep.googleapis.com"
-      })
+      let client = try SecretManagerServiceClient(
+        ClientOptions().with {
+          $0.endpoint = "https://secretmanager.\(region).rep.googleapis.com"
+        })
       let secrets = client.listSecretsByItems(
         request: ListSecretsRequest().with { $0.parent = "projects/\(projectId)/locations/\(region)" })
       for try await item in secrets {
@@ -93,6 +95,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-06 UTC.
+Last updated 2026-11-07 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-06 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-07 UTC."],[],[]] 

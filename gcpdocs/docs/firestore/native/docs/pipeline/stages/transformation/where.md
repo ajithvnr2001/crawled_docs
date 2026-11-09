@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/firestore/native/docs/pipeline/stages/transformation/where/
 title: Where (Transformation Stage) \u00a0|\u00a0 Firestore in Native mode \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T08:36:52.893797+00:00
+fetched_at: 2026-11-09T07:02:47.497966+00:00
 ---
 
 # Where (Transformation Stage)  |  Firestore in Native mode  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/spanner/docs/samples/spanner-insert-data-with-timestamp-column/
 title: Mutations write data with TIMESTAMP column \u00a0|\u00a0 Spanner \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-06T10:31:33.090277+00:00
+fetched_at: 2026-11-09T05:43:09.563246+00:00
 ---
 
 # Mutations write data with TIMESTAMP column  |  Spanner  |  Google Cloud Documentation

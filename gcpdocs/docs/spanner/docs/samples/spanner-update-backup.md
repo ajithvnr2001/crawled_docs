@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/spanner/docs/samples/spanner-update-backup/
 title: Update backup \u00a0|\u00a0 Spanner \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T09:49:42.623836+00:00
+fetched_at: 2026-11-09T05:52:51.248107+00:00
 ---
 
 # Update backup  |  Spanner  |  Google Cloud Documentation

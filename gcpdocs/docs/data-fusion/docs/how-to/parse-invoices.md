@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/data-fusion/docs/how-to/parse-invoices/
 title: Parse invoices \u00a0|\u00a0 Cloud Data Fusion \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T09:14:53.159155+00:00
+fetched_at: 2026-11-09T07:06:05.589948+00:00
 ---
 
 # Parse invoices  |  Cloud Data Fusion  |  Google Cloud Documentation

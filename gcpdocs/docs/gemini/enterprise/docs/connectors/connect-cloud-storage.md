@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini/enterprise/docs/connectors/connect-cloud-storage/
 title: Import from Cloud Storage \u00a0|\u00a0 Gemini Enterprise \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T08:36:45.185528+00:00
+fetched_at: 2026-11-09T07:04:57.557801+00:00
 ---
 
 # Import from Cloud Storage  |  Gemini Enterprise  |  Google Cloud Documentation

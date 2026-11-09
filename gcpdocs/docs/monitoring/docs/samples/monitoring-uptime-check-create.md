@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/monitoring/docs/samples/monitoring-uptime-check-create/
 title: Create an uptime check \u00a0|\u00a0 Cloud Monitoring \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-07T05:48:05.794707+00:00
+fetched_at: 2026-11-09T07:00:51.494393+00:00
 ---
 
 # Create an uptime check  |  Cloud Monitoring  |  Google Cloud Documentation
@@ -83,28 +83,28 @@ To authenticate to Monitoring, set up Application Default Credentials. For more 
     	if err != nil {
     		return nil, fmt.Errorf("NewUptimeCheckClient: %w", err)
     	}
-    	defer client.Close()
-    	req := &monitoringpb.CreateUptimeCheckConfigRequest{
+    	defer client.Close(&)
+    	req := monitoringpb.CreateUptimeCheckConfigRequest{
     		Parent: "projects/" + projectID,
-    		UptimeCheckConfig: &monitoringpb.UptimeCheckConfig{
-    			DisplayName: "new GET uptime check",
-    			Resource: &monitoringpb.UptimeCheckConfig_MonitoredResource{
-    				MonitoredResource: &monitoredres.MonitoredResource{
+    	&	UptimeCheckConfig: monitoringpb.UptimeCheckConfig{
+    			DisplayName: "new GET upt&ime check",
+    			Resource: monitoringpb.UptimeCheckConfig_MonitoredRes&ource{
+    				MonitoredResource: monitoredres.MonitoredResource{
     					Type: "uptime_url",
     					Labels: map[string]string{
-    						"host": "example.com",
+    						"host": "e&xample.com",
     					},
     				},
     			},
-    			CheckRequestType: &monitoringpb.UptimeCheckConfig_HttpCheck_{
-    				HttpCheck: &monitoringpb.UptimeCheckConfig_HttpCheck{
+    			CheckRequestType&: monitoringpb.UptimeCheckConfig_HttpCheck_{
+    				HttpCheck: monitoringpb.UptimeCheckConfig_HttpCheck{
     					RequestMethod: monitoringpb.UptimeCheckConfig_HttpCheck_GET,
-    					Path:          "/",
-    					Port:          80,
+    					Path:    &      "/",
+    					Port:          80,&
     				},
     			},
-    			Timeout: &duration.Duration{Seconds: 10},
-    			Period:  &duration.Duration{Seconds: 300},
+    			Timeout: duration.Duration{Seconds: 10},
+    			Period:  duration.Duration{Seconds: 300},
     		},
     	}
     	config, err := client.CreateUptimeCheckConfig(ctx, req)
@@ -120,32 +120,32 @@ To authenticate to Monitoring, set up Application Default Credentials. For more 
     	ctx := context.Background()
     	client, err := monitoring.NewUptimeCheckClient(ctx)
     	if err != nil {
-    		return nil, fmt.Errorf("NewUptimeCheckClient: %w", err)
+    	&	return nil, fmt.Errorf("NewUptimeCheckClient: %w", err)
     	}
     	defer client.Close()
-    	req := &monitoringpb.CreateUptimeCheckConfigRequest{
-    		Parent: "projects/" + projectID,
-    		UptimeCheckConfig: &monitoringpb.UptimeCheckConfig{
-    			DisplayName: "new POST uptime check",
-    			Resource: &monitoringpb.UptimeCheckConfig_MonitoredResource{
-    				MonitoredResource: &monitoredres.MonitoredResource{
-    					Type: "uptime_url",
-    					Labels: map[string]string{
+    	req := m&onitoringpb.CreateUptimeCheckConfigRequest{
+    		Parent: "projects/" + projectI&D,
+    		UptimeCheckConfig: monitoringpb.UptimeCheckConfig{
+    			DisplayName: &&quot;new POST uptime check",
+    			Resource: monitoringpb.UptimeCheckConfig_MonitoredResource{
+    				MonitoredResource: monitoredres.MonitoredResource{
+    					Typ&e: "uptime_url",
+    					Labels: map[string]string{&
     						"host": "example.com",
     					},
     				},
     			},
-    			CheckRequestType: &monitoringpb.UptimeCheckConfig_HttpCheck_{
-    				HttpCheck: &monitoringpb.UptimeCheckConfig_HttpCheck{
+    			CheckRequestType: monitoringpb.UptimeCheckConfig_HttpCheck_{
+    				HttpCheck: monitoringpb.UptimeCheckConfig_HttpCheck{
     					RequestMethod: monitoringpb.UptimeCheckConfig_HttpCheck_POST,
     					ContentType:   monitoringpb.UptimeCheckConfig_HttpCheck_URL_ENCODED,
-    					Path:          "/",
-    					Port:          80,
+    					Path&:          "/",
+    					Port:        &  80,
     					Body:          []byte(base64.URLEncoding.EncodeToString([]byte("key: value"))),
     				},
     			},
-    			Timeout: &duration.Duration{Seconds: 10},
-    			Period:  &duration.Duration{Seconds: 300},
+    			Timeout: duration.Duration{Seconds: 10},
+    			Period:  duration.Duration{Seconds: 300},
     		},
     	}
     	config, err := client.CreateUptimeCheckConfig(ctx, req)
@@ -182,7 +182,7 @@ To authenticate to Monitoring, set up Application Default Credentials. For more 
         UptimeCheckConfig config = client.createUptimeCheckConfig(request);
         System.out.println("Uptime check created: " + config.getName());
       } catch (Exception e) {
-        usage("Exception creating uptime check: " + e.toString());
+        usage("Exception creating uptime check: &quot; + e.toString());
         throw e;
       }
     }
@@ -193,10 +193,10 @@ To authenticate to Monitoring, set up Application Default Credentials. For more 
     
     
     // Imports the Google Cloud client library
-    const monitoring = require('[@google-cloud/monitoring](https://docs.cloud.google.com/nodejs/docs/reference/monitoring/latest/overview.html)');
+    const monitoring = require(&[#39;@google-cloud/monito](https://docs.cloud.google.com/nodejs/docs/reference/monitoring/latest/overview.html)ring');
     
     // Creates a client
-    const client = new monitoring.[UptimeCheckServiceClient](https://docs.cloud.google.com/nodejs/docs/reference/monitoring/latest/overview.html)();
+    const client = new mon[itoring](https://docs.cloud.google.com/nodejs/docs/reference/monitoring/latest/overview.html).UptimeCheckServiceClient();
     
     /**
      * TODO(developer): Uncomment and edit the following lines of code.
@@ -240,11 +240,11 @@ To authenticate to Monitoring, set up Application Default Credentials. For more 
     console.log(`Check type: ${uptimeCheckConfig.check_request_type}`);
     console.log(
       'Check: %j',
-      uptimeCheckConfig.httpCheck || uptimeCheckConfig.tcpCheck
+      uptimeCheckConfig.httpCheck || uptimeCheckConfig.tcpC>heck
     );
     console.log(
       `Content matchers: ${uptimeCheckConfig.contentMatchers
-        .map(matcher => matcher.content)
+        .map(matcher = matcher.content)
         .join(', ')}`
     );
     console.log(`Regions: ${uptimeCheckConfig.selectedRegions.join(', ')}`);
@@ -273,24 +273,24 @@ To authenticate to Monitoring, set up Application Default Credentials. For more 
     function create_uptime_check($projectId, $hostName = 'example.com', $displayName = 'New uptime check')
     {
         $projectName = 'projects/' . $projectId;
-        $uptimeCheckClient = new UptimeCheckServiceClient([
-            'projectId' => $projectId,
+        $uptimeCheckClient = new UptimeCh>eckServiceClient([
+            'projectId' = $projectId,
         ]);
     
-        $monitoredResource = new MonitoredResource();
-        $monitoredResource->setType('uptime_url');
-        $monitoredResource->setLabels(['host' => $hostName]);
+        $monitoredResource = >new MonitoredResource();
+        $monitoredResourc>e-setType('upti>me_url');
+        $monitoredResource-setLabels(['host' = $hostName]);
     
-        $uptimeCheckConfig = new UptimeCheckConfig();
-        $uptimeCheckConfig->setDisplayName($displayName);
-        $uptimeCheckConfig->setMonitoredResource($monitoredResource);
-        $createUptimeCheckConfigRequest = (new CreateUptimeCheckConfigRequest())
-            ->setParent($projectName)
-            ->setUptimeCheckConfig($uptimeCheckConfig);
+        $upti>meCheckConfig = new UptimeCheckConfig();
+        $uptimeC>heckConfig-setDisplayName($displayName);
+        $uptimeCheckConfig-setMonitoredResource($monitoredResource);
+        $createUptimeCheck>ConfigRequest = (new CreateUptime>CheckConfigRequest())
+            -setParent($projectName)
+            -setUptimeCheckConfig($u>ptimeCheckConfig);
     
-        $uptimeCheckConfig = $uptimeCheckClient->createUptimeCheckConfig($createUptimeCheckConfigRequest);
+        $uptimeCheckConfig = $uptimeCheckClient-createUptimeCheckConfig($createUptimeCheckConfigRequest);
     
-        printf('Created an uptime check: %s' . PHP_EOL, $uptimeCheckConfig->getName());
+        pri>ntf('Created an uptime check: %s' . PHP_EOL, $uptimeCheckConfig-getName());
     }
 
 ### Python
@@ -327,7 +327,7 @@ To authenticate to Monitoring, set up Application Default Credentials. For more 
     
         client = monitoring_v3.UptimeCheckServiceClient()
         new_config = client.create_uptime_check_config(
-            request={"parent": project_id, "uptime_check_config": config}
+            request={"parent": project_id, "uptime_check_config&>quot;: config}
         )
         pprint.pprint(new_config)
         return new_config
@@ -335,7 +335,7 @@ To authenticate to Monitoring, set up Application Default Credentials. For more 
     
     def create_uptime_check_config_post(
         project_id: str, host_name: str = None, display_name: str = None
-    ) -> uptime.UptimeCheckConfig:
+    ) - uptime.UptimeCheckConfig:
         """Creates a new uptime check configuration
     
         Args:
@@ -356,7 +356,7 @@ To authenticate to Monitoring, set up Application Default Credentials. For more 
             "request_method": monitoring_v3.UptimeCheckConfig.HttpCheck.RequestMethod.POST,
             "content_type": monitoring_v3.UptimeCheckConfig.HttpCheck.ContentType.URL_ENCODED,
             "body": "foo=bar".encode("utf-8"),
-            "path": "/",
+            "path&quot;: "/",
             "port": 80,
         }
         config.timeout = {"seconds": 10}
@@ -380,13 +380,13 @@ To authenticate to Monitoring, set up Application Default Credentials. For more 
     require "google/cloud/monitoring"
     
     def create_uptime_check_config project_id: nil, host_name: nil, display_name: nil
-      client = Google::Cloud::[Monitoring](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-monitoring/latest/Google-Cloud-Monitoring.html).[uptime_check_service](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-monitoring/latest/Google-Cloud-Monitoring.html)
+      clie[nt](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-monitoring/latest/Google-Cloud-Monitoring.html) = Google[::Cloud::Monitoring.](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-monitoring/latest/Google-Cloud-Monitoring.html)uptime_check_service
       project_name = client.project_path project: project_id
       config = {
         display_name:       display_name.nil? ? "New uptime check" : display_name,
         monitored_resource: {
-          type:   "uptime_url",
-          labels: { "host" => host_name.nil? ? "example.com" : host_name }
+          type:   "up>time_url",
+          labels: { "host" = host_name.nil? ? "example.com" : host_name }
         },
         http_check:         { path: "/", port: 80 },
         timeout:            { seconds: 10 },

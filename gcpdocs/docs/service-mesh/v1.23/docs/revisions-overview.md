@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/service-mesh/v1.23/docs/revisions-overview/
 title: Cloud Service Mesh control plane revisions \u00a0|\u00a0 Cloud Service Mesh v1.23 \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-06T10:40:58.582474+00:00
+fetched_at: 2026-11-09T05:51:15.480771+00:00
 ---
 
 # Cloud Service Mesh control plane revisions  |  Cloud Service Mesh v1.23  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/vertex-ai/generative-ai/docs/samples/generativeaionvertexai-batch-text-predict/
 title: Batch text prediction with a pre-trained model \u00a0|\u00a0 Generative AI on Vertex AI \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-06T10:38:33.291761+00:00
+fetched_at: 2026-11-09T05:49:55.379994+00:00
 ---
 
 # Batch text prediction with a pre-trained model  |  Generative AI on Vertex AI  |  Google Cloud Documentation

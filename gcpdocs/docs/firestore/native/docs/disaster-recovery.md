@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/firestore/native/docs/disaster-recovery/
 title: Plan disaster recovery \u00a0|\u00a0 Firestore in Native mode \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T08:37:22.727440+00:00
+fetched_at: 2026-11-09T07:03:30.640644+00:00
 ---
 
 # Plan disaster recovery  |  Firestore in Native mode  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/talent-solution/job-search/docs/samples/job-discovery-generate-job/
 title: Generate job (v3) \u00a0|\u00a0 Job Search \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T09:47:42.552635+00:00
+fetched_at: 2026-11-09T05:41:54.044985+00:00
 ---
 
 # Generate job (v3)  |  Job Search  |  Google Cloud Documentation

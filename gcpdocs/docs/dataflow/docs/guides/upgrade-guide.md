@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/dataflow/docs/guides/upgrade-guide/
 title: Upgrade a streaming pipeline \u00a0|\u00a0 Cloud Dataflow \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T09:11:37.604150+00:00
+fetched_at: 2026-11-09T07:05:54.791181+00:00
 ---
 
 # Upgrade a streaming pipeline  |  Cloud Dataflow  |  Google Cloud Documentation

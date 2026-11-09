@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sensitive-data-protection/docs/samples/dlp-delete-trigger/
 title: Delete a trigger \u00a0|\u00a0 Sensitive Data Protection \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-06T10:25:44.668009+00:00
+fetched_at: 2026-11-09T05:47:45.642260+00:00
 ---
 
 # Delete a trigger  |  Sensitive Data Protection  |  Google Cloud Documentation

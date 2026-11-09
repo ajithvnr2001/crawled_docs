@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/spanner/docs/samples/spanner-read-only-transaction/
 title: Read-only transaction \u00a0|\u00a0 Spanner \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-06T10:38:06.107837+00:00
+fetched_at: 2026-11-09T05:42:44.251489+00:00
 ---
 
 # Read-only transaction  |  Spanner  |  Google Cloud Documentation

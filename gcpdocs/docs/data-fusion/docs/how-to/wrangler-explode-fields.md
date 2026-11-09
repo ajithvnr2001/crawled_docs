@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/data-fusion/docs/how-to/wrangler-explode-fields/
 title: Explode data from fields \u00a0|\u00a0 Cloud Data Fusion \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T09:14:48.721396+00:00
+fetched_at: 2026-11-09T07:05:51.187713+00:00
 ---
 
 # Explode data from fields  |  Cloud Data Fusion  |  Google Cloud Documentation

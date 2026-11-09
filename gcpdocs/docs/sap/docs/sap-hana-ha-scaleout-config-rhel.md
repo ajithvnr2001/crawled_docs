@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sap/docs/sap-hana-ha-scaleout-config-rhel/
 title: HA scale-out cluster configuration guide for SAP HANA on RHEL \u00a0|\u00a0 SAP on Google Cloud \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-06T08:23:50.514917+00:00
+fetched_at: 2026-11-09T06:57:20.394391+00:00
 ---
 
 # HA scale-out cluster configuration guide for SAP HANA on RHEL  |  SAP on Google Cloud  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/pubsub/docs/samples/pubsub-publish-hedging-settings/
 title: Publish with hedging settings \u00a0|\u00a0 Pub/Sub \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-06T10:53:09.043346+00:00
+fetched_at: 2026-11-09T07:00:17.459324+00:00
 ---
 
 # Publish with hedging settings  |  Pub/Sub  |  Google Cloud Documentation

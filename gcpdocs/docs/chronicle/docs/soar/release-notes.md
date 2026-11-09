@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chronicle/docs/soar/release-notes/
 title: Google Security Operations SOAR release notes \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-03T09:54:47.479501+00:00
+fetched_at: 2026-11-09T07:01:04.191576+00:00
 ---
 
 # Google Security Operations SOAR release notes  |  Google Cloud Documentation
@@ -26,6 +26,26 @@ This page documents production updates to Google Security Operations SOAR. You c
 You can see the latest product updates for all of Google Cloud on the [ Google Cloud](https://docs.cloud.google.com/release-notes) page, browse and filter all release notes in the [Google Cloud console](https://console.cloud.google.com/release-notes), or programmatically access release notes in [BigQuery](https://console.cloud.google.com/bigquery?p=bigquery-public-data&d=google_cloud_release_notes&t=release_notes&page=table). 
 
 To get the latest product updates delivered to you, add the URL of this page to your [feed reader](https://wikipedia.org/wiki/Comparison_of_feed_aggregators), or add the [feed URL](https://docs.cloud.google.com/feeds/chronicle-soar-release-notes.xml) directly. 
+
+## November 08, 2026
+
+Announcement
+
+Release 6.3.106 is being rolled out to the first phase of regions as listed [here](https://docs.cloud.google.com/chronicle/docs/soar/overview-and-introduction/soar-gradual-release).
+
+Feature
+
+**Case activity tagging**
+
+You can now use custom tags for individual activities, comments, tasks, and actions on the Case Wall, and filter the wall view by those tags. This allows you to categorize specific observations and filter the timeline to view only the entries relevant to your investigation or team.
+
+For more information, see [Add a tag to a Case Wall activity](https://docs.cloud.google.com/chronicle/docs/soar/investigate/working-with-cases/define-tags-in-cases-admin#add-activity-tag).
+
+## November 07, 2026
+
+Announcement
+
+[Release 6.3.105](https://docs.cloud.google.com/chronicle/docs/soar/release-notes#November_01_2026) is now available for all regions.
 
 ## November 01, 2026
 

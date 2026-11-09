@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/healthcare-api/docs/store-healthcare-data-client-library/
 title: Store healthcare data with client libraries \u00a0|\u00a0 Cloud Healthcare API \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T08:27:25.773850+00:00
+fetched_at: 2026-11-09T07:01:17.318837+00:00
 ---
 
 # Store healthcare data with client libraries  |  Cloud Healthcare API  |  Google Cloud Documentation

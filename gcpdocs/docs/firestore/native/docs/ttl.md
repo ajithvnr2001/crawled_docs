@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/firestore/native/docs/ttl/
 title: Manage data retention with TTL policies \u00a0|\u00a0 Firestore in Native mode \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T08:35:53.883479+00:00
+fetched_at: 2026-11-09T07:02:23.713070+00:00
 ---
 
 # Manage data retention with TTL policies  |  Firestore in Native mode  |  Google Cloud Documentation

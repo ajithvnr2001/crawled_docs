@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/vision/docs/detect-labels-image-client-libraries/
 title: Quickstart: Detect labels in an image by using client libraries \u00a0|\u00a0 Cloud Vision API \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-06T10:38:10.152357+00:00
+fetched_at: 2026-11-09T05:47:26.389408+00:00
 ---
 
 # Quickstart: Detect labels in an image by using client libraries  |  Cloud Vision API  |  Google Cloud Documentation

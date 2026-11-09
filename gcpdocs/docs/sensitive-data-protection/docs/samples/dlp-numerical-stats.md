@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sensitive-data-protection/docs/samples/dlp-numerical-stats/
 title: Compute numerical statistics \u00a0|\u00a0 Sensitive Data Protection \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-06T10:28:14.445267+00:00
+fetched_at: 2026-11-09T05:44:19.310704+00:00
 ---
 
 # Compute numerical statistics  |  Sensitive Data Protection  |  Google Cloud Documentation

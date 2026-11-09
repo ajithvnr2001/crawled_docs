@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/firestore/native/docs/real-time_queries_at_scale/
 title: Understand real-time queries at scale \u00a0|\u00a0 Firestore in Native mode \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T08:37:18.343195+00:00
+fetched_at: 2026-11-09T07:03:29.316562+00:00
 ---
 
 # Understand real-time queries at scale  |  Firestore in Native mode  |  Google Cloud Documentation

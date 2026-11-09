@@ -1,11 +1,11 @@
 ---
 url: https://docs.cloud.google.com/rust/docs/generate-text-vertex-ai-gemini/
-title: Generate text using the Vertex AI Gemini API \u00a0|\u00a0 Rust \u00a0|\u00a0 Google Cloud Documentation
+title: Generate text using Gemini \u00a0|\u00a0 Rust \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-06T05:48:56.144374+00:00
+fetched_at: 2026-11-09T07:07:04.695642+00:00
 ---
 
-# Generate text using the Vertex AI Gemini API  |  Rust  |  Google Cloud Documentation
+# Generate text using Gemini  |  Rust  |  Google Cloud Documentation
 
 > Source: https://docs.cloud.google.com/rust/docs/generate-text-vertex-ai-gemini/
 
@@ -20,7 +20,7 @@ fetched_at: 2026-11-06T05:48:56.144374+00:00
 
 Send feedback 
 
-#  Generate text using the Vertex AI Gemini API Stay organized with collections  Save and categorize content based on your preferences. 
+#  Generate text using Gemini Stay organized with collections  Save and categorize content based on your preferences. 
 
 In this guide, you send a text prompt request and a multimodal prompt and image request to the Vertex AI Gemini API and view the responses.
 
@@ -38,45 +38,34 @@ The Vertex AI client library includes many features. To speed up compilation, en
 
 ## Send a prompt to the Vertex AI Gemini API
 
-  1. Initialize the client using the default settings:
+  1. Initialize the client using the default settings: 
+         
+         let client = PredictionService::builder().build().await?;
+
+  2. Build the model name. This example receives the project ID as an argument, uses a fixed location (`global`), and sets the model to a specific version of Gemini. If you run this function in your own code, pass the project ID (without any `projects/` prefix) of the project that you selected in the prerequisites: 
+         
+         const MODEL: &str = "gemini-3.8-flash";
+         let model = format!("projects/{project_id}/locations/global/publishers/google/models/{MODEL}");
+
+  3. Send the request: 
+         
+         let response = client
+             .generate_content()
+             .set_model(&model)
+             .set_contents([Content::new()
+                 .set_role("user")
+                 .set_parts([Part::new().set_text(
+                     "What's a good name for a flower shop that specializes in selling bouquets of dried flowers?",
+                 )])])
+             .send()
+             .await;
+
+  4. Print the response. You can use the `:#?` format specifier to format the nested response objects: 
+         
+         println!("RESPONSE = {response:#?}");
 
 
-    
-    
-    let client = PredictionService::builder().build().await?;
 
-  1. Build the model name. This example receives the project ID as an argument, uses a fixed location (`global`), and sets the model to a specific version of Gemini:
-
-
-    
-    
-    const MODEL: &str = "gemini-3.8-flash";
-    let model = format!("projects/{project_id}/locations/global/publishers/google/models/{MODEL}");
-
-If you run this function in your own code, pass the project ID (without any `projects/` prefix) of the project that you selected in the prerequisites.
-
-  1. Send the request:
-
-
-    
-    
-    let response = client
-        .generate_content()
-        .set_model(&model)
-        .set_contents([Content::new()
-            .set_role("user")
-            .set_parts([Part::new().set_text(
-                "What's a good name for a flower shop that specializes in selling bouquets of dried flowers?",
-            )])])
-        .send()
-        .await;
-
-  1. Print the response. You can use the `:#?` format specifier to format the nested response objects:
-
-
-    
-    
-    println!("RESPONSE = {response:#?}");
 
 ### Text prompt: complete code
     
@@ -107,64 +96,49 @@ If you run this function in your own code, pass the project ID (without any `pro
 
 ## Send a prompt and an image to the Vertex AI Gemini API
 
-  1. Initialize the client using the default settings:
+  1. Initialize the client using the default settings: 
+         
+         let client = PredictionService::builder().build().await?;
+
+  2. Build the model name: 
+         
+         const MODEL: &str = "gemini-3.8-flash";
+         let model = format!("projects/{project_id}/locations/global/publishers/google/models/{MODEL}");
+
+  3. Create the image part of the request: 
+         
+         Part::new().set_file_data(
+             FileData::new()
+                 .set_mime_type("image/jpeg")
+                 .set_file_uri("gs://generativeai-downloads/images/scones.jpg"),
+         ),
+
+  4. Create the text prompt part of the request: 
+         
+         Part::new().set_text("Describe this picture."),
+
+  5. Send the full request: 
+         
+         let response = client
+             .generate_content()
+             .set_model(&model)
+             .set_contents([Content::new().set_role("user").set_parts([
+                 Part::new().set_file_data(
+                     FileData::new()
+                         .set_mime_type("image/jpeg")
+                         .set_file_uri("gs://generativeai-downloads/images/scones.jpg"),
+                 ),
+                 Part::new().set_text("Describe this picture."),
+             ])])
+             .send()
+             .await;
+
+  6. Print the full response: 
+         
+         println!("RESPONSE = {response:#?}");
 
 
-    
-    
-    let client = PredictionService::builder().build().await?;
 
-  1. Build the model name:
-
-
-    
-    
-    const MODEL: &str = "gemini-3.8-flash";
-    let model = format!("projects/{project_id}/locations/global/publishers/google/models/{MODEL}");
-
-  1. Create the image part of the request:
-
-
-    
-    
-    Part::new().set_file_data(
-        FileData::new()
-            .set_mime_type("image/jpeg")
-            .set_file_uri("gs://generativeai-downloads/images/scones.jpg"),
-    ),
-
-  1. Create the text prompt part of the request:
-
-
-    
-    
-    Part::new().set_text("Describe this picture."),
-
-  1. Send the full request:
-
-
-    
-    
-    let response = client
-        .generate_content()
-        .set_model(&model)
-        .set_contents([Content::new().set_role("user").set_parts([
-            Part::new().set_file_data(
-                FileData::new()
-                    .set_mime_type("image/jpeg")
-                    .set_file_uri("gs://generativeai-downloads/images/scones.jpg"),
-            ),
-            Part::new().set_text("Describe this picture."),
-        ])])
-        .send()
-        .await;
-
-  1. Print the full response:
-
-
-    
-    
-    println!("RESPONSE = {response:#?}");
 
 ### Prompt and image: complete code
     
@@ -200,6 +174,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-05 UTC.
+Last updated 2026-11-07 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-05 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-07 UTC."],[],[]] 

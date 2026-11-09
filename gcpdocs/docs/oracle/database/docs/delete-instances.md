@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/oracle/database/docs/delete-instances/
 title: Delete Exadata Infrastructure instances \u00a0|\u00a0 Oracle Database at Google Cloud \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-07T08:23:05.525935+00:00
+fetched_at: 2026-11-09T07:00:44.878620+00:00
 ---
 
 # Delete Exadata Infrastructure instances  |  Oracle Database at Google Cloud  |  Google Cloud Documentation
@@ -180,7 +180,7 @@ Replace the following:
     import com.google.cloud.oracledatabase.v1.[CloudExadataInfrastructureName](https://docs.cloud.google.com/java/docs/reference/google-cloud-oracledatabase/latest/com.google.cloud.oracledatabase.v1.CloudExadataInfrastructureName.html);
     import com.google.cloud.oracledatabase.v1.[DeleteCloudExadataInfrastructureRequest](https://docs.cloud.google.com/java/docs/reference/google-cloud-oracledatabase/latest/com.google.cloud.oracledatabase.v1.DeleteCloudExadataInfrastructureRequest.html);
     import com.google.cloud.oracledatabase.v1.[OracleDatabaseClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-oracledatabase/latest/com.google.cloud.oracledatabase.v1.OracleDatabaseClient.html);
-    import com.google.longrunning.[Operation](https://docs.cloud.google.com/java/docs/reference/proto-google-common-protos/latest/com.google.longrunning.Operation.html);
+    import com.google.longrunning.[Operation](https://docs.cloud.google.com/java/docs/reference/gax/latest/com.google.longrunning.Operation.html);
     
     public class AsyncDeleteCloudExadataInfrastructure {
     

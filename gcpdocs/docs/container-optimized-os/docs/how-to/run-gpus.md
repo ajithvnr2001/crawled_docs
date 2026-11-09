@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/container-optimized-os/docs/how-to/run-gpus/
 title: Running instances with GPU accelerators \u00a0|\u00a0 Container-Optimized OS \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T09:15:40.764032+00:00
+fetched_at: 2026-11-09T07:05:10.798179+00:00
 ---
 
 # Running instances with GPU accelerators  |  Container-Optimized OS  |  Google Cloud Documentation

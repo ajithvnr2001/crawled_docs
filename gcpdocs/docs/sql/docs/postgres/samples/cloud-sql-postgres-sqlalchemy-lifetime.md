@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sql/docs/postgres/samples/cloud-sql-postgres-sqlalchemy-lifetime/
 title: Set the connection duration when using SQL Alchemy \u00a0|\u00a0 Cloud SQL for PostgreSQL \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-06T10:28:24.098470+00:00
+fetched_at: 2026-11-09T06:56:01.456445+00:00
 ---
 
 # Set the connection duration when using SQL Alchemy  |  Cloud SQL for PostgreSQL  |  Google Cloud Documentation

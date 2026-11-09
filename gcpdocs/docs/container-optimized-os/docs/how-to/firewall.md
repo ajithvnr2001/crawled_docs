@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/container-optimized-os/docs/how-to/firewall/
 title: Configuring the host firewall \u00a0|\u00a0 Container-Optimized OS \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T09:15:40.846670+00:00
+fetched_at: 2026-11-09T07:05:07.680109+00:00
 ---
 
 # Configuring the host firewall  |  Container-Optimized OS  |  Google Cloud Documentation

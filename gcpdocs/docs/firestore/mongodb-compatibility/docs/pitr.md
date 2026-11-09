@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/firestore/mongodb-compatibility/docs/pitr/
 title: Point-in-time recovery (PITR) overview \u00a0|\u00a0 Firestore with MongoDB compatibility \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T08:37:04.475142+00:00
+fetched_at: 2026-11-09T07:02:35.926607+00:00
 ---
 
 # Point-in-time recovery (PITR) overview  |  Firestore with MongoDB compatibility  |  Google Cloud Documentation

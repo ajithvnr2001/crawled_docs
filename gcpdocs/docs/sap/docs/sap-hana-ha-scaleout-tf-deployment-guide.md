@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sap/docs/sap-hana-ha-scaleout-tf-deployment-guide/
 title: Terraform: SAP HANA scale-out system with host auto-failover deployment guide \u00a0|\u00a0 SAP on Google Cloud \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-06T08:23:50.185636+00:00
+fetched_at: 2026-11-09T06:57:20.930921+00:00
 ---
 
 # Terraform: SAP HANA scale-out system with host auto-failover deployment guide  |  SAP on Google Cloud  |  Google Cloud Documentation

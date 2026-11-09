@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/firestore/docs/samples/firestore-data-set-array-operations-async/
 title: Update a Firestore document containing an array field (async) \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T08:36:09.402959+00:00
+fetched_at: 2026-11-09T07:03:23.935992+00:00
 ---
 
 # Update a Firestore document containing an array field (async)  |  Google Cloud Documentation

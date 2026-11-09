@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/pubsub/docs/samples/pubsub-delete-schema/
 title: Delete schema \u00a0|\u00a0 Pub/Sub \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T01:39:55.256971+00:00
+fetched_at: 2026-11-09T07:00:34.824709+00:00
 ---
 
 # Delete schema  |  Pub/Sub  |  Google Cloud Documentation

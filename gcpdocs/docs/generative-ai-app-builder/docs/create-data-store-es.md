@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/generative-ai-app-builder/docs/create-data-store-es/
 title: Create a search data store \u00a0|\u00a0 Agent Search \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T08:34:57.777694+00:00
+fetched_at: 2026-11-09T07:04:28.482187+00:00
 ---
 
 # Create a search data store  |  Agent Search  |  Google Cloud Documentation

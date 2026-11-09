@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/firestore/native/docs/solutions/counters/
 title: Support frequent and distributed counters \u00a0|\u00a0 Firestore in Native mode \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T08:37:39.126390+00:00
+fetched_at: 2026-11-09T07:04:54.116231+00:00
 ---
 
 # Support frequent and distributed counters  |  Firestore in Native mode  |  Google Cloud Documentation

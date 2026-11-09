@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/docs/security/security-best-practices-catalog/infrastructure/
 title: Infrastructure controls \u00a0|\u00a0 Security \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T09:12:30.787417+00:00
+fetched_at: 2026-11-09T07:06:13.180702+00:00
 ---
 
 # Infrastructure controls  |  Security  |  Google Cloud Documentation

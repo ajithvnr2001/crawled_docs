@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/compute/docs/instances/time-synchronization/configure-ntp/
 title: Configure NTP on a compute instance \u00a0|\u00a0 Compute Engine \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T09:00:27.522722+00:00
+fetched_at: 2026-11-09T07:05:23.245725+00:00
 ---
 
 # Configure NTP on a compute instance  |  Compute Engine  |  Google Cloud Documentation

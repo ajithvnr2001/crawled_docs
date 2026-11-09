@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sql/docs/mysql/samples/cloud-sql-mysql-pdo-connection/
 title: MySQL PDO connection \u00a0|\u00a0 Cloud SQL for MySQL \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-06T10:28:59.950832+00:00
+fetched_at: 2026-11-09T06:56:43.742373+00:00
 ---
 
 # MySQL PDO connection  |  Cloud SQL for MySQL  |  Google Cloud Documentation

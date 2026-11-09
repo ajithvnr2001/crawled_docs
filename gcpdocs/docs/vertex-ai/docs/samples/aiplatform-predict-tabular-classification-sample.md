@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/vertex-ai/docs/samples/aiplatform-predict-tabular-classification-sample/
 title: Predict for tabular classification \u00a0|\u00a0 Vertex AI \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-03T09:42:48.413129+00:00
+fetched_at: 2026-11-09T05:49:29.496075+00:00
 ---
 
 # Predict for tabular classification  |  Vertex AI  |  Google Cloud Documentation

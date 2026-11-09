@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/document-ai/docs/custom-org-policies/
 title: Create custom constraints for Document AI \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T09:12:16.912446+00:00
+fetched_at: 2026-11-09T07:05:35.897303+00:00
 ---
 
 # Create custom constraints for Document AI  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/compute/docs/instances/startup-scripts/windows/
 title: Use startup scripts on Windows VMs \u00a0|\u00a0 Compute Engine \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T09:00:26.958541+00:00
+fetched_at: 2026-11-09T07:05:19.981073+00:00
 ---
 
 # Use startup scripts on Windows VMs  |  Compute Engine  |  Google Cloud Documentation

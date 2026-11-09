@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/eventarc/standard/docs/run/route-trigger-cloud-speech-to-text/
 title: Route Cloud Speech-to-Text events to Cloud Run \u00a0|\u00a0 Eventarc Standard \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T08:37:40.939972+00:00
+fetched_at: 2026-11-09T07:04:11.502515+00:00
 ---
 
 # Route Cloud Speech-to-Text events to Cloud Run  |  Eventarc Standard  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/dataflow/docs/guides/templates/provided/avro-to-cloud-spanner/
 title: Cloud Storage Avro to Spanner template \u00a0|\u00a0 Cloud Dataflow \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T09:11:42.416760+00:00
+fetched_at: 2026-11-09T07:05:51.545454+00:00
 ---
 
 # Cloud Storage Avro to Spanner template  |  Cloud Dataflow  |  Google Cloud Documentation

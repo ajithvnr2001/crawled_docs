@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/functions/docs/samples/functions-tips-scopes/
 title: Global versus function scope \u00a0|\u00a0 Cloud Run functions \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T08:36:25.808312+00:00
+fetched_at: 2026-11-09T07:02:57.528869+00:00
 ---
 
 # Global versus function scope  |  Cloud Run functions  |  Google Cloud Documentation

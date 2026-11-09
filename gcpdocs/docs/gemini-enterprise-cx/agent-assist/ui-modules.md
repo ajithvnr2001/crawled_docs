@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-cx/agent-assist/ui-modules/
 title: Implement UI modules and connectors \u00a0|\u00a0 Agent Assist \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T08:35:09.572113+00:00
+fetched_at: 2026-11-09T07:04:08.575196+00:00
 ---
 
 # Implement UI modules and connectors  |  Agent Assist  |  Google Cloud Documentation

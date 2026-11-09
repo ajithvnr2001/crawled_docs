@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/storage/docs/samples/storage-view-lifecycle-management-configuration/
 title: Get a lifecycle policy for a bucket \u00a0|\u00a0 Cloud Storage \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-02T05:40:26.978350+00:00
+fetched_at: 2026-11-09T05:43:36.080132+00:00
 ---
 
 # Get a lifecycle policy for a bucket  |  Cloud Storage  |  Google Cloud Documentation

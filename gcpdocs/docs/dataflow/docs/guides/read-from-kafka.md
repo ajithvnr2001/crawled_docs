@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/dataflow/docs/guides/read-from-kafka/
 title: Read from Apache Kafka to Dataflow \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T09:08:15.934318+00:00
+fetched_at: 2026-11-09T07:06:20.958145+00:00
 ---
 
 # Read from Apache Kafka to Dataflow  |  Google Cloud Documentation

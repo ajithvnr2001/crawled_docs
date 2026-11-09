@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/vision/docs/samples/vision-document-text-tutorial-detect-bounds/
 title: Detect text in a document: Bounds \u00a0|\u00a0 Cloud Vision API \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T05:48:02.330272+00:00
+fetched_at: 2026-11-09T05:48:33.124940+00:00
 ---
 
 # Detect text in a document: Bounds  |  Cloud Vision API  |  Google Cloud Documentation

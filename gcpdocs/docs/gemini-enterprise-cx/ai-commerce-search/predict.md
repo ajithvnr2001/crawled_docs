@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-cx/ai-commerce-search/predict/
 title: Get recommendations \u00a0|\u00a0 AI Commerce Search in Gemini Enterprise for Customer Experience \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T08:34:07.458768+00:00
+fetched_at: 2026-11-09T07:02:48.364773+00:00
 ---
 
 # Get recommendations  |  AI Commerce Search in Gemini Enterprise for Customer Experience  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/container-optimized-os/docs/how-to/cis-compliance/
 title: Configuring and Checking CIS Compliance \u00a0|\u00a0 Container-Optimized OS \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T09:15:44.613635+00:00
+fetched_at: 2026-11-09T07:05:09.347979+00:00
 ---
 
 # Configuring and Checking CIS Compliance  |  Container-Optimized OS  |  Google Cloud Documentation

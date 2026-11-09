@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sql/docs/sqlserver/samples/cloud-sql-sqlserver-dotnet-ado-connection/
 title: Create an ADO.NET connection using C# \u00a0|\u00a0 Cloud SQL for SQL Server \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-06T10:29:58.450066+00:00
+fetched_at: 2026-11-09T05:50:12.264299+00:00
 ---
 
 # Create an ADO.NET connection using C#  |  Cloud SQL for SQL Server  |  Google Cloud Documentation

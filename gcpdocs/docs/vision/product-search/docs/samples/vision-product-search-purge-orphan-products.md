@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/vision/product-search/docs/samples/vision-product-search-purge-orphan-products/
 title: Delete orphan products \u00a0|\u00a0 Vision API Product Search \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-01T05:39:36.042679+00:00
+fetched_at: 2026-11-09T05:47:12.291614+00:00
 ---
 
 # Delete orphan products  |  Vision API Product Search  |  Google Cloud Documentation

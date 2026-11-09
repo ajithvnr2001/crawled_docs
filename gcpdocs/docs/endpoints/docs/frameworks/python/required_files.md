@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/endpoints/docs/frameworks/python/required_files/
 title: Required Files and Configuration \u00a0|\u00a0 Cloud Endpoints Frameworks for App Engine \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T08:37:47.452286+00:00
+fetched_at: 2026-11-09T07:05:01.452112+00:00
 ---
 
 # Required Files and Configuration  |  Cloud Endpoints Frameworks for App Engine  |  Google Cloud Documentation

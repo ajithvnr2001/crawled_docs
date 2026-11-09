@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/spanner/docs/samples/spanner-add-column/
 title: Add column \u00a0|\u00a0 Spanner \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T09:37:48.435680+00:00
+fetched_at: 2026-11-09T06:55:45.088036+00:00
 ---
 
 # Add column  |  Spanner  |  Google Cloud Documentation

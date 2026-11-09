@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/knowledge-catalog/docs/monitor-insights-token-usage/
 title: Monitor data insights token usage \u00a0|\u00a0 Knowledge Catalog \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-07T05:53:32.361750+00:00
+fetched_at: 2026-11-09T07:00:48.826135+00:00
 ---
 
 # Monitor data insights token usage  |  Knowledge Catalog  |  Google Cloud Documentation

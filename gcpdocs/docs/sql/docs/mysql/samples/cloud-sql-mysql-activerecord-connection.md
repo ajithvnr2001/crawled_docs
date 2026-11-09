@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sql/docs/mysql/samples/cloud-sql-mysql-activerecord-connection/
 title: Manage connections by using ActiveRecord \u00a0|\u00a0 Cloud SQL for MySQL \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-06T10:30:41.291949+00:00
+fetched_at: 2026-11-09T06:56:15.122654+00:00
 ---
 
 # Manage connections by using ActiveRecord  |  Cloud SQL for MySQL  |  Google Cloud Documentation

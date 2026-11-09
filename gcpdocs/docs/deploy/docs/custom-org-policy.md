@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/deploy/docs/custom-org-policy/
 title: Use custom organization policies \u00a0|\u00a0 Cloud Deploy \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T09:14:02.414302+00:00
+fetched_at: 2026-11-09T07:05:50.908617+00:00
 ---
 
 # Use custom organization policies  |  Cloud Deploy  |  Google Cloud Documentation

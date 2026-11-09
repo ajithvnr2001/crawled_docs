@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/vertex-ai/generative-ai/docs/samples/generativeaionvertexai-rag-get-file/
 title: Get a RAG file \u00a0|\u00a0 Generative AI on Vertex AI \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T05:48:39.387299+00:00
+fetched_at: 2026-11-09T05:48:18.577768+00:00
 ---
 
 # Get a RAG file  |  Generative AI on Vertex AI  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/healthcare-api/docs/samples/healthcare-patch-fhir-store/
 title: Patch FHIR store \u00a0|\u00a0 Cloud Healthcare API \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T08:33:23.653697+00:00
+fetched_at: 2026-11-09T07:02:13.247847+00:00
 ---
 
 # Patch FHIR store  |  Cloud Healthcare API  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/talent-solution/job-search/docs/samples/job-search-list-tenants-beta/
 title: List tenants using client (v4beta1) \u00a0|\u00a0 Job Search \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T09:51:05.153192+00:00
+fetched_at: 2026-11-09T05:45:51.662171+00:00
 ---
 
 # List tenants using client (v4beta1)  |  Job Search  |  Google Cloud Documentation

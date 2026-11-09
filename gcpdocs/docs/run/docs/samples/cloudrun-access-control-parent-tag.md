@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/run/docs/samples/cloudrun-access-control-parent-tag/
 title: Allow public access to a Cloud Run service \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T05:50:08.169218+00:00
+fetched_at: 2026-11-09T05:54:25.388032+00:00
 ---
 
 # Allow public access to a Cloud Run service  |  Google Cloud Documentation

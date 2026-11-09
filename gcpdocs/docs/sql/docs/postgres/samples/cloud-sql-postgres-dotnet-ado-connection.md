@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sql/docs/postgres/samples/cloud-sql-postgres-dotnet-ado-connection/
 title: PostgreSQL ADO.NET connection \u00a0|\u00a0 Cloud SQL for PostgreSQL \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-06T10:29:53.012218+00:00
+fetched_at: 2026-11-09T05:54:07.152559+00:00
 ---
 
 # PostgreSQL ADO.NET connection  |  Cloud SQL for PostgreSQL  |  Google Cloud Documentation

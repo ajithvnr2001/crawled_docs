@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/firestore/native/docs/security/iam/
 title: Security for server client libraries \u00a0|\u00a0 Firestore in Native mode \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T08:36:47.786761+00:00
+fetched_at: 2026-11-09T07:02:09.501388+00:00
 ---
 
 # Security for server client libraries  |  Firestore in Native mode  |  Google Cloud Documentation

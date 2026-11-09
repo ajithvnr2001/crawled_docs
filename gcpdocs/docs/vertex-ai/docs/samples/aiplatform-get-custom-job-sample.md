@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/vertex-ai/docs/samples/aiplatform-get-custom-job-sample/
 title: Get a custom job \u00a0|\u00a0 Vertex AI \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-06T10:31:43.124199+00:00
+fetched_at: 2026-11-09T05:48:41.769162+00:00
 ---
 
 # Get a custom job  |  Vertex AI  |  Google Cloud Documentation

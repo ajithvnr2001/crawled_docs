@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/storage/docs/samples/storage-set-public-access-prevention-inherited/
 title: Set Public Access Prevention to Inherited \u00a0|\u00a0 Cloud Storage \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-02T05:40:40.271218+00:00
+fetched_at: 2026-11-09T05:46:06.293807+00:00
 ---
 
 # Set Public Access Prevention to Inherited  |  Cloud Storage  |  Google Cloud Documentation

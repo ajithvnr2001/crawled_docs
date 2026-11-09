@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/generative-ai-app-builder/docs/create-data-store-recommendations/
 title: Create a custom recommendations data store \u00a0|\u00a0 Agent Search \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T08:34:58.455820+00:00
+fetched_at: 2026-11-09T07:03:54.150368+00:00
 ---
 
 # Create a custom recommendations data store  |  Agent Search  |  Google Cloud Documentation

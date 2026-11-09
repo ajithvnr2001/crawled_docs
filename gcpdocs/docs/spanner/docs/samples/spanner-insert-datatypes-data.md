@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/spanner/docs/samples/spanner-insert-datatypes-data/
 title: Mutations write data types data \u00a0|\u00a0 Spanner \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-06T10:29:53.770377+00:00
+fetched_at: 2026-11-09T05:44:06.667377+00:00
 ---
 
 # Mutations write data types data  |  Spanner  |  Google Cloud Documentation

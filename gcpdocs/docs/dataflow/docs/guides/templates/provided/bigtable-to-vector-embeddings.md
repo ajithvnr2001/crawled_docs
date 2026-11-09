@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/dataflow/docs/guides/templates/provided/bigtable-to-vector-embeddings/
 title: Bigtable to Vertex AI Vector Search template \u00a0|\u00a0 Cloud Dataflow \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T09:07:42.577867+00:00
+fetched_at: 2026-11-09T07:06:22.267919+00:00
 ---
 
 # Bigtable to Vertex AI Vector Search template  |  Cloud Dataflow  |  Google Cloud Documentation

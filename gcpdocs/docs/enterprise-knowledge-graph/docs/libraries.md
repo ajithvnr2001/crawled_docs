@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/enterprise-knowledge-graph/docs/libraries/
 title: Enterprise Knowledge Graph client libraries \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T08:26:36.178373+00:00
+fetched_at: 2026-11-09T07:01:10.905722+00:00
 ---
 
 # Enterprise Knowledge Graph client libraries  |  Google Cloud Documentation

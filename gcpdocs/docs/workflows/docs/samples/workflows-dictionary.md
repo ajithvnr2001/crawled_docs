@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/workflows/docs/samples/workflows-dictionary/
 title: Define a map \u00a0|\u00a0 Workflows \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T05:47:36.869974+00:00
+fetched_at: 2026-11-09T05:48:00.236297+00:00
 ---
 
 # Define a map  |  Workflows  |  Google Cloud Documentation

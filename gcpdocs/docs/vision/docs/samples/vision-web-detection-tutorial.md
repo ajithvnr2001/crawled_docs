@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/vision/docs/samples/vision-web-detection-tutorial/
 title: Web detection \u00a0|\u00a0 Cloud Vision API \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T05:46:53.898983+00:00
+fetched_at: 2026-11-09T05:47:39.223284+00:00
 ---
 
 # Web detection  |  Cloud Vision API  |  Google Cloud Documentation

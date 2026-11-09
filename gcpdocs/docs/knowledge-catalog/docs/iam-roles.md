@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/knowledge-catalog/docs/iam-roles/
 title: Knowledge Catalog IAM roles \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-07T05:43:04.314259+00:00
+fetched_at: 2026-11-09T07:00:50.285937+00:00
 ---
 
 # Knowledge Catalog IAM roles  |  Google Cloud Documentation

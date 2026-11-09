@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/firestore/native/docs/custom-constraints/
 title: Manage Firestore resources using custom constraints \u00a0|\u00a0 Firestore in Native mode \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T08:37:23.171891+00:00
+fetched_at: 2026-11-09T07:02:17.222010+00:00
 ---
 
 # Manage Firestore resources using custom constraints  |  Firestore in Native mode  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/healthcare-api/docs/samples/healthcare-delete-fhir-store/
 title: Delete FHIR store \u00a0|\u00a0 Cloud Healthcare API \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T08:28:58.239436+00:00
+fetched_at: 2026-11-09T07:02:18.203047+00:00
 ---
 
 # Delete FHIR store  |  Cloud Healthcare API  |  Google Cloud Documentation

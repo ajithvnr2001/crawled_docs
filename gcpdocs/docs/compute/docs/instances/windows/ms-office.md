@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/compute/docs/instances/windows/ms-office/
 title: Use Microsoft Office with License Manager \u00a0|\u00a0 Compute Engine \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T09:00:22.251554+00:00
+fetched_at: 2026-11-09T07:05:20.167927+00:00
 ---
 
 # Use Microsoft Office with License Manager  |  Compute Engine  |  Google Cloud Documentation

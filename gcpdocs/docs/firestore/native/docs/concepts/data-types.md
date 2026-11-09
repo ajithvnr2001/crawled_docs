@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/firestore/native/docs/concepts/data-types/
 title: Supported data types \u00a0|\u00a0 Firestore in Native mode \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T08:36:05.830020+00:00
+fetched_at: 2026-11-09T07:03:13.565371+00:00
 ---
 
 # Supported data types  |  Firestore in Native mode  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini/enterprise/docs/licenses/
 title: Get subscriptions and assign licenses for Gemini Enterprise \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T08:36:20.601080+00:00
+fetched_at: 2026-11-09T07:03:45.614444+00:00
 ---
 
 # Get subscriptions and assign licenses for Gemini Enterprise  |  Google Cloud Documentation

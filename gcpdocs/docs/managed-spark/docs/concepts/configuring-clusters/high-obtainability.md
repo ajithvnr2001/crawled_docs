@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/managed-spark/docs/concepts/configuring-clusters/high-obtainability/
 title: Create a High Obtainability cluster \u00a0|\u00a0 Managed Service for Apache Spark \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-07T05:44:02.275446+00:00
+fetched_at: 2026-11-09T07:00:53.568176+00:00
 ---
 
 # Create a High Obtainability cluster  |  Managed Service for Apache Spark  |  Google Cloud Documentation

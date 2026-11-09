@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/identity-platform/docs/migrating-users/
 title: Migrating users from an existing app \u00a0|\u00a0 Identity Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T08:27:47.714261+00:00
+fetched_at: 2026-11-09T07:02:15.940517+00:00
 ---
 
 # Migrating users from an existing app  |  Identity Platform  |  Google Cloud Documentation

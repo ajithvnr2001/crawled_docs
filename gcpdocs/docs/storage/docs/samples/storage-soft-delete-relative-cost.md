@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/storage/docs/samples/storage-soft-delete-relative-cost/
 title: How to get the soft delete storage cost \u00a0|\u00a0 Cloud Storage \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T06:01:31.908149+00:00
+fetched_at: 2026-11-09T05:45:36.213536+00:00
 ---
 
 # How to get the soft delete storage cost  |  Cloud Storage  |  Google Cloud Documentation

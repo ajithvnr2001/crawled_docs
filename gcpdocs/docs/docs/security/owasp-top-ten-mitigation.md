@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/docs/security/owasp-top-ten-mitigation/
 title: Mitigate OWASP Top 10:2025 on Google Cloud \u00a0|\u00a0 Security \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T09:11:50.746110+00:00
+fetched_at: 2026-11-09T07:06:15.383754+00:00
 ---
 
 # Mitigate OWASP Top 10:2025 on Google Cloud  |  Security  |  Google Cloud Documentation

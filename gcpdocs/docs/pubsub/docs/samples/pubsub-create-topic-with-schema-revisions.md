@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/pubsub/docs/samples/pubsub-create-topic-with-schema-revisions/
 title: Edit a topic to associate a schema \u00a0|\u00a0 Pub/Sub \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T01:39:54.827856+00:00
+fetched_at: 2026-11-09T07:00:24.820023+00:00
 ---
 
 # Edit a topic to associate a schema  |  Pub/Sub  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/storage/docs/samples/storage-get-bucket-labels/
 title: List bucket labels \u00a0|\u00a0 Cloud Storage \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-02T05:40:35.185704+00:00
+fetched_at: 2026-11-09T05:47:56.227032+00:00
 ---
 
 # List bucket labels  |  Cloud Storage  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/firestore/mongodb-compatibility/docs/audit-logging/
 title: Audit logging information \u00a0|\u00a0 Firestore with MongoDB compatibility \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T08:37:12.281730+00:00
+fetched_at: 2026-11-09T07:02:51.869497+00:00
 ---
 
 # Audit logging information  |  Firestore with MongoDB compatibility  |  Google Cloud Documentation

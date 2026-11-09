@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini/enterprise/notebooklm-enterprise/docs/podcast-api/
 title: Generate podcasts (API method) \u00a0|\u00a0 Gemini Notebook Enterprise \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T08:36:16.191815+00:00
+fetched_at: 2026-11-09T07:04:10.104245+00:00
 ---
 
 # Generate podcasts (API method)  |  Gemini Notebook Enterprise  |  Google Cloud Documentation

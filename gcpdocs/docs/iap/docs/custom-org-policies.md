@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/iap/docs/custom-org-policies/
 title: Use custom organization policies \u00a0|\u00a0 Identity-Aware Proxy \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T08:29:44.978317+00:00
+fetched_at: 2026-11-09T07:02:05.593088+00:00
 ---
 
 # Use custom organization policies  |  Identity-Aware Proxy  |  Google Cloud Documentation

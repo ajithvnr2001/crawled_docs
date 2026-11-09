@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/tasks/docs/samples/cloud-tasks-appengine-create-task/
 title: Create App Engine tasks \u00a0|\u00a0 Cloud Tasks \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-06T10:38:06.246222+00:00
+fetched_at: 2026-11-09T05:46:23.393533+00:00
 ---
 
 # Create App Engine tasks  |  Cloud Tasks  |  Google Cloud Documentation
@@ -243,7 +243,8 @@ To authenticate to Cloud Tasks, set up Application Default Credentials. For more
     
     
     use Google\Cloud\Tasks\V2\AppEngineHttpRequest;
-    use Google\Cloud\Tasks\V2\CloudTasksClient;
+    use Google\Cloud\Tasks\V2\Client\CloudTasksClient;
+    use Google\Cloud\Tasks\V2\CreateTaskRequest;
     use Google\Cloud\Tasks\V2\HttpMethod;
     use Google\Cloud\Tasks\V2\Task;
     
@@ -273,7 +274,10 @@ To authenticate to Cloud Tasks, set up Application Default Credentials. For more
     $task->setAppEngineHttpRequest($httpRequest);
     
     // Send request and print the task name.
-    $response = $client->createTask($queueName, $task);
+    $request = (new CreateTaskRequest())
+        ->setParent($queueName)
+        ->setTask($task);
+    $response = $client->createTask($request);
     printf('Created task %s' . PHP_EOL, $response->getName());
     
 
@@ -384,8 +388,8 @@ To authenticate to Cloud Tasks, set up Application Default Credentials. For more
     
       # Add scheduled time to task.
       if seconds
-        timestamp = Google::Protobuf::[Timestamp](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-network_connectivity-v1alpha1/latest/Google-Protobuf-Timestamp.html).new
-        timestamp.[seconds](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-network_connectivity-v1alpha1/latest/Google-Protobuf-Timestamp.html) = Time.now.to_i + seconds.to_i
+        timestamp = Google::Protobuf::[Timestamp](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-container-v1beta1/latest/Google-Protobuf-Timestamp.html).new
+        timestamp.[seconds](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-container-v1beta1/latest/Google-Protobuf-Timestamp.html) = Time.now.to_i + seconds.to_i
         task[:schedule_time] = timestamp
       end
     

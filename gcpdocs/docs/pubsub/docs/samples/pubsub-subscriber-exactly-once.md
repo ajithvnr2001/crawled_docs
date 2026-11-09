@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/pubsub/docs/samples/pubsub-subscriber-exactly-once/
 title: Subscribe with exactly once delivery \u00a0|\u00a0 Pub/Sub \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T01:39:38.877944+00:00
+fetched_at: 2026-11-09T06:59:51.954228+00:00
 ---
 
 # Subscribe with exactly once delivery  |  Pub/Sub  |  Google Cloud Documentation

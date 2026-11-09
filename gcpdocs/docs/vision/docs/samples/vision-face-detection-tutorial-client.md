@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/vision/docs/samples/vision-face-detection-tutorial-client/
 title: Detect faces in an image \u00a0|\u00a0 Cloud Vision API \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-06T10:38:12.908472+00:00
+fetched_at: 2026-11-09T05:48:09.808559+00:00
 ---
 
 # Detect faces in an image  |  Cloud Vision API  |  Google Cloud Documentation

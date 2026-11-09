@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/firewall/docs/manage-vpc-firewall-rules-logging/
 title: Manage VPC firewall rules logging \u00a0|\u00a0 Cloud Next Generation Firewall \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T08:35:47.649284+00:00
+fetched_at: 2026-11-09T07:04:48.375289+00:00
 ---
 
 # Manage VPC firewall rules logging  |  Cloud Next Generation Firewall  |  Google Cloud Documentation

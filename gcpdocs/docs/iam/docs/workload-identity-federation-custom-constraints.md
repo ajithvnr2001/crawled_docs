@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/iam/docs/workload-identity-federation-custom-constraints/
 title: Use custom organization policies for Workload Identity Federation \u00a0|\u00a0 Identity and Access Management (IAM) \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T08:29:36.724871+00:00
+fetched_at: 2026-11-09T07:01:13.848966+00:00
 ---
 
 # Use custom organization policies for Workload Identity Federation  |  Identity and Access Management (IAM)  |  Google Cloud Documentation

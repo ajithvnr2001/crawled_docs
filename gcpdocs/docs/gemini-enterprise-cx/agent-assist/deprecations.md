@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-cx/agent-assist/deprecations/
 title: Deprecations \u00a0|\u00a0 Agent Assist \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T08:35:03.898920+00:00
+fetched_at: 2026-11-09T07:04:48.271700+00:00
 ---
 
 # Deprecations  |  Agent Assist  |  Google Cloud Documentation

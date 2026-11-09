@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/compute/docs/instances/windows/generating-credentials/
 title: Manage accounts and credentials on Windows VMs \u00a0|\u00a0 Compute Engine \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T09:00:22.835829+00:00
+fetched_at: 2026-11-09T07:05:12.429481+00:00
 ---
 
 # Manage accounts and credentials on Windows VMs  |  Compute Engine  |  Google Cloud Documentation

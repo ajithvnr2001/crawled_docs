@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/document-ai/docs/big-query-integration/
 title: BigQuery integration \u00a0|\u00a0 Document AI \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T09:12:19.426521+00:00
+fetched_at: 2026-11-09T07:06:14.757768+00:00
 ---
 
 # BigQuery integration  |  Document AI  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/healthcare-api/docs/samples/healthcare-dicomweb-search-instances/
 title: Search DICOM instances \u00a0|\u00a0 Cloud Healthcare API \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T08:28:57.168976+00:00
+fetched_at: 2026-11-09T07:01:55.394442+00:00
 ---
 
 # Search DICOM instances  |  Cloud Healthcare API  |  Google Cloud Documentation

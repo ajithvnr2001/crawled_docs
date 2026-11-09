@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/compute/docs/instance-groups/regional-mig-set-target-distribution-shape/
 title: Set a target distribution shape for VMs in a regional MIG \u00a0|\u00a0 Compute Engine \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T09:00:36.109664+00:00
+fetched_at: 2026-11-09T07:05:25.916246+00:00
 ---
 
 # Set a target distribution shape for VMs in a regional MIG  |  Compute Engine  |  Google Cloud Documentation

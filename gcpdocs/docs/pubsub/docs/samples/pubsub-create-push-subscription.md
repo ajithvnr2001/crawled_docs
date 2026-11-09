@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/pubsub/docs/samples/pubsub-create-push-subscription/
 title: Create push subscription \u00a0|\u00a0 Pub/Sub \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T01:39:33.677414+00:00
+fetched_at: 2026-11-09T07:00:25.839539+00:00
 ---
 
 # Create push subscription  |  Pub/Sub  |  Google Cloud Documentation

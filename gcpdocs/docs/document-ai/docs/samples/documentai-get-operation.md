@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/document-ai/docs/samples/documentai-get-operation/
 title: Get details about a long-running operation \u00a0|\u00a0 Document AI \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T09:12:00.947333+00:00
+fetched_at: 2026-11-09T07:06:10.063608+00:00
 ---
 
 # Get details about a long-running operation  |  Document AI  |  Google Cloud Documentation

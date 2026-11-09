@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sql/docs/sqlserver/samples/cloud-sql-sqlserver-dotnet-ado-backoff/
 title: Implement exponential backoff when using ADO.NET \u00a0|\u00a0 Cloud SQL for SQL Server \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-06T10:29:44.999422+00:00
+fetched_at: 2026-11-09T05:50:12.206127+00:00
 ---
 
 # Implement exponential backoff when using ADO.NET  |  Cloud SQL for SQL Server  |  Google Cloud Documentation

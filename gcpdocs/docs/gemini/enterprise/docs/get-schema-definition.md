@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini/enterprise/docs/get-schema-definition/
 title: View a schema definition \u00a0|\u00a0 Gemini Enterprise \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T08:36:20.783824+00:00
+fetched_at: 2026-11-09T07:03:40.289764+00:00
 ---
 
 # View a schema definition  |  Gemini Enterprise  |  Google Cloud Documentation

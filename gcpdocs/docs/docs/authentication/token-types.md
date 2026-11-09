@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/docs/authentication/token-types/
 title: Token types \u00a0|\u00a0 Authentication \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T09:12:03.835484+00:00
+fetched_at: 2026-11-09T07:00:47.149466+00:00
 ---
 
 # Token types  |  Authentication  |  Google Cloud Documentation
@@ -233,7 +233,7 @@ To issue a service account JWT, clients must perform the following steps:
 
   1. Prepare a JSON web signature payload that includes the service account's email address, an OAuth scope or API endpoint, and an expiry time.
 
-  2. Sign the payload using a service account key of the respective service account. Clients can sign the payload offline by using a user-managed service account key, or online by using the `signJwt` method and a Google-managed service account key. For more information, see [Create a self-signed JSON Web Token](https://docs.cloud.google.com/iam/docs/create-short-lived-credentials-direct#sa-credentials-jwt)
+  2. Sign the payload using a service account key of the respective service account. Clients can sign the payload offline by using a user-managed service account key, or online by using the `signJwt` method and a Google-managed service account key. For more information, see [Create a self-signed JSON Web Token](https://docs.cloud.google.com/iam/docs/create-short-lived-credentials-direct#sa-credentials-jwt).
 
 
 
@@ -880,6 +880,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-07 UTC.
+Last updated 2026-11-08 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-07 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-08 UTC."],[],[]] 

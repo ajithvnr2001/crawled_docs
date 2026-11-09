@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/spanner/docs/samples/spanner-read-write-transaction/
 title: Read/write transaction \u00a0|\u00a0 Spanner \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-06T10:38:51.432080+00:00
+fetched_at: 2026-11-09T05:43:23.341401+00:00
 ---
 
 # Read/write transaction  |  Spanner  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sensitive-data-protection/docs/samples/dlp-deidentify-table-bucketing/
 title: De-identify data using table bucketing \u00a0|\u00a0 Sensitive Data Protection \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-06T10:25:32.351806+00:00
+fetched_at: 2026-11-09T05:47:44.616137+00:00
 ---
 
 # De-identify data using table bucketing  |  Sensitive Data Protection  |  Google Cloud Documentation

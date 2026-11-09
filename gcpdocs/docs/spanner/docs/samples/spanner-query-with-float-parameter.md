@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/spanner/docs/samples/spanner-query-with-float-parameter/
 title: Query with FLOAT parameter \u00a0|\u00a0 Spanner \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-06T10:39:02.857905+00:00
+fetched_at: 2026-11-09T05:52:52.829020+00:00
 ---
 
 # Query with FLOAT parameter  |  Spanner  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/compute/docs/ip-addresses/configure-static-external-ip-address/
 title: Configure static external IP addresses \u00a0|\u00a0 Compute Engine \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T09:00:22.063812+00:00
+fetched_at: 2026-11-09T07:05:17.871290+00:00
 ---
 
 # Configure static external IP addresses  |  Compute Engine  |  Google Cloud Documentation

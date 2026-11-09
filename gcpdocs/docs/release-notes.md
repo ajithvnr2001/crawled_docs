@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/release-notes/
 title: Google Cloud release notes \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-07T08:23:19.456319+00:00
+fetched_at: 2026-11-09T05:46:56.264892+00:00
 ---
 
 # Google Cloud release notes  |  Google Cloud Documentation
@@ -23,6 +23,41 @@ The following release notes cover the most recent changes over the last 60 days.
 You can also see and filter all release notes in the [Google Cloud console](https://console.cloud.google.com/release-notes) or you can programmatically access release notes in [BigQuery](https://console.cloud.google.com/bigquery?p=bigquery-public-data&d=google_cloud_release_notes&t=release_notes&page=table).
 
 To get the latest product updates delivered to you, add the URL of this page to your [feed reader](https://wikipedia.org/wiki/Comparison_of_feed_aggregators), or add the [feed URL](https://docs.cloud.google.com/feeds/gcp-release-notes.xml) directly. 
+
+## November 08, 2026
+
+**Cloud Asset Inventory**
+
+Feature
+
+The following resource type is publicly available through the [SearchAllResources](https://docs.cloud.google.com/asset-inventory/docs/reference/rest/v1/TopLevel/searchAllResources) and [SearchAllIamPolicies](https://docs.cloud.google.com/asset-inventory/docs/reference/rest/v1/TopLevel/searchAllIamPolicies) APIs.
+
+  * Gemini for Google Cloud 
+    * `cloudaicompanion.googleapis.com/Topic`
+
+
+
+**Google SecOps SOAR**
+
+Announcement
+
+Release 6.3.106 is being rolled out to the first phase of regions as listed [here](https://docs.cloud.google.com/chronicle/docs/soar/overview-and-introduction/soar-gradual-release).
+
+Feature
+
+**Case activity tagging**
+
+You can now use custom tags for individual activities, comments, tasks, and actions on the Case Wall, and filter the wall view by those tags. This allows you to categorize specific observations and filter the timeline to view only the entries relevant to your investigation or team.
+
+For more information, see [Add a tag to a Case Wall activity](https://docs.cloud.google.com/chronicle/docs/soar/investigate/working-with-cases/define-tags-in-cases-admin#add-activity-tag).
+
+## November 07, 2026
+
+**Google SecOps SOAR**
+
+Announcement
+
+[Release 6.3.105](https://docs.cloud.google.com/chronicle/docs/soar/release-notes#November_01_2026) is now available for all regions.
 
 ## November 06, 2026
 
@@ -77,6 +112,17 @@ Feature
 
 You can [configure a Bigtable automated backup policy](https://docs.cloud.google.com/bigtable/docs/managing-backups#configure-hot-automated-backups) on SSD instances to create daily [hot backups](https://docs.cloud.google.com/bigtable/docs/backups#hot-backups) and specify how long the backups remain hot before automatically transitioning to standard backups. This feature is [generally available (GA)](https://cloud.google.com/products#product-launch-stages).
 
+**Cloud Asset Inventory**
+
+Feature
+
+The following resource type is publicly available through the [SearchAllResources](https://docs.cloud.google.com/asset-inventory/docs/reference/rest/v1/TopLevel/searchAllResources) and [SearchAllIamPolicies](https://docs.cloud.google.com/asset-inventory/docs/reference/rest/v1/TopLevel/searchAllIamPolicies) APIs.
+
+  * Cloud Key Management Service 
+    * `cloudkms.googleapis.com/KajPolicyConfig`
+
+
+
 **Cloud Load Balancing**
 
 Feature
@@ -122,6 +168,260 @@ Config Controller now uses the following versions of its included products:
 
 
 
+**Container Optimized OS**
+
+Change
+
+### cos-125-19216-801-14 
+
+Kernel | Docker | Containerd | [GPU Drivers](https://cloud.google.com/container-optimized-os/docs/how-to/run-gpus)  
+---|---|---|---  
+[COS-6.12.114](https://cos.googlesource.com/third_party/kernel/+/1dcdbc3f0dcd16137863cab1347dee8c604b87c0) | v27.5.1 | v2.2.7 | [See List](https://storage.googleapis.com/cos-tools/19216.801.14/lakitu/gpu_driver_versions.textproto)  
+  
+Announcement
+
+This is an [LTS Refresh release.](https://docs.cloud.google.com/container-optimized-os/docs/concepts/versioning#lts_refresh_releases)
+
+Feature
+
+Added RTC support in A4X-Max images.
+
+Feature
+
+Enabled PCI peer to peer direct memory access for 64k kernels.
+
+Fixed
+
+Fixed a 60 second outage after an idpf function reset on IPU E2100 caused by misreading PFGEN_RSTAT.
+
+Fixed
+
+Updated cos-gpu-installer to v2.7.12. It installs ucodes firmwares for r615 and newer GPU driver versions.
+
+Fixed
+
+Upgraded app-arch/gzip to v1.15.
+
+Fixed
+
+Upgraded app-containers/docker-credential-helpers to v0.9.12.
+
+Fixed
+
+Upgraded app-misc/ca-certificates to v20260816.3.131.1.
+
+Fixed
+
+Upgraded dev-db/sqlite to v3.54.1.
+
+Fixed
+
+Upgraded dev-libs/nss to v3.132.
+
+Fixed
+
+Upgraded sys-apps/less to v710.
+
+Fixed
+
+Upgraded sys-libs/timezone-data to v2026f.
+
+Security
+
+Fixed CVE-2025-31133 in cri-tools.
+
+Security
+
+Fixed CVE-2025-52565 in docker.
+
+Security
+
+Fixed CVE-2025-52881 in cri-tools.
+
+Security
+
+Fixed CVE-2026-116587 in google-osconfig-agent.
+
+Security
+
+Fixed CVE-2026-32285 in cni-plugins.
+
+Security
+
+Fixed CVE-2026-32285 in cri-tools.
+
+Security
+
+Fixed CVE-2026-63209 in containerd.
+
+Security
+
+Fixed CVE-2026-63209 in node-problem-detector.
+
+Security
+
+Fixed CVE-2026-63209, CVE-2026-39883, CVE-2024-25621 in google-osconfig-agent.
+
+Security
+
+Fixed CVE-2026-84304 in containerd.
+
+Security
+
+Fixed CVE-2026-84304 in docker.
+
+Security
+
+Fixed CVE-2026-84304 in google-guest-agent.
+
+Security
+
+Fixed CVE-2026-84304, CVE-2026-29181 in node-problem-detector.
+
+Security
+
+Fixed CVE-2026-84445, CVE-2026-116587 in cos-extensions.
+
+Security
+
+Fixed CVE-2026-84445, CVE-2026-63209 in docker.
+
+Security
+
+Updated curl to v8.22.0. This resolves CVE-2026-18924, CVE-2026-13608, CVE-2026-80229, CVE-2026-80255 and CVE-2026-19931.
+
+Security
+
+Updated libpcre2 to v10.49. This resolves CVE-2026-86145 and CVE-2026-103111.
+
+Security
+
+Updated pyjwt to v2.14.0. This resolves CVE-2026-102266, CVE-2026-102267, CVE-2026-102268 and CVE-2026-102271.
+
+Change
+
+### cos-129-19506-625-14 
+
+Kernel | Docker | Containerd | [GPU Drivers](https://cloud.google.com/container-optimized-os/docs/how-to/run-gpus)  
+---|---|---|---  
+[COS-6.12.114](https://cos.googlesource.com/third_party/kernel/+/1bac64d736f17f5ed23cbcb8ec3f6edf39ccab9a) | v27.5.1 | v2.2.7 | [See List](https://storage.googleapis.com/cos-tools/19506.625.14/lakitu/gpu_driver_versions.textproto)  
+  
+Announcement
+
+This is an [LTS Refresh release.](https://docs.cloud.google.com/container-optimized-os/docs/concepts/versioning#lts_refresh_releases)
+
+Change
+
+Upgraded sys-apps/casfs to v0.1.24.
+
+Feature
+
+Added RTC support in A4X-Max images.
+
+Feature
+
+Enabled PCI peer to peer direct memory access for 64k kernels.
+
+Fixed
+
+Fixed a 60 second outage after an idpf function reset on IPU E2100 caused by misreading PFGEN_RSTAT.
+
+Fixed
+
+Updated cos-gpu-installer to v2.7.12. It installs ucodes firmwares for r615 and newer GPU driver versions.
+
+Security
+
+Fixed CVE-2024-41110 in cri-tools.
+
+Security
+
+Fixed CVE-2026-116587 in guest-agent.
+
+Security
+
+Fixed CVE-2026-29181, CVE-2025-31133, CVE-2024-25621 in docker.
+
+Security
+
+Fixed CVE-2026-32285, CVE-2026-84304 in cni-plugins.
+
+Security
+
+Fixed CVE-2026-34986 in guest-agent.
+
+Security
+
+Fixed CVE-2026-35469 in cri-tools.
+
+Security
+
+Fixed CVE-2026-39883 in cos-extensions.
+
+Security
+
+Fixed CVE-2026-39883 in docker.
+
+Security
+
+Fixed CVE-2026-45022, CVE-2026-24051, CVE-2026-53488 in google-osconfig-agent.
+
+Security
+
+Fixed CVE-2026-63209 in containerd.
+
+Security
+
+Fixed CVE-2026-63209 in node-problem-detector.
+
+Security
+
+Fixed CVE-2026-63209, CVE-2025-65637 in google-osconfig-agent.
+
+Security
+
+Fixed CVE-2026-84304 in containerd.
+
+Security
+
+Fixed CVE-2026-84304 in docker.
+
+Security
+
+Fixed CVE-2026-84304 in kubernetes.
+
+Security
+
+Fixed CVE-2026-84304, CVE-2026-29181 in node-problem-detector.
+
+Security
+
+Fixed CVE-2026-84304, CVE-2026-32285 in cri-tools.
+
+Security
+
+Fixed CVE-2026-84445 in google-guest-agent.
+
+Security
+
+Fixed CVE-2026-84445 in google-osconfig-agent.
+
+Security
+
+Fixed CVE-2026-84445 in guest-agent.
+
+Security
+
+Updated curl to v8.22.0. This resolves CVE-2026-18924, CVE-2026-13608, CVE-2026-80229, CVE-2026-80255 and CVE-2026-19931.
+
+Security
+
+Updated libpcre2 to v10.49. This resolves CVE-2026-86145 and CVE-2026-103111.
+
+Security
+
+Updated pyjwt to v2.14.0. This resolves CVE-2026-102266, CVE-2026-102267, CVE-2026-102268 and CVE-2026-102271.
+
 **Gemini Enterprise**
 
 Announcement
@@ -133,6 +433,20 @@ Bundled Gemini Code Assist entitlements for existing Gemini Enterprise Standard 
 To transition your developer workflows, agentic coding assistance is available through Google Antigravity, which is included in Gemini Enterprise editions.
 
 For more information, see the [Gemini Code Assist sunset page](https://docs.cloud.google.com/gemini/docs/codeassist/sunset).
+
+Feature
+
+**Gemini Enterprise: Video generation upgrades to Omni 1.2 Flash**
+
+[Gemini Omni 1.2 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/omni-1-2-flash) is generally available (GA) and replaces Veo 3.1 for video generation in the `global` region. Omni 1.2 Flash improves clarity and instruction following.
+
+To use video generation, an administrator must turn on the **Enable video generation** setting. For more information, see:
+
+  * [Generate a video](https://docs.cloud.google.com/gemini/enterprise/docs/assistant-analyze#generate_a_video)
+  * [Manage web app features](https://docs.cloud.google.com/gemini/enterprise/docs/manage-web-app-features)
+  * [Gemini Enterprise limitations](https://docs.cloud.google.com/gemini/enterprise/docs/locations#product-limitations)
+
+
 
 Breaking
 
@@ -233,6 +547,14 @@ You can create, configure, and inspect Agent Platform Memory Bank instances from
 For more information, see [Set up Memory Bank](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/memory-bank/setup), [Fetch memories](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/memory-bank/fetch-memories), [Memory Profiles](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/memory-bank/profiles), and [Memory revisions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/memory-bank/revisions).
 
 **Google Cloud Contact Center as a Service**
+
+Announcement
+
+**Google Cloud CCaaS 6.32**
+
+We've released version 6.32 of Google Cloud CCaaS.
+
+The timing of the update to your instance depends on the deployment schedule that you have chosen. For more information, see [Deployment schedules](https://docs.cloud.google.com/contact-center/ccai-platform/docs/deployment-schedules).
 
 Fixed
 
@@ -873,6 +1195,12 @@ This addresses the following vulnerabilities:
 
   
   
+**Application Integration**
+
+Announcement
+
+The `iam.serviceAccounts.actAs` check on run-as service accounts already applies when you publish or test any integration. Starting January 15, 2027 (UTC), the new authorization behavior also applies to existing integrations created before October 15, 2026. Specifically, you must have a run-as service account to publish or test an integration with a scheduled or event trigger. For more information, see [Prepare for upcoming authorization changes](https://docs.cloud.google.com/application-integration/docs/prepare-for-authorization-changes) and the [GCP-2026-068](https://docs.cloud.google.com/application-integration/docs/security-bulletins#gcp-2026-068) security bulletin.
+
 **BigQuery**
 
 Feature
@@ -1211,6 +1539,57 @@ For more information, see:
 
 
 
+**Gemini Enterprise Agent Platform**
+
+Feature
+
+**Gemini Omni 1.2 Flash**
+
+[Gemini Omni 1.2 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/omni-1-2-flash) (`gemini-omni-1.2-flash`) is available in [General Availability (GA)](https://cloud.google.com/products#product-launch-stages). Gemini Omni 1.2 Flash is an omni-modal foundation model that processes text, image, and video inputs to generate text and high-definition video with synchronized audio through the [Interactions API](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/interactions).
+
+Gemini Omni 1.2 Flash introduces the following capabilities:
+
+  * **Standalone video upscaling** : Upscale previously generated videos from 360p to 720p or 1080p, and from 720p to 1080p or 4K using `task: "upscale"`. See [Upscale videos](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/video/upscale-videos).
+
+  * **Extended video generation and editing duration** : Generate or edit videos up to 15 seconds in length across text-to-video, image-to-video, reference-to-video, and video editing tasks (up to 10 seconds for first-and-last-frame interpolation and video extension).
+
+  * **Reference-guided video editing and extension** : Supply up to 2 reference images along with an input video when editing or extending videos. See [Edit videos](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/video/edit-videos) and [Extend videos](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/video/extend-videos).
+
+  * **Deterministic generation and billing labels** : Specify `seed` for reproducible video outputs and attach custom `labels` to Interactions API requests.
+
+  * **Standard PayGo and Provisioned Throughput** : Available with [Standard Pay-as-you-go (PayGo)](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/standard-paygo) and [Provisioned Throughput](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/provisioned-throughput/gemini-omni-models) (685 tokens per second per GSU).
+
+
+
+
+Feature
+
+**Interactions API long decodes for Gemini 4 Argon**
+
+Long decodes up to 1,048,576 tokens (minus input tokens) on the [Interactions API](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/interactions) (`v1beta1`) are available in [General Availability (GA)](https://cloud.google.com/products#product-launch-stages) for [Gemini 4 Argon](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/4-argon) (`gemini-4-argon` and `gemini-4-argon-cyber-permissive`). You can extend single-turn outputs beyond the per-segment limit (65,536 streaming or 32,768 non-streaming tokens) using automatic continuation in the Google Gen AI SDK (`google-genai >= 2.34.0` for Python, `@google/genai >= 2.32.0` for JavaScript/TypeScript, Go `>= 1.77.0`, and Java `>= 1.80.0`), server-managed background execution (`background=true`), or custom stored (`store=true`) and stateless (`store=false`) `continuation_token` loops.
+
+For code samples, continuation options, and implementation rules, see [Long decodes in the developer's guide to Gemini 4 Argon](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/guides/gemini-4-argon#long-decodes).
+
+Fixed
+
+**CodeMender updates (v0.18.0)**
+
+This release introduces updates to CodeMender:
+
+  * **Verification tool-turn guardrails** : Added exploratory tool-turn limits to `cm verify` sessions to prevent unbounded command execution loops.
+  * **Release notes link in update prompts** : Added a direct link to DevSite release notes when CodeMender prompts to update to a newer CLI version.
+  * **Agent IAM diagnostic guidance** : Added actionable `roles/aiplatform.agentsUser` IAM binding commands to CLI setup and error messages for service account and CI/CD environments.
+  * **Bug fixes** : 
+    * Improved the reliability of agent sessions, including verification and resumed sessions.
+    * Improved compatibility across shell environments.
+    * Improved the sign-in flow during interactive activation.
+    * Improved error reporting when the service is temporarily unavailable.
+    * Includes security and stability improvements.
+
+
+
+For more information, see the [CodeMender documentation](https://docs.cloud.google.com/gemini-enterprise-agent-platform/agents/codemender).
+
 **Google SecOps**
 
 Feature
@@ -1497,6 +1876,29 @@ You can switch between multiple teams in the Gemini Enterprise mobile app withou
 When you open a team for the first time, the mobile app saves it to your teams list. Additionally, you can rename teams in the list and you can remove teams from your list.
 
 This feature is generally available (GA). For more information, see [Teams](https://docs.cloud.google.com/gemini/enterprise/docs/use-the-mobile-app#teams) in _Use the mobile app_.
+
+**Gemini Enterprise Agent Platform**
+
+Feature
+
+**Provisioned Throughput support for supervised fine-tuned models (GA)**
+
+Provisioned Throughput [support for supervised fine-tuned models](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/provisioned-throughput/supported-models#supervised-fine-tuned-model-support) is [generally available](https://cloud.google.com/products#product-launch-stages). Burndown rates for fine-tuned model inference can include a premium that's directly proportional to the model's fine-tuned inference pricing premium.
+
+Feature
+
+**AlphaGenome gRPC and unified HTTP serving support**
+
+AlphaGenome (`alphagenome-004`) now supports unified HTTP/2 gRPC streaming and chunked binary protobuf HTTP streaming on Gemini Enterprise Agent Platform:
+
+  * Streams compressed binary tensor chunks directly over gRPC on shared endpoints (`PredictionService.StreamDirectRawPredict` on port `8081`) and chunked binary protobuf payloads (`proto_b64`) over HTTP on dedicated endpoints (`streamRawPredict` on port `8080`) across all seven `DnaModelService` methods (`predict_sequence`, `predict_interval`, `predict_variant`, `score_variant`, `score_interval`, `score_ism_variants`, and `output_metadata`) and 11 genomic modalities, reducing latency for 1 MB track predictions.
+  * Supports concurrent multi-variant evaluation for in silico saturation mutagenesis (`score_ism_variants`) without HTTP gateway timeouts.
+  * Supports model fold selection (`ALL_FOLDS`, `FOLD_0`, `FOLD_1`, `FOLD_2`, and `FOLD_3`) across both gRPC and HTTP clients through the unified `alphagenome_cloud_sdk` Python SDK.
+  * Retains `alphagenome-003` in Model Garden for backward compatibility with existing legacy HTTP deployments.
+
+
+
+For more information, see the [AlphaGenome documentation](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/open-models/alphagenome).
 
 **Google Distributed Cloud (software only) for VMware**
 
@@ -2194,6 +2596,16 @@ Feature
 
 Datastream is now available in the `asia-southeast3` (Bangkok) region. For the list of all available regions, see [IP allowlists and regions](https://docs.cloud.google.com/datastream/docs/ip-allowlists-and-regions).
 
+**Gemini Enterprise Agent Platform**
+
+Feature
+
+**Serving tuned Gemini 3.x models on global endpoints**
+
+Serving tuned Gemini 3.x models on `global` endpoints is available in [General Availability (GA)](https://cloud.google.com/products#product-launch-stages). You can copy fine-tuned Gemini 3.x models to the `global` region using the Model Registry `models:copy` API, deploy them to global serving endpoints, and send inference requests directly to `aiplatform.googleapis.com`.
+
+For more information, see [About supervised fine-tuning for Gemini models](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/supervised-tuning) and [Tune Gemini models with supervised fine-tuning](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/supervised-tuning/use#copy-tuned-model).
+
 **Google Cloud Contact Center as a Service**
 
 Announcement
@@ -2428,6 +2840,14 @@ The **Playbooks** tab in Cases now provides a consolidated view of all automated
 
 For more information, see [View case and alert playbooks](https://docs.cloud.google.com/chronicle/docs/soar/respond/working-with-playbooks/attach-playbooks-to-alerts-cases#view_case_and_alert_playbooks).
 
+**Google SecOps SOAR**
+
+Announcement
+
+Release 6.3.105 is being rolled out to the first phase of regions as listed [here](https://docs.cloud.google.com/chronicle/docs/soar/overview-and-introduction/soar-gradual-release).
+
+This release contains internal and customer bug fixes.
+
 ## October 31, 2026
 
 **Google SecOps**
@@ -2439,6 +2859,12 @@ Feature
 This feature is in public preview. The **SIEM Search** page now provides two search-execution modes: **Basic Mode** and **Advanced Mode**. **Basic Mode** (the default option) uses a streamlined, fast-path execution pipeline that bypasses secondary enrichment steps during search execution. This approach reduces end-to-end search wait times while preserving full data fidelity and query syntax parity. **Advanced Mode** is equivalent to the previous search experience.
 
 For more information, see [Choose the search-execution mode](https://docs.cloud.google.com/chronicle/docs/investigation/udm-search#choose-search-execution-mode) and [Understand the search-execution modes](https://docs.cloud.google.com/chronicle/docs/investigation/udm-search#search-execution-modes).
+
+**Google SecOps SOAR**
+
+Announcement
+
+[Release 6.3.104](https://docs.cloud.google.com/chronicle/docs/soar/release-notes#October_25_2026) is now available for all regions.
 
 ## October 30, 2026
 
@@ -2999,6 +3425,22 @@ Runtime sysctl changes:
 
 
 
+**Dataflow**
+
+Feature
+
+Dataflow supports Apache Beam SDK version 2.77.0 for Java, Python, and Go ([SDK version support status](https://docs.cloud.google.com/dataflow/docs/support/sdk-version-support-status)). This version offers new features such as:
+
+  * BigQuery Storage Read API support for Lakehouse Apache Iceberg tables using four-part identifiers
+  * Schema evolution options for `AddFiles` and Beam YAML
+  * Event-time deduplication state bounding for the `Watch` transform
+  * Gemini Enterprise Agent Platform Model Monitoring v2 for Python `RunInference` transforms
+  * Payload and metadata support for `SolaceIO`, and `Decimal` column types for `ClickHouseIO`
+
+
+
+For more information, see the [Apache Beam SDK release notes](https://github.com/apache/beam/releases#release-v2.77.0).
+
 **Datastream**
 
 Feature
@@ -3033,6 +3475,24 @@ Feature
 **Gemini Enterprise: S &P Global - Adaptive Retrieval data store (Preview)**
 
 The [S&P Global - Adaptive Retrieval](https://docs.cloud.google.com/gemini/enterprise/docs/connectors/s_p_global_adaptive_retrieval) data store is available in Public Preview in Gemini Enterprise. You can use natural language to ask questions about the S&P Global data your S&P Global account is entitled to access. For more information, see [Connect a third-party data source](https://docs.cloud.google.com/gemini/enterprise/docs/connectors/connect-third-party-data-source).
+
+**Gemini Enterprise Agent Platform**
+
+Feature
+
+**Inference request metadata logging (GA)**
+
+Inference request metadata logging is generally available. Gemini Enterprise Agent Platform can write one Cloud Logging entry for every inference request your project serves. Each entry records the model, region, consumption option, token counts, Provisioned Throughput usage, latency and error code. Entries record metadata only and never contain prompts or responses. Logging is supported for Gemini models that use `generateContent` and `streamGenerateContent`, and for Claude models that use `rawPredict` and `streamRawPredict`.
+
+You can turn on logging in the Google Cloud console, from the Provisioned Throughput page, or with the REST API. Turning on logging in the console also turns on detailed metrics, which chart Provisioned Throughput traffic at one-second resolution. With logging on, the model observability dashboard adds 1-second resolution options to its charts for pay-as-you-go traffic. To attribute usage to a team, application or tenant, add request headers with the `x-goog-agent-platform-observability-label-` prefix, and query the entries with SQL in Observability Analytics.
+
+For more information, see [Log inference request metadata](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/inference-metadata-logging).
+
+Feature
+
+**Computer use tool is available in General Availability**
+
+The [Computer use tool](https://docs.cloud.google.com/gemini-enterprise-agent-platform/agents/tools/computer-use) is available in [General Availability (GA)](https://cloud.google.com/products#product-launch-stages). This release introduces comprehensive Human-in-the-Loop (HITL) safety governance, enabling developers to selectively configure or override specific confirmation policies (such as financial transactions or data modification) while allowing administrators to mandate organization-wide guardrails using the `configurableComputerUseToolSafetyPolicies` constraint.
 
 **Looker**
 
@@ -3857,6 +4317,41 @@ This location is available in GA with allowlist. To get access to this location 
 
 For more information, see [Data residency for Gemini Enterprise](https://docs.cloud.google.com/gemini/enterprise/docs/locations#in-country_regions).
 
+**Gemini Enterprise Agent Platform**
+
+Change
+
+**Use a single regional Agent Registry instance for Gemini Enterprise apps**
+
+For Gemini Enterprise apps, we recommend associating each Agent Gateway with a single regional Agent Registry instance in the same project and region as the gateway. Use the `us-central1` registry for `global` and `us` apps, and the `europe-west1` registry for `eu` apps.
+
+This note updates the [September 9, 2026](https://docs.cloud.google.com/gemini-enterprise-agent-platform/release-notes#September_09_2026) entry. For more information, see [Register your agents and destination resources](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/set-up-agent-gateway#agent-registry).
+
+Fixed
+
+**CodeMender updates (v0.17.0)**
+
+This release introduces updates to CodeMender:
+
+  * **Support bundle diagnostics** : Introduce `cm support-bundle` to collect environment metadata, configuration policies, health reports, and session logs into a compressed archive for streamlined troubleshooting.
+  * **Plain output mode** : Add the persistent `--plain` flag (configurable via the `CM_PLAIN` environment variable or `output.plain` in `config.yaml`) to suppress decorative emojis, ANSI escape sequences, and Unicode borders for compatibility with screen readers and CI/CD log pipelines.
+  * **Dedicated exit codes for setup failures** : Assign distinct exit codes (such as code 10 for credential issues) to configuration and authentication failures, preventing CI/CD pipelines from confusing environment setup issues with security findings.
+  * **Tailored CI/CD credential guidance** : Provide environment-specific authentication guidance when running inside automated CI/CD systems such as GitHub Actions, GitLab CI, Buildkite, and Jenkins instead of interactive login prompts.
+  * **Single-line JSONL statistics** : Add the `--jsonl` flag to `cm stats` to output single-line JSON records with model and team attribution for seamless integration with Cloud Logging and log aggregation pipelines.
+  * **Granular sandbox and policy flags** : Replace the overloaded `--unrestricted` flag with orthogonal flags (`--sandbox=false`) and configurable command policies to decouple container sandboxing from execution safety controls.
+  * **Sandbox configuration protections** : Mount `.git/hooks`, `.git/config`, and `.codemender` read-only within writable execution sandboxes during `cm fix` and `cm verify` to prevent modifications to repository security policies.
+  * **Bug fixes** : 
+    * Added a security warning when commands are executed with both sandbox isolation disabled and interactive approval skipped.
+    * Enforced `allowedRoots` path boundaries across host discovery and remediation file operations to prevent traversal via dangling symlinks.
+    * Supplied exact finding line ranges to remediation agents during `cm fix` to eliminate manual file scanning overhead.
+    * Updated `cm report import` to properly treat findings without location data as file-level findings rather than defaulting to the first line.
+    * Ensured `cm session cancel` routes requests to the session's original region regardless of local environment overrides.
+    * Fixed finding status tracking in `cm verify` so unexploitable verdicts update the local state database rather than leaving findings open.
+
+
+
+For more information, see the [CodeMender documentation](https://docs.cloud.google.com/gemini-enterprise-agent-platform/agents/codemender).
+
 **Google SecOps**
 
 Fixed
@@ -4301,130 +4796,6 @@ Bug Fixes:
 
 Change
 
-### cos-dev-138-20248-0-0 
-
-Kernel | Docker | Containerd | [GPU Drivers](https://cloud.google.com/container-optimized-os/docs/how-to/run-gpus)  
----|---|---|---  
-[COS-6.18.57](https://cos.googlesource.com/third_party/kernel/+/8d63d0a98e25398e4dda752bc9b925ab47532d8d) | v29.4.3 | v2.4.1 | [See List](https://storage.googleapis.com/cos-tools/20248.0.0/lakitu/gpu_driver_versions.textproto)  
-  
-Change
-
-Updated the Linux kernel to v6.18.57.
-
-Change
-
-Upgraded sys-apps/casfs to v0.1.24.
-
-Feature
-
-Added KVM virtualization support for AMD CPUID faulting.
-
-Feature
-
-Added nvidia-container-toolkit to ARM images.
-
-Fixed
-
-Updated cos-gpu-installer to v2.7.11 and toolbox to v20261020.
-
-Fixed
-
-Upgraded app-editors/vim to v9.2.1152, Upgraded app-editors/vim-core to v9.2.1152.
-
-Fixed
-
-Upgraded app-misc/ca-certificates to v20260816.3.125. This removes the certificates affected by the eMudhra intermediate certificate compromise.
-
-Fixed
-
-Upgraded dev-libs/nss to v3.131.1. This removes the certificates affected by the eMudhra intermediate certificate compromise.
-
-Fixed
-
-Upgraded sys-libs/glibc to v2.41-r5.
-
-Security
-
-Fixed CVE-2024-4741 in dev-libs/openssl.
-
-Security
-
-Fixed CVE-2026-33186 in cri-tools.
-
-Security
-
-Fixed CVE-2026-39830 in guest-agent.
-
-Security
-
-Fixed CVE-2026-39831 in node-problem-detector.
-
-Security
-
-Fixed CVE-2026-39831, CVE-2026-46595 in docker.
-
-Security
-
-Fixed CVE-2026-39832, CVE-2026-46595 in kubernetes.
-
-Security
-
-Fixed CVE-2026-39833 in nvidia-container-toolkit.
-
-Security
-
-Fixed CVE-2026-42508, CVE-2026-39830, CVE-2026-39834 in google-guest-agent.
-
-Security
-
-Fixed CVE-2026-46595, CVE-2026-39831 in google-osconfig-agent.
-
-Security
-
-Fixed CVE-2026-46595, CVE-2026-39832 in cri-tools.
-
-Security
-
-Fixed CVE-2026-5435 in sys-libs/glibc.
-
-Security
-
-Fixed CVE-2026-82474 in app-admin/sudo.
-
-Security
-
-Fixed CVE-2026-84445, CVE-2026-24051, CVE-2026-84304, CVE-2026-39831, CVE-2026-39829, CVE-2026-39834, CVE-2026-34986, CVE-2026-39835, CVE-2026-39832, CVE-2026-39827, CVE-2026-81870, CVE-2026-46598, CVE-2026-29181, CVE-2026-39830, CVE-2026-46595, CVE-2026-39828, CVE-2026-25680, CVE-2026-39833, CVE-2026-39883, CVE-2026-84303, CVE-2026-46597, CVE-2026-42508 in cos-extensions.
-
-Security
-
-Fixed CVE-2026-98432 in the Linux kernel.
-
-Security
-
-Fixed CVE-2026-99999 in the Linux kernel.
-
-Security
-
-Upgraded dev-lang/go to v1.26.10. This fixes CVE-2026-111943.
-
-Security
-
-Upgraded dev-lang/go to v1.26.5. This fixes CVE-2026-39822.
-
-Security
-
-Upgraded dev-lang/go to v1.26.9. This fixes CVE-2026-94447.
-
-Security
-
-Upgraded dev-lang/python to v3.13.15. This fixes CVE-2026-15308.
-
-Security
-
-Upgraded dev-lang/python to v3.13.16. This fixes CVE-2026-19445.
-
-Change
-
 ### cos-125-19216-760-20 
 
 Kernel | Docker | Containerd | [GPU Drivers](https://cloud.google.com/container-optimized-os/docs/how-to/run-gpus)  
@@ -4566,6 +4937,20 @@ This feature is generally available (GA). For more information, see:
   * [Set up your custom MCP server data store](https://docs.cloud.google.com/gemini/enterprise/docs/connectors/custom-mcp-server/set-up-custom-mcp-server)
 
 
+
+**Gemini Enterprise Agent Platform**
+
+Feature
+
+**Gemini Robotics ER 2 (Preview)**
+
+[Gemini Robotics ER 2](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/gemini-robotics-er) ([`gemini-robotics-er-2-preview`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/robotics-er-2)) is available in [Preview](https://cloud.google.com/products#product-launch-stages). Gemini Robotics ER 2 is an embodied reasoning vision-language model built on Gemini 3.5 Flash for robotics applications, including [spatial reasoning](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/gemini-robotics-er/spatial), [agentic code execution](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/gemini-robotics-er/agentic), [task orchestration](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/gemini-robotics-er/orchestration), and [video understanding](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/gemini-robotics-er/video-understanding).
+
+Feature
+
+**xAI's Grok 4.7 is generally available**
+
+[Grok 4.7](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/grok/grok-4-7) is now [generally available (GA)](https://cloud.google.com/products#product-launch-stages) for production use on the global endpoint and the US multi-region endpoint.
 
 **Google Cloud Armor**
 
@@ -5007,6 +5392,40 @@ You can now create heterogeneous conversion workspaces by importing database sch
 Security
 
 A vulnerability (CVE-2026-85299) about incorrect authorization in Compute Engine was discovered and has been addressed. For more information, see the [GCP-2026-073 security bulletin](https://docs.cloud.google.com/compute/docs/security-bulletins#gcp-2026-073).
+
+**Gemini Enterprise Agent Platform**
+
+Feature
+
+**Control user intent matching for semantic governance policies**
+
+You can now turn user intent matching on or off for semantic governance policies by setting the `sgpUserIntentMatching` key on the authorization extension metadata. User intent matching is on by default; set the key to `DISABLED` to turn it off. Turning it off reduces protection against indirect prompt injection. When the key is set, policy evaluation logs report the mode each evaluation used in the `sgpUserIntentMatchingMode` field.
+
+For more information, see [Control user intent matching](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/configure-semantic-governance#control-intent-matching).
+
+Feature
+
+**Cloud Storage output support for Gemini image generation models**
+
+Direct Cloud Storage output persistence is [generally available (GA)](https://cloud.google.com/products#product-launch-stages) for [Gemini Nano Banana 2.1](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/nano-banana-2-1) (`gemini-nano-banana-2.1`), [Gemini 3.1 Flash Image](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-1-flash-image) (`gemini-3.1-flash-image`), [Gemini 3.1 Flash-Lite Image](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-1-flash-lite-image) (`gemini-3.1-flash-lite-image`), and [Gemini 3 Pro Image](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-pro-image) (`gemini-3-pro-image`). You can set `outputConfig.outputUriPrefix` and `generationConfig.responseFormat[].image.delivery` to `"URI"` in `generateContent` and `streamGenerateContent` requests to write generated and edited images directly to a Cloud Storage bucket and receive the object URI in `fileData.fileUri` instead of inline bytes. For more information, see [Save generated images to Cloud Storage](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/image-generation#save-generated-images-cloud-storage).
+
+Feature
+
+**Gemini 3.8 Flash TTS and Gemini 3.8 Flash-Lite TTS are Generally Available (GA)**
+
+[Gemini 3.8 Flash TTS](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-8-flash-tts) and [Gemini 3.8 Flash-Lite TTS](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-8-flash-lite-tts) are available in [General Availability (GA)](https://cloud.google.com/products#product-launch-stages) in the `global` location and the `us` and `eu` multi-regions. The models support structured speaker and style metadata, inline vocal tags, multi-speaker dialogue, and streaming. [Voice design](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/text-to-speech/voice-design) and [voice replication](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/text-to-speech/voice-replication) capabilities remain available in Preview.
+
+For more information, see [Generate speech with Gemini TTS](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/text-to-speech/overview).
+
+Feature
+
+**Semantic governance policies support more model providers**
+
+Semantic governance policies now evaluate tool calls from agents that use models from providers other than Gemini. The policy engine reads each provider's request and response format, so the same policies apply whichever model your agent uses. Supported APIs include the Gemini Developer API and Gemini models on Gemini Enterprise Agent Platform, the Anthropic Messages API, Claude models on Gemini Enterprise Agent Platform, the OpenAI Chat Completions API, the Mistral AI API, the OpenAI-compatible endpoint on Gemini Enterprise Agent Platform (including Llama models), and self-hosted OpenAI-compatible servers such as vLLM. Streamed model responses aren't supported.
+
+To govern these providers, update the `when` condition of your authorization policy to match each provider's request path. The updated condition also matches requests that include a query string.
+
+For more information, see [Supported model providers](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/semantic-governance-overview#supported-providers) and [Connect the policy engine to Agent Gateway](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/configure-semantic-governance#connect-policy-engine).
 
 **Google Distributed Cloud (software only) for bare metal**
 
@@ -5461,6 +5880,14 @@ Feature
 **Resize inline images in Case Wall comments**
 
 You can now resize inline images directly in rich-text comments on the Case Wall. To resize an image, switch the comment box to rich-text mode and insert an image either by using the toolbar's image menu or by pasting it into the comment. Click the image to display the resizing overlay, then drag the bottom-right handle to adjust its dimensions.
+
+**Google SecOps SOAR**
+
+Announcement
+
+Release 6.3.104 is being rolled out to the first phase of regions as listed [here](https://docs.cloud.google.com/chronicle/docs/soar/overview-and-introduction/soar-gradual-release).
+
+This release contains internal and customer bug fixes.
 
 ## October 24, 2026
 
@@ -5957,6 +6384,12 @@ For instructions, see [Version 53.0 rollback](https://docs.cloud.google.com/chro
 
 
 
+
+**Google SecOps SOAR**
+
+Announcement
+
+[Release 6.3.103](https://docs.cloud.google.com/chronicle/docs/soar/release-notes#October_18_2026) is now available for all regions.
 
 ## October 23, 2026
 
@@ -7230,6 +7663,27 @@ Feature
 
 Dataflow now supports streaming high availability for [Streaming Engine](https://docs.cloud.google.com/dataflow/docs/streaming-engine) jobs ([Preview](https://cloud.google.com/products#product-launch-stages)). When you enable the `requires_high_availability` service option, Dataflow replicates backend state across multiple zones in a region to protect your job from single-zone failures. For more information, see [Streaming high availability](https://docs.cloud.google.com/dataflow/docs/guides/streaming-high-availability).
 
+**Gemini Enterprise Agent Platform**
+
+Fixed
+
+**CodeMender updates (v0.16.0)**
+
+This release introduces updates to CodeMender:
+
+  * **Deep scan by default (`cm find`)**: `cm find` now runs a concurrent file-by-file deep scan (`--deep`) by default for higher vulnerability recall across repositories. To run a single-session quick scan instead, pass the `--quick` flag (`cm find --quick`). `cm stats` now breaks down scan usage by mode (`--deep`, `--quick`, and `--diff`).
+  * **Pre-flight health checks (`cm health`)**: Added the `cm health` command (with `--json`, `--strict`, and `--timeout` flags) to verify credentials, configuration, endpoint reachability, and project authorization before running scans.
+  * **Expanded file discovery** : `cm find` now scans `.hh`, `.hxx`, `.inl`, and `.ipp` C++ headers, extensionless scripts with supported language shebangs (`python`, `node`, `ruby`, and `php`), nested `build/`, `target/`, `obj/`, and `bin/` source directories, and production code under `spec/`, `locale/`, and `i18n/`.
+  * **Bug fixes** : 
+    * Restricted `cm verify` file writes to `.exploit/` inside the project root and skipped missing or out-of-scope session artifacts during workspace restore.
+    * Capped single-turn file reads at 256 KiB with pagination hints, bounded unified diff generation on large files, and raised `run_command` default and maximum timeouts to 120 seconds and 300 seconds.
+    * Fixed an issue where sandboxed sessions could not write tool call entries to `~/.codemender/audit.log`.
+    * Updated multi-file `--deep` and `--diff` scans to report `INCOMPLETE` status when one or more file scans fail.
+
+
+
+For more information, see the [CodeMender documentation](https://docs.cloud.google.com/gemini-enterprise-agent-platform/agents/codemender).
+
 **Google Distributed Cloud (software only) for VMware**
 
 Announcement
@@ -7873,6 +8327,24 @@ Feature
 
 [Text search](https://docs.cloud.google.com/firestore/mongodb-compatibility/docs/text-query) and [Geospatial search](https://docs.cloud.google.com/firestore/mongodb-compatibility/docs/geo-query) are generally available ([GA](https://cloud.google.com/products#product-launch-stages)).
 
+**Gemini Enterprise Agent Platform**
+
+Feature
+
+**Supervised fine-tuning for Gemini 3 models is available in General Availability**
+
+[Supervised fine-tuning](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/supervised-tuning) for Gemini 3 models is available in [General Availability (GA)](https://cloud.google.com/products#product-launch-stages).
+
+Key updates include the following:
+
+  * **Gemini 3.5 Flash Lite support** : Supervised fine-tuning is now supported for [Gemini 3.5 Flash Lite](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-5-flash-lite) (`gemini-3.5-flash-lite`), in addition to Gemini 3.5 Flash (`gemini-3.5-flash`) and Gemini 3.1 Flash Lite (`gemini-3.1-flash-lite`).
+  * **Supported regions** : Model tuning jobs and tuned model serving for Gemini 3 models are supported on the `us` and `eu` multi-region endpoints.
+  * **Customer-managed encryption keys (CMEK)** : [Customer-managed encryption keys (CMEK)](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/cmek) are supported for protecting tuning job resources and tuned models.
+
+
+
+For more information, see [About supervised fine-tuning for Gemini models](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/supervised-tuning) and [Tune Gemini models by using supervised fine-tuning](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/supervised-tuning/use).
+
 **Google Cloud Armor**
 
 Security
@@ -8083,6 +8555,32 @@ Feature
 **Specify whether to reopen closed cases when the grouping is by Source Grouping Identifier**
 
 You can now specify whether Google SecOps reopens closed cases when grouping SOAR alerts by **Source Grouping Identifier**. When the option is enabled and a new alert is received with a source grouping identifier of a case that was previously closed in Google SecOps, then Google SecOps reopens the case. For more information, see [Configure alert grouping](https://docs.cloud.google.com/chronicle/docs/soar/investigate/working-with-alerts/alert-grouping-mechanism-admin).
+
+**Google SecOps SOAR**
+
+Announcement
+
+Release 6.3.103 is being rolled out to the first phase of regions as listed [here](https://docs.cloud.google.com/chronicle/docs/soar/overview-and-introduction/soar-gradual-release).
+
+Feature
+
+**Specify whether to reopen closed cases when the grouping is by Source Grouping Identifier**
+
+You can now specify whether Google SecOps reopens closed cases when grouping alerts by **Source Grouping Identifier**. When the option is enabled and a new alert is received with a source grouping identifier of a case that was previously closed in Google SecOps, then Google SecOps reopens the case. For more information, see [Configure alert grouping](https://docs.cloud.google.com/chronicle/docs/soar/investigate/working-with-alerts/alert-grouping-mechanism-admin).
+
+Deprecated
+
+**Deprecation of the ListCaseEvents API endpoint**
+
+Effective October 12, 2026, the ListCaseEvents API endpoint is deprecated. You should use the [ListCaseEvidenceData](https://docs.cloud.google.com/chronicle/docs/reference/rest/v1alpha/projects.locations.instances.cases.caseEvidenceDatas/list) API endpoint instead.
+
+## October 17, 2026
+
+**Google SecOps SOAR**
+
+Announcement
+
+[Release 6.3.102](https://docs.cloud.google.com/chronicle/docs/soar/release-notes#October_11_2026) is now available for all regions.
 
 ## October 16, 2026
 
@@ -8714,6 +9212,37 @@ Gemini 4 Argon is generally available (GA) for Workflow Builder. Gemini 4 Argon 
 
 
 For more information, see [Workflow Builder](https://docs.cloud.google.com/gemini/enterprise/docs/workflow-builder).
+
+**Gemini Enterprise Agent Platform**
+
+Feature
+
+**Priority PayGo support for Gemini Nano Banana 2.1**
+
+[Priority Pay-as-you-go (PayGo)](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/priority-paygo) is available in [General Availability (GA)](https://cloud.google.com/products#product-launch-stages) for [Gemini Nano Banana 2.1](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/nano-banana-2-1) (`gemini-nano-banana-2.1`) on the `global` endpoint.
+
+Fixed
+
+**CodeMender updates (v0.15.0)**
+
+This release introduces updates to CodeMender:
+
+  * **Enhanced SARIF 2.1.0 reporting** : Updated `cm report` SARIF output with standardized rule descriptors, severity properties, and repository-relative artifact locations for improved GitHub Code Scanning compatibility.
+  * **Model invocation metrics** : Added model invocation tracking to `cm stats --json`, providing total, per-session, and per-turn invocation counts.
+  * **Bug fixes** : 
+    * Fixed an issue where token usage from completed turns was omitted from session logs during error or cancellation exit paths.
+
+
+
+For more information, see the [CodeMender documentation](https://docs.cloud.google.com/gemini-enterprise-agent-platform/codemender).
+
+Feature
+
+**DeepSeek-V4.1-Flash is available in Public Preview**
+
+DeepSeek-V4.1-Flash from DeepSeek is available as a fully managed model (MaaS) in Model Garden. The model accepts text and image input, targets agentic and coding tasks, and supports a context window of up to 1M tokens.
+
+For more information, see [DeepSeek-V4.1-Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/maas/deepseek/deepseek-v41-flash).
 
 **Google Cloud Armor**
 
@@ -9482,6 +10011,30 @@ AlphaEvolve experiments can generate candidate programs with Gemini 4 Argon in t
 
 For more information, see [Supported models](https://docs.cloud.google.com/gemini/enterprise/docs/alphaevolve/reference-guide/api-reference#supported-models) and [AlphaEvolve limitations](https://docs.cloud.google.com/gemini/enterprise/docs/locations#alphaevolve-limitations).
 
+**Gemini Enterprise Agent Platform**
+
+Feature
+
+**Gemini 4 Argon in CodeMender (Preview)**
+
+CodeMender now supports Gemini 4 Argon. To use it, pass `--model gemini-4-argon` to `cm find`, `cm verify`, or `cm fix`. Gemini 3.8 Flash remains the default model.
+
+For more information, see [Specifying the model](https://docs.cloud.google.com/gemini-enterprise-agent-platform/agents/codemender#specifying-the-model).
+
+Feature
+
+**Gemini 4 Argon and Gemini 4 Argon Cyber Permissive**
+
+[Gemini 4 Argon](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/4-argon) (`gemini-4-argon`) is available in [General Availability (GA)](https://cloud.google.com/products#product-launch-stages). Gemini 4 Argon is Google's frontier model that excels at deep work in complex, real-world tasks across domains including coding, finance, legal, cybersecurity, and science. It supports a unified 1,048,576-token input and output limit, configurable thinking levels (`LOW`, `MEDIUM`, `HIGH`), [long decodes](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/guides/gemini-4-argon#long-decodes) up to 1,048,576 tokens using continuation tokens on the `GenerateContent` API, and [agentic video understanding](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/video-understanding#agentic-video-processing) in GA.
+
+[Gemini 4 Argon Cyber Permissive](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/4-argon#cyber) (`gemini-4-argon-cyber-permissive`), a version of Gemini 4 Argon for defensive cybersecurity use cases, is also available in GA behind the [Fairwind Program](https://deepmind.google/fairwind-program/) allowlist.
+
+  * **Known issue (long decodes)** : Long decoding (`continuation_token`) on the `GenerateContent` API (`generateContent` and `streamGenerateContent`) is supported only in the `v1beta1` API (not `v1`). The Google Gen AI SDK uses `v1beta1` by default unless `api_version='v1'` is specified in `http_options`; for direct REST calls, use the `v1beta1` endpoint path.
+
+
+
+For more information, see [Get started with Gemini 4](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/start/get-started-with-gemini-4) and the [developer's guide to Gemini 4 Argon](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/guides/gemini-4-argon).
+
 **Google Distributed Cloud (software only) for VMware**
 
 Announcement
@@ -9833,90 +10386,6 @@ For more information, see [C4N machine series](https://docs.cloud.google.com/com
 
 Change
 
-### cos-dev-138-20198-0-0 
-
-Kernel | Docker | Containerd | [GPU Drivers](https://cloud.google.com/container-optimized-os/docs/how-to/run-gpus)  
----|---|---|---  
-[COS-6.18.55](https://cos.googlesource.com/third_party/kernel/+/bdbde7078cc46500653d60b76e7490df2fdbbee5) | v29.4.3 | v2.4.1 | [See List](https://storage.googleapis.com/cos-tools/20198.0.0/lakitu/gpu_driver_versions.textproto)  
-  
-Change
-
-Updated default cos-gpu-installer version to v2.7.9. It installs ucodes firmwares for VR200.
-
-Change
-
-Updated the Linux kernel to v6.18.55.
-
-Feature
-
-Enabled CONFIG_ARM_CCA_GUEST in the Linux kernel for ARM64 to support guest attestation on Arm CCA Confidential VMs.
-
-Feature
-
-Security: Disable Magic SysRq for gmec-tdx-kernel-host
-
-Fixed
-
-Added support for net-fs/lustre-client-drivers v2.14.0_p262-r1
-
-Fixed
-
-Added support for net-fs/lustre-client-drivers v2.14.0_p262.
-
-Fixed
-
-Added the "watchdog_timeout" module parameter to the idpf driver.
-
-Fixed
-
-Updated app-admin/google-guest-configs to v20260928.00.
-
-Fixed
-
-Upgraded app-admin/google-guest-configs to v20260928.00.
-
-Fixed
-
-Upgraded app-admin/oslogin to v20260924.00.
-
-Fixed
-
-Upgraded app-containers/runc to v1.5.2, Upgraded app-containers/runc-test to v1.5.2.
-
-Fixed
-
-Upgraded dev-libs/expat to v2.8.5.
-
-Fixed
-
-Upgraded dev-libs/libgcrypt to v1.12.4.
-
-Fixed
-
-Upgraded dev-libs/libpcre2 to v10.49.
-
-Fixed
-
-Upgraded dev-python/oauthlib to v4.0.0.
-
-Fixed
-
-Upgraded sys-apps/pv to v1.12.0.
-
-Fixed
-
-Upgraded sys-apps/xemu to v0.0.11.
-
-Security
-
-Fixed CVE-2026-18220 in sys-libs/binutils-libs.
-
-Security
-
-Fixed CVE-2026-5450 in sys-libs/glibc.
-
-Change
-
 ### cos-133-19999-44-126 
 
 Kernel | Docker | Containerd | [GPU Drivers](https://cloud.google.com/container-optimized-os/docs/how-to/run-gpus)  
@@ -10079,6 +10548,29 @@ Feature
 Firestore with MongoDB compatibility now supports QueryData, which you can use to build data agents that interact with the data in your database using conversational language. For more information, see [QueryData overview](https://docs.cloud.google.com/gemini/data-agents/querydata/firestore-mongodb-compatibility/data-agent-overview).
 
 This feature is available in [Preview](https://cloud.google.com/products#product-launch-stages).
+
+**Gemini Enterprise Agent Platform**
+
+Fixed
+
+**CodeMender updates (v0.14.0)**
+
+This release introduces updates to CodeMender:
+
+  * **Better pull request scans** : `cm find --diff` now catches removed security controls and gives large files more time (configurable with `--diff-job-timeout`).
+  * **Unified sessions** : `--deep` and `--diff` scans now appear as a single session in `cm session list`, `cm report`, and `cm stats`.
+  * **Moved code in`cm verify`**: `cm verify` now finds code that moved since `cm find` and updates the finding's location.
+  * **Guided activation** : `cm` now opens the activation page and waits for activation instead of exiting.
+  * **New`cm find` flags**: `--deep-max-turns` limits exploratory steps per file in `--deep` scans, and `--enable-bash` allows shell commands during scans.
+  * **Improved detection** : More distinct findings per file and more precise CWE classification for weak hashing and randomness.
+  * **Bug fixes** : 
+    * Fixed scans of repositories reached through nested symbolic links.
+    * Fixed findings for nonexistent files and over-merged findings.
+    * Shell scripts created by `cm verify` are now executable.
+
+
+
+For more information, see the [CodeMender documentation](https://docs.cloud.google.com/gemini-enterprise-agent-platform/agents/codemender).
 
 **Google Cloud Managed Service for Apache Kafka**
 
@@ -10361,6 +10853,12 @@ As a follow-up to the release of the `GTI_IOC` feed and the deprecation of the l
 
 The update follows the standard Google SecOps rollout schedule. It starts on Monday, October 12, 2026 and rolls out to all regions during the week.
 
+**Google SecOps SOAR**
+
+Announcement
+
+The deadline for the migration of SOAR APIs to the Chronicle API has been extended from November 30, 2026 until March 31, 2027. For more information, refer to [SOAR Migration overview](https://docs.cloud.google.com/chronicle/docs/soar/admin-tasks/advanced/migrate-to-gcp)
+
 **Looker**
 
 Feature
@@ -10423,6 +10921,14 @@ Change
 
 Installed latest packages from upstream dependencies.
 
+**Google SecOps SOAR**
+
+Announcement
+
+Release 6.3.102 is being rolled out to the first phase of regions as listed [here](https://docs.cloud.google.com/chronicle/docs/soar/overview-and-introduction/soar-gradual-release).
+
+This release contains internal and customer bug fixes.
+
 ## October 10, 2026
 
 **Cloud SQL for MySQL**
@@ -10432,6 +10938,12 @@ Change
 MySQL 8.0.46 is now the [default minor version](https://docs.cloud.google.com/sql/docs/mysql/db-versions#database-version-support) for Cloud SQL for MySQL 8.0.
 
 For more information about minor version support in Cloud SQL for MySQL, see [MySQL 8.0](https://docs.cloud.google.com/sql/docs/mysql/db-versions#mysql-8.0).
+
+**Google SecOps SOAR**
+
+Announcement
+
+[Release 6.3.101](https://docs.cloud.google.com/chronicle/docs/soar/release-notes#September_27_2026) is now available for all regions.
 
 ## October 09, 2026
 
@@ -11624,6 +12136,31 @@ For more information, see the following resources:
 
 
 
+**Gemini Enterprise Agent Platform**
+
+Feature
+
+**Anthropic's Claude Haiku 5.5**
+
+[Claude Haiku 5.5](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/claude/haiku-5-5) is available in Model Garden.
+
+Fixed
+
+**CodeMender updates (v0.13.0)**
+
+This release introduces updates to CodeMender:
+
+  * **Consistent finding deduplication** : Improved finding deduplication consistency across repeated `cm find`, `--deep`, `--diff`, and `--parallel` scans.
+  * **Bug fixes** : 
+    * Fixed an issue where deduplicated findings could appear in `cm report --status DISMISSED`.
+    * Improved local state reliability during concurrent `cm find --diff` and `cm find --deep` scans.
+    * Updated streaming error handling so non-retryable errors fail immediately instead of retrying.
+    * Ensured local session state and logs are saved cleanly when a session is interrupted (`Ctrl+C`).
+
+
+
+For more information, see the [CodeMender documentation](https://docs.cloud.google.com/gemini-enterprise-agent-platform/agents/codemender).
+
 **Google Distributed Cloud (software only) for VMware**
 
 Announcement
@@ -12073,6 +12610,14 @@ These settings are generally available (GA) for administrators in Gemini Enterpr
 
 For more information, see [Configure feature settings](https://docs.cloud.google.com/gemini/enterprise/docs/ai-developer-tools-settings#configure-feature-settings).
 
+**Gemini Enterprise Agent Platform**
+
+Feature
+
+**Gemini Nano Banana 2.1**
+
+[Gemini Nano Banana 2.1](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/nano-banana-2-1) (`gemini-nano-banana-2.1`) is available in [General Availability (GA)](https://cloud.google.com/products#product-launch-stages). Gemini Nano Banana 2.1 is optimized for high-speed multimodal image generation and editing, offering improved visual quality, prompt adherence, and text rendering across `1K`, `2K`, and `4K` output resolutions.
+
 **Google Kubernetes Engine**
 
 Issue
@@ -12195,6 +12740,30 @@ Feature
 Announcement
 
 A new Confidential Space image (260900) is available.
+
+**Gemini Enterprise Agent Platform**
+
+Fixed
+
+**CodeMender updates (v0.12.0)**
+
+This release introduces updates to CodeMender:
+
+  * **Hidden file scanning** : Added the `--include-hidden` flag to `cm find` (or `include_hidden` under `scan` in `config.yaml`) to include hidden directories and files, such as `.github/` and `.config/`, in vulnerability scans.
+  * **Larger file support** : Raised the default file discovery size limit (`max_file_size_kb`) from 500 KB to 2 MiB so `cm find` no longer skips large source files. Existing configurations that use the previous 500 KB default are upgraded automatically, and `--deep` and `--diff` scans can now read beyond the inline preview of files larger than 64 KB.
+  * **Report output for every scan mode** : `cm find --output` now writes the scan report for standard, `--deep`, `--parallel`, and `--diff` scans.
+  * **Scoped fixes** : `cm fix` now prevents the agent from modifying CI/CD pipelines, static analysis configurations, build definitions, and repository configuration files that are outside the scope of the vulnerability being fixed.
+  * **Accurate session token usage** : `cm` now reports the total token usage across all turns of a session, instead of only the final turn, so token counts in `cm stats` and session exports match billed usage.
+  * **Bug fixes** : 
+    * Fixed duplicate findings in `cm report` and `cm stats`, and stopped merging distinct vulnerability types reported on the same line.
+    * Fixed `database is locked` errors during `cm find --deep` scans with multiple workers.
+    * Reduced false positives by requiring a concrete, viable exploit before reporting a finding with high confidence.
+    * Included sessions from `cm find --deep` and `cm find --diff` workers in `cm stats`.
+    * Fixed `cm verify` resolving relative finding and exploit artifact paths against the current working directory instead of the project root.
+
+
+
+For more information, see the [CodeMender documentation](https://docs.cloud.google.com/gemini-enterprise-agent-platform/agents/codemender).
 
 **Google Kubernetes Engine**
 
@@ -12342,7 +12911,21 @@ Change
 
 The BigQuery JupyterLab plugin is now enabled independently of the Dataproc plugin: it is enabled by default and can be turned off with the new disable-bigquery instance metadata key, while disable-mixer now controls only the Dataproc plugin.
 
+**Google SecOps SOAR**
+
+Announcement
+
+Release 6.3.101.2 is being rolled out to the first phase of regions as listed [here](https://docs.cloud.google.com/chronicle/docs/soar/overview-and-introduction/soar-gradual-release).
+
+This release contains internal and customer bug fixes.
+
 ## October 03, 2026
+
+**Google SecOps SOAR**
+
+Announcement
+
+Release 6.3.100.3 is now available for all regions.
 
 **Sensitive Data Protection**
 
@@ -14230,154 +14813,6 @@ For more information, see [About Hyperdisk Throughput](https://docs.cloud.google
 
 Change
 
-### cos-dev-138-20162-0-0 
-
-Kernel | Docker | Containerd | [GPU Drivers](https://cloud.google.com/container-optimized-os/docs/how-to/run-gpus)  
----|---|---|---  
-[COS-6.18.51](https://cos.googlesource.com/third_party/kernel/+/e2eaa37d91b2b8020497e55ee941fa23bb334d64) | v29.4.3 | v2.4.1 | [See List](https://storage.googleapis.com/cos-tools/20162.0.0/lakitu/gpu_driver_versions.textproto)  
-  
-Change
-
-Enabled automatic loading of RDMA kernel modules when CX-9 devices are detected.
-
-Change
-
-Ensure time sync prior to TLS handshake.
-
-Change
-
-Updated cos-gpu-installer to v2.7.8.
-
-Change
-
-Updated google-guest-configs to v20260918.00.
-
-Change
-
-Updated the Linux kernel to v6.18.51.
-
-Feature
-
-Added support for loading the CephFS kernel driver.
-
-Fixed
-
-Added support for NVIDIA driver v580.178.04.
-
-Fixed
-
-Added support for NVIDIA driver v595.91.07.
-
-Fixed
-
-Added support for bare metal TPUs.
-
-Fixed
-
-Fixed a bug which could cause DOCA workloads to fail to initialize.
-
-Fixed
-
-Fixed an issue where temporary efivarfs mounts under /tmp could persist after boot.
-
-Fixed
-
-Upgraded app-admin/oslogin to v20260902.00.
-
-Fixed
-
-Upgraded app-admin/sosreport to v4.12.0.
-
-Fixed
-
-Upgraded app-arch/unzip to v6.0_p31.
-
-Fixed
-
-Upgraded app-arch/xz-utils to v5.8.4.
-
-Fixed
-
-Upgraded app-misc/ca-certificates to v20260601.3.112.5.
-
-Fixed
-
-Upgraded chromeos-base/chromeos-common-script to v0.0.1-r675.
-
-Fixed
-
-Upgraded chromeos-base/debugd-client to v0.0.1-r2742.
-
-Fixed
-
-Upgraded chromeos-base/google-breakpad to v2026.09.04.193747-r281.
-
-Fixed
-
-Upgraded chromeos-base/power_manager-client to v0.0.1-r2976.
-
-Fixed
-
-Upgraded chromeos-base/session_manager-client to v0.0.1-r2838.
-
-Fixed
-
-Upgraded containerd and containerd-test to v2.4.1.
-
-Fixed
-
-Upgraded dev-lang/luajit to v2.1.1787165859.
-
-Fixed
-
-Upgraded dev-libs/expat to v2.8.4.
-
-Fixed
-
-Upgraded dev-libs/json-c to v0.19-r2.
-
-Fixed
-
-Upgraded dev-libs/libgcrypt to v1.12.3-r1.
-
-Fixed
-
-Upgraded dev-libs/libpcre2 to v10.48.
-
-Fixed
-
-Upgraded dev-libs/libxml2 to v2.15.4.
-
-Fixed
-
-Upgraded dev-libs/xxhash to v0.8.3-r2.
-
-Fixed
-
-Upgraded dev-python/pyjwt to v2.14.0.
-
-Fixed
-
-Upgraded sys-devel/binutils-config to v5.6.
-
-Security
-
-Fixed CVE-2026-0864 in dev-lang/python.
-
-Security
-
-Fixed CVE-2026-56391 in sys-apps/coreutils.
-
-Security
-
-Fixed CVE-2026-90054 in the Linux kernel.
-
-Security
-
-Upgraded net-misc/rsync to version 3.5.0. This fixes CVE-2026-53791, CVE-2026-53784, CVE-2026-53786, CVE-2026-53789, CVE-2026-53795, CVE-2026-53797, CVE-2026-53798, CVE-2026-53799, CVE-2026-53800, CVE-2026-53801, CVE-2026-53802, CVE-2026-53803, CVE-2026-70455, CVE-2026-70457, CVE-2026-70459, CVE-2026-70461, and CVE-2026-70463.
-
-Change
-
 ### cos-133-19999-44-85 
 
 Kernel | Docker | Containerd | [GPU Drivers](https://cloud.google.com/container-optimized-os/docs/how-to/run-gpus)  
@@ -14483,6 +14918,30 @@ Runtime sysctl changes:
   * Changed: net.ipv4.udp_mem: 188034 250715 376068 -> 188034 250714 376068
 
 
+
+Change
+
+### cos-117-18613-767-2 
+
+Kernel | Docker | Containerd | [GPU Drivers](https://cloud.google.com/container-optimized-os/docs/how-to/run-gpus)  
+---|---|---|---  
+[COS-6.6.157](https://cos.googlesource.com/third_party/kernel/+/04c29e4b70e72c933c0bf02443f8334f4bb78d32) | v24.0.9 | v1.7.34 | [See List](https://storage.googleapis.com/cos-tools/18613.767.2/lakitu/gpu_driver_versions.textproto)  
+  
+Announcement
+
+This is an [LTS Refresh release.](https://docs.cloud.google.com/container-optimized-os/docs/concepts/versioning#lts_refresh_releases)
+
+Change
+
+Ensure time sync prior to TLS handshake.
+
+Fixed
+
+Added support for bare metal TPUs.
+
+Fixed
+
+Upgraded app-admin/google-guest-configs to v20260911.00.
 
 Change
 
@@ -14655,6 +15114,14 @@ Change
 
 Installed latest packages from upstream dependencies.
 
+**Google SecOps SOAR**
+
+Announcement
+
+Release 6.3.101 is being rolled out to the first phase of regions as listed [here](https://docs.cloud.google.com/chronicle/docs/soar/overview-and-introduction/soar-gradual-release).
+
+This release contains internal and customer bug fixes.
+
 ## September 26, 2026
 
 **Backup and DR**
@@ -14724,6 +15191,12 @@ These features are now available for the Host Agent:
   * Expanded Linux Changed Block Tracking (CBT) support across the latest kernel updates for RHEL 8, RHEL 9, and RHEL 10 distributions.
 
 
+
+**Google SecOps SOAR**
+
+Announcement
+
+[Release 6.3.100](https://docs.cloud.google.com/chronicle/docs/soar/release-notes#September_06_2026) is now available for all regions.
 
 ## September 25, 2026
 
@@ -16950,6 +17423,30 @@ Security
 
 Upgraded net-misc/rsync to version 3.5.0. This fixes CVE-2026-53791, CVE-2026-53784, CVE-2026-53786, CVE-2026-53789, CVE-2026-53795, CVE-2026-53797, CVE-2026-53798, CVE-2026-53799, CVE-2026-53800, CVE-2026-53801, CVE-2026-53802, CVE-2026-53803, CVE-2026-70455, CVE-2026-70457, CVE-2026-70459, CVE-2026-70461, and CVE-2026-70463.
 
+Change
+
+### cos-117-18613-731-29 
+
+Kernel | Docker | Containerd | [GPU Drivers](https://cloud.google.com/container-optimized-os/docs/how-to/run-gpus)  
+---|---|---|---  
+[COS-6.6.153](https://cos.googlesource.com/third_party/kernel/+/6ee831c40108c3b447bc8edad4c4ebd45b746574) | v24.0.9 | v1.7.34 | [See List](https://storage.googleapis.com/cos-tools/18613.731.29/lakitu/gpu_driver_versions.textproto)  
+  
+Fixed
+
+Fixed an issue where temporary efivarfs mounts under /tmp could persist after boot.
+
+Fixed
+
+Upgraded dev-libs/expat to v2.8.4.
+
+Security
+
+Fixed CVE-2026-0864 in dev-lang/python.
+
+Security
+
+Upgraded net-misc/rsync to version 3.5.0. This fixes CVE-2026-53791, CVE-2026-53784, CVE-2026-53786, CVE-2026-53789, CVE-2026-53795, CVE-2026-53797, CVE-2026-53798, CVE-2026-53799, CVE-2026-53800, CVE-2026-53801, CVE-2026-53802, CVE-2026-53803, CVE-2026-70455, CVE-2026-70457, CVE-2026-70459, CVE-2026-70461, and CVE-2026-70463.
+
 **Dataform**
 
 Feature
@@ -18090,6 +18587,86 @@ Fixed CVE-2026-80856 in the Linux kernel.
 Security
 
 Fixed CVE-2026-80862 in the Linux kernel.
+
+Security
+
+Fixed CVE-2026-80916 in the Linux kernel.
+
+Security
+
+Fixed CVE-2026-80917 in the Linux kernel.
+
+Change
+
+### cos-117-18613-731-21 
+
+Kernel | Docker | Containerd | [GPU Drivers](https://cloud.google.com/container-optimized-os/docs/how-to/run-gpus)  
+---|---|---|---  
+[COS-6.6.153](https://cos.googlesource.com/third_party/kernel/+/6ee831c40108c3b447bc8edad4c4ebd45b746574) | v24.0.9 | v1.7.34 | [See List](https://storage.googleapis.com/cos-tools/18613.731.21/lakitu/gpu_driver_versions.textproto)  
+  
+Security
+
+Fixed CVE-2026-80590 in the Linux kernel.
+
+Security
+
+Fixed CVE-2026-80737 in the Linux kernel.
+
+Security
+
+Fixed CVE-2026-80788 in the Linux kernel.
+
+Security
+
+Fixed CVE-2026-80789 in the Linux kernel.
+
+Security
+
+Fixed CVE-2026-80791 in the Linux kernel.
+
+Security
+
+Fixed CVE-2026-80792 in the Linux kernel.
+
+Security
+
+Fixed CVE-2026-80793 in the Linux kernel.
+
+Security
+
+Fixed CVE-2026-80805 in the Linux kernel.
+
+Security
+
+Fixed CVE-2026-80806 in the Linux kernel.
+
+Security
+
+Fixed CVE-2026-80808 in the Linux kernel.
+
+Security
+
+Fixed CVE-2026-80842 in the Linux kernel.
+
+Security
+
+Fixed CVE-2026-80843 in the Linux kernel.
+
+Security
+
+Fixed CVE-2026-80852 in the Linux kernel.
+
+Security
+
+Fixed CVE-2026-80854 in the Linux kernel.
+
+Security
+
+Fixed CVE-2026-80855 in the Linux kernel.
+
+Security
+
+Fixed CVE-2026-80856 in the Linux kernel.
 
 Security
 
@@ -19973,940 +20550,10 @@ Feature
 
 **Preview** : [Propagated connections](https://docs.cloud.google.com/vpc/docs/about-propagated-connections) support Private Service Connect [endpoints that access global Google APIs](https://docs.cloud.google.com/vpc/docs/about-accessing-google-apis-endpoints). With propagated connections, endpoints that access global Google APIs in one consumer VPC spoke can be privately accessed by other consumer VPC spokes that are connected to the same Network Connectivity Center hub.
 
-## September 09, 2026
-
-**Agent Platform Workbench**
-
-Feature
-
-**New configuration options for scheduled notebook runs**
-
-When you schedule a notebook run from an Agent Platform Workbench instance, you can now configure the following:
-
-  * **Execution identity.** You can choose your own user account instead of a service account. The notebook runs as you, so Application Default Credentials inside the notebook resolve to your identity and the run accesses only the resources you can access. If you have not yet granted consent, the scheduler provides a link for authorizing access.
-  * **Shielded VM options.** To meet workload requirements that mandate verified boot integrity, you can enable Shielded VM options, including Secure Boot, on the compute that runs the notebook. For more information, see [Modifying Shielded VM options](https://cloud.google.com/compute/docs/instances/modifying-shielded-vm).
-  * **Runtime environment.** In addition to the default environment, you can specify a VM image or a custom container, so that scheduled runs use the same dependencies as your interactive environment.
-
-
-
-Ensure that `scheduler-jupyter-plugin` is at version 0.1.8 or later for these features to be accessible. For more information, see [Schedule a notebook run](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/instances/schedule-notebook-run-quickstart).
-
-**Apigee X**
-
-Feature
-
-**SemanticCacheLookup policy supports non-default Vector Search distance measures**
-
-Available in Apigee `1-18-0-apigee-4` and later. A new optional `<DistanceMeasureType>` element accepts `DOT_PRODUCT_DISTANCE` (the default, and the existing behavior), `COSINE_DISTANCE`, `SQUARED_L2_DISTANCE` and `L1_DISTANCE`. The policy now compares `<Threshold>` in the direction the declared measure implies, so declaring a non-default measure requires re-tuning the threshold in the same edit. The 0-to-1 restriction on `<Threshold>` is also removed.
-
-**BigQuery**
-
-Feature
-
-BigQuery [generative AI functions](https://docs.cloud.google.com/bigquery/docs/generative-ai-overview#locations) now support the following Gemini models:
-
-  * `gemini-3.5-flash-lite`
-  * `gemini-3.6-flash`
-  * `gemini-3.7-flash`
-
-
-
-**Cloud Monitoring**
-
-Feature
-
-A chart on a dashboard can override the dashboard's time-range setting. This feature lets you view trends over a long period or metric data with low sampling rates alongside charts that show only recent data, and is [Generally Available (GA)](https://cloud.google.com/products#product-launch-stages).
-
-For more information, see the following documents:
-
-  * Google Cloud console: [Set a time-range override for a chart or group](https://docs.cloud.google.com/monitoring/charts/chart-view-options#override-dashboard-time-range)
-  * API: [Dashboard with an `XyChart` widget that sets a time-range override](https://docs.cloud.google.com/monitoring/dashboards/api-examples#dashboard_with_a_time_range)
-
-
-
-**Gemini**
-
-Other
-
-### Bug fixes in VS Code
-
-Various bug fixes and minor product enhancements.
-
-**Gemini Enterprise**
-
-Breaking
-
-**Gemini Notebook Enterprise: Website URL ingestion blocked by VPC Service Controls**
-
-Projects with VPC Service Controls enabled can't add website URLs as notebook sources in Gemini Notebook Enterprise.
-
-This is because direct website ingestion performs a live web crawl, generating outbound traffic beyond Google networks, which would violate VPC Service Controls perimeter policies.
-
-Other source types, such as Google Docs and YouTube URLs, remain supported in projects with VPC Service Controls enabled.
-
-**Gemini Enterprise Agent Platform**
-
-Feature
-
-**Computer Use and Shell sandboxes are generally available**
-
-[Computer Use](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/sandbox/computer-use) and Shell sandboxes in Gemini Enterprise Agent Platform are now generally available (GA). This release also includes the following new features for Agent Platform sandboxes:
-
-  * **Shell sandboxes** : Run untrusted shell commands, install packages, and manipulate files in an isolated Linux container using direct API `/exec` calls. For more information, see the [Shell sandbox quickstart](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/sandbox/shell-sandbox-quickstart).
-
-  * **VPC Service Controls & Private Service Connect**: Protect sandbox data and isolate network boundaries with VPC Service Controls, private ingress endpoints (PSC-E), and private egress routing (PSC-I). For more information, see [Configure VPC Service Controls and Private Service Connect with sandboxes](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/sandbox/configure-vpc-sc).
-
-  * **Customer-Managed Encryption Keys (CMEK)** : Protect sandbox data at rest, including disk storage and snapshot checkpoints, using Cloud KMS keys. For more information, see [Configure customer-managed encryption keys (CMEK) for sandboxes](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/sandbox/configure-cmek).
-
-  * **Pausing and resuming sandboxes** : Deschedule compute resources for idle sandboxes while preserving file system state and connection identity, and resume them in seconds. For more information, see [Manage sandboxes](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/sandbox/manage-sandboxes#pause-a-sandbox).
-
-
-
-
-Feature
-
-**Priority PayGo now supports the US and EU multi-region endpoints**
-
-You can send Priority PayGo requests to the `us` and `eu` multi-region endpoints, in addition to the `global` endpoint.
-
-For more information, see [Priority PayGo](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/priority-paygo).
-
-Feature
-
-**Agent Gateway supports VPC Service Controls**
-
-Agent Gateway now enforces VPC Service Controls perimeter rules for agent communications. When you [configure Agent Gateway with VPC connectivity](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/set-up-vpc-connectivity), agent traffic is routed through your private VPC network, ensuring that your organization's VPC-SC perimeter rules are applied to all agent traffic as well.
-
-Note that setting up VPC connectivity is required to enable VPC Service Controls perimeter enforcement for Agent Gateway deployments. The connectivity template must be configured in `ALL_TRAFFIC` egress mode.
-
-**Important:** VPC Service Controls is only supported for Agent Gateway deployments created after September 8, 2026 that use the [agent connectivity template](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/set-up-vpc-connectivity) to configure VPC connectivity.
-
-Feature
-
-**Agent Gateway supports multiple Agent Registry instances**
-
-Agent Gateway now lets you associate up to two Agent Registry instances (one global registry and one regional or multi-region registry) with a single Agent Gateway instance. For more information, see [Register your agents and destination resources](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/set-up-agent-gateway#agent-registry).
-
-**Important:** There has been an update to this feature. For the corrected note, see the entry for [October 28, 2026](https://docs.cloud.google.com/gemini-enterprise-agent-platform/release-notes#October_28_2026).
-
-**Google SecOps Marketplace**
-
-Feature
-
-**Google Chronicle** : Version 95.0
-
-  * The following new action has been added:
-
-    * **Is Value In Data Table Async**
-
-
-
-Change
-
-**Microsoft 365 Defender** : Version 31.0
-
-  * Updated alert tracking logic, extracted alert object metadata, and improved the pagination and timeout handling mechanism in the following connector:
-
-    * **Microsoft 365 Defender - Incidents Connector**
-
-
-
-Change
-
-**Google Chronicle** : Version 95.0
-
-  * **Integration** : Improved OAuth 2.0/JWT authentication logging, validation diagnostics, and error messaging.
-
-
-
-Change
-
-**Trend Vision One** : Version 12.0
-
-  * Made the `Description` parameter mandatory in the following actions:
-
-    * **Isolate Endpoint**
-
-    * **Unisolate Endpoint**
-
-
-
-
-**Identity and Access Management**
-
-Feature
-
-You can get IAM role suggestions from Gemini programmatically by using the Policy Assist API ([Preview](https://cloud.google.com/products#product-launch-stages)).
-
-For more information, see the following documentation:
-
-  * [Get predefined role suggestions with Gemini assistance](https://docs.cloud.google.com/iam/docs/role-picker-gemini)
-  * [Policy Assist REST reference](https://docs.cloud.google.com/policy-intelligence/docs/reference/policyassist/rest)
-
-
-
-**Looker**
-
-Deprecated
-
-The deprecation of the [Looker Mobile (Legacy) application](https://docs.cloud.google.com/looker/docs/mobile-app-legacy) has been postponed to January 31, 2027. Starting on January 31, 2027, support for the Looker Mobile (Legacy) app will be discontinued and the app will be unavailable for download from the App Store or Play Store. Although users will still be able to use the Looker Mobile (Legacy) app if they already have it installed, we recommend that you install the non-legacy [Looker mobile app](https://docs.cloud.google.com/looker/docs/mobile-app-installation).
-
-**NetApp Volumes**
-
-Announcement
-
-Google Cloud NetApp Volumes now supports the Flex Unified service level in the following regions:
-
-  * asia-east1 (Taiwan)
-
-  * australia-southeast2 (Melbourne)
-
-  * europe-southwest1 (Madrid)
-
-
-
-
-For more information about available regions, see [Supported regions](https://docs.cloud.google.com/netapp/volumes/docs/discover/service-levels#supported_regions).
-
-**Network Intelligence Center**
-
-Feature
-
-You can deploy Monitoring Points optimized for [Amazon Web Services (AWS)](https://docs.cloud.google.com/network-intelligence-center/docs/cloud-network-insights/deploy-aws-monitoring-points) or [Microsoft Azure](https://docs.cloud.google.com/network-intelligence-center/docs/cloud-network-insights/deploy-azure-monitoring-points) cloud infrastructure from [Cloud Network Insights](https://docs.cloud.google.com/network-intelligence-center/docs/cloud-network-insights).
-
-**Policy Intelligence**
-
-Feature
-
-The Policy Assist remote MCP server is available in [Preview](https://cloud.google.com/products#product-launch-stages). To learn about using the Policy Assist remote MCP server to let external AI agents and applications suggest IAM roles, see [Use the Policy Assist remote MCP server](https://docs.cloud.google.com/policy-intelligence/docs/use-policy-assist-mcp) and the [Policy Assist MCP reference](https://docs.cloud.google.com/policy-intelligence/docs/reference/policyassist/mcp).
-
-Feature
-
-The Policy Assist REST API is available in [Preview](https://cloud.google.com/products#product-launch-stages). Policy Assist lets you get IAM role suggestions for individual principals with AI assistance.
-
-To learn about using the Policy Assist API to get role suggestions programmatically, see the [Policy Assist REST reference](https://docs.cloud.google.com/policy-intelligence/docs/reference/policyassist/rest).
-
-## September 08, 2026
-
-**Agent Platform Workbench**
-
-Fixed
-
-**Scheduled upgrade metadata is validated**
-
-The value of the `notebook-upgrade-schedule` metadata key is now validated when you create or update an Agent Platform Workbench instance. The value must be a single-line [unix-cron format](https://man7.org/linux/man-pages/man5/crontab.5.html) schedule. For more information, see [Manage features through metadata](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/instances/manage-metadata#keys).
-
-**Assured Workloads**
-
-Feature
-
-The [EU Data Boundary with Access Justifications](https://docs.cloud.google.com/assured-workloads/docs/control-packages/eu-data-boundary-access-justifications) supports the following products:
-
-  * AlloyDB for PostgreSQL
-  * Apigee
-  * Eventarc
-
-
-
-**BigQuery**
-
-Feature
-
-Conversational analytics now supports predictive modeling questions using the [`AI.PREDICT` function](https://docs.cloud.google.com/bigquery/docs/reference/standard-sql/bigqueryml-syntax-ai-predict). This feature is in [Preview](https://cloud.google.com/products#product-launch-stages).
-
-**Cloud Run**
-
-Feature
-
-To take advantage of [reduced pricing](https://cloud.google.com/run/pricing#delayed-jobs) for Cloud Run jobs, you can [delay job execution](https://docs.cloud.google.com/run/docs/delayed-jobs) to defer non-urgent tasks for up to 12 hours ([Preview](https://cloud.google.com/products#product-launch-stages)).
-
-**Cloud SQL for MySQL**
-
-Feature
-
-[Regional endpoints (REP)](https://docs.cloud.google.com/sql/docs/mysql/admin-api/rep) are now generally available ([GA](https://cloud.google.com/products#product-launch-stages)) for the Cloud SQL for MySQL Admin API.
-
-Regional endpoints let you interact with Cloud SQL for MySQL instances using regionalized URLs (such as `sqladmin.[{region}](https://docs.cloud.google.com/sql/docs/mysql/admin-api/rep#supported_regions).rep.googleapis.com`) rather than through a single global endpoint.
-
-Regional endpoints provide regional frontend and load balancing infrastructure that improves data residency by keeping network traffic within the same region as the instance. This reduces the instance's dependency on global frontend infrastructure.
-
-Regional endpoints have strong regional isolation, so the failure of a load balancer or frontend in one region doesn't affect any other region. Regional service load balancers have a separate, regionally isolated control plane.
-
-Regional endpoints are designed to meet stringent data residency and sovereignty standards, such as ITAR and Assured Workloads Regions, ensuring data in transit remains within the committed region.
-
-Certificate management and TLS termination occurs within each region, on the regional load balancer, so data remains encrypted until it reaches its destination region and stays within that region while being processed there.
-
-**Cloud SQL for PostgreSQL**
-
-Feature
-
-[Regional endpoints (REP)](https://docs.cloud.google.com/sql/docs/postgres/admin-api/rep) are now generally available ([GA](https://cloud.google.com/products#product-launch-stages)) for the Cloud SQL for PostgreSQL Admin API.
-
-Regional endpoints let you interact with Cloud SQL for PostgreSQL instances using regionalized URLs (such as `sqladmin.[{region}](https://docs.cloud.google.com/sql/docs/postgres/admin-api/rep#supported_regions).rep.googleapis.com`) rather than through a single global endpoint.
-
-Regional endpoints provide regional frontend and load balancing infrastructure that improves data residency by keeping network traffic within the same region as the instance. This reduces the instance's dependency on global frontend infrastructure.
-
-Regional endpoints have strong regional isolation, so the failure of a load balancer or frontend in one region doesn't affect any other region. Regional service load balancers have a separate, regionally isolated control plane.
-
-Regional endpoints are designed to meet stringent data residency and sovereignty standards, such as ITAR and Assured Workloads Regions, ensuring data in transit remains within the committed region.
-
-Certificate management and TLS termination occurs within each region, on the regional load balancer, so data remains encrypted until it reaches its destination region and stays within that region while being processed there.
-
-**Cloud SQL for SQL Server**
-
-Feature
-
-[Regional endpoints (REP)](https://docs.cloud.google.com/sql/docs/sqlserver/admin-api/rep) are now generally available ([GA](https://cloud.google.com/products#product-launch-stages)) for the Cloud SQL for SQL Server Admin API.
-
-Regional endpoints let you interact with Cloud SQL for SQL Server instances using regionalized URLs (such as `sqladmin.[{region}](https://docs.cloud.google.com/sql/docs/sqlserver/admin-api/rep#supported_regions).rep.googleapis.com`) rather than through a single global endpoint.
-
-Regional endpoints provide regional frontend and load balancing infrastructure that improves data residency by keeping network traffic within the same region as the instance. This reduces the instance's dependency on global frontend infrastructure.
-
-Regional endpoints have strong regional isolation, so the failure of a load balancer or frontend in one region doesn't affect any other region. Regional service load balancers have a separate, regionally isolated control plane.
-
-Regional endpoints are designed to meet stringent data residency and sovereignty standards, such as ITAR and Assured Workloads Regions, ensuring data in transit remains within the committed region.
-
-Certificate management and TLS termination occurs within each region, on the regional load balancer, so data remains encrypted until it reaches its destination region and stays within that region while being processed there.
-
-**Cloud Trace**
-
-Feature
-
-The Observability API supports VPC Service Controls. This integration is [generally available](https://cloud.google.com/products#product-launch-stages).
-
-For more information, see the following:
-
-  * [Use VPC Service Controls with Google Cloud Observability](https://docs.cloud.google.com/stackdriver/docs/observability/use-vpc-service-controls)
-  * [Observability API overview](https://docs.cloud.google.com/stackdriver/docs/reference/api-overview)
-  * [Supported products: Observability API](https://docs.cloud.google.com/vpc-service-controls/docs/supported-products#table_observability_api)
-
-
-
-**Compute Engine**
-
-Feature
-
-**Generally available** : You can convert a single-project reservation into a shared reservation, or a shared reservation into a single-project reservation. Modify the share type for a reservation to share your reserved resources with other projects in your Google Cloud organization, or to restrict access to only the reservation's owner project. For more information, see [Modify the share type for a reservation](https://docs.cloud.google.com/compute/docs/instances/reservations-modify#modify-share-type).
-
-**Config Connector**
-
-Announcement
-
-Config Connector version 1.156.0 is now available.
-
-Feature
-
-New Alpha Resources (Direct Reconciler):
-
-  * `CCInsightsQAScorecard`
-
-    * Manage [Contact Center Insights QA scorecards](https://docs.cloud.google.com/gemini-enterprise-cx/insights/reference/rest/v1/projects.locations.qaScorecards) to manage and evaluate agent performance.
-  * `ContentWarehouseSynonymSet`
-
-    * Manage [Document AI Warehouse Synonym Sets](https://docs.cloud.google.com/document-warehouse/docs/reference/rest/v1/projects.locations.synonymSets) to manage custom synonym groups for searches.
-  * `DevConnectAccountConnector`
-
-    * Manage [Developer Connect Account Connectors](https://cloud.google.com/developer-connect/docs) to connect GKE clusters to developer systems.
-  * `DiscoveryEngineEngine`
-
-    * Manage [Discovery Engine search engines](https://cloud.google.com/generative-ai-app-builder/docs) to power search experiences.
-  * `DiscoveryEngineServingConfig`
-
-    * Manage [Discovery Engine serving configurations](https://cloud.google.com/generative-ai-app-builder/docs) to control search, recommendation, and listing features.
-  * `GKEHubFleet`
-
-    * Manage [GKE Hub Fleets](https://cloud.google.com/kubernetes-engine/fleet-management/docs) to logically group and manage clusters.
-  * `ModelArmorTemplate`
-
-    * Manage [Model Armor templates](https://docs.cloud.google.com/model-armor/manage-templates) to define safety and security policies for large language models.
-  * `NetworkSecurityAuthzPolicy`
-
-    * Manage [Network Security Authorization Policies](https://cloud.google.com/service-mesh/docs/tutorials/authz) to authorize traffic.
-  * `RapidMigrationAssessmentCollector`
-
-    * Manage [Rapid Migration Assessment collectors](https://cloud.google.com/migration-center/docs) to gather environment discovery data for cloud migration.
-  * `SecurityCenterManagementEventThreatDetectionCustomModule`
-
-    * Manage [Security Command Center event threat detection custom modules](https://cloud.google.com/security-command-center/docs) to customize threat detection.
-  * `StorageInsightsDatasetConfig`
-
-    * Manage [Cloud Storage Insights dataset configurations](https://docs.cloud.google.com/storage/docs/insights/datasets) to automatically inventory and analyze storage datasets.
-  * `VectorSearchCollection`
-
-    * Manage [Vertex AI Vector Search collections](https://docs.cloud.google.com/vertex-ai/docs/vector-search/overview) to manage similarity search indexes.
-
-
-
-Feature
-
-New Fields:
-
-  * [`BigtableTable`](https://cloud.google.com/config-connector/docs/reference/resource-docs/bigtable/bigtabletable)
-
-    * Added `spec.automatedBackupPolicy.locations` field.
-  * [`ContainerCluster`](https://cloud.google.com/config-connector/docs/reference/resource-docs/container/containercluster)
-
-    * Added `spec.nodeConfig.swapConfig` field.
-  * [`ContainerNodePool`](https://cloud.google.com/config-connector/docs/reference/resource-docs/container/containernodepool)
-
-    * Added `spec.nodeConfig.swapConfig` field.
-  * [`DataprocCluster`](https://cloud.google.com/config-connector/docs/reference/resource-docs/dataproc/dataproccluster)
-
-    * Added `spec.secondaryWorkerConfig.instanceFlexibilityPolicy` field.
-  * `NetworkSecurityFirewallEndpoint`
-
-    * Added `spec.organizationRef` field to support organizing resources at the organization level, and made `spec.projectRef` optional.
-
-
-
-Feature
-
-New Features:
-
-  * **Optional NAT IP Allocate Option** : Made `natIpAllocateOption` an optional field in `ComputeRouterNat` to support dynamic allocation.
-  * **Preview Summary CLI Improvements** : Added namespace and current status to the preview summary report.
-
-
-
-Change
-
-Reconciliation Improvements:
-
-We have added support for direct reconciliation to more resources, with opt-in behavior. The API is unchanged. To use the direct reconciler, add the `alpha.cnrm.cloud.google.com/reconciler: direct` annotation to the corresponding Config Connector object. The following resources now have direct reconciliation support:
-
-  * `VertexAITensorboard`
-    * Support direct reconciliation (opt-in).
-
-
-
-**Container Optimized OS**
-
-Change
-
-### cos-129-19506-448-20 
-
-Kernel | Docker | Containerd | [GPU Drivers](https://cloud.google.com/container-optimized-os/docs/how-to/run-gpus)  
----|---|---|---  
-[COS-6.12.105](https://cos.googlesource.com/third_party/kernel/+/583df4fb246cc3cdc69bbb933a78ef88032ecfd6) | v27.5.1 | v2.2.7 | [See List](https://storage.googleapis.com/cos-tools/19506.448.20/lakitu/gpu_driver_versions.textproto)  
-  
-Fixed
-
-Fixed CVE-2026-33186 in app-containers/docker.
-
-Fixed
-
-Fixed docker cp failure when copying to/from containers with symlinked bind mounts.
-
-Fixed
-
-Fixed CVE-2026-33186 in app-admin/extensions-manager.
-
-Fixed
-
-Fixed CVE-2026-33186 in app-admin/google-osconfig-agent.
-
-Fixed
-
-Fixed CVE-2026-33186 in app-admin/node-problem-detector.
-
-Fixed
-
-Fixed CVE-2026-33186 in app-containers/containerd.
-
-Fixed
-
-Fixed CVE-2026-33186 in app-emulation/kubernetes.
-
-Fixed
-
-Upgraded app-containers/docker-credential-helpers to v0.9.9.
-
-Fixed
-
-Upgraded dev-db/sqlite to v3.53.4.
-
-Fixed
-
-Upgraded dev-libs/expat to v2.8.4.
-
-Fixed
-
-Upgraded dev-libs/xxhash to v0.8.3-r2.
-
-Fixed
-
-Upgraded net-libs/libnftnl to v1.2.9.
-
-Fixed
-
-Fixed CVE-2026-6238 in sys-libs/glibc.
-
-Security
-
-Updated dev-go/net to v0.55.0 to fix CVE-2026-25680.
-
-Change
-
-Runtime sysctl changes: 
-
-  * Changed: net.ipv4.udp_mem: 188034 250714 376068 -> 188034 250715 376068
-
-
-
-Change
-
-### cos-121-18867-584-7 
-
-Kernel | Docker | Containerd | [GPU Drivers](https://cloud.google.com/container-optimized-os/docs/how-to/run-gpus)  
----|---|---|---  
-[COS-6.6.153](https://cos.googlesource.com/third_party/kernel/+/bce7645596996d31068d8b3c7ad0f24fc8848df3) | v27.5.1 | v2.0.10 | [See List](https://storage.googleapis.com/cos-tools/18867.584.7/lakitu/gpu_driver_versions.textproto)  
-  
-Fixed
-
-Fixed docker cp failure when copying to/from containers with symlinked bind mounts.
-
-Fixed
-
-Upgraded app-admin/google-guest-configs to v20260819.00.
-
-Fixed
-
-Upgraded app-containers/docker-credential-helpers to v0.9.9.
-
-Fixed
-
-Upgraded dev-db/sqlite to v3.53.4.
-
-Fixed
-
-Upgraded net-libs/libnftnl to v1.2.9.
-
-Fixed
-
-Upgraded sys-auth/passwdqc to v2.0.3-r1.
-
-Security
-
-Fixed CVE-2026-6238 in sys-libs/glibc.
-
-Security
-
-Updated dev-go/net to v0.55.0 to fix CVE-2026-25680.
-
-Change
-
-### cos-125-19216-655-12 
-
-Kernel | Docker | Containerd | [GPU Drivers](https://cloud.google.com/container-optimized-os/docs/how-to/run-gpus)  
----|---|---|---  
-[COS-6.12.105](https://cos.googlesource.com/third_party/kernel/+/728af8e16745d2a2cef9323806e50619cc900208) | v27.5.1 | v2.2.7 | [See List](https://storage.googleapis.com/cos-tools/19216.655.12/lakitu/gpu_driver_versions.textproto)  
-  
-Fixed
-
-Added support for NVIDIA driver v595.91.07.
-
-Fixed
-
-Fixed docker cp failure when copying to/from containers with symlinked bind mounts.
-
-Fixed
-
-Upgraded dev-db/sqlite to v3.53.4.
-
-Security
-
-Fixed CVE-2026-6238 in sys-libs/glibc.
-
-Security
-
-Updated dev-go/net to v0.55.0 to fix CVE-2026-25680.
-
-Change
-
-Runtime sysctl changes: 
-
-  * Changed: net.ipv4.udp_mem: 188034 250715 376068 -> 188034 250714 376068
-
-
-
-Change
-
-### cos-dev-138-20098-0-0 
-
-Kernel | Docker | Containerd | [GPU Drivers](https://cloud.google.com/container-optimized-os/docs/how-to/run-gpus)  
----|---|---|---  
-[COS-6.18.49](https://cos.googlesource.com/third_party/kernel/+/3c4a8bfeaddc3759224158bd0440c337bb253d46) | v29.4.3 | v2.3.2 | [See List](https://storage.googleapis.com/cos-tools/20098.0.0/lakitu/gpu_driver_versions.textproto)  
-  
-Change
-
-Updated the Linux kernel to v6.18.48.
-
-Change
-
-Updated the Linux kernel to v6.18.49.
-
-Fixed
-
-Updated sys-devel/binutils to v2.40.
-
-Security
-
-Update dev-go/net to v0.55.0 to fix CVE-2026-25680.
-
-Change
-
-### cos-beta-133-19999-44-28 
-
-Kernel | Docker | Containerd | [GPU Drivers](https://cloud.google.com/container-optimized-os/docs/how-to/run-gpus)  
----|---|---|---  
-[COS-6.18.48](https://cos.googlesource.com/third_party/kernel/+/84f978496731ef2e17206873e397a8129c813697) | v29.4.3 | v2.3.4 | [See List](https://storage.googleapis.com/cos-tools/19999.44.28/lakitu/gpu_driver_versions.textproto)  
-  
-Change
-
-Updated containerd and containerd-test to v2.3.4.
-
-Fixed
-
-Updated the Linux kernel to v6.18.48.
-
-**Gemini Enterprise**
-
-Feature
-
-**Gemini Enterprise: Semantic search support in Google Cloud Marketplace (Preview)**
-
-The agent search in Google Cloud Marketplace now supports semantic search, allowing you to find agents by describing their functionality (for example, "generate reports" or "translate text") without needing exact keyword matches.
-
-For more information, see [Add and manage A2A agents from Google Cloud Marketplace](https://docs.cloud.google.com/gemini/enterprise/docs/register-and-manage-marketplace-agents).
-
-**Gemini Enterprise Agent Platform**
-
-Feature
-
-**Agent connectivity templates for VPC connectivity in Agent Gateway**
-
-Agent Gateway now uses _agent connectivity templates_ (`agentConnectivityTemplate`) to configure and manage egress connectivity to VPC networks. Connectivity templates let you choose whether to route all outbound agent traffic (`ALL_TRAFFIC`) or only traffic to certain private IP address ranges (`PRIVATE_RANGES_ONLY`) into your VPC network. For more information, see [Set up VPC connectivity for Agent Gateway](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/set-up-vpc-connectivity).
-
-**Google Kubernetes Engine**
-
-Change
-
-#### (2026-R38) Version updates
-
-GKE cluster versions have been updated.
-
-**New versions available for upgrades and new clusters.**
-
-The following versions are now available for new GKE clusters, and for manual control plane upgrades and node upgrades for existing clusters. For more information about versioning and upgrades, see [GKE versioning and support](https://cloud.google.com/kubernetes-engine/versioning) and [About GKE cluster upgrades](https://cloud.google.com/kubernetes-engine/upgrades).
-
-### Rapid channel
-
-**Note** : Your clusters might not have these versions available. Rollouts are already in progress when we publish the release notes, and can take multiple days to complete across all Google Cloud zones.
-
-  * Version [1.36.4-gke.1082000](https://docs.cloud.google.com/kubernetes-engine/docs/changelogs/1.36#1-36-4-gke-1082000) is now the default version for cluster creation in the Rapid channel.
-  * The following versions are now available in the Rapid channel: 
-    * [1.34.11-gke.1056000](https://docs.cloud.google.com/kubernetes-engine/docs/changelogs/1.34#1-34-11-gke-1056000)
-    * [1.35.8-gke.1380000](https://docs.cloud.google.com/kubernetes-engine/docs/changelogs/1.35#1-35-8-gke-1380000)
-    * [1.36.4-gke.1247000](https://docs.cloud.google.com/kubernetes-engine/docs/changelogs/1.36#1-36-4-gke-1247000)
-    * [1.37.0-gke.3165000](https://docs.cloud.google.com/kubernetes-engine/docs/changelogs/1.37#1-37-0-gke-3165000)
-  * The following versions are no longer available in the Rapid channel: 
-    * 1.34.10-gke.1328000
-    * 1.35.8-gke.1036000
-    * 1.36.3-gke.1767000
-    * 1.37.0-gke.2155000
-  * Clusters in this channel running the listed minor version have new general auto-upgrade targets. GKE can upgrade control planes and nodes to the following new versions with this release: 
-    * GKE upgrades clusters to the following new minor versions if there are no factors, such as [maintenance exclusions](https://docs.cloud.google.com/kubernetes-engine/docs/concepts/maintenance-windows-and-exclusions#exclusions) or deprecated APIs, preventing upgrades: 
-      * 1.33 to [1.34.11-gke.1044000](https://docs.cloud.google.com/kubernetes-engine/docs/changelogs/1.34#1-34-11-gke-1044000)
-      * 1.34 to [1.35.8-gke.1225000](https://docs.cloud.google.com/kubernetes-engine/docs/changelogs/1.35#1-35-8-gke-1225000)
-      * 1.35 to [1.36.4-gke.1082000](https://docs.cloud.google.com/kubernetes-engine/docs/changelogs/1.36#1-36-4-gke-1082000)
-    * GKE upgrades clusters to the following new patch versions if no minor version upgrade is available, or if the cluster has [maintenance exclusions](https://docs.cloud.google.com/kubernetes-engine/docs/concepts/maintenance-windows-and-exclusions#exclusions) or other factors preventing minor version upgrades: 
-      * 1.34 to [1.34.11-gke.1044000](https://docs.cloud.google.com/kubernetes-engine/docs/changelogs/1.34#1-34-11-gke-1044000)
-      * 1.35 to [1.35.8-gke.1225000](https://docs.cloud.google.com/kubernetes-engine/docs/changelogs/1.35#1-35-8-gke-1225000)
-      * 1.36 to [1.36.4-gke.1082000](https://docs.cloud.google.com/kubernetes-engine/docs/changelogs/1.36#1-36-4-gke-1082000)
-      * 1.37 to [1.37.0-gke.2941000](https://docs.cloud.google.com/kubernetes-engine/docs/changelogs/1.37#1-37-0-gke-2941000)
-
-
-
-### Regular channel
-
-**Note** : Your clusters might not have these versions available. Rollouts are already in progress when we publish the release notes, and can take multiple days to complete across all Google Cloud zones.
-
-  * Version [1.35.7-gke.1222000](https://docs.cloud.google.com/kubernetes-engine/docs/changelogs/1.35#1-35-7-gke-1222000) is now the default version for cluster creation in the Regular channel.
-  * The following versions are now available in the Regular channel: 
-    * [1.34.10-gke.1328000](https://docs.cloud.google.com/kubernetes-engine/docs/changelogs/1.34#1-34-10-gke-1328000)
-    * [1.35.8-gke.1036000](https://docs.cloud.google.com/kubernetes-engine/docs/changelogs/1.35#1-35-8-gke-1036000)
-    * [1.36.3-gke.1767000](https://docs.cloud.google.com/kubernetes-engine/docs/changelogs/1.36#1-36-3-gke-1767000)
-  * The following versions are no longer available in the Regular channel: 
-    * 1.34.10-gke.1106000
-    * 1.35.7-gke.1150000
-    * 1.36.3-gke.1537000 is [deprecated](https://docs.cloud.google.com/kubernetes-engine/versioning#patch-version-support) in the Regular channel. This version will be removed in 90 days, or at the end of support, if sooner.
-  * Clusters in this channel running the listed minor version have new general auto-upgrade targets. GKE can upgrade control planes and nodes to the following new versions with this release: 
-    * GKE upgrades clusters to the following new minor versions if there are no factors, such as [maintenance exclusions](https://docs.cloud.google.com/kubernetes-engine/docs/concepts/maintenance-windows-and-exclusions#exclusions) or deprecated APIs, preventing upgrades: 
-      * 1.33 to [1.34.10-gke.1236000](https://docs.cloud.google.com/kubernetes-engine/docs/changelogs/1.34#1-34-10-gke-1236000)
-      * 1.34 to [1.35.7-gke.1222000](https://docs.cloud.google.com/kubernetes-engine/docs/changelogs/1.35#1-35-7-gke-1222000)
-    * GKE upgrades clusters to the following new patch versions if no minor version upgrade is available, or if the cluster has [maintenance exclusions](https://docs.cloud.google.com/kubernetes-engine/docs/concepts/maintenance-windows-and-exclusions#exclusions) or other factors preventing minor version upgrades: 
-      * 1.34 to [1.34.10-gke.1236000](https://docs.cloud.google.com/kubernetes-engine/docs/changelogs/1.34#1-34-10-gke-1236000)
-      * 1.35 to [1.35.7-gke.1222000](https://docs.cloud.google.com/kubernetes-engine/docs/changelogs/1.35#1-35-7-gke-1222000)
-      * 1.36 to [1.36.3-gke.1640000](https://docs.cloud.google.com/kubernetes-engine/docs/changelogs/1.36#1-36-3-gke-1640000)
-
-
-
-### Stable channel
-
-**Note** : Your clusters might not have these versions available. Rollouts are already in progress when we publish the release notes, and can take multiple days to complete across all Google Cloud zones.
-
-  * Version [1.34.10-gke.1106000](https://docs.cloud.google.com/kubernetes-engine/docs/changelogs/1.34#1-34-10-gke-1106000) is now available in the Stable channel.
-  * Version 1.34.10-gke.1079000 is [deprecated](https://docs.cloud.google.com/kubernetes-engine/versioning#patch-version-support) in the Stable channel. This version will be removed in 90 days, or at the end of support, if sooner.
-
-
-
-### Extended channel
-
-**Note** : Your clusters might not have these versions available. Rollouts are already in progress when we publish the release notes, and can take multiple days to complete across all Google Cloud zones.
-
-  * Version [1.35.7-gke.1222000](https://docs.cloud.google.com/kubernetes-engine/docs/changelogs/1.35#1-35-7-gke-1222000) is now the default version for cluster creation in the Extended channel.
-  * The following versions are now available in the Extended channel: 
-    * [1.31.14-gke.2689000](https://docs.cloud.google.com/kubernetes-engine/docs/changelogs/1.31#1-31-14-gke-2689000)
-    * [1.32.13-gke.2411000](https://docs.cloud.google.com/kubernetes-engine/docs/changelogs/1.32#1-32-13-gke-2411000)
-    * [1.33.13-gke.1636000](https://docs.cloud.google.com/kubernetes-engine/docs/changelogs/1.33#1-33-13-gke-1636000)
-    * [1.34.10-gke.1328000](https://docs.cloud.google.com/kubernetes-engine/docs/changelogs/1.34#1-34-10-gke-1328000)
-    * [1.35.8-gke.1036000](https://docs.cloud.google.com/kubernetes-engine/docs/changelogs/1.35#1-35-8-gke-1036000)
-    * [1.36.3-gke.1767000](https://docs.cloud.google.com/kubernetes-engine/docs/changelogs/1.36#1-36-3-gke-1767000)
-  * The following versions are no longer available in the Extended channel: 
-    * 1.31.14-gke.2667000 is [deprecated](https://docs.cloud.google.com/kubernetes-engine/versioning#patch-version-support) in the Extended channel. This version will be removed in 90 days, or at the end of support, if sooner.
-    * 1.32.13-gke.2393000 is [deprecated](https://docs.cloud.google.com/kubernetes-engine/versioning#patch-version-support) in the Extended channel. This version will be removed in 90 days, or at the end of support, if sooner.
-    * 1.33.13-gke.1613000 is [deprecated](https://docs.cloud.google.com/kubernetes-engine/versioning#patch-version-support) in the Extended channel. This version will be removed in 90 days, or at the end of support, if sooner.
-    * 1.34.10-gke.1106000
-    * 1.35.7-gke.1150000
-    * 1.36.3-gke.1537000 is [deprecated](https://docs.cloud.google.com/kubernetes-engine/versioning#patch-version-support) in the Extended channel. This version will be removed in 90 days, or at the end of support, if sooner.
-  * Clusters in this channel running the listed minor version have new general auto-upgrade targets. GKE can upgrade control planes and nodes to the following new versions with this release: 
-    * GKE upgrades clusters to the following new patch versions if no minor version upgrade is available, or if the cluster has [maintenance exclusions](https://docs.cloud.google.com/kubernetes-engine/docs/concepts/maintenance-windows-and-exclusions#exclusions) or other factors preventing minor version upgrades: 
-      * 1.34 to [1.34.10-gke.1236000](https://docs.cloud.google.com/kubernetes-engine/docs/changelogs/1.34#1-34-10-gke-1236000)
-      * 1.35 to [1.35.7-gke.1222000](https://docs.cloud.google.com/kubernetes-engine/docs/changelogs/1.35#1-35-7-gke-1222000)
-      * 1.36 to [1.36.3-gke.1640000](https://docs.cloud.google.com/kubernetes-engine/docs/changelogs/1.36#1-36-3-gke-1640000)
-
-
-
-### No channel (deprecated)
-
-**Note** : Your clusters might not have these versions available. Rollouts are already in progress when we publish the release notes, and can take multiple days to complete across all Google Cloud zones.
-
-  * Version [1.35.7-gke.1222000](https://docs.cloud.google.com/kubernetes-engine/docs/changelogs/1.35#1-35-7-gke-1222000) is now the default version for cluster creation.
-  * The following versions are now available: 
-    * [1.34.11-gke.1056000](https://docs.cloud.google.com/kubernetes-engine/docs/changelogs/1.34#1-34-11-gke-1056000)
-    * [1.35.8-gke.1380000](https://docs.cloud.google.com/kubernetes-engine/docs/changelogs/1.35#1-35-8-gke-1380000)
-    * [1.36.4-gke.1247000](https://docs.cloud.google.com/kubernetes-engine/docs/changelogs/1.36#1-36-4-gke-1247000)
-  * The following node versions are now available: 
-    * [1.31.14-gke.2689000](https://docs.cloud.google.com/kubernetes-engine/docs/changelogs/1.31#1-31-14-gke-2689000)
-    * [1.32.13-gke.2411000](https://docs.cloud.google.com/kubernetes-engine/docs/changelogs/1.32#1-32-13-gke-2411000)
-    * [1.33.13-gke.1636000](https://docs.cloud.google.com/kubernetes-engine/docs/changelogs/1.33#1-33-13-gke-1636000)
-    * [1.34.11-gke.1056000](https://docs.cloud.google.com/kubernetes-engine/docs/changelogs/1.34#1-34-11-gke-1056000)
-    * [1.35.8-gke.1380000](https://docs.cloud.google.com/kubernetes-engine/docs/changelogs/1.35#1-35-8-gke-1380000)
-    * [1.36.4-gke.1247000](https://docs.cloud.google.com/kubernetes-engine/docs/changelogs/1.36#1-36-4-gke-1247000)
-  * The following versions are no longer available: 
-    * 1.34.10-gke.1079000 is [deprecated](https://docs.cloud.google.com/kubernetes-engine/versioning#patch-version-support). This version will be removed in 90 days, or at the end of support, if sooner.
-    * 1.35.7-gke.1027000 is [deprecated](https://docs.cloud.google.com/kubernetes-engine/versioning#patch-version-support). This version will be removed in 90 days, or at the end of support, if sooner.
-    * 1.36.3-gke.1537000 is [deprecated](https://docs.cloud.google.com/kubernetes-engine/versioning#patch-version-support). This version will be removed in 90 days, or at the end of support, if sooner.
-  * Clusters in this channel running the listed minor version have new general auto-upgrade targets. GKE can upgrade control planes and nodes to the following new versions with this release: 
-    * GKE upgrades clusters to the following new patch versions if no minor version upgrade is available, or if the cluster has [maintenance exclusions](https://docs.cloud.google.com/kubernetes-engine/docs/concepts/maintenance-windows-and-exclusions#exclusions) or other factors preventing minor version upgrades: 
-      * 1.35 to [1.35.7-gke.1222000](https://docs.cloud.google.com/kubernetes-engine/docs/changelogs/1.35#1-35-7-gke-1222000)
-      * 1.36 to [1.36.3-gke.1640000](https://docs.cloud.google.com/kubernetes-engine/docs/changelogs/1.36#1-36-3-gke-1640000)
-
-
-
-Security
-
-#### (2026-R38) Security updates
-
-This release includes new GKE versions that use updated Container-Optimized OS images. These updated images are cumulative, incorporating security fixes from all Container-Optimized OS versions released since the previous GKE release.
-
-To identify the specific vulnerabilities that were resolved in each updated Container-Optimized OS image, see the **Security** release notes for that image. The following table includes links to the release notes for each updated Container-Optimized OS image:
-
-GKE version | Container-Optimized OS version | Details  
----|---|---  
-1.31.14-gke.2689000 | cos-117-18613-731-2 | [cos-117-18613-731-2 release notes](https://docs.cloud.google.com/container-optimized-os/docs/release-notes/m117#cos-117-18613-731-2_)  
-1.36.4-gke.1247000 | cos-129-19506-448-8 | [cos-129-19506-448-8 release notes](https://docs.cloud.google.com/container-optimized-os/docs/release-notes/m129#cos-129-19506-448-8_)  
-1.37.0-gke.3165000 | cos-129-19506-299-82 | [cos-129-19506-299-82 release notes](https://docs.cloud.google.com/container-optimized-os/docs/release-notes/m129#cos-129-19506-299-82_)  
-  
-Change
-
-#### (2026-R38) Version updates
-
-**Note** : Your clusters might not have these versions available. Rollouts are already in progress when we publish the release notes, and can take multiple days to complete across all Google Cloud zones.
-
-  * Version [1.34.10-gke.1106000](https://docs.cloud.google.com/kubernetes-engine/docs/changelogs/1.34#1-34-10-gke-1106000) is now available in the Stable channel.
-  * Version 1.34.10-gke.1079000 is [deprecated](https://docs.cloud.google.com/kubernetes-engine/versioning#patch-version-support) in the Stable channel. This version will be removed in 90 days, or at the end of support, if sooner.
-
-
-
-Change
-
-#### (2026-R38) Version updates
-
-**Note** : Your clusters might not have these versions available. Rollouts are already in progress when we publish the release notes, and can take multiple days to complete across all Google Cloud zones.
-
-  * Version [1.35.7-gke.1222000](https://docs.cloud.google.com/kubernetes-engine/docs/changelogs/1.35#1-35-7-gke-1222000) is now the default version for cluster creation in the Regular channel.
-  * The following versions are now available in the Regular channel: 
-    * [1.34.10-gke.1328000](https://docs.cloud.google.com/kubernetes-engine/docs/changelogs/1.34#1-34-10-gke-1328000)
-    * [1.35.8-gke.1036000](https://docs.cloud.google.com/kubernetes-engine/docs/changelogs/1.35#1-35-8-gke-1036000)
-    * [1.36.3-gke.1767000](https://docs.cloud.google.com/kubernetes-engine/docs/changelogs/1.36#1-36-3-gke-1767000)
-  * The following versions are no longer available in the Regular channel: 
-    * 1.34.10-gke.1106000
-    * 1.35.7-gke.1150000
-    * 1.36.3-gke.1537000 is [deprecated](https://docs.cloud.google.com/kubernetes-engine/versioning#patch-version-support) in the Regular channel. This version will be removed in 90 days, or at the end of support, if sooner.
-  * Clusters in this channel running the listed minor version have new general auto-upgrade targets. GKE can upgrade control planes and nodes to the following new versions with this release: 
-    * GKE upgrades clusters to the following new minor versions if there are no factors, such as [maintenance exclusions](https://docs.cloud.google.com/kubernetes-engine/docs/concepts/maintenance-windows-and-exclusions#exclusions) or deprecated APIs, preventing upgrades: 
-      * 1.33 to [1.34.10-gke.1236000](https://docs.cloud.google.com/kubernetes-engine/docs/changelogs/1.34#1-34-10-gke-1236000)
-      * 1.34 to [1.35.7-gke.1222000](https://docs.cloud.google.com/kubernetes-engine/docs/changelogs/1.35#1-35-7-gke-1222000)
-    * GKE upgrades clusters to the following new patch versions if no minor version upgrade is available, or if the cluster has [maintenance exclusions](https://docs.cloud.google.com/kubernetes-engine/docs/concepts/maintenance-windows-and-exclusions#exclusions) or other factors preventing minor version upgrades: 
-      * 1.34 to [1.34.10-gke.1236000](https://docs.cloud.google.com/kubernetes-engine/docs/changelogs/1.34#1-34-10-gke-1236000)
-      * 1.35 to [1.35.7-gke.1222000](https://docs.cloud.google.com/kubernetes-engine/docs/changelogs/1.35#1-35-7-gke-1222000)
-      * 1.36 to [1.36.3-gke.1640000](https://docs.cloud.google.com/kubernetes-engine/docs/changelogs/1.36#1-36-3-gke-1640000)
-
-
-
-Change
-
-#### (2026-R38) Version updates
-
-**Note** : Your clusters might not have these versions available. Rollouts are already in progress when we publish the release notes, and can take multiple days to complete across all Google Cloud zones.
-
-  * Version [1.36.4-gke.1082000](https://docs.cloud.google.com/kubernetes-engine/docs/changelogs/1.36#1-36-4-gke-1082000) is now the default version for cluster creation in the Rapid channel.
-  * The following versions are now available in the Rapid channel: 
-    * [1.34.11-gke.1056000](https://docs.cloud.google.com/kubernetes-engine/docs/changelogs/1.34#1-34-11-gke-1056000)
-    * [1.35.8-gke.1380000](https://docs.cloud.google.com/kubernetes-engine/docs/changelogs/1.35#1-35-8-gke-1380000)
-    * [1.36.4-gke.1247000](https://docs.cloud.google.com/kubernetes-engine/docs/changelogs/1.36#1-36-4-gke-1247000)
-    * [1.37.0-gke.3165000](https://docs.cloud.google.com/kubernetes-engine/docs/changelogs/1.37#1-37-0-gke-3165000)
-  * The following versions are no longer available in the Rapid channel: 
-    * 1.34.10-gke.1328000
-    * 1.35.8-gke.1036000
-    * 1.36.3-gke.1767000
-    * 1.37.0-gke.2155000
-  * Clusters in this channel running the listed minor version have new general auto-upgrade targets. GKE can upgrade control planes and nodes to the following new versions with this release: 
-    * GKE upgrades clusters to the following new minor versions if there are no factors, such as [maintenance exclusions](https://docs.cloud.google.com/kubernetes-engine/docs/concepts/maintenance-windows-and-exclusions#exclusions) or deprecated APIs, preventing upgrades: 
-      * 1.33 to [1.34.11-gke.1044000](https://docs.cloud.google.com/kubernetes-engine/docs/changelogs/1.34#1-34-11-gke-1044000)
-      * 1.34 to [1.35.8-gke.1225000](https://docs.cloud.google.com/kubernetes-engine/docs/changelogs/1.35#1-35-8-gke-1225000)
-      * 1.35 to [1.36.4-gke.1082000](https://docs.cloud.google.com/kubernetes-engine/docs/changelogs/1.36#1-36-4-gke-1082000)
-    * GKE upgrades clusters to the following new patch versions if no minor version upgrade is available, or if the cluster has [maintenance exclusions](https://docs.cloud.google.com/kubernetes-engine/docs/concepts/maintenance-windows-and-exclusions#exclusions) or other factors preventing minor version upgrades: 
-      * 1.34 to [1.34.11-gke.1044000](https://docs.cloud.google.com/kubernetes-engine/docs/changelogs/1.34#1-34-11-gke-1044000)
-      * 1.35 to [1.35.8-gke.1225000](https://docs.cloud.google.com/kubernetes-engine/docs/changelogs/1.35#1-35-8-gke-1225000)
-      * 1.36 to [1.36.4-gke.1082000](https://docs.cloud.google.com/kubernetes-engine/docs/changelogs/1.36#1-36-4-gke-1082000)
-      * 1.37 to [1.37.0-gke.2941000](https://docs.cloud.google.com/kubernetes-engine/docs/changelogs/1.37#1-37-0-gke-2941000)
-
-
-
-Change
-
-#### (2026-R38) Version updates
-
-**Note** : Your clusters might not have these versions available. Rollouts are already in progress when we publish the release notes, and can take multiple days to complete across all Google Cloud zones.
-
-  * Version [1.35.7-gke.1222000](https://docs.cloud.google.com/kubernetes-engine/docs/changelogs/1.35#1-35-7-gke-1222000) is now the default version for cluster creation.
-  * The following versions are now available: 
-    * [1.34.11-gke.1056000](https://docs.cloud.google.com/kubernetes-engine/docs/changelogs/1.34#1-34-11-gke-1056000)
-    * [1.35.8-gke.1380000](https://docs.cloud.google.com/kubernetes-engine/docs/changelogs/1.35#1-35-8-gke-1380000)
-    * [1.36.4-gke.1247000](https://docs.cloud.google.com/kubernetes-engine/docs/changelogs/1.36#1-36-4-gke-1247000)
-  * The following node versions are now available: 
-    * [1.31.14-gke.2689000](https://docs.cloud.google.com/kubernetes-engine/docs/changelogs/1.31#1-31-14-gke-2689000)
-    * [1.32.13-gke.2411000](https://docs.cloud.google.com/kubernetes-engine/docs/changelogs/1.32#1-32-13-gke-2411000)
-    * [1.33.13-gke.1636000](https://docs.cloud.google.com/kubernetes-engine/docs/changelogs/1.33#1-33-13-gke-1636000)
-    * [1.34.11-gke.1056000](https://docs.cloud.google.com/kubernetes-engine/docs/changelogs/1.34#1-34-11-gke-1056000)
-    * [1.35.8-gke.1380000](https://docs.cloud.google.com/kubernetes-engine/docs/changelogs/1.35#1-35-8-gke-1380000)
-    * [1.36.4-gke.1247000](https://docs.cloud.google.com/kubernetes-engine/docs/changelogs/1.36#1-36-4-gke-1247000)
-  * The following versions are no longer available: 
-    * 1.34.10-gke.1079000 is [deprecated](https://docs.cloud.google.com/kubernetes-engine/versioning#patch-version-support). This version will be removed in 90 days, or at the end of support, if sooner.
-    * 1.35.7-gke.1027000 is [deprecated](https://docs.cloud.google.com/kubernetes-engine/versioning#patch-version-support). This version will be removed in 90 days, or at the end of support, if sooner.
-    * 1.36.3-gke.1537000 is [deprecated](https://docs.cloud.google.com/kubernetes-engine/versioning#patch-version-support). This version will be removed in 90 days, or at the end of support, if sooner.
-  * Clusters in this channel running the listed minor version have new general auto-upgrade targets. GKE can upgrade control planes and nodes to the following new versions with this release: 
-    * GKE upgrades clusters to the following new patch versions if no minor version upgrade is available, or if the cluster has [maintenance exclusions](https://docs.cloud.google.com/kubernetes-engine/docs/concepts/maintenance-windows-and-exclusions#exclusions) or other factors preventing minor version upgrades: 
-      * 1.35 to [1.35.7-gke.1222000](https://docs.cloud.google.com/kubernetes-engine/docs/changelogs/1.35#1-35-7-gke-1222000)
-      * 1.36 to [1.36.3-gke.1640000](https://docs.cloud.google.com/kubernetes-engine/docs/changelogs/1.36#1-36-3-gke-1640000)
-
-
-
-Change
-
-#### (2026-R38) Version updates
-
-**Note** : Your clusters might not have these versions available. Rollouts are already in progress when we publish the release notes, and can take multiple days to complete across all Google Cloud zones.
-
-  * Version [1.35.7-gke.1222000](https://docs.cloud.google.com/kubernetes-engine/docs/changelogs/1.35#1-35-7-gke-1222000) is now the default version for cluster creation in the Extended channel.
-  * The following versions are now available in the Extended channel: 
-    * [1.31.14-gke.2689000](https://docs.cloud.google.com/kubernetes-engine/docs/changelogs/1.31#1-31-14-gke-2689000)
-    * [1.32.13-gke.2411000](https://docs.cloud.google.com/kubernetes-engine/docs/changelogs/1.32#1-32-13-gke-2411000)
-    * [1.33.13-gke.1636000](https://docs.cloud.google.com/kubernetes-engine/docs/changelogs/1.33#1-33-13-gke-1636000)
-    * [1.34.10-gke.1328000](https://docs.cloud.google.com/kubernetes-engine/docs/changelogs/1.34#1-34-10-gke-1328000)
-    * [1.35.8-gke.1036000](https://docs.cloud.google.com/kubernetes-engine/docs/changelogs/1.35#1-35-8-gke-1036000)
-    * [1.36.3-gke.1767000](https://docs.cloud.google.com/kubernetes-engine/docs/changelogs/1.36#1-36-3-gke-1767000)
-  * The following versions are no longer available in the Extended channel: 
-    * 1.31.14-gke.2667000 is [deprecated](https://docs.cloud.google.com/kubernetes-engine/versioning#patch-version-support) in the Extended channel. This version will be removed in 90 days, or at the end of support, if sooner.
-    * 1.32.13-gke.2393000 is [deprecated](https://docs.cloud.google.com/kubernetes-engine/versioning#patch-version-support) in the Extended channel. This version will be removed in 90 days, or at the end of support, if sooner.
-    * 1.33.13-gke.1613000 is [deprecated](https://docs.cloud.google.com/kubernetes-engine/versioning#patch-version-support) in the Extended channel. This version will be removed in 90 days, or at the end of support, if sooner.
-    * 1.34.10-gke.1106000
-    * 1.35.7-gke.1150000
-    * 1.36.3-gke.1537000 is [deprecated](https://docs.cloud.google.com/kubernetes-engine/versioning#patch-version-support) in the Extended channel. This version will be removed in 90 days, or at the end of support, if sooner.
-  * Clusters in this channel running the listed minor version have new general auto-upgrade targets. GKE can upgrade control planes and nodes to the following new versions with this release: 
-    * GKE upgrades clusters to the following new patch versions if no minor version upgrade is available, or if the cluster has [maintenance exclusions](https://docs.cloud.google.com/kubernetes-engine/docs/concepts/maintenance-windows-and-exclusions#exclusions) or other factors preventing minor version upgrades: 
-      * 1.34 to [1.34.10-gke.1236000](https://docs.cloud.google.com/kubernetes-engine/docs/changelogs/1.34#1-34-10-gke-1236000)
-      * 1.35 to [1.35.7-gke.1222000](https://docs.cloud.google.com/kubernetes-engine/docs/changelogs/1.35#1-35-7-gke-1222000)
-      * 1.36 to [1.36.3-gke.1640000](https://docs.cloud.google.com/kubernetes-engine/docs/changelogs/1.36#1-36-3-gke-1640000)
-
-
-
-**Secret Manager**
-
-Feature
-
-Parameter Manager supports using tags to group and organize parameters and conditionally manage access control using Identity and Access Management (IAM) policies.
-
-For more information, see [Create and manage tags](https://docs.cloud.google.com/secret-manager/parameter-manager/docs/create-and-manage-tags).
-
-**Sovereign Controls by Partners**
-
-Feature
-
-The [France Data Boundary by S3NS](https://docs.cloud.google.com/sovereign-controls-by-partners/docs/data-boundaries/france-data-boundary-s3ns) supports the following products:
-
-  * AlloyDB for PostgreSQL
-  * Apigee
-  * Eventarc
-
-
-
-Feature
-
-The [Italy Data Boundary by PSN](https://docs.cloud.google.com/sovereign-controls-by-partners/docs/data-boundaries/italy-data-boundary-psn) supports the following products:
-
-  * AlloyDB for PostgreSQL
-  * Apigee
-  * Eventarc
-
-
-
-Feature
-
-The [Germany Data Boundary by T-Systems](https://docs.cloud.google.com/sovereign-controls-by-partners/docs/data-boundaries/germany-data-boundary-tsi) supports the following products:
-
-  * AlloyDB for PostgreSQL
-  * Apigee
-  * Eventarc
-
-
-
-**VPC Service Controls**
-
-Feature
-
-[General availability](https://cloud.google.com/products#product-launch-stages) support for the following integration:
-
-  * [Observability API](https://docs.cloud.google.com/vpc-service-controls/docs/supported-products#table_observability_api)
-
-
-
 Send feedback 
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-07 UTC.
+Last updated 2026-11-09 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-07 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-09 UTC."],[],[]] 

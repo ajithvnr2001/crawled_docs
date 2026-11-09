@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/pubsub/docs/samples/pubsub-old-version-publish-avro-records/
 title: v1 Publish messages of Avro schema type (DEPRECATED) \u00a0|\u00a0 Pub/Sub \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T01:39:50.992228+00:00
+fetched_at: 2026-11-09T07:00:27.796635+00:00
 ---
 
 # v1 Publish messages of Avro schema type (DEPRECATED)  |  Pub/Sub  |  Google Cloud Documentation

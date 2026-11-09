@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/compute/docs/instance-groups/regional-mig-distribution-shape/
 title: Regional MIG target distribution shape \u00a0|\u00a0 Compute Engine \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T09:00:39.409301+00:00
+fetched_at: 2026-11-09T07:05:22.937639+00:00
 ---
 
 # Regional MIG target distribution shape  |  Compute Engine  |  Google Cloud Documentation

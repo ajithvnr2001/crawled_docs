@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/compute/docs/instances/sql-server/configure-availability-dnn/
 title: Configure SQL Server Always On availability groups with synchronous commit using a distributed network name \u00a0|\u00a0 Compute Engine \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T09:00:30.204736+00:00
+fetched_at: 2026-11-09T07:05:18.839936+00:00
 ---
 
 # Configure SQL Server Always On availability groups with synchronous commit using a distributed network name  |  Compute Engine  |  Google Cloud Documentation

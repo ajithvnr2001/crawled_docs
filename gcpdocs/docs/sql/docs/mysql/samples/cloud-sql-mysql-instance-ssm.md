@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sql/docs/mysql/samples/cloud-sql-mysql-instance-ssm/
 title: Upgrade MySQL instance maintenance version \u00a0|\u00a0 Cloud SQL for MySQL \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-06T10:29:45.827365+00:00
+fetched_at: 2026-11-09T06:56:43.944417+00:00
 ---
 
 # Upgrade MySQL instance maintenance version  |  Cloud SQL for MySQL  |  Google Cloud Documentation

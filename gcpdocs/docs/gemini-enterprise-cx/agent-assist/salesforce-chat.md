@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-cx/agent-assist/salesforce-chat/
 title: Salesforce chat integration \u00a0|\u00a0 Agent Assist \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T08:35:20.902350+00:00
+fetched_at: 2026-11-09T07:03:54.347263+00:00
 ---
 
 # Salesforce chat integration  |  Agent Assist  |  Google Cloud Documentation

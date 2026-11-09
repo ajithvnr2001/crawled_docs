@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/firestore/native/docs/query-data/understanding-core-pipelines/
 title: Query interfaces overview \u00a0|\u00a0 Firestore in Native mode \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T08:36:47.656821+00:00
+fetched_at: 2026-11-09T07:02:38.504895+00:00
 ---
 
 # Query interfaces overview  |  Firestore in Native mode  |  Google Cloud Documentation

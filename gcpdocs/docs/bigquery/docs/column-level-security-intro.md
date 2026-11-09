@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/column-level-security-intro/
 title: Introduction to column-level access control \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T08:51:05.558552+00:00
+fetched_at: 2026-11-09T06:57:44.420186+00:00
 ---
 
 # Introduction to column-level access control  |  BigQuery  |  Google Cloud Documentation
@@ -314,6 +314,12 @@ You can't use references across organizations. A table and any policy tags that 
 
   * A table can have at most 1,000 unique policy tags.
 
+  * A project can have at most 40 taxonomies per location.
+
+  * A taxonomy can have at most 100 policy tags.
+
+  * A taxonomy name or policy tag name can be at most 200 bytes when encoded in UTF-8.
+
   * You can't use legacy SQL if you enabled column-level access control. Any legacy SQL queries are rejected if there are any policy tags on the target tables.
 
   * A policy tag hierarchy can be no more than five levels deep from the root node to the lowest-level subtag, as shown in the following screenshot:
@@ -361,6 +367,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-07 UTC.
+Last updated 2026-11-09 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-07 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-09 UTC."],[],[]] 

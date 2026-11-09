@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/spanner/docs/samples/spanner-update-data-with-numeric-column/
 title: Mutations update data with NUMERIC \u00a0|\u00a0 Spanner \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-06T10:39:02.289890+00:00
+fetched_at: 2026-11-09T05:43:58.315471+00:00
 ---
 
 # Mutations update data with NUMERIC  |  Spanner  |  Google Cloud Documentation

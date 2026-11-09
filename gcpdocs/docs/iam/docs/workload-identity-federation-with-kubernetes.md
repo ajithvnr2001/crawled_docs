@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/iam/docs/workload-identity-federation-with-kubernetes/
 title: Configure Workload Identity Federation with Kubernetes \u00a0|\u00a0 Identity and Access Management (IAM) \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T08:29:34.788634+00:00
+fetched_at: 2026-11-09T07:01:33.431761+00:00
 ---
 
 # Configure Workload Identity Federation with Kubernetes  |  Identity and Access Management (IAM)  |  Google Cloud Documentation

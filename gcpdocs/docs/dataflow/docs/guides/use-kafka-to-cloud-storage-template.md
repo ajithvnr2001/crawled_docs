@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/dataflow/docs/guides/use-kafka-to-cloud-storage-template/
 title: Write Managed Service for Apache Kafka data to Cloud Storage \u00a0|\u00a0 Cloud Dataflow \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T09:11:36.562345+00:00
+fetched_at: 2026-11-09T07:05:49.895360+00:00
 ---
 
 # Write Managed Service for Apache Kafka data to Cloud Storage  |  Cloud Dataflow  |  Google Cloud Documentation

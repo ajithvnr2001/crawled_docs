@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/document-ai/docs/ce-template-based/
 title: Template-based extraction \u00a0|\u00a0 Document AI \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T09:12:18.238609+00:00
+fetched_at: 2026-11-09T07:06:05.350184+00:00
 ---
 
 # Template-based extraction  |  Document AI  |  Google Cloud Documentation

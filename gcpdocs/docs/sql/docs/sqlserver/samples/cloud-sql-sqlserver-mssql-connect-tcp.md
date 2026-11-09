@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sql/docs/sqlserver/samples/cloud-sql-sqlserver-mssql-connect-tcp/
 title: Create a TCP connection when using Node.js \u00a0|\u00a0 Cloud SQL for SQL Server \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-06T10:29:47.712179+00:00
+fetched_at: 2026-11-09T05:44:05.918190+00:00
 ---
 
 # Create a TCP connection when using Node.js  |  Cloud SQL for SQL Server  |  Google Cloud Documentation

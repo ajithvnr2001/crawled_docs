@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/storage/docs/samples/storage-control-pause-anywhere-cache/
 title: Storage Control Pause Anywhere Cache \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-02T05:39:47.335372+00:00
+fetched_at: 2026-11-09T05:48:03.631652+00:00
 ---
 
 # Storage Control Pause Anywhere Cache  |  Google Cloud Documentation

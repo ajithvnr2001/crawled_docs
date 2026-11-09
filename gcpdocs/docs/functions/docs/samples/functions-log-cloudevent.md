@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/functions/docs/samples/functions-log-cloudevent/
 title: Process a Cloud Audit Logging log entry \u00a0|\u00a0 Cloud Run functions \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T08:36:29.368431+00:00
+fetched_at: 2026-11-09T07:03:42.699056+00:00
 ---
 
 # Process a Cloud Audit Logging log entry  |  Cloud Run functions  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-cx/agent-assist/modules-overview/
 title: Agent Assist UI modules overview \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T08:35:29.390665+00:00
+fetched_at: 2026-11-09T07:04:16.081941+00:00
 ---
 
 # Agent Assist UI modules overview  |  Google Cloud Documentation

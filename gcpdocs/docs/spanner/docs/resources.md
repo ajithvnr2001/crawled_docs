@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/spanner/docs/resources/
 title: Resources \u00a0|\u00a0 Spanner \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T08:56:11.223711+00:00
+fetched_at: 2026-11-09T05:49:30.305277+00:00
 ---
 
 # Resources  |  Spanner  |  Google Cloud Documentation

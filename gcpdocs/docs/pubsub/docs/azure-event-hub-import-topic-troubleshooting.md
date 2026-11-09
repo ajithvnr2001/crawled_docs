@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/pubsub/docs/azure-event-hub-import-topic-troubleshooting/
 title: Troubleshooting an Azure Event Hubs import topic \u00a0|\u00a0 Pub/Sub \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-06T13:51:09.090701+00:00
+fetched_at: 2026-11-09T06:59:58.397036+00:00
 ---
 
 # Troubleshooting an Azure Event Hubs import topic  |  Pub/Sub  |  Google Cloud Documentation

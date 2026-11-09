@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/firewall/docs/using-firewalls/
 title: Use VPC firewall rules \u00a0|\u00a0 Cloud Next Generation Firewall \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T08:35:48.255445+00:00
+fetched_at: 2026-11-09T07:04:45.083231+00:00
 ---
 
 # Use VPC firewall rules  |  Cloud Next Generation Firewall  |  Google Cloud Documentation

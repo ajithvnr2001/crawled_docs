@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/eventarc/docs/samples/eventarc-workflows-parent-tag/
 title: Trigger Cloud Workflows when an object is uploaded to a Cloud Storage bucket \u00a0|\u00a0 Eventarc \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T08:36:22.149130+00:00
+fetched_at: 2026-11-09T07:05:00.402025+00:00
 ---
 
 # Trigger Cloud Workflows when an object is uploaded to a Cloud Storage bucket  |  Eventarc  |  Google Cloud Documentation

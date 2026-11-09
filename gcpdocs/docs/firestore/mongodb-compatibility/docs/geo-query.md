@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/firestore/mongodb-compatibility/docs/geo-query/
 title: Use geo queries \u00a0|\u00a0 Firestore with MongoDB compatibility \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T08:37:09.038049+00:00
+fetched_at: 2026-11-09T07:03:20.129908+00:00
 ---
 
 # Use geo queries  |  Firestore with MongoDB compatibility  |  Google Cloud Documentation

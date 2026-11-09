@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/compute/docs/instance-groups/disabling-and-enabling-health-state-change-logs/
 title: Disabling and enabling health state change logs \u00a0|\u00a0 Compute Engine \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T09:00:41.410337+00:00
+fetched_at: 2026-11-09T07:05:14.356013+00:00
 ---
 
 # Disabling and enabling health state change logs  |  Compute Engine  |  Google Cloud Documentation

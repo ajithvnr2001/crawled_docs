@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/compute/docs/instances/sql-server/dr-for-microsoft-sql-server-with-hdb-mw-async-pd/
 title: Enable Disaster Recovery for Microsoft SQL server on Hyperdisk \u00a0|\u00a0 Compute Engine \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T09:00:27.150232+00:00
+fetched_at: 2026-11-09T07:05:16.020562+00:00
 ---
 
 # Enable Disaster Recovery for Microsoft SQL server on Hyperdisk  |  Compute Engine  |  Google Cloud Documentation

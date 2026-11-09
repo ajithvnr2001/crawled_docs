@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/storage/docs/samples/storage-batch-cancel-job/
 title: Storage Batch Cancel Job \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T06:01:28.705209+00:00
+fetched_at: 2026-11-09T05:48:02.218419+00:00
 ---
 
 # Storage Batch Cancel Job  |  Google Cloud Documentation

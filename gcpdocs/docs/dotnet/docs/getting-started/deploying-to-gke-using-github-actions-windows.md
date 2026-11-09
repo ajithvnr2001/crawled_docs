@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/dotnet/docs/getting-started/deploying-to-gke-using-github-actions-windows/
 title: Deploy a .NET Framework app to Google Kubernetes Engine using a GitHub Actions workflow \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T08:37:55.146895+00:00
+fetched_at: 2026-11-09T07:04:16.539949+00:00
 ---
 
 # Deploy a .NET Framework app to Google Kubernetes Engine using a GitHub Actions workflow  |  Google Cloud Documentation

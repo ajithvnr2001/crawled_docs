@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/dataflow/docs/guides/templates/provided/bigtable-to-avro/
 title: Bigtable to Cloud Storage Avro template \u00a0|\u00a0 Cloud Dataflow \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T09:11:40.618386+00:00
+fetched_at: 2026-11-09T07:05:51.351867+00:00
 ---
 
 # Bigtable to Cloud Storage Avro template  |  Cloud Dataflow  |  Google Cloud Documentation

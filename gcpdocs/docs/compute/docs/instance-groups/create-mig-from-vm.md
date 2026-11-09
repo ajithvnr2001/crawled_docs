@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/compute/docs/instance-groups/create-mig-from-vm/
 title: Create a MIG from an existing VM \u00a0|\u00a0 Compute Engine \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T09:00:45.104561+00:00
+fetched_at: 2026-11-09T07:05:30.605777+00:00
 ---
 
 # Create a MIG from an existing VM  |  Compute Engine  |  Google Cloud Documentation

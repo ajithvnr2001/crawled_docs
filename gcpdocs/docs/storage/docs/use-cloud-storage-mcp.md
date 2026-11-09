@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/storage/docs/use-cloud-storage-mcp/
 title: Use the Cloud Storage MCP server \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-05T11:10:50.871918+00:00
+fetched_at: 2026-11-09T06:56:24.879354+00:00
 ---
 
 # Use the Cloud Storage MCP server  |  Google Cloud Documentation
@@ -26,7 +26,7 @@ This document describes how to use the Cloud Storage MCP server to connect to Cl
 With the Cloud Storage MCP server, you can use AI applications and agents to perform the following tasks:
 
   * Create and delete buckets.
-  * Retrieve object metadata.
+  * Retrieve bucket and object metadata.
   * Read and delete object data, and write text content.
   * List buckets and objects.
 
@@ -81,7 +81,7 @@ For information about other MCP servers and information about security and gover
 
 The Cloud Storage MCP server has the following limitations:
 
-  * **File types** : read operations support text and binary files (such as PDFs, images, audios, and videos); write operations are restricted to text files.
+  * **File types** : read operations support text and binary files (such as PDFs, images, audio files, and videos); write operations support only text files.
 
   * **File size** : maximum of 8 MiB for read and write operations.
 
@@ -90,7 +90,7 @@ The Cloud Storage MCP server has the following limitations:
 
 
 
-For detailed information on quotas and limits that apply to the Cloud Storage MCP server, see [Quotas and limits](https://docs.cloud.google.com/storage/quotas#gcs-mcp).
+For detailed information about quotas and limits that apply to the Cloud Storage MCP server, see [Quotas and limits](https://docs.cloud.google.com/storage/quotas#gcs-mcp).
 
 ## Before you begin
 
@@ -145,10 +145,10 @@ For detailed information on quotas and limits that apply to the Cloud Storage MC
 To get the permissions that you need to use the Cloud Storage MCP server, ask your administrator to grant you the following IAM roles on the project where you want to use the Cloud Storage MCP server: 
 
   * Make MCP tool calls: [MCP Tool User ](https://docs.cloud.google.com/iam/docs/roles-permissions/mcp#mcp.toolUser) (`roles/mcp.toolUser`) 
-  * List objects, read objects and their contents, or get an object's metadata: [Storage Object Viewer ](https://docs.cloud.google.com/iam/docs/roles-permissions/storage#storage.objectViewer) (`roles/storage.objectViewer`) 
+  * List objects, read objects and their contents, or get object metadata: [Storage Object Viewer ](https://docs.cloud.google.com/iam/docs/roles-permissions/storage#storage.objectViewer) (`roles/storage.objectViewer`) 
   * Write content to an object: [Storage Object Creator ](https://docs.cloud.google.com/iam/docs/roles-permissions/storage#storage.objectCreator) (`roles/storage.objectCreator`) 
   * Delete objects: Storage Object User (`roles/storage.objectUser`) or Storage Object Admin (`roles/storage.objectAdmin`) 
-  * Create, list, or delete buckets: [Storage Admin ](https://docs.cloud.google.com/iam/docs/roles-permissions/storage#storage.admin) (`roles/storage.admin`) 
+  * Create, list, or delete buckets, and get bucket metadata: [Storage Admin ](https://docs.cloud.google.com/iam/docs/roles-permissions/storage#storage.admin) (`roles/storage.admin`) 
 
 
 
@@ -162,10 +162,11 @@ The following permissions are required to use the Cloud Storage MCP server:
 
   * Make MCP tool calls: `mcp.tools.call`
   * List objects: `storage.objects.list`
-  * Read objects and their contents or get an object's metadata: `storage.objects.get`
+  * Read objects and their contents or get object metadata: `storage.objects.get`
   * Write content to an object: `storage.objects.create`
   * Delete objects: `storage.objects.delete`
   * List buckets: `storage.buckets.list`
+  * Get bucket metadata: `storage.buckets.get`
   * Create buckets: `storage.buckets.create`
   * Delete buckets: `storage.buckets.delete`
 
@@ -179,7 +180,7 @@ The Cloud Storage remote MCP server uses the [OAuth 2.0](https://developers.goog
 
 The Cloud Storage MCP server doesn't accept API keys for authentication because all requests require Identity and Access Management (IAM) authorization.
 
-We recommend that you create a separate identity for agents that are using MCP tools so that access to resources can be controlled and monitored. For more information about authentication, see [Authenticate to MCP servers](https://docs.cloud.google.com/mcp/authenticate-mcp).
+We recommend that you create a separate identity for agents that are using MCP tools so that you can control and monitor access to resources. For more information about authentication, see [Authenticate to MCP servers](https://docs.cloud.google.com/mcp/authenticate-mcp).
 
 ## Cloud Storage MCP OAuth scopes
 
@@ -324,7 +325,7 @@ A sample use case for the Cloud Storage MCP server is to help portfolio managers
 
   * **Identify documents** : the agent extracts keywords from the user's question to identify relevant buckets or prefixes, for example, `earnings-calls/ExampleCorp/` or `financial-reports/ExampleCorp/` and uses `list_objects` to find relevant audio transcripts and financial reports.
   * **Download content** : the agent uses `read_object` to download the content of the identified files, up to 8 MiB per file.
-  * **Analyze and respond** : the agent passes the content to an LLM to summarize findings, compare sentiment, and synthesize an answer to the user's question. If needed, other tools like BigQuery can be used for deeper analysis.
+  * **Analyze and respond** : the agent passes the content to an LLM to summarize findings, compare sentiment, and synthesize an answer to the user's question. If needed, the agent can use other tools like BigQuery for deeper analysis.
 
 
 
@@ -471,6 +472,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-03 UTC.
+Last updated 2026-11-09 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-09 UTC."],[],[]] 

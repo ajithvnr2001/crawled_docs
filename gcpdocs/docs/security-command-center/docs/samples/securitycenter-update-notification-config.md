@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/security-command-center/docs/samples/securitycenter-update-notification-config/
 title: Update a NotificationConfig \u00a0|\u00a0 Security Command Center \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-01T05:40:18.859674+00:00
+fetched_at: 2026-11-09T05:50:21.473624+00:00
 ---
 
 # Update a NotificationConfig  |  Security Command Center  |  Google Cloud Documentation

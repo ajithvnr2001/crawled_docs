@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/firestore/native/docs/keyvis-patterns/
 title: Heatmap patterns for document keys \u00a0|\u00a0 Firestore in Native mode \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T08:37:20.033007+00:00
+fetched_at: 2026-11-09T07:02:56.751293+00:00
 ---
 
 # Heatmap patterns for document keys  |  Firestore in Native mode  |  Google Cloud Documentation

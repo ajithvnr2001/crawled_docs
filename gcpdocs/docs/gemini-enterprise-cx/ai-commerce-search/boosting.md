@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-cx/ai-commerce-search/boosting/
 title: Boost results \u00a0|\u00a0 AI Commerce Search in Gemini Enterprise for Customer Experience \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T08:35:02.352511+00:00
+fetched_at: 2026-11-09T07:04:40.100475+00:00
 ---
 
 # Boost results  |  AI Commerce Search in Gemini Enterprise for Customer Experience  |  Google Cloud Documentation

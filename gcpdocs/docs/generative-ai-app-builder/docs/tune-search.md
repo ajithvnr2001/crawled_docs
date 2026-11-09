@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/generative-ai-app-builder/docs/tune-search/
 title: Improve search results with search tuning \u00a0|\u00a0 Agent Search \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T08:34:28.512492+00:00
+fetched_at: 2026-11-09T07:03:58.736349+00:00
 ---
 
 # Improve search results with search tuning  |  Agent Search  |  Google Cloud Documentation

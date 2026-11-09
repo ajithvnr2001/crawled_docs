@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/vision/docs/samples/vision-face-detection/
 title: Detect faces in a local file \u00a0|\u00a0 Cloud Vision API \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T05:46:52.155069+00:00
+fetched_at: 2026-11-09T07:07:03.599216+00:00
 ---
 
 # Detect faces in a local file  |  Cloud Vision API  |  Google Cloud Documentation
@@ -25,7 +25,7 @@ Perform face detection on a local file.
 
 For detailed documentation that includes this code sample, see the following: 
 
-  * [Detect faces](https://docs.cloud.google.com/vision/docs/detecting-faces)
+  * [Detect faces and facial attributes in images](https://docs.cloud.google.com/vision/docs/detecting-faces)
 
 
 
@@ -182,7 +182,12 @@ To authenticate to Vision, set up Application Default Credentials. For more info
     
     namespace Google\Cloud\Samples\Vision;
     
+    use Google\Cloud\Vision\V1\AnnotateImageRequest;
+    use Google\Cloud\Vision\V1\BatchAnnotateImagesRequest;
     use Google\Cloud\Vision\V1\Client\ImageAnnotatorClient;
+    use Google\Cloud\Vision\V1\Feature;
+    use Google\Cloud\Vision\V1\Feature\Type;
+    use Google\Cloud\Vision\V1\Image;
     
     /**
      * @param string $path    Path to the image, e.g. "path/to/your/image.jpg"
@@ -195,8 +200,16 @@ To authenticate to Vision, set up Application Default Credentials. For more info
     
         # annotate the image
         // $path = 'path/to/your/image.jpg'
-        $image = file_get_contents($path);
-        $response = $imageAnnotator->faceDetection($image);
+        $image = (new Image())
+            ->setContent(file_get_contents($path));
+        $feature = (new Feature())
+            ->setType(Type::FACE_DETECTION);
+        $request = (new AnnotateImageRequest())
+            ->setImage($image)
+            ->setFeatures([$feature]);
+        $batchRequest = (new BatchAnnotateImagesRequest())
+            ->setRequests([$request]);
+        $response = $imageAnnotator->batchAnnotateImages($batchRequest)->getResponses()[0];
         $faces = $response->getFaceAnnotations();
     
         # names of likelihood from google.cloud.vision.enums

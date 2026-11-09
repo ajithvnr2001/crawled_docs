@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-cx/agent-assist/tool-integration-for-ai-coach/
 title: Gemini Enterprise for CX tool integration for AI coach \u00a0|\u00a0 Agent Assist \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T08:35:15.579072+00:00
+fetched_at: 2026-11-09T07:03:32.727286+00:00
 ---
 
 # Gemini Enterprise for CX tool integration for AI coach  |  Agent Assist  |  Google Cloud Documentation

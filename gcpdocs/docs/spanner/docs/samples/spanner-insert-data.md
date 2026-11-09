@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/spanner/docs/samples/spanner-insert-data/
 title: Mutations write data \u00a0|\u00a0 Spanner \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-06T10:31:28.339602+00:00
+fetched_at: 2026-11-09T05:42:43.403594+00:00
 ---
 
 # Mutations write data  |  Spanner  |  Google Cloud Documentation

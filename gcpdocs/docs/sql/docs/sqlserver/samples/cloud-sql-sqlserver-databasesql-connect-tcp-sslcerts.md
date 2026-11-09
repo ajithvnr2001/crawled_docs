@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sql/docs/sqlserver/samples/cloud-sql-sqlserver-databasesql-connect-tcp-sslcerts/
 title: Configure SSL certificates for TCP connection by using Go \u00a0|\u00a0 Cloud SQL for SQL Server \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-06T10:30:03.486489+00:00
+fetched_at: 2026-11-09T05:50:45.286185+00:00
 ---
 
 # Configure SSL certificates for TCP connection by using Go  |  Cloud SQL for SQL Server  |  Google Cloud Documentation

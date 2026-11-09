@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/generative-ai-app-builder/docs/cmek/
 title: Customer-managed encryption keys \u00a0|\u00a0 Agent Search \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T08:35:05.806766+00:00
+fetched_at: 2026-11-09T07:04:43.678690+00:00
 ---
 
 # Customer-managed encryption keys  |  Agent Search  |  Google Cloud Documentation

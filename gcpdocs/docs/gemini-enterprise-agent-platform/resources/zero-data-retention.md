@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/zero-data-retention/
 title: Gemini Enterprise Agent Platform and zero data retention \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-07T08:27:24.391186+00:00
+fetched_at: 2026-11-09T07:01:02.892870+00:00
 ---
 
 # Gemini Enterprise Agent Platform and zero data retention  |  Google Cloud Documentation
@@ -273,6 +273,36 @@ If you turned off durable caching for a Google Cloud project and want to turn it
     }
         
 
+## Partner models
+
+You can request zero data retention for supported partner models on Agent Platform.
+
+### OpenAI flagship models
+
+Zero Data Retention (ZDR) is available for OpenAI flagship models on an approved project basis, but is disabled by default. Flagship models of the OpenAI GPT Astra, Sol, Terra, and Luna families are designated as Advanced AI under the [Advanced AI Safety Addendum](https://cloud.google.com/terms/advanced-ai-safety-addendum). For more information about safety and abuse monitoring for these models, see [Non-Google Advanced AI models](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/abuse-monitoring#advanced-ai-safety).
+
+The following points summarize the default logging behavior and how ZDR operates when enabled:
+
+  * **Default state (ZDR off):** ZDR is off by default for OpenAI flagship models and is configured at the Google Cloud project level. Existing ZDR approvals for the direct OpenAI API don't apply to Agent Platform, and setting `store: false` in Responses API requests doesn't enable ZDR on Agent Platform. By default, Google Cloud logs prompts, file inputs, and responses for up to 30 days in Google-owned storage in the `us` multi-region for safety and abuse monitoring. Customer data is never used to train or fine-tune models.
+  * **How ZDR works when approved:** When ZDR is enabled on an approved Google Cloud project, Google Cloud processes requests in real time without writing prompts, file inputs, or responses to persistent disk. Customer prompts, file inputs, and model responses aren't stored in the 30-day abuse-monitoring logs. To reduce latency, Agent Platform uses volatile memory (RAM-only) prompt caching, where cached data is automatically evicted within 24 hours. Google Cloud continues to record operational and billing metadata (such as token counts and latency telemetry).
+
+
+
+#### Request and verify ZDR
+
+To request and verify ZDR for OpenAI flagship models, follow these steps:
+
+  1. Contact your Google Cloud account team and provide the Google Cloud project IDs and numbers where you require ZDR.
+
+Your account team submits the ZDR request for OpenAI review and approval. After OpenAI approves the request, Google Cloud applies the ZDR configuration to your approved projects, which distributes to all serving infrastructure within 24 hours.
+
+  2. In the Google Cloud console, open Model Garden and navigate to the model page for an enabled OpenAI model in your approved project to verify that ZDR is active.
+
+Check for the **Zero Data Retention active** confirmation banner on the model card. In an active ZDR project, 30-day prompt, file input, and response safety logging is disabled and acceptance of the Advanced AI Safety Addendum is no longer required.
+
+
+
+
 ## What's next
 
 Overview 
@@ -291,6 +321,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-07 UTC.
+Last updated 2026-11-08 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-07 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-08 UTC."],[],[]] 

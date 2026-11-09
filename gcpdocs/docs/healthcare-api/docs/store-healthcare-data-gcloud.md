@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/healthcare-api/docs/store-healthcare-data-gcloud/
 title: Quickstart: Store healthcare data with the Google Cloud CLI \u00a0|\u00a0 Cloud Healthcare API \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T08:27:24.635377+00:00
+fetched_at: 2026-11-09T07:01:35.011639+00:00
 ---
 
 # Quickstart: Store healthcare data with the Google Cloud CLI  |  Cloud Healthcare API  |  Google Cloud Documentation

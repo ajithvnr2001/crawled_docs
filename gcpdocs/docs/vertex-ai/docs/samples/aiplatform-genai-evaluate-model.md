@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/vertex-ai/docs/samples/aiplatform-genai-evaluate-model/
 title: Evaluate a model \u00a0|\u00a0 Vertex AI \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T09:37:43.442300+00:00
+fetched_at: 2026-11-09T05:47:35.454290+00:00
 ---
 
 # Evaluate a model  |  Vertex AI  |  Google Cloud Documentation

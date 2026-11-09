@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/transcoder/docs/samples/transcoder-create-job-with-static-overlay/
 title: Create a job with a static overlay \u00a0|\u00a0 Transcoder API \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T05:46:25.030537+00:00
+fetched_at: 2026-11-09T05:48:15.389435+00:00
 ---
 
 # Create a job with a static overlay  |  Transcoder API  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/compute/docs/instances/windows/lima-audit-logging/
 title: Compute Engine audit logging \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T09:00:23.183124+00:00
+fetched_at: 2026-11-09T07:05:30.105598+00:00
 ---
 
 # Compute Engine audit logging  |  Google Cloud Documentation

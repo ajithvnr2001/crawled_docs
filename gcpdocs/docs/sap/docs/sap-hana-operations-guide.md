@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sap/docs/sap-hana-operations-guide/
 title: SAP HANA operations guide \u00a0|\u00a0 SAP on Google Cloud \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-06T08:23:49.678750+00:00
+fetched_at: 2026-11-09T06:57:19.077085+00:00
 ---
 
 # SAP HANA operations guide  |  SAP on Google Cloud  |  Google Cloud Documentation

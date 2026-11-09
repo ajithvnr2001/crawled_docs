@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/pubsub/docs/samples/pubsub-create-topic/
 title: Create topic \u00a0|\u00a0 Pub/Sub \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-01T05:41:55.559654+00:00
+fetched_at: 2026-11-09T07:00:36.437520+00:00
 ---
 
 # Create topic  |  Pub/Sub  |  Google Cloud Documentation

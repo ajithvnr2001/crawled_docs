@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/knowledge-catalog/docs/databricks-unity-transfer/
 title: Import metadata from Databricks Unity Catalog \u00a0|\u00a0 Knowledge Catalog \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-07T05:53:55.656870+00:00
+fetched_at: 2026-11-09T07:00:50.620186+00:00
 ---
 
 # Import metadata from Databricks Unity Catalog  |  Knowledge Catalog  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/service-mesh/v1.21/docs/upgrade/upgrade/
 title: Upgrade Cloud Service Mesh \u00a0|\u00a0 Cloud Service Mesh v1.21 \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-06T10:41:14.786688+00:00
+fetched_at: 2026-11-09T05:52:40.786058+00:00
 ---
 
 # Upgrade Cloud Service Mesh  |  Cloud Service Mesh v1.21  |  Google Cloud Documentation

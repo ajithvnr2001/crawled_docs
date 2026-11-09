@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-cx/agent-assist/sa-overview/
 title: Supervisor assist overview \u00a0|\u00a0 Agent Assist \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T08:35:22.011682+00:00
+fetched_at: 2026-11-09T07:03:55.049850+00:00
 ---
 
 # Supervisor assist overview  |  Agent Assist  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/data-fusion/docs/how-to/upgrade-a-replication-job/
 title: Upgrade a Replication job \u00a0|\u00a0 Cloud Data Fusion \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T09:14:51.822165+00:00
+fetched_at: 2026-11-09T07:06:01.399115+00:00
 ---
 
 # Upgrade a Replication job  |  Cloud Data Fusion  |  Google Cloud Documentation

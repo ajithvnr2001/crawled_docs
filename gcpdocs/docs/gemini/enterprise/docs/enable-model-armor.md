@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini/enterprise/docs/enable-model-armor/
 title: Enable Model Armor in Gemini Enterprise \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T08:36:21.805246+00:00
+fetched_at: 2026-11-09T07:03:08.216292+00:00
 ---
 
 # Enable Model Armor in Gemini Enterprise  |  Google Cloud Documentation

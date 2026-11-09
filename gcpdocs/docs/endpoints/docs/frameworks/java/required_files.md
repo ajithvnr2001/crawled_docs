@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/endpoints/docs/frameworks/java/required_files/
 title: Required Files and Configuration \u00a0|\u00a0 Cloud Endpoints Frameworks for App Engine \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T08:37:48.887766+00:00
+fetched_at: 2026-11-09T07:04:44.388933+00:00
 ---
 
 # Required Files and Configuration  |  Cloud Endpoints Frameworks for App Engine  |  Google Cloud Documentation

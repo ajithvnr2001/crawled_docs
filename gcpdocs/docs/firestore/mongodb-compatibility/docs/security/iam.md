@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/firestore/mongodb-compatibility/docs/security/iam/
 title: Identity and Access Management (IAM) \u00a0|\u00a0 Firestore with MongoDB compatibility \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T08:37:26.128457+00:00
+fetched_at: 2026-11-09T07:03:30.392154+00:00
 ---
 
 # Identity and Access Management (IAM)  |  Firestore with MongoDB compatibility  |  Google Cloud Documentation

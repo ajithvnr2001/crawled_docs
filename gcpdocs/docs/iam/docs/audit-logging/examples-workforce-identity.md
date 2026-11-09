@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/iam/docs/audit-logging/examples-workforce-identity/
 title: Example logs for Workforce Identity Federation \u00a0|\u00a0 Identity and Access Management (IAM) \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T08:29:26.172905+00:00
+fetched_at: 2026-11-09T07:02:07.323690+00:00
 ---
 
 # Example logs for Workforce Identity Federation  |  Identity and Access Management (IAM)  |  Google Cloud Documentation

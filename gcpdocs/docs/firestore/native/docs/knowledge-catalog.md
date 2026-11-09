@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/firestore/native/docs/knowledge-catalog/
 title: View Knowledge Catalog insights \u00a0|\u00a0 Firestore in Native mode \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T08:37:19.474126+00:00
+fetched_at: 2026-11-09T07:03:00.694065+00:00
 ---
 
 # View Knowledge Catalog insights  |  Firestore in Native mode  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/secret-manager/docs/samples/secretmanager-disable-secret-version-with-etag/
 title: Disable a secret with ETags \u00a0|\u00a0 Secret Manager \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T09:46:44.545553+00:00
+fetched_at: 2026-11-09T05:44:57.489738+00:00
 ---
 
 # Disable a secret with ETags  |  Secret Manager  |  Google Cloud Documentation

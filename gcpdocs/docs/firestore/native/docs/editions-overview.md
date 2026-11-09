@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/firestore/native/docs/editions-overview/
 title: Firestore editions overview \u00a0|\u00a0 Firestore in Native mode \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T08:37:22.667033+00:00
+fetched_at: 2026-11-09T07:03:29.853125+00:00
 ---
 
 # Firestore editions overview  |  Firestore in Native mode  |  Google Cloud Documentation

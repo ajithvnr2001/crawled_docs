@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-cx/agent-assist/basics/
 title: Agent Assist basics \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T08:35:24.777705+00:00
+fetched_at: 2026-11-09T07:04:42.399594+00:00
 ---
 
 # Agent Assist basics  |  Google Cloud Documentation

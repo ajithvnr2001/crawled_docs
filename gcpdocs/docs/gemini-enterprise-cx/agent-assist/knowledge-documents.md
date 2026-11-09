@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-cx/agent-assist/knowledge-documents/
 title: Best practices: Knowledge documents \u00a0|\u00a0 Agent Assist \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T08:35:32.297944+00:00
+fetched_at: 2026-11-09T07:03:29.636240+00:00
 ---
 
 # Best practices: Knowledge documents  |  Agent Assist  |  Google Cloud Documentation

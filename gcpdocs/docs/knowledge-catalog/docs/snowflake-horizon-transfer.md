@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/knowledge-catalog/docs/snowflake-horizon-transfer/
 title: Import metadata from Snowflake Horizon \u00a0|\u00a0 Knowledge Catalog \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-07T05:50:16.710549+00:00
+fetched_at: 2026-11-09T07:00:47.697664+00:00
 ---
 
 # Import metadata from Snowflake Horizon  |  Knowledge Catalog  |  Google Cloud Documentation

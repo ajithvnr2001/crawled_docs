@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sensitive-data-protection/docs/samples/dlp-inspect-hotword-rule/
 title: Inspect data with a hotword rule \u00a0|\u00a0 Sensitive Data Protection \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-06T10:26:20.275151+00:00
+fetched_at: 2026-11-09T05:48:24.747970+00:00
 ---
 
 # Inspect data with a hotword rule  |  Sensitive Data Protection  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/run/docs/samples/cloudrun-service-direct-vpc/
 title: Configure VPC access \u00a0|\u00a0 Cloud Run \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-03T09:44:18.955555+00:00
+fetched_at: 2026-11-09T06:57:05.400781+00:00
 ---
 
 # Configure VPC access  |  Cloud Run  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-cx/agent-assist/ka-filters/
 title: Knowledge assist filters \u00a0|\u00a0 Agent Assist \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T08:35:33.466988+00:00
+fetched_at: 2026-11-09T07:04:16.301593+00:00
 ---
 
 # Knowledge assist filters  |  Agent Assist  |  Google Cloud Documentation

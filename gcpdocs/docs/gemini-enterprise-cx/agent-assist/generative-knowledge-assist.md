@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-cx/agent-assist/generative-knowledge-assist/
 title: Generative knowledge assist \u00a0|\u00a0 Agent Assist \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T08:35:36.469426+00:00
+fetched_at: 2026-11-09T07:04:03.687898+00:00
 ---
 
 # Generative knowledge assist  |  Agent Assist  |  Google Cloud Documentation

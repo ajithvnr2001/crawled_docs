@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/document-ai/docs/ce-mechanisms/
 title: Custom extractor mechanisms \u00a0|\u00a0 Document AI \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T09:12:18.328874+00:00
+fetched_at: 2026-11-09T07:06:09.913115+00:00
 ---
 
 # Custom extractor mechanisms  |  Document AI  |  Google Cloud Documentation

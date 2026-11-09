@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/iam/docs/workforce-sign-in-pingfederate/
 title: Configure Workforce Identity Federation with PingFederate \u00a0|\u00a0 Identity and Access Management (IAM) \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T08:29:39.031265+00:00
+fetched_at: 2026-11-09T07:01:22.494220+00:00
 ---
 
 # Configure Workforce Identity Federation with PingFederate  |  Identity and Access Management (IAM)  |  Google Cloud Documentation

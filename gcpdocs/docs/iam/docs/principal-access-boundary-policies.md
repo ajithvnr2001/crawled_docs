@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/iam/docs/principal-access-boundary-policies/
 title: Principal access boundary policies \u00a0|\u00a0 Identity and Access Management (IAM) \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T08:29:10.956726+00:00
+fetched_at: 2026-11-09T07:01:37.787950+00:00
 ---
 
 # Principal access boundary policies  |  Identity and Access Management (IAM)  |  Google Cloud Documentation

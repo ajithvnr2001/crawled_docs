@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sql/docs/postgres/resources/
 title: Resources \u00a0|\u00a0 Cloud SQL for PostgreSQL \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-06T10:26:55.760245+00:00
+fetched_at: 2026-11-09T06:55:59.528486+00:00
 ---
 
 # Resources  |  Cloud SQL for PostgreSQL  |  Google Cloud Documentation

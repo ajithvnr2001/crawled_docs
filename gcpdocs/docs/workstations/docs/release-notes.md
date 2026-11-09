@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/workstations/docs/release-notes/
 title: Cloud Workstations release notes \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-01T05:41:50.462813+00:00
+fetched_at: 2026-11-09T05:50:59.140420+00:00
 ---
 
 # Cloud Workstations release notes  |  Google Cloud Documentation
@@ -26,6 +26,14 @@ This page documents production updates to Cloud Workstations. Check this page fo
 You can see the latest product updates for all of Google Cloud on the [ Google Cloud](https://docs.cloud.google.com/release-notes) page, browse and filter all release notes in the [Google Cloud console](https://console.cloud.google.com/release-notes), or programmatically access release notes in [BigQuery](https://console.cloud.google.com/bigquery?p=bigquery-public-data&d=google_cloud_release_notes&t=release_notes&page=table). 
 
 To get the latest product updates delivered to you, add the URL of this page to your [feed reader](https://wikipedia.org/wiki/Comparison_of_feed_aggregators), or add the [feed URL](https://docs.cloud.google.com/feeds/workstations-release-notes.xml) directly. 
+
+## October 27, 2026
+
+Feature
+
+Cloud Workstations supports [configuring direct access ports](https://docs.cloud.google.com/workstations/docs/access-http-servers-running-on-workstations#configure-direct-access-ports) on workstation clusters in [Preview](https://cloud.google.com/products#product-launch-stages). Direct access ports let you connect directly to a workstation port using the standard `https://WORKSTATION_NAME.CLUSTER_ID.cloudworkstations.dev:PORT` URL format instead of encoding the port as a prefix in the URL.
+
+To set direct access ports, use the `--direct-access-ports` flag with the [`gcloud beta workstations clusters create`](https://docs.cloud.google.com/sdk/gcloud/reference/beta/workstations/clusters/create) and [`gcloud beta workstations clusters update`](https://docs.cloud.google.com/sdk/gcloud/reference/beta/workstations/clusters/update) commands—for example, `--direct-access-ports=80,8080`.
 
 ## October 20, 2026
 

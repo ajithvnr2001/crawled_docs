@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/firestore/native/docs/enterprise-query-explain/
 title: Analyze query execution with Query Explain \u00a0|\u00a0 Firestore in Native mode \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T08:37:21.956446+00:00
+fetched_at: 2026-11-09T07:02:37.390802+00:00
 ---
 
 # Analyze query execution with Query Explain  |  Firestore in Native mode  |  Google Cloud Documentation

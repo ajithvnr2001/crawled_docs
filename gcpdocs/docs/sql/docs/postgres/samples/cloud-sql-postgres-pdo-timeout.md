@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sql/docs/postgres/samples/cloud-sql-postgres-pdo-timeout/
 title: Set the connection timeout when using PHP \u00a0|\u00a0 Cloud SQL for PostgreSQL \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-06T10:25:59.634233+00:00
+fetched_at: 2026-11-09T06:56:41.718266+00:00
 ---
 
 # Set the connection timeout when using PHP  |  Cloud SQL for PostgreSQL  |  Google Cloud Documentation

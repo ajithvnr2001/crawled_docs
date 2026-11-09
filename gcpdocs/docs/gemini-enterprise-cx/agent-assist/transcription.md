@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-cx/agent-assist/transcription/
 title: Voice transcription \u00a0|\u00a0 Agent Assist \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T08:35:13.931539+00:00
+fetched_at: 2026-11-09T07:03:57.592060+00:00
 ---
 
 # Voice transcription  |  Agent Assist  |  Google Cloud Documentation

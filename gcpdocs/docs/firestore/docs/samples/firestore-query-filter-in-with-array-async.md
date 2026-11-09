@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/firestore/docs/samples/firestore-query-filter-in-with-array-async/
 title: Query a Firestore collection with an in array filter (async) \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T08:37:27.667718+00:00
+fetched_at: 2026-11-09T07:02:54.141052+00:00
 ---
 
 # Query a Firestore collection with an in array filter (async)  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/spanner/docs/samples/spanner-create-client-with-query-options/
 title: Create client with query options \u00a0|\u00a0 Spanner \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-06T10:40:59.218823+00:00
+fetched_at: 2026-11-09T06:55:47.986579+00:00
 ---
 
 # Create client with query options  |  Spanner  |  Google Cloud Documentation

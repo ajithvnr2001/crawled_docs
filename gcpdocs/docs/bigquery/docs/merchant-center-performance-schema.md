@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/merchant-center-performance-schema/
 title: Google Merchant Center performance table \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T09:11:18.988469+00:00
+fetched_at: 2026-11-09T07:05:50.631233+00:00
 ---
 
 # Google Merchant Center performance table  |  BigQuery  |  Google Cloud Documentation

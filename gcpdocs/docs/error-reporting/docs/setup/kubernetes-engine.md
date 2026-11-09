@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/error-reporting/docs/setup/kubernetes-engine/
 title: Setting up on Google Kubernetes Engine \u00a0|\u00a0 Error Reporting \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T08:26:32.689853+00:00
+fetched_at: 2026-11-09T07:01:13.256186+00:00
 ---
 
 # Setting up on Google Kubernetes Engine  |  Error Reporting  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/migrate/kf/docs/2.1/how-to/managed-services/
 title: Managed Services \u00a0|\u00a0 Kf 2.1 \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-07T05:45:35.018211+00:00
+fetched_at: 2026-11-09T07:00:59.411306+00:00
 ---
 
 # Managed Services  |  Kf 2.1  |  Google Cloud Documentation
@@ -82,7 +82,7 @@ Services are provisioned into a single Space. You can see the services in the cu
     $ kf services
     Listing services in Space: "test"
     Name   ClassName  PlanName  Age   Ready  Reason
-    my-db  mysql      5-7-28    111<s  >True   nil
+    my-db  mysql      5-7-28    111s  True   <nil>
     
 
 You can delete a service using `kf delete-service`:

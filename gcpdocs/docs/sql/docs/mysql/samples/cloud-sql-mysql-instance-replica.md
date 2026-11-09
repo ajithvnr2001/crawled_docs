@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sql/docs/mysql/samples/cloud-sql-mysql-instance-replica/
 title: Create a read replica Cloud SQL for MySQL instance \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-06T10:30:05.687907+00:00
+fetched_at: 2026-11-09T06:56:27.062577+00:00
 ---
 
 # Create a read replica Cloud SQL for MySQL instance  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/compute/docs/instances/windows/best-practices/
 title: Best practices for running Active Directory on Google Cloud \u00a0|\u00a0 Compute Engine \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T09:00:24.337857+00:00
+fetched_at: 2026-11-09T07:05:24.982852+00:00
 ---
 
 # Best practices for running Active Directory on Google Cloud  |  Compute Engine  |  Google Cloud Documentation

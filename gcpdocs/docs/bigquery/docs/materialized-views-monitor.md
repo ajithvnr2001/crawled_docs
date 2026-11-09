@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/materialized-views-monitor/
 title: Monitor materialized views \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T09:11:20.636591+00:00
+fetched_at: 2026-11-09T07:05:36.898153+00:00
 ---
 
 # Monitor materialized views  |  BigQuery  |  Google Cloud Documentation

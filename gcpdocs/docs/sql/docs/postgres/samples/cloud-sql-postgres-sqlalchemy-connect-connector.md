@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sql/docs/postgres/samples/cloud-sql-postgres-sqlalchemy-connect-connector/
 title: Create a connection using the Cloud SQL Python Connector \u00a0|\u00a0 Cloud SQL for PostgreSQL \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-06T10:26:05.256217+00:00
+fetched_at: 2026-11-09T06:56:01.576397+00:00
 ---
 
 # Create a connection using the Cloud SQL Python Connector  |  Cloud SQL for PostgreSQL  |  Google Cloud Documentation

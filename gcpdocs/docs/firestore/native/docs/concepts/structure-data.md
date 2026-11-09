@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/firestore/native/docs/concepts/structure-data/
 title: Structure data \u00a0|\u00a0 Firestore in Native mode \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T08:36:05.231213+00:00
+fetched_at: 2026-11-09T07:02:46.189540+00:00
 ---
 
 # Structure data  |  Firestore in Native mode  |  Google Cloud Documentation

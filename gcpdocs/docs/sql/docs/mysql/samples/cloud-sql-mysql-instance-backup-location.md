@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sql/docs/mysql/samples/cloud-sql-mysql-instance-backup-location/
 title: Set a custom location for backups \u00a0|\u00a0 Cloud SQL for MySQL \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-06T10:31:36.425379+00:00
+fetched_at: 2026-11-09T06:56:30.928497+00:00
 ---
 
 # Set a custom location for backups  |  Cloud SQL for MySQL  |  Google Cloud Documentation

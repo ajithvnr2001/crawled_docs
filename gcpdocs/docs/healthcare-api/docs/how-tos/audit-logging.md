@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/healthcare-api/docs/how-tos/audit-logging/
 title: Cloud Healthcare API audit logging \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T08:27:31.080107+00:00
+fetched_at: 2026-11-09T07:01:05.118621+00:00
 ---
 
 # Cloud Healthcare API audit logging  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-cx/ai-commerce-search/import-user-events/
 title: Import historical user events \u00a0|\u00a0 AI Commerce Search in Gemini Enterprise for Customer Experience \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T08:35:45.201808+00:00
+fetched_at: 2026-11-09T07:04:05.031629+00:00
 ---
 
 # Import historical user events  |  AI Commerce Search in Gemini Enterprise for Customer Experience  |  Google Cloud Documentation

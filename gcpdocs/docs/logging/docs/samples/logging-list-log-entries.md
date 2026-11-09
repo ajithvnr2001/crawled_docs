@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/logging/docs/samples/logging-list-log-entries/
 title: List log entries \u00a0|\u00a0 Cloud Logging \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-07T05:43:13.294449+00:00
+fetched_at: 2026-11-09T07:00:59.554643+00:00
 ---
 
 # List log entries  |  Cloud Logging  |  Google Cloud Documentation
@@ -237,7 +237,7 @@ To authenticate to Logging, set up Application Default Credentials. For more inf
     require "google/cloud/logging"
     
     # log_name = "my_log_name"
-    logging = Google::Cloud::[Logging](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-service_control-v1/latest/Google-Cloud-Logging.html).[new](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-logging/latest/Google-Cloud-Logging.html)
+    logging = Google::Cloud::[Logging](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-logging-v2/latest/Google-Cloud-Logging.html).[new](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-logging/latest/Google-Cloud-Logging.html)
     entries = logging.entries filter: "logName:#{log_name}",
                               max:    1000,
                               order:  "timestamp desc"

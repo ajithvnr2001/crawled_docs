@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/healthcare-api/docs/samples/healthcare-hl7v2-store-get-iam-policy/
 title: Get HL7v2 store IAM policy \u00a0|\u00a0 Cloud Healthcare API \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T08:33:25.792435+00:00
+fetched_at: 2026-11-09T07:02:19.113062+00:00
 ---
 
 # Get HL7v2 store IAM policy  |  Cloud Healthcare API  |  Google Cloud Documentation

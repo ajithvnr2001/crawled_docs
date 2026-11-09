@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-cx/ai-commerce-search/inventory-updates/
 title: Update inventory for AI Commerce Search \u00a0|\u00a0 AI Commerce Search in Gemini Enterprise for Customer Experience \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T08:35:45.810036+00:00
+fetched_at: 2026-11-09T07:04:06.323539+00:00
 ---
 
 # Update inventory for AI Commerce Search  |  AI Commerce Search in Gemini Enterprise for Customer Experience  |  Google Cloud Documentation

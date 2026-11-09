@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/generative-ai-app-builder/docs/parse-chunk-documents/
 title: Parse and chunk documents \u00a0|\u00a0 Agent Search \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T08:34:30.517700+00:00
+fetched_at: 2026-11-09T07:03:53.494180+00:00
 ---
 
 # Parse and chunk documents  |  Agent Search  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/functions/docs/samples/functions-log-helloworld/
 title: Write logs \u00a0|\u00a0 Cloud Run functions \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T08:36:29.015361+00:00
+fetched_at: 2026-11-09T07:03:09.572064+00:00
 ---
 
 # Write logs  |  Cloud Run functions  |  Google Cloud Documentation

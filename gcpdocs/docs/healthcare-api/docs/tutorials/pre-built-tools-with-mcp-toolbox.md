@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/healthcare-api/docs/tutorials/pre-built-tools-with-mcp-toolbox/
 title: Use the Cloud Healthcare API with MCP and other agents \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T08:33:21.706467+00:00
+fetched_at: 2026-11-09T07:01:55.478902+00:00
 ---
 
 # Use the Cloud Healthcare API with MCP and other agents  |  Google Cloud Documentation

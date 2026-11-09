@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/workflows/docs/samples/workflows-connector-storagetransfer/
 title: Connector for Storage Transfer Service \u00a0|\u00a0 Workflows \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T05:47:09.719379+00:00
+fetched_at: 2026-11-09T05:47:55.786374+00:00
 ---
 
 # Connector for Storage Transfer Service  |  Workflows  |  Google Cloud Documentation

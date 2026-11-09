@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/generative-ai-app-builder/docs/get-schema-definition/
 title: View a schema definition \u00a0|\u00a0 Agent Search \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T08:34:53.791477+00:00
+fetched_at: 2026-11-09T07:04:06.055079+00:00
 ---
 
 # View a schema definition  |  Agent Search  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/generative-ai-app-builder/docs/samples/genappbuilder-list-data-stores/
 title: List data stores \u00a0|\u00a0 Agent Search \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T08:34:40.759279+00:00
+fetched_at: 2026-11-09T07:03:56.575928+00:00
 ---
 
 # List data stores  |  Agent Search  |  Google Cloud Documentation

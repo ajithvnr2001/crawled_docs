@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/vision/docs/samples/vision-web-detection-include-geo/
 title: Use geo tagging to detect web annotations on local file \u00a0|\u00a0 Cloud Vision API \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T05:47:00.133252+00:00
+fetched_at: 2026-11-09T05:47:38.029697+00:00
 ---
 
 # Use geo tagging to detect web annotations on local file  |  Cloud Vision API  |  Google Cloud Documentation
@@ -193,7 +193,12 @@ To authenticate to Vision, set up Application Default Credentials. For more info
     
     namespace Google\Cloud\Samples\Vision;
     
+    use Google\Cloud\Vision\V1\AnnotateImageRequest;
+    use Google\Cloud\Vision\V1\BatchAnnotateImagesRequest;
     use Google\Cloud\Vision\V1\Client\ImageAnnotatorClient;
+    use Google\Cloud\Vision\V1\Feature;
+    use Google\Cloud\Vision\V1\Feature\Type;
+    use Google\Cloud\Vision\V1\Image;
     use Google\Cloud\Vision\V1\ImageContext;
     use Google\Cloud\Vision\V1\WebDetectionParams;
     
@@ -214,8 +219,17 @@ To authenticate to Vision, set up Application Default Credentials. For more info
         $imageContext-> setWebDetectionParams($params);
     
         # annotate the image
-        $image = file_get_contents($path);
-        $response = $imageAnnotator->webDetection($image, ['imageContext' => $imageContext]);
+        $image = (new Image())
+            ->setContent(file_get_contents($path));
+        $feature = (new Feature())
+            ->setType(Type::WEB_DETECTION);
+        $request = (new AnnotateImageRequest())
+            ->setImage($image)
+            ->setFeatures([$feature])
+            ->setImageContext($imageContext);
+        $batchRequest = (new BatchAnnotateImagesRequest())
+            ->setRequests([$request]);
+        $response = $imageAnnotator->batchAnnotateImages($batchRequest)->getResponses()[0];
         $web = $response->getWebDetection();
     
         if ($web && $web->getWebEntities()->count()) {

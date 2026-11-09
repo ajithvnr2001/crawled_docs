@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-cx/insights/query-metrics-api/
 title: Query metrics \u00a0|\u00a0 Customer Experience Insights \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T08:34:46.447838+00:00
+fetched_at: 2026-11-09T07:04:33.689709+00:00
 ---
 
 # Query metrics  |  Customer Experience Insights  |  Google Cloud Documentation

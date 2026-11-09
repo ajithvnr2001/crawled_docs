@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/metadata-indexing-managed-tables/
 title: Metadata indexing for BigQuery tables \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T09:11:14.855132+00:00
+fetched_at: 2026-11-09T07:05:52.384024+00:00
 ---
 
 # Metadata indexing for BigQuery tables  |  Google Cloud Documentation

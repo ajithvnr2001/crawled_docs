@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/pubsub/docs/samples/pubsub-publish-with-ordering-keys/
 title: Publish with ordering keys \u00a0|\u00a0 Pub/Sub \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T01:39:29.964892+00:00
+fetched_at: 2026-11-09T06:59:52.157202+00:00
 ---
 
 # Publish with ordering keys  |  Pub/Sub  |  Google Cloud Documentation

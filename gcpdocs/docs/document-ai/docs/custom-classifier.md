@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/document-ai/docs/custom-classifier/
 title: Create, use, and manage a custom document classifier \u00a0|\u00a0 Document AI \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T09:12:16.812964+00:00
+fetched_at: 2026-11-09T07:06:20.381722+00:00
 ---
 
 # Create, use, and manage a custom document classifier  |  Document AI  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-cx/agent-assist/ai-coach-overview/
 title: AI coach overview \u00a0|\u00a0 Agent Assist \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T08:35:24.990040+00:00
+fetched_at: 2026-11-09T07:04:40.966567+00:00
 ---
 
 # AI coach overview  |  Agent Assist  |  Google Cloud Documentation

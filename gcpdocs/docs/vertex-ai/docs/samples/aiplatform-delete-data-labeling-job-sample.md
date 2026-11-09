@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/vertex-ai/docs/samples/aiplatform-delete-data-labeling-job-sample/
 title: Delete a data labeling job \u00a0|\u00a0 Vertex AI \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-06T10:31:40.855082+00:00
+fetched_at: 2026-11-09T05:47:17.258957+00:00
 ---
 
 # Delete a data labeling job  |  Vertex AI  |  Google Cloud Documentation
@@ -34,12 +34,12 @@ Before trying this sample, follow the Java setup instructions in the [Vertex AI 
 To authenticate to Vertex AI, set up Application Default Credentials. For more information, see [Set up authentication for a local development environment](https://docs.cloud.google.com/docs/authentication/set-up-adc-local-dev-environment). 
     
     
-    import com.google.api.gax.longrunning.OperationFuture;
-    import com.google.cloud.aiplatform.v1.DataLabelingJobName;
-    import com.google.cloud.aiplatform.v1.DeleteOperationMetadata;
-    import com.google.cloud.aiplatform.v1.JobServiceClient;
-    import com.google.cloud.aiplatform.v1.JobServiceSettings;
-    import com.google.protobuf.Empty;
+    import com.google.api.gax.longrunning.[OperationFuture](https://docs.cloud.google.com/java/docs/reference/gax/latest/com.google.api.gax.longrunning.OperationFuture.html);
+    import com.google.cloud.aiplatform.v1.[DataLabelingJobName](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.DataLabelingJobName.html);
+    import com.google.cloud.aiplatform.v1.[DeleteOperationMetadata](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.DeleteOperationMetadata.html);
+    import com.google.cloud.aiplatform.v1.[JobServiceClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.JobServiceClient.html);
+    import com.google.cloud.aiplatform.v1.[JobServiceSettings](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.JobServiceSettings.html);
+    import com.google.protobuf.[Empty](https://docs.cloud.google.com/java/docs/reference/protobuf/latest/com.google.protobuf.Empty.html);
     import java.io.IOException;
     import java.util.concurrent.ExecutionException;
     import java.util.concurrent.TimeUnit;
@@ -56,22 +56,22 @@ To authenticate to Vertex AI, set up Application Default Credentials. For more i
     
       static void deleteDataLabelingJob(String project, String dataLabelingJobId)
           throws IOException, InterruptedException, ExecutionException, TimeoutException {
-        JobServiceSettings jobServiceSettings =
-            JobServiceSettings.newBuilder()
+        [JobServiceSettings](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.JobServiceSettings.html) jobServiceSettings =
+            [JobServiceSettings](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.JobServiceSettings.html).newBuilder()
                 .setEndpoint("us-central1-aiplatform.googleapis.com:443")
                 .build();
     
         // Initialize client that will be used to send requests. This client only needs to be created
         // once, and can be reused for multiple requests. After completing all of your requests, call
         // the "close" method on the client to safely clean up any remaining background resources.
-        try (JobServiceClient jobServiceClient = JobServiceClient.create(jobServiceSettings)) {
+        try ([JobServiceClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.JobServiceClient.html) jobServiceClient = [JobServiceClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.JobServiceClient.html).create(jobServiceSettings)) {
           String location = "us-central1";
     
-          DataLabelingJobName dataLabelingJobName =
-              DataLabelingJobName.of(project, location, dataLabelingJobId);
+          [DataLabelingJobName](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.DataLabelingJobName.html) dataLabelingJobName =
+              [DataLabelingJobName](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.DataLabelingJobName.html).of(project, location, dataLabelingJobId);
     
           OperationFuture<Empty, DeleteOperationMetadata> operationFuture =
-              jobServiceClient.deleteDataLabelingJobAsync(dataLabelingJobName);
+              jobServiceClient.[deleteDataLabelingJobAsync](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.JobServiceClient.html#com_google_cloud_aiplatform_v1_JobServiceClient_deleteDataLabelingJobAsync__org_jspecify_annotations_Nullable_com_google_cloud_aiplatform_v1_DataLabelingJobName_)(dataLabelingJobName);
           System.out.format("Operation name: %s\n", operationFuture.getInitialFuture().get().getName());
           System.out.println("Waiting for operation to finish...");
           operationFuture.get(300, TimeUnit.SECONDS);
@@ -102,11 +102,11 @@ To authenticate to Vertex AI, set up Application Default Credentials. For more i
         client_options = {"api_endpoint": api_endpoint}
         # Initialize client that will be used to create and send requests.
         # This client only needs to be created once, and can be reused for multiple requests.
-        client = aiplatform.gapic.JobServiceClient(client_options=client_options)
-        name = client.data_labeling_job_path(
+        client = aiplatform.gapic.[JobServiceClient](https://docs.cloud.google.com/python/docs/reference/aiplatform/latest/google.cloud.aiplatform_v1.services.job_service.JobServiceClient.html)(client_options=client_options)
+        name = client.[data_labeling_job_path](https://docs.cloud.google.com/python/docs/reference/aiplatform/latest/google.cloud.aiplatform_v1.services.job_service.JobServiceClient.html#google_cloud_aiplatform_v1_services_job_service_JobServiceClient_data_labeling_job_path)(
             project=project, location=location, data_labeling_job=data_labeling_job_id
         )
-        response = client.delete_data_labeling_job(name=name)
+        response = client.[delete_data_labeling_job](https://docs.cloud.google.com/python/docs/reference/aiplatform/latest/google.cloud.aiplatform_v1.services.job_service.JobServiceClient.html#google_cloud_aiplatform_v1_services_job_service_JobServiceClient_delete_data_labeling_job)(name=name)
         print("Long running operation:", response.operation.name)
         delete_data_labeling_job_response = response.result(timeout=timeout)
         print("delete_data_labeling_job_response:", delete_data_labeling_job_response)

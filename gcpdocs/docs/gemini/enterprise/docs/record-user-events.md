@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini/enterprise/docs/record-user-events/
 title: Record real-time user events \u00a0|\u00a0 Gemini Enterprise \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T08:36:18.929098+00:00
+fetched_at: 2026-11-09T07:03:07.456706+00:00
 ---
 
 # Record real-time user events  |  Gemini Enterprise  |  Google Cloud Documentation

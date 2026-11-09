@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/talent-solution/job-search/docs/samples/job-search-get-tenant/
 title: Get tenant (v4beta1) \u00a0|\u00a0 Job Search \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T05:40:41.560663+00:00
+fetched_at: 2026-11-09T05:46:18.612638+00:00
 ---
 
 # Get tenant (v4beta1)  |  Job Search  |  Google Cloud Documentation

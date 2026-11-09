@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/iap/docs/billing-questions/
 title: Billing questions \u00a0|\u00a0 Identity-Aware Proxy \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T08:29:44.880467+00:00
+fetched_at: 2026-11-09T07:02:18.244363+00:00
 ---
 
 # Billing questions  |  Identity-Aware Proxy  |  Google Cloud Documentation

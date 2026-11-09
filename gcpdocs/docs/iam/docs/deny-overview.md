@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/iam/docs/deny-overview/
 title: Deny policies \u00a0|\u00a0 Identity and Access Management (IAM) \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T08:30:40.210440+00:00
+fetched_at: 2026-11-09T07:01:17.926592+00:00
 ---
 
 # Deny policies  |  Identity and Access Management (IAM)  |  Google Cloud Documentation

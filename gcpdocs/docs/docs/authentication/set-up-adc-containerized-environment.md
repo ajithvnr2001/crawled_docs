@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/docs/authentication/set-up-adc-containerized-environment/
 title: Set up ADC for a containerized development environment \u00a0|\u00a0 Authentication \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T09:12:04.018794+00:00
+fetched_at: 2026-11-09T07:06:03.340841+00:00
 ---
 
 # Set up ADC for a containerized development environment  |  Authentication  |  Google Cloud Documentation

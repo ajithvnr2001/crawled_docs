@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/appengine/docs/standard/python3/services/access/
 title: Access legacy bundled services for Python 3 \u00a0|\u00a0 App Engine standard environment \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T08:55:57.095916+00:00
+fetched_at: 2026-11-09T07:05:09.507818+00:00
 ---
 
 # Access legacy bundled services for Python 3  |  App Engine standard environment  |  Google Cloud Documentation

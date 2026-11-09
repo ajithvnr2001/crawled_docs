@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/tasks/docs/creating-appengine-tasks/
 title: Create App Engine tasks programmatically \u00a0|\u00a0 Cloud Tasks \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-06T10:38:04.148379+00:00
+fetched_at: 2026-11-09T05:44:45.042283+00:00
 ---
 
 # Create App Engine tasks programmatically  |  Cloud Tasks  |  Google Cloud Documentation
@@ -392,7 +392,8 @@ Note the `package.json` file:
     
     
     use Google\Cloud\Tasks\V2\AppEngineHttpRequest;
-    use Google\Cloud\Tasks\V2\CloudTasksClient;
+    use Google\Cloud\Tasks\V2\Client\CloudTasksClient;
+    use Google\Cloud\Tasks\V2\CreateTaskRequest;
     use Google\Cloud\Tasks\V2\HttpMethod;
     use Google\Cloud\Tasks\V2\Task;
     
@@ -422,7 +423,10 @@ Note the `package.json` file:
     $task->setAppEngineHttpRequest($httpRequest);
     
     // Send request and print the task name.
-    $response = $client->createTask($queueName, $task);
+    $request = (new CreateTaskRequest())
+        ->setParent($queueName)
+        ->setTask($task);
+    $response = $client->createTask($request);
     printf('Created task %s' . PHP_EOL, $response->getName());
     
 
@@ -543,8 +547,8 @@ Note the `requirements.txt` file:
     
       # Add scheduled time to task.
       if seconds
-        timestamp = Google::Protobuf::[Timestamp](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-network_connectivity-v1alpha1/latest/Google-Protobuf-Timestamp.html).new
-        timestamp.[seconds](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-network_connectivity-v1alpha1/latest/Google-Protobuf-Timestamp.html) = Time.now.to_i + seconds.to_i
+        timestamp = Google::Protobuf::[Timestamp](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-container-v1beta1/latest/Google-Protobuf-Timestamp.html).new
+        timestamp.[seconds](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-container-v1beta1/latest/Google-Protobuf-Timestamp.html) = Time.now.to_i + seconds.to_i
         task[:schedule_time] = timestamp
       end
     
@@ -567,6 +571,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-07 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-07 UTC."],[],[]] 

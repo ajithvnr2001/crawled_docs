@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/compute/docs/instances/windows/windows-best-practices/
 title: Best practices for Windows Server VMs \u00a0|\u00a0 Compute Engine \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T09:00:21.152709+00:00
+fetched_at: 2026-11-09T07:05:28.228709+00:00
 ---
 
 # Best practices for Windows Server VMs  |  Compute Engine  |  Google Cloud Documentation

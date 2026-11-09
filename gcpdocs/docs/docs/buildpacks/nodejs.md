@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/docs/buildpacks/nodejs/
 title: Building a Node.js application \u00a0|\u00a0 Buildpacks \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T09:12:02.861888+00:00
+fetched_at: 2026-11-09T07:06:20.616156+00:00
 ---
 
 # Building a Node.js application  |  Buildpacks  |  Google Cloud Documentation

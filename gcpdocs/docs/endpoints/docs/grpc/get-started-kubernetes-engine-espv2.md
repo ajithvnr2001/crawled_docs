@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/endpoints/docs/grpc/get-started-kubernetes-engine-espv2/
 title: Getting started with Endpoints for GKE with ESPv2 \u00a0|\u00a0 Cloud Endpoints with gRPC \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T08:37:52.085409+00:00
+fetched_at: 2026-11-09T07:04:38.743258+00:00
 ---
 
 # Getting started with Endpoints for GKE with ESPv2  |  Cloud Endpoints with gRPC  |  Google Cloud Documentation

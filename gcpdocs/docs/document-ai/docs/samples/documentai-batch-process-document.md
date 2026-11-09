@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/document-ai/docs/samples/documentai-batch-process-document/
 title: Send a batch process documents request \u00a0|\u00a0 Document AI \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T09:12:01.965432+00:00
+fetched_at: 2026-11-09T07:05:59.102516+00:00
 ---
 
 # Send a batch process documents request  |  Document AI  |  Google Cloud Documentation

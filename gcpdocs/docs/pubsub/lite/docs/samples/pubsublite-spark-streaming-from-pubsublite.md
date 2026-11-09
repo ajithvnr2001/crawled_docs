@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/pubsub/lite/docs/samples/pubsublite-spark-streaming-from-pubsublite/
 title: Read from Pub/Sub Lite from Spark (streaming) \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T22:32:37.331918+00:00
+fetched_at: 2026-11-09T07:00:40.583606+00:00
 ---
 
 # Read from Pub/Sub Lite from Spark (streaming)  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sql/docs/postgres/samples/cloud-sql-postgres-servlet-connect-unix/
 title: Create a socket connection by using Java \u00a0|\u00a0 Cloud SQL for PostgreSQL \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-06T10:26:17.231502+00:00
+fetched_at: 2026-11-09T06:56:39.476413+00:00
 ---
 
 # Create a socket connection by using Java  |  Cloud SQL for PostgreSQL  |  Google Cloud Documentation

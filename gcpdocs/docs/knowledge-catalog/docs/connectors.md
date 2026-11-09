@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/knowledge-catalog/docs/connectors/
 title: About metadata connectors \u00a0|\u00a0 Knowledge Catalog \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-07T05:42:44.745236+00:00
+fetched_at: 2026-11-09T07:00:47.988718+00:00
 ---
 
 # About metadata connectors  |  Knowledge Catalog  |  Google Cloud Documentation

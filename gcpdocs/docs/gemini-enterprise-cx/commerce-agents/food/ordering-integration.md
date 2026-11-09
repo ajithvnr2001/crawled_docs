@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/ordering-integration/
 title: Build a multimodal ordering experience using the streaming API \u00a0|\u00a0 Food Ordering AI Agent \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T08:34:05.860672+00:00
+fetched_at: 2026-11-09T07:02:46.011679+00:00
 ---
 
 # Build a multimodal ordering experience using the streaming API  |  Food Ordering AI Agent  |  Google Cloud Documentation

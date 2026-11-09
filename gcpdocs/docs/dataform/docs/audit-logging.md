@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/dataform/docs/audit-logging/
 title: Dataform audit logging \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T09:14:20.827758+00:00
+fetched_at: 2026-11-09T07:05:56.933290+00:00
 ---
 
 # Dataform audit logging  |  Google Cloud Documentation

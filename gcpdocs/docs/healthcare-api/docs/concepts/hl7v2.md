@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/healthcare-api/docs/concepts/hl7v2/
 title: HL7v2 \u00a0|\u00a0 Cloud Healthcare API \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T08:27:32.311330+00:00
+fetched_at: 2026-11-09T07:01:14.994583+00:00
 ---
 
 # HL7v2  |  Cloud Healthcare API  |  Google Cloud Documentation

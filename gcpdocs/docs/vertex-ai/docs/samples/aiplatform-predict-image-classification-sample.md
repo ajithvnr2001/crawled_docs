@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/vertex-ai/docs/samples/aiplatform-predict-image-classification-sample/
 title: Predict for image classification \u00a0|\u00a0 Vertex AI \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-01T05:36:51.260055+00:00
+fetched_at: 2026-11-09T05:49:12.116081+00:00
 ---
 
 # Predict for image classification  |  Vertex AI  |  Google Cloud Documentation
@@ -62,55 +62,55 @@ To authenticate to Vertex AI, set up Application Default Credentials. For more i
       }
     
       static void predictImageClassification(String project, String fileName, String endpointId)
-          throws IOException {
-        [PredictionServiceSettings](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.PredictionServiceSettings.html) settings =
-            [PredictionServiceSettings](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.PredictionServiceSettings.html).newBuilder()
+     [     ](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.PredictionServiceSettings.html)throws IOException {
+        PredictionServi[ceSettings](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.PredictionServiceSettings.html) settings =
+            PredictionServiceSettings.newBuilder()
                 .setEndpoint("us-central1-aiplatform.googleapis.com:443")
                 .build();
     
         // Initialize client that will be used to send requests. This client only needs to be created
         // once, and can be reused for multiple requests. After completing all of your requests, call
-        // the "close" method on the client to safely clean up any remaining background resources.
-        try ([PredictionServiceClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.PredictionServiceClient.html) predictionServiceClient =
-            [PredictionServiceClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.PredictionServiceClient.html).create(settings)) {
-          String location = "us-central1";
-          [EndpointName](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.EndpointName.html) endpointName = [EndpointName](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.EndpointName.html).of(project, location, endpointId);
+        // the "close" method on the client to safely clea[n up any remaining back](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.PredictionServiceClient.html)ground resources.
+        try (Predicti[onServiceClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.PredictionServiceClient.html) predictionServiceClient =
+            PredictionServiceClient.create(settings[)) {
+          S](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.EndpointName.html)tring location =[ "us-ce](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.EndpointName.html)ntral1";
+          EndpointName endpointName = EndpointName.of(project, location, endpointId);
     
           byte[] contents = Base64.getEncoder().encode(Files.readAllBytes(Paths.get(fileName)));
-          String content = new String(contents, StandardCharsets.UTF_8);
+          String con[tent](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.schema.predict.instance.ImageClassificationPredictionInstance.html) = new String(contents, StandardCharsets.UTF_8);
     
-          [ImageClassificationPredictionInstance](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.schema.predict.instance.ImageClassificationPredictionInstance.html) predictionInstance =
-              [ImageClassificationPredictionInstance](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.schema.predict.instance.ImageClassificationPredictionInstance.html).newBuilder().setContent(content).build();
+          ImageClas[sificationPredictionInstance](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.schema.predict.instance.ImageClassificationPredictionInstance.html) predictionInstance =
+              ImageClassificationPredicti[onIn<stanc>](https://docs.cloud.google.com/java/docs/reference/protobuf/latest/com.google.protobuf.ListValue.html)e.newBuilder().setContent(<>content).build();
     
-          [List<Value>](https://docs.cloud.google.com/java/docs/reference/protobuf/latest/com.google.protobuf.ListValue.html) instances = new ArrayList<>();
-          instances.add([ValueConverter](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.util.ValueConverter.html).[toValue](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.util.ValueConverter.html#com_google_cloud_aiplatform_util_ValueConverter_toValue_com_google_protobuf_Message_)(predictionInstance));
+         [ ](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.util.ValueConverter.html)ListValue inst[ances](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.util.ValueConverter.html#com_google_cloud_aiplatform_util_ValueConverter_toValue_com_google_protobuf_Message_) = new ArrayList();
+          instan[ces](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.schema.predict.params.ImageClassificationPredictionParams.html).add(ValueConverter.toValue(predictionInstance));
     
-          [ImageClassificationPredictionParams](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.schema.predict.params.ImageClassificationPredictionParams.html) predictionParams =
-              [ImageClassificationPredictionParams](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.schema.predict.params.ImageClassificationPredictionParams.html).newBuilder()
+          Image[ClassificationPredictionParams](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.schema.predict.params.ImageClassificationPredictionParams.html) predictionParams =
+              ImageClassificationPredictionParams.newBuilder()
                   .setConfidenceThreshold((float) 0.5)
-                  .setMaxPredictions(5)
+           [       ](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.PredictResponse.html).setMaxPredictions(5)
                   .build();
     
-          [PredictResponse](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.PredictResponse.html) predictResponse =
-              predictionServiceClient.predict(
-                  endpointName, instances, [ValueConverter](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.util.ValueConverter.html).[toValue](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.util.ValueConverter.html#com_google_cloud_aiplatform_util_ValueConverter_toValue_com_google_protobuf_Message_)(predictionParams));
-          System.out.println("Predict Image Classification Response");
-          System.out.format("\tDeployed Model Id: %s\n", predictResponse.[getDeployedModelId](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.PredictResponse.html#com_google_cloud_aiplatform_v1_PredictResponse_getDeployedModelId__)());
+          PredictResponse predictResponse =
+              predictionSe[rviceClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.util.ValueConverter.html).pre[dict](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.util.ValueConverter.html#com_google_cloud_aiplatform_util_ValueConverter_toValue_com_google_protobuf_Message_)(
+                  endpointName, instances, ValueConverter.toValue(predictionParams));
+          System.out.println("Predict Image Classification Response");[
+          System.out.](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.PredictResponse.html#com_google_cloud_aiplatform_v1_PredictResponse_getDeployedModelId__)format("\tDeployed Model Id: %s\n", predictRespo[nse](https://docs.cloud.google.com/java/docs/reference/protobuf/latest/com.google.protobuf.Value.html).getDeployedModelId());
     
-          System.out.println("Predictions");
-          for ([Value](https://docs.cloud.google.com/java/docs/reference/protobuf/latest/com.google.protobuf.Value.html) prediction : predictResponse.[getPredictionsList](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.PredictResponse.html#com_google_cloud_aiplatform_v1_PredictResponse_getPredictionsList__)()) {
+          S[ystem](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.PredictResponse.html#com_google_cloud_aiplatform_v1_PredictResponse_getPredictionsList__).out.println("Predictio[ns"](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.schema.predict.prediction.ClassificationPredictionResult.html));
+          for (Value prediction : predictResponse.getPredict[ionsList](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.schema.predict.prediction.ClassificationPredictionResult.html)()) {
     
-            [ClassificationPredictionResult](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.schema.predict.prediction.ClassificationPredictionResult.html).Builder resultBuilder =
-                [ClassificationPredictionResult](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.schema.predict.prediction.ClassificationPredictionResult.html).newBuilder();
-            // Display names and confidences values correspond to
-            // IDs in the ID list.
-            [ClassificationPredictionResult](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.schema.predict.prediction.ClassificationPredictionResult.html) result =
-                ([ClassificationPredictionResult](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.schema.predict.prediction.ClassificationPredictionResult.html)) [ValueConverter](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.util.ValueConverter.html).fromValue(resultBuilder, prediction);
+            ClassificationPredictionResult.Builder resultBuilder =
+                ClassificationPredictionResult.newBuilder();
+            // [Display names and confidences ](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.schema.predict.prediction.ClassificationPredictionResult.html)values correspond to
+      [      ](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.schema.predict.prediction.ClassificationPredictionResult.html)// IDs in the ID list.
+       [     ](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.util.ValueConverter.html)ClassificationPredictionResult result =
+                (ClassificationPredictionResult) ValueConverter.fro[mValue](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.schema.predict.prediction.ClassificationPredictionResult.html#com_google_cloud_aiplatform_v1_schema_predict_prediction_ClassificationPredictionResult_getIdsList__)(resultBuilder, prediction);
             int counter = 0;
-            for (Long id : result.[getIdsList](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.schema.predict.prediction.ClassificationPredictionResult.html#com_google_cloud_aiplatform_v1_schema_predict_prediction_ClassificationPredictionResult_getIdsList__)()) {
-              System.out.printf("Label ID: %d\n", id);
-              System.out.printf("Label: %s\n", result.[getDisplayNames](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.schema.predict.prediction.ClassificationPredictionResult.html#com_google_cloud_aiplatform_v1_schema_predict_prediction_ClassificationPredictionResult_getDisplayNames_int_)(counter));
-              System.out.printf("Confidence: %.4f\n", result.[getConfidences](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.schema.predict.prediction.ClassificationPredictionResult.html#com_google_cloud_aiplatform_v1_schema_predict_prediction_ClassificationPredictionResult_getConfidences_int_)(counter));
+            for (Long id : result.getIdsList()) {
+              S[ystem](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.schema.predict.prediction.ClassificationPredictionResult.html#com_google_cloud_aiplatform_v1_schema_predict_prediction_ClassificationPredictionResult_getDisplayNames_int_).out.printf("Label ID: %d\n", id);
+              System.out.printf("[Label: %s\n&qu](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.schema.predict.prediction.ClassificationPredictionResult.html#com_google_cloud_aiplatform_v1_schema_predict_prediction_ClassificationPredictionResult_getConfidences_int_)ot;, result.getDisplayNames(counter));
+              System.out.printf("Confidence: %.4f\n", result.getConfidences(counter));
               counter++;
             }
           }
@@ -133,8 +133,8 @@ To authenticate to Vertex AI, set up Application Default Credentials. For more i
     // const filename = "YOUR_PREDICTION_FILE_NAME";
     // const endpointId = "YOUR_ENDPOINT_ID";
     // const project = 'YOUR_PROJECT_ID';
-    // const location = 'YOUR_PROJECT_LOCATION';
-    const aiplatform = require('[@google-cloud/aiplatform](https://docs.cloud.google.com/nodejs/docs/reference/aiplatform/latest/overview.html)');
+    // const location = 'YOUR_PROJECT_LOCATIO[N';](https://docs.cloud.google.com/nodejs/docs/reference/aiplatform/latest/overview.html)
+    const aiplatform = require('@google-cloud/aiplatform');
     const {instance, params, prediction} =
       aiplatform.protos.google.cloud.aiplatform.v1.schema.predict;
     
@@ -146,8 +146,8 @@ To authenticate to Vertex AI, set up Application Default Credentials. For more i
       apiEndpoint: 'us-central1-aiplatform.googleapis.com',
     };
     
-    // Instantiates a client
-    const predictionServiceClient = new [PredictionServiceClient](https://docs.cloud.google.com/nodejs/docs/reference/aiplatform/latest/overview.html)(clientOptions);
+    // Instan[tiates a client](https://docs.cloud.google.com/nodejs/docs/reference/aiplatform/latest/overview.html)
+    const predictionServiceClient = new PredictionServiceClient(clientOptions);
     
     async function predictImageClassification() {
       // Configure the endpoint resource
@@ -216,25 +216,25 @@ To authenticate to Vertex AI, set up Application Default Credentials. For more i
         client_options = {"api_endpoint": api_endpoint}
         # Initialize client that will be used to create and send requests.
         # This client only needs to be created once, and can be reused for multiple requests.
-        client = aiplatform.gapic.[PredictionServiceClient](https://docs.cloud.google.com/python/docs/reference/aiplatform/latest/google.cloud.aiplatform_v1.services.prediction_service.PredictionServiceClient.html)(client_options=client_options)
+    [    client = aiplatform](https://docs.cloud.google.com/python/docs/reference/aiplatform/latest/google.cloud.aiplatform_v1.services.prediction_service.PredictionServiceClient.html).gapic.PredictionServiceClient(client_options=client_options)
         with open(filename, "rb") as f:
             file_content = f.read()
     
         # The format of each instance should conform to the deployed model's prediction input schema.
-        encoded_content = base64.b64encode(file_content).decode("utf-8")
-        instance = predict.instance.[ImageClassificationPredictionInstance](https://docs.cloud.google.com/python/docs/reference/aiplatform/latest/google.cloud.aiplatform.v1.schema.predict.instance_v1.types.ImageClassificationPredictionInstance.html)(
+        encoded_content = base64.b64encode(file_content).deco[de](https://docs.cloud.google.com/python/docs/reference/aiplatform/latest/google.cloud.aiplatform.v1.schema.predict.instance_v1.types.ImageClassificationPredictionInstance.html)("utf-8")
+        instance = predict.instance.ImageClassificationPredictionInstance(
             content=encoded_content,
         ).to_value()
         instances = [instance]
-        # See gs://google-cloud-aiplatform/schema/predict/params/image_classification_1.0.0.yaml for the format of the parameters.
-        parameters = predict.params.[ImageClassificationPredictionParams](https://docs.cloud.google.com/python/docs/reference/aiplatform/latest/google.cloud.aiplatform.v1.schema.predict.params_v1.types.ImageClassificationPredictionParams.html)(
+        # See gs://google-cloud-aiplatform/schema/predict/params/image_classification_1.0.0.yaml for the form[at of the parameters.](https://docs.cloud.google.com/python/docs/reference/aiplatform/latest/google.cloud.aiplatform.v1.schema.predict.params_v1.types.ImageClassificationPredictionParams.html)
+        parameters = predict.params.ImageClassificationPredictionParams(
             confidence_threshold=0.5,
-            max_predictions=5,
+            max_[predictions](https://docs.cloud.google.com/python/docs/reference/aiplatform/latest/google.cloud.aiplatform_v1.services.prediction_service.PredictionServiceClient.html#google_cloud_aiplatform_v1_services_prediction_service_PredictionServiceClient_endpoint_path)=5,
         ).to_value()
-        endpoint = client.[endpoint_path](https://docs.cloud.google.com/python/docs/reference/aiplatform/latest/google.cloud.aiplatform_v1.services.prediction_service.PredictionServiceClient.html#google_cloud_aiplatform_v1_services_prediction_service_PredictionServiceClient_endpoint_path)(
-            project=project, location=location, endpoint=endpoint_id
+        endpoint = client.endpoint_path(
+            project=project, location=locat[ion](https://docs.cloud.google.com/python/docs/reference/aiplatform/latest/google.cloud.aiplatform_v1.services.prediction_service.PredictionServiceClient.html), endpoint=endpoint_id
         )
-        response = client.[predict](https://docs.cloud.google.com/python/docs/reference/aiplatform/latest/google.cloud.aiplatform_v1.services.prediction_service.PredictionServiceClient.html)(
+        response = client.predict(
             endpoint=endpoint, instances=instances, parameters=parameters
         )
         print("response")

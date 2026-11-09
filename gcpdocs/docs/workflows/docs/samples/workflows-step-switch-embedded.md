@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/workflows/docs/samples/workflows-step-switch-embedded/
 title: Use an embedded switch statement to execute steps \u00a0|\u00a0 Workflows \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T05:50:28.419325+00:00
+fetched_at: 2026-11-09T05:49:24.271044+00:00
 ---
 
 # Use an embedded switch statement to execute steps  |  Workflows  |  Google Cloud Documentation

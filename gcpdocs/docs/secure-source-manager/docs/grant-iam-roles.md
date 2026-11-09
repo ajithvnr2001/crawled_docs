@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/secure-source-manager/docs/grant-iam-roles/
 title: Grant and revoke IAM roles \u00a0|\u00a0 Secure Source Manager \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T05:52:15.824811+00:00
+fetched_at: 2026-11-09T05:49:47.945793+00:00
 ---
 
 # Grant and revoke IAM roles  |  Secure Source Manager  |  Google Cloud Documentation
@@ -25,7 +25,7 @@ This page describes how to grant Identity and Access Management (IAM) roles to p
 
 Secure Source Manager instances and repositories have their own roles. The first time you grant instance roles in a project you must use the gcloud CLI tool or the REST API. You can grant repository roles with the gcloud CLI tool, the REST API, or through the Secure Source Manager web interface.
 
-After you have granted a Secure Source Manager role using the gcloud CLI, web interface, or the REST API, the role is visible for your project in the Google Cloud console.
+After you have granted a Secure Source Manager role at least once using the gcloud CLI tool, web interface, or the REST API, the role becomes available to select in the Google Cloud console when granting project-level access. However, the specific instance-level and repository-level role assignments (bindings) don't appear in the list of principals on the project-level Google Cloud console IAM page.
 
 ## Required roles
 
@@ -71,6 +71,8 @@ For example, the following command grants the user `user@example.com` the Instan
 You can grant users or groups within your workforce identity pool based on your Identity provider (IdP) attributes, or use [Common Expression Language (CEL)](https://github.com/google/cel-spec) to map your OIDC attributes to custom attributes to define an authorization strategy in your IAM policy. For more information about attribute mappings, read [Attribute mappings](https://docs.cloud.google.com/iam/docs/workforce-identity-federation#attribute-mappings).
 
 ## Grant or revoke instance roles
+
+**Note:** Granting instance roles using the gcloud CLI tool or the API creates **instance-level** bindings. These bindings apply only to the specified instance and don't appear in the project-level Google Cloud console IAM page.
 
 To grant or revoke instance roles for principals, use the gcloud CLI tool or the Secure Source Manager API.
 
@@ -337,6 +339,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-06 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-06 UTC."],[],[]] 

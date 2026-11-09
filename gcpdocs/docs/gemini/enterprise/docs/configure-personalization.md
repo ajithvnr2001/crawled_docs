@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini/enterprise/docs/configure-personalization/
 title: Configure personalization and memory \u00a0|\u00a0 Gemini Enterprise \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T08:36:38.189906+00:00
+fetched_at: 2026-11-09T07:03:17.591244+00:00
 ---
 
 # Configure personalization and memory  |  Gemini Enterprise  |  Google Cloud Documentation

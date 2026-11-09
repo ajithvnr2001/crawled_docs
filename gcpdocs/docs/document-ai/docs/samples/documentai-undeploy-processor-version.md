@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/document-ai/docs/samples/documentai-undeploy-processor-version/
 title: Undeploy a processor version \u00a0|\u00a0 Document AI \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T09:11:58.682748+00:00
+fetched_at: 2026-11-09T07:06:03.767060+00:00
 ---
 
 # Undeploy a processor version  |  Document AI  |  Google Cloud Documentation

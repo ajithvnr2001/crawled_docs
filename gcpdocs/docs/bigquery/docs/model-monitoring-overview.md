@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/model-monitoring-overview/
 title: Model monitoring overview \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T09:11:13.993975+00:00
+fetched_at: 2026-11-09T07:05:35.180895+00:00
 ---
 
 # Model monitoring overview  |  BigQuery  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sql/docs/mysql/samples/cloud-sql-mysql-servlet-lifetime/
 title: Set the connection duration when using HikariCP \u00a0|\u00a0 Cloud SQL for MySQL \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-06T10:28:34.130203+00:00
+fetched_at: 2026-11-09T06:56:39.168291+00:00
 ---
 
 # Set the connection duration when using HikariCP  |  Cloud SQL for MySQL  |  Google Cloud Documentation

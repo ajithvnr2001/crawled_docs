@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/transcoder/docs/samples/transcoder-create-job-with-embedded-captions/
 title: Create a job that embeds captions in the output video \u00a0|\u00a0 Transcoder API \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T05:46:25.756204+00:00
+fetched_at: 2026-11-09T05:48:16.358488+00:00
 ---
 
 # Create a job that embeds captions in the output video  |  Transcoder API  |  Google Cloud Documentation

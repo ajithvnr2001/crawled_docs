@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/firestore/docs/samples/firestore-data-set-from-map/
 title: Add a Firestore document using a map \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T08:36:08.193739+00:00
+fetched_at: 2026-11-09T07:04:17.641303+00:00
 ---
 
 # Add a Firestore document using a map  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-cx/ai-commerce-search/filter-and-order/
 title: Filter and order results \u00a0|\u00a0 AI Commerce Search in Gemini Enterprise for Customer Experience \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T08:35:45.379307+00:00
+fetched_at: 2026-11-09T07:03:24.223762+00:00
 ---
 
 # Filter and order results  |  AI Commerce Search in Gemini Enterprise for Customer Experience  |  Google Cloud Documentation

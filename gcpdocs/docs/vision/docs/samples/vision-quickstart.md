@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/vision/docs/samples/vision-quickstart/
 title: Detect labels on an image \u00a0|\u00a0 Cloud Vision API \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T05:47:42.300472+00:00
+fetched_at: 2026-11-09T05:48:08.891516+00:00
 ---
 
 # Detect labels on an image  |  Cloud Vision API  |  Google Cloud Documentation
@@ -259,7 +259,12 @@ To authenticate to Vision, set up Application Default Credentials. For more info
     require __DIR__ . '/vendor/autoload.php';
     
     # imports the Google Cloud client library
+    use Google\Cloud\Vision\V1\AnnotateImageRequest;
+    use Google\Cloud\Vision\V1\BatchAnnotateImagesRequest;
     use Google\Cloud\Vision\V1\Client\ImageAnnotatorClient;
+    use Google\Cloud\Vision\V1\Feature;
+    use Google\Cloud\Vision\V1\Feature\Type;
+    use Google\Cloud\Vision\V1\Image;
     
     # instantiates a client
     $imageAnnotator = new ImageAnnotatorClient();
@@ -268,10 +273,18 @@ To authenticate to Vision, set up Application Default Credentials. For more info
     $fileName = 'test/data/wakeupcat.jpg';
     
     # prepare the image to be annotated
-    $image = file_get_contents($fileName);
+    $image = (new Image())
+        ->setContent(file_get_contents($fileName));
+    $feature = (new Feature())
+        ->setType(Type::LABEL_DETECTION);
+    $request = (new AnnotateImageRequest())
+        ->setImage($image)
+        ->setFeatures([$feature]);
+    $batchRequest = (new BatchAnnotateImagesRequest())
+        ->setRequests([$request]);
     
     # performs label detection on the image file
-    $response = $imageAnnotator->labelDetection($image);
+    $response = $imageAnnotator->batchAnnotateImages($batchRequest)->getResponses()[0];
     $labels = $response->getLabelAnnotations();
     
     if ($labels) {

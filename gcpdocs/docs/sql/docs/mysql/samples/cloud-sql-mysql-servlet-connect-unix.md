@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sql/docs/mysql/samples/cloud-sql-mysql-servlet-connect-unix/
 title: Create a socket connection by using Java \u00a0|\u00a0 Cloud SQL for MySQL \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-06T10:28:49.315146+00:00
+fetched_at: 2026-11-09T05:54:31.017846+00:00
 ---
 
 # Create a socket connection by using Java  |  Cloud SQL for MySQL  |  Google Cloud Documentation

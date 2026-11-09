@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/workflows/docs/samples/workflows-list-reverse/
 title: Reverse a list \u00a0|\u00a0 Workflows \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T05:49:33.473180+00:00
+fetched_at: 2026-11-09T05:48:36.080675+00:00
 ---
 
 # Reverse a list  |  Workflows  |  Google Cloud Documentation

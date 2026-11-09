@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/container-optimized-os/docs/how-to/secure-apparmor/
 title: Securing containers with AppArmor \u00a0|\u00a0 Container-Optimized OS \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T09:15:43.433224+00:00
+fetched_at: 2026-11-09T07:05:07.458327+00:00
 ---
 
 # Securing containers with AppArmor  |  Container-Optimized OS  |  Google Cloud Documentation

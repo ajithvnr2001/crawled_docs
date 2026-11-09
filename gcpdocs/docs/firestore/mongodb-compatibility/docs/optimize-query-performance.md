@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/firestore/mongodb-compatibility/docs/optimize-query-performance/
 title: Optimize query performance \u00a0|\u00a0 Firestore with MongoDB compatibility \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T08:37:04.417274+00:00
+fetched_at: 2026-11-09T07:02:37.021633+00:00
 ---
 
 # Optimize query performance  |  Firestore with MongoDB compatibility  |  Google Cloud Documentation

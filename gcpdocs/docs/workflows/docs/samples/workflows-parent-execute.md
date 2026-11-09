@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/workflows/docs/samples/workflows-parent-execute/
 title: Run a workflow that executes other workflows in parallel \u00a0|\u00a0 Workflows \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T05:49:34.598014+00:00
+fetched_at: 2026-11-09T05:48:10.745840+00:00
 ---
 
 # Run a workflow that executes other workflows in parallel  |  Workflows  |  Google Cloud Documentation

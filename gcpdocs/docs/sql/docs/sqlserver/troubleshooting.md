@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sql/docs/sqlserver/troubleshooting/
 title: Troubleshoot \u00a0|\u00a0 Cloud SQL for SQL Server \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-06T10:23:30.131707+00:00
+fetched_at: 2026-11-09T05:53:02.421917+00:00
 ---
 
 # Troubleshoot  |  Cloud SQL for SQL Server  |  Google Cloud Documentation
@@ -170,6 +170,12 @@ Error message: `Subject alternative name %s is invalid.` | Verify that the DNS n
   * They meet [RFC 1034](https://datatracker.ietf.org/doc/html/rfc1034) specifications.
 
   
+Error message: `Requested region is not compatible with host project sql.restrictNoncompliantResourceCreation org policy.` Instance creation might also fail with a generic error message, such as `An unknown error occurred` or `INTERNAL`. |  Instance creation can fail if the `constraints/sql.restrictNoncompliantResourceCreation` organization policy constraint is enabled on the project, folder, or organization. This constraint is automatically configured during Assured Workloads onboarding and is intended only for regulatory controls within Assured Workloads. It enforces strict compliance requirements, which can limit instance creation to specific compliance regions or require configurations such as customer-managed encryption keys (CMEK). Enabling this constraint outside of an Assured Workloads environment can block instance creation unexpectedly. To resolve this issue, take the following actions:
+
+  * If you aren't using Assured Workloads, disable the `constraints/sql.restrictNoncompliantResourceCreation` constraint on the project, folder, or organization.
+  * To enforce specific resource controls (such as location, CMEK, or public IP access), use standard predefined constraints (such as `constraints/gcp.resourceLocations`, `constraints/gcp.restrictNonCmekServices`, or `constraints/sql.restrictPublicIp`) or create [custom organization policies](https://docs.cloud.google.com/sql/docs/sqlserver/org-policy/custom-org-policy).
+
+For more information, see [Cloud SQL organization policies](https://docs.cloud.google.com/sql/docs/sqlserver/org-policy/org-policy) and [Organization policy constraints](https://docs.cloud.google.com/resource-manager/docs/organization-policy/org-policy-constraints).  
   
 ## Execute SQL using the Data API
 
@@ -483,6 +489,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-05 UTC.
+Last updated 2026-11-07 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-05 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-07 UTC."],[],[]] 

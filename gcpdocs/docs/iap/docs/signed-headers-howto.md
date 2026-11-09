@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/iap/docs/signed-headers-howto/
 title: Securing your app with signed headers \u00a0|\u00a0 Identity-Aware Proxy \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T08:29:44.078513+00:00
+fetched_at: 2026-11-09T07:02:20.897597+00:00
 ---
 
 # Securing your app with signed headers  |  Identity-Aware Proxy  |  Google Cloud Documentation

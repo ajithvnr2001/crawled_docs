@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/docs/security/bps-for-protecting-against-cryptocurrency-attacks/
 title: Mitigate cryptocurrency mining attacks on Google Cloud \u00a0|\u00a0 Security \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T09:11:51.788389+00:00
+fetched_at: 2026-11-09T07:06:16.192548+00:00
 ---
 
 # Mitigate cryptocurrency mining attacks on Google Cloud  |  Security  |  Google Cloud Documentation

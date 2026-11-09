@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/firestore/native/docs/migrate-standard-to-enterprise/
 title: Migrate from Standard edition to Enterprise edition \u00a0|\u00a0 Firestore in Native mode \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T08:37:18.951009+00:00
+fetched_at: 2026-11-09T07:02:39.390554+00:00
 ---
 
 # Migrate from Standard edition to Enterprise edition  |  Firestore in Native mode  |  Google Cloud Documentation

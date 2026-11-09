@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-cx/agent-assist/twilio-flex/
 title: Deploy Twilio Flex \u00a0|\u00a0 Agent Assist \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T08:35:11.797073+00:00
+fetched_at: 2026-11-09T07:03:55.226989+00:00
 ---
 
 # Deploy Twilio Flex  |  Agent Assist  |  Google Cloud Documentation

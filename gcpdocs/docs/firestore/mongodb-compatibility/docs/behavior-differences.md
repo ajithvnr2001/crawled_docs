@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/firestore/mongodb-compatibility/docs/behavior-differences/
 title: Behavior differences \u00a0|\u00a0 Firestore with MongoDB compatibility \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T08:37:11.938096+00:00
+fetched_at: 2026-11-09T07:03:21.121198+00:00
 ---
 
 # Behavior differences  |  Firestore with MongoDB compatibility  |  Google Cloud Documentation

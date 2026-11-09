@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/document-ai/docs/enrichment/
 title: Enrichment \u00a0|\u00a0 Document AI \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T09:12:15.998885+00:00
+fetched_at: 2026-11-09T07:06:18.320931+00:00
 ---
 
 # Enrichment  |  Document AI  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/looker/docs/admin-panel-platform-actions/
 title: Admin settings - Actions \u00a0|\u00a0 Looker \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-07T05:51:30.141906+00:00
+fetched_at: 2026-11-09T07:01:00.524584+00:00
 ---
 
 # Admin settings - Actions  |  Looker  |  Google Cloud Documentation

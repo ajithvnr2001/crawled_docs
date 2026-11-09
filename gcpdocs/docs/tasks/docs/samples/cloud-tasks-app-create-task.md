@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/tasks/docs/samples/cloud-tasks-app-create-task/
 title: Create an HTTP task within an App Engine app \u00a0|\u00a0 Cloud Tasks \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T09:50:49.807864+00:00
+fetched_at: 2026-11-09T05:46:10.500408+00:00
 ---
 
 # Create an HTTP task within an App Engine app  |  Cloud Tasks  |  Google Cloud Documentation

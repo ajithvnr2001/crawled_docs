@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/eventarc/standard/docs/run/event-receivers/
 title: Develop event receivers \u00a0|\u00a0 Eventarc Standard \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T08:37:44.746987+00:00
+fetched_at: 2026-11-09T07:04:52.750105+00:00
 ---
 
 # Develop event receivers  |  Eventarc Standard  |  Google Cloud Documentation

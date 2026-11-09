@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/workflows/docs/samples/workflows-connector-spanner/
 title: Connector for Cloud Spanner \u00a0|\u00a0 Workflows \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T05:47:59.613475+00:00
+fetched_at: 2026-11-09T05:47:56.497984+00:00
 ---
 
 # Connector for Cloud Spanner  |  Workflows  |  Google Cloud Documentation

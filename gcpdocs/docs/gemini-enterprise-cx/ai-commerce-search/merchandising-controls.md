@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-cx/ai-commerce-search/merchandising-controls/
 title: Serving controls in the Merchandising console \u00a0|\u00a0 AI Commerce Search in Gemini Enterprise for Customer Experience \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T08:35:44.578757+00:00
+fetched_at: 2026-11-09T07:03:04.417611+00:00
 ---
 
 # Serving controls in the Merchandising console  |  AI Commerce Search in Gemini Enterprise for Customer Experience  |  Google Cloud Documentation

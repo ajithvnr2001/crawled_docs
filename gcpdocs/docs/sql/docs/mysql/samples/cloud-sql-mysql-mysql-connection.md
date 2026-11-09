@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sql/docs/mysql/samples/cloud-sql-mysql-mysql-connection/
 title: MySQL\u2014mysql connection \u00a0|\u00a0 Cloud SQL for MySQL \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-06T10:28:29.302529+00:00
+fetched_at: 2026-11-09T06:56:30.034704+00:00
 ---
 
 # MySQL—mysql connection  |  Cloud SQL for MySQL  |  Google Cloud Documentation

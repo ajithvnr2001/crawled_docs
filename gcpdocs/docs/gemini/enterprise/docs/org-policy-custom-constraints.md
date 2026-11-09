@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini/enterprise/docs/org-policy-custom-constraints/
 title: Manage resources with custom organization policies \u00a0|\u00a0 Gemini Enterprise \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T08:36:18.447486+00:00
+fetched_at: 2026-11-09T07:03:03.974255+00:00
 ---
 
 # Manage resources with custom organization policies  |  Gemini Enterprise  |  Google Cloud Documentation

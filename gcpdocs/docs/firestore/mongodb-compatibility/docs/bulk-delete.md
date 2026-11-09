@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/firestore/mongodb-compatibility/docs/bulk-delete/
 title: Bulk delete data \u00a0|\u00a0 Firestore with MongoDB compatibility \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T08:37:12.011367+00:00
+fetched_at: 2026-11-09T07:03:21.254619+00:00
 ---
 
 # Bulk delete data  |  Firestore with MongoDB compatibility  |  Google Cloud Documentation

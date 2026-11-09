@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/managing-row-level-security/
 title: Use row-level security \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T09:11:23.716512+00:00
+fetched_at: 2026-11-09T07:05:54.994806+00:00
 ---
 
 # Use row-level security  |  BigQuery  |  Google Cloud Documentation

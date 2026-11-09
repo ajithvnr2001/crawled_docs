@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/firestore/mongodb-compatibility/docs/create-manage-saved-queries/
 title: Create and manage saved queries \u00a0|\u00a0 Firestore with MongoDB compatibility \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T08:37:10.803428+00:00
+fetched_at: 2026-11-09T07:02:43.213150+00:00
 ---
 
 # Create and manage saved queries  |  Firestore with MongoDB compatibility  |  Google Cloud Documentation

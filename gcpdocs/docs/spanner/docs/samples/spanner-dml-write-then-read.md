@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/spanner/docs/samples/spanner-dml-write-then-read/
 title: DML write then read \u00a0|\u00a0 Spanner \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-06T10:31:34.838176+00:00
+fetched_at: 2026-11-09T05:43:55.612039+00:00
 ---
 
 # DML write then read  |  Spanner  |  Google Cloud Documentation

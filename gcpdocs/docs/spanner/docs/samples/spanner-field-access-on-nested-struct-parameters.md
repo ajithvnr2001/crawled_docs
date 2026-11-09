@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/spanner/docs/samples/spanner-field-access-on-nested-struct-parameters/
 title: Field access on nested STRUCT \u00a0|\u00a0 Spanner \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-06T10:29:56.738047+00:00
+fetched_at: 2026-11-09T05:43:10.964353+00:00
 ---
 
 # Field access on nested STRUCT  |  Spanner  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/secret-manager/docs/samples/secretmanager-enable-secret-version-with-etag/
 title: Enable a secret with ETags \u00a0|\u00a0 Secret Manager \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T09:29:29.296081+00:00
+fetched_at: 2026-11-09T05:44:57.801401+00:00
 ---
 
 # Enable a secret with ETags  |  Secret Manager  |  Google Cloud Documentation

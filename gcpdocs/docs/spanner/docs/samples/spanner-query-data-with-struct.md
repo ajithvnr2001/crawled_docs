@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/spanner/docs/samples/spanner-query-data-with-struct/
 title: Query data with STRUCT \u00a0|\u00a0 Spanner \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-06T10:30:06.770501+00:00
+fetched_at: 2026-11-09T05:43:24.896014+00:00
 ---
 
 # Query data with STRUCT  |  Spanner  |  Google Cloud Documentation

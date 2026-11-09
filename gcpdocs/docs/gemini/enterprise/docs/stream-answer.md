@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini/enterprise/docs/stream-answer/
 title: Stream answers (Legacy) \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T08:36:15.843758+00:00
+fetched_at: 2026-11-09T07:04:25.004131+00:00
 ---
 
 # Stream answers (Legacy)  |  Google Cloud Documentation

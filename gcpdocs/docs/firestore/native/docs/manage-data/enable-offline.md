@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/firestore/native/docs/manage-data/enable-offline/
 title: Enable offline data \u00a0|\u00a0 Firestore in Native mode \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T08:36:02.174662+00:00
+fetched_at: 2026-11-09T07:02:26.220284+00:00
 ---
 
 # Enable offline data  |  Firestore in Native mode  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/vision/docs/samples/vision-image-property-detection-gcs/
 title: Detect image properties in a Cloud Storage file \u00a0|\u00a0 Cloud Vision API \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T05:46:52.596308+00:00
+fetched_at: 2026-11-09T05:48:09.000626+00:00
 ---
 
 # Detect image properties in a Cloud Storage file  |  Cloud Vision API  |  Google Cloud Documentation
@@ -169,7 +169,13 @@ To authenticate to Vision, set up Application Default Credentials. For more info
     
     namespace Google\Cloud\Samples\Vision;
     
+    use Google\Cloud\Vision\V1\AnnotateImageRequest;
+    use Google\Cloud\Vision\V1\BatchAnnotateImagesRequest;
     use Google\Cloud\Vision\V1\Client\ImageAnnotatorClient;
+    use Google\Cloud\Vision\V1\Feature;
+    use Google\Cloud\Vision\V1\Feature\Type;
+    use Google\Cloud\Vision\V1\Image;
+    use Google\Cloud\Vision\V1\ImageSource;
     
     /**
      * @param string $path GCS path to the image, e.g. "gs://path/to/your/image.jpg"
@@ -179,7 +185,18 @@ To authenticate to Vision, set up Application Default Credentials. For more info
         $imageAnnotator = new ImageAnnotatorClient();
     
         # annotate the image
-        $response = $imageAnnotator->imagePropertiesDetection($path);
+        $source = (new ImageSource())
+            ->setImageUri($path);
+        $image = (new Image())
+            ->setSource($source);
+        $feature = (new Feature())
+            ->setType(Type::IMAGE_PROPERTIES);
+        $request = (new AnnotateImageRequest())
+            ->setImage($image)
+            ->setFeatures([$feature]);
+        $batchRequest = (new BatchAnnotateImagesRequest())
+            ->setRequests([$request]);
+        $response = $imageAnnotator->batchAnnotateImages($batchRequest)->getResponses()[0];
         $props = $response->getImagePropertiesAnnotation();
     
         if ($props) {

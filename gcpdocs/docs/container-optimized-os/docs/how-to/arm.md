@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/container-optimized-os/docs/how-to/arm/
 title: Using Arm-based Container-Optimized OS images \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T09:15:41.473809+00:00
+fetched_at: 2026-11-09T07:05:02.961004+00:00
 ---
 
 # Using Arm-based Container-Optimized OS images  |  Google Cloud Documentation

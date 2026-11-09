@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/talent-solution/job-search/docs/samples/job-discovery-city-location-search/
 title: City search (v3) \u00a0|\u00a0 Job Search \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T09:41:03.150602+00:00
+fetched_at: 2026-11-09T05:53:31.353453+00:00
 ---
 
 # City search (v3)  |  Job Search  |  Google Cloud Documentation

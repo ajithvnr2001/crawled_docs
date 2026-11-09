@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/compute/docs/instance-groups/stateful-migs/
 title: Stateful managed instance groups \u00a0|\u00a0 Compute Engine \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T09:00:34.636440+00:00
+fetched_at: 2026-11-09T07:05:29.228609+00:00
 ---
 
 # Stateful managed instance groups  |  Compute Engine  |  Google Cloud Documentation

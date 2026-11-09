@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/eventarc/standard/docs/run/route-trigger-firebase-alerts/
 title: Route Firebase Alerts events to Cloud Run \u00a0|\u00a0 Eventarc Standard \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T08:37:40.301592+00:00
+fetched_at: 2026-11-09T07:04:42.228479+00:00
 ---
 
 # Route Firebase Alerts events to Cloud Run  |  Eventarc Standard  |  Google Cloud Documentation

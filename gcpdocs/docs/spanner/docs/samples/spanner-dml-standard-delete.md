@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/spanner/docs/samples/spanner-dml-standard-delete/
 title: DML delete data \u00a0|\u00a0 Spanner \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-06T10:31:32.457755+00:00
+fetched_at: 2026-11-09T05:43:29.502329+00:00
 ---
 
 # DML delete data  |  Spanner  |  Google Cloud Documentation

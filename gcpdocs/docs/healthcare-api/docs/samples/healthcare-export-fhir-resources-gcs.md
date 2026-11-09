@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/healthcare-api/docs/samples/healthcare-export-fhir-resources-gcs/
 title: Export FHIR resources to Cloud Storage \u00a0|\u00a0 Cloud Healthcare API \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T08:28:55.809878+00:00
+fetched_at: 2026-11-09T07:02:10.641415+00:00
 ---
 
 # Export FHIR resources to Cloud Storage  |  Cloud Healthcare API  |  Google Cloud Documentation

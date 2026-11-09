@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/eventarc/standard/docs/gke/route-trigger-transcoder/
 title: Route Transcoder API events to GKE \u00a0|\u00a0 Eventarc Standard \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T08:37:46.645089+00:00
+fetched_at: 2026-11-09T07:04:06.895455+00:00
 ---
 
 # Route Transcoder API events to GKE  |  Eventarc Standard  |  Google Cloud Documentation

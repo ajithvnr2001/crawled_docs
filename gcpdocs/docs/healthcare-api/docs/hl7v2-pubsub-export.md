@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/healthcare-api/docs/hl7v2-pubsub-export/
 title: Export HL7v2 messages to Pub/Sub \u00a0|\u00a0 Cloud Healthcare API \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T08:27:31.716620+00:00
+fetched_at: 2026-11-09T07:01:07.989058+00:00
 ---
 
 # Export HL7v2 messages to Pub/Sub  |  Cloud Healthcare API  |  Google Cloud Documentation

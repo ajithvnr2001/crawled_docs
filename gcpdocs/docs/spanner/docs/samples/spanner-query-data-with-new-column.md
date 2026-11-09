@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/spanner/docs/samples/spanner-query-data-with-new-column/
 title: Query data from a new column \u00a0|\u00a0 Spanner \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-06T10:31:29.752723+00:00
+fetched_at: 2026-11-09T05:43:40.896042+00:00
 ---
 
 # Query data from a new column  |  Spanner  |  Google Cloud Documentation

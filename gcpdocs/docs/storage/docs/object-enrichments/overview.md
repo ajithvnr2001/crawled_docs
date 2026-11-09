@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/storage/docs/object-enrichments/overview/
 title: Object enrichments \u00a0|\u00a0 Cloud Storage \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-06T10:38:08.245478+00:00
+fetched_at: 2026-11-09T05:46:11.093474+00:00
 ---
 
 # Object enrichments  |  Cloud Storage  |  Google Cloud Documentation

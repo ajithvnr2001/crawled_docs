@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/security-command-center/docs/detect-external-exposure/
 title: Detect exposed resources with External Exposure \u00a0|\u00a0 Security Command Center \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-06T10:39:57.073887+00:00
+fetched_at: 2026-11-09T05:50:49.141901+00:00
 ---
 
 # Detect exposed resources with External Exposure  |  Security Command Center  |  Google Cloud Documentation

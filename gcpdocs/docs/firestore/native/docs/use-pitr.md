@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/firestore/native/docs/use-pitr/
 title: Work with point-in-time recovery (PITR) \u00a0|\u00a0 Firestore in Native mode \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T08:35:52.971936+00:00
+fetched_at: 2026-11-09T07:02:43.895594+00:00
 ---
 
 # Work with point-in-time recovery (PITR)  |  Firestore in Native mode  |  Google Cloud Documentation

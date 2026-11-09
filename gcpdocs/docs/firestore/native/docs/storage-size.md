@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/firestore/native/docs/storage-size/
 title: Storage size calculations \u00a0|\u00a0 Firestore in Native mode \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T08:35:54.960162+00:00
+fetched_at: 2026-11-09T07:03:44.198753+00:00
 ---
 
 # Storage size calculations  |  Firestore in Native mode  |  Google Cloud Documentation

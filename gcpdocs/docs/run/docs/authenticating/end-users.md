@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/run/docs/authenticating/end-users/
 title: Authenticating users \u00a0|\u00a0 Cloud Run \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T05:49:13.444714+00:00
+fetched_at: 2026-11-09T06:57:10.397249+00:00
 ---
 
 # Authenticating users  |  Cloud Run  |  Google Cloud Documentation
@@ -49,7 +49,7 @@ For a complete tutorial on using Identity Platform for end user authentication, 
      1. Use the appropriate Firebase Auth client library to get an ID token: 
         * **Android** : Use the [`GetTokenResult().getToken()`](https://firebase.google.com/docs/reference/android/com/google/firebase/auth/GetTokenResult) method.
         * **iOS** : Use the [`User.getIDTokenResult(completion:)`](https://firebase.google.com/docs/reference/swift/firebaseauth/api/reference/Classes/User#getidtokenresultcompletion) method.
-        * **Web** : Use the [`firebase.User.getIdToken()`](https://firebase.google.com/docs/reference/js/auth.user.md#usergetidtoken) method.
+        * **Web** : Use the [`firebase.User.getIdToken()`](https://firebase.google.com/docs/reference/js/auth.user#usergetidtoken) method.
      2. Include the ID token in an `Authorization: Bearer ID_TOKEN` header in the request to the service.
 
 
@@ -79,6 +79,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-30 UTC.
+Last updated 2026-11-06 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-06 UTC."],[],[]] 

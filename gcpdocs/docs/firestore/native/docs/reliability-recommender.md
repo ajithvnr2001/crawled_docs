@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/firestore/native/docs/reliability-recommender/
 title: Reliability recommender \u00a0|\u00a0 Firestore in Native mode \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T08:35:56.102071+00:00
+fetched_at: 2026-11-09T07:04:05.421875+00:00
 ---
 
 # Reliability recommender  |  Firestore in Native mode  |  Google Cloud Documentation

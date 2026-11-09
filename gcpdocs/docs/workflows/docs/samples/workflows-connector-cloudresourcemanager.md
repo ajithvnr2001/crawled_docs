@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/workflows/docs/samples/workflows-connector-cloudresourcemanager/
 title: Connector for Cloud Resource Manager \u00a0|\u00a0 Workflows \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T05:47:09.650758+00:00
+fetched_at: 2026-11-09T05:49:19.878493+00:00
 ---
 
 # Connector for Cloud Resource Manager  |  Workflows  |  Google Cloud Documentation

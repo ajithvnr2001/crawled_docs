@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sensitive-data-protection/docs/samples/dlp-inspect-image-listed-infotypes/
 title: Inspect an image for sensitive data with listed infoTypes \u00a0|\u00a0 Sensitive Data Protection \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-06T10:27:05.467230+00:00
+fetched_at: 2026-11-09T05:47:41.405495+00:00
 ---
 
 # Inspect an image for sensitive data with listed infoTypes  |  Sensitive Data Protection  |  Google Cloud Documentation

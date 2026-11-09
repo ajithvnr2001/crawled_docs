@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/compute/docs/instances/windows/license-manager/
 title: About License Manager \u00a0|\u00a0 Compute Engine \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T09:00:23.584926+00:00
+fetched_at: 2026-11-09T07:05:26.119414+00:00
 ---
 
 # About License Manager  |  Compute Engine  |  Google Cloud Documentation

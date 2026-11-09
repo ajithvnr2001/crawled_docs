@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/speech-to-text/docs/samples/speech-transcribe-model-selection-gcs/
 title: Transcribe a file in Cloud Storage using a transcription model \u00a0|\u00a0 Cloud Speech-to-Text \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T09:14:54.331564+00:00
+fetched_at: 2026-11-09T05:54:23.152388+00:00
 ---
 
 # Transcribe a file in Cloud Storage using a transcription model  |  Cloud Speech-to-Text  |  Google Cloud Documentation

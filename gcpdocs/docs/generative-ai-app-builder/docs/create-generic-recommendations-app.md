@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/generative-ai-app-builder/docs/create-generic-recommendations-app/
 title: Create a custom recommendations app \u00a0|\u00a0 Agent Search \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T08:34:54.906526+00:00
+fetched_at: 2026-11-09T07:04:22.845517+00:00
 ---
 
 # Create a custom recommendations app  |  Agent Search  |  Google Cloud Documentation

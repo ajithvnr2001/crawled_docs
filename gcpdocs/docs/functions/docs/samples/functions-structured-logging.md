@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/functions/docs/samples/functions-structured-logging/
 title: Write structured Logging in Cloud Functions \u00a0|\u00a0 Cloud Run functions \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T08:36:26.646276+00:00
+fetched_at: 2026-11-09T07:03:50.735284+00:00
 ---
 
 # Write structured Logging in Cloud Functions  |  Cloud Run functions  |  Google Cloud Documentation

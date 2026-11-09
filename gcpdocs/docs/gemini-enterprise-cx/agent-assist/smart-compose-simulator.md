@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-cx/agent-assist/smart-compose-simulator/
 title: Test smart compose results using the simulator \u00a0|\u00a0 Agent Assist \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T08:35:19.290842+00:00
+fetched_at: 2026-11-09T07:04:21.962125+00:00
 ---
 
 # Test smart compose results using the simulator  |  Agent Assist  |  Google Cloud Documentation

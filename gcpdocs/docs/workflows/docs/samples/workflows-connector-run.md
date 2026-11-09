@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/workflows/docs/samples/workflows-connector-run/
 title: Connector for Cloud Run \u00a0|\u00a0 Workflows \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T05:47:45.569215+00:00
+fetched_at: 2026-11-09T05:47:57.187851+00:00
 ---
 
 # Connector for Cloud Run  |  Workflows  |  Google Cloud Documentation

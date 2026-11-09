@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/firestore/mongodb-compatibility/docs/migrate-create-connection-profiles/
 title: Create connection profiles \u00a0|\u00a0 Firestore with MongoDB compatibility \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T08:37:05.623343+00:00
+fetched_at: 2026-11-09T07:02:48.454353+00:00
 ---
 
 # Create connection profiles  |  Firestore with MongoDB compatibility  |  Google Cloud Documentation

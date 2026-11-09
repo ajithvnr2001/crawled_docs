@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sap/docs/sap-hana-ha-config-rhel/
 title: HA scale-up cluster configuration guide for SAP HANA on RHEL \u00a0|\u00a0 SAP on Google Cloud \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-06T08:23:56.033181+00:00
+fetched_at: 2026-11-09T06:57:22.010401+00:00
 ---
 
 # HA scale-up cluster configuration guide for SAP HANA on RHEL  |  SAP on Google Cloud  |  Google Cloud Documentation

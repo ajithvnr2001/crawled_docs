@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/endpoints/docs/frameworks/java/gradle-endpoints-frameworks-plugin/
 title: Endpoints Framework Gradle Plugin \u00a0|\u00a0 Cloud Endpoints Frameworks for App Engine \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T08:37:50.013217+00:00
+fetched_at: 2026-11-09T07:04:55.052338+00:00
 ---
 
 # Endpoints Framework Gradle Plugin  |  Cloud Endpoints Frameworks for App Engine  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/functions/docs/samples/functions-typed-greeting/
 title: Cloud Functions: Greeting Function \u00a0|\u00a0 Cloud Run functions \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T08:36:25.698421+00:00
+fetched_at: 2026-11-09T07:03:10.330215+00:00
 ---
 
 # Cloud Functions: Greeting Function  |  Cloud Run functions  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/secure-source-manager/docs/access-control/
 title: Access control with Identity and Access Management \u00a0|\u00a0 Secure Source Manager \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T05:52:37.148794+00:00
+fetched_at: 2026-11-09T05:49:50.132562+00:00
 ---
 
 # Access control with Identity and Access Management  |  Secure Source Manager  |  Google Cloud Documentation
@@ -38,6 +38,16 @@ Secure Source Manager roles are not visible in the Google Cloud console until yo
 ## Secure Source Manager Permissions
 
 To view all available Secure Source Manager permissions, search the [IAM permissions reference](https://docs.cloud.google.com/iam/docs/roles-permissions) for `securesourcemanager.`.
+
+## IAM levels of access
+
+You can grant IAM roles at different levels of the resource hierarchy:
+
+  * **Project level** : Grants access to all Secure Source Manager instances and repositories within the project. You can grant project-level roles using the Google Cloud console IAM page.
+  * **Instance level** : Grants access to a specific Secure Source Manager instance. You must use the gcloud CLI tool or the API to grant instance-level roles. These bindings don't appear in the project-level Google Cloud console IAM page.
+  * **Repository level** : Grants access to a specific repository. You can grant repository-level roles using the Secure Source Manager web interface, the gcloud CLI tool, or the API.
+
+
 
 ## Secure Source Manager predefined roles
 
@@ -109,6 +119,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-06 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-06 UTC."],[],[]] 

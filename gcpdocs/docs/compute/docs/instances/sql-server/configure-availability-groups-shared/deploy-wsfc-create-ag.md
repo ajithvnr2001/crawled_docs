@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/compute/docs/instances/sql-server/configure-availability-groups-shared/deploy-wsfc-create-ag/
 title: Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T09:00:29.372809+00:00
+fetched_at: 2026-11-09T07:05:15.312424+00:00
 ---
 
 # Google Cloud Documentation

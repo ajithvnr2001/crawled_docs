@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/pubsub/docs/samples/pubsub-old-version-commit-proto-schema/
 title: v1 Commit a revision for a Protocol Buffer schema (DEPRECATED) \u00a0|\u00a0 Pub/Sub \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T01:39:36.053980+00:00
+fetched_at: 2026-11-09T07:00:28.736542+00:00
 ---
 
 # v1 Commit a revision for a Protocol Buffer schema (DEPRECATED)  |  Pub/Sub  |  Google Cloud Documentation

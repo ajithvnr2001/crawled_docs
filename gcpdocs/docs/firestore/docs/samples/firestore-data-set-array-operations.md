@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/firestore/docs/samples/firestore-data-set-array-operations/
 title: Update a Firestore document containing an array field \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T08:36:09.245980+00:00
+fetched_at: 2026-11-09T07:03:31.204303+00:00
 ---
 
 # Update a Firestore document containing an array field  |  Google Cloud Documentation

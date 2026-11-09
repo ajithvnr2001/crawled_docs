@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/storage/docs/access-control/iam-mcp/
 title: IAM permissions for Cloud Storage MCP server methods \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T06:01:21.961311+00:00
+fetched_at: 2026-11-09T06:56:20.725952+00:00
 ---
 
 # IAM permissions for Cloud Storage MCP server methods  |  Google Cloud Documentation
@@ -23,7 +23,7 @@ Send feedback
 
 To run Cloud Storage [MCP server methods](https://docs.cloud.google.com/storage/docs/use-cloud-storage-mcp), you need access to the target Cloud Storage resources. You manage access control by granting Identity and Access Management (IAM) roles to principals, such as users, groups, and service accounts. Each role contains a set of permissions. If you want to create custom roles with specific permissions, this document lists the permissions that are required for each MCP server method.
 
-Method | Required IAM Permissions  
+Method | Required IAM permissions  
 ---|---  
 `create_bucket` | `mcp.tools.call`  
 `storage.buckets.create`  
@@ -31,6 +31,8 @@ Method | Required IAM Permissions
 `storage.buckets.delete`  
 `delete_object` | `mcp.tools.call`  
 `storage.objects.delete`  
+`get_bucket_metadata` | `mcp.tools.call`  
+`storage.buckets.get`  
 `get_object_metadata` | `mcp.tools.call`  
 `storage.objects.get`  
 `list_buckets` | `mcp.tools.call`  
@@ -57,6 +59,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-30 UTC.
+Last updated 2026-11-09 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-09 UTC."],[],[]] 

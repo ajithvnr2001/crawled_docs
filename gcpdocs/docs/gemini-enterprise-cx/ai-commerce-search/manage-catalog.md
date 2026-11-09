@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-cx/ai-commerce-search/manage-catalog/
 title: Manage catalog information \u00a0|\u00a0 AI Commerce Search in Gemini Enterprise for Customer Experience \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T08:35:44.946902+00:00
+fetched_at: 2026-11-09T07:03:22.832299+00:00
 ---
 
 # Manage catalog information  |  AI Commerce Search in Gemini Enterprise for Customer Experience  |  Google Cloud Documentation

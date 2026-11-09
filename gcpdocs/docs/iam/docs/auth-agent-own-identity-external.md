@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/iam/docs/auth-agent-own-identity-external/
 title: Authenticate to external services using an agent's own identity \u00a0|\u00a0 Identity and Access Management (IAM) \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T08:27:44.170222+00:00
+fetched_at: 2026-11-09T07:01:45.186531+00:00
 ---
 
 # Authenticate to external services using an agent's own identity  |  Identity and Access Management (IAM)  |  Google Cloud Documentation

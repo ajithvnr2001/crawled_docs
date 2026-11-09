@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/video-stitcher/docs/samples/videostitcher-create-slate/
 title: Create a slate \u00a0|\u00a0 Video Stitcher API \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T05:49:29.643070+00:00
+fetched_at: 2026-11-09T05:47:00.770524+00:00
 ---
 
 # Create a slate  |  Video Stitcher API  |  Google Cloud Documentation

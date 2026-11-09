@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/healthcare-api/docs/store-healthcare-data-rest/
 title: Quickstart: Store healthcare data with curl and PowerShell \u00a0|\u00a0 Cloud Healthcare API \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T08:27:23.990188+00:00
+fetched_at: 2026-11-09T07:01:27.517349+00:00
 ---
 
 # Quickstart: Store healthcare data with curl and PowerShell  |  Cloud Healthcare API  |  Google Cloud Documentation

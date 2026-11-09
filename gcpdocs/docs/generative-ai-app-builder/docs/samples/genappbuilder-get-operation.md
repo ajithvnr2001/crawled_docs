@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/generative-ai-app-builder/docs/samples/genappbuilder-get-operation/
 title: Get details about a long running operation \u00a0|\u00a0 Agent Search \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T08:34:41.947930+00:00
+fetched_at: 2026-11-09T07:03:36.129277+00:00
 ---
 
 # Get details about a long running operation  |  Agent Search  |  Google Cloud Documentation

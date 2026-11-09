@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/spanner/docs/samples/spanner-update-data/
 title: Mutations update data \u00a0|\u00a0 Spanner \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-06T10:38:08.491628+00:00
+fetched_at: 2026-11-09T05:43:26.482093+00:00
 ---
 
 # Mutations update data  |  Spanner  |  Google Cloud Documentation

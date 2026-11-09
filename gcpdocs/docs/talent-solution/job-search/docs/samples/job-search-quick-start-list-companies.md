@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/talent-solution/job-search/docs/samples/job-search-quick-start-list-companies/
 title: List companies using client (v4beta1) \u00a0|\u00a0 Job Search \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T09:50:54.280901+00:00
+fetched_at: 2026-11-09T05:45:24.049405+00:00
 ---
 
 # List companies using client (v4beta1)  |  Job Search  |  Google Cloud Documentation

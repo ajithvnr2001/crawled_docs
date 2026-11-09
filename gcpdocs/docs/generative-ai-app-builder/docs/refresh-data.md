@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/generative-ai-app-builder/docs/refresh-data/
 title: Refresh structured and unstructured data \u00a0|\u00a0 Agent Search \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T08:34:28.862183+00:00
+fetched_at: 2026-11-09T07:03:43.479076+00:00
 ---
 
 # Refresh structured and unstructured data  |  Agent Search  |  Google Cloud Documentation

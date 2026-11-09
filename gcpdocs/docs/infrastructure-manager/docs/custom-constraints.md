@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/infrastructure-manager/docs/custom-constraints/
 title: Manage Infrastructure Manager resources using custom constraints \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T08:28:23.293297+00:00
+fetched_at: 2026-11-09T07:01:33.664068+00:00
 ---
 
 # Manage Infrastructure Manager resources using custom constraints  |  Google Cloud Documentation

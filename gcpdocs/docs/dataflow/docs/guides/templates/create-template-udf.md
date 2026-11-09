@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/dataflow/docs/guides/templates/create-template-udf/
 title: Create user-defined functions for Dataflow templates \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T09:11:43.040025+00:00
+fetched_at: 2026-11-09T07:05:50.404554+00:00
 ---
 
 # Create user-defined functions for Dataflow templates  |  Google Cloud Documentation

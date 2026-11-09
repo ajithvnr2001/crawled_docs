@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/compute/docs/ip-addresses/configure-ipv6-address/
 title: Configure IPv6 addresses for instances and instance templates \u00a0|\u00a0 Compute Engine \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T09:00:21.323663+00:00
+fetched_at: 2026-11-09T07:05:24.087553+00:00
 ---
 
 # Configure IPv6 addresses for instances and instance templates  |  Compute Engine  |  Google Cloud Documentation

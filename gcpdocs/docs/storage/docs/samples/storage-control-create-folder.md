@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/storage/docs/samples/storage-control-create-folder/
 title: Storage Control Create Folder \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-02T05:40:31.880768+00:00
+fetched_at: 2026-11-09T05:48:32.655833+00:00
 ---
 
 # Storage Control Create Folder  |  Google Cloud Documentation

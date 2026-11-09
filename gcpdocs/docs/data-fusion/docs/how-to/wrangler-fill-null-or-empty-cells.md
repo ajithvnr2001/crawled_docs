@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/data-fusion/docs/how-to/wrangler-fill-null-or-empty-cells/
 title: Fill null or empty cells \u00a0|\u00a0 Cloud Data Fusion \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T09:14:48.625044+00:00
+fetched_at: 2026-11-09T07:05:58.834771+00:00
 ---
 
 # Fill null or empty cells  |  Cloud Data Fusion  |  Google Cloud Documentation

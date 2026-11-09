@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/vision/product-search/docs/samples/vision-product-search-tutorial-import/
 title: Import modules \u00a0|\u00a0 Vision API Product Search \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T05:48:08.462277+00:00
+fetched_at: 2026-11-09T05:45:32.199943+00:00
 ---
 
 # Import modules  |  Vision API Product Search  |  Google Cloud Documentation

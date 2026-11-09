@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/compute/docs/instance-groups/view-and-understand-mig-insights/
 title: View and understand MIG insights \u00a0|\u00a0 Compute Engine \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T09:00:34.159524+00:00
+fetched_at: 2026-11-09T07:05:11.006290+00:00
 ---
 
 # View and understand MIG insights  |  Compute Engine  |  Google Cloud Documentation

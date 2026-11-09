@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/docs/security/compliance/stellar-engine/compliance-controls/
 title: Stellar Engine compliance control matrix \u00a0|\u00a0 Security \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T09:12:31.466078+00:00
+fetched_at: 2026-11-09T07:06:10.777199+00:00
 ---
 
 # Stellar Engine compliance control matrix  |  Security  |  Google Cloud Documentation

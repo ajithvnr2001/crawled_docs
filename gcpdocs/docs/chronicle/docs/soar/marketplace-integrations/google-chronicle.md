@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chronicle/docs/soar/marketplace-integrations/google-chronicle/
 title: Integrate Google Chronicle with Google SecOps \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T09:00:54.355953+00:00
+fetched_at: 2026-11-09T07:05:21.772310+00:00
 ---
 
 # Integrate Google Chronicle with Google SecOps  |  Google Security Operations  |  Google Cloud Documentation

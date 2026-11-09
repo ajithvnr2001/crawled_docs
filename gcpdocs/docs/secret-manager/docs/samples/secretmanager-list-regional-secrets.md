@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/secret-manager/docs/samples/secretmanager-list-regional-secrets/
 title: List regional secret \u00a0|\u00a0 Secret Manager \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-01T05:37:16.201570+00:00
+fetched_at: 2026-11-09T05:49:30.027810+00:00
 ---
 
 # List regional secret  |  Secret Manager  |  Google Cloud Documentation
@@ -276,7 +276,7 @@ To authenticate to Secret Manager, set up Application Default Credentials. For m
     api_endpoint = "secretmanager.#{location_id}.rep.googleapis.com"
     
     # Create the Secret Manager client.
-    client = Google::Cloud::[SecretManager](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-secret_manager/latest/Google-Cloud-SecretManager.html).[secret_manager_service](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-secret_manager/latest/Google-Cloud-SecretManager.html) do |config|
+    client = Google::Cloud::[SecretManager](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-secret_manager-v1/latest/Google-Cloud-SecretManager.html).[secret_manager_service](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-secret_manager/latest/Google-Cloud-SecretManager.html) do |config|
       config.endpoint = api_endpoint
     end
     

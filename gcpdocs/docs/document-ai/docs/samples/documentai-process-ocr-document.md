@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/document-ai/docs/samples/documentai-process-ocr-document/
 title: Process a document using a Document OCR processor \u00a0|\u00a0 Document AI \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T09:11:59.380533+00:00
+fetched_at: 2026-11-09T07:06:08.407709+00:00
 ---
 
 # Process a document using a Document OCR processor  |  Document AI  |  Google Cloud Documentation

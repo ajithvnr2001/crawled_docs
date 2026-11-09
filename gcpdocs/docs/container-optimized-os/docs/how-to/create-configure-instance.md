@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/container-optimized-os/docs/how-to/create-configure-instance/
 title: Creating and configuring instances \u00a0|\u00a0 Container-Optimized OS \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T09:15:41.409542+00:00
+fetched_at: 2026-11-09T07:05:06.891896+00:00
 ---
 
 # Creating and configuring instances  |  Container-Optimized OS  |  Google Cloud Documentation

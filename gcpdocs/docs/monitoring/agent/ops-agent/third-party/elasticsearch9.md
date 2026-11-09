@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/monitoring/agent/ops-agent/third-party/elasticsearch9/
 title: Elasticsearch 8.0+ and 9.0+ \u00a0|\u00a0 Cloud Monitoring \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-07T05:49:32.701839+00:00
+fetched_at: 2026-11-09T07:00:54.732825+00:00
 ---
 
 # Elasticsearch 8.0+ and 9.0+  |  Cloud Monitoring  |  Google Cloud Documentation
@@ -66,7 +66,7 @@ The following commands create the configuration to collect and ingest telemetry 
     sudo cp /etc/google-cloud-ops-agent/config.yaml /etc/google-cloud-ops-agent/config.yaml.bak
     
     # Configure the Ops Agent.
-    sudo tee /etc/google-cloud-ops-agent/config.yaml > /dev/null << EOF
+    sudo tee /etc/google-cloud-ops-agent/config.y>aml  /dev/n<<ull  EOF
     metrics:
       receivers:
         elasticsearch:

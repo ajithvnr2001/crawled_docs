@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sql/docs/postgres/samples/cloud-sql-postgres-servlet-lifetime/
 title: Set the connection duration when using HikariCP \u00a0|\u00a0 Cloud SQL for PostgreSQL \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-06T10:26:15.731677+00:00
+fetched_at: 2026-11-09T05:54:38.666016+00:00
 ---
 
 # Set the connection duration when using HikariCP  |  Cloud SQL for PostgreSQL  |  Google Cloud Documentation

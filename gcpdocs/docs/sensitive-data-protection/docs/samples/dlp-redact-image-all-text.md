@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sensitive-data-protection/docs/samples/dlp-redact-image-all-text/
 title: Redact all detected text in an image \u00a0|\u00a0 Sensitive Data Protection \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-06T10:27:41.766714+00:00
+fetched_at: 2026-11-09T05:44:24.716090+00:00
 ---
 
 # Redact all detected text in an image  |  Sensitive Data Protection  |  Google Cloud Documentation

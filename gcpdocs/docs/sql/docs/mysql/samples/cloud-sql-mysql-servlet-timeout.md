@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sql/docs/mysql/samples/cloud-sql-mysql-servlet-timeout/
 title: Set the connection timeout when using HikariCP \u00a0|\u00a0 Cloud SQL for MySQL \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-06T10:28:37.110660+00:00
+fetched_at: 2026-11-09T05:54:30.777554+00:00
 ---
 
 # Set the connection timeout when using HikariCP  |  Cloud SQL for MySQL  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/compute/docs/instance-groups/create-mig-with-gpu-vms/
 title: Create a MIG that adds GPU VMs all at once \u00a0|\u00a0 Compute Engine \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T09:00:43.683211+00:00
+fetched_at: 2026-11-09T07:05:18.605690+00:00
 ---
 
 # Create a MIG that adds GPU VMs all at once  |  Compute Engine  |  Google Cloud Documentation

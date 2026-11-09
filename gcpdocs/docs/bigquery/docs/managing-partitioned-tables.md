@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/managing-partitioned-tables/
 title: Manage partitioned tables \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T09:11:23.099047+00:00
+fetched_at: 2026-11-09T07:05:47.709192+00:00
 ---
 
 # Manage partitioned tables  |  BigQuery  |  Google Cloud Documentation

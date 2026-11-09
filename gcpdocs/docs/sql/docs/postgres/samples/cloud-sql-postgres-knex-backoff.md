@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sql/docs/postgres/samples/cloud-sql-postgres-knex-backoff/
 title: Retry a failed connection when using Node.js \u00a0|\u00a0 Cloud SQL for PostgreSQL \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-06T10:29:53.065752+00:00
+fetched_at: 2026-11-09T05:41:49.373777+00:00
 ---
 
 # Retry a failed connection when using Node.js  |  Cloud SQL for PostgreSQL  |  Google Cloud Documentation

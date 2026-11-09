@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/workflows/docs/samples/workflows-connect-firestore-read/
 title: Connector for Firestore (read) \u00a0|\u00a0 Workflows \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T05:50:35.607087+00:00
+fetched_at: 2026-11-09T05:49:19.254299+00:00
 ---
 
 # Connector for Firestore (read)  |  Workflows  |  Google Cloud Documentation

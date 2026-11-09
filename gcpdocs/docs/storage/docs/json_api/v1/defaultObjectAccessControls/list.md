@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/storage/docs/json_api/v1/defaultObjectAccessControls/list/
 title: DefaultObjectAccessControls: list \u00a0|\u00a0 Cloud Storage \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T06:01:57.159301+00:00
+fetched_at: 2026-11-09T05:54:21.142603+00:00
 ---
 
 # DefaultObjectAccessControls: list  |  Cloud Storage  |  Google Cloud Documentation
@@ -63,9 +63,9 @@ If successful, this method returns a response body with the following structure:
     
     
     {
-      "kind": "storage#objectAccessControls",
+      "kind": "storage#objectAccessControls"[;](https://docs.cloud.google.com/storage/docs/json_api/v1/defaultObjectAccessControls#resource),
       "items": [
-        [defaultObjectAccessControls Resource](https://docs.cloud.google.com/storage/docs/json_api/v1/defaultObjectAccessControls#resource)
+        defaultObjectAccessControls Resource
       ]
     }
 

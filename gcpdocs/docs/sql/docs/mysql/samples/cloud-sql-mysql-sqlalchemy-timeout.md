@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sql/docs/mysql/samples/cloud-sql-mysql-sqlalchemy-timeout/
 title: Set the connection timeout when using SQLAlchemy \u00a0|\u00a0 Cloud SQL for MySQL \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-06T10:28:20.850091+00:00
+fetched_at: 2026-11-09T06:56:31.408266+00:00
 ---
 
 # Set the connection timeout when using SQLAlchemy  |  Cloud SQL for MySQL  |  Google Cloud Documentation

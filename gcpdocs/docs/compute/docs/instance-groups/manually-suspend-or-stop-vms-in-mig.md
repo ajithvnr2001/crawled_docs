@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/compute/docs/instance-groups/manually-suspend-or-stop-vms-in-mig/
 title: Manually suspend or stop VMs in a MIG \u00a0|\u00a0 Compute Engine \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T09:00:40.226483+00:00
+fetched_at: 2026-11-09T07:05:24.524644+00:00
 ---
 
 # Manually suspend or stop VMs in a MIG  |  Compute Engine  |  Google Cloud Documentation

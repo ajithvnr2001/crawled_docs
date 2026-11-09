@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/endpoints/docs/openapi/custom-nginx/
 title: Using a custom nginx.conf on GKE \u00a0|\u00a0 Cloud Endpoints with OpenAPI \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T08:37:58.515720+00:00
+fetched_at: 2026-11-09T07:04:21.021844+00:00
 ---
 
 # Using a custom nginx.conf on GKE  |  Cloud Endpoints with OpenAPI  |  Google Cloud Documentation

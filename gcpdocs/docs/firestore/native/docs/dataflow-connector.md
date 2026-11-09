@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/firestore/native/docs/dataflow-connector/
 title: Process data in bulk with Dataflow \u00a0|\u00a0 Firestore in Native mode \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T08:37:22.852299+00:00
+fetched_at: 2026-11-09T07:02:58.190930+00:00
 ---
 
 # Process data in bulk with Dataflow  |  Firestore in Native mode  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/dataflow/docs/guides/write-to-kafka/
 title: Write from Dataflow to Apache Kafka \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T09:11:35.196033+00:00
+fetched_at: 2026-11-09T07:06:02.795811+00:00
 ---
 
 # Write from Dataflow to Apache Kafka  |  Google Cloud Documentation

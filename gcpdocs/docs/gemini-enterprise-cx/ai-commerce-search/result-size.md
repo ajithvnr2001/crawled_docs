@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-cx/ai-commerce-search/result-size/
 title: Query expansion \u00a0|\u00a0 AI Commerce Search in Gemini Enterprise for Customer Experience \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T08:34:06.920490+00:00
+fetched_at: 2026-11-09T07:02:46.708641+00:00
 ---
 
 # Query expansion  |  AI Commerce Search in Gemini Enterprise for Customer Experience  |  Google Cloud Documentation

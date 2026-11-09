@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/vertex-ai/generative-ai/docs/samples/googlegenaisdk-textgen-with-txt/
 title: Generate text using Generative AI Model \u00a0|\u00a0 Generative AI on Vertex AI \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T05:46:55.772328+00:00
+fetched_at: 2026-11-09T05:48:11.630998+00:00
 ---
 
 # Generate text using Generative AI Model  |  Generative AI on Vertex AI  |  Google Cloud Documentation

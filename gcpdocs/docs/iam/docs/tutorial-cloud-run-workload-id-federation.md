@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/iam/docs/tutorial-cloud-run-workload-id-federation/
 title: Integrate Cloud Run and Workload Identity Federation \u00a0|\u00a0 Identity and Access Management (IAM) \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T08:29:41.279830+00:00
+fetched_at: 2026-11-09T07:02:11.238849+00:00
 ---
 
 # Integrate Cloud Run and Workload Identity Federation  |  Identity and Access Management (IAM)  |  Google Cloud Documentation

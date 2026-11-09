@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/firestore/mongodb-compatibility/docs/supported-data-types-drivers/
 title: Supported MongoDB data types and drivers \u00a0|\u00a0 Firestore with MongoDB compatibility \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T08:37:03.487583+00:00
+fetched_at: 2026-11-09T07:02:39.167126+00:00
 ---
 
 # Supported MongoDB data types and drivers  |  Firestore with MongoDB compatibility  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/storage/docs/release-notes/
 title: Cloud Storage release notes \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-05T00:04:46.270437+00:00
+fetched_at: 2026-11-09T06:55:36.050310+00:00
 ---
 
 # Cloud Storage release notes  |  Google Cloud Documentation
@@ -34,6 +34,10 @@ Feature
 You can pause hard deletions for a bucket when you need more time to restore soft-deleted objects before they're permanently deleted. For more information, see [Pause permanent (hard) deletions of soft-deleted objects](https://docs.cloud.google.com/storage/docs/pause-hard-deletions).
 
 ## October 30, 2026
+
+Feature
+
+The Cloud Storage Model Context Protocol (MCP) server includes the [`get_bucket_metadata`](https://docs.cloud.google.com/storage/docs/reference/mcp/tools_list/get_bucket_metadata) tool to retrieve bucket metadata. In addition, the [`list_buckets`](https://docs.cloud.google.com/storage/docs/reference/mcp/tools_list/list_buckets), [`get_object_metadata`](https://docs.cloud.google.com/storage/docs/reference/mcp/tools_list/get_object_metadata), and [`list_objects`](https://docs.cloud.google.com/storage/docs/reference/mcp/tools_list/list_objects) tools now return detailed bucket and object metadata. For more information, see [Use the Cloud Storage MCP server](https://docs.cloud.google.com/storage/docs/use-cloud-storage-mcp) and [Cloud Storage MCP reference](https://docs.cloud.google.com/storage/docs/reference/mcp).
 
 Feature
 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/asset-inventory/docs/asset-types/
 title: Asset types \u00a0|\u00a0 Cloud Asset Inventory \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T23:20:23.428467+00:00
+fetched_at: 2026-11-09T06:59:42.151658+00:00
 ---
 
 # Asset types  |  Cloud Asset Inventory  |  Google Cloud Documentation
@@ -393,6 +393,7 @@ Service | Asset type
   * [ ` cloudkms.googleapis.com/EkmConfig ` ](https://docs.cloud.google.com/kms/docs/reference/rest/v1/projects.locations.ekmConfig)
   * [ ` cloudkms.googleapis.com/EkmConnection ` ](https://docs.cloud.google.com/kms/docs/reference/rest/v1/projects.locations.ekmConnections)
   * [ ` cloudkms.googleapis.com/ImportJob ` ](https://docs.cloud.google.com/kms/docs/reference/rest/v1/projects.locations.keyRings.importJobs)
+  * [ ` cloudkms.googleapis.com/KajPolicyConfig ` ](https://docs.cloud.google.com/kms/docs/reference/rest/v1/KeyAccessJustificationsPolicyConfig) Not available in the analysis, export, list, and monitor APIs. 
   * [ ` cloudkms.googleapis.com/KeyHandle ` ](https://docs.cloud.google.com/kms/docs/reference/rest/v1/projects.locations.keyHandles)
   * [ ` cloudkms.googleapis.com/KeyRing ` ](https://docs.cloud.google.com/kms/docs/reference/rest/v1/projects.locations.keyRings)
   * [ ` cloudkms.googleapis.com/RetiredResource ` ](https://docs.cloud.google.com/kms/docs/reference/rest/v1/projects.locations.retiredResources) Not available in the analysis APIs. 
@@ -405,7 +406,7 @@ Service | Asset type
   
 **Cloud Logging** Cloud Logging asset change history might be incomplete. Data freshness is synchronized every 7 hours. If a sync fails, freshness is delayed until the next successful sync. |  [API reference](https://logging.googleapis.com/$discovery/rest?version=v2)
 
-  * [ ` logging.googleapis.com/Link ` ](https://docs.cloud.google.com/logging/docs/reference/v2/rest/v2/projects.locations.buckets.links) Effective tags aren't supported. Not available in the analysis APIs. 
+  * [ ` logging.googleapis.com/Link ` ](https://docs.cloud.google.com/logging/docs/reference/v2/rest/v2/projects.locations.buckets.links) Not available in the analysis APIs. 
   * [ ` logging.googleapis.com/LogBucket ` ](https://docs.cloud.google.com/logging/docs/reference/v2/rest/v2/projects.locations.buckets)
   * [ ` logging.googleapis.com/LogMetric ` ](https://docs.cloud.google.com/logging/docs/reference/v2/rest/v2/projects.metrics)
   * [ ` logging.googleapis.com/LogSink ` ](https://docs.cloud.google.com/logging/docs/reference/v2/rest/v2/projects.sinks)
@@ -774,6 +775,7 @@ Supported [metadata](https://docs.cloud.google.com/compute/docs/metadata/overvie
 
   * [ ` cloudaicompanion.googleapis.com/CodeRepositoryIndex ` ](https://docs.cloud.google.com/gemini/docs/api/reference/rest/v1/projects.locations.codeRepositoryIndexes)
   * [ ` cloudaicompanion.googleapis.com/RepositoryGroup ` ](https://docs.cloud.google.com/gemini/docs/api/reference/rest/v1/projects.locations.codeRepositoryIndexes.repositoryGroups)
+  * ` cloudaicompanion.googleapis.com/Topic ` Not available in the analysis, export, list, and monitor APIs. 
 
   
 **GKE Multi-Cloud** |  [API reference](https://us-west1-gkemulticloud.googleapis.com/$discovery/rest?version=v1)
@@ -1405,6 +1407,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-04 UTC.
+Last updated 2026-11-09 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-04 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-09 UTC."],[],[]] 

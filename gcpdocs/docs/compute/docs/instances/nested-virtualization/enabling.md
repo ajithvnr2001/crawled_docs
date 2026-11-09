@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/compute/docs/instances/nested-virtualization/enabling/
 title: Enable nested virtualization \u00a0|\u00a0 Compute Engine \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T09:00:30.893914+00:00
+fetched_at: 2026-11-09T07:05:35.361201+00:00
 ---
 
 # Enable nested virtualization  |  Compute Engine  |  Google Cloud Documentation

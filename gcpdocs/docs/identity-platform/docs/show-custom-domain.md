@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/identity-platform/docs/show-custom-domain/
 title: Showing a custom domain during sign in \u00a0|\u00a0 Identity Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T08:29:16.146242+00:00
+fetched_at: 2026-11-09T07:02:22.558516+00:00
 ---
 
 # Showing a custom domain during sign in  |  Identity Platform  |  Google Cloud Documentation

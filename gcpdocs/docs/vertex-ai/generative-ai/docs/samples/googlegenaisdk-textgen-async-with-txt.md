@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/vertex-ai/generative-ai/docs/samples/googlegenaisdk-textgen-async-with-txt/
 title: Async example to Generate content with Multimodal AI Model \u00a0|\u00a0 Generative AI on Vertex AI \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T05:48:15.396068+00:00
+fetched_at: 2026-11-09T05:48:17.397244+00:00
 ---
 
 # Async example to Generate content with Multimodal AI Model  |  Generative AI on Vertex AI  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/docs/terraform/deploy-flask-web-server/
 title: Deploy a basic Flask web server by using Terraform \u00a0|\u00a0 Terraform on Google Cloud \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T09:12:30.868766+00:00
+fetched_at: 2026-11-09T07:06:13.670488+00:00
 ---
 
 # Deploy a basic Flask web server by using Terraform  |  Terraform on Google Cloud  |  Google Cloud Documentation

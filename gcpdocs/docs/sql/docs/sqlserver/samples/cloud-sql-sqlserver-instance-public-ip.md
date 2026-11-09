@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sql/docs/sqlserver/samples/cloud-sql-sqlserver-instance-public-ip/
 title: Create a Cloud SQL for SQL Server instance with a public IP \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-06T10:29:48.575604+00:00
+fetched_at: 2026-11-09T05:50:12.379826+00:00
 ---
 
 # Create a Cloud SQL for SQL Server instance with a public IP  |  Google Cloud Documentation

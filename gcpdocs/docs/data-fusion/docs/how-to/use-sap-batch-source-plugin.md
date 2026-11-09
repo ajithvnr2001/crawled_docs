@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/data-fusion/docs/how-to/use-sap-batch-source-plugin/
 title: SAP table batch source \u00a0|\u00a0 Cloud Data Fusion \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T09:14:50.993686+00:00
+fetched_at: 2026-11-09T07:05:52.989507+00:00
 ---
 
 # SAP table batch source  |  Cloud Data Fusion  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/workflows/docs/samples/workflows-connect-translate/
 title: Translate text using the Cloud Translation API \u00a0|\u00a0 Workflows \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T05:47:42.038896+00:00
+fetched_at: 2026-11-09T05:48:34.432456+00:00
 ---
 
 # Translate text using the Cloud Translation API  |  Workflows  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/vertex-ai/generative-ai/docs/samples/generativeaionvertexai-gemma2-predict-tpu/
 title: Generate text with Gemma2 model with TPU accelerators \u00a0|\u00a0 Generative AI on Vertex AI \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-03T09:42:52.999247+00:00
+fetched_at: 2026-11-09T05:49:10.601301+00:00
 ---
 
 # Generate text with Gemma2 model with TPU accelerators  |  Generative AI on Vertex AI  |  Google Cloud Documentation

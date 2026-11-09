@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/healthcare-api/docs/resources/public-datasets/idc/
 title: Imaging Data Commons (IDC) datasets \u00a0|\u00a0 Cloud Healthcare API \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T08:29:01.653721+00:00
+fetched_at: 2026-11-09T07:02:14.574368+00:00
 ---
 
 # Imaging Data Commons (IDC) datasets  |  Cloud Healthcare API  |  Google Cloud Documentation

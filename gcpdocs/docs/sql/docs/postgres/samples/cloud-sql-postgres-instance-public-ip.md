@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sql/docs/postgres/samples/cloud-sql-postgres-instance-public-ip/
 title: Configure public IP for an instance \u00a0|\u00a0 Cloud SQL for PostgreSQL \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-06T10:29:53.471079+00:00
+fetched_at: 2026-11-09T05:54:06.433903+00:00
 ---
 
 # Configure public IP for an instance  |  Cloud SQL for PostgreSQL  |  Google Cloud Documentation

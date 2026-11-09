@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-cx/cx-agent-studio/deploy/api-access/
 title: API access \u00a0|\u00a0 CX Agent Studio \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T08:35:04.940843+00:00
+fetched_at: 2026-11-09T07:04:47.568197+00:00
 ---
 
 # API access  |  CX Agent Studio  |  Google Cloud Documentation

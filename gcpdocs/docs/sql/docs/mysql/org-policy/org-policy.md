@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sql/docs/mysql/org-policy/org-policy/
 title: Cloud SQL organization policies \u00a0|\u00a0 Cloud SQL for MySQL \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-06T10:28:10.725702+00:00
+fetched_at: 2026-11-09T05:49:08.525837+00:00
 ---
 
 # Cloud SQL organization policies  |  Cloud SQL for MySQL  |  Google Cloud Documentation
@@ -39,13 +39,14 @@ The types of organization policies specific to Cloud SQL are as follows:
   * Predefined organization policies
     * Connection organization policies
     * Customer-managed encryption keys (CMEK) organization policies
+    * Assured Workloads compliance organization policies
   * Custom organization policies
 
 
 
 ## Predefined organization policies
 
-You can use the predefined constraints to control the public IP settings and Customer Managed Encryption Key (CMEK) settings of Cloud SQL instances. For more granular, customizable control over other supported settings, you can use custom constraints. For more information, see [custom organization policies](https://docs.cloud.google.com/sql/docs/mysql/org-policy/org-policy#custom_constraints).
+You can use the predefined constraints to control public IP settings, Customer Managed Encryption Key (CMEK) settings, and Assured Workloads compliance settings of Cloud SQL instances. For more granular, customizable control over other supported settings, you can use custom constraints. For more information, see [custom organization policies](https://docs.cloud.google.com/sql/docs/mysql/org-policy/org-policy#custom_constraints).
 
 ### Connection organization policies
 
@@ -133,6 +134,26 @@ These constraints are only enforced on newly created Cloud SQL for MySQL instanc
 
 For more overview information, see [CMEK organization policies](https://docs.cloud.google.com/kms/docs/cmek-org-policy). For information about CMEK organization policy constraints, see [Organization policy constraints](https://docs.cloud.google.com/resource-manager/docs/organization-policy/org-policy-constraints).
 
+### Assured Workloads compliance organization policies
+
+Cloud SQL supports the `constraints/sql.restrictNoncompliantResourceCreation` organization policy constraint to enforce compliance requirements for Assured Workloads.
+
+This boolean constraint is automatically configured during Assured Workloads onboarding and is intended only for regulatory controls within Assured Workloads. When this constraint is enforced, provisioned resources strictly adhere to Assured Workloads compliance requirements, such as restricting instance creation to supported compliance regions or requiring configurations such as CMEK.
+
+Don't manually configure or modify this constraint outside of an Assured Workloads environment. If this constraint is enabled for a project, folder, or organization that doesn't use Assured Workloads, instance creation can fail with errors such as the following:
+
+`Requested region is not compatible with host project sql.restrictNoncompliantResourceCreation org policy.`
+
+Or:
+
+`An unknown error occurred`
+
+If instance creation fails due to this constraint on a project that doesn't use Assured Workloads, disable `constraints/sql.restrictNoncompliantResourceCreation`.
+
+To enforce resource controls such as locations, CMEK, or public IP access on standard projects, use predefined constraints (such as `constraints/gcp.resourceLocations`, `constraints/gcp.restrictNonCmekServices`, or `constraints/sql.restrictPublicIp`), or create [custom organization policies](https://docs.cloud.google.com/sql/docs/mysql/org-policy/custom-org-policy).
+
+For more information, see [Organization policy constraints](https://docs.cloud.google.com/resource-manager/docs/organization-policy/org-policy-constraints).
+
 ## Custom organization policies
 
 For granular, customizable control over the settings, you can create _custom constraints_ and use those custom constraints in a custom organization policy. You can use custom organization policies to improve your security, compliance, and governance.
@@ -173,6 +194,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-03 UTC.
+Last updated 2026-11-07 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-07 UTC."],[],[]] 

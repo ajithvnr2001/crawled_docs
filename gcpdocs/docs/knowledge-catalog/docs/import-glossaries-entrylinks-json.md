@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/knowledge-catalog/docs/import-glossaries-entrylinks-json/
 title: Import business glossaries and entry links using JSON files \u00a0|\u00a0 Knowledge Catalog \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-07T05:53:37.419090+00:00
+fetched_at: 2026-11-09T07:00:58.281439+00:00
 ---
 
 # Import business glossaries and entry links using JSON files  |  Knowledge Catalog  |  Google Cloud Documentation

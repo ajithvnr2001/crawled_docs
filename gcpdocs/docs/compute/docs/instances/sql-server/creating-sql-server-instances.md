@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/compute/docs/instances/sql-server/creating-sql-server-instances/
 title: Create SQL Server VM instances \u00a0|\u00a0 Compute Engine \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T09:00:28.363399+00:00
+fetched_at: 2026-11-09T07:05:31.344104+00:00
 ---
 
 # Create SQL Server VM instances  |  Compute Engine  |  Google Cloud Documentation

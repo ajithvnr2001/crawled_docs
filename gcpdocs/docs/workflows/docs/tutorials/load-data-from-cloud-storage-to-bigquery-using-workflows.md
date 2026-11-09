@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/workflows/docs/tutorials/load-data-from-cloud-storage-to-bigquery-using-workflows/
 title: Load data from Cloud Storage to BigQuery using Workflows \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T05:46:32.383696+00:00
+fetched_at: 2026-11-09T05:47:23.113155+00:00
 ---
 
 # Load data from Cloud Storage to BigQuery using Workflows  |  Google Cloud Documentation

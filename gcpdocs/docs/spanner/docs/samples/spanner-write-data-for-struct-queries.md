@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/spanner/docs/samples/spanner-write-data-for-struct-queries/
 title: Mutations write data for STRUCT queries \u00a0|\u00a0 Spanner \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-06T10:38:04.680750+00:00
+fetched_at: 2026-11-09T05:52:49.859180+00:00
 ---
 
 # Mutations write data for STRUCT queries  |  Spanner  |  Google Cloud Documentation

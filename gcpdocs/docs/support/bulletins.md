@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/support/bulletins/
 title: Security bulletins \u00a0|\u00a0 Cloud Customer Care \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-06T10:23:47.847582+00:00
+fetched_at: 2026-11-09T05:47:25.557978+00:00
 ---
 
 # Security bulletins  |  Cloud Customer Care  |  Google Cloud Documentation
@@ -443,7 +443,7 @@ Security vulnerabilities were discovered in Istio and Envoy Proxy ([ISTIO-SECURI
 
 **Published:** 2026-10-14
 
-**Updated:** 2026-10-24
+**Updated:** 2026-11-05
 
 ### Description
 
@@ -453,7 +453,7 @@ An Incorrect Authorization vulnerability in the `AuthConfig` validation and inte
 
 #### What should I do?
 
-No customer action to resolve this vulnerability is required. This vulnerability was patched on August 27, 2026. To improve security against authorization vulnerabilities, starting October 15, 2026, Application Integration requires the `iam.serviceAccounts.actAs` permission on the run-as service account for any new integrations. Existing integrations and their new versions are unaffected.For more information, see [Prepare for upcoming authorization changes](https://docs.cloud.google.com/application-integration/docs/prepare-for-authorization-changes).
+No customer action to resolve this vulnerability is required. This vulnerability was patched on August 27, 2026. Application Integration helps to enhance security against authorization vulnerabilities by requiring the `iam.serviceAccounts.actAs` permission on the run-as service account to publish or test an integration. Integrations created on or after October 15, 2026, must have a run-as service account to publish or test scheduled or event triggers. Starting January 15, 2027 (UTC), this requirement also applies to existing integrations created before October 15, 2026. For more information, see [Prepare for upcoming authorization changes](https://docs.cloud.google.com/application-integration/docs/prepare-for-authorization-changes).
 
 #### What vulnerabilities are being addressed?
 

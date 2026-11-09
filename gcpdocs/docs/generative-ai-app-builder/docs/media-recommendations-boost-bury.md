@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/generative-ai-app-builder/docs/media-recommendations-boost-bury/
 title: Boost and bury media recommendations \u00a0|\u00a0 Agent Search \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T08:34:30.965943+00:00
+fetched_at: 2026-11-09T07:03:41.251857+00:00
 ---
 
 # Boost and bury media recommendations  |  Agent Search  |  Google Cloud Documentation

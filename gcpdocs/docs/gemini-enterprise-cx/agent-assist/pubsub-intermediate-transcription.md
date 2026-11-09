@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-cx/agent-assist/pubsub-intermediate-transcription/
 title: Pub/Sub intermediate transcription \u00a0|\u00a0 Agent Assist \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T08:35:30.672894+00:00
+fetched_at: 2026-11-09T07:04:15.051767+00:00
 ---
 
 # Pub/Sub intermediate transcription  |  Agent Assist  |  Google Cloud Documentation

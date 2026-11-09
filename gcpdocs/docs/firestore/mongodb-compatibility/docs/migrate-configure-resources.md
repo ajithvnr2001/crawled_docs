@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/firestore/mongodb-compatibility/docs/migrate-configure-resources/
 title: Configure resources for migration \u00a0|\u00a0 Firestore with MongoDB compatibility \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T08:37:05.761492+00:00
+fetched_at: 2026-11-09T07:02:35.991234+00:00
 ---
 
 # Configure resources for migration  |  Firestore with MongoDB compatibility  |  Google Cloud Documentation

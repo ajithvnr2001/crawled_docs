@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/transcoder/docs/samples/transcoder-list-job-templates/
 title: List job templates \u00a0|\u00a0 Transcoder API \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T05:46:26.234073+00:00
+fetched_at: 2026-11-09T05:50:32.064270+00:00
 ---
 
 # List job templates  |  Transcoder API  |  Google Cloud Documentation

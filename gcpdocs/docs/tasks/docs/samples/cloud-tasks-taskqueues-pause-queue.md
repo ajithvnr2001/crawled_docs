@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/tasks/docs/samples/cloud-tasks-taskqueues-pause-queue/
 title: Pause a queue \u00a0|\u00a0 Cloud Tasks \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T09:50:49.935744+00:00
+fetched_at: 2026-11-09T05:46:24.957201+00:00
 ---
 
 # Pause a queue  |  Cloud Tasks  |  Google Cloud Documentation

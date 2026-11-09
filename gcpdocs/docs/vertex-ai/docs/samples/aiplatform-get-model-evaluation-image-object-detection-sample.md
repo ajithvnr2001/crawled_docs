@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/vertex-ai/docs/samples/aiplatform-get-model-evaluation-image-object-detection-sample/
 title: Get a model evaluation for image object detection \u00a0|\u00a0 Vertex AI \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-06T10:31:25.463783+00:00
+fetched_at: 2026-11-09T05:48:44.373061+00:00
 ---
 
 # Get a model evaluation for image object detection  |  Vertex AI  |  Google Cloud Documentation

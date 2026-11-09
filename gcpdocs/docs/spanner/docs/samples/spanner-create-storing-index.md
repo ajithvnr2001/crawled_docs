@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/spanner/docs/samples/spanner-create-storing-index/
 title: Create storing index \u00a0|\u00a0 Spanner \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T09:37:40.705820+00:00
+fetched_at: 2026-11-09T06:55:43.562689+00:00
 ---
 
 # Create storing index  |  Spanner  |  Google Cloud Documentation

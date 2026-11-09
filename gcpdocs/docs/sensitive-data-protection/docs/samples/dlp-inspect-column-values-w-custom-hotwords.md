@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sensitive-data-protection/docs/samples/dlp-inspect-column-values-w-custom-hotwords/
 title: Set the match likelihood of a table column \u00a0|\u00a0 Sensitive Data Protection \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-06T10:25:34.549685+00:00
+fetched_at: 2026-11-09T05:47:39.999830+00:00
 ---
 
 # Set the match likelihood of a table column  |  Sensitive Data Protection  |  Google Cloud Documentation

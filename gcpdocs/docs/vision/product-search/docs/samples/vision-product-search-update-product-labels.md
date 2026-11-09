@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/vision/product-search/docs/samples/vision-product-search-update-product-labels/
 title: Update product labels \u00a0|\u00a0 Vision API Product Search \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T05:47:48.433309+00:00
+fetched_at: 2026-11-09T05:45:32.739538+00:00
 ---
 
 # Update product labels  |  Vision API Product Search  |  Google Cloud Documentation

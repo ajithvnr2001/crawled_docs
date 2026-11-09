@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/spanner/docs/samples/spanner-create-table-with-datatypes/
 title: Create table with data types \u00a0|\u00a0 Spanner \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-06T10:41:02.724254+00:00
+fetched_at: 2026-11-09T06:55:41.135563+00:00
 ---
 
 # Create table with data types  |  Spanner  |  Google Cloud Documentation

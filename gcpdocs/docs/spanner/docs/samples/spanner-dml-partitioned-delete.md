@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/spanner/docs/samples/spanner-dml-partitioned-delete/
 title: Bulk delete with partitioned DML \u00a0|\u00a0 Spanner \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-06T10:29:53.418494+00:00
+fetched_at: 2026-11-09T05:43:36.646587+00:00
 ---
 
 # Bulk delete with partitioned DML  |  Spanner  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/firestore/mongodb-compatibility/docs/bulk-data-loading/
 title: Best practices for bulk data loading \u00a0|\u00a0 Firestore with MongoDB compatibility \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T08:37:11.743913+00:00
+fetched_at: 2026-11-09T07:03:21.677817+00:00
 ---
 
 # Best practices for bulk data loading  |  Firestore with MongoDB compatibility  |  Google Cloud Documentation

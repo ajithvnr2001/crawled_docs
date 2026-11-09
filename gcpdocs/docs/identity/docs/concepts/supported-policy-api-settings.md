@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/identity/docs/concepts/supported-policy-api-settings/
 title: Settings available in the API \u00a0|\u00a0 Cloud Identity \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-06T09:07:31.562159+00:00
+fetched_at: 2026-11-09T07:07:02.749117+00:00
 ---
 
 # Settings available in the API  |  Cloud Identity  |  Google Cloud Documentation
@@ -293,6 +293,7 @@ custom_reporting_form_description  | string
 **Page in Admin console** | **Specific setting in Admin console** | **Policy API setting type** | **Mutate supported in v1beta1** | **Admin console caption** | **Policy API field name** | **Data type**  
 ---|---|---|---|---|---|---  
 **Universal settings** | **Data Access > Android sync** | `devices.android_work_data_sync` | No  | **Allow work data to sync on Android devices** | allowed  | boolean   
+**Data Access > iOS Sync** | `devices.ios_work_data_sync` | No  | **Allow work data to sync on iOS devices** | allowed  | boolean   
 **Security > Encryption ** | `devices.encryption` | No  | **Require device encryption** | device_encryption_option  | enum: 
 
   * `ENCRYPTION_OPTION_UNSPECIFIED`
@@ -1682,6 +1683,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-06 UTC.
+Last updated 2026-11-08 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-06 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-08 UTC."],[],[]] 

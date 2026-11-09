@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/generative-ai-app-builder/docs/search-hc-data/
 title: Get search results for healthcare data \u00a0|\u00a0 Agent Search \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T08:34:28.966595+00:00
+fetched_at: 2026-11-09T07:03:55.920992+00:00
 ---
 
 # Get search results for healthcare data  |  Agent Search  |  Google Cloud Documentation

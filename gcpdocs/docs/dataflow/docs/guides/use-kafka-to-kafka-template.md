@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/dataflow/docs/guides/use-kafka-to-kafka-template/
 title: Replicate Kafka data to Managed Service for Apache Kafka \u00a0|\u00a0 Cloud Dataflow \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T09:11:36.895843+00:00
+fetched_at: 2026-11-09T07:06:02.889548+00:00
 ---
 
 # Replicate Kafka data to Managed Service for Apache Kafka  |  Cloud Dataflow  |  Google Cloud Documentation

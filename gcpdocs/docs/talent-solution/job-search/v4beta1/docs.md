@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/talent-solution/job-search/v4beta1/docs/
 title: Cloud Talent Solution documentation \u00a0|\u00a0 Cloud Talent Solution - Job Search v4beta1 \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T05:41:20.390449+00:00
+fetched_at: 2026-11-09T05:49:10.652184+00:00
 ---
 
 # Cloud Talent Solution documentation  |  Cloud Talent Solution - Job Search v4beta1  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/container-optimized-os/docs/concepts/versioning/
 title: Versioning scheme \u00a0|\u00a0 Container-Optimized OS \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T09:15:44.698269+00:00
+fetched_at: 2026-11-09T07:05:07.382170+00:00
 ---
 
 # Versioning scheme  |  Container-Optimized OS  |  Google Cloud Documentation

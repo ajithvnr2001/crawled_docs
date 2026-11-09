@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/firestore/docs/samples/firestore-data-set-from-custom-type-async/
 title: Add a Firestore document using a custom type (async) \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T08:36:08.422987+00:00
+fetched_at: 2026-11-09T07:02:55.479161+00:00
 ---
 
 # Add a Firestore document using a custom type (async)  |  Google Cloud Documentation

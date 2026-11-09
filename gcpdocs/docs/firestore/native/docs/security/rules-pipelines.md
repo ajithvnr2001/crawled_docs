@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/firestore/native/docs/security/rules-pipelines/
 title: Security Rules for Pipeline operations \u00a0|\u00a0 Firestore in Native mode \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T08:36:47.017810+00:00
+fetched_at: 2026-11-09T07:02:25.885474+00:00
 ---
 
 # Security Rules for Pipeline operations  |  Firestore in Native mode  |  Google Cloud Documentation

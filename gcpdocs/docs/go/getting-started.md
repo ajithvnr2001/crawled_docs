@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/go/getting-started/
 title: Get started with Go \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T08:33:31.321083+00:00
+fetched_at: 2026-11-09T07:02:33.061559+00:00
 ---
 
 # Get started with Go  |  Google Cloud Documentation

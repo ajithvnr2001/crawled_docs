@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/pubsub/docs/samples/pubsub-old-version-delete-schema/
 title: v1 Delete schema (DEPRECATED) \u00a0|\u00a0 Pub/Sub \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T01:39:35.732463+00:00
+fetched_at: 2026-11-09T07:00:11.982809+00:00
 ---
 
 # v1 Delete schema (DEPRECATED)  |  Pub/Sub  |  Google Cloud Documentation

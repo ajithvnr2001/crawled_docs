@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sensitive-data-protection/docs/samples/dlp-update-trigger/
 title: Update a job trigger \u00a0|\u00a0 Sensitive Data Protection \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-06T10:26:27.588006+00:00
+fetched_at: 2026-11-09T05:44:06.086443+00:00
 ---
 
 # Update a job trigger  |  Sensitive Data Protection  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/docs/security/bps-for-protecting-developer-credentials/
 title: Best practices for protecting developer credentials \u00a0|\u00a0 Security \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T09:11:51.992833+00:00
+fetched_at: 2026-11-09T07:06:19.076471+00:00
 ---
 
 # Best practices for protecting developer credentials  |  Security  |  Google Cloud Documentation

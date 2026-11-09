@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sql/docs/sqlserver/manage-linked-servers/
 title: Manage linked servers \u00a0|\u00a0 Cloud SQL for SQL Server \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-06T10:25:23.588108+00:00
+fetched_at: 2026-11-09T07:07:03.334569+00:00
 ---
 
 # Manage linked servers  |  Cloud SQL for SQL Server  |  Google Cloud Documentation
@@ -53,7 +53,7 @@ Replace the following:
   * LINKED_SERVER_NAME with the name of the linked server to create.
   * TARGET_SERVER_ID with the network name, DNS name, or IP address for the linked server. For the instance name, use the format `servername\instancename`. If your instance uses a non-standard port, add the port number. For example, `servername\instancename, 8080`.
 
-
+**Note:** Linked servers don't work between Cloud SQL instances over public IP addresses when the source instance is configured for high availability (HA) or configured with both private IP (private services access) and public IP. Public IP connectivity on these instances is inbound-only because the underlying Compute Engine VMs don't have external IP addresses and can't initiate outbound connections to external destinations or to the public IP addresses of other Cloud SQL instances. To connect linked servers between Cloud SQL instances, configure the instances with [private services access](https://docs.cloud.google.com/sql/docs/sqlserver/configure-private-services-access) in the same Virtual Private Cloud (VPC) network or a [Shared VPC network](https://docs.cloud.google.com/vpc/docs/shared-vpc), or configure [Private Service Connect outbound connectivity](https://docs.cloud.google.com/sql/docs/sqlserver/about-private-service-connect#psc-outbound).
 
 To add user mapping for a user who is logged in, run the following command:
     
@@ -241,6 +241,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-11-03 UTC.
+Last updated 2026-11-07 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-03 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-07 UTC."],[],[]] 

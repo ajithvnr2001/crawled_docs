@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-cx/agent-assist/conversation-data-format/
 title: Upload conversation data \u00a0|\u00a0 Agent Assist \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T08:35:39.137865+00:00
+fetched_at: 2026-11-09T07:04:34.292126+00:00
 ---
 
 # Upload conversation data  |  Agent Assist  |  Google Cloud Documentation

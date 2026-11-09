@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/storage/docs/samples/storage-object-get-kms-key/
 title: Get an object's KMS key name \u00a0|\u00a0 Cloud Storage \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-02T05:40:32.496032+00:00
+fetched_at: 2026-11-09T05:45:36.449878+00:00
 ---
 
 # Get an object's KMS key name  |  Cloud Storage  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/managing-tables/
 title: Manage tables \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T09:11:24.454010+00:00
+fetched_at: 2026-11-09T07:05:48.494454+00:00
 ---
 
 # Manage tables  |  BigQuery  |  Google Cloud Documentation

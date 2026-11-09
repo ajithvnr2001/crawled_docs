@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/dataflow/docs/guides/use-kafka-to-bq-template/
 title: Write Managed Service for Apache Kafka data to BigQuery \u00a0|\u00a0 Cloud Dataflow \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T09:11:37.108882+00:00
+fetched_at: 2026-11-09T07:06:03.862472+00:00
 ---
 
 # Write Managed Service for Apache Kafka data to BigQuery  |  Cloud Dataflow  |  Google Cloud Documentation

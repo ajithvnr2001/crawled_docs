@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/talent-solution/job-search/v4beta1/docs/implementation-guides/
 title: Implementation guides (v4beta1) \u00a0|\u00a0 Cloud Talent Solution - Job Search v4beta1 \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T09:51:03.738042+00:00
+fetched_at: 2026-11-09T05:44:46.785331+00:00
 ---
 
 # Implementation guides (v4beta1)  |  Cloud Talent Solution - Job Search v4beta1  |  Google Cloud Documentation

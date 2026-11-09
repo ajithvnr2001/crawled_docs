@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/healthcare-api/docs/concepts/fhir-extensions/
 title: FHIR extensions \u00a0|\u00a0 Cloud Healthcare API \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T08:27:32.606517+00:00
+fetched_at: 2026-11-09T07:01:05.584482+00:00
 ---
 
 # FHIR extensions  |  Cloud Healthcare API  |  Google Cloud Documentation

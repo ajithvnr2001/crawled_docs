@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini/enterprise/docs/connectors/connect-notebooklm/
 title: Enable Gemini Notebook Enterprise as a search source (Preview) \u00a0|\u00a0 Gemini Enterprise \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T08:36:44.740123+00:00
+fetched_at: 2026-11-09T07:04:59.329151+00:00
 ---
 
 # Enable Gemini Notebook Enterprise as a search source (Preview)  |  Gemini Enterprise  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/workflows/docs/samples/workflows-connector-language/
 title: Connector for Cloud Natural Language \u00a0|\u00a0 Workflows \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T05:47:36.163751+00:00
+fetched_at: 2026-11-09T05:49:16.282202+00:00
 ---
 
 # Connector for Cloud Natural Language  |  Workflows  |  Google Cloud Documentation

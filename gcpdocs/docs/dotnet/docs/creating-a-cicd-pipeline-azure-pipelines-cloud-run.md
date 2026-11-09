@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/dotnet/docs/creating-a-cicd-pipeline-azure-pipelines-cloud-run/
 title: Creating a CI/CD pipeline with Azure Pipelines and Cloud Run \u00a0|\u00a0 .NET \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T08:37:54.775454+00:00
+fetched_at: 2026-11-09T07:04:19.755947+00:00
 ---
 
 # Creating a CI/CD pipeline with Azure Pipelines and Cloud Run  |  .NET  |  Google Cloud Documentation

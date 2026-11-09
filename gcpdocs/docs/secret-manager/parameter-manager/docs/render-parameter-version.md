@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/secret-manager/parameter-manager/docs/render-parameter-version/
 title: Access a parameter version \u00a0|\u00a0 Parameter Manager \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-01T05:40:31.613466+00:00
+fetched_at: 2026-11-09T05:52:07.385212+00:00
 ---
 
 # Access a parameter version  |  Parameter Manager  |  Google Cloud Documentation
@@ -399,7 +399,7 @@ To run this code, first learn about [using PHP on Google Cloud](https://docs.clo
      *
      * @param string $projectId The Google Cloud Project ID (e.g. 'my-project')
      * @param string $parameterId The Parameter ID (e.g. 'my-param')
-     * @param string $versionId The Version ID (e.g. 'my-param-version')
+     * @param string $versionId The Version ID (e.g. 'my-param-version' or 'latest')
      */
     function render_param_version(string $projectId, string $parameterId, string $versionId): void
     {
@@ -887,7 +887,7 @@ To run this code, first learn about [using PHP on Google Cloud](https://docs.clo
      * @param string $projectId The Google Cloud Project ID (e.g. 'my-project')
      * @param string $locationId The Parameter Location (e.g. 'us-central1')
      * @param string $parameterId The Parameter ID (e.g. 'my-param')
-     * @param string $versionId The Version ID (e.g. 'my-param-version')
+     * @param string $versionId The Version ID (e.g. 'my-param-version' or 'latest')
      */
     function render_regional_param_version(string $projectId, string $locationId, string $parameterId, string $versionId): void
     {
@@ -1023,6 +1023,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-11-07 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-11-07 UTC."],[],[]] 

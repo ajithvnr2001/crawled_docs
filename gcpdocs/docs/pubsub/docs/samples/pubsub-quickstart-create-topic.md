@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/pubsub/docs/samples/pubsub-quickstart-create-topic/
 title: Create topic quickstart \u00a0|\u00a0 Pub/Sub \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-01T05:41:57.456049+00:00
+fetched_at: 2026-11-09T07:00:01.429728+00:00
 ---
 
 # Create topic quickstart  |  Pub/Sub  |  Google Cloud Documentation

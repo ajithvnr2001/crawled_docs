@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/compute/docs/instances/windows/end-of-support/
 title: Windows end of support \u00a0|\u00a0 Compute Engine \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T09:00:23.406314+00:00
+fetched_at: 2026-11-09T07:05:23.918263+00:00
 ---
 
 # Windows end of support  |  Compute Engine  |  Google Cloud Documentation

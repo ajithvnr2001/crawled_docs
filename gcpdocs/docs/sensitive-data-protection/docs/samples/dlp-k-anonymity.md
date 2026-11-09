@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sensitive-data-protection/docs/samples/dlp-k-anonymity/
 title: Computing k-anonymity \u00a0|\u00a0 Sensitive Data Protection \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-06T10:26:29.046328+00:00
+fetched_at: 2026-11-09T05:44:37.140323+00:00
 ---
 
 # Computing k-anonymity  |  Sensitive Data Protection  |  Google Cloud Documentation

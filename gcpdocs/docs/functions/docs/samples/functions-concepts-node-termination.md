@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/functions/docs/samples/functions-concepts-node-termination/
 title: Cloud Function Concepts: Function Termination \u00a0|\u00a0 Cloud Run functions \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T08:37:06.834297+00:00
+fetched_at: 2026-11-09T07:05:01.745805+00:00
 ---
 
 # Cloud Function Concepts: Function Termination  |  Cloud Run functions  |  Google Cloud Documentation

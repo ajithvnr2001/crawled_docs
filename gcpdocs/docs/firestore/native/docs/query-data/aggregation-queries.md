@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/firestore/native/docs/query-data/aggregation-queries/
 title: Summarize data with aggregation queries \u00a0|\u00a0 Firestore in Native mode \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T08:36:52.761537+00:00
+fetched_at: 2026-11-09T07:02:28.900947+00:00
 ---
 
 # Summarize data with aggregation queries  |  Firestore in Native mode  |  Google Cloud Documentation

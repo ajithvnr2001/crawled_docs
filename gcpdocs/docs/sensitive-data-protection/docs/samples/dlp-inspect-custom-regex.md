@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sensitive-data-protection/docs/samples/dlp-inspect-custom-regex/
 title: Inspect data with a custom regex \u00a0|\u00a0 Sensitive Data Protection \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-06T10:25:18.510324+00:00
+fetched_at: 2026-11-09T05:49:02.567472+00:00
 ---
 
 # Inspect data with a custom regex  |  Sensitive Data Protection  |  Google Cloud Documentation

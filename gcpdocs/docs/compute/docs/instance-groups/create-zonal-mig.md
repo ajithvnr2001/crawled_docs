@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/compute/docs/instance-groups/create-zonal-mig/
 title: Create a MIG in a single zone \u00a0|\u00a0 Compute Engine \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T09:00:42.265860+00:00
+fetched_at: 2026-11-09T07:05:11.689936+00:00
 ---
 
 # Create a MIG in a single zone  |  Compute Engine  |  Google Cloud Documentation

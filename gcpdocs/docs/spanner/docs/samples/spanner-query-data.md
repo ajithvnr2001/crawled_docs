@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/spanner/docs/samples/spanner-query-data/
 title: Query data \u00a0|\u00a0 Spanner \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-06T10:31:25.617323+00:00
+fetched_at: 2026-11-09T05:43:07.269034+00:00
 ---
 
 # Query data  |  Spanner  |  Google Cloud Documentation

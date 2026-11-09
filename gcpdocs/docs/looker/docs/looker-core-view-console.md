@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/looker/docs/looker-core-view-console/
 title: View and edit the details of a Looker (Google Cloud core) instance \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-07T05:49:18.742838+00:00
+fetched_at: 2026-11-09T07:00:51.212272+00:00
 ---
 
 # View and edit the details of a Looker (Google Cloud core) instance  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/compute/docs/instance-groups/view-workload-policies/
 title: View workload policies \u00a0|\u00a0 Compute Engine \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T09:00:33.117779+00:00
+fetched_at: 2026-11-09T07:05:26.393688+00:00
 ---
 
 # View workload policies  |  Compute Engine  |  Google Cloud Documentation

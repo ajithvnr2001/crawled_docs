@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-cx/agent-assist/ui-modules-smart-reply-documentation/
 title: Smart reply \u00a0|\u00a0 Agent Assist \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T08:35:10.319124+00:00
+fetched_at: 2026-11-09T07:04:07.503078+00:00
 ---
 
 # Smart reply  |  Agent Assist  |  Google Cloud Documentation

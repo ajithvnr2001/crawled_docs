@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sap/docs/sap-hana-ha-config-sles/
 title: HA scale-up cluster configuration guide for SAP HANA on SLES \u00a0|\u00a0 SAP on Google Cloud \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-06T08:23:51.413567+00:00
+fetched_at: 2026-11-09T06:57:21.260168+00:00
 ---
 
 # HA scale-up cluster configuration guide for SAP HANA on SLES  |  SAP on Google Cloud  |  Google Cloud Documentation

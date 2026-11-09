@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/compute/docs/instance-groups/overview-add-vms-all-at-once-in-mig/
 title: Overview of adding instances all at once in a MIG \u00a0|\u00a0 Compute Engine \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T09:00:38.200762+00:00
+fetched_at: 2026-11-09T07:05:14.973939+00:00
 ---
 
 # Overview of adding instances all at once in a MIG  |  Compute Engine  |  Google Cloud Documentation

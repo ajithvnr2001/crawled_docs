@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-cx/agent-assist/companion-agent-basics/
 title: Companion agent basics \u00a0|\u00a0 Agent Assist \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T08:35:42.612036+00:00
+fetched_at: 2026-11-09T07:04:01.154910+00:00
 ---
 
 # Companion agent basics  |  Agent Assist  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/storage/docs/samples/storage-control-quickstart-sample/
 title: Storage Control Quickstart Sample \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-02T05:40:30.673174+00:00
+fetched_at: 2026-11-09T05:46:44.629640+00:00
 ---
 
 # Storage Control Quickstart Sample  |  Google Cloud Documentation

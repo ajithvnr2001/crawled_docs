@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/identity-platform/docs/how-to-configure-custom-claims/
 title: Configure custom claims on users \u00a0|\u00a0 Identity Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T08:27:46.614569+00:00
+fetched_at: 2026-11-09T07:02:22.449502+00:00
 ---
 
 # Configure custom claims on users  |  Identity Platform  |  Google Cloud Documentation
