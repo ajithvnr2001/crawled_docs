@@ -2,7 +2,7 @@
 url: https://docs.fish.audio/agents/monitor/webhooks/
 title: Webhooks - Fish Audio
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T15:37:54.473952+00:00
+fetched_at: 2026-11-09T17:43:31.299583+00:00
 ---
 
 # Webhooks - Fish Audio
@@ -117,7 +117,7 @@ The list is replaced as a whole on each update, so send every endpoint you want 
 Field| Rules  
 ---|---  
 `post_call`| Up to 5 entries, and their `url` values must be unique. A longer list or a repeated URL is rejected with `422`  
-`url`| Required on every entry. Up to 4000 characters. Must resolve to a public address. Localhost and private-network hosts are rejected with `422`, and the check is repeated at every delivery  
+`url`| Required on every entry. Up to 4000 characters. Must resolve to a public address. Localhost, private-network hosts and hostnames that only a private network could resolve (single-label names, names under `.local`, `.internal`, `.svc` or `.arpa`) are rejected with `422`, and the check is repeated at every delivery  
 `secret`| Optional signing key, up to 256 characters, set per entry. **Write-only** : reads return `has_secret: true`, never the value. Omit it (or send `null`) to keep the stored secret for the same `url`; send `""` to remove it  
   
 Webhook settings are part of the agent configuration, so they follow the draft-and-publish flow: [publish](https://docs.fish.audio/agents/deploy/versions-publishing) for changes to apply to production calls.

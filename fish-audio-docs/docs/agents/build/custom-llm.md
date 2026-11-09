@@ -2,7 +2,7 @@
 url: https://docs.fish.audio/agents/build/custom-llm/
 title: Custom LLM - Fish Audio
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T15:37:53.626064+00:00
+fetched_at: 2026-11-09T17:43:31.403966+00:00
 ---
 
 # Custom LLM - Fish Audio
@@ -167,7 +167,7 @@ The saved endpoint appears under **Custom** in the selector. You can edit or rem
 
 Field| Rules  
 ---|---  
-`base_url`| `https` only, publicly reachable host, no query string or fragment. A trailing `/chat/completions` is stripped.  
+`base_url`| `https` only, publicly reachable host (no localhost, private addresses, single-label names, or names under `.local`, `.internal`, `.svc` or `.arpa`), no query string or fragment. A trailing `/chat/completions` is stripped.  
 `model`| Sent to your endpoint verbatim as the request’s `model` field.  
 `api_key`| Sent to your endpoint as the `Authorization` bearer token. The field is write-only, so config and version reads return it as `null`. Omit it (or send `null`) on later patches to keep the stored key.  
 `headers`| Optional. Extra headers sent on every request to your endpoint. Names are case-insensitive, and values are printable ASCII. You can’t set headers the platform sends itself, such as `Authorization`, `Content-Type` or `Host`. Write-only like `api_key`: reads return `null`. Sending it replaces all stored headers, so include every header you want to keep. Omit it (or send `null`) to keep them; send `{}` to clear them.  

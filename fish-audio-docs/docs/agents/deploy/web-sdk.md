@@ -2,7 +2,7 @@
 url: https://docs.fish.audio/agents/deploy/web-sdk/
 title: Web SDK - Fish Audio
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T14:25:07.040255+00:00
+fetched_at: 2026-11-09T17:43:31.103061+00:00
 ---
 
 # Web SDK - Fish Audio
@@ -169,7 +169,7 @@ States
 `agent_hangup`| The agent ended the call: the hang-up [system tool](https://docs.fish.audio/agents/build/system-tools), a workflow end node, or an idle hangup  
 `conversation_timeout`| The session reached the agent’s [maximum duration](https://docs.fish.audio/agents/build/configuration#call-duration)  
 `escalated`| The call was transferred to a human  
-`internal_error`| The agent runtime itself failed and closed the call, for example its process was stopped for exceeding its memory limit (from 0.5.0)  
+`internal_error`| The agent runtime itself failed and closed the call, for example its process was stopped for exceeding its memory limit (from 1.0.0)  
 `connection_lost`| The connection dropped and could not be recovered, the agent never joined, or the call ended before the server could say why  
   
 Every reason except `connection_lost` comes from the server: it sends the protocol’s [`session.ended` event](https://docs.fish.audio/agents/deploy/protocol#session-ended) just before tearing the call down, and the values match `end_reason` on the [session record](https://docs.fish.audio/agents/monitor/conversation-history#status-and-end-reason), so your client and your backend agree about how a session ended. This needs `@fishaudio/agent-client` 0.3.0 or later; older clients infer the reason from the disconnect and report every server-side end as `agent_hangup`. Brief network drops don’t end the session: the SDK moves to `reconnecting` and back to `connected` automatically, reusing the same session. It never creates a new session, so you never need a new token mid-call.

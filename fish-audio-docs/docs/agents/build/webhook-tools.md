@@ -2,7 +2,7 @@
 url: https://docs.fish.audio/agents/build/webhook-tools/
 title: Webhook Tools - Fish Audio
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T13:26:24.316303+00:00
+fetched_at: 2026-11-09T17:43:30.960657+00:00
 ---
 
 # Webhook Tools - Fish Audio
@@ -357,7 +357,7 @@ Test response capture| first 64 KB (`response_truncated` set beyond that)
 
 URL restrictions
 
-Endpoint URLs must use `http` or `https`. Requests to localhost, private network ranges, and cloud metadata endpoints are rejected, and URLs may not embed credentials. The Builder validates the URL as you type; the API enforces the same rules.
+Endpoint URLs must use `http` or `https`. Requests to localhost, private network ranges, and cloud metadata endpoints are rejected, and URLs may not embed credentials. Hostnames that only a private network could resolve are rejected as well: single-label names such as `http://api/`, and names under `.local`, `.internal`, `.svc` or `.arpa`. The Builder validates the URL as you type; the API enforces the same rules.
 
 ## 
 
