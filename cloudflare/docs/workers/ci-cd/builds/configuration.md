@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/workers/ci-cd/builds/configuration/
 title: Configuration \u00b7 Cloudflare Workers docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:17:12.499810+00:00
+fetched_at: 2026-11-09T09:25:00.582792+00:00
 ---
 
 # Configuration · Cloudflare Workers docs
@@ -22,7 +22,7 @@ fetched_at: 2026-10-08T07:17:12.499810+00:00
 
 # Configuration
 
-Last updated Sep 22, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/workers/ci-cd/builds/configuration/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 8, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewHow Workers Builds worksBuild settings Overview Deploy command Preview command Automatic configuration for new projects API tokenFramework supportEnvironment variables Default variables
 
@@ -96,6 +96,7 @@ Example Command | Description
 ---|---  
 `yarn exec wrangler preview` | You can customize the package manager used to run Wrangler.  
 `npx wrangler preview --env staging` | If you have a [Wrangler environment](https://developers.cloudflare.com/workers/ci-cd/builds/advanced-setups/#wrangler-environments) Worker, you should set your Preview command with the environment flag. For more details, see [Advanced Setups](https://developers.cloudflare.com/workers/ci-cd/builds/advanced-setups/#wrangler-environments).  
+`npx cf previews deploy` | Deploy a Preview with the `cf` CLI. Use `cf` 1.0.0-beta.18 or later. Earlier versions do not report Preview URLs to Workers Builds, so [pull request comments](https://developers.cloudflare.com/workers/ci-cd/builds/troubleshoot/#pull-request-comment-shows-no-preview-url) show **No Preview URL**.  
   
 To configure what variables, secrets, and bindings your Preview uses, refer to [Preview settings](https://developers.cloudflare.com/workers/previews/configuration/).
 
@@ -129,6 +130,7 @@ It is recommended to consistently use the same API token across all uploads and 
   * [Web applications](https://developers.cloudflare.com/workers/framework-guides/web-apps/)
     * [React + Vite](https://developers.cloudflare.com/workers/framework-guides/web-apps/react/)
     * [Astro](https://developers.cloudflare.com/workers/framework-guides/web-apps/astro/)
+    * [EmDash](https://developers.cloudflare.com/workers/framework-guides/web-apps/emdash/)
     * [React Router (formerly Remix)](https://developers.cloudflare.com/workers/framework-guides/web-apps/react-router/)
     * [Next.js](https://developers.cloudflare.com/workers/framework-guides/web-apps/nextjs/)
     * [OpenNext adapter](https://developers.cloudflare.com/workers/framework-guides/web-apps/opennext/)
@@ -138,6 +140,8 @@ It is recommended to consistently use the same API token across all uploads and 
     * [Microfrontends](https://developers.cloudflare.com/workers/framework-guides/web-apps/microfrontends/)
     * [SvelteKit](https://developers.cloudflare.com/workers/framework-guides/web-apps/sveltekit/)
     * [Vike](https://developers.cloudflare.com/workers/framework-guides/web-apps/vike/)
+    * [Foldkit](https://developers.cloudflare.com/workers/framework-guides/web-apps/foldkit/)
+    * [fate](https://developers.cloudflare.com/workers/framework-guides/web-apps/fate/)
     * [More guides...](https://developers.cloudflare.com/workers/framework-guides/web-apps/more-web-frameworks/)
       * [Analog](https://developers.cloudflare.com/workers/framework-guides/web-apps/more-web-frameworks/analog/)
       * [Angular](https://developers.cloudflare.com/workers/framework-guides/web-apps/more-web-frameworks/angular/)

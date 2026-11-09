@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/cloudflare-for-platforms/cloudflare-for-saas/start/advanced-settings/worker-as-origin/
 title: Workers as your fallback origin \u00b7 Cloudflare for Platforms docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:08:08.457494+00:00
+fetched_at: 2026-11-09T09:25:00.445713+00:00
 ---
 
 # Workers as your fallback origin · Cloudflare for Platforms docs
@@ -22,9 +22,9 @@ fetched_at: 2026-10-08T07:08:08.457494+00:00
 
 # Workers as your fallback origin
 
-Last updated Jun 19, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/cloudflare-for-platforms/cloudflare-for-saas/start/advanced-settings/worker-as-origin/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 8, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
-OverviewHow custom hostname traffic reaches your WorkerSet up a Worker as your fallback originInteraction with custom origin serverRelated resources
+OverviewHow custom hostname traffic reaches your Worker When customers also use CloudflareSet up a Worker as your fallback originInteraction with custom origin serverRelated resources
 
 If you are building your application on [Cloudflare Workers](https://developers.cloudflare.com/workers/), you can use a Worker as the origin for your SaaS zone (also known as your fallback origin).
 
@@ -45,7 +45,24 @@ When a visitor requests `mystore.customer.com`, Cloudflare routes that request t
 
 Note
 
-You do not need to add individual Worker routes for each custom hostname. The wildcard route pattern (`*/*`) automatically captures all traffic entering your zone, including traffic from customer vanity domains.
+You do not need a separate Worker route for each custom hostname. The `*/*` route matches all traffic entering your zone, but a more specific route can override it.
+
+### When customers also use Cloudflare
+
+When a customer enables Cloudflare proxying on a CNAME record pointing to your SaaS hostname, Worker routes can match that target hostname.
+
+For example, suppose `mystore.customer.com` points to `service.saasprovider.com`, with proxying enabled. Your SaaS zone has these routes:
+
+Route | Worker  
+---|---  
+`*/*` | SaaS Worker  
+`*.saasprovider.com/*` | None  
+  
+The more specific `*.saasprovider.com/*` route matches the target hostname, so these requests bypass your Worker. If your fallback origin has no origin server, requests can fail with a `522` error.
+
+To send these requests to your Worker, add the route `service.saasprovider.com/*` and assign your SaaS Worker to it. Other hostnames covered by the exclusion will continue to bypass the Worker.
+
+For more information, refer to [how customer DNS proxy settings affect Worker routing](https://developers.cloudflare.com/cloudflare-for-platforms/workers-for-platforms/configuration/hostname-routing/#o2o-behavior).
 
 ## Set up a Worker as your fallback origin
 
@@ -100,7 +117,7 @@ If you need per-hostname origin routing, implement it within your Worker using `
 
 ## Related resources
 
-  * [Hostname routing](https://developers.cloudflare.com/cloudflare-for-platforms/workers-for-platforms/configuration/hostname-routing/) \- Learn about advanced routing patterns, including dispatch Workers and O2O behavior.
+  * [Hostname routing](https://developers.cloudflare.com/cloudflare-for-platforms/workers-for-platforms/configuration/hostname-routing/) \- Route traffic with dispatch Workers and handle customers who also use Cloudflare.
   * [Workers routes](https://developers.cloudflare.com/workers/configuration/routing/routes/) \- Learn more about route pattern matching and validity rules.
 
 

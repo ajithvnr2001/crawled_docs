@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/workers/ci-cd/builds/git-integration/github-integration/
 title: GitHub integration \u00b7 Cloudflare Workers docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-16T06:38:30.488772+00:00
+fetched_at: 2026-11-09T09:25:00.755751+00:00
 ---
 
 # GitHub integration · Cloudflare Workers docs
@@ -22,7 +22,7 @@ fetched_at: 2026-10-16T06:38:30.488772+00:00
 
 # GitHub integration
 
-Last updated Oct 15, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 8, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewFeatures Pull request comment Check runManage access Organizational access Remove access Reinstall the Cloudflare GitHub App
 
@@ -41,6 +41,10 @@ If a commit is on a pull request, Cloudflare will automatically post a comment o
 A [Preview URL](https://developers.cloudflare.com/workers/previews/) will be provided for builds which perform `wrangler preview`. This is useful when reviewing your pull request, as it lets you test the code changes in an isolated copy of your Worker.
 
 Subsequent pushes to the same branch update the same Preview URL. Each deployment also gets an immutable Deployment URL for testing one exact deployment.
+
+The comment lists URLs for every host enabled for Previews on your Worker. This can be a [custom domain, `workers.dev`, or both](https://developers.cloudflare.com/workers/previews/custom-domains/). A custom domain alone is enough.
+
+If the comment shows **No Preview URL** for a successful build, refer to [Troubleshooting](https://developers.cloudflare.com/workers/ci-cd/builds/troubleshoot/#pull-request-comment-shows-no-preview-url).
 
 Comment history reveals any builds completed earlier while the PR was open.
 

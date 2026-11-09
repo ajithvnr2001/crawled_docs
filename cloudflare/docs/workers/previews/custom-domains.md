@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/workers/previews/custom-domains/
 title: Custom domains \u00b7 Cloudflare Workers docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:17:40.068176+00:00
+fetched_at: 2026-11-09T09:25:00.671149+00:00
 ---
 
 # Custom domains · Cloudflare Workers docs
@@ -18,11 +18,11 @@ fetched_at: 2026-10-08T07:17:40.068176+00:00
 
 # Custom domains
 
-Last updated Sep 24, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/workers/previews/custom-domains/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 8, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewBefore you startEnable custom domain Preview URLsEnable workers.dev Preview URLsProtect Preview content
 
-Preview URLs can use a custom domain, `workers.dev`, or both. Enable at least one host to get a Preview URL.
+Preview URLs can use a custom domain, `workers.dev`, or both. Enable at least one host to get a Preview URL. If no host is enabled, the Preview has no URL, and [pull request comments](https://developers.cloudflare.com/workers/ci-cd/builds/git-integration/github-integration/#pull-request-comment) show **No Preview URL**.
 
 Host | Preview URL | Unique deployment URL  
 ---|---|---  

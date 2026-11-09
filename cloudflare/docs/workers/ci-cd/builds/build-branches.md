@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/workers/ci-cd/builds/build-branches/
 title: Build branches \u00b7 Cloudflare Workers docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:17:12.060801+00:00
+fetched_at: 2026-11-09T09:25:00.390326+00:00
 ---
 
 # Build branches · Cloudflare Workers docs
@@ -22,7 +22,7 @@ fetched_at: 2026-10-08T07:17:12.060801+00:00
 
 # Build branches
 
-Last updated Oct 1, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/workers/ci-cd/builds/build-branches/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 8, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewChange production branchConfigure preview builds Existing Workers connected to Builds
 
@@ -67,7 +67,7 @@ After switching, you cannot return to the previous preview model, which uses pro
 [ Go to **Workers & Pages** ↗ ](https://dash.cloudflare.com/?to=/:account/workers-and-pages) ![Dialog showing Preview settings confirmation and the new Worker Previews command](https://developers.cloudflare.com/cdn-cgi/image/onerror=redirect,width=1034,height=1264,format=webp/_astro/switch-to-worker-previews.X2uOGKZ3.png)
   2. Configure the variables, secrets, and bindings your Worker needs for Previews. Previews do not use production settings. For instructions, refer to [Get started](https://developers.cloudflare.com/workers/previews/get-started/#step-1-configure-preview-settings).
 
-  3. Review the new Preview command. Workers Builds replaces the current command with `npx wrangler preview`. Custom commands must invoke `npx wrangler preview`.
+  3. Review the new Preview command. Workers Builds replaces the current command with `npx wrangler preview`. Custom commands must invoke `npx wrangler preview` or `npx cf previews deploy` (`cf` 1.0.0-beta.18 or later).
 
   4. Select **Switch to Worker Previews**.
 

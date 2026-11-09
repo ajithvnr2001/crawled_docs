@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/workers/ci-cd/builds/troubleshoot/
 title: Troubleshooting builds \u00b7 Cloudflare Workers docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T08:10:18.759033+00:00
+fetched_at: 2026-11-09T09:25:00.310150+00:00
 ---
 
 # Troubleshooting builds · Cloudflare Workers docs
@@ -22,9 +22,9 @@ fetched_at: 2026-10-31T08:10:18.759033+00:00
 
 # Troubleshooting builds
 
-Last updated Oct 30, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 8, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
-OverviewKnown issues or limitations Workers name requirement Missing Wrangler configuration file Incorrect account_id Stale API token Build timed out Build succeeds but the site returns a 404 or blank page npm ci reports that package.json and package-lock.json are out of sync Git integration issuesBuilds API errors "Resource not found" error "Invalid request body" (12002) when updating branch patternsFor additional support
+OverviewKnown issues or limitations Workers name requirement Missing Wrangler configuration file Incorrect account_id Stale API token Build timed out Build succeeds but the site returns a 404 or blank page npm ci reports that package.json and package-lock.json are out of sync Pull request comment shows "No Preview URL" Git integration issuesBuilds API errors "Resource not found" error "Invalid request body" (12002) when updating branch patternsFor additional support
 
 This guide explains how to identify and resolve build errors, as well as troubleshoot common issues in the Workers Builds deployment process.
 
@@ -89,6 +89,26 @@ If the build and deployment succeed but requests to your Worker return a `404` o
 `npm error `npm ci` can only install packages when your package.json and package-lock.json or npm-shrinkwrap.json are in sync.`
 
 If this error appears in Workers Builds but `npm ci` works on your machine, your lockfile was probably written by a newer npm version than the build image's default. Workers Builds does not use the `engines.npm` field to choose an npm version. To use the same npm version as your local machine, set the [`packageManager`](https://developers.cloudflare.com/workers/ci-cd/builds/build-image/#package-manager-versions) field in your `package.json` to an exact version, for example `"packageManager": "npm@11.19.1"`. To check your local npm version, run `npm -v`.
+
+### Pull request comment shows "No Preview URL"
+
+A preview build can succeed while the pull request or merge request comment shows **No Preview URL**. This means Workers Builds did not receive a Preview URL from your Preview command. Check the following:
+
+  1. **A Preview host is enabled.** Your Worker needs a custom domain enabled for Preview traffic, `workers.dev` Preview URLs, or both. You do not need `workers.dev` if a custom domain is enabled for Previews. To enable a host, refer to [Custom domains](https://developers.cloudflare.com/workers/previews/custom-domains/).
+
+  2. **Your Preview command reports the Preview to Workers Builds.** Workers Builds reads Preview and Deployment URLs from the output of the [Preview command](https://developers.cloudflare.com/workers/ci-cd/builds/configuration/#preview-command). Use one of these commands:
+
+Command | Minimum version  
+---|---  
+`npx wrangler preview` | Wrangler 4.135.0  
+`npx cf previews deploy` | `cf` 1.0.0-beta.18  
+  
+Earlier versions of `cf previews deploy` print the Preview URLs in the build log but do not report them to Workers Builds. Update the version in your `package.json`.
+
+
+
+
+To confirm the Preview was created, find its URLs in the build log or in the **Previews** section of your Worker.
 
 ### Git integration issues
 

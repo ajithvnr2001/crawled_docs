@@ -3,8 +3,5 @@
   "file": "workers/ci-cd/builds/build-branches.md",
   "title": "Build branches \u00b7 Cloudflare Workers docs",
   "method": "scrapling+scrapegraph",
-  "fetched_at": "2026-10-08T07:17:12.061071+00:00",
-  "html_len": 187584,
-  "md_len": 4406,
-  "depth": 0
+  "fetched_at": "2026-11-09T09:25:00.390773+00:00"
 }
