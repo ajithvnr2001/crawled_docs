@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/teams/strands-typescript/intelligence/
 title: Microsoft Teams + AWS Strands (TypeScript): Configure the Channel in Intelligence
 method: scrapling+scrapegraph
-fetched_at: 2026-11-06T10:41:43.662119+00:00
+fetched_at: 2026-11-09T11:17:21.774786+00:00
 ---
 
 # Microsoft Teams + AWS Strands (TypeScript): Configure the Channel in Intelligence

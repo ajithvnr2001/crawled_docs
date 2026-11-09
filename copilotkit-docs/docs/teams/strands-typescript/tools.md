@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/teams/strands-typescript/tools/
 title: Microsoft Teams + AWS Strands (TypeScript): Tools and context
 method: scrapling+scrapegraph
-fetched_at: 2026-11-06T10:41:41.392271+00:00
+fetched_at: 2026-11-09T11:17:21.397849+00:00
 ---
 
 # Microsoft Teams + AWS Strands (TypeScript): Tools and context

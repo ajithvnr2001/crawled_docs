@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/teams/pydantic-ai/rich-messages/
 title: Microsoft Teams + PydanticAI: Rich messages and components
 method: scrapling+scrapegraph
-fetched_at: 2026-11-06T10:41:46.073057+00:00
+fetched_at: 2026-11-09T11:17:24.210838+00:00
 ---
 
 # Microsoft Teams + PydanticAI: Rich messages and components

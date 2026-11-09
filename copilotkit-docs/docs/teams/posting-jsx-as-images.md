@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/teams/posting-jsx-as-images/
 title: Microsoft Teams: Posting JSX as images
 method: scrapling+scrapegraph
-fetched_at: 2026-11-06T10:41:50.209515+00:00
+fetched_at: 2026-11-09T11:17:25.348750+00:00
 ---
 
 # Microsoft Teams: Posting JSX as images

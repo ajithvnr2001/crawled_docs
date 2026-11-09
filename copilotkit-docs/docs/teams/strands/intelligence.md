@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/teams/strands/intelligence/
 title: Microsoft Teams + AWS Strands (Python): Configure the Channel in Intelligence
 method: scrapling+scrapegraph
-fetched_at: 2026-11-05T10:42:08.228305+00:00
+fetched_at: 2026-11-09T11:17:19.177429+00:00
 ---
 
 # Microsoft Teams + AWS Strands (Python): Configure the Channel in Intelligence

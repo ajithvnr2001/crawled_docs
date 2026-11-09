@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/teams/pydantic-ai/persistence-and-scaling/
 title: Microsoft Teams + PydanticAI: Persistence and scaling
 method: scrapling+scrapegraph
-fetched_at: 2026-11-06T10:41:47.947531+00:00
+fetched_at: 2026-11-09T11:17:24.008644+00:00
 ---
 
 # Microsoft Teams + PydanticAI: Persistence and scaling

@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/teams/strands-typescript/identity-and-memory/
 title: Microsoft Teams + AWS Strands (TypeScript): Identity and Memory
 method: scrapling+scrapegraph
-fetched_at: 2026-11-06T10:41:43.927756+00:00
+fetched_at: 2026-11-09T11:17:22.898264+00:00
 ---
 
 # Microsoft Teams + AWS Strands (TypeScript): Identity and Memory

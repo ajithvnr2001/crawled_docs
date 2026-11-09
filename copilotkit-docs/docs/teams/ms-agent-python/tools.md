@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/teams/ms-agent-python/tools/
 title: Microsoft Teams + MS Agent Framework (Python): Tools and context
 method: scrapling+scrapegraph
-fetched_at: 2026-11-06T10:41:50.271937+00:00
+fetched_at: 2026-11-09T11:17:25.468715+00:00
 ---
 
 # Microsoft Teams + MS Agent Framework (Python): Tools and context

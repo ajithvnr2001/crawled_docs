@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/teams/pydantic-ai/commands-and-reactions/
 title: Microsoft Teams + PydanticAI: Commands and reactions
 method: scrapling+scrapegraph
-fetched_at: 2026-11-06T10:41:49.917949+00:00
+fetched_at: 2026-11-09T11:17:25.169890+00:00
 ---
 
 # Microsoft Teams + PydanticAI: Commands and reactions

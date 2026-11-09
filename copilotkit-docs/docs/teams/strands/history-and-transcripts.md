@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/teams/strands/history-and-transcripts/
 title: Microsoft Teams + AWS Strands (Python): History and transcripts
 method: scrapling+scrapegraph
-fetched_at: 2026-11-06T10:41:39.574066+00:00
+fetched_at: 2026-11-09T11:17:19.688485+00:00
 ---
 
 # Microsoft Teams + AWS Strands (Python): History and transcripts

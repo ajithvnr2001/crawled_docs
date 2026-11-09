@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/teams/ms-agent-python/render-and-carousel/
 title: Microsoft Teams + MS Agent Framework (Python): Render and carousel
 method: scrapling+scrapegraph
-fetched_at: 2026-11-06T10:41:51.651750+00:00
+fetched_at: 2026-11-09T11:17:25.508562+00:00
 ---
 
 # Microsoft Teams + MS Agent Framework (Python): Render and carousel

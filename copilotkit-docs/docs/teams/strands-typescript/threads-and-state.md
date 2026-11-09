@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/teams/strands-typescript/threads-and-state/
 title: Microsoft Teams + AWS Strands (TypeScript): Threads and state
 method: scrapling+scrapegraph
-fetched_at: 2026-11-06T10:41:41.444975+00:00
+fetched_at: 2026-11-09T11:17:21.333480+00:00
 ---
 
 # Microsoft Teams + AWS Strands (TypeScript): Threads and state

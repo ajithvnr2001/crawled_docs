@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/teams/strands-typescript/files-and-multimodality/
 title: Microsoft Teams + AWS Strands (TypeScript): Files and multimodal input
 method: scrapling+scrapegraph
-fetched_at: 2026-11-06T10:41:43.966953+00:00
+fetched_at: 2026-11-09T11:17:22.850630+00:00
 ---
 
 # Microsoft Teams + AWS Strands (TypeScript): Files and multimodal input

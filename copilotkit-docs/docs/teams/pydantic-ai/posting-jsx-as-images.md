@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/teams/pydantic-ai/posting-jsx-as-images/
 title: Microsoft Teams + PydanticAI: Posting JSX as images
 method: scrapling+scrapegraph
-fetched_at: 2026-11-06T10:41:48.117093+00:00
+fetched_at: 2026-11-09T11:17:24.359492+00:00
 ---
 
 # Microsoft Teams + PydanticAI: Posting JSX as images

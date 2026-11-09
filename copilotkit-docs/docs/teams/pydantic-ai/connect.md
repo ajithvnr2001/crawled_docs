@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/teams/pydantic-ai/connect/
 title: Connect and run your agent in Microsoft Teams
 method: scrapling+scrapegraph
-fetched_at: 2026-11-06T10:41:49.994395+00:00
+fetched_at: 2026-11-09T11:17:24.646176+00:00
 ---
 
 # Connect and run your agent in Microsoft Teams

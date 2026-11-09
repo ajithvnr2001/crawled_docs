@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/angular/strands/
 title: Introduction
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T10:07:23.341883+00:00
+fetched_at: 2026-11-09T11:17:17.418859+00:00
 ---
 
 # Introduction
