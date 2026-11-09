@@ -2,7 +2,7 @@
 url: https://www.canva.dev/docs/apps/app-components/changelog/
 title: Changelog - Apps inside Canva - Canva Developers SDK Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-21T13:55:18.374028+00:00
+fetched_at: 2026-11-09T20:12:20.446693+00:00
 ---
 
 # Changelog - Apps inside Canva - Canva Developers SDK Documentation
@@ -105,6 +105,25 @@ The latest changes to the App Components.
 
 Copy page
 
+## 2.9.0 - 2026-11-01
+
+### 🔧 Changed
+
+  * Dependencies audit bringing modules up to date:
+
+
+    
+    
+    react-router-dom                          7.18.2   ->   7.18.4
+
+Copy
+
+### 🐞 Fixed
+
+  * Fixed a list losing its first page(s) when it was refreshed (for example when the user comes back to a list that was loaded more than a minute ago, or searches the same text again). The first page handed to a list was stored with the continuation token of the _next_ page as its request param, so a refresh asked for page 2 instead of page 1, page 3 instead of page 2, and so on.
+
+
+
 ## 2.8.1 - 2026-10-05
 
 ### 🐞 Fixed
@@ -183,7 +202,7 @@ Copy page
 
   * Upgraded `@canva/app-ui-kit` to version `5.1.0`, see `@canva/app-ui-kit` changelogs [here⁠(opens in a new tab or window)](https://www.canva.dev/docs/apps/app-ui-kit/changelog/).
   * Upgraded `react` from `^19.0.0` to `^19.2.0`
-  * Upgraded `react-dom` from ``^19.0.0`to`^19.2.0`
+  * Upgraded `react-dom` from `^19.0.0` to `^19.2.0`
 
 
 
@@ -193,7 +212,7 @@ Copy page
 
   * Upgraded `@canva/app-ui-kit` to version 5, see `@canva/app-ui-kit` changelogs [here⁠(opens in a new tab or window)](https://www.canva.dev/docs/apps/app-ui-kit/changelog/).
   * Upgraded `react` from `^18.3.1` to `^19.0.0`
-  * Upgraded `react-dom` from ``^18.3.1`to`^19.0.0`
+  * Upgraded `react-dom` from `^18.3.1` to `^19.0.0`
   * Upgraded `react-intl` from `6.6.8` to `7.1.11`
   * Upgraded peer dependencies for use with `react` v19
 

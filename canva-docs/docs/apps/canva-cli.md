@@ -2,7 +2,7 @@
 url: https://www.canva.dev/docs/apps/canva-cli/
 title: Canva CLI - Canva Developers SDK Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-06T16:58:42.953877+00:00
+fetched_at: 2026-11-09T20:12:20.638687+00:00
 ---
 
 # Canva CLI - Canva Developers SDK Documentation
@@ -113,7 +113,7 @@ Copy
 
   3. In your browser, click **Allow** to grant the Canva CLI access to manage apps and work with your designs on your behalf. When you grant access, the Canva CLI generates an auth token and stores it locally. For more information on the auth token, read the following section on [auth token storage and removal](https://www.canva.dev/docs/apps/canva-cli/#log-out-auth-token-storage-and-removal).
 
-  4. Copy the confirmation code shown in your browser, and paste it into the Canva CLI input.
+  4. Follow the login instructions in the terminal. Local browser logins complete automatically; if the CLI uses manual mode, copy the confirmation code shown in your browser and paste it into the CLI.
 
 
 
@@ -385,7 +385,7 @@ Copy
 Setting `CANVA_CLI_PROFILE` picks a profile for a whole shell session, which is useful for scripts and agents:
     
     
-    CANVA_CLI_PROFILE=work canva apps list
+    CANVA_CLI_PROFILE=work canva apps list --print
 
 SHELL
 
@@ -572,7 +572,7 @@ SHELL
 Copy
 
   * **Arguments** : 
-    * `--name`: Sets the app's name. Provide the name you want for the app.
+    * `name`: Sets the app's name, for example `canva apps create "My New App"`.
   * **Flags** : 
     * `--template`: Specifies the starting template for the app. Templates are pre-built starter projects that demonstrate common use cases and best practices. For a complete list of available templates, see [App templates](https://www.canva.dev/docs/apps/app-templates/).
 
@@ -609,7 +609,7 @@ Available options:
 
 ##### list
 
-List all Canva apps.
+List your Canva apps, including apps using the Apps SDK, REST APIs, or MCP.
     
     
     canva apps list
@@ -617,6 +617,8 @@ List all Canva apps.
 SHELL
 
 Copy
+
+Use `canva apps list --print` in scripts or other non-interactive environments. Add `--all` to list every app without pagination.
 
   * **Flags** : 
     * `--app-id`: Specifies an App ID to select.
@@ -721,6 +723,8 @@ Copy
 
 The app is built the same way as [`canva apps build`](https://www.canva.dev/docs/apps/canva-cli/#build). The bundle and translations are then uploaded from the `outputDir` set in the canva-app config file, or from `dist/` for apps that don't use [`@canva/app-scripts`](https://www.canva.dev/docs/apps/canva-app-scripts/). To upload the output of a previous build instead, pass `--prebuilt`.
 
+Bundle uploads require at least one enrolled Inside Canva intent. Apps using only REST APIs or MCP don't need a bundle upload.
+
   * **Flags** :
 
     * `--app-id`: App ID to upload assets for. Defaults to the app linked in the current directory's `.env` file.
@@ -824,7 +828,17 @@ SHELL
 
 Copy
 
-App config here is expanding. As announced in [Integrations are becoming part of apps in the Developer Portal⁠(opens in a new tab or window)](https://community.canva.dev/t/integrations-are-becoming-part-of-apps-in-the-developer-portal-soon/8881), this CLI doesn't yet support REST API configuration for apps built with the Connect API. Support is coming soon, keep an eye on the [Canva Developers Community⁠(opens in a new tab or window)](https://community.canva.dev/) for follow-up announcements.
+The CLI supports Inside Canva configuration and Outside Canva settings in `canva-app.json`, including:
+
+  * `outside_canva.rest_api`: REST API enrollment, scopes, and return navigation.
+  * `outside_canva.mcp`: MCP enrollment.
+  * `outside_canva.redirect_urls`: OAuth redirect URLs shared by REST APIs and MCP.
+
+
+
+For REST API authentication, copy `CANVA_CLIENT_ID` and a generated `CANVA_CLIENT_SECRET` into your project's `.env` file from **Outside Canva → Configuration → .env file** in the [Developer Portal⁠(opens in a new tab or window)](https://www.canva.com/developers/apps). Config pull and push do not populate these credentials. See [REST API authentication](https://www.canva.dev/docs/apps/rest-apis/authentication/) for the OAuth setup steps.
+
+For `--strategy`, pull accepts `remote` and push accepts `local`; both accept `manual` to write conflict markers for editing. `--force` and `--strategy` cannot be combined.
 
 ###### pull
 
@@ -838,8 +852,8 @@ SHELL
 Copy
 
   * **Flags** : 
-    * `--force`: Automatically pull config regardless of conflicts.
-    * `--strategy`: Choose the resolution option for config conflicts - local, remote or manual
+    * `--force`, `-f`: Force pull the app config, overwriting any local changes
+    * `--strategy`: Preselect the resolution strategy for conflicts, allowing the command to run without user input
 
 
 
@@ -855,8 +869,8 @@ SHELL
 Copy
 
   * **Flags** : 
-    * `--force`: Automatically push config regardless of conflicts.
-    * `--strategy`: Choose the resolution option for config conflicts - local, remote or manual
+    * `--force`, `-f`: Force push the app config, overwriting any remote changes
+    * `--strategy`: Preselect the resolution strategy for conflicts, allowing the command to run without user input
 
 
 
@@ -887,17 +901,6 @@ Copy
     * `--force`: Write `.env` without confirmation.
 
 
-
-#### logout
-
-Log out and revoke Canva CLI access.
-    
-    
-    canva logout
-
-SHELL
-
-Copy
 
 ## Next Steps
 
