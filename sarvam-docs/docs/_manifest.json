@@ -12,20 +12,16 @@
     "ok": 1197,
     "fail": 0,
     "skipped_existing": 0,
-    "by_method": {
-      "scrapling+scrapegraph": 5
-    },
-    "by_host": {
-      "docs.sarvam.ai": 5
-    }
+    "by_method": {},
+    "by_host": {}
   },
-  "elapsed_sec": 8.5,
+  "elapsed_sec": 5.0,
   "out_root": "/data/opencode/crawled_docs/sarvam-docs/docs",
   "tools": [
     "scrapling (Fetcher)",
     "crawl4ai (AsyncWebCrawler fallback)",
     "scrapegraph-ai (cleanup_html/convert_to_md)"
   ],
-  "generated_at": "2026-11-08T06:30:46.600446+00:00",
-  "last_verified": "2026-11-08"
+  "generated_at": "2026-11-09T06:31:41.047384+00:00",
+  "last_verified": "2026-11-09"
 }
