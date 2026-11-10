@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/email-service/reference/headers/
 title: Email headers \u00b7 Cloudflare Email Service docs
 method: scrapling+scrapegraph
-fetched_at: 2026-11-05T09:11:13.174436+00:00
+fetched_at: 2026-11-10T09:28:49.361133+00:00
 ---
 
 # Email headers · Cloudflare Email Service docs
@@ -20,7 +20,7 @@ fetched_at: 2026-11-05T09:11:13.174436+00:00
 
 Which email headers you can set, which are auto-generated, and how they are validated
 
-Last updated Nov 4, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 9, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewPlatform-controlled headersAllowlisted custom headers Threading and reply headers List management headers Automated message identification Content and display Delivery and notification Modern standards One-time passcodes Custom X-headersUsage examplesHeader limitsValidation rulesError codes
 
@@ -85,15 +85,17 @@ Header | RFC | Notes
 
 Header | RFC | Notes  
 ---|---|---  
-`Auto-Submitted` | [RFC 3834 ↗︎](https://datatracker.ietf.org/doc/html/rfc3834) | Values: `auto-generated`, `auto-replied`, `auto-notified`  
+`Auto-Submitted` | [RFC 3834 ↗︎](https://datatracker.ietf.org/doc/html/rfc3834) | Values include `no`, `auto-generated`, `auto-replied`, and extension tokens.  
   
+[RFC 5436 ↗︎](https://datatracker.ietf.org/doc/html/rfc5436) defines `auto-notified` for Sieve notifications. This value requires an `owner-email` or `owner-token` parameter.
+
 ### Content and display
 
 Header | RFC | Notes  
 ---|---|---  
 `Content-Language` | [RFC 3282 ↗︎](https://datatracker.ietf.org/doc/html/rfc3282) | Language of content (for example, `en`, `fr`)  
 `Keywords` | [RFC 5322 ↗︎](https://datatracker.ietf.org/doc/html/rfc5322) | Message keywords (comma-separated for multiple values)  
-`Comments` | [RFC 5322 ↗︎](https://datatracker.ietf.org/doc/html/rfc5322) | Additional comments (comma-separated for multiple values)  
+`Comments` | [RFC 5322 ↗︎](https://datatracker.ietf.org/doc/html/rfc5322) | Free-form comments (unstructured text)  
 `Importance` | [RFC 2156 ↗︎](https://datatracker.ietf.org/doc/html/rfc2156) | Values: `high`, `normal`, `low`  
 `Priority` | [RFC 2156 ↗︎](https://datatracker.ietf.org/doc/html/rfc2156) | Values: `normal`, `non-urgent`, `urgent`  
 `Sensitivity` | [RFC 2156 ↗︎](https://datatracker.ietf.org/doc/html/rfc2156) | Values: `personal`, `private`, `company-confidential`  
@@ -103,9 +105,9 @@ Header | RFC | Notes
 
 Header | RFC | Notes  
 ---|---|---  
-`Require-Recipient-Valid-Since` | [RFC 7293 ↗︎](https://datatracker.ietf.org/doc/html/rfc7293) | Address reuse protection  
-`Expires` | [RFC 2156 ↗︎](https://datatracker.ietf.org/doc/html/rfc2156) | Date and time after which the message is no longer valid  
-`Reply-By` | [RFC 2156 ↗︎](https://datatracker.ietf.org/doc/html/rfc2156) | Date and time by which a reply is requested  
+`Require-Recipient-Valid-Since` | [RFC 7293 ↗︎](https://datatracker.ietf.org/doc/html/rfc7293) | Recipient address followed by `;` and an RFC 5322 `date-time`  
+`Expires` | [RFC 10080 ↗︎](https://datatracker.ietf.org/doc/html/rfc10080) | Expiration time in RFC 5322 `date-time` format  
+`Reply-By` | [RFC 2156 ↗︎](https://datatracker.ietf.org/doc/html/rfc2156) | Requested reply deadline in RFC 5322 `date-time` format  
   
 ### Modern standards
 
@@ -188,7 +190,7 @@ The total payload is calculated as `sum(len(name) + 2 + len(value) + 2)` for all
   2. **Header values** — UTF-8 allowed, maximum 2,048 bytes, no bare CR/LF. Empty values are rejected.
   3. **Case-insensitive matching** — Header names are matched case-insensitively per [RFC 5322 §2.2 ↗︎](https://datatracker.ietf.org/doc/html/rfc5322#section-2.2). The canonical casing from the allowlist is used in the generated message.
   4. **Proper line folding** — Long headers are folded at 78 characters per RFC 5322 using CRLF+WSP, not MIME encoding.
-  5. **Single occurrence** — The `headers` type is `{ [key]: string }`, so each header name can appear at most once. For headers that support multiple values (such as `Keywords` or `Comments`), use comma-separated values in a single string.
+  5. **Single occurrence** — The `headers` type is `{ [key]: string }`, so each header name can appear at most once. For headers that support multiple values (such as `Keywords`), use comma-separated values in a single string.
 
 
 

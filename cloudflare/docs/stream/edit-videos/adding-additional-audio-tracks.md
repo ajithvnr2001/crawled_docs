@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/stream/edit-videos/adding-additional-audio-tracks/
 title: Add additional audio tracks \u00b7 Cloudflare Stream docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:15:46.128304+00:00
+fetched_at: 2026-11-10T09:28:49.498724+00:00
 ---
 
 # Add additional audio tracks · Cloudflare Stream docs
@@ -18,7 +18,7 @@ fetched_at: 2026-10-08T07:15:46.128304+00:00
 
 # Add additional audio tracks
 
-Last updated Apr 21, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/stream/edit-videos/adding-additional-audio-tracks/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 9, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewUpload via a linkUpload via HTTPList the additional audio tracks on a videoEdit an additional audio trackDelete an additional audio track
 
@@ -47,7 +47,7 @@ Example response to add additional audio tracksjson
      "result": {
        "uid": "<AUDIO_UID>",
        "label": "Example Audio Label",
-       "default": false
+       "default": false,
        "status": "queued"
      },
      "success": true,
@@ -85,7 +85,7 @@ Example response to add Additional audio tracksjson
      "result": {
        "uid": "<AUDIO_UID>",
        "label": "Example Audio Label",
-       "default": false
+       "default": false,
        "status": "queued"
      },
      "success": true,
@@ -148,7 +148,7 @@ Example response to edit the audio tracks associated with a videojson
       "result": {
         "uid": "<AUDIO_UID>",
         "label": "Edited Audio Label",
-        "default": true
+        "default": true,
         "status": "ready"
       },
       "success": true,

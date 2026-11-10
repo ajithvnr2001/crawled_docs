@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/containers/guides/migrate-to-durable-object-scheduling-policy/
 title: Migrate to the Durable Object scheduling policy \u00b7 Cloudflare Containers docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-13T08:48:32.106122+00:00
+fetched_at: 2026-11-10T09:28:47.647073+00:00
 ---
 
 # Migrate to the Durable Object scheduling policy · Cloudflare Containers docs
@@ -18,7 +18,7 @@ fetched_at: 2026-10-13T08:48:32.106122+00:00
 
 # Migrate to the Durable Object scheduling policy
 
-Last updated Oct 12, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 9, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewBefore you beginConfiguration changes Instance size changesMove the applicationRelated resources
 
@@ -34,7 +34,7 @@ If the existing Durable Objects contain data, design an application-specific tra
 
 ## Before you begin
 
-  * **Replace the`Container` class.** The [`Container` class](https://developers.cloudflare.com/containers/api/container-class/) does not support the `durable_object` policy. If your existing class extends `Container`, the replacement class must use the [Durable Object Container API](https://developers.cloudflare.com/containers/api/durable-object-container/) directly. Rebuild any `Container` class helpers your application relies on, such as port readiness checks, request proxying, and sleep timeouts. Refer to [Migrate to the Durable Object Container API](https://developers.cloudflare.com/containers/guides/migrate-to-durable-object-container-api/).
+  * **Replace the`Container` class.** The `Container` class does not support the `durable_object` policy. If your existing class extends `Container`, the replacement class must use the [Durable Object Container API](https://developers.cloudflare.com/containers/api/durable-object-container/) directly. Rebuild any `Container` class helpers your application relies on, such as port readiness checks, request proxying, and sleep timeouts. Refer to [Migrate to the Durable Object Container API](https://developers.cloudflare.com/containers/guides/migrate-to-durable-object-container-api/).
   * **Check how the Worker declares Durable Object classes.** A Worker uses either the [`exports` field](https://developers.cloudflare.com/durable-objects/reference/durable-objects-migrations/) or the [legacy `migrations` array](https://developers.cloudflare.com/durable-objects/reference/durable-object-class-migrations-legacy/), not both. Declare the replacement class with the same mechanism the Worker already uses. Moving from `migrations` to `exports` cannot be undone. If you want to move, do it as a separate change. Refer to [Migrate from the legacy `migrations` flow](https://developers.cloudflare.com/durable-objects/reference/durable-objects-migrations/#migrate-from-the-legacy-migrations-flow).
   * **Move external images to the Cloudflare managed registry.** Named images with the `durable_object` policy must use a Dockerfile or a digest-pinned reference in the Cloudflare managed registry. If the existing `image` references Docker Hub, Amazon ECR, or Google Artifact Registry, [push the image to the Cloudflare managed registry](https://developers.cloudflare.com/containers/guides/image-management/#use-an-external-image) first.
 

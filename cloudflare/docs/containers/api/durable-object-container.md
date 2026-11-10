@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/containers/api/durable-object-container/
 title: Durable Object Container API \u00b7 Cloudflare Containers docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:10:33.582887+00:00
+fetched_at: 2026-11-10T09:28:49.197391+00:00
 ---
 
 # Durable Object Container API · Cloudflare Containers docs
@@ -18,7 +18,7 @@ fetched_at: 2026-10-08T07:10:33.582887+00:00
 
 # Durable Object Container API
 
-Last updated Sep 30, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/containers/api/durable-object-container/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 9, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewAttributes images  runningMethods start inspect exec snapshotContainer  destroy signal setInactivityTimeout getTcpPort monitor interceptOutboundHttp interceptAllOutboundHttp interceptOutboundHttpsRelated resources
 
@@ -28,7 +28,7 @@ The API documented on this page is available on `this.ctx.container` inside any 
 
 Note
 
-We recommend starting new applications with the Durable Object Container API. It lets you run container workloads alongside the Durable Object's persistent storage, alarms, and request handling. Use `ctx.container` to control when the container starts, receives traffic, and stops, while the Durable Object manages application state and coordination. For existing applications that use the `Container` class, refer to [Migrate to the Durable Object Container API](https://developers.cloudflare.com/containers/guides/migrate-to-durable-object-container-api/).
+For existing applications that use the `Container` class, refer to [Migrate from the Container class to the Durable Object Container API](https://developers.cloudflare.com/containers/guides/migrate-to-durable-object-container-api/).
 
 Your Durable Object also has access to [SQLite storage](https://developers.cloudflare.com/durable-objects/api/sqlite-storage-api/) through `this.ctx.storage`, [alarms](https://developers.cloudflare.com/durable-objects/api/alarms/), and all other Durable Object APIs. Use storage to preserve configuration and state across container restarts. Use alarms to schedule work without keeping the container running.
 
@@ -817,8 +817,6 @@ Hostname globs support `*` to match any sequence of characters.
 
 ## Related resources
 
-  * [Containers APIs](https://developers.cloudflare.com/containers/api/): Compare direct runtime control with the `Container` class.
-  * [Container class reference](https://developers.cloudflare.com/containers/api/container-class/): Reference for existing `Container` class applications.
   * [Containers overview](https://developers.cloudflare.com/containers/): Understand how Cloudflare Containers work.
   * [Get started with Containers](https://developers.cloudflare.com/containers/get-started/): Deploy your first container.
   * [SQLite storage API](https://developers.cloudflare.com/durable-objects/api/sqlite-storage-api/): Persist state across container restarts.
@@ -827,7 +825,7 @@ Hostname globs support `*` to match any sequence of characters.
 
 
 
-[PreviousOverview](https://developers.cloudflare.com/containers/api/)[NextContainer class](https://developers.cloudflare.com/containers/api/container-class/)
+[PreviousOverview](https://developers.cloudflare.com/containers/api/)[NextStateless instances](https://developers.cloudflare.com/containers/examples/stateless/)
 
 Was this helpful?
 

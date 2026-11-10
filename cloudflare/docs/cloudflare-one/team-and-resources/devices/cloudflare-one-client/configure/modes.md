@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/cloudflare-one/team-and-resources/devices/cloudflare-one-client/configure/modes/
 title: Client modes \u00b7 Cloudflare One docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-13T08:48:16.805475+00:00
+fetched_at: 2026-11-10T09:28:46.337871+00:00
 ---
 
 # Client modes · Cloudflare One docs
@@ -22,7 +22,7 @@ Team and resources[Devices](https://developers.cloudflare.com/cloudflare-one/tea
 
 # Client modes
 
-Last updated Oct 12, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 9, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewTraffic and DNS mode (default)DNS only modeTraffic only modeLocal proxy mode Set up Local proxy mode LimitationsPosture only modeModes comparisonRelated resources
 
@@ -106,7 +106,7 @@ To make more complex routing decisions (such as, routing traffic directly to the
 ### Limitations
 
   * Local proxy mode can only be used by applications/operating systems that support SOCKS5/HTTP proxy communication.
-  * Requires the MASQUE [device tunnel protocol](https://developers.cloudflare.com/cloudflare-one/team-and-resources/devices/cloudflare-one-client/configure/settings/#device-tunnel-protocol). Wireguard is not supported.
+  * Requires the MASQUE [device tunnel protocol](https://developers.cloudflare.com/cloudflare-one/team-and-resources/devices/cloudflare-one-client/configure/settings/#device-tunnel-protocol) over HTTP/3. WireGuard is not supported, and Local proxy mode does not work when MASQUE falls back to HTTP/2 over `TCP 443`. Devices must be able to reach the [MASQUE ingress IPs](https://developers.cloudflare.com/cloudflare-one/team-and-resources/devices/cloudflare-one-client/deployment/firewall/#masque) over UDP.
   * Only available on Windows, Linux, and macOS.
   * Local proxy mode has a timeout limit of 10 seconds for requests. If a request goes above the 10 second limit, Cloudflare will drop the connection.
 

@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/bots/concepts/feedback-loop/
 title: Bot Feedback Loop \u00b7 Cloudflare bot solutions docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:05:33.707816+00:00
+fetched_at: 2026-11-10T09:28:50.436096+00:00
 ---
 
 # Bot Feedback Loop · Cloudflare bot solutions docs
@@ -18,7 +18,7 @@ fetched_at: 2026-10-08T07:05:33.707816+00:00
 
 # Bot Feedback Loop
 
-Last updated Aug 3, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/bots/concepts/feedback-loop/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 9, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewAvailabilityFalse PositiveFalse Negative SubtypesSubmit a reportVia the API Create a feedback report List feedback reportsAPI Fields Expression fieldsRecommendations when submitting a reportRecommendations after submitting a false positiveRecommendations after submitting a false negative
 
@@ -188,7 +188,7 @@ Field | Type | Description | Value Example
     {
     	"topIPs": [
     		{
-    			"metric": "10.75.34.1"
+    			"metric": "10.75.34.1",
     			"requests": 100
     		}
     	],

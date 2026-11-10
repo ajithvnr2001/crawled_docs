@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/observability/traces/spans/
 title: Spans \u00b7 Cloudflare Observability docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-10T14:39:24.075457+00:00
+fetched_at: 2026-11-10T09:28:48.683843+00:00
 ---
 
 # Spans · Cloudflare Observability docs
@@ -18,7 +18,7 @@ fetched_at: 2026-10-10T14:39:24.075457+00:00
 
 # Spans
 
-Last updated Oct 9, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 9, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewSpan referenceRuleset phase spansWorkers runtime spansFeatures without spans
 
@@ -32,6 +32,7 @@ Span | What it covers | What its duration measures
 ---|---|---  
 `cloudflare_request` | Cloudflare's processing of an HTTP request. This is the root span for platform-level request processing. | Starts after tracing configuration and sampling are resolved. Includes the request processing, upstream, response delivery, and post-processing, but excludes processing before tracing is activated.  
 `response` | Response processing and delivery to the client. | Starts after an upstream or internally generated response becomes available. This includes the time spent to fully stream the response back to the client.  
+`markdown_conversion` | Streaming HTML-to-Markdown conversion by [Markdown for Agents](https://developers.cloudflare.com/fundamentals/reference/markdown-for-agents/#cloudflare-traces), as a child of `response`. Skipped conversions and `HEAD` responses do not emit this span. | Starts when the conversion body is constructed and ends when the stream is consumed, encounters a terminal error, or is dropped early. Includes origin body waits and downstream backpressure, not just converter CPU time. Completion does not guarantee delivery to the client.  
 `workers_routing` | The decision to match, skip, or reject a Workers route or custom domain. A `skipped` means a skip or disabled route matched. Requests that are not eligible for Workers routing do not emit this span. | Includes the time to evaluate the routes/custom domains that might match the request. Does not include the time executing the Worker.  
 `page_rules` | One evaluation of a configured Page Rules set. | Includes the time to evaluate the Page Rules. It does not include applying those actions to the request.  
 `cache` | Getting a response from Cloudflare's cache, fetching or revalidating it when needed. | On a cache hit, includes reading and transferring the cached response. If Cloudflare needs to fetch or revalidate the response, that time is included too, including waiting for another request already filling the cache. **Includes the full response body, not just the cache lookup.**  

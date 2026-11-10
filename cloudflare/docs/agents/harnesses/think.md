@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/agents/harnesses/think/
 title: Think \u00b7 Cloudflare Agents docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-30T08:19:21.455097+00:00
+fetched_at: 2026-11-10T09:28:46.205706+00:00
 ---
 
 # Think · Cloudflare Agents docs
@@ -18,7 +18,7 @@ fetched_at: 2026-10-30T08:19:21.455097+00:00
 
 # Think
 
-Last updated Oct 29, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 9, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewQuick start Install Server Client Configuration TracingThink vs AIChatAgent When to use AIChatAgent When to use ThinkChoose a turn API runTurn() Pick a shortcut Add messages without a turnIn this sectionAcknowledgmentsExampleRelated
 
@@ -79,9 +79,7 @@ Think supports AI SDK v6 and v7. Use `ai@^6` with `@ai-sdk/react@^3`, or use `ai
     
     export class MyAgent extends Think<Env> {
     	getModel() {
-    		return createAI({ binding: this.env.AI })(
-    			"@cf/moonshotai/kimi-k2.6",
-    		);
+    		return createAI({ binding: this.env.AI })("@cf/moonshotai/kimi-k2.6");
     	}
     }
     
@@ -174,7 +172,7 @@ That is it. Think handles the WebSocket chat protocol, message persistence, the 
     {
       "$schema": "./node_modules/wrangler/config-schema.json",
       // Set this to today's date
-      "compatibility_date": "2026-10-30",
+      "compatibility_date": "2026-11-10",
       "compatibility_flags": [
         "nodejs_compat"
       ],
@@ -201,7 +199,7 @@ That is it. Think handles the WebSocket chat protocol, message persistence, the 
     
     
     # Set this to today's date
-    compatibility_date = "2026-10-30"
+    compatibility_date = "2026-11-10"
     compatibility_flags = ["nodejs_compat"]
     
     [ai]
@@ -516,7 +514,7 @@ Explore a multi-session Think assistant with sub-agent routing, shared workspace
 
 
 
-[PreviousOpenCode](https://developers.cloudflare.com/agents/harnesses/opencode/)[NextGetting started](https://developers.cloudflare.com/agents/harnesses/think/getting-started/)
+[PreviousNanocode](https://developers.cloudflare.com/agents/harnesses/nanocode/)[NextGetting started](https://developers.cloudflare.com/agents/harnesses/think/getting-started/)
 
 Was this helpful?
 

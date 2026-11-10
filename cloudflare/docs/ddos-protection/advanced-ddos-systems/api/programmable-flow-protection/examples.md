@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/ddos-protection/advanced-ddos-systems/api/programmable-flow-protection/examples/
 title: Common API calls \u00b7 Cloudflare DDoS Protection docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T16:40:06.080227+00:00
+fetched_at: 2026-11-10T09:28:47.041613+00:00
 ---
 
 # Common API calls · Cloudflare DDoS Protection docs
@@ -22,9 +22,9 @@ Advanced DDoS systemsAPI configuration
 
 # Common API calls
 
-Last updated Oct 21, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/ddos-protection/advanced-ddos-systems/api/programmable-flow-protection/examples/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 9, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
-OverviewList all programsUpload a programUpdate a programDelete a programList all rulesCreate a ruleCreate a rule with regional scopeUpdate a ruleDelete a ruleDebug a program with PCAP
+OverviewList all programsUpload a programUpdate a programDelete a programList all rulesCreate a ruleCreate a rule with regional scopeUpdate a ruleDelete a ruleDebug a program with PCAPGet parametersReplace parametersReplace parameters with an IPv6 mapReplace parameters with large u64 valuesClear parameters
 
 The following sections contain example requests for common API calls. For a list of available API endpoints, refer to [Endpoints](https://developers.cloudflare.com/ddos-protection/advanced-ddos-systems/api/programmable-flow-protection/#endpoints).
 
@@ -350,6 +350,132 @@ The output PCAP file contains the same packets as the input file, but with annot
   * `Challenge packet`: the challenge packet emitted from the program back to the client, if any
 
 
+
+## Get parameters
+
+This example fetches the account's parameter maps.
+
+Requestbash
+    
+    
+    curl "https://api.cloudflare.com/client/v4/accounts/{account_id}/magic/programmable_flow_protection/configs/parameters" \
+    --header "Authorization: Bearer <API_TOKEN>"
+
+Responsejson
+    
+    
+    {
+      "result": {
+        "params": {
+          "source_policy": {
+            "id": 0,
+            "type": "map",
+            "key": "ipv4",
+            "value": "u8",
+            "entries": {
+              "192.0.2.1": 1,
+              "198.51.100.7": 2
+            }
+          }
+        }
+      },
+      "success": true,
+      "errors": [],
+      "messages": []
+    }
+
+## Replace parameters
+
+This example replaces all of the account's parameter maps with a single IPv4 map. The response contains the saved maps.
+
+Requestbash
+    
+    
+    curl --request PUT \
+    "https://api.cloudflare.com/client/v4/accounts/{account_id}/magic/programmable_flow_protection/configs/parameters" \
+    --header "Authorization: Bearer <API_TOKEN>" \
+    --header "Content-Type: application/json" \
+    --data '{
+      "params": {
+        "source_policy": {
+          "id": 0,
+          "type": "map",
+          "key": "ipv4",
+          "value": "u8",
+          "entries": {
+            "192.0.2.1": 1,
+            "198.51.100.7": 2
+          }
+        }
+      }
+    }'
+
+## Replace parameters with an IPv6 map
+
+This example uses an IPv6 map with `u16` values.
+
+Requestbash
+    
+    
+    curl --request PUT \
+    "https://api.cloudflare.com/client/v4/accounts/{account_id}/magic/programmable_flow_protection/configs/parameters" \
+    --header "Authorization: Bearer <API_TOKEN>" \
+    --header "Content-Type: application/json" \
+    --data '{
+      "params": {
+        "ipv6_policy": {
+          "id": 0,
+          "type": "map",
+          "key": "ipv6",
+          "value": "u16",
+          "entries": {
+            "2001:db8::1": 1,
+            "2001:db8:1::5": 443
+          }
+        }
+      }
+    }'
+
+## Replace parameters with large u64 values
+
+This example writes `u64` values above `9007199254740991` as strings so that JSON libraries do not round them.
+
+Requestbash
+    
+    
+    curl --request PUT \
+    "https://api.cloudflare.com/client/v4/accounts/{account_id}/magic/programmable_flow_protection/configs/parameters" \
+    --header "Authorization: Bearer <API_TOKEN>" \
+    --header "Content-Type: application/json" \
+    --data '{
+      "params": {
+        "client_tokens": {
+          "id": 0,
+          "type": "map",
+          "key": "ipv4",
+          "value": "u64",
+          "entries": {
+            "192.0.2.1": 42,
+            "192.0.2.2": "18446744073709551615"
+          }
+        }
+      }
+    }'
+
+## Clear parameters
+
+This example removes all of the account's parameter maps.
+
+Requestbash
+    
+    
+    curl --request PUT \
+    "https://api.cloudflare.com/client/v4/accounts/{account_id}/magic/programmable_flow_protection/configs/parameters" \
+    --header "Authorization: Bearer <API_TOKEN>" \
+    --header "Content-Type: application/json" \
+    --data '{
+      "params": {}
+    }'
 
 [PreviousConfigure via the API](https://developers.cloudflare.com/ddos-protection/advanced-ddos-systems/api/programmable-flow-protection/)[NextJSON objects](https://developers.cloudflare.com/ddos-protection/advanced-ddos-systems/api/programmable-flow-protection/json-objects/)
 

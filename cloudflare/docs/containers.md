@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/containers/
 title: Overview \u00b7 Cloudflare Containers docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-13T08:48:32.735626+00:00
+fetched_at: 2026-11-10T09:28:48.835010+00:00
 ---
 
 # Overview · Cloudflare Containers docs
@@ -16,7 +16,7 @@ fetched_at: 2026-10-13T08:48:32.735626+00:00
 
 # Containers
 
-Last updated Oct 12, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 9, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewNext stepsMore resources
 
@@ -192,7 +192,7 @@ src/utils.tsts
     	"main": "src/index.ts",
     	"upload_source_maps": true,
     	// Set this to today's date
-    	"compatibility_date": "2026-10-13",
+    	"compatibility_date": "2026-11-10",
     	"containers": [
     		{
     			"class_name": "MyContainer",
@@ -221,7 +221,7 @@ src/utils.tsts
     main = "src/index.ts"
     upload_source_maps = true
     # Set this to today's date
-    compatibility_date = "2026-10-13"
+    compatibility_date = "2026-11-10"
     
     [[containers]]
     class_name = "MyContainer"
@@ -296,7 +296,7 @@ CLI commands for images and containers.
 
 ### [APIs](https://developers.cloudflare.com/containers/api/)
 
-Use the Durable Object Container API or reference the Container class.
+Control containers from a Durable Object with `ctx.container`.
 
 ### [SSH](https://developers.cloudflare.com/containers/guides/ssh/)
 

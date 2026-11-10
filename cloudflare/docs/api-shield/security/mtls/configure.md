@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/api-shield/security/mtls/configure/
 title: Configure mTLS \u00b7 Cloudflare API Shield docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:05:19.602341+00:00
+fetched_at: 2026-11-10T09:28:49.255111+00:00
 ---
 
 # Configure mTLS · Cloudflare API Shield docs
@@ -22,7 +22,7 @@ fetched_at: 2026-10-08T07:05:19.602341+00:00
 
 # Configure mTLS
 
-Last updated Sep 29, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/api-shield/security/mtls/configure/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 9, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewPrerequisitesCreate an mTLS rule via the Cloudflare dashboard Expression Builder Check for revoked certificates
 
@@ -32,7 +32,6 @@ When you configure [mTLS authentication](https://developers.cloudflare.com/api-s
 
 Before you can protect your API or web application with mTLS rules, you need to:
 
-  * Check that the certificate installed on your origin server matches the hostname of the client certificate, for example `api.example.com`. Origin server wildcard certificates such as `*.example.com` are not supported.
   * [Create a client certificate](https://developers.cloudflare.com/ssl/client-certificates/create-a-client-certificate/).
   * [Configure your mobile app or IoT device](https://developers.cloudflare.com/ssl/client-certificates/configure-your-mobile-app-or-iot-device/) to use your Cloudflare-issued client certificate.
   * [Enable mutual Transport Layer Security (mTLS) for a host](https://developers.cloudflare.com/ssl/client-certificates/enable-mtls/) in your zone.

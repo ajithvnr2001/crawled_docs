@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/agents/harnesses/opencode/
 title: OpenCode \u00b7 Cloudflare Agents docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-30T08:19:21.814948+00:00
+fetched_at: 2026-11-10T09:28:50.364645+00:00
 ---
 
 # OpenCode · Cloudflare Agents docs
@@ -18,7 +18,7 @@ fetched_at: 2026-10-30T08:19:21.814948+00:00
 
 # OpenCode
 
-Last updated Oct 29, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 9, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewHow it worksInstallUse it in a Durable ObjectChoose a modelSend promptsWork with sessionsStream events to clientsAdd pluginsConnect an MCP serverAdd an Agent Skill
 
@@ -89,7 +89,7 @@ Add the `AI` binding, a SQLite-backed Durable Object, and `nodejs_compat` to you
     	"name": "opencode-agent",
     	"main": "src/index.ts",
     	// Set this to today's date
-    	"compatibility_date": "2026-10-30",
+    	"compatibility_date": "2026-11-10",
     	"compatibility_flags": ["nodejs_compat"],
     	"ai": { "binding": "AI", "remote": true },
     	"durable_objects": {
@@ -102,7 +102,7 @@ Add the `AI` binding, a SQLite-backed Durable Object, and `nodejs_compat` to you
     name = "opencode-agent"
     main = "src/index.ts"
     # Set this to today's date
-    compatibility_date = "2026-10-30"
+    compatibility_date = "2026-11-10"
     compatibility_flags = [ "nodejs_compat" ]
     
     [ai]
@@ -489,7 +489,7 @@ src/review-skill.tsts
 
 Import this plugin and add it to `plugins`. The `content` supplies instructions without reading a local file at runtime. Refer to [OpenCode skills ↗︎](https://opencode.ai/v2/docs/build/plugins/#skills) for registration and [Agent Skills](https://developers.cloudflare.com/agents/skills/) for authoring guidance.
 
-[PreviousExtensions](https://developers.cloudflare.com/agents/harnesses/pi/extensions/)[NextOverview](https://developers.cloudflare.com/agents/harnesses/think/)
+[PreviousExtensions](https://developers.cloudflare.com/agents/harnesses/pi/extensions/)[NextNanocode](https://developers.cloudflare.com/agents/harnesses/nanocode/)
 
 Was this helpful?
 

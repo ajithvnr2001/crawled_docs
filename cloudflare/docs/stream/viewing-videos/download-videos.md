@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/stream/viewing-videos/download-videos/
 title: Download video or audio \u00b7 Cloudflare Stream docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-13T08:48:29.795136+00:00
+fetched_at: 2026-11-10T09:28:49.650994+00:00
 ---
 
 # Download video or audio · Cloudflare Stream docs
@@ -18,7 +18,7 @@ fetched_at: 2026-10-13T08:48:29.795136+00:00
 
 # Download video or audio
 
-Last updated Oct 12, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 9, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewGenerate downloadable MP4 filesGenerate downloadable M4A filesGet download linksCustomize download file nameRetrieve downloadsDelete downloadsSecure video downloadsBilling for MP4 downloads
 
@@ -195,7 +195,7 @@ Responsejson
     			"status": "ready",
     			"url": "https://customer-<CODE>.cloudflarestream.com/<VIDEO_UID>/downloads/audio.m4a",
     			"percentComplete": 100.0
-    		}
+    		},
     		"default": {
     			"status": "ready",
     			"url": "https://customer-<CODE>.cloudflarestream.com/<VIDEO_UID>/downloads/default.mp4",

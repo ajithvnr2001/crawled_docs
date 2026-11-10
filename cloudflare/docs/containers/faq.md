@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/containers/faq/
 title: Frequently Asked Questions \u00b7 Cloudflare Containers docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:10:35.265776+00:00
+fetched_at: 2026-11-10T09:28:47.857832+00:00
 ---
 
 # Frequently Asked Questions · Cloudflare Containers docs
@@ -17,7 +17,7 @@ fetched_at: 2026-10-08T07:10:35.265776+00:00
 
 # Frequently Asked Questions
 
-Last updated Oct 5, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/containers/faq/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 9, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewHow do Container logs work?How are container instance locations selected?How do container updates and rollouts work?How do Workers Builds work with Containers?How does scaling work? Is built-in autoscaling for stateless applications available?What are cold starts? How fast are they?How do I use an existing container image?Is disk persistent? What happens to my disk when my container sleeps?What happens if I run out of memory?How long can instances run for? What happens when a host server is shut down?How can I pass secrets to my container?Can I run Docker inside a container (Docker-in-Docker)?How do I allow or disallow egress from my container?
 
@@ -98,7 +98,7 @@ On the production branch, Workers Builds should run `wrangler deploy` so images 
 
 ## How does scaling work?
 
-Containers scale by creating or addressing specific instances. For stateless routing across a fixed number of interchangeable instances, use the `getRandom` helper.
+Containers scale by creating or addressing specific instances. For stateless routing across a fixed number of interchangeable instances, choose an instance name at random from a fixed pool.
 
 Refer to [scaling and routing](https://developers.cloudflare.com/containers/configuration/scaling-and-routing/) for details.
 
@@ -106,7 +106,7 @@ Refer to [scaling and routing](https://developers.cloudflare.com/containers/conf
 
 Not today, though Cloudflare plans to add built-in autoscaling in a future release.
 
-Until then, use `getRandom` for simple stateless routing and specific instance IDs when you need explicit control over container lifecycle.
+Until then, route to a random instance from a fixed pool for simple stateless routing, and use specific instance names when you need explicit control over container lifecycle.
 
 ## What are cold starts? How fast are they?
 
@@ -138,7 +138,7 @@ Containers do not use swap memory.
 
 ## How long can instances run for? What happens when a host server is shut down?
 
-Cloudflare does not stop a container instance after a fixed maximum runtime. With the Durable Object Container API, call [`setInactivityTimeout()`](https://developers.cloudflare.com/containers/api/durable-object-container/#setinactivitytimeout) to stop an inactive container. The `Container` class sets [`sleepAfter`](https://developers.cloudflare.com/containers/api/container-class/#sleepafter) to 10 minutes by default. Its [`onActivityExpired()`](https://developers.cloudflare.com/containers/api/container-class/#onactivityexpired) implementation signals the container to stop after that period without activity. You can change the duration or override the hook.
+Cloudflare does not stop a container instance after a fixed maximum runtime. Call [`setInactivityTimeout()`](https://developers.cloudflare.com/containers/api/durable-object-container/#setinactivitytimeout) to stop an inactive container.
 
 Another platform event can stop an active container. For example, a host server restart happens on an irregular cadence. Cloudflare does not guarantee that any container instance will run for a set period.
 

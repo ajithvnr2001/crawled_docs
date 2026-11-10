@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/realtime/realtimekit/recording-guide/configure-audio-codec/
 title: Set Audio Configurations \u00b7 Cloudflare Realtime docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:13:06.818447+00:00
+fetched_at: 2026-11-10T09:28:50.150058+00:00
 ---
 
 # Set Audio Configurations · Cloudflare Realtime docs
@@ -22,7 +22,7 @@ fetched_at: 2026-10-08T07:13:06.818447+00:00
 
 # Set Audio Configurations
 
-Last updated Apr 21, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/realtime/realtimekit/recording-guide/configure-audio-codec/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 9, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewCodecChannelDownload Audio Files
 
@@ -55,7 +55,7 @@ You can modify the configs by specifying it in the `audio_config` field in the [
     
     {
       "audio_config": {
-        "codec": "AAC"
+        "codec": "AAC",
         "channel": "stereo"
       }
     }

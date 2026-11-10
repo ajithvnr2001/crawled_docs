@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/ddos-protection/advanced-ddos-systems/api/programmable-flow-protection/
 title: Configure Programmable Flow Protection via API \u00b7 Cloudflare DDoS Protection docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T16:40:05.906282+00:00
+fetched_at: 2026-11-10T09:28:46.398228+00:00
 ---
 
 # Configure Programmable Flow Protection via API · Cloudflare DDoS Protection docs
@@ -22,9 +22,9 @@ Advanced DDoS systems
 
 # Programmable Flow Protection
 
-Last updated Oct 21, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/ddos-protection/advanced-ddos-systems/api/programmable-flow-protection/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 9, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
-OverviewEndpointsProgram versions Program operations Rule operations Debug operationsPagination
+OverviewEndpointsProgram versions Program operations Rule operations Debug operations Parameter operationsPagination
 
 Use the [Cloudflare API](https://developers.cloudflare.com/api/) to configure Programmable Flow Protection.
 
@@ -77,6 +77,23 @@ Operation | Method and endpoint / Description
 ---|---  
 Debug with PCAP | `POST accounts/{account_id}/magic/programmable_flow_protection/configs/programs/{program_id}/pcap`Runs a program against a PCAP file and returns an annotated PCAP with program verdicts.  
   
+### Parameter operations
+
+Operation | Method and endpoint / Description  
+---|---  
+Get parameters | `GET accounts/{account_id}/magic/programmable_flow_protection/configs/parameters`Fetches the account's [parameter maps](https://developers.cloudflare.com/ddos-protection/advanced-ddos-systems/api/programmable-flow-protection/json-objects/#parameters).  
+Replace parameters | `PUT accounts/{account_id}/magic/programmable_flow_protection/configs/parameters`Replaces all of the account's parameter maps. To remove all maps, send `{"params": {}}`.  
+  
+A `PUT` request replaces all maps. To change a single entry, get the current maps, edit them, and send the complete document back. If any part of the document is invalid, the request fails and the existing maps stay active.
+
+#### Limits
+
+  * Your account's allocation sets the maximum number of maps and the maximum document size. Contact your account team to change your allocation.
+  * Request bodies cannot exceed 32 MiB.
+  * You can replace the maps at most once per second. Faster requests return `429` with a `Retry-After` header.
+
+
+
 ## Pagination
 
 The API operations that return a list of items use pagination. For more information on the available pagination query parameters, refer to [Pagination](https://developers.cloudflare.com/fundamentals/api/how-to/make-api-calls/#pagination).

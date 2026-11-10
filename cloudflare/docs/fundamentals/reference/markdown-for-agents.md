@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/fundamentals/reference/markdown-for-agents/
 title: Markdown for Agents \u00b7 Cloudflare Fundamentals docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-10T13:55:56.334055+00:00
+fetched_at: 2026-11-10T09:28:48.943949+00:00
 ---
 
 # Markdown for Agents · Cloudflare Fundamentals docs
@@ -18,9 +18,9 @@ fetched_at: 2026-10-10T13:55:56.334055+00:00
 
 # Markdown for Agents
 
-Last updated Oct 9, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/fundamentals/reference/markdown-for-agents/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 9, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
-OverviewWhat is Markdown for AgentsHow to use Response headers Content Signals PolicyOutput format YAML frontmatter JSON-LDHow to enable Enable for specific subdomains or paths Enable for specific subdomains or paths Enable for all custom hostnames Enable for specific custom hostnamesAvailability and PricingTry it with CloudflareLimitationsOther Markdown conversion APIs
+OverviewWhat is Markdown for AgentsHow to use Response headers Content Signals PolicyOutput format YAML frontmatter JSON-LDHow to enable Enable for specific subdomains or paths Enable for specific subdomains or paths Enable for all custom hostnames Enable for specific custom hostnamesAnalytics Dashboard GraphQL Analytics API Interpret analyticsCloudflare TracesAvailability and PricingTry it with CloudflareLimitationsOther Markdown conversion APIs
 
 ## What is Markdown for Agents
 
@@ -170,10 +170,11 @@ Example output:
 
 To enable Markdown for Agents for your zone in the dashboard:
 
-  1. Log into the [Cloudflare dashboard ↗︎](https://dash.cloudflare.com/) and select your account (you need a Pro or Business plan).
-  2. Select the zone you want to configure.
-  3. Visit the [AI Crawl Control ↗︎](https://dash.cloudflare.com/?to=/:account/:zone/ai) section.
-  4. Enable **Markdown for Agents**.
+  1. In the Cloudflare dashboard, select your zone and go to **Agent Readiness** > **Markdown for Agents**.
+
+[ Go to **Markdown for Agents** ↗ ](https://dash.cloudflare.com/?to=/:account/:zone/agent-readiness/markdown-for-agents)
+  2. Turn on **Serve Markdown to AI agents**. You need permission to edit zone settings and a [supported plan](https://developers.cloudflare.com/fundamentals/reference/markdown-for-agents/#availability-and-pricing).
+
 
 
 
@@ -280,6 +281,140 @@ Create a Configuration Rule on your SaaS zone that matches custom hostnames with
       }'
 
 This will enable the feature on custom hostnames that have the `content_converter` custom metadata tag set.
+
+## Analytics
+
+Use the dashboard or the [GraphQL Analytics API](https://developers.cloudflare.com/analytics/graphql-api/) to monitor conversions, estimate token savings, and diagnose partial or failed conversions.
+
+### Dashboard
+
+In the Cloudflare dashboard, select your zone and go to **Agent Readiness** > **Markdown for Agents**.
+
+[ Go to **Markdown for Agents** ↗ ](https://dash.cloudflare.com/?to=/:account/:zone/agent-readiness/markdown-for-agents)
+
+Use the hostname selector and time range to narrow analytics and logs. The page provides **Analytics** , **Logs** , and **Playground** tabs.
+
+#### Analytics
+
+The **Analytics** tab shows conversion attempts, full conversion rate, estimated token reduction, partial conversions, and unfinished or failed conversions.
+
+![Markdown for Agents dashboard showing conversion totals, full conversion rate, estimated token reduction, and conversions over time.](https://developers.cloudflare.com/cdn-cgi/image/onerror=redirect,width=1994,height=1630,format=webp/_astro/markdown-for-agents-analytics.wcnfC5mw.png)
+
+Use the charts and breakdowns to inspect conversions:
+
+  * **Conversions over time**
+  * **Top converted pages**
+  * **Top user agents**
+  * **Failure reasons**
+  * **Content limits**
+  * **Top pages not converted**
+
+
+
+**Top pages not converted** includes pages with partial or failed conversions. **Content limits** identifies conversions with truncated input, omitted front matter, or omitted JSON-LD. A conversion can reach more than one limit.
+
+#### Logs
+
+The **Logs** tab shows sampled conversion events with page URLs, user agents, outcomes, failure reasons, and content limits. Filter by outcome, failure reason, or content limit to investigate issues.
+
+Each row represents an estimated request count, not necessarily one request.
+
+#### Playground
+
+The **Playground** tab tests a path with `Accept: text/markdown` and compares the response with HTML. Inspect Markdown, a rendered preview, response headers, and estimated token reduction.
+
+Playground uses the selected hostname, or the zone apex when **All hostnames** is selected. If your browser cannot read the response because of cross-origin resource sharing (CORS) restrictions or a network error, use the provided `curl` command.
+
+### GraphQL Analytics API
+
+Query the `markdownForAgentsAdaptiveGroups` dataset under `viewer.zones` for one zone or `viewer.accounts` for an account. Use an [API token with Analytics Read access](https://developers.cloudflare.com/analytics/graphql-api/getting-started/authentication/api-token-auth/) scoped to the resources you query.
+
+The dataset is available on all plans. Analytics access does not turn on conversion or change conversion availability.
+
+Queries cover up to seven days of history, with a maximum seven-day query window and 1,000 groups per dataset query.
+
+For example, this query returns conversion totals and the top pages by estimated conversion attempts for a zone:
+    
+    
+    query MarkdownForAgents($zoneTag: string, $start: Time, $end: Time) {
+    	viewer {
+    		zones(filter: { zoneTag: $zoneTag }) {
+    			totals: markdownForAgentsAdaptiveGroups(
+    				limit: 1
+    				filter: { datetime_geq: $start, datetime_lt: $end }
+    			) {
+    				count
+    				sum {
+    					fullRequests
+    					partialRequests
+    					completedUnknownRequests
+    					failedRequests
+    					unfinishedRequests
+    					savingsInputTokens
+    					savingsOutputTokens
+    					estimatedTokensSaved
+    				}
+    			}
+    			pages: markdownForAgentsAdaptiveGroups(
+    				limit: 10
+    				filter: { datetime_geq: $start, datetime_lt: $end }
+    				orderBy: [count_DESC]
+    			) {
+    				count
+    				dimensions {
+    					pageUrl
+    				}
+    			}
+    		}
+    	}
+    }
+
+Set `zoneTag` to your zone ID. Set `start` and `end` to UTC timestamps within the last seven days. For instructions on submitting the query and variables, refer to [Querying basics](https://developers.cloudflare.com/analytics/graphql-api/getting-started/querying-basics/).
+
+Group or filter results with dimensions such as `hostname`, `pageUrl`, `userAgent`, `outcome`, and `errorCode`. The `inputStatus`, `frontmatterStatus`, and `jsonLdStatus` dimensions identify content limits. Account-scoped queries also support the `zoneTag` dimension.
+
+### Interpret analytics
+
+Analytics and logs use sampled conversion attempts. Counts and token sums are sample-weighted estimates, excluding skipped requests and some early cancellations.
+
+User agents are client-supplied strings, not verified bot identities. Page URLs exclude query strings, fragments, and credentials.
+
+Conversion outcomes distinguish the following results:
+
+Outcome | Meaning  
+---|---  
+`full` | Conversion completed with all content-limit flags known to be false. This does not mean lossless HTML preservation.  
+`partial` | Conversion completed, but a content limit truncated the input or omitted front matter or JSON-LD.  
+`completed_unknown` | Conversion completed, but limit information cannot establish whether output was full or partial.  
+`error` | Conversion ended with a terminal error. Inspect `errorCode` for the failure reason.  
+`unfinished` | The stream did not reach a terminal conversion outcome. The cause is unknown.  
+  
+Token estimates use bytes divided by four, rounded down, rather than a tokenizer. Savings include only full conversions with a positive input token estimate.
+
+Partial, failed, unfinished, and unverified conversions do not contribute to savings. `estimatedTokensSaved` is signed: Markdown larger than its HTML input contributes a negative value.
+
+Calculate token reduction as `1 - savingsOutputTokens / savingsInputTokens` when `savingsInputTokens` is greater than zero. Completion and output token estimates do not prove delivery to the client.
+
+## Cloudflare Traces
+
+[Cloudflare Traces](https://developers.cloudflare.com/observability/traces/) records Markdown conversion within the request timeline. When tracing is enabled and a request is sampled, a streaming conversion adds a `markdown_conversion` span under `response`. Skipped conversions and `HEAD` responses do not create this span.
+
+To capture and inspect conversions, [configure tracing for your domain](https://developers.cloudflare.com/observability/traces/configuration/), then [find a trace](https://developers.cloudflare.com/observability/traces/#inspect-a-trace) by Ray ID. Expand `response` and select `markdown_conversion` to inspect its attributes:
+
+Attribute | Meaning  
+---|---  
+`cloudflare.markdown.outcome` | `completed`, `completed_partial`, or a conversion error code, including `unfinished` for streams without a terminal outcome.  
+`cloudflare.markdown.input_bytes` | Decompressed HTML bytes queued for conversion, capped at the input limit.  
+`cloudflare.markdown.output_bytes` | Markdown bytes emitted by the converter, not necessarily delivered to the client.  
+`cloudflare.markdown.cpu_time_us` | Approximate converter CPU time, in microseconds.  
+`cloudflare.markdown.longest_slice_us` | Longest converter processing slice, in microseconds.  
+`cloudflare.markdown.input_truncated` | Whether a content limit truncated the HTML input.  
+`cloudflare.markdown.frontmatter_omitted` | Whether a content limit omitted front matter.  
+`cloudflare.markdown.jsonld_omitted` | Whether a content limit omitted JSON-LD.  
+  
+Span duration includes waits for the origin body and downstream backpressure. It is not converter CPU time, and a completed conversion does not guarantee delivery to the client.
+
+Content-limit flags are omitted for panicked or unfinished conversions because their final state is unknown. The span does not capture HTML or Markdown content.
 
 ## Availability and Pricing
 

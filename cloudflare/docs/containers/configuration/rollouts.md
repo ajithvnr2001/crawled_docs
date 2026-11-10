@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/containers/configuration/rollouts/
 title: Rollouts \u00b7 Cloudflare Containers docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:10:33.971816+00:00
+fetched_at: 2026-11-10T09:28:48.381939+00:00
 ---
 
 # Rollouts · Cloudflare Containers docs
@@ -18,7 +18,7 @@ fetched_at: 2026-10-08T07:10:33.971816+00:00
 
 # Rollouts
 
-Last updated Sep 30, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/containers/configuration/rollouts/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 9, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewHow rollouts workDefaultsGradual rolloutsHow a container instance is replaced Requests while a container instance startsRollout active grace periodRollout modes Immediate NoneExample configurationRelated
 
@@ -73,8 +73,7 @@ When the rollout selects a container instance to update:
   2. **Signal stop.** The platform sends `SIGTERM` to the main process in the container so it can stop accepting new work and finish in-flight work. Handle `SIGTERM` in your image if that process needs cleanup before exit.
   3. **Drain.** The process has up to 15 minutes to exit after `SIGTERM`.
   4. **Force stop if needed.** If the process is still running after 15 minutes, the platform sends `SIGKILL`.
-  5. **After exit.** The Container class [`onStop`](https://developers.cloudflare.com/containers/api/container-class/#onstop) hook can run in the Worker once the container process has exited.
-  6. **Start a new container instance** with the target image. Disk is [ephemeral](https://developers.cloudflare.com/containers/faq/#is-disk-persistent-what-happens-to-my-disk-when-my-container-sleeps) unless you store data outside the container filesystem.
+  5. **Start a new container instance** with the target image. Disk is [ephemeral](https://developers.cloudflare.com/containers/faq/#is-disk-persistent-what-happens-to-my-disk-when-my-container-sleeps) unless you store data outside the container filesystem.
 
 
 

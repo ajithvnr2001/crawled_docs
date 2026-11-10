@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/containers/configuration/environment-variables/
 title: Environment Variables \u00b7 Cloudflare Containers docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:10:33.819176+00:00
+fetched_at: 2026-11-10T09:28:48.503769+00:00
 ---
 
 # Environment Variables · Cloudflare Containers docs
@@ -18,7 +18,7 @@ fetched_at: 2026-10-08T07:10:33.819176+00:00
 
 # Environment Variables
 
-Last updated Sep 29, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/containers/configuration/environment-variables/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 9, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewRuntime environment variablesUser-defined environment variables
 
@@ -36,18 +36,20 @@ The container runtime automatically sets the following variables:
 
 ## User-defined environment variables
 
-You can set environment variables when defining a Container in your Worker, or when starting a container instance.
-
-For example:
+Pass environment variables in the `env` option when you start a container instance with [`ctx.container.start()`](https://developers.cloudflare.com/containers/api/durable-object-container/#start):
     
     
-    class MyContainer extends Container {
-    	defaultPort = 4000;
-    	envVars = {
+    const container = this.ctx.container;
+    container.start({
+    	image: container.images.base,
+    	enableInternet: false,
+    	env: {
     		MY_CUSTOM_VAR: "value",
     		ANOTHER_VAR: "another_value",
-    	};
-    }
+    	},
+    });
+
+Processes that you start with [`exec()`](https://developers.cloudflare.com/containers/api/durable-object-container/#exec) do not receive these variables, except `PATH`. Pass them in the `env` option of `exec()` instead.
 
 More details about defining environment variables and secrets can be found in [this example](https://developers.cloudflare.com/containers/examples/env-vars-and-secrets).
 

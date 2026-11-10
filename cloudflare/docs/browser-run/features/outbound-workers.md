@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/browser-run/features/outbound-workers/
 title: Outbound Workers \u00b7 Cloudflare Browser Run docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-13T08:48:33.963190+00:00
+fetched_at: 2026-11-10T09:28:49.438416+00:00
 ---
 
 # Outbound Workers · Cloudflare Browser Run docs
@@ -18,7 +18,7 @@ fetched_at: 2026-10-13T08:48:33.963190+00:00
 
 # Outbound Workers
 
-Last updated Oct 12, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 9, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewConfigure the bindingsRoute requests by hostnameConstraintsNext steps
 
@@ -37,7 +37,7 @@ Declare a Browser Run binding and a service binding for the outbound Worker:
       "main": "src/index.ts",
       "upload_source_maps": true,
       // Set this to today's date
-      "compatibility_date": "2026-10-13",
+      "compatibility_date": "2026-11-10",
       "compatibility_flags": [
         "nodejs_compat"
       ],
@@ -57,7 +57,7 @@ Declare a Browser Run binding and a service binding for the outbound Worker:
     main = "src/index.ts"
     upload_source_maps = true
     # Set this to today's date
-    compatibility_date = "2026-10-13"
+    compatibility_date = "2026-11-10"
     compatibility_flags = ["nodejs_compat"]
     
     [browser]
@@ -248,11 +248,12 @@ The `.test` top-level domain is reserved for testing. Use a hostname that does n
 
 Outbound Worker routing supports HTTP requests only. Use an `http://` URL for the routed hostname. HTTPS requests do not use the outbound Worker.
 
+Outbound routing lasts until the browser session closes. It also applies when a later Worker invocation reconnects with `connectSession()`. Routed requests go to the currently deployed version of the outbound Worker.
+
 ## Constraints
 
   * Use `outboundByHost` with Browser Run binding methods only. It is not supported by REST endpoints or legacy HTTP-only bindings.
-  * Create the Fetcher and call `acquire()` or `launch()` in the same Worker invocation.
-  * The Fetcher is not persisted with the browser session and cannot be reused by a later invocation.
+  * You cannot add or change outbound routes after `acquire()` or `launch()`. To use different routes, start a new session.
   * Outbound routing applies to the hostnames in the map. Requests to other hostnames use the browser's normal network path.
 
 

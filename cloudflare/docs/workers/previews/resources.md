@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/workers/previews/resources/
 title: Resources and isolation \u00b7 Cloudflare Workers docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:17:40.562720+00:00
+fetched_at: 2026-11-10T09:28:47.792984+00:00
 ---
 
 # Resources and isolation · Cloudflare Workers docs
@@ -18,7 +18,7 @@ fetched_at: 2026-10-08T07:17:40.562720+00:00
 
 # Resources and isolation
 
-Last updated Sep 22, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/workers/previews/resources/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 9, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewBinding reference Resource bindingsDurable Objects Use ctx.exports (recommended) Use an env bindingContainers Use ctx.exports with Containers Use an env container binding Container application cleanupD1 migrations 1\. Configure the shared staging database 2\. Create a Wrangler configuration file for migrations 3\. Override the database for one branch (optional) 4\. Add migration files 5\. Apply migrations to the Preview database 6\. Deploy the PreviewLimitations Service bindings Workflows Queue consumers Cron Triggers Routes
 
@@ -70,7 +70,7 @@ With [`ctx.exports`](https://developers.cloudflare.com/workers/runtime-apis/cont
     
     {
     	// Set this to today's date
-    	"compatibility_date": "2026-10-08",
+    	"compatibility_date": "2026-11-10",
     	"migrations": [
     		{ "tag": "v1", "new_classes": ["Counter"] }
     	],
@@ -79,7 +79,7 @@ With [`ctx.exports`](https://developers.cloudflare.com/workers/runtime-apis/cont
     
     
     # Set this to today's date
-    compatibility_date = "2026-10-08"
+    compatibility_date = "2026-11-10"
     previews = { }
     
     [[migrations]]
@@ -157,7 +157,7 @@ Declare the SQLite-backed Durable Object migration and the container configurati
     
     {
     	// Set this to today's date
-    	"compatibility_date": "2026-10-08",
+    	"compatibility_date": "2026-11-10",
     	"migrations": [
     		{ "tag": "v1", "new_sqlite_classes": ["MyContainer"] }
     	],
@@ -183,7 +183,7 @@ Declare the SQLite-backed Durable Object migration and the container configurati
     
     
     # Set this to today's date
-    compatibility_date = "2026-10-08"
+    compatibility_date = "2026-11-10"
     
     [[migrations]]
     tag = "v1"
@@ -208,15 +208,13 @@ With this setup, production and each Preview use separate Durable Object namespa
 If your code uses an `env` binding, declare the Durable Object binding at the top level for production and again under `previews.durable_objects.bindings` for Previews:
     
     
-    import { getContainer } from "@cloudflare/containers";
-    
-    const container = getContainer(env.MY_CONTAINER, "tenant-a");
+    const container = env.MY_CONTAINER.getByName("tenant-a");
     return container.fetch(request);
     
     
     {
     	// Set this to today's date
-    	"compatibility_date": "2026-10-08",
+    	"compatibility_date": "2026-11-10",
     	"migrations": [
     		{ "tag": "v1", "new_sqlite_classes": ["MyContainer"] }
     	],
@@ -252,7 +250,7 @@ If your code uses an `env` binding, declare the Durable Object binding at the to
     
     
     # Set this to today's date
-    compatibility_date = "2026-10-08"
+    compatibility_date = "2026-11-10"
     
     [[migrations]]
     tag = "v1"

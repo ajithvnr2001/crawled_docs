@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/realtime/turn/analytics/
 title: Analytics \u00b7 Cloudflare Realtime docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:14:37.692700+00:00
+fetched_at: 2026-11-10T09:28:50.056834+00:00
 ---
 
 # Analytics · Cloudflare Realtime docs
@@ -18,7 +18,7 @@ fetched_at: 2026-10-08T07:14:37.692700+00:00
 
 # Analytics
 
-Last updated Jun 3, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/realtime/turn/analytics/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 9, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewAvailable metrics and dimensions Metrics Dimensions FiltersGraphQL clientsUseful TURN analytics queries Concurrent connections with data usage over time Top TURN keys by egress Top TURN custom identifiers Usage for a specific custom identifier Usage as a timeseries (for graphs) Usage breakdown by geographic location Filter by specific key or identifier Time aggregation optionsAdvanced use cases Combining multiple dimensions Identifying top consumersSchema exploration
 
@@ -150,13 +150,12 @@ Example response:
                     "egressBytes": 462909020,
                     "ingressBytes": 128434592
                   }
-                },
-    
+                }
     					]
     				}
     			]
     		}
-    	]
+    	}
     }
 
 ### Top TURN keys by egress

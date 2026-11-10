@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/ddos-protection/advanced-ddos-systems/api/programmable-flow-protection/json-objects/
 title: Programmable Flow Protection API - JSON objects \u00b7 Cloudflare DDoS Protection docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T16:40:05.847376+00:00
+fetched_at: 2026-11-10T09:28:46.744543+00:00
 ---
 
 # Programmable Flow Protection API - JSON objects · Cloudflare DDoS Protection docs
@@ -22,9 +22,9 @@ Advanced DDoS systemsAPI configuration
 
 # JSON objects
 
-Last updated Oct 21, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/ddos-protection/advanced-ddos-systems/api/programmable-flow-protection/json-objects/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 9, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
-OverviewProgramRule Scope Mode Expression
+OverviewProgramRule Scope Mode ExpressionParameters Entries
 
 This page contains examples of the JSON objects used in the Programmable Flow Protection API.
 
@@ -114,6 +114,52 @@ Supported fields:
 If the expression is empty or omitted, the rule applies to all UDP packets within its scope.
 
 For more information on rule settings, refer to [Rule settings](https://developers.cloudflare.com/ddos-protection/advanced-ddos-systems/concepts/#rule-settings).
+
+## Parameters
+
+The `params` object contains all of the account's [parameter maps](https://developers.cloudflare.com/ddos-protection/advanced-ddos-systems/overview/programmable-flow-protection/#parameter-maps), keyed by name.
+    
+    
+    {
+      "params": {
+        "source_policy": {
+          "id": 0,
+          "type": "map",
+          "key": "ipv4",
+          "value": "u8",
+          "entries": {
+            "192.0.2.1": 1,
+            "198.51.100.7": 2
+          }
+        },
+        "client_tokens": {
+          "id": 1,
+          "type": "map",
+          "key": "ipv6",
+          "value": "u64",
+          "entries": {
+            "2001:db8::1": 42,
+            "2001:db8::2": "18446744073709551615"
+          }
+        }
+      }
+    }
+
+Field | Description  
+---|---  
+`id` | The ID that programs pass to `param_lookup`. IDs start at `0` and must be contiguous.  
+`type` | Must be `map`.  
+`key` | The key type: `ipv4` or `ipv6`.  
+`value` | The value type: `u8`, `u16`, `u32`, or `u64`.  
+`entries` | IP addresses and their values. Can be empty.  
+  
+All fields are required.
+
+### Entries
+
+Each key must be a single IP address that matches the map's `key` type. Each value must be a non-negative integer that fits the map's `value` type.
+
+For `u64` maps, you can also write values as strings, such as `"18446744073709551615"`. Use strings for values above `9007199254740991`, because many JSON libraries round larger numbers.
 
 [PreviousCommon API calls](https://developers.cloudflare.com/ddos-protection/advanced-ddos-systems/api/programmable-flow-protection/examples/)[NextTroubleshooting Advanced TCP Protection](https://developers.cloudflare.com/ddos-protection/advanced-ddos-systems/troubleshooting/)
 

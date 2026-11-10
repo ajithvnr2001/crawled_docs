@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/fundamentals/user-profiles/delete-account/
 title: Delete your Cloudflare account \u00b7 Cloudflare Fundamentals docs
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T08:48:19.130168+00:00
+fetched_at: 2026-11-10T09:28:48.748439+00:00
 ---
 
 # Delete your Cloudflare account · Cloudflare Fundamentals docs
@@ -18,7 +18,7 @@ fetched_at: 2026-11-04T08:48:19.130168+00:00
 
 # Delete your Cloudflare account
 
-Last updated Nov 3, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 9, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewWho can delete their accountPrerequisitesDelete your Cloudflare account
 
@@ -45,12 +45,16 @@ Before Cloudflare can cancel your account and delete your personal information, 
   * [Cancel your subscriptions or add-on services](https://developers.cloudflare.com/billing/manage/cancel-subscription/)
   * [Remove your domain from Cloudflare](https://developers.cloudflare.com/fundamentals/manage-domains/remove-domain/)
   * [Remove Cloudflare nameservers at your domain registrar](https://developers.cloudflare.com/dns/zone-setups/full-setup/setup/)
-  * [Disable auto-renew for your Registrar domain(s)](https://developers.cloudflare.com/registrar/account-options/renew-domains#set-up-automatic-renewals)
+  * If you have domains registered with Cloudflare Registrar, [delete the domain registration](https://developers.cloudflare.com/registrar/account-options/domain-management/#delete-a-domain-registration) or let it expire. Disabling auto-renew alone does not remove the registration from your account.
   * If you are using a Cloudflare [CNAME setup](https://developers.cloudflare.com/dns/zone-setups/partial-setup/), [update your DNS records](https://developers.cloudflare.com/dns/manage-dns-records/how-to/create-dns-records/#edit-dns-records) at your DNS provider to point to your website IPs or hostnames instead of Cloudflare.
   * [Delete payment information](https://developers.cloudflare.com/billing/get-started/update-billing-info/#delete-a-payment-method)
   * (_Optional_) [Download a copy of your invoices](https://developers.cloudflare.com/billing/manage/invoices/#download-invoice). Once deleted, the invoices will no longer be accessible and cannot be re-sent to you.
 
 
+
+Note
+
+A deleted or expired Registrar domain remains on your account through the registry redemption period (up to 30 days, plus a five-day pending delete period) and blocks profile deletion until the registry releases the domain. If profile deletion fails with "Your profile cannot be deleted while you have active domains at Cloudflare Registrar" but you have no active registrations, wait for the domain to be released, then try again. Refer to [What happens when a domain expires?](https://developers.cloudflare.com/registrar/faq/#what-happens-when-a-domain-expires) for the full timeline.
 
 ## Delete your Cloudflare account
 

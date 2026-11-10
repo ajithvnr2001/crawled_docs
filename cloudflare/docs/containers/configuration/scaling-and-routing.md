@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/containers/configuration/scaling-and-routing/
 title: Scaling and Routing \u00b7 Cloudflare Containers docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-17T06:28:14.420976+00:00
+fetched_at: 2026-11-10T09:28:48.319991+00:00
 ---
 
 # Scaling and Routing · Cloudflare Containers docs
@@ -18,61 +18,58 @@ fetched_at: 2026-10-17T06:28:14.420976+00:00
 
 # Scaling and Routing
 
-Last updated Oct 16, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 9, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
-OverviewScale container instances with explicit IDs Use the getRandom helper function
+OverviewScale container instances with explicit names Route across a fixed pool of instances
 
-## Scale container instances with explicit IDs
+## Scale container instances with explicit names
 
-Note
-
-This section uses helpers from the [Container class](https://developers.cloudflare.com/containers/api/container-class/).
-
-Today, Containers are scaled manually by getting containers with a unique ID, then starting the container. Note that getting a container does not automatically start it.
+Each container instance belongs to one Durable Object. To run more container instances, address more Durable Objects by name with [`getByName()`](https://developers.cloudflare.com/durable-objects/api/namespace/#getbyname). Getting a Durable Object does not start its container. The container starts when the Durable Object calls [`ctx.container.start()`](https://developers.cloudflare.com/containers/api/durable-object-container/#start).
     
     
-    // get and start two container instances
-    const containerOne = getContainer(
-    	env.MY_CONTAINER,
-    	idOne,
-    ).startAndWaitForPorts();
+    // Get two Durable Objects. Each one starts its own container instance.
+    const containerOne = env.MY_CONTAINER.getByName(nameOne);
+    const containerTwo = env.MY_CONTAINER.getByName(nameTwo);
     
-    const containerTwo = getContainer(
-    	env.MY_CONTAINER,
-    	idTwo,
-    ).startAndWaitForPorts();
+    // The Durable Object starts its container when it handles a request.
+    const response = await containerOne.fetch(request);
 
-Each instance will run until its `sleepAfter` time has elapsed, or until it is manually stopped.
+Each instance runs until the Durable Object stops it, or until the [inactivity timeout](https://developers.cloudflare.com/containers/api/durable-object-container/#setinactivitytimeout) that the Durable Object sets elapses. Without a timeout, Cloudflare stops the container shortly after the Durable Object becomes inactive.
 
 This behavior is very useful when you want explicit control over the lifecycle of container instances. For instance, you may want to spin up a container backend instance for a specific user, or you may briefly run a code sandbox to isolate AI-generated code, or you may want to run a short-lived batch job.
 
-### Use the `getRandom` helper function
+### Route across a fixed pool of instances
 
-If you want to run multiple instances of a container and route requests between them, use the `getRandom` helper function:
+To run multiple instances of a container and route requests between them, choose a name at random from a fixed pool:
     
-    
-    import { Container, getRandom } from "@cloudflare/containers";
     
     const INSTANCE_COUNT = 3;
     
-    class Backend extends Container {
-    	defaultPort = 8080;
-    	sleepAfter = "2h";
-    }
+    export default {
+    	async fetch(request, env) {
+    		const index = Math.floor(Math.random() * INSTANCE_COUNT);
+    		return env.BACKEND.getByName(`instance-${index}`).fetch(request);
+    	},
+    };
+    
+    
+    const INSTANCE_COUNT = 3;
     
     export default {
     	async fetch(request: Request, env: Env): Promise<Response> {
-    		const containerInstance = await getRandom(env.BACKEND, INSTANCE_COUNT);
-    		return containerInstance.fetch(request);
+    		const index = Math.floor(Math.random() * INSTANCE_COUNT);
+    		return env.BACKEND.getByName(`instance-${index}`).fetch(request);
     	},
-    };
+    } satisfies ExportedHandler<Env>;
 
-Use `getRandom` to route to multiple stateless container instances. It randomly selects one of N instances for each request, which means:
+Random selection from a fixed pool means:
 
-  * It requires that the user set a fixed number of instances to route to.
-  * It will randomly select each instance, regardless of location.
+  * You set a fixed number of instances to route to.
+  * Each request goes to a random instance, regardless of location.
 
 
+
+For the Durable Object that starts the container, waits for its port, and forwards the request, refer to [Stateless instances](https://developers.cloudflare.com/containers/examples/stateless/).
 
 [PreviousEnvironment Variables](https://developers.cloudflare.com/containers/configuration/environment-variables/)[NextRollouts](https://developers.cloudflare.com/containers/configuration/rollouts/)
 

@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/cloudflare-one/team-and-resources/users/risk-score/
 title: User risk score \u00b7 Cloudflare One docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-13T08:48:15.339018+00:00
+fetched_at: 2026-11-10T09:28:46.882102+00:00
 ---
 
 # User risk score · Cloudflare One docs
@@ -22,7 +22,7 @@ Team and resources
 
 # Risk score
 
-Last updated Oct 12, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 9, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewUser risk scoring View a user's risk score Clear a user's risk score Send risk score to OktaPredefined risk behaviorsManage risk behaviors Enable risk behaviors Disable risk behaviors Change risk behavior risk levelsUse risk scores in Access policies Example: Block high-risk users
 
@@ -104,6 +104,7 @@ CrowdStrike Medium ZTA security score | [CrowdStrike integration](https://develo
 Interaction with Malicious File | [Gateway AV scanning](https://developers.cloudflare.com/cloudflare-one/traffic-controls/http-policies/antivirus-scanning/) or [File sandboxing](https://developers.cloudflare.com/cloudflare-one/traffic-controls/http-policies/file-sandboxing/) | User uploads or downloads a file flagged as malicious by Gateway's AV scanner or file sandboxing. Risk is elevated even if the file is blocked. | Evaluated per-request in milliseconds.  
 Suspicious Security Domain Visited | [Gateway DNS policies](https://developers.cloudflare.com/cloudflare-one/traffic-controls/dns-policies/) | User visits a domain categorized as a security risk or security threat. Refer to [domain categories](https://developers.cloudflare.com/cloudflare-one/traffic-controls/domain-categories/) for the full list. Risk is elevated even if the traffic is blocked. | Evaluated per-request in milliseconds.  
 High Risk Domain Visited | [Gateway DNS policies](https://developers.cloudflare.com/cloudflare-one/traffic-controls/dns-policies/) | User visits a domain categorized as questionable content, violence, or CIPA. Refer to [domain categories](https://developers.cloudflare.com/cloudflare-one/traffic-controls/domain-categories/) for the full list. Risk is elevated even if the traffic is blocked. | Evaluated per-request in milliseconds.  
+New Domain Visited with Rapidly Changing IPs | [Gateway DNS policies](https://developers.cloudflare.com/cloudflare-one/traffic-controls/dns-policies/) | User visits a domain where the returned IP address changes rapidly. Threat actors can use this pattern to make malicious infrastructure harder to track and take down. | Evaluated per-request in milliseconds.  
   
 ## Manage risk behaviors
 

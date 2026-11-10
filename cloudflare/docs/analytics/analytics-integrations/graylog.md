@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/analytics/analytics-integrations/graylog/
 title: Graylog \u00b7 Cloudflare Analytics docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:05:11.037736+00:00
+fetched_at: 2026-11-10T09:28:50.217094+00:00
 ---
 
 # Graylog · Cloudflare Analytics docs
@@ -18,7 +18,7 @@ fetched_at: 2026-10-08T07:05:11.037736+00:00
 
 # Graylog
 
-Last updated May 5, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/analytics/analytics-integrations/graylog/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 9, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewOverview PrerequisitesTask 1 - PreparationTask 2 - Create and configure the AWS Lambda FunctionTask 3 - Import the content pack in GraylogTask 4 - View the Cloudflare Dashboards Cloudflare - Snapshot Cloudflare - Security Cloudflare - Performance Cloudflare - Reliability Cloudflare - Bots
 
@@ -76,7 +76,7 @@ Once decompressed, the integration package includes:
           "Sid": "Policy",
           "Effect": "Allow",
           "Action": [
-            "logs:CreateLogGroup"
+            "logs:CreateLogGroup",
             "s3:GetObject",
             "logs:CreateLogStream",
             "logs:PutLogEvents"
